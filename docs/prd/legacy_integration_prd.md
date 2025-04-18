@@ -22,7 +22,7 @@ This document outlines the requirements for the **EGOS Legacy Integration & Proj
 
 **In Scope:**
 
-*   Identification of legacy artifacts (code, docs, .txt notes, chat logs, etc.) within defined locations (e.g., `c:\Eva Guarani EGOS`, potentially specified archives).
+*   Identification of legacy artifacts (code, docs, .txt notes, chat logs, etc.) within defined locations (e.g., `c:\EGOS`, potentially specified archives).
 *   Creation of an inventory document for tracked legacy artifacts.
 *   Development of scripts for batch processing (renaming, metadata injection, language detection, basic formatting).
 *   Definition and application of standardization patterns for legacy files (target format: Markdown, metadata headers).
