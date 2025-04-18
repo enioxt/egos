@@ -300,6 +300,30 @@ feat/roadmap-updates
   * `[Planned] Research: $ETHIK Integration Architecture`. Define secure technical approach (frontend/backend/API) for token display & reward logic. (`MEDIUM`, Phase 3) - ID: `RESEARCH-ETHIK-ARCH`
   * `[Planned] Research: WCAG for Complex Interactions`. Investigate accessibility standards for custom visualizations & Web3 elements. (`MEDIUM`, Phase 3) - ID: `RESEARCH-WCAG`
   * `[Planned] Research: Agent Frameworks`. Investigate Empyreal SDK and CrewAI for potential integration with EGOS subsystems (MYCELIUM, ETHIK). (`MEDIUM` - R&D) - ID: `RESEARCH-AGENTS-FRAMEWORKS`
+
+## 📂 Legacy File Management & System Optimization
+
+* **Legacy File Analysis & Cleanup (CRONOS/KOIOS Lead):**
+  * **In Progress**
+    * [In Progress] **Task LEGACY-SCAN-01:** Analyze legacy files and create comprehensive inventory. (`HIGH`, Phase 2b) - ID: `LEGACY-SCAN-01`
+      * ✅ Created `create_legacy_inventory.py` script with checkpoint and filtering capabilities
+      * ✅ Generated inventory for strategic-thinking, research, backups, and docs directories
+      * ✅ Created `legacy_cleanup_process.md` documentation
+      * ✅ Identified 55+ candidates for removal
+      * ⏳ Implementing automated cleanup
+    * [In Progress] **Task LEGACY-INSIGHTS-01:** Document key concepts from legacy files for integration. (`MEDIUM`, Phase 2b) - ID: `LEGACY-INSIGHTS-01`
+      * ✅ Created `legacy_concepts_analysis.md` with initial findings
+      * ✅ Created `legacy_inventory_insights.md` with detailed analysis
+      * ⏳ Integrating insights into development roadmap
+  * **Planned**
+    * [Planned] **Task LEGACY-CLEANUP-01:** Implement systematic cleanup of redundant files. (`HIGH`, Phase 2b) - ID: `LEGACY-CLEANUP-01`
+      * ⏳ Created `scheduled_cleanup.py` script for automated maintenance
+      * ⏳ Created configuration file and scheduling script
+    * [Planned] **Task LEGACY-RETENTION-01:** Establish formal retention policies for different file types. (`MEDIUM`, Phase 2b) - ID: `LEGACY-RETENTION-01`
+    * [Planned] **Task LEGACY-MONITOR-01:** Create disk space monitoring dashboard. (`LOW`, Phase 2b/3) - ID: `LEGACY-MONITOR-01`
+    * [Planned] **Task LEGACY-INTEGRATE-01:** Implement ETHIK Chain prototype based on legacy concepts. (`HIGH`, Phase 2b/3) - ID: `LEGACY-INTEGRATE-01`, `depends_on: [LEGACY-INSIGHTS-01]`
+    * [Planned] **Task LEGACY-INTEGRATE-02:** Implement Mycelium Network architecture based on legacy concepts. (`HIGH`, Phase 2b/3) - ID: `LEGACY-INTEGRATE-02`, `depends_on: [LEGACY-INSIGHTS-01]`
+    * [Planned] **Task LEGACY-INTEGRATE-03:** Implement Personas System based on legacy concepts. (`MEDIUM`, Phase 3) - ID: `LEGACY-INTEGRATE-03`, `depends_on: [LEGACY-INSIGHTS-01]`
   * `[Planned] Research: External Insights`. Analyze insights from Hesamation (X) and Kaggle (Prompt Eng.) for roadmap/workflow improvements. (`LOW` - R&D) - ID: `RESEARCH-EXTERNAL-INSIGHTS`
   * `[Planned] Research: Product Strategy & Market Fit`. Compare EGOS approach with platforms like GitLab/Vercel; analyze market for 'ethical AI tools'. (`MEDIUM` - R&D) - ID: `RESEARCH-PRODUCT-STRATEGY`
   * `[Planned] Research: CORUJA Scalability`. Investigate and prototype scalable cloud backend architecture options for CORUJA to handle increased load beyond the initial local agent MVP. (`MEDIUM`, Phase 2b/3 - Parallel R&D) - ID: `RESEARCH-CORUJA-SCALABILITY`
