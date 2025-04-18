@@ -3,7 +3,16 @@ import os
 import argparse
 import logging
 from datetime import datetime
-# Potential future import: from langdetect import detect, LangDetectException
+
+# Try to import langdetect, but don't fail if it's not available
+try:
+    from langdetect import detect, LangDetectException
+    LANGDETECT_AVAILABLE = True
+    logging.info("Using langdetect library for language detection")
+except ImportError:
+    LANGDETECT_AVAILABLE = False
+    logging.warning("langdetect library not available, falling back to heuristic detection")
+
 # from egos.utils.logging import KoiosLogger # Assuming logger setup exists
 
 # TODO: Set up proper logging (using KoiosLogger or standard logging)
@@ -26,17 +35,57 @@ tags: ["legacy", "standardized_script"] # Basic tags
 
 def detect_language(content: str) -> str:
     """
-    Placeholder for language detection logic.
-    Initially, could be a simple heuristic or use a library like langdetect.
+    Detects the language of the given text content.
+    Uses langdetect if available, otherwise falls back to heuristic approach.
+    Returns the ISO 639-1 language code (e.g., 'en', 'pt') or 'unknown'.
     """
-    # TODO: Implement robust language detection
-    # Example simple heuristic (very basic):
-    if "defina" in content.lower() or "sistema" in content.lower() or "histórico" in content.lower():
-         if "def " in content or "import " in content:
-             return "mixed-pt-en" # Guess mixed if programming terms present
-         return "pt"
-    # Default to English or unknown
-    return "en" # Or 'unknown'
+    # If content is empty, return unknown
+    if not content.strip():
+        return 'unknown'
+        
+    # Try using langdetect if available
+    if LANGDETECT_AVAILABLE:
+        try:
+            # Reduce content size for efficiency if very large
+            content_snippet = content[:5000]  # Use first 5000 chars for detection
+            lang = detect(content_snippet)
+            
+            # Basic check for mixed content (heuristic - refine as needed)
+            if lang == 'en' and ('sistema' in content.lower() or 'projeto' in content.lower() or 'atenção' in content.lower()):
+                if 'import ' in content or 'def ' in content or 'class ' in content:
+                    return 'mixed-en-pt'  # More specific mixed type
+            elif lang == 'pt' and ('import ' in content or 'def ' in content or 'class ' in content):
+                return 'mixed-pt-en'
+                
+            return lang
+        except (LangDetectException, Exception) as e:
+            logging.warning(f"Language detection with langdetect failed: {e}, falling back to heuristic")
+            # Fall through to heuristic method
+    
+    # Heuristic-based detection (fallback method)
+    # Check for Portuguese indicators
+    pt_indicators = ['sistema', 'projeto', 'atenção', 'definição', 'código', 'função', 
+                    'arquivo', 'diretório', 'configuração', 'execução', 'maravilhoso']
+    pt_count = sum(1 for word in pt_indicators if word in content.lower())
+    
+    # Check for English indicators
+    en_indicators = ['system', 'project', 'attention', 'definition', 'code', 'function',
+                    'file', 'directory', 'configuration', 'execution', 'wonderful']
+    en_count = sum(1 for word in en_indicators if word in content.lower())
+    
+    # Check for code indicators
+    code_indicators = ['import ', 'def ', 'class ', 'function', 'return', 'if ', 'for ', 'while ']
+    has_code = any(indicator in content for indicator in code_indicators)
+    
+    # Determine language based on counts
+    if pt_count > en_count:
+        return 'mixed-pt-en' if has_code else 'pt'
+    elif en_count > pt_count:
+        return 'mixed-en-pt' if has_code else 'en'
+    elif has_code:  # Equal counts but has code
+        return 'mixed'
+    else:
+        return 'unknown'  # Can't determine
 
 def get_file_metadata(file_path: str) -> tuple[str, str]:
     """
