@@ -103,6 +103,22 @@
   * [Planned] [KOIOS][KOIOS-DOC-AUDIT-01] Perform Periodic Review of `.mdc` rules and `docs/` for consistency and alignment (`MEDIUM` - Recurring)
   * [Planned] [CRONOS/KOIOS][PROC-LEGACY-01] Define and Document Legacy Integration Strategy & Project Evolution Narrative (`MEDIUM`)
 
+### 📜 Legacy Integration & Project Evolution (CRONOS/KOIOS Lead)
+
+**Description**: Systematically integrate historical project artifacts into EGOS, ensuring standardization, accessibility, and a documented evolutionary narrative. Aligns with Evolutionary Preservation and Standardization principles.
+**Status**: Planned
+**Priority**: HIGH (Foundation for long-term project integrity)
+**Owner**: CRONOS/KOIOS Teams / All Contributors
+**Related Docs**: `docs/process/legacy_integration_strategy.md` (To be created by PROC-LEGACY-01/LEGACY-NARRATIVE-01), `docs/legacy/` (To be populated)
+**ETA**: Phased approach over Q3/Q4 2025
+
+* **Planned**
+  * [Planned] [CRONOS/KOIOS][LEGACY-SCAN-01] Define Scope & Inventory Legacy Artifacts (`HIGH`)
+  * [Planned] [KOIOS/HARMONY][LEGACY-SCRIPT-01] Develop Batch Processing & Standardization Scripts (`HIGH`)
+  * [Planned] [KOIOS/CORUJA/HARMONY][LEGACY-TRANSLATE-01] Translate Non-English Legacy Artifacts (`MEDIUM`)
+  * [Planned] [KOIOS/CRONOS/ATLAS/NEXUS][LEGACY-INTEGRATE-01] Integrate Processed Legacy Artifacts into EGOS Structure (`MEDIUM` - Phased)
+  * [Planned] [CRONOS/KOIOS][LEGACY-NARRATIVE-01] Document Project Evolution Narrative & Legacy Strategy (`HIGH`)
+
 ### Monitoring & Dashboard (ATLAS/KOIOS)
 
 * **In Progress**
