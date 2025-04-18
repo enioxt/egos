@@ -165,6 +165,8 @@ SPARC tasks use standardized Mycelium topic patterns:
 *   Path to PDD storage location (initially likely a specific directory within `docs/prompts/`).
 *   Model selection configurations for different SPARC task types.
 
----
+## Contributing
+
+Contributions should enhance task orchestration, AI agent management, and integration capabilities. Refer to the main [Human-AI Collaboration Best Practices](../../docs/process/human_ai_collaboration_guidelines.md) when working within this subsystem.
 
 ✧༺❀༻∞ EGOS ∞༺❀༻✧

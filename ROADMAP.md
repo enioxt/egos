@@ -50,35 +50,16 @@
 ## 💰 Monetization & Product Strategy (STRAT Lead)
 
 *   **[STRAT-GTM-DEFINE]** **Define Go-To-Market Strategy:** Define strategy including target audience, value proposition, potential open-core model, and initial pricing exploration for defined MVPs. Leverage `docs/STRATEGY.md`, `research/`, and market analysis results. (`HIGH`) `Status: Planned`
+*   **[STRAT-LICENSING-DECISION]** **Finalize Licensing Model:** Based on GTM strategy and open-core considerations, finalize the specific open-source license(s) and any commercial licensing terms. (`HIGH`) `Status: Planned`, `depends_on: [STRAT-GTM-DEFINE]`
 *   **[MVP-DEFINE-SPARC-SVC]** **Define MVP - SPARC Service:** Define MVP for a 'SPARC-based Project Analysis & Refactoring Service', outlining core features, target outcomes, required subsystems, and potential delivery model. (`HIGH`) `Status: Planned`, `linked_doc: docs/strategy/MVP_Definition.md`
 *   **[MVP-DEFINE-QPG]** **Define MVP - Quantum Prompt Generator (QPG):** Define MVP for the QPG as a potential standalone tool or premium feature, including core functionality, target user, and integration points. (`HIGH`) `Status: Planned`, `linked_doc: docs/strategy/MVP_Definition.md`
 *   **[MARKET-ANALYSIS-MVP1]** **Conduct Initial Market Analysis:** Conduct analysis for defined MVPs (SPARC Service, QPG), identifying competitors, pricing models, and target segments. (`MEDIUM`) `Status: Planned`, `depends_on: [MVP-DEFINE-SPARC-SVC], [MVP-DEFINE-QPG]`
+*   **[STRAT-PRICING-RESEARCH]** **Conduct MVP Pricing Research:** Perform dedicated market research to establish specific pricing tiers and models for the initial MVP(s). (`MEDIUM`) `Status: Planned`, `depends_on: [MARKET-ANALYSIS-MVP1]`
+*   **[MVP-BETA-FEEDBACK]** **Define Beta Feedback Process:** Design and implement a structured process for collecting, analyzing, and integrating feedback from early MVP beta testers. (`MEDIUM`) `Status: Planned`, `depends_on: [MVP-DEFINE-SPARC-SVC], [MVP-DEFINE-QPG]`
 
 ---
 
-## 🧭 Current Phase: Phase 2 - Foundation, Standardization & Initial Capabilities (Q2-Q3 2025)
-
-### Core Standardization & Refactoring (KOIOS Lead)
-
-feat/roadmap-updates
-* [DONE] Standardize Project Structure & Basic READMEs (`CRITICAL`)
-* [DONE] Implement Conventional Commit Standards (`HIGH`)
-* [DONE] Define Core Python Coding Standards (PEP8, Typing) (`HIGH`)
-* [DONE] Implement Logging Standards (`HIGH`)
-* [DONE] Establish Basic Documentation Standards (Docstrings) (`HIGH`)
-* [DONE] Set up Pre-Commit Hooks (ruff, black) (`HIGH`)
-* [DONE] Define Metadata Schema for MDC Rules (`MEDIUM`)
-* [DONE] **Activate Cursor Agent Mode:** Transitioned from Chat to Agent, enabling direct file/terminal interaction. (`HIGH` - See `docs/ai_integration/cursor_agent_mode.md`)
-* [DONE] **Consolidate `.cursor/rules`:** Reviewed all `.cursor/rules/*.mdc` files, consolidating or linking them into `global_rules.mdc` as the central source of truth for project standards. (`HIGH`)
-* [In Progress] Refactor Subsystems for Metadata Compliance (`MEDIUM`)
-* [Planned] [KOIOS][DOC-RU-01] Document Rationale for File Handling Rules (`Existence Check`, `Comprehensive Search`) in KOIOS standards (`MEDIUM`)
-* [Planned] [KOIOS][DOC-BP-FS-01] Add "Best Practices for File Search/Creation" section to relevant documentation (`LOW`)
-* [Planned] [KOIOS/NEXUS][DOC-HTA-USAGE-01] Document `analyze_git_history.py` script usage and examples (`LOW`)
-* [Planned] [KOIOS][DOC-README-HTA-01] Update main `README.md` to mention historical analysis capability and link report (`LOW`)
-* [Planned] [KOIOS][DOC-CONTRIB-AI-01] Update `CONTRIBUTING.md` (or create if needed) with latest AI collaboration rules (`LOW`)
-* [Planned] [KOIOS][KOIOS-DOC-AUDIT-01] Perform Periodic Review of `.mdc` rules and `docs/` for consistency and alignment (`MEDIUM` - Recurring)
-
-### 📈 Analysis & Insights (NEXUS Lead)
+## 📈 Analysis & Insights (NEXUS Lead)
 
 * [DONE] [NEXUS/KOIOS][TASK-HTA-01] Implement Historical File Lifespan Analysis (Script, CSV, Report) (`HIGH`)
 * [DONE] [SPARC/HARMONY/KOIOS][HTA-02] Automate Git History Analysis via CI/CD (GitHub Actions) (`MEDIUM`) (Ref: Evolutionary Preservation)
@@ -115,21 +96,12 @@ feat/roadmap-updates
 * **Planned**
   * [Planned] [KOIOS][DOC-RU-01] Document Rationale for File Handling Rules (`Existence Check`, `Comprehensive Search`) in KOIOS standards (`MEDIUM`)
   * [Planned] [KOIOS][DOC-BP-FS-01] Add "Best Practices for File Search/Creation" section to relevant documentation (`LOW`)
-  * [Planned] [KOIOS][KOIOS-LESSONS-01] Create/Maintain "Lessons Learned" log for AI Collaboration & Onboarding (`LOW`)
   * [Planned] [KOIOS/NEXUS][DOC-HTA-USAGE-01] Document `analyze_git_history.py` script usage and examples (`LOW`)
   * [Planned] [KOIOS][DOC-README-HTA-01] Update main `README.md` to mention historical analysis capability and link report (`LOW`)
   * [Planned] [KOIOS][DOC-CONTRIB-AI-01] Update `CONTRIBUTING.md` (or create if needed) with latest AI collaboration rules (`LOW`)
+  * [Planned] [KOIOS-PROC-001] Implement and integrate automated schema test validation. (`MEDIUM`) - ID: `KOIOS-PROC-001`
   * [Planned] [KOIOS][KOIOS-DOC-AUDIT-01] Perform Periodic Review of `.mdc` rules and `docs/` for consistency and alignment (`MEDIUM` - Recurring)
-* **Completed**
-  * ✅ [DONE] Standardize Project Structure & Basic READMEs (`CRITICAL`)
-  * ✅ [DONE] Implement Conventional Commit Standards (`HIGH`)
-  * ✅ [DONE] Define Core Python Coding Standards (PEP8, Typing) (`HIGH`)
-  * ✅ [DONE] Implement Logging Standards (`HIGH`)
-  * ✅ [DONE] Establish Basic Documentation Standards (Docstrings) (`HIGH`)
-  * ✅ [DONE] Set up Pre-Commit Hooks (ruff, black) (`HIGH`)
-  * ✅ [DONE] Define Metadata Schema for MDC Rules (`MEDIUM`)
-  * ✅ [DONE] **Activate Cursor Agent Mode:** Transitioned from Chat to Agent, enabling direct file/terminal interaction. (`HIGH` - See `docs/ai_integration/cursor_agent_mode.md`)
-  * ✅ [DONE] **Consolidate `.cursor/rules`:** Reviewed all `.cursor/rules/*.mdc` files, consolidating or linking them into `global_rules.mdc` as the central source of truth for project standards. (`HIGH`)
+  * [Planned] [CRONOS/KOIOS][PROC-LEGACY-01] Define and Document Legacy Integration Strategy & Project Evolution Narrative (`MEDIUM`)
 
 ### Monitoring & Dashboard (ATLAS/KOIOS)
 
@@ -185,6 +157,8 @@ feat/roadmap-updates
 * **In Progress**
   * [In Progress] Finalize Core NATS Message Schemas (`CRITICAL`)
   * [In Progress] Define SPARC Task Message Formats (`HIGH`) - *Initial schemas defined in `src/schemas/sparc_tasks.py` & documented in README.*
+* **Completed**
+  * ✅ [DONE] Implement trace_id Functionality (`HIGH`) - ID: `MYCELIUM-TRACE-ID` - *Implemented end-to-end trace_id tracking across the system including shared utilities in `mycelium_utils.py`, standardized event schemas with Pydantic, and updated components (NATS simulator, direct event injector, Mycelium client).*
 * **Planned**
   * [Planned] Implement Reliable Message Handling (ACKs, Retries) (`HIGH`) - ID: `MYCELIUM-RELIABLE`
   * [Planned] Develop Test Suite for Mycelium (`HIGH`) - ID: `MYCELIUM-TEST-SUITE`, `depends_on: [MYCELIUM-RELIABLE]`
@@ -312,6 +286,7 @@ feat/roadmap-updates
   * `[Planned] Research: Agent Frameworks`. Investigate Empyreal SDK and CrewAI for potential integration with EGOS subsystems (MYCELIUM, ETHIK). (`MEDIUM` - R&D) - ID: `RESEARCH-AGENTS-FRAMEWORKS`
   * `[Planned] Research: External Insights`. Analyze insights from Hesamation (X) and Kaggle (Prompt Eng.) for roadmap/workflow improvements. (`LOW` - R&D) - ID: `RESEARCH-EXTERNAL-INSIGHTS`
   * `[Planned] Research: Product Strategy & Market Fit`. Compare EGOS approach with platforms like GitLab/Vercel; analyze market for 'ethical AI tools'. (`MEDIUM` - R&D) - ID: `RESEARCH-PRODUCT-STRATEGY`
+  * `[Planned] Research: CORUJA Scalability`. Investigate and prototype scalable cloud backend architecture options for CORUJA to handle increased load beyond the initial local agent MVP. (`MEDIUM`, Phase 2b/3 - Parallel R&D) - ID: `RESEARCH-CORUJA-SCALABILITY`
   * Mycelium Network Design & Prototyping.
   * **Advanced AI Orchestration Techniques:** Explore enhancements to SPARC methodology ... **(See background studies in `research/`)**
   * Advanced ETHIK Mechanisms (bias detection, explainability).
@@ -416,84 +391,6 @@ feat/roadmap-updates
 
 **(Note:** This roadmap is dynamic and will be updated based on progress and strategic shifts.)
 
-## 📚 Linked Documentation & Research
-
-* Master Quantum Prompt: `docs/MQP.md`
-* EGOS Strategy: `docs/STRATEGY.md`
-* KOIOS Standards: `subsystems/KOIOS/docs/STANDARDS.md` & `.cursor/rules/`
-* SPARC Orchestration: `.cursor/rules/sparc_orchestration.mdc`
-* GitHub Project Search & Analysis: `research/EGOS_ GitHub Project Search_.txt`
-* Website Strategic Guide: `research/Criaçao de site com IA.txt`
-* Consolidated Design Analysis: `research/EGOS design GROK.txt`
-* Design Directives Summary: `research/Análise e Refinamento do Projeto EGOS_.txt`
-* Website Design Guide: `docs/website/DESIGN_GUIDE.md`
-* Website Development Plan: `docs/website/DEVELOPMENT_PLAN.md`
-* (Future) MVP Definition: `docs/strategy/MVP_Definition.md`
-* (Future) Mycelium Topics: `subsystems/MYCELIUM/docs/topics.md`
-* (Future) SPARC Implementation Guide: `docs/methodology/SPARC_GUIDE.md`
-
----
-
-### Dynamic Roadmap Sync & Mycelium Interconnection
-
-* **Planned**
-  * [Planned] [KOIOS/CORUJA] Implement GitHub ROADMAP.md Fetch & Parse API for Website (`HIGH`) - ID: `ROADMAP-GITHUB-SYNC`
-  * [Planned] [KOIOS] Refactor Website Roadmap Component to Use Parsed JSON (`HIGH`) - ID: `ROADMAP-WEBSITE-JSON`
-  * [Planned] [MYCELIUM] Emit & Subscribe to Roadmap Update Events (`MEDIUM`) - ID: `ROADMAP-MYCELIUM-EVENTS`
-  * [Planned] [CORUJA/KOIOS] Implement Roadmap Change Proposal UI & PR Automation (`MEDIUM`) - ID: `ROADMAP-PR-AUTOMATION`
-  * [Planned] [ETHIK/KOIOS] Audit and Log All Roadmap Syncs and Changes (`HIGH`) - ID: `ROADMAP-ETHIK-AUDIT`
-
-### Technical Implementation Plan: Dynamic Roadmap Sync (Phase 1)
-
-* **Overview:**
-  - This plan details the first phase of integrating a live, always-synced roadmap between the EGOS website and the canonical `ROADMAP.md` on GitHub, leveraging Mycelium for event-driven updates and KOIOS for documentation/standardization. All actions are cross-referenced with relevant subsystems.
-
-* **Subsystem Context:**
-  - **KOIOS:** Documentation structure, roadmap parsing, standards enforcement.
-  - **MYCELIUM:** Event bus for roadmap updates, inter-subsystem communication.
-  - **CRONOS:** Logging and evolutionary preservation of roadmap sync events.
-  - **NEXUS:** Dependency analysis for integration and refactoring.
-  - **SYNC:** Ensures data integrity and consistency across subsystems.
-  - **ETHIK:** Security, privacy, and ethical validation of all sync actions.
-  - **ATLAS:** Visualization of roadmap and sync state.
-  - **CORUJA:** Orchestration of sync, UI/UX for roadmap modal, PR automation.
-  - **HARMONY:** Ensures cross-platform compatibility of sync logic (especially for Windows).
-  - **TRANSLATOR:** (Future) Enables multilingual roadmap/task display if required.
-  - **MASTER:** Supervises and validates the overall process.
-
-* **Phase 1 Tasks:**
-  - [Planned] [KOIOS/CORUJA] Draft and publish technical specification for GitHub ROADMAP.md API sync (`HIGH`) - ID: `ROADMAP-SPEC-DRAFT`, cross-ref: `ROADMAP-GITHUB-SYNC`
-  - [Planned] [KOIOS] Implement parser to convert ROADMAP.md to structured JSON for website (`HIGH`) - ID: `ROADMAP-PARSER-JSON`, cross-ref: `ROADMAP-WEBSITE-JSON`
-  - [Planned] [MYCELIUM/CRONOS] Set up event emission and logging for roadmap updates (`MEDIUM`) - ID: `ROADMAP-EVENT-LOG`, cross-ref: `ROADMAP-MYCELIUM-EVENTS`
-  - [Planned] [SYNC] Validate sync integrity and handle error states (`HIGH`) - ID: `ROADMAP-SYNC-VALIDATION`, cross-ref: `ROADMAP-MYCELIUM-EVENTS`
-  - [Planned] [ETHIK] Audit sync process for security/privacy (`HIGH`) - ID: `ROADMAP-ETHIK-VALIDATION`, cross-ref: `ROADMAP-ETHIK-AUDIT`
-  - [Planned] [ATLAS] Visualize roadmap sync status and history (`MEDIUM`) - ID: `ROADMAP-ATLAS-VIZ`
-  - [Planned] [CORUJA] UI/UX for displaying live roadmap and sync status (`HIGH`) - ID: `ROADMAP-CORUJA-UI`, cross-ref: `ROADMAP-WEBSITE-JSON`
-  - [Planned] [HARMONY] Ensure Windows compatibility for all sync tools/scripts (`HIGH`) - ID: `ROADMAP-HARMONY-COMPAT`
-  - [Planned] [MASTER] Review and approve technical plan and implementation (`HIGH`) - ID: `ROADMAP-MASTER-REVIEW`
-
-* **Cross-References:**
-  - All tasks reference and depend on the core items in the "Dynamic Roadmap Sync & Mycelium Interconnection" section above.
-  - Each subsystem is responsible for its domain and must document actions in accordance with KOIOS and CRONOS standards.
-
-* **Documentation:**
-  - The full technical plan and progress are to be documented in both `ROADMAP.md` and the relevant subsystem READMEs (e.g., `subsystems/KOIOS/README.md`, `subsystems/MYCELIUM/README.md`, etc.).
-
-* **Principles:**
-  - All work must comply with EGOS Fundamental Principles, especially Universal Accessibility, Reciprocal Trust, Evolutionary Preservation, and Integrated Ethics.
-
----
-
-### Pending Review & Backlog
-
-* Review all recent chat actions, subsystem capabilities, and architectural decisions for alignment and documentation.
-* Ensure all cross-references are maintained and that every subsystem's role in the sync/interconnection plan is clear in their respective README files.
-* If any item is not yet resolved or documented, add it here for triage in the next roadmap review cycle.
-
----
-
-**(Note:** This roadmap is dynamic and will be updated based on progress and strategic shifts.)
-
 ## 🚀 Future Phase: Phase 3 - EGOS Hive – Interconnection, MVP Launch & Expansion
 
 *(Details to be elaborated)*
@@ -520,7 +417,7 @@ feat/roadmap-updates
 * [DONE] Implement `KoiosLogger` for Dashboard Interactions (`HIGH`)
 * [DONE] Link Dashboard to Main Website (`LOW`)
 * [DONE] Improve Light Theme Contrast (`LOW`)
-* [Planned] Refine Dashboard UI/UX based on feedback (`MEDIUM`) - ID: `DASHBOARD-UI-REFINE`
+* [DONE] Refine Website Task Modal UI/UX (`MEDIUM`) - ID: `WEBSITE-MODAL-UI-REFINE`
 * [Planned] Integrate Real NATS Client (post-Mycelium stabilization) (`HIGH`) - ID: `DASHBOARD-NATS-CLIENT`, `depends_on: [MYCELIUM-RELIABLE]`
 * [Planned] Deploy Dashboard (e.g., Streamlit Cloud) (`MEDIUM`) - ID: `DASHBOARD-DEPLOY`, `depends_on: [DASHBOARD-NATS-CLIENT]`
 * [Planned] Add SPARC Task Visualization (`MEDIUM`) - ID: `DASHBOARD-SPARC-VIZ`, `depends_on: [DASHBOARD-NATS-CLIENT]`
@@ -555,4 +452,49 @@ feat/roadmap-updates
   * [Planned] [CORUJA] Develop Context-Aware Chat Interface on Task Pages (`HIGH`) - ID: `LLM-CHAT-INTERFACE`, `depends_on: [LLM-RAG-DOCS]`
   * [Planned] [ETHIK] Integrate LLM Features with ETHIK Token/Rewards System (`MEDIUM`) - ID: `LLM-ETHIK-INTEGRATE`, `depends_on: [ETHIK-CLAIM-01, LLM-CHAT-INTERFACE]`
 
-```
+### KOIOS
+*   **ID:** KOIOS-PROC-002
+*   **Status:** To Do
+*   **Task:** Implement and integrate automated schema test validation.
+*   **Context:** Enhance communication reliability by ensuring Pydantic schemas have corresponding tests. Refers to `docs/process/schema_validation_koios.md` and `scripts/check_schema_tests.py`.
+
+### MYCELIUM (Message & Event Coordination Interface Linking Unified Modules)
+{{ ... }}
+
+## EGOS Dashboard (DASH)
+
+*   **DASH-CORE-01:** Basic Streamlit dashboard structure. (Status: Completed)
+*   **DASH-SPARC-01:** Display simulated SPARC task feed. (Status: Completed)
+*   **DASH-LLM-01:** Display simulated LLM interaction logs. (Status: Completed)
+*   **DASH-CONTEXT-01:** Display sidebar context usage log. (Status: Completed)
+*   **DASH-VIS-01:** Add SPARC status distribution chart. (Status: Completed - Batch 6)
+*   **DASH-VIS-02:** Add simulated SPARC timeline chart. (Status: Completed - Batch 6)
+*   **DASH-META-01:** Add Meta Panel for transparency (context, batch, heartbeat). (Status: Completed - Batch 6)
+*   **DASH-MOD-01:** Modularize Dashboard UI code (`streamlit_app.py`). (Status: Completed - Batch 7)
+*   **DASH-ANA-01:** Add user-driven analytics filters (SPARC type/status). (Status: Completed - Batch 7)
+*   **DASH-LIVE-01:** Add toggle for switching between simulated/live data (scaffold). (Status: Completed - Batch 7)
+*   **DASH-PROP-LOG-01:** Add Systemic Propagation Log panel. (Status: Completed - Batch 7)
+
+## Feedback System (FBK)
+
+*   **FBK-FORM-01:** Create feedback submission form. (Status: Completed)
+*   **FBK-LOG-01:** Implement file-based feedback logging (`feedback_log.txt`). (Status: Completed)
+*   **FBK-REPORT-01:** Create automated feedback report script (`feedback_report.py`). (Status: Completed - Batch 6)
+*   **FBK-REPORT-VIS-01:** Integrate feedback report visualization (summary, word cloud) into dashboard. (Status: Completed - Batch 6)
+*   **FBK-ENH-01:** Enhance feedback system (simulated tags/upvotes, Top Feedback panel). (Status: Completed - Batch 7)
+
+## Systemic Processes & CI/CD (SYS)
+
+*   **SYS-LINT-01:** Implement linting script and CI workflow. (Status: Completed)
+*   **SYS-DEPSCAN-01:** Implement dependency security scanning script and CI workflow. (Status: Completed)
+*   **SYS-PROTO-CHECK-01:** Implement protocol adherence script and CI workflow. (Status: Completed)
+*   **SYS-TYPECHECK-01:** Implement type checking script and CI workflow. (Status: Completed)
+*   **SYS-COVERAGE-01:** Implement test coverage script and CI workflow. (Status: Completed)
+*   **SYS-PROP-01:** Initiate Systemic Pattern Propagation (generalize dashboard patterns). (Status: Completed - Batch 7)
+
+## Mycelium/NATS Integration (MYC)
+
+*   **MYC-CLIENT-01:** Scaffold Mycelium/NATS client (`mycelium_client.py`). (Status: Completed - Batch 6)
+*   **MYC-INTEGRATE-01:** Integrate live Mycelium events into dashboard. (Status: Completed - Batch 8)
+
+{{ ... }}

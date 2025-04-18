@@ -139,6 +139,6 @@ KOIOS configuration (e.g., logging levels, standard paths, search parameters) wi
 
 ## 7. Contributing
 
-Contributions should strictly adhere to existing KOIOS standards. When defining new core prompts, utilize the **[PDD Template](../../docs/templates/PDD_Template.md)**. Proposals for new standards require discussion and approval.
+Contributions should strictly adhere to existing KOIOS standards. When defining new core prompts, utilize the **[PDD Template](../../docs/templates/PDD_Template.md)**. Proposals for new standards require discussion and approval. Refer to the main [Human-AI Collaboration Best Practices](../../docs/process/human_ai_collaboration_guidelines.md) when working within this subsystem.
 
 ✧༺❀༻∞ EGOS ∞༺❀༻✧
