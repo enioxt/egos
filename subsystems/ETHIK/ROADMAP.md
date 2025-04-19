@@ -1,3 +1,14 @@
+# 🛣️ EGOS - Project Roadmap
+
+**Version:** 1.0
+**Last Updated:** 2025-04-18
+**🌐 Website:** [https://enioxt.github.io/egos](https://enioxt.github.io/egos)
+
+**Primary References:**
+* `docs/MQP.md` (Master Quantum Prompt)
+* `docs/process/roadmap_standardization.md` (Roadmap Standards)
+
+---
 # ⚖️ ETHIK Subsystem Roadmap
 
 **Last Update:** April 5, 2025

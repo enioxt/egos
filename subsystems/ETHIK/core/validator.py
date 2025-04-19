@@ -1,11 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 """ETHIK Validator: Performs ethical validation based on configurable rules.
 
 This module defines the EthikValidator class responsible for loading rules,
 listening for validation requests (potentially via Mycelium), evaluating actions
-against rules, and reporting results.
+against rules, and reporting results. The validator implements the Integrated Ethics
+principle of EGOS by providing a comprehensive framework for real-time ethical
+validation of system actions.
 """
+
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[3])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone  # Use timezone-aware datetimes
@@ -67,6 +77,23 @@ class EthikValidator:
     """Performs real-time ethical validation based on loaded rules.
 
     Connects to Mycelium (optional) to listen for validation requests and publish results.
+    
+    Attributes:
+        logger: Logger instance for recording validator operations and decisions.
+        mycelium: Optional MyceliumClient for message-based communication.
+        pattern_registry: Registry of pattern definitions for rule evaluation.
+        rules: Dictionary of loaded ValidationRule objects.
+        validation_history: List of past ValidationResult objects.
+        config: Dictionary of validator configuration settings.
+        max_history: Maximum number of validation results to keep in history.
+        topics: Dictionary mapping message types to Mycelium topics.
+    
+    Methods:
+        validate: Validates an action against loaded rules.
+        validate_async: Asynchronous version of validate.
+        start: Starts the validator service and connects listeners.
+        stop: Stops the validator service and disconnects listeners.
+        reload_rules: Reloads validation rules from configured sources.
     """
 
     def __init__(
@@ -90,14 +117,14 @@ class EthikValidator:
         self.validation_history: List[ValidationResult] = []
 
         try:
-        self.config = self._load_config(config_path)
+            self.config = self._load_config(config_path)
             self.max_history = self.config.get("max_history_size", 1000)
             self._load_rules()  # Load initial rules
         except Exception as e:
             self.logger.critical(f"Failed to initialize EthikValidator: {e}", exc_info=True)
             # Depending on severity, either raise or continue in a degraded state
             self.config = self._load_config(None)  # Load defaults
-        self.max_history = self.config.get("max_history_size", 1000)
+            self.max_history = self.config.get("max_history_size", 1000)
             self.rules = {}  # Ensure rules are empty if loading failed
             # raise EthikConfigurationError("Failed to initialize Validator") from e
 
@@ -107,7 +134,7 @@ class EthikValidator:
             if not self.topics:
                 self.logger.warning("Mycelium client provided but no topics found in config.")
             else:
-            self._setup_mycelium_handlers()
+                self._setup_mycelium_handlers()
         elif self.mycelium:
             self.logger.warning("Mycelium client provided but no 'mycelium' section in config.")
 
@@ -166,10 +193,10 @@ class EthikValidator:
             if not action_context:
                 raise ValueError("'action_context' missing in validation request")
 
-                # Perform validation
+            # Perform validation
             result = await self.validate_action(action_context, params, rule_ids)
 
-                # Publish result
+            # Publish result
             result_topic = self.topics.get("validate_result", "ethik.validate.result.default")
             result_payload = {
                 "request_id": request_id,
@@ -187,17 +214,16 @@ class EthikValidator:
             if not result.is_valid and severity_map.get(
                 result.severity.lower(), 0
             ) >= severity_map.get(alert_threshold_str, 3):
-                    await self._publish_alert(
+                await self._publish_alert(
                     alert_type="validation_failure",
                     message=f"Action failed validation: {result.details}",
                     details={
                         "action_context": action_context,
                         "result": asdict(result),
-                        },
-                    )
-
-            except Exception as e:
-                self.logger.error(f"Error handling validation request: {e}", exc_info=True)
+                    },
+                )
+        except Exception as e:
+            self.logger.error(f"Error handling validation request: {e}", exc_info=True)
             error_topic = self.topics.get("validate_result", "ethik.validate.result.default")
             error_payload = {"request_id": request_id, "status": "error", "error": str(e)}
             try:
@@ -266,7 +292,7 @@ class EthikValidator:
             # await self.mycelium.publish(status_topic, status_payload)
             self.logger.debug(f"Simulating status publish to '{status_topic}': {status_payload}")
 
-            except Exception as e:
+        except Exception as e:
             self.logger.error(
                 f"Error handling rules update request {request_id}: {e}", exc_info=True
             )
@@ -442,18 +468,18 @@ class EthikValidator:
                 rules_data = json.load(f)
 
             if not isinstance(rules_data, dict) or "rules" not in rules_data:
-            self.logger.error(
+                self.logger.error(
                     f"Invalid format in rules file {rules_path}: Missing top-level 'rules' key."
                 )
                 self.rules.clear()
-            return
+                return
 
             if not isinstance(rules_data["rules"], list):
                 self.logger.error(
                     f"Invalid format in rules file {rules_path}: 'rules' key must contain a list."
                 )
                 self.rules.clear()
-            return
+                return
 
             loaded_rules: Dict[str, ValidationRule] = {}
             for i, rule_dict in enumerate(rules_data["rules"]):
@@ -687,7 +713,7 @@ class EthikValidator:
             # Simulate a check based on keywords in context (very basic example)
             conditions_met_count = 0
             content_str = str(action_context.get("content", "")).lower()
-                for condition in rule.conditions:
+            for condition in rule.conditions:
                 if condition.lower() in content_str:
                     conditions_met_count += 1
 
@@ -842,7 +868,7 @@ class EthikValidator:
         self.validation_history.append(result)
         if len(self.validation_history) > self.max_history:
             try:
-            self.validation_history.pop(0)
+                self.validation_history.pop(0)
             except IndexError:
                 pass
 

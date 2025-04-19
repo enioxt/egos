@@ -1,6 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[3])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+
+
 """
 EVA & GUARANI - ETHIK Service
 =============================
@@ -24,10 +34,10 @@ from subsystems.KOIOS.core.logging import get_koios_logger
 # Import Mycelium Interface
 from subsystems.MYCELIUM.core.interface import MyceliumInterface
 
-from .core.sanitizer import EthikSanitizer
+from subsystems.ETHIK.services.core.sanitizer import EthikSanitizer
 
 # Import core components
-from .core.validator import EthikValidator
+from subsystems.ETHIK.services.core.validator import EthikValidator
 
 # Configure logging - Use Koios Logger instead of basicConfig
 # logger = logging.getLogger("ethik_service")
@@ -39,7 +49,9 @@ from .core.validator import EthikValidator
 
 
 class EthikService:
-    """Manages the ETHIK subsystem's operations and components."""
+            Attributes:
+            None
+"""Manages the ETHIK subsystem's operations and components."""
 
     def __init__(
         self, config: Dict[str, Any], mycelium_interface: MyceliumInterface, project_root: Path

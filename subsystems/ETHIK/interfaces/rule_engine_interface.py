@@ -1,3 +1,12 @@
+
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[3])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+
 from abc import ABC, abstractmethod
 from typing import Dict, Any
 
@@ -5,7 +14,9 @@ from typing import Dict, Any
 from ..core.validator import ValidationRule # Adjust import path as needed
 
 class RuleEngineInterface(ABC):
-    """Interface for different ethical rule evaluation engines."""
+            Methods:
+            None
+"""Interface for different ethical rule evaluation engines."""
 
     @abstractmethod
     def evaluate(self, rule: ValidationRule, context: Dict[str, Any]) -> Dict[str, Any]:

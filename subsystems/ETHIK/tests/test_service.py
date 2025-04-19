@@ -1,4 +1,12 @@
 #!/usr/bin/env python
+
+
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[3])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 # -*- coding: utf-8 -*-
 
 """
@@ -16,11 +24,11 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 
-from ..core.sanitizer import EthikSanitizer
-from ..core.validator import EthikValidator
+from subsystems.core.sanitizer.sanitizer import EthikSanitizer
+from subsystems.core.validator.validator import EthikValidator
 
 # Import the service and components to potentially mock
-from ..service import EthikService
+from subsystems.service.service import EthikService
 
 
 # Mock Mycelium Interface

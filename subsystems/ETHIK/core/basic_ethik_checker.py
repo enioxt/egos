@@ -1,3 +1,10 @@
+
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[3])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 """Basic implementation of the Ethik Checker Interface."""
 
 from typing import Any, Dict, Optional
@@ -8,7 +15,9 @@ from subsystems.KOIOS.schemas.pdd_schema import PddEthikGuidelines
 
 
 class BasicEthikChecker(EthikCheckerInterface):
-    """A simple placeholder implementation for ethical checking."""
+            Attributes:
+            None
+"""A simple placeholder implementation for ethical checking."""
 
     def __init__(self, config: Optional[Dict] = None):
         """Initialize the checker (config currently unused)."""

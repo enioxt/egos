@@ -1,3 +1,10 @@
+
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[3])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 from typing import Dict, Any
 from datetime import datetime, timezone
 
@@ -8,7 +15,9 @@ from ..core.validator import ValidationRule # Adjust import path as needed
 logger = KoiosLogger.get_logger("ETHIK.Core.BasicRuleEngine")
 
 class BasicRuleEngine(RuleEngineInterface):
-    """A basic implementation of the rule engine using placeholder logic."""
+            Methods:
+            None
+"""A basic implementation of the rule engine using placeholder logic."""
 
     def evaluate(self, rule: ValidationRule, action_context: Dict[str, Any]) -> Dict[str, Any]:
         """Applies a single validation rule to the action context (placeholder logic)."""

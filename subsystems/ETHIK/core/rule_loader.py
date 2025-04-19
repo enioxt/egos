@@ -1,3 +1,10 @@
+"""TODO: Module docstring for rule_loader.py"""
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[3])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 import json
 from pathlib import Path
 from typing import Dict, Optional, List, Any
@@ -9,7 +16,9 @@ from .validator import ValidationRule # Assuming ValidationRule is in validator.
 logger = KoiosLogger.get_logger("ETHIK.Core.RuleLoader")
 
 class RuleLoader:
-    """Handles loading and parsing validation rules from a file."""
+            Attributes:
+            None
+"""Handles loading and parsing validation rules from a file."""
 
     def __init__(self, config: Dict[str, Any]):
         """Initializes the RuleLoader.
