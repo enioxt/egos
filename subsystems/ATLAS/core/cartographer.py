@@ -1,6 +1,23 @@
+"""
+EGOS - ATLAS Subsystem Cartographer
+====================================
+
+Handles the dynamic mapping of system components and interactions,
+listening to Mycelium messages and updating the internal map state.
+Provides functionality to query and interact with the map.
+
+Version: 1.0.0 (Migrated)
+"""
+
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[3])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 from datetime import datetime
 import logging
-from typing import Any, Dict, Optional, Set
+from typing import Any, Dict, Optional, Set, Callable
 
 # Replace the koios logger with standard logging for testing
 # from koios.logger import KoiosLogger
@@ -11,27 +28,82 @@ try:
 except ImportError:
     # Mock the mycelium imports for tests
     class Message:
-        def __init__(self, id, data):
+        """Mock Mycelium Message class for testing.
+
+        Attributes:
+            id: The mock message ID.
+            data: The mock message data.
+        """
+        def __init__(self, id: Any, data: Any):
+            """Initializes a mock Message.
+
+            Args:
+                id: The mock message ID.
+                data: The mock message data.
+            """
             self.id = id
             self.data = data
 
     class Topic:
-        def __init__(self, name):
+        """Mock Mycelium Topic class for testing.
+
+        Attributes:
+            name (str): The name of the mock topic.
+        """
+        def __init__(self, name: str):
+            """Initializes a mock Topic.
+
+            Args:
+                name: The name of the mock topic.
+            """
             self.name = name
 
     class MyceliumClient:
+        """Mock MyceliumClient class for testing.
+
+        Attributes:
+            published_messages (list): List of messages published via this mock.
+            subscriptions (dict): Dictionary mapping subscribed topics to handlers.
+
+        Methods:
+            subscribe: Decorator to register a mock subscription handler.
+            publish: Simulates publishing a message.
+        """
         def __init__(self):
+            """Initializes the mock client with empty state."""
             self.published_messages = []
             self.subscriptions = {}
 
-        def subscribe(self, topic: str):
-            def decorator(func):
+        def subscribe(self, topic: str) -> Callable:
+            """Decorator to mock subscribing a function to a topic.
+
+            Args:
+                topic: The topic name to subscribe to.
+
+            Returns:
+                A decorator function.
+            """
+            def decorator(func: Callable) -> Callable:
+                """Inner decorator function that registers the subscription.
+
+                Args:
+                    func (Callable): The function to be called for the topic.
+
+                Returns:
+                    Callable: The original function, unchanged.
+                """
                 self.subscriptions[topic] = func
                 return func
 
             return decorator
 
         async def publish(self, topic: str, data: dict):
+            """Publishes a message to the specified topic.
+
+            Args:
+                topic: The topic to publish to.
+                data: The message data to publish.
+            """
             self.published_messages.append(
                 {"topic": topic, "data": data, "timestamp": datetime.now().isoformat()}
             )
@@ -48,6 +120,17 @@ class AtlasCartographer:
     It does NOT typically perform the initial discovery or analysis itself,
     relying on external updates or potentially delegating complex generation/
     analysis tasks to ATLASCore.
+
+    Attributes:
+        logger (logging.Logger): Logger instance for this cartographer.
+        mycelium (Optional[MyceliumClient]): The client for Mycelium communication.
+        config (Dict[str, Any]): Configuration settings for the cartographer.
+        system_map (Dict): Stores the nodes and their properties.
+        relationships (Dict): Stores the relationships between nodes.
+        metadata (Dict): Stores metadata about the map or system.
+        analysis_cache (Dict): Caches results of map analysis.
+        topics (Dict): Dictionary mapping semantic topic names to actual
+                      Mycelium topic strings (loaded from config).
     """
 
     def __init__(
@@ -189,7 +272,9 @@ class AtlasCartographer:
                 )
 
             except Exception as e:
-                self.logger.error(f"Error handling relationship update: {e}", exc_info=True)
+                self.logger.error(
+                    f"Error handling relationship update: {e}", exc_info=True
+                )
                 await self.mycelium.publish(
                     self.topics["relationship_status"],
                     {"request_id": message.id, "status": "error", "error": str(e)},
