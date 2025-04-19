@@ -1,4 +1,11 @@
 #!/usr/bin/env python
+
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[3])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 # -*- coding: utf-8 -*-
 
 """
@@ -18,7 +25,7 @@ from unittest.mock import AsyncMock, Mock
 from mycelium import Message
 import pytest
 
-from ..core.validator import EthikValidator, ValidationResult, ValidationRule
+from subsystems.core.validator.validator import EthikValidator, ValidationResult, ValidationRule
 
 # Test Configuration
 TEST_CONFIG = {
@@ -56,7 +63,9 @@ SAMPLE_RULES = {
 
 
 class MockMyceliumClient:
-    """Mock Mycelium client for testing."""
+            Attributes:
+            None
+"""Mock Mycelium client for testing."""
 
     def __init__(self):
         self.published_messages = []

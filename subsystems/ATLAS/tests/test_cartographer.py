@@ -1,3 +1,10 @@
+"""TODO: Module docstring for test_cartographer.py"""
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[3])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 from datetime import datetime
 import json
 from unittest.mock import AsyncMock, Mock, patch

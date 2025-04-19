@@ -1,4 +1,12 @@
 #!/usr/bin/env python
+
+
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[3])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 # -*- coding: utf-8 -*-
 
 """
@@ -19,7 +27,7 @@ from unittest.mock import patch
 import pytest
 
 # Import the sanitizer and related classes
-from ..core.sanitizer import EthikSanitizer
+from subsystems.core.sanitizer.sanitizer import EthikSanitizer
 
 
 # Mock Mycelium Interface (can reuse from test_service or define here)

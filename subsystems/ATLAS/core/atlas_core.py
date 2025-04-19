@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 """
 EGOS - ATLAS Subsystem Core Logic
 =================================
@@ -8,6 +9,13 @@ Responsible for mapping connections, visualizing systems, and analysis.
 
 Version: 1.0.0 (Migrated)
 """
+
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[3])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 
 import json
 import logging
@@ -23,7 +31,13 @@ except ImportError:
 
     # Create mock modules
     class MockNetworkX:
+        """Mocks the networkx library when it's not installed.
+
+        Attributes:
+            None
+        """
         def __init__(self):
+            """Initializes mock networkx functions and attributes."""
             self.DiGraph = lambda: MagicMock()
             self.spring_layout = lambda *args, **kwargs: {}
             self.circular_layout = lambda *args, **kwargs: {}
@@ -41,7 +55,13 @@ except ImportError:
             self.betweenness_centrality = lambda *args, **kwargs: {}
 
     class MockMatplotlib:
+        """Mocks the matplotlib library when it's not installed.
+
+        Attributes:
+            None
+        """
         def __init__(self):
+            """Initializes mock matplotlib.pyplot functions and attributes."""
             self.pyplot = MagicMock()
             self.pyplot.figure = lambda *args, **kwargs: MagicMock()
             self.pyplot.title = lambda *args, **kwargs: None
@@ -67,7 +87,25 @@ from typing import Any, Dict, Optional, Tuple
 
 
 class ATLASCore:
-    """Core graph engine for ATLAS: handles graph creation, analysis, persistence, visualization."""
+    """Core graph engine for ATLAS: handles graph creation, analysis, persistence, visualization.
+
+    Attributes:
+        config (Dict[str, Any]): Configuration dictionary for ATLAS.
+        logger (logging.Logger): Logger instance for logging messages.
+        data_dir (Path): Path to the directory for storing ATLAS data (e.g., graphs).
+        graph (nx.DiGraph): The main networkx directed graph object managed by this instance.
+
+    Methods:
+        __init__: Initializes the ATLAS core with configuration, logger, and data directory.
+        map_system: Maps a system from structured data, replacing the current graph.
+        visualize: Visualizes the current graph and saves the image to the ATLAS data directory.
+        export_to_obsidian: Generates the components needed for an Obsidian note.
+        load_mapping: Loads a mapping from a JSON file.
+        analyze_system: Analyzes the currently loaded graph and returns metrics.
+        _log_operation: Logs an operation using the provided logger.
+        _save_mapping: Saves the current mapping in JSON format to the ATLAS data directory.
+        _generate_markdown: Generates markdown content for Obsidian export.
+    """
 
     def __init__(self, config: Dict[str, Any], logger: logging.Logger, data_dir: Path):
         """
