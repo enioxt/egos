@@ -1,5 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
+
+
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[3])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+
 """
 NEXUS (Neural Evolution and Xenial Unified System) Core Logic
 =============================================================
@@ -23,7 +34,7 @@ from typing import Any, Dict, List, Optional
 
 from koios.logger import KoiosLogger
 
-from .ast_visitor import analyze_code as ast_analyze_code
+from subsystems.NEXUS.core.ast_visitor import analyze_code as ast_analyze_code
 
 # Configure logging
 # logging.basicConfig(
@@ -41,7 +52,11 @@ class NEXUSCore:
     Provides functionalities to analyze Python code files, map dependencies
     within a workspace, suggest improvements based on metrics, and export
     analysis results.
-    """
+        Attributes:
+        None
+        Methods:
+            None
+"""
 
     def __init__(
         self,
@@ -273,7 +288,7 @@ class NEXUSCore:
                         module = node.module if node.module else ""  # Handle 'from . import ...'
                         level = node.level  # Relative import level
 
-                        # Handle cases like 'from .submodule import *' -
+                        # Handle cases like 'from subsystems.NEXUS.core.submodule import *' -
                         # less precise but capture intent
                         imported_names = [alias.name for alias in node.names if alias.name != "*"]
                         has_wildcard = any(alias.name == "*" for alias in node.names)

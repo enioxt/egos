@@ -1,5 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
+
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[3])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+
 """
 Test suite for the Analyzer component in NEXUS.
 """
@@ -17,7 +27,9 @@ from subsystems.NEXUS.core.analyzer import NexusAnalyzer
 
 # Renamed Mock Class
 class MockMyceliumInterface:
-    """Mock Mycelium interface for testing NexusAnalyzer."""
+            Attributes:
+            None
+"""Mock Mycelium interface for testing NexusAnalyzer."""
 
     def __init__(self):
         self.published_events = []  # Changed from published_messages

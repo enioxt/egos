@@ -1,3 +1,13 @@
+
+
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[3])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+
 """
 Pydantic models defining the data contracts for ETHIK subsystem interactions
 via the Mycelium Network.
@@ -13,7 +23,9 @@ class EthikValidationRequestV1(BaseModel):
     """
     Payload for requesting ethical validation of an action or content.
     Published to `request.ethik.validate.v1`.
-    """
+        Methods:
+        None
+"""
     request_id: str = Field(..., description="Unique identifier for tracking this validation request.")
     action_context: Dict[str, Any] = Field(..., description="Dictionary describing the action/content being validated. Keys might include 'action_type', 'content_summary', 'user_id', 'target_resource', etc.")
     params: Optional[Dict[str, Any]] = Field(default=None, description="Optional additional parameters relevant to the validation logic.")

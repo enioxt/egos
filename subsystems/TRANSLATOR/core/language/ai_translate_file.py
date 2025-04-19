@@ -1,4 +1,14 @@
 #!/usr/bin/env python3
+"""TODO: Module docstring for ai_translate_file.py"""
+
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[4])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+
 # ==================================================================
 # COMBINED FILE FROM MULTIPLE SIMILAR FILES
 # Date: 2025-03-22 08:37:43
@@ -62,7 +72,9 @@ logger = logging.getLogger("ai_translate_file")
 
 
 class AITranslator:
-    """AI-assisted translator for converting files from Portuguese to English"""
+            Attributes:
+            None
+"""AI-assisted translator for converting files from Portuguese to English"""
 
     def __init__(self, api_key: Optional[str] = None, model: str = "gpt-4o"):
         """

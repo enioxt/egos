@@ -1,3 +1,12 @@
+
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[4])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+
 """NATS implementation of the MyceliumInterface."""
 
 from datetime import datetime, timezone
@@ -17,7 +26,9 @@ logger = logging.getLogger(__name__)
 
 
 class NatsMyceliumInterface(MyceliumInterface):
-    """Provides interaction with the Mycelium Network using NATS."""
+            Attributes:
+            None
+"""Provides interaction with the Mycelium Network using NATS."""
 
     def __init__(self, source_subsystem: str):
         """Initialize the interface.

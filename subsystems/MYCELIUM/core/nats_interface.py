@@ -1,3 +1,10 @@
+"""TODO: Module docstring for nats_interface.py"""
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[3])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 import asyncio
 import nats
 import json # Import json
@@ -13,7 +20,9 @@ from ..interfaces.mycelium_interface import MyceliumInterface
 logger = KoiosLogger.get_logger("MYCELIUM.Core.NatsInterface")
 
 class NatsMyceliumInterface(MyceliumInterface):
-    """Concrete implementation of MyceliumInterface using NATS."""
+            Attributes:
+            None
+"""Concrete implementation of MyceliumInterface using NATS."""
 
     def __init__(self, config: Dict[str, Any], node_id: str):
         self.config = config
