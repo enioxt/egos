@@ -548,7 +548,7 @@ def main():
     parser = argparse.ArgumentParser(description="EGOS Docstring and Type Annotation Checker")
     parser.add_argument("--root-dir", default=project_root, help="Root directory to scan for Python files")
     parser.add_argument("--exclude-dirs", nargs="+", help="Directories to exclude from scanning")
-    parser.add_argument("output_dir", help="Directory to save the report (required even if --no-report is used)")
+    parser.add_argument("--output-dir", default="reports/docstrings", help="Directory to save the report")
     parser.add_argument("--json", help="Path to save JSON report")
     parser.add_argument("--verbose", action="store_true", help="Show detailed logs")
     parser.add_argument("--open-report", action="store_true", help="Open the HTML report in the default browser")
@@ -593,12 +593,14 @@ def main():
         
         # Generate reports if not suppressed
         if not args.no_report:
-            logger.info(f"Generating reports in {args.output_dir}")
+            output_dir = args.output_dir
+            os.makedirs(output_dir, exist_ok=True)
+            logger.info(f"Generating reports in {output_dir}")
             if not issues:
                 logger.info("No issues found, creating an empty report.")
                 
             # Generate HTML report
-            report_path = generate_html_report(issues, args.output_dir)
+            report_path = generate_html_report(issues, output_dir)
             
             # Save JSON report if requested
             if args.json:
