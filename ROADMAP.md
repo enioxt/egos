@@ -130,7 +130,6 @@ feat/roadmap-updates
   * ✅ [DONE] Define Metadata Schema for MDC Rules (`MEDIUM`)
   * ✅ [DONE] **Activate Cursor Agent Mode:** Transitioned from Chat to Agent, enabling direct file/terminal interaction. (`HIGH` - See `docs/ai_integration/cursor_agent_mode.md`)
   * ✅ [DONE] **Consolidate `.cursor/rules`:** Reviewed all `.cursor/rules/*.mdc` files, consolidating or linking them into `global_rules.mdc` as the central source of truth for project standards. (`HIGH`)
-main
 
 ### Monitoring & Dashboard (ATLAS/KOIOS)
 
@@ -168,6 +167,10 @@ main
 **Related Docs**: `subsystems/CORUJA/README.md`, `.cursor/rules/sparc_orchestration.mdc`
 **ETA**: Q2/Q3 2025
 
+* **Completed Sub-Tasks (as part of ongoing development):**
+    * ✅ [DONE] Migrated from `pydantic` `BaseSettings` to `pydantic-settings` for Pydantic v2 compatibility.
+    * ✅ [DONE] Resolved associated import errors and test failures in `test_prompt_manager.py`.
+
 ### Define Initial Target Offering / Use Case
 
 **Description**: Define the scope, features, and target audience for the first Minimum Viable Product (MVP), likely the "Content Aggregator & Insight Engine". **Must strongly emphasize ETHIK-driven features as key differentiators.**
@@ -181,7 +184,7 @@ main
 
 * **In Progress**
   * [In Progress] Finalize Core NATS Message Schemas (`CRITICAL`)
-  * [In Progress] Define SPARC Task Message Formats (`HIGH`)
+  * [In Progress] Define SPARC Task Message Formats (`HIGH`) - *Initial schemas defined in `src/schemas/sparc_tasks.py` & documented in README.*
 * **Planned**
   * [Planned] Implement Reliable Message Handling (ACKs, Retries) (`HIGH`) - ID: `MYCELIUM-RELIABLE`
   * [Planned] Develop Test Suite for Mycelium (`HIGH`) - ID: `MYCELIUM-TEST-SUITE`, `depends_on: [MYCELIUM-RELIABLE]`
@@ -233,7 +236,6 @@ feat/roadmap-updates
     * [Planned] **Task 2.2: Prioritized Content Creation/Revision:** Focus on documenting critical subsystems/features relevant to initial LLM support. Develop clear natural language descriptions, practical examples, diagrams (update/create), and relevant code snippets (Ref: LLM Integration Plan IV.B).
     * [Planned] **Task 2.3: Structure & Searchability:** Organize documentation logically (e.g., by subsystem) and ensure the chosen format is machine-parsable and ideally searchable (prep for RAG).
     * [Planned] **Task 2.4: Refine Website Standards:** Review and potentially further refine the enhanced `website_standards.mdc` (v1.1.0) based on feedback from initial website implementation tasks (Phase W1/W2).
-main
 * **Phase 3: Alignment & Maintenance Process (Q3 2025)**
   * **Planned**
     * [Planned] **Task 3.1: Code/Doc Alignment:** Verify documentation accurately reflects current implementation logic, interfaces, and KOIOS standards. Update docstrings/comments (`python_documentation.mdc`).
@@ -282,7 +284,7 @@ main
 ### Phase 2: MVP Development & Refinement (Focus: Core Functionality)
 
 * **Subsystems Implementation (Core MVP Features):**
-  * **CORUJA (Phase 2b - Multi-Agent with SPARC):** Implement `CrewManager`, `Agent`, `Task`, `SPARCTask`, `SPARCTaskRegistry`, `ToolRegistry`, enhanced `ModelInterface` with task-based selection, `PromptManager`. Focus on executing complex tasks using SPARC methodology. Include foundational hooks for ETHIK integration and basic monitoring.
+  * **CORUJA (Phase 2b - Multi-Agent with SPARC):** [In Progress] Implement core components: `CrewManager` ([Planned]), `Agent` ([DONE - Core Flow]), `Task`/`SPARCTask` models ([Planned]), `SPARCTaskRegistry` ([Planned]), `ToolRegistry` ([DONE]), `ModelInterface` ([DONE - Simulated/Basic]), `PromptManager` ([DONE]). Focus remains on executing complex tasks using SPARC methodology. Include foundational hooks for ETHIK integration and basic monitoring.
   * **KOIOS (Phase 2b):** Implement `KoiosLogger` with SPARC support. Define SPARC task schema and validation. Basic search capabilities (e.g., file content search). SPARC task visualization.
   * **ETHIK (Phase 2b):** Implement basic ethical check functions (e.g., keyword flagging, PII detection stubs). Define initial policies for prompt/response checks. **Define initial policies regarding data sensitivity classification and required Privacy-Preserving Computation (PPC) techniques.**
   * MVP Backend: Develop core logic for the Content Aggregator MVP, integrating with CORUJA for AI tasks using SPARC methodology.
@@ -511,105 +513,6 @@ main
 
 ### Monitoring & Dashboard (ATLAS/KOIOS)
 
-* **In Progress**
-  * [In Progress] Integrate Dashboard via Iframe (Streamlit Cloud) (`LOW`) - ID: `DASHBOARD-IFRAME-INTEGRATE`
-* **Planned**
-  * [Planned] Integrate Real NATS Client (post-Mycelium stabilization) (`HIGH`) - ID: `DASHBOARD-NATS-CLIENT`, `depends_on: [MYCELIUM-RELIABLE]`
-  * [Planned] Deploy Dashboard (e.g., Streamlit Cloud) (`MEDIUM`) - ID: `DASHBOARD-DEPLOY`, `depends_on: [DASHBOARD-NATS-CLIENT]`
-  * [Planned] Add SPARC Task Visualization (`MEDIUM`) - ID: `DASHBOARD-SPARC-VIZ`, `depends_on: [DASHBOARD-NATS-CLIENT]`
-  * [Planned] [ATLAS/CORUJA] Implement Dashboard Theme Alignment with Website (`LOW`) - ID: `DASHBOARD-THEME-ALIGN`
-  * [Planned] [ATLAS/CORUJA/ETHIK] Plan Deep Dashboard-Website Integration (API/Bridge for Auth/Data) (`MEDIUM`) - ID: `DASHBOARD-DEEP-INTEGRATE`
-  * [Planned] [KOIOS] Update README/Roadmap ref Dashboard Integration (`LOW`) - ID: `DOC-DASHBOARD-INTEGRATION`
-  * [Planned] [KOIOS] Update CONTRIBUTING.md ref Website Roadmap Usage (`LOW`) - ID: `DOC-CONTRIB-WEBSITE-FLOW`
-* **Completed**
-  * ✅ [DONE] Basic Streamlit Dashboard Setup (`MEDIUM`)
-  * ✅ [DONE] Implement Modular UI Components (`MEDIUM`)
-  * ✅ [DONE] Add Dark/Light Theme Toggle (`LOW`)
-  * ✅ [DONE] Integrate Mock NATS Client for Demo (`HIGH`)
-  * ✅ [DONE] Implement `KoiosLogger` for Dashboard Interactions (`HIGH`)
-  * ✅ [DONE] Improve Light Theme Contrast (`LOW`)
-  * ✅ [DONE] Refine Website Task Modal UI/UX (`MEDIUM`) - ID: `WEBSITE-MODAL-UI-REFINE`
-
-### ETHIK Points & Blockchain Claim System
-
-- **Status:** Planned
-- **Subsystem(s):** ETHIK, Website, Blockchain
-- **Task ID:** ETHIK-CLAIM-01
-- **Priority:** HIGH
-- **Description:**
-  - Implement a system where contributors earn ETHIK points for project contributions. When a user reaches a defined threshold, they can claim the equivalent amount of ETHIK tokens on-chain. The claim is user-initiated and the user pays the blockchain transaction fee at the time of claim. The website must display the current blockchain network fee (gas/tx fee) in real time and explain the process clearly in the contributor dashboard. This approach reduces transaction costs by batching and only sending tokens when users request it.
-- **Dependencies:** ETHIK token smart contract deployed, wallet integration (e.g., MetaMask, Phantom), blockchain fee API
-- **Principles:** Universal Accessibility, Sacred Privacy, Reciprocal Trust, Integrated Ethics
-- **Acceptance Criteria:**
-  - Contributors see their ETHIK points balance
-  - Can claim tokens to their wallet when threshold is reached
-  - Real-time network fee is shown before claim
-  - User pays the transaction fee
-  - System is clear, secure, and accessible
-
-### 🗣️ User Interaction & Frontend (CORUJA Lead / Website)
-
-* **Planned**
-  * [Planned] Define Standard UI Components/Style Guide (`HIGH`)
-  * [Planned] Implement User Feedback Mechanisms (`MEDIUM`)
-  * [Planned] Explore Voice Input Capabilities (`LOW`)
-  * [Planned] Implement Internationalization/Localization Support (`LOW`)
-  * [Planned] **[WEBSITE-REVAMP-CORE]** **Website Design, UX, & Technical Overhaul:** Major refactor/rebuild focusing on: Aesthetics (beauty, golden ratio, spirals), Interactivity, Accessibility (WCAG AA+, colorblind friendly), Responsiveness (mobile-first), Performance (lightweight), and Modern Framework (confirm Next.js/SvelteKit/Astro). Ensure intuitive navigation based on `research/WebSite Enio Grok e Gemini.txt` and `docs/website/DESIGN_GUIDE.md`. (`CRITICAL`)
-  * [Planned] **Task W3.8 (Parallel): User Behavior Analysis (Deferred/Basic)** (Implement basic analytics, defer advanced tools like Hotjar/OpenReplay unless explicitly prioritized later).
-  * [Planned] **[WEB/KOIOS][WEBSITE-ACCESSIBILITY-AUDIT]** Perform accessibility audit and implement necessary fixes (WCAG AA minimum) (`CRITICAL`), `depends_on: [WEBSITE-REVAMP-CORE]`
-
-### Website Maturity:
-
-feat/roadmap-updates
-* [Planned] **[WEBSITE-GENKI-DAMA]** **Genki Dama Page Implementation:** Design and implement the "Genki Dama" page featuring specific artwork, clear calls for collaboration/contribution, and donation addresses (e.g., Solana: `[Your Solana Address]`, BTC: `[Your BTC Address]`, EVM: `[Your EVM Address]`). Ensure minimal text and focus on artistic/mysterious appeal. (`HIGH`)
-* [Planned] **[WEB/ETHIK][WEBSITE-DONATION-INTEGRATION]** Securely integrate and test donation mechanisms for Genki Dama page (`HIGH`), `depends_on: [WEBSITE-GENKI-DAMA]`
-
-## 🚀 EGOS DevKit Extension (Developer Experience Enhancement)
-
-**Goal:** Enhance the VS Code development experience specifically for the EGOS project by creating a custom extension (`egos-devkit`) that complements the existing Windsurf extension and provides shortcuts, automations, and contextual information tailored to EGOS workflows and standards.
-**Status:** Planned
-**Priority:** MEDIUM
-**Owner:** Developer Experience Team / Initial: [Your Name/Handle]
-**Related Docs:** Extension codebase (to be created)
-
-*   **Phase 0: Research & Definition (Status: Completed - 2025-04-17)**
-    *   `[DONE]` **Task EXT-DEF-01:** Define goal: Complement Windsurf, customize VS Code for EGOS.
-    *   `[DONE]` **Task EXT-DEF-MVP-01:** Define MVP features: Terminal command execution, basic Webview placeholder.
-    *   `[CRITICAL]` **Task EXT-CHECK-WINDSURF-API-01:** Re-confirm Windsurf API status for potential deeper integration (Ongoing Check).
-
-*   **Phase 1: Skeleton & Core Setup (Status: Planned - Est: 1-2 days)**
-    *   `[Planned]` **Task EXT-INIT-01:** Initialize VS Code Extension project (`egos-devkit`) using `yo code` (TypeScript).
-    *   `[Planned]` **Task EXT-STRUCTURE-01:** Create basic file structure (`src/extension.ts`, `src/commands/`, `src/panels/`).
-    *   `[Planned]` **Task EXT-PACKAGE-JSON-01:** Configure `package.json` (name, activation events, contribution points).
-    *   `[Planned]` **Task EXT-LINT-FORMAT-01:** Setup ESLint/Prettier.
-
-*   **Phase 2: MVP Feature Implementation (Status: Planned - Est: 2-4 days)**
-    *   `[Planned]` **Task EXT-CMD-TERMINAL-01:** Implement reliable `executeTerminalCommand`.
-    *   `[Planned]` **Task EXT-CMD-PALETTE-01:** Ensure command visibility in Command Palette.
-    *   `[Planned]` **Task EXT-PANEL-WEBVIEW-01:** Implement basic Webview View placeholder panel.
-    *   `[Planned]` **Task EXT-TEST-BASIC-01:** Manually test MVP features.
-
-*   **Phase 3: Refinement & Integration (Status: Planned - Est: Ongoing)**
-    *   `[Planned]` **Task EXT-ADD-SHORTCUT-01:** Add optional keyboard shortcut for terminal command.
-    *   `[Planned]` **Task EXT-INTEGRATE-API-X:** Plan/implement integration with specific APIs (e.g., GitHub, EGOS backend, potentially Windsurf commands if feasible).
-    *   `[Planned]` **Task EXT-ENHANCE-UX-01:** Improve UI/UX based on usage.
-
----
-
-## 📐 Structure & Best Practices
-
-* **Clear Sections**: Group tasks by Phase or Category.
-* **Priority Tags**: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`.
-* **Status Indicators**: `Planned`, `In Progress`, `Completed`, `Blocked`, `DONE`.
-* **Responsibility**: Assign owner or team where applicable.
-* **Linked Issues/PRs/Docs**: Reference relevant GitHub items or documentation.
-* **Dates (Optional)**: Target quarters or specific deadlines.
-* **References**: Use `(See analysis in research/)` to link tasks to the GitHub project study.
-
----
-
-### Monitoring & Dashboard (ATLAS/KOIOS)
-
 * [DONE] Basic Streamlit Dashboard Setup (`MEDIUM`)
 * [DONE] Implement Modular UI Components (`MEDIUM`)
 * [DONE] Add Dark/Light Theme Toggle (`LOW`)
@@ -653,4 +556,3 @@ feat/roadmap-updates
   * [Planned] [ETHIK] Integrate LLM Features with ETHIK Token/Rewards System (`MEDIUM`) - ID: `LLM-ETHIK-INTEGRATE`, `depends_on: [ETHIK-CLAIM-01, LLM-CHAT-INTERFACE]`
 
 ```
-main
