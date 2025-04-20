@@ -1,6 +1,945 @@
-Filepath,FirstCommitDate,LastCommitDate,LifespanDays
-.cursor/check_log.bat,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.0
-.cursor/rules/ai_handover_standard.mdc,2025-04-08T20:00:48-03:00,2025-04-10T10:38:25-03:00,1.61
-README.md,2025-04-08T15:15:57-03:00,2025-04-10T11:12:37-03:00,1.83
+Filepath,FirstCommitDateISO,LastCommitDateISO,LifespanDays
+.cursor/check_log.bat,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/check_mcp_connection.js,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/cursor_initialization.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/force_mcp_connection.bat,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/init-mcp.bat,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/install_dependencies.bat,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/mcp-servers/README.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/mcp-servers/README_OPENROUTER.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/mcp-servers/openrouter.json,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/mcp-servers/openrouter_client.js,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/mcp-servers/openrouter_mcp_server.js,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/mcp-servers/perplexity.json,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/mcp-servers/test_free_models.js,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/mcp-servers/test_openrouter_client.js,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/mcp-servers/test_openrouter_mcp_server.js,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/mcp.json,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/mcp.json.backup,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/mcp.json.backup2,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/mcp/bios-q.json,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/mcp/filesystem.json,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/mcp/openrouter.json,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/mcp/perplexity.json,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/mcp/perplexity_search.mcp,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/mcp/sequential-thinking.json,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/mcp_connection.js,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/openrouter_demo.bat,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/prompts/CURSOR_QUANTUM_PROMPT.md,2025-04-08T15:15:57-03:00,2025-04-16T18:05:44-03:00,8.12
+.cursor/prompts/CURSOR_SYSTEM_PROMPT.txt,2025-04-08T15:15:57-03:00,2025-04-16T18:05:44-03:00,8.12
+.cursor/rules/ai_collaboration_guidelines.mdc,2025-04-08T15:22:28-03:00,2025-04-17T20:21:55-03:00,9.21
+.cursor/rules/ai_handover_standard.mdc,2025-04-08T20:00:48-03:00,2025-04-17T20:21:55-03:00,9.01
+.cursor/rules/ai_interaction_logging.mdc,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+.cursor/rules/api_design_contracts.mdc,2025-04-16T18:05:44-03:00,2025-04-17T20:21:55-03:00,1.09
+.cursor/rules/commit_messages.mdc,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+.cursor/rules/documentation_structure.mdc,2025-04-09T11:13:36-03:00,2025-04-17T20:21:55-03:00,8.38
+.cursor/rules/error_handling.mdc,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+.cursor/rules/file_modularity.mdc,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+.cursor/rules/git_workflow_standards.mdc,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+.cursor/rules/global_rules.mdc,2025-04-16T18:05:44-03:00,2025-04-17T20:21:55-03:00,1.09
+.cursor/rules/lessons_learned.mdc,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+.cursor/rules/multi_agent_awareness.mdc,2025-04-10T10:14:38-03:00,2025-04-17T20:21:55-03:00,7.42
+.cursor/rules/pdd_standard.mdc,2025-04-16T18:05:44-03:00,2025-04-17T20:21:55-03:00,1.09
+.cursor/rules/python_coding_standards.mdc,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+.cursor/rules/python_documentation.mdc,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+.cursor/rules/python_logging.mdc,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+.cursor/rules/quantum_prompt_core.mdc,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+.cursor/rules/security_practices.mdc,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+.cursor/rules/smart_tips.mdc,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+.cursor/rules/sparc_orchestration.mdc,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+.cursor/rules/strategic_analysis_workflow.mdc,2025-04-16T18:05:44-03:00,2025-04-17T20:21:55-03:00,1.09
+.cursor/rules/subsystem_boundaries.mdc,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+.cursor/rules/testing_standards.mdc,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+.cursor/rules/website_standards.mdc,2025-04-09T11:13:36-03:00,2025-04-17T20:21:55-03:00,8.38
+.cursor/rules/workflow_quick_wins.mdc,2025-04-09T14:08:43-03:00,2025-04-17T20:21:55-03:00,8.26
+.cursor/settings.json,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/start_mcp.js,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/start_mcp_service.bat,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/start_openrouter_mcp.bat,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/start_openrouter_mcp_background.bat,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/startup.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/stop_mcp_service.bat,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/stop_openrouter_mcp.bat,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/test_free_models.bat,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/test_openrouter_client.bat,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/test_openrouter_direct.bat,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/test_openrouter_direct.js,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/test_openrouter_mcp_server.bat,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/test_openrouter_simple.bat,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/verify_mcp_connection.bat,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.cursor/verify_mcp_server.js,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.devcontainer/devcontainer.json,2025-04-09T11:15:31-03:00,2025-04-09T11:15:31-03:00,0.00
+.editorconfig,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.github/workflows/django.yml,2025-04-09T17:28:24-03:00,2025-04-09T17:28:24-03:00,0.00
+.github/workflows/gh-pages.yml,2025-04-09T17:30:23-03:00,2025-04-09T17:40:05-03:00,0.01
+.github/workflows/git_history_analysis.yml,2025-04-16T18:01:12-03:00,2025-04-16T18:01:12-03:00,0.00
+.github/workflows/lint.yml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.gitignore,2025-04-08T15:15:57-03:00,2025-04-17T09:06:42-03:00,8.74
+.pre-commit-config.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+.roomodes,2025-04-09T09:05:00-03:00,2025-04-09T09:05:00-03:00,0.00
+.streamlit/config.toml,2025-04-09T11:13:36-03:00,2025-04-09T11:13:36-03:00,0.00
+CHANGELOG.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+CODE_OF_CONDUCT.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+CONTRIBUTING.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+LICENSE,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+README.md,2025-04-08T15:15:57-03:00,2025-04-17T11:15:28-03:00,8.83
+ROADMAP.md,2025-04-08T15:15:57-03:00,2025-04-17T18:56:19-03:00,9.15
+STRATEGIC_THINKING/README.md,2025-04-16T18:41:53-03:00,2025-04-16T18:41:53-03:00,0.00
+STRATEGIC_THINKING/STRATEGY.md,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+STRATEGIC_THINKING/meta_prompts/strategic_analysis_prompt_v2.0.md,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+STRATEGIC_THINKING/products/chronicler/PROJECT_CHRONICLER_ROADMAP.md,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+STRATEGIC_THINKING/products/chronicler/PROJECT_CHRONICLER_VISION.md,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+STRATEGIC_THINKING/products/scribe/PROJECT_SCRIBE_ROADMAP.md,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+STRATEGIC_THINKING/products/scribe/PROJECT_SCRIBE_VISION.md,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+STRATEGIC_THINKING/protocols/egos_operational_rules.mdc,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+STRATEGIC_THINKING/protocols/multi_llm_research_protocol.mdc,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+STRATEGIC_THINKING/research/AI_AGENT_CAPABILITIES_2025.md,2025-04-08T15:15:57-03:00,2025-04-16T18:05:44-03:00,8.12
+STRATEGIC_THINKING/research/Analise site design.txt,2025-04-10T10:03:29-03:00,2025-04-16T18:05:44-03:00,6.33
+"""STRATEGIC_THINKING/research/An\303\241lise e Refinamento do Projeto EGOS_.txt""",,,
+STRATEGIC_THINKING/research/CONTENT_AGGREGATOR_DEEP_DIVE.md,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+"""STRATEGIC_THINKING/research/CodeGuide e Integra\303\247\303\243o no EGOS_.txt""",,,
+STRATEGIC_THINKING/research/Concorrentes gratuitos do CodeGuide_.txt,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+"""STRATEGIC_THINKING/research/Cria\303\247ao de site com IA.txt""",,,
+STRATEGIC_THINKING/research/EGOS CodeGuide PRD.txt,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+STRATEGIC_THINKING/research/EGOS design GROK.txt,2025-04-10T10:03:29-03:00,2025-04-16T18:05:44-03:00,6.33
+STRATEGIC_THINKING/research/EGOS design e ferramentas web.txt,2025-04-10T10:03:29-03:00,2025-04-16T18:05:44-03:00,6.33
+STRATEGIC_THINKING/research/EGOS_ Competindo com CodeGuide_.txt,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+STRATEGIC_THINKING/research/EGOS_Strategic_Analysis_Integration_Summary_Apr2025.md,2025-04-08T15:15:57-03:00,2025-04-16T18:05:44-03:00,8.12
+STRATEGIC_THINKING/research/Estudo CodeTime.txt,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+STRATEGIC_THINKING/research/Estudo de Tempo e Tokens_.txt,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+"""STRATEGIC_THINKING/research/Integra\303\247\303\243o Context7 e _egos_ aprimorada_.txt""",,,
+"""STRATEGIC_THINKING/research/Integra\303\247\303\243o LLM em IDEs_.txt""",,,
+"""STRATEGIC_THINKING/research/Integra\303\247\303\243o_ An\303\241lise e Estudo do Ego_.txt""",,,
+STRATEGIC_THINKING/research/MARKET_ANALYSIS.txt,2025-04-10T10:03:29-03:00,2025-04-16T18:05:44-03:00,6.33
+STRATEGIC_THINKING/research/TIPS_HESAMATION.txt,2025-04-10T10:03:29-03:00,2025-04-16T18:05:44-03:00,6.33
+STRATEGIC_THINKING/research/Vibe_Coding_Market_Analysis.md,2025-04-08T15:15:57-03:00,2025-04-16T18:05:44-03:00,8.12
+STRATEGIC_THINKING/research/Windsurf Prompt for EGOS Project_.txt,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+STRATEGIC_THINKING/research/roadmap_related/Analise Gopher-Egos,2025-04-08T15:15:57-03:00,2025-04-16T18:05:44-03:00,8.12
+STRATEGIC_THINKING/research/roadmap_related/Analysis of Opportunities for Project EVA GUARANI - EGOS within the Stellar Blockchain Ecosystem.txt,2025-04-08T15:15:57-03:00,2025-04-16T18:05:44-03:00,8.12
+"""STRATEGIC_THINKING/research/roadmap_related/An\303\241lise de Integra\303\247\303\243o de Ferramentas e Empresas com o Sistema EVA GUARANI - EGOS.txt""",,,
+STRATEGIC_THINKING/research/roadmap_related/Comparacao ferramentas data ia.txt,2025-04-08T15:15:57-03:00,2025-04-16T18:05:44-03:00,8.12
+STRATEGIC_THINKING/research/roadmap_related/EGOS - Gemini AI System Market Analysis.txt,2025-04-08T15:15:57-03:00,2025-04-16T18:05:44-03:00,8.12
+STRATEGIC_THINKING/research/roadmap_related/EGOS - Grok Presentation p2.txt,2025-04-08T15:15:57-03:00,2025-04-16T18:05:44-03:00,8.12
+STRATEGIC_THINKING/research/roadmap_related/EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt,2025-04-08T15:15:57-03:00,2025-04-16T18:05:44-03:00,8.12
+STRATEGIC_THINKING/research/roadmap_related/EGOS Ethical Marketing Strategy_.txt,2025-04-09T17:40:38-03:00,2025-04-16T18:05:44-03:00,7.02
+STRATEGIC_THINKING/research/roadmap_related/EGOS_ GitHub Project Search_.txt,2025-04-08T15:15:57-03:00,2025-04-16T18:05:44-03:00,8.12
+STRATEGIC_THINKING/research/roadmap_related/Estudo CrewAI.txt,2025-04-08T15:15:57-03:00,2025-04-16T18:05:44-03:00,8.12
+STRATEGIC_THINKING/research/roadmap_related/Estudo DATA com IA Gemini.txt,2025-04-08T15:15:57-03:00,2025-04-16T18:05:44-03:00,8.12
+STRATEGIC_THINKING/research/roadmap_related/Estudo EAAS ethics as a service Gemini.txt,2025-04-08T15:15:57-03:00,2025-04-16T18:05:44-03:00,8.12
+STRATEGIC_THINKING/research/roadmap_related/Estudo KOIOS.txt,2025-04-08T15:15:57-03:00,2025-04-16T18:05:44-03:00,8.12
+STRATEGIC_THINKING/research/roadmap_related/Estudo MCPs.txt,2025-04-08T15:15:57-03:00,2025-04-16T18:05:44-03:00,8.12
+STRATEGIC_THINKING/research/roadmap_related/Estudo Mycellium Gemini.txt,2025-04-08T15:15:57-03:00,2025-04-16T18:05:44-03:00,8.12
+STRATEGIC_THINKING/research/roadmap_related/Market Positioning Strategy for Eva Guarani Egos An Expert Analysis.txt,2025-04-08T15:15:57-03:00,2025-04-16T18:05:44-03:00,8.12
+STRATEGIC_THINKING/research/roadmap_related/Mercado de Prompts.txt,2025-04-08T15:15:57-03:00,2025-04-16T18:05:44-03:00,8.12
+STRATEGIC_THINKING/research/roadmap_related/Scraper com IA.txt,2025-04-08T15:15:57-03:00,2025-04-16T18:05:44-03:00,8.12
+"""STRATEGIC_THINKING/research/roadmap_related/Vibe Coding Avan\303\247o e Oportunidades.txt""",,,
+STRATEGIC_THINKING/research/roadmap_related/WebSite Enio Grok e Gemini.txt,2025-04-08T18:16:42-03:00,2025-04-16T18:05:44-03:00,7.99
+STRATEGIC_THINKING/research/roadmap_related/WebSite analise.txt,2025-04-09T19:59:53-03:00,2025-04-16T18:05:44-03:00,6.92
+STRATEGIC_THINKING/research/website_ux_analysis.md,2025-04-10T11:48:46-03:00,2025-04-16T18:05:44-03:00,6.26
+STRATEGIC_THINKING/strategy_archive/Competitive_Analysis.md,2025-04-08T15:15:57-03:00,2025-04-16T18:05:44-03:00,8.12
+STRATEGIC_THINKING/strategy_archive/Customer_Journey_Map.md,2025-04-10T10:14:38-03:00,2025-04-16T18:05:44-03:00,6.33
+STRATEGIC_THINKING/strategy_archive/EGOS_Business_Plan_v1.0.md,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+STRATEGIC_THINKING/strategy_archive/EGOS_PRESENTATION_GUIDE.md,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+STRATEGIC_THINKING/strategy_archive/MVP_Definition.md,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+STRATEGIC_THINKING/strategy_archive/Monetization_Model.md,2025-04-08T15:15:57-03:00,2025-04-16T18:05:44-03:00,8.12
+STRATEGIC_THINKING/strategy_archive/Target_Platform_Analysis.md,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+STRATEGIC_THINKING/technology_watch/web_scraping_strategies.md,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+analysis_results/egos_git_analysis.csv,2025-04-16T17:43:44-03:00,2025-04-16T17:43:44-03:00,0.00
+config/api_keys.example.json,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+docs/.nojekyll,2025-04-08T15:15:57-03:00,2025-04-09T18:19:26-03:00,1.13
+docs/GOVERNANCE.md,2025-04-10T10:03:29-03:00,2025-04-10T10:03:29-03:00,0.00
+docs/INTEGRATION_PLAN.md,2025-04-10T10:03:29-03:00,2025-04-10T10:03:29-03:00,0.00
+docs/README.md,2025-04-16T18:39:50-03:00,2025-04-17T20:21:55-03:00,1.07
+docs/ai_collaboration/MULTI_AGENT_WORKFLOW.md,2025-04-10T10:09:48-03:00,2025-04-10T10:38:25-03:00,0.02
+docs/core_materials/ARCHITECTURE.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/CRONOS_REFACTORING_EXAMPLE.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/EGOS_OVERVIEW.md,2025-04-17T20:21:55-03:00,2025-04-17T20:21:55-03:00,0.00
+docs/core_materials/GOVERNANCE.md,2025-04-16T18:05:44-03:00,2025-04-17T20:21:55-03:00,1.09
+docs/core_materials/INTEGRATION_PLAN.md,2025-04-10T10:14:38-03:00,2025-04-17T20:21:55-03:00,7.42
+docs/core_materials/KOIOS_Interaction_Standards.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/MCP_CREATION_GUIDE.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/MQP.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/MYCELIUM_INTEGRATION.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/PHILOSOPHY.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/README.md,2025-04-17T20:21:55-03:00,2025-04-17T20:21:55-03:00,0.00
+docs/core_materials/STANDARDS_SCRIPT_FEEDBACK.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/STRATEGY.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/WEBSITE_DESIGN.md,2025-04-09T11:13:36-03:00,2025-04-17T20:21:55-03:00,8.38
+docs/core_materials/ai_collaboration/MULTI_AGENT_WORKFLOW.md,2025-04-10T10:09:48-03:00,2025-04-17T20:21:55-03:00,7.43
+docs/core_materials/ai_integration/MULTI_MODEL_INSIGHTS.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/ai_integration/cursor_agent_mode.md,2025-04-08T17:20:54-03:00,2025-04-17T20:21:55-03:00,9.13
+docs/core_materials/archive/ROADMAPS/README.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/archive/ROADMAPS/active/20250330_slop_integration_roadmap.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/archive/ROADMAPS/active/20250330_task_dynamic_roadmap_implementation.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/archive/ROADMAPS/active/20250401_bios_q_unification_tracking.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/archive/ROADMAPS/active/20250401_system_unification_roadmap.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/archive/ROADMAPS/active/migration_plan_2025.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/archive/ROADMAPS/templates/task_roadmap_template.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/code_analysis/large_files_report.md,2025-04-08T18:16:42-03:00,2025-04-17T20:21:55-03:00,9.09
+docs/core_materials/code_history_analysis.md,2025-04-16T17:43:44-03:00,2025-04-17T20:21:55-03:00,1.11
+docs/core_materials/gitbash_commands.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/BACKUP quantico.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/BIOS-Q Cursor sistema EVA.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/BIOS-Q MCP.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/BOT ok melhorando.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/Backup system.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/Benchmark do Sistema EVA & GUARANI.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+"""docs/core_materials/historical_changelogs/Cursor X Web limita\303\247oes.txt""",,,
+docs/core_materials/historical_changelogs/Dinamicidade no sistema.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/EGOS 1.0.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/EGOS1.1 visao geral.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+"""docs/core_materials/historical_changelogs/EVA & GUARANI - Quantum Unified Master Prompt 2024 (Vers\303\243o 8.0).txt""",,,
+docs/core_materials/historical_changelogs/EVA 7.3.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/Filesystem SLOP.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/INstruicoes bot telegram.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+"""docs/core_materials/historical_changelogs/Instala\303\247ao EVA.txt""",,,
+docs/core_materials/historical_changelogs/Integration Codeguide Paella MQP.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+"""docs/core_materials/historical_changelogs/Integra\303\247ao Cursor e Eva.txt""",,,
+"""docs/core_materials/historical_changelogs/Integra\303\247ao Eliza.txt""",,,
+"""docs/core_materials/historical_changelogs/Integra\303\247ao sistema quantico com bot.txt""",,,
+docs/core_materials/historical_changelogs/Link simbolico fonte de verdade sistema.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/MATRIZ  quantica.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+"""docs/core_materials/historical_changelogs/MCP OK avan\303\247os e futuro.txt""",,,
+"""docs/core_materials/historical_changelogs/MCP grande avan\303\247o roadmap.txt""",,,
+docs/core_materials/historical_changelogs/MVP OK 7.0.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/Melhorias BOT telegram.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/Mycelium atualizado.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/NAO PARE Futuro Projeto importante.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/NEXUS elovuindo MUITO.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/NEXUS_MODULAR.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/OUTLINE cursor FODA.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/Overview projeto.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/PLANO DE NEGOCIO EVA (1).txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/PLANO DE NEGOCIO EVA (11).txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/PLANO DE NEGOCIO EVA (14).txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/PLANO DE NEGOCIO EVA (3).txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/PLANO DE NEGOCIO EVA SENNA.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/Panorama sistema TODO.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/Personas no bot.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+"""docs/core_materials/historical_changelogs/Plano reorganiza\303\247ao pastas.txt""",,,
+docs/core_materials/historical_changelogs/Prometheus Grafana.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/Prompt Quantico 7.0 EGOS.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/Prompt quantico 7 ingles.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/Prompt quantico 7.5.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/Prompts quanticos EGOS.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/Promtps quanticos v7.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/Quantum Prompt 5.0.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+"""docs/core_materials/historical_changelogs/Quantum Prompt Rules e inicializa\303\247ao.txt""",,,
+docs/core_materials/historical_changelogs/Quantum prompt 7.5 OK.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/Quantum prompt 8.0 BIOS-Q.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/Quantum unification.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/ROADMAP.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/RPG EVA.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+"""docs/core_materials/historical_changelogs/Relat\303\263rio de An\303\241lise e Prepara\303\247\303\243o para Implanta\303\247\303\243o em Ambiente Externo.txt""",,,
+"""docs/core_materials/historical_changelogs/Reorganiza\303\247ao do sistem EVA e Guarani.txt""",,,
+docs/core_materials/historical_changelogs/Roadmap Mycellium.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/SLOP integration proximos passos potencial.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/ULTIMA quase tudo revisado.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/Unification ETHIK.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/Unification system PRD.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/Updates system EVA.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/Visao geral inicialization.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/Voando alto indo p outros sistemas.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+"""docs/core_materials/historical_changelogs/Web application avan\303\247ando.txt""",,,
+"""docs/core_materials/historical_changelogs/apresenta\303\247ao e concorrentes.txt""",,,
+docs/core_materials/historical_changelogs/atualizacao bot unificado.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+"""docs/core_materials/historical_changelogs/atualiza\303\247\303\243o botava.txt""",,,
+docs/core_materials/historical_changelogs/ava7.0 novv.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/benchmark.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+"""docs/core_materials/historical_changelogs/eva 5 inicializa\303\247ao.txt""",,,
+docs/core_materials/historical_changelogs/eva atendimento inicio.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/grande atualizacao.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/muito longe.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+"""docs/core_materials/historical_changelogs/pr\303\263ximos passoATLAS.txt""",,,
+"""docs/core_materials/historical_changelogs/sistema valida\303\247ao etica RPG.txt""",,,
+docs/core_materials/historical_changelogs/tentando perplexity.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/viagem neural quantica.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/historical_changelogs/websearch atualizacao.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/i18n_conventions.md,2025-04-09T19:59:53-03:00,2025-04-17T20:21:55-03:00,8.02
+docs/core_materials/process/linter_error_resolution_log_20240814.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/process/linting_implementation_summary.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/process/linting_improvements_20240815.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/process/project_review_summary_20240726.md,2025-04-16T18:05:44-03:00,2025-04-17T20:21:55-03:00,1.09
+docs/core_materials/process/review_actions_summary_20240726.md,2025-04-16T18:05:44-03:00,2025-04-17T20:21:55-03:00,1.09
+docs/core_materials/process/validation/PROC-VALIDATE-01_roadmap_tasks_validation.md,2025-04-17T20:21:55-03:00,2025-04-17T20:21:55-03:00,0.00
+docs/core_materials/process/validation/PROC-VALIDATE-02_subsystem_structure_validation.md,2025-04-17T20:21:55-03:00,2025-04-17T20:21:55-03:00,0.00
+docs/core_materials/prompts/CURSOR_QUANTUM_PROMPT.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/prompts/CURSOR_SYSTEM_PROMPT.txt,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/prompts/coruja_zendesk_ticket_analysis_v1.pdd,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/prompts/pdd_website_generation_v3.md,2025-04-08T18:16:42-03:00,2025-04-17T20:21:55-03:00,9.09
+docs/core_materials/prompts/pdds/generate_python_docstring.yaml,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/prompts/strategic_analysis_prompt_v2.0.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/research/AI_AGENT_CAPABILITIES_2025.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/research/CONTENT_AGGREGATOR_DEEP_DIVE.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/standards/KOIOS_Interaction_Standards.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/standards/KOIOS_PDD_Standard.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/strategy/Competitive_Analysis.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/strategy/Customer_Journey_Map.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/strategy/EGOS_Business_Plan_v1.0.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/strategy/EGOS_PRESENTATION_GUIDE.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/strategy/MVP_Definition.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/strategy/Monetization_Model.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/strategy/Target_Platform_Analysis.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/tech_radar/web_scraping_strategies.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/templates/PDD_Template.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/templates/PDD_Template.yaml,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/core_materials/website/CONTENT_STRATEGY.md,2025-04-16T18:05:44-03:00,2025-04-17T20:21:55-03:00,1.09
+docs/core_materials/website/CURRENT_TASKS.md,2025-04-09T21:10:00-03:00,2025-04-17T20:21:55-03:00,7.97
+docs/core_materials/website/DESIGN_GUIDE.md,2025-04-09T21:07:23-03:00,2025-04-17T20:21:55-03:00,7.97
+docs/core_materials/website/DEVELOPMENT_PLAN.md,2025-04-09T21:07:23-03:00,2025-04-17T20:21:55-03:00,7.97
+docs/core_materials/website/USER_RESEARCH_PLAN.md,2025-04-10T10:03:29-03:00,2025-04-17T20:21:55-03:00,7.43
+docs/core_materials/website/WEBSITE_DESIGN.md,2025-04-10T10:03:29-03:00,2025-04-17T20:21:55-03:00,7.43
+docs/core_materials/windows_powershell_commands.md,2025-04-08T15:15:57-03:00,2025-04-17T20:21:55-03:00,9.21
+docs/css/_variables.css,2025-04-08T18:16:42-03:00,2025-04-09T18:04:28-03:00,0.99
+docs/css/base/_base.css,2025-04-08T18:16:42-03:00,2025-04-09T18:04:28-03:00,0.99
+docs/css/base/_reset.css,2025-04-08T18:16:42-03:00,2025-04-09T18:04:28-03:00,0.99
 docs/css/base/_typography.css,2025-04-09T11:13:36-03:00,2025-04-09T18:04:28-03:00,0.29
-... (truncated for brevity; full CSV should be restored from backup or script output)
+docs/css/base/_variables.css,2025-04-09T11:13:36-03:00,2025-04-10T10:03:29-03:00,0.95
+docs/css/components/_buttons.css,2025-04-08T18:16:42-03:00,2025-04-09T18:04:28-03:00,0.99
+docs/css/components/_cards.css,2025-04-08T18:16:42-03:00,2025-04-09T18:04:28-03:00,0.99
+docs/css/components/_icons.css,2025-04-08T18:16:42-03:00,2025-04-09T18:04:28-03:00,0.99
+docs/css/components/_navigation.css,2025-04-08T18:16:42-03:00,2025-04-09T18:29:21-03:00,1.01
+docs/css/layout/_footer.css,2025-04-08T18:16:42-03:00,2025-04-09T18:04:28-03:00,0.99
+docs/css/layout/_grid.css,2025-04-08T18:16:42-03:00,2025-04-09T18:04:28-03:00,0.99
+docs/css/layout/_header.css,2025-04-08T18:16:42-03:00,2025-04-09T18:04:28-03:00,0.99
+docs/css/layout/_sections.css,2025-04-08T18:16:42-03:00,2025-04-09T18:04:28-03:00,0.99
+docs/css/pages/_quantum_prompts.css,2025-04-08T18:16:42-03:00,2025-04-09T18:04:28-03:00,0.99
+docs/css/style.css,2025-04-08T15:15:57-03:00,2025-04-09T18:04:28-03:00,1.12
+docs/css/utils/_animations.css,2025-04-08T18:16:42-03:00,2025-04-09T18:04:28-03:00,0.99
+docs/images/favicon.ico,2025-04-08T15:15:57-03:00,2025-04-09T18:24:13-03:00,1.13
+docs/index.html,2025-04-08T15:15:57-03:00,2025-04-10T10:03:29-03:00,1.78
+docs/js/script.js,2025-04-08T15:15:57-03:00,2025-04-10T10:03:29-03:00,1.78
+docs/locales/en.json,2025-04-09T19:59:53-03:00,2025-04-09T19:59:53-03:00,0.00
+docs/locales/pt.json,2025-04-09T19:59:53-03:00,2025-04-09T19:59:53-03:00,0.00
+docs/process/auditing/PROC-AUDIT-01_python_json_script_audit_v1.mdc,2025-04-17T20:08:16-03:00,2025-04-17T20:08:16-03:00,0.00
+docs/templates/api_documentation_template.md,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+docs/templates/architecture_document_template.md,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+docs/templates/subsystem_readme_template.md,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+docs/troubleshooting/dotnet_build_debugging.md,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+docs/website/CURRENT_TASKS.md,2025-04-09T21:10:00-03:00,2025-04-10T11:12:37-03:00,0.59
+docs/website/DESIGN_GUIDE.md,2025-04-09T21:07:23-03:00,2025-04-10T10:03:29-03:00,0.54
+docs/website/DEVELOPMENT_PLAN.md,2025-04-09T21:07:23-03:00,2025-04-10T10:03:29-03:00,0.54
+docs/website/USER_RESEARCH_PLAN.md,2025-04-10T10:03:29-03:00,2025-04-10T10:03:29-03:00,0.00
+docs/website/WEBSITE_DESIGN.md,2025-04-10T10:03:29-03:00,2025-04-10T10:03:29-03:00,0.00
+egos_dashboard/README.md,2025-04-08T15:15:57-03:00,2025-04-09T11:17:10-03:00,0.83
+egos_dashboard/app.py,2025-04-08T15:15:57-03:00,2025-04-09T11:13:36-03:00,0.83
+egos_dashboard/requirements.txt,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+egos_dashboard/src/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+egos_dashboard/src/config.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+egos_dashboard/src/data_simulation.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+egos_dashboard/src/koios_logger.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+egos_dashboard/src/nats_client.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+egos_dashboard/src/nats_mock.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+egos_dashboard/src/theming.py,2025-04-08T15:15:57-03:00,2025-04-09T11:13:36-03:00,0.83
+egos_dashboard/src/translations.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+egos_dashboard/src/ui_components.py,2025-04-08T15:15:57-03:00,2025-04-09T11:17:10-03:00,0.83
+egos_file_metadata.csv,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+examples/crewai/content-marketing-ideas-template/crewAI-enterprise-content-marketing-ideas-template-main/.gitignore,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/content-marketing-ideas-template/crewAI-enterprise-content-marketing-ideas-template-main/README.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/content-marketing-ideas-template/crewAI-enterprise-content-marketing-ideas-template-main/pyproject.toml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/content-marketing-ideas-template/crewAI-enterprise-content-marketing-ideas-template-main/src/crewai_enterprise_content_marketing_ideas/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/content-marketing-ideas-template/crewAI-enterprise-content-marketing-ideas-template-main/src/crewai_enterprise_content_marketing_ideas/config/agents.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/content-marketing-ideas-template/crewAI-enterprise-content-marketing-ideas-template-main/src/crewai_enterprise_content_marketing_ideas/config/tasks.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/content-marketing-ideas-template/crewAI-enterprise-content-marketing-ideas-template-main/src/crewai_enterprise_content_marketing_ideas/crew.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/content-marketing-ideas-template/crewAI-enterprise-content-marketing-ideas-template-main/src/crewai_enterprise_content_marketing_ideas/main.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/content-marketing-ideas-template/crewAI-enterprise-content-marketing-ideas-template-main/src/crewai_enterprise_content_marketing_ideas/tools/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/content-marketing-ideas-template/crewAI-enterprise-content-marketing-ideas-template-main/src/crewai_enterprise_content_marketing_ideas/tools/custom_tool.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/contract-analysis-template/crewAI-enterprise-contract-analysis-template-main/.gitignore,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/contract-analysis-template/crewAI-enterprise-contract-analysis-template-main/README.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/contract-analysis-template/crewAI-enterprise-contract-analysis-template-main/pyproject.toml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/contract-analysis-template/crewAI-enterprise-contract-analysis-template-main/src/contract_analysis/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/contract-analysis-template/crewAI-enterprise-contract-analysis-template-main/src/contract_analysis/config/agents.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/contract-analysis-template/crewAI-enterprise-contract-analysis-template-main/src/contract_analysis/config/tasks.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/contract-analysis-template/crewAI-enterprise-contract-analysis-template-main/src/contract_analysis/crew.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/contract-analysis-template/crewAI-enterprise-contract-analysis-template-main/src/contract_analysis/main.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/contract-analysis-template/crewAI-enterprise-contract-analysis-template-main/src/contract_analysis/models.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/contract-analysis-template/crewAI-enterprise-contract-analysis-template-main/src/contract_analysis/services.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/contract-analysis-template/crewAI-enterprise-contract-analysis-template-main/src/contract_analysis/tools/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/contract-analysis-template/crewAI-enterprise-contract-analysis-template-main/src/contract_analysis/tools/qdrant_vector_search_tool.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/create-sales-offer-template/crewAI-enterprise-create-sales-offer-template-main/README.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/create-sales-offer-template/crewAI-enterprise-create-sales-offer-template-main/pyproject.toml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/create-sales-offer-template/crewAI-enterprise-create-sales-offer-template-main/src/sales_offer/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/create-sales-offer-template/crewAI-enterprise-create-sales-offer-template-main/src/sales_offer/config/agents.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/create-sales-offer-template/crewAI-enterprise-create-sales-offer-template-main/src/sales_offer/config/tasks.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/create-sales-offer-template/crewAI-enterprise-create-sales-offer-template-main/src/sales_offer/crew.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/create-sales-offer-template/crewAI-enterprise-create-sales-offer-template-main/src/sales_offer/main.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/create-sales-offer-template/crewAI-enterprise-create-sales-offer-template-main/src/sales_offer/tools/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/create-sales-offer-template/crewAI-enterprise-create-sales-offer-template-main/src/sales_offer/tools/custom_tool.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/fraud-detector-template/crewAI-enterprise-fraud-detector-template-main/.gitignore,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/fraud-detector-template/crewAI-enterprise-fraud-detector-template-main/README.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/fraud-detector-template/crewAI-enterprise-fraud-detector-template-main/pyproject.toml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/fraud-detector-template/crewAI-enterprise-fraud-detector-template-main/src/fraud_detector/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/fraud-detector-template/crewAI-enterprise-fraud-detector-template-main/src/fraud_detector/config/agents.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/fraud-detector-template/crewAI-enterprise-fraud-detector-template-main/src/fraud_detector/config/tasks.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/fraud-detector-template/crewAI-enterprise-fraud-detector-template-main/src/fraud_detector/crew.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/fraud-detector-template/crewAI-enterprise-fraud-detector-template-main/src/fraud_detector/main.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/fraud-detector-template/crewAI-enterprise-fraud-detector-template-main/src/fraud_detector/tools/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/fraud-detector-template/crewAI-enterprise-fraud-detector-template-main/src/fraud_detector/tools/custom_tool.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/job-change-monitor-template/crewAI-enterprise-job-change-monitor-template-main/.gitignore,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/job-change-monitor-template/crewAI-enterprise-job-change-monitor-template-main/README.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/job-change-monitor-template/crewAI-enterprise-job-change-monitor-template-main/pyproject.toml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/job-change-monitor-template/crewAI-enterprise-job-change-monitor-template-main/src/job_change_monitor/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/job-change-monitor-template/crewAI-enterprise-job-change-monitor-template-main/src/job_change_monitor/config/agents.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/job-change-monitor-template/crewAI-enterprise-job-change-monitor-template-main/src/job_change_monitor/config/tasks.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/job-change-monitor-template/crewAI-enterprise-job-change-monitor-template-main/src/job_change_monitor/crew.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/job-change-monitor-template/crewAI-enterprise-job-change-monitor-template-main/src/job_change_monitor/main.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/job-change-monitor-template/crewAI-enterprise-job-change-monitor-template-main/src/job_change_monitor/tools/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/job-change-monitor-template/crewAI-enterprise-job-change-monitor-template-main/src/job_change_monitor/tools/custom_tool.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/lead-scoring-template/crewAI-enterprise-lead-scoring-template-main/.gitignore,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/lead-scoring-template/crewAI-enterprise-lead-scoring-template-main/README.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/lead-scoring-template/crewAI-enterprise-lead-scoring-template-main/pyproject.toml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/lead-scoring-template/crewAI-enterprise-lead-scoring-template-main/src/crewai_plus_lead_scoring/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/lead-scoring-template/crewAI-enterprise-lead-scoring-template-main/src/crewai_plus_lead_scoring/config/agents.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/lead-scoring-template/crewAI-enterprise-lead-scoring-template-main/src/crewai_plus_lead_scoring/config/tasks.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/lead-scoring-template/crewAI-enterprise-lead-scoring-template-main/src/crewai_plus_lead_scoring/crew.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/lead-scoring-template/crewAI-enterprise-lead-scoring-template-main/src/crewai_plus_lead_scoring/main.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/lead-scoring-template/crewAI-enterprise-lead-scoring-template-main/src/crewai_plus_lead_scoring/tools/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/lead-scoring-template/crewAI-enterprise-lead-scoring-template-main/src/crewai_plus_lead_scoring/tools/custom_tool.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/personalized-email-template/crewAI-enterprise-personalized-email-template-main/.gitignore,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/personalized-email-template/crewAI-enterprise-personalized-email-template-main/README.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/personalized-email-template/crewAI-enterprise-personalized-email-template-main/pyproject.toml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/personalized-email-template/crewAI-enterprise-personalized-email-template-main/src/sales_personalized_email/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/personalized-email-template/crewAI-enterprise-personalized-email-template-main/src/sales_personalized_email/config/agents.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/personalized-email-template/crewAI-enterprise-personalized-email-template-main/src/sales_personalized_email/config/tasks.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/personalized-email-template/crewAI-enterprise-personalized-email-template-main/src/sales_personalized_email/crew.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/personalized-email-template/crewAI-enterprise-personalized-email-template-main/src/sales_personalized_email/main.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/personalized-email-template/crewAI-enterprise-personalized-email-template-main/src/sales_personalized_email/tools/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/personalized-email-template/crewAI-enterprise-personalized-email-template-main/src/sales_personalized_email/tools/custom_tool.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/prep-for-meeting-template/crewAI-enterprise-prep-for-meeting-template-main/.gitignore,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/prep-for-meeting-template/crewAI-enterprise-prep-for-meeting-template-main/README.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/prep-for-meeting-template/crewAI-enterprise-prep-for-meeting-template-main/pyproject.toml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/prep-for-meeting-template/crewAI-enterprise-prep-for-meeting-template-main/src/prep_for_meeting/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/prep-for-meeting-template/crewAI-enterprise-prep-for-meeting-template-main/src/prep_for_meeting/config/agents.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/prep-for-meeting-template/crewAI-enterprise-prep-for-meeting-template-main/src/prep_for_meeting/config/tasks.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/prep-for-meeting-template/crewAI-enterprise-prep-for-meeting-template-main/src/prep_for_meeting/crew.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/prep-for-meeting-template/crewAI-enterprise-prep-for-meeting-template-main/src/prep_for_meeting/main.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/prep-for-meeting-template/crewAI-enterprise-prep-for-meeting-template-main/src/prep_for_meeting/tools/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/prep-for-meeting-template/crewAI-enterprise-prep-for-meeting-template-main/src/prep_for_meeting/tools/custom_tool.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/sales-contact-finder-template/crewAI-enterprise-sales-contact-finder-template-main/README.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/sales-contact-finder-template/crewAI-enterprise-sales-contact-finder-template-main/pyproject.toml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/sales-contact-finder-template/crewAI-enterprise-sales-contact-finder-template-main/src/sales_contact_finder/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/sales-contact-finder-template/crewAI-enterprise-sales-contact-finder-template-main/src/sales_contact_finder/config/agents.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/sales-contact-finder-template/crewAI-enterprise-sales-contact-finder-template-main/src/sales_contact_finder/config/tasks.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/sales-contact-finder-template/crewAI-enterprise-sales-contact-finder-template-main/src/sales_contact_finder/crew.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/sales-contact-finder-template/crewAI-enterprise-sales-contact-finder-template-main/src/sales_contact_finder/main.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/sales-contact-finder-template/crewAI-enterprise-sales-contact-finder-template-main/src/sales_contact_finder/tools/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/sales-contact-finder-template/crewAI-enterprise-sales-contact-finder-template-main/src/sales_contact_finder/tools/custom_tool.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/sales-pdf-template/crewAI-enterprise-sales-pdf-template-main/README.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/sales-pdf-template/crewAI-enterprise-sales-pdf-template-main/pyproject.toml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/sales-pdf-template/crewAI-enterprise-sales-pdf-template-main/src/sales_pdf/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/sales-pdf-template/crewAI-enterprise-sales-pdf-template-main/src/sales_pdf/config/agents.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/sales-pdf-template/crewAI-enterprise-sales-pdf-template-main/src/sales_pdf/config/tasks.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/sales-pdf-template/crewAI-enterprise-sales-pdf-template-main/src/sales_pdf/crew.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/sales-pdf-template/crewAI-enterprise-sales-pdf-template-main/src/sales_pdf/main.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/sales-pdf-template/crewAI-enterprise-sales-pdf-template-main/src/sales_pdf/tools/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/sales-pdf-template/crewAI-enterprise-sales-pdf-template-main/src/sales_pdf/tools/custom_tool.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/similar-company-finder-template/crewAI-enterprise-similar-company-finder-template-main/.gitignore,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/similar-company-finder-template/crewAI-enterprise-similar-company-finder-template-main/README.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/similar-company-finder-template/crewAI-enterprise-similar-company-finder-template-main/pyproject.toml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/similar-company-finder-template/crewAI-enterprise-similar-company-finder-template-main/src/similar_company_finder_template/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/similar-company-finder-template/crewAI-enterprise-similar-company-finder-template-main/src/similar_company_finder_template/config/agents.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/similar-company-finder-template/crewAI-enterprise-similar-company-finder-template-main/src/similar_company_finder_template/config/tasks.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/similar-company-finder-template/crewAI-enterprise-similar-company-finder-template-main/src/similar_company_finder_template/crew.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/similar-company-finder-template/crewAI-enterprise-similar-company-finder-template-main/src/similar_company_finder_template/main.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/similar-company-finder-template/crewAI-enterprise-similar-company-finder-template-main/src/similar_company_finder_template/tools/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/similar-company-finder-template/crewAI-enterprise-similar-company-finder-template-main/src/similar_company_finder_template/tools/custom_tool.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/zendesk-categorize-and-sentiment-analysis-template/crewAI-enterprise-zendesk-categorize-and-sentiment-analysis-template-main/.gitignore,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/zendesk-categorize-and-sentiment-analysis-template/crewAI-enterprise-zendesk-categorize-and-sentiment-analysis-template-main/README.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/zendesk-categorize-and-sentiment-analysis-template/crewAI-enterprise-zendesk-categorize-and-sentiment-analysis-template-main/pyproject.toml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/zendesk-categorize-and-sentiment-analysis-template/crewAI-enterprise-zendesk-categorize-and-sentiment-analysis-template-main/src/zendesk_categorize_and_analyze/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/zendesk-categorize-and-sentiment-analysis-template/crewAI-enterprise-zendesk-categorize-and-sentiment-analysis-template-main/src/zendesk_categorize_and_analyze/config/agents.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/zendesk-categorize-and-sentiment-analysis-template/crewAI-enterprise-zendesk-categorize-and-sentiment-analysis-template-main/src/zendesk_categorize_and_analyze/config/tasks.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/zendesk-categorize-and-sentiment-analysis-template/crewAI-enterprise-zendesk-categorize-and-sentiment-analysis-template-main/src/zendesk_categorize_and_analyze/crew.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/zendesk-categorize-and-sentiment-analysis-template/crewAI-enterprise-zendesk-categorize-and-sentiment-analysis-template-main/src/zendesk_categorize_and_analyze/main.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/zendesk-categorize-and-sentiment-analysis-template/crewAI-enterprise-zendesk-categorize-and-sentiment-analysis-template-main/src/zendesk_categorize_and_analyze/tools/FetchZendeskTicket.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/zendesk-categorize-and-sentiment-analysis-template/crewAI-enterprise-zendesk-categorize-and-sentiment-analysis-template-main/src/zendesk_categorize_and_analyze/tools/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/zendesk-ticket-analysis-template/crewAI-enterprise-zendesk-ticket-analysis-template-main/.gitignore,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/zendesk-ticket-analysis-template/crewAI-enterprise-zendesk-ticket-analysis-template-main/README.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/zendesk-ticket-analysis-template/crewAI-enterprise-zendesk-ticket-analysis-template-main/pyproject.toml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/zendesk-ticket-analysis-template/crewAI-enterprise-zendesk-ticket-analysis-template-main/src/zendesk_ticket_analysis/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/zendesk-ticket-analysis-template/crewAI-enterprise-zendesk-ticket-analysis-template-main/src/zendesk_ticket_analysis/config/agents.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/zendesk-ticket-analysis-template/crewAI-enterprise-zendesk-ticket-analysis-template-main/src/zendesk_ticket_analysis/config/tasks.yaml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/zendesk-ticket-analysis-template/crewAI-enterprise-zendesk-ticket-analysis-template-main/src/zendesk_ticket_analysis/crew.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/zendesk-ticket-analysis-template/crewAI-enterprise-zendesk-ticket-analysis-template-main/src/zendesk_ticket_analysis/main.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/zendesk-ticket-analysis-template/crewAI-enterprise-zendesk-ticket-analysis-template-main/src/zendesk_ticket_analysis/tools/FetchZendeskTickets.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+examples/crewai/zendesk-ticket-analysis-template/crewAI-enterprise-zendesk-ticket-analysis-template-main/src/zendesk_ticket_analysis/tools/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+lovable/App.css,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/App.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/README.md,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/bun.lockb,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components.json,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/CallToAction.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/Footer.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/Header.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/Hero.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/Principles.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/Subsystems.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/svg/CodeBlocksSvg.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/svg/IconsSvg.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/svg/NetworkSvg.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/svg/WaveSvg.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/accordion.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/alert-dialog.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/alert.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/aspect-ratio.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/avatar.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/badge.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/breadcrumb.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/button.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/calendar.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/card.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/carousel.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/chart.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/checkbox.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/collapsible.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/command.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/context-menu.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/dialog.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/drawer.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/dropdown-menu.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/form.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/hover-card.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/input-otp.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/input.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/label.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/menubar.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/navigation-menu.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/pagination.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/popover.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/progress.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/radio-group.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/resizable.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/scroll-area.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/select.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/separator.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/sheet.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/sidebar.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/skeleton.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/slider.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/sonner.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/switch.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/table.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/tabs.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/textarea.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/toast.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/toaster.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/toggle-group.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/toggle.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/tooltip.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/components/ui/use-toast.ts,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/eslint.config.js,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/favicon.ico,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/gitignore.txt,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/hooks/use-mobile.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/hooks/use-toast.ts,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/index.css,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/index.html,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/main.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/package.json,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/pages/Index.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/pages/NotFound.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/placeholder.svg,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/postcss.config.js,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/robots.txt,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/App.css,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/App.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/CallToAction.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/Footer.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/Header.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/Hero.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/Principles.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/Subsystems.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/svg/CodeBlocksSvg.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/svg/IconsSvg.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/svg/NetworkSvg.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/svg/WaveSvg.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/accordion.tsx,2025-04-08T15:15:57-03:00,2025-04-17T09:06:42-03:00,8.74
+lovable/src/components/ui/accordion.tsx.crswap,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/alert-dialog.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/alert.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/aspect-ratio.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/avatar.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/badge.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/breadcrumb.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/button.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/calendar.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/card.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/carousel.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/chart.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/checkbox.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/collapsible.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/command.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/context-menu.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/dialog.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/drawer.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/dropdown-menu.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/form.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/hover-card.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/input-otp.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/input.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/label.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/menubar.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/navigation-menu.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/pagination.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/popover.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/progress.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/radio-group.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/resizable.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/scroll-area.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/select.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/separator.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/sheet.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/sidebar.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/skeleton.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/slider.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/sonner.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/switch.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/table.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/tabs.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/textarea.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/toast.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/toaster.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/toggle-group.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/toggle.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/tooltip.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/components/ui/use-toast.ts,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/hooks/use-mobile.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/hooks/use-toast.ts,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/index.css,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/main.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/pages/Index.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/pages/NotFound.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/src/vite-env.d.ts,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/tailwind.config.ts,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/tsconfig.app.json,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/tsconfig.json,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/tsconfig.node.json,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/vite-env.d.ts,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+lovable/vite.config.ts,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+public/favicon.ico,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+public/placeholder.svg,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+public/robots.txt,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+pyproject.toml,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+requirements.txt,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+research/Analise site design.txt,2025-04-10T10:03:29-03:00,2025-04-10T10:03:29-03:00,0.00
+"""research/An\303\241lise e Refinamento do Projeto EGOS_.txt""",,,
+"""research/Cria\303\247ao de site com IA.txt""",,,
+research/EGOS design GROK.txt,2025-04-10T10:03:29-03:00,2025-04-10T10:03:29-03:00,0.00
+research/EGOS design e ferramentas web.txt,2025-04-10T10:03:29-03:00,2025-04-10T10:03:29-03:00,0.00
+research/EGOS_Strategic_Analysis_Integration_Summary_Apr2025.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+research/MARKET_ANALYSIS.txt,2025-04-10T10:03:29-03:00,2025-04-10T10:03:29-03:00,0.00
+research/OK no roadmap/Analise Gopher-Egos,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+research/OK no roadmap/Analysis of Opportunities for Project EVA GUARANI - EGOS within the Stellar Blockchain Ecosystem.txt,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+"""research/OK no roadmap/An\303\241lise de Integra\303\247\303\243o de Ferramentas e Empresas com o Sistema EVA GUARANI - EGOS.txt""",,,
+research/OK no roadmap/Comparacao ferramentas data ia.txt,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+research/OK no roadmap/EGOS - Gemini AI System Market Analysis.txt,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+research/OK no roadmap/EGOS - Grok Presentation p2.txt,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+research/OK no roadmap/EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+research/OK no roadmap/EGOS Ethical Marketing Strategy_.txt,2025-04-09T17:40:38-03:00,2025-04-09T17:40:38-03:00,0.00
+research/OK no roadmap/EGOS_ GitHub Project Search_.txt,2025-04-08T15:15:57-03:00,2025-04-09T17:40:38-03:00,1.10
+research/OK no roadmap/Estudo CrewAI.txt,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+research/OK no roadmap/Estudo DATA com IA Gemini.txt,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+research/OK no roadmap/Estudo EAAS ethics as a service Gemini.txt,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+research/OK no roadmap/Estudo KOIOS.txt,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+research/OK no roadmap/Estudo MCPs.txt,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+research/OK no roadmap/Estudo Mycellium Gemini.txt,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+research/OK no roadmap/Market Positioning Strategy for Eva Guarani Egos An Expert Analysis.txt,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+research/OK no roadmap/Mercado de Prompts.txt,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+research/OK no roadmap/Scraper com IA.txt,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+"""research/OK no roadmap/Vibe Coding Avan\303\247o e Oportunidades.txt""",,,
+research/OK no roadmap/WebSite Enio Grok e Gemini.txt,2025-04-08T18:16:42-03:00,2025-04-09T17:40:38-03:00,0.97
+research/OK no roadmap/WebSite analise.txt,2025-04-09T19:59:53-03:00,2025-04-09T19:59:53-03:00,0.00
+research/README.md,2025-04-16T18:50:28-03:00,2025-04-16T18:50:28-03:00,0.00
+research/TIPS_HESAMATION.txt,2025-04-10T10:03:29-03:00,2025-04-10T10:03:29-03:00,0.00
+research/Vibe_Coding_Market_Analysis.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+research/website_ux_analysis.md,2025-04-10T11:48:46-03:00,2025-04-10T11:48:46-03:00,0.00
+robots.txt,2025-04-09T14:04:50-03:00,2025-04-09T14:04:50-03:00,0.00
+scripts/README.md,2025-04-16T18:54:52-03:00,2025-04-16T18:54:52-03:00,0.00
+scripts/analyze_git_history.py,2025-04-16T17:43:44-03:00,2025-04-17T20:08:16-03:00,1.10
+scripts/validation/validate_roadmap_tasks.py,2025-04-17T20:09:52-03:00,2025-04-17T20:09:52-03:00,0.00
+setup.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ATLAS/README.md,2025-04-08T15:15:57-03:00,2025-04-17T11:15:28-03:00,8.83
+subsystems/ATLAS/ROADMAP.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ATLAS/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ATLAS/config/atlas_config.json,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ATLAS/core/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ATLAS/core/atlas_core.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ATLAS/core/cartographer.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ATLAS/services/service.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ATLAS/tests/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ATLAS/tests/conftest.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ATLAS/tests/test_atlas_core.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ATLAS/tests/test_atlas_service.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ATLAS/tests/test_cartographer.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/README.md,2025-04-08T15:15:57-03:00,2025-04-17T11:15:28-03:00,8.83
+subsystems/CORUJA/ROADMAP.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/config/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/config/loader.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/CORUJA/core/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/core/agent_runtime.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/CORUJA/core/basic_orchestrator.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/core/communication_protocols.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/core/crew_manager.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/CORUJA/core/integration_standards.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/core/prompt_manager.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/core/sparc_registry.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/CORUJA/core/sparc_tasks.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/core/tool_registry.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/CORUJA/docs/ARCHITECTURE.md,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/CORUJA/docs/CORUJA_roadmap.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/docs/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/docs/human_ai_interaction_guidelines.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/handlers/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/handlers/zendesk_analyzer_handler.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/implementations/openai_interface.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/CORUJA/interfaces/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/interfaces/model_interface.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/interfaces/sparc_messages.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/models/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/models/gemini_interface.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/pdds/example_summarize_v1.json,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/prompts/pdds/coruja_zendesk_ticket_analysis_v1.pdd,2025-04-08T15:15:57-03:00,2025-04-16T18:05:44-03:00,8.12
+subsystems/CORUJA/prompts/pdds/generate_python_docstring.yaml,2025-04-08T15:15:57-03:00,2025-04-16T18:05:44-03:00,8.12
+subsystems/CORUJA/prompts/pdds/pdd_website_generation_v3.md,2025-04-08T18:16:42-03:00,2025-04-16T18:05:44-03:00,7.99
+subsystems/CORUJA/schemas/models.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/CORUJA/tests/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/tests/core/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/tests/core/test_basic_orchestrator.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/tests/core/test_prompt_manager.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/tests/models/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/tests/models/test_gemini_interface.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CORUJA/tests/models/test_simple_gemini.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CRONOS/README.md,2025-04-08T15:15:57-03:00,2025-04-17T11:15:28-03:00,8.83
+subsystems/CRONOS/ROADMAP.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CRONOS/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CRONOS/config/backup_config.json,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CRONOS/config/cronos_config.json,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CRONOS/core/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CRONOS/core/backup_manager.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CRONOS/core/pid_manager.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CRONOS/docs/cronos_improvement_recommendations.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CRONOS/docs/procedures.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CRONOS/service.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CRONOS/services/service.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CRONOS/tests/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CRONOS/tests/conftest.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/CRONOS/tests/core/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CRONOS/tests/core/test_service.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CRONOS/tests/test_backup_cleanup.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/CRONOS/tests/test_backup_creation.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/CRONOS/tests/test_backup_helpers.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/CRONOS/tests/test_backup_history.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/CRONOS/tests/test_backup_listing.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/CRONOS/tests/test_backup_manager.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/CRONOS/tests/test_backup_restore.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/ETHIK/README.md,2025-04-08T15:15:57-03:00,2025-04-17T11:15:28-03:00,8.83
+subsystems/ETHIK/ROADMAP.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ETHIK/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ETHIK/config/ethik_config.json,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ETHIK/config/sanitization_rules.json,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ETHIK/config/validation_rules.json,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ETHIK/core/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ETHIK/core/basic_ethik_checker.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ETHIK/core/dummy_ethik_checker.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ETHIK/core/rule_engine.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/ETHIK/core/rule_loader.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/ETHIK/core/sanitizer.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ETHIK/core/validator.py,2025-04-08T15:15:57-03:00,2025-04-08T18:16:42-03:00,0.13
+subsystems/ETHIK/docs/API.md,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/ETHIK/exceptions.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ETHIK/interfaces/ethik_checker_interface.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ETHIK/interfaces/rule_engine_interface.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/ETHIK/services/service.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ETHIK/tests/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ETHIK/tests/core/test_basic_ethik_checker.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ETHIK/tests/test_ETHIK-BACKUP-001_sistema_backup.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ETHIK/tests/test_ETHIK-VERIFY-001_verificacao_migracao.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ETHIK/tests/test_sanitizer_mycelium.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ETHIK/tests/test_service.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ETHIK/tests/test_validation_rules.json,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ETHIK/tests/test_validator.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ETHIK/tests/test_validator_alerts.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ETHIK/tests/test_validator_concurrent.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ETHIK/tests/test_validator_rules.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ETHIK/tests/test_validator_severity.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ETHIK/tests/unit/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/ETHIK/tests/unit/test_sanitizer.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/HARMONY/README.md,2025-04-17T11:15:28-03:00,2025-04-17T11:15:28-03:00,0.00
+subsystems/HARMONY/ROADMAP.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/HARMONY/core/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/HARMONY/core/module.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/HARMONY/tests/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/HARMONY/tests/test_module.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/KOIOS/README.md,2025-04-08T15:15:57-03:00,2025-04-17T11:15:28-03:00,8.83
+subsystems/KOIOS/ROADMAP.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/KOIOS/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/KOIOS/chronicler_module/README.md,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/KOIOS/chronicler_module/__init__.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/KOIOS/chronicler_module/analyzer.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/KOIOS/chronicler_module/chronicler_config.yaml,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/KOIOS/chronicler_module/chronicler_output/chronicler_module_Chronicler_Summary.html,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/KOIOS/chronicler_module/chronicler_output/chronicler_report_chronicler_module.html,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/KOIOS/chronicler_module/generator.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/KOIOS/chronicler_module/main.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/KOIOS/chronicler_module/renderer.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/KOIOS/chronicler_module/requirements.txt,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/KOIOS/chronicler_module/templates/basic_summary_template.html,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/KOIOS/core/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/KOIOS/core/logging.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/KOIOS/core/metadata_manager.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/KOIOS/docs/MDC_RULES_STANDARD.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/KOIOS/docs/STANDARDS.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/KOIOS/docs/code_evolution_process.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/KOIOS/docs/lint_error_resolution_processes.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/KOIOS/docs/subsystem_structure.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/KOIOS/docs/syntax_standardization.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/KOIOS/docs/troubleshooting_guide.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/KOIOS/schemas/pdd_schema.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/KOIOS/services/pdf_processing_service.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/KOIOS/services/semantic_search_service.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/KOIOS/templates/external_research_prompt_template.md,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/KOIOS/tests/test_filesystem_monitor.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/KOIOS/tests/test_koios_bios_001_validator_integration.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/KOIOS/tests/test_koios_ci_001_validator_integration.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/KOIOS/tests/test_koios_report_001_report_generator.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/KOIOS/tests/test_koios_validate_001_naming_standard.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/KOIOS/tests/test_logging.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/KOIOS/tests/test_metadata.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/KOIOS/tests/test_metadata_manager.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/KOIOS/tests/test_naming_validator.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/KOIOS/tools/file_size_analysis.md,2025-04-08T18:16:42-03:00,2025-04-08T18:16:42-03:00,0.00
+subsystems/KOIOS/tools/fix_lint_errors.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/KOIOS/tools/validate_subsystem_structure.py,2025-04-17T20:09:52-03:00,2025-04-17T20:09:52-03:00,0.00
+subsystems/KOIOS/validation/metadata_validator.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/KOIOS/validation/naming_validator.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/MASTER/ROADMAP.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/MASTER/core/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/MASTER/core/module.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/MASTER/docs/egos_unified_documentation.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/MASTER/tests/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/MASTER/tests/test_module.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/MYCELIUM/README.md,2025-04-08T15:15:57-03:00,2025-04-17T11:15:28-03:00,8.83
+subsystems/MYCELIUM/ROADMAP.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/MYCELIUM/core/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/MYCELIUM/core/implementations/nats_interface.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/MYCELIUM/core/interface.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/MYCELIUM/core/nats_interface.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/MYCELIUM/core/network.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/MYCELIUM/core/node.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/MYCELIUM/docs/protocol_design.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/MYCELIUM/docs/technology_evaluation.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/MYCELIUM/docs/topics_and_formats.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/MYCELIUM/interfaces/mycelium_interface.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/MYCELIUM/schemas/ethik_contracts.py,2025-04-16T18:05:44-03:00,2025-04-16T18:05:44-03:00,0.00
+subsystems/MYCELIUM/tests/core/test_interface.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/MYCELIUM/tests/core/test_network.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/NEXUS/README.md,2025-04-08T15:15:57-03:00,2025-04-17T11:15:28-03:00,8.83
+subsystems/NEXUS/ROADMAP.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/NEXUS/config/nexus_config.json,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/NEXUS/core/ast_visitor.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/NEXUS/core/nexus_core.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/NEXUS/services/service.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/NEXUS/tests/conftest.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/NEXUS/tests/test_analyzer.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/NEXUS/tests/test_nexus_core.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/NEXUS/tests/test_nexus_service.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/README.md,2025-04-16T18:40:40-03:00,2025-04-16T18:40:40-03:00,0.00
+subsystems/SYNC/README.md,2025-04-17T11:15:28-03:00,2025-04-17T11:15:28-03:00,0.00
+subsystems/SYNC/ROADMAP.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/SYNC/core/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/SYNC/core/module.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/SYNC/docs/roadmap_sync.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/SYNC/docs/roadmap_template.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/SYNC/docs/sync_definition.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/SYNC/tests/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/SYNC/tests/test_module.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/TRANSLATOR/ROADMAP.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/TRANSLATOR/core/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/TRANSLATOR/core/language/ai_translate_file.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/TRANSLATOR/core/language/translate_tools.bat,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/TRANSLATOR/core/language/translate_tools.ps1,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/TRANSLATOR/core/language/translation_log.txt,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/TRANSLATOR/core/language/translation_report.md,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/TRANSLATOR/core/module.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/TRANSLATOR/tests/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/TRANSLATOR/tests/test_module.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+subsystems/__init__.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+tests/subsystems/MYCELIUM/core/implementations/test_nats_interface.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+tools/README.md,2025-04-16T18:54:52-03:00,2025-04-16T18:54:52-03:00,0.00
+tools/add_metadata.bat,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+tools/fix_linting.py,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+tools/install_dependencies.bat,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+tools/lint_format_check.bat,2025-04-08T15:15:57-03:00,2025-04-08T15:15:57-03:00,0.00
+website/.gitignore,2025-04-16T19:02:19-03:00,2025-04-16T19:02:19-03:00,0.00
+website/README.md,2025-04-16T19:02:19-03:00,2025-04-16T19:02:19-03:00,0.00
+website/ROADMAP.md,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/components.json,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/components/svg/CodeBlocksSvg.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/components/svg/IconsSvg.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/components/svg/NetworkSvg.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/components/svg/WaveSvg.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/components/ui/accordion.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/components/ui/alert-dialog.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/components/ui/alert.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/components/ui/aspect-ratio.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/components/ui/avatar.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/components/ui/badge.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/components/ui/button.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/components/ui/calendar.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/eslint-report.json,2025-04-17T18:56:19-03:00,2025-04-17T18:56:19-03:00,0.00
+website/eslint.config.mjs,2025-04-16T19:02:19-03:00,2025-04-16T19:02:19-03:00,0.00
+website/i18n.ts,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/middleware.ts,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/next.config.js,2025-04-17T18:56:19-03:00,2025-04-17T18:56:19-03:00,0.00
+website/next.config.ts,2025-04-16T19:02:19-03:00,2025-04-16T19:02:19-03:00,0.00
+website/package.json,2025-04-16T19:02:19-03:00,2025-04-17T18:56:19-03:00,1.00
+website/postcss.config.js,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/postcss.config.mjs,2025-04-16T19:02:19-03:00,2025-04-16T19:02:19-03:00,0.00
+website/public/favicon.ico,2025-04-08T15:15:57-03:00,2025-04-17T09:06:42-03:00,8.74
+website/public/file.svg,2025-04-16T19:02:19-03:00,2025-04-16T19:02:19-03:00,0.00
+website/public/globe.svg,2025-04-16T19:02:19-03:00,2025-04-16T19:02:19-03:00,0.00
+website/public/next.svg,2025-04-16T19:02:19-03:00,2025-04-16T19:02:19-03:00,0.00
+website/public/vercel.svg,2025-04-16T19:02:19-03:00,2025-04-16T19:02:19-03:00,0.00
+website/public/window.svg,2025-04-16T19:02:19-03:00,2025-04-16T19:02:19-03:00,0.00
+website/src/app/[locale]/globals.css,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/src/app/[locale]/layout.tsx,2025-04-17T09:06:42-03:00,2025-04-17T18:56:19-03:00,0.41
+website/src/app/[locale]/page.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/src/app/dashboard/page.tsx,2025-04-17T11:15:28-03:00,2025-04-17T11:15:28-03:00,0.00
+website/src/app/en/globals.css,2025-04-17T09:06:42-03:00,2025-04-17T18:56:19-03:00,0.41
+website/src/app/en/layout - Copia.tsx,2025-04-17T18:56:19-03:00,2025-04-17T18:56:19-03:00,0.00
+website/src/app/en/layout.tsx,2025-04-17T18:56:19-03:00,2025-04-17T18:56:19-03:00,0.00
+website/src/app/en/page.tsx,2025-04-17T18:56:19-03:00,2025-04-17T18:56:19-03:00,0.00
+website/src/app/globals.css,2025-04-16T19:02:19-03:00,2025-04-17T11:15:28-03:00,0.68
+website/src/app/layout.tsx,2025-04-16T19:02:19-03:00,2025-04-17T09:06:42-03:00,0.59
+website/src/app/page.tsx,2025-04-16T19:02:19-03:00,2025-04-17T09:06:42-03:00,0.59
+website/src/app/pt/layout.tsx,2025-04-08T15:15:57-03:00,2025-04-17T18:56:19-03:00,9.15
+website/src/app/roadmap/page.tsx,2025-04-17T09:15:41-03:00,2025-04-17T09:15:41-03:00,0.00
+website/src/components/CallToAction.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/src/components/Footer.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/src/components/Header.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/src/components/Hero.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/src/components/Principles.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/src/components/QuantumPromptGenerator.tsx,2025-04-17T11:15:28-03:00,2025-04-17T18:56:19-03:00,0.32
+website/src/components/Roadmap.tsx,2025-04-17T09:06:42-03:00,2025-04-17T18:56:19-03:00,0.41
+website/src/components/Subsystems.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/src/components/content/PrincipleCard.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/src/components/content/RoadmapSection.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/src/components/content/SubsystemCard.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/src/components/content/TechStackSection.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/src/components/features/QuantumPromptGenerator.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/src/components/layout/Footer.tsx,2025-04-16T19:05:51-03:00,2025-04-17T11:15:28-03:00,0.67
+website/src/components/layout/Header.tsx,2025-04-16T19:05:51-03:00,2025-04-17T09:06:42-03:00,0.58
+website/src/components/svg/CodeBlocksSvg.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/src/components/svg/IconsSvg.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/src/components/svg/NetworkSvg.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/src/components/svg/WaveSvg.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/src/components/ui/button.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/src/components/ui/card.tsx,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/src/components/ui/readme.md,2025-04-16T19:05:51-03:00,2025-04-16T19:05:51-03:00,0.00
+website/src/data/roadmapData.ts,2025-04-17T09:42:03-03:00,2025-04-17T11:15:28-03:00,0.06
+website/src/locales/en/common.json,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/src/locales/pt/common.json,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/tailwind.config.js,2025-04-17T09:06:42-03:00,2025-04-17T09:06:42-03:00,0.00
+website/tailwind.config.ts,2025-04-16T19:04:55-03:00,2025-04-17T09:06:42-03:00,0.58
+website/tsconfig.json,2025-04-16T19:02:19-03:00,2025-04-16T19:02:19-03:00,0.00
