@@ -1,146 +1,85 @@
 'use client';
 
-import { Github, MessageCircle, BookOpen, Globe, Rocket, PanelRight, Heart } from 'lucide-react';
+import { Github, MessageCircle, BookOpen, Globe, Rocket, PanelRight, Heart, Lock, FileText, Languages } from 'lucide-react';
+import Link from 'next/link';
+import React from 'react';
 
+/**
+ * @metadata
+ * @description Footer component for the EGOS website. Redesigned using golden ratio principles.
+ * @koios_ref KOIOS-WEB-COMP-002
+ * @references 
+ * - `mdc:website/src/app/layout.tsx` (Usage in main layout)
+ * - `mdc:website/src/app/globals.css` (Styling variables)
+ */
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  const navLinks = [
+    { href: "/about", label: "About", icon: Heart },
+    { href: "/philosophy", label: "Philosophy", icon: BookOpen },
+    { href: "/roadmap", label: "Roadmap", icon: Rocket },
+    { href: "/contact", label: "Contact", icon: MessageCircle },
+  ];
+
+  const resourceLinks = [
+    { href: "/docs", label: "Docs", icon: FileText },
+    { href: "/privacy", label: "Privacy", icon: Lock },
+  ];
+
+  const socialLinks = [
+    { href: "https://github.com/enioxt/egos", label: "GitHub", icon: Github },
+  ];
+
+  const renderLinks = (links: { href: string; label: string; icon: React.ElementType }[]) => (
+    <ul className="space-y-2">
+      {links.map((link) => (
+        <li key={link.href}>
+          <Link href={link.href} className="flex items-center text-muted-foreground hover:text-foreground transition-colors duration-200">
+            <link.icon className="mr-2 h-4 w-4" />
+            {link.label}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
 
   return (
     <footer className="bg-footer-background border-t border-border py-12 mt-12">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          <div>
-            <h3 className="text-lg font-semibold mb-4">EGOS Project</h3>
-            <p className="text-sm text-muted-foreground mb-4">
-              Evolving Generative Operating System - An open-source framework for conscious AI development.
+          {/* Branding/About */}
+          <div className="space-y-4">
+            <Link href="/" className="inline-flex items-center text-2xl font-bold text-primary">
+              EGOS
+            </Link>
+            <p className="text-sm text-muted-foreground">
+              Exploring the frontiers of consciousness through open technology.
             </p>
           </div>
-          
+
+          {/* Navigation Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Community</h3>
-            <ul className="space-y-3">
-              <li>
-                <a 
-                  href="https://github.com/enioxt/egos"
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
-                >
-                  <Github className="h-4 w-4" />
-                  GitHub Repository
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://t.me/ethikin"
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
-                >
-                  <MessageCircle className="h-4 w-4" />
-                  Telegram Community
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://github.com/enioxt/egos/discussions"
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
-                >
-                  <PanelRight className="h-4 w-4" />
-                  GitHub Discussions
-                </a>
-              </li>
-            </ul>
+            <h3 className="text-lg font-semibold mb-4 text-foreground">Navigate</h3>
+            {renderLinks(navLinks)}
           </div>
-          
+
+          {/* Resource Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Resources</h3>
-            <ul className="space-y-3">
-              <li>
-                <a 
-                  href="https://github.com/enioxt/egos/wiki"
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
-                >
-                  <BookOpen className="h-4 w-4" />
-                  Documentation
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://github.com/enioxt/egos/blob/main/CONTRIBUTING.md"
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
-                >
-                  <Heart className="h-4 w-4" />
-                  Contribution Guide
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://github.com/enioxt/egos#roadmap"
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
-                >
-                  <Rocket className="h-4 w-4" />
-                  GitHub Roadmap
-                </a>
-              </li>
-            </ul>
+            <h3 className="text-lg font-semibold mb-4 text-foreground">Resources</h3>
+            {renderLinks(resourceLinks)}
           </div>
-          
+
+          {/* Social Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">ETHIK Tokens</h3>
-            <p className="text-sm text-muted-foreground mb-3">
-              Contribute and earn ETHIK tokens available on:
-            </p>
-            <ul className="space-y-3">
-              <li>
-                <a 
-                  href="https://solscan.io/token/DsLmsjwXschqEe5EnHFvv1oi5BNGoQin6VDN81Ufpump"
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
-                >
-                  <Globe className="h-4 w-4" />
-                  Solana
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://basescan.org/token/0x633b346b85c4877ace4d47f7aa72c2a092136cb5"
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
-                >
-                  <Globe className="h-4 w-4" />
-                  Base
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://hyperscan.xyz/token/0xEFC3c015E0CD02246e6b6CD5faA89e96a71Ec1E4"
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
-                >
-                  <Globe className="h-4 w-4" />
-                  Hyperliquid
-                </a>
-              </li>
-            </ul>
+            <h3 className="text-lg font-semibold mb-4 text-foreground">Connect</h3>
+            {renderLinks(socialLinks)}
           </div>
         </div>
-        
-        <div className="border-t border-border pt-8">
-          <p className="text-sm text-muted-foreground text-center">
-            {currentYear} EGOS Project. All rights reserved.
-          </p>
+
+        <div className="mt-8 border-t border-border pt-8 text-center text-sm text-muted-foreground">
+          <p>&copy; {currentYear} EGOS Project. All rights reserved.</p>
+          <p className="mt-1">An Enioxt initiative.</p>
         </div>
       </div>
     </footer>

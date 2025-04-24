@@ -1,3 +1,12 @@
+@references:
+- Core References:
+  - [MQP.md](mdc:../../MQP.md) - Master Quantum Prompt defining EGOS principles
+  - [ROADMAP.md](mdc:../../ROADMAP.md) - Project roadmap and planning
+- Other:
+  - [Master Quantum Prompt defining EGOS principles](mdc:../../MQP.md)
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
