@@ -7,7 +7,27 @@
 
 
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EGOS Website
+
+This is the official website for the EGOS (Ethical Governance Operating System) project, built with [Next.js](https://nextjs.org) and modern web technologies. The website serves as both documentation and demonstration of EGOS principles and subsystems.
+
+## Features
+
+### Key Features
+
+*   **Core Principles**: Detailed explanations of the 10 EGOS principles.
+*   **Modular Subsystems**: Overview of each EGOS subsystem (KOIOS, CRONOS, etc.).
+*   **Interactive Roadmap**: View project progress and upcoming features.
+*   **System Explorer Visualization**: (In Progress)
+    *   Renders a network graph of EGOS components using Sigma.js (`@react-sigma/core`).
+    *   Displays nodes representing files/modules and edges for cross-references.
+    *   Nodes are colored based on their primary subsystem, with a legend provided.
+    *   Features fixed node positions after layout, preventing movement on hover.
+    *   Supports zoom and pan for graph exploration.
+    *   Hovering over a node displays its label.
+    *   Current data source is a static sample (`public/visualizations/static/graph-data.json`).
+    *   **Known Issues**: Limited connection data displayed (due to sample data), minor visual flickering effect on hover.
+*   **Responsive Design**: Adapts to different screen sizes.
 
 ## Getting Started
 

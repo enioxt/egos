@@ -2,8 +2,8 @@
  * @file SystemGraph.tsx
  * @description React component for rendering the EGOS cross-reference network visualization using Sigma.js.
  * @module components/SystemGraph
- * @version 1.0.0
- * @date 2025-04-23
+ * @version 1.1.0
+ * @date 2025-04-24
  * @license MIT
  *
  * @references
@@ -13,251 +13,332 @@
  * - mdc:website/src/app/system/visualization/page.tsx (Potential Usage Context - TBC)
  */
 
-import React, { useEffect, useRef, useState } from 'react';
-// Use standard imports with type safety handled through dynamic loading
-import Sigma from 'sigma';
+import React, { useEffect, useState, FC, useRef, useMemo, memo } from 'react';
+// Import necessary components and hooks from @react-sigma/core
+import { 
+    SigmaContainer, 
+    ControlsContainer, 
+    ZoomControl, 
+    FullScreenControl, 
+    useLoadGraph, 
+    useRegisterEvents, 
+    useSigma 
+} from "@react-sigma/core";
+import "@react-sigma/core/lib/style.css"; // Import default styles
 import Graph from 'graphology';
-import ForceAtlas2 from 'graphology-layout-forceatlas2'; 
-// Import actual graph data
-import graphData from '@/data/graph-data';
-// Import filter options type
-import { FilterOptions } from './FilterControls';
-// Import graph data utilities
-import { applyFiltersToData } from '@/utils/graphDataUtils';
+import ForceAtlas2 from 'graphology-layout-forceatlas2';
+import { Attributes } from 'graphology-types';
+import { EnrichedGraphData, GraphNode, GraphEdge } from '@/utils/graphDataUtils';
 
-// Import CSS for Sigma if needed
-// import 'sigma/sigma.min.css';
+// --- Centralized Constants ---
+const SUBSYSTEM_COLOR_MAP: Record<string, string> = {
+  'KOIOS': '#4285F4', 'CRONOS': '#EA4335', 'ETHIK': '#34A853',
+  'CORUJA': '#FBBC05', 'ATLAS': '#9C27B0', 'NEXUS': '#FF9800',
+  'HARMONY': '#00BCD4', 'VIBE': '#795548', 'OTHER': '#9E9E9E'
+};
 
-interface SystemGraphProps {
-    /** Filter options to apply to the visualization */
-    filters?: FilterOptions;
+// --- Helper: Define colors --- 
+function getSubsystemColor(subsystem: string): string {
+  return SUBSYSTEM_COLOR_MAP[subsystem] || SUBSYSTEM_COLOR_MAP['OTHER'];
 }
 
-const SystemGraph: React.FC<SystemGraphProps> = ({ filters }) => {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const [graphInstance, setGraphInstance] = useState<Graph | null>(null);
-    const [sigmaInstance, setSigmaInstance] = useState<Sigma | null>(null);
-    const [isLoading, setIsLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string | null>(null);
+// --- Legend Component --- (Now Memoized)
+interface LegendProps {
+  position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+}
 
-    // Effect for initializing the graph and sigma renderer
+const Legend: FC<LegendProps> = memo(({ position }) => {
+  const positionClasses = {
+    'top-left': 'top-4 left-4',
+    'top-right': 'top-4 right-4',
+    'bottom-left': 'bottom-4 left-4',
+    'bottom-right': 'bottom-4 right-4',
+  };
+
+  return (
+    <div className={`absolute ${positionClasses[position]} bg-background/80 backdrop-blur-sm p-3 rounded-md shadow-md border border-border z-10`}>
+      <h3 className="text-sm font-medium mb-2">Subsystems</h3>
+      <div className="flex flex-col space-y-1">
+        {Object.entries(SUBSYSTEM_COLOR_MAP).map(([name, color]) => (
+          <div key={name} className="flex items-center">
+            <div className="w-3 h-3 rounded-full mr-2" style={{ backgroundColor: color }}></div>
+            <span className="text-xs">{name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+});
+// Add display name for better debugging
+Legend.displayName = 'Legend';
+
+// Define a more specific type for node display data modifications
+interface CustomNodeDisplayData extends Attributes {
+    highlighted?: boolean;
+    forceLabel?: boolean;
+    shadowSize?: number;
+    shadowColor?: string;
+}
+
+// --- Sub-component for Graph Logic & Events --- 
+interface GraphEventsProps {
+    data: EnrichedGraphData;
+    setHoveredNode: (node: string | null) => void;
+}
+
+const GraphEvents: FC<GraphEventsProps> = ({ data, setHoveredNode }) => {
+    const loadGraph = useLoadGraph();
+    const registerEvents = useRegisterEvents();
+    const sigma = useSigma();
+
+    // Memoize graph construction to avoid rebuilding unless data changes
+    const graph = useMemo(() => {
+        if (!data) return null;
+
+        console.log("[GraphEvents] Building graphology instance...");
+        const g = new Graph();
+
+        // Add nodes
+        data.nodes.forEach(node => {
+            if (node.id && node.type && node.path) {
+                const references = node.references || 0;
+                const referencedBy = node.referenced_by || 0;
+                const totalConnections = references + referencedBy;
+                const baseSize = 3 + Math.min(5, Math.log(totalConnections + 1));
+                
+                g.addNode(node.id, {
+                    ...node,
+                    x: Math.random() * 100, // Initial random position
+                    y: Math.random() * 100,
+                    size: baseSize,
+                    type: "circle", // Ensure type is set
+                    fileType: node.type,
+                    color: node.subsystem ? getSubsystemColor(node.subsystem) : '#888',
+                    label: node.label || node.id,
+                    originalSize: baseSize, // Store original size for hover effect
+                    borderColor: node.is_core ? '#000' : undefined,
+                    borderWidth: node.is_core ? 1 : 0
+                });
+            } else {
+                console.warn('[GraphEvents] Skipping node due to missing properties:', node);
+            }
+        });
+
+        // Add edges (using GraphEdge type)
+        data.edges.forEach((edge: GraphEdge, i: number) => {
+            const edgeId = edge.id || `edge-${i}`;
+            if (g.hasNode(edge.source) && g.hasNode(edge.target)) {
+                // Avoid adding duplicate edges
+                if (!g.hasEdge(edge.source, edge.target)) {
+                    g.addEdgeWithKey(edgeId, edge.source, edge.target, {
+                        color: '#555', 
+                        size: 1.5, 
+                        type: 'arrow', 
+                        weight: 1 
+                    });
+                } else {
+                   // console.warn(`[GraphEvents] Skipping duplicate edge: ${edgeId} (${edge.source} -> ${edge.target})`);
+                }
+            } else {
+                console.warn(`[GraphEvents] Skipping edge ${edgeId} due to missing node(s): ${edge.source} -> ${edge.target}`);
+            }
+        });
+
+        console.log(`[GraphEvents] Graphology instance created: ${g.order} nodes, ${g.size} edges`);
+        return g;
+
+    }, [data]); // Dependency: only rebuild if data changes
+
     useEffect(() => {
-        if (!containerRef.current) {
-            console.error("SystemGraph: Container reference not found.");
-            setError("Initialization failed: Container element missing.");
-            setIsLoading(false);
-            return;
+        if (!sigma || !graph) return;
+
+        console.log("[GraphEvents] Loading graph and running layout...");
+        
+        // Ensure camera is usable
+        sigma.getCamera().enable();
+        
+        // Load the graphology instance into Sigma
+        loadGraph(graph);
+
+        // Run layout only if graph has nodes
+        if (graph.order > 0) {
+            try {
+                console.log("[GraphEvents] Starting ForceAtlas2 layout...");
+                const settings = {
+                    barnesHutOptimize: graph.order > 500,
+                    strongGravityMode: true,
+                    gravity: 0.1,
+                    scalingRatio: 8,
+                    slowDown: 2 + Math.log(graph.order) / 8,
+                    startAlpha: 1,
+                    easing: 0.7,
+                    linLogMode: true,
+                    outboundAttractionDistribution: true,
+                    adjustSizes: true,
+                    edgeWeightInfluence: 1.5,
+                    preventOverlap: true
+                };
+                const iterations = Math.min(200, Math.max(50, Math.ceil(graph.order / 5)));
+                
+                // ForceAtlas2.assign is synchronous
+                ForceAtlas2.assign(graph, { iterations, settings });
+                console.log("[GraphEvents] ForceAtlas2 layout finished.");
+
+                // Fix node positions immediately after layout
+                graph.forEachNode((node) => {
+                    graph.setNodeAttribute(node, 'fixed', true);
+                });
+
+                // Freeze the graph state in Sigma AFTER layout and fixing
+                sigma.getGraph().setAttribute('frozen', true);
+                
+                // Refresh Sigma to apply changes
+                sigma.refresh();
+
+            } catch (err) {
+                console.error("[GraphEvents] Layout error:", err);
+            }
         }
 
-        let sigmaRenderer: Sigma | null = null;
-        let layout: any = null;
-
-        try {
-            console.log("SystemGraph: Initializing graph...");
-            // Import data from graphData
-            const graph = new Graph();
-            if (graphData && graphData.nodes && graphData.edges) {
-                // Create nodes and edges manually to avoid type issues
-                graphData.nodes.forEach((node: any) => {
-                    graph.addNode(node.id, {
-                        label: node.label,
-                        size: 5 + (node.referenced_by / 10),
-                        color: node.is_core ? '#ff4500' : '#1E88E5',
-                        x: Math.random(),
-                        y: Math.random(),
-                        // Use 'default' type for all nodes to avoid Sigma renderer errors
-                        type: 'default',
-                        // Keep original type as a custom property
-                        originalType: node.type,
-                        // Keep other properties
-                        ...node
-                    });
-                });
-                
-                graphData.edges.forEach((edge: any) => {
-                    if (graph.hasNode(edge.source) && graph.hasNode(edge.target)) {
-                        graph.addEdge(edge.source, edge.target, {
-                            size: 1,
-                            color: '#ccc'
-                        });
-                    }
-                });
-                console.log(`SystemGraph: Imported ${graph.order} nodes and ${graph.size} edges.`);
-            } else {
-                console.error("SystemGraph: graphData format is invalid or missing.", graphData);
-                setError("Failed to load graph data: Invalid format.");
-                setIsLoading(false);
-                return; // Exit useEffect if data is bad
-            }
-
-            setGraphInstance(graph);
-
-            console.log("SystemGraph: Initializing Sigma...");
-            sigmaRenderer = new Sigma(graph, containerRef.current, {
-                renderEdgeLabels: false, // Adjust settings as needed
-                labelRenderedSizeThreshold: 1,
-                labelFont: 'Inter, sans-serif',
-                allowInvalidContainer: true, // Consider if needed for dynamic containers
-                // Define default node type for all nodes
-                defaultNodeType: 'circle',
-                // Define node and edge reducers to customize appearance
-                nodeReducer: (node, data) => {
-                    // Return data with customizations based on node properties
-                    const fileType = data.originalType || data.type;
-                    // Color coding based on file type
-                    let color = data.color;
-                    
-                    // Adjust size based on references
-                    const size = 3 + Math.min(10, (data.referenced_by || 0) / 10);
-                    
-                    return {
-                        ...data,
-                        size,
-                        color,
-                        // Force the type to be a valid Sigma renderer type
-                        type: 'circle'
-                    };
-                }
-            });
-            setSigmaInstance(sigmaRenderer);
-
-            console.log("SystemGraph: Initializing ForceAtlas2 layout...");
-             if (typeof ForceAtlas2 === 'function') {
-                // Apply ForceAtlas2 layout with specified iterations
-                layout = ForceAtlas2(graph, 100); // Run for 100 iterations
-                
-                // Alternative approach if the above doesn't work:
-                // Try using the async version if available
-                try {
-                  const asyncFA2 = require('graphology-layout-forceatlas2/worker');
-                  if (asyncFA2 && typeof asyncFA2.default === 'function') {
-                    layout = asyncFA2.default(graph, {
-                      settings: {
-                        gravity: 1,
-                        scalingRatio: 10
-                      }
-                    });
-                  }
-                } catch (e) {
-                  console.log('Async ForceAtlas2 not available, using synchronous version');
-                }
-
-                // Optional: Configure layout parameters
-                // layout.assign({ settings: { barnesHutOptimize: true, gravity: 1 } });
-
-                console.log("SystemGraph: Starting layout...");
-                // Run layout - synchronous or asynchronous depending on implementation
-                // Use Web Workers for large graphs to avoid blocking the main thread
-                 if (layout.start) {
-                    layout.start(); // Handle potential async nature if needed
-                 } else if (typeof layout === 'function') {
-                     // Legacy or different structure support
-                     const positions = layout(); // Or however the layout is applied
-                     // Apply positions manually if needed: graph.updateNodeAttribute(...)
-                     console.log("SystemGraph: Layout function called.");
-                 } else {
-                     // Fallback or error if layout structure is unexpected
-                     console.warn("SystemGraph: ForceAtlas2Layout structure not recognized or start method missing. Applying random layout.");
-                     // applyRandomLayout(graph); // Implement or use a random layout function
-                 }
-
-            
-            } else {
-                console.error("SystemGraph: ForceAtlas2Layout is not available or not a constructor.");
-                setError("Layout algorithm failed to load.");
-                // applyRandomLayout(graph); // Fallback
-            }
-
-            setIsLoading(false);
-            console.log("SystemGraph: Initialization complete.");
-
-        } catch (err) {
-            console.error("SystemGraph: Error during initialization:", err);
-            setError(`Initialization failed: ${err instanceof Error ? err.message : String(err)}`);
-            setIsLoading(false);
-        }
+        // Register Sigma events
+        const events = registerEvents({
+            enterNode: (event) => setHoveredNode(event.node),
+            leaveNode: () => setHoveredNode(null),
+            // Add other events like clickNode if needed later
+        });
+        console.log("[GraphEvents] Event listeners registered.");
 
         // Cleanup function
         return () => {
-            console.log("SystemGraph: Cleaning up Sigma instance...");
-            if (layout && layout.stop) layout.stop(); // Stop layout if running
-            if (sigmaRenderer) sigmaRenderer.kill();
-            setSigmaInstance(null);
-            setGraphInstance(null);
-            if (containerRef.current) {
-                containerRef.current.innerHTML = ''; // Clear the container
+            console.log("[GraphEvents] Cleaning up graph events and potentially Sigma instance...");
+            if (events && typeof events.unbind === 'function') {
+                 events.unbind(); // Unbind specific listeners if method exists
             }
-            console.log("SystemGraph: Cleanup complete.");
+            // Note: `useSigma` hooks might handle deeper Sigma instance cleanup automatically
+            // If memory leaks persist, explicit sigma.kill() might be needed here.
+            setHoveredNode(null); // Reset hover state on unmount
         };
-    }, []); // Run effect only once on mount
+    }, [graph, loadGraph, registerEvents, sigma, setHoveredNode]); // Dependencies: Re-run if these change
+
+    return null; // This component manages effects, doesn't render UI
+};
+
+// --- Main SystemGraph Component --- 
+interface SystemGraphProps {
+    enrichedGraphData: EnrichedGraphData | null;
+    isLoading: boolean;
+    error: string | null;
+}
+
+const SystemGraph: FC<SystemGraphProps> = ({ enrichedGraphData, isLoading, error }) => {
+    const [hoveredNode, setHoveredNode] = useState<string | null>(null);
+
+    if (isLoading) return (
+        <div className="flex flex-col justify-center items-center h-full bg-background/50 dark:bg-gray-900/50 rounded-lg p-8">
+            <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4"></div>
+            <p className="text-lg font-medium text-foreground">Loading System Graph</p>
+            <p className="text-sm text-muted-foreground mt-2">Preparing visualization of EGOS interconnections...</p>
+        </div>
+    );
     
-    // Effect for applying filters when they change
-    useEffect(() => {
-        if (!graphInstance || !filters) return;
-        
-        console.log("SystemGraph: Applying filters...", filters);
-        
-        try {
-            // Apply filters to the graph
-            const { nodes: filteredNodes, edges: filteredEdges } = applyFiltersToData(filters);
-            
-            // Get all node IDs in the graph
-            const allNodeIds = graphInstance.nodes();
-            
-            // Create a set of filtered node IDs for quick lookup
-            const filteredNodeIds = new Set(filteredNodes.map((node: any) => node.id));
-            
-            // Update node visibility based on filters
-            allNodeIds.forEach((nodeId: string) => {
-                const isVisible = filteredNodeIds.has(nodeId);
-                
-                // Update node visibility
-                graphInstance.setNodeAttribute(nodeId, 'hidden', !isVisible);
-                
-                // If node is visible, ensure it has the correct attributes
-                if (isVisible) {
-                    const nodeData = filteredNodes.find((n: any) => n.id === nodeId);
-                    if (nodeData) {
-                        // Update node attributes if needed
-                        graphInstance.setNodeAttribute(nodeId, 'color', nodeData.is_core ? '#ff4500' : '#1E88E5');
-                        graphInstance.setNodeAttribute(nodeId, 'size', 5 + (nodeData.referenced_by / 10));
-                    }
-                }
-            });
-            
-            // Update edge visibility
-            graphInstance.edges().forEach((edgeId: string) => {
-                const edge = graphInstance.getEdgeAttributes(edgeId);
-                const sourceVisible = !graphInstance.getNodeAttribute(edge.source, 'hidden');
-                const targetVisible = !graphInstance.getNodeAttribute(edge.target, 'hidden');
-                
-                // Edge is visible only if both source and target nodes are visible
-                graphInstance.setEdgeAttribute(edgeId, 'hidden', !(sourceVisible && targetVisible));
-            });
-            
-            // Refresh the sigma renderer
-            if (sigmaInstance) {
-                sigmaInstance.refresh();
-            }
-            
-            console.log(`SystemGraph: Applied filters. Visible nodes: ${filteredNodes.length}, Visible edges: ${filteredEdges.length}`);
-        } catch (err) {
-            console.error("SystemGraph: Error applying filters:", err);
-            setError(`Filter application failed: ${err instanceof Error ? err.message : String(err)}`);
-        }
-    }, [filters, graphInstance, sigmaInstance]); // Re-run when filters or graph instance changes
-
-    // TODO: Implement data loading logic if graphData is not imported directly
-    // useEffect(() => {
-    //     // Fetch data or load from props
-    // }, [/* dependencies */]);
-
+    if (error) return (
+        <div className="flex flex-col justify-center items-center h-full bg-background/50 dark:bg-gray-900/50 rounded-lg p-8 border border-destructive/20">
+            <div className="w-12 h-12 rounded-full bg-destructive/10 flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-destructive" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </div>
+            <p className="text-lg font-medium text-foreground">Error Loading Graph</p>
+            <p className="text-sm text-destructive mt-2 text-center max-w-md">{error}</p>
+            <p className="text-xs text-muted-foreground mt-4">Please check the console for more details or try refreshing the page.</p>
+        </div>
+    );
+    
+    if (!enrichedGraphData || !enrichedGraphData.nodes.length) return (
+        <div className="flex flex-col justify-center items-center h-full bg-background/50 dark:bg-gray-900/50 rounded-lg p-8 border border-border">
+            <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </div>
+            <p className="text-lg font-medium text-foreground">No Graph Data Available</p>
+            <p className="text-sm text-muted-foreground mt-2 text-center">The system couldn't find any visualization data to display.</p>
+        </div>
+    );
 
     return (
-        <div style={{ position: 'relative', width: '100%', height: '600px', border: '1px solid #ccc' }}>
-            {isLoading && <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>Loading graph...</div>}
-            {error && <div style={{ position: 'absolute', top: '10px', left: '10px', color: 'red', backgroundColor: 'rgba(255, 200, 200, 0.8)', padding: '10px', borderRadius: '5px' }}>Error: {error}</div>}
-            <div ref={containerRef} style={{ width: '100%', height: '100%' }} />
+        <div className="relative w-full h-full">
+          <SigmaContainer 
+            style={{ height: '100%', width: '100%' }}
+            settings={{
+              allowInvalidContainer: true,
+              defaultNodeType: 'circle', // Ensure this matches a registered program or default
+              defaultEdgeType: 'arrow',
+              labelDensity: 0.07,
+              labelGridCellSize: 60,
+              labelRenderedSizeThreshold: 6,
+              labelFont: 'Roboto, sans-serif',
+              zIndex: true,
+              // Enable necessary features for good UX while preventing node movement
+              enableCamera: true, // Enable camera for zoom
+              renderLabels: true,
+              enableEdgeWheelEvents: true,
+              // Prevent layout from running during interaction
+              enableNodeHovering: true,
+              // Improve visual appearance with darker background and better contrast
+              renderEdgeLabels: true,
+              defaultEdgeColor: '#555',
+              edgeLabelSize: 12,
+              stagePadding: 30,
+              minEdgeSize: 1.5,
+              maxEdgeSize: 3,
+              edgeColor: 'default',
+              // Use a dark theme for better visibility
+              labelColor: {
+                color: '#333'
+              },
+              // Node hover effect (using refined types)
+              nodeReducer: (node, data): CustomNodeDisplayData => {
+                const newData: CustomNodeDisplayData = { ...data };
+                const originalSize = data.originalSize as number; // Access stored original size
+
+                // Reset to defaults first
+                newData.highlighted = false;
+                newData.size = originalSize;
+                newData.borderWidth = data.borderWidth as number || 0;
+                newData.borderColor = data.borderColor as string; // Keep original border if any
+                newData.color = data.color as string; // Keep original color
+                newData.shadowSize = undefined;
+                newData.shadowColor = undefined;
+                newData.forceLabel = false;
+                newData.label = data.label as string; // Default label
+
+                if (hoveredNode === node) {
+                  // Only force the label to show on the hovered node
+                  newData.label = data.label as string;
+                  newData.forceLabel = true;
+                } else if (hoveredNode !== null) {
+                  // Hide labels of non-hovered nodes when something else is hovered
+                  newData.label = '';
+                } else {
+                  // Default state: show labels based on Sigma's settings
+                  newData.label = data.label as string;
+                }
+                
+                return newData;
+              }
+            }}
+            className="w-full h-full rounded-lg bg-background dark:bg-gray-900"
+          >
+              <GraphEvents data={enrichedGraphData} setHoveredNode={setHoveredNode} />
+              <ControlsContainer position={"bottom-right"}>
+                  <ZoomControl />
+                  <FullScreenControl />
+              </ControlsContainer>
+          </SigmaContainer>
+          
+          {/* Use the memoized legend component */}
+          <Legend position="top-right" />
         </div>
     );
 };
