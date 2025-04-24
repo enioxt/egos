@@ -1,3 +1,10 @@
+// // @references:
+// - Core References:
+//   - [MQP.md](mdc:../../MQP.md) - Master Quantum Prompt defining EGOS principles
+//   - [ROADMAP.md](mdc:../../ROADMAP.md) - Project roadmap and planning
+
+
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],

@@ -143,7 +143,7 @@ class CronosService:
         self.running = False
 
         # Update the config with the determined root
-        self.config["system_root"] = "/c/Eva Guarani EGOS/"
+        self.config["system_root"] = "/c/EGOS/"
         self.logger.info(f"Updated system_root in config: {self.config['system_root']}")
 
     async def start(self):

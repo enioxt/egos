@@ -1,3 +1,10 @@
+
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[3])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 # subsystems/MYCELIUM/core/node.py
 
 """Defines the MyceliumNode class representing a component in the network."""
@@ -10,7 +17,9 @@ logger = logging.getLogger(__name__)
 
 
 class MyceliumNode:
-    """Represents a single node (subsystem or component) in the Mycelium Network."""
+            Methods:
+            None
+"""Represents a single node (subsystem or component) in the Mycelium Network."""
 
     def __init__(
         self, node_id: str, node_type: str, version: str = "N/A", capabilities: list = None

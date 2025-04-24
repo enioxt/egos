@@ -1,3 +1,13 @@
+
+
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[3])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+
 """Defines the abstract interface for ETHIK checking components."""
 
 from abc import ABC, abstractmethod
@@ -16,7 +26,9 @@ class EthikCheckerInterface(ABC):
 
     Defines the standard contract for checking input data and model responses
     against ethical guidelines defined in PDDs or system policies.
-    """
+        Methods:
+        None
+"""
 
     @abstractmethod
     def check_and_sanitize_input(

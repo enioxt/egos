@@ -324,6 +324,8 @@ Common issues and solutions:
 
 ## Contributing
 
+Contributions should focus on improving code analysis techniques, modularity metrics, and refactoring suggestions. Refer to the main [Human-AI Collaboration Best Practices](../../docs/process/human_ai_collaboration_guidelines.md) when working within this subsystem.
+
 1. Follow coding standards
 2. Add tests for new features
 3. Update documentation

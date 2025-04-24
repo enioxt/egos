@@ -1,6 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[3])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+
+
 """
 EVA & GUARANI - ATLAS Service
 =============================
@@ -25,10 +35,10 @@ from subsystems.KOIOS.core.logging import get_koios_logger
 from subsystems.MYCELIUM.core.interface import MyceliumInterface
 
 # Import core component
-from .core.atlas_core import ATLASCore
+from subsystems.ATLAS.services.core.atlas_core import ATLASCore
 
 # --- Import Cartographer --- #
-from .core.cartographer import AtlasCartographer
+from subsystems.ATLAS.services.core.cartographer import AtlasCartographer
 
 # -------------------------
 
@@ -42,7 +52,9 @@ from .core.cartographer import AtlasCartographer
 
 
 class AtlasService:
-    """Manages the ATLAS subsystem's operations, acting as the Mycelium gateway."""
+            Attributes:
+            None
+"""Manages the ATLAS subsystem's operations, acting as the Mycelium gateway."""
 
     def __init__(
         self, config: Dict[str, Any], mycelium_interface: MyceliumInterface, project_root: Path

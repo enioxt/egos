@@ -1,3 +1,12 @@
+
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[4])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+
 """Unit tests for the BasicEthikChecker."""
 
 import pytest
@@ -56,7 +65,9 @@ def mock_context() -> dict:
 
 
 class TestBasicEthikCheckerInput:
-    """Tests for the check_and_sanitize_input method."""
+            Methods:
+            None
+"""Tests for the check_and_sanitize_input method."""
 
     def test_input_no_guidelines(self, checker, mock_context):
         input_data = {"text": "Hello world"}

@@ -199,6 +199,6 @@ async def handle_sanitization_response(message):
 
 ## Contributing
 
-Please follow KOIOS standards. Contributions to the ethical rule sets require careful consideration and review.
+Contributions must strictly align with the defined ethical principles and validation processes. Refer to the main [Human-AI Collaboration Best Practices](../../docs/process/human_ai_collaboration_guidelines.md) when working within this subsystem.
 
 ✧༺❀༻∞ EVA & GUARANI ∞༺❀༻✧

@@ -1,4 +1,11 @@
 #!/usr/bin/env python
+
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[3])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 # -*- coding: utf-8 -*-
 
 """
@@ -62,7 +69,9 @@ class SanitizationResult:
 
 
 class EthikSanitizer:
-    """Automated ethical content sanitization system - Adapted for Mycelium"""
+            Attributes:
+            None
+"""Automated ethical content sanitization system - Adapted for Mycelium"""
 
     def __init__(
         self, config: Dict[str, Any], mycelium_interface: MyceliumInterface, logger: logging.Logger

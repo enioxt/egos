@@ -194,20 +194,6 @@ Common issues and solutions:
 
 ## Contributing
 
-When contributing to CRONOS:
-
-1. Follow coding standards
-2. Add tests for new features
-3. Update documentation
-4. Test backup/restore functionality
-5. Review error handling
-
-## Version History
-
-- v1.0.0 - Initial release
-- v1.1.0 - Added merge strategy
-- v1.2.0 - Enhanced error handling
-- v1.3.0 - Added backup metadata
-- v2.0.0 - Integrated with Mycelium
+Contributions should focus on improving state management, backup strategies, and context preservation mechanisms. Refer to the main [Human-AI Collaboration Best Practices](../../docs/process/human_ai_collaboration_guidelines.md) when working within this subsystem.
 
 ✧༺❀༻∞ EVA & GUARANI ∞༺❀༻✧

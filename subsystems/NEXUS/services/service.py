@@ -1,6 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[3])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+
+
 """
 EVA & GUARANI - NEXUS Service
 =============================
@@ -23,7 +33,7 @@ from subsystems.KOIOS.core.logging import get_koios_logger
 from subsystems.MYCELIUM.core.interface import MyceliumInterface
 
 # Import core component
-from .core.nexus_core import NEXUSCore
+from subsystems.NEXUS.services.core.nexus_core import NEXUSCore
 
 # Configure logging for the service - Use Koios Logger
 # logger = logging.getLogger("nexus_service")
@@ -35,7 +45,9 @@ from .core.nexus_core import NEXUSCore
 
 
 class NexusService:
-    """Manages the NEXUS subsystem's operations."""
+            Attributes:
+            None
+"""Manages the NEXUS subsystem's operations."""
 
     def __init__(
         self, config: Dict[str, Any], mycelium_interface: MyceliumInterface, project_root: Path

@@ -52,7 +52,7 @@ EGOS is composed of several key subsystems communicating via the **Mycelium Netw
 *   **`HARMONY`**: Cross-platform integration & compatibility layer.
 *   **`KOIOS`**: Standardization, logging, search, documentation & knowledge management.
 *   **`CORUJA`**: AI orchestration, prompt management & intelligent interaction.
-*   **`(Future) ETHICHAIN`**: Blockchain concepts for ethical tracking (Conceptual).
+*   *(Future) ETHICHAIN*: Blockchain concepts for ethical tracking (Conceptual).
 
 *Subsystem READMEs contain detailed information respective modules.*
 
@@ -135,7 +135,9 @@ See the [**ROADMAP.md**](ROADMAP.md) file for the high-level development plan, c
 
 ## 🤝 Contributing
 
-We welcome contributions! Please read our [**CONTRIBUTING.md**](CONTRIBUTING.md) guidelines to get started, including how to report issues, suggest features, and submit code changes.
+Contributions should focus on enhancing mapping capabilities and ensuring alignment with Systemic Cartography principles. Refer to the main [Human-AI Collaboration Best Practices](../../docs/process/human_ai_collaboration_guidelines.md) when working within this subsystem.
+
+✧༺❀༻∞ EVA & GUARANI ∞༺❀༻✧
 
 ---
 
@@ -158,5 +160,3 @@ This project is licensed under the MIT License - see the [**LICENSE**](LICENSE) 
 *   *(Add other relevant links: Discord, Forum, etc. if applicable)*
 
 ---
-
-✧༺❀༻∞ EVA & GUARANI ∞༺❀༻✧

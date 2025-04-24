@@ -1,6 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
+
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[3])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+
+
 """
 EVA & GUARANI - NEXUS Core Tests
 ===============================
@@ -78,11 +89,11 @@ class ClassA:
 
     # src/module_b.py
     module_b_content = """
-from .module_a import ClassA, func_a # Relative import
+from subsystems.NEXUS.tests.module_a import ClassA, func_a # Relative import
 import datetime as dt # External/Stdlib import
 from pathlib import Path # External/Stdlib import
 import non_existent_module # Unresolved import
-from .. import outside_src # Unresolved relative import (goes outside src)
+from subsystems import outside_src # Unresolved relative import (goes outside src)
 
 class B(ClassA):
     def run(self) -> None:
@@ -95,7 +106,7 @@ class B(ClassA):
     test_a_content = """
 from src.module_a import func_a # Internal absolute import (using src prefix)
 import pytest # External import
-from . import utils # Unresolved relative import (no tests/utils.py)
+from subsystems.NEXUS import utils # Unresolved relative import (no tests/utils.py)
 
 def test_func_a():
     pass
@@ -198,7 +209,7 @@ def test_analyze_dependencies_categorization(nexus: NEXUSCore, project_root: Pat
     # --- Check module_b.py imports ---
     deps_b = dependencies[module_b_rel]
     assert len(deps_b["internal_imports"]) == 1
-    assert any("from .module_a import ClassA, func_a" in imp for imp in deps_b["internal_imports"])
+    assert any("from subsystems.NEXUS.tests.module_a import ClassA, func_a" in imp for imp in deps_b["internal_imports"])
     assert len(deps_b["external_imports"]) == 2
     assert any("import datetime as dt" in imp for imp in deps_b["external_imports"])
     assert any("from pathlib import Path" in imp for imp in deps_b["external_imports"])

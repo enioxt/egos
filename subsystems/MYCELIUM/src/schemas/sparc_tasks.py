@@ -1,3 +1,13 @@
+
+
+# EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
+import sys
+from pathlib import Path
+project_root = str(Path(__file__).resolve().parents[4])
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+
 """
 Pydantic schemas for SPARC task messages exchanged over the Mycelium network.
 """
@@ -19,7 +29,9 @@ class SparcStage(str, Enum):
     - ACTION: Performing the core work or intervention.
     - REFLECT: Evaluating the action's outcome, comparing against goals.
     - CONSOLIDATE: Summarizing findings, preparing outputs, cleaning up.
-    """
+        Attributes:
+        None
+"""
     SETUP = "SETUP"
     PERCEIVE = "PERCEIVE"
     ACTION = "ACTION"
@@ -31,7 +43,9 @@ class TaskStatus(str, Enum):
     """Enumeration of possible task statuses.
 
     Represents the lifecycle state of a SPARC task or one of its stages.
-    """
+        Attributes:
+        None
+"""
     PENDING = "PENDING"  # Task is queued but not yet started
     IN_PROGRESS = "IN_PROGRESS"  # Task or stage is actively being processed
     COMPLETED = "COMPLETED"  # Task or stage finished successfully

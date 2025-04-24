@@ -97,11 +97,14 @@ Mycelium promotes standardized communication through Pydantic schemas. Key schem
     *   Defines the structure for messages related to SPARC task execution, including requests, stage updates, and final results.
     *   Models include `BaseSparcMessage`, `SparcTaskRequest`, `SparcTaskResult`, `SparcStageUpdate`, along with enums `SparcStage` and `TaskStatus`.
     *   Ensures consistent data exchange between subsystems involved in task orchestration (e.g., CORUJA, ATLAS).
+    *   **Test Coverage:**
+        *   Unit tests implemented in `tests/mycelium/schemas/test_sparc_tasks.py` (pytest).
+        *   As of 2025-04-17, schema coverage is 80% (see coverage report). All schema tests pass.
 
 *(More schemas will be added as the system evolves.)*
 
 ## Contributing
 
-Refer to the main EGOS contribution guidelines.
+Contributions should focus on enhancing message schemas, client libraries, and ensuring reliable event propagation. Refer to the main [Human-AI Collaboration Best Practices](../../docs/process/human_ai_collaboration_guidelines.md) when working within this subsystem.
 
 ✧༺❀༻∞ EVA & GUARANI ∞༺❀༻✧
