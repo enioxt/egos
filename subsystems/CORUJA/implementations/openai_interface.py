@@ -1,6 +1,4 @@
-"""
-Concrete implementation of the ModelInterface for interacting with OpenAI models.
-"""
+"""Concrete implementation of the ModelInterface for interacting with OpenAI models."""
 from typing import Dict, Any, Optional
 import openai # Import the OpenAI library (ensure it's in requirements.txt)
 import asyncio
@@ -15,9 +13,7 @@ logger = KoiosLogger.get_logger("CORUJA.OpenAIInterface")
 # client = openai.AsyncOpenAI(api_key=os.environ.get("OPENAI_API_KEY")) # Example initialization
 
 class OpenAIModelInterface(ModelInterface):
-    """
-    Implementation of ModelInterface for OpenAI's API (GPT models).
-    """
+    """Implementation of ModelInterface for OpenAI's API (GPT models)."""
 
     def __init__(self, config_loader: Any, provider_config: Dict[str, Any]):
         """

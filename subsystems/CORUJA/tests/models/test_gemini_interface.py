@@ -1,7 +1,5 @@
 # subsystems/CORUJA/tests/models/test_gemini_interface.py
-"""
-Unit tests for the GeminiModelInterface.
-"""
+"""Unit tests for the GeminiModelInterface."""
 
 import asyncio
 import os

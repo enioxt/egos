@@ -21,9 +21,7 @@ def run():
 
 
 def train():
-    """
-    Train the crew for a given number of iterations.
-    """
+    """Train the crew for a given number of iterations."""
     try:
         SupportTicketCrew().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2])
     except Exception as e:
@@ -31,9 +29,7 @@ def train():
 
 
 def replay():
-    """
-    Replay the crew execution from a specific task.
-    """
+    """Replay the crew execution from a specific task."""
     try:
         SupportTicketCrew().crew().replay(task_id=sys.argv[1])
     except Exception as e:
@@ -41,9 +37,7 @@ def replay():
 
 
 def test():
-    """
-    Test the crew execution and return the results.
-    """
+    """Test the crew execution and return the results."""
     try:
         SupportTicketCrew().crew().test(
             n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2]

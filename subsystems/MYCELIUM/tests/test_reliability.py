@@ -15,17 +15,13 @@ Test suite for Mycelium message reliability and schema compliance.
 from subsystems.MYCELIUM.validation.sparc_schema import validate_sparc_schema
 
 def test_message_delivery():
-    """
-    Test that messages are delivered successfully (stub).
-    """
+    """Test that messages are delivered successfully (stub)."""
     # Simulate successful delivery
     delivered = True
     assert delivered
 
 def test_message_retry_on_failure():
-    """
-    Test that message retry logic triggers on failure (stub).
-    """
+    """Test that message retry logic triggers on failure (stub)."""
     # Simulate failure and retry
     attempts = 0
     delivered = False
@@ -37,8 +33,6 @@ def test_message_retry_on_failure():
     assert delivered and attempts == max_retries
 
 def test_schema_compliance():
-    """
-    Test that messages conform to SPARC schema (stub).
-    """
+    """Test that messages conform to SPARC schema (stub)."""
     message = {"task_type": "sparc_analyze", "description": "Analyze code", "data": "print('hello')"}
     assert validate_sparc_schema(message)

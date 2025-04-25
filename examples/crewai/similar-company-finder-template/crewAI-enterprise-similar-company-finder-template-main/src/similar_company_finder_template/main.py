@@ -10,9 +10,7 @@ from similar_company_finder_template.crew import SimilarCompanyFinderTemplateCre
 
 
 def run():
-    """
-    Run the crew.
-    """
+    """Run the crew."""
     inputs = {
         "target_company": "<Placeholder Company>",
         "our_product": "<Placeholder Product>",
@@ -22,9 +20,7 @@ def run():
 
 
 def train():
-    """
-    Train the crew for a given number of iterations.
-    """
+    """Train the crew for a given number of iterations."""
     inputs = {"topic": "AI LLMs"}
     try:
         SimilarCompanyFinderTemplateCrew().crew().train(
@@ -36,9 +32,7 @@ def train():
 
 
 def replay():
-    """
-    Replay the crew execution from a specific task.
-    """
+    """Replay the crew execution from a specific task."""
     try:
         SimilarCompanyFinderTemplateCrew().crew().replay(task_id=sys.argv[1])
 
@@ -47,9 +41,7 @@ def replay():
 
 
 def test():
-    """
-    Test the crew execution and returns the results.
-    """
+    """Test the crew execution and returns the results."""
     inputs = {"topic": "AI LLMs"}
     try:
         SimilarCompanyFinderTemplateCrew().crew().test(

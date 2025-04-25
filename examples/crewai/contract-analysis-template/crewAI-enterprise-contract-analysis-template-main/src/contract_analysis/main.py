@@ -7,9 +7,7 @@ from contract_analysis.crew import (
 
 
 def run():
-    """
-    Run the crew.
-    """
+    """Run the crew."""
     inputs = {
         "query": """
             What are the differences in how contracts
@@ -20,9 +18,7 @@ def run():
 
 
 def train():
-    """
-    Train the crew for a given number of iterations.
-    """
+    """Train the crew for a given number of iterations."""
     inputs = {
         "database_credentials": "sample_value",
         "database_type": "sample_value",
@@ -38,9 +34,7 @@ def train():
 
 
 def replay():
-    """
-    Replay the crew execution from a specific task.
-    """
+    """Replay the crew execution from a specific task."""
     try:
         AnalyzingContractClausesForConflictsAndSimilaritiesCrew().crew().replay(task_id=sys.argv[1])
 
@@ -49,9 +43,7 @@ def replay():
 
 
 def test():
-    """
-    Test the crew execution and returns the results.
-    """
+    """Test the crew execution and returns the results."""
     inputs = {
         "database_credentials": "sample_value",
         "database_type": "sample_value",

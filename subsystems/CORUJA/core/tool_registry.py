@@ -1,6 +1,4 @@
-"""
-Manages the registration and execution of tools available to CORUJA agents.
-"""
+"""Manages the registration and execution of tools available to CORUJA agents."""
 # Standard library imports
 import importlib
 import inspect

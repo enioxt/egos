@@ -12,9 +12,7 @@ from sales_pdf.crew import SalesPdfCrew
 
 
 def run():
-    """
-    Run the crew.
-    """
+    """Run the crew."""
     inputs = {
         "company_info": {
             "name": "COMPANY_NAME",
@@ -38,9 +36,7 @@ def run():
 
 
 def train():
-    """
-    Train the crew for a given number of iterations.
-    """
+    """Train the crew for a given number of iterations."""
     inputs = {"topic": "AI LLMs"}
     try:
         SalesPdfCrew().crew().train(
@@ -52,9 +48,7 @@ def train():
 
 
 def replay():
-    """
-    Replay the crew execution from a specific task.
-    """
+    """Replay the crew execution from a specific task."""
     try:
         SalesPdfCrew().crew().replay(task_id=sys.argv[1])
 
@@ -63,9 +57,7 @@ def replay():
 
 
 def test():
-    """
-    Test the crew execution and returns the results.
-    """
+    """Test the crew execution and returns the results."""
     inputs = {"topic": "AI LLMs"}
     try:
         SalesPdfCrew().crew().test(

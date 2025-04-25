@@ -5,9 +5,7 @@ from zendesk_ticket_analysis.crew import ZendeskTicketAnalysisCrew
 
 
 def run():
-    """
-    Run the crew to fetch Zendesk tickets and generate a summary.
-    """
+    """Run the crew to fetch Zendesk tickets and generate a summary."""
     inputs = {
         "user_query": "How many tickets come from July 2024 and how many come from August 2024?",
     }
@@ -21,9 +19,7 @@ def run():
 
 
 def train():
-    """
-    Train the crew for a given number of iterations.
-    """
+    """Train the crew for a given number of iterations."""
     try:
         ZendeskTicketAnalysisCrew().crew().train(
             n_iterations=int(sys.argv[1]), filename=sys.argv[2]
@@ -33,9 +29,7 @@ def train():
 
 
 def replay():
-    """
-    Replay the crew execution from a specific task.
-    """
+    """Replay the crew execution from a specific task."""
     try:
         ZendeskTicketAnalysisCrew().crew().replay(task_id=sys.argv[1])
     except Exception as e:
@@ -43,9 +37,7 @@ def replay():
 
 
 def test():
-    """
-    Test the crew execution and return the results.
-    """
+    """Test the crew execution and return the results."""
     try:
         ZendeskTicketAnalysisCrew().crew().test(
             n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2]
