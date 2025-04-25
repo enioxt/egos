@@ -44,7 +44,7 @@ def setup_logging(log_level=logging.INFO, output_dir=None):
             log_dir = Path(output_dir).resolve()
             log_dir.mkdir(parents=True, exist_ok=True) # Ensure directory exists
             log_file_path = log_dir / "chronicler.log"
-            
+
             file_handler = logging.FileHandler(log_file_path, mode='w', encoding='utf-8') # 'w' to overwrite log each run
             file_handler.setFormatter(log_formatter)
             root_logger.addHandler(file_handler)

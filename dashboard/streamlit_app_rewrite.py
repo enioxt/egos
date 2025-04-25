@@ -164,7 +164,7 @@ async def manage_nats_connection(client, live_data_flag):
             st.session_state.nats_connected = False
             st.session_state.nats_subscribed = False
             needs_rerun = True # Rerun to show disconnected state
-            
+
     elif not live_data_flag and client.is_connected:
         logger.info("Disconnecting from NATS...")
         await client.close()
@@ -172,7 +172,7 @@ async def manage_nats_connection(client, live_data_flag):
         st.session_state.nats_connected = False
         st.session_state.nats_subscribed = False
         needs_rerun = True
-        
+
     if needs_rerun:
         st.rerun()
 
@@ -181,28 +181,28 @@ def display_sidebar(client):
     """Display the sidebar content."""
     st.sidebar.title("EGOS Dashboard")
     st.sidebar.markdown("--- *System Status* ---")
-    
+
     # Live Data Toggle
     live_data = st.sidebar.checkbox("Use Live Data", value=st.session_state.live_data_active, key="live_data_toggle")
     st.session_state.live_data_active = live_data
-    
+
     # Connection Status
     conn_status_indicator = "🟢 Connected" if st.session_state.nats_connected else "🔴 Disconnected"
     if client.fallback_mode:
         conn_status_indicator += " (Fallback)"
     st.sidebar.write(f"NATS Status: {conn_status_indicator}")
-    
+
     # Subscription Status
     sub_status = "Active" if st.session_state.nats_subscribed else "Inactive"
     st.sidebar.write(f"Subscriptions: {sub_status}")
-    
+
     # Heartbeat
     now = time.time()
     if now - st.session_state.last_heartbeat_check > HEARTBEAT_INTERVAL:
         st.session_state.system_heartbeat = "🟢" if st.session_state.nats_connected else "⚪"
         st.session_state.last_heartbeat_check = now
     st.sidebar.write(f"System Heartbeat: {st.session_state.system_heartbeat}")
-    
+
     st.sidebar.markdown("--- *Navigation* ---")
     page = st.sidebar.radio("Go to:", ["Dashboard", "Feedback"], key="navigation")
     return page, live_data
@@ -218,7 +218,7 @@ def display_sparc_tasks(live_data):
     else:
         st.write("Displaying Simulated SPARC tasks.")
         tasks_df = simulate_sparc_tasks()
-        
+
     if not tasks_df.empty:
         # Ensure columns exist, fill NaN for display
         required_cols = ['id', 'type', 'status', 'result', 'timestamp']
@@ -243,7 +243,7 @@ def display_llm_interactions(live_data):
     else:
         st.write("Displaying Simulated LLM interaction logs.")
         llm_logs = simulate_llm_logs()
-        
+
     if llm_logs:
         for log in llm_logs:
             with st.expander(f"{log.get('timestamp', 'N/A')} - {log.get('model', 'Unknown Model')} - Prompt: {log.get('prompt', '')[:50]}..."):
@@ -264,7 +264,7 @@ def display_propagation_log(live_data):
     else:
         st.write("Displaying Simulated propagation log.")
         prop_df = simulate_propagation_log()
-        
+
     if not prop_df.empty:
         required_cols = ['timestamp', 'subsystem', 'pattern', 'status']
         for col in required_cols:
@@ -282,12 +282,12 @@ def main():
     """Main Streamlit application function."""
     st.set_page_config(layout="wide", page_title="EGOS Dashboard")
     logger.info("--- EGOS Dashboard Started ---")
-    
+
     initialize_session_state()
     client = get_mycelium_client()
-    
+
     page, live_data = display_sidebar(client)
-    
+
     # Run NATS connection/disconnection logic asynchronously
     # This needs to be handled carefully in Streamlit's execution model
     # We trigger the async function but don't block the main thread
@@ -296,7 +296,7 @@ def main():
     # For now, let's assume MyceliumClient handles its async loop.
     # We just tell it what state we want.
     asyncio.run(manage_nats_connection(client, live_data)) 
-    
+
     if page == "Dashboard":
         st.title("EGOS System Dashboard")
         col1, col2 = st.columns(2)
@@ -304,9 +304,9 @@ def main():
             display_sparc_tasks(live_data)
         with col2:
             display_llm_interactions(live_data)
-            
+
         display_propagation_log(live_data)
-        
+
     elif page == "Feedback":
         st.title("User Feedback")
         feedback_form()
@@ -314,7 +314,7 @@ def main():
         st.header("Feedback Report")
         report_text = generate_feedback_report()
         st.markdown(report_text)
-        
+
     logger.info("--- EGOS Dashboard Render Complete ---")
 
 if __name__ == "__main__":

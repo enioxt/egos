@@ -69,41 +69,41 @@ def detect_language(content: str) -> str:
     # If content is empty, return unknown
     if not content.strip():
         return 'unknown'
-        
+
     # Try using langdetect if available
     if LANGDETECT_AVAILABLE:
         try:
             # Reduce content size for efficiency if very large
             content_snippet = content[:5000]  # Use first 5000 chars for detection
             lang = detect(content_snippet)
-            
+
             # Basic check for mixed content (heuristic - refine as needed)
             if lang == 'en' and ('sistema' in content.lower() or 'projeto' in content.lower() or 'atenção' in content.lower()):
                 if 'import ' in content or 'def ' in content or 'class ' in content:
                     return 'mixed-en-pt'  # More specific mixed type
             elif lang == 'pt' and ('import ' in content or 'def ' in content or 'class ' in content):
                 return 'mixed-pt-en'
-                
+
             return lang
         except (LangDetectException, Exception) as e:
             logging.warning(f"Language detection with langdetect failed: {e}, falling back to heuristic")
             # Fall through to heuristic method
-    
+
     # Heuristic-based detection (fallback method)
     # Check for Portuguese indicators
     pt_indicators = ['sistema', 'projeto', 'atenção', 'definição', 'código', 'função', 
                     'arquivo', 'diretório', 'configuração', 'execução', 'maravilhoso']
     pt_count = sum(1 for word in pt_indicators if word in content.lower())
-    
+
     # Check for English indicators
     en_indicators = ['system', 'project', 'attention', 'definition', 'code', 'function',
                     'file', 'directory', 'configuration', 'execution', 'wonderful']
     en_count = sum(1 for word in en_indicators if word in content.lower())
-    
+
     # Check for code indicators
     code_indicators = ['import ', 'def ', 'class ', 'function', 'return', 'if ', 'for ', 'while ']
     has_code = any(indicator in content for indicator in code_indicators)
-    
+
     # Determine language based on counts
     if pt_count > en_count:
         return 'mixed-pt-en' if has_code else 'pt'
@@ -121,18 +121,18 @@ def infer_content_type(content: str) -> str:
     """
     content_lower = content.lower()
     type_scores = {}
-    
+
     for content_type, keywords in CONTENT_TYPES.items():
         score = sum(1 for keyword in keywords if keyword.lower() in content_lower)
         type_scores[content_type] = score
-    
+
     # Get the content type with the highest score
     if type_scores:
         max_score = max(type_scores.values())
         if max_score > 0:  # Only if we have matches
             best_types = [t for t, s in type_scores.items() if s == max_score]
             return best_types[0].capitalize()  # Return the first highest scoring type
-    
+
     return "Unknown"  # Default if no clear type is detected
 
 def generate_tags(content: str, file_path: str) -> list:
@@ -142,17 +142,17 @@ def generate_tags(content: str, file_path: str) -> list:
     """
     content_lower = content.lower()
     tags = ["legacy", "standardized_script"]  # Start with default tags
-    
+
     # Add content type tag
     content_type = infer_content_type(content)
     if content_type != "Unknown":
         tags.append(content_type.lower())
-    
+
     # Add topic-specific tags based on content
     for topic, keywords in COMMON_TOPICS.items():
         if any(keyword.lower() in content_lower for keyword in keywords):
             tags.append(topic)
-    
+
     # Add path-based tags
     path_parts = file_path.lower().split(os.sep)
     for part in path_parts:
@@ -161,7 +161,7 @@ def generate_tags(content: str, file_path: str) -> list:
             clean_part = part.replace(" ", "_").replace("-", "_")
             if clean_part not in tags and len(clean_part) > 3:  # Avoid short/meaningless tags
                 tags.append(clean_part)
-    
+
     return tags
 
 def get_file_metadata(file_path: str, content: str) -> tuple[str, str, list]:
@@ -181,10 +181,10 @@ def get_file_metadata(file_path: str, content: str) -> tuple[str, str, list]:
         path_context = "Chat History"
     elif "research" in file_path:
         path_context = "Research Note"
-    
+
     # Get content-based context
     content_context = infer_content_type(content)
-    
+
     # Combine path and content context
     if path_context != "Unknown":
         if content_context != "Unknown":
@@ -193,10 +193,10 @@ def get_file_metadata(file_path: str, content: str) -> tuple[str, str, list]:
             source_context = path_context
     else:
         source_context = content_context
-    
+
     # Generate tags
     tags = generate_tags(content, file_path)
-    
+
     return estimated_date, source_context, tags
 
 
@@ -210,7 +210,7 @@ def process_txt_file(txt_file_path: str, output_dir: str, organize_by_language: 
         original_filename = os.path.basename(txt_file_path)
         base_name = os.path.splitext(original_filename)[0]
         md_filename = base_name + ".md"
-        
+
         # Read original content
         with open(txt_file_path, 'r', encoding='utf-8', errors='ignore') as f_in:
             original_content = f_in.read()
@@ -226,10 +226,10 @@ def process_txt_file(txt_file_path: str, output_dir: str, organize_by_language: 
         if organize_by_language and language != 'unknown':
             # Create language-specific subdirectory
             current_output_dir = os.path.join(output_dir, language)
-        
+
         # Ensure output directory exists
         os.makedirs(current_output_dir, exist_ok=True)
-        
+
         # Full path for the new .md file
         md_file_path = os.path.join(current_output_dir, md_filename)
 
@@ -278,14 +278,14 @@ def find_and_process_files(input_dir: str, output_dir: str, recursive: bool = Fa
                 if filename.lower().endswith(".txt"):
                     total_files += 1
                     file_path = os.path.join(root, filename)
-                    
+
                     # Determine relative path for output structure preservation
                     relative_path = os.path.relpath(root, input_dir)
                     current_output_dir = os.path.join(output_dir, relative_path)
-                    
+
                     # Process the file
                     result = process_txt_file(file_path, current_output_dir, organize_by_language, overwrite)
-                    
+
                     # Track results
                     if result is True:
                         processed_count += 1
@@ -318,7 +318,7 @@ def find_and_process_files(input_dir: str, output_dir: str, recursive: bool = Fa
                 if os.path.isfile(file_path):
                     # Process the file
                     result = process_txt_file(file_path, output_dir, organize_by_language, overwrite)
-                    
+
                     # Track results
                     if result is True:
                         processed_count += 1
@@ -387,7 +387,7 @@ if __name__ == "__main__":
         args.organize_by_language, 
         args.overwrite
     )
-    
+
     # Generate inventory file if requested
     if args.inventory:
         try:
@@ -395,44 +395,44 @@ if __name__ == "__main__":
                 f.write("# Legacy Files Inventory\n\n")
                 f.write("| File | Language | Source Context | Tags |\n")
                 f.write("| ---- | -------- | ------------- | ---- |\n")
-                
+
                 # Walk through the output directory
                 for root, _, files in os.walk(args.output_dir):
                     for filename in sorted(files):
                         if filename.endswith('.md'):
                             file_path = os.path.join(root, filename)
                             rel_path = os.path.relpath(file_path, args.output_dir)
-                            
+
                             # Extract metadata from the file
                             try:
                                 with open(file_path, 'r', encoding='utf-8') as md_file:
                                     content = md_file.read(1000)  # Read first 1000 chars to get metadata
-                                    
+
                                     # Extract basic metadata
                                     language = "unknown"
                                     source_context = "unknown"
                                     tags = []
-                                    
+
                                     if "language:" in content:
                                         lang_line = [l for l in content.split('\n') if l.strip().startswith('language:')][0]
                                         language = lang_line.split(':', 1)[1].strip().strip('"')
-                                    
+
                                     if "source_context:" in content:
                                         context_line = [l for l in content.split('\n') if l.strip().startswith('source_context:')][0]
                                         source_context = context_line.split(':', 1)[1].strip().strip('"')
-                                    
+
                                     if "tags:" in content:
                                         tags_line = [l for l in content.split('\n') if l.strip().startswith('tags:')][0]
                                         tags_str = tags_line.split(':', 1)[1].strip()
                                         # Convert tags string to list for display
                                         tags = eval(tags_str)  # Safe since we're generating this ourselves
-                                    
+
                                     # Write to inventory
                                     f.write(f"| [{rel_path}]({rel_path.replace(' ', '%20')}) | {language} | {source_context} | {', '.join(tags)} |\n")
                             except Exception as e:
                                 logging.error(f"Error processing {file_path} for inventory: {e}")
                                 f.write(f"| {rel_path} | Error | Error | Error |\n")
-                
+
                 logging.info(f"Inventory file created at {args.inventory}")
         except Exception as e:
             logging.error(f"Failed to create inventory file: {e}")

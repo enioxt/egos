@@ -75,7 +75,7 @@ class EthikValidator:
     """Performs real-time ethical validation based on loaded rules.
 
     Connects to Mycelium (optional) to listen for validation requests and publish results.
-    
+
     Attributes:
         logger: Logger instance for recording validator operations and decisions.
         mycelium: Optional MyceliumClient for message-based communication.
@@ -85,7 +85,7 @@ class EthikValidator:
         config: Dictionary of validator configuration settings.
         max_history: Maximum number of validation results to keep in history.
         topics: Dictionary mapping message types to Mycelium topics.
-    
+
     Methods:
         validate: Validates an action against loaded rules.
         validate_async: Asynchronous version of validate.

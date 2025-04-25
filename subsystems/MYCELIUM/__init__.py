@@ -56,14 +56,14 @@ __all__ = [
     "create_topic_message",
     "create_request_message",
     "create_broadcast_message",
-    
+
     # Client module
     "MyceliumClient",
     "ClientStatus",
     "ClientConfig",
     "create_client",
     "SubscriptionId",
-    
+
     # Broker module
     "MyceliumBroker",
     "BrokerConfig",

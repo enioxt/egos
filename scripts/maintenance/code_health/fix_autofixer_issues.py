@@ -41,55 +41,55 @@ logger = logging.getLogger("egos_autofixer_issues_fixer")
 
 def fix_misplaced_shebang(file_path: str, line_numbers: List[int], dry_run: bool = False) -> bool:
     """Fix misplaced shebang by moving it to the top of the file.
-    
+
     Args:
         file_path: Path to the file to fix
         line_numbers: Line numbers where shebangs were found
         dry_run: If True, don't actually modify the file
-        
+
     Returns:
         True if the file was modified, False otherwise
     """
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             lines = f.readlines()
-        
+
         if not lines:
             logger.warning(f"Empty file: {file_path}")
             return False
-        
+
         # Find the shebang line
         shebang_line = None
         for line_num in line_numbers:
             if line_num < len(lines) and lines[line_num].startswith('#!'):
                 shebang_line = lines[line_num]
                 break
-        
+
         if not shebang_line:
             logger.warning(f"Shebang not found at specified lines in {file_path}")
             return False
-        
+
         # Remove the shebang from its current position
         lines = [line for i, line in enumerate(lines) if i not in line_numbers]
-        
+
         # Add it to the top
         lines.insert(0, shebang_line)
-        
+
         if not dry_run:
             # Create backup
             backup_path = f"{file_path}.bak2"
             shutil.copy2(file_path, backup_path)
-            
+
             # Write the modified content
             with open(file_path, 'w', encoding='utf-8') as f:
                 f.writelines(lines)
-            
+
             logger.info(f"Fixed misplaced shebang in {file_path}")
         else:
             logger.info(f"[DRY RUN] Would fix misplaced shebang in {file_path}")
-        
+
         return True
-    
+
     except Exception as e:
         logger.error(f"Error fixing misplaced shebang in {file_path}: {e}")
         return False
@@ -97,12 +97,12 @@ def fix_misplaced_shebang(file_path: str, line_numbers: List[int], dry_run: bool
 
 def fix_duplicate_docstrings(file_path: str, line_numbers: List[int], dry_run: bool = False) -> bool:
     """Fix duplicate docstrings by removing the placeholder and keeping the real one.
-    
+
     Args:
         file_path: Path to the file to fix
         line_numbers: Line numbers where docstring issues were found
         dry_run: If True, don't actually modify the file
-        
+
     Returns:
         True if the file was modified, False otherwise
     """
@@ -110,45 +110,45 @@ def fix_duplicate_docstrings(file_path: str, line_numbers: List[int], dry_run: b
         with open(file_path, 'r', encoding='utf-8') as f:
             content = f.read()
             lines = content.splitlines(True)  # Keep line endings
-        
+
         if not lines:
             logger.warning(f"Empty file: {file_path}")
             return False
-        
+
         # Find docstrings
         docstring_pattern = re.compile(r'""".*?"""', re.DOTALL)
         docstrings = list(docstring_pattern.finditer(content))
-        
+
         if len(docstrings) < 2:
             logger.warning(f"Less than 2 docstrings found in {file_path}")
             return False
-        
+
         # Find the placeholder docstring
         placeholder_pattern = re.compile(r'"""TODO: Module docstring for.*?"""', re.DOTALL)
         placeholder_match = placeholder_pattern.search(content)
-        
+
         if not placeholder_match:
             logger.warning(f"No placeholder docstring found in {file_path}")
             return False
-        
+
         # Remove the placeholder docstring
         new_content = content[:placeholder_match.start()] + content[placeholder_match.end():]
-        
+
         if not dry_run:
             # Create backup
             backup_path = f"{file_path}.bak2"
             shutil.copy2(file_path, backup_path)
-            
+
             # Write the modified content
             with open(file_path, 'w', encoding='utf-8') as f:
                 f.write(new_content)
-            
+
             logger.info(f"Fixed duplicate docstrings in {file_path}")
         else:
             logger.info(f"[DRY RUN] Would fix duplicate docstrings in {file_path}")
-        
+
         return True
-    
+
     except Exception as e:
         logger.error(f"Error fixing duplicate docstrings in {file_path}: {e}")
         return False
@@ -163,72 +163,72 @@ def main():
     parser.add_argument("--dry-run", action="store_true", 
                         help="Don't actually modify files, just show what would be done")
     parser.add_argument("--verbose", action="store_true", help="Show detailed logs")
-    
+
     args = parser.parse_args()
-    
+
     if args.verbose:
         logger.setLevel(logging.DEBUG)
-    
+
     try:
         # Load issues report
         logger.info(f"Loading issues report from: {args.issues_report}")
         with open(args.issues_report, 'r', encoding='utf-8') as f:
             issues_data = json.load(f)
-        
+
         total_issues = issues_data.get("total_issues", 0)
         issues = issues_data.get("issues", [])
-        
+
         logger.info(f"Found {total_issues} issues to fix")
-        
+
         # Track statistics
         stats = {
             "misplaced_shebang": {"attempted": 0, "fixed": 0},
             "duplicate_docstring": {"attempted": 0, "fixed": 0}
         }
-        
+
         # Fix each issue
         for issue in issues:
             file_path = issue.get("file_path")
             issue_type = issue.get("issue_type")
             line_numbers = issue.get("line_numbers", [])
-            
+
             if not file_path or not issue_type:
                 logger.warning(f"Invalid issue data: {issue}")
                 continue
-            
+
             # Ensure the file exists
             if not os.path.exists(file_path):
                 logger.warning(f"File not found: {file_path}")
                 continue
-            
+
             # Apply the appropriate fix
             if issue_type == "misplaced_shebang":
                 stats["misplaced_shebang"]["attempted"] += 1
                 if fix_misplaced_shebang(file_path, line_numbers, args.dry_run):
                     stats["misplaced_shebang"]["fixed"] += 1
-            
+
             elif issue_type == "duplicate_docstring":
                 stats["duplicate_docstring"]["attempted"] += 1
                 if fix_duplicate_docstrings(file_path, line_numbers, args.dry_run):
                     stats["duplicate_docstring"]["fixed"] += 1
-            
+
             else:
                 logger.warning(f"Unknown issue type: {issue_type}")
-        
+
         # Print summary
         print("\nFix Summary:")
         for issue_type, counts in stats.items():
             print(f"  {issue_type}: {counts['fixed']}/{counts['attempted']} fixed")
-        
+
         if args.dry_run:
             logger.info("Dry run completed. No files were modified.")
         else:
             logger.info("Fixes applied. Check the logs for details.")
-    
+
     except Exception as e:
         logger.error(f"Error during fix process: {e}")
         return 1
-    
+
     return 0
 
 

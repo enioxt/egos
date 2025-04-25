@@ -129,11 +129,11 @@ def is_excluded(path: Path, name: str, relative_path_str: str | None, project_ro
                 except Exception as inner_e:
                      # Keep this specific warning print for fnmatch errors
                     print(f"[WARNING] Analyzer: Error matching directory pattern: relative_path='{relative_path_str}', name='{name}', pattern='{pattern}'. Error: {inner_e}")
-                
+
                 if should_exclude_dir:
                     logger.debug(f"Excluding directory '{relative_path_str}' due to gitignore pattern '{pattern}'")
                     return True
-                
+
                 # Match if any PARENT directory matches (only if relative path exists)
                 if relative_path_str:
                     current_parent_rel_path_str = ""
@@ -147,7 +147,7 @@ def is_excluded(path: Path, name: str, relative_path_str: str | None, project_ro
                         except Exception as parent_e:
                              # Keep this specific warning print for fnmatch errors
                             print(f"[WARNING] Analyzer: Error matching parent directory pattern: parent_path='{current_parent_rel_path_str.rstrip('/')}', pattern='{pattern_no_slash}'. Error: {parent_e}")
-            
+
             # Handle file/general patterns
             else:
                 match_name = False
@@ -156,7 +156,7 @@ def is_excluded(path: Path, name: str, relative_path_str: str | None, project_ro
                 except Exception as name_e:
                      # Keep this specific warning print for fnmatch errors
                     print(f"[WARNING] Analyzer: Error matching name pattern: name='{name}', pattern='{pattern}'. Error: {name_e}")
-                
+
                 match_relative = False
                 if relative_path_str:
                     try:
@@ -164,7 +164,7 @@ def is_excluded(path: Path, name: str, relative_path_str: str | None, project_ro
                     except Exception as rel_e:
                          # Keep this specific warning print for fnmatch errors
                         print(f"[WARNING] Analyzer: Error matching relative path pattern: relative_path='{relative_path_str}', pattern='{pattern}'. Error: {rel_e}")
-                
+
                 if match_name or match_relative:
                     logger.debug(f"Excluding '{match_path_str}' (name: {name}) due to gitignore pattern '{pattern}'")
                     return True
@@ -265,7 +265,7 @@ def analyze_directory(directory_path: str) -> dict:
                      logger.warning(f"Could not read {relative_path_str} for summary: {e}")
                      analysis_results['errors'].append(f"Could not read {relative_path_str}: {e}")
                      analysis_results['files_for_summary'][relative_path_str] = f"Error reading file: {e}"
-            
+
             # --- Language Detection (Basic) ---
             ext = item.suffix.lower()
             lang = LANGUAGE_EXTENSIONS.get(ext)
@@ -273,7 +273,7 @@ def analyze_directory(directory_path: str) -> dict:
                  lang = LANGUAGE_EXTENSIONS.get('Dockerfile')
             elif not lang and item_name.lower() == 'makefile':
                  lang = 'Makefile'
-            
+
             if lang:
                 lang_counts[lang] = lang_counts.get(lang, 0) + 1
                 logger.debug(f"Detected language '{lang}' for file: {relative_path_str}")

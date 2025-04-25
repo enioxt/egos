@@ -57,7 +57,7 @@ DEFAULT_EXCLUDE_DIRS = [
 
 class EgosCleanupManager:
     """Manager for EGOS system cleanup operations."""
-    
+
     def __init__(
         self,
         root_dir: str,
@@ -70,7 +70,7 @@ class EgosCleanupManager:
     ):
         """
         Initialize the cleanup manager.
-        
+
         Args:
             root_dir: Root directory to clean
             retention_policies: Dictionary of retention policies (days)
@@ -86,17 +86,17 @@ class EgosCleanupManager:
         self.exclude_dirs = exclude_dirs or DEFAULT_EXCLUDE_DIRS
         self.dry_run = dry_run
         self.verbose = verbose
-        
+
         # Setup file logging if requested
         if log_file:
             file_handler = logging.FileHandler(log_file)
             file_handler.setFormatter(log_formatter)
             logger.addHandler(file_handler)
-        
+
         # Set logging level
         if verbose:
             logger.setLevel(logging.DEBUG)
-        
+
         # Statistics
         self.stats = {
             "total_files_scanned": 0,
@@ -105,13 +105,13 @@ class EgosCleanupManager:
             "errors": 0,
             "by_category": {}
         }
-        
+
         logger.info(f"Initializing EGOS Cleanup Manager for {self.root_dir}")
         logger.debug(f"Retention policies: {self.retention_policies}")
         logger.debug(f"Cleanup patterns: {self.cleanup_patterns}")
         logger.debug(f"Exclude directories: {self.exclude_dirs}")
         logger.info(f"Dry run: {self.dry_run}")
-    
+
     @staticmethod
     def _format_size(size_bytes: int) -> str:
         """Format size in bytes to human-readable format."""
@@ -120,19 +120,19 @@ class EgosCleanupManager:
                 return f"{size_bytes:.1f} {unit}"
             size_bytes /= 1024.0
         return f"{size_bytes:.1f} TB"
-    
+
     def _should_exclude_dir(self, dir_path: str) -> bool:
         """Check if a directory should be excluded from cleanup."""
         for exclude_dir in self.exclude_dirs:
             if f"/{exclude_dir}/" in dir_path.replace("\\", "/") or f"\\{exclude_dir}\\" in dir_path:
                 return True
         return False
-    
+
     def _is_file_expired(self, file_path: str, category: str) -> bool:
         """Check if a file is older than the retention policy."""
         if category not in self.retention_policies:
             return False
-            
+
         try:
             max_age_days = self.retention_policies[category]
             file_time = os.path.getmtime(file_path)
@@ -141,32 +141,32 @@ class EgosCleanupManager:
         except Exception as e:
             logger.warning(f"Error checking file age for {file_path}: {e}")
             return False
-    
+
     def clean_by_pattern(self, category: str) -> None:
         """
         Clean files matching patterns in the specified category.
-        
+
         Args:
             category: Category of files to clean (must be in cleanup_patterns)
         """
         if category not in self.cleanup_patterns:
             logger.warning(f"Unknown cleanup category: {category}")
             return
-            
+
         patterns = self.cleanup_patterns[category]
         logger.info(f"Cleaning {category} files with patterns: {patterns}")
-        
+
         # Initialize category stats if not exists
         if category not in self.stats["by_category"]:
             self.stats["by_category"][category] = {
                 "files_deleted": 0,
                 "bytes_freed": 0
             }
-        
+
         for root, dirs, files in os.walk(self.root_dir):
             # Skip excluded directories
             dirs[:] = [d for d in dirs if not self._should_exclude_dir(os.path.join(root, d))]
-            
+
             # Process each pattern
             for pattern in patterns:
                 # Handle directory patterns (ending with /)
@@ -177,14 +177,14 @@ class EgosCleanupManager:
                             dir_path = os.path.join(root, d)
                             if self._is_file_expired(dir_path, category):
                                 self._delete_directory(dir_path, category)
-                
+
                 # Handle file patterns
                 else:
                     matches = glob.glob(os.path.join(root, pattern), recursive=False)
                     for match in matches:
                         if os.path.isfile(match) and self._is_file_expired(match, category):
                             self._delete_file(match, category)
-            
+
             # Special handling for __pycache__ and other directory-based patterns
             if category == "cache":
                 for d in dirs[:]:
@@ -193,23 +193,23 @@ class EgosCleanupManager:
                         if self._is_file_expired(dir_path, category):
                             self._delete_directory(dir_path, category)
                             dirs.remove(d)  # Remove from dirs to avoid recursion
-    
+
     def _delete_file(self, file_path: str, category: str) -> None:
         """Delete a file and update statistics."""
         try:
             self.stats["total_files_scanned"] += 1
-            
+
             # Get file size before deletion
             file_size = os.path.getsize(file_path)
-            
+
             # Log the deletion
             rel_path = os.path.relpath(file_path, self.root_dir)
             logger.info(f"Deleting file: {rel_path} ({self._format_size(file_size)})")
-            
+
             # Delete the file (unless dry run)
             if not self.dry_run:
                 os.remove(file_path)
-                
+
                 # Update statistics
                 self.stats["files_deleted"] += 1
                 self.stats["bytes_freed"] += file_size
@@ -218,7 +218,7 @@ class EgosCleanupManager:
         except Exception as e:
             logger.error(f"Error deleting file {file_path}: {e}")
             self.stats["errors"] += 1
-    
+
     def _delete_directory(self, dir_path: str, category: str) -> None:
         """Delete a directory and update statistics."""
         try:
@@ -233,15 +233,15 @@ class EgosCleanupManager:
                         file_count += 1
                     except:
                         pass
-            
+
             # Log the deletion
             rel_path = os.path.relpath(dir_path, self.root_dir)
             logger.info(f"Deleting directory: {rel_path} ({self._format_size(dir_size)}, {file_count} files)")
-            
+
             # Delete the directory (unless dry run)
             if not self.dry_run:
                 shutil.rmtree(dir_path, ignore_errors=True)
-                
+
                 # Update statistics
                 self.stats["files_deleted"] += file_count
                 self.stats["bytes_freed"] += dir_size
@@ -250,11 +250,11 @@ class EgosCleanupManager:
         except Exception as e:
             logger.error(f"Error deleting directory {dir_path}: {e}")
             self.stats["errors"] += 1
-    
+
     def enforce_backup_retention(self) -> None:
         """Enforce backup retention policy by removing old backups."""
         logger.info("Enforcing backup retention policy")
-        
+
         # Look for backup directories
         backup_dirs = []
         for root, dirs, _ in os.walk(self.root_dir):
@@ -262,15 +262,15 @@ class EgosCleanupManager:
                 if (d == "backups" or d.startswith("backup_") or 
                     d.endswith("_backup") or "backup" in d.lower()):
                     backup_dirs.append(os.path.join(root, d))
-        
+
         # Process each backup directory
         for backup_dir in backup_dirs:
             self._process_backup_directory(backup_dir)
-    
+
     def _process_backup_directory(self, backup_dir: str) -> None:
         """Process a backup directory to enforce retention policy."""
         logger.info(f"Processing backup directory: {backup_dir}")
-        
+
         # Get all subdirectories (potential backup sets)
         try:
             backup_sets = []
@@ -288,7 +288,7 @@ class EgosCleanupManager:
                             elif len(part) == 10 and part.count('-') == 2:  # YYYY-MM-DD
                                 date_str = part
                                 break
-                        
+
                         if date_str:
                             # Try to parse the date
                             if '-' in date_str:
@@ -298,20 +298,20 @@ class EgosCleanupManager:
                         else:
                             # Use modification time as fallback
                             backup_date = datetime.datetime.fromtimestamp(os.path.getmtime(item_path))
-                        
+
                         backup_sets.append((item_path, backup_date))
                     except:
                         # If date extraction fails, use modification time
                         backup_date = datetime.datetime.fromtimestamp(os.path.getmtime(item_path))
                         backup_sets.append((item_path, backup_date))
-            
+
             # Sort by date (oldest first)
             backup_sets.sort(key=lambda x: x[1])
-            
+
             # Keep only the most recent backups according to retention policy
             max_age_days = self.retention_policies.get("backups", 90)
             cutoff_date = datetime.datetime.now() - datetime.timedelta(days=max_age_days)
-            
+
             # Always keep at least 3 most recent backups regardless of age
             if len(backup_sets) > 3:
                 for backup_path, backup_date in backup_sets[:-3]:
@@ -322,11 +322,11 @@ class EgosCleanupManager:
         except Exception as e:
             logger.error(f"Error processing backup directory {backup_dir}: {e}")
             self.stats["errors"] += 1
-    
+
     def generate_report(self, output_file: Optional[str] = None) -> None:
         """Generate a report of cleanup operations."""
         logger.info("Generating cleanup report")
-        
+
         # Create report content
         report = {
             "timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
@@ -336,19 +336,19 @@ class EgosCleanupManager:
             "retention_policies": self.retention_policies,
             "cleanup_patterns": self.cleanup_patterns
         }
-        
+
         # Print summary to console
         logger.info(f"Cleanup Summary:")
         logger.info(f"  Total files scanned: {self.stats['total_files_scanned']}")
         logger.info(f"  Files deleted: {self.stats['files_deleted']}")
         logger.info(f"  Space freed: {self._format_size(self.stats['bytes_freed'])}")
         logger.info(f"  Errors: {self.stats['errors']}")
-        
+
         # Print category details
         for category, stats in self.stats["by_category"].items():
             if stats["files_deleted"] > 0:
                 logger.info(f"  {category}: {stats['files_deleted']} files, {self._format_size(stats['bytes_freed'])}")
-        
+
         # Write report to file if requested
         if output_file:
             try:
@@ -357,35 +357,35 @@ class EgosCleanupManager:
                 logger.info(f"Report written to {output_file}")
             except Exception as e:
                 logger.error(f"Error writing report to {output_file}: {e}")
-    
+
     def run_cleanup(self, categories: Optional[List[str]] = None) -> None:
         """
         Run cleanup for specified categories or all categories.
-        
+
         Args:
             categories: List of categories to clean, or None for all
         """
         logger.info(f"Starting cleanup process for {self.root_dir}")
-        
+
         # Determine categories to clean
         if not categories:
             categories = list(self.cleanup_patterns.keys())
-        
+
         # Clean each category
         for category in categories:
             if category in self.cleanup_patterns:
                 self.clean_by_pattern(category)
             else:
                 logger.warning(f"Unknown cleanup category: {category}")
-        
+
         # Enforce backup retention
         if "backups" in categories or not categories:
             self.enforce_backup_retention()
-        
+
         # Generate report
         report_file = os.path.join(self.root_dir, "cleanup_report.json")
         self.generate_report(report_file)
-        
+
         logger.info("Cleanup process completed")
 
 
@@ -399,34 +399,34 @@ def main():
     parser.add_argument("--dry-run", action="store_true", help="Show what would be done without actually deleting")
     parser.add_argument("--verbose", action="store_true", help="Show detailed logs")
     parser.add_argument("--config", help="JSON configuration file")
-    
+
     args = parser.parse_args()
-    
+
     # Load configuration from file if specified
     retention_policies = DEFAULT_RETENTION_POLICIES.copy()
     cleanup_patterns = DEFAULT_CLEANUP_PATTERNS.copy()
     exclude_dirs = DEFAULT_EXCLUDE_DIRS.copy()
-    
+
     if args.config:
         try:
             with open(args.config, 'r', encoding='utf-8') as f:
                 config = json.load(f)
-                
+
                 if "retention_policies" in config:
                     retention_policies.update(config["retention_policies"])
-                
+
                 if "cleanup_patterns" in config:
                     cleanup_patterns.update(config["cleanup_patterns"])
-                
+
                 if "exclude_dirs" in config:
                     exclude_dirs.extend(config["exclude_dirs"])
         except Exception as e:
             logger.error(f"Error loading configuration from {args.config}: {e}")
-    
+
     # Add any additional exclude directories
     if args.exclude_dirs:
         exclude_dirs.extend(args.exclude_dirs)
-    
+
     # Create cleanup manager
     cleanup_manager = EgosCleanupManager(
         root_dir=args.root,
@@ -437,7 +437,7 @@ def main():
         verbose=args.verbose,
         log_file=args.log_file
     )
-    
+
     # Run cleanup
     cleanup_manager.run_cleanup(args.categories)
 

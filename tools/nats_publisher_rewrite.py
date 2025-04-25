@@ -61,13 +61,13 @@ def generate_sparc_task() -> Dict[str, Any]:
     """Generate a simulated SPARC task event."""
     task_types = ["sparc_analyze", "sparc_ingest", "sparc_refactor", "sparc_generate", "sparc_summarize"]
     statuses = ["queued", "in_progress", "completed", "failed"]
-    
+
     # Weight the statuses to make completed and in_progress more common
     status_weights = [0.1, 0.3, 0.4, 0.2]
-    
+
     task_type = random.choice(task_types)
     status = random.choices(statuses, weights=status_weights)[0]
-    
+
     result = ""
     if status == "completed":
         results = ["No issues found.", "Generated code stub.", "Analysis complete.", "Summary generated."]
@@ -75,7 +75,7 @@ def generate_sparc_task() -> Dict[str, Any]:
     elif status == "failed":
         results = ["Syntax error", "Timeout", "Resource error", "Validation failed"]
         result = random.choice(results)
-    
+
     return {
         "id": f"T-{uuid.uuid4().hex[:6]}",
         "type": task_type,
@@ -101,7 +101,7 @@ def generate_llm_log() -> Dict[str, Any]:
         "Suggested refactoring: split the class into two separate concerns.",
         "The latest batch shows improved performance across all metrics."
     ]
-    
+
     return {
         "user": random.choice(users),
         "prompt": random.choice(prompts),
@@ -121,11 +121,11 @@ def generate_propagation_log() -> Dict[str, Any]:
         "Distributed Event Processing"
     ]
     statuses = ["Proposed", "Under Review", "Adopted", "Completed"]
-    
+
     # Randomly generate a timestamp within the last 2 days
     random_minutes = random.randint(0, 60*48)  # Up to 48 hours in minutes
     timestamp = datetime.datetime.now() - timedelta(minutes=random_minutes)
-    
+
     return {
         "timestamp": timestamp.isoformat(),
         "subsystem": random.choice(subsystems),
@@ -149,7 +149,7 @@ async def publish_events(
 ) -> None:
     """
     Publish a series of events to a NATS topic.
-    
+
     Args:
         nats_url: NATS server URL
         topic: NATS topic to publish to
@@ -161,21 +161,21 @@ async def publish_events(
         generator_func = TOPIC_GENERATORS.get(topic)
         if generator_func is None:
             raise ValueError(f"No generator found for topic: {topic}")
-    
+
     try:
         logger.info(f"Connecting to NATS server at {nats_url}...")
         nc = await nats.connect(nats_url)
         logger.info(f"Connected to NATS server at {nats_url}")
-        
+
         for i in range(count):
             event_data = generator_func()
             payload = json.dumps(event_data).encode()
             await nc.publish(topic, payload)
             logger.info(f"Published to {topic}: {event_data}")
-            
+
             if i < count - 1:  # Don't sleep after the last event
                 await asyncio.sleep(interval)
-        
+
         logger.info(f"Published {count} events to {topic}")
         await nc.drain()
     except Exception as e:
@@ -196,9 +196,9 @@ def main():
     parser.add_argument("--count", type=int, default=1, help="Number of events to publish")
     parser.add_argument("--interval", type=float, default=1.0, 
                         help="Interval between events in seconds")
-    
+
     args = parser.parse_args()
-    
+
     asyncio.run(publish_events(
         args.url, 
         args.topic, 
