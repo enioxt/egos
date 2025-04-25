@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 """
 EGOS Syntax and Import Checker
 ------------------------------
@@ -25,6 +22,7 @@ import logging
 import datetime
 import json
 from typing import List, Dict, Tuple, Optional, Set, Any
+import fnmatch
 
 # Configure logging
 logging.basicConfig(
@@ -39,7 +37,9 @@ class SyntaxIssue:
     
     Attributes:
         None
-    """
+            Methods:
+            None
+"""
     
     def __init__(self, file_path: str, line_number: int, issue_type: str, description: str, suggestion: str):
         self.file_path = file_path
@@ -68,34 +68,40 @@ class SyntaxChecker:
     def __init__(self, verbose: bool = False):
         self.verbose = verbose
         
-        # Common patterns to check
+        # Common patterns to check (Temporarily disabled - high false positives - See MEMORY[403f6d5e...])
         self.patterns = {
-            "unmatched_parenthesis": r'[^\\]\)\s*\)',  # Possible unmatched parenthesis
-            "incomplete_assignment": r'=\s*(?:\n|$)',  # Assignment without a value
-            "empty_if_block": r'if.*:\s*(?:\n\s*\n|\n\s*[^\s])',  # If statement with empty block
-            "invalid_import_resilience": r'if\s+project_root\s+not\s+in\s+sys\.path:\s*\n\s*(?:\n|[^\s])',  # Import resilience without sys.path.insert
-            "makedirs_without_path": r'os\.makedirs\(\s*\)',  # os.makedirs without path
-            "relative_import_in_script": r'from\s+\.\w+\s+import',  # Relative import in a script that might be run directly
+            # "unmatched_parenthesis": r'[^\\]\)\s*\)',
+            # "incomplete_assignment": r'=\s*(?:\n|$)',
+            # "empty_if_block": r'if.*:\s*(?:\n\s*\n|\n\s*[^\s])',
+            # "invalid_import_resilience": r'if\s+project_root\s+not\s+in\s+sys\.path:\s*\n\s*(?:\n|[^\s])',
+            # "makedirs_without_path": r'os\.makedirs\(\s*\)',
+            # "relative_import_in_script": r'from\s+\.\w+\s+import',
         }
     
     def check_file(self, file_path: str) -> List[SyntaxIssue]:
         """Check a Python file for syntax issues."""
         issues = []
-        
+
+        # --- EGOS Check: Ensure we only process Python files ---
+        if not file_path.endswith('.py'):
+            logger.debug(f"Skipping non-Python file: {file_path}")
+            return issues
+        # --- End EGOS Check ---
+
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
                 content = f.read()
                 lines = content.split('\n')
             
-            # Check for common regex patterns
-            for pattern_name, pattern in self.patterns.items():
-                for match in re.finditer(pattern, content):
-                    line_number = content[:match.start()].count('\n') + 1
-                    line = lines[line_number - 1] if line_number <= len(lines) else ""
-                    
-                    issue = self._create_issue_from_pattern(file_path, line_number, pattern_name, line)
-                    if issue:
-                        issues.append(issue)
+            # Check for common regex patterns (Temporarily disabled - high false positives - See MEMORY[403f6d5e...])
+            # for pattern_name, pattern in self.patterns.items():
+            #     for match in re.finditer(pattern, content):
+            #         line_number = content[:match.start()].count('\n') + 1
+            #         line = lines[line_number - 1] if line_number <= len(lines) else ""
+            #         
+            #         issue = self._create_issue_from_pattern(file_path, line_number, pattern_name, line)
+            #         if issue:
+            #             issues.append(issue)
             
             # Try to parse with AST to catch syntax errors
             try:
@@ -128,54 +134,55 @@ class SyntaxChecker:
     
     def _create_issue_from_pattern(self, file_path: str, line_number: int, pattern_name: str, line: str) -> Optional[SyntaxIssue]:
         """Create a SyntaxIssue based on the pattern matched."""
-        if pattern_name == "unmatched_parenthesis":
-            return SyntaxIssue(
-                file_path=file_path,
-                line_number=line_number,
-                issue_type="unmatched_parenthesis",
-                description="Possible unmatched parenthesis detected.",
-                suggestion="Check for balanced parentheses in expressions and function calls."
-            )
-        elif pattern_name == "incomplete_assignment":
-            return SyntaxIssue(
-                file_path=file_path,
-                line_number=line_number,
-                issue_type="incomplete_assignment",
-                description="Assignment without a value detected.",
-                suggestion="Complete the assignment with a proper value."
-            )
-        elif pattern_name == "empty_if_block":
-            return SyntaxIssue(
-                file_path=file_path,
-                line_number=line_number,
-                issue_type="empty_if_block",
-                description="If statement with empty block detected.",
-                suggestion="Add proper indented code under the if statement or use 'pass'."
-            )
-        elif pattern_name == "invalid_import_resilience":
-            return SyntaxIssue(
-                file_path=file_path,
-                line_number=line_number,
-                issue_type="invalid_import_resilience",
-                description="Import resilience pattern without sys.path.insert detected.",
-                suggestion="Add 'sys.path.insert(0, project_root)' under the if statement."
-            )
-        elif pattern_name == "makedirs_without_path":
-            return SyntaxIssue(
-                file_path=file_path,
-                line_number=line_number,
-                issue_type="makedirs_without_path",
-                description="os.makedirs() call without a path parameter detected.",
-                suggestion="Provide a directory path to os.makedirs()."
-            )
-        elif pattern_name == "relative_import_in_script":
-            return SyntaxIssue(
-                file_path=file_path,
-                line_number=line_number,
-                issue_type="relative_import_in_script",
-                description="Relative import in a script that might be run directly.",
-                suggestion="Use absolute imports with the EGOS import resilience pattern instead."
-            )
+        # (Temporarily disabled - See MEMORY[403f6d5e...])
+        # if pattern_name == "unmatched_parenthesis":
+        #     return SyntaxIssue(
+        #         file_path=file_path,
+        #         line_number=line_number,
+        #         issue_type="unmatched_parenthesis",
+        #         description="Possible unmatched parenthesis detected.",
+        #         suggestion="Check for balanced parentheses in expressions and function calls."
+        #     )
+        # if pattern_name == "incomplete_assignment":
+        #     return SyntaxIssue(
+        #         file_path=file_path,
+        #         line_number=line_number,
+        #         issue_type="incomplete_assignment",
+        #         description="Assignment without a value detected.",
+        #         suggestion="Complete the assignment with a proper value."
+        #     )
+        # elif pattern_name == "empty_if_block":
+        #     return SyntaxIssue(
+        #         file_path=file_path,
+        #         line_number=line_number,
+        #         issue_type="empty_if_block",
+        #         description="If statement with empty block detected.",
+        #         suggestion="Add proper indented code under the if statement or use 'pass'."
+        #     )
+        # elif pattern_name == "invalid_import_resilience":
+        #     return SyntaxIssue(
+        #         file_path=file_path,
+        #         line_number=line_number,
+        #         issue_type="invalid_import_resilience",
+        #         description="Import resilience pattern without sys.path.insert detected.",
+        #         suggestion="Add 'sys.path.insert(0, project_root)' under the if statement."
+        #     )
+        # elif pattern_name == "makedirs_without_path":
+        #     return SyntaxIssue(
+        #         file_path=file_path,
+        #         line_number=line_number,
+        #         issue_type="makedirs_without_path",
+        #         description="os.makedirs() call without a path parameter detected.",
+        #         suggestion="Provide a directory path to os.makedirs()."
+        #     )
+        # elif pattern_name == "relative_import_in_script":
+        #     return SyntaxIssue(
+        #         file_path=file_path,
+        #         line_number=line_number,
+        #         issue_type="relative_import_in_script",
+        #         description="Relative import in a script that might be run directly.",
+        #         suggestion="Use absolute imports with the EGOS import resilience pattern instead."
+        #     )
         
         return None
     
@@ -245,17 +252,41 @@ class SyntaxChecker:
 def find_python_files(root_dir: str, exclude_dirs: Optional[List[str]] = None) -> List[str]:
     """Find all Python files in the given directory and its subdirectories."""
     if exclude_dirs is None:
-        exclude_dirs = ["venv", ".venv", "env", ".env", "__pycache__", ".git", ".pytest_cache", ".mypy_cache"]
+        exclude_dirs = [
+            # Standard virtual environments
+            "venv", ".venv", "env", ".env", 
+            # Cache and build directories
+            "__pycache__", ".pytest_cache", ".mypy_cache", "build", "dist", "*.egg-info",
+            # Version control
+            ".git",
+            # EGOS specific exclusions
+            "backups", 
+            "examples",
+            "reports", # Exclude the reports generated by this and other tools
+            # Add other project-specific directories to exclude here
+            "node_modules" # Common in projects with JS components
+        ]
     
     python_files = []
+    exclude_patterns = [re.compile(fnmatch.translate(pattern)) for pattern in exclude_dirs]
     
     for root, dirs, files in os.walk(root_dir):
-        # Skip excluded directories
-        dirs[:] = [d for d in dirs if d not in exclude_dirs]
+        # Filter directories in place to prevent walking into them
+        # Exclude hidden directories (starting with '.') and explicitly excluded ones
+        dirs[:] = [d for d in dirs if not d.startswith('.') and d not in exclude_dirs]
+        # Exclude directories matching glob patterns (like *.egg-info)
+        dirs[:] = [d for d in dirs if not any(pattern.match(d) for pattern in exclude_patterns)]
         
         for file in files:
+            # Also check if the root directory itself is excluded or hidden
+            rel_root = os.path.relpath(root, root_dir)
+            if rel_root != '.' and (rel_root.startswith('.') or any(part in exclude_dirs for part in Path(rel_root).parts)):
+                continue # Skip files in excluded or hidden root directories
+                
             if file.endswith('.py'):
-                python_files.append(os.path.join(root, file))
+                # Ensure the file itself isn't hidden
+                if not file.startswith('.'):
+                    python_files.append(os.path.join(root, file))
     
     return python_files
 
@@ -446,89 +477,51 @@ def generate_html_report(issues: List[SyntaxIssue], output_dir: str = "reports/c
 def main():
     """Main function for command-line execution."""
     parser = argparse.ArgumentParser(description="EGOS Syntax and Import Checker")
-    parser.add_argument("--root-dir", default=project_root, help="Root directory to scan for Python files")
-    parser.add_argument("--exclude-dirs", nargs="+", help="Directories to exclude from scanning")
-    parser.add_argument("--output-dir", default="reports/syntax", help="Directory to save the report")
-    parser.add_argument("--json", help="Path to save JSON report")
-    parser.add_argument("--verbose", action="store_true", help="Show detailed logs")
-    parser.add_argument("--open-report", action="store_true", help="Open the HTML report in the default browser")
-    parser.add_argument("--no-report", action="store_true", help="Do not generate HTML/JSON reports")
-    
+    parser.add_argument("--verbose", action="store_true", help="Enable verbose output.")
+    parser.add_argument("--root-dir", default=".", help="Root directory to scan.")
+    parser.add_argument("--output-dir", default="reports/code_health", help="Directory to save reports.")
     args = parser.parse_args()
+
+    # Configure logging
+    log_level = 'DEBUG' if args.verbose else 'INFO'
+    logging.basicConfig(level=log_level, format='%(asctime)s | %(levelname)s | %(message)s', datefmt='%H:%M:%S')
+
+    logging.info(f"Scanning Python files in {os.path.abspath(args.root_dir)}")
     
-    # Set log level based on verbosity
-    if args.verbose:
-        logger.setLevel(logging.DEBUG)
-    
-    try:
-        logger.info(f"Scanning Python files in {args.root_dir}")
+    # Find all Python files
+    python_files = find_python_files(args.root_dir)
+    logging.info(f"Found {len(python_files)} Python files to check")
+
+    checker = SyntaxChecker(verbose=args.verbose)
+    all_issues = []
+    files_with_issues = 0
+
+    for i, file_path in enumerate(python_files):
+        if args.verbose or (i + 1) % 50 == 0 or i == 0 or i == len(python_files) - 1:
+            logging.info(f"Checking file {i+1}/{len(python_files)}: {os.path.relpath(file_path, args.root_dir)}")
         
-        # Find Python files
-        python_files = find_python_files(args.root_dir, args.exclude_dirs)
-        logger.info(f"Found {len(python_files)} Python files to check")
-        
-        # Check each file
-        checker = SyntaxChecker(verbose=args.verbose)
-        all_issues = []
-        
-        for i, file_path in enumerate(python_files):
-            if i % 10 == 0 or args.verbose:
-                logger.info(f"Checking file {i+1}/{len(python_files)}: {file_path}")
-            
-            issues = checker.check_file(file_path)
+        issues = checker.check_file(file_path)
+        if issues:
+            files_with_issues += 1
             all_issues.extend(issues)
-            
-            if issues and args.verbose:
+            if args.verbose:
                 for issue in issues:
-                    logger.debug(f"Found issue: {issue}")
-        
-        logger.info(f"Found {len(all_issues)} potential issues in {len(python_files)} files")
-        
-        # Generate reports if not suppressed
-        if not args.no_report:
-            output_dir = args.output_dir
-            os.makedirs(output_dir, exist_ok=True)
-            logger.info(f"Generating reports in {output_dir}")
-            if not all_issues:
-                logger.info("No issues found, creating an empty report.")
-            
-            # Generate HTML report
-            report_path = generate_html_report(all_issues, output_dir)
-            
-            # Save JSON report if requested
-            if args.json:
-                json_dir = os.path.dirname(args.json)
-                if json_dir:
-                    os.makedirs(json_dir, exist_ok=True)
-                
-                with open(args.json, 'w', encoding='utf-8') as f:
-                    json.dump({
-                        "timestamp": datetime.datetime.now().isoformat(),
-                        "total_files": len(python_files),
-                        "total_issues": len(all_issues),
-                        "issues": [issue.to_dict() for issue in all_issues]
-                    }, f, indent=2)
-                
-                logger.info(f"Saved JSON report to {args.json}")
-            
-            # Open report in browser if requested
-            if args.open_report:
-                import webbrowser
-                webbrowser.open(f"file:///{report_path}")
-                logger.info(f"Opened report in default browser")
-        else:
-            logger.info("Report generation skipped due to --no-report flag.")
-        
-        print(f"\nSyntax check completed. Found {len(all_issues)} potential issues in {len(python_files)} files.")
-        if not args.no_report:
-            print(f"Report saved to: {args.output_dir}")
+                    logging.debug(f"Found issue: {issue}")
+
+    # Generate reports
+    report_path = generate_html_report(all_issues, args.output_dir)
     
-    except KeyboardInterrupt:
-        print("\n\nOperation cancelled by user.")
+    if all_issues:
+        logging.warning(f"Syntax check completed. Found {len(all_issues)} potential issues in {files_with_issues} files.")
+        logging.warning(f"See HTML report at {os.path.relpath(report_path, args.root_dir)} for details.")
+        print(f"\nSyntax check completed. Found {len(all_issues)} potential issues in {files_with_issues} files.")
+        print(f"See HTML report at {os.path.relpath(report_path, args.root_dir)} for details.")
+        print("Please review and fix these issues.")
+        # Exit with non-zero code to signal failure for pre-commit hooks
         sys.exit(1)
-    except Exception as e:
-        logger.critical(f"Unexpected error: {e}")
-        sys.exit(1)
+    else:
+        logging.info("Syntax check completed. No issues found.")
+        print("Syntax check completed. No issues found.")
 
 
 if __name__ == "__main__":

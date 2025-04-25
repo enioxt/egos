@@ -1,3 +1,17 @@
+---
+title: Standards
+version: 1.0.0
+status: Active
+date: 2025-04-22
+subsystem: KOIOS
+tags: [documentation, egos, koios]
+@references:
+- Core References:
+  - [MQP.md](mdc:../../MQP.md) - Master Quantum Prompt defining EGOS principles
+  - [ROADMAP.md](mdc:../../ROADMAP.md) - Project roadmap and planning
+
+
+
 # EGOS Project Standards (KOIOS v1.1)
 
 **Version:** 1.1
@@ -125,6 +139,7 @@ subsystems/
 * **Clarity:** Documentation should be clear, concise, and kept up-to-date with the code.
 * **Process Logs:** Significant refactoring efforts, complex bug fixes, or architectural decisions SHOULD be documented in process logs within the `docs/process/` directory (e.g., `linter_error_resolution_log_YYYYMMDD.md`, `linting_improvements_YYYYMMDD.md`) to capture the reasoning and steps taken.
 * **KOIOS Process Documentation:** Standardized processes for development tasks (like linting resolution) are documented in `subsystems/KOIOS/docs/` (e.g., `lint_error_resolution_processes.md`).
+* **Workflow Visualization (Mermaid):** For documenting complex multi-step processes, workflows, or system interactions (either within Markdown files or during chat collaboration), consider using Mermaid syntax (```mermaid```) to generate diagrams (flowcharts, sequence diagrams, etc.). This enhances clarity, shared understanding, and aligns with the Systemic Cartography principle.
 
 ## 9. Metadata Standards
 

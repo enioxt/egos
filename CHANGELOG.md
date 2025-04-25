@@ -1,3 +1,13 @@
+@references:
+- Core References:
+  - [ROADMAP.md](mdc:../../ROADMAP.md) - Project roadmap and planning
+  - [MQP.md](mdc:../../MQP.md) - Master Quantum Prompt defining EGOS principles
+- Other:
+  - [Master Quantum Prompt defining EGOS principles](mdc:../../MQP.md)
+
+
+
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
@@ -19,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial project structure based on Quantum Unified System principles.
 - Core subsystems directories created (ATLAS, BIOS-Q, etc.).
 - Basic README and documentation placeholders.
+- KOIOS process documentation for Strategic Analysis (`subsystems/KOIOS/docs/processes/koios_strategic_analysis_process.md`).
 
 ### Changed
 - Standardized the structure of `.cursor/rules/*.mdc` files to comply with `MDC_RULES_STANDARD.md` (added frontmatter description, standard H1, standard H2 sections: Rule, Rationale, Examples).
@@ -38,6 +49,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated `ROADMAP.md` to reflect completion of Git workflow standards and Smart Tips enhancements.
 - Added categories to Smart Tips protocol for better organization.
 - Refined subsystem responsibilities based on MQP v7.4.
+- Updated `docs/core_materials/MQP.md` to include the Quantum Prompt conceptual definition.
+- Updated `subsystems/KOIOS/docs/process_index.md` to link to the new Strategic Analysis process.
+- Updated `subsystems/KOIOS/docs/STANDARDS.md` to recommend Mermaid for workflow visualization.
 
 ### Deprecated
 -
