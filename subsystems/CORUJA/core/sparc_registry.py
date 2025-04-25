@@ -1,6 +1,4 @@
-"""
-Manages the state and lifecycle of SPARC tasks within the CORUJA subsystem.
-"""
+"""Manages the state and lifecycle of SPARC tasks within the CORUJA subsystem."""
 # Standard library imports
 import asyncio
 from typing import Dict, Any, Optional, List
@@ -135,9 +133,7 @@ class SPARCTaskRegistry:
         return []
 
     async def delegate_via_mycelium(self, task_id: str, target_subsystem: str, payload: Dict[str, Any]):
-        """
-        Delegates a task or sub-task to another subsystem via Mycelium.
-        """
+        """Delegates a task or sub-task to another subsystem via Mycelium."""
         topic = f"sparc.task.delegate.{target_subsystem}"
         logger.info(f"Delegating task {task_id} to {target_subsystem} via topic {topic} (Placeholder).")
         # TODO: Use self.mycelium_interface.publish(topic, payload)
@@ -145,9 +141,7 @@ class SPARCTaskRegistry:
         await self.update_task_status(task_id, status=f"delegated_to_{target_subsystem}")
 
     async def check_dependencies_complete(self, task_id: str) -> bool:
-        """
-        Checks if all dependencies for a given task are complete.
-        """
+        """Checks if all dependencies for a given task are complete."""
         dependencies = await self.get_dependencies(task_id)
         dependencies = await self.get_dependencies(task_id) # Call the method to get deps
         if not dependencies:

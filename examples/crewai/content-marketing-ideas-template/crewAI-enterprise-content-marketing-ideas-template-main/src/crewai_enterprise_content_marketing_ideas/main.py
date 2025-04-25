@@ -7,17 +7,13 @@ from crewai_enterprise_content_marketing_ideas.crew import (
 
 
 def run():
-    """
-    Run the crew.
-    """
+    """Run the crew."""
     inputs = {"topic": "AI Agent Framework", "company": "CrewAI"}
     CrewaiEnterpriseContentMarketingCrew().crew().kickoff(inputs=inputs)
 
 
 def train():
-    """
-    Train the crew for a given number of iterations.
-    """
+    """Train the crew for a given number of iterations."""
     inputs = {"topic": "AI Agent Framework", "company": "CrewAI"}
     try:
         CrewaiEnterpriseContentMarketingCrew().crew().train(
@@ -29,9 +25,7 @@ def train():
 
 
 def replay():
-    """
-    Replay the crew execution from a specific task.
-    """
+    """Replay the crew execution from a specific task."""
     try:
         CrewaiEnterpriseContentMarketingCrew().crew().replay(task_id=sys.argv[1])
 
@@ -40,9 +34,7 @@ def replay():
 
 
 def test():
-    """
-    Test the crew execution and returns the results.
-    """
+    """Test the crew execution and returns the results."""
     inputs = {"topic": "AI Agent Framework", "company": "CrewAI"}
     try:
         CrewaiEnterpriseContentMarketingCrew().crew().test(

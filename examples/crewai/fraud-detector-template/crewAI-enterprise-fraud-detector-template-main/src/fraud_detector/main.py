@@ -15,9 +15,7 @@ def run():
 
 
 def train():
-    """
-    Train the crew for a given number of iterations.
-    """
+    """Train the crew for a given number of iterations."""
     inputs = {
         "customer_name": "John Doe",
         "customer_info": "Company Enterprise",
@@ -33,9 +31,7 @@ def train():
 
 
 def replay():
-    """
-    Replay the crew execution from a specific task.
-    """
+    """Replay the crew execution from a specific task."""
     try:
         FraudDetectorCrew().crew().replay(task_id=sys.argv[1])
 
@@ -44,9 +40,7 @@ def replay():
 
 
 def test():
-    """
-    Test the crew execution and returns the results.
-    """
+    """Test the crew execution and returns the results."""
     inputs = {
         "customer_name": "John Doe",
         "customer_info": "Company Enterprise",

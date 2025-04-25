@@ -10,9 +10,7 @@ from sales_personalized_email.crew import SalesPersonalizedEmailCrew
 
 
 def run():
-    """
-    Run the crew.
-    """
+    """Run the crew."""
     inputs = {
         "name": "<PROSPECT_NAME>",
         "title": "<PROSPECT_TITLE>",
@@ -25,9 +23,7 @@ def run():
 
 
 def train():
-    """
-    Train the crew for a given number of iterations.
-    """
+    """Train the crew for a given number of iterations."""
     inputs = {"topic": "AI LLMs"}
     try:
         SalesPersonalizedEmailCrew().crew().train(
@@ -39,9 +35,7 @@ def train():
 
 
 def replay():
-    """
-    Replay the crew execution from a specific task.
-    """
+    """Replay the crew execution from a specific task."""
     try:
         SalesPersonalizedEmailCrew().crew().replay(task_id=sys.argv[1])
 
@@ -50,9 +44,7 @@ def replay():
 
 
 def test():
-    """
-    Test the crew execution and returns the results.
-    """
+    """Test the crew execution and returns the results."""
     inputs = {"topic": "AI LLMs"}
     try:
         SalesPersonalizedEmailCrew().crew().test(

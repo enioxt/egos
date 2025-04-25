@@ -10,9 +10,7 @@ from sales_offer.crew import SalesOfferCrew
 
 
 def run():
-    """
-    Run the crew.
-    """
+    """Run the crew."""
     inputs = {
         "customer_info": {
             "name": "Placeholder Company",
@@ -35,9 +33,7 @@ def run():
 
 
 def train():
-    """
-    Train the crew for a given number of iterations.
-    """
+    """Train the crew for a given number of iterations."""
     inputs = {"topic": "AI LLMs"}
     try:
         SalesOfferCrew().crew().train(
@@ -49,9 +45,7 @@ def train():
 
 
 def replay():
-    """
-    Replay the crew execution from a specific task.
-    """
+    """Replay the crew execution from a specific task."""
     try:
         SalesOfferCrew().crew().replay(task_id=sys.argv[1])
 
@@ -60,9 +54,7 @@ def replay():
 
 
 def test():
-    """
-    Test the crew execution and returns the results.
-    """
+    """Test the crew execution and returns the results."""
     inputs = {"topic": "AI LLMs"}
     try:
         SalesOfferCrew().crew().test(
