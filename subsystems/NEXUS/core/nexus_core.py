@@ -502,7 +502,8 @@ class NEXUSCore:
             self.logger.exception(f"Error converting path {file_path_str} to module string: {e}")
             return None
 
-    def _format_import_display(self, imp: Dict[str, Any]) -> str:
+    @staticmethod
+    def _format_import_display(imp: Dict[str, Any]) -> str:
         """Formats the raw import dictionary into a display string."""
         if imp["is_from_import"]:
             relative_dots = "." * imp["level"]
@@ -705,7 +706,8 @@ class NEXUSCore:
             self.logger.exception(f"Error exporting analysis: {e}")
             return None
 
-    def _convert_to_markdown(self, data: Dict) -> str:
+    @staticmethod
+    def _convert_to_markdown(data: Dict) -> str:
         """Convert analysis data dictionary to a Markdown formatted string.
 
         Args:

@@ -134,7 +134,8 @@ class DocstringChecker:
         
         return issues
     
-    def _check_module_docstring(self, file_path: str, tree: ast.Module, content: str) -> List[DocstringIssue]:
+    @staticmethod
+    def _check_module_docstring(file_path: str, tree: ast.Module, content: str) -> List[DocstringIssue]:
         """Check if the module has a proper docstring."""
         issues = []
         
@@ -278,7 +279,8 @@ class DocstringChecker:
         
         return issues
     
-    def _has_attributes(self, node: ast.ClassDef) -> bool:
+    @staticmethod
+    def _has_attributes(node: ast.ClassDef) -> bool:
         """Check if a class has attributes."""
         for item in node.body:
             # Check for assignments in the class body
@@ -295,7 +297,8 @@ class DocstringChecker:
         
         return False
     
-    def _has_public_methods(self, node: ast.ClassDef) -> bool:
+    @staticmethod
+    def _has_public_methods(node: ast.ClassDef) -> bool:
         """Check if a class has public methods."""
         for item in node.body:
             if isinstance(item, ast.FunctionDef) and not item.name.startswith('_'):
@@ -303,7 +306,8 @@ class DocstringChecker:
         
         return False
     
-    def _get_function_args(self, node: ast.FunctionDef) -> List[ast.arg]:
+    @staticmethod
+    def _get_function_args(node: ast.FunctionDef) -> List[ast.arg]:
         """Get function arguments excluding self/cls for methods."""
         args = []
         
@@ -326,7 +330,8 @@ class DocstringChecker:
         
         return args
     
-    def _has_return_value(self, node: ast.FunctionDef) -> bool:
+    @staticmethod
+    def _has_return_value(node: ast.FunctionDef) -> bool:
         """Check if a function returns a value (not None)."""
         # Check for explicit return statements
         for item in ast.walk(node):

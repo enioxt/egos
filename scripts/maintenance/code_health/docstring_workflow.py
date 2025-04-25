@@ -96,7 +96,8 @@ class DocstringWorkflow:
         # Check all dependencies are present
         self._check_dependencies()
 
-    def _check_dependencies(self) -> None:
+    @staticmethod
+    def _check_dependencies() -> None:
         """Verify all required script dependencies are available."""
         missing = []
         for script in [CHECKER_SCRIPT, AUTOFIXER_SCRIPT, ANALYZER_SCRIPT, FIXER_SCRIPT]:

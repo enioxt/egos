@@ -47,7 +47,8 @@ class MockMyceliumInterface:
         self.subscribed_topics[topic].append(handler)
         return f"sub_{topic}"  # Return a dummy subscription ID
 
-    async def unsubscribe(self, subscription_id):
+    @staticmethod
+    async def unsubscribe(subscription_id):
         # Basic mock unsubscribe - find topic by ID and remove handler (complex)
         # For simplicity, just log it
         print(f"Mock Unsubscribe: {subscription_id}")

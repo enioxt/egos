@@ -158,7 +158,8 @@ class AgentRuntime:
             # Raise or return an error object
             raise # Re-raise for CrewManager to handle
 
-    def _determine_prompt_name(self, task_definition: Dict[str, Any]) -> str:
+    @staticmethod
+    def _determine_prompt_name(task_definition: Dict[str, Any]) -> str:
         """Placeholder logic to determine which PDD/prompt to use."""
         # TODO: Implement logic based on task type, agent role, metadata etc.
         return f"default_{task_definition.get('type', 'task')}_prompt" # Placeholder

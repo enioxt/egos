@@ -112,7 +112,8 @@ class EgosCleanupManager:
         logger.debug(f"Exclude directories: {self.exclude_dirs}")
         logger.info(f"Dry run: {self.dry_run}")
     
-    def _format_size(self, size_bytes: int) -> str:
+    @staticmethod
+    def _format_size(size_bytes: int) -> str:
         """Format size in bytes to human-readable format."""
         for unit in ['B', 'KB', 'MB', 'GB']:
             if size_bytes < 1024.0:

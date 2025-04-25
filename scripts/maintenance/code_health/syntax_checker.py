@@ -132,7 +132,8 @@ class SyntaxChecker:
         
         return issues
     
-    def _create_issue_from_pattern(self, file_path: str, line_number: int, pattern_name: str, line: str) -> Optional[SyntaxIssue]:
+    @staticmethod
+    def _create_issue_from_pattern(file_path: str, line_number: int, pattern_name: str, line: str) -> Optional[SyntaxIssue]:
         """Create a SyntaxIssue based on the pattern matched."""
         # (Temporarily disabled - See MEMORY[403f6d5e...])
         # if pattern_name == "unmatched_parenthesis":
@@ -186,7 +187,8 @@ class SyntaxChecker:
         
         return None
     
-    def _check_import_resilience(self, file_path: str, content: str, lines: List[str]) -> List[SyntaxIssue]:
+    @staticmethod
+    def _check_import_resilience(file_path: str, content: str, lines: List[str]) -> List[SyntaxIssue]:
         """Check if the import resilience pattern is correctly implemented."""
         issues = []
         

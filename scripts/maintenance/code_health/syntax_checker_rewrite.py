@@ -159,8 +159,8 @@ class SyntaxChecker:
 
         return issues
 
+    @staticmethod
     def _create_issue_from_pattern(
-        self,
         file_path: str,
         line_number: int,
         pattern_name: str,
@@ -171,8 +171,8 @@ class SyntaxChecker:
         # Pattern matching is temporarily disabled - See MEMORY[403f6d5e-252c-4b69-ae91-5e4dcf9b92c7]
         return None
 
+    @staticmethod
     def _check_import_resilience(
-        self,
         file_path: str,
         content: str,
         lines: List[str],
