@@ -34,20 +34,20 @@ logger = logging.getLogger("egos_syntax_checker")
 
 class SyntaxIssue:
     """Represents a syntax issue found in a Python file.
-    
+
     Attributes:
         None
             Methods:
             None
 """
-    
+
     def __init__(self, file_path: str, line_number: int, issue_type: str, description: str, suggestion: str):
         self.file_path = file_path
         self.line_number = line_number
         self.issue_type = issue_type
         self.description = description
         self.suggestion = suggestion
-    
+
     def to_dict(self) -> Dict[str, Any]:
         """Convert to dictionary for JSON serialization."""
         return {
@@ -57,17 +57,17 @@ class SyntaxIssue:
             "description": self.description,
             "suggestion": self.suggestion
         }
-    
+
     def __str__(self) -> str:
         return f"{self.file_path}:{self.line_number} - {self.issue_type}: {self.description}"
 
 
 class SyntaxChecker:
     """Checks Python files for common syntax issues and import problems."""
-    
+
     def __init__(self, verbose: bool = False):
         self.verbose = verbose
-        
+
         # Common patterns to check (Temporarily disabled - high false positives - See MEMORY[403f6d5e...])
         self.patterns = {
             # "unmatched_parenthesis": r'[^\\]\)\s*\)',
@@ -77,7 +77,7 @@ class SyntaxChecker:
             # "makedirs_without_path": r'os\.makedirs\(\s*\)',
             # "relative_import_in_script": r'from\s+\.\w+\s+import',
         }
-    
+
     def check_file(self, file_path: str) -> List[SyntaxIssue]:
         """Check a Python file for syntax issues."""
         issues = []
@@ -92,7 +92,7 @@ class SyntaxChecker:
             with open(file_path, 'r', encoding='utf-8') as f:
                 content = f.read()
                 lines = content.split('\n')
-            
+
             # Check for common regex patterns (Temporarily disabled - high false positives - See MEMORY[403f6d5e...])
             # for pattern_name, pattern in self.patterns.items():
             #     for match in re.finditer(pattern, content):
@@ -102,7 +102,7 @@ class SyntaxChecker:
             #         issue = self._create_issue_from_pattern(file_path, line_number, pattern_name, line)
             #         if issue:
             #             issues.append(issue)
-            
+
             # Try to parse with AST to catch syntax errors
             try:
                 ast.parse(content)
@@ -114,12 +114,12 @@ class SyntaxChecker:
                     description=f"Syntax error: {str(e)}",
                     suggestion="Fix the syntax error according to the Python error message."
                 ))
-            
+
             # Check for import resilience pattern correctness
             if "# EGOS Import Resilience" in content:
                 resilience_issues = self._check_import_resilience(file_path, content, lines)
                 issues.extend(resilience_issues)
-            
+
         except Exception as e:
             logger.error(f"Error checking file {file_path}: {str(e)}")
             issues.append(SyntaxIssue(
@@ -129,9 +129,9 @@ class SyntaxChecker:
                 description=f"Error processing file: {str(e)}",
                 suggestion="Check file encoding and permissions."
             ))
-        
+
         return issues
-    
+
     @staticmethod
     def _create_issue_from_pattern(file_path: str, line_number: int, pattern_name: str, line: str) -> Optional[SyntaxIssue]:
         """Create a SyntaxIssue based on the pattern matched."""
@@ -184,25 +184,25 @@ class SyntaxChecker:
         #         description="Relative import in a script that might be run directly.",
         #         suggestion="Use absolute imports with the EGOS import resilience pattern instead."
         #     )
-        
+
         return None
-    
+
     @staticmethod
     def _check_import_resilience(file_path: str, content: str, lines: List[str]) -> List[SyntaxIssue]:
         """Check if the import resilience pattern is correctly implemented."""
         issues = []
-        
+
         # Basic pattern components to check for
         has_import_sys = "import sys" in content
         has_path_import = "from pathlib import Path" in content
         has_project_root = "project_root = " in content and "Path(__file__).resolve().parents" in content
         has_sys_path_check = "if project_root not in sys.path:" in content
         has_sys_path_insert = "sys.path.insert(0, project_root)" in content
-        
+
         # Find the line numbers for context
         import_sys_line = next((i+1 for i, line in enumerate(lines) if "import sys" in line), 0)
         project_root_line = next((i+1 for i, line in enumerate(lines) if "project_root = " in line and "Path(__file__).resolve().parents" in line), 0)
-        
+
         if not has_import_sys:
             issues.append(SyntaxIssue(
                 file_path=file_path,
@@ -211,7 +211,7 @@ class SyntaxChecker:
                 description="Import resilience pattern is missing 'import sys'.",
                 suggestion="Add 'import sys' at the top of the file."
             ))
-        
+
         if not has_path_import:
             issues.append(SyntaxIssue(
                 file_path=file_path,
@@ -220,7 +220,7 @@ class SyntaxChecker:
                 description="Import resilience pattern is missing 'from pathlib import Path'.",
                 suggestion="Add 'from pathlib import Path' after importing sys."
             ))
-        
+
         if not has_project_root:
             issues.append(SyntaxIssue(
                 file_path=file_path,
@@ -229,7 +229,7 @@ class SyntaxChecker:
                 description="Import resilience pattern is missing project_root assignment.",
                 suggestion="Add 'project_root = str(Path(__file__).resolve().parents[N])' where N is the number of parent directories to the project root."
             ))
-        
+
         if not has_sys_path_check:
             issues.append(SyntaxIssue(
                 file_path=file_path,
@@ -238,7 +238,7 @@ class SyntaxChecker:
                 description="Import resilience pattern is missing sys.path check.",
                 suggestion="Add 'if project_root not in sys.path:' after the project_root assignment."
             ))
-        
+
         if not has_sys_path_insert:
             issues.append(SyntaxIssue(
                 file_path=file_path,
@@ -247,7 +247,7 @@ class SyntaxChecker:
                 description="Import resilience pattern is missing sys.path.insert.",
                 suggestion="Add '    sys.path.insert(0, project_root)' under the if statement."
             ))
-        
+
         return issues
 
 
@@ -268,28 +268,28 @@ def find_python_files(root_dir: str, exclude_dirs: Optional[List[str]] = None) -
             # Add other project-specific directories to exclude here
             "node_modules" # Common in projects with JS components
         ]
-    
+
     python_files = []
     exclude_patterns = [re.compile(fnmatch.translate(pattern)) for pattern in exclude_dirs]
-    
+
     for root, dirs, files in os.walk(root_dir):
         # Filter directories in place to prevent walking into them
         # Exclude hidden directories (starting with '.') and explicitly excluded ones
         dirs[:] = [d for d in dirs if not d.startswith('.') and d not in exclude_dirs]
         # Exclude directories matching glob patterns (like *.egg-info)
         dirs[:] = [d for d in dirs if not any(pattern.match(d) for pattern in exclude_patterns)]
-        
+
         for file in files:
             # Also check if the root directory itself is excluded or hidden
             rel_root = os.path.relpath(root, root_dir)
             if rel_root != '.' and (rel_root.startswith('.') or any(part in exclude_dirs for part in Path(rel_root).parts)):
                 continue # Skip files in excluded or hidden root directories
-                
+
             if file.endswith('.py'):
                 # Ensure the file itself isn't hidden
                 if not file.startswith('.'):
                     python_files.append(os.path.join(root, file))
-    
+
     return python_files
 
 
@@ -297,18 +297,18 @@ def generate_html_report(issues: List[SyntaxIssue], output_dir: str = "reports/c
     """Generate an HTML report of the syntax issues found."""
     # Create reports directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
-    
+
     # Generate a timestamp for the report filename
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
     report_path = os.path.join(output_dir, f"syntax_check_report_{timestamp}.html")
-    
+
     # Group issues by file
     issues_by_file = {}
     for issue in issues:
         if issue.file_path not in issues_by_file:
             issues_by_file[issue.file_path] = []
         issues_by_file[issue.file_path].append(issue)
-    
+
     # Create HTML content
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
@@ -411,7 +411,7 @@ def generate_html_report(issues: List[SyntaxIssue], output_dir: str = "reports/c
         
         <h2>Issues by File</h2>
 """
-    
+
     # Add issues grouped by file
     for file_path, file_issues in issues_by_file.items():
         relative_path = os.path.relpath(file_path, project_root)
@@ -419,7 +419,7 @@ def generate_html_report(issues: List[SyntaxIssue], output_dir: str = "reports/c
         <div class="file-section">
             <div class="file-path">{relative_path} ({len(file_issues)} issues)</div>
 """
-        
+
         for issue in file_issues:
             html_content += f"""
             <div class="issue">
@@ -429,18 +429,18 @@ def generate_html_report(issues: List[SyntaxIssue], output_dir: str = "reports/c
                 <div class="issue-suggestion">Suggestion: {issue.suggestion}</div>
             </div>
 """
-        
+
         html_content += """
         </div>
 """
-    
+
     # Add issue type summary
     issue_types = {}
     for issue in issues:
         if issue.issue_type not in issue_types:
             issue_types[issue.issue_type] = 0
         issue_types[issue.issue_type] += 1
-    
+
     html_content += """
         <h2>Issue Types Summary</h2>
         <table>
@@ -449,7 +449,7 @@ def generate_html_report(issues: List[SyntaxIssue], output_dir: str = "reports/c
                 <th>Count</th>
             </tr>
 """
-    
+
     for issue_type, count in sorted(issue_types.items(), key=lambda x: x[1], reverse=True):
         html_content += f"""
             <tr>
@@ -457,21 +457,21 @@ def generate_html_report(issues: List[SyntaxIssue], output_dir: str = "reports/c
                 <td>{count}</td>
             </tr>
 """
-    
+
     html_content += """
         </table>
-        
+
         <div class="footer">
             <p>Generated by EGOS Syntax Checker</p>
         </div>
     </div>
 </body>
 </html>"""
-    
+
     # Write HTML content to file
     with open(report_path, 'w', encoding='utf-8') as f:
         f.write(html_content)
-    
+
     logger.info(f"Generated HTML report at {report_path}")
     return report_path
 
@@ -489,7 +489,7 @@ def main():
     logging.basicConfig(level=log_level, format='%(asctime)s | %(levelname)s | %(message)s', datefmt='%H:%M:%S')
 
     logging.info(f"Scanning Python files in {os.path.abspath(args.root_dir)}")
-    
+
     # Find all Python files
     python_files = find_python_files(args.root_dir)
     logging.info(f"Found {len(python_files)} Python files to check")
@@ -501,7 +501,7 @@ def main():
     for i, file_path in enumerate(python_files):
         if args.verbose or (i + 1) % 50 == 0 or i == 0 or i == len(python_files) - 1:
             logging.info(f"Checking file {i+1}/{len(python_files)}: {os.path.relpath(file_path, args.root_dir)}")
-        
+
         issues = checker.check_file(file_path)
         if issues:
             files_with_issues += 1
@@ -512,7 +512,7 @@ def main():
 
     # Generate reports
     report_path = generate_html_report(all_issues, args.output_dir)
-    
+
     if all_issues:
         logging.warning(f"Syntax check completed. Found {len(all_issues)} potential issues in {files_with_issues} files.")
         logging.warning(f"See HTML report at {os.path.relpath(report_path, args.root_dir)} for details.")

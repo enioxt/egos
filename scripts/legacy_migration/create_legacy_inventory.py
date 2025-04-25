@@ -84,7 +84,7 @@ EGOS_SUBSYSTEMS = [
 
 class LegacyInventoryGenerator:
     """Gerador de inventário de arquivos legados no sistema EGOS."""
-    
+
     def __init__(
         self, 
         root_dir: str,
@@ -105,7 +105,7 @@ class LegacyInventoryGenerator:
     ):
         """
         Inicializa o gerador de inventário.
-        
+
         Args:
             root_dir: Diretório raiz para iniciar a busca
             output_file: Arquivo de saída para o inventário (formato Markdown)
@@ -137,17 +137,17 @@ class LegacyInventoryGenerator:
         self.checkpoint_file = checkpoint_file or "legacy_inventory_checkpoint.pkl"
         self.include_all_files = include_all_files
         self.verbose = verbose
-        
+
         # Configuração de logging de arquivo
         if log_file:
             file_handler = logging.FileHandler(log_file)
             file_handler.setFormatter(log_formatter)
             logger.addHandler(file_handler)
-        
+
         # Configuração de nível de logging
         if verbose:
             logger.setLevel(logging.DEBUG)
-        
+
         # Estatísticas
         self.stats = {
             "total_files_scanned": 0,
@@ -162,23 +162,23 @@ class LegacyInventoryGenerator:
                 "old": 0      # > 90 dias
             }
         }
-        
+
         # Inicialização de dados de checkpoint
         self.processed_files = set()  # Arquivos já processados
         self.legacy_files = []  # Arquivos legados encontrados
         self.removal_candidates = []  # Candidatos à remoção
         self.last_checkpoint_time = time.time()
         self.start_time = time.time()
-        
+
         # Carregar checkpoint se existir
         self._load_checkpoint()
-        
+
         logger.info(f"Iniciando gerador de inventário no diretório: {self.root_dir}")
         logger.debug(f"Diretórios legados: {self.legacy_dirs}")
         logger.debug(f"Extensões incluídas: {self.legacy_extensions}")
         logger.debug(f"Extensões excluídas: {self.exclude_extensions}")
         logger.debug(f"Diretórios excluídos: {self.exclude_dirs}")
-        
+
     def _load_checkpoint(self):
         """Carrega dados de checkpoint se o arquivo existir."""
         if os.path.exists(self.checkpoint_file):
@@ -192,7 +192,7 @@ class LegacyInventoryGenerator:
                 logger.info(f"Checkpoint carregado: {len(self.processed_files)} arquivos já processados")
             except Exception as e:
                 logger.warning(f"Erro ao carregar checkpoint: {e}")
-    
+
     def _save_checkpoint(self, force=False):
         """Salva dados de checkpoint."""
         current_time = time.time()
@@ -211,14 +211,14 @@ class LegacyInventoryGenerator:
                 logger.info(f"Checkpoint salvo: {len(self.processed_files)} arquivos processados")
             except Exception as e:
                 logger.warning(f"Erro ao salvar checkpoint: {e}")
-    
+
     def _should_exclude_file(self, file_path: str) -> bool:
         """
         Determina se um arquivo deve ser excluído do processamento.
-        
+
         Args:
             file_path: Caminho completo para o arquivo
-            
+
         Returns:
             bool: True se o arquivo deve ser excluído, False caso contrário
         """
@@ -226,12 +226,12 @@ class LegacyInventoryGenerator:
         _, ext = os.path.splitext(file_path)
         if ext.lower() in self.exclude_extensions:
             return True
-        
+
         # Verificar padrões excluídos
         for pattern in self.exclude_patterns:
             if pattern in file_path:
                 return True
-        
+
         # Verificar tamanho máximo
         try:
             if os.path.getsize(file_path) > (self.max_size_mb * 1024 * 1024):
@@ -240,17 +240,17 @@ class LegacyInventoryGenerator:
         except Exception as e:
             logger.debug(f"Erro ao verificar tamanho do arquivo {file_path}: {e}")
             return True
-        
+
         return False
-    
+
     def is_removal_candidate(self, file_path: str, file_stat: os.stat_result) -> bool:
         """
         Determina se um arquivo é candidato à remoção segura.
-        
+
         Args:
             file_path: Caminho completo para o arquivo
             file_stat: Resultado de os.stat() para o arquivo
-            
+
         Returns:
             bool: True se o arquivo for candidato à remoção, False caso contrário
         """
@@ -261,7 +261,7 @@ class LegacyInventoryGenerator:
             for legacy_dir in self.legacy_dirs:
                 if f"/{legacy_dir}/" in file_path.replace("\\", "/") or f"\\{legacy_dir}\\" in file_path:
                     return True
-        
+
         # Arquivos com padrões específicos no nome
         file_name = os.path.basename(file_path)
         name_base, ext = os.path.splitext(file_name)
@@ -269,7 +269,7 @@ class LegacyInventoryGenerator:
         for pattern in patterns:
             if pattern in name_base.lower():
                 return True
-        
+
         # Arquivos duplicados em diretórios legados
         if file_path.endswith(".txt") or file_path.endswith(".md"):
             for legacy_dir in self.legacy_dirs:
@@ -278,40 +278,40 @@ class LegacyInventoryGenerator:
                     base_name = os.path.basename(file_path)
                     if os.path.exists(os.path.join(self.root_dir, "docs", "legacy", base_name)):
                         return True
-        
+
         return False
-    
+
     def is_legacy_file(self, file_path: str, file_stat: os.stat_result) -> bool:
         """
         Determina se um arquivo é considerado legado com base em vários critérios.
-        
+
         Args:
             file_path: Caminho completo para o arquivo
             file_stat: Resultado de os.stat() para o arquivo
-            
+
         Returns:
             bool: True se o arquivo for considerado legado, False caso contrário
         """
         if self.include_all_files:
             return True
-            
+
         # Verificar idade
         if self.min_age_days > 0:
             file_age_days = (datetime.datetime.now() - datetime.datetime.fromtimestamp(file_stat.st_mtime)).days
             if file_age_days >= self.min_age_days:
                 return True
-        
+
         # Verificar se está em um diretório legado
         for legacy_dir in self.legacy_dirs:
             if f"/{legacy_dir}/" in file_path.replace("\\", "/") or f"\\{legacy_dir}\\" in file_path:
                 return True
-        
+
         # Verificar nome do arquivo
         file_name = os.path.basename(file_path).lower()
         for pattern in LEGACY_PATTERNS:
             if pattern in file_name:
                 return True
-        
+
         # Verificar conteúdo (apenas para arquivos de texto pequenos)
         if os.path.getsize(file_path) < 1024 * 100:  # Limitar a 100KB
             try:
@@ -324,49 +324,49 @@ class LegacyInventoryGenerator:
                                 return True
             except Exception as e:
                 logger.debug(f"Erro ao ler conteúdo do arquivo {file_path}: {e}")
-        
+
         return False
-    
+
     def get_file_metadata(self, file_path: str, file_stat: os.stat_result) -> Dict[str, Any]:
         """
         Extrai metadados de um arquivo.
-        
+
         Args:
             file_path: Caminho completo para o arquivo
             file_stat: Resultado de os.stat() para o arquivo
-            
+
         Returns:
             Dict: Dicionário com metadados do arquivo
         """
         rel_path = os.path.relpath(file_path, self.root_dir)
         file_name = os.path.basename(file_path)
         _, ext = os.path.splitext(file_path)
-        
+
         # Calcular idade
         mod_time = datetime.datetime.fromtimestamp(file_stat.st_mtime)
         age_days = (datetime.datetime.now() - mod_time).days
-        
+
         # Determinar subsistema
         subsystem = "Unknown"
         for sys in EGOS_SUBSYSTEMS:
             if f"/subsystems/{sys}/" in file_path.replace("\\", "/") or f"\\subsystems\\{sys}\\" in file_path:
                 subsystem = sys
                 break
-        
+
         # Atualizar estatísticas
         self.stats["total_files_scanned"] += 1
-        
+
         # Extensão
         ext_key = ext.lower() if ext else "no_extension"
         if ext_key not in self.stats["by_extension"]:
             self.stats["by_extension"][ext_key] = 0
         self.stats["by_extension"][ext_key] += 1
-        
+
         # Subsistema
         if subsystem not in self.stats["by_subsystem"]:
             self.stats["by_subsystem"][subsystem] = 0
         self.stats["by_subsystem"][subsystem] += 1
-        
+
         # Idade
         if age_days < 30:
             self.stats["by_age"]["recent"] += 1
@@ -374,7 +374,7 @@ class LegacyInventoryGenerator:
             self.stats["by_age"]["medium"] += 1
         else:
             self.stats["by_age"]["old"] += 1
-        
+
         return {
             "path": rel_path,
             "name": file_name,
@@ -385,7 +385,7 @@ class LegacyInventoryGenerator:
             "age_days": age_days,
             "subsystem": subsystem
         }
-    
+
     @staticmethod
     def _format_size(size_bytes: int) -> str:
         """Formata tamanho em bytes para formato legível."""
@@ -394,144 +394,144 @@ class LegacyInventoryGenerator:
                 return f"{size_bytes:.1f} {unit}"
             size_bytes /= 1024.0
         return f"{size_bytes:.1f} TB"
-    
+
     def scan_directory(self) -> List[Dict[str, Any]]:
         """
         Escaneia o diretório em busca de arquivos legados.
-        
+
         Returns:
             List[Dict]: Lista de metadados de arquivos legados
         """
         if self.legacy_files and len(self.processed_files) > 0:
             logger.info(f"Usando {len(self.legacy_files)} arquivos legados já encontrados do checkpoint")
             return self.legacy_files
-            
+
         legacy_files = self.legacy_files.copy() if self.legacy_files else []
         files_processed = 0
         batch_count = 0
-        
+
         try:
             for root, dirs, files in os.walk(self.root_dir):
                 # Filtrar diretórios excluídos
                 dirs[:] = [d for d in dirs if d not in self.exclude_dirs]
-                
+
                 # Verificar se há muitos arquivos no diretório atual
                 if len(files) > 1000:
                     logger.warning(f"Diretório com muitos arquivos: {root} ({len(files)} arquivos). Processando apenas os primeiros 1000.")
                     files = files[:1000]
-                
+
                 for file in files:
                     file_path = os.path.join(root, file)
-                    
+
                     # Verificar se já foi processado
                     if file_path in self.processed_files:
                         continue
-                    
+
                     # Verificar limite de arquivos
                     if self.max_files > 0 and files_processed >= self.max_files:
                         logger.info(f"Limite de {self.max_files} arquivos atingido. Parando processamento.")
                         break
-                    
+
                     # Verificar extensão
                     _, ext = os.path.splitext(file_path)
                     if ext.lower() not in self.legacy_extensions:
                         self.processed_files.add(file_path)
                         continue
-                    
+
                     # Verificar se deve ser excluído
                     if self._should_exclude_file(file_path):
                         self.stats["skipped_files"] += 1
                         self.processed_files.add(file_path)
                         continue
-                    
+
                     try:
                         file_stat = os.stat(file_path)
                         self.stats["total_files_scanned"] += 1
-                        
+
                         # Verificar se é candidato à remoção
                         if self.is_removal_candidate(file_path, file_stat):
                             removal_metadata = self.get_file_metadata(file_path, file_stat)
                             removal_metadata["reason"] = "candidate_for_removal"
                             self.removal_candidates.append(removal_metadata)
                             self.stats["removal_candidates"] += 1
-                        
+
                         # Verificar se é legado
                         if self.is_legacy_file(file_path, file_stat):
                             metadata = self.get_file_metadata(file_path, file_stat)
                             legacy_files.append(metadata)
                             self.stats["legacy_files_found"] += 1
-                        
+
                         # Atualizar contadores
                         files_processed += 1
                         batch_count += 1
                         self.processed_files.add(file_path)
-                        
+
                         # Salvar checkpoint a cada N arquivos
                         if batch_count >= self.batch_size:
                             self._save_checkpoint()
                             batch_count = 0
-                            
+
                         # Log de progresso
                         if files_processed % 1000 == 0:
                             elapsed = time.time() - self.start_time
                             rate = files_processed / elapsed if elapsed > 0 else 0
                             logger.info(f"Processados {files_processed} arquivos ({rate:.1f} arquivos/s)")
                             logger.info(f"Encontrados {self.stats['legacy_files_found']} arquivos legados e {self.stats['removal_candidates']} candidatos à remoção")
-                            
+
                     except Exception as e:
                         logger.warning(f"Erro ao processar arquivo {file_path}: {e}")
                         self.processed_files.add(file_path)  # Marcar como processado mesmo com erro
-                
+
                 # Verificar limite de arquivos (novamente, após processar um diretório)
                 if self.max_files > 0 and files_processed >= self.max_files:
                     logger.info(f"Limite de {self.max_files} arquivos atingido. Parando processamento.")
                     break
-                        
+
         except KeyboardInterrupt:
             logger.warning("Processamento interrompido pelo usuário")
             self._save_checkpoint(force=True)
-            
+
         # Salvar checkpoint final
         self._save_checkpoint(force=True)
         self.legacy_files = legacy_files
-        
+
         return legacy_files
-    
+
     def generate_markdown_report(self, legacy_files: List[Dict[str, Any]]) -> None:
         """
         Gera relatório em formato Markdown com os arquivos legados encontrados.
-        
+
         Args:
             legacy_files: Lista de metadados de arquivos legados
         """
         # Ordenar por caminho
         legacy_files.sort(key=lambda x: x["path"])
-        
+
         with open(self.output_file, 'w', encoding='utf-8') as f:
             # Cabeçalho
             f.write("# Inventário de Arquivos Legados - EGOS\n\n")
             f.write(f"**Data de Geração:** {datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}\n\n")
             f.write(f"**Diretório Base:** {self.root_dir}\n\n")
-            
+
             # Resumo Executivo
             f.write("## Resumo Executivo\n\n")
             f.write("Este relatório foi gerado para auxiliar na otimização do espaço em disco e na organização dos arquivos legados do projeto EGOS. ")
             f.write("O objetivo é identificar arquivos que podem ser removidos com segurança, bem como mapear o conteúdo legado que precisa ser preservado.\n\n")
-            
+
             # Estatísticas
             f.write("## Estatísticas\n\n")
             f.write(f"- **Total de Arquivos Escaneados:** {self.stats['total_files_scanned']}\n")
             f.write(f"- **Arquivos Legados Encontrados:** {self.stats['legacy_files_found']}\n")
             f.write(f"- **Arquivos Ignorados:** {self.stats['skipped_files']}\n")
             f.write(f"- **Candidatos à Remoção:** {self.stats['removal_candidates']}\n\n")
-            
+
             # Configuração do escaneamento
             f.write("### Configuração do Escaneamento\n\n")
             f.write(f"- **Diretórios Legados:** {', '.join(self.legacy_dirs)}\n")
             f.write(f"- **Extensões Incluídas:** {', '.join(self.legacy_extensions)}\n")
             f.write(f"- **Diretórios Excluídos:** {', '.join(self.exclude_dirs[:10])}... (total: {len(self.exclude_dirs)})\n")
             f.write(f"- **Tamanho Máximo de Arquivo:** {self.max_size_mb} MB\n\n")
-            
+
             # Por extensão
             f.write("### Por Extensão\n\n")
             f.write("| Extensão | Quantidade |\n")
@@ -539,7 +539,7 @@ class LegacyInventoryGenerator:
             for ext, count in sorted(self.stats["by_extension"].items(), key=lambda x: x[1], reverse=True):
                 f.write(f"| {ext} | {count} |\n")
             f.write("\n")
-            
+
             # Por subsistema
             f.write("### Por Subsistema\n\n")
             f.write("| Subsistema | Quantidade |\n")
@@ -547,7 +547,7 @@ class LegacyInventoryGenerator:
             for sys, count in sorted(self.stats["by_subsystem"].items(), key=lambda x: x[1], reverse=True):
                 f.write(f"| {sys} | {count} |\n")
             f.write("\n")
-            
+
             # Por idade
             f.write("### Por Idade\n\n")
             f.write("| Faixa | Quantidade |\n")
@@ -556,67 +556,67 @@ class LegacyInventoryGenerator:
             f.write(f"| Médio (30-90 dias) | {self.stats['by_age']['medium']} |\n")
             f.write(f"| Antigo (>90 dias) | {self.stats['by_age']['old']} |\n")
             f.write("\n")
-            
+
             # Candidatos à remoção
             if self.removal_candidates:
                 f.write("## Candidatos à Remoção\n\n")
                 f.write("Estes arquivos foram identificados como possíveis candidatos para remoção segura. ")
                 f.write("**IMPORTANTE:** Revise esta lista cuidadosamente antes de remover qualquer arquivo.\n\n")
-                
+
                 f.write("### Resumo de Espaço Potencial\n\n")
                 total_size_bytes = sum(file["size_bytes"] for file in self.removal_candidates)
                 f.write(f"- **Total de Arquivos:** {len(self.removal_candidates)}\n")
                 f.write(f"- **Espaço Total:** {self._format_size(total_size_bytes)}\n\n")
-                
+
                 f.write("### Lista de Candidatos\n\n")
                 f.write("| Caminho | Tamanho | Modificado | Idade (dias) | Subsistema |\n")
                 f.write("|---------|---------|------------|--------------|------------|\n")
-                
+
                 # Ordenar por tamanho (maior primeiro)
                 sorted_candidates = sorted(self.removal_candidates, key=lambda x: x["size_bytes"], reverse=True)
-                
+
                 for file in sorted_candidates:
                     path_md = file["path"].replace(" ", "%20")  # Escapar espaços para links Markdown
                     f.write(f"| [{file['path']}]({path_md}) | {file['size_human']} | {file['modified']} | {file['age_days']} | {file['subsystem']} |\n")
                 f.write("\n")
-                
+
                 # Gerar script de remoção
                 script_path = os.path.join(os.path.dirname(self.output_file), "removal_script.ps1")
                 with open(script_path, 'w', encoding='utf-8') as script_file:
                     script_file.write("# Script para remoção de arquivos candidatos\n")
                     script_file.write("# ATENÇÃO: Este script foi gerado automaticamente. Revise cuidadosamente antes de executar.\n")
                     script_file.write("# Gere um backup antes de executar este script.\n\n")
-                    
+
                     for file in sorted_candidates:
                         script_file.write(f"# Remover: {file['path']} ({file['size_human']})\n")
                         script_file.write(f"# Remove-Item -Path \"{os.path.join(self.root_dir, file['path'])}\" -Force # Descomente para executar\n\n")
-                
+
                 f.write(f"Um script PowerShell para remoção foi gerado em: `{script_path}`\n\n")
-            
+
             # Lista de arquivos legados
             f.write("## Lista de Arquivos Legados\n\n")
             f.write("| Caminho | Tamanho | Modificado | Idade (dias) | Subsistema |\n")
             f.write("|---------|---------|------------|--------------|------------|\n")
-            
+
             for file in legacy_files:
                 path_md = file["path"].replace(" ", "%20")  # Escapar espaços para links Markdown
                 f.write(f"| [{file['path']}]({path_md}) | {file['size_human']} | {file['modified']} | {file['age_days']} | {file['subsystem']} |\n")
-            
+
             # Recomendações
             f.write("\n## Recomendações\n\n")
             f.write("1. **Backup**: Antes de remover qualquer arquivo, faça um backup completo.\n")
             f.write("2. **Remoção em Fases**: Remova os arquivos em pequenos lotes, começando pelos maiores.\n")
             f.write("3. **Verificação**: Após cada fase de remoção, verifique se o sistema continua funcionando corretamente.\n")
             f.write("4. **Documentação**: Mantenha um registro dos arquivos removidos.\n")
-            
+
             logger.info(f"Relatório gerado com sucesso em {self.output_file}")
-    
+
     def run(self) -> None:
         """Executa o processo completo de geração de inventário."""
         logger.info("Iniciando escaneamento de diretórios...")
         legacy_files = self.scan_directory()
         logger.info(f"Escaneamento concluído. Encontrados {len(legacy_files)} arquivos legados.")
-        
+
         logger.info("Gerando relatório Markdown...")
         self.generate_markdown_report(legacy_files)
         logger.info("Processo concluído com sucesso!")
@@ -639,29 +639,29 @@ def main():
     parser.add_argument("--legacy-dirs", nargs="+", help="Diretórios adicionais a serem considerados legados")
     parser.add_argument("--include-extensions", nargs="+", help="Extensões de arquivo a serem incluídas")
     parser.add_argument("--exclude-extensions", nargs="+", help="Extensões de arquivo a serem excluídas")
-    
+
     args = parser.parse_args()
-    
+
     # Combinar listas de diretórios excluídos
     exclude_dirs = DEFAULT_EXCLUDE_DIRS.copy()
     if args.exclude_dirs:
         exclude_dirs.extend(args.exclude_dirs)
-    
+
     # Combinar listas de diretórios legados
     legacy_dirs = DEFAULT_LEGACY_DIRS.copy()
     if args.legacy_dirs:
         legacy_dirs.extend(args.legacy_dirs)
-    
+
     # Combinar listas de extensões incluídas
     include_extensions = DEFAULT_LEGACY_EXTENSIONS.copy()
     if args.include_extensions:
         include_extensions.extend(args.include_extensions)
-    
+
     # Combinar listas de extensões excluídas
     exclude_extensions = DEFAULT_EXCLUDE_EXTENSIONS.copy()
     if args.exclude_extensions:
         exclude_extensions.extend(args.exclude_extensions)
-    
+
     generator = LegacyInventoryGenerator(
         root_dir=args.root,
         output_file=args.output,
@@ -678,7 +678,7 @@ def main():
         include_all_files=args.include_all,
         verbose=args.verbose
     )
-    
+
     generator.run()
 
 

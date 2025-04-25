@@ -47,7 +47,7 @@ def find_docstring(lines: List[str]) -> Tuple[Optional[int], Optional[int]]:
 
     for i, line in enumerate(lines):
         stripped_line = line.strip()
-        
+
         # Check for comments or empty lines *before* the first potential docstring
         if start_line is None and (not stripped_line or stripped_line.startswith('#')):
             continue # Skip initial comments/empty lines
@@ -163,7 +163,7 @@ def apply_fixes_to_file(
                     insert_pos = 2
             elif new_lines and new_lines[0].strip().startswith('# -*- coding:'):
                 insert_pos = 1
-            
+
             # Add extra newline if inserting before existing code/imports that are not comments/empty
             if insert_pos < len(new_lines) and new_lines[insert_pos].strip() and not new_lines[insert_pos].strip().startswith('#'):
                  placeholder += '\n'
@@ -186,7 +186,7 @@ def apply_fixes_to_file(
          logger.debug(f"  Found {len(class_issues)} incomplete class docstring issues.")
          # Sort by line number to process top-down, applying offset cumulatively
          class_issues.sort(key=lambda x: x.get("line_number", 0))
-         
+
          current_offset = line_offset_for_subsequent_fixes # Start with offset from module fix
 
          for issue in class_issues:
@@ -195,7 +195,7 @@ def apply_fixes_to_file(
             actual_line_num = reported_line_num + current_offset 
             element_name = issue.get("element_name", "") # e.g., "class MyClass"
             description = issue.get("description", "") # e.g., "Class docstring is missing an Attributes section"
-            
+
             logger.debug(f"    Processing issue: '{description}' for {element_name} near line {actual_line_num + 1}")
 
             # Find the class definition line (sanity check)
@@ -205,11 +205,11 @@ def apply_fixes_to_file(
 
             # Find the docstring for this class, searching *after* the class definition line
             class_doc_start_rel, class_doc_end_rel = find_docstring(new_lines[actual_line_num + 1:]) 
-            
+
             if class_doc_start_rel is None or class_doc_end_rel is None:
                  logger.warning(f"    Could not find docstring immediately following class {element_name} definition at line {actual_line_num + 1}. Skipping fix.")
                  continue
-            
+
             # Adjust docstring lines relative to the start of the file
             doc_start_abs = actual_line_num + 1 + class_doc_start_rel
             doc_end_abs = actual_line_num + 1 + class_doc_end_rel
@@ -227,7 +227,7 @@ def apply_fixes_to_file(
 
             if section_to_add:
                 logger.info(f"    Adding placeholder '{section_to_add}:' section to {element_name} docstring.")
-                
+
                 # Determine indentation (use indent of the line *before* closing quotes if possible)
                 indent = "    " # Default indent
                 if doc_end_abs > doc_start_abs: # Multiline docstring
@@ -253,7 +253,7 @@ def apply_fixes_to_file(
                 # Find the content of the line with closing quotes
                 closing_quote_line = new_lines[doc_end_abs]
                 closing_quote_marker = '"""' if '"""' in closing_quote_line else "'''"
-                
+
                 # Split the line at the closing quotes
                 parts = closing_quote_line.split(closing_quote_marker, 1)
                 if len(parts) == 2:
@@ -267,7 +267,7 @@ def apply_fixes_to_file(
                      # Insert the placeholder before the quotes on that line
                      new_lines[doc_end_abs] = before_quotes + placeholder_to_insert + closing_quote_marker + parts[1]
                      lines_modified_flag = True
-                     
+
                      # Update offset for subsequent fixes in *this* file
                      # Count lines added by the placeholder
                      added_lines = placeholder_to_insert.strip('\n').count('\n') + 1
