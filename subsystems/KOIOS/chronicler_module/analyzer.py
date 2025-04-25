@@ -4,8 +4,6 @@
 
 Handles directory scanning, file filtering, and basic code property detection.
 """
-
-import os
 import fnmatch
 from pathlib import Path
 import yaml

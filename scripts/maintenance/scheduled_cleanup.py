@@ -14,14 +14,12 @@ This script follows the EGOS principles of:
 """
 
 import os
-import sys
 import argparse
 import logging
 import datetime
 import shutil
 import glob
 import json
-from pathlib import Path
 from typing import Dict, List, Optional, Set, Tuple, Any
 
 # Setup logging

@@ -16,10 +16,8 @@ import sys
 import argparse
 import logging
 import datetime
-import json
 import pickle
 import time
-from pathlib import Path
 from typing import Dict, List, Optional, Set, Tuple, Any
 
 # Configuração de logging

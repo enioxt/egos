@@ -36,7 +36,6 @@ import uuid
 from typing import Dict, Any
 
 from subsystems.MYCELIUM import (
-    MyceliumClient,
     create_client,
     MyceliumMessage
 )

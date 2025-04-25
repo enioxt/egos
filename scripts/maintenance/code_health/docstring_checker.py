@@ -24,7 +24,6 @@ import argparse
 import logging
 import datetime
 import json
-import inspect
 from typing import List, Dict, Tuple, Optional, Set, Any, Union, get_type_hints
 
 # Configure logging

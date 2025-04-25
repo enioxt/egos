@@ -14,7 +14,6 @@ Last Updated: 2025-04-07
 
 import json
 import logging
-import logging.config
 from logging.handlers import TimedRotatingFileHandler
 from pathlib import Path
 import sys
