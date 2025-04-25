@@ -1,4 +1,3 @@
-# koios/chronicler_module/main.py
 
 """Main entry point for the Chronicler Module (MVP - CLI)."""
 
@@ -49,7 +48,6 @@ def setup_logging(log_level=logging.INFO, output_dir=None):
             
             file_handler = logging.FileHandler(log_file_path, mode='w', encoding='utf-8') # 'w' to overwrite log each run
             file_handler.setFormatter(log_formatter)
-            # file_handler.setLevel(logging.DEBUG) # Optionally set different level for file
             root_logger.addHandler(file_handler)
             print(f"[INFO] Logging detailed output to: {log_file_path}") # Use print here as logging might not be fully set up
         except Exception as e:
@@ -71,7 +69,6 @@ def parse_arguments():
     parser = argparse.ArgumentParser(description="EGOS Chronicler: Analyze a project directory and generate an AI summary.")
     parser.add_argument("directory", help="Path to the project directory to analyze.")
     parser.add_argument("-o", "--output", help="Optional directory to save the HTML report. If not provided, prints to console (if possible) or saves in current directory.")
-    # parser.add_argument("--model", help="Specify the OpenRouter model to use (overrides config).") # Add later if needed
     args = parser.parse_args()
     return args
 
@@ -113,7 +110,6 @@ def main():
     # --- Generation Phase ---
     logger.info("--- Phase 2: Generating AI Summary --- ")
     ai_summary = generator.generate_project_summary(analysis_results)
-    # logger.debug(f"Generated Summary:\n{ai_summary}") # Debug print summary
 
     # --- Rendering Phase ---
     logger.info("--- Phase 3: Rendering Output --- ")

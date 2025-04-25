@@ -158,7 +158,6 @@ def get_subsystem_health_scores():
     Returns:
         Dictionary with health scores for each subsystem
     """
-    # subsystems = ["ETHIK", "KOIOS", "CORUJA", "MYCELIUM", "ATLAS", "NEXUS", "CRONOS", "HARMONY"]
 
     # Generate scores between 60-100 with some randomness
     subsystem_scores = {

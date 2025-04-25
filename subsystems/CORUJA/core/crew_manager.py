@@ -11,8 +11,6 @@ from subsystems.CORUJA.schemas.models import TaskDefinition, AgentConfig
 from subsystems.CORUJA.core.sparc_registry import SPARCTaskRegistry
 from subsystems.CORUJA.core.agent_runtime import AgentRuntime
 from subsystems.CORUJA.core.prompt_manager import PromptManager
-# from subsystems.MYCELIUM.interfaces import MyceliumInterface # Example adjusted path
-# from subsystems.ETHIK.interfaces import EthikInterface # Example adjusted path
 
 logger = KoiosLogger.get_logger("CORUJA.CrewManager")
 
@@ -67,11 +65,9 @@ class CrewManager:
 
             # 2. Register the task
             task_id = await self.sparc_registry.register_task(task_def)
-            # task_id = task_definition_payload.get('id', 'unknown_task') # Keep original ID
 
             # 3. Determine agent/crew needed based on task_def.type or metadata
             agent_config_dict = self._select_agent_config(task_def) # Placeholder logic
-            # agent_config = AgentConfig(**agent_config_dict) # Validate agent config
 
             # 4. Instantiate AgentRuntime (or retrieve existing if applicable)
             # TODO: Instantiate ModelInterface and ToolRegistry based on config/task

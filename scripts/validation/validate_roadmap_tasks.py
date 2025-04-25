@@ -64,7 +64,6 @@ def attempt_fix_task_format(line: str, line_num: int) -> str:
         # Doesn't even match loosely, likely not a standard task format
         logging.error(f"Cannot parse Line {line_num}: {line}")
         return original_line # Return original, maybe add a comment?
-        # return f"{original_line.strip()} # <<< KOIOS FORMAT ERROR?"
 
     return original_line # Fallback
 

@@ -6,10 +6,6 @@ from typing import Dict, Any, Optional, List
 import json # Import json
 
 from koios.logger import KoiosLogger # Assuming KoiosLogger path
-# from subsystems.CORUJA.schemas.models import TaskDefinition, AgentConfig
-# from subsystems.CORUJA.interfaces.model_interface import ModelInterface
-# from subsystems.CORUJA.core.tool_registry import ToolRegistry
-# from subsystems.CORUJA.core.prompt_manager import PromptManager
 
 logger = KoiosLogger.get_logger("CORUJA.AgentRuntime")
 

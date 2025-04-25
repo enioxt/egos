@@ -163,7 +163,6 @@ class CronosService:
             self.logger.critical(f"PID file check failed: {e}. Aborting start.")
             return
 
-        # self._load_version_history() # Moved to BackupManager init
 
         try:
             await self._check_and_perform_backup()
@@ -281,7 +280,6 @@ class CronosService:
         git_hash = self._get_git_commit_hash()
         config_hashes = self._get_config_hashes()
         system_info = self._get_system_info()
-        # subsystem_versions = self._get_subsystem_versions() # Placeholder
 
         state = SystemState(
             id=state_id,
@@ -290,7 +288,6 @@ class CronosService:
             related_backup_id=backup_id,
             git_commit_hash=git_hash,
             config_hashes=config_hashes,
-            # subsystem_versions=subsystem_versions,
             metadata={"system_info": system_info},  # Store system info in metadata
             metrics={},  # TODO: Populate via Mycelium later?
         )
@@ -560,7 +557,6 @@ class CronosService:
         """Checks if a backup is needed based on policy and performs it."""
         # Example policy: backup if last backup is older than 'min_backup_interval_hours'
         interval_hours = self.config.get("backup_interval_hours", 24)
-        # self._load_version_history() # Ensure history is fresh
 
         last_backup_time: Optional[datetime] = None
         if self.backup_manager.list_backups():

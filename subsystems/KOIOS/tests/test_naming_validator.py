@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 """
 Tests for the KOIOS Naming Convention Validator
 ===============================================
@@ -174,7 +172,6 @@ class TestValidateName:
         # Assert
         assert len(violations) == expected_violations
         if expected_violations > 0:
-            # mock_logger.debug.assert_not_called() # REMOVED: Debug logging violations is okay.
             print("\n")  # Print newline separately
             print(
                 f"Violation found for '{path_str}': {violations}"

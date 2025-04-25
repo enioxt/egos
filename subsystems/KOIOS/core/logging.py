@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 """
 EVA & GUARANI - KOIOS Logging Utility
@@ -395,23 +393,10 @@ def get_koios_logger(
 #     KoiosLogger.configure(level=logging.DEBUG, use_json=True, log_to_file=True)
 
 #     # Get loggers
-#     logger1 = get_koios_logger("MY_SUBSYSTEM.ModuleA")
-#     logger2 = get_koios_logger("MY_SUBSYSTEM.ModuleB", level=logging.INFO)
-#     core_logger = KoiosLogger.get_logger("CORE.System") # Can also use class method directly
 
 #     # Log messages
-#     logger1.debug("This is a debug message from ModuleA.")
-#     logger1.info("Informational message.", extra={"user": "test", "id": 123})
-#     logger2.info("Info message from ModuleB (logger level INFO).")
-#     logger2.warning("Warning message from ModuleB.")
-#     core_logger.critical("Critical system event!")
 
-#     try:
-#         1 / 0
-#     except ZeroDivisionError:
-#         core_logger.error("An exception occurred", exc_info=True)
 
-#     print(f"Logs should be in console and optionally in {LOG_FILE_PATH}")
 
 
 # ✧༺❀༻∞ EGOS ∞༺❀༻✧

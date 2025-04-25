@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 
 
@@ -21,10 +19,6 @@ Provides capabilities for code analysis, dependency mapping, and improvement sug
 Version: 1.0.0 (Migrated)
 """
 
-# import numpy as np  # Removed unused import
-# import pandas as pd # Removed unused import
-# from sklearn.feature_extraction.text import TfidfVectorizer # Removed unused import
-# from sklearn.metrics.pairwise import cosine_similarity # Removed unused import
 import ast
 import json
 import logging

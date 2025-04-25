@@ -56,7 +56,6 @@ class ToolRegistry:
 
         if tool_name in self._tools:
             logger.warning(f"Tool '{tool_name}' is already registered. Overwriting.")
-            # raise ValueError(f"Tool '{tool_name}' is already registered.")
 
         # Resolve implementation
         try:
