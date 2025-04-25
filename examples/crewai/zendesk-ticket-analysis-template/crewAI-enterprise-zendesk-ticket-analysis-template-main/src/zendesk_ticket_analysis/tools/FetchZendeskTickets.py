@@ -55,8 +55,8 @@ class ZendeskTicketSearchTool(BaseTool):
     )
     args_schema: Type[BaseModel] = ZendeskTicketSearchToolInput
 
+    @staticmethod
     def _run(
-        self,
         status: Optional[str] = None,
         created_since: Optional[str] = None,
         updated_since: Optional[str] = None,

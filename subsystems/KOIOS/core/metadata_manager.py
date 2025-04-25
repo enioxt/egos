@@ -69,7 +69,8 @@ class MetadataManager:
         self.supported_encodings = ["utf-8", "utf-8-sig", "latin1", "cp1252"]
         logger.info(f"Initialized MetadataManager with root directory: {self.root_dir}")
 
-    def _get_sidecar_path(self, source_file_path: Path) -> Path:
+    @staticmethod
+    def _get_sidecar_path(source_file_path: Path) -> Path:
         """Determines the path for the metadata sidecar file.
 
         Appends `.meta.json` to the original file's name.
@@ -314,7 +315,8 @@ class MetadataManager:
             logger.error(f"Error getting relative path for {file_path}: {e}", exc_info=True)
             return str(file_path).replace(os.sep, "/")  # Fallback
 
-    def _get_last_modified_time(self, file_path: Path) -> Optional[str]:
+    @staticmethod
+    def _get_last_modified_time(file_path: Path) -> Optional[str]:
         """Gets the last modified time of the file in UTC ISO format."""
         try:
             mtime_timestamp = file_path.stat().st_mtime
@@ -371,7 +373,8 @@ class MetadataManager:
 
         return "UNKNOWN"
 
-    def _detect_purpose(self, file_path: Path) -> str:
+    @staticmethod
+    def _detect_purpose(file_path: Path) -> str:
         """Detect the purpose of the file based on its type and name."""
         file_name = file_path.name
         file_ext = file_path.suffix.lower()
@@ -407,7 +410,8 @@ class MetadataManager:
         else:
             return "GENERAL_ASSET"
 
-    def _detect_category(self, file_type: str) -> str:
+    @staticmethod
+    def _detect_category(file_type: str) -> str:
         """Detect the category of the file based on its type."""
         if file_type == ".py":
             return "code"

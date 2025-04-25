@@ -35,7 +35,8 @@ class PdfProcessingService:
         #     length_function=len,
         # )
 
-    def extract_text(self, pdf_path: Path) -> Optional[str]:
+    @staticmethod
+    def extract_text(pdf_path: Path) -> Optional[str]:
         """Extracts plain text content from a PDF file."""
         if not HAS_PYMUPDF:
             logger.error("Cannot extract text: PyMuPDF (fitz) is not installed.")
@@ -59,7 +60,8 @@ class PdfProcessingService:
             # TODO: Consider attempting OCR fallback here if text extraction fails
             return None
 
-    def extract_metadata(self, pdf_path: Path) -> Optional[Dict[str, Any]]:
+    @staticmethod
+    def extract_metadata(pdf_path: Path) -> Optional[Dict[str, Any]]:
         """Extracts metadata (author, title, pages, etc.) from a PDF file."""
         if not HAS_PYMUPDF:
             logger.error("Cannot extract metadata: PyMuPDF (fitz) is not installed.")

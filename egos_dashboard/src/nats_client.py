@@ -186,7 +186,8 @@ class NatsConnectionManager:
                 {"subject": subject, "data": data[:100] + "..." if len(data) > 100 else data},
             )
 
-    def _process_status_update(self, subject, payload):
+    @staticmethod
+    def _process_status_update(subject, payload):
         """Process subsystem status updates."""
         # Extract subsystem from subject (e.g., egos.status.ETHIK)
         parts = subject.split(".")
@@ -202,7 +203,8 @@ class NatsConnectionManager:
                 "details": payload.get("details", {}),
             }
 
-    def _process_metrics_update(self, subject, payload):
+    @staticmethod
+    def _process_metrics_update(subject, payload):
         """Process metrics updates."""
         # Extract subsystem and metric type from subject (e.g., egos.metrics.ETHIK.validation)
         parts = subject.split(".")
@@ -219,7 +221,8 @@ class NatsConnectionManager:
 
             st.session_state.subsystem_metrics[subsystem][metric_type] = payload
 
-    def _process_alert(self, subject, payload):
+    @staticmethod
+    def _process_alert(subject, payload):
         """Process system alerts."""
         # Add to alert list, keeping only the most recent N alerts
         if "alerts" not in st.session_state:
@@ -229,7 +232,8 @@ class NatsConnectionManager:
         if len(st.session_state.alerts) > 10:  # Keep only 10 most recent alerts
             st.session_state.alerts.pop()
 
-    def _process_heartbeat(self, subject, payload):
+    @staticmethod
+    def _process_heartbeat(subject, payload):
         """Process heartbeat messages."""
         # Extract subsystem from subject (e.g., egos.heartbeat.ETHIK)
         parts = subject.split(".")

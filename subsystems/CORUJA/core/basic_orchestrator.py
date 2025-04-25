@@ -531,7 +531,8 @@ class BasicOrchestrator:
         # self.logger.info("CORUJA interaction processed.", extra=koios_payload)
         # ----------------------------------------------------------
 
-    def _get_default_model_params(self) -> Dict[str, Any]:
+    @staticmethod
+    def _get_default_model_params() -> Dict[str, Any]:
         """Returns default parameters for model execution."""
         # Define sensible defaults here
         return {
