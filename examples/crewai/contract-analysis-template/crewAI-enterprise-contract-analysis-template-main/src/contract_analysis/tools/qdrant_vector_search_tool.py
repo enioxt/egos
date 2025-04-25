@@ -157,7 +157,8 @@ class QdrantVectorSearchTool(BaseTool):
 
         return json.dumps(results, indent=2)
 
-    def _vectorize_query(self, query: str) -> list[float]:
+    @staticmethod
+    def _vectorize_query(query: str) -> list[float]:
         """Default vectorization function with openai.
 
         Args:

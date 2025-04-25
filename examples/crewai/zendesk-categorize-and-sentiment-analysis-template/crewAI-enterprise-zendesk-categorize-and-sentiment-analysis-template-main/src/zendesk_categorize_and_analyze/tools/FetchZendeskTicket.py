@@ -39,7 +39,8 @@ class ZendeskTicketSearchTool(BaseTool):
     description: str = "Fetches a specific Zendesk ticket by its ID using the API."
     args_schema: Type[BaseModel] = ZendeskTicketSearchToolInput
 
-    def _run(self, ticket_id: int) -> Optional[ZendeskTicket]:
+    @staticmethod
+    def _run(ticket_id: int) -> Optional[ZendeskTicket]:
         # Load environment variables
         load_dotenv()
         ZENDESK_SUBDOMAIN = os.getenv("ZENDESK_SUBDOMAIN")

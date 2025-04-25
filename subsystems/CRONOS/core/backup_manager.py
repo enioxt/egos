@@ -303,12 +303,14 @@ class BackupManager:
                     self.logger.error(f"Failed to cleanup failed backup {backup_path}: {del_e}")
             return None
 
-    def _should_exclude(self, path: Path, patterns: List[str]) -> bool:
+    @staticmethod
+    def _should_exclude(path: Path, patterns: List[str]) -> bool:
         """Check if path should be excluded based on patterns."""
         path_str = str(path.as_posix())
         return any(fnmatch.fnmatch(path_str, pattern) for pattern in patterns)
 
-    def _should_include(self, path: Path, patterns: List[str]) -> bool:
+    @staticmethod
+    def _should_include(path: Path, patterns: List[str]) -> bool:
         """Check if path should be included based on patterns."""
         path_str = str(path.as_posix())
         return any(fnmatch.fnmatch(path_str, pattern) for pattern in patterns)
@@ -561,7 +563,8 @@ class BackupManager:
             return False, err_msg
 
     # --- Helper Methods --- #
-    def _matches_any(self, path: Path, patterns: List[str]) -> bool:
+    @staticmethod
+    def _matches_any(path: Path, patterns: List[str]) -> bool:
         """Check if the path matches any of the glob patterns."""
         # Convert path to string for matching
         path_str = str(path.as_posix())  # Use POSIX paths for glob matching consistency
@@ -825,7 +828,8 @@ if __name__ == "__main__":
                 async def publish(self, *args, **kwargs):
                     pass
 
-                def subscribe(self, *args, **kwargs):
+                @staticmethod
+                def subscribe(*args, **kwargs):
                     return lambda func: func
 
             # Get a logger instance for the example run

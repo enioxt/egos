@@ -43,7 +43,8 @@ class TestPlatformDetection:
 class TestPathHandling:
     """Tests for path handling functions."""
 
-    def test_normalize_path_string(self):
+    @staticmethod
+    def test_normalize_path_string():
         """Test path normalization with string input."""
         test_path = "folder/subfolder"
         result = normalize_path(test_path)
@@ -51,14 +52,16 @@ class TestPathHandling:
         # Basic check that it's a resolved path
         assert result.is_absolute()
 
-    def test_normalize_path_object(self):
+    @staticmethod
+    def test_normalize_path_object():
         """Test path normalization with Path object input."""
         test_path = Path("folder") / "subfolder"
         result = normalize_path(test_path)
         assert isinstance(result, Path)
         assert result.is_absolute()
 
-    def test_ensure_directory_exists(self, tmp_path):
+    @staticmethod
+    def test_ensure_directory_exists(tmp_path):
         """Test directory creation."""
         # Use pytest's tmp_path fixture for a temporary directory
         test_dir = tmp_path / "test_dir" / "nested"
