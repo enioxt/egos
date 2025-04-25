@@ -1,25 +1,69 @@
 repos:
--   repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.3.4
-    hooks:
-    -   id: ruff
-        args: [--fix]
-        exclude: '(^examples/)'
-    -   id: ruff-format
-        exclude: '(^examples/)'
--   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
-    hooks:
-    -   id: trailing-whitespace
-    -   id: end-of-file-fixer
-    -   id: check-yaml
-        exclude: '(^subsystems/CRONOS/core/backups/)'
-    -   id: check-added-large-files
-        args: ['--maxkb=1000']
+- repo: local
+  hooks:
+    - id: python-syntax-check
+      name: Python Syntax Check
+      description: "Validate Python syntax using Python's built-in parser"
+      entry: python -m py_compile
+      language: system
+      types: [python]
+      pass_filenames: true
+      
+    - id: critical-syntax-errors
+      name: Critical Syntax Errors Check
+      description: "Check for critical syntax errors (E9) and undefined names (F821)"
+      entry: ruff check --select E9,F821
+      language: system
+      types: [python]
+      pass_filenames: true
+      
+    - id: cross-reference-validation
+      name: Cross-Reference Validation
+      entry: python scripts/ci/validate_cross_references.py --paths-changed
+      language: system
+      pass_filenames: false
+      always_run: true
 
-# -   repo: https://github.com/psf/black  # REMOVED - Standardizing on ruff format
-#     rev: 25.1.0 # Use the version installed
-#     hooks:
-#     -   id: black
-#         args: [--line-length=100]
-#         exclude: '(^|/)backups/|(^|/)external/|(^|/)\.cursor/|(^|/)\.obsidian/|(^|/)Researchs/|(^|/)\.roo/|(^|/)\.benchmarks/'
+    - id: ruff-format
+      name: Ruff Formatter
+      description: "Run 'ruff format' to format Python code"
+      entry: ruff format
+      language: system
+      types: [python]
+      require_serial: true
+
+    - id: ruff-lint
+      name: Ruff Linter
+      description: "Run 'ruff check' to lint Python code"
+      entry: ruff check --fix
+      language: system
+      types: [python]
+      require_serial: true
+
+    - id: comprehensive-code-health
+      name: Comprehensive Code Health
+      description: "Check for syntax, indentation, and docstring issues"
+      entry: python scripts/maintenance/code_health/comprehensive_code_health.py
+      language: system
+      types: [python]
+      args: [--dry-run]
+      pass_filenames: true
+      
+    - id: critical-issues-check
+      name: Critical Code Health Issues Check
+      description: "Check for HTML comments and unbalanced triple quotes in Python files"
+      entry: python scripts/maintenance/code_health/fix_critical_issues.py
+      language: system
+      types: [python]
+      args: [--dry-run]
+      pass_filenames: true
+      
+    - id: docstring-checker
+      name: Docstring Checker
+      description: "Check for common docstring issues"
+      entry: python scripts/maintenance/code_health/fix_docstring_issues.py
+      language: system
+      types: [python]
+      args: [--dry-run]
+      pass_filenames: true
+

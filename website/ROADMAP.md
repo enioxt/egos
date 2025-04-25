@@ -49,6 +49,12 @@ This document outlines the development roadmap for the EGOS website.
 
 | Status | Subsystem[s] | Task ID | Priority | Description | Dependencies | Principles |
 | :----- | :----------- | :------ | :------- | :---------- | :----------- | :--------- |
+| Done | Frontend, UI/UX | VIS-INT-001 | High | Refactor System Explorer to use @react-sigma/core for better structure and modularity | - | Conscious Modularity |
+| Done | Frontend, UI/UX | VIS-INT-002 | High | Implement proper layout with fixed header and content spacing | VIS-INT-001 | Universal Accessibility |
+| Done | Frontend, UI/UX | VIS-INT-003 | Medium | Add zoom and fullscreen controls to the visualization | VIS-INT-001 | Universal Accessibility |
+| In Progress | Frontend, UI/UX | VIS-INT-004 | Medium | Improve node hover behavior and visual appearance | VIS-INT-001 | Universal Accessibility |
+| To Do | Frontend, UI/UX | VIS-INT-005 | Medium | Add legend for subsystem colors | VIS-INT-001 | Universal Accessibility |
+| To Do | Frontend, Data | VIS-INT-006 | High | Integrate complete cross-reference data | VIS-INT-001 | Systemic Cartography |
 | Done   | Frontend, KOIOS | VIS-001 | High | Integrate Sigma.js visualization component for the cross-reference network | WEB-003 | Conscious Modularity, Systemic Cartography |
 | Done   | Frontend, KOIOS | VIS-002 | High | Create dynamic graph data handling and force-directed layout | VIS-001 | Systemic Cartography |
 | Done   | Frontend, UI/UX | VIS-003 | Medium | Design and implement visualization homepage section with preview | VIS-001 | Integrated Ethics, Universal Accessibility |
@@ -162,3 +168,15 @@ This document outlines the development roadmap for the EGOS website.
     *   **Priority**: Low
     *   **Effort**: Medium
     *   **References**: [mdc:strategic-thinking/research/Aprimorando o site EGOS_.txt](mdc:strategic-thinking/research/Aprimorando o site EGOS_.txt#section-vii-a)
+
+## System Explorer Visualization
+
+- [x] VIS-INT-002: Fix node movement on hover while preserving zoom/pan. (Ref: `SystemGraph.tsx`)
+- [x] VIS-INT-003: Add subsystem color legend. (Ref: `SystemGraph.tsx`)
+- [x] VIS-INT-004: Improve visual clarity (edge thickness, node sizing). (Ref: `SystemGraph.tsx`)
+- [ ] VIS-INT-005: Investigate and fix minor hover flickering effect. (Low Priority)
+- [ ] VIS-INT-006: Load complete cross-reference data instead of sample. (Ref: `graph-data.json`)
+- [ ] VIS-INT-007: Evaluate alternative WebGL libraries (Ogma, Cytoscape.js, react-force-graph) for potential 3D/C4 model view. (Ref: MEMORY[7e443f56...])
+- [ ] VIS-INT-008: Add interaction for node selection/details panel.
+
+### UI/UX Enhancements
