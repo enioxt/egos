@@ -100,7 +100,8 @@ class CrewManager:
             # await self.sparc_registry.update_task_status(task_id, 'failed', error_message=str(e))
             # Publish error result via Mycelium
 
-    async def _coordinate_ethik_check(self, data_to_check: Any, check_type: str, request_id: str):
+    @staticmethod
+    async def _coordinate_ethik_check(data_to_check: Any, check_type: str, request_id: str):
         """
         Placeholder for coordinating validation/sanitization with ETHIK via Mycelium.
         """
@@ -113,20 +114,23 @@ class CrewManager:
         # 4. Process ETHIK result (e.g., block action, log warning, use sanitized content)
         return True # Placeholder: Assume check passes
 
-    def _select_agent_config(self, task_def: TaskDefinition) -> Dict[str, Any]: # Add type hint
+    @staticmethod
+    def _select_agent_config(task_def: TaskDefinition) -> Dict[str, Any]: # Add type hint
         """Placeholder logic to select an appropriate AgentConfig."""
         logger.debug(f"Selecting agent config for task type: {task_def.type}")
         # TODO: Implement logic based on task type, metadata, or configuration
         return {"agent_id": "default_agent", "role": "general_assistant", "llm_config": {}} # Placeholder
 
-    async def start_listeners(self):
+    @staticmethod
+    async def start_listeners():
         """Starts listening for incoming requests on Mycelium."""
         # TODO: Implement subscription logic using MyceliumInterface
         # if self.mycelium_interface:
         #     await self.mycelium_interface.subscribe("sparc.task.create.*", self.handle_sparc_request)
         logger.info("CrewManager started listening for Mycelium messages (Placeholder).")
 
-    async def stop_listeners(self):
+    @staticmethod
+    async def stop_listeners():
         """Stops listening for incoming requests."""
         # TODO: Implement unsubscription logic
         logger.info("CrewManager stopped listening (Placeholder).")

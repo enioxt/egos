@@ -191,7 +191,8 @@ class TestValidateName:
 class TestFindProjectRoot:
     """Tests for the find_project_root function."""
 
-    def test_find_root_with_git_marker(self, tmp_path):
+    @staticmethod
+    def test_find_root_with_git_marker(tmp_path):
         """Test finding root when .git exists."""
         # Arrange
         project_root_path = tmp_path / "my_project"
@@ -205,7 +206,8 @@ class TestFindProjectRoot:
         # Assert
         assert found_root == project_root_path.resolve()
 
-    def test_find_root_with_pyproject_marker(self, tmp_path):
+    @staticmethod
+    def test_find_root_with_pyproject_marker(tmp_path):
         """Test finding root when pyproject.toml exists."""
         # Arrange
         project_root_path = tmp_path / "another_project"
@@ -219,7 +221,8 @@ class TestFindProjectRoot:
         # Assert
         assert found_root == project_root_path.resolve()
 
-    def test_find_root_no_marker(self, tmp_path, mock_logger):
+    @staticmethod
+    def test_find_root_no_marker(tmp_path, mock_logger):
         """Test behavior when no marker is found."""
         # Arrange
         non_project_path = tmp_path / "some_dir"
@@ -235,7 +238,8 @@ class TestFindProjectRoot:
         # Check if warning was logged
         mock_logger.warning.assert_called_once()
 
-    def test_find_root_start_from_subdir(self, tmp_path):
+    @staticmethod
+    def test_find_root_start_from_subdir(tmp_path):
         """Test finding root when starting from a subdirectory."""
         # Arrange
         project_root_path = tmp_path / "nested_project"
@@ -255,7 +259,8 @@ class TestFindProjectRoot:
 class TestScanDirectory:
     """Tests for the scan_directory function."""
 
-    def test_scan_finds_violations(self, temp_project, mock_logger):
+    @staticmethod
+    def test_scan_finds_violations(temp_project, mock_logger):
         """Test that scan_directory correctly identifies known violations."""
         # Arrange
         # temp_project fixture creates known violations like INVALID_subsystem
@@ -274,7 +279,8 @@ class TestScanDirectory:
         assert not any("koios_core.py" in v for v in violations)
         assert not any("test_koios_core.py" in v for v in violations)
 
-    def test_scan_skips_allowed_files(self, temp_project, mock_logger):
+    @staticmethod
+    def test_scan_skips_allowed_files(temp_project, mock_logger):
         """Test that specifically allowed files (e.g., README.md) are skipped."""
         # Arrange
         target_dir = temp_project
@@ -291,7 +297,8 @@ class TestScanDirectory:
         # calls = mock_logger.debug.call_args_list
         # assert any("Skipping specifically allowed file: 'README.md'" in str(call) for call in calls)
 
-    def test_scan_skips_ignored_dirs(self, temp_project, mock_logger):
+    @staticmethod
+    def test_scan_skips_ignored_dirs(temp_project, mock_logger):
         """Test that contents of ignored directories (e.g., __pycache__) are skipped."""
         # Arrange
         target_dir = temp_project
@@ -311,7 +318,8 @@ class TestScanDirectory:
         # assert any("Skipping ignored directory itself: '__pycache__'" in str(call) for call in calls)
         # assert any("Skipping item '__pycache__/some_cache.pyc'" in str(call) for call in calls)
 
-    def test_scan_handles_permissions_error(self, temp_project, mock_logger):
+    @staticmethod
+    def test_scan_handles_permissions_error(temp_project, mock_logger):
         """Test that scan_directory handles PermissionError gracefully."""
         # Arrange
         target_dir = temp_project

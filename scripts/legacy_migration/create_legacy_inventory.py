@@ -386,7 +386,8 @@ class LegacyInventoryGenerator:
             "subsystem": subsystem
         }
     
-    def _format_size(self, size_bytes: int) -> str:
+    @staticmethod
+    def _format_size(size_bytes: int) -> str:
         """Formata tamanho em bytes para formato legível."""
         for unit in ['B', 'KB', 'MB', 'GB']:
             if size_bytes < 1024.0:

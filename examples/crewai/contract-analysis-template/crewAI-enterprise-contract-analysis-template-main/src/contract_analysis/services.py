@@ -142,7 +142,8 @@ class ContractsService:
             f"Processing complete: {files_processed} files processed, {files_skipped} files skipped"
         )
 
-    def _combine_sentences(self, sentences: List[Dict], buffer_size: int = 3) -> List[Dict]:
+    @staticmethod
+    def _combine_sentences(sentences: List[Dict], buffer_size: int = 3) -> List[Dict]:
         """Combines sentences with surrounding context buffer."""
         for i in range(len(sentences)):
             combined_sentence = ""
@@ -164,7 +165,8 @@ class ContractsService:
 
         return sentences
 
-    def _calculate_cosine_distances(self, sentences: List[Dict]) -> tuple[List[float], List[Dict]]:
+    @staticmethod
+    def _calculate_cosine_distances(sentences: List[Dict]) -> tuple[List[float], List[Dict]]:
         """Calculate cosine distances between consecutive sentences."""
         distances = []
         for i in range(len(sentences) - 1):

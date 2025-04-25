@@ -180,7 +180,8 @@ class SyntaxRemediator:
         
         return len(issues), issues_fixed
     
-    def _fix_syntax_error(self, content: str, issues: List[SyntaxIssue]) -> Tuple[str, int]:
+    @staticmethod
+    def _fix_syntax_error(content: str, issues: List[SyntaxIssue]) -> Tuple[str, int]:
         """
         Attempt to fix general syntax errors.
         For now, this just focuses on simple cases like:
@@ -231,7 +232,8 @@ class SyntaxRemediator:
         
         return modified, fixed
     
-    def _fix_missing_import(self, content: str, issues: List[SyntaxIssue]) -> Tuple[str, int]:
+    @staticmethod
+    def _fix_missing_import(content: str, issues: List[SyntaxIssue]) -> Tuple[str, int]:
         """
         Fix missing import statements.
         
@@ -281,7 +283,8 @@ class SyntaxRemediator:
         else:
             return content, 0
     
-    def _fix_import_resilience(self, content: str, issues: List[SyntaxIssue]) -> Tuple[str, int]:
+    @staticmethod
+    def _fix_import_resilience(content: str, issues: List[SyntaxIssue]) -> Tuple[str, int]:
         """
         Fix import resilience pattern issues.
         
