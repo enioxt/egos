@@ -7,7 +7,6 @@ import asyncio
 
 from koios.logger import KoiosLogger
 from subsystems.CORUJA.interfaces.model_interface import ModelInterface
-# from subsystems.CORUJA.config.loader import ConfigurationLoader
 
 logger = KoiosLogger.get_logger("CORUJA.OpenAIInterface")
 

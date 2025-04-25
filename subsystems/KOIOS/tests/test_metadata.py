@@ -87,15 +87,7 @@ def metadata_updater():
 #     """Create ETHIK validator instance."""
 #     return EthikValidator()
 
-# @pytest.fixture
-# def search_indexer(temp_dir):
-#     """Create search indexer instance."""
-#     return SearchIndexer(index_dir=temp_dir / ".search")
 
-# @pytest.fixture
-# def integration_manager():
-#     """Create integration manager instance."""
-#     return IntegrationManager()
 
 
 @pytest.mark.asyncio

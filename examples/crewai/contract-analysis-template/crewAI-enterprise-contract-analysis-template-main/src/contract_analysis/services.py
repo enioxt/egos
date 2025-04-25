@@ -42,7 +42,6 @@ class ContractsService:
         # Initialize clients
         self.vector_client = QdrantClient(url=self.qdrant_url, api_key=self.qdrant_api_key)
         self.openai_client = openai.Client(api_key=self.openai_key)
-        # self.chunker = HybridChunker()
         self.doc_converter = MarkItDown(enable_builtins=True)
 
     def _validate_configuration(self) -> None:

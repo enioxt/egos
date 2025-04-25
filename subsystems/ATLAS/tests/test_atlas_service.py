@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 
 
 # EGOS Import Resilience: see docs/process/dynamic_import_resilience.md
@@ -41,13 +40,11 @@ class MockMyceliumInterface:
 
     async def publish(self, topic, message):
         self.published_messages.append({"topic": topic, "message": message})
-        # print(f"Mock Publish to {topic}: {message}") # Optional: for debug
 
     async def subscribe(self, topic, handler):
         if topic not in self.subscribed_topics:
             self.subscribed_topics[topic] = []
         self.subscribed_topics[topic].append(handler)
-        # print(f"Mock Subscribe to {topic}") # Optional: for debug
         return f"sub_{topic}"  # Return a dummy subscription ID
 
     async def unsubscribe(self, subscription_id):

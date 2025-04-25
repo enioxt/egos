@@ -554,7 +554,6 @@ class CronosService:
                 "dependencies": dependency_info,
                 "mycelium_snapshot": mycelium_status,  # Store snapshot
             },
-            # metrics = {} # TODO: Capture key system metrics?
         )
         self.states[state_id] = state
         self.logger.info(f"Captured system state {state_id}")

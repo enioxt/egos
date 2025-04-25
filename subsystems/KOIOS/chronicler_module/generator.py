@@ -1,4 +1,3 @@
-# koios/chronicler_module/generator.py
 
 """Handles AI interaction via CORUJA/OpenRouter to generate documentation content."""
 
@@ -162,7 +161,6 @@ def generate_project_summary(analysis_data: dict) -> str:
     max_tokens = config.get('max_tokens', 150)
     temperature = config.get('temperature', 0.5)
 
-    # logger.debug(f"\nDEBUG: Sending Prompt to {model_to_use}:\n{prompt}\n") # Uncomment for debugging
 
     try:
         logger.info(f"Attempting API call to OpenRouter using model: {model_to_use}...")

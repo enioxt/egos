@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 """ETHIK Validator: Performs ethical validation based on configurable rules.
 
@@ -109,7 +107,6 @@ class EthikValidator:
             mycelium_client: An initialized Mycelium client instance (optional).
             pattern_registry: An initialized PatternRegistry instance (optional).
         """
-        # self.logger = KoiosLogger.get_logger("ETHIK.Validator") # Target state
         self.logger = logger  # Use module logger for now
         self.mycelium = mycelium_client
         self.pattern_registry = pattern_registry or PatternRegistry()
@@ -126,7 +123,6 @@ class EthikValidator:
             self.config = self._load_config(None)  # Load defaults
             self.max_history = self.config.get("max_history_size", 1000)
             self.rules = {}  # Ensure rules are empty if loading failed
-            # raise EthikConfigurationError("Failed to initialize Validator") from e
 
         # Setup Mycelium handlers only if client provided and config exists
         if self.mycelium and "mycelium" in self.config:

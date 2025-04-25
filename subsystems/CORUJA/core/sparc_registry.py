@@ -8,7 +8,6 @@ from typing import Dict, Any, Optional, List
 # EGOS Subsystem Imports (Placeholders - uncomment/adjust paths when implemented)
 from koios.logger import KoiosLogger
 from subsystems.CORUJA.schemas.models import TaskDefinition, SPARCTaskState
-# from subsystems.MYCELIUM.interfaces import MyceliumInterface # Example adjusted path
 
 logger = KoiosLogger.get_logger("CORUJA.SPARCTaskRegistry")
 

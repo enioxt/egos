@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 """CORUJA Prompt Manager
 
 Manages the loading, validation, and retrieval of Prompt Design Documents (PDDs).
@@ -227,36 +225,4 @@ class PromptManager:
 #     pdd_dir.mkdir(exist_ok=True)
 
 #     # Create a dummy PDD file for testing
-#     dummy_pdd = {
-#         "id": "dummy_v1",
-#         "metadata": {
-#             "name": "Dummy Prompt",
-#             "version": "1.0",
-#             "description": "A simple test prompt.",
-#             "tags": ["test", "dummy"],
-#             "author": "KoiosLogger Test",
-#             "created_date": "2024-08-15T12:00:00Z",
-#             "last_updated": "2024-08-15T12:00:00Z"
-#         },
-#         "parameters": [
-#             {"name": "user_query", "description": "The user's input", "type": "string", "required": True}
-#         ],
-#         "prompt_template": "Answer this query: {user_query}",
-#         "response_schema": {"type": "string"},
-#         "ethik_guidelines": None,
-#         "examples": []
-#     }
-#     with open(pdd_dir / "dummy_v1.json", "w") as f:
-#         json.dump(dummy_pdd, f, indent=2)
 
-#     try:
-#         manager = PromptManager(pdd_directory=pdd_dir)
-#         print(f"Loaded PDD IDs: {manager.list_pdds()}")
-#         print(f"Summaries: {manager.list_pdd_summaries()}")
-#         dummy = manager.get_pdd("dummy_v1")
-#         print(f"Retrieved Dummy PDD Name: {dummy.metadata.name}")
-#     except Exception as e:
-#         print(f"Error during example usage: {e}")
-#     finally:
-#         # Clean up dummy file
-#         (pdd_dir / "dummy_v1.json").unlink(missing_ok=True)

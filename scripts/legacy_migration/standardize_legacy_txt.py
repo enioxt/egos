@@ -1,4 +1,3 @@
-# scripts/legacy_migration/standardize_legacy_txt.py
 import os
 import argparse
 import logging
@@ -13,7 +12,6 @@ except ImportError:
     LANGDETECT_AVAILABLE = False
     logging.warning("langdetect library not available, falling back to heuristic detection")
 
-# from egos.utils.logging import KoiosLogger # Assuming logger setup exists
 
 # TODO: Set up proper logging (using KoiosLogger or standard logging)
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')

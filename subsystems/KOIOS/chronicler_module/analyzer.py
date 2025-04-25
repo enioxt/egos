@@ -1,4 +1,3 @@
-# koios/chronicler_module/analyzer.py
 
 """Core analysis functions for the Chronicler Module.
 
@@ -301,7 +300,6 @@ if __name__ == '__main__':
     # Configure logging for standalone testing
     logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(name)s - %(message)s')
     logger.info("Running analyzer.py standalone for testing.")
-    # test_dir = '.' # Analyze current directory
     test_dir = 'C:\\EGOS' # Replace with a valid path for testing
     if not Path(test_dir).exists():
         logger.error(f"Test directory '{test_dir}' does not exist. Skipping standalone test.")

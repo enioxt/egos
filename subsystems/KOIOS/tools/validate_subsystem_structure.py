@@ -104,10 +104,6 @@ def main():
             print("\n[VIOLATIONS] Mandatory rules not met:")
             for v in all_violations:
                 print(f"- {v}")
-        # if all_warnings:
-        #     print("\n[WARNINGS] Recommended items missing:")
-        #     for w in all_warnings:
-        #         print(f"- {w}")
 
     print("\n--- Scan Complete ---")
     # TODO: Publish final status to Mycelium (e.g., event.koios.validation.structure.complete, status=validation_status, details=...)
