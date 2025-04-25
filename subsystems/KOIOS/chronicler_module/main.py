@@ -2,7 +2,6 @@
 """Main entry point for the Chronicler Module (MVP - CLI)."""
 
 import argparse
-import os
 import sys
 import logging
 from pathlib import Path

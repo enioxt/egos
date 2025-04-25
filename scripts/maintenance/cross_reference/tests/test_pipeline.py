@@ -27,7 +27,7 @@ import unittest
 import tempfile
 import shutil
 from pathlib import Path
-from unittest.mock import patch, MagicMock, PropertyMock
+from unittest.mock import patch, MagicMock
 
 import sys
 import logging

@@ -10,7 +10,6 @@ if project_root not in sys.path:
 
 from abc import ABC, abstractmethod
 from typing import Dict, Any, Callable, List, Optional, Coroutine
-import asyncio
 
 class MyceliumInterface(ABC):
     """Abstract Base Class defining the interface for subsystems to interact with the Mycelium Network."""

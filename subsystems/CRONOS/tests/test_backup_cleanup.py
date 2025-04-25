@@ -1,7 +1,4 @@
 import pytest
-from pathlib import Path
-import time
-import asyncio
 
 from ..core.backup_manager import BackupManager
 

@@ -7,9 +7,8 @@ from typing import Dict, Any, Optional
 
 # EGOS Subsystem Imports (Placeholders - uncomment/adjust paths when implemented)
 from koios.logger import KoiosLogger
-from subsystems.CORUJA.schemas.models import TaskDefinition, AgentConfig
+from subsystems.CORUJA.schemas.models import TaskDefinition
 from subsystems.CORUJA.core.sparc_registry import SPARCTaskRegistry
-from subsystems.CORUJA.core.agent_runtime import AgentRuntime
 from subsystems.CORUJA.core.prompt_manager import PromptManager
 
 logger = KoiosLogger.get_logger("CORUJA.CrewManager")

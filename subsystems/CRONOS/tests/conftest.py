@@ -1,6 +1,5 @@
 import pytest
 from unittest.mock import MagicMock, patch
-from pathlib import Path
 
 from koios.logger import KoiosLogger
 from ..core.backup_manager import BackupManager

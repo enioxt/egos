@@ -20,10 +20,7 @@ for analyzing the reference graph and generating reports.
 - Testing Standards:
   - [testing_standards.md](mdc:../../../../docs/standards/testing_standards.md) - EGOS testing standards
 """
-
-import os
 import unittest
-import tempfile
 from pathlib import Path
 from unittest.mock import patch, MagicMock
 

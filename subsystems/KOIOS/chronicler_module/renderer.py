@@ -1,7 +1,5 @@
 # koios/chronicler_module/renderer.py
 """Renders the analyzed data and generated content into the final output format (HTML)."""
-
-import os
 from pathlib import Path
 from datetime import datetime
 import html # Import the html module for escaping

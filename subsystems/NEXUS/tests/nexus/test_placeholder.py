@@ -9,8 +9,6 @@ if project_root not in sys.path:
 
 """Placeholder test file for NEXUS subsystem."""
 
-import pytest
-
 def test_nexus_placeholder():
     """Ensure basic test setup works."""
     assert True

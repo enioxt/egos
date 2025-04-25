@@ -1,9 +1,7 @@
 import pytest
 from pathlib import Path
-import time
-import asyncio
 import json
-from unittest.mock import patch, mock_open
+from unittest.mock import patch
 
 from ..core.backup_manager import BackupManager, SystemBackupInfo
 from datetime import datetime, timezone, timedelta
