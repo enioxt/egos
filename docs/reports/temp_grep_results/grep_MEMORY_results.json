@@ -1,0 +1,492 @@
+[
+  {
+    "File": "C:\\EGOS\\ARCHITECTURE.MD",
+    "LineNumber": 96,
+    "LineContent": "| `maintenance`       | 73    | 18      | Core maintenance scripts and modules (see MEMORY[8ddc2fc8...]).                          |"
+  },
+  {
+    "File": "C:\\EGOS\\Work_2025-05-20_Docs_Optimization.md",
+    "LineNumber": 55,
+    "LineContent": "*   **Memory Created:** `MEMORY[c21e0093-0202-4b39-8932-64cee3cffcfd]` capturing ETHIK capabilities and documentation plan."
+  },
+  {
+    "File": "C:\\EGOS\\Work_2025-05-20_Documentation_Diagnosis.md",
+    "LineNumber": 24,
+    "LineContent": "This document provides a diagnostic analysis of the EGOS project's documentation system as of May 20, 2025. Its primary purpose is to assess the current state, identify strengths and weaknesses, and lay the groundwork for a comprehensive reorganization and enhancement strategy. The goal is to move towards a unified, coherent, and maintainable documentation system that effectively supports the EGOS project's development, collaboration, and strategic objectives, as outlined in MEMORY[4c227b63-102a-41b1-8f24-110159f3b560]."
+  },
+  {
+    "File": "C:\\EGOS\\Work_2025-05-20_Phase2_Execution_Plan.md",
+    "LineNumber": 176,
+    "LineContent": "    *   User-defined rules (MEMORY[user_global])."
+  },
+  {
+    "File": "C:\\EGOS\\WORK_2025_05_21.md",
+    "LineNumber": 265,
+    "LineContent": "    *   Leverage Git version control effectively, but also consider a full file system snapshot if feasible, per `MEMORY[8a777266-ce97-4ee1-8b40-10e822150d80]` guidance on data safety."
+  },
+  {
+    "File": "C:\\EGOS\\docs\\governance\\2025-04-21_system_enhancement_update.md",
+    "LineNumber": 69,
+    "LineContent": "| `rich_style_validator.py` | Active | Enhanced validator for Rich styles with improved Markdown differentiation | Resolves false positive issues identified in MEMORY[f5633b4b] |"
+  },
+  {
+    "File": "C:\\EGOS\\docs\\governance\\DOCUMENTATION_METRICS_DASHBOARD.md",
+    "LineNumber": 408,
+    "LineContent": "- [MEMORY[05e5435b-eb1a-44e9-905e-467e701bdecf]](MEMORY[05e5435b-eb1a-44e9-905e-467e701bdecf]) (Docstring Standards)"
+  },
+  {
+    "File": "C:\\EGOS\\docs\\governance\\EGOS Trust Weave MVP.txt",
+    "LineNumber": 496,
+    "LineContent": "Existing Rules/Memories as Foundation: Absolutely correct. The rules, standards, and principles documented in our .windsurfrules, memories (like the docstring standards MEMORY[05e5435b...], modularity MEMORY[e9d89cdf...], roadmap structure MEMORY[d18c5768...], cross-references MEMORY[bc6e4100...], NEXUS MEMORY[cc111c13...]), and the core ETHIK and KOIOS definitions are precisely the knowledge base that \"EGOS Trust Weaver\" would operationalize. It translates these documented standards into automated checks, suggestions, and guidance within the development workflow. It's the engine that enforces and assists with the EGOS way of working."
+  },
+  {
+    "File": "C:\\EGOS\\docs\\governance\\LEGACY_MIGRATION.md",
+    "LineNumber": 339,
+    "LineContent": "- [MEMORY[310463f3-4d36-4077-b4a8-87060d0f78b1]](MEMORY[310463f3-4d36-4077-b4a8-87060d0f78b1]) (Process Generalization)"
+  },
+  {
+    "File": "C:\\EGOS\\docs\\governance\\reports\\EGOS_Project_Diagnostic_Report.md",
+    "LineNumber": 432,
+    "LineContent": "  - **File Size:** Exceeds 500 lines (~548 lines reported), potentially requiring refactoring per MEMORY[e9d89cdf...]."
+  },
+  {
+    "File": "C:\\EGOS\\docs\\guides\\docstring_quick_reference.md",
+    "LineNumber": 56,
+    "LineContent": "This quick reference guide provides concise examples of EGOS docstring standards for different code elements. Refer to the complete standards in MEMORY[05e5435b...] for detailed requirements."
+  },
+  {
+    "File": "C:\\EGOS\\docs\\guides\\SYSTEM_VISUALIZATION_GUIDE.md",
+    "LineNumber": 491,
+    "LineContent": "- [MEMORY[05e5435b-eb1a-44e9-905e-467e701bdecf]](MEMORY[05e5435b-eb1a-44e9-905e-467e701bdecf]) (Docstring Standards)"
+  },
+  {
+    "File": "C:\\EGOS\\docs\\process\\automated_docstring_fixing.md",
+    "LineNumber": 72,
+    "LineContent": "## 4. Limitations & Human Oversight (Ref: MEMORY[92617db1...])"
+  },
+  {
+    "File": "C:\\EGOS\\docs\\process\\docstring_ide_integration.md",
+    "LineNumber": 64,
+    "LineContent": "   - Follow the EGOS Docstring Standards (MEMORY[05e5435b...])"
+  },
+  {
+    "File": "C:\\EGOS\\docs\\process\\human_ai_collaboration_guidelines.md",
+    "LineNumber": 3,
+    "LineContent": "**(Source: MEMORY[92617db1-24b1-4f70-aebf-bdc953f93c4c])**"
+  },
+  {
+    "File": "C:\\EGOS\\docs\\products\\website\\website_WEBSITE_ROADMAP.md",
+    "LineNumber": 223,
+    "LineContent": "- [ ] VIS-INT-007: Evaluate alternative WebGL libraries (Ogma, Cytoscape.js, react-force-graph) for potential 3D/C4 model view. (Ref: MEMORY[7e443f56...])"
+  },
+  {
+    "File": "C:\\EGOS\\docs\\project\\archived_project_concepts\\concepts_archive\\maiêutic_interaction.md",
+    "LineNumber": 48,
+    "LineContent": "This document outlines the concept and implementation strategies for the **Maiêutic Interaction Style** within the EGOS ecosystem. Inspired by the Socratic method, this style prioritizes guiding the user through questioning to foster self-discovery, critical thinking, and deeper understanding, rather than simply providing direct answers. This aligns with user preferences for intellectual exploration and autonomy (Ref: `MEMORY[761dc03c-611e-4538-8dc9-799a96573864]`, `MEMORY[User Preference for AI Maiêutic Interaction]`)."
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\cross_reference_inventory_20250521.md",
+    "LineNumber": 112,
+    "LineContent": "  | `maintenance`       | 73    | 18      | Core maintenance scripts and modules (see MEMORY[8ddc2f..."
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_MEMORY_results.json",
+    "LineNumber": 5,
+    "LineContent": "    \"LineContent\": \"| `maintenance`       | 73    | 18      | Core maintenance scripts and modules (see MEMORY[8ddc2fc8...]).                          |\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_Ref_results.json",
+    "LineNumber": 50,
+    "LineContent": "    \"LineContent\": \"    # Operational Rules (Ref: MEMORY[user_global], MEMORY[user_3779329090916737096])\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_Source_results.json",
+    "LineNumber": 65,
+    "LineContent": "    \"LineContent\": \"**(Source: MEMORY[92617db1-24b1-4f70-aebf-bdc953f93c4c])**\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\standards\\file_reference_checker_optimized.md",
+    "LineNumber": 32,
+    "LineContent": "    -   A prominent **warning** (highlighting project guidelines such as MEMORY[3bae44d3-4f57-48b4-acd0-c2eedf79171c] regarding unreferenced files) if a modified file has no detected references. This is crucial for maintaining system integrity."
+  },
+  {
+    "File": "C:\\EGOS\\docs\\standards\\user_profile_standard.md",
+    "LineNumber": 67,
+    "LineContent": "    - `interaction_style`: (e.g., 'default', 'direct', 'maiêutic', 'empathetic') - User's preferred AI interaction approach. Ref: `MEMORY[...]`, [CONCEPT-MAIEUTIC-001](cci:7://file:///c:/EGOS/docs_egos/concepts/mai%C3%AAutic_interaction.md:0:0-0:0)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\00_project_overview\\ARCHITECTURE.MD",
+    "LineNumber": 96,
+    "LineContent": "| `maintenance`       | 73    | 18      | Core maintenance scripts and modules (see MEMORY[8ddc2fc8...]).                          |"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\00_project_overview\\project_EGOS_docs_optimization\\Work_2025-05-20_Documentation_Diagnosis.md",
+    "LineNumber": 24,
+    "LineContent": "This document provides a diagnostic analysis of the EGOS project's documentation system as of May 20, 2025. Its primary purpose is to assess the current state, identify strengths and weaknesses, and lay the groundwork for a comprehensive reorganization and enhancement strategy. The goal is to move towards a unified, coherent, and maintainable documentation system that effectively supports the EGOS project's development, collaboration, and strategic objectives, as outlined in MEMORY[4c227b63-102a-41b1-8f24-110159f3b560]."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\00_project_overview\\project_EGOS_docs_optimization\\Work_2025-05-20_Phase2_Execution_Plan.md",
+    "LineNumber": 176,
+    "LineContent": "    *   User-defined rules (MEMORY[user_global])."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\01_core_principles\\governance_documents\\2025-04-21_system_enhancement_update.md",
+    "LineNumber": 69,
+    "LineContent": "| `rich_style_validator.py` | Active | Enhanced validator for Rich styles with improved Markdown differentiation | Resolves false positive issues identified in MEMORY[f5633b4b] |"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\01_core_principles\\governance_documents\\DOCUMENTATION_METRICS_DASHBOARD.md",
+    "LineNumber": 408,
+    "LineContent": "- [MEMORY[05e5435b-eb1a-44e9-905e-467e701bdecf]](MEMORY[05e5435b-eb1a-44e9-905e-467e701bdecf]) (Docstring Standards)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\01_core_principles\\governance_documents\\EGOS Trust Weave MVP.txt",
+    "LineNumber": 496,
+    "LineContent": "Existing Rules/Memories as Foundation: Absolutely correct. The rules, standards, and principles documented in our .windsurfrules, memories (like the docstring standards MEMORY[05e5435b...], modularity MEMORY[e9d89cdf...], roadmap structure MEMORY[d18c5768...], cross-references MEMORY[bc6e4100...], NEXUS MEMORY[cc111c13...]), and the core ETHIK and KOIOS definitions are precisely the knowledge base that \"EGOS Trust Weaver\" would operationalize. It translates these documented standards into automated checks, suggestions, and guidance within the development workflow. It's the engine that enforces and assists with the EGOS way of working."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\01_core_principles\\governance_documents\\LEGACY_MIGRATION.md",
+    "LineNumber": 339,
+    "LineContent": "- [MEMORY[310463f3-4d36-4077-b4a8-87060d0f78b1]](MEMORY[310463f3-4d36-4077-b4a8-87060d0f78b1]) (Process Generalization)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\01_core_principles\\governance_documents\\reports\\EGOS_Project_Diagnostic_Report.md",
+    "LineNumber": 432,
+    "LineContent": "  - **File Size:** Exceeds 500 lines (~548 lines reported), potentially requiring refactoring per MEMORY[e9d89cdf...]."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\01_core_principles\\standards_documents\\file_reference_checker_optimized.md",
+    "LineNumber": 32,
+    "LineContent": "    -   A prominent **warning** (highlighting project guidelines such as MEMORY[3bae44d3-4f57-48b4-acd0-c2eedf79171c] regarding unreferenced files) if a modified file has no detected references. This is crucial for maintaining system integrity."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\01_core_principles\\standards_documents\\user_profile_standard.md",
+    "LineNumber": 67,
+    "LineContent": "    - `interaction_style`: (e.g., 'default', 'direct', 'maiêutic', 'empathetic') - User's preferred AI interaction approach. Ref: `MEMORY[...]`, [CONCEPT-MAIEUTIC-001](cci:7://file:///c:/EGOS/docs_egos/concepts/mai%C3%AAutic_interaction.md:0:0-0:0)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\02_koios_standards\\file_reference_checker_optimized.md",
+    "LineNumber": 32,
+    "LineContent": "    -   A prominent **warning** (highlighting project guidelines such as MEMORY[3bae44d3-4f57-48b4-acd0-c2eedf79171c] regarding unreferenced files) if a modified file has no detected references. This is crucial for maintaining system integrity."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\02_koios_standards\\user_profile_standard.md",
+    "LineNumber": 67,
+    "LineContent": "    - `interaction_style`: (e.g., 'default', 'direct', 'maiêutic', 'empathetic') - User's preferred AI interaction approach. Ref: `MEMORY[...]`, [CONCEPT-MAIEUTIC-001](cci:7://file:///c:/EGOS/docs_egos/concepts/mai%C3%AAutic_interaction.md:0:0-0:0)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\03_processes\\ai_workflows\\human_ai_collaboration_guidelines.md",
+    "LineNumber": 3,
+    "LineContent": "**(Source: MEMORY[92617db1-24b1-4f70-aebf-bdc953f93c4c])**"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\03_processes\\development\\automated_docstring_fixing.md",
+    "LineNumber": 72,
+    "LineContent": "## 4. Limitations & Human Oversight (Ref: MEMORY[92617db1...])"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\03_processes\\development\\docstring_ide_integration.md",
+    "LineNumber": 64,
+    "LineContent": "   - Follow the EGOS Docstring Standards (MEMORY[05e5435b...])"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\05_processes_and_workflows\\general_processes\\automated_docstring_fixing.md",
+    "LineNumber": 72,
+    "LineContent": "## 4. Limitations & Human Oversight (Ref: MEMORY[92617db1...])"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\05_processes_and_workflows\\general_processes\\docstring_ide_integration.md",
+    "LineNumber": 64,
+    "LineContent": "   - Follow the EGOS Docstring Standards (MEMORY[05e5435b...])"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\05_processes_and_workflows\\general_processes\\human_ai_collaboration_guidelines.md",
+    "LineNumber": 3,
+    "LineContent": "**(Source: MEMORY[92617db1-24b1-4f70-aebf-bdc953f93c4c])**"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\06_guides_and_tutorials\\docstring_quick_reference.md",
+    "LineNumber": 56,
+    "LineContent": "This quick reference guide provides concise examples of EGOS docstring standards for different code elements. Refer to the complete standards in MEMORY[05e5435b...] for detailed requirements."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\06_guides_and_tutorials\\SYSTEM_VISUALIZATION_GUIDE.md",
+    "LineNumber": 491,
+    "LineContent": "- [MEMORY[05e5435b-eb1a-44e9-905e-467e701bdecf]](MEMORY[05e5435b-eb1a-44e9-905e-467e701bdecf]) (Docstring Standards)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\products_overview\\website\\website_WEBSITE_ROADMAP.md",
+    "LineNumber": 223,
+    "LineContent": "- [ ] VIS-INT-007: Evaluate alternative WebGL libraries (Ogma, Cytoscape.js, react-force-graph) for potential 3D/C4 model view. (Ref: MEMORY[7e443f56...])"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\project_documentation\\archived_project_concepts\\concepts_archive\\maiêutic_interaction.md",
+    "LineNumber": 48,
+    "LineContent": "This document outlines the concept and implementation strategies for the **Maiêutic Interaction Style** within the EGOS ecosystem. Inspired by the Socratic method, this style prioritizes guiding the user through questioning to foster self-discovery, critical thinking, and deeper understanding, rather than simply providing direct answers. This aligns with user preferences for intellectual exploration and autonomy (Ref: `MEMORY[761dc03c-611e-4538-8dc9-799a96573864]`, `MEMORY[User Preference for AI Maiêutic Interaction]`)."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\recovery_analysis\\RECOVERY_PLAN.md",
+    "LineNumber": 111,
+    "LineContent": "4. **File Operation Safety**: Use safer file operations as outlined in MEMORY[8a777266-ce97-4ee1-8b40-10e822150d80]"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\reports\\cross_reference_analysis\\cross_reference_report_20250423_104548.md",
+    "LineNumber": 2399,
+    "LineContent": "    - `MEMORY[05e5435b...]`"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\reports\\documentation\\checkpoints\\xref_checkpoint_referenced_by.json",
+    "LineNumber": 28872,
+    "LineContent": "    \"..\\\\..\\\\MEMORY[05e5435b...]\": ["
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\reports\\documentation\\checkpoints\\xref_checkpoint_referenced_by_2025-04-19T13-20-18.600301.json",
+    "LineNumber": 28869,
+    "LineContent": "  \"..\\\\..\\\\MEMORY[05e5435b...]\": ["
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\reports\\documentation\\checkpoints\\xref_checkpoint_referenced_by_2025-04-19T13-20-18.727384.json",
+    "LineNumber": 28869,
+    "LineContent": "  \"..\\\\..\\\\MEMORY[05e5435b...]\": ["
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\reports\\documentation\\checkpoints\\xref_checkpoint_referenced_by_2025-04-19T13-22-29.039819.json",
+    "LineNumber": 28872,
+    "LineContent": "    \"..\\\\..\\\\MEMORY[05e5435b...]\": ["
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\reports\\documentation\\checkpoints\\xref_checkpoint_references.json",
+    "LineNumber": 17132,
+    "LineContent": "      \"..\\\\..\\\\MEMORY[05e5435b...]\","
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\reports\\documentation\\checkpoints\\xref_checkpoint_references_2025-04-19T13-20-18.572124.json",
+    "LineNumber": 17129,
+    "LineContent": "    \"..\\\\..\\\\MEMORY[05e5435b...]\","
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\reports\\documentation\\checkpoints\\xref_checkpoint_references_2025-04-19T13-20-18.697365.json",
+    "LineNumber": 17129,
+    "LineContent": "    \"..\\\\..\\\\MEMORY[05e5435b...]\","
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\reports\\documentation\\checkpoints\\xref_checkpoint_references_2025-04-19T13-22-28.979663.json",
+    "LineNumber": 17132,
+    "LineContent": "      \"..\\\\..\\\\MEMORY[05e5435b...]\","
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181428\\docs\\governance\\automated_docstring_fixing.md",
+    "LineNumber": 133,
+    "LineContent": "## 4. Limitations & Human Oversight (Ref: MEMORY[92617db1...])"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181433\\docs\\governance\\cross_reference_management_process.md",
+    "LineNumber": 340,
+    "LineContent": "In accordance with EGOS standards (MEMORY[bc6e4100-7162-4a65-a0c1-05dffbe5b95f]), all newly created files must include proper cross-references. Follow these steps to ensure compliance:"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181434\\docs\\governance\\docstring_ide_integration.md",
+    "LineNumber": 117,
+    "LineContent": "   - Follow the EGOS Docstring Standards (MEMORY[05e5435b...])"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181435\\docs\\governance\\human_ai_collaboration_guidelines.md",
+    "LineNumber": 56,
+    "LineContent": "**(Source: MEMORY[92617db1-24b1-4f70-aebf-bdc953f93c4c])**"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181541\\docs\\governance\\reports\\EGOS_Project_Diagnostic_Report.md",
+    "LineNumber": 432,
+    "LineContent": "  - **File Size:** Exceeds 500 lines (~548 lines reported), potentially requiring refactoring per MEMORY[e9d89cdf...]."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181544\\docs\\governance\\roadmaps\\planned_tasks.md",
+    "LineNumber": 79,
+    "LineContent": "* MEMORY[cc111c13-399f-406e-9703-f80ad0d2dd5e]"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181548\\docs\\governance\\roadmaps\\apps\\website\\ROADMAP.md",
+    "LineNumber": 223,
+    "LineContent": "- [ ] VIS-INT-007: Evaluate alternative WebGL libraries (Ogma, Cytoscape.js, react-force-graph) for potential 3D/C4 model view. (Ref: MEMORY[7e443f56...])"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181554\\docs\\governance\\roadmaps\\KOIOS\\ROADMAP.md",
+    "LineNumber": 670,
+    "LineContent": "    - MEMORY[d7220caf-684a-49fc-8d6c-c7be3a11420f]"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181555\\docs\\governance\\roadmaps\\STRAT\\ROADMAP.md",
+    "LineNumber": 90,
+    "LineContent": "*   `MEMORY[761dc03c-611e-4538-8dc9-799a96573864]` (User Profile & Workflow Preferences)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181600\\docs\\governance\\roadmaps\\subsystems\\KOIOS\\ROADMAP.md",
+    "LineNumber": 670,
+    "LineContent": "    - MEMORY[d7220caf-684a-49fc-8d6c-c7be3a11420f]"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181601\\docs\\governance\\roadmaps\\subsystems\\STRAT\\ROADMAP.md",
+    "LineNumber": 90,
+    "LineContent": "*   `MEMORY[761dc03c-611e-4538-8dc9-799a96573864]` (User Profile & Workflow Preferences)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181604\\docs\\governance\\roadmaps\\website\\ROADMAP.md",
+    "LineNumber": 223,
+    "LineContent": "- [ ] VIS-INT-007: Evaluate alternative WebGL libraries (Ogma, Cytoscape.js, react-force-graph) for potential 3D/C4 model view. (Ref: MEMORY[7e443f56...])"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181608\\docs\\guides\\DEVELOPER_ENVIRONMENT.md",
+    "LineNumber": 272,
+    "LineContent": "4. **Reference related memories** - Use `MEMORY[id]` syntax"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181613\\docs\\markdown\\apps\\website\\WEBSITE_ROADMAP.md",
+    "LineNumber": 223,
+    "LineContent": "- [ ] VIS-INT-007: Evaluate alternative WebGL libraries (Ogma, Cytoscape.js, react-force-graph) for potential 3D/C4 model view. (Ref: MEMORY[7e443f56...])"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181620\\docs\\markdown\\governance\\2025-04-21_system_enhancement_update.md",
+    "LineNumber": 69,
+    "LineContent": "| `rich_style_validator.py` | Active | Enhanced validator for Rich styles with improved Markdown differentiation | Resolves false positive issues identified in MEMORY[f5633b4b] |"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181623\\docs\\markdown\\governance\\DOCUMENTATION_METRICS_DASHBOARD.md",
+    "LineNumber": 408,
+    "LineContent": "- [MEMORY[05e5435b-eb1a-44e9-905e-467e701bdecf]](MEMORY[05e5435b-eb1a-44e9-905e-467e701bdecf]) (Docstring Standards)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181623\\docs\\markdown\\governance\\LEGACY_MIGRATION.md",
+    "LineNumber": 339,
+    "LineContent": "- [MEMORY[310463f3-4d36-4077-b4a8-87060d0f78b1]](MEMORY[310463f3-4d36-4077-b4a8-87060d0f78b1]) (Process Generalization)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181636\\docs\\reference\\docstring_quick_reference.md",
+    "LineNumber": 56,
+    "LineContent": "This quick reference guide provides concise examples of EGOS docstring standards for different code elements. Refer to the complete standards in MEMORY[05e5435b...] for detailed requirements."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181641\\docs\\reference\\SYSTEM_VISUALIZATION_GUIDE.md",
+    "LineNumber": 491,
+    "LineContent": "- [MEMORY[05e5435b-eb1a-44e9-905e-467e701bdecf]](MEMORY[05e5435b-eb1a-44e9-905e-467e701bdecf]) (Docstring Standards)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181650\\docs\\subsystems\\EGO_ATL_QUICK_REFERENCE.md",
+    "LineNumber": 229,
+    "LineContent": "- [MEMORY[05e5435b-eb1a-44e9-905e-467e701bdecf]](MEMORY[05e5435b-eb1a-44e9-905e-467e701bdecf]) (Docstring Standards)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181651\\docs\\subsystems\\EGO_CRO_QUICK_REFERENCE.md",
+    "LineNumber": 377,
+    "LineContent": "- [MEMORY[05e5435b-eb1a-44e9-905e-467e701bdecf]](MEMORY[05e5435b-eb1a-44e9-905e-467e701bdecf]) (Docstring Standards)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181652\\docs\\subsystems\\EGO_ETH_QUICK_REFERENCE.md",
+    "LineNumber": 457,
+    "LineContent": "- [MEMORY[05e5435b-eb1a-44e9-905e-467e701bdecf]](MEMORY[05e5435b-eb1a-44e9-905e-467e701bdecf]) (Docstring Standards)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181656\\docs\\subsystems\\EGO_KOI_QUICK_REFERENCE.md",
+    "LineNumber": 106,
+    "LineContent": "- [MEMORY[05e5435b-eb1a-44e9-905e-467e701bdecf]](MEMORY[05e5435b-eb1a-44e9-905e-467e701bdecf]) (Docstring Standards)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181656\\docs\\subsystems\\EGO_KOI_ROADMAP.md",
+    "LineNumber": 670,
+    "LineContent": "    - MEMORY[d7220caf-684a-49fc-8d6c-c7be3a11420f]"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181701\\docs\\subsystems\\EGO_NEX_QUICK_REFERENCE.md",
+    "LineNumber": 129,
+    "LineContent": "- [MEMORY[05e5435b-eb1a-44e9-905e-467e701bdecf]](MEMORY[05e5435b-eb1a-44e9-905e-467e701bdecf]) (Docstring Standards)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181701\\docs\\subsystems\\EGO_STR_ROADMAP.md",
+    "LineNumber": 90,
+    "LineContent": "*   `MEMORY[761dc03c-611e-4538-8dc9-799a96573864]` (User Profile & Workflow Preferences)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181707\\docs\\subsystems\\KOIOS\\EGO_KOS_ROADMAP.md",
+    "LineNumber": 670,
+    "LineContent": "    - MEMORY[d7220caf-684a-49fc-8d6c-c7be3a11420f]"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181709\\docs\\subsystems\\STRAT\\EGO_STR_ROADMAP.md",
+    "LineNumber": 90,
+    "LineContent": "*   `MEMORY[761dc03c-611e-4538-8dc9-799a96573864]` (User Profile & Workflow Preferences)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\_website_backup_20250520_011220\\website\\ROADMAP.md",
+    "LineNumber": 179,
+    "LineContent": "- [ ] VIS-INT-007: Evaluate alternative WebGL libraries (Ogma, Cytoscape.js, react-force-graph) for potential 3D/C4 model view. (Ref: MEMORY[7e443f56...])"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\_website_backup_20250520_011220\\website\\scripts\\migration\\fix-components-structure.ps1",
+    "LineNumber": 2,
+    "LineContent": "# Following EGOS Conscious Modularity principles (Ref: MEMORY[user_global])"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\_website_backup_20250520_011220\\website\\scripts\\migration\\fix-website-structure.ps1",
+    "LineNumber": 3,
+    "LineContent": "# Ref: MEMORY[user_global], MEMORY[7e443f56...], MEMORY[d18c5768...]"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\planning_records\\project_planning\\Work_2025-05-20_Docs_Optimization.md",
+    "LineNumber": 55,
+    "LineContent": "*   **Memory Created:** `MEMORY[c21e0093-0202-4b39-8932-64cee3cffcfd]` capturing ETHIK capabilities and documentation plan."
+  },
+  {
+    "File": "C:\\EGOS\\recovery_analysis\\RECOVERY_PLAN.md",
+    "LineNumber": 111,
+    "LineContent": "4. **File Operation Safety**: Use safer file operations as outlined in MEMORY[8a777266-ce97-4ee1-8b40-10e822150d80]"
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\cross_reference\\cross_reference_ultra_report_20250520_233235.md",
+    "LineNumber": 8981,
+    "LineContent": "  - Found in: `docs_egos\\01_core_principles\\governance_documents\\reports\\EGOS_Project_Diagnostic_Report.md` L475: `- `CORUJA-REFACTOR-010`: Refactor `prompt_manager.py` (~548 lines) to adhere to size limits (MEMORY[`"
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\cross_reference\\cross_reference_ultra_report_20250520_234950.md",
+    "LineNumber": 8987,
+    "LineContent": "  - Found in: `docs_egos\\01_core_principles\\governance_documents\\reports\\EGOS_Project_Diagnostic_Report.md` L475: `- `CORUJA-REFACTOR-010`: Refactor `prompt_manager.py` (~548 lines) to adhere to size limits (MEMORY[`"
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\cross_reference\\execute_inventory_scan.py",
+    "LineNumber": 59,
+    "LineContent": "    {\"query\": \"MEMORY[\", \"output_file\": \"grep_MEMORY_results.json\", \"case_insensitive\": False, \"category\": \"memory\"},"
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\cross_reference\\file_reference_checker_optimized.py",
+    "LineNumber": 358,
+    "LineContent": "                                f.write(f\"  - **No references found - WARNING: File might be undocumented or orphaned.** (Ref: MEMORY[3bae44d3...])\\n\")"
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\cross_reference\\file_reference_report_20250519_132826.md",
+    "LineNumber": 68,
+    "LineContent": "  - **No references found - WARNING: File might be undocumented or orphaned.** (Ref: MEMORY[3bae44d3...])"
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\maintenance\\code_health\\syntax_checker.py",
+    "LineNumber": 71,
+    "LineContent": "        # Common patterns to check (Temporarily disabled - high false positives - See MEMORY[403f6d5e...])"
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\maintenance\\code_health\\syntax_checker_rewrite.py",
+    "LineNumber": 98,
+    "LineContent": "        # See MEMORY[403f6d5e-252c-4b69-ae91-5e4dcf9b92c7]"
+  },
+  {
+    "File": "C:\\EGOS\\website\\ROADMAP.md",
+    "LineNumber": 179,
+    "LineContent": "- [ ] VIS-INT-007: Evaluate alternative WebGL libraries (Ogma, Cytoscape.js, react-force-graph) for potential 3D/C4 model view. (Ref: MEMORY[7e443f56...])"
+  },
+  {
+    "File": "C:\\EGOS\\website\\scripts\\migration\\fix-components-structure.ps1",
+    "LineNumber": 2,
+    "LineContent": "# Following EGOS Conscious Modularity principles (Ref: MEMORY[user_global])"
+  },
+  {
+    "File": "C:\\EGOS\\website\\scripts\\migration\\fix-website-structure.ps1",
+    "LineNumber": 3,
+    "LineContent": "# Ref: MEMORY[user_global], MEMORY[7e443f56...], MEMORY[d18c5768...]"
+  }
+]

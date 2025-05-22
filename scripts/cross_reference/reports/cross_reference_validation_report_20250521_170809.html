@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cross-Reference Validation Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+        h1, h2, h3 { color: #333; }
+        .stats { display: flex; flex-wrap: wrap; margin-bottom: 20px; }
+        .stat-card { background-color: #f5f5f5; border-radius: 5px; padding: 15px; margin: 10px; flex: 1; min-width: 200px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .stat-value { font-size: 24px; font-weight: bold; color: #007bff; }
+        .stat-label { font-size: 14px; color: #666; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #ddd; }
+        th { background-color: #f2f2f2; }
+        tr:hover { background-color: #f5f5f5; }
+        .error { color: #dc3545; }
+        .file-path { color: #28a745; font-family: monospace; }
+        .reference { color: #007bff; font-family: monospace; }
+        .fix { background-color: #e9f7ef; padding: 8px; border-left: 4px solid #28a745; margin-top: 5px; white-space: pre-wrap; }
+        .toggle-fix { color: #28a745; cursor: pointer; text-decoration: underline; }
+        .hidden { display: none; }
+    </style>
+    <script>
+        function toggleFix(id) {
+            var element = document.getElementById(id);
+            if(element.classList.contains('hidden')) {
+                element.classList.remove('hidden');
+            } else {
+                element.classList.add('hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Cross-Reference Validation Report</h1>
+    <p>Generated on 2025-05-21 17:08:09</p>
+    <p>Base path: C:\EGOS</p>
+    <p>Directory: C:\EGOS\docs_egos\03_subsystems</p>
+    <h2>Summary</h2>
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-value">1</div>
+            <div class="stat-label">Files Scanned</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">9</div>
+            <div class="stat-label">References Found</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">1</div>
+            <div class="stat-label">Valid References</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">8</div>
+            <div class="stat-label">Invalid References</div>
+        </div>
+    </div>
+    <h2>Invalid References</h2>
+    <table>
+        <tr>
+            <th>File</th>
+            <th>Reference</th>
+            <th>Target</th>
+            <th>Issue</th>
+            <th>Fix</th>
+        </tr>
+        <tr>
+            <td class="file-path">C:\EGOS\docs_egos\03_subsystems\NEXUS\search_engine_technical_spec.md</td>
+            <td class="reference">NEXUS Search Engine Design</td>
+            <td>./search_engine_design.md</td>
+            <td class="error">Target file not found: C:\EGOS\docs_egos\03_subsystems\NEXUS\search_engine_design.md</td>
+            <td>
+                <span class="toggle-fix" onclick="toggleFix('fix-0')">Show suggested fix</span>
+                <div id="fix-0" class="fix hidden">Consider changing to: [NEXUS Search Engine Design](search_engine_technical_spec.md)</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="file-path">C:\EGOS\docs_egos\03_subsystems\NEXUS\search_engine_technical_spec.md</td>
+            <td class="reference">EGOS Cross-Reference Standardization</td>
+            <td>../../05_development/standards/cross_reference_standard.md</td>
+            <td class="error">Target file not found: C:\EGOS\docs_egos\03_subsystems\NEXUS\..\..\05_development\standards\cross_reference_standard.md</td>
+            <td>
+                <span class="toggle-fix" onclick="toggleFix('fix-1')">Show suggested fix</span>
+                <div id="fix-1" class="fix hidden">Consider changing to: [EGOS Cross-Reference Standardization](search_engine_technical_spec.md)</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="file-path">C:\EGOS\docs_egos\03_subsystems\NEXUS\search_engine_technical_spec.md</td>
+            <td class="reference">NEXUS Subsystem Documentation</td>
+            <td>./README.md</td>
+            <td class="error">Target file not found: C:\EGOS\docs_egos\03_subsystems\NEXUS\README.md</td>
+            <td>
+                <span class="toggle-fix" onclick="toggleFix('fix-2')">Show suggested fix</span>
+                <div id="fix-2" class="fix hidden">Consider changing to: [NEXUS Subsystem Documentation](search_engine_technical_spec.md)</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="file-path">C:\EGOS\docs_egos\03_subsystems\NEXUS\search_engine_technical_spec.md</td>
+            <td class="reference">Qdrant Documentation</td>
+            <td>https://qdrant.tech/documentation/</td>
+            <td class="error">Target file not found: https://qdrant.tech/documentation/</td>
+            <td>
+                <span class="toggle-fix" onclick="toggleFix('fix-3')">Show suggested fix</span>
+                <div id="fix-3" class="fix hidden">Consider changing to: [Qdrant Documentation](search_engine_technical_spec.md)</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="file-path">C:\EGOS\docs_egos\03_subsystems\NEXUS\search_engine_technical_spec.md</td>
+            <td class="reference">Sentence Transformers</td>
+            <td>https://www.sbert.net/</td>
+            <td class="error">Target file not found: https://www.sbert.net/</td>
+            <td>
+                <span class="toggle-fix" onclick="toggleFix('fix-4')">Show suggested fix</span>
+                <div id="fix-4" class="fix hidden">Consider changing to: [Sentence Transformers](search_engine_technical_spec.md)</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="file-path">C:\EGOS\docs_egos\03_subsystems\NEXUS\search_engine_technical_spec.md</td>
+            <td class="reference">React Documentation</td>
+            <td>https://reactjs.org/docs/getting-started.html</td>
+            <td class="error">Target file not found: https://reactjs.org/docs/getting-started.html</td>
+            <td>
+                <span class="toggle-fix" onclick="toggleFix('fix-5')">Show suggested fix</span>
+                <div id="fix-5" class="fix hidden">Consider changing to: [React Documentation](search_engine_technical_spec.md)</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="file-path">C:\EGOS\docs_egos\03_subsystems\NEXUS\search_engine_technical_spec.md</td>
+            <td class="reference">OpenAPI Specification</td>
+            <td>https://swagger.io/specification/</td>
+            <td class="error">Target file not found: https://swagger.io/specification/</td>
+            <td>
+                <span class="toggle-fix" onclick="toggleFix('fix-6')">Show suggested fix</span>
+                <div id="fix-6" class="fix hidden">Consider changing to: [OpenAPI Specification](search_engine_technical_spec.md)</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="file-path">C:\EGOS\docs_egos\03_subsystems\NEXUS\search_engine_technical_spec.md</td>
+            <td class="reference">JWT Authentication</td>
+            <td>https://jwt.io/introduction</td>
+            <td class="error">Target file not found: https://jwt.io/introduction</td>
+            <td>
+                <span class="toggle-fix" onclick="toggleFix('fix-7')">Show suggested fix</span>
+                <div id="fix-7" class="fix hidden">Consider changing to: [JWT Authentication](search_engine_technical_spec.md)</div>
+            </td>
+        </tr>
+    </table>
+    <h2>Next Steps</h2>
+    <ol>
+        <li>Fix the invalid references identified in this report</li>
+        <li>Re-run the validation to confirm all issues are resolved</li>
+        <li>Consider adding validation to CI/CD pipeline</li>
+    </ol>
+    <footer>
+        <p>Generated by EGOS Cross-Reference Validator v1.0.0</p>
+        <p>✧༺❀༻∞ EGOS ∞༺❀༻✧</p>
+    </footer>
+</body>
+</html>

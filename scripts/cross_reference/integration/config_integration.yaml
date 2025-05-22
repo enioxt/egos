@@ -1,0 +1,26 @@
+# Subsystem Integration Configuration
+integration:
+  enabled: true
+  
+  # ETHIK Integration
+  ethik:
+    enabled: true
+    validation_level: "standard"  # minimal, standard, strict
+    api_endpoint: "http://localhost:8001/ethik/validate"
+    timeout_sec: 30
+    
+  # KOIOS Integration
+  koios:
+    enabled: true
+    standards_version: "2.0"
+    api_endpoint: "http://localhost:8002/koios/standards"
+    timeout_sec: 30
+    
+  # NEXUS Integration
+  nexus:
+    enabled: true
+    dependency_mapping: true
+    impact_analysis: true
+    visualization: true
+    api_endpoint: "http://localhost:8003/nexus/analyze"
+    timeout_sec: 60

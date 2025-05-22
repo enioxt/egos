@@ -1,0 +1,45 @@
+---
+description: Security best practices and standards for EGOS development
+globs: ["**/*.py", "**/*.md", "**/*.js", "**/*.html"]
+alwaysApply: true
+---
+
+# Security Practices (KOIOS Standard)
+
+**Primary Reference:** The core principles, mandatory procedures, and standards for security and privacy in EGOS development are defined in the central EGOS rules file:
+
+*   **`./global_rules.mdc` (Section 2, Section 6 - AI Security, Section 8 - Command Safety)**
+
+Please refer to that document for authoritative standards, including rules on authentication, data protection, input/output handling, dependency management, secure coding, AI-specific security, and operational safety.
+
+This file is retained for context discovery, but the primary source of truth is `global_rules.mdc`.
+
+## Rule
+
+(To be defined - Consolidate security best practices, including dependency scanning, secrets management, input validation, secure defaults, least privilege, and regular audits.)
+
+## Rationale
+
+(To be defined - Emphasizes protecting user data (Sacred Privacy), maintaining system integrity, building trust (Reciprocal Trust), and preventing vulnerabilities.)
+
+## Examples
+
+### Correct Usage
+
+-   Using environment variables or a secrets manager for API keys.
+-   Validating and sanitizing all user inputs (e.g., using Pydantic).
+-   Running `pip-audit` or similar tools regularly.
+-   Implementing role-based access control (RBAC).
+-   Performing security code reviews.
+
+### Incorrect Usage
+
+-   Hardcoding credentials in source code.
+-   Trusting user input without validation.
+-   Using outdated dependencies with known vulnerabilities.
+-   Granting excessive permissions to services or users.
+-   Ignoring security warnings from linters or scanners.
+
+**Prioritize security throughout the development lifecycle.**
+
+✧༺❀༻∞ EGOS ∞༺❀༻✧

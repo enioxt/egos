@@ -1,0 +1,7 @@
+@references:
+- Core References:
+  - [MQP.md](Integration Codeguide Paella MQP.txt) <!-- EGOS-REF-53E799F5 --> - Mast[ROADMAP.md](GO_TO_MARKET_ROADMAP.md) <!-- EGOS-REF-AA413751 -->inciples
+  - [ROADMAP.md](mdc:../../ROADMAP.md) - Project roadmap and planning
+
+
+

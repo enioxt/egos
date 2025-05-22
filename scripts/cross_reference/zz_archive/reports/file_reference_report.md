@@ -1,0 +1,689 @@
+# File Reference Checker Report
+
+- **Report Generated At:** 2025-05-19T11:01:26.391685
+- **Project Base Path:** `C:\EGOS`
+- **Time Window (Hours):** 48
+- **Target Extensions:** `.ts, .py, .json, .md, .js, .yml, .yaml, .html, .css`
+- **Scan Directories:** `.`
+- **Files Found:** 678
+
+## Candidate Files Found (Recently Modified):
+
+- `.file_ref_checker.yml`
+- `backups\docs\20250513_181434\docs\governance\dashboard_koios.md`
+- `backups\docs\20250513_181438\docs\governance\roadmap_standardization.md`
+- `backups\docs\20250513_181528\docs\governance\migrations\processed\mixed-en-pt\Focus Definition EGOS Coruja.md`
+- `backups\docs\20250513_181540\docs\governance\migrations\processed\pt\ROADMAP.md`
+- `backups\docs\20250513_181548\docs\governance\roadmaps\apps\website\ROADMAP.md`
+- `backups\docs\20250513_181548\docs\governance\roadmaps\ATLAS\ROADMAP.md`
+- `backups\docs\20250513_181549\docs\governance\roadmaps\CORUJA\ROADMAP.md`
+- `backups\docs\20250513_181550\docs\governance\roadmaps\CRONOS\ROADMAP.md`
+- `backups\docs\20250513_181551\docs\governance\roadmaps\ETHIK\ROADMAP.md`
+- `backups\docs\20250513_181552\docs\governance\roadmaps\HARMONY\ROADMAP.md`
+- `backups\docs\20250513_181554\docs\governance\roadmaps\MASTER\ROADMAP.md`
+- `backups\docs\20250513_181555\docs\governance\roadmaps\NEXUS\ROADMAP.md`
+- `backups\docs\20250513_181555\docs\governance\roadmaps\STRAT\ROADMAP.md`
+- `backups\docs\20250513_181556\docs\governance\roadmaps\subsystems\ATLAS\ROADMAP.md`
+- `backups\docs\20250513_181557\docs\governance\roadmaps\subsystems\CORUJA\ROADMAP.md`
+- `backups\docs\20250513_181557\docs\governance\roadmaps\subsystems\CRONOS\ROADMAP.md`
+- `backups\docs\20250513_181558\docs\governance\roadmaps\subsystems\ETHIK\ROADMAP.md`
+- `backups\docs\20250513_181559\docs\governance\roadmaps\subsystems\HARMONY\ROADMAP.md`
+- `backups\docs\20250513_181600\docs\governance\roadmaps\subsystems\MASTER\ROADMAP.md`
+- `backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\NEXUS\ROADMAP.md`
+- `backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\STRAT\ROADMAP.md`
+- `backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\SYNC\ROADMAP.md`
+- `backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\TRANSLATOR\ROADMAP.md`
+- `backups\docs\20250513_181602\docs\governance\roadmaps\SYNC\ROADMAP.md`
+- `backups\docs\20250513_181603\docs\governance\roadmaps\TRANSLATOR\ROADMAP.md`
+- `backups\docs\20250513_181604\docs\governance\roadmaps\website\ROADMAP.md`
+- `backups\docs\20250513_181605\docs\governance\strategy_archive\EGOS_PRESENTATION_GUIDE.md`
+- `backups\docs\20250513_181613\docs\markdown\apps\website\WEBSITE_ROADMAP.md`
+- `backups\docs\20250513_181614\docs\markdown\diagrams\subsystem_integration_map.md`
+- `backups\docs\20250513_181621\docs\markdown\governance\CHANGELOG.md`
+- `backups\docs\20250513_181626\docs\markdown\subsystems\README.md`
+- `backups\docs\20250513_181633\docs\reference\applying_cross_references.md`
+- `backups\docs\20250513_181647\docs\reference\strategy\EGOS_PRESENTATION_GUIDE.md`
+- `backups\docs\20250513_181648\docs\reference\website\CONTENT_STRATEGY.md`
+- `backups\docs\20250513_181650\docs\subsystems\EGO_ATL_ROADMAP.md`
+- `backups\docs\20250513_181651\docs\subsystems\EGO_CRJ_ROADMAP.md`
+- `backups\docs\20250513_181652\docs\subsystems\EGO_CRO_ROADMAP.md`
+- `backups\docs\20250513_181653\docs\subsystems\EGO_ETH_ROADMAP.md`
+- `backups\docs\20250513_181654\docs\subsystems\EGO_HAR_ROADMAP.md`
+- `backups\docs\20250513_181657\docs\subsystems\EGO_MAS_ROADMAP.md`
+- `backups\docs\20250513_181701\docs\subsystems\EGO_NEX_ROADMAP.md`
+- `backups\docs\20250513_181701\docs\subsystems\EGO_STR_ROADMAP.md`
+- `backups\docs\20250513_181701\docs\subsystems\EGO_SYN_ROADMAP.md`
+- `backups\docs\20250513_181702\docs\subsystems\EGO_TRN_ROADMAP.md`
+- `backups\docs\20250513_181703\docs\subsystems\ATLAS\EGO_ATL_ROADMAP.md`
+- `backups\docs\20250513_181704\docs\subsystems\CORUJA\EGO_CRJ_ROADMAP.md`
+- `backups\docs\20250513_181705\docs\subsystems\CRONOS\EGO_CRN_ROADMAP.md`
+- `backups\docs\20250513_181705\docs\subsystems\ETHIK\EGO_ETK_ROADMAP.md`
+- `backups\docs\20250513_181706\docs\subsystems\HARMONY\EGO_HRM_ROADMAP.md`
+- `backups\docs\20250513_181708\docs\subsystems\MASTER\EGO_MST_ROADMAP.md`
+- `backups\docs\20250513_181709\docs\subsystems\NEXUS\EGO_NXS_ROADMAP.md`
+- `backups\docs\20250513_181709\docs\subsystems\STRAT\EGO_STR_ROADMAP.md`
+- `backups\docs\20250513_181709\docs\subsystems\SYNC\EGO_SYC_ROADMAP.md`
+- `backups\docs\20250513_181709\docs\subsystems\TRANSLATOR\EGO_TRL_ROADMAP.md`
+- `backups\docs\20250513_181711\docs\templates\architecture_document_template.md`
+- `backups\docs\20250513_181712\docs\templates\main_roadmap_prototype.md`
+- `backups\docs\20250513_181712\docs\templates\subsystem_readme_template.md`
+- `config\cross_reference\config.yaml`
+- `docs\audits\file_reference_checker.md`
+- `docs\audits\index.md`
+- `docs\diagnosticoENIO.md`
+- `docs\diagnostics\DOCS_DIRECTORY_DIAGNOSTIC_20250518.md`
+- `docs\DOCUMENTATION_INDEX.md`
+- `docs\governance\.-summary.md`
+- `docs\governance\automated_docstring_fixing.md`
+- `docs\governance\backup_management.md`
+- `docs\governance\caching_system.md`
+- `docs\governance\centralization_diagnostic_items_status.md`
+- `docs\governance\centralization_system_pending_tasks.md`
+- `docs\governance\code_health_checks.md`
+- `docs\governance\code_health_workshop.md`
+- `docs\governance\component_centralization_protocol.md`
+- `docs\governance\contextual_search_protocol.md`
+- `docs\governance\continuous_improvement_koios.md`
+- `docs\governance\cross_reference\system_organization_cross_reference_guide.md`
+- `docs\governance\cross_reference_analyzer_debugging.md`
+- `docs\governance\cross_reference_analyzer_migration_guide.md`
+- `docs\governance\cross_reference_analyzer_refactoring_plan.md`
+- `docs\governance\cross_reference_automation.md`
+- `docs\governance\cross_reference_best_practices.md`
+- `docs\governance\cross_reference_management.md`
+- `docs\governance\cross_reference_management_process.md`
+- `docs\governance\cross_reference_priority_list.md`
+- `docs\governance\cross_reference_standard.md`
+- `docs\governance\cross_reference_system_enhancements.md`
+- `docs\governance\cross_reference_visualization.md`
+- `docs\governance\dashboard_koios.md`
+- `docs\governance\data_flow_architecture.md`
+- `docs\governance\dependency_migration_pydantic_v2.md`
+- `docs\governance\dependency_security_koios.md`
+- `docs\governance\development_standards.md`
+- `docs\governance\docstring_coverage_koios.md`
+- `docs\governance\docstring_ide_integration.md`
+- `docs\governance\documentation_champions.md`
+- `docs\governance\documentation_health_analysis.md`
+- `docs\governance\documentation_structure_standard.md`
+- `docs\governance\documentation_system_workshop.md`
+- `docs\governance\dotnet_build_debugging.md`
+- `docs\governance\dynamic_import_resilience.md`
+- `docs\governance\file_lifecycle_management.md`
+- `docs\governance\file_retention_policy.md`
+- `docs\governance\hierarchical_cross_reference_strategy.md`
+- `docs\governance\human_ai_collaboration_guidelines.md`
+- `docs\governance\import_resilience_fixes.md`
+- `docs\governance\integration_summary_apr2025.md`
+- `docs\governance\KOS_project_structure_guide.md`
+- `docs\governance\legacy_cleanup_process.md`
+- `docs\governance\linting_koios.md`
+- `docs\governance\multi_window_coordination_protocol.md`
+- `docs\governance\mvp_koios.md`
+- `docs\governance\mycelium_integration_koios.md`
+- `docs\governance\orchestration_koios.md`
+- `docs\governance\path_exclusion_pattern.md`
+- `docs\governance\path_inclusion_pattern.md`
+- `docs\governance\performance_caching_process.md`
+- `docs\governance\progress_bar_automation.md`
+- `docs\governance\progress_bar_integration_demo.md`
+- `docs\governance\progress_bar_standardization.md`
+- `docs\governance\protocol_adherence_koios.md`
+- `docs\governance\reorganization\cross_reference_standard.md`
+- `docs\governance\reorganization\DOCS_MIGRATION_CASE_STUDY.md`
+- `docs\governance\reorganization\DOCS_MIGRATION_PLAN.md`
+- `docs\governance\reorganization\migration_checklist.md`
+- `docs\governance\reorganization\SYSTEM_ORGANIZATION_TASKS.md`
+- `docs\governance\reports\EGOS_Project_Diagnostic_Report.md`
+- `docs\governance\roadmap_hierarchy.md`
+- `docs\governance\roadmap_modularization_summary.md`
+- `docs\governance\roadmap_standardization.md`
+- `docs\governance\schema_validation_koios.md`
+- `docs\governance\skeletons\KOIOS-DOC-007_task_skeleton.md`
+- `docs\governance\standardization_reports.md`
+- `docs\governance\standardizer_html_reporting.md`
+- `docs\governance\strategy_archive\Competitive_Analysis.md`
+- `docs\governance\strategy_archive\Customer_Journey_Map.md`
+- `docs\governance\strategy_archive\EGOS_Business_Plan_v1.0.md`
+- `docs\governance\strategy_archive\EGOS_PRESENTATION_GUIDE.md`
+- `docs\governance\strategy_archive\Monetization_Model.md`
+- `docs\governance\strategy_archive\MVP_Definition.md`
+- `docs\governance\strategy_archive\Target_Platform_Analysis.md`
+- `docs\governance\syntax_error_prevention.md`
+- `docs\governance\syntax_error_remediation_process.md`
+- `docs\governance\syntax_error_remediation_report.md`
+- `docs\governance\system_diagnostic_framework.md`
+- `docs\governance\system_maintenance.md`
+- `docs\governance\system_organization_implementation_guide.md`
+- `docs\governance\systematic_cross_reference_application.md`
+- `docs\governance\test_coverage_koios.md`
+- `docs\governance\trace_id_implementation.md`
+- `docs\governance\type_checking_koios.md`
+- `docs\governance\validation_koios.md`
+- `docs\guides\ci_cd_cross_reference_integration.md`
+- `docs\guides\COMPLETE_SETUP.md`
+- `docs\guides\CORUJA_MYCELIUM_INTEGRATION_PLAN.md`
+- `docs\guides\CORUJA_REASONING_PHASE_PLAN.md`
+- `docs\guides\cross_reference_analyzer_refactoring.md`
+- `docs\guides\cross_reference_implementation_guide.md`
+- `docs\guides\DEVELOPER_ENVIRONMENT.md`
+- `docs\guides\personal_development\GUIDELINES.md`
+- `docs\guides\personal_development\README.md`
+- `docs\guides\personal_development\template.md`
+- `docs\guides\protocol_implementation_status.md`
+- `docs\guides\README.md`
+- `docs\guides\TRUST_WEAVER_case_sensitivity_2025-05-05.md`
+- `docs\markdown\apps\dashboard\README.md`
+- `docs\markdown\apps\dashboard\ROADMAP.md`
+- `docs\markdown\apps\egos_dashboard\README.md`
+- `docs\markdown\apps\exports\cross_references_20250422_164422.md`
+- `docs\markdown\apps\lovable\README.md`
+- `docs\markdown\apps\website\DASHBOARD-ROADMAP.md`
+- `docs\markdown\apps\website\README.md`
+- `docs\markdown\apps\website\src\components\ui\readme.md`
+- `docs\markdown\apps\website\WEBSITE_ROADMAP.md`
+- `docs\markdown\diagrams\subsystem_integration_map.md`
+- `docs\markdown\docs\apps\CURRENT_TASKS.md`
+- `docs\markdown\docs\apps\dashboard_ARCHITECTURE.md`
+- `docs\markdown\docs\apps\dashboard_diagnostic_system_user_guide.md`
+- `docs\markdown\docs\apps\DESIGN_GUIDE.md`
+- `docs\markdown\docs\apps\DEVELOPMENT_PLAN.md`
+- `docs\markdown\docs\apps\USER_RESEARCH_PLAN.md`
+- `docs\markdown\docs\apps\WEBSITE_DESIGN.md`
+- `docs\markdown\docs\README.md`
+- `docs\markdown\governance\2025-04-21_system_enhancement_update.md`
+- `docs\markdown\governance\2025-05-05_centralization_system_progress.md`
+- `docs\markdown\governance\aesthetic_standards_implementation_guide.md`
+- `docs\markdown\governance\aesthetic_standards_review.md`
+- `docs\markdown\governance\aesthetic_validation.md`
+- `docs\markdown\governance\aesthetic_validation_ci_integration.md`
+- `docs\markdown\governance\aesthetic_validation_improvements.md`
+- `docs\markdown\governance\agent_operational_rules.md`
+- `docs\markdown\governance\CHANGELOG.md`
+- `docs\markdown\governance\CHANGES_SUMMARY.md`
+- `docs\markdown\governance\CODE_OF_CONDUCT.md`
+- `docs\markdown\governance\CONTRIBUTING.md`
+- `docs\markdown\governance\DOCUMENTATION_METRICS_DASHBOARD.md`
+- `docs\markdown\governance\GO_TO_MARKET_ROADMAP.md`
+- `docs\markdown\governance\LEGACY_MIGRATION.md`
+- `docs\markdown\governance\README.md`
+- `docs\markdown\governance\SPARC_methodology.md`
+- `docs\markdown\governance\STRATEGY.md`
+- `docs\markdown\governance\TASK-2025-04-22-cross-reference-system-enhancement.md`
+- `docs\markdown\scripts\README.md`
+- `docs\markdown\scripts\tools\mcp_management\mcp-servers\README.md`
+- `docs\markdown\scripts\tools\mcp_management\README.md`
+- `docs\markdown\scripts\tools\mcp_servers\notion\README.md`
+- `docs\markdown\scripts\tools\README.md`
+- `docs\markdown\scripts\tools\terminal\README.md`
+- `docs\markdown\subsystems\README.md`
+- `docs\markdown\templates\maintenance\core_maint_session_windsurf_handover_template.md`
+- `docs\ociocriativo.md`
+- `docs\process\documentation_triggers.md`
+- `docs\project_documentation\governance\business\EGOS_BUSINESS_STRATEGY.md`
+- `docs\project_documentation\governance\business\external_docs\ARCHITECTURE.md`
+- `docs\project_documentation\governance\business\external_docs\EGOS_OVERVIEW.md`
+- `docs\project_documentation\governance\business\external_docs\GETTING_STARTED.md`
+- `docs\project_documentation\governance\business\GITHUB_REPOSITORY_ANALYSIS.md`
+- `docs\project_documentation\governance\business\github_updates\subsystems\ethik\docs\ETHIK_Architecture.md`
+- `docs\project_documentation\governance\business\github_updates\subsystems\ethik\docs\ValidationEngine.md`
+- `docs\project_documentation\governance\business\github_updates\subsystems\ethik\README.md`
+- `docs\project_documentation\governance\business\SUBSYSTEM_VALUE_MATRIX.md`
+- `docs\project_documentation\governance\migrations\backups_inventory.md`
+- `docs\project_documentation\governance\migrations\core_inventory.md`
+- `docs\project_documentation\governance\migrations\docs_inventory.md`
+- `docs\project_documentation\governance\migrations\egos_inventory_sample.md`
+- `docs\project_documentation\governance\migrations\inventory_summary.md`
+- `docs\project_documentation\governance\migrations\legacy_concepts_analysis.md`
+- `docs\project_documentation\governance\migrations\legacy_inventory.md`
+- `docs\project_documentation\governance\migrations\legacy_inventory_insights.md`
+- `docs\project_documentation\governance\migrations\processed\mixed\BIOS-Q Cursor sistema EVA.md`
+- `docs\project_documentation\governance\migrations\processed\mixed\Mycelium atualizado.md`
+- `docs\project_documentation\governance\migrations\processed\mixed\Prometheus Grafana.md`
+- `docs\project_documentation\governance\migrations\processed\mixed\sandbox testando eva na web.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-en-pt\Backup system.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-en-pt\Dinamicidade no sistema.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-en-pt\Filesystem SLOP.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-en-pt\Focus Definition EGOS Coruja.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-en-pt\Maior diagnostico ate entao.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-en-pt\Mycellium explained.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-en-pt\NAO PARE Futuro Projeto importante.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-en-pt\OpenSource Repos.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-en-pt\Overview projeto.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-en-pt\Panorama sistema TODO.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-en-pt\Prompt quantico 7.5.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-en-pt\Quantum prompt 7.5 OK.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-en-pt\Quantum prompt 8.0 BIOS-Q.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-en-pt\Quantum unification.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-en-pt\Roadmap apos estudos.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-en-pt\ROADMAP INTERATIVO.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-en-pt\Roadmap Mycellium.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-en-pt\Site novo e outras melhorias.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-en-pt\Subsystems and tools 8.2.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-en-pt\Unification system PRD.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-en-pt\Visao EVA até aqui, fit go to market.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-en-pt\Voando alto indo p outros sistemas.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-pt-en\atualizacao bot unificado.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-pt-en\ava7.0 novv.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-pt-en\BACKUP quantico.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-pt-en\BIOS-Q MCP.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-pt-en\BOT ok melhorando.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-pt-en\EGOS 1.0.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-pt-en\EVA 7.3.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-pt-en\eva atendimento inicio.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-pt-en\grande atualizacao.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-pt-en\Link simbolico fonte de verdade sistema.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-pt-en\MATRIZ  quantica.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-pt-en\Melhorias BOT telegram.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-pt-en\muito longe.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-pt-en\Personas no bot.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-pt-en\PLANO DE NEGOCIO EVA (1).md`
+- `docs\project_documentation\governance\migrations\processed\mixed-pt-en\Prompt Quantico 7.0 EGOS.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-pt-en\Promtps quanticos v7.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-pt-en\RPG EVA.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-pt-en\SLOP integration proximos passos potencial.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-pt-en\tentando perplexity.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-pt-en\ULTIMA quase tudo revisado.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-pt-en\Unification ETHIK.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-pt-en\Updates system EVA.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-pt-en\viagem neural quantica.md`
+- `docs\project_documentation\governance\migrations\processed\mixed-pt-en\websearch atualizacao.md`
+- `docs\project_documentation\governance\migrations\processed\MVP OK 7.0.md`
+- `docs\project_documentation\governance\migrations\processed\PLANO DE NEGOCIO EVA (14).md`
+- `docs\project_documentation\governance\migrations\processed\Prompt quantico 7 ingles.md`
+- `docs\project_documentation\governance\migrations\processed\pt\Benchmark do Sistema EVA & GUARANI.md`
+- `docs\project_documentation\governance\migrations\processed\pt\benchmark.md`
+- `docs\project_documentation\governance\migrations\processed\pt\EGOS1.1 visao geral.md`
+- `docs\project_documentation\governance\migrations\processed\pt\INstruicoes bot telegram.md`
+- `docs\project_documentation\governance\migrations\processed\pt\NEXUS elovuindo MUITO.md`
+- `docs\project_documentation\governance\migrations\processed\pt\OUTLINE cursor FODA.md`
+- `docs\project_documentation\governance\migrations\processed\pt\PLANO DE NEGOCIO EVA (11).md`
+- `docs\project_documentation\governance\migrations\processed\pt\PLANO DE NEGOCIO EVA (3).md`
+- `docs\project_documentation\governance\migrations\processed\pt\PLANO DE NEGOCIO EVA SENNA.md`
+- `docs\project_documentation\governance\migrations\processed\pt\Projecao tradutor EVA.md`
+- `docs\project_documentation\governance\migrations\processed\pt\Prompts quanticos EGOS.md`
+- `docs\project_documentation\governance\migrations\processed\pt\Quantum Prompt 5.0.md`
+- `docs\project_documentation\governance\migrations\processed\pt\ROADMAP DO TRADUTO EVA.md`
+- `docs\project_documentation\governance\migrations\processed\pt\ROADMAP.md`
+- `docs\project_documentation\governance\migrations\processed\pt\Visao geral inicialization.md`
+- `docs\project_documentation\governance\migrations\research_inventory.md`
+- `docs\project_documentation\governance\migrations\scripts_inventory.md`
+- `docs\project_documentation\governance\migrations\strategic_thinking_inventory.md`
+- `docs\project_documentation\governance\migrations\subsystems_inventory.md`
+- `docs\project_documentation\governance\migrations\universal_migration_framework.md`
+- `docs\project_documentation\governance\research\AI_AGENT_CAPABILITIES_2025.md`
+- `docs\project_documentation\governance\research\CONTENT_AGGREGATOR_DEEP_DIVE.md`
+- `docs\project_documentation\governance\research\EGOS_Strategic_Analysis_Integration_Summary_Apr2025.md`
+- `docs\project_documentation\governance\research\NEXUS_MODULAR.md`
+- `docs\project_documentation\governance\research\README.md`
+- `docs\project_documentation\governance\research\Vibe_Coding_Market_Analysis.md`
+- `docs\project_documentation\governance\research\web_scraping_strategies.md`
+- `docs\project_documentation\governance\research\website_ux_analysis.md`
+- `docs\project_documentation\governance\roadmaps\AETHER\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\apps\dashboard\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\apps\website\DASHBOARD-ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\apps\website\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\ATLAS\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\centralization_roadmap.md`
+- `docs\project_documentation\governance\roadmaps\CHRONICLER\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\CORUJA\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\CRONOS\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\dashboard\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\DASHBOARD-ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\ETHIK\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\GUARDIAN\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\HARMONY\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\initiatives\centralization_roadmap.md`
+- `docs\project_documentation\governance\roadmaps\KARDIA\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\KOIOS\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\MAIN_EGOS_ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\MASTER\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\MYCELIUM\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\NEXUS\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\STRAT\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\subsystems\AETHER\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\subsystems\ATLAS\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\subsystems\CHRONICLER\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\subsystems\CORUJA\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\subsystems\CRONOS\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\subsystems\ETHIK\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\subsystems\GUARDIAN\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\subsystems\HARMONY\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\subsystems\KARDIA\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\subsystems\KOIOS\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\subsystems\MASTER\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\subsystems\MYCELIUM\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\subsystems\NEXUS\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\subsystems\STRAT\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\subsystems\SYNC\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\subsystems\TRANSLATOR\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\subsystems\TRUST_WEAVER\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\SYNC\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\TRANSLATOR\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\TRUST_WEAVER\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\website\DASHBOARD-ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\website\ROADMAP.md`
+- `docs\project_documentation\governance\roadmaps\website\WEBSITE-UNIFY-001.md`
+- `docs\project_documentation\governance\roadmaps\WEBSITE-UNIFY-001.md`
+- `docs\project_documentation\guides\mcp_servers\notion\README.md`
+- `docs\project_documentation\guides\projects\legacy_integration_prd.md`
+- `docs\project_documentation\guides\projects\pikjourney\ROADMAP.md`
+- `docs\project_documentation\guides\standards\aesthetics.md`
+- `docs\project_documentation\guides\standards\case_sensitivity_standards.md`
+- `docs\project_documentation\guides\standards\docstring_standards.md`
+- `docs\project_documentation\guides\standards\ethik_chain_implementation.md`
+- `docs\project_documentation\guides\standards\mycelium_network_implementation.md`
+- `docs\project_documentation\guides\standards\navigation_protocol_standard.md`
+- `docs\project_documentation\guides\standards\README.md`
+- `docs\project_documentation\guides\standards\redundancy_diagnostics_standard.md`
+- `docs\project_documentation\guides\standards\system_pattern_enforcement.md`
+- `docs\project_documentation\guides\standards\TASK_DOCUMENTATION_STANDARD.md`
+- `docs\project_documentation\reference\archive\ROADMAPS\active\20250330_slop_integration_roadmap.md`
+- `docs\project_documentation\reference\archive\ROADMAPS\active\20250330_task_dynamic_roadmap_implementation.md`
+- `docs\project_documentation\reference\archive\ROADMAPS\active\20250401_bios_q_unification_tracking.md`
+- `docs\project_documentation\reference\archive\ROADMAPS\active\20250401_system_unification_roadmap.md`
+- `docs\project_documentation\reference\archive\ROADMAPS\active\migration_plan_2025.md`
+- `docs\project_documentation\reference\archive\ROADMAPS\README.md`
+- `docs\project_documentation\reference\archive\ROADMAPS\templates\task_roadmap_template.md`
+- `docs\project_documentation\reference\crewai\content-marketing-ideas-template\crewAI-enterprise-content-marketing-ideas-template-main\README.md`
+- `docs\project_documentation\reference\crewai\contract-analysis-template\crewAI-enterprise-contract-analysis-template-main\README.md`
+- `docs\project_documentation\reference\crewai\create-sales-offer-template\crewAI-enterprise-create-sales-offer-template-main\README.md`
+- `docs\project_documentation\reference\crewai\fraud-detector-template\crewAI-enterprise-fraud-detector-template-main\README.md`
+- `docs\project_documentation\reference\crewai\job-change-monitor-template\crewAI-enterprise-job-change-monitor-template-main\README.md`
+- `docs\project_documentation\reference\crewai\lead-scoring-template\crewAI-enterprise-lead-scoring-template-main\README.md`
+- `docs\project_documentation\reference\crewai\personalized-email-template\crewAI-enterprise-personalized-email-template-main\README.md`
+- `docs\project_documentation\reference\crewai\prep-for-meeting-template\crewAI-enterprise-prep-for-meeting-template-main\README.md`
+- `docs\project_documentation\reference\crewai\sales-contact-finder-template\crewAI-enterprise-sales-contact-finder-template-main\README.md`
+- `docs\project_documentation\reference\crewai\sales-pdf-template\crewAI-enterprise-sales-pdf-template-main\README.md`
+- `docs\project_documentation\reference\crewai\similar-company-finder-template\crewAI-enterprise-similar-company-finder-template-main\README.md`
+- `docs\project_documentation\reference\crewai\zendesk-categorize-and-sentiment-analysis-template\crewAI-enterprise-zendesk-categorize-and-sentiment-analysis-template-main\README.md`
+- `docs\project_documentation\reference\crewai\zendesk-ticket-analysis-template\crewAI-enterprise-zendesk-ticket-analysis-template-main\README.md`
+- `docs\project_documentation\reference\historical_changelogs\NEXUS_MODULAR.md`
+- `docs\project_documentation\reference\process\linter_error_resolution_log_20240814.md`
+- `docs\project_documentation\reference\process\linting_implementation_summary.md`
+- `docs\project_documentation\reference\process\linting_improvements_20240815.md`
+- `docs\project_documentation\reference\process\project_review_summary_20240726.md`
+- `docs\project_documentation\reference\process\review_actions_summary_20240726.md`
+- `docs\project_documentation\reference\process\validation\PROC-VALIDATE-01_roadmap_tasks_validation.md`
+- `docs\project_documentation\reference\process\validation\PROC-VALIDATE-02_subsystem_structure_validation.md`
+- `docs\project_documentation\reference\prompts\CURSOR_QUANTUM_PROMPT.md`
+- `docs\project_documentation\reference\prompts\pdd_website_generation_v3.md`
+- `docs\project_documentation\reference\prompts\strategic_analysis_prompt_v2.0.md`
+- `docs\project_documentation\reference\templates\action_skill_log_template.md`
+- `docs\project_documentation\reference\templates\api_documentation_template.md`
+- `docs\project_documentation\reference\templates\architecture_document_template.md`
+- `docs\project_documentation\reference\templates\commit_skill_tagging_convention.md`
+- `docs\project_documentation\reference\templates\main_roadmap_prototype.md`
+- `docs\project_documentation\reference\templates\notion_qg_digital_structure.md`
+- `docs\project_documentation\reference\templates\PDD_Template.md`
+- `docs\project_documentation\reference\templates\progress_report_template.md`
+- `docs\project_documentation\reference\templates\prompts\strategic_analysis_prompt.md`
+- `docs\project_documentation\reference\templates\skill_demonstration_case_study.md`
+- `docs\project_documentation\reference\templates\subsystem_readme_template.md`
+- `docs\project_documentation\reference\templates\subsystem_roadmap_template.md`
+- `docs\project_documentation\reference\templates\subsystems\overview_template.md`
+- `docs\project_documentation\reference\templates\subsystems\readme_template.md`
+- `docs\project_documentation\reference\templates\windsurf_ai_agent_configuration.md`
+- `docs\project_documentation\reference\weekly\2025\week_18.md`
+- `docs\project_documentation\subsystems\CORUJA\CRJ_description.md`
+- `docs\project_documentation\subsystems\CORUJA\CRJ_roadmap.md`
+- `docs\project_documentation\subsystems\CORUJA\EGO_CRJ_ROADMAP.md`
+- `docs\project_documentation\subsystems\CORUJA\prompts\pdds\EGO_pdd_website_generation_v3.md`
+- `docs\project_documentation\subsystems\KOIOS\chronicler_module\KOS_chronicler_module_readme.md`
+- `docs\project_documentation\subsystems\KOIOS\KOIOS_documentation_audit_summary_20250518.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_api.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_architecture.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_archival_policy.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_code_evolution_process.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_contributing_guide.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_data_model.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_data_model_overview.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_deployment_guide.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_description.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_faq.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_file_analysis.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_file_format_standards.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_glossary.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_integration.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_integration_points.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_lint_error_resolution_processes.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_mdc_rules_standard.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_process_index.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_project_diagnostic_standard.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_quick_reference.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_related_technologies.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_roadmap.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_sdre_analysis_20250505_100916.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_sdre_implementation_plan.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_sdre_test_analysis.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_security_privacy_considerations.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_standards.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_subsystem_structure.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_syntax_standardization.md`
+- `docs\project_documentation\subsystems\KOIOS\KOS_troubleshooting_guide.md`
+- `docs\project_documentation\subsystems\KOIOS\processes\KOS_process_documentation_review.md`
+- `docs\project_documentation\subsystems\KOIOS\processes\KOS_process_knowledge_curation.md`
+- `docs\project_documentation\subsystems\KOIOS\templates\KOS_external_research_prompt_template.md`
+- `docs\project_documentation\subsystems\KOIOS\tools\KOS_tools_file_size_analysis.md`
+- `docs\project_documentation\subsystems\KOIOS\tools\KOS_tools_readme.md`
+- `docs\project_documentation\subsystems\MYCELIUM\EGO_MYC_ROADMAP.md`
+- `docs\project_documentation\subsystems\MYCELIUM\MYC_description.md`
+- `docs\project_documentation\subsystems\MYCELIUM\MYC_file_analysis.md`
+- `docs\project_documentation\subsystems\MYCELIUM\MYC_ide_integration.md`
+- `docs\project_documentation\subsystems\MYCELIUM\MYC_mycelium_visualization_integration.md`
+- `docs\project_documentation\subsystems\MYCELIUM\MYC_protocol_design.md`
+- `docs\project_documentation\subsystems\MYCELIUM\MYC_roadmap.md`
+- `docs\project_documentation\subsystems\MYCELIUM\MYC_sparc_integration.md`
+- `docs\project_documentation\subsystems\MYCELIUM\MYC_technology_evaluation.md`
+- `docs\project_documentation\subsystems\MYCELIUM\MYC_topics.md`
+- `docs\project_documentation\subsystems\MYCELIUM\MYC_topics_and_formats.md`
+- `docs\project_documentation\subsystems\MYCELIUM\MYC_visualization.md`
+- `docs\project_documentation\subsystems\TRANSLATOR\core\language\EGO_TRL_translation_report.md`
+- `docs\project_documentation\subsystems\TRANSLATOR\EGO_TRL_ROADMAP.md`
+- `docs\project_documentation\subsystems\TRANSLATOR\TRL_description.md`
+- `docs\project_documentation\subsystems\TRANSLATOR\TRL_roadmap.md`
+- `docs\projects\sustainable_farming_specifications.md`
+- `docs\reference\ai_collaboration\MULTI_AGENT_WORKFLOW.md`
+- `docs\reference\ai_integration\cursor_agent_mode.md`
+- `docs\reference\ai_integration\MULTI_MODEL_INSIGHTS.md`
+- `docs\reference\applying_cross_references.md`
+- `docs\reference\ARCHITECTURE.md`
+- `docs\reference\caching_best_practices.md`
+- `docs\reference\code_analysis\large_files_report.md`
+- `docs\reference\code_health_tools_guide.md`
+- `docs\reference\code_history_analysis.md`
+- `docs\reference\CORUJA_PERFORMANCE_METRICS_GUIDE.md`
+- `docs\reference\CRONOS_REFACTORING_EXAMPLE.md`
+- `docs\reference\cross_reference_registry.md`
+- `docs\reference\docstring_quick_reference.md`
+- `docs\reference\EGOS_OVERVIEW.md`
+- `docs\reference\file_reference_checker.md`
+- `docs\reference\gitbash_commands.md`
+- `docs\reference\GOVERNANCE.md`
+- `docs\reference\i18n_conventions.md`
+- `docs\reference\INTEGRATION_PLAN.md`
+- `docs\reference\KOIOS_Interaction_Standards.md`
+- `docs\reference\MCP_CREATION_GUIDE.md`
+- `docs\reference\MQP.md`
+- `docs\reference\MULTI_AGENT_WORKFLOW.md`
+- `docs\reference\MYCELIUM_INTEGRATION.md`
+- `docs\reference\PHILOSOPHY.md`
+- `docs\reference\README.md`
+- `docs\reference\research\AI_AGENT_CAPABILITIES_2025.md`
+- `docs\reference\research\CONTENT_AGGREGATOR_DEEP_DIVE.md`
+- `docs\reference\rich_progress_bar_quickref.md`
+- `docs\reference\roadmap_hierarchy_implementation.md`
+- `docs\reference\roadmap_maintenance_procedures.md`
+- `docs\reference\roadmap_modularization_guide.md`
+- `docs\reference\STANDARDS_SCRIPT_FEEDBACK.md`
+- `docs\reference\strategy\Competitive_Analysis.md`
+- `docs\reference\strategy\Customer_Journey_Map.md`
+- `docs\reference\strategy\EGOS_Business_Plan_v1.0.md`
+- `docs\reference\strategy\EGOS_PRESENTATION_GUIDE.md`
+- `docs\reference\strategy\Monetization_Model.md`
+- `docs\reference\strategy\MVP_Definition.md`
+- `docs\reference\strategy\Target_Platform_Analysis.md`
+- `docs\reference\STRATEGY.md`
+- `docs\reference\SYSTEM_VISUALIZATION_GUIDE.md`
+- `docs\reference\tech_radar\web_scraping_strategies.md`
+- `docs\reference\VIBE_CODING_GUIDE.md`
+- `docs\reference\vscode_extensions_guide.md`
+- `docs\reference\website\CONTENT_STRATEGY.md`
+- `docs\reference\website\CURRENT_TASKS.md`
+- `docs\reference\website\DESIGN_GUIDE.md`
+- `docs\reference\website\DEVELOPMENT_PLAN.md`
+- `docs\reference\website\USER_RESEARCH_PLAN.md`
+- `docs\reference\website\WEBSITE_DESIGN.md`
+- `docs\reference\WEBSITE_DESIGN.md`
+- `docs\reference\windows_powershell_commands.md`
+- `docs\reports\file_ref_check_temp_report.md`
+- `docs\resources\status_indicators.md`
+- `docs\subsystems\AETHER\AET_api_reference.md`
+- `docs\subsystems\AETHER\AET_description.md`
+- `docs\subsystems\AETHER\AET_roadmap.md`
+- `docs\subsystems\AETHER\AET_user_guide.md`
+- `docs\subsystems\AETHER\EGO_AET_ROADMAP.md`
+- `docs\subsystems\ARUNA\ARN_description.md`
+- `docs\subsystems\ARUNA\ARN_roadmap.md`
+- `docs\subsystems\ATLAS\ATL_description.md`
+- `docs\subsystems\ATLAS\ATL_quick_reference.md`
+- `docs\subsystems\ATLAS\ATL_roadmap.md`
+- `docs\subsystems\ATLAS\EGO_ATL_ROADMAP.md`
+- `docs\subsystems\CHRONICLER\CHR_description.md`
+- `docs\subsystems\CHRONICLER\CHR_roadmap.md`
+- `docs\subsystems\CHRONICLER\CHR_vision.md`
+- `docs\subsystems\CHRONICLER\EGO_CHR_ROADMAP.md`
+- `docs\subsystems\CHRONICLER\EGO_CHR_VISION.md`
+- `docs\subsystems\CRONOS\CRN_cronos_improvement_recommendations.md`
+- `docs\subsystems\CRONOS\CRN_description.md`
+- `docs\subsystems\CRONOS\CRN_procedures.md`
+- `docs\subsystems\CRONOS\CRN_quick_reference.md`
+- `docs\subsystems\CRONOS\CRN_roadmap.md`
+- `docs\subsystems\CRONOS\EGO_CRN_ROADMAP.md`
+- `docs\subsystems\ETHIK\EGO_ETK_ROADMAP.md`
+- `docs\subsystems\ETHIK\ETK_api_reference.md`
+- `docs\subsystems\ETHIK\ETK_description.md`
+- `docs\subsystems\ETHIK\ETK_quick_reference.md`
+- `docs\subsystems\ETHIK\ETK_roadmap.md`
+- `docs\subsystems\GUARDIAN\EGO_GRD_ROADMAP.md`
+- `docs\subsystems\GUARDIAN\GRD_description.md`
+- `docs\subsystems\GUARDIAN\GRD_roadmap.md`
+- `docs\subsystems\HARMONY\EGO_HRM_ROADMAP.md`
+- `docs\subsystems\HARMONY\HRM_cross_platform_compatibility.md`
+- `docs\subsystems\HARMONY\HRM_description.md`
+- `docs\subsystems\HARMONY\HRM_roadmap.md`
+- `docs\subsystems\KARDIA\EGO_KRD_ROADMAP.md`
+- `docs\subsystems\KARDIA\KRD_description.md`
+- `docs\subsystems\KARDIA\KRD_readme.md`
+- `docs\subsystems\KARDIA\KRD_roadmap.md`
+- `docs\subsystems\MASTER\EGO_MST_ROADMAP.md`
+- `docs\subsystems\MASTER\MST_description.md`
+- `docs\subsystems\MASTER\MST_egos_unified_documentation.md`
+- `docs\subsystems\MASTER\MST_roadmap.md`
+- `docs\subsystems\NEXUS\NXS_description.md`
+- `docs\subsystems\NEXUS\NXS_quick_reference.md`
+- `docs\subsystems\NEXUS\NXS_roadmap.md`
+- `docs\subsystems\NEXUS\NXS_roadmap_alternate.md`
+- `docs\subsystems\ORION\ORN_description.md`
+- `docs\subsystems\ORION\ORN_roadmap.md`
+- `docs\subsystems\REALITY\RLT_description.md`
+- `docs\subsystems\REALITY\RLT_roadmap.md`
+- `docs\subsystems\SOPHIA\EGO_SPH_ROADMAP.md`
+- `docs\subsystems\SOPHIA\SPH_description.md`
+- `docs\subsystems\SOPHIA\SPH_roadmap.md`
+- `docs\subsystems\STRAT\EGO_STR_ROADMAP.md`
+- `docs\subsystems\STRAT\STR_description.md`
+- `docs\subsystems\STRAT\STR_roadmap.md`
+- `docs\subsystems\SYNC\EGO_SYC_ROADMAP.md`
+- `docs\subsystems\SYNC\SYN_description.md`
+- `docs\subsystems\SYNC\SYN_roadmap.md`
+- `docs\subsystems\SYNC\SYN_roadmap_sync.md`
+- `docs\subsystems\SYNC\SYN_roadmap_template.md`
+- `docs\subsystems\SYNC\SYN_sync_definition.md`
+- `docs\subsystems\TRUST_WEAVER\EGO_TWV_ROADMAP.md`
+- `docs\subsystems\TRUST_WEAVER\TRW_description.md`
+- `docs\subsystems\TRUST_WEAVER\TRW_roadmap.md`
+- `docs\subsystems\TRUST_WEAVER\TRW_user_guide.md`
+- `docs\subsystems\VOX\VOX_description.md`
+- `docs\subsystems\VOX\VOX_roadmap.md`
+- `docs\templates\file_creation_checklist.md`
+- `docs\templates\main_roadmap_template.md`
+- `docs\templates\roadmap_template.md`
+- `README.md`
+- `reports\cross_reference_analysis\cross_reference_report_20250423_104548.md`
+- `reports\documentation\checkpoints\added_references_checkpoint_20250518220842.json`
+- `reports\documentation\checkpoints\added_references_checkpoint_latest.json`
+- `reports\documentation\checkpoints\referenced_by_checkpoint_20250518220842.json`
+- `reports\documentation\checkpoints\referenced_by_checkpoint_20250518223804.json`
+- `reports\documentation\checkpoints\referenced_by_checkpoint_20250518224107.json`
+- `reports\documentation\checkpoints\referenced_by_checkpoint_20250518224648.json`
+- `reports\documentation\checkpoints\referenced_by_checkpoint_20250518224708.json`
+- `reports\documentation\checkpoints\referenced_by_checkpoint_latest.json`
+- `reports\documentation\checkpoints\references_checkpoint_20250518220842.json`
+- `reports\documentation\checkpoints\references_checkpoint_20250518223804.json`
+- `reports\documentation\checkpoints\references_checkpoint_20250518224107.json`
+- `reports\documentation\checkpoints\references_checkpoint_20250518224648.json`
+- `reports\documentation\checkpoints\references_checkpoint_20250518224708.json`
+- `reports\documentation\checkpoints\references_checkpoint_latest.json`
+- `reports\documentation\checkpoints\related_docs_checkpoint_20250518220842.json`
+- `reports\documentation\checkpoints\related_docs_checkpoint_latest.json`
+- `reports\documentation\checkpoints\scan_checkpoint_20250518220839.json`
+- `reports\documentation\checkpoints\scan_checkpoint_20250518223726.json`
+- `reports\documentation\checkpoints\scan_checkpoint_20250518224100.json`
+- `reports\documentation\checkpoints\scan_checkpoint_20250518224646.json`
+- `reports\documentation\checkpoints\scan_checkpoint_20250518224702.json`
+- `reports\documentation\checkpoints\scan_checkpoint_latest.json`
+- `reports\documentation\recent_files\recent_files_report_20250518223804.json`
+- `reports\documentation\recent_files\recent_files_report_20250518223804.md`
+- `reports\documentation\recent_files\recent_files_report_20250518224107.json`
+- `reports\documentation\recent_files\recent_files_report_20250518224107.md`
+- `reports\roadmap\initial_sync_report.json`
+- `reports\roadmap\initial_sync_report.md`
+- `reports\roadmap\roadmap_hierarchy_implementation_20250518_231855.md`
+- `reports\ROADMAP_updated.md`
+- `ROADMAP.md`
+- `scripts\core_diag_documentation_metrics.py`
+- `scripts\core_diag_documentation_metrics_fixed.py`
+- `scripts\core_ops_file_reference_checker.py`
+- `scripts\cross_reference\__pycache__\temp_test_file_excluded.py`
+- `scripts\cross_reference\config.yaml`
+- `scripts\cross_reference\documentation_reference_manager\__init__.py`
+- `scripts\cross_reference\documentation_reference_manager\__main__.py`
+- `scripts\cross_reference\documentation_reference_manager\checkpoint_utils.py`
+- `scripts\cross_reference\documentation_reference_manager\cli.py`
+- `scripts\cross_reference\documentation_reference_manager\config_utils.py`
+- `scripts\cross_reference\documentation_reference_manager\manager.py`
+- `scripts\cross_reference\documentation_reference_manager\progress_utils.py`
+- `scripts\cross_reference\file_reference_checker.py`
+- `scripts\cross_reference\file_reference_checker_optimized.py`
+- `scripts\cross_reference\manage_documentation_references.py`
+- `scripts\cross_reference\README.md`
+- `scripts\cross_reference\recent_files_verifier.py`
+- `scripts\cross_reference\temp_test_file_1.py`
+- `scripts\cross_reference\temp_test_file_2.md`
+- `scripts\doc_metrics_utils\__init__.py`
+- `scripts\doc_metrics_utils\doc_metrics_config.py`
+- `scripts\maintenance\roadmap_sync.py`
+- `scripts\migrations\cleanup_empty_directories.py`
+- `scripts\migrations\cleanup_empty_directories_report.md`
+- `scripts\migrations\docs_duplicate_finder.py`
+- `scripts\migrations\docs_migration_verification.py`
+- `scripts\migrations\docs_structure_migrator.py`
+- `scripts\migrations\duplicate_files_report.md`
+- `scripts\migrations\migration_verification_report.md`
+- `scripts\migrations\process_unique_files.py`
+- `scripts\migrations\process_unique_files_report.md`
+- `scripts\migrations\unique_files_analysis_report.json`
+- `scripts\migrations\unique_files_analysis_report.md`
+- `scripts\migrations\unique_files_analyzer.py`
+- `scripts\migrations\verify_migration_integrity.py`
+- `scripts\README.md`
+- `scripts\roadmap.md`
+- `subsystems\KOIOS\chronicler_module\analyzer.py`
+- `subsystems\KOIOS\chronicler_module\chronicler_config.yaml`
+- `subsystems\KOIOS\chronicler_module\generator.py`
+- `subsystems\KOIOS\chronicler_module\main.py`
+- `subsystems\KOIOS\chronicler_module\renderer.py`
+- `subsystems\KOIOS\roadmap.md`
+- `subsystems\roadmap.md`

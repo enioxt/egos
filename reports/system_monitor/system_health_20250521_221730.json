@@ -1,0 +1,218 @@
+{
+  "timestamp": "2025-05-21T22:17:30.073010",
+  "files_analyzed": 50,
+  "recently_modified_files": 50,
+  "orphaned_files": 48,
+  "undocumented_files": 48,
+  "well_documented_files": 2,
+  "action_items": [
+    "Address 48 orphaned files by adding references or archiving",
+    "Improve documentation for 48 files"
+  ],
+  "files_needing_attention": [
+    {
+      "path": "C:\\EGOS\\ROADMAP.md",
+      "last_modified": 1747876561.6535068,
+      "size": 41554,
+      "has_references": true,
+      "is_referenced": true,
+      "reference_count": 5,
+      "referenced_by_count": 1,
+      "documentation_score": 0.14634146341463414,
+      "needs_attention": true,
+      "suggested_actions": [
+        "Improve documentation"
+      ]
+    },
+    {
+      "path": "C:\\EGOS\\WORK_2025_05_21.md",
+      "last_modified": 1747874253.8768902,
+      "size": 55237,
+      "has_references": true,
+      "is_referenced": false,
+      "reference_count": 0,
+      "referenced_by_count": 0,
+      "documentation_score": 0.09090909090909091,
+      "needs_attention": true,
+      "suggested_actions": [
+        "Improve documentation"
+      ]
+    },
+    {
+      "path": "C:\\EGOS\\README.md",
+      "last_modified": 1747873609.8357017,
+      "size": 11007,
+      "has_references": false,
+      "is_referenced": true,
+      "reference_count": 17,
+      "referenced_by_count": 1,
+      "documentation_score": 0.5454545454545454,
+      "needs_attention": true,
+      "suggested_actions": [
+        "Improve documentation",
+        "Add cross-references"
+      ]
+    },
+    {
+      "path": "C:\\EGOS\\ARCHIVE_POLICY.md",
+      "last_modified": 1747859951.9975586,
+      "size": 5401,
+      "has_references": true,
+      "is_referenced": false,
+      "reference_count": 6,
+      "referenced_by_count": 0,
+      "documentation_score": 0.2,
+      "needs_attention": true,
+      "suggested_actions": [
+        "Improve documentation"
+      ]
+    },
+    {
+      "path": "C:\\EGOS\\handoff_20250521.md",
+      "last_modified": 1747854583.7901092,
+      "size": 9929,
+      "has_references": true,
+      "is_referenced": false,
+      "reference_count": 8,
+      "referenced_by_count": 0,
+      "documentation_score": 0.1111111111111111,
+      "needs_attention": true,
+      "suggested_actions": [
+        "Improve documentation"
+      ]
+    },
+    {
+      "path": "C:\\EGOS\\Work_2025-05-20_Phase2_Execution_Plan.md",
+      "last_modified": 1747836540.8332658,
+      "size": 31575,
+      "has_references": false,
+      "is_referenced": false,
+      "reference_count": 22,
+      "referenced_by_count": 0,
+      "documentation_score": 0.0,
+      "needs_attention": true,
+      "suggested_actions": [
+        "Improve documentation",
+        "Add cross-references"
+      ]
+    },
+    {
+      "path": "C:\\EGOS\\Work_2025-05-20_Documentation_Diagnosis.md",
+      "last_modified": 1747836540.8313031,
+      "size": 7552,
+      "has_references": false,
+      "is_referenced": false,
+      "reference_count": 14,
+      "referenced_by_count": 0,
+      "documentation_score": 0.0,
+      "needs_attention": true,
+      "suggested_actions": [
+        "Improve documentation",
+        "Add cross-references"
+      ]
+    },
+    {
+      "path": "C:\\EGOS\\Work_2025-05-20_Docs_Optimization.md",
+      "last_modified": 1747836540.826727,
+      "size": 27235,
+      "has_references": false,
+      "is_referenced": false,
+      "reference_count": 0,
+      "referenced_by_count": 0,
+      "documentation_score": 0.07407407407407407,
+      "needs_attention": true,
+      "suggested_actions": [
+        "Improve documentation",
+        "Add cross-references"
+      ]
+    },
+    {
+      "path": "C:\\EGOS\\MQP.md",
+      "last_modified": 1747836540.8224607,
+      "size": 13781,
+      "has_references": true,
+      "is_referenced": false,
+      "reference_count": 30,
+      "referenced_by_count": 0,
+      "documentation_score": 0.38461538461538464,
+      "needs_attention": true,
+      "suggested_actions": [
+        "Improve documentation"
+      ]
+    },
+    {
+      "path": "C:\\EGOS\\OCIOCRIATIVO.md",
+      "last_modified": 1747836540.8224607,
+      "size": 11076,
+      "has_references": false,
+      "is_referenced": false,
+      "reference_count": 0,
+      "referenced_by_count": 0,
+      "documentation_score": 0.18181818181818182,
+      "needs_attention": true,
+      "suggested_actions": [
+        "Improve documentation",
+        "Add cross-references"
+      ]
+    },
+    {
+      "path": "C:\\EGOS\\CONTRIBUTING.md",
+      "last_modified": 1747836540.8199034,
+      "size": 8912,
+      "has_references": false,
+      "is_referenced": false,
+      "reference_count": 9,
+      "referenced_by_count": 0,
+      "documentation_score": 0.0,
+      "needs_attention": true,
+      "suggested_actions": [
+        "Improve documentation",
+        "Add cross-references"
+      ]
+    },
+    {
+      "path": "C:\\EGOS\\ARCHITECTURE.MD",
+      "last_modified": 1747836540.8162901,
+      "size": 29956,
+      "has_references": false,
+      "is_referenced": false,
+      "reference_count": 0,
+      "referenced_by_count": 0,
+      "documentation_score": 0.034482758620689655,
+      "needs_attention": true,
+      "suggested_actions": [
+        "Improve documentation",
+        "Add cross-references"
+      ]
+    },
+    {
+      "path": "C:\\EGOS\\CHANGELOG.md",
+      "last_modified": 1747798822.5213387,
+      "size": 4749,
+      "has_references": true,
+      "is_referenced": false,
+      "reference_count": 4,
+      "referenced_by_count": 0,
+      "documentation_score": 0.25,
+      "needs_attention": true,
+      "suggested_actions": [
+        "Improve documentation"
+      ]
+    },
+    {
+      "path": "C:\\EGOS\\WORK_2025_05_20.md",
+      "last_modified": 1747795207.9540048,
+      "size": 4089,
+      "has_references": false,
+      "is_referenced": false,
+      "reference_count": 0,
+      "referenced_by_count": 0,
+      "documentation_score": 0.0,
+      "needs_attention": true,
+      "suggested_actions": [
+        "Improve documentation",
+        "Add cross-references"
+      ]
+    }
+  ]
+}

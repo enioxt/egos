@@ -1,0 +1,217 @@
+{
+  "schema_version": "1.0.0",
+  "last_updated": "2025-05-22",
+  "updated_by": "EGOS Development Team",
+  "tools": [
+    {
+      "id": "file-duplication-auditor",
+      "name": "File Duplication Auditor",
+      "path": "scripts/maintenance/file_duplication_auditor.py",
+      "description": "Context-aware file duplication detection system with robust caching, parallel processing, and intelligent duplicate identification. Finds duplicates based on filename, content hash, and similarity metrics while considering file purpose and location. Generates comprehensive reports in multiple formats to facilitate cleanup and optimization.",
+      "usage": "python scripts/maintenance/file_duplication_auditor.py [--scan-dir DIRECTORY | --scan-system | --scan-all] [--scan-root ROOT_DIR] [--by-name] [--by-content] [--by-similarity] [--context-aware] [--use-cache] [--rebuild-cache] [--html] [--json] [--csv] [--markdown] [--skip-archives] [--output-dir OUTPUT_DIR] [--num-workers NUM_WORKERS]",
+      "tags": ["maintenance", "duplication", "files", "cleanup", "optimization", "caching", "parallel-processing", "context-aware"],
+      "category": "Maintenance",
+      "status": "active",
+      "created": "2025-05-22",
+      "last_updated": "2025-05-22",
+      "maintainer": "EGOS Development Team",
+      "dependencies": ["tqdm", "colorama"],
+      "website_integration": {
+        "page": "/tools/maintenance",
+        "category": "Maintenance Tools",
+        "priority": "medium",
+        "icon": "file-search"
+      },
+      "automation": {
+        "git_hook": null,
+        "ci_integration": false,
+        "auto_fix": false
+      },
+      "examples": [
+        {
+          "description": "Basic scan for duplicate files by name",
+          "command": "python scripts/maintenance/file_duplication_auditor.py --scan-dir docs",
+          "output": "Scan completed in 5.2 seconds\nTotal files scanned: 1250\nDuplicate groups found: 23\nTotal wasted space: 1.25 MB"
+        },
+        {
+          "description": "Advanced scan with content comparison and HTML report",
+          "command": "python scripts/maintenance/file_duplication_auditor.py --scan-dir docs --by-content --html --skip-archives",
+          "output": "Scan completed in 12.8 seconds\nTotal files scanned: 1250\nDuplicate groups found: 45\nTotal wasted space: 3.75 MB\nReports saved to: ./reports/duplicates"
+        },
+        {
+          "description": "Integration with cross-reference system",
+          "command": "python scripts/maintenance/file_duplication_auditor.py --scan-dir docs --by-content --html --update-references",
+          "output": "Scan completed in 15.3 seconds\nTotal files scanned: 1250\nDuplicate groups found: 45\nTotal wasted space: 3.75 MB\nUpdating cross-references to point to canonical files...\nReports saved to: ./reports/duplicates"
+        }
+      ],
+      "documentation": {
+        "readme": "scripts/maintenance/README.md",
+        "guide": "WORK_2025_05_22_file_duplication_management.md"
+      }
+    },
+    {
+      "id": "directory-structure-validator",
+      "name": "Directory Structure Validator",
+      "path": "scripts/validation/directory_structure_validator.py",
+      "description": "Validates the EGOS directory structure against the canonical configuration defined in config/directory_structure_config.json. Ensures all directories and files follow the standardized structure and naming conventions.",
+      "usage": "python scripts/validation/directory_structure_validator.py --base-path C:\\EGOS [--config CONFIG_PATH] [--no-report] [--fix] [--ci]",
+      "tags": ["validation", "directory", "structure", "standards", "compliance"],
+      "category": "Validation",
+      "status": "active",
+      "created": "2025-05-22",
+      "last_updated": "2025-05-22",
+      "maintainer": "EGOS Development Team",
+      "dependencies": ["config/directory_structure_config.json"],
+      "website_integration": {
+        "page": "/tools/validation",
+        "category": "Validation Tools",
+        "priority": "high",
+        "icon": "folder-structure"
+      },
+      "automation": {
+        "git_hook": "pre-commit",
+        "ci_integration": true,
+        "auto_fix": false
+      },
+      "examples": [
+        {
+          "description": "Basic validation",
+          "command": "python scripts/validation/directory_structure_validator.py",
+          "output": "Directory structure validation passed!"
+        },
+        {
+          "description": "Generate report without fixing issues",
+          "command": "python scripts/validation/directory_structure_validator.py --base-path C:\\EGOS",
+          "output": "Directory structure validation complete. Report generated at reports/structure_validation/directory_structure_validation_YYYYMMDD_HHMMSS.md"
+        },
+        {
+          "description": "CI mode (exits with non-zero code on critical/error issues)",
+          "command": "python scripts/validation/directory_structure_validator.py --ci",
+          "output": "Directory structure validation failed! Review the report for details on issues that need to be addressed."
+        }
+      ],
+      "documentation": {
+        "readme": "scripts/validation/README.md",
+        "guide": "docs/guides/directory_structure_validation.md"
+      }
+    },
+    {
+      "id": "cross-reference-validator",
+      "name": "Cross-Reference Validator",
+      "path": "scripts/cross_reference/cross_reference_validator.py",
+      "description": "Validates cross-references across the EGOS ecosystem to ensure they follow the standardized format and point to valid targets. Analyzes documents, extracts references, validates their targets, and generates a comprehensive report.",
+      "usage": "python scripts/cross_reference/cross_reference_validator.py [--base-path BASE_PATH] [--report-format {md,json,html}]",
+      "tags": ["validation", "cross-reference", "documentation", "links"],
+      "category": "Validation",
+      "status": "active",
+      "created": "2025-05-21",
+      "last_updated": "2025-05-21",
+      "maintainer": "EGOS Development Team",
+      "dependencies": [],
+      "website_integration": {
+        "page": "/tools/validation",
+        "category": "Validation Tools",
+        "priority": "high",
+        "icon": "link-check"
+      },
+      "automation": {
+        "git_hook": "pre-commit",
+        "ci_integration": true,
+        "auto_fix": false
+      },
+      "examples": [
+        {
+          "description": "Basic validation",
+          "command": "python scripts/cross_reference/cross_reference_validator.py",
+          "output": "Cross-reference validation completed successfully!"
+        },
+        {
+          "description": "Generate JSON report",
+          "command": "python scripts/cross_reference/cross_reference_validator.py --report-format json",
+          "output": "Cross-reference validation complete. Report generated at reports/cross_reference/cross_reference_validation_report_YYYYMMDD_HHMMSS.json"
+        }
+      ],
+      "documentation": {
+        "guide": "docs/guides/cross_reference_validation.md"
+      }
+    },
+    {
+      "id": "cross-reference-visualizer",
+      "name": "Cross-Reference Visualizer",
+      "path": "scripts/cross_reference/cross_reference_visualizer.py",
+      "description": "Visualizes cross-references across the EGOS ecosystem by creating interactive network graphs and Mermaid diagrams. Works with the output from the cross-reference validator to provide visual insights into document relationships.",
+      "usage": "python scripts/cross_reference/cross_reference_visualizer.py [--base-path BASE_PATH] [--report-path REPORT_PATH]",
+      "tags": ["visualization", "cross-reference", "graph", "network", "diagram"],
+      "category": "Visualization",
+      "status": "active",
+      "created": "2025-05-21",
+      "last_updated": "2025-05-21",
+      "maintainer": "EGOS Development Team",
+      "dependencies": [
+        "scripts/cross_reference/cross_reference_validator.py",
+        "networkx",
+        "pyvis",
+        "matplotlib"
+      ],
+      "website_integration": {
+        "page": "/tools/visualization",
+        "category": "Visualization Tools",
+        "priority": "medium",
+        "icon": "graph-network"
+      },
+      "automation": {
+        "ci_integration": false,
+        "auto_fix": false
+      },
+      "examples": [
+        {
+          "description": "Generate visualizations from latest validation report",
+          "command": "python scripts/cross_reference/cross_reference_visualizer.py",
+          "output": "Reference visualization completed successfully!"
+        }
+      ],
+      "documentation": {
+        "guide": "docs/guides/cross_reference_visualization.md"
+      }
+    },
+    {
+      "id": "directory-structure-manager",
+      "name": "Directory Structure Manager",
+      "path": "scripts/maintenance/directory_structure/directory_structure_manager.py",
+      "description": "A generic utility class for managing directory structures. Provides methods for creating, deleting, listing, and ensuring the existence of directories. Adheres to EGOS principles for modularity and reusability.",
+      "usage": "Import and use as a module: from directory_structure_manager import DirectoryStructureManager",
+      "tags": ["utility", "directory", "structure", "management"],
+      "category": "Utility",
+      "status": "active",
+      "created": "2025-05-21",
+      "last_updated": "2025-05-22",
+      "maintainer": "EGOS Development Team",
+      "dependencies": [],
+      "website_integration": {
+        "page": "/tools/utility",
+        "category": "Utility Tools",
+        "priority": "medium",
+        "icon": "folder-plus"
+      },
+      "automation": {
+        "ci_integration": false,
+        "auto_fix": false
+      },
+      "examples": [
+        {
+          "description": "Creating a directory",
+          "command": "manager = DirectoryStructureManager()\nmanager.create_directory(Path('path/to/new/directory'))",
+          "output": "True (if successful)"
+        },
+        {
+          "description": "Listing directory contents",
+          "command": "manager = DirectoryStructureManager()\ncontents = manager.list_directory_contents(Path('path/to/directory'))",
+          "output": "List of DirectoryItem objects with details about each item"
+        }
+      ],
+      "documentation": {
+        "guide": "docs/guides/directory_management.md"
+      }
+    }
+  ]
+}

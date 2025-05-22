@@ -1,0 +1,5 @@
+This is a test file for the file duplication auditor.
+It contains some content that will be duplicated in other files.
+The file duplication auditor should detect these duplicates and generate reports.
+This file should be selected as the canonical file based on its path and name.
+✧༺❀༻∞ EGOS ∞༺❀༻✧

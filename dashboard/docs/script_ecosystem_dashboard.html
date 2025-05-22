@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EGOS Script Ecosystem Dashboard - EGOS System</title>
+    <style>
+        :root {
+            --egos-primary: #3498db;
+            --egos-secondary: #2ecc71;
+            --egos-accent: #9b59b6;
+            --egos-warning: #f39c12;
+            --egos-danger: #e74c3c;
+            --egos-light: #ecf0f1;
+            --egos-dark: #2c3e50;
+            --egos-text: #333333;
+            --egos-text-light: #7f8c8d;
+            --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-primary);
+            background-color: #f9f9f9;
+            color: var(--egos-text);
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        .egos-header {
+            background: linear-gradient(135deg, var(--egos-primary), var(--egos-accent));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .egos-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .egos-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Main Container */
+        .egos-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        /* Card Styles */
+        .egos-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        
+        .egos-card-header {
+            padding: 1.5rem;
+            background-color: var(--egos-light);
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .egos-card-header h2 {
+            color: var(--egos-dark);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .egos-card-body {
+            padding: 1.5rem;
+        }
+        
+        /* Grid System */
+        .egos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        /* Stats Cards */
+        .egos-stat-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .egos-stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .egos-stat-card .value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--egos-primary);
+            margin: 0.5rem 0;
+        }
+        
+        .egos-stat-card .label {
+            color: var(--egos-text-light);
+            font-size: 1rem;
+        }
+        
+        /* Button Styles */
+        .egos-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--egos-primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .egos-button:hover {
+            background-color: #2980b9;
+        }
+        
+        .egos-button.secondary {
+            background-color: var(--egos-secondary);
+        }
+        
+        .egos-button.secondary:hover {
+            background-color: #27ae60;
+        }
+        
+        .egos-button.accent {
+            background-color: var(--egos-accent);
+        }
+        
+        .egos-button.accent:hover {
+            background-color: #8e44ad;
+        }
+        
+        /* Table Styles */
+        .egos-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .egos-table th, 
+        .egos-table td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .egos-table th {
+            background-color: var(--egos-light);
+            color: var(--egos-dark);
+            font-weight: 600;
+        }
+        
+        .egos-table tbody tr:hover {
+            background-color: rgba(236, 240, 241, 0.5);
+        }
+        
+        /* Chart Container */
+        .egos-chart-container {
+            width: 100%;
+            height: 400px;
+            margin: 1rem 0;
+        }
+        
+        /* Network Visualization */
+        .egos-network-container {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        /* Footer */
+        .egos-footer {
+            background-color: var(--egos-dark);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .egos-footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        .egos-footer .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .egos-container {
+                padding: 0 1rem;
+            }
+            
+            .egos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .egos-header h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* EGOS Signature */
+        .egos-signature {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--egos-accent);
+            margin: 2rem 0;
+            font-style: italic;
+        }
+        
+        /* Custom Content Styles */
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .stat-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 23%;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .stat-card h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .stat-card .value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #3498db;
+        }
+        .chart-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .chart-container h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .chart-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+        .network-container {
+            height: 800px;
+            width: 100%;
+            border: none;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.8em;
+        }
+    
+    </style>
+    
+</head>
+<body>
+    <header class="egos-header">
+        <h1>EGOS Script Ecosystem Dashboard</h1>
+        <p>Generated on 2025-05-22T10:28:01.587852</p>
+    </header>
+    
+    <main class="egos-container">
+        <div class="header">
+        <h1>EGOS Script Ecosystem Dashboard</h1>
+        <p>Generated on 2025-05-22T10:28:01.587852</p>
+    </div>
+    
+    <div class="container">
+        <div class="stats-container">
+            <div class="stat-card">
+                <h3>Total Scripts</h3>
+                <div class="value">104</div>
+            </div>
+            <div class="stat-card">
+                <h3>Valid Scripts</h3>
+                <div class="value">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Invalid Scripts</h3>
+                <div class="value">104</div>
+            </div>
+            <div class="stat-card">
+                <h3>Valid Percentage</h3>
+                <div class="value">0.0%</div>
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <h2>Subsystem Distribution</h2>
+            <img src="subsystem_distribution.png" class="chart-image" alt="Subsystem Distribution">
+        </div>
+        
+        <div class="chart-container">
+            <h2>Issue Distribution</h2>
+            <img src="issue_distribution.png" class="chart-image" alt="Issue Distribution">
+        </div>
+        
+        <div class="chart-container">
+            <h2>Script Ecosystem Network</h2>
+            <iframe src="script_ecosystem_network.html" class="network-container"></iframe>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>EGOS Script Ecosystem Visualizer | Version 1.0.0</p>
+    </div>
+    </main>
+    
+    <footer class="egos-footer">
+        <div class="logo">✧༺❀༻∞ EGOS ∞༺❀༻✧</div>
+        <p>EGOS Ecosystem | Version: 1.0.0 | Generated: 2025-05-22 10:39:04</p>
+    </footer>
+    
+    
+</body>
+</html>

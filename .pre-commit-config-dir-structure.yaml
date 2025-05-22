@@ -1,0 +1,25 @@
+# Directory Structure Validation Pre-commit Hook Configuration
+# Add this to your main .pre-commit-config.yaml or use as a standalone configuration
+# Author: EGOS Development Team
+# Created: 2025-05-22
+
+repos:
+-   repo: local
+    hooks:
+    -   id: directory-structure-validation
+        name: EGOS Directory Structure Validation
+        description: Validates the EGOS directory structure against canonical configuration
+        entry: python scripts/validation/directory_structure_validator.py
+        language: system
+        pass_filenames: false
+        always_run: true
+        args: [--ci]
+        
+    -   id: cross-reference-validation
+        name: EGOS Cross-Reference Validation
+        description: Validates cross-references across the EGOS ecosystem
+        entry: python scripts/cross_reference/cross_reference_validator.py
+        language: system
+        pass_filenames: false
+        types: [file]
+        args: [--ci, --quick]

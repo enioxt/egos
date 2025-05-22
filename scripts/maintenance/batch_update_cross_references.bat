@@ -1,0 +1,35 @@
+@echo off
+REM Batch Update Cross References
+REM Author: EGOS Development Team
+REM Date: 2025-05-18
+REM Description: Adds proper cross-references to recently created roadmap hierarchy files
+
+echo Adding cross-references to recently created files...
+
+REM Process roadmap_hierarchy.md
+echo Processing roadmap_hierarchy.md...
+powershell -Command "$content = Get-Content -Path 'C:\EGOS\docs\governance\roadmap_hierarchy.md' -Raw; if ($content -notmatch '## Cross References') { $metadataMatch = [regex]::Match($content, '(?s)^---\n(.*?)\n---\n'); if ($metadataMatch.Success) { $metadata = $metadataMatch.Value; $bodyContent = $content.Substring($metadataMatch.Length); $crossRefs = '## Cross References\n\n- [EGOS ROADMAP](../../ROADMAP.md)\n- [Development Standards](./development_standards.md)\n- [Roadmap Standardization](./roadmap_standardization.md)\n- [Cross-Reference Priority List](./cross_reference_priority_list.md)\n- [Documentation Health Analysis](./documentation_health_analysis.md)\n- [Roadmap Hierarchy Implementation](../reference/roadmap_hierarchy_implementation.md)\n\n'; $newContent = $metadata + $crossRefs + $bodyContent; Set-Content -Path 'C:\EGOS\docs\governance\roadmap_hierarchy.md' -Value $newContent -Encoding UTF8; echo 'Added cross-references to roadmap_hierarchy.md'; } else { echo 'No metadata section found. Skipping.'; } } else { echo 'File already has cross-references. Skipping.'; }"
+
+REM Process roadmap_standardization.md
+echo Processing roadmap_standardization.md...
+powershell -Command "$content = Get-Content -Path 'C:\EGOS\docs\governance\roadmap_standardization.md' -Raw; if ($content -notmatch '## Cross References') { $metadataMatch = [regex]::Match($content, '(?s)^---\n(.*?)\n---\n'); if ($metadataMatch.Success) { $metadata = $metadataMatch.Value; $bodyContent = $content.Substring($metadataMatch.Length); $crossRefs = '## Cross References\n\n- [EGOS ROADMAP](../../ROADMAP.md)\n- [Development Standards](./development_standards.md)\n- [Roadmap Hierarchy](./roadmap_hierarchy.md)\n- [File Lifecycle Management](./file_lifecycle_management.md)\n- [Roadmap Hierarchy Implementation](../reference/roadmap_hierarchy_implementation.md)\n\n'; $newContent = $metadata + $crossRefs + $bodyContent; Set-Content -Path 'C:\EGOS\docs\governance\roadmap_standardization.md' -Value $newContent -Encoding UTF8; echo 'Added cross-references to roadmap_standardization.md'; } else { echo 'No metadata section found. Skipping.'; } } else { echo 'File already has cross-references. Skipping.'; }"
+
+REM Process roadmap_template.md
+echo Processing roadmap_template.md...
+powershell -Command "$content = Get-Content -Path 'C:\EGOS\docs\templates\roadmap_template.md' -Raw; if ($content -notmatch '## Cross References') { $metadataMatch = [regex]::Match($content, '(?s)^---\n(.*?)\n---\n'); if ($metadataMatch.Success) { $metadata = $metadataMatch.Value; $bodyContent = $content.Substring($metadataMatch.Length); $crossRefs = '## Cross References\n\n- [EGOS ROADMAP](../../ROADMAP.md)\n- [Roadmap Hierarchy](../governance/roadmap_hierarchy.md)\n- [Roadmap Standardization](../governance/roadmap_standardization.md)\n- [File Creation Checklist](./file_creation_checklist.md)\n\n'; $newContent = $metadata + $crossRefs + $bodyContent; Set-Content -Path 'C:\EGOS\docs\templates\roadmap_template.md' -Value $newContent -Encoding UTF8; echo 'Added cross-references to roadmap_template.md'; } else { echo 'No metadata section found. Skipping.'; } } else { echo 'File already has cross-references. Skipping.'; }"
+
+REM Process main_roadmap_template.md
+echo Processing main_roadmap_template.md...
+powershell -Command "$content = Get-Content -Path 'C:\EGOS\docs\templates\main_roadmap_template.md' -Raw; if ($content -notmatch '## Cross References') { $metadataMatch = [regex]::Match($content, '(?s)^---\n(.*?)\n---\n'); if ($metadataMatch.Success) { $metadata = $metadataMatch.Value; $bodyContent = $content.Substring($metadataMatch.Length); $crossRefs = '## Cross References\n\n- [Development Standards](docs/governance/development_standards.md)\n- [Roadmap Hierarchy](docs/governance/roadmap_hierarchy.md)\n- [Roadmap Standardization](docs/governance/roadmap_standardization.md)\n- [Roadmap Template](docs/templates/roadmap_template.md)\n\n'; $newContent = $metadata + $crossRefs + $bodyContent; Set-Content -Path 'C:\EGOS\docs\templates\main_roadmap_template.md' -Value $newContent -Encoding UTF8; echo 'Added cross-references to main_roadmap_template.md'; } else { echo 'No metadata section found. Skipping.'; } } else { echo 'File already has cross-references. Skipping.'; }"
+
+REM Process roadmap_hierarchy_implementation.md
+echo Processing roadmap_hierarchy_implementation.md...
+powershell -Command "$content = Get-Content -Path 'C:\EGOS\docs\reference\roadmap_hierarchy_implementation.md' -Raw; if ($content -notmatch '## Cross References') { $metadataMatch = [regex]::Match($content, '(?s)^---\n(.*?)\n---\n'); if ($metadataMatch.Success) { $metadata = $metadataMatch.Value; $bodyContent = $content.Substring($metadataMatch.Length); $crossRefs = '## Cross References\n\n- [EGOS ROADMAP](../../ROADMAP.md)\n- [Roadmap Hierarchy](../governance/roadmap_hierarchy.md)\n- [Roadmap Standardization](../governance/roadmap_standardization.md)\n- [Development Standards](../governance/development_standards.md)\n- [Audit Dashboard](../audits/index.md)\n\n'; $newContent = $metadata + $crossRefs + $bodyContent; Set-Content -Path 'C:\EGOS\docs\reference\roadmap_hierarchy_implementation.md' -Value $newContent -Encoding UTF8; echo 'Added cross-references to roadmap_hierarchy_implementation.md'; } else { echo 'No metadata section found. Skipping.'; } } else { echo 'File already has cross-references. Skipping.'; }"
+
+REM Process audit dashboard
+echo Processing audit dashboard...
+powershell -Command "$content = Get-Content -Path 'C:\EGOS\docs\audits\index.md' -Raw; if ($content -notmatch '## Cross References') { $metadataMatch = [regex]::Match($content, '(?s)^---\n(.*?)\n---\n'); if ($metadataMatch.Success) { $metadata = $metadataMatch.Value; $bodyContent = $content.Substring($metadataMatch.Length); $crossRefs = '## Cross References\n\n- [EGOS ROADMAP](../../ROADMAP.md)\n- [Roadmap Hierarchy](../governance/roadmap_hierarchy.md)\n- [Roadmap Standardization](../governance/roadmap_standardization.md)\n- [Documentation Health Analysis](../governance/documentation_health_analysis.md)\n- [Cross-Reference Priority List](../governance/cross_reference_priority_list.md)\n\n'; $newContent = $metadata + $crossRefs + $bodyContent; Set-Content -Path 'C:\EGOS\docs\audits\index.md' -Value $newContent -Encoding UTF8; echo 'Added cross-references to audit dashboard'; } else { echo 'No metadata section found. Skipping.'; } } else { echo 'File already has cross-references. Skipping.'; }"
+
+echo Cross-reference addition completed.
+echo.
+echo Please run this batch file to add cross-references to all recently created files.

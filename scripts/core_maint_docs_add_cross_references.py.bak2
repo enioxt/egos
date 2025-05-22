@@ -1,0 +1,701 @@
+#!/usr/bin/env python
+"""
+EGOS - KOIOS Cross-Reference Generator
+======================================
+
+Analyzes documentation files and suggests or adds cross-references
+to create a mycelium-like interconnection structure across all files.
+Implements the principle that "no file exists in isolation."
+
+Version: 1.0.0 (Active)
+"""
+
+import argparse
+import json
+import logging
+import os
+import re
+import sys
+import time
+from collections import defaultdict
+from datetime import datetime
+from pathlib import Path
+from typing import Dict, List, Set, Tuple, Optional, Any, Union
+import glob
+
+try:
+    from tqdm import tqdm
+    TQDM_AVAILABLE = True
+except ImportError:
+    TQDM_AVAILABLE = False
+    # Simple progress bar fallback
+    class SimpleTqdm:
+        def __init__(self, total=0, desc="", **kwargs):
+            self.total = total
+            self.desc = desc
+            self.n = 0
+            self.start_time = time.time()
+            # Ensure _print_progress is called only if total is meaningful
+            if self.total and self.total > 0:
+                self._print_progress()
+            else:
+                sys.stdout.write(f"\r{self.desc or ''} {self.n} items processed")
+                sys.stdout.flush()
+        
+        def update(self, n=1):
+            self.n += n
+            self._print_progress()
+        
+        def _print_progress(self):
+            if self.total and self.total > 0:
+                percentage = 100 * self.n / self.total
+                elapsed = time.time() - self.start_time
+                eta = 0
+                if self.n > 0 and elapsed > 0 and self.n < self.total:
+                    eta = elapsed * (self.total - self.n) / self.n
+                
+                bar_length = 30
+                filled_length = int(bar_length * self.n // self.total)
+                bar = '█' * filled_length + '░' * (bar_length - filled_length)
+                
+                eta_str = f"ETA: {eta:.1f}s" if self.n < self.total else "Done"
+                sys.stdout.write(f"\r{self.desc or ''} |{bar}| {self.n}/{self.total} ({percentage:.1f}%) [{eta_str}]")
+                sys.stdout.flush()
+            else:
+                sys.stdout.write(f"\r{self.desc or ''} {self.n} items processed")
+                sys.stdout.flush()
+        
+        def __enter__(self):
+            return self
+        
+        def __exit__(self, exc_type, exc_val, exc_tb):
+            sys.stdout.write("\n")
+            sys.stdout.flush()
+
+# Setup logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(message)s",
+    datefmt="%H:%M:%S",
+)
+logger = logging.getLogger(__name__)
+
+
+def get_progress_bar(total: int, desc: str, **kwargs) -> Union[tqdm, 'SimpleTqdm']:
+    """Get an appropriate progress bar based on availability.
+    
+    Args:
+        total: Total number of items
+        desc: Description for the progress bar
+        **kwargs: Additional arguments for tqdm
+        
+    Returns:
+        Progress bar instance
+    """
+    if TQDM_AVAILABLE:
+        return tqdm(total=total, desc=desc, **kwargs)
+    else:
+        return SimpleTqdm(total=total, desc=desc, **kwargs)
+
+
+def save_checkpoint(stage: str, data: Any, base_path: str) -> str:
+    """Save a checkpoint to disk.
+    
+    Args:
+        stage: Current processing stage
+        data: Data to save
+        base_path: Base path of the project
+        
+    Returns:
+        Path to the saved checkpoint file
+    """
+    checkpoint_dir = os.path.join(base_path, "reports", "documentation", "checkpoints")
+    os.makedirs(checkpoint_dir, exist_ok=True)
+    
+    timestamp = datetime.now().strftime("%Y-%m-%dT%H-%M-%S.%f")
+    checkpoint_file = os.path.join(checkpoint_dir, f"xref_checkpoint_{stage}_{timestamp}.json")
+    
+    # Prepare data structure with metadata for better tracking
+    checkpoint_data = {
+        "timestamp": timestamp,
+        "stage": stage,
+        "data": None  # Will be set to serializable data
+    }
+    
+    # Convert data to JSON-serializable format
+    def convert_to_serializable(obj):
+        try:
+            if isinstance(obj, set):
+                return list(obj)
+            elif isinstance(obj, dict):
+                return {k: convert_to_serializable(v) for k, v in obj.items()}
+            elif isinstance(obj, list):
+                return [convert_to_serializable(item) for item in obj]
+            elif isinstance(obj, Path):
+                return str(obj)  # Convert Path objects to strings
+            elif hasattr(obj, '__dict__'):  # Handle custom objects
+                return convert_to_serializable(obj.__dict__)
+            else:
+                # Try JSON serialization test
+                json.dumps(obj)
+                return obj
+        except TypeError as e:
+            logger.warning(f"Type conversion error for {type(obj)}: {str(e)}. Using str() representation.")
+            return str(obj)
+        except Exception as e:
+            logger.warning(f"Unexpected serialization error for {type(obj)}: {str(e)}. Using str() representation.")
+            return str(obj)
+    
+    try:
+        # Convert the data to a serializable format
+        serializable_data = convert_to_serializable(data)
+        checkpoint_data["data"] = serializable_data
+        
+        # Save to temporary file first to avoid corruption
+        temp_file = f"{checkpoint_file}.temp"
+        with open(temp_file, 'w', encoding='utf-8') as f:
+            json.dump(checkpoint_data, f, indent=2)
+        
+        # Rename to final filename
+        if os.path.exists(temp_file):
+            if os.path.exists(checkpoint_file):
+                os.remove(checkpoint_file)  # Remove existing file if present
+            os.rename(temp_file, checkpoint_file)
+            
+        logger.info(f"Checkpoint saved for stage '{stage}' at {checkpoint_file}")
+        
+        # Clean up old checkpoints for this stage (keep latest 5)
+        clean_old_checkpoints(stage, checkpoint_dir, keep=5)
+        
+        return checkpoint_file
+        
+    except Exception as e:
+        logger.error(f"Error saving checkpoint for stage '{stage}': {str(e)}")
+        import traceback
+        logger.error(traceback.format_exc())
+        return None
+
+
+def clean_old_checkpoints(stage: str, checkpoint_dir: str, keep: int = 5) -> None:
+    """Clean up old checkpoint files, keeping only the most recent ones.
+    
+    Args:
+        stage: The stage to clean checkpoints for
+        checkpoint_dir: Directory containing checkpoints
+        keep: Number of recent checkpoints to keep
+    """
+    try:
+        checkpoints = glob.glob(os.path.join(checkpoint_dir, f"xref_checkpoint_{stage}_*.json"))
+        if len(checkpoints) <= keep:
+            return  # No need to clean if we have fewer than or equal to 'keep'
+            
+        # Sort by modification time (newest first)
+        checkpoints.sort(key=os.path.getmtime, reverse=True)
+        
+        # Remove older checkpoints beyond the keep limit
+        for old_checkpoint in checkpoints[keep:]:
+            try:
+                os.remove(old_checkpoint)
+                logger.debug(f"Removed old checkpoint: {old_checkpoint}")
+            except Exception as e:
+                logger.warning(f"Failed to remove old checkpoint {old_checkpoint}: {str(e)}")
+                
+    except Exception as e:
+        logger.warning(f"Error cleaning old checkpoints for stage '{stage}': {str(e)}")
+
+
+def load_checkpoint(stage: str, base_path: str) -> Optional[Any]:
+    """Load a checkpoint from disk.
+    
+    Args:
+        stage: Processing stage to load
+        base_path: Base path of the project
+        
+    Returns:
+        Loaded data or None if checkpoint doesn't exist
+    """
+    checkpoint_dir = os.path.join(base_path, "reports", "documentation", "checkpoints")
+    
+    if not os.path.exists(checkpoint_dir):
+        logger.warning(f"Checkpoint directory not found: {checkpoint_dir}. Cannot load checkpoint for stage '{stage}'.")
+        return None
+        
+    # Find the latest checkpoint for the given stage - first check for new format with timestamps
+    try:
+        # Look for newer format checkpoints (with timestamp)
+        new_format_checkpoints = glob.glob(os.path.join(checkpoint_dir, f"xref_checkpoint_{stage}_*.json"))
+        
+        # Also look for older format (without timestamp)
+        old_format_checkpoint = os.path.join(checkpoint_dir, f"xref_checkpoint_{stage}.json")
+        
+        checkpoints = new_format_checkpoints.copy()
+        if os.path.exists(old_format_checkpoint):
+            checkpoints.append(old_format_checkpoint)
+            logger.info(f"Found older format checkpoint for '{stage}'")
+            
+        if not checkpoints:
+            logger.info(f"No checkpoint found for stage '{stage}'. Starting fresh.")
+            return None
+            
+        # Sort by modification time, get the newest
+        checkpoints.sort(key=os.path.getmtime, reverse=True)
+        latest_checkpoint = checkpoints[0]
+        logger.info(f"Loading checkpoint for stage '{stage}': {os.path.basename(latest_checkpoint)}")
+        
+        with open(latest_checkpoint, 'r', encoding='utf-8') as f:
+            checkpoint_content = json.load(f)
+        
+        # Handle both old and new checkpoint formats
+        if isinstance(checkpoint_content, dict) and "data" in checkpoint_content:
+            # New format with metadata
+            data = checkpoint_content["data"]
+            timestamp = checkpoint_content.get("timestamp", "unknown")
+            logger.info(f"Loaded checkpoint data from {timestamp} (new format)")
+        else:
+            # Original format might have additional nesting for older checkpoints
+            if isinstance(checkpoint_content, dict) and "timestamp" in checkpoint_content and "data" in checkpoint_content:
+                # Very old format where data was nested under a 'data' key
+                data = checkpoint_content["data"]
+                timestamp = checkpoint_content.get("timestamp", "unknown")
+                logger.info(f"Loaded checkpoint data from {timestamp} (legacy format)")
+            else:
+                # Raw data format
+                data = checkpoint_content
+                logger.info("Loaded checkpoint data (simple format)")
+        
+        # Special handling for the 'data' field in older checkpoints with nested structure
+        if isinstance(data, dict) and stage == "scan" and "timestamp" in data and "data" in data:
+            data = data["data"]
+            logger.info("Extracted data from nested structure in older checkpoint")
+        
+        # Convert lists back to sets for reference dictionaries as needed
+            """
+            try:
+                if isinstance(obj, dict):
+                    # For references and referenced_by, convert values back to sets
+                    if stage in ["references", "referenced_by"] and to_sets:
+                        return {k: set(v) if isinstance(v, list) else convert_from_serializable(v, to_sets) 
+                                for k, v in obj.items()}
+                    else:
+                        return {k: convert_from_serializable(v, to_sets) for k, v in obj.items()}
+                elif isinstance(obj, list) and to_sets and stage in ["references", "referenced_by"]:
+                    return set(obj)  # Direct conversion from list to set when needed
+                else:
+                    return obj
+            except Exception as e:
+                logger.warning(f"Error during conversion: {str(e)}, returning original object")
+                return obj
+            """
+        
+        # Special handling for reference dictionaries
+        if stage in ["references", "referenced_by"]:
+            try:
+                data = convert_from_serializable(data, to_sets=True)
+                logger.info(f"Successfully converted lists to sets for {stage} data")
+            except Exception as e:
+                logger.error(f"Failed to convert lists to sets: {str(e)}")
+        
+        logger.info(f"Checkpoint loaded successfully for stage '{stage}'.")
+        
+        # If this was an old format checkpoint, save it in the new format for future use
+        if latest_checkpoint == old_format_checkpoint:
+            try:
+                logger.info(f"Converting old format checkpoint to new format")
+                save_checkpoint(stage, data, base_path)
+            except Exception as e:
+                logger.warning(f"Failed to convert old checkpoint format: {str(e)}")
+                
+        return data
+        
+    except json.JSONDecodeError as e:
+        logger.error(f"JSON decode error loading checkpoint for stage '{stage}': {str(e)}")
+        # Try to load a previous checkpoint if available
+        if len(checkpoints) > 1:
+            logger.info(f"Attempting to load previous checkpoint for stage '{stage}'")
+            # Remove corrupted checkpoint
+            try:
+                os.remove(latest_checkpoint)
+                logger.info(f"Removed corrupted checkpoint: {latest_checkpoint}")
+            except:
+                pass
+            # Recursive call with the bad checkpoint removed
+            return load_checkpoint(stage, base_path)
+        return None
+    except Exception as e:
+        logger.error(f"Error loading checkpoint for stage '{stage}': {str(e)}")
+        import traceback
+        logger.error(traceback.format_exc())
+        return None
+
+
+class CrossReferenceManager:
+    """Manager for document cross-references within the EGOS ecosystem.
+    
+    Analyzes documentation files to identify existing references and
+    suggests or adds new references to create a mycelium-like interconnection
+    structure.
+    
+    Attributes:
+        base_path: Base path of the EGOS project
+        doc_paths: List of documentation file paths
+        references: Dictionary mapping files to their references
+        related_docs: Dictionary mapping files to related documents
+        min_references: Minimum number of references per file
+        batch_size: Number of files to process in each batch
+    """
+    
+    def __init__(self, base_path: str, min_references: int = 2, batch_size: int = 500):
+        """Initialize the CrossReferenceManager.
+        
+        Args:
+            base_path: Base path of the EGOS project
+            min_references: Minimum number of references per document
+            batch_size: Number of files to process in each batch
+        """
+        self.base_path = Path(base_path)
+        self.doc_paths = []
+        self.references = defaultdict(set)  # file -> references
+        self.referenced_by = defaultdict(set)  # file -> references to it
+        self.related_docs = defaultdict(list)  # file -> related docs
+        self.min_references = min_references
+        self.batch_size = batch_size
+        
+        # Ensure base path exists
+        if not self.base_path.exists():
+            raise ValueError(f"Base path does not exist: {base_path}")
+    
+    def scan_documentation(self, extensions: List[str] = None, resume: bool = False) -> int:
+        """Scan EGOS documentation files.
+        
+        Args:
+            extensions: File extensions to include (default: ['.md'])
+            resume: Whether to resume from a checkpoint
+            
+        Returns:
+            Number of documentation files found
+        """
+        if extensions is None:
+            extensions = ['.md']
+        
+        logger.info(f"Scanning documentation in {self.base_path}")
+        
+        # Try to load from checkpoint
+        if resume:
+            checkpoint_data = load_checkpoint("scan", str(self.base_path))
+            if checkpoint_data:
+                self.doc_paths = checkpoint_data
+                logger.info(f"Loaded {len(self.doc_paths)} document paths from checkpoint")
+                return len(self.doc_paths)
+        
+        self.doc_paths = []
+        
+        # Get count first for progress bar
+        logger.info("Counting files for progress tracking...")
+        total_files = 0
+        for root, _, files in os.walk(self.base_path):
+            for file in files:
+                if os.path.splitext(file)[1].lower() in extensions:
+                    total_files += 1
+        
+        logger.info(f"Found {total_files} files to scan")
+        
+        # Use progress bar for scanning
+        with get_progress_bar(total=total_files, desc="Scanning files") as pbar:
+            for root, _, files in os.walk(self.base_path):
+                for file in files:
+                    file_ext = os.path.splitext(file)[1].lower()
+                    if file_ext in extensions:
+                        full_path = os.path.join(root, file)
+                        rel_path = os.path.relpath(full_path, self.base_path)
+                        self.doc_paths.append(rel_path)
+                        pbar.update(1)
+        
+        # Save checkpoint
+        save_checkpoint("scan", self.doc_paths, str(self.base_path))
+        
+        logger.info(f"Found {len(self.doc_paths)} documentation files")
+        return len(self.doc_paths)
+    
+    def extract_references(self, resume: bool = False) -> Dict[str, Set[str]]:
+        """Extract existing references from all documentation files.
+        
+        Args:
+            resume: Whether to resume from a checkpoint
+            
+        Returns:
+            Dictionary mapping files to their references
+        """
+        logger.info("Extracting existing references")
+        
+        # Try to load from checkpoint
+        if resume:
+            refs_checkpoint = load_checkpoint("references", str(self.base_path))
+            refs_by_checkpoint = load_checkpoint("referenced_by", str(self.base_path))
+            
+            if refs_checkpoint and refs_by_checkpoint:
+                self.references = defaultdict(set, refs_checkpoint)
+                self.referenced_by = defaultdict(set, refs_by_checkpoint)
+                logger.info(f"Loaded references for {len(self.references)} files from checkpoint")
+                return dict(self.references)
+        
+        # Clear existing references
+        self.references = defaultdict(set)
+        self.referenced_by = defaultdict(set)
+        
+        # Reference patterns to look for
+        patterns = [
+            r'@references:',
+            r'\[.*?\]\(mdc:.*?\)',  # Markdown links with mdc: protocol
+            r'\[.*?\]\(.*?\.md\)',  # Regular markdown links to .md files
+            r'See also: .*?\.md',   # Plain text references
+            r'Related: .*?\.md',    # Another common reference format
+        ]
+
+
+def print_progress_summary(manager):
+    """Print a summary of the current progress.
+    
+    Args:
+        manager: The CrossReferenceManager instance
+    """
+    total_files = len(manager.doc_paths) if hasattr(manager, 'doc_paths') else 0
+    processed_files = len(manager.references) if hasattr(manager, 'references') else 0
+    pending_files = total_files - processed_files if total_files > 0 else 0
+    
+    summary = [
+        "\n============ PROGRESS SUMMARY ============",
+        f"Total files scanned: {total_files}",
+        f"Files processed: {processed_files}",
+        f"Files pending: {pending_files}",
+    ]
+    
+    # Add stage-specific information if available
+    if hasattr(manager, 'referenced_by'):
+        summary.append(f"Files referenced by others: {len(manager.referenced_by)}")
+    
+    if hasattr(manager, 'files_with_refs') and manager.files_with_refs is not None:
+        summary.append(f"Files with references: {len(manager.files_with_refs)}")
+    
+    if hasattr(manager, 'files_needing_refs') and manager.files_needing_refs is not None:
+        summary.append(f"Files needing references: {len(manager.files_needing_refs)}")
+    
+    if hasattr(manager, 'suggested_references') and manager.suggested_references is not None:
+        summary.append(f"Files with suggested references: {len(manager.suggested_references)}")
+    
+    summary.append("=========================================\n")
+    
+    for line in summary:
+        logger.info(line)
+
+
+def handle_interrupt(signum, frame, manager=None, base_path=None):
+    """Handle keyboard interrupt (Ctrl+C) by printing progress and saving checkpoints.
+    
+    Args:
+        signum: Signal number
+        frame: Current stack frame
+        manager: The CrossReferenceManager instance
+        base_path: Base path of the EGOS project
+    """
+    if manager:
+        logger.warning("\nProcess interrupted! Saving current progress...")
+        print_progress_summary(manager)
+        
+        # Save checkpoint of current state if possible
+        # This depends on which stage was interrupted
+        if hasattr(manager, 'doc_paths') and manager.doc_paths:
+            save_checkpoint('scan', manager.doc_paths, manager.base_path)
+        
+        if hasattr(manager, 'references') and manager.references:
+            save_checkpoint('references', manager.references, manager.base_path)
+        
+        if hasattr(manager, 'referenced_by') and manager.referenced_by:
+            save_checkpoint('referenced_by', manager.referenced_by, manager.base_path)
+        
+        if hasattr(manager, 'suggested_references') and manager.suggested_references:
+            save_checkpoint('suggested_references', manager.suggested_references, manager.base_path)
+            
+        logger.info("Checkpoints saved. You can resume with the --resume flag.")
+    else:
+        logger.warning("\nProcess interrupted before initialization was complete.")
+    
+    # Exit gracefully
+    sys.exit(130)  # 130 is the conventional exit code for Ctrl+C
+
+
+def main():
+    """Main entry point for the cross-reference manager."""
+    parser = argparse.ArgumentParser(
+    description="Analyze and enhance cross-references in EGOS documentation"
+    )
+    parser.add_argument(
+    "--base-path", "-b", default=".",
+    help="Base path of the EGOS project"
+    )
+    parser.add_argument(
+    "--min-references", "-m", type=int, default=2,
+    help="Minimum number of references per document"
+    )
+    parser.add_argument(
+    "--add-references", "-a", action="store_true",
+    help="Add suggested references to documents"
+    )
+    parser.add_argument(
+    "--report", "-r",
+    help="Generate a report and save to the specified path"
+    )
+    parser.add_argument(
+    "--extensions", "-e", nargs="+", default=[".md"],
+    help="File extensions to include"
+    )
+    parser.add_argument(
+    "--batch-size", "-bs", type=int, default=500,
+    help="Number of files to process in each batch"
+    )
+    parser.add_argument(
+    "--resume", action="store_true",
+    help="Resume from last checkpoint"
+    )
+    parser.add_argument(
+    "--stage", choices=["scan", "extract", "analyze", "add", "all"], default="all",
+    help="Specific stage to run (default: all stages)"
+    )
+    parser.add_argument(
+    "--filter-dir", "-f", nargs="+",
+    help="Only process files in these directories"
+    )
+    parser.add_argument(
+    "--notify", action="store_true",
+    help="Send notification when complete (future feature)"
+    )
+    
+    args = parser.parse_args()
+    
+    try:
+    # Create reports directory if it doesn't exist
+    os.makedirs(os.path.join(args.base_path, "reports", "documentation"), exist_ok=True)
+        
+    # Create manager instance
+    manager = CrossReferenceManager(args.base_path, args.min_references, args.batch_size)
+        
+    # Setup signal handler for graceful interruption
+    import signal
+    signal.signal(signal.SIGINT, lambda s, f: handle_interrupt(s, f, manager, args.base_path))
+        
+    # Determine which stages to run
+    run_scan = args.stage in ["scan", "all"]
+    run_extract = args.stage in ["extract", "all"]
+    run_analyze = args.stage in ["analyze", "all"]
+    run_add = args.stage in ["add", "all"] or args.add_references
+        
+    # Scan documentation
+    if run_scan:
+    manager.scan_documentation(args.extensions, args.resume)
+    print_progress_summary(manager)
+    elif args.resume:
+    # Load doc_paths from checkpoint even if not running scan
+    checkpoint_data = load_checkpoint("scan", args.base_path)
+    if checkpoint_data:
+    manager.doc_paths = checkpoint_data
+    logger.info(f"Loaded {len(manager.doc_paths)} document paths from checkpoint")
+    else:
+    logger.error("No scan checkpoint found. Please run the scan stage first.")
+    return 1
+        
+    # Filter by directory if specified
+    if args.filter_dir:
+    original_count = len(manager.doc_paths)
+    manager.doc_paths = [
+    path for path in manager.doc_paths 
+    if any(path.startswith(dir_path) for dir_path in args.filter_dir)
+    ]
+    logger.info(f"Filtered to {len(manager.doc_paths)} files in specified directories (from {original_count})")
+        
+    # Extract references
+    if run_extract:
+    manager.extract_references(args.resume)
+    print_progress_summary(manager)
+    elif args.resume and (run_analyze or run_add):
+    # Load references from checkpoint even if not running extract
+    refs_checkpoint = load_checkpoint("references", args.base_path)
+    refs_by_checkpoint = load_checkpoint("referenced_by", args.base_path)
+            
+    if refs_checkpoint and refs_by_checkpoint:
+    manager.references = defaultdict(set, refs_checkpoint)
+    manager.referenced_by = defaultdict(set, refs_by_checkpoint)
+    logger.info(f"Loaded references for {len(manager.references)} files from checkpoint")
+    else:
+    logger.error("No references checkpoint found. Please run the extract stage first.")
+    return 1
+        
+    # Analyze references if requested
+    if run_analyze:
+    manager.analyze_connections(args.resume)
+    print_progress_summary(manager)
+        
+    # Add references if requested
+    if run_add:
+    if args.add_references:
+    results = manager.add_references(dry_run=False, resume=args.resume)
+    else:
+    results = manager.add_references(dry_run=True, resume=args.resume)
+                
+    # Print details about added references
+    for file_path, added_refs in results:
+    if added_refs:
+    logger.info(f"Added {len(added_refs)} references to {file_path}")
+            
+    print_progress_summary(manager)
+        
+    # Generate report if requested
+    if args.report:
+    manager.generate_report(args.report)
+    logger.info(f"Report generated at {args.report}")
+        
+    # Print final summary
+    logger.info("Processing complete. Final summary:")
+    print_progress_summary(manager)
+        
+    # Placeholder for future notification feature
+    if args.notify:
+    logger.info("Notification feature will be implemented in a future version.")
+    # TODO: Implement email or other notification mechanisms
+        
+    return 0
+        
+    except KeyboardInterrupt:
+    # This shouldn't be reached as the signal handler should catch it,
+    # but just in case for environments where signals don't work correctly
+    handle_interrupt(None, None, manager, args.base_path)
+    return 130
+    except Exception as e:
+    logger.error(f"Error: {str(e)}")
+    import traceback
+    logger.error(traceback.format_exc())
+        
+    # Try to save checkpoints before exiting
+    logger.error("Attempting to save checkpoints before exiting...")
+    try:
+    handle_interrupt(None, None, manager, args.base_path)  # Reuse interrupt handler to save progress
+    except Exception as checkpoint_error:
+    logger.error(f"Failed to save checkpoints: {str(checkpoint_error)}")
+        
+    return 1
+
+
+    def create_visualization_script():
+    """Create a script for visualizing documentation connections.
+    
+    This function will generate a script that creates an interactive visualization
+    of the documentation connections using Pyvis or NetworkX.
+    """
+    # This is a placeholder for future implementation
+    # The actual implementation would create a script that reads the JSON report
+    # and generates an interactive visualization
+    script_path = "scripts/maintenance/docs/generate_documentation_graph.py"
+    logger.info(f"Visualization script would be created at {script_path}")
+
+
+if __name__ == "__main__":
+    from datetime import datetime
+    sys.exit(main())

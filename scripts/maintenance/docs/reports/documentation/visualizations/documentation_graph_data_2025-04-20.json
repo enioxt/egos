@@ -1,0 +1,61 @@
+{
+  "nodes": [
+    {
+      "id": "README.md",
+      "label": "README.md",
+      "title": "<b>README.md</b><br>Path: README.md<br>Outgoing References: 0<br>Incoming References: 0<br>",
+      "size": 10,
+      "color": "#95a5a6",
+      "group": "default"
+    },
+    {
+      "id": "ROADMAP.md",
+      "label": "ROADMAP.md",
+      "title": "<b>ROADMAP.md</b><br>Path: ROADMAP.md<br>Outgoing References: 0<br>Incoming References: 0<br>",
+      "size": 10,
+      "color": "#95a5a6",
+      "group": "default"
+    },
+    {
+      "id": "CODE_OF_CONDUCT.md",
+      "label": "CODE_OF_CONDUCT.md",
+      "title": "<b>CODE_OF_CONDUCT.md</b><br>Path: CODE_OF_CONDUCT.md<br>Outgoing References: 0<br>Incoming References: 2<br>",
+      "size": 16,
+      "color": "#95a5a6",
+      "group": "default"
+    },
+    {
+      "id": "CHANGELOG.md",
+      "label": "CHANGELOG.md",
+      "title": "<b>CHANGELOG.md</b><br>Path: CHANGELOG.md<br>Outgoing References: 0<br>Incoming References: 2<br>",
+      "size": 16,
+      "color": "#95a5a6",
+      "group": "default"
+    },
+    {
+      "id": "CONTRIBUTING.md",
+      "label": "CONTRIBUTING.md",
+      "title": "<b>CONTRIBUTING.md</b><br>Path: CONTRIBUTING.md<br>Outgoing References: 0<br>Incoming References: 0<br>",
+      "size": 10,
+      "color": "#95a5a6",
+      "group": "default"
+    },
+    {
+      "id": "ROADMAP_updated.md",
+      "label": "ROADMAP_updated.md",
+      "title": "<b>ROADMAP_updated.md</b><br>Path: ROADMAP_updated.md<br>Outgoing References: 0<br>Incoming References: 0<br>",
+      "size": 10,
+      "color": "#95a5a6",
+      "group": "default"
+    }
+  ],
+  "edges": [],
+  "metadata": {
+    "generated": "2025-04-20T11:30:51.517309",
+    "subsystems": [
+      "default"
+    ],
+    "node_count": 6,
+    "edge_count": 0
+  }
+}

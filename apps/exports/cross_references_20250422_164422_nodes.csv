@@ -1,0 +1,973 @@
+id,label,title,color,size,type,in_degree,out_degree
+docs/GOVERNANCE.md,GOVERNANCE.md,docs/GOVERNANCE.md,#2ca02c,10,md,0,0
+docs/INTEGRATION_PLAN.md,INTEGRATION_PLAN.md,docs/INTEGRATION_PLAN.md,#2ca02c,10,md,0,0
+docs/README.md,README.md,docs/README.md,#2ca02c,11,md,1,0
+docs/ai_collaboration/MULTI_AGENT_WORKFLOW.md,MULTI_AGENT_WORKFLOW.md,docs/ai_collaboration/MULTI_AGENT_WORKFLOW.md,#2ca02c,13,md,0,3
+MQP.md,MQP.md,MQP.md,#2ca02c,50,md,126,0
+ROADMAP.md,ROADMAP.md,ROADMAP.md,#2ca02c,50,md,127,0
+docs/process/cross_reference_best_practices.md,cross_reference_best_practices.md,docs/process/cross_reference_best_practices.md,#2ca02c,50,md,87,18
+docs/core_materials/ARCHITECTURE.md,ARCHITECTURE.md,docs/core_materials/ARCHITECTURE.md,#2ca02c,10,md,0,0
+docs/core_materials/code_history_analysis.md,code_history_analysis.md,docs/core_materials/code_history_analysis.md,#2ca02c,10,md,0,0
+docs/core_materials/CRONOS_REFACTORING_EXAMPLE.md,CRONOS_REFACTORING_EXAMPLE.md,docs/core_materials/CRONOS_REFACTORING_EXAMPLE.md,#2ca02c,10,md,0,0
+docs/core_materials/EGOS_OVERVIEW.md,EGOS_OVERVIEW.md,docs/core_materials/EGOS_OVERVIEW.md,#2ca02c,10,md,0,0
+docs/core_materials/gitbash_commands.md,gitbash_commands.md,docs/core_materials/gitbash_commands.md,#2ca02c,10,md,0,0
+docs/core_materials/GOVERNANCE.md,GOVERNANCE.md,docs/core_materials/GOVERNANCE.md,#2ca02c,10,md,0,0
+docs/core_materials/i18n_conventions.md,i18n_conventions.md,docs/core_materials/i18n_conventions.md,#2ca02c,10,md,0,0
+docs/core_materials/INTEGRATION_PLAN.md,INTEGRATION_PLAN.md,docs/core_materials/INTEGRATION_PLAN.md,#2ca02c,10,md,0,0
+docs/core_materials/KOIOS_Interaction_Standards.md,KOIOS_Interaction_Standards.md,docs/core_materials/KOIOS_Interaction_Standards.md,#2ca02c,10,md,0,0
+docs/core_materials/MCP_CREATION_GUIDE.md,MCP_CREATION_GUIDE.md,docs/core_materials/MCP_CREATION_GUIDE.md,#2ca02c,10,md,0,0
+docs/core_materials/MQP.md,MQP.md,docs/core_materials/MQP.md,#2ca02c,11,md,1,0
+docs/core_materials/MYCELIUM_INTEGRATION.md,MYCELIUM_INTEGRATION.md,docs/core_materials/MYCELIUM_INTEGRATION.md,#2ca02c,10,md,0,0
+docs/core_materials/PHILOSOPHY.md,PHILOSOPHY.md,docs/core_materials/PHILOSOPHY.md,#2ca02c,10,md,0,0
+docs/core_materials/README.md,README.md,docs/core_materials/README.md,#2ca02c,10,md,0,0
+docs/core_materials/STANDARDS_SCRIPT_FEEDBACK.md,STANDARDS_SCRIPT_FEEDBACK.md,docs/core_materials/STANDARDS_SCRIPT_FEEDBACK.md,#2ca02c,10,md,0,0
+docs/core_materials/STRATEGY.md,STRATEGY.md,docs/core_materials/STRATEGY.md,#2ca02c,10,md,0,0
+docs/core_materials/WEBSITE_DESIGN.md,WEBSITE_DESIGN.md,docs/core_materials/WEBSITE_DESIGN.md,#2ca02c,10,md,0,0
+docs/core_materials/windows_powershell_commands.md,windows_powershell_commands.md,docs/core_materials/windows_powershell_commands.md,#2ca02c,10,md,0,0
+docs/guides/SYSTEM_VISUALIZATION_GUIDE.md,SYSTEM_VISUALIZATION_GUIDE.md,docs/guides/SYSTEM_VISUALIZATION_GUIDE.md,#2ca02c,13,md,0,3
+docs/guides/VIBE_CODING_GUIDE.md,VIBE_CODING_GUIDE.md,docs/guides/VIBE_CODING_GUIDE.md,#2ca02c,13,md,0,3
+docs/implementation/cross_reference_implementation_guide.md,cross_reference_implementation_guide.md,docs/implementation/cross_reference_implementation_guide.md,#2ca02c,13,md,3,0
+docs/integration/ci_cd_cross_reference_integration.md,ci_cd_cross_reference_integration.md,docs/integration/ci_cd_cross_reference_integration.md,#2ca02c,20,md,1,9
+docs/process/cross_reference_management.md,cross_reference_management.md,docs/process/cross_reference_management.md,#2ca02c,21,md,11,0
+docs/process/documentation_standards.md,documentation_standards.md,docs/process/documentation_standards.md,#2ca02c,14,md,4,0
+scripts/maintenance/cross_reference_executor.py,cross_reference_executor.py,scripts/maintenance/cross_reference_executor.py,#ff7f0e,23,py,4,9
+scripts/analysis/simple_cross_ref_visualizer.py,simple_cross_ref_visualizer.py,scripts/analysis/simple_cross_ref_visualizer.py,#ff7f0e,22,py,6,6
+scripts/scheduled/weekly_cross_reference_check.ps1,weekly_cross_reference_check.ps1,scripts/scheduled/weekly_cross_reference_check.ps1,#1f77b4,19,ps1,2,7
+.github/workflows/cross-reference-validation.yml,cross-reference-validation.yml,.github/workflows/cross-reference-validation.yml,#9467bd,18,yml,1,7
+docs/legacy/backups_inventory.md,backups_inventory.md,docs/legacy/backups_inventory.md,#2ca02c,13,md,0,3
+docs/legacy/core_inventory.md,core_inventory.md,docs/legacy/core_inventory.md,#2ca02c,13,md,0,3
+docs/legacy/docs_inventory.md,docs_inventory.md,docs/legacy/docs_inventory.md,#2ca02c,13,md,0,3
+docs/legacy/egos_inventory_sample.md,egos_inventory_sample.md,docs/legacy/egos_inventory_sample.md,#2ca02c,13,md,0,3
+docs/legacy/inventory_summary.md,inventory_summary.md,docs/legacy/inventory_summary.md,#2ca02c,13,md,0,3
+docs/legacy/legacy_concepts_analysis.md,legacy_concepts_analysis.md,docs/legacy/legacy_concepts_analysis.md,#2ca02c,13,md,0,3
+docs/legacy/legacy_inventory.md,legacy_inventory.md,docs/legacy/legacy_inventory.md,#2ca02c,13,md,0,3
+docs/legacy/legacy_inventory_insights.md,legacy_inventory_insights.md,docs/legacy/legacy_inventory_insights.md,#2ca02c,13,md,0,3
+docs/legacy/research_inventory.md,research_inventory.md,docs/legacy/research_inventory.md,#2ca02c,13,md,0,3
+docs/legacy/scripts_inventory.md,scripts_inventory.md,docs/legacy/scripts_inventory.md,#2ca02c,13,md,0,3
+docs/legacy/strategic_thinking_inventory.md,strategic_thinking_inventory.md,docs/legacy/strategic_thinking_inventory.md,#2ca02c,13,md,0,3
+docs/legacy/subsystems_inventory.md,subsystems_inventory.md,docs/legacy/subsystems_inventory.md,#2ca02c,13,md,0,3
+docs/policies/file_retention_policy.md,file_retention_policy.md,docs/policies/file_retention_policy.md,#2ca02c,13,md,0,3
+docs/prd/legacy_integration_prd.md,legacy_integration_prd.md,docs/prd/legacy_integration_prd.md,#2ca02c,13,md,0,3
+docs/process/aesthetic_standards_review.md,aesthetic_standards_review.md,docs/process/aesthetic_standards_review.md,#2ca02c,13,md,0,3
+docs/process/aesthetic_validation.md,aesthetic_validation.md,docs/process/aesthetic_validation.md,#2ca02c,13,md,0,3
+docs/process/aesthetic_validation_ci_integration.md,aesthetic_validation_ci_integration.md,docs/process/aesthetic_validation_ci_integration.md,#2ca02c,13,md,0,3
+docs/process/aesthetic_validation_improvements.md,aesthetic_validation_improvements.md,docs/process/aesthetic_validation_improvements.md,#2ca02c,13,md,0,3
+docs/process/agent_operational_rules.md,agent_operational_rules.md,docs/process/agent_operational_rules.md,#2ca02c,13,md,0,3
+docs/process/automated_docstring_fixing.md,automated_docstring_fixing.md,docs/process/automated_docstring_fixing.md,#2ca02c,13,md,0,3
+docs/process/backup_management.md,backup_management.md,docs/process/backup_management.md,#2ca02c,15,md,2,3
+docs/process/code_health_checks.md,code_health_checks.md,docs/process/code_health_checks.md,#2ca02c,13,md,0,3
+docs/process/continuous_improvement_koios.md,continuous_improvement_koios.md,docs/process/continuous_improvement_koios.md,#2ca02c,14,md,1,3
+docs/process/cross_reference_automation.md,cross_reference_automation.md,docs/process/cross_reference_automation.md,#2ca02c,20,md,2,8
+docs/process/system_maintenance.md,system_maintenance.md,docs/process/system_maintenance.md,#2ca02c,44,md,26,8
+docs/process/hierarchical_cross_reference_strategy.md,hierarchical_cross_reference_strategy.md,docs/process/hierarchical_cross_reference_strategy.md,#2ca02c,16,md,6,0
+scripts/maintenance/utils/add_cross_references_helper.py,add_cross_references_helper.py,scripts/maintenance/utils/add_cross_references_helper.py,#ff7f0e,20,py,2,8
+scripts/ci/validate_cross_references.py,validate_cross_references.py,scripts/ci/validate_cross_references.py,#ff7f0e,19,py,9,0
+scripts/analysis/visualize_cross_references.py,visualize_cross_references.py,scripts/analysis/visualize_cross_references.py,#ff7f0e,16,py,6,0
+docs/standards/documentation_standards.md,documentation_standards.md,docs/standards/documentation_standards.md,#2ca02c,11,md,1,0
+scripts/maintenance/utils/add_reference_headers.py,add_reference_headers.py,scripts/maintenance/utils/add_reference_headers.py,#ff7f0e,13,py,3,0
+docs/path/to/related_document.md,related_document.md,docs/path/to/related_document.md,#2ca02c,11,md,1,0
+docs/path/to/another_document.md,another_document.md,docs/path/to/another_document.md,#2ca02c,11,md,1,0
+docs/path/to/related_module.py,related_module.py,docs/path/to/related_module.py,#ff7f0e,11,py,1,0
+docs/path/to/another_module.py,another_module.py,docs/path/to/another_module.py,#ff7f0e,11,py,1,0
+README.md,README.md,README.md,#2ca02c,11,md,1,0
+docs/processors/document_processor.py,document_processor.py,docs/processors/document_processor.py,#ff7f0e,11,py,1,0
+docs/extractors/metadata_extractor.py,metadata_extractor.py,docs/extractors/metadata_extractor.py,#ff7f0e,11,py,1,0
+docs/process/code_review_process.md,code_review_process.md,docs/process/code_review_process.md,#2ca02c,11,md,1,0
+scripts/ci/document_validator.py,document_validator.py,scripts/ci/document_validator.py,#ff7f0e,11,py,1,0
+scripts/maintenance/metadata_generator.py,metadata_generator.py,scripts/maintenance/metadata_generator.py,#ff7f0e,11,py,1,0
+docs/process/cross_reference_standard.md,cross_reference_standard.md,docs/process/cross_reference_standard.md,#2ca02c,10,md,0,0
+docs/process/cross_reference_visualization.md,cross_reference_visualization.md,docs/process/cross_reference_visualization.md,#2ca02c,20,md,0,10
+cross_reference_management.md,cross_reference_management.md,cross_reference_management.md,#2ca02c,11,md,1,0
+path_exclusion_pattern.md,path_exclusion_pattern.md,path_exclusion_pattern.md,#2ca02c,11,md,1,0
+scripts/analysis/enhanced_cross_ref_dashboard.py,enhanced_cross_ref_dashboard.py,scripts/analysis/enhanced_cross_ref_dashboard.py,#ff7f0e,15,py,5,0
+scripts/analysis/cross_ref_web_exporter.py,cross_ref_web_exporter.py,scripts/analysis/cross_ref_web_exporter.py,#ff7f0e,18,py,2,6
+scripts/maintenance/utils/path_exclusion.py,path_exclusion.py,scripts/maintenance/utils/path_exclusion.py,#ff7f0e,14,py,4,0
+docs/dashboard/cross-references.html,cross-references.html,docs/dashboard/cross-references.html,#1f77b4,17,html,1,6
+docs/dashboard/js/dashboard.js,dashboard.js,docs/dashboard/js/dashboard.js,#1f77b4,15,js,1,4
+docs/dashboard/css/dashboard.css,dashboard.css,docs/dashboard/css/dashboard.css,#1f77b4,14,css,1,3
+docs/process/dashboard_koios.md,dashboard_koios.md,docs/process/dashboard_koios.md,#2ca02c,13,md,0,3
+docs/process/data_flow_architecture.md,data_flow_architecture.md,docs/process/data_flow_architecture.md,#2ca02c,13,md,0,3
+docs/process/dependency_migration_pydantic_v2.md,dependency_migration_pydantic_v2.md,docs/process/dependency_migration_pydantic_v2.md,#2ca02c,13,md,0,3
+docs/process/dependency_security_koios.md,dependency_security_koios.md,docs/process/dependency_security_koios.md,#2ca02c,13,md,0,3
+docs/process/docstring_coverage_koios.md,docstring_coverage_koios.md,docs/process/docstring_coverage_koios.md,#2ca02c,12,md,0,2
+docs/process/docstring_ide_integration.md,docstring_ide_integration.md,docs/process/docstring_ide_integration.md,#2ca02c,13,md,0,3
+docs/process/DOCUMENTATION_METRICS_DASHBOARD.md,DOCUMENTATION_METRICS_DASHBOARD.md,docs/process/DOCUMENTATION_METRICS_DASHBOARD.md,#2ca02c,13,md,0,3
+docs/process/dynamic_import_resilience.md,dynamic_import_resilience.md,docs/process/dynamic_import_resilience.md,#2ca02c,13,md,0,3
+docs/process/human_ai_collaboration_guidelines.md,human_ai_collaboration_guidelines.md,docs/process/human_ai_collaboration_guidelines.md,#2ca02c,13,md,0,3
+docs/process/import_resilience_fixes.md,import_resilience_fixes.md,docs/process/import_resilience_fixes.md,#2ca02c,13,md,0,3
+docs/process/legacy_cleanup_process.md,legacy_cleanup_process.md,docs/process/legacy_cleanup_process.md,#2ca02c,13,md,0,3
+docs/process/LEGACY_MIGRATION.md,LEGACY_MIGRATION.md,docs/process/LEGACY_MIGRATION.md,#2ca02c,13,md,0,3
+docs/process/linting_koios.md,linting_koios.md,docs/process/linting_koios.md,#2ca02c,13,md,0,3
+docs/process/mvp_koios.md,mvp_koios.md,docs/process/mvp_koios.md,#2ca02c,13,md,0,3
+docs/process/mycelium_integration_koios.md,mycelium_integration_koios.md,docs/process/mycelium_integration_koios.md,#2ca02c,13,md,0,3
+docs/process/orchestration_koios.md,orchestration_koios.md,docs/process/orchestration_koios.md,#2ca02c,13,md,0,3
+docs/process/path_exclusion_pattern.md,path_exclusion_pattern.md,docs/process/path_exclusion_pattern.md,#2ca02c,13,md,3,0
+docs/process/path_inclusion_pattern.md,path_inclusion_pattern.md,docs/process/path_inclusion_pattern.md,#2ca02c,10,md,0,0
+docs/process/progress_bar_automation.md,progress_bar_automation.md,docs/process/progress_bar_automation.md,#2ca02c,13,md,0,3
+docs/process/progress_bar_standardization.md,progress_bar_standardization.md,docs/process/progress_bar_standardization.md,#2ca02c,13,md,0,3
+docs/process/protocol_adherence_koios.md,protocol_adherence_koios.md,docs/process/protocol_adherence_koios.md,#2ca02c,13,md,0,3
+docs/process/roadmap_standardization.md,roadmap_standardization.md,docs/process/roadmap_standardization.md,#2ca02c,13,md,0,3
+docs/process/schema_validation_koios.md,schema_validation_koios.md,docs/process/schema_validation_koios.md,#2ca02c,13,md,0,3
+docs/process/standardization_reports.md,standardization_reports.md,docs/process/standardization_reports.md,#2ca02c,13,md,0,3
+docs/process/standardizer_html_reporting.md,standardizer_html_reporting.md,docs/process/standardizer_html_reporting.md,#2ca02c,13,md,0,3
+scripts/maintenance/utils/cleanup_system_files.py,cleanup_system_files.py,scripts/maintenance/utils/cleanup_system_files.py,#ff7f0e,20,py,1,9
+scripts/maintenance/scheduled/weekly_cross_reference_validation.ps1,weekly_cross_reference_validation.ps1,scripts/maintenance/scheduled/weekly_cross_reference_validation.ps1,#1f77b4,17,ps1,1,6
+docs/process/test_coverage_koios.md,test_coverage_koios.md,docs/process/test_coverage_koios.md,#2ca02c,13,md,0,3
+docs/process/trace_id_implementation.md,trace_id_implementation.md,docs/process/trace_id_implementation.md,#2ca02c,13,md,0,3
+docs/process/type_checking_koios.md,type_checking_koios.md,docs/process/type_checking_koios.md,#2ca02c,13,md,0,3
+docs/process/validation_koios.md,validation_koios.md,docs/process/validation_koios.md,#2ca02c,13,md,0,3
+docs/reference/cross_reference_registry.md,cross_reference_registry.md,docs/reference/cross_reference_registry.md,#2ca02c,25,md,0,15
+core_materials/MQP.md,MQP.md,core_materials/MQP.md,#2ca02c,12,md,2,0
+docs/tasks/TASK-2025-04-22-cross-reference-system-enhancement.md,TASK-2025-04-22-cross-reference-system-enhancement.md,docs/tasks/TASK-2025-04-22-cross-reference-system-enhancement.md,#2ca02c,22,md,1,11
+docs/process/process_1.md,process_1.md,docs/process/process_1.md,#2ca02c,11,md,1,0
+docs/process/process_2.md,process_2.md,docs/process/process_2.md,#2ca02c,11,md,1,0
+subsystems/SUBSYSTEM/docs/implementation_doc.md,implementation_doc.md,subsystems/SUBSYSTEM/docs/implementation_doc.md,#2ca02c,11,md,1,0
+docs/process/relevant_process.md,relevant_process.md,docs/process/relevant_process.md,#2ca02c,11,md,1,0
+subsystems/RELATED_SUBSYSTEM/README.md,README.md,subsystems/RELATED_SUBSYSTEM/README.md,#2ca02c,11,md,1,0
+docs/reference/related_implementation.py,related_implementation.py,docs/reference/related_implementation.py,#ff7f0e,11,py,1,0
+docs/reference/docstring_quick_reference.md,docstring_quick_reference.md,docs/reference/docstring_quick_reference.md,#2ca02c,13,md,0,3
+docs/reference/rich_progress_bar_quickref.md,rich_progress_bar_quickref.md,docs/reference/rich_progress_bar_quickref.md,#2ca02c,13,md,0,3
+docs/setup/COMPLETE_SETUP.md,COMPLETE_SETUP.md,docs/setup/COMPLETE_SETUP.md,#2ca02c,13,md,0,3
+docs/setup/DEVELOPER_ENVIRONMENT.md,DEVELOPER_ENVIRONMENT.md,docs/setup/DEVELOPER_ENVIRONMENT.md,#2ca02c,13,md,0,3
+docs/specifications/ethik_chain_implementation.md,ethik_chain_implementation.md,docs/specifications/ethik_chain_implementation.md,#2ca02c,13,md,0,3
+docs/specifications/mycelium_network_implementation.md,mycelium_network_implementation.md,docs/specifications/mycelium_network_implementation.md,#2ca02c,13,md,0,3
+docs/standards/aesthetics.md,aesthetics.md,docs/standards/aesthetics.md,#2ca02c,13,md,0,3
+docs/standards/TASK_DOCUMENTATION_STANDARD.md,TASK_DOCUMENTATION_STANDARD.md,docs/standards/TASK_DOCUMENTATION_STANDARD.md,#2ca02c,10,md,0,0
+docs/strategy/integration_summary_apr2025.md,integration_summary_apr2025.md,docs/strategy/integration_summary_apr2025.md,#2ca02c,13,md,0,3
+scripts/maintenance/simple_reference_fixer.py,simple_reference_fixer.py,scripts/maintenance/simple_reference_fixer.py,#ff7f0e,21,py,4,7
+scripts/maintenance/orphan_node_autodiscovery.py,orphan_node_autodiscovery.py,scripts/maintenance/orphan_node_autodiscovery.py,#ff7f0e,20,py,1,9
+docs/templates/api_documentation_template.md,api_documentation_template.md,docs/templates/api_documentation_template.md,#2ca02c,10,md,0,0
+docs/templates/architecture_document_template.md,architecture_document_template.md,docs/templates/architecture_document_template.md,#2ca02c,10,md,0,0
+docs/templates/progress_report_template.md,progress_report_template.md,docs/templates/progress_report_template.md,#2ca02c,10,md,0,0
+docs/templates/subsystem_readme_template.md,subsystem_readme_template.md,docs/templates/subsystem_readme_template.md,#2ca02c,10,md,0,0
+docs/training/aesthetic_standards_implementation_guide.md,aesthetic_standards_implementation_guide.md,docs/training/aesthetic_standards_implementation_guide.md,#2ca02c,13,md,0,3
+docs/training/progress_bar_integration_demo.md,progress_bar_integration_demo.md,docs/training/progress_bar_integration_demo.md,#2ca02c,13,md,0,3
+docs/troubleshooting/dotnet_build_debugging.md,dotnet_build_debugging.md,docs/troubleshooting/dotnet_build_debugging.md,#2ca02c,13,md,0,3
+docs/updates/2025-04-21_system_enhancement_update.md,2025-04-21_system_enhancement_update.md,docs/updates/2025-04-21_system_enhancement_update.md,#2ca02c,13,md,0,3
+docs/utils/status_indicators.md,status_indicators.md,docs/utils/status_indicators.md,#2ca02c,13,md,0,3
+docs/website/CURRENT_TASKS.md,CURRENT_TASKS.md,docs/website/CURRENT_TASKS.md,#2ca02c,13,md,0,3
+docs/website/DESIGN_GUIDE.md,DESIGN_GUIDE.md,docs/website/DESIGN_GUIDE.md,#2ca02c,13,md,0,3
+docs/website/DEVELOPMENT_PLAN.md,DEVELOPMENT_PLAN.md,docs/website/DEVELOPMENT_PLAN.md,#2ca02c,13,md,0,3
+docs/website/USER_RESEARCH_PLAN.md,USER_RESEARCH_PLAN.md,docs/website/USER_RESEARCH_PLAN.md,#2ca02c,13,md,0,3
+docs/website/WEBSITE_DESIGN.md,WEBSITE_DESIGN.md,docs/website/WEBSITE_DESIGN.md,#2ca02c,13,md,0,3
+docs/workshops/code_health_workshop.md,code_health_workshop.md,docs/workshops/code_health_workshop.md,#2ca02c,13,md,0,3
+docs/templates/prompts/strategic_analysis_prompt.md,strategic_analysis_prompt.md,docs/templates/prompts/strategic_analysis_prompt.md,#2ca02c,10,md,0,0
+docs/tasks/skeletons/KOIOS-DOC-007_task_skeleton.md,KOIOS-DOC-007_task_skeleton.md,docs/tasks/skeletons/KOIOS-DOC-007_task_skeleton.md,#2ca02c,13,md,0,3
+docs/MQP.md,MQP.md,docs/MQP.md,#2ca02c,23,md,13,0
+docs/ROADMAP.md,ROADMAP.md,docs/ROADMAP.md,#2ca02c,23,md,13,0
+docs/docs/process/cross_reference_best_practices.md,cross_reference_best_practices.md,docs/docs/process/cross_reference_best_practices.md,#2ca02c,23,md,13,0
+docs/subsystems/ATLAS/QUICK_REFERENCE.md,QUICK_REFERENCE.md,docs/subsystems/ATLAS/QUICK_REFERENCE.md,#2ca02c,13,md,0,3
+docs/subsystems/CORUJA/QUICK_REFERENCE.md,QUICK_REFERENCE.md,docs/subsystems/CORUJA/QUICK_REFERENCE.md,#2ca02c,13,md,0,3
+docs/subsystems/CRONOS/QUICK_REFERENCE.md,QUICK_REFERENCE.md,docs/subsystems/CRONOS/QUICK_REFERENCE.md,#2ca02c,13,md,0,3
+docs/subsystems/ETHIK/QUICK_REFERENCE.md,QUICK_REFERENCE.md,docs/subsystems/ETHIK/QUICK_REFERENCE.md,#2ca02c,13,md,0,3
+docs/subsystems/KOIOS/QUICK_REFERENCE.md,QUICK_REFERENCE.md,docs/subsystems/KOIOS/QUICK_REFERENCE.md,#2ca02c,13,md,0,3
+docs/subsystems/NEXUS/QUICK_REFERENCE.md,QUICK_REFERENCE.md,docs/subsystems/NEXUS/QUICK_REFERENCE.md,#2ca02c,13,md,0,3
+docs/legacy/processed/MCP OK avanços e futuro.md,MCP OK avanços e futuro.md,docs/legacy/processed/MCP OK avanços e futuro.md,#2ca02c,13,md,0,3
+docs/legacy/processed/MVP OK 7.0.md,MVP OK 7.0.md,docs/legacy/processed/MVP OK 7.0.md,#2ca02c,13,md,0,3
+docs/legacy/processed/PLANO DE NEGOCIO EVA (14).md,PLANO DE NEGOCIO EVA (14).md,docs/legacy/processed/PLANO DE NEGOCIO EVA (14).md,#2ca02c,13,md,0,3
+docs/legacy/processed/Prompt quantico 7 ingles.md,Prompt quantico 7 ingles.md,docs/legacy/processed/Prompt quantico 7 ingles.md,#2ca02c,13,md,0,3
+docs/legacy/processed/Quantum Prompt Rules e inicializaçao.md,Quantum Prompt Rules e inicializaçao.md,docs/legacy/processed/Quantum Prompt Rules e inicializaçao.md,#2ca02c,13,md,0,3
+docs/legacy/processed/sistema validaçao etica RPG.md,sistema validaçao etica RPG.md,docs/legacy/processed/sistema validaçao etica RPG.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed/BIOS-Q Cursor sistema EVA.md,BIOS-Q Cursor sistema EVA.md,docs/legacy/processed/mixed/BIOS-Q Cursor sistema EVA.md,#2ca02c,13,md,0,3
+docs/legacy/MQP.md,MQP.md,docs/legacy/MQP.md,#2ca02c,50,md,84,0
+docs/legacy/ROADMAP.md,ROADMAP.md,docs/legacy/ROADMAP.md,#2ca02c,50,md,84,0
+docs/legacy/docs/process/cross_reference_best_practices.md,cross_reference_best_practices.md,docs/legacy/docs/process/cross_reference_best_practices.md,#2ca02c,50,md,84,0
+docs/legacy/processed/mixed/Instalaçao EVA.md,Instalaçao EVA.md,docs/legacy/processed/mixed/Instalaçao EVA.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed/Mycelium atualizado.md,Mycelium atualizado.md,docs/legacy/processed/mixed/Mycelium atualizado.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed/Prometheus Grafana.md,Prometheus Grafana.md,docs/legacy/processed/mixed/Prometheus Grafana.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed/sandbox testando eva na web.md,sandbox testando eva na web.md,docs/legacy/processed/mixed/sandbox testando eva na web.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/Avanço Windsurf.md,Avanço Windsurf.md,docs/legacy/processed/mixed-en-pt/Avanço Windsurf.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/Backup system.md,Backup system.md,docs/legacy/processed/mixed-en-pt/Backup system.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/Cursor X Web limitaçoes.md,Cursor X Web limitaçoes.md,docs/legacy/processed/mixed-en-pt/Cursor X Web limitaçoes.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/Dinamicidade no sistema.md,Dinamicidade no sistema.md,docs/legacy/processed/mixed-en-pt/Dinamicidade no sistema.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/ETHICHAIN visao OTIMA  atençao AQUI.md,ETHICHAIN visao OTIMA  atençao AQUI.md,docs/legacy/processed/mixed-en-pt/ETHICHAIN visao OTIMA  atençao AQUI.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/Filesystem SLOP.md,Filesystem SLOP.md,docs/legacy/processed/mixed-en-pt/Filesystem SLOP.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/Focus Definition EGOS Coruja.md,Focus Definition EGOS Coruja.md,docs/legacy/processed/mixed-en-pt/Focus Definition EGOS Coruja.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/Integration Codeguide Paella MQP.md,Integration Codeguide Paella MQP.md,docs/legacy/processed/mixed-en-pt/Integration Codeguide Paella MQP.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/Maior diagnostico ate entao.md,Maior diagnostico ate entao.md,docs/legacy/processed/mixed-en-pt/Maior diagnostico ate entao.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/Mycellium explained.md,Mycellium explained.md,docs/legacy/processed/mixed-en-pt/Mycellium explained.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/NAO PARE Futuro Projeto importante.md,NAO PARE Futuro Projeto importante.md,docs/legacy/processed/mixed-en-pt/NAO PARE Futuro Projeto importante.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/OpenSource Repos.md,OpenSource Repos.md,docs/legacy/processed/mixed-en-pt/OpenSource Repos.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/Overview projeto.md,Overview projeto.md,docs/legacy/processed/mixed-en-pt/Overview projeto.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/Panorama sistema TODO.md,Panorama sistema TODO.md,docs/legacy/processed/mixed-en-pt/Panorama sistema TODO.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/Plano reorganizaçao pastas.md,Plano reorganizaçao pastas.md,docs/legacy/processed/mixed-en-pt/Plano reorganizaçao pastas.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/Prompt quantico 7.5.md,Prompt quantico 7.5.md,docs/legacy/processed/mixed-en-pt/Prompt quantico 7.5.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/Quantum prompt 7.5 OK.md,Quantum prompt 7.5 OK.md,docs/legacy/processed/mixed-en-pt/Quantum prompt 7.5 OK.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/Quantum prompt 8.0 BIOS-Q.md,Quantum prompt 8.0 BIOS-Q.md,docs/legacy/processed/mixed-en-pt/Quantum prompt 8.0 BIOS-Q.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/Quantum unification.md,Quantum unification.md,docs/legacy/processed/mixed-en-pt/Quantum unification.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/Roadmap apos estudos.md,Roadmap apos estudos.md,docs/legacy/processed/mixed-en-pt/Roadmap apos estudos.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/ROADMAP INTERATIVO.md,ROADMAP INTERATIVO.md,docs/legacy/processed/mixed-en-pt/ROADMAP INTERATIVO.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/Roadmap Mycellium.md,Roadmap Mycellium.md,docs/legacy/processed/mixed-en-pt/Roadmap Mycellium.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/Site novo e outras melhorias.md,Site novo e outras melhorias.md,docs/legacy/processed/mixed-en-pt/Site novo e outras melhorias.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/Subsystems and tools 8.2.md,Subsystems and tools 8.2.md,docs/legacy/processed/mixed-en-pt/Subsystems and tools 8.2.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/Unification system PRD.md,Unification system PRD.md,docs/legacy/processed/mixed-en-pt/Unification system PRD.md,#2ca02c,13,md,0,3
+"docs/legacy/processed/mixed-en-pt/Visao EVA até aqui, fit go to market.md","Visao EVA até aqui, fit go to market.md","docs/legacy/processed/mixed-en-pt/Visao EVA até aqui, fit go to market.md",#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/Voando alto indo p outros sistemas.md,Voando alto indo p outros sistemas.md,docs/legacy/processed/mixed-en-pt/Voando alto indo p outros sistemas.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-en-pt/Web application avançando.md,Web application avançando.md,docs/legacy/processed/mixed-en-pt/Web application avançando.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/atualizacao bot unificado.md,atualizacao bot unificado.md,docs/legacy/processed/mixed-pt-en/atualizacao bot unificado.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/atualização botava.md,atualização botava.md,docs/legacy/processed/mixed-pt-en/atualização botava.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/ava7.0 novv.md,ava7.0 novv.md,docs/legacy/processed/mixed-pt-en/ava7.0 novv.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/BACKUP quantico.md,BACKUP quantico.md,docs/legacy/processed/mixed-pt-en/BACKUP quantico.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/BIOS-Q MCP.md,BIOS-Q MCP.md,docs/legacy/processed/mixed-pt-en/BIOS-Q MCP.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/BOT ok melhorando.md,BOT ok melhorando.md,docs/legacy/processed/mixed-pt-en/BOT ok melhorando.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/EGOS 1.0.md,EGOS 1.0.md,docs/legacy/processed/mixed-pt-en/EGOS 1.0.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/EVA & GUARANI - Quantum Unified Master Prompt 2024 (Versão 8.0).md,EVA & GUARANI - Quantum Unified Master Prompt 2024 (Versão 8.0).md,docs/legacy/processed/mixed-pt-en/EVA & GUARANI - Quantum Unified Master Prompt 2024 (Versão 8.0).md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/eva 5 inicializaçao.md,eva 5 inicializaçao.md,docs/legacy/processed/mixed-pt-en/eva 5 inicializaçao.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/EVA 7.3.md,EVA 7.3.md,docs/legacy/processed/mixed-pt-en/EVA 7.3.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/eva atendimento inicio.md,eva atendimento inicio.md,docs/legacy/processed/mixed-pt-en/eva atendimento inicio.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/grande atualizacao.md,grande atualizacao.md,docs/legacy/processed/mixed-pt-en/grande atualizacao.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/Integraçao Cursor e Eva.md,Integraçao Cursor e Eva.md,docs/legacy/processed/mixed-pt-en/Integraçao Cursor e Eva.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/Integraçao Eliza.md,Integraçao Eliza.md,docs/legacy/processed/mixed-pt-en/Integraçao Eliza.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/Integraçao sistema quantico com bot.md,Integraçao sistema quantico com bot.md,docs/legacy/processed/mixed-pt-en/Integraçao sistema quantico com bot.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/Link simbolico fonte de verdade sistema.md,Link simbolico fonte de verdade sistema.md,docs/legacy/processed/mixed-pt-en/Link simbolico fonte de verdade sistema.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/MATRIZ  quantica.md,MATRIZ  quantica.md,docs/legacy/processed/mixed-pt-en/MATRIZ  quantica.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/MCP grande avanço roadmap.md,MCP grande avanço roadmap.md,docs/legacy/processed/mixed-pt-en/MCP grande avanço roadmap.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/Melhorias BOT telegram.md,Melhorias BOT telegram.md,docs/legacy/processed/mixed-pt-en/Melhorias BOT telegram.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/muito longe.md,muito longe.md,docs/legacy/processed/mixed-pt-en/muito longe.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/Personas no bot.md,Personas no bot.md,docs/legacy/processed/mixed-pt-en/Personas no bot.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/PLANO DE NEGOCIO EVA (1).md,PLANO DE NEGOCIO EVA (1).md,docs/legacy/processed/mixed-pt-en/PLANO DE NEGOCIO EVA (1).md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/Prompt Quantico 7.0 EGOS.md,Prompt Quantico 7.0 EGOS.md,docs/legacy/processed/mixed-pt-en/Prompt Quantico 7.0 EGOS.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/Promtps quanticos v7.md,Promtps quanticos v7.md,docs/legacy/processed/mixed-pt-en/Promtps quanticos v7.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/Relatório de Análise e Preparação para Implantação em Ambiente Externo.md,Relatório de Análise e Preparação para Implantação em Ambiente Externo.md,docs/legacy/processed/mixed-pt-en/Relatório de Análise e Preparação para Implantação em Ambiente Externo.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/Reorganizaçao do sistem EVA e Guarani.md,Reorganizaçao do sistem EVA e Guarani.md,docs/legacy/processed/mixed-pt-en/Reorganizaçao do sistem EVA e Guarani.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/RPG EVA.md,RPG EVA.md,docs/legacy/processed/mixed-pt-en/RPG EVA.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/SLOP integration proximos passos potencial.md,SLOP integration proximos passos potencial.md,docs/legacy/processed/mixed-pt-en/SLOP integration proximos passos potencial.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/tentando perplexity.md,tentando perplexity.md,docs/legacy/processed/mixed-pt-en/tentando perplexity.md,#2ca02c,13,md,0,3
+"docs/legacy/processed/mixed-pt-en/Ultima grande atualizaçao, quase 8.0.md","Ultima grande atualizaçao, quase 8.0.md","docs/legacy/processed/mixed-pt-en/Ultima grande atualizaçao, quase 8.0.md",#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/ULTIMA quase tudo revisado.md,ULTIMA quase tudo revisado.md,docs/legacy/processed/mixed-pt-en/ULTIMA quase tudo revisado.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/Unification ETHIK.md,Unification ETHIK.md,docs/legacy/processed/mixed-pt-en/Unification ETHIK.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/Updates system EVA.md,Updates system EVA.md,docs/legacy/processed/mixed-pt-en/Updates system EVA.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/viagem neural quantica.md,viagem neural quantica.md,docs/legacy/processed/mixed-pt-en/viagem neural quantica.md,#2ca02c,13,md,0,3
+docs/legacy/processed/mixed-pt-en/websearch atualizacao.md,websearch atualizacao.md,docs/legacy/processed/mixed-pt-en/websearch atualizacao.md,#2ca02c,13,md,0,3
+docs/legacy/processed/pt/Benchmark do Sistema EVA & GUARANI.md,Benchmark do Sistema EVA & GUARANI.md,docs/legacy/processed/pt/Benchmark do Sistema EVA & GUARANI.md,#2ca02c,13,md,0,3
+docs/legacy/processed/pt/benchmark.md,benchmark.md,docs/legacy/processed/pt/benchmark.md,#2ca02c,13,md,0,3
+docs/legacy/processed/pt/EGOS1.1 visao geral.md,EGOS1.1 visao geral.md,docs/legacy/processed/pt/EGOS1.1 visao geral.md,#2ca02c,13,md,0,3
+docs/legacy/processed/pt/INstruicoes bot telegram.md,INstruicoes bot telegram.md,docs/legacy/processed/pt/INstruicoes bot telegram.md,#2ca02c,13,md,0,3
+docs/legacy/processed/pt/NEXUS elovuindo MUITO.md,NEXUS elovuindo MUITO.md,docs/legacy/processed/pt/NEXUS elovuindo MUITO.md,#2ca02c,13,md,0,3
+docs/legacy/processed/pt/OUTLINE cursor FODA.md,OUTLINE cursor FODA.md,docs/legacy/processed/pt/OUTLINE cursor FODA.md,#2ca02c,13,md,0,3
+docs/legacy/processed/pt/PLANO DE NEGOCIO EVA (11).md,PLANO DE NEGOCIO EVA (11).md,docs/legacy/processed/pt/PLANO DE NEGOCIO EVA (11).md,#2ca02c,13,md,0,3
+docs/legacy/processed/pt/PLANO DE NEGOCIO EVA (3).md,PLANO DE NEGOCIO EVA (3).md,docs/legacy/processed/pt/PLANO DE NEGOCIO EVA (3).md,#2ca02c,13,md,0,3
+docs/legacy/processed/pt/PLANO DE NEGOCIO EVA SENNA.md,PLANO DE NEGOCIO EVA SENNA.md,docs/legacy/processed/pt/PLANO DE NEGOCIO EVA SENNA.md,#2ca02c,13,md,0,3
+docs/legacy/processed/pt/Projecao tradutor EVA.md,Projecao tradutor EVA.md,docs/legacy/processed/pt/Projecao tradutor EVA.md,#2ca02c,13,md,0,3
+docs/legacy/processed/pt/Prompts quanticos EGOS.md,Prompts quanticos EGOS.md,docs/legacy/processed/pt/Prompts quanticos EGOS.md,#2ca02c,13,md,0,3
+docs/legacy/processed/pt/próximos passoATLAS.md,próximos passoATLAS.md,docs/legacy/processed/pt/próximos passoATLAS.md,#2ca02c,13,md,0,3
+docs/legacy/processed/pt/Quantum Prompt 5.0.md,Quantum Prompt 5.0.md,docs/legacy/processed/pt/Quantum Prompt 5.0.md,#2ca02c,13,md,0,3
+docs/legacy/processed/pt/ROADMAP DO TRADUTO EVA.md,ROADMAP DO TRADUTO EVA.md,docs/legacy/processed/pt/ROADMAP DO TRADUTO EVA.md,#2ca02c,13,md,0,3
+docs/legacy/processed/pt/ROADMAP.md,ROADMAP.md,docs/legacy/processed/pt/ROADMAP.md,#2ca02c,13,md,0,3
+docs/legacy/processed/pt/Visao geral inicialization.md,Visao geral inicialization.md,docs/legacy/processed/pt/Visao geral inicialization.md,#2ca02c,13,md,0,3
+docs/core_materials/ai_collaboration/MULTI_AGENT_WORKFLOW.md,MULTI_AGENT_WORKFLOW.md,docs/core_materials/ai_collaboration/MULTI_AGENT_WORKFLOW.md,#2ca02c,10,md,0,0
+docs/core_materials/ai_integration/cursor_agent_mode.md,cursor_agent_mode.md,docs/core_materials/ai_integration/cursor_agent_mode.md,#2ca02c,10,md,0,0
+docs/core_materials/ai_integration/MULTI_MODEL_INSIGHTS.md,MULTI_MODEL_INSIGHTS.md,docs/core_materials/ai_integration/MULTI_MODEL_INSIGHTS.md,#2ca02c,10,md,0,0
+docs/core_materials/code_analysis/large_files_report.md,large_files_report.md,docs/core_materials/code_analysis/large_files_report.md,#2ca02c,10,md,0,0
+docs/core_materials/historical_changelogs/NEXUS_MODULAR.md,NEXUS_MODULAR.md,docs/core_materials/historical_changelogs/NEXUS_MODULAR.md,#2ca02c,10,md,0,0
+docs/core_materials/planning/migration_plan.md,migration_plan.md,docs/core_materials/planning/migration_plan.md,#2ca02c,10,md,0,0
+docs/core_materials/planning/openrouter_mcp_implementation_plan.md,openrouter_mcp_implementation_plan.md,docs/core_materials/planning/openrouter_mcp_implementation_plan.md,#2ca02c,10,md,0,0
+docs/core_materials/process/linter_error_resolution_log_20240814.md,linter_error_resolution_log_20240814.md,docs/core_materials/process/linter_error_resolution_log_20240814.md,#2ca02c,10,md,0,0
+docs/core_materials/process/linting_implementation_summary.md,linting_implementation_summary.md,docs/core_materials/process/linting_implementation_summary.md,#2ca02c,10,md,0,0
+docs/core_materials/process/linting_improvements_20240815.md,linting_improvements_20240815.md,docs/core_materials/process/linting_improvements_20240815.md,#2ca02c,10,md,0,0
+docs/core_materials/process/project_review_summary_20240726.md,project_review_summary_20240726.md,docs/core_materials/process/project_review_summary_20240726.md,#2ca02c,10,md,0,0
+docs/core_materials/process/review_actions_summary_20240726.md,review_actions_summary_20240726.md,docs/core_materials/process/review_actions_summary_20240726.md,#2ca02c,10,md,0,0
+docs/core_materials/prompts/CURSOR_QUANTUM_PROMPT.md,CURSOR_QUANTUM_PROMPT.md,docs/core_materials/prompts/CURSOR_QUANTUM_PROMPT.md,#2ca02c,10,md,0,0
+docs/core_materials/prompts/pdd_website_generation_v3.md,pdd_website_generation_v3.md,docs/core_materials/prompts/pdd_website_generation_v3.md,#2ca02c,10,md,0,0
+docs/core_materials/prompts/strategic_analysis_prompt_v2.0.md,strategic_analysis_prompt_v2.0.md,docs/core_materials/prompts/strategic_analysis_prompt_v2.0.md,#2ca02c,10,md,0,0
+docs/core_materials/research/AI_AGENT_CAPABILITIES_2025.md,AI_AGENT_CAPABILITIES_2025.md,docs/core_materials/research/AI_AGENT_CAPABILITIES_2025.md,#2ca02c,10,md,0,0
+docs/core_materials/research/CONTENT_AGGREGATOR_DEEP_DIVE.md,CONTENT_AGGREGATOR_DEEP_DIVE.md,docs/core_materials/research/CONTENT_AGGREGATOR_DEEP_DIVE.md,#2ca02c,10,md,0,0
+docs/core_materials/standards/KOIOS_Interaction_Standards.md,KOIOS_Interaction_Standards.md,docs/core_materials/standards/KOIOS_Interaction_Standards.md,#2ca02c,10,md,0,0
+docs/core_materials/standards/KOIOS_PDD_Standard.md,KOIOS_PDD_Standard.md,docs/core_materials/standards/KOIOS_PDD_Standard.md,#2ca02c,10,md,0,0
+docs/core_materials/strategy/Competitive_Analysis.md,Competitive_Analysis.md,docs/core_materials/strategy/Competitive_Analysis.md,#2ca02c,10,md,0,0
+docs/core_materials/strategy/Customer_Journey_Map.md,Customer_Journey_Map.md,docs/core_materials/strategy/Customer_Journey_Map.md,#2ca02c,10,md,0,0
+docs/core_materials/strategy/EGOS_Business_Plan_v1.0.md,EGOS_Business_Plan_v1.0.md,docs/core_materials/strategy/EGOS_Business_Plan_v1.0.md,#2ca02c,10,md,0,0
+docs/core_materials/strategy/EGOS_PRESENTATION_GUIDE.md,EGOS_PRESENTATION_GUIDE.md,docs/core_materials/strategy/EGOS_PRESENTATION_GUIDE.md,#2ca02c,10,md,0,0
+docs/core_materials/strategy/Monetization_Model.md,Monetization_Model.md,docs/core_materials/strategy/Monetization_Model.md,#2ca02c,10,md,0,0
+docs/core_materials/strategy/MVP_Definition.md,MVP_Definition.md,docs/core_materials/strategy/MVP_Definition.md,#2ca02c,10,md,0,0
+docs/core_materials/strategy/Target_Platform_Analysis.md,Target_Platform_Analysis.md,docs/core_materials/strategy/Target_Platform_Analysis.md,#2ca02c,10,md,0,0
+docs/core_materials/tech_radar/web_scraping_strategies.md,web_scraping_strategies.md,docs/core_materials/tech_radar/web_scraping_strategies.md,#2ca02c,10,md,0,0
+docs/core_materials/templates/PDD_Template.md,PDD_Template.md,docs/core_materials/templates/PDD_Template.md,#2ca02c,10,md,0,0
+docs/core_materials/website/CONTENT_STRATEGY.md,CONTENT_STRATEGY.md,docs/core_materials/website/CONTENT_STRATEGY.md,#2ca02c,10,md,0,0
+docs/core_materials/website/CURRENT_TASKS.md,CURRENT_TASKS.md,docs/core_materials/website/CURRENT_TASKS.md,#2ca02c,10,md,0,0
+docs/core_materials/website/DESIGN_GUIDE.md,DESIGN_GUIDE.md,docs/core_materials/website/DESIGN_GUIDE.md,#2ca02c,10,md,0,0
+docs/core_materials/website/DEVELOPMENT_PLAN.md,DEVELOPMENT_PLAN.md,docs/core_materials/website/DEVELOPMENT_PLAN.md,#2ca02c,10,md,0,0
+docs/core_materials/website/USER_RESEARCH_PLAN.md,USER_RESEARCH_PLAN.md,docs/core_materials/website/USER_RESEARCH_PLAN.md,#2ca02c,10,md,0,0
+docs/core_materials/website/WEBSITE_DESIGN.md,WEBSITE_DESIGN.md,docs/core_materials/website/WEBSITE_DESIGN.md,#2ca02c,10,md,0,0
+docs/core_materials/process/validation/PROC-VALIDATE-01_roadmap_tasks_validation.md,PROC-VALIDATE-01_roadmap_tasks_validation.md,docs/core_materials/process/validation/PROC-VALIDATE-01_roadmap_tasks_validation.md,#2ca02c,10,md,0,0
+docs/core_materials/process/validation/PROC-VALIDATE-02_subsystem_structure_validation.md,PROC-VALIDATE-02_subsystem_structure_validation.md,docs/core_materials/process/validation/PROC-VALIDATE-02_subsystem_structure_validation.md,#2ca02c,10,md,0,0
+docs/core_materials/archive/ROADMAPS/README.md,README.md,docs/core_materials/archive/ROADMAPS/README.md,#2ca02c,13,md,0,3
+docs/core_materials/ROADMAP.md,ROADMAP.md,docs/core_materials/ROADMAP.md,#2ca02c,11,md,1,0
+docs/core_materials/docs/process/cross_reference_best_practices.md,cross_reference_best_practices.md,docs/core_materials/docs/process/cross_reference_best_practices.md,#2ca02c,11,md,1,0
+docs/core_materials/archive/ROADMAPS/active/20250330_slop_integration_roadmap.md,20250330_slop_integration_roadmap.md,docs/core_materials/archive/ROADMAPS/active/20250330_slop_integration_roadmap.md,#2ca02c,13,md,0,3
+docs/core_materials/archive/MQP.md,MQP.md,docs/core_materials/archive/MQP.md,#2ca02c,16,md,6,0
+docs/core_materials/archive/ROADMAP.md,ROADMAP.md,docs/core_materials/archive/ROADMAP.md,#2ca02c,16,md,6,0
+docs/core_materials/archive/docs/process/cross_reference_best_practices.md,cross_reference_best_practices.md,docs/core_materials/archive/docs/process/cross_reference_best_practices.md,#2ca02c,16,md,6,0
+docs/core_materials/archive/ROADMAPS/active/20250330_task_dynamic_roadmap_implementation.md,20250330_task_dynamic_roadmap_implementation.md,docs/core_materials/archive/ROADMAPS/active/20250330_task_dynamic_roadmap_implementation.md,#2ca02c,13,md,0,3
+docs/core_materials/archive/ROADMAPS/active/20250401_bios_q_unification_tracking.md,20250401_bios_q_unification_tracking.md,docs/core_materials/archive/ROADMAPS/active/20250401_bios_q_unification_tracking.md,#2ca02c,13,md,0,3
+docs/core_materials/archive/ROADMAPS/active/20250401_system_unification_roadmap.md,20250401_system_unification_roadmap.md,docs/core_materials/archive/ROADMAPS/active/20250401_system_unification_roadmap.md,#2ca02c,13,md,0,3
+docs/core_materials/archive/ROADMAPS/active/migration_plan_2025.md,migration_plan_2025.md,docs/core_materials/archive/ROADMAPS/active/migration_plan_2025.md,#2ca02c,13,md,0,3
+docs/core_materials/archive/ROADMAPS/templates/task_roadmap_template.md,task_roadmap_template.md,docs/core_materials/archive/ROADMAPS/templates/task_roadmap_template.md,#2ca02c,13,md,0,3
+docs/legacy/removal_script.ps1,removal_script.ps1,docs/legacy/removal_script.ps1,#1f77b4,13,ps1,0,3
+docs/core_materials/historical_changelogs/apresentaçao e concorrentes.txt,apresentaçao e concorrentes.txt,docs/core_materials/historical_changelogs/apresentaçao e concorrentes.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/atualizacao bot unificado.txt,atualizacao bot unificado.txt,docs/core_materials/historical_changelogs/atualizacao bot unificado.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/atualização botava.txt,atualização botava.txt,docs/core_materials/historical_changelogs/atualização botava.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/ava7.0 novv.txt,ava7.0 novv.txt,docs/core_materials/historical_changelogs/ava7.0 novv.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/BACKUP quantico.txt,BACKUP quantico.txt,docs/core_materials/historical_changelogs/BACKUP quantico.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Backup system.txt,Backup system.txt,docs/core_materials/historical_changelogs/Backup system.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Benchmark do Sistema EVA & GUARANI.txt,Benchmark do Sistema EVA & GUARANI.txt,docs/core_materials/historical_changelogs/Benchmark do Sistema EVA & GUARANI.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/benchmark.txt,benchmark.txt,docs/core_materials/historical_changelogs/benchmark.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/BIOS-Q Cursor sistema EVA.txt,BIOS-Q Cursor sistema EVA.txt,docs/core_materials/historical_changelogs/BIOS-Q Cursor sistema EVA.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/BIOS-Q MCP.txt,BIOS-Q MCP.txt,docs/core_materials/historical_changelogs/BIOS-Q MCP.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/BOT ok melhorando.txt,BOT ok melhorando.txt,docs/core_materials/historical_changelogs/BOT ok melhorando.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Cursor X Web limitaçoes.txt,Cursor X Web limitaçoes.txt,docs/core_materials/historical_changelogs/Cursor X Web limitaçoes.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Dinamicidade no sistema.txt,Dinamicidade no sistema.txt,docs/core_materials/historical_changelogs/Dinamicidade no sistema.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/EGOS 1.0.txt,EGOS 1.0.txt,docs/core_materials/historical_changelogs/EGOS 1.0.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/EGOS1.1 visao geral.txt,EGOS1.1 visao geral.txt,docs/core_materials/historical_changelogs/EGOS1.1 visao geral.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/EVA & GUARANI - Quantum Unified Master Prompt 2024 (Versão 8.0).txt,EVA & GUARANI - Quantum Unified Master Prompt 2024 (Versão 8.0).txt,docs/core_materials/historical_changelogs/EVA & GUARANI - Quantum Unified Master Prompt 2024 (Versão 8.0).txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/eva 5 inicializaçao.txt,eva 5 inicializaçao.txt,docs/core_materials/historical_changelogs/eva 5 inicializaçao.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/EVA 7.3.txt,EVA 7.3.txt,docs/core_materials/historical_changelogs/EVA 7.3.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/eva atendimento inicio.txt,eva atendimento inicio.txt,docs/core_materials/historical_changelogs/eva atendimento inicio.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Filesystem SLOP.txt,Filesystem SLOP.txt,docs/core_materials/historical_changelogs/Filesystem SLOP.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/grande atualizacao.txt,grande atualizacao.txt,docs/core_materials/historical_changelogs/grande atualizacao.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Instalaçao EVA.txt,Instalaçao EVA.txt,docs/core_materials/historical_changelogs/Instalaçao EVA.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/INstruicoes bot telegram.txt,INstruicoes bot telegram.txt,docs/core_materials/historical_changelogs/INstruicoes bot telegram.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Integration Codeguide Paella MQP.txt,Integration Codeguide Paella MQP.txt,docs/core_materials/historical_changelogs/Integration Codeguide Paella MQP.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Integraçao Cursor e Eva.txt,Integraçao Cursor e Eva.txt,docs/core_materials/historical_changelogs/Integraçao Cursor e Eva.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Integraçao Eliza.txt,Integraçao Eliza.txt,docs/core_materials/historical_changelogs/Integraçao Eliza.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Integraçao sistema quantico com bot.txt,Integraçao sistema quantico com bot.txt,docs/core_materials/historical_changelogs/Integraçao sistema quantico com bot.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Link simbolico fonte de verdade sistema.txt,Link simbolico fonte de verdade sistema.txt,docs/core_materials/historical_changelogs/Link simbolico fonte de verdade sistema.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/MATRIZ  quantica.txt,MATRIZ  quantica.txt,docs/core_materials/historical_changelogs/MATRIZ  quantica.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/MCP grande avanço roadmap.txt,MCP grande avanço roadmap.txt,docs/core_materials/historical_changelogs/MCP grande avanço roadmap.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/MCP OK avanços e futuro.txt,MCP OK avanços e futuro.txt,docs/core_materials/historical_changelogs/MCP OK avanços e futuro.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Melhorias BOT telegram.txt,Melhorias BOT telegram.txt,docs/core_materials/historical_changelogs/Melhorias BOT telegram.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/muito longe.txt,muito longe.txt,docs/core_materials/historical_changelogs/muito longe.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/MVP OK 7.0.txt,MVP OK 7.0.txt,docs/core_materials/historical_changelogs/MVP OK 7.0.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Mycelium atualizado.txt,Mycelium atualizado.txt,docs/core_materials/historical_changelogs/Mycelium atualizado.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/NAO PARE Futuro Projeto importante.txt,NAO PARE Futuro Projeto importante.txt,docs/core_materials/historical_changelogs/NAO PARE Futuro Projeto importante.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/NEXUS elovuindo MUITO.txt,NEXUS elovuindo MUITO.txt,docs/core_materials/historical_changelogs/NEXUS elovuindo MUITO.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/OUTLINE cursor FODA.txt,OUTLINE cursor FODA.txt,docs/core_materials/historical_changelogs/OUTLINE cursor FODA.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Overview projeto.txt,Overview projeto.txt,docs/core_materials/historical_changelogs/Overview projeto.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Panorama sistema TODO.txt,Panorama sistema TODO.txt,docs/core_materials/historical_changelogs/Panorama sistema TODO.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Personas no bot.txt,Personas no bot.txt,docs/core_materials/historical_changelogs/Personas no bot.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/PLANO DE NEGOCIO EVA (1).txt,PLANO DE NEGOCIO EVA (1).txt,docs/core_materials/historical_changelogs/PLANO DE NEGOCIO EVA (1).txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/PLANO DE NEGOCIO EVA (11).txt,PLANO DE NEGOCIO EVA (11).txt,docs/core_materials/historical_changelogs/PLANO DE NEGOCIO EVA (11).txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/PLANO DE NEGOCIO EVA (14).txt,PLANO DE NEGOCIO EVA (14).txt,docs/core_materials/historical_changelogs/PLANO DE NEGOCIO EVA (14).txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/PLANO DE NEGOCIO EVA (3).txt,PLANO DE NEGOCIO EVA (3).txt,docs/core_materials/historical_changelogs/PLANO DE NEGOCIO EVA (3).txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/PLANO DE NEGOCIO EVA SENNA.txt,PLANO DE NEGOCIO EVA SENNA.txt,docs/core_materials/historical_changelogs/PLANO DE NEGOCIO EVA SENNA.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Plano reorganizaçao pastas.txt,Plano reorganizaçao pastas.txt,docs/core_materials/historical_changelogs/Plano reorganizaçao pastas.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Prometheus Grafana.txt,Prometheus Grafana.txt,docs/core_materials/historical_changelogs/Prometheus Grafana.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Prompt quantico 7 ingles.txt,Prompt quantico 7 ingles.txt,docs/core_materials/historical_changelogs/Prompt quantico 7 ingles.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Prompt Quantico 7.0 EGOS.txt,Prompt Quantico 7.0 EGOS.txt,docs/core_materials/historical_changelogs/Prompt Quantico 7.0 EGOS.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Prompt quantico 7.5.txt,Prompt quantico 7.5.txt,docs/core_materials/historical_changelogs/Prompt quantico 7.5.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Prompts quanticos EGOS.txt,Prompts quanticos EGOS.txt,docs/core_materials/historical_changelogs/Prompts quanticos EGOS.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Promtps quanticos v7.txt,Promtps quanticos v7.txt,docs/core_materials/historical_changelogs/Promtps quanticos v7.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/próximos passoATLAS.txt,próximos passoATLAS.txt,docs/core_materials/historical_changelogs/próximos passoATLAS.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Quantum Prompt 5.0.txt,Quantum Prompt 5.0.txt,docs/core_materials/historical_changelogs/Quantum Prompt 5.0.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Quantum prompt 7.5 OK.txt,Quantum prompt 7.5 OK.txt,docs/core_materials/historical_changelogs/Quantum prompt 7.5 OK.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Quantum prompt 8.0 BIOS-Q.txt,Quantum prompt 8.0 BIOS-Q.txt,docs/core_materials/historical_changelogs/Quantum prompt 8.0 BIOS-Q.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Quantum Prompt Rules e inicializaçao.txt,Quantum Prompt Rules e inicializaçao.txt,docs/core_materials/historical_changelogs/Quantum Prompt Rules e inicializaçao.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Quantum unification.txt,Quantum unification.txt,docs/core_materials/historical_changelogs/Quantum unification.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Relatório de Análise e Preparação para Implantação em Ambiente Externo.txt,Relatório de Análise e Preparação para Implantação em Ambiente Externo.txt,docs/core_materials/historical_changelogs/Relatório de Análise e Preparação para Implantação em Ambiente Externo.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Reorganizaçao do sistem EVA e Guarani.txt,Reorganizaçao do sistem EVA e Guarani.txt,docs/core_materials/historical_changelogs/Reorganizaçao do sistem EVA e Guarani.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Roadmap Mycellium.txt,Roadmap Mycellium.txt,docs/core_materials/historical_changelogs/Roadmap Mycellium.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/ROADMAP.txt,ROADMAP.txt,docs/core_materials/historical_changelogs/ROADMAP.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/RPG EVA.txt,RPG EVA.txt,docs/core_materials/historical_changelogs/RPG EVA.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/sistema validaçao etica RPG.txt,sistema validaçao etica RPG.txt,docs/core_materials/historical_changelogs/sistema validaçao etica RPG.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/SLOP integration proximos passos potencial.txt,SLOP integration proximos passos potencial.txt,docs/core_materials/historical_changelogs/SLOP integration proximos passos potencial.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/tentando perplexity.txt,tentando perplexity.txt,docs/core_materials/historical_changelogs/tentando perplexity.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/ULTIMA quase tudo revisado.txt,ULTIMA quase tudo revisado.txt,docs/core_materials/historical_changelogs/ULTIMA quase tudo revisado.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Unification ETHIK.txt,Unification ETHIK.txt,docs/core_materials/historical_changelogs/Unification ETHIK.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Unification system PRD.txt,Unification system PRD.txt,docs/core_materials/historical_changelogs/Unification system PRD.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Updates system EVA.txt,Updates system EVA.txt,docs/core_materials/historical_changelogs/Updates system EVA.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/viagem neural quantica.txt,viagem neural quantica.txt,docs/core_materials/historical_changelogs/viagem neural quantica.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Visao geral inicialization.txt,Visao geral inicialization.txt,docs/core_materials/historical_changelogs/Visao geral inicialization.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Voando alto indo p outros sistemas.txt,Voando alto indo p outros sistemas.txt,docs/core_materials/historical_changelogs/Voando alto indo p outros sistemas.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/Web application avançando.txt,Web application avançando.txt,docs/core_materials/historical_changelogs/Web application avançando.txt,#1f77b4,10,txt,0,0
+docs/core_materials/historical_changelogs/websearch atualizacao.txt,websearch atualizacao.txt,docs/core_materials/historical_changelogs/websearch atualizacao.txt,#1f77b4,10,txt,0,0
+docs/core_materials/prompts/CURSOR_SYSTEM_PROMPT.txt,CURSOR_SYSTEM_PROMPT.txt,docs/core_materials/prompts/CURSOR_SYSTEM_PROMPT.txt,#1f77b4,10,txt,0,0
+docs/core_materials/templates/PDD_Template.yaml,PDD_Template.yaml,docs/core_materials/templates/PDD_Template.yaml,#9467bd,10,yaml,0,0
+docs/core_materials/prompts/pdds/generate_python_docstring.yaml,generate_python_docstring.yaml,docs/core_materials/prompts/pdds/generate_python_docstring.yaml,#9467bd,10,yaml,0,0
+docs/index.html,index.html,docs/index.html,#1f77b4,10,html,0,0
+docs/css/style.css,style.css,docs/css/style.css,#1f77b4,11,css,1,0
+docs/css/_variables.css,_variables.css,docs/css/_variables.css,#1f77b4,10,css,0,0
+docs/css/base/_base.css,_base.css,docs/css/base/_base.css,#1f77b4,10,css,0,0
+docs/css/base/_reset.css,_reset.css,docs/css/base/_reset.css,#1f77b4,10,css,0,0
+docs/css/base/_typography.css,_typography.css,docs/css/base/_typography.css,#1f77b4,10,css,0,0
+docs/css/base/_variables.css,_variables.css,docs/css/base/_variables.css,#1f77b4,10,css,0,0
+docs/css/components/_buttons.css,_buttons.css,docs/css/components/_buttons.css,#1f77b4,10,css,0,0
+docs/css/components/_cards.css,_cards.css,docs/css/components/_cards.css,#1f77b4,10,css,0,0
+docs/css/components/_icons.css,_icons.css,docs/css/components/_icons.css,#1f77b4,10,css,0,0
+docs/css/components/_navigation.css,_navigation.css,docs/css/components/_navigation.css,#1f77b4,10,css,0,0
+docs/css/layout/_footer.css,_footer.css,docs/css/layout/_footer.css,#1f77b4,10,css,0,0
+docs/css/layout/_grid.css,_grid.css,docs/css/layout/_grid.css,#1f77b4,10,css,0,0
+docs/css/layout/_header.css,_header.css,docs/css/layout/_header.css,#1f77b4,10,css,0,0
+docs/css/layout/_sections.css,_sections.css,docs/css/layout/_sections.css,#1f77b4,10,css,0,0
+docs/css/pages/_quantum_prompts.css,_quantum_prompts.css,docs/css/pages/_quantum_prompts.css,#1f77b4,10,css,0,0
+docs/css/utils/_animations.css,_animations.css,docs/css/utils/_animations.css,#1f77b4,10,css,0,0
+docs/js/script.js,script.js,docs/js/script.js,#1f77b4,10,js,0,0
+scripts/README.md,README.md,scripts/README.md,#2ca02c,15,md,0,5
+docs/reference/koios_directory_structure.md,koios_directory_structure.md,docs/reference/koios_directory_structure.md,#2ca02c,11,md,1,0
+scripts/check_dependency_security.py,check_dependency_security.py,scripts/check_dependency_security.py,#ff7f0e,10,py,0,0
+scripts/check_docstring_coverage.py,check_docstring_coverage.py,scripts/check_docstring_coverage.py,#ff7f0e,10,py,0,0
+scripts/check_linting.py,check_linting.py,scripts/check_linting.py,#ff7f0e,10,py,0,0
+scripts/check_protocol_adherence.py,check_protocol_adherence.py,scripts/check_protocol_adherence.py,#ff7f0e,10,py,0,0
+scripts/check_schema_tests.py,check_schema_tests.py,scripts/check_schema_tests.py,#ff7f0e,10,py,0,0
+scripts/check_test_coverage.py,check_test_coverage.py,scripts/check_test_coverage.py,#ff7f0e,10,py,0,0
+scripts/check_type_hints.py,check_type_hints.py,scripts/check_type_hints.py,#ff7f0e,10,py,0,0
+scripts/__init__.py,__init__.py,scripts/__init__.py,#ff7f0e,10,py,0,0
+scripts/ci/validate_aesthetics_ci.py,validate_aesthetics_ci.py,scripts/ci/validate_aesthetics_ci.py,#ff7f0e,13,py,0,3
+scripts/legacy_migration/create_legacy_inventory.py,create_legacy_inventory.py,scripts/legacy_migration/create_legacy_inventory.py,#ff7f0e,13,py,0,3
+scripts/legacy_migration/legacy_data_migrator.py,legacy_data_migrator.py,scripts/legacy_migration/legacy_data_migrator.py,#ff7f0e,13,py,0,3
+scripts/legacy_migration/standardize_legacy_txt.py,standardize_legacy_txt.py,scripts/legacy_migration/standardize_legacy_txt.py,#ff7f0e,13,py,0,3
+scripts/maintenance/backup_cleanup.py,backup_cleanup.py,scripts/maintenance/backup_cleanup.py,#ff7f0e,13,py,0,3
+scripts/maintenance/create_backup.py,create_backup.py,scripts/maintenance/create_backup.py,#ff7f0e,13,py,0,3
+scripts/maintenance/execute_cleanup_phase1.py,execute_cleanup_phase1.py,scripts/maintenance/execute_cleanup_phase1.py,#ff7f0e,13,py,0,3
+scripts/maintenance/execute_cleanup_phase2.py,execute_cleanup_phase2.py,scripts/maintenance/execute_cleanup_phase2.py,#ff7f0e,13,py,0,3
+scripts/maintenance/fix_linting.py,fix_linting.py,scripts/maintenance/fix_linting.py,#ff7f0e,13,py,0,3
+scripts/maintenance/monitor_disk_usage.py,monitor_disk_usage.py,scripts/maintenance/monitor_disk_usage.py,#ff7f0e,13,py,0,3
+scripts/maintenance/propagate_import_fix.py,propagate_import_fix.py,scripts/maintenance/propagate_import_fix.py,#ff7f0e,13,py,0,3
+scripts/maintenance/scheduled_cleanup.py,scheduled_cleanup.py,scripts/maintenance/scheduled_cleanup.py,#ff7f0e,13,py,0,3
+scripts/maintenance/standardize_all.py,standardize_all.py,scripts/maintenance/standardize_all.py,#ff7f0e,13,py,0,3
+scripts/maintenance/standardize_roadmaps.py,standardize_roadmaps.py,scripts/maintenance/standardize_roadmaps.py,#ff7f0e,13,py,0,3
+scripts/maintenance/status_utils.py,status_utils.py,scripts/maintenance/status_utils.py,#ff7f0e,13,py,0,3
+scripts/maintenance/temp_string_analyzer.py,temp_string_analyzer.py,scripts/maintenance/temp_string_analyzer.py,#ff7f0e,13,py,0,3
+scripts/maintenance/test_imports.py,test_imports.py,scripts/maintenance/test_imports.py,#ff7f0e,13,py,0,3
+scripts/maintenance/validate_all_subsystems.py,validate_all_subsystems.py,scripts/maintenance/validate_all_subsystems.py,#ff7f0e,13,py,0,3
+scripts/maintenance/__init__.py,__init__.py,scripts/maintenance/__init__.py,#ff7f0e,13,py,0,3
+scripts/validation/validate_roadmap_tasks.py,validate_roadmap_tasks.py,scripts/validation/validate_roadmap_tasks.py,#ff7f0e,13,py,0,3
+scripts/maintenance/code_health/analyze_autofixer_results.py,analyze_autofixer_results.py,scripts/maintenance/code_health/analyze_autofixer_results.py,#ff7f0e,13,py,0,3
+scripts/MQP.md,MQP.md,scripts/MQP.md,#2ca02c,48,md,38,0
+scripts/ROADMAP.md,ROADMAP.md,scripts/ROADMAP.md,#2ca02c,48,md,38,0
+scripts/docs/process/system_maintenance.md,system_maintenance.md,scripts/docs/process/system_maintenance.md,#2ca02c,48,md,38,0
+scripts/maintenance/code_health/check_specific_file.py,check_specific_file.py,scripts/maintenance/code_health/check_specific_file.py,#ff7f0e,13,py,0,3
+scripts/maintenance/code_health/docstring_autofixer.py,docstring_autofixer.py,scripts/maintenance/code_health/docstring_autofixer.py,#ff7f0e,13,py,0,3
+scripts/maintenance/code_health/docstring_checker.py,docstring_checker.py,scripts/maintenance/code_health/docstring_checker.py,#ff7f0e,13,py,0,3
+scripts/maintenance/code_health/docstring_content_generator.py,docstring_content_generator.py,scripts/maintenance/code_health/docstring_content_generator.py,#ff7f0e,13,py,0,3
+scripts/maintenance/code_health/docstring_metrics.py,docstring_metrics.py,scripts/maintenance/code_health/docstring_metrics.py,#ff7f0e,13,py,0,3
+scripts/maintenance/code_health/docstring_workflow.py,docstring_workflow.py,scripts/maintenance/code_health/docstring_workflow.py,#ff7f0e,13,py,0,3
+scripts/maintenance/code_health/find_file_errors.py,find_file_errors.py,scripts/maintenance/code_health/find_file_errors.py,#ff7f0e,13,py,0,3
+scripts/maintenance/code_health/fix_autofixer_issues.py,fix_autofixer_issues.py,scripts/maintenance/code_health/fix_autofixer_issues.py,#ff7f0e,13,py,0,3
+scripts/maintenance/code_health/import_fixer.py,import_fixer.py,scripts/maintenance/code_health/import_fixer.py,#ff7f0e,13,py,0,3
+scripts/maintenance/code_health/syntax_checker.py,syntax_checker.py,scripts/maintenance/code_health/syntax_checker.py,#ff7f0e,13,py,0,3
+scripts/maintenance/common/report_utils.py,report_utils.py,scripts/maintenance/common/report_utils.py,#ff7f0e,13,py,0,3
+scripts/maintenance/common/__init__.py,__init__.py,scripts/maintenance/common/__init__.py,#ff7f0e,13,py,0,3
+scripts/maintenance/deps/__init__.py,__init__.py,scripts/maintenance/deps/__init__.py,#ff7f0e,13,py,0,3
+scripts/maintenance/docs/add_cross_references.py,add_cross_references.py,scripts/maintenance/docs/add_cross_references.py,#ff7f0e,10,py,0,0
+scripts/maintenance/docs/generate_documentation_graph.py,generate_documentation_graph.py,scripts/maintenance/docs/generate_documentation_graph.py,#ff7f0e,13,py,0,3
+scripts/maintenance/docs/generate_subsystem_reference.py,generate_subsystem_reference.py,scripts/maintenance/docs/generate_subsystem_reference.py,#ff7f0e,13,py,0,3
+scripts/maintenance/docs/register_visualizations.py,register_visualizations.py,scripts/maintenance/docs/register_visualizations.py,#ff7f0e,13,py,0,3
+scripts/maintenance/docs/standardize_changelog.py,standardize_changelog.py,scripts/maintenance/docs/standardize_changelog.py,#ff7f0e,13,py,0,3
+scripts/maintenance/docs/standardize_contributing.py,standardize_contributing.py,scripts/maintenance/docs/standardize_contributing.py,#ff7f0e,13,py,0,3
+scripts/maintenance/docs/standardize_readme.py,standardize_readme.py,scripts/maintenance/docs/standardize_readme.py,#ff7f0e,13,py,0,3
+scripts/maintenance/docs/__init__.py,__init__.py,scripts/maintenance/docs/__init__.py,#ff7f0e,13,py,0,3
+scripts/maintenance/roadmap/analyzer.py,analyzer.py,scripts/maintenance/roadmap/analyzer.py,#ff7f0e,13,py,0,3
+scripts/maintenance/roadmap/backup_report.py,backup_report.py,scripts/maintenance/roadmap/backup_report.py,#ff7f0e,13,py,0,3
+scripts/maintenance/roadmap/formatter.py,formatter.py,scripts/maintenance/roadmap/formatter.py,#ff7f0e,13,py,0,3
+scripts/maintenance/roadmap/standardize.py,standardize.py,scripts/maintenance/roadmap/standardize.py,#ff7f0e,13,py,0,3
+scripts/maintenance/roadmap/__init__.py,__init__.py,scripts/maintenance/roadmap/__init__.py,#ff7f0e,13,py,0,3
+scripts/scheduled/weekly_cross_reference_validation.ps1,weekly_cross_reference_validation.ps1,scripts/scheduled/weekly_cross_reference_validation.ps1,#1f77b4,12,ps1,2,0
+scripts/maintenance/utils/add_cross_refs_to_code.py,add_cross_refs_to_code.py,scripts/maintenance/utils/add_cross_refs_to_code.py,#ff7f0e,10,py,0,0
+scripts/maintenance/utils/add_progress_bars.py,add_progress_bars.py,scripts/maintenance/utils/add_progress_bars.py,#ff7f0e,13,py,0,3
+scripts/maintenance/utils/ast_analyzer.py,ast_analyzer.py,scripts/maintenance/utils/ast_analyzer.py,#ff7f0e,13,py,0,3
+scripts/maintenance/utils/checkpoint_manager.py,checkpoint_manager.py,scripts/maintenance/utils/checkpoint_manager.py,#ff7f0e,13,py,0,3
+scripts/maintenance/utils/update_logger_defaults.py,update_logger_defaults.py,scripts/maintenance/utils/update_logger_defaults.py,#ff7f0e,11,py,1,0
+scripts/maintenance/utils/compare_validation_reports.py,compare_validation_reports.py,scripts/maintenance/utils/compare_validation_reports.py,#ff7f0e,13,py,0,3
+scripts/maintenance/utils/core_cross_ref_scan.py,core_cross_ref_scan.py,scripts/maintenance/utils/core_cross_ref_scan.py,#ff7f0e,10,py,0,0
+scripts/maintenance/utils/docstring_formatter.py,docstring_formatter.py,scripts/maintenance/utils/docstring_formatter.py,#ff7f0e,13,py,0,3
+scripts/maintenance/utils/egos_aesthetics.py,egos_aesthetics.py,scripts/maintenance/utils/egos_aesthetics.py,#ff7f0e,13,py,0,3
+scripts/maintenance/utils/fix_syntax_errors.py,fix_syntax_errors.py,scripts/maintenance/utils/fix_syntax_errors.py,#ff7f0e,13,py,0,3
+scripts/maintenance/utils/focused_cross_ref_scan.py,focused_cross_ref_scan.py,scripts/maintenance/utils/focused_cross_ref_scan.py,#ff7f0e,10,py,0,0
+scripts/maintenance/utils/line_length_analyzer.py,line_length_analyzer.py,scripts/maintenance/utils/line_length_analyzer.py,#ff7f0e,13,py,0,3
+scripts/maintenance/utils/manage_cross_references.py,manage_cross_references.py,scripts/maintenance/utils/manage_cross_references.py,#ff7f0e,10,py,0,0
+scripts/maintenance/utils/rich_style_validator.py,rich_style_validator.py,scripts/maintenance/utils/rich_style_validator.py,#ff7f0e,13,py,0,3
+scripts/maintenance/utils/run_cross_ref_baseline.py,run_cross_ref_baseline.py,scripts/maintenance/utils/run_cross_ref_baseline.py,#ff7f0e,13,py,0,3
+scripts/maintenance/utils/string_splitter.py,string_splitter.py,scripts/maintenance/utils/string_splitter.py,#ff7f0e,13,py,0,3
+scripts/maintenance/utils/validate_aesthetics.py,validate_aesthetics.py,scripts/maintenance/utils/validate_aesthetics.py,#ff7f0e,13,py,0,3
+scripts/maintenance/schedule_cleanup_task.ps1,schedule_cleanup_task.ps1,scripts/maintenance/schedule_cleanup_task.ps1,#1f77b4,13,ps1,0,3
+scripts/maintenance/setup_scheduled_tasks.ps1,setup_scheduled_tasks.ps1,scripts/maintenance/setup_scheduled_tasks.ps1,#1f77b4,13,ps1,0,3
+scripts/reports/roadmap/roadmap_standardization_report_20250419_080506.html,roadmap_standardization_report_20250419_080506.html,scripts/reports/roadmap/roadmap_standardization_report_20250419_080506.html,#1f77b4,10,html,0,0
+scripts/maintenance/docs/reports/documentation/visualizations/documentation_graph_2025-04-20.html,documentation_graph_2025-04-20.html,scripts/maintenance/docs/reports/documentation/visualizations/documentation_graph_2025-04-20.html,#1f77b4,10,html,0,0
+scripts/maintenance/docs/lib/tom-select/tom-select.css,tom-select.css,scripts/maintenance/docs/lib/tom-select/tom-select.css,#1f77b4,10,css,0,0
+scripts/maintenance/docs/lib/vis-9.1.2/vis-network.css,vis-network.css,scripts/maintenance/docs/lib/vis-9.1.2/vis-network.css,#1f77b4,10,css,0,0
+scripts/maintenance/docs/lib/bindings/utils.js,utils.js,scripts/maintenance/docs/lib/bindings/utils.js,#1f77b4,10,js,0,0
+scripts/maintenance/docs/lib/tom-select/tom-select.complete.min.js,tom-select.complete.min.js,scripts/maintenance/docs/lib/tom-select/tom-select.complete.min.js,#1f77b4,10,js,0,0
+scripts/maintenance/docs/lib/vis-9.1.2/vis-network.min.js,vis-network.min.js,scripts/maintenance/docs/lib/vis-9.1.2/vis-network.min.js,#1f77b4,10,js,0,0
+subsystems/README.md,README.md,subsystems/README.md,#2ca02c,10,md,0,0
+subsystems/ATLAS/README.md,README.md,subsystems/ATLAS/README.md,#2ca02c,10,md,0,0
+subsystems/ATLAS/ROADMAP.md,ROADMAP.md,subsystems/ATLAS/ROADMAP.md,#2ca02c,10,md,0,0
+subsystems/chronicler/PROJECT_CHRONICLER_ROADMAP.md,PROJECT_CHRONICLER_ROADMAP.md,subsystems/chronicler/PROJECT_CHRONICLER_ROADMAP.md,#2ca02c,13,md,0,3
+subsystems/chronicler/README.md,README.md,subsystems/chronicler/README.md,#2ca02c,12,md,2,0
+subsystems/chronicler/PROJECT_CHRONICLER_VISION.md,PROJECT_CHRONICLER_VISION.md,subsystems/chronicler/PROJECT_CHRONICLER_VISION.md,#2ca02c,13,md,0,3
+subsystems/CORUJA/README.md,README.md,subsystems/CORUJA/README.md,#2ca02c,10,md,0,0
+subsystems/CORUJA/ROADMAP.md,ROADMAP.md,subsystems/CORUJA/ROADMAP.md,#2ca02c,10,md,0,0
+subsystems/CRONOS/README.md,README.md,subsystems/CRONOS/README.md,#2ca02c,10,md,0,0
+subsystems/CRONOS/ROADMAP.md,ROADMAP.md,subsystems/CRONOS/ROADMAP.md,#2ca02c,10,md,0,0
+subsystems/ETHIK/README.md,README.md,subsystems/ETHIK/README.md,#2ca02c,10,md,0,0
+subsystems/ETHIK/ROADMAP.md,ROADMAP.md,subsystems/ETHIK/ROADMAP.md,#2ca02c,10,md,0,0
+subsystems/HARMONY/README.md,README.md,subsystems/HARMONY/README.md,#2ca02c,10,md,0,0
+subsystems/HARMONY/ROADMAP.md,ROADMAP.md,subsystems/HARMONY/ROADMAP.md,#2ca02c,10,md,0,0
+subsystems/KOIOS/README.md,README.md,subsystems/KOIOS/README.md,#2ca02c,10,md,0,0
+subsystems/KOIOS/ROADMAP.md,ROADMAP.md,subsystems/KOIOS/ROADMAP.md,#2ca02c,10,md,0,0
+subsystems/MASTER/ROADMAP.md,ROADMAP.md,subsystems/MASTER/ROADMAP.md,#2ca02c,15,md,1,4
+subsystems/MASTER/README.md,README.md,subsystems/MASTER/README.md,#2ca02c,11,md,1,0
+subsystems/MYCELIUM/README.md,README.md,subsystems/MYCELIUM/README.md,#2ca02c,10,md,0,0
+subsystems/MYCELIUM/ROADMAP.md,ROADMAP.md,subsystems/MYCELIUM/ROADMAP.md,#2ca02c,10,md,0,0
+subsystems/NEXUS/README.md,README.md,subsystems/NEXUS/README.md,#2ca02c,16,md,2,4
+subsystems/NEXUS/ROADMAP.md,ROADMAP.md,subsystems/NEXUS/ROADMAP.md,#2ca02c,17,md,3,4
+subsystems/STRAT/README.md,README.md,subsystems/STRAT/README.md,#2ca02c,16,md,2,4
+subsystems/STRAT/ROADMAP.md,ROADMAP.md,subsystems/STRAT/ROADMAP.md,#2ca02c,18,md,4,4
+subsystems/SYNC/README.md,README.md,subsystems/SYNC/README.md,#2ca02c,16,md,2,4
+subsystems/SYNC/ROADMAP.md,ROADMAP.md,subsystems/SYNC/ROADMAP.md,#2ca02c,17,md,3,4
+subsystems/TRANSLATOR/ROADMAP.md,ROADMAP.md,subsystems/TRANSLATOR/ROADMAP.md,#2ca02c,21,md,7,4
+subsystems/TRANSLATOR/README.md,README.md,subsystems/TRANSLATOR/README.md,#2ca02c,11,md,1,0
+subsystems/TRANSLATOR/core/language/translation_report.md,translation_report.md,subsystems/TRANSLATOR/core/language/translation_report.md,#2ca02c,14,md,0,4
+subsystems/TRANSLATOR/MQP.md,MQP.md,subsystems/TRANSLATOR/MQP.md,#2ca02c,16,md,6,0
+subsystems/TRANSLATOR/subsystems/TRANSLATOR/README.md,README.md,subsystems/TRANSLATOR/subsystems/TRANSLATOR/README.md,#2ca02c,16,md,6,0
+subsystems/TRANSLATOR/subsystems/TRANSLATOR/ROADMAP.md,ROADMAP.md,subsystems/TRANSLATOR/subsystems/TRANSLATOR/ROADMAP.md,#2ca02c,16,md,6,0
+subsystems/SYNC/docs/roadmap_sync.md,roadmap_sync.md,subsystems/SYNC/docs/roadmap_sync.md,#2ca02c,14,md,0,4
+subsystems/MQP.md,MQP.md,subsystems/MQP.md,#2ca02c,42,md,32,0
+subsystems/ROADMAP.md,ROADMAP.md,subsystems/ROADMAP.md,#2ca02c,42,md,32,0
+subsystems/subsystems/SYNC/README.md,README.md,subsystems/subsystems/SYNC/README.md,#2ca02c,19,md,9,0
+subsystems/subsystems/SYNC/ROADMAP.md,ROADMAP.md,subsystems/subsystems/SYNC/ROADMAP.md,#2ca02c,19,md,9,0
+subsystems/SYNC/docs/roadmap_template.md,roadmap_template.md,subsystems/SYNC/docs/roadmap_template.md,#2ca02c,14,md,0,4
+subsystems/SYNC/docs/sync_definition.md,sync_definition.md,subsystems/SYNC/docs/sync_definition.md,#2ca02c,14,md,0,4
+subsystems/MYCELIUM/docs/protocol_design.md,protocol_design.md,subsystems/MYCELIUM/docs/protocol_design.md,#2ca02c,10,md,0,0
+subsystems/MYCELIUM/docs/technology_evaluation.md,technology_evaluation.md,subsystems/MYCELIUM/docs/technology_evaluation.md,#2ca02c,10,md,0,0
+subsystems/MYCELIUM/docs/topics_and_formats.md,topics_and_formats.md,subsystems/MYCELIUM/docs/topics_and_formats.md,#2ca02c,10,md,0,0
+subsystems/MASTER/docs/egos_unified_documentation.md,egos_unified_documentation.md,subsystems/MASTER/docs/egos_unified_documentation.md,#2ca02c,14,md,0,4
+subsystems/subsystems/MASTER/README.md,README.md,subsystems/subsystems/MASTER/README.md,#2ca02c,15,md,5,0
+subsystems/subsystems/MASTER/ROADMAP.md,ROADMAP.md,subsystems/subsystems/MASTER/ROADMAP.md,#2ca02c,15,md,5,0
+subsystems/KOIOS/chronicler_module/README.md,README.md,subsystems/KOIOS/chronicler_module/README.md,#2ca02c,10,md,0,0
+subsystems/KOIOS/docs/code_evolution_process.md,code_evolution_process.md,subsystems/KOIOS/docs/code_evolution_process.md,#2ca02c,10,md,0,0
+subsystems/KOIOS/docs/lint_error_resolution_processes.md,lint_error_resolution_processes.md,subsystems/KOIOS/docs/lint_error_resolution_processes.md,#2ca02c,10,md,0,0
+subsystems/KOIOS/docs/MDC_RULES_STANDARD.md,MDC_RULES_STANDARD.md,subsystems/KOIOS/docs/MDC_RULES_STANDARD.md,#2ca02c,10,md,0,0
+subsystems/KOIOS/docs/process_index.md,process_index.md,subsystems/KOIOS/docs/process_index.md,#2ca02c,10,md,0,0
+subsystems/KOIOS/docs/project_diagnostic_standard.md,project_diagnostic_standard.md,subsystems/KOIOS/docs/project_diagnostic_standard.md,#2ca02c,10,md,0,0
+subsystems/KOIOS/docs/STANDARDS.md,STANDARDS.md,subsystems/KOIOS/docs/STANDARDS.md,#2ca02c,10,md,0,0
+subsystems/KOIOS/docs/subsystem_structure.md,subsystem_structure.md,subsystems/KOIOS/docs/subsystem_structure.md,#2ca02c,10,md,0,0
+subsystems/KOIOS/docs/syntax_standardization.md,syntax_standardization.md,subsystems/KOIOS/docs/syntax_standardization.md,#2ca02c,10,md,0,0
+subsystems/KOIOS/docs/troubleshooting_guide.md,troubleshooting_guide.md,subsystems/KOIOS/docs/troubleshooting_guide.md,#2ca02c,10,md,0,0
+subsystems/KOIOS/templates/external_research_prompt_template.md,external_research_prompt_template.md,subsystems/KOIOS/templates/external_research_prompt_template.md,#2ca02c,10,md,0,0
+subsystems/KOIOS/tools/file_size_analysis.md,file_size_analysis.md,subsystems/KOIOS/tools/file_size_analysis.md,#2ca02c,10,md,0,0
+subsystems/ETHIK/docs/API.md,API.md,subsystems/ETHIK/docs/API.md,#2ca02c,10,md,0,0
+subsystems/CRONOS/docs/cronos_improvement_recommendations.md,cronos_improvement_recommendations.md,subsystems/CRONOS/docs/cronos_improvement_recommendations.md,#2ca02c,10,md,0,0
+subsystems/CRONOS/docs/procedures.md,procedures.md,subsystems/CRONOS/docs/procedures.md,#2ca02c,10,md,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tools/language/translation_report.md,translation_report.md,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tools/language/translation_report.md,#2ca02c,10,md,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/README.md,README.md,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/README.md,#2ca02c,10,md,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/docs/IMPLEMENTATION_ROADMAP.md,IMPLEMENTATION_ROADMAP.md,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/docs/IMPLEMENTATION_ROADMAP.md,#2ca02c,10,md,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/docs/loveable_deployment.md,loveable_deployment.md,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/docs/loveable_deployment.md,#2ca02c,10,md,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/docs/sandbox_guide.md,sandbox_guide.md,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/docs/sandbox_guide.md,#2ca02c,10,md,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/docs/SYSTEM_ANALYSIS.md,SYSTEM_ANALYSIS.md,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/docs/SYSTEM_ANALYSIS.md,#2ca02c,10,md,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/docs/TRANSLATION_GUIDE.md,TRANSLATION_GUIDE.md,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/docs/TRANSLATION_GUIDE.md,#2ca02c,10,md,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/docs/TRANSLATION_TOOLKIT.md,TRANSLATION_TOOLKIT.md,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/docs/TRANSLATION_TOOLKIT.md,#2ca02c,10,md,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/examples/README.md,README.md,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/examples/README.md,#2ca02c,10,md,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/frontend/README.md,README.md,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/frontend/README.md,#2ca02c,10,md,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/tools/README.md,README.md,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/tools/README.md,#2ca02c,10,md,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/tools/TRANSLATE_README.md,TRANSLATE_README.md,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/tools/TRANSLATE_README.md,#2ca02c,10,md,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/tools/translation_report.md,translation_report.md,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/tools/translation_report.md,#2ca02c,10,md,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/frontend/vue_app/src/components/README.md,README.md,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/frontend/vue_app/src/components/README.md,#2ca02c,10,md,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/data/test/pt_content/teste.md,teste.md,subsystems/CRONOS/core/backups/system_backup_20250330_095733/data/test/pt_content/teste.md,#2ca02c,10,md,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/data/test/translated/data/test/pt_content/teste.md,teste.md,subsystems/CRONOS/core/backups/system_backup_20250330_095733/data/test/translated/data/test/pt_content/teste.md,#2ca02c,10,md,0,0
+subsystems/CORUJA/docs/ARCHITECTURE.md,ARCHITECTURE.md,subsystems/CORUJA/docs/ARCHITECTURE.md,#2ca02c,10,md,0,0
+subsystems/CORUJA/docs/CORUJA_roadmap.md,CORUJA_roadmap.md,subsystems/CORUJA/docs/CORUJA_roadmap.md,#2ca02c,10,md,0,0
+subsystems/CORUJA/docs/human_ai_interaction_guidelines.md,human_ai_interaction_guidelines.md,subsystems/CORUJA/docs/human_ai_interaction_guidelines.md,#2ca02c,10,md,0,0
+subsystems/CORUJA/prompts/pdds/pdd_website_generation_v3.md,pdd_website_generation_v3.md,subsystems/CORUJA/prompts/pdds/pdd_website_generation_v3.md,#2ca02c,10,md,0,0
+subsystems/__init__.py,__init__.py,subsystems/__init__.py,#ff7f0e,10,py,0,0
+subsystems/ATLAS/__init__.py,__init__.py,subsystems/ATLAS/__init__.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/schemas.py,schemas.py,subsystems/CORUJA/schemas.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/__init__.py,__init__.py,subsystems/CORUJA/__init__.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/service.py,service.py,subsystems/CRONOS/service.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/__init__.py,__init__.py,subsystems/CRONOS/__init__.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/exceptions.py,exceptions.py,subsystems/ETHIK/exceptions.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/__init__.py,__init__.py,subsystems/ETHIK/__init__.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/__init__.py,__init__.py,subsystems/KOIOS/__init__.py,#ff7f0e,10,py,0,0
+subsystems/MYCELIUM/__init__.py,__init__.py,subsystems/MYCELIUM/__init__.py,#ff7f0e,10,py,0,0
+subsystems/TRANSLATOR/core/module.py,module.py,subsystems/TRANSLATOR/core/module.py,#ff7f0e,14,py,0,4
+subsystems/subsystems/TRANSLATOR/README.md,README.md,subsystems/subsystems/TRANSLATOR/README.md,#2ca02c,16,md,6,0
+subsystems/subsystems/TRANSLATOR/ROADMAP.md,ROADMAP.md,subsystems/subsystems/TRANSLATOR/ROADMAP.md,#2ca02c,16,md,6,0
+subsystems/TRANSLATOR/core/__init__.py,__init__.py,subsystems/TRANSLATOR/core/__init__.py,#ff7f0e,14,py,0,4
+subsystems/TRANSLATOR/src/translator_core.py,translator_core.py,subsystems/TRANSLATOR/src/translator_core.py,#ff7f0e,14,py,0,4
+subsystems/TRANSLATOR/src/__init__.py,__init__.py,subsystems/TRANSLATOR/src/__init__.py,#ff7f0e,14,py,0,4
+subsystems/TRANSLATOR/tests/test_module.py,test_module.py,subsystems/TRANSLATOR/tests/test_module.py,#ff7f0e,14,py,0,4
+subsystems/TRANSLATOR/tests/__init__.py,__init__.py,subsystems/TRANSLATOR/tests/__init__.py,#ff7f0e,14,py,0,4
+subsystems/TRANSLATOR/tests/translator/test_placeholder.py,test_placeholder.py,subsystems/TRANSLATOR/tests/translator/test_placeholder.py,#ff7f0e,14,py,0,4
+subsystems/TRANSLATOR/core/language/ai_translate_file.py,ai_translate_file.py,subsystems/TRANSLATOR/core/language/ai_translate_file.py,#ff7f0e,14,py,0,4
+subsystems/SYNC/core/module.py,module.py,subsystems/SYNC/core/module.py,#ff7f0e,14,py,0,4
+subsystems/SYNC/core/__init__.py,__init__.py,subsystems/SYNC/core/__init__.py,#ff7f0e,14,py,0,4
+subsystems/SYNC/src/sync_core.py,sync_core.py,subsystems/SYNC/src/sync_core.py,#ff7f0e,14,py,0,4
+subsystems/SYNC/src/__init__.py,__init__.py,subsystems/SYNC/src/__init__.py,#ff7f0e,14,py,0,4
+subsystems/SYNC/tests/test_module.py,test_module.py,subsystems/SYNC/tests/test_module.py,#ff7f0e,14,py,0,4
+subsystems/SYNC/tests/__init__.py,__init__.py,subsystems/SYNC/tests/__init__.py,#ff7f0e,14,py,0,4
+subsystems/SYNC/tests/sync/test_placeholder.py,test_placeholder.py,subsystems/SYNC/tests/sync/test_placeholder.py,#ff7f0e,14,py,0,4
+subsystems/SYNC/MQP.md,MQP.md,subsystems/SYNC/MQP.md,#2ca02c,11,md,1,0
+subsystems/SYNC/subsystems/SYNC/README.md,README.md,subsystems/SYNC/subsystems/SYNC/README.md,#2ca02c,11,md,1,0
+subsystems/SYNC/subsystems/SYNC/ROADMAP.md,ROADMAP.md,subsystems/SYNC/subsystems/SYNC/ROADMAP.md,#2ca02c,11,md,1,0
+subsystems/STRAT/src/strat_core.py,strat_core.py,subsystems/STRAT/src/strat_core.py,#ff7f0e,14,py,0,4
+subsystems/subsystems/STRAT/README.md,README.md,subsystems/subsystems/STRAT/README.md,#2ca02c,13,md,3,0
+subsystems/subsystems/STRAT/ROADMAP.md,ROADMAP.md,subsystems/subsystems/STRAT/ROADMAP.md,#2ca02c,13,md,3,0
+subsystems/STRAT/src/__init__.py,__init__.py,subsystems/STRAT/src/__init__.py,#ff7f0e,14,py,0,4
+subsystems/STRAT/tests/__init__.py,__init__.py,subsystems/STRAT/tests/__init__.py,#ff7f0e,14,py,0,4
+subsystems/STRAT/tests/strat/test_placeholder.py,test_placeholder.py,subsystems/STRAT/tests/strat/test_placeholder.py,#ff7f0e,14,py,0,4
+subsystems/STRAT/MQP.md,MQP.md,subsystems/STRAT/MQP.md,#2ca02c,12,md,2,0
+subsystems/STRAT/subsystems/STRAT/README.md,README.md,subsystems/STRAT/subsystems/STRAT/README.md,#2ca02c,12,md,2,0
+subsystems/STRAT/subsystems/STRAT/ROADMAP.md,ROADMAP.md,subsystems/STRAT/subsystems/STRAT/ROADMAP.md,#2ca02c,12,md,2,0
+subsystems/STRAT/tests/strat/__init__.py,__init__.py,subsystems/STRAT/tests/strat/__init__.py,#ff7f0e,14,py,0,4
+subsystems/NEXUS/core/ast_visitor.py,ast_visitor.py,subsystems/NEXUS/core/ast_visitor.py,#ff7f0e,14,py,0,4
+subsystems/subsystems/NEXUS/README.md,README.md,subsystems/subsystems/NEXUS/README.md,#2ca02c,19,md,9,0
+subsystems/subsystems/NEXUS/ROADMAP.md,ROADMAP.md,subsystems/subsystems/NEXUS/ROADMAP.md,#2ca02c,19,md,9,0
+subsystems/NEXUS/core/nexus_core.py,nexus_core.py,subsystems/NEXUS/core/nexus_core.py,#ff7f0e,14,py,0,4
+subsystems/NEXUS/services/service.py,service.py,subsystems/NEXUS/services/service.py,#ff7f0e,14,py,0,4
+subsystems/NEXUS/src/nexus_core.py,nexus_core.py,subsystems/NEXUS/src/nexus_core.py,#ff7f0e,14,py,0,4
+subsystems/NEXUS/src/__init__.py,__init__.py,subsystems/NEXUS/src/__init__.py,#ff7f0e,14,py,0,4
+subsystems/NEXUS/tests/conftest.py,conftest.py,subsystems/NEXUS/tests/conftest.py,#ff7f0e,14,py,0,4
+subsystems/NEXUS/tests/test_analyzer.py,test_analyzer.py,subsystems/NEXUS/tests/test_analyzer.py,#ff7f0e,14,py,0,4
+subsystems/NEXUS/tests/test_nexus_core.py,test_nexus_core.py,subsystems/NEXUS/tests/test_nexus_core.py,#ff7f0e,14,py,0,4
+subsystems/NEXUS/tests/test_nexus_service.py,test_nexus_service.py,subsystems/NEXUS/tests/test_nexus_service.py,#ff7f0e,14,py,0,4
+subsystems/NEXUS/tests/nexus/test_placeholder.py,test_placeholder.py,subsystems/NEXUS/tests/nexus/test_placeholder.py,#ff7f0e,14,py,0,4
+subsystems/NEXUS/MQP.md,MQP.md,subsystems/NEXUS/MQP.md,#2ca02c,11,md,1,0
+subsystems/NEXUS/subsystems/NEXUS/README.md,README.md,subsystems/NEXUS/subsystems/NEXUS/README.md,#2ca02c,11,md,1,0
+subsystems/NEXUS/subsystems/NEXUS/ROADMAP.md,ROADMAP.md,subsystems/NEXUS/subsystems/NEXUS/ROADMAP.md,#2ca02c,11,md,1,0
+subsystems/MYCELIUM/core/broker.py,broker.py,subsystems/MYCELIUM/core/broker.py,#ff7f0e,10,py,0,0
+subsystems/MYCELIUM/core/client.py,client.py,subsystems/MYCELIUM/core/client.py,#ff7f0e,10,py,0,0
+subsystems/MYCELIUM/core/interface.py,interface.py,subsystems/MYCELIUM/core/interface.py,#ff7f0e,10,py,0,0
+subsystems/MYCELIUM/core/message.py,message.py,subsystems/MYCELIUM/core/message.py,#ff7f0e,10,py,0,0
+subsystems/MYCELIUM/core/nats_interface.py,nats_interface.py,subsystems/MYCELIUM/core/nats_interface.py,#ff7f0e,10,py,0,0
+subsystems/MYCELIUM/core/network.py,network.py,subsystems/MYCELIUM/core/network.py,#ff7f0e,10,py,0,0
+subsystems/MYCELIUM/core/node.py,node.py,subsystems/MYCELIUM/core/node.py,#ff7f0e,10,py,0,0
+subsystems/MYCELIUM/core/__init__.py,__init__.py,subsystems/MYCELIUM/core/__init__.py,#ff7f0e,10,py,0,0
+subsystems/MYCELIUM/examples/basic_usage.py,basic_usage.py,subsystems/MYCELIUM/examples/basic_usage.py,#ff7f0e,10,py,0,0
+subsystems/MYCELIUM/interfaces/mycelium_interface.py,mycelium_interface.py,subsystems/MYCELIUM/interfaces/mycelium_interface.py,#ff7f0e,10,py,0,0
+subsystems/MYCELIUM/schemas/ethik_contracts.py,ethik_contracts.py,subsystems/MYCELIUM/schemas/ethik_contracts.py,#ff7f0e,10,py,0,0
+subsystems/MYCELIUM/tests/test_reliability.py,test_reliability.py,subsystems/MYCELIUM/tests/test_reliability.py,#ff7f0e,10,py,0,0
+subsystems/MYCELIUM/tests/test_sparc_tasks.py,test_sparc_tasks.py,subsystems/MYCELIUM/tests/test_sparc_tasks.py,#ff7f0e,10,py,0,0
+subsystems/MYCELIUM/validation/sparc_schema.py,sparc_schema.py,subsystems/MYCELIUM/validation/sparc_schema.py,#ff7f0e,10,py,0,0
+subsystems/MYCELIUM/tests/core/test_interface.py,test_interface.py,subsystems/MYCELIUM/tests/core/test_interface.py,#ff7f0e,10,py,0,0
+subsystems/MYCELIUM/tests/core/test_network.py,test_network.py,subsystems/MYCELIUM/tests/core/test_network.py,#ff7f0e,10,py,0,0
+subsystems/MYCELIUM/src/schemas/sparc_tasks.py,sparc_tasks.py,subsystems/MYCELIUM/src/schemas/sparc_tasks.py,#ff7f0e,10,py,0,0
+subsystems/MYCELIUM/core/implementations/nats_interface.py,nats_interface.py,subsystems/MYCELIUM/core/implementations/nats_interface.py,#ff7f0e,10,py,0,0
+subsystems/MASTER/core/module.py,module.py,subsystems/MASTER/core/module.py,#ff7f0e,14,py,0,4
+subsystems/MASTER/core/__init__.py,__init__.py,subsystems/MASTER/core/__init__.py,#ff7f0e,14,py,0,4
+subsystems/MASTER/tests/test_module.py,test_module.py,subsystems/MASTER/tests/test_module.py,#ff7f0e,14,py,0,4
+subsystems/MASTER/tests/__init__.py,__init__.py,subsystems/MASTER/tests/__init__.py,#ff7f0e,14,py,0,4
+subsystems/KOIOS/chronicler_module/analyzer.py,analyzer.py,subsystems/KOIOS/chronicler_module/analyzer.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/chronicler_module/generator.py,generator.py,subsystems/KOIOS/chronicler_module/generator.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/chronicler_module/main.py,main.py,subsystems/KOIOS/chronicler_module/main.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/chronicler_module/renderer.py,renderer.py,subsystems/KOIOS/chronicler_module/renderer.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/chronicler_module/__init__.py,__init__.py,subsystems/KOIOS/chronicler_module/__init__.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/core/logging.py,logging.py,subsystems/KOIOS/core/logging.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/core/metadata_manager.py,metadata_manager.py,subsystems/KOIOS/core/metadata_manager.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/core/__init__.py,__init__.py,subsystems/KOIOS/core/__init__.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/schemas/pdd_schema.py,pdd_schema.py,subsystems/KOIOS/schemas/pdd_schema.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/services/pdf_processing_service.py,pdf_processing_service.py,subsystems/KOIOS/services/pdf_processing_service.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/services/semantic_search_service.py,semantic_search_service.py,subsystems/KOIOS/services/semantic_search_service.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/tests/test_filesystem_monitor.py,test_filesystem_monitor.py,subsystems/KOIOS/tests/test_filesystem_monitor.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/tests/test_koios_bios_001_validator_integration.py,test_koios_bios_001_validator_integration.py,subsystems/KOIOS/tests/test_koios_bios_001_validator_integration.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/tests/test_koios_ci_001_validator_integration.py,test_koios_ci_001_validator_integration.py,subsystems/KOIOS/tests/test_koios_ci_001_validator_integration.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/tests/test_koios_report_001_report_generator.py,test_koios_report_001_report_generator.py,subsystems/KOIOS/tests/test_koios_report_001_report_generator.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/tests/test_koios_validate_001_naming_standard.py,test_koios_validate_001_naming_standard.py,subsystems/KOIOS/tests/test_koios_validate_001_naming_standard.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/tests/test_logging.py,test_logging.py,subsystems/KOIOS/tests/test_logging.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/tests/test_metadata.py,test_metadata.py,subsystems/KOIOS/tests/test_metadata.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/tests/test_metadata_manager.py,test_metadata_manager.py,subsystems/KOIOS/tests/test_metadata_manager.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/tests/test_naming_validator.py,test_naming_validator.py,subsystems/KOIOS/tests/test_naming_validator.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/tools/fix_lint_errors.py,fix_lint_errors.py,subsystems/KOIOS/tools/fix_lint_errors.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/tools/run_full_diagnostic.py,run_full_diagnostic.py,subsystems/KOIOS/tools/run_full_diagnostic.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/tools/validate_mdc_rules.py,validate_mdc_rules.py,subsystems/KOIOS/tools/validate_mdc_rules.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/tools/validate_subsystem_structure.py,validate_subsystem_structure.py,subsystems/KOIOS/tools/validate_subsystem_structure.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/validation/metadata_validator.py,metadata_validator.py,subsystems/KOIOS/validation/metadata_validator.py,#ff7f0e,10,py,0,0
+subsystems/KOIOS/validation/naming_validator.py,naming_validator.py,subsystems/KOIOS/validation/naming_validator.py,#ff7f0e,10,py,0,0
+subsystems/HARMONY/core/module.py,module.py,subsystems/HARMONY/core/module.py,#ff7f0e,10,py,0,0
+subsystems/HARMONY/core/__init__.py,__init__.py,subsystems/HARMONY/core/__init__.py,#ff7f0e,10,py,0,0
+subsystems/HARMONY/src/harmony_core.py,harmony_core.py,subsystems/HARMONY/src/harmony_core.py,#ff7f0e,10,py,0,0
+subsystems/HARMONY/src/__init__.py,__init__.py,subsystems/HARMONY/src/__init__.py,#ff7f0e,10,py,0,0
+subsystems/HARMONY/tests/test_module.py,test_module.py,subsystems/HARMONY/tests/test_module.py,#ff7f0e,10,py,0,0
+subsystems/HARMONY/tests/__init__.py,__init__.py,subsystems/HARMONY/tests/__init__.py,#ff7f0e,10,py,0,0
+subsystems/HARMONY/tests/harmony/test_placeholder.py,test_placeholder.py,subsystems/HARMONY/tests/harmony/test_placeholder.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/core/basic_ethik_checker.py,basic_ethik_checker.py,subsystems/ETHIK/core/basic_ethik_checker.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/core/dummy_ethik_checker.py,dummy_ethik_checker.py,subsystems/ETHIK/core/dummy_ethik_checker.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/core/rule_engine.py,rule_engine.py,subsystems/ETHIK/core/rule_engine.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/core/rule_loader.py,rule_loader.py,subsystems/ETHIK/core/rule_loader.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/core/sanitizer.py,sanitizer.py,subsystems/ETHIK/core/sanitizer.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/core/validator.py,validator.py,subsystems/ETHIK/core/validator.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/core/__init__.py,__init__.py,subsystems/ETHIK/core/__init__.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/interfaces/ethik_checker_interface.py,ethik_checker_interface.py,subsystems/ETHIK/interfaces/ethik_checker_interface.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/interfaces/rule_engine_interface.py,rule_engine_interface.py,subsystems/ETHIK/interfaces/rule_engine_interface.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/rules/sparc.py,sparc.py,subsystems/ETHIK/rules/sparc.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/services/service.py,service.py,subsystems/ETHIK/services/service.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/tests/test_ETHIK-BACKUP-001_sistema_backup.py,test_ETHIK-BACKUP-001_sistema_backup.py,subsystems/ETHIK/tests/test_ETHIK-BACKUP-001_sistema_backup.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/tests/test_ETHIK-VERIFY-001_verificacao_migracao.py,test_ETHIK-VERIFY-001_verificacao_migracao.py,subsystems/ETHIK/tests/test_ETHIK-VERIFY-001_verificacao_migracao.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/tests/test_sanitizer_mycelium.py,test_sanitizer_mycelium.py,subsystems/ETHIK/tests/test_sanitizer_mycelium.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/tests/test_service.py,test_service.py,subsystems/ETHIK/tests/test_service.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/tests/test_validator.py,test_validator.py,subsystems/ETHIK/tests/test_validator.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/tests/test_validator_alerts.py,test_validator_alerts.py,subsystems/ETHIK/tests/test_validator_alerts.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/tests/test_validator_concurrent.py,test_validator_concurrent.py,subsystems/ETHIK/tests/test_validator_concurrent.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/tests/test_validator_rules.py,test_validator_rules.py,subsystems/ETHIK/tests/test_validator_rules.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/tests/test_validator_severity.py,test_validator_severity.py,subsystems/ETHIK/tests/test_validator_severity.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/tests/__init__.py,__init__.py,subsystems/ETHIK/tests/__init__.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/tests/core/test_basic_ethik_checker.py,test_basic_ethik_checker.py,subsystems/ETHIK/tests/core/test_basic_ethik_checker.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/tests/unit/test_sanitizer.py,test_sanitizer.py,subsystems/ETHIK/tests/unit/test_sanitizer.py,#ff7f0e,10,py,0,0
+subsystems/ETHIK/tests/unit/__init__.py,__init__.py,subsystems/ETHIK/tests/unit/__init__.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backup_manager.py,backup_manager.py,subsystems/CRONOS/core/backup_manager.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/pid_manager.py,pid_manager.py,subsystems/CRONOS/core/pid_manager.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/__init__.py,__init__.py,subsystems/CRONOS/core/__init__.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/services/service.py,service.py,subsystems/CRONOS/services/service.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/tests/conftest.py,conftest.py,subsystems/CRONOS/tests/conftest.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/tests/test_backup_cleanup.py,test_backup_cleanup.py,subsystems/CRONOS/tests/test_backup_cleanup.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/tests/test_backup_creation.py,test_backup_creation.py,subsystems/CRONOS/tests/test_backup_creation.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/tests/test_backup_helpers.py,test_backup_helpers.py,subsystems/CRONOS/tests/test_backup_helpers.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/tests/test_backup_history.py,test_backup_history.py,subsystems/CRONOS/tests/test_backup_history.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/tests/test_backup_listing.py,test_backup_listing.py,subsystems/CRONOS/tests/test_backup_listing.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/tests/test_backup_manager.py,test_backup_manager.py,subsystems/CRONOS/tests/test_backup_manager.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/tests/test_backup_restore.py,test_backup_restore.py,subsystems/CRONOS/tests/test_backup_restore.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/tests/__init__.py,__init__.py,subsystems/CRONOS/tests/__init__.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/tests/core/test_service.py,test_service.py,subsystems/CRONOS/tests/core/test_service.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/tests/core/__init__.py,__init__.py,subsystems/CRONOS/tests/core/__init__.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/.cursor/startup.py,startup.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/.cursor/startup.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/data/adaptive_model_selector.py,adaptive_model_selector.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/data/adaptive_model_selector.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/data/adaptive_model_selector_1.py,adaptive_model_selector_1.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/data/adaptive_model_selector_1.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/test_metadata_system.py,test_metadata_system.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/test_metadata_system.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/test_perplexity_models.py,test_perplexity_models.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/test_perplexity_models.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/test_perplexity_openai.py,test_perplexity_openai.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/test_perplexity_openai.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/test_search.py,test_search.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/test_search.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tools/deployment/sandbox/run_sandbox.py,run_sandbox.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tools/deployment/sandbox/run_sandbox.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tools/deployment/sandbox/examples/basic_integration.py,basic_integration.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tools/deployment/sandbox/examples/basic_integration.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tools/deployment/sandbox/api/flask_api/app.py,app.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tools/deployment/sandbox/api/flask_api/app.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/integration/test_perplexity_integration.py,test_perplexity_integration.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/integration/test_perplexity_integration.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/setup_sandbox.py,setup_sandbox.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/setup_sandbox.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/setup_sandbox_env.py,setup_sandbox_env.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/setup_sandbox_env.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/tools/sample_test.py,sample_test.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/tools/sample_test.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/tools/translate_to_english.py,translate_to_english.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/tools/translate_to_english.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/api/flask_api/app.py,app.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/api/flask_api/app.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/QUANTUM_PROMPTS/NEXUS/tests/test_nexus_core.py,test_nexus_core.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/QUANTUM_PROMPTS/NEXUS/tests/test_nexus_core.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/QUANTUM_PROMPTS/METADATA/tests/test_filesystem_monitor.py,test_filesystem_monitor.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/QUANTUM_PROMPTS/METADATA/tests/test_filesystem_monitor.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/QUANTUM_PROMPTS/METADATA/tests/test_metadata_manager.py,test_metadata_manager.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/QUANTUM_PROMPTS/METADATA/tests/test_metadata_manager.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/QUANTUM_PROMPTS/ETHIK/tests/unit/test_sanitizer.py,test_sanitizer.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/QUANTUM_PROMPTS/ETHIK/tests/unit/test_sanitizer.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/QUANTUM_PROMPTS/BIOS-Q/BIOS_Q/tests/test_context.py,test_context.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/QUANTUM_PROMPTS/BIOS-Q/BIOS_Q/tests/test_context.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/QUANTUM_PROMPTS/BIOS-Q/BIOS_Q/tests/test_integration.py,test_integration.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/QUANTUM_PROMPTS/BIOS-Q/BIOS_Q/tests/test_integration.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/QUANTUM_PROMPTS/ATLAS/tests/test_quantum_visualization.py,test_quantum_visualization.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/QUANTUM_PROMPTS/ATLAS/tests/test_quantum_visualization.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/core/quantum_unified/server/tests/test_quantum_unified_server.py,test_quantum_unified_server.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/core/quantum_unified/server/tests/test_quantum_unified_server.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/core/modules/translator_dev/tests/test_translator.py,test_translator.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/core/modules/translator_dev/tests/test_translator.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/core/integrations/bots/test_bot_config.py,test_bot_config.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/core/integrations/bots/test_bot_config.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/core/integrations/bots/test_bot_modules.py,test_bot_modules.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/core/integrations/bots/test_bot_modules.py,#ff7f0e,10,py,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/core/integrations/bots/test_telegram_bot.py,test_telegram_bot.py,subsystems/CRONOS/core/backups/system_backup_20250330_095733/core/integrations/bots/test_telegram_bot.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/config/loader.py,loader.py,subsystems/CORUJA/config/loader.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/config/__init__.py,__init__.py,subsystems/CORUJA/config/__init__.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/core/agent_runtime.py,agent_runtime.py,subsystems/CORUJA/core/agent_runtime.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/core/basic_orchestrator.py,basic_orchestrator.py,subsystems/CORUJA/core/basic_orchestrator.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/core/communication_protocols.py,communication_protocols.py,subsystems/CORUJA/core/communication_protocols.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/core/crew_manager.py,crew_manager.py,subsystems/CORUJA/core/crew_manager.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/core/integration_standards.py,integration_standards.py,subsystems/CORUJA/core/integration_standards.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/core/prompt_manager.py,prompt_manager.py,subsystems/CORUJA/core/prompt_manager.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/core/sparc_registry.py,sparc_registry.py,subsystems/CORUJA/core/sparc_registry.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/core/sparc_tasks.py,sparc_tasks.py,subsystems/CORUJA/core/sparc_tasks.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/core/tool_registry.py,tool_registry.py,subsystems/CORUJA/core/tool_registry.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/core/__init__.py,__init__.py,subsystems/CORUJA/core/__init__.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/docs/__init__.py,__init__.py,subsystems/CORUJA/docs/__init__.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/handlers/zendesk_analyzer_handler.py,zendesk_analyzer_handler.py,subsystems/CORUJA/handlers/zendesk_analyzer_handler.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/handlers/__init__.py,__init__.py,subsystems/CORUJA/handlers/__init__.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/implementations/openai_interface.py,openai_interface.py,subsystems/CORUJA/implementations/openai_interface.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/integration/crew_manager_stub.py,crew_manager_stub.py,subsystems/CORUJA/integration/crew_manager_stub.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/integration/ethik_validation.py,ethik_validation.py,subsystems/CORUJA/integration/ethik_validation.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/integration/mycelium_bridge.py,mycelium_bridge.py,subsystems/CORUJA/integration/mycelium_bridge.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/interfaces/model_interface.py,model_interface.py,subsystems/CORUJA/interfaces/model_interface.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/interfaces/sparc_messages.py,sparc_messages.py,subsystems/CORUJA/interfaces/sparc_messages.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/interfaces/__init__.py,__init__.py,subsystems/CORUJA/interfaces/__init__.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/models/gemini_interface.py,gemini_interface.py,subsystems/CORUJA/models/gemini_interface.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/models/__init__.py,__init__.py,subsystems/CORUJA/models/__init__.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/orchestration/llm_handler.py,llm_handler.py,subsystems/CORUJA/orchestration/llm_handler.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/orchestration/model_selection.py,model_selection.py,subsystems/CORUJA/orchestration/model_selection.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/orchestration/prompt_templates.py,prompt_templates.py,subsystems/CORUJA/orchestration/prompt_templates.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/schemas/models.py,models.py,subsystems/CORUJA/schemas/models.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/src/agent.py,agent.py,subsystems/CORUJA/src/agent.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/src/config_loader.py,config_loader.py,subsystems/CORUJA/src/config_loader.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/src/crew_manager.py,crew_manager.py,subsystems/CORUJA/src/crew_manager.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/src/model_interface.py,model_interface.py,subsystems/CORUJA/src/model_interface.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/src/mycelium_adapter.py,mycelium_adapter.py,subsystems/CORUJA/src/mycelium_adapter.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/src/prompt_manager.py,prompt_manager.py,subsystems/CORUJA/src/prompt_manager.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/src/sparc_executor.py,sparc_executor.py,subsystems/CORUJA/src/sparc_executor.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/src/sparc_registry.py,sparc_registry.py,subsystems/CORUJA/src/sparc_registry.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/src/task.py,task.py,subsystems/CORUJA/src/task.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/src/tool_registry.py,tool_registry.py,subsystems/CORUJA/src/tool_registry.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/src/__init__.py,__init__.py,subsystems/CORUJA/src/__init__.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/tests/__init__.py,__init__.py,subsystems/CORUJA/tests/__init__.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/tests/core/test_basic_orchestrator.py,test_basic_orchestrator.py,subsystems/CORUJA/tests/core/test_basic_orchestrator.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/tests/core/test_prompt_manager.py,test_prompt_manager.py,subsystems/CORUJA/tests/core/test_prompt_manager.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/tests/core/__init__.py,__init__.py,subsystems/CORUJA/tests/core/__init__.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/tests/models/test_gemini_interface.py,test_gemini_interface.py,subsystems/CORUJA/tests/models/test_gemini_interface.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/tests/models/test_simple_gemini.py,test_simple_gemini.py,subsystems/CORUJA/tests/models/test_simple_gemini.py,#ff7f0e,10,py,0,0
+subsystems/CORUJA/tests/models/__init__.py,__init__.py,subsystems/CORUJA/tests/models/__init__.py,#ff7f0e,10,py,0,0
+subsystems/ATLAS/core/atlas_core.py,atlas_core.py,subsystems/ATLAS/core/atlas_core.py,#ff7f0e,10,py,0,0
+subsystems/ATLAS/core/cartographer.py,cartographer.py,subsystems/ATLAS/core/cartographer.py,#ff7f0e,10,py,0,0
+subsystems/ATLAS/core/__init__.py,__init__.py,subsystems/ATLAS/core/__init__.py,#ff7f0e,10,py,0,0
+subsystems/ATLAS/services/service.py,service.py,subsystems/ATLAS/services/service.py,#ff7f0e,10,py,0,0
+subsystems/ATLAS/tests/conftest.py,conftest.py,subsystems/ATLAS/tests/conftest.py,#ff7f0e,10,py,0,0
+subsystems/ATLAS/tests/test_atlas_core.py,test_atlas_core.py,subsystems/ATLAS/tests/test_atlas_core.py,#ff7f0e,10,py,0,0
+subsystems/ATLAS/tests/test_atlas_service.py,test_atlas_service.py,subsystems/ATLAS/tests/test_atlas_service.py,#ff7f0e,10,py,0,0
+subsystems/ATLAS/tests/test_cartographer.py,test_cartographer.py,subsystems/ATLAS/tests/test_cartographer.py,#ff7f0e,10,py,0,0
+subsystems/ATLAS/tests/__init__.py,__init__.py,subsystems/ATLAS/tests/__init__.py,#ff7f0e,10,py,0,0
+subsystems/TRANSLATOR/core/language/translate_tools.ps1,translate_tools.ps1,subsystems/TRANSLATOR/core/language/translate_tools.ps1,#1f77b4,14,ps1,0,4
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/tools/translate_tools.ps1,translate_tools.ps1,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/tools/translate_tools.ps1,#1f77b4,10,ps1,0,0
+subsystems/TRANSLATOR/core/language/ai_translation_log.txt,ai_translation_log.txt,subsystems/TRANSLATOR/core/language/ai_translation_log.txt,#1f77b4,14,txt,0,4
+subsystems/TRANSLATOR/core/language/translation_log.txt,translation_log.txt,subsystems/TRANSLATOR/core/language/translation_log.txt,#1f77b4,14,txt,0,4
+subsystems/KOIOS/chronicler_module/requirements.txt,requirements.txt,subsystems/KOIOS/chronicler_module/requirements.txt,#1f77b4,10,txt,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tools/language/ai_translation_log.txt,ai_translation_log.txt,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tools/language/ai_translation_log.txt,#1f77b4,10,txt,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tools/language/translation_log.txt,translation_log.txt,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tools/language/translation_log.txt,#1f77b4,10,txt,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/unification_test/target/test1.txt,test1.txt,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/unification_test/target/test1.txt,#1f77b4,10,txt,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/unification_test/target/subdir/test2.txt,test2.txt,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/unification_test/target/subdir/test2.txt,#1f77b4,10,txt,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/tools/ai_translation_log.txt,ai_translation_log.txt,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/tools/ai_translation_log.txt,#1f77b4,10,txt,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/tools/translation_log.txt,translation_log.txt,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/tools/translation_log.txt,#1f77b4,10,txt,0,0
+subsystems/KOIOS/chronicler_module/chronicler_config.yaml,chronicler_config.yaml,subsystems/KOIOS/chronicler_module/chronicler_config.yaml,#9467bd,10,yaml,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/data/docker-compose.yaml,docker-compose.yaml,subsystems/CRONOS/core/backups/system_backup_20250330_095733/data/docker-compose.yaml,#9467bd,10,yaml,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/data/pnpm-lock.yaml,pnpm-lock.yaml,subsystems/CRONOS/core/backups/system_backup_20250330_095733/data/pnpm-lock.yaml,#9467bd,10,yaml,0,0
+subsystems/CORUJA/prompts/pdds/generate_python_docstring.yaml,generate_python_docstring.yaml,subsystems/CORUJA/prompts/pdds/generate_python_docstring.yaml,#9467bd,10,yaml,0,0
+subsystems/KOIOS/chronicler_module/chronicler_output/chronicler_module_Chronicler_Summary.html,chronicler_module_Chronicler_Summary.html,subsystems/KOIOS/chronicler_module/chronicler_output/chronicler_module_Chronicler_Summary.html,#1f77b4,10,html,0,0
+subsystems/KOIOS/chronicler_module/chronicler_output/chronicler_report_chronicler_module.html,chronicler_report_chronicler_module.html,subsystems/KOIOS/chronicler_module/chronicler_output/chronicler_report_chronicler_module.html,#1f77b4,10,html,0,0
+subsystems/KOIOS/chronicler_module/templates/basic_summary_template.html,basic_summary_template.html,subsystems/KOIOS/chronicler_module/templates/basic_summary_template.html,#1f77b4,10,html,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tools/deployment/sandbox/frontend/html_basic/index.html,index.html,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tools/deployment/sandbox/frontend/html_basic/index.html,#1f77b4,10,html,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/frontend/html_basic/index.html,index.html,subsystems/CRONOS/core/backups/system_backup_20250330_095733/tests/sandbox/frontend/html_basic/index.html,#1f77b4,10,html,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/.cursor/check_mcp_connection.js,check_mcp_connection.js,subsystems/CRONOS/core/backups/system_backup_20250330_095733/.cursor/check_mcp_connection.js,#1f77b4,10,js,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/.cursor/mcp_connection.js,mcp_connection.js,subsystems/CRONOS/core/backups/system_backup_20250330_095733/.cursor/mcp_connection.js,#1f77b4,10,js,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/.cursor/start_mcp.js,start_mcp.js,subsystems/CRONOS/core/backups/system_backup_20250330_095733/.cursor/start_mcp.js,#1f77b4,10,js,0,0
+subsystems/CRONOS/core/backups/system_backup_20250330_095733/.cursor/verify_mcp_server.js,verify_mcp_server.js,subsystems/CRONOS/core/backups/system_backup_20250330_095733/.cursor/verify_mcp_server.js,#1f77b4,10,js,0,0
+lovable/README.md,README.md,lovable/README.md,#2ca02c,10,md,0,0
+lovable/gitignore.txt,gitignore.txt,lovable/gitignore.txt,#1f77b4,10,txt,0,0
+lovable/robots.txt,robots.txt,lovable/robots.txt,#1f77b4,10,txt,0,0
+lovable/index.html,index.html,lovable/index.html,#1f77b4,10,html,0,0
+lovable/App.css,App.css,lovable/App.css,#1f77b4,10,css,0,0
+lovable/index.css,index.css,lovable/index.css,#1f77b4,10,css,0,0
+lovable/src/App.css,App.css,lovable/src/App.css,#1f77b4,10,css,0,0
+lovable/src/index.css,index.css,lovable/src/index.css,#1f77b4,10,css,0,0
+lovable/eslint.config.js,eslint.config.js,lovable/eslint.config.js,#1f77b4,10,js,0,0
+lovable/postcss.config.js,postcss.config.js,lovable/postcss.config.js,#1f77b4,10,js,0,0
+tests/coruja/run_tests.py,run_tests.py,tests/coruja/run_tests.py,#ff7f0e,10,py,0,0
+tests/coruja/test_agent_task_integration.py,test_agent_task_integration.py,tests/coruja/test_agent_task_integration.py,#ff7f0e,10,py,0,0
+tests/coruja/test_config_loader.py,test_config_loader.py,tests/coruja/test_config_loader.py,#ff7f0e,10,py,0,0
+tests/coruja/test_crew_manager.py,test_crew_manager.py,tests/coruja/test_crew_manager.py,#ff7f0e,10,py,0,0
+tests/coruja/test_model_interface.py,test_model_interface.py,tests/coruja/test_model_interface.py,#ff7f0e,10,py,0,0
+tests/coruja/test_mycelium_adapter.py,test_mycelium_adapter.py,tests/coruja/test_mycelium_adapter.py,#ff7f0e,10,py,0,0
+tests/coruja/test_prompt_manager.py,test_prompt_manager.py,tests/coruja/test_prompt_manager.py,#ff7f0e,10,py,0,0
+tests/coruja/test_sparc_executor.py,test_sparc_executor.py,tests/coruja/test_sparc_executor.py,#ff7f0e,10,py,0,0
+tests/coruja/test_sparc_registry.py,test_sparc_registry.py,tests/coruja/test_sparc_registry.py,#ff7f0e,10,py,0,0
+tests/coruja/test_tool_registry.py,test_tool_registry.py,tests/coruja/test_tool_registry.py,#ff7f0e,10,py,0,0
+tests/subsystems/MYCELIUM/core/implementations/test_nats_interface.py,test_nats_interface.py,tests/subsystems/MYCELIUM/core/implementations/test_nats_interface.py,#ff7f0e,10,py,0,0
+tests/mycelium/schemas/test_sparc_tasks.py,test_sparc_tasks.py,tests/mycelium/schemas/test_sparc_tasks.py,#ff7f0e,10,py,0,0
+tests/maintenance/docs/test_add_cross_references.py,test_add_cross_references.py,tests/maintenance/docs/test_add_cross_references.py,#ff7f0e,10,py,0,0
+tests/coruja/coruja_test_output.txt,coruja_test_output.txt,tests/coruja/coruja_test_output.txt,#1f77b4,10,txt,0,0
+tests/coruja/coruja_test_output_full.txt,coruja_test_output_full.txt,tests/coruja/coruja_test_output_full.txt,#1f77b4,10,txt,0,0
+tests/coruja/coruja_test_output_last.txt,coruja_test_output_last.txt,tests/coruja/coruja_test_output_last.txt,#1f77b4,10,txt,0,0
+tests/coruja/coruja_test_output_verbose.txt,coruja_test_output_verbose.txt,tests/coruja/coruja_test_output_verbose.txt,#1f77b4,10,txt,0,0
+tests/mycelium/schemas/pytest_output.txt,pytest_output.txt,tests/mycelium/schemas/pytest_output.txt,#1f77b4,10,txt,0,0
+tests/coruja/htmlcov/class_index.html,class_index.html,tests/coruja/htmlcov/class_index.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/function_index.html,function_index.html,tests/coruja/htmlcov/function_index.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/index.html,index.html,tests/coruja/htmlcov/index.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_17cb2d16ce034f90_agent_py.html,z_17cb2d16ce034f90_agent_py.html,tests/coruja/htmlcov/z_17cb2d16ce034f90_agent_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_17cb2d16ce034f90_config_loader_py.html,z_17cb2d16ce034f90_config_loader_py.html,tests/coruja/htmlcov/z_17cb2d16ce034f90_config_loader_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_17cb2d16ce034f90_crew_manager_py.html,z_17cb2d16ce034f90_crew_manager_py.html,tests/coruja/htmlcov/z_17cb2d16ce034f90_crew_manager_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_17cb2d16ce034f90_model_interface_py.html,z_17cb2d16ce034f90_model_interface_py.html,tests/coruja/htmlcov/z_17cb2d16ce034f90_model_interface_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_17cb2d16ce034f90_mycelium_adapter_py.html,z_17cb2d16ce034f90_mycelium_adapter_py.html,tests/coruja/htmlcov/z_17cb2d16ce034f90_mycelium_adapter_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_17cb2d16ce034f90_prompt_manager_py.html,z_17cb2d16ce034f90_prompt_manager_py.html,tests/coruja/htmlcov/z_17cb2d16ce034f90_prompt_manager_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_17cb2d16ce034f90_sparc_executor_py.html,z_17cb2d16ce034f90_sparc_executor_py.html,tests/coruja/htmlcov/z_17cb2d16ce034f90_sparc_executor_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_17cb2d16ce034f90_sparc_registry_py.html,z_17cb2d16ce034f90_sparc_registry_py.html,tests/coruja/htmlcov/z_17cb2d16ce034f90_sparc_registry_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_17cb2d16ce034f90_task_py.html,z_17cb2d16ce034f90_task_py.html,tests/coruja/htmlcov/z_17cb2d16ce034f90_task_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_17cb2d16ce034f90_tool_registry_py.html,z_17cb2d16ce034f90_tool_registry_py.html,tests/coruja/htmlcov/z_17cb2d16ce034f90_tool_registry_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_17cb2d16ce034f90___init___py.html,z_17cb2d16ce034f90___init___py.html,tests/coruja/htmlcov/z_17cb2d16ce034f90___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_26634436c850a2ff_schemas_py.html,z_26634436c850a2ff_schemas_py.html,tests/coruja/htmlcov/z_26634436c850a2ff_schemas_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_26634436c850a2ff___init___py.html,z_26634436c850a2ff___init___py.html,tests/coruja/htmlcov/z_26634436c850a2ff___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_371f06e61b6c1f25_test_sanitizer_py.html,z_371f06e61b6c1f25_test_sanitizer_py.html,tests/coruja/htmlcov/z_371f06e61b6c1f25_test_sanitizer_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_371f06e61b6c1f25___init___py.html,z_371f06e61b6c1f25___init___py.html,tests/coruja/htmlcov/z_371f06e61b6c1f25___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_377941aee4afd535_conftest_py.html,z_377941aee4afd535_conftest_py.html,tests/coruja/htmlcov/z_377941aee4afd535_conftest_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_377941aee4afd535_test_atlas_core_py.html,z_377941aee4afd535_test_atlas_core_py.html,tests/coruja/htmlcov/z_377941aee4afd535_test_atlas_core_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_377941aee4afd535_test_atlas_service_py.html,z_377941aee4afd535_test_atlas_service_py.html,tests/coruja/htmlcov/z_377941aee4afd535_test_atlas_service_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_377941aee4afd535_test_cartographer_py.html,z_377941aee4afd535_test_cartographer_py.html,tests/coruja/htmlcov/z_377941aee4afd535_test_cartographer_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_377941aee4afd535___init___py.html,z_377941aee4afd535___init___py.html,tests/coruja/htmlcov/z_377941aee4afd535___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_3aaceee9d170651d___init___py.html,z_3aaceee9d170651d___init___py.html,tests/coruja/htmlcov/z_3aaceee9d170651d___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_3df6525a9511f7c6_basic_ethik_checker_py.html,z_3df6525a9511f7c6_basic_ethik_checker_py.html,tests/coruja/htmlcov/z_3df6525a9511f7c6_basic_ethik_checker_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_3df6525a9511f7c6_dummy_ethik_checker_py.html,z_3df6525a9511f7c6_dummy_ethik_checker_py.html,tests/coruja/htmlcov/z_3df6525a9511f7c6_dummy_ethik_checker_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_3df6525a9511f7c6_rule_engine_py.html,z_3df6525a9511f7c6_rule_engine_py.html,tests/coruja/htmlcov/z_3df6525a9511f7c6_rule_engine_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_3df6525a9511f7c6_rule_loader_py.html,z_3df6525a9511f7c6_rule_loader_py.html,tests/coruja/htmlcov/z_3df6525a9511f7c6_rule_loader_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_3df6525a9511f7c6_sanitizer_py.html,z_3df6525a9511f7c6_sanitizer_py.html,tests/coruja/htmlcov/z_3df6525a9511f7c6_sanitizer_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_3df6525a9511f7c6___init___py.html,z_3df6525a9511f7c6___init___py.html,tests/coruja/htmlcov/z_3df6525a9511f7c6___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_412edefcb800d8aa_atlas_core_py.html,z_412edefcb800d8aa_atlas_core_py.html,tests/coruja/htmlcov/z_412edefcb800d8aa_atlas_core_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_412edefcb800d8aa_cartographer_py.html,z_412edefcb800d8aa_cartographer_py.html,tests/coruja/htmlcov/z_412edefcb800d8aa_cartographer_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_412edefcb800d8aa___init___py.html,z_412edefcb800d8aa___init___py.html,tests/coruja/htmlcov/z_412edefcb800d8aa___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_4230b08a85184e18_backup_manager_py.html,z_4230b08a85184e18_backup_manager_py.html,tests/coruja/htmlcov/z_4230b08a85184e18_backup_manager_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_4230b08a85184e18_pid_manager_py.html,z_4230b08a85184e18_pid_manager_py.html,tests/coruja/htmlcov/z_4230b08a85184e18_pid_manager_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_4230b08a85184e18___init___py.html,z_4230b08a85184e18___init___py.html,tests/coruja/htmlcov/z_4230b08a85184e18___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_45e52400bf1f34d3_logging_py.html,z_45e52400bf1f34d3_logging_py.html,tests/coruja/htmlcov/z_45e52400bf1f34d3_logging_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_45e52400bf1f34d3_metadata_manager_py.html,z_45e52400bf1f34d3_metadata_manager_py.html,tests/coruja/htmlcov/z_45e52400bf1f34d3_metadata_manager_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_45e52400bf1f34d3___init___py.html,z_45e52400bf1f34d3___init___py.html,tests/coruja/htmlcov/z_45e52400bf1f34d3___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_4ddae8f80fa46b67_test_basic_orchestrator_py.html,z_4ddae8f80fa46b67_test_basic_orchestrator_py.html,tests/coruja/htmlcov/z_4ddae8f80fa46b67_test_basic_orchestrator_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_4ddae8f80fa46b67_test_prompt_manager_py.html,z_4ddae8f80fa46b67_test_prompt_manager_py.html,tests/coruja/htmlcov/z_4ddae8f80fa46b67_test_prompt_manager_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_4ddae8f80fa46b67___init___py.html,z_4ddae8f80fa46b67___init___py.html,tests/coruja/htmlcov/z_4ddae8f80fa46b67___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_6237c1be8d4fbac7_gemini_interface_py.html,z_6237c1be8d4fbac7_gemini_interface_py.html,tests/coruja/htmlcov/z_6237c1be8d4fbac7_gemini_interface_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_6237c1be8d4fbac7___init___py.html,z_6237c1be8d4fbac7___init___py.html,tests/coruja/htmlcov/z_6237c1be8d4fbac7___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_72b5c5b7b5daa5d4_exceptions_py.html,z_72b5c5b7b5daa5d4_exceptions_py.html,tests/coruja/htmlcov/z_72b5c5b7b5daa5d4_exceptions_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_72b5c5b7b5daa5d4___init___py.html,z_72b5c5b7b5daa5d4___init___py.html,tests/coruja/htmlcov/z_72b5c5b7b5daa5d4___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_78a1067f2ae6365d_zendesk_analyzer_handler_py.html,z_78a1067f2ae6365d_zendesk_analyzer_handler_py.html,tests/coruja/htmlcov/z_78a1067f2ae6365d_zendesk_analyzer_handler_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_78a1067f2ae6365d___init___py.html,z_78a1067f2ae6365d___init___py.html,tests/coruja/htmlcov/z_78a1067f2ae6365d___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_95f38aa90d0b1953_test_ETHIK-BACKUP-001_sistema_backup_py.html,z_95f38aa90d0b1953_test_ETHIK-BACKUP-001_sistema_backup_py.html,tests/coruja/htmlcov/z_95f38aa90d0b1953_test_ETHIK-BACKUP-001_sistema_backup_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_95f38aa90d0b1953_test_ETHIK-VERIFY-001_verificacao_migracao_py.html,z_95f38aa90d0b1953_test_ETHIK-VERIFY-001_verificacao_migracao_py.html,tests/coruja/htmlcov/z_95f38aa90d0b1953_test_ETHIK-VERIFY-001_verificacao_migracao_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_95f38aa90d0b1953_test_sanitizer_mycelium_py.html,z_95f38aa90d0b1953_test_sanitizer_mycelium_py.html,tests/coruja/htmlcov/z_95f38aa90d0b1953_test_sanitizer_mycelium_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_95f38aa90d0b1953_test_service_py.html,z_95f38aa90d0b1953_test_service_py.html,tests/coruja/htmlcov/z_95f38aa90d0b1953_test_service_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_95f38aa90d0b1953_test_validator_alerts_py.html,z_95f38aa90d0b1953_test_validator_alerts_py.html,tests/coruja/htmlcov/z_95f38aa90d0b1953_test_validator_alerts_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_95f38aa90d0b1953_test_validator_concurrent_py.html,z_95f38aa90d0b1953_test_validator_concurrent_py.html,tests/coruja/htmlcov/z_95f38aa90d0b1953_test_validator_concurrent_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_95f38aa90d0b1953_test_validator_py.html,z_95f38aa90d0b1953_test_validator_py.html,tests/coruja/htmlcov/z_95f38aa90d0b1953_test_validator_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_95f38aa90d0b1953_test_validator_rules_py.html,z_95f38aa90d0b1953_test_validator_rules_py.html,tests/coruja/htmlcov/z_95f38aa90d0b1953_test_validator_rules_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_95f38aa90d0b1953_test_validator_severity_py.html,z_95f38aa90d0b1953_test_validator_severity_py.html,tests/coruja/htmlcov/z_95f38aa90d0b1953_test_validator_severity_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_95f38aa90d0b1953___init___py.html,z_95f38aa90d0b1953___init___py.html,tests/coruja/htmlcov/z_95f38aa90d0b1953___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_9daefd81eca99403___init___py.html,z_9daefd81eca99403___init___py.html,tests/coruja/htmlcov/z_9daefd81eca99403___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_a0e5efae23990171_test_gemini_interface_py.html,z_a0e5efae23990171_test_gemini_interface_py.html,tests/coruja/htmlcov/z_a0e5efae23990171_test_gemini_interface_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_a0e5efae23990171_test_simple_gemini_py.html,z_a0e5efae23990171_test_simple_gemini_py.html,tests/coruja/htmlcov/z_a0e5efae23990171_test_simple_gemini_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_a0e5efae23990171___init___py.html,z_a0e5efae23990171___init___py.html,tests/coruja/htmlcov/z_a0e5efae23990171___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_a68dde2ef68ddd18_model_interface_py.html,z_a68dde2ef68ddd18_model_interface_py.html,tests/coruja/htmlcov/z_a68dde2ef68ddd18_model_interface_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_a68dde2ef68ddd18_sparc_messages_py.html,z_a68dde2ef68ddd18_sparc_messages_py.html,tests/coruja/htmlcov/z_a68dde2ef68ddd18_sparc_messages_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_a68dde2ef68ddd18___init___py.html,z_a68dde2ef68ddd18___init___py.html,tests/coruja/htmlcov/z_a68dde2ef68ddd18___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_a79cc31b2570cb23_loader_py.html,z_a79cc31b2570cb23_loader_py.html,tests/coruja/htmlcov/z_a79cc31b2570cb23_loader_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_a79cc31b2570cb23___init___py.html,z_a79cc31b2570cb23___init___py.html,tests/coruja/htmlcov/z_a79cc31b2570cb23___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_b82dc04503e8109f___init___py.html,z_b82dc04503e8109f___init___py.html,tests/coruja/htmlcov/z_b82dc04503e8109f___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_b8ce1a12d06f50bd_agent_runtime_py.html,z_b8ce1a12d06f50bd_agent_runtime_py.html,tests/coruja/htmlcov/z_b8ce1a12d06f50bd_agent_runtime_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_b8ce1a12d06f50bd_basic_orchestrator_py.html,z_b8ce1a12d06f50bd_basic_orchestrator_py.html,tests/coruja/htmlcov/z_b8ce1a12d06f50bd_basic_orchestrator_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_b8ce1a12d06f50bd_communication_protocols_py.html,z_b8ce1a12d06f50bd_communication_protocols_py.html,tests/coruja/htmlcov/z_b8ce1a12d06f50bd_communication_protocols_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_b8ce1a12d06f50bd_crew_manager_py.html,z_b8ce1a12d06f50bd_crew_manager_py.html,tests/coruja/htmlcov/z_b8ce1a12d06f50bd_crew_manager_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_b8ce1a12d06f50bd_integration_standards_py.html,z_b8ce1a12d06f50bd_integration_standards_py.html,tests/coruja/htmlcov/z_b8ce1a12d06f50bd_integration_standards_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_b8ce1a12d06f50bd_prompt_manager_py.html,z_b8ce1a12d06f50bd_prompt_manager_py.html,tests/coruja/htmlcov/z_b8ce1a12d06f50bd_prompt_manager_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_b8ce1a12d06f50bd_sparc_registry_py.html,z_b8ce1a12d06f50bd_sparc_registry_py.html,tests/coruja/htmlcov/z_b8ce1a12d06f50bd_sparc_registry_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_b8ce1a12d06f50bd_sparc_tasks_py.html,z_b8ce1a12d06f50bd_sparc_tasks_py.html,tests/coruja/htmlcov/z_b8ce1a12d06f50bd_sparc_tasks_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_b8ce1a12d06f50bd_tool_registry_py.html,z_b8ce1a12d06f50bd_tool_registry_py.html,tests/coruja/htmlcov/z_b8ce1a12d06f50bd_tool_registry_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_b8ce1a12d06f50bd___init___py.html,z_b8ce1a12d06f50bd___init___py.html,tests/coruja/htmlcov/z_b8ce1a12d06f50bd___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_cef9e26a4b2de3a1___init___py.html,z_cef9e26a4b2de3a1___init___py.html,tests/coruja/htmlcov/z_cef9e26a4b2de3a1___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_d1e86742529a657a_test_service_py.html,z_d1e86742529a657a_test_service_py.html,tests/coruja/htmlcov/z_d1e86742529a657a_test_service_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_d1e86742529a657a___init___py.html,z_d1e86742529a657a___init___py.html,tests/coruja/htmlcov/z_d1e86742529a657a___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_dca5a791c038c51a_conftest_py.html,z_dca5a791c038c51a_conftest_py.html,tests/coruja/htmlcov/z_dca5a791c038c51a_conftest_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_dca5a791c038c51a_test_backup_cleanup_py.html,z_dca5a791c038c51a_test_backup_cleanup_py.html,tests/coruja/htmlcov/z_dca5a791c038c51a_test_backup_cleanup_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_dca5a791c038c51a_test_backup_creation_py.html,z_dca5a791c038c51a_test_backup_creation_py.html,tests/coruja/htmlcov/z_dca5a791c038c51a_test_backup_creation_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_dca5a791c038c51a_test_backup_helpers_py.html,z_dca5a791c038c51a_test_backup_helpers_py.html,tests/coruja/htmlcov/z_dca5a791c038c51a_test_backup_helpers_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_dca5a791c038c51a_test_backup_history_py.html,z_dca5a791c038c51a_test_backup_history_py.html,tests/coruja/htmlcov/z_dca5a791c038c51a_test_backup_history_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_dca5a791c038c51a_test_backup_listing_py.html,z_dca5a791c038c51a_test_backup_listing_py.html,tests/coruja/htmlcov/z_dca5a791c038c51a_test_backup_listing_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_dca5a791c038c51a_test_backup_manager_py.html,z_dca5a791c038c51a_test_backup_manager_py.html,tests/coruja/htmlcov/z_dca5a791c038c51a_test_backup_manager_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_dca5a791c038c51a_test_backup_restore_py.html,z_dca5a791c038c51a_test_backup_restore_py.html,tests/coruja/htmlcov/z_dca5a791c038c51a_test_backup_restore_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_dca5a791c038c51a___init___py.html,z_dca5a791c038c51a___init___py.html,tests/coruja/htmlcov/z_dca5a791c038c51a___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_df4098cc7ed7c771_analyzer_py.html,z_df4098cc7ed7c771_analyzer_py.html,tests/coruja/htmlcov/z_df4098cc7ed7c771_analyzer_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_df4098cc7ed7c771_generator_py.html,z_df4098cc7ed7c771_generator_py.html,tests/coruja/htmlcov/z_df4098cc7ed7c771_generator_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_df4098cc7ed7c771_main_py.html,z_df4098cc7ed7c771_main_py.html,tests/coruja/htmlcov/z_df4098cc7ed7c771_main_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_df4098cc7ed7c771_renderer_py.html,z_df4098cc7ed7c771_renderer_py.html,tests/coruja/htmlcov/z_df4098cc7ed7c771_renderer_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_df4098cc7ed7c771___init___py.html,z_df4098cc7ed7c771___init___py.html,tests/coruja/htmlcov/z_df4098cc7ed7c771___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_dfc7dc5a1049a93a_service_py.html,z_dfc7dc5a1049a93a_service_py.html,tests/coruja/htmlcov/z_dfc7dc5a1049a93a_service_py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_dfc7dc5a1049a93a___init___py.html,z_dfc7dc5a1049a93a___init___py.html,tests/coruja/htmlcov/z_dfc7dc5a1049a93a___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/z_fcab7170a69fadad___init___py.html,z_fcab7170a69fadad___init___py.html,tests/coruja/htmlcov/z_fcab7170a69fadad___init___py.html,#1f77b4,10,html,0,0
+tests/coruja/htmlcov/style_cb_718ce007.css,style_cb_718ce007.css,tests/coruja/htmlcov/style_cb_718ce007.css,#1f77b4,10,css,0,0
+tests/coruja/htmlcov/coverage_html_cb_497bf287.js,coverage_html_cb_497bf287.js,tests/coruja/htmlcov/coverage_html_cb_497bf287.js,#1f77b4,10,js,0,0
+.github/workflows/code-health.yml,code-health.yml,.github/workflows/code-health.yml,#9467bd,10,yml,0,0
+.github/workflows/dependency_security.yml,dependency_security.yml,.github/workflows/dependency_security.yml,#9467bd,10,yml,0,0
+.github/workflows/django.yml,django.yml,.github/workflows/django.yml,#9467bd,10,yml,0,0
+.github/workflows/docstring_coverage.yml,docstring_coverage.yml,.github/workflows/docstring_coverage.yml,#9467bd,10,yml,0,0
+.github/workflows/docstring_quality.yml,docstring_quality.yml,.github/workflows/docstring_quality.yml,#9467bd,10,yml,0,0
+.github/workflows/gh-pages.yml,gh-pages.yml,.github/workflows/gh-pages.yml,#9467bd,10,yml,0,0
+.github/workflows/git_history_analysis.yml,git_history_analysis.yml,.github/workflows/git_history_analysis.yml,#9467bd,10,yml,0,0
+.github/workflows/lint.yml,lint.yml,.github/workflows/lint.yml,#9467bd,10,yml,0,0
+.github/workflows/linting.yml,linting.yml,.github/workflows/linting.yml,#9467bd,10,yml,0,0
+.github/workflows/protocol_adherence.yml,protocol_adherence.yml,.github/workflows/protocol_adherence.yml,#9467bd,10,yml,0,0
+.github/workflows/schema_validation.yml,schema_validation.yml,.github/workflows/schema_validation.yml,#9467bd,10,yml,0,0
+.github/workflows/test_coverage.yml,test_coverage.yml,.github/workflows/test_coverage.yml,#9467bd,10,yml,0,0
+.github/workflows/type_checking.yml,type_checking.yml,.github/workflows/type_checking.yml,#9467bd,10,yml,0,0
+.github/workflows/update-cross-ref-visualization.yml,update-cross-ref-visualization.yml,.github/workflows/update-cross-ref-visualization.yml,#9467bd,16,yml,0,6
+.github/workflows/validate-cross-references.yml,validate-cross-references.yml,.github/workflows/validate-cross-references.yml,#9467bd,10,yml,0,0
+CODE_OF_CONDUCT.md,CODE_OF_CONDUCT.md,CODE_OF_CONDUCT.md,#2ca02c,10,md,0,0
+CONTRIBUTING.md,CONTRIBUTING.md,CONTRIBUTING.md,#2ca02c,10,md,0,0
+setup.py,setup.py,setup.py,#ff7f0e,10,py,0,0
+requirements.txt,requirements.txt,requirements.txt,#1f77b4,10,txt,0,0

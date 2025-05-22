@@ -1,0 +1,3570 @@
+{
+  "scripts": [
+    {
+      "id": "analyze_git_history.py",
+      "path": "C:\\EGOS\\scripts\\analyze_git_history.py",
+      "rel_path": "analyze_git_history.py",
+      "subsystem": "root",
+      "valid": true,
+      "has_docstring": false,
+      "has_type_hints": true,
+      "line_count": 152,
+      "issues": [
+        "Missing module docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "subprocess",
+        "csv",
+        "datetime",
+        "pathlib",
+        "logging",
+        "typing"
+      ]
+    },
+    {
+      "id": "another_script.py",
+      "path": "C:\\EGOS\\scripts\\another_script.py",
+      "rel_path": "another_script.py",
+      "subsystem": "root",
+      "valid": true,
+      "has_docstring": false,
+      "has_type_hints": false,
+      "line_count": 19,
+      "issues": [
+        "Missing module docstring",
+        "Missing type hints",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": []
+    },
+    {
+      "id": "core_diag_documentation_metrics_fixed.py",
+      "path": "C:\\EGOS\\scripts\\core_diag_documentation_metrics_fixed.py",
+      "rel_path": "core_diag_documentation_metrics_fixed.py",
+      "subsystem": "root",
+      "valid": false,
+      "has_docstring": false,
+      "has_type_hints": false,
+      "line_count": 454,
+      "issues": [
+        "Syntax error: invalid non-printable character U+FEFF (<unknown>, line 1)"
+      ],
+      "references": [],
+      "imports": []
+    },
+    {
+      "id": "core_ops_file_reference_checker.py",
+      "path": "C:\\EGOS\\scripts\\core_ops_file_reference_checker.py",
+      "rel_path": "core_ops_file_reference_checker.py",
+      "subsystem": "root",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 638,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "argparse",
+        "datetime",
+        "json",
+        "logging",
+        "os",
+        "re",
+        "subprocess",
+        "sys",
+        "yaml",
+        "typing"
+      ]
+    },
+    {
+      "id": "cross_reference\\api_main.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\api_main.py",
+      "rel_path": "cross_reference\\api_main.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": false,
+      "line_count": 146,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Missing type hints"
+      ],
+      "references": [],
+      "imports": [
+        "uvicorn",
+        "fastapi",
+        "fastapi.middleware.cors",
+        "pathlib",
+        "logging",
+        "dataclasses",
+        "typing",
+        "validator.unified_validator",
+        "validator.validation_models",
+        "utils.serialization"
+      ]
+    },
+    {
+      "id": "cross_reference\\archive_validator.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\archive_validator.py",
+      "rel_path": "cross_reference\\archive_validator.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 355,
+      "issues": [
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [
+        "Reference Implementation: file_reference_checker_ultra.py",
+        "Configuration: config_consolidated.yaml"
+      ],
+      "imports": [
+        "argparse",
+        "datetime",
+        "json",
+        "logging",
+        "os",
+        "re",
+        "sys",
+        "yaml",
+        "pathlib",
+        "typing",
+        "colorama",
+        "shutil",
+        "time",
+        "tqdm",
+        "traceback"
+      ]
+    },
+    {
+      "id": "cross_reference\\config_loader.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\config_loader.py",
+      "rel_path": "cross_reference\\config_loader.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 331,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "os",
+        "sys",
+        "json",
+        "logging",
+        "pathlib",
+        "typing",
+        "yaml",
+        "jsonschema",
+        "colorama",
+        "argparse"
+      ]
+    },
+    {
+      "id": "cross_reference\\cross_reference_validator.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\cross_reference_validator.py",
+      "rel_path": "cross_reference\\cross_reference_validator.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 768,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "os",
+        "re",
+        "sys",
+        "time",
+        "json",
+        "logging",
+        "argparse",
+        "concurrent.futures",
+        "datetime",
+        "pathlib",
+        "typing",
+        "functools",
+        "tqdm",
+        "config_loader",
+        "colorama",
+        "config_loader"
+      ]
+    },
+    {
+      "id": "cross_reference\\cross_reference_visualizer.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\cross_reference_visualizer.py",
+      "rel_path": "cross_reference\\cross_reference_visualizer.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 609,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "os",
+        "re",
+        "sys",
+        "json",
+        "logging",
+        "argparse",
+        "pathlib",
+        "typing",
+        "collections",
+        "networkx",
+        "pyvis.network",
+        "matplotlib.pyplot",
+        "colorama"
+      ]
+    },
+    {
+      "id": "cross_reference\\docs_directory_fixer.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\docs_directory_fixer.py",
+      "rel_path": "cross_reference\\docs_directory_fixer.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 1014,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "os",
+        "sys",
+        "re",
+        "shutil",
+        "logging",
+        "argparse",
+        "pathlib",
+        "typing",
+        "datetime",
+        "difflib",
+        "time",
+        "json",
+        "tqdm",
+        "colorama"
+      ]
+    },
+    {
+      "id": "cross_reference\\execute_inventory_scan.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\execute_inventory_scan.py",
+      "rel_path": "cross_reference\\execute_inventory_scan.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 226,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Created in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "json",
+        "os",
+        "re",
+        "time",
+        "logging",
+        "datetime",
+        "pathlib",
+        "typing"
+      ]
+    },
+    {
+      "id": "cross_reference\\file_reference_checker_optimized.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\file_reference_checker_optimized.py",
+      "rel_path": "cross_reference\\file_reference_checker_optimized.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 650,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Created in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "argparse",
+        "os",
+        "datetime",
+        "json",
+        "logging",
+        "os",
+        "re",
+        "subprocess",
+        "sys",
+        "signal",
+        "time",
+        "concurrent.futures",
+        "pathlib",
+        "typing",
+        "yaml"
+      ]
+    },
+    {
+      "id": "cross_reference\\file_reference_checker_ultra.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\file_reference_checker_ultra.py",
+      "rel_path": "cross_reference\\file_reference_checker_ultra.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 2170,
+      "issues": [
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [
+        "Previous Version: file_reference_checker_turbo.py",
+        "Configuration: ./config_ultra.yaml"
+      ],
+      "imports": [
+        "argparse",
+        "asyncio",
+        "datetime",
+        "fnmatch",
+        "json",
+        "logging",
+        "os",
+        "re",
+        "time",
+        "sys",
+        "math",
+        "shutil",
+        "importlib.util",
+        "string",
+        "pathlib",
+        "typing",
+        "yaml",
+        "pyahocorasick",
+        "random",
+        "string",
+        "re",
+        "IPython",
+        "traceback",
+        "subprocess",
+        "ctypes"
+      ]
+    },
+    {
+      "id": "cross_reference\\inject_standardized_references.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\inject_standardized_references.py",
+      "rel_path": "cross_reference\\inject_standardized_references.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 1013,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "os",
+        "re",
+        "sys",
+        "time",
+        "json",
+        "shutil",
+        "logging",
+        "argparse",
+        "asyncio",
+        "math",
+        "datetime",
+        "pathlib",
+        "typing",
+        "collections",
+        "concurrent.futures",
+        "tqdm",
+        "colorama",
+        "hashlib"
+      ]
+    },
+    {
+      "id": "cross_reference\\inventory_consolidator.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\inventory_consolidator.py",
+      "rel_path": "cross_reference\\inventory_consolidator.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 321,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Created in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "json",
+        "os",
+        "re",
+        "logging",
+        "datetime",
+        "pathlib",
+        "typing",
+        "collections"
+      ]
+    },
+    {
+      "id": "cross_reference\\optimized_reference_fixer.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\optimized_reference_fixer.py",
+      "rel_path": "cross_reference\\optimized_reference_fixer.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 1098,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "os",
+        "re",
+        "sys",
+        "time",
+        "json",
+        "logging",
+        "argparse",
+        "concurrent.futures",
+        "pathlib",
+        "datetime",
+        "typing",
+        "collections",
+        "tqdm",
+        "colorama"
+      ]
+    },
+    {
+      "id": "cross_reference\\purge_old_references.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\purge_old_references.py",
+      "rel_path": "cross_reference\\purge_old_references.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 903,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Created in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "os",
+        "re",
+        "shutil",
+        "logging",
+        "argparse",
+        "json",
+        "sys",
+        "time",
+        "asyncio",
+        "math",
+        "datetime",
+        "pathlib",
+        "typing",
+        "collections",
+        "concurrent.futures",
+        "tqdm",
+        "colorama",
+        "traceback"
+      ]
+    },
+    {
+      "id": "cross_reference\\run_tests.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\run_tests.py",
+      "rel_path": "cross_reference\\run_tests.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 322,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "os",
+        "sys",
+        "time",
+        "unittest",
+        "argparse",
+        "pathlib",
+        "datetime",
+        "typing",
+        "colorama"
+      ]
+    },
+    {
+      "id": "cross_reference\\script_standards_scanner.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\script_standards_scanner.py",
+      "rel_path": "cross_reference\\script_standards_scanner.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 1303,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "os",
+        "re",
+        "sys",
+        "json",
+        "time",
+        "logging",
+        "argparse",
+        "ast",
+        "datetime",
+        "pathlib",
+        "typing",
+        "collections",
+        "tqdm",
+        "colorama",
+        "subprocess",
+        "pathlib"
+      ]
+    },
+    {
+      "id": "cross_reference\\script_template_generator.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\script_template_generator.py",
+      "rel_path": "cross_reference\\script_template_generator.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 720,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "os",
+        "sys",
+        "time",
+        "logging",
+        "argparse",
+        "datetime",
+        "pathlib",
+        "typing",
+        "colorama"
+      ]
+    },
+    {
+      "id": "cross_reference\\api\\scheduled_validation.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\api\\scheduled_validation.py",
+      "rel_path": "cross_reference\\api\\scheduled_validation.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 235,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "os",
+        "sys",
+        "time",
+        "json",
+        "logging",
+        "argparse",
+        "datetime",
+        "traceback",
+        "pathlib",
+        "typing",
+        "concurrent.futures",
+        "asyncio",
+        "schedule",
+        "validator.unified_validator",
+        "validator.validation_models",
+        "utils.serialization"
+      ]
+    },
+    {
+      "id": "cross_reference\\api\\validation_api.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\api\\validation_api.py",
+      "rel_path": "cross_reference\\api\\validation_api.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": false,
+      "line_count": 245,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Missing type hints"
+      ],
+      "references": [],
+      "imports": [
+        "os",
+        "sys",
+        "asyncio",
+        "logging",
+        "datetime",
+        "typing",
+        "pathlib",
+        "pydantic",
+        "uvicorn",
+        "fastapi",
+        "fastapi.middleware.cors",
+        "fastapi.responses",
+        "validator.unified_validator",
+        "validator.validation_models",
+        "utils.serialization"
+      ]
+    },
+    {
+      "id": "cross_reference\\documentation_reference_manager\\checkpoint_utils.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\documentation_reference_manager\\checkpoint_utils.py",
+      "rel_path": "cross_reference\\documentation_reference_manager\\checkpoint_utils.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 213,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "json",
+        "logging",
+        "os",
+        "time",
+        "datetime",
+        "pathlib",
+        "typing",
+        "traceback",
+        "traceback"
+      ]
+    },
+    {
+      "id": "cross_reference\\documentation_reference_manager\\cli.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\documentation_reference_manager\\cli.py",
+      "rel_path": "cross_reference\\documentation_reference_manager\\cli.py",
+      "subsystem": "cross_reference",
+      "valid": false,
+      "has_docstring": false,
+      "has_type_hints": false,
+      "line_count": 286,
+      "issues": [
+        "Syntax error: invalid non-printable character U+FEFF (<unknown>, line 1)"
+      ],
+      "references": [],
+      "imports": []
+    },
+    {
+      "id": "cross_reference\\documentation_reference_manager\\config_utils.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\documentation_reference_manager\\config_utils.py",
+      "rel_path": "cross_reference\\documentation_reference_manager\\config_utils.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 206,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "os",
+        "logging",
+        "pathlib",
+        "typing",
+        "yaml"
+      ]
+    },
+    {
+      "id": "cross_reference\\documentation_reference_manager\\manager.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\documentation_reference_manager\\manager.py",
+      "rel_path": "cross_reference\\documentation_reference_manager\\manager.py",
+      "subsystem": "cross_reference",
+      "valid": false,
+      "has_docstring": false,
+      "has_type_hints": false,
+      "line_count": 412,
+      "issues": [
+        "Syntax error: invalid non-printable character U+FEFF (<unknown>, line 1)"
+      ],
+      "references": [],
+      "imports": []
+    },
+    {
+      "id": "cross_reference\\documentation_reference_manager\\progress_utils.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\documentation_reference_manager\\progress_utils.py",
+      "rel_path": "cross_reference\\documentation_reference_manager\\progress_utils.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 119,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "sys",
+        "time",
+        "typing",
+        "tqdm"
+      ]
+    },
+    {
+      "id": "cross_reference\\documentation_reference_manager\\__init__.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\documentation_reference_manager\\__init__.py",
+      "rel_path": "cross_reference\\documentation_reference_manager\\__init__.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": false,
+      "line_count": 27,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing type hints"
+      ],
+      "references": [],
+      "imports": [
+        "pathlib",
+        "os"
+      ]
+    },
+    {
+      "id": "cross_reference\\documentation_reference_manager\\__main__.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\documentation_reference_manager\\__main__.py",
+      "rel_path": "cross_reference\\documentation_reference_manager\\__main__.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": false,
+      "line_count": 15,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Missing type hints"
+      ],
+      "references": [],
+      "imports": [
+        "cli",
+        "sys"
+      ]
+    },
+    {
+      "id": "cross_reference\\integration\\ethik_validator.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\integration\\ethik_validator.py",
+      "rel_path": "cross_reference\\integration\\ethik_validator.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 287,
+      "issues": [
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [
+        "- TO_BE_REPLACED -->, ETHIK validation standards"
+      ],
+      "imports": [
+        "logging",
+        "json",
+        "uuid",
+        "requests",
+        "typing",
+        "datetime",
+        "pathlib"
+      ]
+    },
+    {
+      "id": "cross_reference\\integration\\integration_example.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\integration\\integration_example.py",
+      "rel_path": "cross_reference\\integration\\integration_example.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 268,
+      "issues": [
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [
+        "- TO_BE_REPLACED -->, KOIOS documentation standards"
+      ],
+      "imports": [
+        "os",
+        "sys",
+        "logging",
+        "argparse",
+        "json",
+        "pathlib",
+        "datetime",
+        "typing",
+        "integration.integration_manager",
+        "integration.ethik_validator",
+        "integration.koios_standards",
+        "integration.nexus_dependency",
+        "integration.integration_manager"
+      ]
+    },
+    {
+      "id": "cross_reference\\integration\\integration_manager.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\integration\\integration_manager.py",
+      "rel_path": "cross_reference\\integration\\integration_manager.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 276,
+      "issues": [
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [
+        "- TO_BE_REPLACED -->, KOIOS documentation standards"
+      ],
+      "imports": [
+        "logging",
+        "os",
+        "yaml",
+        "json",
+        "typing",
+        "dataclasses",
+        "datetime",
+        "pathlib",
+        "ethik_validator",
+        "koios_standards",
+        "nexus_dependency"
+      ]
+    },
+    {
+      "id": "cross_reference\\integration\\koios_standards.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\integration\\koios_standards.py",
+      "rel_path": "cross_reference\\integration\\koios_standards.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 409,
+      "issues": [
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [
+        "- TO_BE_REPLACED -->, KOIOS documentation standards"
+      ],
+      "imports": [
+        "logging",
+        "json",
+        "uuid",
+        "re",
+        "requests",
+        "typing",
+        "datetime",
+        "pathlib"
+      ]
+    },
+    {
+      "id": "cross_reference\\integration\\nexus_dependency.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\integration\\nexus_dependency.py",
+      "rel_path": "cross_reference\\integration\\nexus_dependency.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 599,
+      "issues": [
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [
+        "- TO_BE_REPLACED -->, NEXUS dependency analysis standards"
+      ],
+      "imports": [
+        "logging",
+        "json",
+        "uuid",
+        "requests",
+        "networkx",
+        "typing",
+        "datetime",
+        "pathlib"
+      ]
+    },
+    {
+      "id": "cross_reference\\integration\\__init__.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\integration\\__init__.py",
+      "rel_path": "cross_reference\\integration\\__init__.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": false,
+      "line_count": 20,
+      "issues": [
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Missing type hints"
+      ],
+      "references": [
+        "- TO_BE_REPLACED -->, KOIOS documentation standards"
+      ],
+      "imports": [
+        "integration_manager",
+        "ethik_validator",
+        "koios_standards",
+        "nexus_dependency"
+      ]
+    },
+    {
+      "id": "cross_reference\\tests\\test_cross_reference_validator.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\tests\\test_cross_reference_validator.py",
+      "rel_path": "cross_reference\\tests\\test_cross_reference_validator.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": false,
+      "line_count": 317,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing type hints",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "os",
+        "sys",
+        "unittest",
+        "tempfile",
+        "shutil",
+        "pathlib",
+        "unittest.mock",
+        "cross_reference_validator",
+        "re",
+        "cross_reference_validator"
+      ]
+    },
+    {
+      "id": "cross_reference\\utils\\serialization.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\utils\\serialization.py",
+      "rel_path": "cross_reference\\utils\\serialization.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 138,
+      "issues": [
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [
+        "\ud83d\udd17 Reference: [file_reference_checker_ultra.py](../../cross_reference/file_reference_checker_ultra.py)",
+        "\ud83d\udd17 Reference: [orphaned_file_detector.py](../../cross_reference/validator/orphaned_file_detector.py)",
+        "\ud83d\udd17 Reference: [ROADMAP.md](../../../ROADMAP.md#cross-reference-tools-enhancement)"
+      ],
+      "imports": [
+        "json",
+        "datetime",
+        "pathlib",
+        "typing"
+      ]
+    },
+    {
+      "id": "cross_reference\\utils\\__init__.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\utils\\__init__.py",
+      "rel_path": "cross_reference\\utils\\__init__.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": false,
+      "line_count": 23,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Missing type hints"
+      ],
+      "references": [],
+      "imports": [
+        "serialization"
+      ]
+    },
+    {
+      "id": "cross_reference\\validator\\orphaned_file_detector.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\validator\\orphaned_file_detector.py",
+      "rel_path": "cross_reference\\validator\\orphaned_file_detector.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 545,
+      "issues": [
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [
+        "\ud83d\udd17 Reference: [ROADMAP.md](../../../ROADMAP.md#cross-reference-tools-enhancement)",
+        "\ud83d\udd17 Reference: [WORK_2025_05_21.md](../../../WORK_2025_05_21.md#parallel-work-cross-reference-system-advancement)",
+        "\ud83d\udd17 Reference: [cross_reference_validator.md](../../../docs_egos/08_tooling_and_scripts/reference_implementations/cross_reference_validator.md)",
+        "\ud83d\udd17 Reference: [file_reference_checker_ultra.py](../../cross_reference/file_reference_checker_ultra.py)"
+      ],
+      "imports": [
+        "os",
+        "sys",
+        "logging",
+        "argparse",
+        "pathlib",
+        "typing",
+        "dataclasses",
+        "concurrent.futures",
+        "asyncio",
+        "time",
+        "tqdm",
+        "utils.serialization"
+      ]
+    },
+    {
+      "id": "cross_reference\\validator\\unified_validator.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\validator\\unified_validator.py",
+      "rel_path": "cross_reference\\validator\\unified_validator.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 424,
+      "issues": [
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [
+        "\ud83d\udd17 Reference: [file_reference_checker_ultra.py](../file_reference_checker_ultra.py)",
+        "\ud83d\udd17 Reference: [orphaned_file_detector.py](./orphaned_file_detector.py)",
+        "\ud83d\udd17 Reference: [ROADMAP.md](../../../ROADMAP.md#cross-reference-tools-enhancement)",
+        "\ud83d\udd17 Reference: [cross_reference_validator.md](../../../docs_egos/08_tooling_and_scripts/reference_implementations/cross_reference_validator.md)"
+      ],
+      "imports": [
+        "os",
+        "sys",
+        "logging",
+        "argparse",
+        "asyncio",
+        "time",
+        "pathlib",
+        "typing",
+        "dataclasses",
+        "importlib.util",
+        "datetime",
+        "validator.validation_models",
+        "utils.serialization",
+        "asyncio",
+        "orphaned_file_detector"
+      ]
+    },
+    {
+      "id": "cross_reference\\validator\\validation_models.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\validator\\validation_models.py",
+      "rel_path": "cross_reference\\validator\\validation_models.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 101,
+      "issues": [
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [
+        "\ud83d\udd17 Reference: [orphaned_file_detector.py](./orphaned_file_detector.py)",
+        "\ud83d\udd17 Reference: [file_reference_checker_ultra.py](../file_reference_checker_ultra.py)",
+        "\ud83d\udd17 Reference: [serialization.py](../utils/serialization.py)",
+        "\ud83d\udd17 Reference: [dashboardClient.ts](../../../website/src/lib/api/dashboardClient.ts)"
+      ],
+      "imports": [
+        "datetime",
+        "pathlib",
+        "typing",
+        "pydantic"
+      ]
+    },
+    {
+      "id": "cross_reference\\validator\\__init__.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\validator\\__init__.py",
+      "rel_path": "cross_reference\\validator\\__init__.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": false,
+      "line_count": 21,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Missing type hints"
+      ],
+      "references": [],
+      "imports": [
+        "orphaned_file_detector",
+        "unified_validator"
+      ]
+    },
+    {
+      "id": "cross_reference\\zz_archive\\cross_reference_validator_new.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\zz_archive\\cross_reference_validator_new.py",
+      "rel_path": "cross_reference\\zz_archive\\cross_reference_validator_new.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 584,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "os",
+        "re",
+        "sys",
+        "time",
+        "json",
+        "logging",
+        "argparse",
+        "datetime",
+        "pathlib",
+        "typing",
+        "tqdm",
+        "colorama"
+      ]
+    },
+    {
+      "id": "cross_reference\\zz_archive\\find_syntax_error.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\zz_archive\\find_syntax_error.py",
+      "rel_path": "cross_reference\\zz_archive\\find_syntax_error.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": false,
+      "line_count": 48,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Missing type hints",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "sys",
+        "pathlib"
+      ]
+    },
+    {
+      "id": "cross_reference\\zz_archive\\fix_f_strings.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\zz_archive\\fix_f_strings.py",
+      "rel_path": "cross_reference\\zz_archive\\fix_f_strings.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": false,
+      "line_count": 78,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Missing type hints",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "re",
+        "sys",
+        "pathlib"
+      ]
+    },
+    {
+      "id": "cross_reference\\zz_archive\\fix_validator.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\zz_archive\\fix_validator.py",
+      "rel_path": "cross_reference\\zz_archive\\fix_validator.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": false,
+      "line_count": 86,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Missing type hints",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "re",
+        "pathlib"
+      ]
+    },
+    {
+      "id": "cross_reference\\zz_archive\\manage_documentation_references.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\zz_archive\\manage_documentation_references.py",
+      "rel_path": "cross_reference\\zz_archive\\manage_documentation_references.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": false,
+      "line_count": 20,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Missing type hints"
+      ],
+      "references": [],
+      "imports": [
+        "sys",
+        "cross_reference.documentation_reference_manager.cli"
+      ]
+    },
+    {
+      "id": "cross_reference\\zz_archive\\recent_files_verifier.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\zz_archive\\recent_files_verifier.py",
+      "rel_path": "cross_reference\\zz_archive\\recent_files_verifier.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 343,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "argparse",
+        "datetime",
+        "json",
+        "logging",
+        "os",
+        "sys",
+        "pathlib",
+        "typing",
+        "cross_reference.documentation_reference_manager.manager",
+        "cross_reference.documentation_reference_manager.manager",
+        "traceback"
+      ]
+    },
+    {
+      "id": "cross_reference\\zz_archive\\reference_migration.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\zz_archive\\reference_migration.py",
+      "rel_path": "cross_reference\\zz_archive\\reference_migration.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 581,
+      "issues": [
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [
+        "- TO_BE_REPLACED -->, <!-- TO_BE_REPLACED -->, Cross-reference migration implementation"
+      ],
+      "imports": [
+        "re",
+        "os",
+        "logging",
+        "yaml",
+        "json",
+        "typing",
+        "pathlib",
+        "datetime",
+        "argparse"
+      ]
+    },
+    {
+      "id": "cross_reference\\zz_archive\\reference_validator.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\zz_archive\\reference_validator.py",
+      "rel_path": "cross_reference\\zz_archive\\reference_validator.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 561,
+      "issues": [
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [
+        "- TO_BE_REPLACED -->, <!-- TO_BE_REPLACED -->, Cross-reference validation implementation"
+      ],
+      "imports": [
+        "re",
+        "os",
+        "logging",
+        "yaml",
+        "typing",
+        "pathlib",
+        "datetime",
+        "argparse"
+      ]
+    },
+    {
+      "id": "cross_reference\\zz_archive\\save_grep_results.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\zz_archive\\save_grep_results.py",
+      "rel_path": "cross_reference\\zz_archive\\save_grep_results.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 49,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "json",
+        "os",
+        "datetime",
+        "typing"
+      ]
+    },
+    {
+      "id": "cross_reference\\zz_archive\\obsolete_scripts\\cross_reference_validator_basic.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\zz_archive\\obsolete_scripts\\cross_reference_validator_basic.py",
+      "rel_path": "cross_reference\\zz_archive\\obsolete_scripts\\cross_reference_validator_basic.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 188,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "os",
+        "re",
+        "sys",
+        "logging",
+        "pathlib",
+        "typing"
+      ]
+    },
+    {
+      "id": "cross_reference\\zz_archive\\obsolete_scripts\\file_reference_checker.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\zz_archive\\obsolete_scripts\\file_reference_checker.py",
+      "rel_path": "cross_reference\\zz_archive\\obsolete_scripts\\file_reference_checker.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 574,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "argparse",
+        "datetime",
+        "json",
+        "logging",
+        "os",
+        "re",
+        "subprocess",
+        "sys",
+        "time",
+        "concurrent.futures",
+        "pathlib",
+        "typing",
+        "traceback"
+      ]
+    },
+    {
+      "id": "cross_reference\\zz_archive\\obsolete_scripts\\file_reference_checker_turbo.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\zz_archive\\obsolete_scripts\\file_reference_checker_turbo.py",
+      "rel_path": "cross_reference\\zz_archive\\obsolete_scripts\\file_reference_checker_turbo.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 648,
+      "issues": [
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [
+        "Original Script: file_reference_checker_optimized.py",
+        "Windows Version: file_reference_checker_windows.py",
+        "Configuration: ./config.yaml"
+      ],
+      "imports": [
+        "argparse",
+        "datetime",
+        "json",
+        "logging",
+        "os",
+        "re",
+        "sys",
+        "time",
+        "threading",
+        "concurrent.futures",
+        "pathlib",
+        "typing",
+        "yaml"
+      ]
+    },
+    {
+      "id": "cross_reference\\zz_archive\\obsolete_scripts\\file_reference_checker_ultra.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\zz_archive\\obsolete_scripts\\file_reference_checker_ultra.py",
+      "rel_path": "cross_reference\\zz_archive\\obsolete_scripts\\file_reference_checker_ultra.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 2170,
+      "issues": [
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [
+        "Previous Version: file_reference_checker_turbo.py",
+        "Configuration: ./config_ultra.yaml"
+      ],
+      "imports": [
+        "argparse",
+        "asyncio",
+        "datetime",
+        "fnmatch",
+        "json",
+        "logging",
+        "os",
+        "re",
+        "time",
+        "sys",
+        "math",
+        "shutil",
+        "importlib.util",
+        "string",
+        "pathlib",
+        "typing",
+        "yaml",
+        "pyahocorasick",
+        "random",
+        "string",
+        "re",
+        "IPython",
+        "traceback",
+        "subprocess",
+        "ctypes"
+      ]
+    },
+    {
+      "id": "cross_reference\\zz_archive\\obsolete_scripts\\file_reference_checker_windows.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\zz_archive\\obsolete_scripts\\file_reference_checker_windows.py",
+      "rel_path": "cross_reference\\zz_archive\\obsolete_scripts\\file_reference_checker_windows.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 639,
+      "issues": [
+        "Missing Created in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [
+        "Original Script: file_reference_checker_optimized.py",
+        "Configuration: ./config.yaml"
+      ],
+      "imports": [
+        "argparse",
+        "datetime",
+        "json",
+        "logging",
+        "os",
+        "re",
+        "sys",
+        "time",
+        "threading",
+        "concurrent.futures",
+        "pathlib",
+        "typing",
+        "yaml"
+      ]
+    },
+    {
+      "id": "cross_reference\\zz_archive\\obsolete_scripts\\reference_fixer.py",
+      "path": "C:\\EGOS\\scripts\\cross_reference\\zz_archive\\obsolete_scripts\\reference_fixer.py",
+      "rel_path": "cross_reference\\zz_archive\\obsolete_scripts\\reference_fixer.py",
+      "subsystem": "cross_reference",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 703,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "os",
+        "re",
+        "sys",
+        "json",
+        "time",
+        "logging",
+        "argparse",
+        "uuid",
+        "pathlib",
+        "typing",
+        "collections",
+        "tqdm",
+        "colorama"
+      ]
+    },
+    {
+      "id": "doc_metrics_utils\\doc_metrics_config.py",
+      "path": "C:\\EGOS\\scripts\\doc_metrics_utils\\doc_metrics_config.py",
+      "rel_path": "doc_metrics_utils\\doc_metrics_config.py",
+      "subsystem": "doc_metrics_utils",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": false,
+      "line_count": 49,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Missing type hints"
+      ],
+      "references": [],
+      "imports": []
+    },
+    {
+      "id": "doc_metrics_utils\\__init__.py",
+      "path": "C:\\EGOS\\scripts\\doc_metrics_utils\\__init__.py",
+      "rel_path": "doc_metrics_utils\\__init__.py",
+      "subsystem": "doc_metrics_utils",
+      "valid": true,
+      "has_docstring": false,
+      "has_type_hints": false,
+      "line_count": 1,
+      "issues": [
+        "Missing module docstring",
+        "Missing type hints"
+      ],
+      "references": [],
+      "imports": []
+    },
+    {
+      "id": "legacy_migration\\create_legacy_inventory.py",
+      "path": "C:\\EGOS\\scripts\\legacy_migration\\create_legacy_inventory.py",
+      "rel_path": "legacy_migration\\create_legacy_inventory.py",
+      "subsystem": "legacy_migration",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 686,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "os",
+        "sys",
+        "argparse",
+        "logging",
+        "datetime",
+        "pickle",
+        "time",
+        "typing"
+      ]
+    },
+    {
+      "id": "legacy_migration\\standardize_legacy_txt.py",
+      "path": "C:\\EGOS\\scripts\\legacy_migration\\standardize_legacy_txt.py",
+      "rel_path": "legacy_migration\\standardize_legacy_txt.py",
+      "subsystem": "legacy_migration",
+      "valid": true,
+      "has_docstring": false,
+      "has_type_hints": true,
+      "line_count": 440,
+      "issues": [
+        "Missing module docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "os",
+        "argparse",
+        "logging",
+        "datetime",
+        "langdetect"
+      ]
+    },
+    {
+      "id": "maintenance\\roadmap_sync.py",
+      "path": "C:\\EGOS\\scripts\\maintenance\\roadmap_sync.py",
+      "rel_path": "maintenance\\roadmap_sync.py",
+      "subsystem": "maintenance",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 553,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "argparse",
+        "json",
+        "logging",
+        "os",
+        "re",
+        "sys",
+        "collections",
+        "datetime",
+        "pathlib",
+        "typing",
+        "traceback"
+      ]
+    },
+    {
+      "id": "maintenance\\scheduled_cleanup.py",
+      "path": "C:\\EGOS\\scripts\\maintenance\\scheduled_cleanup.py",
+      "rel_path": "maintenance\\scheduled_cleanup.py",
+      "subsystem": "maintenance",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 446,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "os",
+        "argparse",
+        "logging",
+        "datetime",
+        "shutil",
+        "glob",
+        "json",
+        "typing"
+      ]
+    },
+    {
+      "id": "maintenance\\code_health\\analyze_autofixer_results.py",
+      "path": "C:\\EGOS\\scripts\\maintenance\\code_health\\analyze_autofixer_results.py",
+      "rel_path": "maintenance\\code_health\\analyze_autofixer_results.py",
+      "subsystem": "maintenance",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 293,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "sys",
+        "pathlib",
+        "os",
+        "re",
+        "argparse",
+        "logging",
+        "json",
+        "typing",
+        "subprocess"
+      ]
+    },
+    {
+      "id": "maintenance\\code_health\\docstring_autofixer.py",
+      "path": "C:\\EGOS\\scripts\\maintenance\\code_health\\docstring_autofixer.py",
+      "rel_path": "maintenance\\code_health\\docstring_autofixer.py",
+      "subsystem": "maintenance",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 398,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "argparse",
+        "json",
+        "logging",
+        "sys",
+        "shutil",
+        "re",
+        "pathlib",
+        "typing",
+        "datetime"
+      ]
+    },
+    {
+      "id": "maintenance\\code_health\\docstring_checker.py",
+      "path": "C:\\EGOS\\scripts\\maintenance\\code_health\\docstring_checker.py",
+      "rel_path": "maintenance\\code_health\\docstring_checker.py",
+      "subsystem": "maintenance",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 682,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "sys",
+        "pathlib",
+        "os",
+        "re",
+        "ast",
+        "argparse",
+        "logging",
+        "datetime",
+        "json",
+        "typing",
+        "webbrowser",
+        "subprocess",
+        "platform"
+      ]
+    },
+    {
+      "id": "maintenance\\code_health\\docstring_workflow.py",
+      "path": "C:\\EGOS\\scripts\\maintenance\\code_health\\docstring_workflow.py",
+      "rel_path": "maintenance\\code_health\\docstring_workflow.py",
+      "subsystem": "maintenance",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 419,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "argparse",
+        "json",
+        "logging",
+        "shutil",
+        "subprocess",
+        "sys",
+        "datetime",
+        "pathlib",
+        "typing",
+        "traceback"
+      ]
+    },
+    {
+      "id": "maintenance\\code_health\\fix_autofixer_issues.py",
+      "path": "C:\\EGOS\\scripts\\maintenance\\code_health\\fix_autofixer_issues.py",
+      "rel_path": "maintenance\\code_health\\fix_autofixer_issues.py",
+      "subsystem": "maintenance",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 236,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "sys",
+        "pathlib",
+        "os",
+        "re",
+        "argparse",
+        "logging",
+        "json",
+        "shutil",
+        "typing"
+      ]
+    },
+    {
+      "id": "maintenance\\code_health\\script_ecosystem_visualizer.py",
+      "path": "C:\\EGOS\\scripts\\maintenance\\code_health\\script_ecosystem_visualizer.py",
+      "rel_path": "maintenance\\code_health\\script_ecosystem_visualizer.py",
+      "subsystem": "maintenance",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 779,
+      "issues": [
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [
+        "C:\\EGOS\\docs_egos\u0003_processes\\script_management\\script_management_best_practices.md",
+        "C:\\EGOS\\scripts\\maintenance\\code_health\\script_validator.py",
+        "C:\\EGOS\\scripts\\cross_reference\file_reference_checker_ultra.py",
+        "C:\\EGOS\\scripts\\cross_reference\\cross_reference_visualizer.py"
+      ],
+      "imports": [
+        "os",
+        "sys",
+        "json",
+        "logging",
+        "argparse",
+        "pathlib",
+        "typing",
+        "networkx",
+        "pyvis.network",
+        "matplotlib.pyplot",
+        "subprocess",
+        "tempfile"
+      ]
+    },
+    {
+      "id": "maintenance\\code_health\\script_validator.py",
+      "path": "C:\\EGOS\\scripts\\maintenance\\code_health\\script_validator.py",
+      "rel_path": "maintenance\\code_health\\script_validator.py",
+      "subsystem": "maintenance",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 567,
+      "issues": [
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [
+        "C:\\EGOS\\docs_egos\u0003_processes\\script_management\\script_management_best_practices.md",
+        "C:\\EGOS\\scripts\\system_monitor\\egos_system_monitor.py",
+        "C:\\EGOS\\scripts\\cross_reference\\cross_reference_validator.py"
+      ],
+      "imports": [
+        "os",
+        "sys",
+        "ast",
+        "re",
+        "json",
+        "logging",
+        "argparse",
+        "importlib",
+        "pathlib",
+        "datetime",
+        "typing"
+      ]
+    },
+    {
+      "id": "maintenance\\code_health\\syntax_checker.py",
+      "path": "C:\\EGOS\\scripts\\maintenance\\code_health\\syntax_checker.py",
+      "rel_path": "maintenance\\code_health\\syntax_checker.py",
+      "subsystem": "maintenance",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 530,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "sys",
+        "pathlib",
+        "os",
+        "re",
+        "ast",
+        "argparse",
+        "logging",
+        "datetime",
+        "json",
+        "typing",
+        "fnmatch"
+      ]
+    },
+    {
+      "id": "maintenance\\code_health\\syntax_checker_rewrite.py",
+      "path": "C:\\EGOS\\scripts\\maintenance\\code_health\\syntax_checker_rewrite.py",
+      "rel_path": "maintenance\\code_health\\syntax_checker_rewrite.py",
+      "subsystem": "maintenance",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 564,
+      "issues": [
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [
+        "[MQP.md](mdc:../../../MQP.md) - Master Quantum Prompt defining EGOS principles",
+        "[ROADMAP.md](mdc:../../../ROADMAP.md) - Project roadmap and planning"
+      ],
+      "imports": [
+        "pathlib",
+        "sys",
+        "argparse",
+        "ast",
+        "datetime",
+        "fnmatch",
+        "logging",
+        "os",
+        "re",
+        "typing"
+      ]
+    },
+    {
+      "id": "maintenance\\code_health\\syntax_remediation_tool.py",
+      "path": "C:\\EGOS\\scripts\\maintenance\\code_health\\syntax_remediation_tool.py",
+      "rel_path": "maintenance\\code_health\\syntax_remediation_tool.py",
+      "subsystem": "maintenance",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 436,
+      "issues": [
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [
+        "[MQP.md](mdc:../../../MQP.md) - Master Quantum Prompt defining EGOS principles",
+        "[ROADMAP.md](mdc:../../../ROADMAP.md) - Project roadmap and planning",
+        "[syntax_error_remediation_process.md](mdc:../../../docs/maintenance/syntax_error_remediation_process.md)"
+      ],
+      "imports": [
+        "sys",
+        "pathlib",
+        "argparse",
+        "ast",
+        "difflib",
+        "logging",
+        "os",
+        "re",
+        "tempfile",
+        "typing",
+        "scripts.maintenance.code_health.syntax_checker_rewrite"
+      ]
+    },
+    {
+      "id": "maintenance\\cross_reference\\tests\\test_engine.py",
+      "path": "C:\\EGOS\\scripts\\maintenance\\cross_reference\\tests\\test_engine.py",
+      "rel_path": "maintenance\\cross_reference\\tests\\test_engine.py",
+      "subsystem": "maintenance",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": false,
+      "line_count": 245,
+      "issues": [
+        "Missing Version in docstring",
+        "Missing type hints",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [
+        "Core References:\n  - [ROADMAP.md](mdc:../../../../ROADMAP.md):KOIOS-DOC-009 - Cross-Reference Analyzer Refactoring",
+        "Related Components:\n  - [engine.py](py:../engine.py) - The module being tested\n  - [test_graph_builder.py](py:./test_graph_builder.py) - Tests for the GraphBuilder component\n  - [test_pipeline.py](py:./test_pipeline.py) - Tests for the AnalysisPipeline component",
+        "Testing Standards:\n  - [testing_standards.md](mdc:../../../../docs/standards/testing_standards.md) - EGOS testing standards"
+      ],
+      "imports": [
+        "unittest",
+        "pathlib",
+        "unittest.mock",
+        "sys",
+        "logging",
+        "scripts.maintenance.cross_reference.engine",
+        "scripts.maintenance.cross_reference.models.reference",
+        "scripts.maintenance.cross_reference.models.report"
+      ]
+    },
+    {
+      "id": "maintenance\\cross_reference\\tests\\test_pipeline.py",
+      "path": "C:\\EGOS\\scripts\\maintenance\\cross_reference\\tests\\test_pipeline.py",
+      "rel_path": "maintenance\\cross_reference\\tests\\test_pipeline.py",
+      "subsystem": "maintenance",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": false,
+      "line_count": 233,
+      "issues": [
+        "Missing Version in docstring",
+        "Missing type hints",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [
+        "Core References:\n  - [ROADMAP.md](../../roadmap_sync.py) <!-- EGOS-REF-E8ABEBA2 -->:KOIOS-DOC-009 - Cross-Reference Analyzer Refactoring",
+        "Related Components:\n  - [pipeline.py](py:../pipeline.py) - The module being tested\n  - [test_scanner.py](py:./test_scanner.py) - Tests for the FileScanner component\n  - [test_graph_builder.py](py:./test_graph_builder.py) - Tests for the GraphBuilder component\n  - [test_engine.py](py:./test_engine.py) - Tests for the AnalysisEngine component",
+        "T[testing_standards.md](mdc:../../../../docs_egos/standards/testing_standards.md) <!-- EGOS-REF-B6FB14EB -->s.md) <!-- EGOS-REF-04FE9ABA -->/testing_standards.md) - EGOS testing standards"
+      ],
+      "imports": [
+        "os",
+        "unittest",
+        "tempfile",
+        "shutil",
+        "pathlib",
+        "unittest.mock",
+        "sys",
+        "logging",
+        "scripts.maintenance.cross_reference.pipeline",
+        "scripts.maintenance.cross_reference.scanner",
+        "scripts.maintenance.cross_reference.graph_builder",
+        "scripts.maintenance.cross_reference.engine",
+        "scripts.maintenance.cross_reference.models.report",
+        "scripts.maintenance.cross_reference.reporters.console_reporter",
+        "scripts.maintenance.cross_reference.reporters.markdown_reporter"
+      ]
+    },
+    {
+      "id": "migrations\\cleanup_empty_directories.py",
+      "path": "C:\\EGOS\\scripts\\migrations\\cleanup_empty_directories.py",
+      "rel_path": "migrations\\cleanup_empty_directories.py",
+      "subsystem": "migrations",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 237,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "argparse",
+        "logging",
+        "os",
+        "sys",
+        "pathlib",
+        "typing",
+        "datetime"
+      ]
+    },
+    {
+      "id": "migrations\\docs_duplicate_finder.py",
+      "path": "C:\\EGOS\\scripts\\migrations\\docs_duplicate_finder.py",
+      "rel_path": "migrations\\docs_duplicate_finder.py",
+      "subsystem": "migrations",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 309,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "argparse",
+        "hashlib",
+        "logging",
+        "os",
+        "sys",
+        "pathlib",
+        "typing",
+        "datetime"
+      ]
+    },
+    {
+      "id": "migrations\\docs_migration_verification.py",
+      "path": "C:\\EGOS\\scripts\\migrations\\docs_migration_verification.py",
+      "rel_path": "migrations\\docs_migration_verification.py",
+      "subsystem": "migrations",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 345,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "argparse",
+        "logging",
+        "os",
+        "re",
+        "sys",
+        "pathlib",
+        "typing",
+        "yaml",
+        "datetime"
+      ]
+    },
+    {
+      "id": "migrations\\docs_structure_migrator.py",
+      "path": "C:\\EGOS\\scripts\\migrations\\docs_structure_migrator.py",
+      "rel_path": "migrations\\docs_structure_migrator.py",
+      "subsystem": "migrations",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 491,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "argparse",
+        "logging",
+        "os",
+        "re",
+        "shutil",
+        "sys",
+        "pathlib",
+        "typing",
+        "yaml",
+        "datetime"
+      ]
+    },
+    {
+      "id": "migrations\\process_unique_files.py",
+      "path": "C:\\EGOS\\scripts\\migrations\\process_unique_files.py",
+      "rel_path": "migrations\\process_unique_files.py",
+      "subsystem": "migrations",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 354,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "argparse",
+        "logging",
+        "os",
+        "json",
+        "shutil",
+        "sys",
+        "pathlib",
+        "typing",
+        "datetime"
+      ]
+    },
+    {
+      "id": "migrations\\unique_files_analyzer.py",
+      "path": "C:\\EGOS\\scripts\\migrations\\unique_files_analyzer.py",
+      "rel_path": "migrations\\unique_files_analyzer.py",
+      "subsystem": "migrations",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 585,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "argparse",
+        "logging",
+        "os",
+        "re",
+        "sys",
+        "yaml",
+        "json",
+        "pathlib",
+        "typing",
+        "datetime",
+        "mimetypes",
+        "hashlib"
+      ]
+    },
+    {
+      "id": "migrations\\verify_migration_integrity.py",
+      "path": "C:\\EGOS\\scripts\\migrations\\verify_migration_integrity.py",
+      "rel_path": "migrations\\verify_migration_integrity.py",
+      "subsystem": "migrations",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 443,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "argparse",
+        "logging",
+        "os",
+        "re",
+        "sys",
+        "yaml",
+        "json",
+        "pathlib",
+        "typing",
+        "datetime",
+        "concurrent.futures"
+      ]
+    },
+    {
+      "id": "migrations\\imported\\custom_tool.py",
+      "path": "C:\\EGOS\\scripts\\migrations\\imported\\custom_tool.py",
+      "rel_path": "migrations\\imported\\custom_tool.py",
+      "subsystem": "migrations",
+      "valid": false,
+      "has_docstring": false,
+      "has_type_hints": false,
+      "line_count": 28,
+      "issues": [
+        "Syntax error: EOF while scanning triple-quoted string literal (<unknown>, line 28)"
+      ],
+      "references": [],
+      "imports": []
+    },
+    {
+      "id": "migrations\\imported\\FetchZendeskTickets.py",
+      "path": "C:\\EGOS\\scripts\\migrations\\imported\\FetchZendeskTickets.py",
+      "rel_path": "migrations\\imported\\FetchZendeskTickets.py",
+      "subsystem": "migrations",
+      "valid": false,
+      "has_docstring": false,
+      "has_type_hints": false,
+      "line_count": 129,
+      "issues": [
+        "Syntax error: invalid syntax (<unknown>, line 50)"
+      ],
+      "references": [],
+      "imports": []
+    },
+    {
+      "id": "migrations\\imported\\models.py",
+      "path": "C:\\EGOS\\scripts\\migrations\\imported\\models.py",
+      "rel_path": "migrations\\imported\\models.py",
+      "subsystem": "migrations",
+      "valid": false,
+      "has_docstring": false,
+      "has_type_hints": false,
+      "line_count": 28,
+      "issues": [
+        "Syntax error: EOF while scanning triple-quoted string literal (<unknown>, line 28)"
+      ],
+      "references": [],
+      "imports": []
+    },
+    {
+      "id": "migrations\\imported\\qdrant_vector_search_tool.py",
+      "path": "C:\\EGOS\\scripts\\migrations\\imported\\qdrant_vector_search_tool.py",
+      "rel_path": "migrations\\imported\\qdrant_vector_search_tool.py",
+      "subsystem": "migrations",
+      "valid": false,
+      "has_docstring": false,
+      "has_type_hints": false,
+      "line_count": 198,
+      "issues": [
+        "Syntax error: invalid syntax (<unknown>, line 40)"
+      ],
+      "references": [],
+      "imports": []
+    },
+    {
+      "id": "migrations\\imported\\__init__.py",
+      "path": "C:\\EGOS\\scripts\\migrations\\imported\\__init__.py",
+      "rel_path": "migrations\\imported\\__init__.py",
+      "subsystem": "migrations",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": false,
+      "line_count": 19,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Missing type hints"
+      ],
+      "references": [],
+      "imports": [
+        "sys",
+        "pathlib"
+      ]
+    },
+    {
+      "id": "nexus\\search_engine_prototype.py",
+      "path": "C:\\EGOS\\scripts\\nexus\\search_engine_prototype.py",
+      "rel_path": "nexus\\search_engine_prototype.py",
+      "subsystem": "nexus",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 808,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "os",
+        "re",
+        "sys",
+        "json",
+        "logging",
+        "argparse",
+        "pathlib",
+        "datetime",
+        "typing",
+        "collections",
+        "tqdm",
+        "colorama"
+      ]
+    },
+    {
+      "id": "subsystems\\KOIOS\\chronicler_module\\analyzer.py",
+      "path": "C:\\EGOS\\scripts\\subsystems\\KOIOS\\chronicler_module\\analyzer.py",
+      "rel_path": "subsystems\\KOIOS\\chronicler_module\\analyzer.py",
+      "subsystem": "KOIOS",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 269,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "os",
+        "re",
+        "logging",
+        "fnmatch",
+        "typing",
+        "pathlib",
+        "json",
+        "sys"
+      ]
+    },
+    {
+      "id": "subsystems\\KOIOS\\chronicler_module\\generator.py",
+      "path": "C:\\EGOS\\scripts\\subsystems\\KOIOS\\chronicler_module\\generator.py",
+      "rel_path": "subsystems\\KOIOS\\chronicler_module\\generator.py",
+      "subsystem": "KOIOS",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 371,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "os",
+        "logging",
+        "json",
+        "time",
+        "typing",
+        "requests",
+        "datetime",
+        "sys",
+        "json"
+      ]
+    },
+    {
+      "id": "subsystems\\KOIOS\\chronicler_module\\main.py",
+      "path": "C:\\EGOS\\scripts\\subsystems\\KOIOS\\chronicler_module\\main.py",
+      "rel_path": "subsystems\\KOIOS\\chronicler_module\\main.py",
+      "subsystem": "KOIOS",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 187,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "os",
+        "sys",
+        "argparse",
+        "logging",
+        "typing",
+        "yaml",
+        "analyzer",
+        "generator",
+        "renderer"
+      ]
+    },
+    {
+      "id": "subsystems\\KOIOS\\chronicler_module\\renderer.py",
+      "path": "C:\\EGOS\\scripts\\subsystems\\KOIOS\\chronicler_module\\renderer.py",
+      "rel_path": "subsystems\\KOIOS\\chronicler_module\\renderer.py",
+      "subsystem": "KOIOS",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 468,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "os",
+        "logging",
+        "typing",
+        "datetime",
+        "json",
+        "sys"
+      ]
+    },
+    {
+      "id": "system_monitor\\egos_system_monitor.py",
+      "path": "C:\\EGOS\\scripts\\system_monitor\\egos_system_monitor.py",
+      "rel_path": "system_monitor\\egos_system_monitor.py",
+      "subsystem": "system_monitor",
+      "valid": true,
+      "has_docstring": false,
+      "has_type_hints": true,
+      "line_count": 2317,
+      "issues": [
+        "Missing module docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "sys",
+        "os",
+        "sys",
+        "time",
+        "argparse",
+        "asyncio",
+        "datetime",
+        "logging",
+        "json",
+        "subprocess",
+        "re",
+        "math",
+        "shutil",
+        "fnmatch",
+        "tempfile",
+        "mmap",
+        "threading",
+        "statistics",
+        "importlib.util",
+        "pathlib",
+        "typing",
+        "dataclasses",
+        "concurrent.futures",
+        "concurrent.futures",
+        "functools",
+        "collections",
+        "pyahocorasick",
+        "tqdm",
+        "psutil",
+        "ctypes",
+        "cross_reference.optimized_reference_fixer"
+      ]
+    },
+    {
+      "id": "system_monitor\\archive\\deprecated_test_time_filtering.py",
+      "path": "C:\\EGOS\\scripts\\system_monitor\\archive\\deprecated_test_time_filtering.py",
+      "rel_path": "system_monitor\\archive\\deprecated_test_time_filtering.py",
+      "subsystem": "system_monitor",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 353,
+      "issues": [
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [
+        "C:\\EGOS\\scripts\\system_monitor\\egos_system_monitor.py",
+        "C:\\EGOS\\ROADMAP.md",
+        "C:\\EGOS\\WORK_2025_05_21.md"
+      ],
+      "imports": [
+        "os",
+        "sys",
+        "json",
+        "shutil",
+        "argparse",
+        "subprocess",
+        "datetime",
+        "pathlib",
+        "typing"
+      ]
+    },
+    {
+      "id": "system_monitor\\tests\\test_system_monitor.py",
+      "path": "C:\\EGOS\\scripts\\system_monitor\\tests\\test_system_monitor.py",
+      "rel_path": "system_monitor\\tests\\test_system_monitor.py",
+      "subsystem": "system_monitor",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": false,
+      "line_count": 261,
+      "issues": [
+        "Missing type hints",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [
+        "C:\\EGOS\\scripts\\system_monitor\\egos_system_monitor.py",
+        "C:\\EGOS\\ROADMAP.md",
+        "C:\\EGOS\\WORK_2025_05_21.md",
+        "C:\\EGOS\\docs\\process\\script_management_best_practices.md"
+      ],
+      "imports": [
+        "os",
+        "sys",
+        "json",
+        "shutil",
+        "tempfile",
+        "unittest",
+        "datetime",
+        "pathlib",
+        "typing",
+        "egos_system_monitor"
+      ]
+    },
+    {
+      "id": "system_monitor\\test_data\\time_filter_test_20250522_095135\\older_py_48hours.py",
+      "path": "C:\\EGOS\\scripts\\system_monitor\\test_data\\time_filter_test_20250522_095135\\older_py_48hours.py",
+      "rel_path": "system_monitor\\test_data\\time_filter_test_20250522_095135\\older_py_48hours.py",
+      "subsystem": "system_monitor",
+      "valid": false,
+      "has_docstring": false,
+      "has_type_hints": false,
+      "line_count": 3,
+      "issues": [
+        "Syntax error: invalid syntax (<unknown>, line 1)"
+      ],
+      "references": [],
+      "imports": []
+    },
+    {
+      "id": "system_monitor\\test_data\\time_filter_test_20250522_095135\\recent_py_1hour.py",
+      "path": "C:\\EGOS\\scripts\\system_monitor\\test_data\\time_filter_test_20250522_095135\\recent_py_1hour.py",
+      "rel_path": "system_monitor\\test_data\\time_filter_test_20250522_095135\\recent_py_1hour.py",
+      "subsystem": "system_monitor",
+      "valid": false,
+      "has_docstring": false,
+      "has_type_hints": false,
+      "line_count": 3,
+      "issues": [
+        "Syntax error: invalid syntax (<unknown>, line 1)"
+      ],
+      "references": [],
+      "imports": []
+    },
+    {
+      "id": "system_monitor\\test_data\\time_filter_test_20250522_095159\\older_py_48hours.py",
+      "path": "C:\\EGOS\\scripts\\system_monitor\\test_data\\time_filter_test_20250522_095159\\older_py_48hours.py",
+      "rel_path": "system_monitor\\test_data\\time_filter_test_20250522_095159\\older_py_48hours.py",
+      "subsystem": "system_monitor",
+      "valid": false,
+      "has_docstring": false,
+      "has_type_hints": false,
+      "line_count": 3,
+      "issues": [
+        "Syntax error: invalid syntax (<unknown>, line 1)"
+      ],
+      "references": [],
+      "imports": []
+    },
+    {
+      "id": "system_monitor\\test_data\\time_filter_test_20250522_095159\\recent_py_1hour.py",
+      "path": "C:\\EGOS\\scripts\\system_monitor\\test_data\\time_filter_test_20250522_095159\\recent_py_1hour.py",
+      "rel_path": "system_monitor\\test_data\\time_filter_test_20250522_095159\\recent_py_1hour.py",
+      "subsystem": "system_monitor",
+      "valid": false,
+      "has_docstring": false,
+      "has_type_hints": false,
+      "line_count": 3,
+      "issues": [
+        "Syntax error: invalid syntax (<unknown>, line 1)"
+      ],
+      "references": [],
+      "imports": []
+    },
+    {
+      "id": "system_monitor\\test_data\\time_filter_test_20250522_095304\\older_py_48hours.py",
+      "path": "C:\\EGOS\\scripts\\system_monitor\\test_data\\time_filter_test_20250522_095304\\older_py_48hours.py",
+      "rel_path": "system_monitor\\test_data\\time_filter_test_20250522_095304\\older_py_48hours.py",
+      "subsystem": "system_monitor",
+      "valid": false,
+      "has_docstring": false,
+      "has_type_hints": false,
+      "line_count": 3,
+      "issues": [
+        "Syntax error: invalid syntax (<unknown>, line 1)"
+      ],
+      "references": [],
+      "imports": []
+    },
+    {
+      "id": "system_monitor\\test_data\\time_filter_test_20250522_095304\\recent_py_1hour.py",
+      "path": "C:\\EGOS\\scripts\\system_monitor\\test_data\\time_filter_test_20250522_095304\\recent_py_1hour.py",
+      "rel_path": "system_monitor\\test_data\\time_filter_test_20250522_095304\\recent_py_1hour.py",
+      "subsystem": "system_monitor",
+      "valid": false,
+      "has_docstring": false,
+      "has_type_hints": false,
+      "line_count": 3,
+      "issues": [
+        "Syntax error: invalid syntax (<unknown>, line 1)"
+      ],
+      "references": [],
+      "imports": []
+    },
+    {
+      "id": "tools\\fix_linting.py",
+      "path": "C:\\EGOS\\scripts\\tools\\fix_linting.py",
+      "rel_path": "tools\\fix_linting.py",
+      "subsystem": "tools",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 250,
+      "issues": [
+        "Missing cross-references in docstring",
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "json",
+        "os",
+        "pathlib",
+        "subprocess",
+        "sys",
+        "typing"
+      ]
+    },
+    {
+      "id": "tools\\nats_publisher_rewrite.py",
+      "path": "C:\\EGOS\\scripts\\tools\\nats_publisher_rewrite.py",
+      "rel_path": "tools\\nats_publisher_rewrite.py",
+      "subsystem": "tools",
+      "valid": true,
+      "has_docstring": true,
+      "has_type_hints": true,
+      "line_count": 210,
+      "issues": [
+        "Missing Author in docstring",
+        "Missing Created in docstring",
+        "Missing Version in docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [
+        "Core References:\n  - [MQP.md](mdc:../../MQP.md) - Master Quantum Prompt defining EGOS principles\n  - [ROADMAP.md](mdc:../../ROADMAP.md) - Project roadmap and planning"
+      ],
+      "imports": [
+        "sys",
+        "pathlib",
+        "asyncio",
+        "json",
+        "os",
+        "random",
+        "time",
+        "uuid",
+        "argparse",
+        "datetime",
+        "datetime",
+        "logging",
+        "typing",
+        "nats"
+      ]
+    },
+    {
+      "id": "validation\\validate_roadmap_tasks.py",
+      "path": "C:\\EGOS\\scripts\\validation\\validate_roadmap_tasks.py",
+      "rel_path": "validation\\validate_roadmap_tasks.py",
+      "subsystem": "validation",
+      "valid": true,
+      "has_docstring": false,
+      "has_type_hints": true,
+      "line_count": 146,
+      "issues": [
+        "Missing module docstring",
+        "Error: 'FunctionDef' object has no attribute 'parent_field'"
+      ],
+      "references": [],
+      "imports": [
+        "re",
+        "argparse",
+        "pathlib",
+        "logging"
+      ]
+    }
+  ],
+  "subsystems": [
+    {
+      "id": "analyze_git_history.py",
+      "name": "analyze_git_history.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "another_script.py",
+      "name": "another_script.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "core_diag_documentation_metrics_fixed.py",
+      "name": "core_diag_documentation_metrics_fixed.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "core_ops_file_reference_checker.py",
+      "name": "core_ops_file_reference_checker.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "cross_reference/api_main.py",
+      "name": "cross_reference/api_main.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "cross_reference/archive_validator.py",
+      "name": "cross_reference/archive_validator.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "cross_reference/config_loader.py",
+      "name": "cross_reference/config_loader.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "cross_reference/cross_reference_validator.py",
+      "name": "cross_reference/cross_reference_validator.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "cross_reference/cross_reference_visualizer.py",
+      "name": "cross_reference/cross_reference_visualizer.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "cross_reference/docs_directory_fixer.py",
+      "name": "cross_reference/docs_directory_fixer.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "cross_reference/execute_inventory_scan.py",
+      "name": "cross_reference/execute_inventory_scan.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "cross_reference/file_reference_checker_optimized.py",
+      "name": "cross_reference/file_reference_checker_optimized.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "cross_reference/file_reference_checker_ultra.py",
+      "name": "cross_reference/file_reference_checker_ultra.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "cross_reference/inject_standardized_references.py",
+      "name": "cross_reference/inject_standardized_references.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "cross_reference/inventory_consolidator.py",
+      "name": "cross_reference/inventory_consolidator.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "cross_reference/optimized_reference_fixer.py",
+      "name": "cross_reference/optimized_reference_fixer.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "cross_reference/purge_old_references.py",
+      "name": "cross_reference/purge_old_references.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "cross_reference/run_tests.py",
+      "name": "cross_reference/run_tests.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "cross_reference/script_standards_scanner.py",
+      "name": "cross_reference/script_standards_scanner.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "cross_reference/script_template_generator.py",
+      "name": "cross_reference/script_template_generator.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "cross_reference/api",
+      "name": "cross_reference/api",
+      "total": 2,
+      "valid": 0,
+      "invalid": 2,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "cross_reference/documentation_reference_manager",
+      "name": "cross_reference/documentation_reference_manager",
+      "total": 7,
+      "valid": 0,
+      "invalid": 7,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "cross_reference/integration",
+      "name": "cross_reference/integration",
+      "total": 6,
+      "valid": 0,
+      "invalid": 6,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "cross_reference/tests",
+      "name": "cross_reference/tests",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "cross_reference/utils",
+      "name": "cross_reference/utils",
+      "total": 2,
+      "valid": 0,
+      "invalid": 2,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "cross_reference/validator",
+      "name": "cross_reference/validator",
+      "total": 4,
+      "valid": 0,
+      "invalid": 4,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "cross_reference/zz_archive",
+      "name": "cross_reference/zz_archive",
+      "total": 15,
+      "valid": 0,
+      "invalid": 15,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "doc_metrics_utils/doc_metrics_config.py",
+      "name": "doc_metrics_utils/doc_metrics_config.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "doc_metrics_utils/__init__.py",
+      "name": "doc_metrics_utils/__init__.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "legacy_migration/create_legacy_inventory.py",
+      "name": "legacy_migration/create_legacy_inventory.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "legacy_migration/standardize_legacy_txt.py",
+      "name": "legacy_migration/standardize_legacy_txt.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "maintenance/roadmap_sync.py",
+      "name": "maintenance/roadmap_sync.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "maintenance/scheduled_cleanup.py",
+      "name": "maintenance/scheduled_cleanup.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "maintenance/code_health",
+      "name": "maintenance/code_health",
+      "total": 10,
+      "valid": 0,
+      "invalid": 10,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "maintenance/cross_reference",
+      "name": "maintenance/cross_reference",
+      "total": 2,
+      "valid": 0,
+      "invalid": 2,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "migrations/cleanup_empty_directories.py",
+      "name": "migrations/cleanup_empty_directories.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "migrations/docs_duplicate_finder.py",
+      "name": "migrations/docs_duplicate_finder.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "migrations/docs_migration_verification.py",
+      "name": "migrations/docs_migration_verification.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "migrations/docs_structure_migrator.py",
+      "name": "migrations/docs_structure_migrator.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "migrations/process_unique_files.py",
+      "name": "migrations/process_unique_files.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "migrations/unique_files_analyzer.py",
+      "name": "migrations/unique_files_analyzer.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "migrations/verify_migration_integrity.py",
+      "name": "migrations/verify_migration_integrity.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "migrations/imported",
+      "name": "migrations/imported",
+      "total": 5,
+      "valid": 0,
+      "invalid": 5,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "nexus/search_engine_prototype.py",
+      "name": "nexus/search_engine_prototype.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "subsystems/KOIOS",
+      "name": "subsystems/KOIOS",
+      "total": 4,
+      "valid": 0,
+      "invalid": 4,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "system_monitor/egos_system_monitor.py",
+      "name": "system_monitor/egos_system_monitor.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "system_monitor/archive",
+      "name": "system_monitor/archive",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "system_monitor/tests",
+      "name": "system_monitor/tests",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "system_monitor/test_data",
+      "name": "system_monitor/test_data",
+      "total": 6,
+      "valid": 0,
+      "invalid": 6,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "tools/fix_linting.py",
+      "name": "tools/fix_linting.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "tools/nats_publisher_rewrite.py",
+      "name": "tools/nats_publisher_rewrite.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    },
+    {
+      "id": "validation/validate_roadmap_tasks.py",
+      "name": "validation/validate_roadmap_tasks.py",
+      "total": 1,
+      "valid": 0,
+      "invalid": 1,
+      "valid_percentage": 0.0
+    }
+  ],
+  "relationships": [
+    {
+      "source": "maintenance\\code_health\\script_ecosystem_visualizer.py",
+      "target": "maintenance\\code_health\\script_validator.py",
+      "type": "reference"
+    },
+    {
+      "source": "maintenance\\code_health\\script_ecosystem_visualizer.py",
+      "target": "cross_reference\\cross_reference_visualizer.py",
+      "type": "reference"
+    },
+    {
+      "source": "maintenance\\code_health\\script_validator.py",
+      "target": "system_monitor\\egos_system_monitor.py",
+      "type": "reference"
+    },
+    {
+      "source": "maintenance\\code_health\\script_validator.py",
+      "target": "cross_reference\\cross_reference_validator.py",
+      "type": "reference"
+    },
+    {
+      "source": "system_monitor\\archive\\deprecated_test_time_filtering.py",
+      "target": "system_monitor\\egos_system_monitor.py",
+      "type": "reference"
+    },
+    {
+      "source": "system_monitor\\tests\\test_system_monitor.py",
+      "target": "system_monitor\\egos_system_monitor.py",
+      "type": "reference"
+    }
+  ],
+  "statistics": {
+    "total_scripts": 104,
+    "total_valid": 0,
+    "total_invalid": 104,
+    "total_lines": 42051,
+    "issues_by_type": {
+      "Missing module docstring": 6,
+      "Error": 80,
+      "Missing type hints": 19,
+      "Syntax error": 13,
+      "Missing cross-references in docstring": 59,
+      "Missing Author in docstring": 51,
+      "Missing Created in docstring": 58,
+      "Missing Version in docstring": 53
+    },
+    "subsystems": {
+      "analyze_git_history.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "another_script.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "core_diag_documentation_metrics_fixed.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "core_ops_file_reference_checker.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "cross_reference/api_main.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "cross_reference/archive_validator.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "cross_reference/config_loader.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "cross_reference/cross_reference_validator.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "cross_reference/cross_reference_visualizer.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "cross_reference/docs_directory_fixer.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "cross_reference/execute_inventory_scan.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "cross_reference/file_reference_checker_optimized.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "cross_reference/file_reference_checker_ultra.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "cross_reference/inject_standardized_references.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "cross_reference/inventory_consolidator.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "cross_reference/optimized_reference_fixer.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "cross_reference/purge_old_references.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "cross_reference/run_tests.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "cross_reference/script_standards_scanner.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "cross_reference/script_template_generator.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "cross_reference/api": {
+        "valid": 0,
+        "invalid": 2,
+        "total": 2
+      },
+      "cross_reference/documentation_reference_manager": {
+        "valid": 0,
+        "invalid": 7,
+        "total": 7
+      },
+      "cross_reference/integration": {
+        "valid": 0,
+        "invalid": 6,
+        "total": 6
+      },
+      "cross_reference/tests": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "cross_reference/utils": {
+        "valid": 0,
+        "invalid": 2,
+        "total": 2
+      },
+      "cross_reference/validator": {
+        "valid": 0,
+        "invalid": 4,
+        "total": 4
+      },
+      "cross_reference/zz_archive": {
+        "valid": 0,
+        "invalid": 15,
+        "total": 15
+      },
+      "doc_metrics_utils/doc_metrics_config.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "doc_metrics_utils/__init__.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "legacy_migration/create_legacy_inventory.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "legacy_migration/standardize_legacy_txt.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "maintenance/roadmap_sync.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "maintenance/scheduled_cleanup.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "maintenance/code_health": {
+        "valid": 0,
+        "invalid": 10,
+        "total": 10
+      },
+      "maintenance/cross_reference": {
+        "valid": 0,
+        "invalid": 2,
+        "total": 2
+      },
+      "migrations/cleanup_empty_directories.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "migrations/docs_duplicate_finder.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "migrations/docs_migration_verification.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "migrations/docs_structure_migrator.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "migrations/process_unique_files.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "migrations/unique_files_analyzer.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "migrations/verify_migration_integrity.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "migrations/imported": {
+        "valid": 0,
+        "invalid": 5,
+        "total": 5
+      },
+      "nexus/search_engine_prototype.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "subsystems/KOIOS": {
+        "valid": 0,
+        "invalid": 4,
+        "total": 4
+      },
+      "system_monitor/egos_system_monitor.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "system_monitor/archive": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "system_monitor/tests": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "system_monitor/test_data": {
+        "valid": 0,
+        "invalid": 6,
+        "total": 6
+      },
+      "tools/fix_linting.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "tools/nats_publisher_rewrite.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      },
+      "validation/validate_roadmap_tasks.py": {
+        "valid": 0,
+        "invalid": 1,
+        "total": 1
+      }
+    },
+    "valid_percentage": 0.0
+  }
+}

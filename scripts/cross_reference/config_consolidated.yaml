@@ -1,0 +1,274 @@
+# EGOS Cross-Reference Tools - Consolidated Configuration
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║                  EGOS Cross-Reference Tools Configuration                    ║
+# ║                                                                              ║
+# ║  Consolidated configuration file for all cross-reference validation tools    ║
+# ║  Version: 1.0.0                                                              ║
+# ║  Last Updated: 2025-05-21                                                    ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+
+# ┌────────────────────────────────────────┐
+# │ Project Settings                        │
+# └────────────────────────────────────────┘
+project:
+  # Base directory of the EGOS project
+  base_path: "C:/EGOS"
+  
+  # Default directories to scan (relative to base_path)
+  default_scan_directories:
+    - "docs_egos/"
+    - "subsystems/"
+    - "apps/"
+    - "scripts/"
+    - "ROADMAP.md"
+    - "README.md"
+
+# ┌────────────────────────────────────────┐
+# │ File Selection                          │
+# └────────────────────────────────────────┘
+files:
+  # File extensions to process
+  extensions:
+    - ".py"    # Python files
+    - ".md"    # Markdown files
+    - ".yml"   # YAML files
+    - ".yaml"  # YAML files
+    - ".json"  # JSON files
+    - ".js"    # JavaScript files
+    - ".ts"    # TypeScript files
+    - ".html"  # HTML files
+    - ".css"   # CSS files
+    - ".txt"   # Text files
+  
+  # File size limits
+  size_limits:
+    min_bytes: 100       # Minimum file size to consider
+    max_mb: 10           # Maximum file size to consider (in MB)
+  
+  # File age limits
+  age_limits:
+    days_modified: 365   # Include files modified in the last year
+
+# ┌────────────────────────────────────────┐
+# │ Exclusion System                        │
+# └────────────────────────────────────────┘
+exclusions:
+  # Global exclusions applied to all operations
+  global:
+    # Version control
+    - ".git"
+    - ".svn"
+    
+    # IDE and editor files
+    - ".idea"
+    - ".vscode"
+    - "*.swp"
+    - "*.swo"
+    
+    # Environment and package directories
+    - "venv"
+    - ".venv"
+    - "__pycache__"
+    - "node_modules"
+    - "*.egg-info"
+    
+    # Build and distribution directories
+    - "dist"
+    - "build"
+    - "eggs"
+    - "target"
+    
+    # Compiled files
+    - "*.pyc"
+    - "*.pyo"
+    - "*.so"
+    - "*.dll"
+    - "*.exe"
+    - "*.o"
+    - "*.a"
+    - "*.obj"
+    
+    # System files
+    - ".DS_Store"
+    - "Thumbs.db"
+    
+    # Archive and backup directories
+    - "**/zz_archive/**"
+    - "**/legacy_root_backups/**"
+    - "**/legacy_root_archive/**"
+    - "**/*.bak"
+    - "**/*_backup*/**"
+    - "**/*_bak/**"
+    - "**/archive/**"
+    - "**/archives/**"
+    - "**/backup/**"
+    - "**/backups/**"
+    
+    # Generated reports and logs
+    - "./scripts/cross_reference/reports/**"
+    - "./scripts/cross_reference/*_debug_output.log"
+    - "./scripts/cross_reference/.crossref_ultra_cache.json"
+
+# ┌────────────────────────────────────────┐
+# │ Reference Patterns                      │
+# └────────────────────────────────────────┘
+references:
+  # Patterns to identify cross-references
+  patterns:
+    # Standard markdown links
+    - "[{text}]({target})"
+    
+    # Canonical reference blocks
+    - "<!-- crossref_block:start -->([\\s\\S]*?)<!-- crossref_block:end -->"
+    - "🔗 Reference: [{text}]({target})"
+    
+    # Import statements (Python)
+    - "import {module_name}"
+    - "from {module_name}"
+    
+    # File references
+    - "{filename}"
+    - "{filepath_relative}"
+    
+    # HTML links
+    - "<a href=\"{target}\">{text}</a>"
+    
+    # YAML references
+    - "file: {filepath_relative}"
+    - "path: {filepath_relative}"
+    - "target: {filepath_relative}"
+    - "include: {filepath_relative}"
+    
+    # GitHub Actions
+    - "uses: {filepath_relative}"
+    
+    # EGOS-specific references
+    - "EGOS-EPIC-*"
+    - "@references:*"
+    - "MEMORY\\[*\\]"
+    
+    # Subsystem references
+    - "KOIOS"
+    - "ETHIK"
+    - "AETHER"
+    - "CORUJA"
+    - "HARMONY"
+    - "NEXUS"
+    - "MYCELIUM"
+  
+  # Reference resolution options
+  resolution:
+    resolve_python_modules: true
+    max_line_length: 500
+    file_processing_timeout_sec: 60
+
+# ┌────────────────────────────────────────┐
+# │ Performance Settings                    │
+# └────────────────────────────────────────┘
+performance:
+  # Parallelization
+  max_workers: "cpu_count"  # Use number of CPU cores or specific number
+  
+  # Batch processing
+  batch_size: 20  # Process files in batches of this size
+  
+  # Caching
+  cache_enabled: true
+  
+  # Search method: "python_regex" or "ripgrep"
+  search_method: "python_regex"
+  
+  # Timeout settings
+  timeout_sec: 30  # Timeout for processing a single file
+
+# ┌────────────────────────────────────────┐
+# │ Reporting Configuration                 │
+# └────────────────────────────────────────┘
+reporting:
+  # Output formats
+  formats:
+    - "html"    # HTML report with interactive features
+    - "json"    # JSON data for programmatic access
+    - "markdown"  # Markdown report for documentation
+  
+  # Output paths
+  paths:
+    base_dir: "reports"
+    html_report: "cross_reference_report.html"
+    json_report: "cross_reference_report.json"
+    markdown_report: "cross_reference_report.md"
+  
+  # Report retention
+  retention_days: 30  # Number of days to keep old reports
+  
+  # Report features
+  features:
+    include_stats: true
+    include_visualization: true
+    include_suggestions: true
+    include_summary: true
+
+# ┌────────────────────────────────────────┐
+# │ Logging Configuration                   │
+# └────────────────────────────────────────┘
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  
+  # Log file path
+  file_path: "logs/cross_reference.log"
+  
+  # Console output
+  console:
+    enabled: true
+    color: true
+    level: "INFO"
+
+# ┌────────────────────────────────────────┐
+# │ Validation Settings                     │
+# └────────────────────────────────────────┘
+validation:
+  # Validation strictness
+  strictness: "normal"  # strict, normal, relaxed
+  
+  # Validation rules
+  rules:
+    check_external_urls: false
+    check_file_existence: true
+    check_format_validity: true
+    suggest_fixes: true
+  
+  # Validation thresholds
+  thresholds:
+    min_valid_percentage: 80  # Minimum percentage of valid references required
+
+# ┌────────────────────────────────────────┐
+# │ Integration Settings                    │
+# └────────────────────────────────────────┘
+integration:
+  # CI/CD integration
+  ci_cd:
+    enabled: true
+    fail_on_error: false
+    min_score: 70
+  
+  # IDE integration
+  ide:
+    vscode_extension: true
+    intellij_plugin: false
+  
+  # Notification settings
+  notifications:
+    email: false
+    slack: false
+
+# ┌────────────────────────────────────────┐
+# │ Schema Validation                       │
+# └────────────────────────────────────────┘
+schema:
+  version: "1.0.0"
+  validation_enabled: true
+
+# ✧༺❀༻∞ EGOS ∞༺❀༻✧

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EGOS Cross-Reference Network</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <!-- Load external libraries -->
+    <!-- Add error handlers to help debug script loading issues -->
+    <script>
+        window.addEventListener('error', function(e) {
+            console.error('Script error detected:', e.filename, e.message);
+        });
+    </script>
+    
+    <!-- First load Graphology core with direct CDN URL-->
+    <script src="https://cdn.jsdelivr.net/npm/graphology@0.25.1/dist/graphology.umd.min.js"></script>
+    <script>
+        console.log('Graphology loaded:', typeof graphology !== 'undefined');
+    </script>
+    
+    <!-- Load layout libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/graphology-layout@0.6.1/dist/graphology-layout.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/graphology-layout-forceatlas2@0.10.1/dist/graphology-layout-forceatlas2.min.js"></script>
+    <script>
+        console.log('ForceAtlas2 loaded:', typeof graphologyLayoutForceAtlas2 !== 'undefined');
+        // Make ForceAtlas2 globally available
+        window.forceAtlas2 = window.graphologyLayoutForceAtlas2 || window.forceAtlas2;
+    </script>
+    
+    <!-- Load Sigma -->
+    <script src="https://cdn.jsdelivr.net/npm/sigma@2.4.0/dist/sigma.min.js"></script>
+    <script>
+        console.log('Sigma loaded:', typeof Sigma !== 'undefined');
+        // Ensure Sigma is available globally
+        window.SigmaClass = window.Sigma || (typeof sigma !== 'undefined' ? sigma : null);
+    </script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo">
+                <span class="logo-symbol">✧༺❀༻∞</span>
+                <h1>EGOS Cross-Reference Network</h1>
+                <span class="logo-symbol">∞༺❀༻✧</span>
+            </div>
+            <div class="header-controls">
+                <button id="toggle-sidebar" title="Toggle Sidebar">≡</button>
+                <button id="toggle-theme" title="Toggle Light/Dark Theme">☾</button>
+                <button id="toggle-fullscreen" title="Toggle Fullscreen">⛶</button>
+            </div>
+        </header>
+
+        <div class="main-container">
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h2>Network Statistics</h2>
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <div class="stat-value" id="total-files">708</div>
+                            <div class="stat-label">Total Files</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="total-references">1739</div>
+                            <div class="stat-label">References</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="orphaned-files">648</div>
+                            <div class="stat-label">Orphaned Files</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="coverage-percent">8.47%</div>
+                            <div class="stat-label">Coverage</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2>Search & Filter</h2>
+                    <div class="search-container">
+                        <input type="text" id="search-input" placeholder="Search files...">
+                        <button id="search-button">🔍</button>
+                    </div>
+                    <div class="filter-section">
+                        <h3>File Types</h3>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" checked data-filter="markdown">
+                                <span class="filter-color markdown"></span>
+                                <span>Markdown</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" checked data-filter="python">
+                                <span class="filter-color python"></span>
+                                <span>Python</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" checked data-filter="yaml">
+                                <span class="filter-color yaml"></span>
+                                <span>YAML/JSON</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" checked data-filter="other">
+                                <span class="filter-color other"></span>
+                                <span>Other</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="filter-section">
+                        <h3>Reference Status</h3>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" checked data-status="referenced">
+                                <span>Referenced Files</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" checked data-status="orphaned">
+                                <span>Orphaned Files</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" checked data-status="core">
+                                <span>Core Documents</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="filter-section">
+                        <h3>Reference Count</h3>
+                        <div class="range-slider">
+                            <input type="range" min="0" max="100" value="0" id="min-references">
+                            <div class="range-value">Min: <span id="min-references-value">0</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2>Top Referenced Files</h2>
+                    <ul class="top-files-list" id="top-referenced-files">
+                        <!-- Dynamically populated -->
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2>Actions</h2>
+                    <div class="action-buttons">
+                        <button id="export-csv">Export CSV</button>
+                        <button id="reset-view">Reset View</button>
+                        <button id="refresh-data">Refresh Data</button>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="graph-container">
+                <div id="sigma-container"></div>
+                <div class="graph-overlay" id="graph-overlay">
+                    <div class="node-details" id="node-details">
+                        <h3 id="node-title">File Details</h3>
+                        <div id="node-content"></div>
+                    </div>
+                </div>
+                <div class="loading-overlay" id="loading-overlay">
+                    <div class="spinner"></div>
+                    <div class="loading-text">Loading Graph...</div>
+                </div>
+            </main>
+        </div>
+
+        <footer class="app-footer">
+            <div class="footer-content">
+                <span>EGOS Cross-Reference Network Visualization</span>
+                <span>Generated: 2025-04-23 08:05:17</span>
+                <span>Version 1.0.0</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Context Menu -->
+    <div class="context-menu" id="context-menu">
+        <div class="context-menu-option" data-action="view-github">
+            <span class="context-menu-icon">📄</span>
+            <span>Open on GitHub</span>
+        </div>
+        <div class="context-menu-option" data-action="add-references">
+            <span class="context-menu-icon">🔗</span>
+            <span>Add References</span>
+        </div>
+        <div class="context-menu-option" data-action="view-details">
+            <span class="context-menu-icon">ℹ️</span>
+            <span>View Details</span>
+        </div>
+        <div class="context-menu-option" data-action="highlight-connections">
+            <span class="context-menu-icon">🔆</span>
+            <span>Highlight Connections</span>
+        </div>
+    </div>
+
+    <!-- Load data and visualization script -->
+    <script src="static/graph-data.js"></script>
+    <script src="static/visualization.js"></script>
+</body>
+</html>

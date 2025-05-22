@@ -1,0 +1,292 @@
+[
+  {
+    "File": "C:\\EGOS\\WORK_2025_05_21.md",
+    "LineNumber": 157,
+    "LineContent": "            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`)."
+  },
+  {
+    "File": "C:\\EGOS\\docs\\core_materials\\archive\\ROADMAPS\\active\\20250401_system_unification_roadmap.md",
+    "LineNumber": 7,
+    "LineContent": "Related: Project Coruja (20250331_coruja_initiative_roadmap.md)"
+  },
+  {
+    "File": "C:\\EGOS\\docs\\governance\\documentation_champions.md",
+    "LineNumber": 19,
+    "LineContent": "- Related:"
+  },
+  {
+    "File": "C:\\EGOS\\docs\\governance\\documentation_structure_standard.md",
+    "LineNumber": 22,
+    "LineContent": "- Related:"
+  },
+  {
+    "File": "C:\\EGOS\\docs\\governance\\EGOS Trust Weave MVP.txt",
+    "LineNumber": 1180,
+    "LineContent": "Output: If potentially similar files/directories are found, Trust Weaver would present them to the user with a prompt like: \"Found existing items that might be related: [file1.py, dir/similar_name]. Do you want to review them before creating a new one?\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\governance\\processes\\documentation_triggers.md",
+    "LineNumber": 19,
+    "LineContent": "- Related:"
+  },
+  {
+    "File": "C:\\EGOS\\docs\\governance\\reorganization\\DOCS_MIGRATION_CASE_STUDY.md",
+    "LineNumber": 19,
+    "LineContent": "- Related:"
+  },
+  {
+    "File": "C:\\EGOS\\docs\\guides\\refactoring_large_files_guide.md",
+    "LineNumber": 38,
+    "LineContent": "Related: KOIOS-STD-002 (File Size and Modularity Standard)"
+  },
+  {
+    "File": "C:\\EGOS\\docs\\guides\\reference_guide.md",
+    "LineNumber": 45,
+    "LineContent": "related:"
+  },
+  {
+    "File": "C:\\EGOS\\docs\\guides\\roadmap_maintenance_procedures.md",
+    "LineNumber": 53,
+    "LineContent": "Related: KOIOS-DOC-011, KOIOS-XREF-003"
+  },
+  {
+    "File": "C:\\EGOS\\docs\\guides\\roadmap_modularization_guide.md",
+    "LineNumber": 53,
+    "LineContent": "Related: KOIOS-DOC-011, docs_egos/templates/subsystem_roadmap_template.md"
+  },
+  {
+    "File": "C:\\EGOS\\docs\\legacy\\legacy_inventory_insights.md",
+    "LineNumber": 8,
+    "LineContent": "**Subsystem Related:** All  "
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\cross_reference_inventory_20250521.md",
+    "LineNumber": 171,
+    "LineContent": "  Related: Project Coruja (20250331_coruja_initiative_roadmap.md)"
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_Doc_results.json",
+    "LineNumber": 10,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_EGOS_ID_Start_results.json",
+    "LineNumber": 150,
+    "LineContent": "    \"LineContent\": \"    \\\"LineContent\\\": \\\"Related: KOIOS-CODE-001, EGOS-PRINCIPLE-CONSCIOUS-MODULARITY, EGOS-PRINCIPLE-SRP, docs_egos/guides/refactoring_large_files_guide.md\\\"\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_LinkTo_results.json",
+    "LineNumber": 5,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_Reference_results.json",
+    "LineNumber": 10,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_Ref_results.json",
+    "LineNumber": 20,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_Related_results.json",
+    "LineNumber": 5,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_SeeAlso_results.json",
+    "LineNumber": 5,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_Source_results.json",
+    "LineNumber": 10,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\standards\\file_size_modularity_standard.md",
+    "LineNumber": 38,
+    "LineContent": "Related: KOIOS-CODE-001, EGOS-PRINCIPLE-CONSCIOUS-MODULARITY, EGOS-PRINCIPLE-SRP, docs_egos/guides/refactoring_large_files_guide.md"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\01_core_principles\\core_materials\\archive\\ROADMAPS\\active\\20250401_system_unification_roadmap.md",
+    "LineNumber": 7,
+    "LineContent": "Related: Project Coruja (20250331_coruja_initiative_roadmap.md)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\01_core_principles\\governance_documents\\documentation_champions.md",
+    "LineNumber": 19,
+    "LineContent": "- Related:"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\01_core_principles\\governance_documents\\documentation_structure_standard.md",
+    "LineNumber": 22,
+    "LineContent": "- Related:"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\01_core_principles\\governance_documents\\EGOS Trust Weave MVP.txt",
+    "LineNumber": 1180,
+    "LineContent": "Output: If potentially similar files/directories are found, Trust Weaver would present them to the user with a prompt like: \"Found existing items that might be related: [file1.py, dir/similar_name]. Do you want to review them before creating a new one?\""
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\01_core_principles\\governance_documents\\processes\\documentation_triggers.md",
+    "LineNumber": 19,
+    "LineContent": "- Related:"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\01_core_principles\\governance_documents\\reorganization\\DOCS_MIGRATION_CASE_STUDY.md",
+    "LineNumber": 19,
+    "LineContent": "- Related:"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\01_core_principles\\standards_documents\\file_size_modularity_standard.md",
+    "LineNumber": 38,
+    "LineContent": "Related: KOIOS-CODE-001, EGOS-PRINCIPLE-CONSCIOUS-MODULARITY, EGOS-PRINCIPLE-SRP, docs_egos/guides/refactoring_large_files_guide.md"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\02_koios_standards\\file_size_modularity_standard.md",
+    "LineNumber": 38,
+    "LineContent": "Related: KOIOS-CODE-001, EGOS-PRINCIPLE-CONSCIOUS-MODULARITY, EGOS-PRINCIPLE-SRP, docs_egos/guides/refactoring_large_files_guide.md"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\03_subsystems\\ETHIK\\ethik_chain_implementation.md",
+    "LineNumber": 61,
+    "LineContent": "**Subsystem Related:** ETHIK, MYCELIUM, KOIOS  "
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\03_subsystems\\MYCELIUM\\mycelium_network_implementation.md",
+    "LineNumber": 61,
+    "LineContent": "**Subsystem Related:** MYCELIUM, CORUJA, KOIOS  "
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\06_guides_and_tutorials\\refactoring_large_files_guide.md",
+    "LineNumber": 38,
+    "LineContent": "Related: KOIOS-STD-002 (File Size and Modularity Standard)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\06_guides_and_tutorials\\reference_guide.md",
+    "LineNumber": 45,
+    "LineContent": "related:"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\06_guides_and_tutorials\\roadmap_maintenance_procedures.md",
+    "LineNumber": 53,
+    "LineContent": "Related: KOIOS-DOC-011, KOIOS-XREF-003"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\06_guides_and_tutorials\\roadmap_modularization_guide.md",
+    "LineNumber": 53,
+    "LineContent": "Related: KOIOS-DOC-011, docs_egos/templates/subsystem_roadmap_template.md"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\legacy_archive\\legacy_inventory_insights.md",
+    "LineNumber": 8,
+    "LineContent": "**Subsystem Related:** All  "
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_archive\\reference_archive\\ROADMAPS\\active\\20250401_system_unification_roadmap.md",
+    "LineNumber": 60,
+    "LineContent": "Related: Project Coruja (20250331_coruja_initiative_roadmap.md)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181435\\docs\\governance\\file_retention_policy.md",
+    "LineNumber": 61,
+    "LineContent": "**Subsystem Related:** CRONOS, KOIOS  "
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181438\\docs\\governance\\roadmap_modularization_summary.md",
+    "LineNumber": 53,
+    "LineContent": "Related: KOIOS-GUIDE-003, ATL-WEB-001"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181512\\docs\\governance\\migrations\\inventory_summary.md",
+    "LineNumber": 61,
+    "LineContent": "**Subsystem Related:** CRONOS, KOIOS  "
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181515\\docs\\governance\\migrations\\legacy_inventory_insights.md",
+    "LineNumber": 61,
+    "LineContent": "**Subsystem Related:** All  "
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181549\\docs\\governance\\roadmaps\\CORUJA\\ROADMAP.md",
+    "LineNumber": 62,
+    "LineContent": "- Related:"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181557\\docs\\governance\\roadmaps\\subsystems\\CORUJA\\ROADMAP.md",
+    "LineNumber": 62,
+    "LineContent": "- Related:"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181607\\docs\\guides\\CORUJA_MYCELIUM_INTEGRATION_PLAN.md",
+    "LineNumber": 62,
+    "LineContent": "- Related:"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181607\\docs\\guides\\CORUJA_REASONING_PHASE_PLAN.md",
+    "LineNumber": 60,
+    "LineContent": "- Related:"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181610\\docs\\guides\\standards\\ethik_chain_implementation.md",
+    "LineNumber": 61,
+    "LineContent": "**Subsystem Related:** ETHIK, MYCELIUM, KOIOS  "
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181610\\docs\\guides\\standards\\mycelium_network_implementation.md",
+    "LineNumber": 61,
+    "LineContent": "**Subsystem Related:** MYCELIUM, CORUJA, KOIOS  "
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181611\\docs\\guides\\standards\\README.md",
+    "LineNumber": 44,
+    "LineContent": "related:"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181614\\docs\\markdown\\diagrams\\subsystem_integration_map.md",
+    "LineNumber": 53,
+    "LineContent": "Related: KOIOS-DOC-011, KOIOS-XREF-002"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181640\\docs\\reference\\roadmap_maintenance_procedures.md",
+    "LineNumber": 53,
+    "LineContent": "Related: KOIOS-DOC-011, KOIOS-XREF-003"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181640\\docs\\reference\\roadmap_modularization_guide.md",
+    "LineNumber": 53,
+    "LineContent": "Related: KOIOS-DOC-011, docs_egos/templates/subsystem_roadmap_template.md"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181643\\docs\\reference\\archive\\ROADMAPS\\active\\20250401_system_unification_roadmap.md",
+    "LineNumber": 60,
+    "LineContent": "Related: Project Coruja (20250331_coruja_initiative_roadmap.md)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181651\\docs\\subsystems\\EGO_CRJ_ROADMAP.md",
+    "LineNumber": 62,
+    "LineContent": "- Related:"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181704\\docs\\subsystems\\CORUJA\\EGO_CRJ_ROADMAP.md",
+    "LineNumber": 62,
+    "LineContent": "- Related:"
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\cross_reference\\execute_inventory_scan.py",
+    "LineNumber": 42,
+    "LineContent": "    {\"query\": \"Related:\", \"output_file\": \"grep_Related_results.json\", \"case_insensitive\": True, \"category\": \"keyword\"},"
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\cross_reference\\purge_old_references.py",
+    "LineNumber": 192,
+    "LineContent": "    {\"name\": \"Related\", \"pattern\": r\"Related:\\s\", \"context_required\": False},"
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\cross_reference\\documentation_reference_manager\\manager.py",
+    "LineNumber": 128,
+    "LineContent": "            r'Related: ([^,\\n]+\\.md)',  # Plain text \"Related\" references"
+  }
+]

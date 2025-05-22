@@ -1,0 +1,863 @@
+{
+  "total_files": 214,
+  "duplicate_files": 43,
+  "unique_files": 192,
+  "duplicate_groups": 21,
+  "total_size": 1583628,
+  "wasted_space": 170082,
+  "extensions": {
+    ".md": 214
+  },
+  "top_duplicate_dirs": [
+    [
+      "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\STRATEGIC_THINKING\\research",
+      5
+    ],
+    [
+      "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\core_materials",
+      5
+    ],
+    [
+      "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\website",
+      4
+    ],
+    [
+      "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\core_materials\\website",
+      4
+    ],
+    [
+      "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\research",
+      3
+    ],
+    [
+      "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\standards",
+      2
+    ],
+    [
+      "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\core_materials\\standards",
+      2
+    ],
+    [
+      "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\core_materials\\research",
+      2
+    ],
+    [
+      "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\guides",
+      2
+    ],
+    [
+      "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\core_materials\\prompts",
+      2
+    ]
+  ],
+  "groups": [
+    {
+      "name": "Content Group 0",
+      "file_count": 2,
+      "total_size": 7346,
+      "wasted_space": 3673,
+      "canonical_file": {
+        "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\research\\EGOS_Strategic_Analysis_Integration_Summary_Apr2025.md",
+        "relative_path": "..\\..\\docs\\research\\EGOS_Strategic_Analysis_Integration_Summary_Apr2025.md",
+        "name": "EGOS_Strategic_Analysis_Integration_Summary_Apr2025.md",
+        "size": 3673,
+        "last_modified": "2025-05-21T15:08:52.439839",
+        "is_archive": false,
+        "is_documentation": true,
+        "content_hash": "3ba9a0bc70507af449c5a9207b6ac999"
+      },
+      "files": [
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\research\\EGOS_Strategic_Analysis_Integration_Summary_Apr2025.md",
+          "relative_path": "..\\..\\docs\\research\\EGOS_Strategic_Analysis_Integration_Summary_Apr2025.md",
+          "name": "EGOS_Strategic_Analysis_Integration_Summary_Apr2025.md",
+          "size": 3673,
+          "last_modified": "2025-05-21T15:08:52.439839",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "3ba9a0bc70507af449c5a9207b6ac999"
+        },
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\STRATEGIC_THINKING\\research\\EGOS_Strategic_Analysis_Integration_Summary_Apr2025.md",
+          "relative_path": "..\\..\\docs\\STRATEGIC_THINKING\\research\\EGOS_Strategic_Analysis_Integration_Summary_Apr2025.md",
+          "name": "EGOS_Strategic_Analysis_Integration_Summary_Apr2025.md",
+          "size": 3673,
+          "last_modified": "2025-05-21T15:08:52.537603",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "3ba9a0bc70507af449c5a9207b6ac999"
+        }
+      ]
+    },
+    {
+      "name": "Content Group 1",
+      "file_count": 2,
+      "total_size": 46136,
+      "wasted_space": 23068,
+      "canonical_file": {
+        "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\research\\Vibe_Coding_Market_Analysis.md",
+        "relative_path": "..\\..\\docs\\research\\Vibe_Coding_Market_Analysis.md",
+        "name": "Vibe_Coding_Market_Analysis.md",
+        "size": 23068,
+        "last_modified": "2025-05-21T15:08:52.442026",
+        "is_archive": false,
+        "is_documentation": true,
+        "content_hash": "6219cc5eb658b7481ffba8f780ead132"
+      },
+      "files": [
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\research\\Vibe_Coding_Market_Analysis.md",
+          "relative_path": "..\\..\\docs\\research\\Vibe_Coding_Market_Analysis.md",
+          "name": "Vibe_Coding_Market_Analysis.md",
+          "size": 23068,
+          "last_modified": "2025-05-21T15:08:52.442026",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "6219cc5eb658b7481ffba8f780ead132"
+        },
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\STRATEGIC_THINKING\\research\\Vibe_Coding_Market_Analysis.md",
+          "relative_path": "..\\..\\docs\\STRATEGIC_THINKING\\research\\Vibe_Coding_Market_Analysis.md",
+          "name": "Vibe_Coding_Market_Analysis.md",
+          "size": 23068,
+          "last_modified": "2025-05-21T15:08:52.562170",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "6219cc5eb658b7481ffba8f780ead132"
+        }
+      ]
+    },
+    {
+      "name": "Content Group 2",
+      "file_count": 2,
+      "total_size": 27726,
+      "wasted_space": 13863,
+      "canonical_file": {
+        "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\research\\website_ux_analysis.md",
+        "relative_path": "..\\..\\docs\\research\\website_ux_analysis.md",
+        "name": "website_ux_analysis.md",
+        "size": 13863,
+        "last_modified": "2025-05-21T15:08:52.443179",
+        "is_archive": false,
+        "is_documentation": true,
+        "content_hash": "482015ca8724aa0494f975820221fdb7"
+      },
+      "files": [
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\research\\website_ux_analysis.md",
+          "relative_path": "..\\..\\docs\\research\\website_ux_analysis.md",
+          "name": "website_ux_analysis.md",
+          "size": 13863,
+          "last_modified": "2025-05-21T15:08:52.443179",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "482015ca8724aa0494f975820221fdb7"
+        },
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\STRATEGIC_THINKING\\research\\website_ux_analysis.md",
+          "relative_path": "..\\..\\docs\\STRATEGIC_THINKING\\research\\website_ux_analysis.md",
+          "name": "website_ux_analysis.md",
+          "size": 13863,
+          "last_modified": "2025-05-21T15:08:52.563949",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "482015ca8724aa0494f975820221fdb7"
+        }
+      ]
+    },
+    {
+      "name": "Similar Content Group 3",
+      "file_count": 2,
+      "total_size": 14137,
+      "wasted_space": 7068,
+      "canonical_file": {
+        "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\website\\DESIGN_GUIDE.md",
+        "relative_path": "..\\..\\docs\\website\\DESIGN_GUIDE.md",
+        "name": "DESIGN_GUIDE.md",
+        "size": 7069,
+        "last_modified": "2025-05-21T15:08:52.726947",
+        "is_archive": false,
+        "is_documentation": true,
+        "content_hash": "1794e3810650437bc4784ee265d08da9"
+      },
+      "files": [
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\website\\DESIGN_GUIDE.md",
+          "relative_path": "..\\..\\docs\\website\\DESIGN_GUIDE.md",
+          "name": "DESIGN_GUIDE.md",
+          "size": 7069,
+          "last_modified": "2025-05-21T15:08:52.726947",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "1794e3810650437bc4784ee265d08da9"
+        },
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\core_materials\\website\\DESIGN_GUIDE.md",
+          "relative_path": "..\\..\\docs\\core_materials\\website\\DESIGN_GUIDE.md",
+          "name": "DESIGN_GUIDE.md",
+          "size": 7068,
+          "last_modified": "2025-05-21T15:08:50.515002",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "d607890a7a2dfd49f7c83efc624f632c"
+        }
+      ]
+    },
+    {
+      "name": "Similar Content Group 4",
+      "file_count": 3,
+      "total_size": 17082,
+      "wasted_space": 10921,
+      "canonical_file": {
+        "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\standards\\KOIOS_Interaction_Standards.md",
+        "relative_path": "..\\..\\docs\\standards\\KOIOS_Interaction_Standards.md",
+        "name": "KOIOS_Interaction_Standards.md",
+        "size": 6161,
+        "last_modified": "2025-05-21T11:09:02.277330",
+        "is_archive": false,
+        "is_documentation": true,
+        "content_hash": "40935ffdb724c1541c11b114c1026eae"
+      },
+      "files": [
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\core_materials\\KOIOS_Interaction_Standards.md",
+          "relative_path": "..\\..\\docs\\core_materials\\KOIOS_Interaction_Standards.md",
+          "name": "KOIOS_Interaction_Standards.md",
+          "size": 5461,
+          "last_modified": "2025-05-21T11:09:00.888514",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "63ab26e116a8ffea1e38348a00944b63"
+        },
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\standards\\KOIOS_Interaction_Standards.md",
+          "relative_path": "..\\..\\docs\\standards\\KOIOS_Interaction_Standards.md",
+          "name": "KOIOS_Interaction_Standards.md",
+          "size": 6161,
+          "last_modified": "2025-05-21T11:09:02.277330",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "40935ffdb724c1541c11b114c1026eae"
+        },
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\core_materials\\standards\\KOIOS_Interaction_Standards.md",
+          "relative_path": "..\\..\\docs\\core_materials\\standards\\KOIOS_Interaction_Standards.md",
+          "name": "KOIOS_Interaction_Standards.md",
+          "size": 5460,
+          "last_modified": "2025-05-21T11:09:01.391419",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "2edcbe5d31604c3d11d2690096f36487"
+        }
+      ]
+    },
+    {
+      "name": "Similar Content Group 5",
+      "file_count": 2,
+      "total_size": 6373,
+      "wasted_space": 3164,
+      "canonical_file": {
+        "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\ai_collaboration\\MULTI_AGENT_WORKFLOW.md",
+        "relative_path": "..\\..\\docs\\ai_collaboration\\MULTI_AGENT_WORKFLOW.md",
+        "name": "MULTI_AGENT_WORKFLOW.md",
+        "size": 3209,
+        "last_modified": "2025-05-21T00:18:51.055297",
+        "is_archive": false,
+        "is_documentation": true,
+        "content_hash": "36977400b831c478143fbe3a88b1a053"
+      },
+      "files": [
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\core_materials\\ai_collaboration\\MULTI_AGENT_WORKFLOW.md",
+          "relative_path": "..\\..\\docs\\core_materials\\ai_collaboration\\MULTI_AGENT_WORKFLOW.md",
+          "name": "MULTI_AGENT_WORKFLOW.md",
+          "size": 3164,
+          "last_modified": "2025-05-21T00:40:22.644590",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "365e0784a1912e735dbf14da51f19832"
+        },
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\ai_collaboration\\MULTI_AGENT_WORKFLOW.md",
+          "relative_path": "..\\..\\docs\\ai_collaboration\\MULTI_AGENT_WORKFLOW.md",
+          "name": "MULTI_AGENT_WORKFLOW.md",
+          "size": 3209,
+          "last_modified": "2025-05-21T00:18:51.055297",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "36977400b831c478143fbe3a88b1a053"
+        }
+      ]
+    },
+    {
+      "name": "Similar Content Group 6",
+      "file_count": 2,
+      "total_size": 3804,
+      "wasted_space": 1869,
+      "canonical_file": {
+        "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\website\\WEBSITE_DESIGN.md",
+        "relative_path": "..\\..\\docs\\website\\WEBSITE_DESIGN.md",
+        "name": "WEBSITE_DESIGN.md",
+        "size": 1935,
+        "last_modified": "2025-05-21T00:18:52.176887",
+        "is_archive": false,
+        "is_documentation": true,
+        "content_hash": "51d75a240f0bed681bd911bb7266440d"
+      },
+      "files": [
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\website\\WEBSITE_DESIGN.md",
+          "relative_path": "..\\..\\docs\\website\\WEBSITE_DESIGN.md",
+          "name": "WEBSITE_DESIGN.md",
+          "size": 1935,
+          "last_modified": "2025-05-21T00:18:52.176887",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "51d75a240f0bed681bd911bb7266440d"
+        },
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\core_materials\\website\\WEBSITE_DESIGN.md",
+          "relative_path": "..\\..\\docs\\core_materials\\website\\WEBSITE_DESIGN.md",
+          "name": "WEBSITE_DESIGN.md",
+          "size": 1869,
+          "last_modified": "2025-05-21T00:40:22.817493",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "65aede3fc58fc14d0cd8552c916dfe32"
+        }
+      ]
+    },
+    {
+      "name": "Similar Content Group 7",
+      "file_count": 2,
+      "total_size": 4825,
+      "wasted_space": 2413,
+      "canonical_file": {
+        "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\website\\CURRENT_TASKS.md",
+        "relative_path": "..\\..\\docs\\website\\CURRENT_TASKS.md",
+        "name": "CURRENT_TASKS.md",
+        "size": 2412,
+        "last_modified": "2025-05-21T15:08:52.724667",
+        "is_archive": false,
+        "is_documentation": true,
+        "content_hash": "0fc325b01e26fcc44b3e58662c67795a"
+      },
+      "files": [
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\website\\CURRENT_TASKS.md",
+          "relative_path": "..\\..\\docs\\website\\CURRENT_TASKS.md",
+          "name": "CURRENT_TASKS.md",
+          "size": 2412,
+          "last_modified": "2025-05-21T15:08:52.724667",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "0fc325b01e26fcc44b3e58662c67795a"
+        },
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\core_materials\\website\\CURRENT_TASKS.md",
+          "relative_path": "..\\..\\docs\\core_materials\\website\\CURRENT_TASKS.md",
+          "name": "CURRENT_TASKS.md",
+          "size": 2413,
+          "last_modified": "2025-05-21T15:08:50.513903",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "81844bd6bf264e2d0a234353392d01e1"
+        }
+      ]
+    },
+    {
+      "name": "Similar Content Group 8",
+      "file_count": 2,
+      "total_size": 4513,
+      "wasted_space": 2218,
+      "canonical_file": {
+        "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\website\\USER_RESEARCH_PLAN.md",
+        "relative_path": "..\\..\\docs\\website\\USER_RESEARCH_PLAN.md",
+        "name": "USER_RESEARCH_PLAN.md",
+        "size": 2295,
+        "last_modified": "2025-05-21T00:18:52.175343",
+        "is_archive": false,
+        "is_documentation": true,
+        "content_hash": "fc2809882724245eab5f107fa74abef3"
+      },
+      "files": [
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\core_materials\\website\\USER_RESEARCH_PLAN.md",
+          "relative_path": "..\\..\\docs\\core_materials\\website\\USER_RESEARCH_PLAN.md",
+          "name": "USER_RESEARCH_PLAN.md",
+          "size": 2218,
+          "last_modified": "2025-05-21T00:40:22.816939",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "53b5313d96ee8be213ab5104939cf67b"
+        },
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\website\\USER_RESEARCH_PLAN.md",
+          "relative_path": "..\\..\\docs\\website\\USER_RESEARCH_PLAN.md",
+          "name": "USER_RESEARCH_PLAN.md",
+          "size": 2295,
+          "last_modified": "2025-05-21T00:18:52.175343",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "fc2809882724245eab5f107fa74abef3"
+        }
+      ]
+    },
+    {
+      "name": "Similar Content Group 9",
+      "file_count": 2,
+      "total_size": 9089,
+      "wasted_space": 4493,
+      "canonical_file": {
+        "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\core_materials\\research\\AI_AGENT_CAPABILITIES_2025.md",
+        "relative_path": "..\\..\\docs\\core_materials\\research\\AI_AGENT_CAPABILITIES_2025.md",
+        "name": "AI_AGENT_CAPABILITIES_2025.md",
+        "size": 4596,
+        "last_modified": "2025-05-21T00:40:22.792973",
+        "is_archive": false,
+        "is_documentation": true,
+        "content_hash": "674d5176ee56a56ddfb441c71e01406e"
+      },
+      "files": [
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\core_materials\\research\\AI_AGENT_CAPABILITIES_2025.md",
+          "relative_path": "..\\..\\docs\\core_materials\\research\\AI_AGENT_CAPABILITIES_2025.md",
+          "name": "AI_AGENT_CAPABILITIES_2025.md",
+          "size": 4596,
+          "last_modified": "2025-05-21T00:40:22.792973",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "674d5176ee56a56ddfb441c71e01406e"
+        },
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\STRATEGIC_THINKING\\research\\AI_AGENT_CAPABILITIES_2025.md",
+          "relative_path": "..\\..\\docs\\STRATEGIC_THINKING\\research\\AI_AGENT_CAPABILITIES_2025.md",
+          "name": "AI_AGENT_CAPABILITIES_2025.md",
+          "size": 4493,
+          "last_modified": "2025-05-21T00:40:22.548662",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "f3e15c86f40c38b8b1620fc7c3df04e9"
+        }
+      ]
+    },
+    {
+      "name": "Similar Content Group 10",
+      "file_count": 2,
+      "total_size": 10449,
+      "wasted_space": 5130,
+      "canonical_file": {
+        "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\core_materials\\tech_radar\\web_scraping_strategies.md",
+        "relative_path": "..\\..\\docs\\core_materials\\tech_radar\\web_scraping_strategies.md",
+        "name": "web_scraping_strategies.md",
+        "size": 5319,
+        "last_modified": "2025-05-21T00:40:22.804694",
+        "is_archive": false,
+        "is_documentation": true,
+        "content_hash": "345c9875ab2e63f087595b68b0b1d671"
+      },
+      "files": [
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\STRATEGIC_THINKING\\technology_watch\\web_scraping_strategies.md",
+          "relative_path": "..\\..\\docs\\STRATEGIC_THINKING\\technology_watch\\web_scraping_strategies.md",
+          "name": "web_scraping_strategies.md",
+          "size": 5130,
+          "last_modified": "2025-05-21T00:40:22.628230",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "3b4b2dce207c946a086f8ab88b6bc5d6"
+        },
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\core_materials\\tech_radar\\web_scraping_strategies.md",
+          "relative_path": "..\\..\\docs\\core_materials\\tech_radar\\web_scraping_strategies.md",
+          "name": "web_scraping_strategies.md",
+          "size": 5319,
+          "last_modified": "2025-05-21T00:40:22.804694",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "345c9875ab2e63f087595b68b0b1d671"
+        }
+      ]
+    },
+    {
+      "name": "Similar Content Group 11",
+      "file_count": 2,
+      "total_size": 15199,
+      "wasted_space": 7510,
+      "canonical_file": {
+        "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\core_materials\\research\\CONTENT_AGGREGATOR_DEEP_DIVE.md",
+        "relative_path": "..\\..\\docs\\core_materials\\research\\CONTENT_AGGREGATOR_DEEP_DIVE.md",
+        "name": "CONTENT_AGGREGATOR_DEEP_DIVE.md",
+        "size": 7689,
+        "last_modified": "2025-05-21T15:08:50.502589",
+        "is_archive": false,
+        "is_documentation": true,
+        "content_hash": "782b6321b47098e05ba0297eba8c0ca1"
+      },
+      "files": [
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\STRATEGIC_THINKING\\research\\CONTENT_AGGREGATOR_DEEP_DIVE.md",
+          "relative_path": "..\\..\\docs\\STRATEGIC_THINKING\\research\\CONTENT_AGGREGATOR_DEEP_DIVE.md",
+          "name": "CONTENT_AGGREGATOR_DEEP_DIVE.md",
+          "size": 7510,
+          "last_modified": "2025-05-21T15:08:52.519988",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "5a120ce4e60963cb7c03958cbaf77b8b"
+        },
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\core_materials\\research\\CONTENT_AGGREGATOR_DEEP_DIVE.md",
+          "relative_path": "..\\..\\docs\\core_materials\\research\\CONTENT_AGGREGATOR_DEEP_DIVE.md",
+          "name": "CONTENT_AGGREGATOR_DEEP_DIVE.md",
+          "size": 7689,
+          "last_modified": "2025-05-21T15:08:50.502589",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "782b6321b47098e05ba0297eba8c0ca1"
+        }
+      ]
+    },
+    {
+      "name": "Similar Content Group 12",
+      "file_count": 2,
+      "total_size": 48580,
+      "wasted_space": 23735,
+      "canonical_file": {
+        "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\guides\\MCP_CREATION_GUIDE.md",
+        "relative_path": "..\\..\\docs\\guides\\MCP_CREATION_GUIDE.md",
+        "name": "MCP_CREATION_GUIDE.md",
+        "size": 24845,
+        "last_modified": "2025-05-21T11:09:01.898019",
+        "is_archive": false,
+        "is_documentation": true,
+        "content_hash": "02b5ba287e70134897212c48eb0c17e0"
+      },
+      "files": [
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\guides\\MCP_CREATION_GUIDE.md",
+          "relative_path": "..\\..\\docs\\guides\\MCP_CREATION_GUIDE.md",
+          "name": "MCP_CREATION_GUIDE.md",
+          "size": 24845,
+          "last_modified": "2025-05-21T11:09:01.898019",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "02b5ba287e70134897212c48eb0c17e0"
+        },
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\core_materials\\MCP_CREATION_GUIDE.md",
+          "relative_path": "..\\..\\docs\\core_materials\\MCP_CREATION_GUIDE.md",
+          "name": "MCP_CREATION_GUIDE.md",
+          "size": 23735,
+          "last_modified": "2025-05-21T00:40:22.637549",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "7c9feaf368811dd47fe0f845fb58f5aa"
+        }
+      ]
+    },
+    {
+      "name": "Similar Content Group 13",
+      "file_count": 2,
+      "total_size": 6174,
+      "wasted_space": 3147,
+      "canonical_file": {
+        "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\STRATEGIC_THINKING\\products\\scribe\\PROJECT_SCRIBE_VISION.md",
+        "relative_path": "..\\..\\docs\\STRATEGIC_THINKING\\products\\scribe\\PROJECT_SCRIBE_VISION.md",
+        "name": "PROJECT_SCRIBE_VISION.md",
+        "size": 3027,
+        "last_modified": "2025-05-21T00:40:22.545257",
+        "is_archive": false,
+        "is_documentation": true,
+        "content_hash": "9580d9191bb421430aef08e697565c5f"
+      },
+      "files": [
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\STRATEGIC_THINKING\\products\\scribe\\PROJECT_SCRIBE_VISION.md",
+          "relative_path": "..\\..\\docs\\STRATEGIC_THINKING\\products\\scribe\\PROJECT_SCRIBE_VISION.md",
+          "name": "PROJECT_SCRIBE_VISION.md",
+          "size": 3027,
+          "last_modified": "2025-05-21T00:40:22.545257",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "9580d9191bb421430aef08e697565c5f"
+        },
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\STRATEGIC_THINKING\\products\\chronicler\\PROJECT_CHRONICLER_VISION.md",
+          "relative_path": "..\\..\\docs\\STRATEGIC_THINKING\\products\\chronicler\\PROJECT_CHRONICLER_VISION.md",
+          "name": "PROJECT_CHRONICLER_VISION.md",
+          "size": 3147,
+          "last_modified": "2025-05-21T00:40:22.543247",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "a80d9922aec6778a6a3f58ae82f8e516"
+        }
+      ]
+    },
+    {
+      "name": "Similar Content Group 14",
+      "file_count": 2,
+      "total_size": 24273,
+      "wasted_space": 11612,
+      "canonical_file": {
+        "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\project\\STRATEGY.md",
+        "relative_path": "..\\..\\docs\\project\\STRATEGY.md",
+        "name": "STRATEGY.md",
+        "size": 12661,
+        "last_modified": "2025-05-21T11:09:02.005509",
+        "is_archive": false,
+        "is_documentation": true,
+        "content_hash": "45e751be9601b2a17b8d9a00db2e3c47"
+      },
+      "files": [
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\core_materials\\STRATEGY.md",
+          "relative_path": "..\\..\\docs\\core_materials\\STRATEGY.md",
+          "name": "STRATEGY.md",
+          "size": 11612,
+          "last_modified": "2025-05-21T00:40:22.642359",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "7a7eaaa03e9891eac59577ee57010d8b"
+        },
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\project\\STRATEGY.md",
+          "relative_path": "..\\..\\docs\\project\\STRATEGY.md",
+          "name": "STRATEGY.md",
+          "size": 12661,
+          "last_modified": "2025-05-21T11:09:02.005509",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "45e751be9601b2a17b8d9a00db2e3c47"
+        }
+      ]
+    },
+    {
+      "name": "Similar Content Group 15",
+      "file_count": 2,
+      "total_size": 24790,
+      "wasted_space": 11820,
+      "canonical_file": {
+        "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\guides\\CRONOS_REFACTORING_EXAMPLE.md",
+        "relative_path": "..\\..\\docs\\guides\\CRONOS_REFACTORING_EXAMPLE.md",
+        "name": "CRONOS_REFACTORING_EXAMPLE.md",
+        "size": 12970,
+        "last_modified": "2025-05-21T11:09:01.890749",
+        "is_archive": false,
+        "is_documentation": true,
+        "content_hash": "59e93ee790aaea561f9e86dc8803b821"
+      },
+      "files": [
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\core_materials\\CRONOS_REFACTORING_EXAMPLE.md",
+          "relative_path": "..\\..\\docs\\core_materials\\CRONOS_REFACTORING_EXAMPLE.md",
+          "name": "CRONOS_REFACTORING_EXAMPLE.md",
+          "size": 11820,
+          "last_modified": "2025-05-21T00:40:22.630301",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "24db1508bcf498d5aece33254b796fde"
+        },
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\guides\\CRONOS_REFACTORING_EXAMPLE.md",
+          "relative_path": "..\\..\\docs\\guides\\CRONOS_REFACTORING_EXAMPLE.md",
+          "name": "CRONOS_REFACTORING_EXAMPLE.md",
+          "size": 12970,
+          "last_modified": "2025-05-21T11:09:01.890749",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "59e93ee790aaea561f9e86dc8803b821"
+        }
+      ]
+    },
+    {
+      "name": "Similar Content Group 16",
+      "file_count": 2,
+      "total_size": 20218,
+      "wasted_space": 9558,
+      "canonical_file": {
+        "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\governance\\STRATEGY.md",
+        "relative_path": "..\\..\\docs\\governance\\STRATEGY.md",
+        "name": "STRATEGY.md",
+        "size": 10660,
+        "last_modified": "2025-05-21T11:09:01.805568",
+        "is_archive": false,
+        "is_documentation": true,
+        "content_hash": "61e11688f997e2fd3d57cdd8e7dac01c"
+      },
+      "files": [
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\governance\\STRATEGY.md",
+          "relative_path": "..\\..\\docs\\governance\\STRATEGY.md",
+          "name": "STRATEGY.md",
+          "size": 10660,
+          "last_modified": "2025-05-21T11:09:01.805568",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "61e11688f997e2fd3d57cdd8e7dac01c"
+        },
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\STRATEGIC_THINKING\\STRATEGY.md",
+          "relative_path": "..\\..\\docs\\STRATEGIC_THINKING\\STRATEGY.md",
+          "name": "STRATEGY.md",
+          "size": 9558,
+          "last_modified": "2025-05-21T00:40:22.536953",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "f9aec8bfc0750ead685c5c4f2befe140"
+        }
+      ]
+    },
+    {
+      "name": "Similar Content Group 17",
+      "file_count": 2,
+      "total_size": 16932,
+      "wasted_space": 7886,
+      "canonical_file": {
+        "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\prompts\\strategic_analysis_prompt_v2.0.md",
+        "relative_path": "..\\..\\docs\\prompts\\strategic_analysis_prompt_v2.0.md",
+        "name": "strategic_analysis_prompt_v2.0.md",
+        "size": 9046,
+        "last_modified": "2025-05-21T11:09:02.202470",
+        "is_archive": false,
+        "is_documentation": true,
+        "content_hash": "7dbe23d3edc8c457805172c51553966a"
+      },
+      "files": [
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\core_materials\\prompts\\strategic_analysis_prompt_v2.0.md",
+          "relative_path": "..\\..\\docs\\core_materials\\prompts\\strategic_analysis_prompt_v2.0.md",
+          "name": "strategic_analysis_prompt_v2.0.md",
+          "size": 7886,
+          "last_modified": "2025-05-21T00:40:22.792446",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "fa41edd17855ca167231a37ab905c61e"
+        },
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\prompts\\strategic_analysis_prompt_v2.0.md",
+          "relative_path": "..\\..\\docs\\prompts\\strategic_analysis_prompt_v2.0.md",
+          "name": "strategic_analysis_prompt_v2.0.md",
+          "size": 9046,
+          "last_modified": "2025-05-21T11:09:02.202470",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "7dbe23d3edc8c457805172c51553966a"
+        }
+      ]
+    },
+    {
+      "name": "Similar Content Group 18",
+      "file_count": 2,
+      "total_size": 16284,
+      "wasted_space": 7582,
+      "canonical_file": {
+        "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\technical\\MYCELIUM_INTEGRATION.md",
+        "relative_path": "..\\..\\docs\\technical\\MYCELIUM_INTEGRATION.md",
+        "name": "MYCELIUM_INTEGRATION.md",
+        "size": 8702,
+        "last_modified": "2025-05-21T11:09:02.623179",
+        "is_archive": false,
+        "is_documentation": true,
+        "content_hash": "344dd6f8b7681d877d0b3007058f9d75"
+      },
+      "files": [
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\technical\\MYCELIUM_INTEGRATION.md",
+          "relative_path": "..\\..\\docs\\technical\\MYCELIUM_INTEGRATION.md",
+          "name": "MYCELIUM_INTEGRATION.md",
+          "size": 8702,
+          "last_modified": "2025-05-21T11:09:02.623179",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "344dd6f8b7681d877d0b3007058f9d75"
+        },
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\core_materials\\MYCELIUM_INTEGRATION.md",
+          "relative_path": "..\\..\\docs\\core_materials\\MYCELIUM_INTEGRATION.md",
+          "name": "MYCELIUM_INTEGRATION.md",
+          "size": 7582,
+          "last_modified": "2025-05-21T00:40:22.639120",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "5de78fe014a64a02129ac09c0f40053f"
+        }
+      ]
+    },
+    {
+      "name": "Similar Content Group 19",
+      "file_count": 2,
+      "total_size": 13205,
+      "wasted_space": 6045,
+      "canonical_file": {
+        "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\prompts\\CURSOR_QUANTUM_PROMPT.md",
+        "relative_path": "..\\..\\docs\\prompts\\CURSOR_QUANTUM_PROMPT.md",
+        "name": "CURSOR_QUANTUM_PROMPT.md",
+        "size": 7160,
+        "last_modified": "2025-05-21T11:09:02.178373",
+        "is_archive": false,
+        "is_documentation": true,
+        "content_hash": "bc484b99fc5331ecb37aa2cc068d7993"
+      },
+      "files": [
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\core_materials\\prompts\\CURSOR_QUANTUM_PROMPT.md",
+          "relative_path": "..\\..\\docs\\core_materials\\prompts\\CURSOR_QUANTUM_PROMPT.md",
+          "name": "CURSOR_QUANTUM_PROMPT.md",
+          "size": 6045,
+          "last_modified": "2025-05-21T00:40:22.783964",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "083544dd3f6314a0a067dcbf4d0f91e2"
+        },
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\prompts\\CURSOR_QUANTUM_PROMPT.md",
+          "relative_path": "..\\..\\docs\\prompts\\CURSOR_QUANTUM_PROMPT.md",
+          "name": "CURSOR_QUANTUM_PROMPT.md",
+          "size": 7160,
+          "last_modified": "2025-05-21T11:09:02.178373",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "bc484b99fc5331ecb37aa2cc068d7993"
+        }
+      ]
+    },
+    {
+      "name": "Similar Content Group 20",
+      "file_count": 2,
+      "total_size": 7304,
+      "wasted_space": 3307,
+      "canonical_file": {
+        "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\standards\\KOIOS_PDD_Standard.md",
+        "relative_path": "..\\..\\docs\\standards\\KOIOS_PDD_Standard.md",
+        "name": "KOIOS_PDD_Standard.md",
+        "size": 3997,
+        "last_modified": "2025-05-21T15:08:52.490261",
+        "is_archive": false,
+        "is_documentation": true,
+        "content_hash": "6891e0fef646ad44454fff79d23f2c26"
+      },
+      "files": [
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\standards\\KOIOS_PDD_Standard.md",
+          "relative_path": "..\\..\\docs\\standards\\KOIOS_PDD_Standard.md",
+          "name": "KOIOS_PDD_Standard.md",
+          "size": 3997,
+          "last_modified": "2025-05-21T15:08:52.490261",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "6891e0fef646ad44454fff79d23f2c26"
+        },
+        {
+          "path": "C:\\EGOS\\scripts\\maintenance\\..\\..\\docs\\core_materials\\standards\\KOIOS_PDD_Standard.md",
+          "relative_path": "..\\..\\docs\\core_materials\\standards\\KOIOS_PDD_Standard.md",
+          "name": "KOIOS_PDD_Standard.md",
+          "size": 3307,
+          "last_modified": "2025-05-21T15:08:50.504638",
+          "is_archive": false,
+          "is_documentation": true,
+          "content_hash": "b5bc4aab70500b6a7c3ff6a48c907de5"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+This is another new test file, which has now been modified to test the EGOS System Monitor.

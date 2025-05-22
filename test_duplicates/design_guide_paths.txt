@@ -1,0 +1,14 @@
+C:\EGOS\docs\core_materials\website\DESIGN_GUIDE.md
+C:\EGOS\website\DESIGN_GUIDE.md
+C:\EGOS\archive\docs\docs_old_20250521\website\DESIGN_GUIDE.md
+C:\EGOS\archive\docs\docs_old_20250521\technical\components\website_dev_archive\DESIGN_GUIDE.md
+C:\EGOS\docs\website\DESIGN_GUIDE.md
+C:\EGOS\docs\technical\components\website_dev_archive\DESIGN_GUIDE.md
+C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181619\docs\markdown\docs\apps\DESIGN_GUIDE.md
+C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\12_website_and_public_docs\website_content_legacy\DESIGN_GUIDE.md
+C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\04_products_services\website\DESIGN_GUIDE.md
+C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\components\website_dev_archive\DESIGN_GUIDE.md
+C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\website\DESIGN_GUIDE.md
+C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\website\DESIGN_GUIDE.md
+C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\technical\components\website_dev_archive\DESIGN_GUIDE.md
+C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\core_materials\website\DESIGN_GUIDE.md

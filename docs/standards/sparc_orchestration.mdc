@@ -1,0 +1,188 @@
+---
+description: (Describe rule purpose - Standards and guidelines for SPARC orchestration within EGOS, likely involving CORUJA)
+globs: ["**/coruja_*.py", "**/sparc_*.py"]
+alwaysApply: false
+---
+---
+description: Guidelines for implementing SPARC methodology within the EGOS ecosystem
+globs: ["**/*.py", "**/*.md"]
+alwaysApply: true
+---
+
+# SPARC Orchestration within EGOS (KOIOS Standard)
+
+## Rule
+
+The SPARC methodology (Specification, Pseudocode, Architecture, Refinement, Completion) provides a structured approach for complex system development that complements EGOS's modular architecture. This rule defines how SPARC principles integrate with existing EGOS subsystems and workflows.
+
+### Core Principles Integration:
+
+1. **Subsystem-Mode Mapping**: EGOS subsystems map to SPARC specialized modes:
+   - **ATLAS/NEXUS** → Specification & Architecture
+   - **ETHIK** → Security Reviewer
+   - **CORUJA** → Code Implementation & AI Orchestration
+   - **HARMONY** → TDD, Debug & Integration
+   - **KOIOS** → Documentation Writer & Standards
+   - **MYCELIUM** → Task Communication Layer
+   - **CRONOS** → Monitoring, State & Persistence
+
+2. **Task Delegation Pattern**: When delegating complex tasks:
+   - Break down into subtasks aligned with subsystem responsibilities
+   - Include clear acceptance criteria for each subtask
+   - Maintain context isolation between subtasks
+   - Follow the SPARC sequence (Spec → Pseudocode → Architecture → Code → Test)
+   - Use Mycelium for passing context between task stages
+
+3. **File Structure & Modularity**:
+   - Maintain files under 500 lines (see `file_modularity.mdc`)
+   - Externalize configuration (no hardcoded environment variables)
+   - Design components for testability
+   - Each module/class should have single responsibility
+
+4. **Model Selection Based on Task Type**:
+   - **Reasoning Tasks** (Specification, Architecture, Planning):
+     - Prefer models optimized for reasoning (Claude 3 Opus/Sonnet Thinking, o3, DeepSeek)
+   - **Implementation Tasks** (Coding, Documentation, Testing):
+     - Prefer models optimized for instruction following (Claude 3 Sonnet, GPT-4o, Mistral)
+   - Delegate via appropriate CORUJA PDDs optimized for each model type
+
+## Implementation Guidance
+
+### Task Definition Format
+
+When defining tasks within the SPARC framework, use the following format:
+
+```python
+task = {
+    "id": "unique-task-identifier",
+    "type": "specification|architecture|implementation|testing|security|documentation",
+    "title": "Brief task description",
+    "description": "Detailed task requirements and context",
+    "acceptance_criteria": [
+        "Criterion 1",
+        "Criterion 2",
+        "..."
+    ],
+    "inputs": {
+        "input1": "value1",
+        "input2": "value2"
+    },
+    "dependencies": [
+        "dependency-task-id-1",
+        "dependency-task-id-2"
+    ],
+    "metadata": {
+        "priority": "high|medium|low",
+        "estimated_complexity": 1-5,
+        "owner": "subsystem-name"
+    }
+}
+```
+
+### Mycelium Topic Structure for SPARC Tasks
+
+SPARC task coordination should follow these Mycelium topic patterns:
+
+- Task Creation: `sparc.task.create.<subsystem>`
+- Task Status Updates: `sparc.task.status.<task-id>`
+- Task Completion: `sparc.task.complete.<task-id>`
+- Task Delegation: `sparc.task.delegate.<target-subsystem>`
+- Task Results: `sparc.task.results.<task-id>`
+
+## Examples
+
+### Correct Usage
+
+```python
+# Conceptual Example in CORUJA
+from core.mycelium import NatsMyceliumInterface
+from subsystems.SPARC.schemas import SparcTaskRequest, SparcTaskOutcome
+
+class Orchestrator:
+    def __init__(self):
+        self.mycelium = NatsMyceliumInterface("CORUJA")
+
+    async def kickoff_analysis_task(self, data_source: str):
+        task_request = SparcTaskRequest(
+            task_type="data_analysis",
+            objective="Identify anomalies in dataset",
+            input_data={"source": data_source},
+            steps=["sense_data", "plan_analysis", "act_calculate", "reflect_results"]
+        )
+        await self.mycelium.publish(
+            "request.sparc.new_task",
+            task_request.model_dump_json()
+        )
+        # ... logic to monitor task progress via outcome messages ...
+
+```
+
+### Incorrect Usage
+
+-   Implementing complex workflows synchronously within a single agent.
+-   Using unstructured dictionaries instead of Pydantic schemas for task messages.
+-   Failing to publish outcome/status messages for long-running tasks.
+-   Not leveraging Mycelium for task distribution.
+
+**Use the SPARC framework and Mycelium for orchestrating complex tasks.**
+
+## Implementation Guidance
+
+### Task Definition Format
+
+When defining tasks within the SPARC framework, use the following format:
+
+```python
+task = {
+    "id": "unique-task-identifier",
+    "type": "specification|architecture|implementation|testing|security|documentation",
+    "title": "Brief task description",
+    "description": "Detailed task requirements and context",
+    "acceptance_criteria": [
+        "Criterion 1",
+        "Criterion 2",
+        "..."
+    ],
+    "inputs": {
+        "input1": "value1",
+        "input2": "value2"
+    },
+    "dependencies": [
+        "dependency-task-id-1",
+        "dependency-task-id-2"
+    ],
+    "metadata": {
+        "priority": "high|medium|low",
+        "estimated_complexity": 1-5,
+        "owner": "subsystem-name"
+    }
+}
+```
+
+### Mycelium Topic Structure for SPARC Tasks
+
+SPARC task coordination should follow these Mycelium topic patterns:
+
+- Task Creation: `sparc.task.create.<subsystem>`
+- Task Status Updates: `sparc.task.status.<task-id>`
+- Task Completion: `sparc.task.complete.<task-id>`
+- Task Delegation: `sparc.task.delegate.<target-subsystem>`
+- Task Results: `sparc.task.results.<task-id>`
+
+## Rationale
+
+Integrating SPARC methodology into EGOS enhances our development workflow by providing:
+
+1. **Structured Task Decomposition**: Breaking complex problems into manageable, specialized subtasks.
+2. **Explicit Handoffs**: Clear interfaces between development stages with defined inputs/outputs.
+3. **Model Specialization**: Using the right AI model for each task type to optimize results.
+4. **Enhanced Modularity**: Reinforcing EGOS's existing modular design principles.
+5. **Quality Assurance**: Building in security, testing, and documentation from the beginning.
+
+This integration respects EGOS's existing architecture and ethical principles while enhancing its development methodology with SPARC's structured approach to task delegation and specialization.
+
+## References
+
+* EGOS Master Quantum Prompt (MQP.md)
+* KOIOS Standards Documentation
+* SPARC Methodology (Reuven Cohen, 2025) 
