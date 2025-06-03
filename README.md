@@ -215,9 +215,9 @@ All workflows are available in the `.windsurf/workflows` directory.
 
 EGOS incorporates blockchain technology for transparent, decentralized governance. The $ETHIK token is available on multiple chains:
 
-* **HyperLiquid**: [`0xEFC3c015E0CD02246e6b6CD5faA89e96a71Ec1E4`](https://app.hyperliquid.xyz/explorer/address/0xEFC3c015E0CD02246e6b6CD5faA89e96a71Ec1E4)
-* **Solana**: [`DsLmsjwXschqEe5EnHFvv1oi5BNGoQin6VDN81Ufpump`](https://gmgn.ai/sol/token/DsLmsjwXschqEe5EnHFvv1oi5BNGoQin6VDN81Ufpump)
-* **Base**: [`0x633b346b85c4877ace4d47f7aa72c2a092136cb5`](https://gmgn.ai/base/token/0x633b346b85c4877ace4d47f7aa72c2a092136cb5)
+* **HyperLiquid**: <a href="https://app.hyperliquid.xyz/explorer/address/0xEFC3c015E0CD02246e6b6CD5faA89e96a71Ec1E4" target="_blank">`0xEFC3c015E0CD02246e6b6CD5faA89e96a71Ec1E4`</a>
+* **Solana**: <a href="https://gmgn.ai/sol/token/DsLmsjwXschqEe5EnHFvv1oi5BNGoQin6VDN81Ufpump" target="_blank">`DsLmsjwXschqEe5EnHFvv1oi5BNGoQin6VDN81Ufpump`</a>
+* **Base**: <a href="https://gmgn.ai/base/token/0x633b346b85c4877ace4d47f7aa72c2a092136cb5" target="_blank">`0x633b346b85c4877ace4d47f7aa72c2a092136cb5`</a>
 
 ---
 
