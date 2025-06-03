@@ -3,11 +3,11 @@
 ## Quantum Unified Master System
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Status: Active](https://img.shields.io/badge/status-active-success.svg)](https://github.com/enioxt/egos)
+[![Status: Active](https://img.shields.io/badge/status-active-success.svg)](https://github.com/enioxt/EGOS)
 [![Coverage: 99% (Scripts)](https://img.shields.io/badge/Script%20Reference%20Coverage-99%25-brightgreen.svg)](docs/reports/script_reference_update_report.md) <!-- Dynamically updated based on reports -->
 [![Windows Compatible](https://img.shields.io/badge/OS-Windows-blue.svg)](-)
 
-**🌐 [Official Website: https://enioxt.github.io/egos](https://enioxt.github.io/egos)**
+**🌐 [Official Website: https://enioxt.github.io/EGOS](https://enioxt.github.io/EGOS)**
 
 > "At the intersection of modular analysis, systemic cartography, and quantum ethics, we transcend dimensions of thought with methodological precision and unconditional love, integrating advanced tools for knowledge visualization and evolutionary preservation."
 
@@ -199,6 +199,26 @@ Ensure you have the necessary dependencies installed (`streamlit`, `pandas`, `wo
 
 See the [**ROADMAP.md**](ROADMAP.md) file for the high-level development plan, current priorities, and upcoming tasks.
 
+## 🔄 Workflows
+
+EGOS provides several standardized workflows to streamline common operational tasks:
+
+* **AI Assisted Research and Synthesis**: Leverages AI to gather, process, and synthesize information for research tasks.
+* **Iterative Code Refinement Cycle**: A structured process for progressively improving code quality and functionality.
+* **Dynamic Documentation Update**: Automates documentation synchronization with code modifications.
+* **ATRiAN Ethics Evaluation**: Automates ethical evaluation of AI systems and content.
+* **ATRiAN SDK Integration and Development**: Structured process for integrating with ATRiAN's Ethics as a Service.
+
+All workflows are available in the `.windsurf/workflows` directory.
+
+## 💰 Blockchain Integration
+
+EGOS incorporates blockchain technology for transparent, decentralized governance. The $ETHIK token is available on multiple chains:
+
+* **HyperLiquid**: `0xEFC3c015E0CD02246e6b6CD5faA89e96a71Ec1E4`
+* **Solana**: `DsLmsjwXschqEe5EnHFvv1oi5BNGoQin6VDN81Ufpump`
+* **Base**: `0x633b346b85c4877ace4d47f7aa72c2a092136cb5`
+
 ---
 
 ## 🤝 Contributing
@@ -221,8 +241,8 @@ This project is licensed under the MIT License - see the [**LICENSE**](LICENSE) 
 
 ## 💬 Contact & Community
 
-*   **Issues:** Report bugs or suggest features via [GitHub Issues](https://github.com/enioxt/EVA-e-Guarani-EGOS/issues).
-*   **Discussions:** Use [GitHub Discussions](https://github.com/enioxt/EVA-e-Guarani-EGOS/discussions) for questions and broader conversations (if enabled).
+*   **Issues:** Report bugs or suggest features via [GitHub Issues](https://github.com/enioxt/EGOS/issues).
+*   **Discussions:** Use [GitHub Discussions](https://github.com/enioxt/EGOS/discussions) for questions and broader conversations (if enabled).
 
 ### Creator Contact
 
