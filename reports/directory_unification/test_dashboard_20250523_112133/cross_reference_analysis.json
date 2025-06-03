@@ -1,0 +1,11 @@
+{
+  "inbound_references": {},
+  "outbound_references": {},
+  "importance_metrics": {},
+  "stats": {
+    "processed_files": 0,
+    "failed_files": 932,
+    "total_files": 932,
+    "processing_time": 1.0636515617370605
+  }
+}

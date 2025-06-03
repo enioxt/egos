@@ -1,0 +1,87 @@
+---
+description: Process for capturing and disseminating lessons learned during the EGOS project
+globs: [] # Applies conceptually
+alwaysApply: true
+---
+
+# Lessons Learned Process (KOIOS Standard)
+
+## Rule
+
+Process for documenting insights, failures, successes, and improvements encountered during development, reviews, or incidents.
+
+## Rationale
+
+Emphasizes continuous improvement, knowledge sharing, preventing repeated mistakes, and refining processes.
+
+## Examples
+
+### Correct Usage
+
+-   Documenting a root cause analysis after a deployment failure in a dedicated `lessons_learned/<YYYY-MM-DD>-<topic>.md` file.
+-   Adding a key insight from a code review to a relevant section in the knowledge base.
+-   Updating a standard (`.mdc` rule) based on a learned best practice.
+
+### Incorrect Usage
+
+-   Not documenting significant learnings.
+-   Keeping lessons learned siloed within a team or individual.
+-   Failing to integrate lessons into actionable process improvements.
+
+**Capture and share lessons learned to foster continuous improvement.**
+
+# Lessons Learned (Internal Knowledge Base)
+
+**Objective:** Document significant insights, challenges, and solutions encountered during EGOS development to inform future decisions, prevent repeating mistakes, and accelerate learning.
+
+## Key Areas for Capture:
+
+1.  **Technical Challenges & Solutions:**
+    *   Record unexpected technical hurdles (e.g., library incompatibilities, performance bottlenecks, complex integrations).
+    *   Document the solution implemented, alternatives considered, and the rationale for the chosen approach.
+    *   *Example:* "Initial Mycelium Redis implementation suffered from blocking calls under high load. Switched to `aioredis` for async operations, resolving the bottleneck."
+
+2.  **Architectural Decisions:**
+    *   Log major architectural choices (e.g., adopting Mycelium, subsystem boundaries, choosing specific databases/technologies).
+    *   Explain the reasoning, trade-offs considered, and expected benefits/drawbacks.
+    *   *Example:* "Decided against a shared utility library initially to enforce strict subsystem decoupling via Mycelium, accepting potential minor code duplication."
+
+3.  **Process Improvements:**
+    *   Note successful (or unsuccessful) changes to workflow, tooling, or collaboration methods (e.g., refining code review process, adopting specific linters, CI/CD pipeline adjustments).
+    *   Describe the impact of the change.
+    *   *Example:* "Implementing Conventional Commits significantly improved changelog generation and understanding commit history."
+
+4.  **'Gotchas' & Non-Obvious Behaviors:**
+    *   Document subtle issues, configuration quirks, or framework behaviors that were difficult to debug or understand.
+    *   Provide concise explanations or links to relevant documentation/issue trackers.
+    *   *Example:* "Pytest fixtures with `autouse=True` can have surprising side effects if not carefully scoped. Prefer explicit fixture usage where possible."
+
+5.  **AI Model Interaction Learnings:**
+    *   Capture insights gained from prompting, parsing responses, handling errors, or managing different AI models (e.g., effective prompt structures, model limitations, cost implications).
+    *   *Example:* "Claude 3 Opus requires more explicit instructions for structured JSON output compared to GPT-4 Turbo in preliminary tests. Added specific formatting constraints to prompts."
+
+6.  **Security Insights:**
+    *   Document vulnerabilities discovered (and fixed), security patterns that proved effective, or challenges in implementing security measures.
+    *   *Example:* "Input validation on Mycelium message handlers is crucial to prevent injection attacks across subsystem boundaries."
+
+## How to Contribute:
+
+*   **Be Concise:** Get straight to the point. Use bullet points.
+*   **Be Specific:** Provide enough context for someone else to understand the situation and the learning.
+*   **Focus on Actionable Insights:** What can be learned or done differently next time?
+*   **Tagging (Optional but helpful):** Consider adding tags like `[Architecture]`, `[Mycelium]`, `[Testing]`, `[Security]`, `[AI Model]` to entries for easier filtering.
+*   **Location:** This `.mdc` file serves as the central repository. Keep entries organized logically.
+
+## Current Lessons (Add new entries below):
+
+*   `[AI Model]` `[PDD]` Ensuring PDDs provide *sufficient context* is critical for effective AI reasoning. Ambiguous or incomplete PDDs lead to poor or irrelevant AI responses. Requires clear definition standards (KOIOS) and potentially pre-processing/validation (NEXUS/ETHIK).
+*   `[Testing]` `[Linter]` Linter errors related to dynamic imports or complex mocking setups (like `unittest.mock` within pytest) can sometimes be misleading or require specific configuration (`.pylintrc`, `pyproject.toml`) that might not be immediately obvious. Environment consistency is key.
+*   `[Architecture]` `[Mycelium]` While Mycelium promotes decoupling, designing clear message schemas and response patterns upfront is essential to avoid overly 'chatty' interactions or ambiguity between subsystems.
+*   `[Workflow]` `[Git]` Enforcing Conventional Commits via pre-commit hooks helps maintain consistency but requires clear communication and onboarding for the team.
+*   `[Workflow]` `[AI Collaboration]` For complex tasks involving multiple related steps (e.g., implementing a feature across interface, implementation, and test files), outlining a multi-step plan upfront and executing multiple steps per AI turn proved efficient. This involves the AI: 1. Analyzing the goal into sub-tasks, 2. Communicating the plan, 3. Executing feasible steps sequentially, 4. Verifying each step. Improves clarity and reduces back-and-forth.
+*   `[Tooling]` `[Windows]` Commands intended for Linux/bash environments (like `find | wc`) often fail or produce unexpected errors when run directly in PowerShell or mixed environments like Git Bash on Windows due to syntax differences (pipes, path formats, command availability). Using native PowerShell equivalents (`Get-ChildItem`, `Measure-Object`) or ensuring consistent Git Bash usage with correct path quoting is crucial for reliability. This was observed during file size analysis.
+*   `[KOIOS]` `[Modularity]` File size analysis revealed that while EGOS's own code largely adheres to modularity, some core modules (`CRONOS/service.py`, `ETHIK/core/validator.py`) have exceeded size guidelines and require refactoring. This highlights the need for ongoing monitoring and proactive refactoring, not just relying on initial design.
+*   `[KOIOS]` `[Tooling]` Establishing a dedicated tool (`file_size_analysis.md`) within KOIOS, including cross-platform commands and documentation, provides a concrete mechanism for enforcing the file modularity standard.
+*   `[Workflow]` `[AI Collaboration]` Terminal command execution via AI can be unreliable or appear frozen, especially for potentially long-running commands like recursive file searches. Providing alternative commands (e.g., size-based vs. line-count based) or suggesting the user run the command locally can be more efficient.
+*   `[Workflow]` `[AI Collaboration]` `[KOIOS]` Switching between AI assistants or resuming work after a pause requires a structured way to transfer context. Created a standard (`ai_handover_standard.mdc`) defining the required content for handover summaries to ensure continuity and efficient onboarding for the incoming AI.
+*   `[KOIOS]` `[Website]` Initial high-level website standards (`website_standards.mdc` v1.0.0) proved insufficient for practical implementation, requiring a more detailed v3 generation prompt. Lesson: Standards for UI/Frontend need significant detail regarding architecture, baseline interactivity, placeholder conventions, content tone, performance requirements, and core UI patterns to ensure consistency. Led to enhancing `website_standards.mdc` to v1.1.0 based on analysis.

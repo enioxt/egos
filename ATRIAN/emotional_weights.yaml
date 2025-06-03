@@ -1,0 +1,32 @@
+# EGOS System - ATRiAN Module: Emotional Weights Configuration
+# Version: 1.0
+# Last Modified: {{ CURRENT_DATE_TIME_ISO }}
+# 
+# Purpose:
+# This file defines a mapping of emotional states to numerical weights.
+# It is intended for use by the ATRiAN 'Harmonic Resonance Monitor' functionality (see ATRiAN_Implementation_Plan.md Section 4.4)
+# to assess the emotional or energetic alignment of interactions or system states.
+# 
+# Structure:
+# The file contains a single root key 'emotions', under which key-value pairs represent
+# an emotion and its corresponding weight (typically between 0.0 and 1.0).
+# 
+# Guidance for Modification:
+# - Weights can be adjusted based on evolving understanding of their impact within EGOS.
+# - New emotions can be added, ensuring they are relevant to the system's context.
+# - Ensure YAML syntax is maintained.
+# 
+# Cross-references:
+# - [ATRiAN Implementation Plan](./ATRiAN_Implementation_Plan.md)
+# - [EGOS Global Rules](../.windsurfrules) (Section 3.6 - ATRiAN)
+# - [Master Quantum Prompt (MQP.md)](../MQP.md) (Principles: UL, CT)
+# --- 
+emotions:
+  joy: 0.8
+  trust: 0.9
+  fear: 0.2
+  anger: 0.1
+  anticipation: 0.7
+  surprise: 0.5
+  sadness: 0.3
+  disgust: 0.1

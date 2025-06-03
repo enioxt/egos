@@ -1,0 +1,26 @@
+{
+  "timestamp": "2025-05-22 09:53:05",
+  "files_analyzed": 14,
+  "recently_modified_files": 2,
+  "orphaned_files": 0,
+  "undocumented_files": 0,
+  "well_documented_files": 0,
+  "action_items": [],
+  "recent_files_by_type": {
+    "txt": 2
+  },
+  "recent_files_list": [
+    {
+      "path": "C:\\EGOS\\scripts\\system_monitor\\test_data\\time_filter_test_20250522_095304\\recent_30min.txt",
+      "last_modified": 1747916584.295829,
+      "size": 121,
+      "file_type": ".txt"
+    },
+    {
+      "path": "C:\\EGOS\\scripts\\system_monitor\\test_data\\time_filter_test_20250522_095304\\recent_5min.txt",
+      "last_modified": 1747918096.293255,
+      "size": 121,
+      "file_type": ".txt"
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+# EGOS System - ATRiAN Module: Ethics Rules Configuration
+# Version: 1.1
+# Last Modified: 2025-06-01
+# 
+# Purpose:
+# This file defines the core ethical rules and principles for the EGOS system.
+# It is primarily used by the ATRiAN 'Ethical Compass' functionality (see ATRiAN_Implementation_Plan.md Section 4.1)
+# to guide decision-making and ensure actions align with MQP tenets and EaaS principles.
+# 
+# Structure:
+# The file contains a root key 'ethics', which is a list of rule objects.
+# Each rule object should have:
+#   - 'id': A unique identifier (e.g., ER-001) for easy reference.
+#   - 'principle': The overarching ethical principle, preferably mapped to MQP tenets.
+#   - 'rule': A concise, actionable statement of the rule.
+#   - 'severity': The importance level ('low', 'medium', 'high', 'critical').
+#   - 'scope': Specifies if the rule applies to specific domains or contexts.
+#   - 'keywords': A list of keywords that might trigger this rule during analysis.
+#   - 'recommendations': Suggested actions when this rule is relevant.
+#   - 'mqp_alignment': Which MQP principles this rule implements (e.g., SP, IE, RT).
+# 
+# Guidance for Modification:
+# - Rules should be clear, unambiguous, and directly reflect MQP principles.
+# - New rules should be added to the list, maintaining the structure.
+# - Consider the implications of each rule on system behavior and user experience.
+# - Regularly review and update rules based on evolving ethical understanding and system needs (EGOS_PROCESS:Evolutionary_Refinement_Cycle).
+# 
+# Cross-references:
+# - [ATRiAN Implementation Plan](./ATRiAN_Implementation_Plan.md)
+# - [EGOS Global Rules](../.windsurfrules) (Section 3.6 - ATRiAN)
+# - [Master Quantum Prompt (MQP.md)](../MQP.md) (All Principles, especially IE/ETHIK, SP)
+# - [Ethics as a Service (EaaS) Integration in ATRiAN](./WORK_2025-06-01_ATRiAN_EaaS_Implementation_Progress.md)
+# --- 
+ethics:
+  # === Sacred Privacy (SP) Rules ===
+  - id: SP-001
+    principle: "Sacred Privacy"
+    rule: "Personal data must be treated with utmost respect and protection."
+    severity: "critical"
+    scope: "data_handling"
+    keywords: ["personal data", "PII", "sensitive information", "privacy"]
+    recommendations: ["Implement strong encryption", "Minimize data collection", "Establish clear data retention policies"]
+    mqp_alignment: ["SP"]
+
+  - id: SP-002
+    principle: "Sacred Privacy"
+    rule: "Sensitive data should never be processed without explicit consent and stringent safeguards."
+    severity: "critical"
+    scope: "data_handling"
+    keywords: ["sensitive data", "medical", "financial", "biometric"]
+    recommendations: ["Implement multi-layered consent mechanisms", "Document data handling procedures", "Use privacy-preserving techniques like differential privacy"]
+    mqp_alignment: ["SP", "RT"]
+
+  - id: SP-003
+    principle: "Sacred Privacy"
+    rule: "User control over their data is paramount and must be respected at all times."
+    severity: "high"
+    scope: "user_interaction"
+    keywords: ["data control", "user rights", "data deletion"]
+    recommendations: ["Provide clear data deletion options", "Implement accessible privacy controls", "Ensure data portability"]
+    mqp_alignment: ["SP", "UA"]
+
+  # === Universal Redemption (UR) Rules ===
+  - id: UR-001
+    principle: "Universal Redemption"
+    rule: "Systems must allow for correction of errors and provide pathways to recovery."
+    severity: "high"
+    scope: "system_operation"
+    keywords: ["error correction", "recovery", "undo", "revert"]
+    recommendations: ["Implement comprehensive undo functionality", "Create audit logs for all significant actions", "Design systems with fault tolerance"]
+    mqp_alignment: ["UR", "CT"]
+
+  - id: UR-002
+    principle: "Universal Redemption"
+    rule: "Avoid permanent, irreversible consequences from automated decisions."
+    severity: "high"
+    scope: "decision_making"
+    keywords: ["automated decisions", "irreversible", "permanent"]
+    recommendations: ["Include human oversight for critical decisions", "Implement cooling-off periods", "Design multi-step confirmation processes"]
+    mqp_alignment: ["UR", "CT", "IE"]
+
+  # === Integrated Ethics (IE/ETHIK) Rules ===
+  - id: IE-001
+    principle: "Integrated Ethics"
+    rule: "Ethical considerations must be embedded throughout the system lifecycle, not added as an afterthought."
+    severity: "high"
+    scope: "system_design"
+    keywords: ["design ethics", "ethical by design", "ethics integration"]
+    recommendations: ["Conduct ethical impact assessments at design phase", "Include ethics reviews in development workflow", "Train team members on ethical principles"]
+    mqp_alignment: ["IE"]
+
+  - id: IE-002
+    principle: "Integrated Ethics"
+    rule: "Systems must proactively identify and mitigate potential ethical issues."
+    severity: "high"
+    scope: "system_operation"
+    keywords: ["ethics monitoring", "ethical risks", "proactive ethics"]
+    recommendations: ["Implement continuous ethics monitoring", "Create feedback channels for ethical concerns", "Develop escalation procedures for ethical issues"]
+    mqp_alignment: ["IE", "SC"]
+
+  # === Reciprocal Trust (RT) Rules ===
+  - id: RT-001
+    principle: "Reciprocal Trust"
+    rule: "System behavior must be transparent, consistent, and explainable."
+    severity: "medium"
+    scope: "system_operation"
+    keywords: ["transparency", "explainability", "trust"]
+    recommendations: ["Develop explainability features", "Document system behaviors", "Provide clear rationales for decisions"]
+    mqp_alignment: ["RT", "IE"]
+
+  - id: RT-002
+    principle: "Reciprocal Trust"
+    rule: "User feedback should be actively sought and incorporated into system improvements."
+    severity: "medium"
+    scope: "user_interaction"
+    keywords: ["feedback", "user input", "system improvement"]
+    recommendations: ["Create intuitive feedback mechanisms", "Document how feedback influences development", "Close the loop with users about implemented improvements"]
+    mqp_alignment: ["RT", "UA"]
+
+  # === Universal Accessibility (UA) Rules ===
+  - id: UA-001
+    principle: "Universal Accessibility"
+    rule: "Systems must be designed for use by the widest possible range of users, regardless of ability."
+    severity: "high"
+    scope: "system_design"
+    keywords: ["accessibility", "inclusive design", "disability"]
+    recommendations: ["Follow WCAG standards", "Test with diverse user groups", "Include accessibility in QA processes"]
+    mqp_alignment: ["UA"]
+
+  # === Domain-Specific Rules ===
+  - id: HLT-001
+    principle: "Healthcare Ethics"
+    rule: "Medical data requires the highest level of protection and ethical handling."
+    severity: "critical"
+    scope: "healthcare"
+    keywords: ["medical data", "health records", "patient information"]
+    recommendations: ["Implement HIPAA-compliant security", "Use anonymization techniques", "Establish strict access controls"]
+    mqp_alignment: ["SP", "IE"]
+
+  - id: FIN-001
+    principle: "Financial Ethics"
+    rule: "Financial algorithms must be fair, transparent, and free from discriminatory biases."
+    severity: "high"
+    scope: "finance"
+    keywords: ["financial", "lending", "credit scoring", "algorithmic bias"]
+    recommendations: ["Conduct regular bias audits", "Document decision criteria", "Ensure diverse training data"]
+    mqp_alignment: ["IE", "RT", "UA"]
+
+  - id: EDU-001
+    principle: "Educational Ethics"
+    rule: "Educational systems must respect learner autonomy and avoid manipulation."
+    severity: "medium"
+    scope: "education"
+    keywords: ["education", "learning", "student data"]
+    recommendations: ["Implement age-appropriate consent", "Avoid exploitative design patterns", "Prioritize educational value over engagement metrics"]
+    mqp_alignment: ["SP", "UL", "UA"]
+
+  # === Classic Ethical Principles (Legacy Support) ===
+  - id: AUT-001
+    principle: "Autonomy"
+    rule: "Respect the user's free will and personal path."
+    severity: "high"
+    scope: "user_interaction"
+    keywords: ["choice", "freedom", "self-determination"]
+    recommendations: ["Provide meaningful options", "Avoid manipulative design", "Respect user decisions"]
+    mqp_alignment: ["UL", "RT"]
+
+  - id: BEN-001
+    principle: "Beneficence"
+    rule: "Act in the user's best interest without causing harm."
+    severity: "high"
+    scope: "system_operation"
+    keywords: ["benefit", "welfare", "wellbeing"]
+    recommendations: ["Prioritize user wellbeing", "Balance short and long-term benefits", "Consider impacts on all stakeholders"]
+    mqp_alignment: ["UL", "UR"]
+
+  - id: TRA-001
+    principle: "Transparency"
+    rule: "Disclose decision logic when prompted."
+    severity: "medium"
+    scope: "user_interaction"
+    keywords: ["transparency", "explanation", "disclosure"]
+    recommendations: ["Provide layered explanations", "Use accessible language", "Document decision processes"]
+    mqp_alignment: ["RT", "IE"]
+
+  - id: RES-001
+    principle: "Responsibility"
+    rule: "Escalate decisions when beyond core ethical scope."
+    severity: "medium"
+    scope: "decision_making"
+    keywords: ["escalation", "oversight", "human-in-the-loop"]
+    recommendations: ["Define clear escalation paths", "Document decision boundaries", "Train on recognizing edge cases"]
+    mqp_alignment: ["UR", "RT"]

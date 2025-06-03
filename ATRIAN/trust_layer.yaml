@@ -1,0 +1,40 @@
+# EGOS System - ATRiAN Module: Trust Layer Configuration
+# Version: 1.0
+# Last Modified: {{ CURRENT_DATE_TIME_ISO }}
+# 
+# Purpose:
+# This file defines the trust relationships and delegation rules between different EGOS agents or components.
+# It is primarily used by the ATRiAN 'Weaver of Trust' functionality (see ATRiAN_Implementation_Plan.md Section 4.5)
+# to manage access control, task delegation, and ensure Reciprocal Trust (RT).
+# 
+# Structure:
+# The file contains a root key 'trust_rules', which is a list of agent-specific rule objects.
+# Each rule object should define:
+#   - 'agent': The name or identifier of the EGOS agent/component.
+#   - 'level': A predefined trust level (e.g., 'high', 'medium', 'low', 'system_critical', 'user_sandboxed').
+#   - 'delegation': Specifies the scope of actions this agent can delegate or be delegated (e.g., 'full', 'partial', 'read_only', 'none', or specific action categories).
+#   - 'allowed_actions': (Optional) A list of specific actions or operations this agent is permitted to perform.
+#   - 'can_delegate_to': (Optional) A list of other agents this agent is allowed to delegate tasks to.
+#   - 'context_access_permissions': (Optional) Rules governing access to contexts managed by the Guardian of Sacred Contexts.
+# 
+# Guidance for Modification:
+# - Define trust levels and delegation capabilities carefully to maintain system security and integrity.
+# - Ensure rules align with the Principle of Least Privilege.
+# - New agents or components requiring trust management should be added here.
+# - Regularly review these rules as the EGOS system evolves (EGOS_PROCESS:Evolutionary_Refinement_Cycle).
+# 
+# Cross-references:
+# - [ATRiAN Implementation Plan](./ATRiAN_Implementation_Plan.md)
+# - [EGOS Global Rules](../.windsurfrules) (Section 3.6 - ATRiAN)
+# - [Master Quantum Prompt (MQP.md)](../MQP.md) (Principles: RT, SP, CM)
+# --- 
+trust_rules:
+  - agent: EVA
+    level: high
+    delegation: full
+  - agent: GUARANI
+    level: medium
+    delegation: partial
+  - agent: AURORA
+    level: low
+    delegation: none

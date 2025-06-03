@@ -1,0 +1,29 @@
+{
+  "timestamp": "2025-06-01T23:39:30.823556",
+  "audit_directory": "C:\\EGOS\\ATRiAN\\data\\audit",
+  "archive_directory": "C:\\EGOS\\ATRiAN\\data\\audit\\archived\\20250601_233930",
+  "archive_only_mode": false,
+  "statistics": {
+    "total_files": 3,
+    "valid_files": 1,
+    "corrupted_files": 2,
+    "empty_files": 0,
+    "repaired_files": 2,
+    "archived_files": 2,
+    "failed_repairs": 0
+  },
+  "corrupted_files": [
+    {
+      "filename": "empty_audit_log.json",
+      "error_type": "json_decode_error",
+      "error_details": "Expecting value: line 2 column 1 (char 1)",
+      "archived_to": "C:\\EGOS\\ATRiAN\\data\\audit\\archived\\20250601_233930\\empty_audit_log.json"
+    },
+    {
+      "filename": "sample_audit_log.json",
+      "error_type": "json_decode_error",
+      "error_details": "Expecting ',' delimiter: line 32 column 1 (char 808)",
+      "archived_to": "C:\\EGOS\\ATRiAN\\data\\audit\\archived\\20250601_233930\\sample_audit_log.json"
+    }
+  ]
+}

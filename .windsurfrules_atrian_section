@@ -1,0 +1,44 @@
+## 20. ATRiAN Integration with Windsurf IDE
+
+<atrian_integration>
+    # ATRiAN Integration with Windsurf IDE
+    - **RULE-ATRIAN-ACTIVATION-01 (Core Integration):** ATRiAN components **MUST** be activated through the `ATRiANWindsurfAdapter` class for all sensitive operations within the Windsurf IDE. The adapter provides direct access to ATRiAN functionality without requiring external services.
+        - **Implementation Path:** `C:\EGOS\ATRiAN\atrian_windsurf_adapter.py`
+        - **Activation Contexts:** File operations involving sensitive data, code generation with personal data references, security operations, authentication flows.
+        - **Rationale:** Direct integration enables privacy-preserving, ethically-aware operations that align with Sacred Privacy (SP) and Integrated Ethics (IE/ETHIK).
+    
+    - **RULE-ATRIAN-EVALUATION-01 (Operation Assessment):** For sensitive operations (as defined by `SENSITIVE_OPERATIONS` in the adapter), the Windsurf IDE **MUST** invoke the `evaluate_operation` method of the `ATRiANWindsurfAdapter` class to obtain ethical and trust-based assessment.
+        - **Return Value Handling:** The evaluation result includes `allowed` (boolean), `guidance` (string), and `should_notify` (boolean) fields that **MUST** be respected.
+        - **Blocking Operations:** If `allowed` is `false`, the operation **SHOULD** be blocked or require explicit USER override with acknowledgment of ethical concerns.
+        - **Implementation:** The adapter maps Windsurf operations to appropriate ATRiAN contexts for assessment.
+    
+    - **RULE-ATRIAN-NOTIFICATION-01 (Guidance Delivery):** ATRiAN guidance and warnings **MUST** be presented to the USER through the standard Windsurf notification interface when `should_notify` is `true` in the evaluation result.
+        - **Priority Levels:** Notifications are assigned priority levels (high, medium, low) based on ethical assessment and privacy sensitivity.
+        - **Action Buttons:** Notifications may include action buttons for viewing relevant guidelines or documentation.
+        - **Implementation:** Use the `generate_notification` method of the `ATRiANWindsurfAdapter` class to create properly formatted notifications.
+    
+    - **RULE-ATRIAN-PERSISTENCE-01 (State Management):** ATRiAN state (trust scores, guidance history) **MUST** be persisted through the Windsurf memory system to maintain context across sessions.
+        - **Implementation:** Use the `persist_state_to_memory` and `load_state_from_memory` methods of the `ATRiANWindsurfAdapter` class at appropriate lifecycle points.
+        - **Memory Keys:** ATRiAN memory entries use the `atrian_windsurf_` prefix for easy identification.
+        - **Recovery:** If state cannot be loaded, the adapter **MUST** initialize with safe defaults.
+    
+    - **RULE-ATRIAN-PRIVACY-01 (Sacred Privacy Enforcement):** ATRiAN integration **MUST** enforce Sacred Privacy (SP) principles by detecting privacy-sensitive keywords and operations.
+        - **Implementation:** The adapter includes built-in detection for privacy-related keywords and sensitive operation types.
+        - **Privacy Events:** When privacy-sensitive operations are detected, appropriate trust events are generated in the `WeaverOfTrust` component.
+        - **Enhanced Protection:** Privacy sensitivity can be configured in the adapter configuration file.
+    
+    - **RULE-ATRIAN-ADAPTIVE-UI-01 (Interface Adaptation):** The Windsurf IDE **SHOULD** adapt its interface based on ATRiAN trust assessments when appropriate.
+        - **Implementation:** Use the `generate_adaptive_interface` method of the `ATRiANWindsurfAdapter` class to obtain interface recommendations.
+        - **Adaptation Examples:** Higher trust levels may enable streamlined workflows, while lower trust levels may introduce additional verification steps.
+        - **User Control:** Interface adaptations **MUST** be overridable by explicit USER preference.
+    
+    - **RULE-ATRIAN-LOGGING-01 (Comprehensive Logging):** All ATRiAN evaluations and notifications **MUST** be logged in accordance with `RULE-LOG-STRUCTURED-LOGGING-01`.
+        - **Implementation:** The adapter includes built-in logging of all operations and their assessments.
+        - **Log Analysis:** Logs should be periodically analyzed to improve ATRiAN's guidance capabilities.
+        - **Privacy in Logging:** Logs **MUST NOT** contain actual sensitive data, only metadata about operations.
+    
+    - **RULE-ATRIAN-TESTING-01 (Validation Process):** Before full deployment, ATRiAN integration **MUST** be tested with key scenarios to validate its guidance and notification mechanisms.
+        - **Test Scenarios:** Include positive cases (proper handling of sensitive data) and negative cases (potential privacy violations).
+        - **Implementation:** Create test scripts that exercise the adapter's functionality with various operation types and contexts.
+        - **Metrics:** Track guidance quality, false positive/negative rates, and user experience impact.
+</atrian_integration>

@@ -1,0 +1,19 @@
+{
+  "log_id": "log_793b08a6-f7f2-41e0-9c0b-ffac568739dc",
+  "timestamp": "2025-06-02 01:06:03.953706",
+  "action_type": "create_framework",
+  "user_id": "anonymous",
+  "resource_id": "framework_def011af",
+  "request_data": null,
+  "response_data": null,
+  "metadata": null,
+  "endpoint_called": "/ethics/framework",
+  "request_summary": {
+    "name": "Test Ethics Framework",
+    "principles_count": 4
+  },
+  "response_summary": {
+    "created": true,
+    "id": "framework_def011af"
+  }
+}

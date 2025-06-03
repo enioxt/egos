@@ -1,0 +1,62 @@
+{
+  "id": "mqp_v9_full_moon",
+  "name": "Master Quantum Prompt v9.0 'Full Moon Blueprint' Core Tenets",
+  "description": "Core ethical and operational principles of the EGOS system, derived from MQP.md. These form a foundational ethical framework.",
+  "version": "9.0",
+  "principles": [
+    "Universal Redemption",
+    "Compassionate Temporality",
+    "Sacred Privacy",
+    "Universal Accessibility",
+    "Unconditional Love",
+    "Reciprocal Trust",
+    "Integrated Ethics",
+    "Conscious Modularity",
+    "Systemic Cartography",
+    "Evolutionary Preservation"
+  ],
+  "last_updated": "2025-06-02 01:00:48.419613",
+  "active": true,
+  "metadata": {
+    "UR": {
+      "title": "Universal Redemption",
+      "summary": "Systems should be designed to allow for recovery, correction, and forgiveness, promoting learning and growth from errors rather than punitive outcomes."
+    },
+    "CT": {
+      "title": "Compassionate Temporality",
+      "summary": "Recognize and respect the evolving nature of understanding, context, and societal norms over time. Design for adaptability and future ethical shifts."
+    },
+    "SP": {
+      "title": "Sacred Privacy",
+      "summary": "Data concerning individuals is sacrosanct and must be protected with utmost rigor, ensuring confidentiality, integrity, and user control."
+    },
+    "UA": {
+      "title": "Universal Accessibility",
+      "summary": "Strive to make systems usable, beneficial, and equitable for all, irrespective of ability, background, or circumstance."
+    },
+    "UL": {
+      "title": "Unconditional Love",
+      "summary": "Design with empathy, aiming for positive impact, well-being, and fostering a supportive and constructive environment for users and society."
+    },
+    "RT": {
+      "title": "Reciprocal Trust",
+      "summary": "Systems should be transparent, reliable, and accountable, fostering a relationship of mutual trust with users and stakeholders."
+    },
+    "IE": {
+      "title": "Integrated Ethics (ETHIK)",
+      "summary": "Ethical considerations are woven into the fabric of the system's design, development, and operation, not merely as an afterthought."
+    },
+    "CM": {
+      "title": "Conscious Modularity",
+      "summary": "Components are designed with awareness of their interdependencies, potential impacts, and their role within the broader systemic and ethical context."
+    },
+    "SC": {
+      "title": "Systemic Cartography",
+      "summary": "Maintain a clear, dynamic, and understandable map of the system's components, data flows, decision points, and ethical touchpoints to ensure transparency and accountability."
+    },
+    "EP": {
+      "title": "Evolutionary Preservation",
+      "summary": "Ensure that the system can adapt and evolve in response to new knowledge and changing contexts while preserving its core ethical integrity and foundational principles."
+    }
+  }
+}

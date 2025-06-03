@@ -1,0 +1,18 @@
+{
+  "log_id": "log_5930c3f6-db53-448d-8f4a-a1583038b74e",
+  "timestamp": "2025-06-02 01:06:17.924406",
+  "action_type": "get_framework",
+  "user_id": "anonymous",
+  "resource_id": "framework_def011af",
+  "request_data": null,
+  "response_data": null,
+  "metadata": null,
+  "endpoint_called": "/ethics/framework/framework_def011af",
+  "request_summary": {
+    "framework_id": "framework_def011af"
+  },
+  "response_summary": {
+    "found": true,
+    "version": "1.0"
+  }
+}

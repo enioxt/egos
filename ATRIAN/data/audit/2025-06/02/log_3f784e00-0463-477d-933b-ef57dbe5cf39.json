@@ -1,0 +1,21 @@
+{
+  "log_id": "log_3f784e00-0463-477d-933b-ef57dbe5cf39",
+  "timestamp": "2025-06-02 02:03:28.283120",
+  "action_type": "suggest_alternatives",
+  "user_id": "anonymous",
+  "resource_id": "req_0076e367-592b-4411-a4cd-64fe36c19fd2",
+  "request_data": null,
+  "response_data": null,
+  "metadata": null,
+  "endpoint_called": "/ethics/suggest",
+  "request_summary": {
+    "evaluation_id": "eval_c4b16b8f-102f-44d5-ab77-dd334a2a320e",
+    "action_description": null,
+    "concerns_count": 0
+  },
+  "response_summary": {
+    "request_id": "req_0076e367-592b-4411-a4cd-64fe36c19fd2",
+    "alternatives_count": 3,
+    "based_on_evaluation": true
+  }
+}

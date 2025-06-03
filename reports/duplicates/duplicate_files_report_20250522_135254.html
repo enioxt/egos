@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>File Duplication Report - 20250522_135254</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; background-color: #f4f4f4; color: #333; }
+        .container { background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1, h2 { color: #333; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f0f0f0; }
+        .summary-card { background-color: #e9f5ff; border-left: 5px solid #2196F3; padding: 15px; margin-bottom: 20px; }
+        .summary-card p { margin: 5px 0; }
+        .file-path { font-family: monospace; font-size: 0.9em; color: #007bff; }
+        .canonical { font-weight: bold; color: #28a745; }
+        .duplicate { color: #dc3545; }
+        details { margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        summary { padding: 10px; background-color: #f9f9f9; cursor: pointer; font-weight: bold; }
+        .group-content { padding: 10px; }
+    </style>
+</head>
+<body>
+    <div class='container'>
+        <h1>File Duplication Audit Report</h1>
+        <p>Generated on: 2025-05-22 13:52:54 (Scan completed at: 20250522_135254)</p>
+        <p>Base Path Scanned: <code>C:\EGOS\scripts\maintenance</code></p>
+        <div class='summary-card'>
+            <h2>Overall Summary</h2>
+            <p>Total Files Scanned: 214</p>
+            <p>Total Size Scanned: 1.51 MB</p>
+            <p>Duplicate Groups Found: 21</p>
+            <p>Total Duplicate Files: 43</p>
+            <p>Total Wasted Space: <strong class='duplicate'>166.10 KB</strong></p>
+        </div>
+        <h2>Duplicate Groups</h2>
+        <details>
+            <summary>Group 0 (Files: 2, Wasted: 3.59 KB)</summary>
+            <div class='group-content'>
+            <p><strong>Canonical File Proposal:</strong> <span class='file-path canonical'>C:\EGOS\scripts\maintenance\..\..\docs\research\EGOS_Strategic_Analysis_Integration_Summary_Apr2025.md</span></p>
+            <table>
+                <thead><tr><th>File Path</th><th>Size</th><th>Last Modified</th><th>Hash</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\research\EGOS_Strategic_Analysis_Integration_Summary_Apr2025.md</span></td>
+                        <td>3.59 KB</td>
+                        <td>2025-05-21T15:08:52.439839</td>
+                        <td><code>3ba9a0bc7050...</code></td>
+                        <td><span class='canonical'>Canonical</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\STRATEGIC_THINKING\research\EGOS_Strategic_Analysis_Integration_Summary_Apr2025.md</span></td>
+                        <td>3.59 KB</td>
+                        <td>2025-05-21T15:08:52.537603</td>
+                        <td><code>3ba9a0bc7050...</code></td>
+                        <td><span class='duplicate'>Duplicate</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </details>
+        <details>
+            <summary>Group 1 (Files: 2, Wasted: 22.53 KB)</summary>
+            <div class='group-content'>
+            <p><strong>Canonical File Proposal:</strong> <span class='file-path canonical'>C:\EGOS\scripts\maintenance\..\..\docs\research\Vibe_Coding_Market_Analysis.md</span></p>
+            <table>
+                <thead><tr><th>File Path</th><th>Size</th><th>Last Modified</th><th>Hash</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\research\Vibe_Coding_Market_Analysis.md</span></td>
+                        <td>22.53 KB</td>
+                        <td>2025-05-21T15:08:52.442026</td>
+                        <td><code>6219cc5eb658...</code></td>
+                        <td><span class='canonical'>Canonical</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\STRATEGIC_THINKING\research\Vibe_Coding_Market_Analysis.md</span></td>
+                        <td>22.53 KB</td>
+                        <td>2025-05-21T15:08:52.562170</td>
+                        <td><code>6219cc5eb658...</code></td>
+                        <td><span class='duplicate'>Duplicate</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </details>
+        <details>
+            <summary>Group 2 (Files: 2, Wasted: 13.54 KB)</summary>
+            <div class='group-content'>
+            <p><strong>Canonical File Proposal:</strong> <span class='file-path canonical'>C:\EGOS\scripts\maintenance\..\..\docs\research\website_ux_analysis.md</span></p>
+            <table>
+                <thead><tr><th>File Path</th><th>Size</th><th>Last Modified</th><th>Hash</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\research\website_ux_analysis.md</span></td>
+                        <td>13.54 KB</td>
+                        <td>2025-05-21T15:08:52.443179</td>
+                        <td><code>482015ca8724...</code></td>
+                        <td><span class='canonical'>Canonical</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\STRATEGIC_THINKING\research\website_ux_analysis.md</span></td>
+                        <td>13.54 KB</td>
+                        <td>2025-05-21T15:08:52.563949</td>
+                        <td><code>482015ca8724...</code></td>
+                        <td><span class='duplicate'>Duplicate</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </details>
+        <details>
+            <summary>Group 3 (Files: 2, Wasted: 6.90 KB)</summary>
+            <div class='group-content'>
+            <p><strong>Canonical File Proposal:</strong> <span class='file-path canonical'>C:\EGOS\scripts\maintenance\..\..\docs\website\DESIGN_GUIDE.md</span></p>
+            <table>
+                <thead><tr><th>File Path</th><th>Size</th><th>Last Modified</th><th>Hash</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\core_materials\website\DESIGN_GUIDE.md</span></td>
+                        <td>6.90 KB</td>
+                        <td>2025-05-21T15:08:50.515002</td>
+                        <td><code>d607890a7a2d...</code></td>
+                        <td><span class='duplicate'>Duplicate</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\website\DESIGN_GUIDE.md</span></td>
+                        <td>6.90 KB</td>
+                        <td>2025-05-21T15:08:52.726947</td>
+                        <td><code>1794e3810650...</code></td>
+                        <td><span class='canonical'>Canonical</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </details>
+        <details>
+            <summary>Group 4 (Files: 3, Wasted: 10.67 KB)</summary>
+            <div class='group-content'>
+            <p><strong>Canonical File Proposal:</strong> <span class='file-path canonical'>C:\EGOS\scripts\maintenance\..\..\docs\standards\KOIOS_Interaction_Standards.md</span></p>
+            <table>
+                <thead><tr><th>File Path</th><th>Size</th><th>Last Modified</th><th>Hash</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\core_materials\KOIOS_Interaction_Standards.md</span></td>
+                        <td>5.33 KB</td>
+                        <td>2025-05-21T11:09:00.888514</td>
+                        <td><code>63ab26e116a8...</code></td>
+                        <td><span class='duplicate'>Duplicate</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\standards\KOIOS_Interaction_Standards.md</span></td>
+                        <td>6.02 KB</td>
+                        <td>2025-05-21T11:09:02.277330</td>
+                        <td><code>40935ffdb724...</code></td>
+                        <td><span class='canonical'>Canonical</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\core_materials\standards\KOIOS_Interaction_Standards.md</span></td>
+                        <td>5.33 KB</td>
+                        <td>2025-05-21T11:09:01.391419</td>
+                        <td><code>2edcbe5d3160...</code></td>
+                        <td><span class='duplicate'>Duplicate</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </details>
+        <details>
+            <summary>Group 5 (Files: 2, Wasted: 3.09 KB)</summary>
+            <div class='group-content'>
+            <p><strong>Canonical File Proposal:</strong> <span class='file-path canonical'>C:\EGOS\scripts\maintenance\..\..\docs\ai_collaboration\MULTI_AGENT_WORKFLOW.md</span></p>
+            <table>
+                <thead><tr><th>File Path</th><th>Size</th><th>Last Modified</th><th>Hash</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\ai_collaboration\MULTI_AGENT_WORKFLOW.md</span></td>
+                        <td>3.13 KB</td>
+                        <td>2025-05-21T00:18:51.055297</td>
+                        <td><code>36977400b831...</code></td>
+                        <td><span class='canonical'>Canonical</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\core_materials\ai_collaboration\MULTI_AGENT_WORKFLOW.md</span></td>
+                        <td>3.09 KB</td>
+                        <td>2025-05-21T00:40:22.644590</td>
+                        <td><code>365e0784a191...</code></td>
+                        <td><span class='duplicate'>Duplicate</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </details>
+        <details>
+            <summary>Group 6 (Files: 2, Wasted: 1.83 KB)</summary>
+            <div class='group-content'>
+            <p><strong>Canonical File Proposal:</strong> <span class='file-path canonical'>C:\EGOS\scripts\maintenance\..\..\docs\website\WEBSITE_DESIGN.md</span></p>
+            <table>
+                <thead><tr><th>File Path</th><th>Size</th><th>Last Modified</th><th>Hash</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\website\WEBSITE_DESIGN.md</span></td>
+                        <td>1.89 KB</td>
+                        <td>2025-05-21T00:18:52.176887</td>
+                        <td><code>51d75a240f0b...</code></td>
+                        <td><span class='canonical'>Canonical</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\core_materials\website\WEBSITE_DESIGN.md</span></td>
+                        <td>1.83 KB</td>
+                        <td>2025-05-21T00:40:22.817493</td>
+                        <td><code>65aede3fc58f...</code></td>
+                        <td><span class='duplicate'>Duplicate</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </details>
+        <details>
+            <summary>Group 7 (Files: 2, Wasted: 2.36 KB)</summary>
+            <div class='group-content'>
+            <p><strong>Canonical File Proposal:</strong> <span class='file-path canonical'>C:\EGOS\scripts\maintenance\..\..\docs\website\CURRENT_TASKS.md</span></p>
+            <table>
+                <thead><tr><th>File Path</th><th>Size</th><th>Last Modified</th><th>Hash</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\website\CURRENT_TASKS.md</span></td>
+                        <td>2.36 KB</td>
+                        <td>2025-05-21T15:08:52.724667</td>
+                        <td><code>0fc325b01e26...</code></td>
+                        <td><span class='canonical'>Canonical</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\core_materials\website\CURRENT_TASKS.md</span></td>
+                        <td>2.36 KB</td>
+                        <td>2025-05-21T15:08:50.513903</td>
+                        <td><code>81844bd6bf26...</code></td>
+                        <td><span class='duplicate'>Duplicate</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </details>
+        <details>
+            <summary>Group 8 (Files: 2, Wasted: 2.17 KB)</summary>
+            <div class='group-content'>
+            <p><strong>Canonical File Proposal:</strong> <span class='file-path canonical'>C:\EGOS\scripts\maintenance\..\..\docs\website\USER_RESEARCH_PLAN.md</span></p>
+            <table>
+                <thead><tr><th>File Path</th><th>Size</th><th>Last Modified</th><th>Hash</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\website\USER_RESEARCH_PLAN.md</span></td>
+                        <td>2.24 KB</td>
+                        <td>2025-05-21T00:18:52.175343</td>
+                        <td><code>fc2809882724...</code></td>
+                        <td><span class='canonical'>Canonical</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\core_materials\website\USER_RESEARCH_PLAN.md</span></td>
+                        <td>2.17 KB</td>
+                        <td>2025-05-21T00:40:22.816939</td>
+                        <td><code>53b5313d96ee...</code></td>
+                        <td><span class='duplicate'>Duplicate</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </details>
+        <details>
+            <summary>Group 9 (Files: 2, Wasted: 4.39 KB)</summary>
+            <div class='group-content'>
+            <p><strong>Canonical File Proposal:</strong> <span class='file-path canonical'>C:\EGOS\scripts\maintenance\..\..\docs\core_materials\research\AI_AGENT_CAPABILITIES_2025.md</span></p>
+            <table>
+                <thead><tr><th>File Path</th><th>Size</th><th>Last Modified</th><th>Hash</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\core_materials\research\AI_AGENT_CAPABILITIES_2025.md</span></td>
+                        <td>4.49 KB</td>
+                        <td>2025-05-21T00:40:22.792973</td>
+                        <td><code>674d5176ee56...</code></td>
+                        <td><span class='canonical'>Canonical</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\STRATEGIC_THINKING\research\AI_AGENT_CAPABILITIES_2025.md</span></td>
+                        <td>4.39 KB</td>
+                        <td>2025-05-21T00:40:22.548662</td>
+                        <td><code>f3e15c86f40c...</code></td>
+                        <td><span class='duplicate'>Duplicate</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </details>
+        <details>
+            <summary>Group 10 (Files: 2, Wasted: 5.01 KB)</summary>
+            <div class='group-content'>
+            <p><strong>Canonical File Proposal:</strong> <span class='file-path canonical'>C:\EGOS\scripts\maintenance\..\..\docs\core_materials\tech_radar\web_scraping_strategies.md</span></p>
+            <table>
+                <thead><tr><th>File Path</th><th>Size</th><th>Last Modified</th><th>Hash</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\core_materials\tech_radar\web_scraping_strategies.md</span></td>
+                        <td>5.19 KB</td>
+                        <td>2025-05-21T00:40:22.804694</td>
+                        <td><code>345c9875ab2e...</code></td>
+                        <td><span class='canonical'>Canonical</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\STRATEGIC_THINKING\technology_watch\web_scraping_strategies.md</span></td>
+                        <td>5.01 KB</td>
+                        <td>2025-05-21T00:40:22.628230</td>
+                        <td><code>3b4b2dce207c...</code></td>
+                        <td><span class='duplicate'>Duplicate</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </details>
+        <details>
+            <summary>Group 11 (Files: 2, Wasted: 7.33 KB)</summary>
+            <div class='group-content'>
+            <p><strong>Canonical File Proposal:</strong> <span class='file-path canonical'>C:\EGOS\scripts\maintenance\..\..\docs\core_materials\research\CONTENT_AGGREGATOR_DEEP_DIVE.md</span></p>
+            <table>
+                <thead><tr><th>File Path</th><th>Size</th><th>Last Modified</th><th>Hash</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\core_materials\research\CONTENT_AGGREGATOR_DEEP_DIVE.md</span></td>
+                        <td>7.51 KB</td>
+                        <td>2025-05-21T15:08:50.502589</td>
+                        <td><code>782b6321b470...</code></td>
+                        <td><span class='canonical'>Canonical</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\STRATEGIC_THINKING\research\CONTENT_AGGREGATOR_DEEP_DIVE.md</span></td>
+                        <td>7.33 KB</td>
+                        <td>2025-05-21T15:08:52.519988</td>
+                        <td><code>5a120ce4e609...</code></td>
+                        <td><span class='duplicate'>Duplicate</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </details>
+        <details>
+            <summary>Group 12 (Files: 2, Wasted: 23.18 KB)</summary>
+            <div class='group-content'>
+            <p><strong>Canonical File Proposal:</strong> <span class='file-path canonical'>C:\EGOS\scripts\maintenance\..\..\docs\guides\MCP_CREATION_GUIDE.md</span></p>
+            <table>
+                <thead><tr><th>File Path</th><th>Size</th><th>Last Modified</th><th>Hash</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\core_materials\MCP_CREATION_GUIDE.md</span></td>
+                        <td>23.18 KB</td>
+                        <td>2025-05-21T00:40:22.637549</td>
+                        <td><code>7c9feaf36881...</code></td>
+                        <td><span class='duplicate'>Duplicate</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\guides\MCP_CREATION_GUIDE.md</span></td>
+                        <td>24.26 KB</td>
+                        <td>2025-05-21T11:09:01.898019</td>
+                        <td><code>02b5ba287e70...</code></td>
+                        <td><span class='canonical'>Canonical</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </details>
+        <details>
+            <summary>Group 13 (Files: 2, Wasted: 3.07 KB)</summary>
+            <div class='group-content'>
+            <p><strong>Canonical File Proposal:</strong> <span class='file-path canonical'>C:\EGOS\scripts\maintenance\..\..\docs\STRATEGIC_THINKING\products\scribe\PROJECT_SCRIBE_VISION.md</span></p>
+            <table>
+                <thead><tr><th>File Path</th><th>Size</th><th>Last Modified</th><th>Hash</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\STRATEGIC_THINKING\products\chronicler\PROJECT_CHRONICLER_VISION.md</span></td>
+                        <td>3.07 KB</td>
+                        <td>2025-05-21T00:40:22.543247</td>
+                        <td><code>a80d9922aec6...</code></td>
+                        <td><span class='duplicate'>Duplicate</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\STRATEGIC_THINKING\products\scribe\PROJECT_SCRIBE_VISION.md</span></td>
+                        <td>2.96 KB</td>
+                        <td>2025-05-21T00:40:22.545257</td>
+                        <td><code>9580d9191bb4...</code></td>
+                        <td><span class='canonical'>Canonical</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </details>
+        <details>
+            <summary>Group 14 (Files: 2, Wasted: 11.34 KB)</summary>
+            <div class='group-content'>
+            <p><strong>Canonical File Proposal:</strong> <span class='file-path canonical'>C:\EGOS\scripts\maintenance\..\..\docs\project\STRATEGY.md</span></p>
+            <table>
+                <thead><tr><th>File Path</th><th>Size</th><th>Last Modified</th><th>Hash</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\core_materials\STRATEGY.md</span></td>
+                        <td>11.34 KB</td>
+                        <td>2025-05-21T00:40:22.642359</td>
+                        <td><code>7a7eaaa03e98...</code></td>
+                        <td><span class='duplicate'>Duplicate</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\project\STRATEGY.md</span></td>
+                        <td>12.36 KB</td>
+                        <td>2025-05-21T11:09:02.005509</td>
+                        <td><code>45e751be9601...</code></td>
+                        <td><span class='canonical'>Canonical</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </details>
+        <details>
+            <summary>Group 15 (Files: 2, Wasted: 11.54 KB)</summary>
+            <div class='group-content'>
+            <p><strong>Canonical File Proposal:</strong> <span class='file-path canonical'>C:\EGOS\scripts\maintenance\..\..\docs\guides\CRONOS_REFACTORING_EXAMPLE.md</span></p>
+            <table>
+                <thead><tr><th>File Path</th><th>Size</th><th>Last Modified</th><th>Hash</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\core_materials\CRONOS_REFACTORING_EXAMPLE.md</span></td>
+                        <td>11.54 KB</td>
+                        <td>2025-05-21T00:40:22.630301</td>
+                        <td><code>24db1508bcf4...</code></td>
+                        <td><span class='duplicate'>Duplicate</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\guides\CRONOS_REFACTORING_EXAMPLE.md</span></td>
+                        <td>12.67 KB</td>
+                        <td>2025-05-21T11:09:01.890749</td>
+                        <td><code>59e93ee790aa...</code></td>
+                        <td><span class='canonical'>Canonical</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </details>
+        <details>
+            <summary>Group 16 (Files: 2, Wasted: 9.33 KB)</summary>
+            <div class='group-content'>
+            <p><strong>Canonical File Proposal:</strong> <span class='file-path canonical'>C:\EGOS\scripts\maintenance\..\..\docs\governance\STRATEGY.md</span></p>
+            <table>
+                <thead><tr><th>File Path</th><th>Size</th><th>Last Modified</th><th>Hash</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\STRATEGIC_THINKING\STRATEGY.md</span></td>
+                        <td>9.33 KB</td>
+                        <td>2025-05-21T00:40:22.536953</td>
+                        <td><code>f9aec8bfc075...</code></td>
+                        <td><span class='duplicate'>Duplicate</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\governance\STRATEGY.md</span></td>
+                        <td>10.41 KB</td>
+                        <td>2025-05-21T11:09:01.805568</td>
+                        <td><code>61e11688f997...</code></td>
+                        <td><span class='canonical'>Canonical</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </details>
+        <details>
+            <summary>Group 17 (Files: 2, Wasted: 7.70 KB)</summary>
+            <div class='group-content'>
+            <p><strong>Canonical File Proposal:</strong> <span class='file-path canonical'>C:\EGOS\scripts\maintenance\..\..\docs\prompts\strategic_analysis_prompt_v2.0.md</span></p>
+            <table>
+                <thead><tr><th>File Path</th><th>Size</th><th>Last Modified</th><th>Hash</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\core_materials\prompts\strategic_analysis_prompt_v2.0.md</span></td>
+                        <td>7.70 KB</td>
+                        <td>2025-05-21T00:40:22.792446</td>
+                        <td><code>fa41edd17855...</code></td>
+                        <td><span class='duplicate'>Duplicate</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\prompts\strategic_analysis_prompt_v2.0.md</span></td>
+                        <td>8.83 KB</td>
+                        <td>2025-05-21T11:09:02.202470</td>
+                        <td><code>7dbe23d3edc8...</code></td>
+                        <td><span class='canonical'>Canonical</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </details>
+        <details>
+            <summary>Group 18 (Files: 2, Wasted: 7.40 KB)</summary>
+            <div class='group-content'>
+            <p><strong>Canonical File Proposal:</strong> <span class='file-path canonical'>C:\EGOS\scripts\maintenance\..\..\docs\technical\MYCELIUM_INTEGRATION.md</span></p>
+            <table>
+                <thead><tr><th>File Path</th><th>Size</th><th>Last Modified</th><th>Hash</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\core_materials\MYCELIUM_INTEGRATION.md</span></td>
+                        <td>7.40 KB</td>
+                        <td>2025-05-21T00:40:22.639120</td>
+                        <td><code>5de78fe014a6...</code></td>
+                        <td><span class='duplicate'>Duplicate</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\technical\MYCELIUM_INTEGRATION.md</span></td>
+                        <td>8.50 KB</td>
+                        <td>2025-05-21T11:09:02.623179</td>
+                        <td><code>344dd6f8b768...</code></td>
+                        <td><span class='canonical'>Canonical</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </details>
+        <details>
+            <summary>Group 19 (Files: 2, Wasted: 5.90 KB)</summary>
+            <div class='group-content'>
+            <p><strong>Canonical File Proposal:</strong> <span class='file-path canonical'>C:\EGOS\scripts\maintenance\..\..\docs\prompts\CURSOR_QUANTUM_PROMPT.md</span></p>
+            <table>
+                <thead><tr><th>File Path</th><th>Size</th><th>Last Modified</th><th>Hash</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\core_materials\prompts\CURSOR_QUANTUM_PROMPT.md</span></td>
+                        <td>5.90 KB</td>
+                        <td>2025-05-21T00:40:22.783964</td>
+                        <td><code>083544dd3f63...</code></td>
+                        <td><span class='duplicate'>Duplicate</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\prompts\CURSOR_QUANTUM_PROMPT.md</span></td>
+                        <td>6.99 KB</td>
+                        <td>2025-05-21T11:09:02.178373</td>
+                        <td><code>bc484b99fc53...</code></td>
+                        <td><span class='canonical'>Canonical</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </details>
+        <details>
+            <summary>Group 20 (Files: 2, Wasted: 3.23 KB)</summary>
+            <div class='group-content'>
+            <p><strong>Canonical File Proposal:</strong> <span class='file-path canonical'>C:\EGOS\scripts\maintenance\..\..\docs\standards\KOIOS_PDD_Standard.md</span></p>
+            <table>
+                <thead><tr><th>File Path</th><th>Size</th><th>Last Modified</th><th>Hash</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\core_materials\standards\KOIOS_PDD_Standard.md</span></td>
+                        <td>3.23 KB</td>
+                        <td>2025-05-21T15:08:50.504638</td>
+                        <td><code>b5bc4aab7050...</code></td>
+                        <td><span class='duplicate'>Duplicate</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class='file-path'>C:\EGOS\scripts\maintenance\..\..\docs\standards\KOIOS_PDD_Standard.md</span></td>
+                        <td>3.90 KB</td>
+                        <td>2025-05-21T15:08:52.490261</td>
+                        <td><code>6891e0fef646...</code></td>
+                        <td><span class='canonical'>Canonical</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </details>
+    </div>
+</body>
+</html>

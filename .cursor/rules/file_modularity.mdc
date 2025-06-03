@@ -1,0 +1,181 @@
+---
+description: (Describe rule purpose - Guidelines for maintaining file modularity and adhering to the Single Responsibility Principle)
+globs: ["**/*.py"]
+alwaysApply: false
+---
+# File Modularity Standard (KOIOS Standard)
+
+## Rule
+
+Adhere to the Single Responsibility Principle (SRP) at the file level. Keep files focused on a single purpose or closely related set of functionalities. Aim for files under 500 lines of code (LOC) as a guideline, not a strict limit. Use NEXUS analysis before significant refactoring.
+
+## Rationale
+
+-   **Readability:** Smaller, focused files are easier to understand.
+-   **Maintainability:** Changes are localized, reducing the risk of unintended side effects.
+-   **Testability:** Easier to write unit tests for specific functionalities.
+-   **Reusability:** Modular components can be reused more easily.
+-   **Collaboration:** Reduces merge conflicts when multiple developers work on different features.
+
+## Examples
+
+### Correct Usage
+
+-   A file solely dedicated to user authentication logic.
+-   A file containing Pydantic models for a specific data domain.
+-   A file defining database interaction functions for a particular table/entity.
+
+### Incorrect Usage
+
+-   A single large file containing UI components, API logic, and database access.
+-   Mixing unrelated utility functions in one file.
+-   Exceeding the 500 LOC guideline significantly without a strong justification (e.g., unavoidable boilerplate).
+
+**Strive for concise, focused files adhering to SRP.**
+
+# File Modularity & Size Standards (KOIOS)
+
+## Rule
+
+Python files (and source files in general) should be kept focused and relatively small to enhance readability, maintainability, testability, and crucially, ease of processing by developers and AI tools.
+
+1.  **Single Responsibility Principle (SRP):** Aim for modules and classes to have one primary reason to change. Avoid creating "god objects" or utility modules that handle unrelated concerns.
+2.  **Size Guideline:** While not a strict limit, strive to keep Python files **under ~300-500 lines of code (LoC)**. Files significantly exceeding this are strong candidates for refactoring. *Consider this a guideline, not an unbreakable law; focus on logical cohesion.*
+3.  **Refactoring Trigger & Pattern:** If a file becomes difficult to understand quickly, requires excessive scrolling, handles too many distinct concerns, is hard to unit test in isolation, or significantly exceeds the size guideline, it **MUST** be refactored.
+    *   **Identify Cohesive Blocks:** Look for groups of functions or methods that work closely together on a specific sub-problem.
+    *   **Apply Refactoring Patterns:** Use techniques like **Extract Class** (if a group of data and functions belong together) or **Extract Method/Function** (to pull out distinct steps).
+    *   **Break Down:** Refactor the identified blocks into new, smaller, cohesive modules or classes, each adhering to SRP.
+    *   **Ensure Clear Interconnection:** Explicitly define how these new, smaller modules/classes interact.
+        *   Use clear **function/method signatures with type hints** as contracts.
+        *   Pass well-defined data structures (e.g., dataclasses, simple dictionaries) between them, avoiding passing large, complex objects unnecessarily.
+        *   For complex interactions, consider adding **docstrings explaining the collaboration** or even linking to sequence diagrams in architectural documentation.
+        *   *(Recall the pattern applied during the `app.py` refactoring exercise).*
+4.  **Communication Interfaces:** Newly created smaller modules should primarily communicate through:
+    *   Direct function/method calls (within the same subsystem).
+    *   Class instantiation and method invocation (within the same subsystem).
+    *   Well-defined interfaces or abstract base classes.
+    *   For inter-subsystem communication, **strictly** use Mycelium messages as defined in `subsystem_boundaries.mdc`.
+
+## Rationale
+
+Large files significantly hinder development velocity and quality:
+*   **Readability & Understanding:** Increased cognitive load makes it harder to grasp the file's purpose and logic.
+*   **Maintainability:** Changes are riskier, with higher potential for unintended side effects. Debugging becomes more complex.
+*   **Testability:** Unit testing becomes difficult or impossible, requiring complex mocking or setup.
+*   **Collaboration:** Higher likelihood of merge conflicts.
+*   **AI Processing:** **Critically**, large files often exceed the context window limits of AI assistants. This severely limits their ability to analyze the code accurately, perform refactoring, generate relevant code, or apply edits correctly using tools like `edit_file`. Smaller, focused files provide clearer context, leading to more accurate and efficient AI assistance.
+
+Breaking down complex logic into smaller, cohesive modules improves all these aspects and aligns with EGOS principles of Conscious Modularity (NEXUS).
+
+## Example (Conceptual Python)
+
+**Before Refactoring (`monolith_processor.py` > 500 LoC):**
+
+```python
+# monolith_processor.py
+class MonolithProcessor:
+    def __init__(self, config):
+        self.config = config
+        # ... many attributes ...
+
+    def load_data(self, source):
+        # ... complex loading logic ...
+        pass
+
+    def validate_data(self, raw_data):
+        # ... complex validation rules ...
+        pass
+
+    def clean_data(self, validated_data):
+        # ... complex cleaning steps ...
+        pass
+
+    def transform_data(self, cleaned_data):
+        # ... complex transformation logic ...
+        pass
+
+    def save_data(self, transformed_data, target):
+        # ... complex saving logic ...
+        pass
+
+    def process(self, source, target):
+        # Orchestrates all steps within the same class
+        raw = self.load_data(source)
+        validated = self.validate_data(raw)
+        cleaned = self.clean_data(validated)
+        transformed = self.transform_data(cleaned)
+        self.save_data(transformed, target)
+        print("Processing complete.")
+
+# --- Issues ---
+# - Very large file, hard to test steps individually.
+# - Violates SRP (loading, validating, cleaning, transforming, saving).
+# - Difficult for AI to understand or modify specific parts.
+```
+
+**After Refactoring (Multiple smaller files):**
+
+```python
+# data_loader.py
+from typing import Any, Dict
+class DataLoader:
+    def load(self, source: str) -> Any:
+        print(f"Loading data from {source}...")
+        # ... focused loading logic ...
+        return {"raw_data": "example"}
+
+# data_validator.py
+from typing import Any, bool
+# Potentially uses ETHIK rules
+class DataValidator:
+    def validate(self, data: Any) -> bool:
+        print("Validating data...")
+        # ... focused validation logic ...
+        return True # Assume valid for example
+
+# data_transformer.py
+from typing import Any, Dict
+class DataTransformer:
+    def transform(self, data: Any) -> Dict[str, Any]:
+        print("Transforming data...")
+        # ... focused transformation logic (includes cleaning) ...
+        return {"processed_data": data.get("raw_data", "") + "_transformed"}
+
+# data_storage.py
+from typing import Any, Dict
+class DataStorage:
+    def save(self, data: Dict[str, Any], target: str):
+        print(f"Saving data to {target}...")
+        # ... focused saving logic ...
+
+# main_orchestrator.py
+from data_loader import DataLoader
+from data_validator import DataValidator
+from data_transformer import DataTransformer
+from data_storage import DataStorage
+
+class MainOrchestrator:
+    def __init__(self):
+        # Dependencies are clearly defined and potentially injectable
+        self.loader = DataLoader()
+        self.validator = DataValidator()
+        self.transformer = DataTransformer()
+        self.storage = DataStorage()
+
+    def run_pipeline(self, source: str, target: str):
+        """Orchestrates the data processing pipeline."""
+        print("Starting pipeline...")
+        raw_data = self.loader.load(source)
+
+        if self.validator.validate(raw_data):
+            transformed_data = self.transformer.transform(raw_data)
+            self.storage.save(transformed_data, target)
+            print("Pipeline finished successfully.")
+        else:
+            print("Data validation failed. Pipeline stopped.")
+
+# --- Benefits ---
+# - Each file is small and focused (SRP).
+# - Easier to read, test, and maintain each component.
+# - Clear dependencies between components.
+# - AI can process each file easily within context limits.

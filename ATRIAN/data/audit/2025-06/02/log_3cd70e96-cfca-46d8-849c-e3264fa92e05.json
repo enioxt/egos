@@ -1,0 +1,18 @@
+{
+  "log_id": "log_3cd70e96-cfca-46d8-849c-e3264fa92e05",
+  "timestamp": "2025-06-02 02:11:05.776228",
+  "action_type": "get_framework",
+  "user_id": "anonymous",
+  "resource_id": "mqp_v9_full_moon",
+  "request_data": null,
+  "response_data": null,
+  "metadata": null,
+  "endpoint_called": "/ethics/framework/mqp_v9_full_moon",
+  "request_summary": {
+    "framework_id": "mqp_v9_full_moon"
+  },
+  "response_summary": {
+    "found": true,
+    "version": "9.0"
+  }
+}

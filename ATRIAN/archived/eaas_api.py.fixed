@@ -1,0 +1,430 @@
+#!/usr/bin/env python
+# C:/EGOS/ATRiAN/eaas_api.py
+"""
+ATRiAN Ethics as a Service (EaaS) API
+
+This module implements the RESTful API for the ATRiAN Ethics as a Service (EaaS) functionality,
+providing endpoints for ethical evaluations, explanations, suggestions, and framework management.
+
+Version: 0.2.0
+Last Modified: 2025-06-01
+"""
+
+import os
+import uuid
+import json
+import logging
+from datetime import datetime
+from typing import List, Dict, Any, Optional, Union
+
+from fastapi import FastAPI, HTTPException, Depends, Query, Body, Path
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel, Field
+
+# Import models from shared models file
+from eaas_models import (
+    EthicsEvaluationRequest, EthicsEvaluationResult,
+    EthicsExplanationRequest, EthicsExplanation,
+    EthicsSuggestionRequest, EthicsSuggestionResponse,
+    EthicsFramework, EthicsFrameworkCreateRequest, EthicsFrameworkUpdateRequest,
+    AuditLogEntry, EthicsAuditResponse, StatusResponse
+)
+
+# Import persistence manager
+from eaas_persistence import EaasPersistenceManager
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger("atrian.eaas_api")
+
+# Initialize FastAPI app
+app = FastAPI(
+    title="ATRiAN Ethics as a Service API",
+    description="API for ethical evaluations, explanations, suggestions, and framework management.",
+    version="0.2.0",
+)
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # In production, restrict this to specific origins
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Initialize persistence manager
+def get_persistence():
+    """Dependency to get the persistence manager instance."""
+    data_dir = os.environ.get("ATRIAN_DATA_DIR", "C:/EGOS/ATRiAN/data")
+    return EaasPersistenceManager(data_dir)
+
+# API Root endpoint
+@app.get("/", tags=["Root"])
+async def root():
+    """Root endpoint providing API information."""
+    return {
+        "name": "ATRiAN Ethics as a Service API",
+        "version": "0.2.0",
+        "description": "API for ethical evaluations, explanations, suggestions, and framework management.",
+        "documentation": "/docs",
+    }
+
+# Health check endpoint
+@app.get("/health", tags=["Health"])
+async def health_check():
+    """Health check endpoint."""
+    return {"status": "healthy", "timestamp": datetime.utcnow().isoformat()}
+
+# Ethical Framework Management Endpoints
+@app.get("/ethics/framework", response_model=List[EthicsFramework], tags=["Frameworks"])
+async def list_ethical_frameworks(
+    active_only: bool = Query(False, description="Filter to only active frameworks"),
+    persistence_mgr: EaasPersistenceManager = Depends(get_persistence)
+):
+    """
+    List all available ethical frameworks.
+    Now integrated with the persistence layer for permanent storage.
+    
+    - **active_only**: If true, only return active frameworks
+    """
+    # Create audit log entry for this request
+    audit_entry = AuditLogEntry(
+        log_id=f"log_{uuid.uuid4()}",
+        timestamp=datetime.utcnow(),
+        action_type="list_frameworks",
+        endpoint_called="/ethics/framework",
+        user_id="anonymous",  # In a real implementation, this would come from authentication
+        request_summary={"active_only": active_only}
+    )
+    persistence_mgr.log_audit_entry(audit_entry)
+    
+    try:
+        frameworks = persistence_mgr.list_frameworks(active_only)
+        
+        # Update the audit log with success information
+        audit_entry.response_summary = {"frameworks_count": len(frameworks)}
+        persistence_mgr.log_audit_entry(audit_entry)
+        
+        return frameworks
+    except Exception as e:
+        logger.error(f"Error listing frameworks: {str(e)}")
+        
+        # Update the audit log with error information
+        audit_entry.response_summary = {"error": str(e)}
+        persistence_mgr.log_audit_entry(audit_entry)
+        
+        raise HTTPException(status_code=500, detail=f"Failed to list frameworks: {str(e)}")
+
+@app.get("/ethics/framework/{framework_id}", response_model=EthicsFramework, tags=["Frameworks"])
+async def get_ethical_framework(
+    framework_id: str = Path(..., description="The ID of the framework to retrieve"),
+    persistence_mgr: EaasPersistenceManager = Depends(get_persistence)
+):
+    """
+    Get a specific ethical framework by ID.
+    Now integrated with the persistence layer for permanent storage.
+    
+    - **framework_id**: The ID of the framework to retrieve
+    """
+    # Create audit log entry for this request
+    audit_entry = AuditLogEntry(
+        log_id=f"log_{uuid.uuid4()}",
+        timestamp=datetime.utcnow(),
+        action_type="get_framework",
+        endpoint_called=f"/ethics/framework/{framework_id}",
+        user_id="anonymous",  # In a real implementation, this would come from authentication
+        request_summary={"framework_id": framework_id},
+        resource_id=framework_id
+    )
+    persistence_mgr.log_audit_entry(audit_entry)
+    
+    framework = persistence_mgr.get_framework(framework_id)
+    if not framework:
+        # Update the audit log with the error
+        audit_entry.response_summary = {"error": "not_found"}
+        persistence_mgr.log_audit_entry(audit_entry)
+        
+        raise HTTPException(status_code=404, detail=f"Ethical framework with ID '{framework_id}' not found")
+    
+    # Update the audit log with success information
+    audit_entry.response_summary = {"framework_id": framework_id}
+    persistence_mgr.log_audit_entry(audit_entry)
+    
+    return framework
+
+@app.post("/ethics/framework", response_model=EthicsFramework, tags=["Frameworks"])
+async def create_ethical_framework(
+    framework: EthicsFrameworkCreateRequest,
+    persistence_mgr: EaasPersistenceManager = Depends(get_persistence)
+):
+    """
+    Create a new ethical framework.
+    Now integrated with the persistence layer for permanent storage.
+    
+    - **framework**: The framework data to create
+    """
+    # Create audit log entry for this request
+    audit_entry = AuditLogEntry(
+        log_id=f"log_{uuid.uuid4()}",
+        timestamp=datetime.utcnow(),
+        action_type="create_framework",
+        endpoint_called="/ethics/framework",
+        user_id="anonymous",  # In a real implementation, this would come from authentication
+        request_summary={
+            "name": framework.name,
+            "version": framework.version,
+            "principles_count": len(framework.principles)
+        }
+    )
+    persistence_mgr.log_audit_entry(audit_entry)
+    
+    try:
+        # Generate a unique ID for the framework
+        framework_id = f"{framework.name.lower().replace(' ', '_')}_{uuid.uuid4().hex[:8]}"
+        
+        # Create the framework object
+        new_framework = EthicsFramework(
+            id=framework_id,
+            name=framework.name,
+            description=framework.description,
+            version=framework.version,
+            principles=framework.principles,
+            last_updated=datetime.utcnow(),
+            active=True,
+            metadata=framework.metadata or {}
+        )
+        
+        # Save to persistence
+        persistence_mgr.save_framework(new_framework)
+        
+        # Update the audit log with success information
+        audit_entry.resource_id = framework_id
+        audit_entry.response_summary = {"framework_id": framework_id}
+        persistence_mgr.log_audit_entry(audit_entry)
+        
+        return new_framework
+    except Exception as e:
+        logger.error(f"Error creating framework: {str(e)}")
+        
+        # Update the audit log with error information
+        audit_entry.response_summary = {"error": str(e)}
+        persistence_mgr.log_audit_entry(audit_entry)
+        
+        raise HTTPException(status_code=500, detail=f"Failed to create framework: {str(e)}")
+
+@app.put("/ethics/framework/{framework_id}", response_model=EthicsFramework, tags=["Frameworks"])
+async def update_ethical_framework(
+    framework_id: str = Path(..., description="The ID of the framework to update"),
+    updates: EthicsFrameworkUpdateRequest = Body(..., description="The framework updates to apply"),
+    persistence_mgr: EaasPersistenceManager = Depends(get_persistence)
+):
+    """
+    Update an existing ethical framework.
+    Now integrated with the persistence layer for permanent storage.
+    
+    - **framework_id**: The ID of the framework to update
+    - **updates**: The updates to apply to the framework
+    """
+    # Create audit log entry for this request
+    audit_entry = AuditLogEntry(
+        log_id=f"log_{uuid.uuid4()}",
+        timestamp=datetime.utcnow(),
+        action_type="update_framework",
+        endpoint_called=f"/ethics/framework/{framework_id}",
+        user_id="anonymous",  # In a real implementation, this would come from authentication
+        request_summary={
+            "framework_id": framework_id,
+            "update_fields": [k for k, v in updates.dict(exclude_unset=True).items() if v is not None]
+        },
+        resource_id=framework_id
+    )
+    persistence_mgr.log_audit_entry(audit_entry)
+    
+    # Check if the framework exists
+    existing_framework = persistence_mgr.get_framework(framework_id)
+    if not existing_framework:
+        # Update the audit log with the error
+        audit_entry.response_summary = {"error": "not_found"}
+        persistence_mgr.log_audit_entry(audit_entry)
+        
+        raise HTTPException(status_code=404, detail=f"Ethical framework with ID '{framework_id}' not found")
+    
+    # Prevent updates to core frameworks (except for active status)
+    if framework_id in ["mqp_v9_full_moon", "atrian_rules_v1"] and any(
+        k != "active" for k in updates.dict(exclude_unset=True, exclude_none=True).keys()
+    ):
+        # Update the audit log with the error
+        audit_entry.response_summary = {"error": "protected_framework"}
+        persistence_mgr.log_audit_entry(audit_entry)
+        
+        raise HTTPException(
+            status_code=403, 
+            detail=f"Core framework '{framework_id}' can only have its active status updated"
+        )
+    
+    # Apply updates
+    update_dict = updates.dict(exclude_unset=True, exclude_none=True)
+    for key, value in update_dict.items():
+        setattr(existing_framework, key, value)
+    
+    # Update the last_updated timestamp
+    existing_framework.last_updated = datetime.utcnow()
+    
+    # Save to persistence
+    try:
+        persistence_mgr.save_framework(existing_framework)
+        
+        # Update the audit log with success information
+        audit_entry.response_summary = {"updated": True}
+        persistence_mgr.log_audit_entry(audit_entry)
+        
+        return existing_framework
+    except Exception as e:
+        logger.error(f"Error updating framework {framework_id}: {str(e)}")
+        
+        # Update the audit log with error information
+        audit_entry.response_summary = {"error": str(e)}
+        persistence_mgr.log_audit_entry(audit_entry)
+        
+        raise HTTPException(status_code=500, detail=f"Failed to update framework {framework_id}: {str(e)}")
+
+@app.delete("/ethics/framework/{framework_id}", response_model=StatusResponse, tags=["Frameworks"])
+async def delete_ethical_framework(
+    framework_id: str = Path(..., description="The ID of the framework to delete"),
+    persistence_mgr: EaasPersistenceManager = Depends(get_persistence)
+):
+    """
+    Deletes an ethical framework by ID.
+    Now integrated with the persistence layer for permanent storage.
+
+    - **framework_id**: The ID of the framework to delete.
+    """
+    # Create audit log entry for this request
+    audit_entry = AuditLogEntry(
+        log_id=f"log_{uuid.uuid4()}",
+        timestamp=datetime.utcnow(),
+        action_type="delete_framework",
+        endpoint_called=f"/ethics/framework/{framework_id}",
+        user_id="anonymous",  # In a real implementation, this would come from authentication
+        request_summary={"framework_id": framework_id},
+        resource_id=framework_id
+    )
+    persistence_mgr.log_audit_entry(audit_entry)
+    
+    # Check if the framework exists
+    framework = persistence_mgr.get_framework(framework_id)
+    if not framework:
+        # Update the audit log with the error
+        audit_entry.response_summary = {"error": "not_found"}
+        persistence_mgr.log_audit_entry(audit_entry)
+        
+        raise HTTPException(status_code=404, detail=f"Ethical framework with ID '{framework_id}' not found.")
+    
+    # Prevent deletion of core frameworks
+    if framework_id in ["mqp_v9_full_moon", "atrian_rules_v1"]:
+        # Update the audit log with the error
+        audit_entry.response_summary = {"error": "protected_framework"}
+        persistence_mgr.log_audit_entry(audit_entry)
+        
+        raise HTTPException(status_code=403, detail=f"Core framework '{framework_id}' cannot be deleted.")
+    
+    # Delete from the persistence store
+    if not persistence_mgr.delete_framework(framework_id):
+        logger.error(f"Failed to delete framework {framework_id}")
+        # Update the audit log with the error
+        audit_entry.response_summary = {"error": "persistence_failure"}
+        persistence_mgr.log_audit_entry(audit_entry)
+        
+        raise HTTPException(status_code=500, detail=f"Failed to delete framework {framework_id}")
+    
+    # Update the audit log with success information
+    audit_entry.response_summary = {"deleted": True}
+    persistence_mgr.log_audit_entry(audit_entry)
+    
+    return StatusResponse(status="success", message=f"Ethical framework '{framework_id}' deleted successfully.")
+
+@app.get("/ethics/audit", response_model=EthicsAuditResponse, tags=["Audit"])
+async def get_audit_logs(
+    start_date: Optional[datetime] = Query(None, description="Filter logs from this date/time"),
+    end_date: Optional[datetime] = Query(None, description="Filter logs until this date/time"),
+    action_type: Optional[str] = Query(None, description="Filter by action type (e.g., evaluate, explain, suggest)"),
+    user_id: Optional[str] = Query(None, description="Filter by user ID"),
+    limit: int = Query(100, description="Maximum number of logs to return"),
+    offset: int = Query(0, description="Number of logs to skip"),
+    persistence_mgr: EaasPersistenceManager = Depends(get_persistence)
+):
+    """
+    Retrieves audit logs of API usage with optional filtering.
+    
+    - **start_date**: Optional filter for logs after this date/time
+    - **end_date**: Optional filter for logs before this date/time
+    - **action_type**: Optional filter by action type
+    - **user_id**: Optional filter by user ID
+    - **limit**: Maximum number of logs to return (default: 100)
+    - **offset**: Number of logs to skip for pagination (default: 0)
+    """
+    # Create audit log entry for this audit request itself
+    audit_entry = AuditLogEntry(
+        log_id=f"log_{uuid.uuid4()}",
+        timestamp=datetime.utcnow(),
+        action_type="retrieve_audit_logs",
+        endpoint_called="/ethics/audit",
+        user_id="anonymous",  # In a real implementation, this would come from authentication
+        request_summary={
+            "start_date": start_date.isoformat() if start_date else None,
+            "end_date": end_date.isoformat() if end_date else None,
+            "action_type": action_type,
+            "user_id": user_id,
+            "limit": limit,
+            "offset": offset
+        }
+    )
+    persistence_mgr.log_audit_entry(audit_entry)
+    
+    # Get audit logs from persistence manager
+    try:
+        logs = persistence_mgr.get_audit_logs(
+            start_date=start_date,
+            end_date=end_date,
+            user_id=user_id,
+            action_type=action_type,
+            limit=limit,
+            offset=offset
+        )
+        
+        # Update the audit log entry with success information
+        audit_entry.response_summary = {"logs_count": len(logs)}
+        persistence_mgr.log_audit_entry(audit_entry)
+        
+        return EthicsAuditResponse(
+            logs=logs,
+            total_count=len(logs),
+            page=(offset // limit) + 1 if limit > 0 else 1,
+            page_size=limit,
+            has_more=len(logs) >= limit
+        )
+    except Exception as e:
+        logger.error(f"Error retrieving audit logs: {str(e)}")
+        
+        # Update the audit log entry with error information
+        audit_entry.response_summary = {"error": str(e)}
+        persistence_mgr.log_audit_entry(audit_entry)
+        
+        raise HTTPException(status_code=500, detail=f"Failed to retrieve audit logs: {str(e)}")
+
+# To run this API (for development):
+# Ensure you are in the C:/EGOS/ATRiAN/ directory in your terminal.
+# Create a virtual environment if you haven't already:
+#   python -m venv .venv
+# Activate the virtual environment:
+#   .venv\Scripts\activate
+# Install dependencies:
+#   pip install -r requirements.txt
+# Run the server:
+#   uvicorn eaas_api:app --reload
+# Access the API documentation at:
+#   http://127.0.0.1:8000/docs

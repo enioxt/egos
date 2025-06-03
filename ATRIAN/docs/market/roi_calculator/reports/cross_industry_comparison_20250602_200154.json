@@ -1,0 +1,78 @@
+{
+    "analysis_date": "2025-06-02T20:01:54.541918",
+    "industries": {
+        "financial_services": {
+            "organization": "Global Financial Partners",
+            "time_horizon": 5,
+            "discount_rate": 0.12,
+            "roi": 3684.414345969683,
+            "npv": 49154233.44229913,
+            "irr": 14.847441589345122,
+            "payback_period": 0.06735160354140216,
+            "benefit_cost_ratio": 37.84414345969683,
+            "benefits": {
+                "risk_mitigation": 2221533.4541001674,
+                "operational_efficiency": 5603840.89311745,
+                "brand_value": 25873641.6699515,
+                "regulatory_compliance": 5179919.211721676,
+                "innovation_enablement": 10275298.213408334
+            }
+        },
+        "healthcare": {
+            "organization": "Integrated Health Partners",
+            "time_horizon": 5,
+            "discount_rate": 0.09,
+            "roi": 6170.454367962294,
+            "npv": 71733962.42767534,
+            "irr": 24.485846835693692,
+            "payback_period": 0.040839915143862766,
+            "benefit_cost_ratio": 62.70454367962293,
+            "benefits": {
+                "risk_mitigation": 3385499.5603641523,
+                "operational_efficiency": 5107018.757150482,
+                "brand_value": 38180816.801060446,
+                "regulatory_compliance": 5014849.580814101,
+                "innovation_enablement": 20045777.728286162
+            }
+        },
+        "manufacturing": {
+            "organization": "Advanced Manufacturing Solutions",
+            "time_horizon": 5,
+            "discount_rate": 0.11,
+            "roi": 3310.939238774202,
+            "npv": 34125308.24958569,
+            "irr": 12.875093521146788,
+            "payback_period": 0.07766918770739561,
+            "benefit_cost_ratio": 34.10939238774202,
+            "benefits": {
+                "risk_mitigation": 1164189.8202538965,
+                "operational_efficiency": 3732649.017592971,
+                "brand_value": 5555908.934339805,
+                "regulatory_compliance": 2879835.564358427,
+                "innovation_enablement": 20792724.913040593
+            }
+        },
+        "retail": {
+            "organization": "Omni Retail Innovations",
+            "time_horizon": 4,
+            "discount_rate": 0.1,
+            "roi": 8443.339237052503,
+            "npv": 74859573.1428181,
+            "irr": 38.728928799590946,
+            "payback_period": 0.025820481732894942,
+            "benefit_cost_ratio": 85.43339237052503,
+            "benefits": {
+                "risk_mitigation": 1277582.569496619,
+                "operational_efficiency": 3071675.694283177,
+                "brand_value": 52419938.091660395,
+                "regulatory_compliance": 2383353.360016392,
+                "innovation_enablement": 15707023.427361514
+            }
+        }
+    },
+    "averages": {
+        "roi": 5402.28679743967,
+        "payback_period": 0.05292029703138887,
+        "benefit_cost_ratio": 55.0228679743967
+    }
+}

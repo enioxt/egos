@@ -1,0 +1,501 @@
+Group,File Path,Size,Last Modified,Content Hash,Status
+Group 0,C:\EGOS\docs\ai_collaboration\MULTI_AGENT_WORKFLOW.md,3209,2025-05-21 00:18:51,36977400b831c478143fbe3a88b1a053,Duplicate
+Group 0,C:\EGOS\docs\core_materials\ai_collaboration\MULTI_AGENT_WORKFLOW.md,3164,2025-05-21 00:40:22,365e0784a1912e735dbf14da51f19832,Duplicate
+Group 0,C:\EGOS\docs\guides\MULTI_AGENT_WORKFLOW.md,4222,2025-05-21 11:09:01,89f81d9f50aef0d9d4976e9eca693bf8,Canonical
+Group 0,C:\EGOS\docs\technical\ai_systems\ai_collaboration_archive\MULTI_AGENT_WORKFLOW.md,4319,2025-05-21 11:09:02,f633bde542b2a5e770d0c1a611bd92bf,Duplicate
+Group 1,C:\EGOS\docs\core_materials\ai_integration\cursor_agent_mode.md,5969,2025-05-21 15:08:50,23c59ccf27eb6f5d82fe469ec6daa3b4,Canonical
+Group 1,C:\EGOS\docs\technical\ai_systems\ai_integration_archive\cursor_agent_mode.md,7063,2025-05-21 15:08:52,1ba54c00b83efb87985c5aafdb0d6811,Duplicate
+Group 2,C:\EGOS\docs\core_materials\ai_integration\MULTI_MODEL_INSIGHTS.md,6571,2025-05-21 00:40:22,b8267889992d1ed5fc92fbe09ef23a2a,Canonical
+Group 2,C:\EGOS\docs\technical\ai_systems\ai_integration_archive\MULTI_MODEL_INSIGHTS.md,7681,2025-05-21 11:09:02,876edd3d4c3859f834bc496c4a2edb8a,Duplicate
+Group 3,C:\EGOS\docs\core_materials\ARCHITECTURE.md,2147,2025-05-21 00:40:22,a1e77e2124e5854105caa002273989b5,Duplicate
+Group 3,C:\EGOS\docs\project\ARCHITECTURE.md,0,2025-05-21 00:40:23,ZERO_SIZE_FILE_HASH,Canonical
+Group 4,C:\EGOS\docs\core_materials\code_analysis\large_files_report.md,5790,2025-05-21 11:09:01,299acc54092e289a95f7eba6cfef1c0d,Canonical
+Group 4,C:\EGOS\docs\technical\code_practices\code_analysis_archive\large_files_report.md,6889,2025-05-21 11:09:02,c9cd98a2b636a8458f23c7c2fdcd6179,Duplicate
+Group 5,C:\EGOS\docs\core_materials\code_history_analysis.md,1755,2025-05-21 15:08:50,99ed6463acddfe99889bfdc00a10abd8,Duplicate
+Group 5,C:\EGOS\docs\technical\code_history_analysis.md,2879,2025-05-21 15:08:52,534c366b245bbec4d2313b6c37c5fba3,Canonical
+Group 6,C:\EGOS\docs\core_materials\CRONOS_REFACTORING_EXAMPLE.md,11820,2025-05-21 00:40:22,24db1508bcf498d5aece33254b796fde,Duplicate
+Group 6,C:\EGOS\docs\guides\CRONOS_REFACTORING_EXAMPLE.md,12970,2025-05-21 11:09:01,59e93ee790aaea561f9e86dc8803b821,Canonical
+Group 7,C:\EGOS\docs\core_materials\EGOS_OVERVIEW.md,3319,2025-05-21 00:40:22,692759c667feff85436b77a797043dcc,Duplicate
+Group 7,C:\EGOS\docs\project\EGOS_OVERVIEW.md,4455,2025-05-21 11:09:01,78a907be4a9d5357cb33507d96fc9857,Canonical
+Group 8,C:\EGOS\docs\core_materials\gitbash_commands.md,3245,2025-05-21 00:40:22,78f5b1d3c18d9ecfcc4cca5f7d60c65c,Duplicate
+Group 8,C:\EGOS\docs\guides\gitbash_commands.md,4345,2025-05-21 11:09:01,b66027ec05fc1284165839d6afcbadc0,Canonical
+Group 9,C:\EGOS\docs\core_materials\GOVERNANCE.md,3974,2025-05-21 00:40:22,891939db77aaad65205e139c06254cbf,Duplicate
+Group 9,C:\EGOS\docs\GOVERNANCE.md,313,2025-05-21 00:18:50,0e85174e87f09c200393230ba7e3f614,Canonical
+Group 9,C:\EGOS\docs\project\GOVERNANCE.md,1315,2025-05-21 11:09:01,5f36f01796191cfa3ff70d65d68a0596,Duplicate
+Group 10,C:\EGOS\docs\core_materials\historical_changelogs\BIOS-Q MCP.txt,15522,2025-05-21 00:40:22,9073abdc79f82ff50ec07bacd8a7f0d4,Duplicate
+Group 10,C:\EGOS\docs\governance\BIOS-Q MCP.txt,15974,2025-05-21 00:40:22,cb8ab05bc59ffeac1c1b60c50b6d1ed1,Duplicate
+Group 10,C:\EGOS\docs\technical\BIOS-Q MCP.txt,15731,2025-05-21 00:40:23,ae7186ff8fa0e7e0b24d465ef8ce3225,Canonical
+Group 11,C:\EGOS\docs\core_materials\historical_changelogs\Cursor X Web limitaçoes.txt,4403,2025-05-21 00:40:22,d1509e86fec6ad15b1661c57e4010456,Duplicate
+Group 11,C:\EGOS\docs\technical\Cursor X Web limitaçoes.txt,4612,2025-05-21 00:40:23,79f0f57d9d2904db062d1c7440bf4c07,Canonical
+Group 12,C:\EGOS\docs\core_materials\historical_changelogs\EGOS 1.0.txt,95689,2025-05-21 15:08:50,a68213655d70c1da85ebed3b72008efe,Duplicate
+Group 12,C:\EGOS\docs\governance\EGOS 1.0.txt,97817,2025-05-21 15:08:50,4e8ed460a39c20302d25ef6ee36bac00,Duplicate
+Group 12,C:\EGOS\docs\technical\EGOS 1.0.txt,95945,2025-05-21 15:08:52,41d7407e2273e3b2f2f97d6e4fe95d09,Canonical
+Group 13,C:\EGOS\docs\core_materials\historical_changelogs\EGOS1.1 visao geral.txt,9405,2025-05-21 00:40:22,f267189ea62406bb3e92db9ac7bca680,Duplicate
+Group 13,C:\EGOS\docs\governance\EGOS1.1 visao geral.txt,9597,2025-05-21 00:40:22,5f4f8a5252a279fa370d44d132a4dbc8,Duplicate
+Group 13,C:\EGOS\docs\technical\EGOS1.1 visao geral.txt,9614,2025-05-21 00:40:23,8cf7d38eb5197ee33028b338b01b73da,Canonical
+Group 14,C:\EGOS\docs\core_materials\historical_changelogs\Instalaçao EVA.txt,39768,2025-05-21 00:40:22,c686c925958732ef80bc10ac8c096174,Duplicate
+Group 14,C:\EGOS\docs\governance\Instalaçao EVA.txt,40845,2025-05-21 00:40:22,8c40a84982693aba021c5a3d0749356e,Canonical
+Group 15,C:\EGOS\docs\core_materials\historical_changelogs\Integration Codeguide Paella MQP.txt,11436,2025-05-21 00:40:22,4cc99458e1e24ee66614f2dec3b07e49,Duplicate
+Group 15,C:\EGOS\docs\governance\Integration Codeguide Paella MQP.txt,11705,2025-05-21 12:47:12,3f673b760a3c879691ddad0a91cb352d,Duplicate
+Group 15,C:\EGOS\docs\technical\Integration Codeguide Paella MQP.txt,11692,2025-05-21 12:47:27,a0e6b16afb1beb2f48ff185ab3ba208e,Canonical
+Group 16,C:\EGOS\docs\core_materials\historical_changelogs\Integraçao sistema quantico com bot.txt,110173,2025-05-21 00:40:22,d4ea349bd096ddcf97b5fecac81bec94,Duplicate
+Group 16,C:\EGOS\docs\governance\Integraçao sistema quantico com bot.txt,113535,2025-05-21 00:40:22,7b175e54bf2277e138370432d45c38f8,Canonical
+Group 17,C:\EGOS\docs\core_materials\historical_changelogs\MCP grande avanço roadmap.txt,13073,2025-05-21 11:09:01,a5a131f440ab6ac5f5b9ae4596067a42,Duplicate
+Group 17,C:\EGOS\docs\governance\MCP grande avanço roadmap.txt,13345,2025-05-21 11:09:01,577fb86b91c78008355a3178e74db9ed,Duplicate
+Group 17,C:\EGOS\docs\project\MCP grande avanço roadmap.txt,13282,2025-05-21 11:09:01,a2e65e3f2730db3f3afd55f8fcbac2f3,Canonical
+Group 18,C:\EGOS\docs\core_materials\historical_changelogs\Melhorias BOT telegram.txt,33128,2025-05-21 00:40:22,898d48c93321ae48e3dff9311b4d07dc,Duplicate
+Group 18,C:\EGOS\docs\governance\Melhorias BOT telegram.txt,34046,2025-05-21 00:40:22,0bf5c7d7987e1516e0dd1775f1db83f0,Canonical
+Group 19,C:\EGOS\docs\core_materials\historical_changelogs\MVP OK 7.0.txt,0,2025-05-21 00:40:22,ZERO_SIZE_FILE_HASH,Duplicate
+Group 19,C:\EGOS\docs\governance\MVP OK 7.0.txt,192,2025-05-21 00:40:22,08d9acbe7cb83efaf3c207ce2d100058,Canonical
+Group 20,C:\EGOS\docs\core_materials\historical_changelogs\NAO PARE Futuro Projeto importante.txt,12627,2025-05-21 15:08:50,2fa0a3c8747fe85401ac4de09cef5b9a,Duplicate
+Group 20,C:\EGOS\docs\governance\NAO PARE Futuro Projeto importante.txt,12896,2025-05-21 15:08:50,0f82a571ce5dc8d477d5f84b05214241,Duplicate
+Group 20,C:\EGOS\docs\project\NAO PARE Futuro Projeto importante.txt,12836,2025-05-21 15:08:50,55de1872c93dc988624a96f96882b31a,Canonical
+Group 21,C:\EGOS\docs\core_materials\historical_changelogs\Panorama sistema TODO.txt,11394,2025-05-21 15:08:50,70b7e7c47b4caa0464d1c02204509083,Duplicate
+Group 21,C:\EGOS\docs\technical\Panorama sistema TODO.txt,11603,2025-05-21 15:08:52,34ab3de708b8c208e9e730e30cdab1a1,Canonical
+Group 22,C:\EGOS\docs\core_materials\historical_changelogs\PLANO DE NEGOCIO EVA (14).txt,372,2025-05-21 00:40:22,031472d944d4e726ab672de2ff143ea5,Duplicate
+Group 22,C:\EGOS\docs\governance\PLANO DE NEGOCIO EVA (14).txt,563,2025-05-21 00:40:22,4b79526d5770868e96dc4421ab8855fc,Canonical
+Group 23,C:\EGOS\docs\core_materials\historical_changelogs\Plano reorganizaçao pastas.txt,34924,2025-05-21 15:08:50,ef4e955dc49f65744bc699990edb9422,Duplicate
+Group 23,C:\EGOS\docs\governance\Plano reorganizaçao pastas.txt,35694,2025-05-21 15:08:50,d728ce3883880e798a51cea40a85219f,Canonical
+Group 24,C:\EGOS\docs\core_materials\historical_changelogs\Prometheus Grafana.txt,119922,2025-05-21 15:08:50,d43bb3f515d98ebe0df34794e511f6f5,Duplicate
+Group 24,C:\EGOS\docs\technical\Prometheus Grafana.txt,120131,2025-05-21 15:08:52,97ecb431e4438453f08aff41b1c61255,Canonical
+Group 25,C:\EGOS\docs\core_materials\historical_changelogs\Prompt quantico 7 ingles.txt,0,2025-05-21 00:40:22,ZERO_SIZE_FILE_HASH,Duplicate
+Group 25,C:\EGOS\docs\governance\Prompt quantico 7 ingles.txt,192,2025-05-21 00:40:22,08d9acbe7cb83efaf3c207ce2d100058,Canonical
+Group 26,C:\EGOS\docs\core_materials\historical_changelogs\Prompt Quantico 7.0 EGOS.txt,238902,2025-05-21 00:40:22,2fc4e2d4ae6298800eb8e6d5eaf2d035,Duplicate
+Group 26,C:\EGOS\docs\governance\Prompt Quantico 7.0 EGOS.txt,247118,2025-05-21 00:40:22,e9cadf214e80977eb76b6ad050a61ef6,Duplicate
+Group 26,C:\EGOS\docs\prompts\Prompt Quantico 7.0 EGOS.txt,239111,2025-05-21 00:40:23,612a37914aef623113947ee184c8bc22,Canonical
+Group 27,C:\EGOS\docs\core_materials\historical_changelogs\Prompts quanticos EGOS.txt,22526,2025-05-21 00:40:22,54cc7cb6fe3278f7eb091c631be3ce51,Duplicate
+Group 27,C:\EGOS\docs\governance\Prompts quanticos EGOS.txt,22751,2025-05-21 00:40:22,4dca8d07b14341e2de0ea7dc9418725d,Duplicate
+Group 27,C:\EGOS\docs\prompts\Prompts quanticos EGOS.txt,22735,2025-05-21 00:40:23,15b1c7dbd2b894ed1ec9174d36b12ac2,Canonical
+Group 28,C:\EGOS\docs\core_materials\historical_changelogs\Quantum Prompt Rules e inicializaçao.txt,6699,2025-05-21 00:40:22,76b9cb72de9648611451819cbbcbd68a,Duplicate
+Group 28,C:\EGOS\docs\governance\Quantum Prompt Rules e inicializaçao.txt,6891,2025-05-21 00:40:22,a09a108c4e632260e3ea2e7fde36c101,Duplicate
+Group 28,C:\EGOS\docs\prompts\Quantum Prompt Rules e inicializaçao.txt,6908,2025-05-21 00:40:23,02904439089bb70a1a4f2c9fd6775496,Canonical
+Group 29,C:\EGOS\docs\core_materials\historical_changelogs\Roadmap Mycellium.txt,12047,2025-05-21 00:40:22,3ef527be5506fb946222746f188a8e86,Duplicate
+Group 29,C:\EGOS\docs\governance\Roadmap Mycellium.txt,12316,2025-05-21 12:47:20,074e8f7c7849e1daf48d8550d0b2fd88,Duplicate
+Group 29,C:\EGOS\docs\project\Roadmap Mycellium.txt,12293,2025-05-21 12:47:40,bc90b5883eaefc9e345c955b508b6314,Canonical
+Group 30,C:\EGOS\docs\core_materials\historical_changelogs\RPG EVA.txt,245955,2025-05-21 11:09:01,55a6e0db844ee2f59f9d57b34ecac945,Duplicate
+Group 30,C:\EGOS\docs\governance\RPG EVA.txt,246538,2025-05-21 11:09:01,0fa7b009c402210864fcfb4b159a6556,Canonical
+Group 31,C:\EGOS\docs\core_materials\historical_changelogs\ULTIMA quase tudo revisado.txt,239976,2025-05-21 15:08:50,9f5eaa4ad6001fa07a4aa89c9514ce5d,Duplicate
+Group 31,C:\EGOS\docs\governance\ULTIMA quase tudo revisado.txt,244662,2025-05-21 15:08:50,1908ac65d1acb9d6019ee2ea0091104c,Canonical
+Group 32,C:\EGOS\docs\core_materials\i18n_conventions.md,4047,2025-05-21 15:08:50,a3d857ec1b720a26578cadfa95b34de8,Duplicate
+Group 32,C:\EGOS\docs\standards\i18n_conventions.md,5146,2025-05-21 15:08:52,60086fccb06c9c428973806c1d1da610,Canonical
+Group 33,C:\EGOS\docs\core_materials\INTEGRATION_PLAN.md,1,2025-05-21 00:40:22,7215ee9c7d9dc229d2921a40e899ec5f,Duplicate
+Group 33,C:\EGOS\docs\INTEGRATION_PLAN.md,318,2025-05-21 00:18:50,9058b32214c55610996445855d41a7c1,Canonical
+Group 33,C:\EGOS\docs\project\INTEGRATION_PLAN.md,1338,2025-05-21 11:09:01,26d851f05ba67c9c3b583355f86a3977,Duplicate
+Group 34,C:\EGOS\docs\core_materials\KOIOS_Interaction_Standards.md,5461,2025-05-21 11:09:00,63ab26e116a8ffea1e38348a00944b63,Duplicate
+Group 34,C:\EGOS\docs\core_materials\standards\KOIOS_Interaction_Standards.md,5460,2025-05-21 11:09:01,2edcbe5d31604c3d11d2690096f36487,Duplicate
+Group 34,C:\EGOS\docs\standards\KOIOS_Interaction_Standards.md,6161,2025-05-21 11:09:02,40935ffdb724c1541c11b114c1026eae,Canonical
+Group 35,C:\EGOS\docs\core_materials\MCP_CREATION_GUIDE.md,23735,2025-05-21 00:40:22,7c9feaf368811dd47fe0f845fb58f5aa,Duplicate
+Group 35,C:\EGOS\docs\guides\MCP_CREATION_GUIDE.md,24845,2025-05-21 11:09:01,02b5ba287e70134897212c48eb0c17e0,Canonical
+Group 36,C:\EGOS\docs\core_materials\MQP.md,13796,2025-05-21 15:08:50,7e7f628a958b572f27e2d0ae513993a0,Duplicate
+Group 36,C:\EGOS\docs\project\MQP.md,12041,2025-05-21 11:09:02,4d96e3198ca1605e2660b4ada2f810f8,Canonical
+Group 37,C:\EGOS\docs\core_materials\MYCELIUM_INTEGRATION.md,7582,2025-05-21 00:40:22,5de78fe014a64a02129ac09c0f40053f,Duplicate
+Group 37,C:\EGOS\docs\technical\MYCELIUM_INTEGRATION.md,8702,2025-05-21 11:09:02,344dd6f8b7681d877d0b3007058f9d75,Canonical
+Group 38,C:\EGOS\docs\core_materials\PHILOSOPHY.md,2743,2025-05-21 00:40:22,2d8aeaecf690d2b07b82acada30b74b5,Duplicate
+Group 38,C:\EGOS\docs\project\PHILOSOPHY.md,3803,2025-05-21 11:09:02,73bd138112b4082ff78e7c1842e057d2,Canonical
+Group 39,C:\EGOS\docs\core_materials\process\validation\PROC-VALIDATE-01_roadmap_tasks_validation.md,3721,2025-05-21 00:40:22,d573979bc96593e63a1bab89e8f279d5,Duplicate
+Group 39,C:\EGOS\docs\standards\validation_procedures\PROC-VALIDATE-01_roadmap_tasks_validation.md,5019,2025-05-21 11:09:02,6dbf6da48cf104cfd8c3f2e5680e3b6b,Canonical
+Group 40,C:\EGOS\docs\core_materials\process\validation\PROC-VALIDATE-02_subsystem_structure_validation.md,3965,2025-05-21 15:08:50,42c07331da9aec44ad214953dd05546e,Duplicate
+Group 40,C:\EGOS\docs\standards\validation_procedures\PROC-VALIDATE-02_subsystem_structure_validation.md,5212,2025-05-21 15:08:52,fe46618dc516bddca5b313352334852f,Canonical
+Group 41,C:\EGOS\docs\core_materials\prompts\coruja_zendesk_ticket_analysis_v1.pdd,3323,2025-05-21 00:40:22,1b9b9237ea8bce10301c4f1598bb6c20,Duplicate
+Group 41,C:\EGOS\docs\prompts\coruja_zendesk_ticket_analysis_v1.pdd,3323,2025-05-21 00:40:23,1b9b9237ea8bce10301c4f1598bb6c20,Canonical
+Group 42,C:\EGOS\docs\core_materials\prompts\CURSOR_QUANTUM_PROMPT.md,6045,2025-05-21 00:40:22,083544dd3f6314a0a067dcbf4d0f91e2,Duplicate
+Group 42,C:\EGOS\docs\prompts\CURSOR_QUANTUM_PROMPT.md,7160,2025-05-21 11:09:02,bc484b99fc5331ecb37aa2cc068d7993,Canonical
+Group 43,C:\EGOS\docs\core_materials\prompts\CURSOR_SYSTEM_PROMPT.txt,2432,2025-05-21 00:40:22,9278372460aa8b8468c67a16c529c6e5,Duplicate
+Group 43,C:\EGOS\docs\prompts\CURSOR_SYSTEM_PROMPT.txt,2642,2025-05-21 00:40:23,645ffb619dbb6a03115836b0389e7550,Canonical
+Group 44,C:\EGOS\docs\core_materials\prompts\pdds\generate_python_docstring.yaml,2561,2025-05-21 00:40:22,5f2d7ebb3bcade99cdb107b1c2ecb279,Duplicate
+Group 44,C:\EGOS\docs\prompts\pdds\generate_python_docstring.yaml,2695,2025-05-21 15:08:50,81c264b96c60fbfa8b2d3ba55da73dc5,Canonical
+Group 44,C:\EGOS\docs\resources\data\generate_python_docstring.yaml,2695,2025-05-21 15:08:52,81c264b96c60fbfa8b2d3ba55da73dc5,Duplicate
+Group 45,C:\EGOS\docs\core_materials\prompts\strategic_analysis_prompt_v2.0.md,7886,2025-05-21 00:40:22,fa41edd17855ca167231a37ab905c61e,Duplicate
+Group 45,C:\EGOS\docs\prompts\strategic_analysis_prompt_v2.0.md,9046,2025-05-21 11:09:02,7dbe23d3edc8c457805172c51553966a,Canonical
+Group 45,C:\EGOS\docs\STRATEGIC_THINKING\meta_prompts\strategic_analysis_prompt_v2.0.md,10925,2025-05-21 11:09:02,3bac4b9ecf1f7d61e5f476ce4e3fc94d,Duplicate
+Group 46,C:\EGOS\docs\core_materials\README.md,3045,2025-05-21 11:09:01,7b2cec2f23b12c90efaddc88364b250b,Duplicate
+Group 46,C:\EGOS\docs\examples\crewai\content-marketing-ideas-template\crewAI-enterprise-content-marketing-ideas-template-main\README.md,3361,2025-05-21 00:18:52,dc551962c6074aee531b00d68cdb07f6,Duplicate
+Group 46,C:\EGOS\docs\examples\crewai\contract-analysis-template\crewAI-enterprise-contract-analysis-template-main\README.md,2570,2025-05-21 00:18:52,cb602fb0b1593a6d0d2ca8817d23005f,Duplicate
+Group 46,C:\EGOS\docs\examples\crewai\create-sales-offer-template\crewAI-enterprise-create-sales-offer-template-main\README.md,2458,2025-05-21 00:18:52,be2b25136344e98178649d10b7205feb,Duplicate
+Group 46,C:\EGOS\docs\examples\crewai\fraud-detector-template\crewAI-enterprise-fraud-detector-template-main\README.md,2460,2025-05-21 00:18:52,36b3ae4387f18b18eff8852909367d2e,Duplicate
+Group 46,C:\EGOS\docs\examples\crewai\job-change-monitor-template\crewAI-enterprise-job-change-monitor-template-main\README.md,2525,2025-05-21 00:18:52,27430a0a3a98f41f4aea9d264fd8b9ac,Duplicate
+Group 46,C:\EGOS\docs\examples\crewai\lead-scoring-template\crewAI-enterprise-lead-scoring-template-main\README.md,2554,2025-05-21 00:18:52,6373e42f26049d7b60c365d0a39640bb,Duplicate
+Group 46,C:\EGOS\docs\examples\crewai\personalized-email-template\crewAI-enterprise-personalized-email-template-main\README.md,2585,2025-05-21 00:18:52,b8b7c1e05b8850ecd1d9cccb999b923e,Duplicate
+Group 46,C:\EGOS\docs\examples\crewai\prep-for-meeting-template\crewAI-enterprise-prep-for-meeting-template-main\README.md,2505,2025-05-21 00:18:52,d996647044523fb3da0d4acb53a2fe75,Duplicate
+Group 46,C:\EGOS\docs\examples\crewai\sales-contact-finder-template\crewAI-enterprise-sales-contact-finder-template-main\README.md,2545,2025-05-21 00:18:52,296329e512353e2b688f6c394e716b90,Duplicate
+Group 46,C:\EGOS\docs\examples\crewai\sales-pdf-template\crewAI-enterprise-sales-pdf-template-main\README.md,2438,2025-05-21 00:18:52,7daefd8a916dc51db73a35e08152a853,Duplicate
+Group 46,C:\EGOS\docs\examples\crewai\similar-company-finder-template\crewAI-enterprise-similar-company-finder-template-main\README.md,2652,2025-05-21 00:18:52,e8e9bf43d0b6a3e32fc2cd654a7671a5,Duplicate
+Group 46,C:\EGOS\docs\examples\crewai\zendesk-categorize-and-sentiment-analysis-template\crewAI-enterprise-zendesk-categorize-and-sentiment-analysis-template-main\README.md,2782,2025-05-21 00:18:52,8a74575cc369c3d957e137970d9a2245,Duplicate
+Group 46,C:\EGOS\docs\examples\crewai\zendesk-ticket-analysis-template\crewAI-enterprise-zendesk-ticket-analysis-template-main\README.md,2782,2025-05-21 00:18:52,8a74575cc369c3d957e137970d9a2245,Duplicate
+Group 46,C:\EGOS\docs\governance\README.md,2399,2025-05-21 11:09:01,7925308051f1fed55092d5b90735c62f,Duplicate
+Group 46,C:\EGOS\docs\products\website\README.md,2137,2025-05-21 11:09:01,3c69e690a7d1d573f8109c2bcd7e0eac,Duplicate
+Group 46,C:\EGOS\docs\README.md,4719,2025-05-21 15:08:50,8f70b8a6e26046002072887e3acf543e,Canonical
+Group 46,C:\EGOS\docs\research\README.md,892,2025-05-21 11:09:02,0a23ab2ee787df070e4c11bab6d8c29a,Duplicate
+Group 46,C:\EGOS\docs\STRATEGIC_THINKING\README.md,1404,2025-05-21 11:09:02,b9f5c616da335e8efb5b6c7d1b1b14e6,Duplicate
+Group 47,C:\EGOS\docs\core_materials\research\AI_AGENT_CAPABILITIES_2025.md,4596,2025-05-21 00:40:22,674d5176ee56a56ddfb441c71e01406e,Canonical
+Group 47,C:\EGOS\docs\STRATEGIC_THINKING\research\AI_AGENT_CAPABILITIES_2025.md,4493,2025-05-21 00:40:22,f3e15c86f40c38b8b1620fc7c3df04e9,Duplicate
+Group 48,C:\EGOS\docs\core_materials\research\CONTENT_AGGREGATOR_DEEP_DIVE.md,7689,2025-05-21 15:08:50,782b6321b47098e05ba0297eba8c0ca1,Canonical
+Group 48,C:\EGOS\docs\STRATEGIC_THINKING\research\CONTENT_AGGREGATOR_DEEP_DIVE.md,7510,2025-05-21 15:08:52,5a120ce4e60963cb7c03958cbaf77b8b,Duplicate
+Group 49,C:\EGOS\docs\core_materials\standards\KOIOS_PDD_Standard.md,3307,2025-05-21 15:08:50,b5bc4aab70500b6a7c3ff6a48c907de5,Duplicate
+Group 49,C:\EGOS\docs\standards\KOIOS_PDD_Standard.md,3997,2025-05-21 15:08:52,6891e0fef646ad44454fff79d23f2c26,Canonical
+Group 50,C:\EGOS\docs\core_materials\STANDARDS_SCRIPT_FEEDBACK.md,4051,2025-05-21 15:08:50,78d6283d995ea16fc760e8897752c86f,Duplicate
+Group 50,C:\EGOS\docs\standards\STANDARDS_SCRIPT_FEEDBACK.md,5195,2025-05-21 15:08:52,c3bcf379bafd827c8fc2f734f8d832bd,Canonical
+Group 51,C:\EGOS\docs\core_materials\strategy\Competitive_Analysis.md,1053,2025-05-21 00:40:22,6499448dcded6723d0d57a31b2bed828,Canonical
+Group 51,C:\EGOS\docs\project\archived_strategy_subdirs\strategy_archive\Competitive_Analysis.md,2163,2025-05-21 11:09:02,931fbd07d4ca224e86db69a10dd875b5,Duplicate
+Group 51,C:\EGOS\docs\STRATEGIC_THINKING\strategy_archive\Competitive_Analysis.md,1019,2025-05-21 00:40:22,b8f85150698861e5e0728975465a57a8,Duplicate
+Group 52,C:\EGOS\docs\core_materials\strategy\Customer_Journey_Map.md,913,2025-05-21 00:40:22,d481ff8737252799aa0baa96437a0eb4,Canonical
+Group 52,C:\EGOS\docs\project\archived_strategy_subdirs\strategy_archive\Customer_Journey_Map.md,2023,2025-05-21 11:09:02,f3373ab6eb79f61b30ba8c2be91a3578,Duplicate
+Group 52,C:\EGOS\docs\STRATEGIC_THINKING\strategy_archive\Customer_Journey_Map.md,1,2025-05-21 00:40:22,7215ee9c7d9dc229d2921a40e899ec5f,Duplicate
+Group 53,C:\EGOS\docs\core_materials\strategy\EGOS_Business_Plan_v1.0.md,19145,2025-05-21 11:09:01,2419985cf17a3665909cc4effa527879,Canonical
+Group 53,C:\EGOS\docs\project\archived_strategy_subdirs\strategy_archive\EGOS_Business_Plan_v1.0.md,20269,2025-05-21 11:09:02,5fe3837ba29537e8375f4427c1a12861,Duplicate
+Group 53,C:\EGOS\docs\STRATEGIC_THINKING\strategy_archive\EGOS_Business_Plan_v1.0.md,18797,2025-05-21 11:09:02,ba59857ee58fbf12410d8ea55d321b0d,Duplicate
+Group 54,C:\EGOS\docs\core_materials\strategy\EGOS_PRESENTATION_GUIDE.md,6257,2025-05-21 15:08:50,16cda0c5504ec2d7c0e83763d3596b7b,Canonical
+Group 54,C:\EGOS\docs\project\archived_strategy_subdirs\strategy_archive\EGOS_PRESENTATION_GUIDE.md,7351,2025-05-21 15:08:50,5b575f16f24a9b5d3eba454c4aa8f133,Duplicate
+Group 54,C:\EGOS\docs\STRATEGIC_THINKING\strategy_archive\EGOS_PRESENTATION_GUIDE.md,6170,2025-05-21 15:08:52,9082bec12370fe1c198cdf6f54b5445d,Duplicate
+Group 55,C:\EGOS\docs\core_materials\strategy\Monetization_Model.md,1108,2025-05-21 00:40:22,2f19d98e2daa557d1cc3dd22f4e40226,Canonical
+Group 55,C:\EGOS\docs\project\archived_strategy_subdirs\strategy_archive\Monetization_Model.md,2208,2025-05-21 11:09:02,a0b4c48de37076e6216f6c4c5498d926,Duplicate
+Group 55,C:\EGOS\docs\STRATEGIC_THINKING\strategy_archive\Monetization_Model.md,1082,2025-05-21 00:40:22,9870793f26424913231a9f7ac1045586,Duplicate
+Group 56,C:\EGOS\docs\core_materials\strategy\MVP_Definition.md,7411,2025-05-21 00:40:22,c4a2e482a33a7b652588b76458a43710,Canonical
+Group 56,C:\EGOS\docs\project\archived_strategy_subdirs\strategy_archive\MVP_Definition.md,8491,2025-05-21 11:09:02,2a85a1c5e6a67b38168031d07044fd21,Duplicate
+Group 56,C:\EGOS\docs\STRATEGIC_THINKING\strategy_archive\MVP_Definition.md,7094,2025-05-21 00:40:22,8272dc6abc6c1fd80c12336974015334,Duplicate
+Group 57,C:\EGOS\docs\core_materials\strategy\Target_Platform_Analysis.md,983,2025-05-21 00:40:22,649629d18596af9508c62cc966055d52,Canonical
+Group 57,C:\EGOS\docs\project\archived_strategy_subdirs\strategy_archive\Target_Platform_Analysis.md,2113,2025-05-21 11:09:02,c10b6cf226302aede5372aca2e8ff564,Duplicate
+Group 57,C:\EGOS\docs\STRATEGIC_THINKING\strategy_archive\Target_Platform_Analysis.md,928,2025-05-21 00:40:22,9299689e323cf13a68ae9503befd6574,Duplicate
+Group 58,C:\EGOS\docs\core_materials\STRATEGY.md,11612,2025-05-21 00:40:22,7a7eaaa03e9891eac59577ee57010d8b,Duplicate
+Group 58,C:\EGOS\docs\governance\STRATEGY.md,10660,2025-05-21 11:09:01,61e11688f997e2fd3d57cdd8e7dac01c,Duplicate
+Group 58,C:\EGOS\docs\project\STRATEGY.md,12661,2025-05-21 11:09:02,45e751be9601b2a17b8d9a00db2e3c47,Canonical
+Group 58,C:\EGOS\docs\STRATEGIC_THINKING\STRATEGY.md,9558,2025-05-21 00:40:22,f9aec8bfc0750ead685c5c4f2befe140,Duplicate
+Group 59,C:\EGOS\docs\core_materials\tech_radar\web_scraping_strategies.md,5319,2025-05-21 00:40:22,345c9875ab2e63f087595b68b0b1d671,Canonical
+Group 59,C:\EGOS\docs\STRATEGIC_THINKING\technology_watch\web_scraping_strategies.md,5130,2025-05-21 00:40:22,3b4b2dce207c946a086f8ab88b6bc5d6,Duplicate
+Group 60,C:\EGOS\docs\core_materials\templates\PDD_Template.md,5601,2025-05-21 00:40:22,6a533e61b98de9ddfe9828c87447e0e7,Canonical
+Group 60,C:\EGOS\docs\templates\reference_templates\PDD_Template.md,6671,2025-05-21 11:09:13,5c19e8163b42ffc224d1b23925898b29,Duplicate
+Group 61,C:\EGOS\docs\core_materials\templates\PDD_Template.yaml,2559,2025-05-21 15:08:50,8029efd9b4d8e299da9b8806251210fb,Duplicate
+Group 61,C:\EGOS\docs\resources\data\PDD_Template.yaml,2692,2025-05-21 15:08:52,e9ab098d75ec8ae833837d7c09b66923,Canonical
+Group 61,C:\EGOS\docs\templates\reference_templates\PDD_Template.yaml,2692,2025-05-21 15:08:52,e9ab098d75ec8ae833837d7c09b66923,Duplicate
+Group 62,C:\EGOS\docs\core_materials\website\CONTENT_STRATEGY.md,6158,2025-05-21 15:08:50,434289ff59dde7ec2904762ce607fd4a,Canonical
+Group 62,C:\EGOS\docs\technical\components\website_dev_archive\CONTENT_STRATEGY.md,7239,2025-05-21 15:08:52,57acd777d1a9bc3bbe4a383f19b970e1,Duplicate
+Group 63,C:\EGOS\docs\core_materials\website\CURRENT_TASKS.md,2413,2025-05-21 15:08:50,81844bd6bf264e2d0a234353392d01e1,Duplicate
+Group 63,C:\EGOS\docs\products\website\CURRENT_TASKS.md,2987,2025-05-21 11:09:01,f3c4382ff882fc2b91525706942c1542,Duplicate
+Group 63,C:\EGOS\docs\technical\components\website_dev_archive\CURRENT_TASKS.md,3487,2025-05-21 15:08:52,2d869446209e4f6d5ade2bea092f3528,Duplicate
+Group 63,C:\EGOS\docs\website\CURRENT_TASKS.md,2412,2025-05-21 15:08:52,0fc325b01e26fcc44b3e58662c67795a,Canonical
+Group 64,C:\EGOS\docs\core_materials\website\DESIGN_GUIDE.md,7068,2025-05-21 15:08:50,d607890a7a2dfd49f7c83efc624f632c,Duplicate
+Group 64,C:\EGOS\docs\products\website\DESIGN_GUIDE.md,8419,2025-05-21 11:09:01,b5799b5d9dc2a71842fc8ad469c0e2cb,Duplicate
+Group 64,C:\EGOS\docs\technical\components\website_dev_archive\DESIGN_GUIDE.md,8139,2025-05-21 15:08:52,9de45c97e0ea78f6284c372982fefba7,Duplicate
+Group 64,C:\EGOS\docs\website\DESIGN_GUIDE.md,7069,2025-05-21 15:08:52,1794e3810650437bc4784ee265d08da9,Canonical
+Group 65,C:\EGOS\docs\core_materials\website\DEVELOPMENT_PLAN.md,12642,2025-05-21 15:08:50,60df761cf53bfd16a8bf8b8c515e1587,Duplicate
+Group 65,C:\EGOS\docs\products\website\DEVELOPMENT_PLAN.md,7125,2025-05-21 11:09:01,3a78a03aad820b017748588a062ccd07,Duplicate
+Group 65,C:\EGOS\docs\technical\components\website_dev_archive\DEVELOPMENT_PLAN.md,13731,2025-05-21 15:08:52,20e713aa16656c4743575c12c857cb1f,Duplicate
+Group 65,C:\EGOS\docs\website\DEVELOPMENT_PLAN.md,9067,2025-05-21 15:08:52,83e6ac10fa0246065caa97bcfc678b74,Canonical
+Group 66,C:\EGOS\docs\core_materials\website\USER_RESEARCH_PLAN.md,2218,2025-05-21 00:40:22,53b5313d96ee8be213ab5104939cf67b,Duplicate
+Group 66,C:\EGOS\docs\products\website\USER_RESEARCH_PLAN.md,2954,2025-05-21 11:09:01,23fc13684dc286c3a7d66fc71a05f3eb,Duplicate
+Group 66,C:\EGOS\docs\technical\components\website_dev_archive\USER_RESEARCH_PLAN.md,3395,2025-05-21 11:09:02,2c619e43a5c8929c5d7b1460f80c6d3e,Duplicate
+Group 66,C:\EGOS\docs\website\USER_RESEARCH_PLAN.md,2295,2025-05-21 00:18:52,fc2809882724245eab5f107fa74abef3,Canonical
+Group 67,C:\EGOS\docs\core_materials\website\WEBSITE_DESIGN.md,1869,2025-05-21 00:40:22,65aede3fc58fc14d0cd8552c916dfe32,Duplicate
+Group 67,C:\EGOS\docs\products\website\WEBSITE_DESIGN.md,2946,2025-05-21 11:09:01,98cc6b4d66b58a5776a33f955e03c11d,Duplicate
+Group 67,C:\EGOS\docs\website\WEBSITE_DESIGN.md,1935,2025-05-21 00:18:52,51d75a240f0bed681bd911bb7266440d,Canonical
+Group 68,C:\EGOS\docs\core_materials\windows_powershell_commands.md,2386,2025-05-21 00:40:22,ca7a1de9d8f5e9dd99f7a7f68e3a849c,Duplicate
+Group 68,C:\EGOS\docs\guides\windows_powershell_commands.md,3541,2025-05-21 11:09:01,a4c3b1c7f9465d91aacc399cc506555a,Canonical
+Group 69,C:\EGOS\docs\css\base\_variables.css,1394,2025-05-21 00:18:51,9273fef4be6442f4d6348e9a57c4591c,Duplicate
+Group 69,C:\EGOS\docs\css\_variables.css,1407,2025-05-21 00:18:51,ffb8d31573b6383c8b69abe320a01412,Canonical
+Group 70,C:\EGOS\docs\examples\crewai\content-marketing-ideas-template\crewAI-enterprise-content-marketing-ideas-template-main\.gitignore,18,2025-05-21 00:18:52,92c0c5be12c8c902f2c2100978a03cdb,Duplicate
+Group 70,C:\EGOS\docs\examples\crewai\contract-analysis-template\crewAI-enterprise-contract-analysis-template-main\.gitignore,43,2025-05-21 00:18:52,329388cea7cd249fcb05ec836e8551a7,Duplicate
+Group 70,C:\EGOS\docs\examples\crewai\fraud-detector-template\crewAI-enterprise-fraud-detector-template-main\.gitignore,18,2025-05-21 00:18:52,92c0c5be12c8c902f2c2100978a03cdb,Duplicate
+Group 70,C:\EGOS\docs\examples\crewai\job-change-monitor-template\crewAI-enterprise-job-change-monitor-template-main\.gitignore,3139,2025-05-21 00:18:52,e5e81fdb76c0774efca175557ac121e5,Duplicate
+Group 70,C:\EGOS\docs\examples\crewai\lead-scoring-template\crewAI-enterprise-lead-scoring-template-main\.gitignore,18,2025-05-21 00:18:52,92c0c5be12c8c902f2c2100978a03cdb,Canonical
+Group 70,C:\EGOS\docs\examples\crewai\personalized-email-template\crewAI-enterprise-personalized-email-template-main\.gitignore,3139,2025-05-21 00:18:52,e5e81fdb76c0774efca175557ac121e5,Duplicate
+Group 70,C:\EGOS\docs\examples\crewai\prep-for-meeting-template\crewAI-enterprise-prep-for-meeting-template-main\.gitignore,18,2025-05-21 00:18:52,92c0c5be12c8c902f2c2100978a03cdb,Duplicate
+Group 70,C:\EGOS\docs\examples\crewai\similar-company-finder-template\crewAI-enterprise-similar-company-finder-template-main\.gitignore,3139,2025-05-21 00:18:52,e5e81fdb76c0774efca175557ac121e5,Duplicate
+Group 70,C:\EGOS\docs\examples\crewai\zendesk-categorize-and-sentiment-analysis-template\crewAI-enterprise-zendesk-categorize-and-sentiment-analysis-template-main\.gitignore,17,2025-05-21 00:18:52,33990ac78d5b995059f8c779ee926a51,Duplicate
+Group 70,C:\EGOS\docs\examples\crewai\zendesk-ticket-analysis-template\crewAI-enterprise-zendesk-ticket-analysis-template-main\.gitignore,17,2025-05-21 00:18:52,33990ac78d5b995059f8c779ee926a51,Duplicate
+Group 71,C:\EGOS\docs\examples\crewai\content-marketing-ideas-template\crewAI-enterprise-content-marketing-ideas-template-main\pyproject.toml,746,2025-05-21 00:18:52,ba0010f1ac757dbb3901c392a832583d,Duplicate
+Group 71,C:\EGOS\docs\examples\crewai\contract-analysis-template\crewAI-enterprise-contract-analysis-template-main\pyproject.toml,664,2025-05-21 00:18:52,d06a6c11a5611785eb1b928eb6c14d05,Duplicate
+Group 71,C:\EGOS\docs\examples\crewai\create-sales-offer-template\crewAI-enterprise-create-sales-offer-template-main\pyproject.toml,542,2025-05-21 00:18:52,9c3c23e8234f0e28e15e90e8128cc193,Duplicate
+Group 71,C:\EGOS\docs\examples\crewai\fraud-detector-template\crewAI-enterprise-fraud-detector-template-main\pyproject.toml,536,2025-05-21 00:18:52,f5073a0ac9b9a55e7f852c62c976a404,Duplicate
+Group 71,C:\EGOS\docs\examples\crewai\job-change-monitor-template\crewAI-enterprise-job-change-monitor-template-main\pyproject.toml,598,2025-05-21 00:18:52,00c0c9b7391b18ad33c05f6e8072f2fd,Duplicate
+Group 71,C:\EGOS\docs\examples\crewai\lead-scoring-template\crewAI-enterprise-lead-scoring-template-main\pyproject.toml,616,2025-05-21 00:18:52,3f0dba2bcb186858c8c003bf576279a0,Duplicate
+Group 71,C:\EGOS\docs\examples\crewai\personalized-email-template\crewAI-enterprise-personalized-email-template-main\pyproject.toml,646,2025-05-21 00:18:52,601bcf411da848e284a2632add724b49,Duplicate
+Group 71,C:\EGOS\docs\examples\crewai\prep-for-meeting-template\crewAI-enterprise-prep-for-meeting-template-main\pyproject.toml,552,2025-05-21 00:18:52,6a10e7dcf8b5818713266222f4972998,Duplicate
+Group 71,C:\EGOS\docs\examples\crewai\sales-contact-finder-template\crewAI-enterprise-sales-contact-finder-template-main\pyproject.toml,614,2025-05-21 00:18:52,42e73d39578194dbeeb7bf39cf92cd41,Duplicate
+Group 71,C:\EGOS\docs\examples\crewai\sales-pdf-template\crewAI-enterprise-sales-pdf-template-main\pyproject.toml,521,2025-05-21 00:18:52,e4f1c1249d16eba9cd3cbcb45e4f6e46,Canonical
+Group 71,C:\EGOS\docs\examples\crewai\similar-company-finder-template\crewAI-enterprise-similar-company-finder-template-main\pyproject.toml,702,2025-05-21 00:18:52,d75e165fff953f91376640815c136e57,Duplicate
+Group 71,C:\EGOS\docs\examples\crewai\zendesk-categorize-and-sentiment-analysis-template\crewAI-enterprise-zendesk-categorize-and-sentiment-analysis-template-main\pyproject.toml,671,2025-05-21 00:18:52,298e0e2af0b67c7863e42d6bb9d523f2,Duplicate
+Group 71,C:\EGOS\docs\examples\crewai\zendesk-ticket-analysis-template\crewAI-enterprise-zendesk-ticket-analysis-template-main\pyproject.toml,608,2025-05-21 00:18:52,6a9b7c97884247e85e782ba4c82c4641,Duplicate
+Group 72,C:\EGOS\docs\examples\crewai\content-marketing-ideas-template\crewAI-enterprise-content-marketing-ideas-template-main\src\crewai_enterprise_content_marketing_ideas\config\agents.yaml,1941,2025-05-21 00:18:52,79931acf595a4d4cb3f9552831ed0e58,Duplicate
+Group 72,C:\EGOS\docs\examples\crewai\contract-analysis-template\crewAI-enterprise-contract-analysis-template-main\src\contract_analysis\config\agents.yaml,1662,2025-05-21 00:18:52,ced0b153e74b2e543eff08357b98ce50,Duplicate
+Group 72,C:\EGOS\docs\examples\crewai\create-sales-offer-template\crewAI-enterprise-create-sales-offer-template-main\src\sales_offer\config\agents.yaml,1783,2025-05-21 00:18:52,7ea1f13b1b1545e33aca37526026e84b,Duplicate
+Group 72,C:\EGOS\docs\examples\crewai\fraud-detector-template\crewAI-enterprise-fraud-detector-template-main\src\fraud_detector\config\agents.yaml,1539,2025-05-21 00:18:52,edb7d6c88e587d7114f5d1eb954baa6e,Duplicate
+Group 72,C:\EGOS\docs\examples\crewai\job-change-monitor-template\crewAI-enterprise-job-change-monitor-template-main\src\job_change_monitor\config\agents.yaml,1167,2025-05-21 00:18:52,8044615172aedbd0eb88f408d034541c,Duplicate
+Group 72,C:\EGOS\docs\examples\crewai\lead-scoring-template\crewAI-enterprise-lead-scoring-template-main\src\crewai_plus_lead_scoring\config\agents.yaml,1539,2025-05-21 00:18:52,da20fa0f78340f771c1d4a141fa05905,Duplicate
+Group 72,C:\EGOS\docs\examples\crewai\personalized-email-template\crewAI-enterprise-personalized-email-template-main\src\sales_personalized_email\config\agents.yaml,1474,2025-05-21 00:18:52,231a956b7614fa27297de5721625d179,Duplicate
+Group 72,C:\EGOS\docs\examples\crewai\prep-for-meeting-template\crewAI-enterprise-prep-for-meeting-template-main\src\prep_for_meeting\config\agents.yaml,1429,2025-05-21 00:18:52,4501170d81c4a599828cd4fd4ae3887b,Duplicate
+Group 72,C:\EGOS\docs\examples\crewai\sales-contact-finder-template\crewAI-enterprise-sales-contact-finder-template-main\src\sales_contact_finder\config\agents.yaml,1592,2025-05-21 00:18:52,f729bf5d279e5179ec18408359e29c8b,Duplicate
+Group 72,C:\EGOS\docs\examples\crewai\sales-pdf-template\crewAI-enterprise-sales-pdf-template-main\src\sales_pdf\config\agents.yaml,1250,2025-05-21 00:18:52,39b110841887d1c914d0a90cd7190d8d,Canonical
+Group 72,C:\EGOS\docs\examples\crewai\similar-company-finder-template\crewAI-enterprise-similar-company-finder-template-main\src\similar_company_finder_template\config\agents.yaml,1598,2025-05-21 00:18:52,30fbc1d37ddff2357d0e186dc02bcb45,Duplicate
+Group 72,C:\EGOS\docs\examples\crewai\zendesk-categorize-and-sentiment-analysis-template\crewAI-enterprise-zendesk-categorize-and-sentiment-analysis-template-main\src\zendesk_categorize_and_analyze\config\agents.yaml,692,2025-05-21 00:18:52,87f363aa94baec1b35a5bf07fa5c2634,Duplicate
+Group 72,C:\EGOS\docs\examples\crewai\zendesk-ticket-analysis-template\crewAI-enterprise-zendesk-ticket-analysis-template-main\src\zendesk_ticket_analysis\config\agents.yaml,630,2025-05-21 00:18:52,1ceed5bcb226c246b84b3d56f15c5bfe,Duplicate
+Group 73,C:\EGOS\docs\examples\crewai\content-marketing-ideas-template\crewAI-enterprise-content-marketing-ideas-template-main\src\crewai_enterprise_content_marketing_ideas\config\tasks.yaml,1278,2025-05-21 00:18:52,0dbad15b15dd0c1f20850b46b511edfa,Duplicate
+Group 73,C:\EGOS\docs\examples\crewai\contract-analysis-template\crewAI-enterprise-contract-analysis-template-main\src\contract_analysis\config\tasks.yaml,1871,2025-05-21 00:18:52,5f6077461bf306106d7c753c6315af0c,Duplicate
+Group 73,C:\EGOS\docs\examples\crewai\create-sales-offer-template\crewAI-enterprise-create-sales-offer-template-main\src\sales_offer\config\tasks.yaml,2582,2025-05-21 00:18:52,c64187a2d5d79d415c9a01592452574c,Duplicate
+Group 73,C:\EGOS\docs\examples\crewai\fraud-detector-template\crewAI-enterprise-fraud-detector-template-main\src\fraud_detector\config\tasks.yaml,2454,2025-05-21 00:18:52,5cdaa7fd86d2527f0bb7285872eb1960,Duplicate
+Group 73,C:\EGOS\docs\examples\crewai\job-change-monitor-template\crewAI-enterprise-job-change-monitor-template-main\src\job_change_monitor\config\tasks.yaml,1992,2025-05-21 00:18:52,5ae880d37811799512480f1c4ca92bf0,Duplicate
+Group 73,C:\EGOS\docs\examples\crewai\lead-scoring-template\crewAI-enterprise-lead-scoring-template-main\src\crewai_plus_lead_scoring\config\tasks.yaml,3193,2025-05-21 00:18:52,5c2d76616df537cb02c4fb7c251b5ff8,Duplicate
+Group 73,C:\EGOS\docs\examples\crewai\personalized-email-template\crewAI-enterprise-personalized-email-template-main\src\sales_personalized_email\config\tasks.yaml,1857,2025-05-21 00:18:52,f7c6cfe19681daaa195771d9f20b1922,Duplicate
+Group 73,C:\EGOS\docs\examples\crewai\prep-for-meeting-template\crewAI-enterprise-prep-for-meeting-template-main\src\prep_for_meeting\config\tasks.yaml,2815,2025-05-21 00:18:52,cf6f8ad56bb43c18289bff1644aec453,Duplicate
+Group 73,C:\EGOS\docs\examples\crewai\sales-contact-finder-template\crewAI-enterprise-sales-contact-finder-template-main\src\sales_contact_finder\config\tasks.yaml,2261,2025-05-21 00:18:52,e008ad2f05c3e7fb91dd244ff8c0b7a0,Duplicate
+Group 73,C:\EGOS\docs\examples\crewai\sales-pdf-template\crewAI-enterprise-sales-pdf-template-main\src\sales_pdf\config\tasks.yaml,2487,2025-05-21 00:18:52,d5028ae8cf3530338074b641d0be5764,Canonical
+Group 73,C:\EGOS\docs\examples\crewai\similar-company-finder-template\crewAI-enterprise-similar-company-finder-template-main\src\similar_company_finder_template\config\tasks.yaml,2425,2025-05-21 00:18:52,0c252522a0fe2ae30dc1dcc403598989,Duplicate
+Group 73,C:\EGOS\docs\examples\crewai\zendesk-categorize-and-sentiment-analysis-template\crewAI-enterprise-zendesk-categorize-and-sentiment-analysis-template-main\src\zendesk_categorize_and_analyze\config\tasks.yaml,1075,2025-05-21 00:18:52,21401232dd597939a7b496fdac103aa7,Duplicate
+Group 73,C:\EGOS\docs\examples\crewai\zendesk-ticket-analysis-template\crewAI-enterprise-zendesk-ticket-analysis-template-main\src\zendesk_ticket_analysis\config\tasks.yaml,1284,2025-05-21 00:18:52,da818b121ef2ee86bfc785e429edb688,Duplicate
+Group 74,C:\EGOS\docs\examples\crewai\content-marketing-ideas-template\crewAI-enterprise-content-marketing-ideas-template-main\src\crewai_enterprise_content_marketing_ideas\crew.py,1533,2025-05-21 00:40:24,9660e97fbf97524670420387a441fb81,Duplicate
+Group 74,C:\EGOS\docs\examples\crewai\contract-analysis-template\crewAI-enterprise-contract-analysis-template-main\src\contract_analysis\crew.py,2702,2025-05-21 00:18:52,4087ccb688c99e63aabccd122300c166,Duplicate
+Group 74,C:\EGOS\docs\examples\crewai\create-sales-offer-template\crewAI-enterprise-create-sales-offer-template-main\src\sales_offer\crew.py,2485,2025-05-21 00:40:24,e6ad20ca9d983c4f912b7823810a6dd4,Duplicate
+Group 74,C:\EGOS\docs\examples\crewai\fraud-detector-template\crewAI-enterprise-fraud-detector-template-main\src\fraud_detector\crew.py,2731,2025-05-21 00:18:52,4cb5e424f63d3128fb6116ef834079d3,Duplicate
+Group 74,C:\EGOS\docs\examples\crewai\job-change-monitor-template\crewAI-enterprise-job-change-monitor-template-main\src\job_change_monitor\crew.py,2038,2025-05-21 00:40:24,ed50511d985a51e85b854f4528c35f12,Duplicate
+Group 74,C:\EGOS\docs\examples\crewai\lead-scoring-template\crewAI-enterprise-lead-scoring-template-main\src\crewai_plus_lead_scoring\crew.py,2356,2025-05-21 00:18:52,245a10c17f68d5ef98f993e3addfc357,Duplicate
+Group 74,C:\EGOS\docs\examples\crewai\personalized-email-template\crewAI-enterprise-personalized-email-template-main\src\sales_personalized_email\crew.py,2219,2025-05-21 00:40:24,4a7a3cedd39802e1a3b78c216d21f007,Duplicate
+Group 74,C:\EGOS\docs\examples\crewai\prep-for-meeting-template\crewAI-enterprise-prep-for-meeting-template-main\src\prep_for_meeting\crew.py,2322,2025-05-21 00:18:52,0add68de56a98ac5657887e988f85a6e,Duplicate
+Group 74,C:\EGOS\docs\examples\crewai\sales-contact-finder-template\crewAI-enterprise-sales-contact-finder-template-main\src\sales_contact_finder\crew.py,2542,2025-05-21 00:40:24,584df819f4b10b561d0e1cae29c71419,Duplicate
+Group 74,C:\EGOS\docs\examples\crewai\sales-pdf-template\crewAI-enterprise-sales-pdf-template-main\src\sales_pdf\crew.py,2033,2025-05-21 00:18:52,aedaa864308228f182130602b695df81,Canonical
+Group 74,C:\EGOS\docs\examples\crewai\similar-company-finder-template\crewAI-enterprise-similar-company-finder-template-main\src\similar_company_finder_template\crew.py,2596,2025-05-21 00:40:24,c4915ea43bfdc30f633976f4b1e0fc1f,Duplicate
+Group 74,C:\EGOS\docs\examples\crewai\zendesk-categorize-and-sentiment-analysis-template\crewAI-enterprise-zendesk-categorize-and-sentiment-analysis-template-main\src\zendesk_categorize_and_analyze\crew.py,1708,2025-05-21 00:18:52,5a0f8258749c04e4409447595de5c27d,Duplicate
+Group 74,C:\EGOS\docs\examples\crewai\zendesk-ticket-analysis-template\crewAI-enterprise-zendesk-ticket-analysis-template-main\src\zendesk_ticket_analysis\crew.py,1653,2025-05-21 00:18:52,2a89497e60921b128431ed37cd9daf01,Duplicate
+Group 75,C:\EGOS\docs\examples\crewai\content-marketing-ideas-template\crewAI-enterprise-content-marketing-ideas-template-main\src\crewai_enterprise_content_marketing_ideas\main.py,1396,2025-05-21 00:40:24,27b3271c69de50dc603d2e883e1decfc,Duplicate
+Group 75,C:\EGOS\docs\examples\crewai\contract-analysis-template\crewAI-enterprise-contract-analysis-template-main\src\contract_analysis\main.py,1807,2025-05-21 00:40:24,c2aaec5985d458292f7aa30ad9f1b40c,Duplicate
+Group 75,C:\EGOS\docs\examples\crewai\create-sales-offer-template\crewAI-enterprise-create-sales-offer-template-main\src\sales_offer\main.py,2043,2025-05-21 00:40:24,a8cdc5c127369d9fb127e0bce522646a,Duplicate
+Group 75,C:\EGOS\docs\examples\crewai\fraud-detector-template\crewAI-enterprise-fraud-detector-template-main\src\fraud_detector\main.py,1547,2025-05-21 00:40:24,233ffe060a8eafa8bff9eed68769f5af,Duplicate
+Group 75,C:\EGOS\docs\examples\crewai\job-change-monitor-template\crewAI-enterprise-job-change-monitor-template-main\src\job_change_monitor\main.py,1712,2025-05-21 00:40:24,7453beb82b82c0ccc8f5a09ad05f137a,Duplicate
+Group 75,C:\EGOS\docs\examples\crewai\lead-scoring-template\crewAI-enterprise-lead-scoring-template-main\src\crewai_plus_lead_scoring\main.py,2023,2025-05-21 00:40:24,9ab1812b850b77ae06379c3a718e5597,Duplicate
+Group 75,C:\EGOS\docs\examples\crewai\personalized-email-template\crewAI-enterprise-personalized-email-template-main\src\sales_personalized_email\main.py,1706,2025-05-21 00:40:24,970f7310ffbc9ac11f531311230b144f,Duplicate
+Group 75,C:\EGOS\docs\examples\crewai\prep-for-meeting-template\crewAI-enterprise-prep-for-meeting-template-main\src\prep_for_meeting\main.py,1749,2025-05-21 00:40:24,86d90e2ff57544c13dffd0caa5739e05,Duplicate
+Group 75,C:\EGOS\docs\examples\crewai\sales-contact-finder-template\crewAI-enterprise-sales-contact-finder-template-main\src\sales_contact_finder\main.py,1521,2025-05-21 00:40:24,03b47d7eb8bc3d7d56bcb9f618eb8ce9,Duplicate
+Group 75,C:\EGOS\docs\examples\crewai\sales-pdf-template\crewAI-enterprise-sales-pdf-template-main\src\sales_pdf\main.py,1974,2025-05-21 00:40:24,7c8f3ff7e563f6119a2375e20276f830,Canonical
+Group 75,C:\EGOS\docs\examples\crewai\similar-company-finder-template\crewAI-enterprise-similar-company-finder-template-main\src\similar_company_finder_template\main.py,1596,2025-05-21 00:40:24,6da8def5c84dfb612b4400d97e75beeb,Duplicate
+Group 75,C:\EGOS\docs\examples\crewai\zendesk-categorize-and-sentiment-analysis-template\crewAI-enterprise-zendesk-categorize-and-sentiment-analysis-template-main\src\zendesk_categorize_and_analyze\main.py,1315,2025-05-21 00:40:24,2fd54d32b30920f02756973a922b3131,Duplicate
+Group 75,C:\EGOS\docs\examples\crewai\zendesk-ticket-analysis-template\crewAI-enterprise-zendesk-ticket-analysis-template-main\src\zendesk_ticket_analysis\main.py,1429,2025-05-21 00:40:24,90bf3061ba55412202ba6a52a385ad35,Duplicate
+Group 76,C:\EGOS\docs\examples\crewai\content-marketing-ideas-template\crewAI-enterprise-content-marketing-ideas-template-main\src\crewai_enterprise_content_marketing_ideas\tools\custom_tool.py,395,2025-05-21 00:40:24,b1a51bd655f2e4287ec8cb7448ad3cae,Duplicate
+Group 76,C:\EGOS\docs\examples\crewai\create-sales-offer-template\crewAI-enterprise-create-sales-offer-template-main\src\sales_offer\tools\custom_tool.py,395,2025-05-21 00:40:24,b1a51bd655f2e4287ec8cb7448ad3cae,Duplicate
+Group 76,C:\EGOS\docs\examples\crewai\fraud-detector-template\crewAI-enterprise-fraud-detector-template-main\src\fraud_detector\tools\custom_tool.py,395,2025-05-21 00:40:24,b1a51bd655f2e4287ec8cb7448ad3cae,Duplicate
+Group 76,C:\EGOS\docs\examples\crewai\job-change-monitor-template\crewAI-enterprise-job-change-monitor-template-main\src\job_change_monitor\tools\custom_tool.py,395,2025-05-21 00:40:24,b1a51bd655f2e4287ec8cb7448ad3cae,Duplicate
+Group 76,C:\EGOS\docs\examples\crewai\lead-scoring-template\crewAI-enterprise-lead-scoring-template-main\src\crewai_plus_lead_scoring\tools\custom_tool.py,395,2025-05-21 00:40:24,b1a51bd655f2e4287ec8cb7448ad3cae,Duplicate
+Group 76,C:\EGOS\docs\examples\crewai\personalized-email-template\crewAI-enterprise-personalized-email-template-main\src\sales_personalized_email\tools\custom_tool.py,395,2025-05-21 00:40:24,b1a51bd655f2e4287ec8cb7448ad3cae,Duplicate
+Group 76,C:\EGOS\docs\examples\crewai\prep-for-meeting-template\crewAI-enterprise-prep-for-meeting-template-main\src\prep_for_meeting\tools\custom_tool.py,395,2025-05-21 00:40:24,b1a51bd655f2e4287ec8cb7448ad3cae,Duplicate
+Group 76,C:\EGOS\docs\examples\crewai\sales-contact-finder-template\crewAI-enterprise-sales-contact-finder-template-main\src\sales_contact_finder\tools\custom_tool.py,395,2025-05-21 00:40:24,b1a51bd655f2e4287ec8cb7448ad3cae,Duplicate
+Group 76,C:\EGOS\docs\examples\crewai\sales-pdf-template\crewAI-enterprise-sales-pdf-template-main\src\sales_pdf\tools\custom_tool.py,395,2025-05-21 00:40:24,b1a51bd655f2e4287ec8cb7448ad3cae,Canonical
+Group 76,C:\EGOS\docs\examples\crewai\similar-company-finder-template\crewAI-enterprise-similar-company-finder-template-main\src\similar_company_finder_template\tools\custom_tool.py,395,2025-05-21 00:40:24,b1a51bd655f2e4287ec8cb7448ad3cae,Duplicate
+Group 77,C:\EGOS\docs\examples\crewai\content-marketing-ideas-template\crewAI-enterprise-content-marketing-ideas-template-main\src\crewai_enterprise_content_marketing_ideas\tools\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Duplicate
+Group 77,C:\EGOS\docs\examples\crewai\content-marketing-ideas-template\crewAI-enterprise-content-marketing-ideas-template-main\src\crewai_enterprise_content_marketing_ideas\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Duplicate
+Group 77,C:\EGOS\docs\examples\crewai\contract-analysis-template\crewAI-enterprise-contract-analysis-template-main\src\contract_analysis\tools\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Duplicate
+Group 77,C:\EGOS\docs\examples\crewai\contract-analysis-template\crewAI-enterprise-contract-analysis-template-main\src\contract_analysis\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Duplicate
+Group 77,C:\EGOS\docs\examples\crewai\create-sales-offer-template\crewAI-enterprise-create-sales-offer-template-main\src\sales_offer\tools\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Duplicate
+Group 77,C:\EGOS\docs\examples\crewai\create-sales-offer-template\crewAI-enterprise-create-sales-offer-template-main\src\sales_offer\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Duplicate
+Group 77,C:\EGOS\docs\examples\crewai\fraud-detector-template\crewAI-enterprise-fraud-detector-template-main\src\fraud_detector\tools\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Duplicate
+Group 77,C:\EGOS\docs\examples\crewai\fraud-detector-template\crewAI-enterprise-fraud-detector-template-main\src\fraud_detector\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Duplicate
+Group 77,C:\EGOS\docs\examples\crewai\job-change-monitor-template\crewAI-enterprise-job-change-monitor-template-main\src\job_change_monitor\tools\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Duplicate
+Group 77,C:\EGOS\docs\examples\crewai\job-change-monitor-template\crewAI-enterprise-job-change-monitor-template-main\src\job_change_monitor\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Duplicate
+Group 77,C:\EGOS\docs\examples\crewai\lead-scoring-template\crewAI-enterprise-lead-scoring-template-main\src\crewai_plus_lead_scoring\tools\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Duplicate
+Group 77,C:\EGOS\docs\examples\crewai\lead-scoring-template\crewAI-enterprise-lead-scoring-template-main\src\crewai_plus_lead_scoring\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Duplicate
+Group 77,C:\EGOS\docs\examples\crewai\personalized-email-template\crewAI-enterprise-personalized-email-template-main\src\sales_personalized_email\tools\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Duplicate
+Group 77,C:\EGOS\docs\examples\crewai\personalized-email-template\crewAI-enterprise-personalized-email-template-main\src\sales_personalized_email\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Duplicate
+Group 77,C:\EGOS\docs\examples\crewai\prep-for-meeting-template\crewAI-enterprise-prep-for-meeting-template-main\src\prep_for_meeting\tools\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Duplicate
+Group 77,C:\EGOS\docs\examples\crewai\prep-for-meeting-template\crewAI-enterprise-prep-for-meeting-template-main\src\prep_for_meeting\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Duplicate
+Group 77,C:\EGOS\docs\examples\crewai\sales-contact-finder-template\crewAI-enterprise-sales-contact-finder-template-main\src\sales_contact_finder\tools\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Duplicate
+Group 77,C:\EGOS\docs\examples\crewai\sales-contact-finder-template\crewAI-enterprise-sales-contact-finder-template-main\src\sales_contact_finder\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Duplicate
+Group 77,C:\EGOS\docs\examples\crewai\sales-pdf-template\crewAI-enterprise-sales-pdf-template-main\src\sales_pdf\tools\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Duplicate
+Group 77,C:\EGOS\docs\examples\crewai\sales-pdf-template\crewAI-enterprise-sales-pdf-template-main\src\sales_pdf\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Canonical
+Group 77,C:\EGOS\docs\examples\crewai\similar-company-finder-template\crewAI-enterprise-similar-company-finder-template-main\src\similar_company_finder_template\tools\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Duplicate
+Group 77,C:\EGOS\docs\examples\crewai\similar-company-finder-template\crewAI-enterprise-similar-company-finder-template-main\src\similar_company_finder_template\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Duplicate
+Group 77,C:\EGOS\docs\examples\crewai\zendesk-categorize-and-sentiment-analysis-template\crewAI-enterprise-zendesk-categorize-and-sentiment-analysis-template-main\src\zendesk_categorize_and_analyze\tools\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Duplicate
+Group 77,C:\EGOS\docs\examples\crewai\zendesk-categorize-and-sentiment-analysis-template\crewAI-enterprise-zendesk-categorize-and-sentiment-analysis-template-main\src\zendesk_categorize_and_analyze\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Duplicate
+Group 77,C:\EGOS\docs\examples\crewai\zendesk-ticket-analysis-template\crewAI-enterprise-zendesk-ticket-analysis-template-main\src\zendesk_ticket_analysis\tools\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Duplicate
+Group 77,C:\EGOS\docs\examples\crewai\zendesk-ticket-analysis-template\crewAI-enterprise-zendesk-ticket-analysis-template-main\src\zendesk_ticket_analysis\__init__.py,0,2025-05-21 00:18:52,ZERO_SIZE_FILE_HASH,Duplicate
+Group 78,C:\EGOS\docs\governance\Analise site design.txt,11383,2025-05-21 15:08:50,83217cb3651d8cce859057f30ec60916,Duplicate
+Group 78,C:\EGOS\docs\research\Analise site design.txt,11189,2025-05-21 15:08:52,769ba4ea22297d1ce96ba0c6386c79ba,Canonical
+Group 78,C:\EGOS\docs\STRATEGIC_THINKING\research\Analise site design.txt,11189,2025-05-21 15:08:52,769ba4ea22297d1ce96ba0c6386c79ba,Duplicate
+Group 79,C:\EGOS\docs\governance\Analysis of Opportunities for Project EVA GUARANI - EGOS within the Stellar Blockchain Ecosystem.txt,21076,2025-05-21 00:40:22,f842d237fb9b854486293962e99bc2c6,Canonical
+Group 79,C:\EGOS\docs\research\OK no roadmap\Analysis of Opportunities for Project EVA GUARANI - EGOS within the Stellar Blockchain Ecosystem.txt,20883,2025-05-21 00:40:23,4c5fe3f3c71064ec40134c73223e0166,Duplicate
+Group 79,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Analysis of Opportunities for Project EVA GUARANI - EGOS within the Stellar Blockchain Ecosystem.txt,20883,2025-05-21 00:40:22,4c5fe3f3c71064ec40134c73223e0166,Duplicate
+Group 80,C:\EGOS\docs\governance\Análise de Integração de Ferramentas e Empresas com o Sistema EVA GUARANI - EGOS.txt,26753,2025-05-21 00:40:22,cd71f0173ca3a4e04c481db9ed1371be,Canonical
+Group 80,C:\EGOS\docs\research\OK no roadmap\Análise de Integração de Ferramentas e Empresas com o Sistema EVA GUARANI - EGOS.txt,26560,2025-05-21 00:40:23,f0b49e60746db985fa36efd312ecbdf0,Duplicate
+Group 80,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Análise de Integração de Ferramentas e Empresas com o Sistema EVA GUARANI - EGOS.txt,26560,2025-05-21 00:40:22,f0b49e60746db985fa36efd312ecbdf0,Duplicate
+Group 81,C:\EGOS\docs\governance\Análise e Refinamento do Projeto EGOS_.txt,86867,2025-05-21 15:08:50,3ff1e662b80279b94760074bfc5c2c87,Duplicate
+Group 81,C:\EGOS\docs\research\Análise e Refinamento do Projeto EGOS_.txt,86673,2025-05-21 15:08:52,1c660da3afc37f087223b150d8c2b32c,Canonical
+Group 81,C:\EGOS\docs\STRATEGIC_THINKING\research\Análise e Refinamento do Projeto EGOS_.txt,86673,2025-05-21 15:08:52,1c660da3afc37f087223b150d8c2b32c,Duplicate
+Group 82,C:\EGOS\docs\governance\Comparacao ferramentas data ia.txt,28937,2025-05-21 00:40:22,68cb8d92b28f0dc527522ef90bc22046,Canonical
+Group 82,C:\EGOS\docs\research\OK no roadmap\Comparacao ferramentas data ia.txt,28745,2025-05-21 00:40:23,db1b7bc5b8ddf1da5ead45fbd0b5a9ef,Duplicate
+Group 82,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Comparacao ferramentas data ia.txt,28745,2025-05-21 00:40:22,db1b7bc5b8ddf1da5ead45fbd0b5a9ef,Duplicate
+Group 83,C:\EGOS\docs\governance\Concorrentes gratuitos do CodeGuide_.txt,48216,2025-05-21 00:40:22,4ed08ce189651ee51515a3f2a4092fb1,Canonical
+Group 83,C:\EGOS\docs\STRATEGIC_THINKING\research\Concorrentes gratuitos do CodeGuide_.txt,48024,2025-05-21 00:40:22,0ae3e162faae179dbc7e6468cd419fda,Duplicate
+Group 84,C:\EGOS\docs\governance\Criaçao de site com IA.txt,30336,2025-05-21 00:40:22,b124d8f9a903828ef593bee1286969f0,Duplicate
+Group 84,C:\EGOS\docs\research\Criaçao de site com IA.txt,30144,2025-05-21 00:40:23,4711dc1976c178e939abce2802f8206f,Canonical
+Group 84,C:\EGOS\docs\STRATEGIC_THINKING\research\Criaçao de site com IA.txt,30144,2025-05-21 00:40:22,4711dc1976c178e939abce2802f8206f,Duplicate
+Group 85,C:\EGOS\docs\governance\EGOS - Gemini AI System Market Analysis.txt,47001,2025-05-21 15:08:50,48996d0b22309172c7a6e5d7817cfeeb,Canonical
+Group 85,C:\EGOS\docs\research\OK no roadmap\EGOS - Gemini AI System Market Analysis.txt,46732,2025-05-21 15:08:52,9c4e3ac6e5be2903deb39ec3fc2c1eb0,Duplicate
+Group 85,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\EGOS - Gemini AI System Market Analysis.txt,46732,2025-05-21 15:08:52,9c4e3ac6e5be2903deb39ec3fc2c1eb0,Duplicate
+Group 86,C:\EGOS\docs\governance\EGOS - Grok Presentation p2.txt,42557,2025-05-21 00:40:22,cdf9f22530f5d5abcb029cb2229897ab,Canonical
+Group 86,C:\EGOS\docs\research\OK no roadmap\EGOS - Grok Presentation p2.txt,42364,2025-05-21 00:40:23,0919189e1c0b5703f6d3a2a8dc591156,Duplicate
+Group 86,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\EGOS - Grok Presentation p2.txt,42364,2025-05-21 00:40:22,0919189e1c0b5703f6d3a2a8dc591156,Duplicate
+Group 87,C:\EGOS\docs\governance\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt,53512,2025-05-21 15:08:50,4157b66c187df530575867c6b68f2fbb,Canonical
+Group 87,C:\EGOS\docs\research\OK no roadmap\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt,53320,2025-05-21 15:08:52,e30337b46352d8b5f3300ebd5eae9cf0,Duplicate
+Group 87,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt,53320,2025-05-21 15:08:52,e30337b46352d8b5f3300ebd5eae9cf0,Duplicate
+Group 88,C:\EGOS\docs\governance\EGOS CodeGuide PRD.txt,11327,2025-05-21 00:40:22,d21a46e8493121e0c508834b19345da6,Canonical
+Group 88,C:\EGOS\docs\STRATEGIC_THINKING\research\EGOS CodeGuide PRD.txt,11135,2025-05-21 00:40:22,e4c2c8525ba5d521116040a03cdbaf08,Duplicate
+Group 89,C:\EGOS\docs\governance\EGOS design e ferramentas web.txt,53014,2025-05-21 00:40:22,1fe438c6caca7493b1fcc97240069aef,Duplicate
+Group 89,C:\EGOS\docs\research\EGOS design e ferramentas web.txt,52822,2025-05-21 00:40:23,993f68d418ed2176e9dfcea38b30c161,Canonical
+Group 89,C:\EGOS\docs\STRATEGIC_THINKING\research\EGOS design e ferramentas web.txt,52822,2025-05-21 00:40:22,993f68d418ed2176e9dfcea38b30c161,Duplicate
+Group 90,C:\EGOS\docs\governance\EGOS design GROK.txt,226824,2025-05-21 15:08:50,8c57a0f539def165e9e9bd87240e4692,Duplicate
+Group 90,C:\EGOS\docs\research\EGOS design GROK.txt,226632,2025-05-21 15:08:52,1128707f5b2c8e02175760cc20c0e82f,Canonical
+Group 90,C:\EGOS\docs\STRATEGIC_THINKING\research\EGOS design GROK.txt,226632,2025-05-21 15:08:52,1128707f5b2c8e02175760cc20c0e82f,Duplicate
+Group 91,C:\EGOS\docs\governance\EGOS Ethical Marketing Strategy_.txt,70988,2025-05-21 15:08:50,fd76e0f9801ae59043ccf795d540076d,Canonical
+Group 91,C:\EGOS\docs\research\OK no roadmap\EGOS Ethical Marketing Strategy_.txt,70796,2025-05-21 15:08:52,abbe69040d98942c7b328ce5330bdc39,Duplicate
+Group 91,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\EGOS Ethical Marketing Strategy_.txt,70796,2025-05-21 15:08:52,abbe69040d98942c7b328ce5330bdc39,Duplicate
+Group 92,C:\EGOS\docs\governance\EGOS_ Competindo com CodeGuide_.txt,95438,2025-05-21 15:08:50,bd5e26adcb01b32208ac89786dd9d0e3,Canonical
+Group 92,C:\EGOS\docs\STRATEGIC_THINKING\research\EGOS_ Competindo com CodeGuide_.txt,95246,2025-05-21 15:08:52,59e1a908e355a4a5fb539884f3dbc483,Duplicate
+Group 93,C:\EGOS\docs\governance\EGOS_ GitHub Project Search_.txt,44116,2025-05-21 00:40:22,fe014dcebcaf2c125df97dfae281f38d,Canonical
+Group 93,C:\EGOS\docs\research\OK no roadmap\EGOS_ GitHub Project Search_.txt,43923,2025-05-21 00:40:23,df96d6f5741db7bddffd251fcb53cc44,Duplicate
+Group 93,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\EGOS_ GitHub Project Search_.txt,43923,2025-05-21 00:40:22,df96d6f5741db7bddffd251fcb53cc44,Duplicate
+Group 94,C:\EGOS\docs\governance\Estudo KOIOS.txt,26499,2025-05-21 00:40:22,4c84dd1c0f2f2b467115446baf9de5cb,Canonical
+Group 94,C:\EGOS\docs\research\OK no roadmap\Estudo KOIOS.txt,26306,2025-05-21 00:40:23,f95c3aa305ce2f37f439be02e00ca5bb,Duplicate
+Group 94,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Estudo KOIOS.txt,26306,2025-05-21 00:40:22,f95c3aa305ce2f37f439be02e00ca5bb,Duplicate
+Group 95,C:\EGOS\docs\governance\Integração Context7 e _egos_ aprimorada_.txt,52041,2025-05-21 15:08:50,a27d9b6dd3113efcdae4a1c63064a9f0,Canonical
+Group 95,C:\EGOS\docs\STRATEGIC_THINKING\research\Integração Context7 e _egos_ aprimorada_.txt,51849,2025-05-21 15:08:52,7f3bb2224deeb5d7e83c1dc809f8b7a5,Duplicate
+Group 96,C:\EGOS\docs\governance\Market Positioning Strategy for Eva Guarani Egos An Expert Analysis.txt,33001,2025-05-21 00:40:22,b326e61e6b9df48e43fbe0ae0c35dc3d,Canonical
+Group 96,C:\EGOS\docs\research\OK no roadmap\Market Positioning Strategy for Eva Guarani Egos An Expert Analysis.txt,32808,2025-05-21 00:40:23,21183b61b1c490b623af6bf934e6d1b9,Duplicate
+Group 96,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Market Positioning Strategy for Eva Guarani Egos An Expert Analysis.txt,32808,2025-05-21 00:40:22,21183b61b1c490b623af6bf934e6d1b9,Duplicate
+Group 97,C:\EGOS\docs\governance\MARKET_ANALYSIS.txt,487,2025-05-21 00:40:22,7d8a0b5946094a2aba1db73a290be4ce,Duplicate
+Group 97,C:\EGOS\docs\research\MARKET_ANALYSIS.txt,295,2025-05-21 00:40:23,6d7fb1c9ae9ef8393388dee8cf988fb0,Canonical
+Group 97,C:\EGOS\docs\STRATEGIC_THINKING\research\MARKET_ANALYSIS.txt,295,2025-05-21 00:40:22,6d7fb1c9ae9ef8393388dee8cf988fb0,Duplicate
+Group 98,C:\EGOS\docs\governance\PROC-AUDIT-01_python_json_script_audit_v1.mdc,2202,2025-05-21 00:40:22,5441710933bd1713a63b12c7e8e480eb,Canonical
+Group 98,C:\EGOS\docs\process\auditing\PROC-AUDIT-01_python_json_script_audit_v1.mdc,2202,2025-05-21 00:40:23,5441710933bd1713a63b12c7e8e480eb,Duplicate
+Group 99,C:\EGOS\docs\governance\TIPS_HESAMATION.txt,507,2025-05-21 00:40:22,fe2ea75e8fcee737d24f1545519235e0,Duplicate
+Group 99,C:\EGOS\docs\research\TIPS_HESAMATION.txt,315,2025-05-21 00:40:23,e739dbffc596489feb0baca8c600dc5d,Canonical
+Group 99,C:\EGOS\docs\STRATEGIC_THINKING\research\TIPS_HESAMATION.txt,315,2025-05-21 00:40:22,e739dbffc596489feb0baca8c600dc5d,Duplicate
+Group 100,C:\EGOS\docs\governance\WebSite analise.txt,31019,2025-05-21 00:40:22,419b1997663a3c3e72f8eb32eb871bde,Canonical
+Group 100,C:\EGOS\docs\research\OK no roadmap\WebSite analise.txt,30827,2025-05-21 00:40:23,5e823273d48a7b46b33a110929afaf59,Duplicate
+Group 100,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\WebSite analise.txt,30827,2025-05-21 00:40:22,5e823273d48a7b46b33a110929afaf59,Duplicate
+Group 101,C:\EGOS\docs\governance\WebSite Enio Grok e Gemini.txt,26914,2025-05-21 00:40:22,aac185fc8ab328cea51ec5011b89bd29,Canonical
+Group 101,C:\EGOS\docs\research\OK no roadmap\WebSite Enio Grok e Gemini.txt,26722,2025-05-21 00:40:23,6fa5840960d4459e2e9ea0b1549f3e2e,Duplicate
+Group 101,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\WebSite Enio Grok e Gemini.txt,26722,2025-05-21 00:40:22,6fa5840960d4459e2e9ea0b1549f3e2e,Duplicate
+Group 102,C:\EGOS\docs\governance\Windsurf Prompt for EGOS Project_.txt,23986,2025-05-21 00:40:22,c6fe39ce248b8339b5b8ddaf5c82f02b,Canonical
+Group 102,C:\EGOS\docs\STRATEGIC_THINKING\research\Windsurf Prompt for EGOS Project_.txt,23794,2025-05-21 00:40:22,076f918e2d3292de1e7792358896ab87,Duplicate
+Group 103,C:\EGOS\docs\research\EGOS_Strategic_Analysis_Integration_Summary_Apr2025.md,3673,2025-05-21 15:08:52,3ba9a0bc70507af449c5a9207b6ac999,Canonical
+Group 103,C:\EGOS\docs\STRATEGIC_THINKING\research\EGOS_Strategic_Analysis_Integration_Summary_Apr2025.md,3673,2025-05-21 15:08:52,3ba9a0bc70507af449c5a9207b6ac999,Duplicate
+Group 104,C:\EGOS\docs\research\OK no roadmap\Analise Gopher-Egos,16589,2025-05-21 00:40:23,f6479986b12f0ab033f8663038a4d525,Canonical
+Group 104,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Analise Gopher-Egos,16589,2025-05-21 00:40:22,f6479986b12f0ab033f8663038a4d525,Duplicate
+Group 105,C:\EGOS\docs\research\OK no roadmap\Estudo CrewAI.txt,0,2025-05-21 00:40:23,ZERO_SIZE_FILE_HASH,Canonical
+Group 105,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Estudo CrewAI.txt,0,2025-05-21 00:40:22,ZERO_SIZE_FILE_HASH,Duplicate
+Group 106,C:\EGOS\docs\research\OK no roadmap\Estudo DATA com IA Gemini.txt,49708,2025-05-21 00:40:23,c0aeae724d65c61d5ae2ae5c9bf4c6f0,Canonical
+Group 106,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Estudo DATA com IA Gemini.txt,49708,2025-05-21 00:40:22,c0aeae724d65c61d5ae2ae5c9bf4c6f0,Duplicate
+Group 107,C:\EGOS\docs\research\OK no roadmap\Estudo EAAS ethics as a service Gemini.txt,74137,2025-05-21 15:08:52,b769860fb46424e4ec5929dec908dd04,Canonical
+Group 107,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Estudo EAAS ethics as a service Gemini.txt,74137,2025-05-21 15:08:52,b769860fb46424e4ec5929dec908dd04,Duplicate
+Group 108,C:\EGOS\docs\research\OK no roadmap\Estudo MCPs.txt,49288,2025-05-21 00:40:23,9ac0272a8698c3eabb4c3baef5b6e843,Canonical
+Group 108,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Estudo MCPs.txt,49288,2025-05-21 00:40:22,9ac0272a8698c3eabb4c3baef5b6e843,Duplicate
+Group 109,C:\EGOS\docs\research\OK no roadmap\Estudo Mycellium Gemini.txt,50978,2025-05-21 00:40:23,9562e9ed528b31c96b3611638553b06e,Canonical
+Group 109,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Estudo Mycellium Gemini.txt,50978,2025-05-21 00:40:22,9562e9ed528b31c96b3611638553b06e,Duplicate
+Group 110,C:\EGOS\docs\research\OK no roadmap\Mercado de Prompts.txt,11007,2025-05-21 00:40:23,bc475ff703522a8b598005a4c0407da5,Canonical
+Group 110,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Mercado de Prompts.txt,11007,2025-05-21 00:40:22,bc475ff703522a8b598005a4c0407da5,Duplicate
+Group 111,C:\EGOS\docs\research\OK no roadmap\Scraper com IA.txt,26989,2025-05-21 11:09:02,0fb39852245f1c5db7e54ede4c85c666,Canonical
+Group 111,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Scraper com IA.txt,26989,2025-05-21 11:09:02,0fb39852245f1c5db7e54ede4c85c666,Duplicate
+Group 112,C:\EGOS\docs\research\OK no roadmap\Vibe Coding Avanço e Oportunidades.txt,22146,2025-05-21 00:40:23,2895c6719b90473d41b5bac6b438fc5c,Canonical
+Group 112,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Vibe Coding Avanço e Oportunidades.txt,22146,2025-05-21 00:40:22,2895c6719b90473d41b5bac6b438fc5c,Duplicate
+Group 113,C:\EGOS\docs\research\Vibe_Coding_Market_Analysis.md,23068,2025-05-21 15:08:52,6219cc5eb658b7481ffba8f780ead132,Canonical
+Group 113,C:\EGOS\docs\STRATEGIC_THINKING\research\Vibe_Coding_Market_Analysis.md,23068,2025-05-21 15:08:52,6219cc5eb658b7481ffba8f780ead132,Duplicate
+Group 114,C:\EGOS\docs\research\website_ux_analysis.md,13863,2025-05-21 15:08:52,482015ca8724aa0494f975820221fdb7,Canonical
+Group 114,C:\EGOS\docs\STRATEGIC_THINKING\research\website_ux_analysis.md,13863,2025-05-21 15:08:52,482015ca8724aa0494f975820221fdb7,Duplicate
+Group 115,C:\EGOS\docs\resources\data\index_json_schema.json,5921,2025-05-21 00:40:23,e275563892756f6dc61f1f2ae8058ee4,Duplicate
+Group 115,C:\EGOS\docs\standards\index_json_schema.json,5921,2025-05-21 00:40:23,e275563892756f6dc61f1f2ae8058ee4,Canonical
+Group 116,C:\EGOS\docs\templates\api_documentation_template.md,4567,2025-05-20 00:48:36,9e27ed4fdcd582cae99768a5a8821f8f,Canonical
+Group 116,C:\EGOS\docs\templates\reference_templates\api_documentation_template.md,5746,2025-05-21 11:09:13,7fc54de6ad7aec733288abdc8bd7fc4f,Duplicate
+Group 117,C:\EGOS\docs\templates\architecture_document_template.md,5515,2025-05-21 15:08:52,8d39b3c7b72cad73a952e21f4302c670,Canonical
+Group 117,C:\EGOS\docs\templates\reference_templates\architecture_document_template.md,6602,2025-05-21 15:08:52,d38c60974d6e625f1af203ceda54abbc,Duplicate
+Group 118,C:\EGOS\docs\templates\reference_templates\subsystem_readme_template.md,5898,2025-05-21 15:08:52,39c09ef8c443e4bc3a571f7e1149c917,Duplicate
+Group 118,C:\EGOS\docs\templates\subsystem_readme_template.md,4828,2025-05-21 15:08:52,ddb2ed28ca56d6085add71409a748fce,Canonical
+Group 119,C:\EGOS\docs\core_materials\INTEGRATION_PLAN.md,1,2025-05-21 00:40:22,7215ee9c7d9dc229d2921a40e899ec5f,Canonical
+Group 119,C:\EGOS\docs\STRATEGIC_THINKING\strategy_archive\Customer_Journey_Map.md,1,2025-05-21 00:40:22,7215ee9c7d9dc229d2921a40e899ec5f,Duplicate
+Group 120,C:\EGOS\docs\core_materials\prompts\coruja_zendesk_ticket_analysis_v1.pdd,3323,2025-05-21 00:40:22,1b9b9237ea8bce10301c4f1598bb6c20,Duplicate
+Group 120,C:\EGOS\docs\prompts\coruja_zendesk_ticket_analysis_v1.pdd,3323,2025-05-21 00:40:23,1b9b9237ea8bce10301c4f1598bb6c20,Canonical
+Group 121,C:\EGOS\docs\examples\crewai\content-marketing-ideas-template\crewAI-enterprise-content-marketing-ideas-template-main\.gitignore,18,2025-05-21 00:18:52,92c0c5be12c8c902f2c2100978a03cdb,Duplicate
+Group 121,C:\EGOS\docs\examples\crewai\fraud-detector-template\crewAI-enterprise-fraud-detector-template-main\.gitignore,18,2025-05-21 00:18:52,92c0c5be12c8c902f2c2100978a03cdb,Duplicate
+Group 121,C:\EGOS\docs\examples\crewai\lead-scoring-template\crewAI-enterprise-lead-scoring-template-main\.gitignore,18,2025-05-21 00:18:52,92c0c5be12c8c902f2c2100978a03cdb,Canonical
+Group 121,C:\EGOS\docs\examples\crewai\prep-for-meeting-template\crewAI-enterprise-prep-for-meeting-template-main\.gitignore,18,2025-05-21 00:18:52,92c0c5be12c8c902f2c2100978a03cdb,Duplicate
+Group 122,C:\EGOS\docs\examples\crewai\content-marketing-ideas-template\crewAI-enterprise-content-marketing-ideas-template-main\src\crewai_enterprise_content_marketing_ideas\tools\custom_tool.py,395,2025-05-21 00:40:24,b1a51bd655f2e4287ec8cb7448ad3cae,Duplicate
+Group 122,C:\EGOS\docs\examples\crewai\create-sales-offer-template\crewAI-enterprise-create-sales-offer-template-main\src\sales_offer\tools\custom_tool.py,395,2025-05-21 00:40:24,b1a51bd655f2e4287ec8cb7448ad3cae,Duplicate
+Group 122,C:\EGOS\docs\examples\crewai\fraud-detector-template\crewAI-enterprise-fraud-detector-template-main\src\fraud_detector\tools\custom_tool.py,395,2025-05-21 00:40:24,b1a51bd655f2e4287ec8cb7448ad3cae,Duplicate
+Group 122,C:\EGOS\docs\examples\crewai\job-change-monitor-template\crewAI-enterprise-job-change-monitor-template-main\src\job_change_monitor\tools\custom_tool.py,395,2025-05-21 00:40:24,b1a51bd655f2e4287ec8cb7448ad3cae,Duplicate
+Group 122,C:\EGOS\docs\examples\crewai\lead-scoring-template\crewAI-enterprise-lead-scoring-template-main\src\crewai_plus_lead_scoring\tools\custom_tool.py,395,2025-05-21 00:40:24,b1a51bd655f2e4287ec8cb7448ad3cae,Duplicate
+Group 122,C:\EGOS\docs\examples\crewai\personalized-email-template\crewAI-enterprise-personalized-email-template-main\src\sales_personalized_email\tools\custom_tool.py,395,2025-05-21 00:40:24,b1a51bd655f2e4287ec8cb7448ad3cae,Duplicate
+Group 122,C:\EGOS\docs\examples\crewai\prep-for-meeting-template\crewAI-enterprise-prep-for-meeting-template-main\src\prep_for_meeting\tools\custom_tool.py,395,2025-05-21 00:40:24,b1a51bd655f2e4287ec8cb7448ad3cae,Duplicate
+Group 122,C:\EGOS\docs\examples\crewai\sales-contact-finder-template\crewAI-enterprise-sales-contact-finder-template-main\src\sales_contact_finder\tools\custom_tool.py,395,2025-05-21 00:40:24,b1a51bd655f2e4287ec8cb7448ad3cae,Duplicate
+Group 122,C:\EGOS\docs\examples\crewai\sales-pdf-template\crewAI-enterprise-sales-pdf-template-main\src\sales_pdf\tools\custom_tool.py,395,2025-05-21 00:40:24,b1a51bd655f2e4287ec8cb7448ad3cae,Canonical
+Group 122,C:\EGOS\docs\examples\crewai\similar-company-finder-template\crewAI-enterprise-similar-company-finder-template-main\src\similar_company_finder_template\tools\custom_tool.py,395,2025-05-21 00:40:24,b1a51bd655f2e4287ec8cb7448ad3cae,Duplicate
+Group 123,C:\EGOS\docs\examples\crewai\job-change-monitor-template\crewAI-enterprise-job-change-monitor-template-main\.gitignore,3139,2025-05-21 00:18:52,e5e81fdb76c0774efca175557ac121e5,Duplicate
+Group 123,C:\EGOS\docs\examples\crewai\personalized-email-template\crewAI-enterprise-personalized-email-template-main\.gitignore,3139,2025-05-21 00:18:52,e5e81fdb76c0774efca175557ac121e5,Canonical
+Group 123,C:\EGOS\docs\examples\crewai\similar-company-finder-template\crewAI-enterprise-similar-company-finder-template-main\.gitignore,3139,2025-05-21 00:18:52,e5e81fdb76c0774efca175557ac121e5,Duplicate
+Group 124,C:\EGOS\docs\examples\crewai\zendesk-categorize-and-sentiment-analysis-template\crewAI-enterprise-zendesk-categorize-and-sentiment-analysis-template-main\.gitignore,17,2025-05-21 00:18:52,33990ac78d5b995059f8c779ee926a51,Duplicate
+Group 124,C:\EGOS\docs\examples\crewai\zendesk-ticket-analysis-template\crewAI-enterprise-zendesk-ticket-analysis-template-main\.gitignore,17,2025-05-21 00:18:52,33990ac78d5b995059f8c779ee926a51,Canonical
+Group 125,C:\EGOS\docs\examples\crewai\zendesk-categorize-and-sentiment-analysis-template\crewAI-enterprise-zendesk-categorize-and-sentiment-analysis-template-main\README.md,2782,2025-05-21 00:18:52,8a74575cc369c3d957e137970d9a2245,Duplicate
+Group 125,C:\EGOS\docs\examples\crewai\zendesk-ticket-analysis-template\crewAI-enterprise-zendesk-ticket-analysis-template-main\README.md,2782,2025-05-21 00:18:52,8a74575cc369c3d957e137970d9a2245,Canonical
+Group 126,C:\EGOS\docs\governance\MVP OK 7.0.txt,192,2025-05-21 00:40:22,08d9acbe7cb83efaf3c207ce2d100058,Canonical
+Group 126,C:\EGOS\docs\governance\Prompt quantico 7 ingles.txt,192,2025-05-21 00:40:22,08d9acbe7cb83efaf3c207ce2d100058,Duplicate
+Group 127,C:\EGOS\docs\governance\PROC-AUDIT-01_python_json_script_audit_v1.mdc,2202,2025-05-21 00:40:22,5441710933bd1713a63b12c7e8e480eb,Canonical
+Group 127,C:\EGOS\docs\process\auditing\PROC-AUDIT-01_python_json_script_audit_v1.mdc,2202,2025-05-21 00:40:23,5441710933bd1713a63b12c7e8e480eb,Duplicate
+Group 128,C:\EGOS\docs\prompts\pdds\generate_python_docstring.yaml,2695,2025-05-21 15:08:50,81c264b96c60fbfa8b2d3ba55da73dc5,Canonical
+Group 128,C:\EGOS\docs\resources\data\generate_python_docstring.yaml,2695,2025-05-21 15:08:52,81c264b96c60fbfa8b2d3ba55da73dc5,Duplicate
+Group 129,C:\EGOS\docs\research\Analise site design.txt,11189,2025-05-21 15:08:52,769ba4ea22297d1ce96ba0c6386c79ba,Canonical
+Group 129,C:\EGOS\docs\STRATEGIC_THINKING\research\Analise site design.txt,11189,2025-05-21 15:08:52,769ba4ea22297d1ce96ba0c6386c79ba,Duplicate
+Group 130,C:\EGOS\docs\research\Análise e Refinamento do Projeto EGOS_.txt,86673,2025-05-21 15:08:52,1c660da3afc37f087223b150d8c2b32c,Canonical
+Group 130,C:\EGOS\docs\STRATEGIC_THINKING\research\Análise e Refinamento do Projeto EGOS_.txt,86673,2025-05-21 15:08:52,1c660da3afc37f087223b150d8c2b32c,Duplicate
+Group 131,C:\EGOS\docs\research\Criaçao de site com IA.txt,30144,2025-05-21 00:40:23,4711dc1976c178e939abce2802f8206f,Canonical
+Group 131,C:\EGOS\docs\STRATEGIC_THINKING\research\Criaçao de site com IA.txt,30144,2025-05-21 00:40:22,4711dc1976c178e939abce2802f8206f,Duplicate
+Group 132,C:\EGOS\docs\research\EGOS design e ferramentas web.txt,52822,2025-05-21 00:40:23,993f68d418ed2176e9dfcea38b30c161,Canonical
+Group 132,C:\EGOS\docs\STRATEGIC_THINKING\research\EGOS design e ferramentas web.txt,52822,2025-05-21 00:40:22,993f68d418ed2176e9dfcea38b30c161,Duplicate
+Group 133,C:\EGOS\docs\research\EGOS design GROK.txt,226632,2025-05-21 15:08:52,1128707f5b2c8e02175760cc20c0e82f,Canonical
+Group 133,C:\EGOS\docs\STRATEGIC_THINKING\research\EGOS design GROK.txt,226632,2025-05-21 15:08:52,1128707f5b2c8e02175760cc20c0e82f,Duplicate
+Group 134,C:\EGOS\docs\research\EGOS_Strategic_Analysis_Integration_Summary_Apr2025.md,3673,2025-05-21 15:08:52,3ba9a0bc70507af449c5a9207b6ac999,Canonical
+Group 134,C:\EGOS\docs\STRATEGIC_THINKING\research\EGOS_Strategic_Analysis_Integration_Summary_Apr2025.md,3673,2025-05-21 15:08:52,3ba9a0bc70507af449c5a9207b6ac999,Duplicate
+Group 135,C:\EGOS\docs\research\MARKET_ANALYSIS.txt,295,2025-05-21 00:40:23,6d7fb1c9ae9ef8393388dee8cf988fb0,Canonical
+Group 135,C:\EGOS\docs\STRATEGIC_THINKING\research\MARKET_ANALYSIS.txt,295,2025-05-21 00:40:22,6d7fb1c9ae9ef8393388dee8cf988fb0,Duplicate
+Group 136,C:\EGOS\docs\research\OK no roadmap\Analise Gopher-Egos,16589,2025-05-21 00:40:23,f6479986b12f0ab033f8663038a4d525,Canonical
+Group 136,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Analise Gopher-Egos,16589,2025-05-21 00:40:22,f6479986b12f0ab033f8663038a4d525,Duplicate
+Group 137,C:\EGOS\docs\research\OK no roadmap\Analysis of Opportunities for Project EVA GUARANI - EGOS within the Stellar Blockchain Ecosystem.txt,20883,2025-05-21 00:40:23,4c5fe3f3c71064ec40134c73223e0166,Canonical
+Group 137,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Analysis of Opportunities for Project EVA GUARANI - EGOS within the Stellar Blockchain Ecosystem.txt,20883,2025-05-21 00:40:22,4c5fe3f3c71064ec40134c73223e0166,Duplicate
+Group 138,C:\EGOS\docs\research\OK no roadmap\Análise de Integração de Ferramentas e Empresas com o Sistema EVA GUARANI - EGOS.txt,26560,2025-05-21 00:40:23,f0b49e60746db985fa36efd312ecbdf0,Canonical
+Group 138,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Análise de Integração de Ferramentas e Empresas com o Sistema EVA GUARANI - EGOS.txt,26560,2025-05-21 00:40:22,f0b49e60746db985fa36efd312ecbdf0,Duplicate
+Group 139,C:\EGOS\docs\research\OK no roadmap\Comparacao ferramentas data ia.txt,28745,2025-05-21 00:40:23,db1b7bc5b8ddf1da5ead45fbd0b5a9ef,Canonical
+Group 139,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Comparacao ferramentas data ia.txt,28745,2025-05-21 00:40:22,db1b7bc5b8ddf1da5ead45fbd0b5a9ef,Duplicate
+Group 140,C:\EGOS\docs\research\OK no roadmap\EGOS - Gemini AI System Market Analysis.txt,46732,2025-05-21 15:08:52,9c4e3ac6e5be2903deb39ec3fc2c1eb0,Canonical
+Group 140,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\EGOS - Gemini AI System Market Analysis.txt,46732,2025-05-21 15:08:52,9c4e3ac6e5be2903deb39ec3fc2c1eb0,Duplicate
+Group 141,C:\EGOS\docs\research\OK no roadmap\EGOS - Grok Presentation p2.txt,42364,2025-05-21 00:40:23,0919189e1c0b5703f6d3a2a8dc591156,Canonical
+Group 141,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\EGOS - Grok Presentation p2.txt,42364,2025-05-21 00:40:22,0919189e1c0b5703f6d3a2a8dc591156,Duplicate
+Group 142,C:\EGOS\docs\research\OK no roadmap\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt,53320,2025-05-21 15:08:52,e30337b46352d8b5f3300ebd5eae9cf0,Canonical
+Group 142,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt,53320,2025-05-21 15:08:52,e30337b46352d8b5f3300ebd5eae9cf0,Duplicate
+Group 143,C:\EGOS\docs\research\OK no roadmap\EGOS Ethical Marketing Strategy_.txt,70796,2025-05-21 15:08:52,abbe69040d98942c7b328ce5330bdc39,Canonical
+Group 143,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\EGOS Ethical Marketing Strategy_.txt,70796,2025-05-21 15:08:52,abbe69040d98942c7b328ce5330bdc39,Duplicate
+Group 144,C:\EGOS\docs\research\OK no roadmap\EGOS_ GitHub Project Search_.txt,43923,2025-05-21 00:40:23,df96d6f5741db7bddffd251fcb53cc44,Canonical
+Group 144,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\EGOS_ GitHub Project Search_.txt,43923,2025-05-21 00:40:22,df96d6f5741db7bddffd251fcb53cc44,Duplicate
+Group 145,C:\EGOS\docs\research\OK no roadmap\Estudo DATA com IA Gemini.txt,49708,2025-05-21 00:40:23,c0aeae724d65c61d5ae2ae5c9bf4c6f0,Canonical
+Group 145,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Estudo DATA com IA Gemini.txt,49708,2025-05-21 00:40:22,c0aeae724d65c61d5ae2ae5c9bf4c6f0,Duplicate
+Group 146,C:\EGOS\docs\research\OK no roadmap\Estudo EAAS ethics as a service Gemini.txt,74137,2025-05-21 15:08:52,b769860fb46424e4ec5929dec908dd04,Canonical
+Group 146,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Estudo EAAS ethics as a service Gemini.txt,74137,2025-05-21 15:08:52,b769860fb46424e4ec5929dec908dd04,Duplicate
+Group 147,C:\EGOS\docs\research\OK no roadmap\Estudo KOIOS.txt,26306,2025-05-21 00:40:23,f95c3aa305ce2f37f439be02e00ca5bb,Canonical
+Group 147,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Estudo KOIOS.txt,26306,2025-05-21 00:40:22,f95c3aa305ce2f37f439be02e00ca5bb,Duplicate
+Group 148,C:\EGOS\docs\research\OK no roadmap\Estudo MCPs.txt,49288,2025-05-21 00:40:23,9ac0272a8698c3eabb4c3baef5b6e843,Canonical
+Group 148,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Estudo MCPs.txt,49288,2025-05-21 00:40:22,9ac0272a8698c3eabb4c3baef5b6e843,Duplicate
+Group 149,C:\EGOS\docs\research\OK no roadmap\Estudo Mycellium Gemini.txt,50978,2025-05-21 00:40:23,9562e9ed528b31c96b3611638553b06e,Canonical
+Group 149,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Estudo Mycellium Gemini.txt,50978,2025-05-21 00:40:22,9562e9ed528b31c96b3611638553b06e,Duplicate
+Group 150,C:\EGOS\docs\research\OK no roadmap\Market Positioning Strategy for Eva Guarani Egos An Expert Analysis.txt,32808,2025-05-21 00:40:23,21183b61b1c490b623af6bf934e6d1b9,Canonical
+Group 150,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Market Positioning Strategy for Eva Guarani Egos An Expert Analysis.txt,32808,2025-05-21 00:40:22,21183b61b1c490b623af6bf934e6d1b9,Duplicate
+Group 151,C:\EGOS\docs\research\OK no roadmap\Mercado de Prompts.txt,11007,2025-05-21 00:40:23,bc475ff703522a8b598005a4c0407da5,Canonical
+Group 151,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Mercado de Prompts.txt,11007,2025-05-21 00:40:22,bc475ff703522a8b598005a4c0407da5,Duplicate
+Group 152,C:\EGOS\docs\research\OK no roadmap\Scraper com IA.txt,26989,2025-05-21 11:09:02,0fb39852245f1c5db7e54ede4c85c666,Canonical
+Group 152,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Scraper com IA.txt,26989,2025-05-21 11:09:02,0fb39852245f1c5db7e54ede4c85c666,Duplicate
+Group 153,C:\EGOS\docs\research\OK no roadmap\Vibe Coding Avanço e Oportunidades.txt,22146,2025-05-21 00:40:23,2895c6719b90473d41b5bac6b438fc5c,Canonical
+Group 153,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Vibe Coding Avanço e Oportunidades.txt,22146,2025-05-21 00:40:22,2895c6719b90473d41b5bac6b438fc5c,Duplicate
+Group 154,C:\EGOS\docs\research\OK no roadmap\WebSite analise.txt,30827,2025-05-21 00:40:23,5e823273d48a7b46b33a110929afaf59,Canonical
+Group 154,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\WebSite analise.txt,30827,2025-05-21 00:40:22,5e823273d48a7b46b33a110929afaf59,Duplicate
+Group 155,C:\EGOS\docs\research\OK no roadmap\WebSite Enio Grok e Gemini.txt,26722,2025-05-21 00:40:23,6fa5840960d4459e2e9ea0b1549f3e2e,Canonical
+Group 155,C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\WebSite Enio Grok e Gemini.txt,26722,2025-05-21 00:40:22,6fa5840960d4459e2e9ea0b1549f3e2e,Duplicate
+Group 156,C:\EGOS\docs\research\TIPS_HESAMATION.txt,315,2025-05-21 00:40:23,e739dbffc596489feb0baca8c600dc5d,Canonical
+Group 156,C:\EGOS\docs\STRATEGIC_THINKING\research\TIPS_HESAMATION.txt,315,2025-05-21 00:40:22,e739dbffc596489feb0baca8c600dc5d,Duplicate
+Group 157,C:\EGOS\docs\research\Vibe_Coding_Market_Analysis.md,23068,2025-05-21 15:08:52,6219cc5eb658b7481ffba8f780ead132,Canonical
+Group 157,C:\EGOS\docs\STRATEGIC_THINKING\research\Vibe_Coding_Market_Analysis.md,23068,2025-05-21 15:08:52,6219cc5eb658b7481ffba8f780ead132,Duplicate
+Group 158,C:\EGOS\docs\research\website_ux_analysis.md,13863,2025-05-21 15:08:52,482015ca8724aa0494f975820221fdb7,Canonical
+Group 158,C:\EGOS\docs\STRATEGIC_THINKING\research\website_ux_analysis.md,13863,2025-05-21 15:08:52,482015ca8724aa0494f975820221fdb7,Duplicate
+Group 159,C:\EGOS\docs\resources\data\index_json_schema.json,5921,2025-05-21 00:40:23,e275563892756f6dc61f1f2ae8058ee4,Duplicate
+Group 159,C:\EGOS\docs\standards\index_json_schema.json,5921,2025-05-21 00:40:23,e275563892756f6dc61f1f2ae8058ee4,Canonical
+Group 160,C:\EGOS\docs\resources\data\PDD_Template.yaml,2692,2025-05-21 15:08:52,e9ab098d75ec8ae833837d7c09b66923,Canonical
+Group 160,C:\EGOS\docs\templates\reference_templates\PDD_Template.yaml,2692,2025-05-21 15:08:52,e9ab098d75ec8ae833837d7c09b66923,Duplicate

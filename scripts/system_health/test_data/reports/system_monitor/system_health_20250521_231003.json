@@ -1,0 +1,49 @@
+{
+  "timestamp": "2025-05-21 23:10:02",
+  "files_analyzed": 14,
+  "recently_modified_files": 6,
+  "orphaned_files": 0,
+  "undocumented_files": 0,
+  "well_documented_files": 0,
+  "action_items": [],
+  "files_needing_attention": [],
+  "performance_metrics": {
+    "total_time": 0.6719999999913853,
+    "total_time_formatted": "672.00ms",
+    "phases": {
+      "file_scanning": {
+        "duration": 0.0,
+        "percentage": 0.0
+      },
+      "documentation_analysis": {
+        "duration": 0.0,
+        "percentage": 0.0
+      },
+      "cross_reference_analysis": {
+        "duration": 0.0,
+        "percentage": 0.0
+      }
+    },
+    "file_processing": {
+      "processed": 14,
+      "total_time": 0.0,
+      "min_time": 0.0,
+      "max_time": 0,
+      "avg_time": 0.0,
+      "std_dev": 0.0
+    },
+    "metrics": {},
+    "system_stats": {
+      "start_memory": 31.65625,
+      "cpu_percent": 60.9,
+      "end_memory": 32.94921875,
+      "memory_delta": 1.29296875,
+      "final_cpu_percent": 14.6
+    }
+  },
+  "recent_files_by_type": {
+    "json": 6
+  },
+  "recent_files_list": [
+    {
+      "path": 

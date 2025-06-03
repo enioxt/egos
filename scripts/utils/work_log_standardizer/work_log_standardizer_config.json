@@ -1,0 +1,18 @@
+{
+  "auto_standardize": true,
+  "watch_directories": [
+    "C:/EGOS/docs/work_logs/active"
+  ],
+  "standardize_on_change": true,
+  "standardize_interval_minutes": 60,
+  "ecosystem_analyzer_integration": true,
+  "notification_enabled": true,
+  "report_settings": {
+    "include_summary": true,
+    "include_validation_issues": true,
+    "include_reformatting_failures": true,
+    "include_deduplication_actions": true,
+    "include_rename_actions": true,
+    "include_archived_files": true
+  }
+}

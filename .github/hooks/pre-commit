@@ -1,0 +1,62 @@
+#!/bin/sh
+#
+# EGOS Archive Protection pre-commit hook
+# Prevents accidental archiving of reference implementations and critical files
+#
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+NC='\033[0m' # No Color
+
+echo "${YELLOW}Running EGOS Archive Protection checks...${NC}"
+
+# Get all files being moved to archive directories
+files_being_archived=$(git diff --cached --name-status | grep -E "^R" | grep -E "zz_archive|archive" | cut -f2)
+
+if [ -n "$files_being_archived" ]; then
+    echo "${YELLOW}Detected files being moved to archive directories...${NC}"
+    
+    # Check if our archive validator script exists
+    if [ -f "scripts/cross_reference/archive_validator.py" ]; then
+        echo "${YELLOW}Running archive validator...${NC}"
+        
+        # Create a temporary file to store the list of files
+        temp_file=$(mktemp)
+        echo "$files_being_archived" > "$temp_file"
+        
+        # Run the validator script
+        python scripts/cross_reference/archive_validator.py --file-list "$temp_file"
+        validator_result=$?
+        
+        # Clean up temp file
+        rm "$temp_file"
+        
+        # Check if validation failed
+        if [ $validator_result -ne 0 ]; then
+            echo "${RED}Archive validation failed. Cannot commit changes.${NC}"
+            echo "${YELLOW}Please review the validator report and fix the issues.${NC}"
+            exit 1
+        fi
+    else
+        echo "${YELLOW}Archive validator not found. Performing basic checks...${NC}"
+        
+        # Basic check for known protected files
+        protected_files="file_reference_checker_ultra.py purge_old_references.py script_standards_scanner.py README.md ROADMAP.md"
+        
+        for protected in $protected_files; do
+            if echo "$files_being_archived" | grep -q "$protected"; then
+                echo "${RED}ERROR: Attempting to archive protected file: $protected${NC}"
+                echo "${YELLOW}This file is designated as a reference implementation or critical file.${NC}"
+                echo "${YELLOW}If you believe this file should be archived, please follow the Archive Policy process.${NC}"
+                exit 1
+            fi
+        done
+    fi
+    
+    echo "${GREEN}Archive validation passed. Proceeding with commit.${NC}"
+fi
+
+# Continue with commit
+exit 0

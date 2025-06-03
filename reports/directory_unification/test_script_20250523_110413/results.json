@@ -1,0 +1,14 @@
+{
+  "keyword": "script",
+  "timestamp": "2025-05-23 11:04:13",
+  "output_directory": "C:\\EGOS\\reports\\directory_unification\\test_script_20250523_110413",
+  "phases": {
+    "content_discovery": {
+      "status": "failed",
+      "error": "Object of type set is not JSON serializable"
+    }
+  },
+  "success": false,
+  "error": "Object of type set is not JSON serializable",
+  "elapsed_time": 8.077291488647461
+}

@@ -1,0 +1,36 @@
+{
+    "organization": "Integrated Health Partners",
+    "industry": "Healthcare",
+    "analysis_date": "2025-06-02T20:03:49.186355",
+    "time_horizon": 5,
+    "discount_rate": 0.09,
+    "roi": 6170.454367962294,
+    "npv": 70589962.99448934,
+    "irr": 24.485846835693692,
+    "payback_period": 0.040839915143862766,
+    "initial_investment": 580000,
+    "annual_costs": 145000,
+    "total_benefits_npv": 71733962.42767534,
+    "total_costs_npv": 1143999.4331859988,
+    "benefit_breakdown": {
+        "risk_mitigation": 3385499.5603641523,
+        "operational_efficiency": 5107018.757150482,
+        "brand_value": 38180816.801060446,
+        "regulatory_compliance": 5014849.580814101,
+        "innovation_enablement": 20045777.728286162
+    },
+    "sensitivity": {
+        "roi_10th_percentile": "N/A",
+        "roi_90th_percentile": "N/A",
+        "positive_roi_probability": "N/A"
+    },
+    "cash_flows": [],
+    "cumulative_net_benefits": [
+        -580000,
+        13621792.485535067,
+        27823584.971070133,
+        42025377.456605196,
+        56227169.94214027,
+        70428962.42767534
+    ]
+}

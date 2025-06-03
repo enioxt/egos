@@ -1,0 +1,96 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-05-22",
+  "updated_by": "EGOS Development Team",
+  "canonical_structure": {
+    "root_level": {
+      "required_files": [
+        "README.md",
+        "CHANGELOG.md",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md", 
+        "LICENSE",
+        "ROADMAP.md",
+        "MQP.md",
+        "ARCHIVE_POLICY.md"
+      ],
+      "required_directories": [
+        "apps",
+        "docs",
+        "scripts",
+        "tests",
+        "archive",
+        "website",
+        "config",
+        "reports"
+      ]
+    },
+    "apps": {
+      "description": "Application-level components and services",
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "naming_convention": "snake_case"
+    },
+    "docs": {
+      "description": "Documentation, specifications, and guides",
+      "required_subdirectories": [
+        "guides",
+        "api",
+        "tutorials",
+        "standards",
+        "templates",
+        "resources",
+        "process"
+      ]
+    },
+    "scripts": {
+      "description": "Utility scripts and automation tools",
+      "required_subdirectories": [
+        "maintenance",
+        "analysis",
+        "cross_reference",
+        "validation"
+      ]
+    },
+    "tests": {
+      "description": "Test suites and testing utilities",
+      "pattern": "test_.*\\.py$"
+    },
+    "archive": {
+      "description": "Archived files and obsolete components",
+      "retention_policy": "Preserve directory structure"
+    },
+    "website": {
+      "description": "Website source code and assets",
+      "required_subdirectories": [
+        "src",
+        "public",
+        "docs"
+      ]
+    },
+    "config": {
+      "description": "Configuration files for various components",
+      "pattern": ".*\\.(json|yaml|yml|ini|toml)$"
+    },
+    "reports": {
+      "description": "Generated reports and analysis results",
+      "pattern": ".*_report_.*\\.(md|html|json|pdf)$"
+    },
+    "special_rules": [
+      {
+        "description": "Documentation files should be in markdown format",
+        "pattern": "docs/.*\\.(md|markdown)$",
+        "required": true
+      },
+      {
+        "description": "Python files should have proper module docstrings",
+        "pattern": ".*\\.py$",
+        "validation": "has_docstring"
+      },
+      {
+        "description": "No temporary files in version control",
+        "pattern": ".*\\.(tmp|temp|swp|~)$",
+        "forbidden": true
+      }
+    ]
+  }
+}

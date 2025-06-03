@@ -1,0 +1,84 @@
+---
+description: (Describe rule purpose - Standards for documenting Python code within EGOS, including docstrings and type hints)
+globs: ["**/*.py"]
+alwaysApply: true
+---
+# Python Documentation Standard (KOIOS Standard)
+
+## Rule
+
+Use Google-style docstrings for all modules, classes, functions, and methods. Include type hints for all function signatures and important variables. Ensure docstrings clearly explain purpose, arguments, return values, and any raised exceptions.
+
+## Rationale
+
+-   **Readability & Understanding:** Clear docstrings and type hints make code easier to comprehend for humans and AI.
+-   **Maintainability:** Easier to modify and extend well-documented code.
+-   **Automated Documentation:** Tools like Sphinx can generate documentation from docstrings.
+-   **Static Analysis:** Type hints enable better static analysis and error detection.
+
+## Examples
+
+### Correct Usage
+
+```python
+from typing import List, Optional
+
+def process_data(data: List[int], threshold: Optional[float] = None) -> float:
+    """Processes a list of integers and returns their average.
+
+    Args:
+        data: A list of integers to process.
+        threshold: An optional float. If provided, only numbers above
+                   this threshold are included in the average.
+
+    Returns:
+        The calculated average as a float.
+
+    Raises:
+        ValueError: If the input data list is empty after filtering.
+    """
+    if threshold is not None:
+        filtered_data = [x for x in data if x > threshold]
+    else:
+        filtered_data = data
+
+    if not filtered_data:
+        raise ValueError("Input data is empty after applying threshold.")
+
+    return sum(filtered_data) / len(filtered_data)
+
+class DataProcessor:
+    """A class responsible for processing datasets.
+
+    Attributes:
+        cache_enabled: A boolean indicating if caching is active.
+    """
+    def __init__(self, cache_enabled: bool = True):
+        """Initializes the DataProcessor.
+
+        Args:
+            cache_enabled: Sets the initial state of the cache.
+        """
+        self.cache_enabled: bool = cache_enabled
+```
+
+### Incorrect Usage
+
+```python
+# Missing docstring and type hints
+def calculate(a, b):
+    # Does some calculation
+    return a + b
+
+# Incomplete docstring
+def my_func(param1):
+    """Does something."""
+    pass
+
+# Missing type hints
+class BadClass:
+    def __init__(self, value):
+        self.value = value
+```
+
+**Write clear, comprehensive Google-style docstrings and use type hints consistently.**

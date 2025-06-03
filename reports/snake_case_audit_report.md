@@ -1,0 +1,3091 @@
+# snake_case Compliance Audit Report
+
+**Date:** 2025-05-26 19:28:49
+**Total Items Scanned (approx.):** 13797
+**Non-Compliant Items Found:** 3081
+
+## Non-Compliant Directories:
+- C:\EGOS\EGOS_Framework
+- C:\EGOS\.cursor\mcp-servers
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\archive\ROADMAPS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\STRATEGIC_THINKING
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\STRATEGIC_THINKING
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\core_materials\archive\ROADMAPS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\research\OK no roadmap
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\00_project_overview\project_EGOS_docs_optimization
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\archive\ROADMAPS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\AETHER
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\ATLAS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\CORUJA
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\CRONOS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\ETHIK
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\GUARDIAN
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\HARMONY
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\KOIOS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\MYCELIUM
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\NEXUS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\TRUST_WEAVER
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\04_modules_and_components\CORUJA
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\07_standards_and_guidelines\research_archive\OK no roadmap
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\reference_archive\ROADMAPS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181527\docs\governance\migrations\processed\mixed-en-pt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181528\docs\governance\migrations\processed\mixed-en-pt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181529\docs\governance\migrations\processed\mixed-en-pt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181530\docs\governance\migrations\processed\mixed-en-pt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181531\docs\governance\migrations\processed\mixed-pt-en
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181532\docs\governance\migrations\processed\mixed-pt-en
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181533\docs\governance\migrations\processed\mixed-pt-en
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181536\docs\governance\migrations\processed\mixed-pt-en
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181537\docs\governance\migrations\processed\mixed-pt-en
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181538\docs\governance\migrations\processed\mixed-pt-en
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181539\docs\governance\migrations\processed\mixed-pt-en
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181546\docs\governance\roadmaps\AETHER
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181548\docs\governance\roadmaps\ATLAS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181548\docs\governance\roadmaps\CHRONICLER
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181549\docs\governance\roadmaps\CORUJA
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181550\docs\governance\roadmaps\CRONOS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181551\docs\governance\roadmaps\ETHIK
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181551\docs\governance\roadmaps\GUARDIAN
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181552\docs\governance\roadmaps\HARMONY
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181553\docs\governance\roadmaps\KARDIA
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181554\docs\governance\roadmaps\KOIOS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181554\docs\governance\roadmaps\MASTER
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181555\docs\governance\roadmaps\MYCELIUM
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181555\docs\governance\roadmaps\NEXUS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181555\docs\governance\roadmaps\SOPHIA
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181555\docs\governance\roadmaps\STRAT
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181555\docs\governance\roadmaps\subsystems\AETHER
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181556\docs\governance\roadmaps\subsystems\ATLAS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181556\docs\governance\roadmaps\subsystems\CHRONICLER
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181557\docs\governance\roadmaps\subsystems\CORUJA
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181557\docs\governance\roadmaps\subsystems\CRONOS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181558\docs\governance\roadmaps\subsystems\ETHIK
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181558\docs\governance\roadmaps\subsystems\GUARDIAN
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181559\docs\governance\roadmaps\subsystems\HARMONY
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181559\docs\governance\roadmaps\subsystems\KARDIA
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181600\docs\governance\roadmaps\subsystems\KOIOS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181600\docs\governance\roadmaps\subsystems\MASTER
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\MYCELIUM
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\NEXUS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\SOPHIA
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\STRAT
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\SYNC
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\TRANSLATOR
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181602\docs\governance\roadmaps\SYNC
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181602\docs\governance\roadmaps\subsystems\TRUST_WEAVER
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181603\docs\governance\roadmaps\TRANSLATOR
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181604\docs\governance\roadmaps\TRUST_WEAVER
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181625\docs\markdown\scripts\tools\mcp_management\mcp-servers
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181626\docs\markdown\subsystems\AETHER
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181626\docs\markdown\subsystems\ATLAS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181627\docs\markdown\subsystems\CHRONICLER
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181627\docs\markdown\subsystems\CORUJA
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181627\docs\markdown\subsystems\CRONOS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181627\docs\markdown\subsystems\ETHIK
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181628\docs\markdown\subsystems\GUARDIAN
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181628\docs\markdown\subsystems\HARMONY
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181628\docs\markdown\subsystems\KARDIA
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181628\docs\markdown\subsystems\KOIOS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181629\docs\markdown\subsystems\MASTER
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181629\docs\markdown\subsystems\MYCELIUM
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181629\docs\markdown\subsystems\NEXUS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181629\docs\markdown\subsystems\SOPHIA
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181630\docs\markdown\subsystems\STRAT
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181630\docs\markdown\subsystems\SYNC
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181630\docs\markdown\subsystems\TRANSLATOR
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181631\docs\markdown\subsystems\TRUST_WEAVER
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181642\docs\reference\archive\ROADMAPS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181643\docs\reference\archive\ROADMAPS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181703\docs\subsystems\AETHER
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181703\docs\subsystems\ATLAS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181703\docs\subsystems\CHRONICLER
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181704\docs\subsystems\CORUJA
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181705\docs\subsystems\CRONOS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181705\docs\subsystems\ETHIK
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181706\docs\subsystems\GUARDIAN
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181706\docs\subsystems\HARMONY
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181707\docs\subsystems\KARDIA
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181707\docs\subsystems\KOIOS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181708\docs\subsystems\KOIOS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181708\docs\subsystems\MASTER
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181708\docs\subsystems\MYCELIUM
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181709\docs\subsystems\NEXUS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181709\docs\subsystems\SOPHIA
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181709\docs\subsystems\STRAT
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181709\docs\subsystems\SYNC
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181709\docs\subsystems\TRANSLATOR
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181710\docs\subsystems\TRUST_WEAVER
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\research\OK no roadmap
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\scripts\tools\mcp_management\mcp-servers
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\subsystems\AETHER
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\subsystems\ATLAS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\subsystems\CORUJA
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\subsystems\CRONOS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\subsystems\ETHIK
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\subsystems\GUARDIAN
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\subsystems\HARMONY
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\subsystems\KOIOS
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\subsystems\MYCELIUM
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\subsystems\NEXUS
+- C:\EGOS\archive\docs\docs_old_20250521\research\OK no roadmap
+- C:\EGOS\archive\unused_libs\tom-select
+- C:\EGOS\archive\unused_libs\vis-9.1.2
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\STRATEGIC_THINKING
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\core_materials\archive\ROADMAPS
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\KOIOS
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\MYCELIUM
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\04_modules_and_components\CORUJA
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\subsystems\ATLAS
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\subsystems\KOIOS
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\research\OK no roadmap
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\STRATEGIC_THINKING
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\03_subsystems\NEXUS
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\core_materials\archive\ROADMAPS
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\core_materials\archive\ROADMAPS
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\archive\ROADMAPS
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\KOIOS
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\MYCELIUM
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\04_modules_and_components\CORUJA
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\reference_archive\ROADMAPS
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\subsystems\ATLAS
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\subsystems\KOIOS
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\research\OK no roadmap
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\subsystems\ATLAS
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\subsystems\CORUJA
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\subsystems\CRONOS
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\subsystems\KOIOS
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\subsystems\MYCELIUM
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\website\src\app\api\validation\unified-report
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\AETHER
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\ATLAS
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\CORUJA
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\CRONOS
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\ETHIK
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\GUARDIAN
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\HARMONY
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\KOIOS
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\MASTER
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\MYCELIUM
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\NEXUS
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\SYNC
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\TRANSLATOR
+- C:\EGOS\docs\01_Core_Principles_MQP
+- C:\EGOS\docs\02_Development_Standards
+- C:\EGOS\docs\06_Knowledge_Base
+- C:\EGOS\docs\Archive
+- C:\EGOS\docs\STRATEGIC_THINKING
+- C:\EGOS\docs\03_subsystems\AETHER
+- C:\EGOS\docs\03_subsystems\ARUNA
+- C:\EGOS\docs\03_subsystems\ATLAS
+- C:\EGOS\docs\03_subsystems\CHRONICLER
+- C:\EGOS\docs\03_subsystems\CORUJA
+- C:\EGOS\docs\03_subsystems\CRONOS
+- C:\EGOS\docs\03_subsystems\ETHIK
+- C:\EGOS\docs\03_subsystems\GUARDIAN
+- C:\EGOS\docs\03_subsystems\HARMONY
+- C:\EGOS\docs\03_subsystems\KARDIA
+- C:\EGOS\docs\03_subsystems\KOIOS
+- C:\EGOS\docs\03_subsystems\MASTER
+- C:\EGOS\docs\03_subsystems\MYCELIUM
+- C:\EGOS\docs\03_subsystems\NEXUS
+- C:\EGOS\docs\03_subsystems\ORACLE
+- C:\EGOS\docs\03_subsystems\ORION
+- C:\EGOS\docs\03_subsystems\PROMETHEUS
+- C:\EGOS\docs\03_subsystems\REALITY
+- C:\EGOS\docs\03_subsystems\SOPHIA
+- C:\EGOS\docs\03_subsystems\STRAT
+- C:\EGOS\docs\03_subsystems\SYNC
+- C:\EGOS\docs\03_subsystems\TRANSLATOR
+- C:\EGOS\docs\03_subsystems\TRUST_WEAVER
+- C:\EGOS\docs\03_subsystems\VOX
+- C:\EGOS\docs\04_modules_and_components\CORUJA
+- C:\EGOS\docs\07_standards_and_guidelines\research_archive\OK no roadmap
+- C:\EGOS\docs\10_system_health\reports\backups\20250521_124717\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181629\docs\markdown\subsystems\MYCELIUM
+- C:\EGOS\docs\10_system_health\reports\backups\20250521_124719\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181629\docs\markdown\subsystems\MASTER
+- C:\EGOS\docs\10_system_health\reports\backups\20250521_124720\docs\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\CRONOS
+- C:\EGOS\docs\10_system_health\reports\backups\20250521_124721\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181630\docs\markdown\subsystems\SYNC
+- C:\EGOS\docs\10_system_health\reports\backups\20250521_124734\subsystems\KOIOS
+- C:\EGOS\docs\10_system_health\reports\backups\20250521_124735\docs\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\CORUJA
+- C:\EGOS\docs\10_system_health\reports\backups\20250521_124744\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181627\docs\markdown\subsystems\CORUJA
+- C:\EGOS\docs\Archive\ROADMAPS_from_core_principles
+- C:\EGOS\docs\core_materials\archive\ROADMAPS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\STRATEGIC_THINKING
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\STRATEGIC_THINKING
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\core_materials\archive\ROADMAPS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\research\OK no roadmap
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\00_project_overview\project_EGOS_docs_optimization
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\archive\ROADMAPS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\AETHER
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\ATLAS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\CORUJA
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\CRONOS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\ETHIK
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\GUARDIAN
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\HARMONY
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\KOIOS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\MYCELIUM
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\NEXUS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\TRUST_WEAVER
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\04_modules_and_components\CORUJA
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\07_standards_and_guidelines\research_archive\OK no roadmap
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\reference_archive\ROADMAPS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181527\docs\governance\migrations\processed\mixed-en-pt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181528\docs\governance\migrations\processed\mixed-en-pt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181529\docs\governance\migrations\processed\mixed-en-pt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181530\docs\governance\migrations\processed\mixed-en-pt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181531\docs\governance\migrations\processed\mixed-pt-en
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181532\docs\governance\migrations\processed\mixed-pt-en
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181533\docs\governance\migrations\processed\mixed-pt-en
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181536\docs\governance\migrations\processed\mixed-pt-en
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181537\docs\governance\migrations\processed\mixed-pt-en
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181538\docs\governance\migrations\processed\mixed-pt-en
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181539\docs\governance\migrations\processed\mixed-pt-en
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181546\docs\governance\roadmaps\AETHER
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181548\docs\governance\roadmaps\ATLAS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181548\docs\governance\roadmaps\CHRONICLER
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181549\docs\governance\roadmaps\CORUJA
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181550\docs\governance\roadmaps\CRONOS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181551\docs\governance\roadmaps\ETHIK
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181551\docs\governance\roadmaps\GUARDIAN
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181552\docs\governance\roadmaps\HARMONY
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181553\docs\governance\roadmaps\KARDIA
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181554\docs\governance\roadmaps\KOIOS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181554\docs\governance\roadmaps\MASTER
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181555\docs\governance\roadmaps\MYCELIUM
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181555\docs\governance\roadmaps\NEXUS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181555\docs\governance\roadmaps\SOPHIA
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181555\docs\governance\roadmaps\STRAT
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181555\docs\governance\roadmaps\subsystems\AETHER
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181556\docs\governance\roadmaps\subsystems\ATLAS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181556\docs\governance\roadmaps\subsystems\CHRONICLER
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181557\docs\governance\roadmaps\subsystems\CORUJA
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181557\docs\governance\roadmaps\subsystems\CRONOS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181558\docs\governance\roadmaps\subsystems\ETHIK
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181558\docs\governance\roadmaps\subsystems\GUARDIAN
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181559\docs\governance\roadmaps\subsystems\HARMONY
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181559\docs\governance\roadmaps\subsystems\KARDIA
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181600\docs\governance\roadmaps\subsystems\KOIOS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181600\docs\governance\roadmaps\subsystems\MASTER
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\MYCELIUM
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\NEXUS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\SOPHIA
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\STRAT
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\SYNC
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\TRANSLATOR
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181602\docs\governance\roadmaps\SYNC
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181602\docs\governance\roadmaps\subsystems\TRUST_WEAVER
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181603\docs\governance\roadmaps\TRANSLATOR
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181604\docs\governance\roadmaps\TRUST_WEAVER
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181625\docs\markdown\scripts\tools\mcp_management\mcp-servers
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181626\docs\markdown\subsystems\AETHER
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181626\docs\markdown\subsystems\ATLAS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181627\docs\markdown\subsystems\CHRONICLER
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181627\docs\markdown\subsystems\CORUJA
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181627\docs\markdown\subsystems\CRONOS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181627\docs\markdown\subsystems\ETHIK
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181628\docs\markdown\subsystems\GUARDIAN
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181628\docs\markdown\subsystems\HARMONY
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181628\docs\markdown\subsystems\KARDIA
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181628\docs\markdown\subsystems\KOIOS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181629\docs\markdown\subsystems\MASTER
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181629\docs\markdown\subsystems\MYCELIUM
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181629\docs\markdown\subsystems\NEXUS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181629\docs\markdown\subsystems\SOPHIA
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181630\docs\markdown\subsystems\STRAT
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181630\docs\markdown\subsystems\SYNC
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181630\docs\markdown\subsystems\TRANSLATOR
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181631\docs\markdown\subsystems\TRUST_WEAVER
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181642\docs\reference\archive\ROADMAPS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181643\docs\reference\archive\ROADMAPS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181703\docs\subsystems\AETHER
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181703\docs\subsystems\ATLAS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181703\docs\subsystems\CHRONICLER
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181704\docs\subsystems\CORUJA
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181705\docs\subsystems\CRONOS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181705\docs\subsystems\ETHIK
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181706\docs\subsystems\GUARDIAN
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181706\docs\subsystems\HARMONY
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181707\docs\subsystems\KARDIA
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181707\docs\subsystems\KOIOS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181708\docs\subsystems\KOIOS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181708\docs\subsystems\MASTER
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181708\docs\subsystems\MYCELIUM
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181709\docs\subsystems\NEXUS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181709\docs\subsystems\SOPHIA
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181709\docs\subsystems\STRAT
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181709\docs\subsystems\SYNC
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181709\docs\subsystems\TRANSLATOR
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181710\docs\subsystems\TRUST_WEAVER
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\research\OK no roadmap
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\scripts\tools\mcp_management\mcp-servers
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\subsystems\AETHER
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\subsystems\ATLAS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\subsystems\CORUJA
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\subsystems\CRONOS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\subsystems\ETHIK
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\subsystems\GUARDIAN
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\subsystems\HARMONY
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\subsystems\KOIOS
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\subsystems\MYCELIUM
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\subsystems\NEXUS
+- C:\EGOS\docs\research\OK no roadmap
+- C:\EGOS\docs\templates\ROADMAPS_templates
+- C:\EGOS\logs\subsystems\CORUJA
+- C:\EGOS\scripts\maintenance\cross_reference_tools_EMPTY_TO_BE_DELETED
+- C:\EGOS\scripts\subsystems\AETHER
+- C:\EGOS\scripts\subsystems\CHRONICLER
+- C:\EGOS\scripts\subsystems\GUARDIAN
+- C:\EGOS\scripts\subsystems\HARMONY
+- C:\EGOS\scripts\subsystems\KOIOS
+- C:\EGOS\scripts\subsystems\MASTER
+- C:\EGOS\scripts\subsystems\MYCELIUM
+- C:\EGOS\scripts\subsystems\STRAT
+- C:\EGOS\scripts\subsystems\SYNC
+- C:\EGOS\scripts\tools\mcp_management\mcp-servers
+- C:\EGOS\scripts\utilities\migrations_EMPTY_TO_BE_DELETED
+- C:\EGOS\tests\subsystems\MYCELIUM
+- C:\EGOS\website\.next\cache\webpack\client-development
+- C:\EGOS\website\.next\cache\webpack\client-development-fallback
+- C:\EGOS\website\.next\cache\webpack\server-development
+- C:\EGOS\website\.next\server\vendor-chunks
+- C:\EGOS\website\.next\server\app\_not-found
+- C:\EGOS\website\src\app\cross-reference-explorer
+- C:\EGOS\website\src\app\system-explorer
+- C:\EGOS\website\src\app\api\validation\unified-report
+- C:\EGOS\website\src\components\cross-reference
+
+## Non-Compliant Files:
+- C:\EGOS\.pre-commit-config-dir-structure.yaml
+- C:\EGOS\.pre-commit-config.yaml
+- C:\EGOS\ADRS_Log.md
+- C:\EGOS\ARCHIVE_POLICY.md
+- C:\EGOS\Chacreamento, condomínio e parcelamento rural._ (1).md
+- C:\EGOS\Chacreamento, condomínio e parcelamento rural._.md
+- C:\EGOS\CHANGELOG.md
+- C:\EGOS\DiagEnio.md
+- C:\EGOS\MQP.md
+- C:\EGOS\OCIOCRIATIVO.md
+- C:\EGOS\README_TOOL_MANAGEMENT.md
+- C:\EGOS\ROADMAP.md
+- C:\EGOS\WORK_2025-05-24_DocOrganizerEnhancements.md
+- C:\EGOS\WORK_2025-05-24_MCP_Productization_Strategy.md
+- C:\EGOS\WORK_2025-05-25_CRONOS_Product_Brief_Completion_And_Documentation_Updates.md
+- C:\EGOS\WORK_2025-05-25_HARMONY_Live_Concept_Integration.md
+- C:\EGOS\WORK_2025-05-25_MCP_Documentation_Standardization.md
+- C:\EGOS\WORK_2025-05-25_MCP_Renaming_DIAGENIO_to_PRISM.md
+- C:\EGOS\WORK_2025-05-26_MCP_Testing_Framework_Development.md
+- C:\EGOS\WORK_2025-05-26_Strategic_Review_And_Roadmap.md
+- C:\EGOS\.cursor\init-mcp.bat
+- C:\EGOS\.cursor\mcp\bios-q.json
+- C:\EGOS\.cursor\mcp\sequential-thinking.json
+- C:\EGOS\.cursor\mcp-servers\README_OPENROUTER.md
+- C:\EGOS\.cursor\prompts\CURSOR_QUANTUM_PROMPT.md
+- C:\EGOS\.cursor\prompts\CURSOR_SYSTEM_PROMPT.txt
+- C:\EGOS\.github\hooks\pre-commit
+- C:\EGOS\.github\workflows\gh-pages.yml
+- C:\EGOS\.obsidian\core-plugins.json
+- C:\EGOS\.ruff_cache\CACHEDIR.TAG
+- C:\EGOS\apps\dashboard\docs\dashboard_ARCHITECTURE.md
+- C:\EGOS\apps\dashboard\docs\dashboard_FILE_ANALYSIS.md
+- C:\EGOS\apps\dashboard\docs\dashboard_README.md
+- C:\EGOS\apps\dashboard\docs\dashboard_ROADMAP.md
+- C:\EGOS\apps\dashboard\docs\ROADMAP.md
+- C:\EGOS\archive\ARCHIVE_STRUCTURE.md
+- C:\EGOS\archive\docs\docs_old_20250521\GOVERNANCE.md
+- C:\EGOS\archive\docs\docs_old_20250521\INTEGRATION_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\ai_collaboration\MULTI_AGENT_WORKFLOW.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\ARCHITECTURE.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\CRONOS_REFACTORING_EXAMPLE.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\EGOS_OVERVIEW.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\GOVERNANCE.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\INTEGRATION_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\KOIOS_Interaction_Standards.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\MCP_CREATION_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\MQP.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\PHILOSOPHY.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\STANDARDS_SCRIPT_FEEDBACK.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\STRATEGY.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\ai_collaboration\MULTI_AGENT_WORKFLOW.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\ai_integration\MULTI_MODEL_INSIGHTS.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\apresentaçao e concorrentes.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\atualizacao bot unificado.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\atualização botava.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\ava7.0 novv.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\BACKUP quantico.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Backup system.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\BIOS-Q MCP.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\BOT ok melhorando.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Cursor X Web limitaçoes.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Dinamicidade no sistema.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\EGOS 1.0.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\EVA & GUARANI - Quantum Unified Master Prompt 2024 (Versão 8.0).txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\eva 5 inicializaçao.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\EVA 7.3.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\eva atendimento inicio.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Filesystem SLOP.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\grande atualizacao.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Instalaçao EVA.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\INstruicoes bot telegram.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Integration Codeguide Paella MQP.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Integraçao Cursor e Eva.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Integraçao Eliza.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Integraçao sistema quantico com bot.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Link simbolico fonte de verdade sistema.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\MATRIZ  quantica.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\MCP OK avanços e futuro.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Melhorias BOT telegram.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\muito longe.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\MVP OK 7.0.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Mycelium atualizado.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\NAO PARE Futuro Projeto importante.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\NEXUS elovuindo MUITO.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\NEXUS_MODULAR.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\OUTLINE cursor FODA.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Overview projeto.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Panorama sistema TODO.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\PLANO DE NEGOCIO EVA (14).txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\PLANO DE NEGOCIO EVA SENNA.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Plano reorganizaçao pastas.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Prompt quantico 7 ingles.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Prompt Quantico 7.0 EGOS.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Prompts quanticos EGOS.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Promtps quanticos v7.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\próximos passoATLAS.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Quantum Prompt 5.0.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Quantum prompt 8.0 BIOS-Q.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Quantum Prompt Rules e inicializaçao.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Quantum unification.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Roadmap Mycellium.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\ROADMAP.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\RPG EVA.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\sistema validaçao etica RPG.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\tentando perplexity.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Unification ETHIK.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Updates system EVA.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\viagem neural quantica.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Visao geral inicialization.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Web application avançando.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\historical_changelogs\websearch atualizacao.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\process\validation\PROC-VALIDATE-01_roadmap_tasks_validation.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\process\validation\PROC-VALIDATE-02_subsystem_structure_validation.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\prompts\CURSOR_QUANTUM_PROMPT.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\prompts\CURSOR_SYSTEM_PROMPT.txt
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\research\AI_AGENT_CAPABILITIES_2025.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\research\CONTENT_AGGREGATOR_DEEP_DIVE.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\standards\KOIOS_Interaction_Standards.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\standards\KOIOS_PDD_Standard.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\strategy\Competitive_Analysis.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\strategy\Customer_Journey_Map.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\strategy\EGOS_Business_Plan_v1.0.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\strategy\EGOS_PRESENTATION_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\strategy\Monetization_Model.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\strategy\Target_Platform_Analysis.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\templates\PDD_Template.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\templates\PDD_Template.yaml
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\website\CONTENT_STRATEGY.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\website\CURRENT_TASKS.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\website\DESIGN_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\website\USER_RESEARCH_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\core_materials\website\WEBSITE_DESIGN.md
+- C:\EGOS\archive\docs\docs_old_20250521\diagnostics\diagnosticoENIO_Batch7_20250518.md
+- C:\EGOS\archive\docs\docs_old_20250521\diagnostics\DOCS_DIRECTORY_DIAGNOSTIC_20250518.md
+- C:\EGOS\archive\docs\docs_old_20250521\governance\2025-05-05_centralization_system_progress.md
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Adaptação de Prompts para EGOS_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\AnaliseEnioEgos.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Análise de Integração de Ferramentas e Empresas com o Sistema EVA GUARANI - EGOS.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Análise e Ferramentas para EGOS_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Análise e Refinamento do Projeto EGOS_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Aprimorando o site EGOS_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Aprimorando Prompt para EGOS_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Avanço Windsurf.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\BIOS-Q MCP.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\CHANGELOG.md
+- C:\EGOS\archive\docs\docs_old_20250521\governance\CHANGES_SUMMARY.md
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Comparacao ferramentas data ia.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Concorrentes gratuitos do CodeGuide_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\CORUJA-MYC-05_performance_analysis_plan.md
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Criaçao de site com IA.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\EGOS - Gemini AI System Market Analysis.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\EGOS 1.0.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\EGOS CodeGuide PRD.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\EGOS Ethical Marketing Strategy_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\EGOS1.1 visao geral.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\EGOS_ GitHub Project Search_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\EGOS_STRATEGIC_OVERVIEW.md
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Estudo KOIOS.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Focus Definition EGOS Coruja.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Instalaçao EVA.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Integration Codeguide Paella MQP.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Integraçao sistema quantico com bot.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Integração Context7 e _egos_ aprimorada_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\KOIOS-summary.md
+- C:\EGOS\archive\docs\docs_old_20250521\governance\LEGACY_MIGRATION.md
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Market Positioning Strategy for Eva Guarani Egos An Expert Analysis.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\MARKET_ANALYSIS.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\MCP grande avanço roadmap.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Melhorias BOT telegram.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\MVP OK 7.0.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\NAO PARE Futuro Projeto importante.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\OpenSource Repos.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\PLANO DE NEGOCIO EVA (14).txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Plano reorganizaçao pastas.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Prompt quantico 7 ingles.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Prompt Quantico 7.0 EGOS.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Prompts quanticos EGOS.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Quantum Prompt Rules e inicializaçao.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\REORGANIZATION_2025.md
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Roadmap apos estudos.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Roadmap Mycellium.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\RPG EVA.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\SPARC_methodology.md
+- C:\EGOS\archive\docs\docs_old_20250521\governance\STRATEGY.md
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Subsystems and tools 8.2.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\TIPS_HESAMATION.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\ULTIMA quase tudo revisado.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Visao EVA até aqui, fit go to market.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\WebSite analise.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\Windsurf Prompt for EGOS Project_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\governance\reorganization\DOCS_MIGRATION_CASE_STUDY.md
+- C:\EGOS\archive\docs\docs_old_20250521\governance\reorganization\DOCS_MIGRATION_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\governance\reorganization\SYSTEM_ORGANIZATION_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\governance\reorganization\SYSTEM_ORGANIZATION_TASKS.md
+- C:\EGOS\archive\docs\docs_old_20250521\guides\CORUJA_PERFORMANCE_METRICS_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\guides\CRONOS_REFACTORING_EXAMPLE.md
+- C:\EGOS\archive\docs\docs_old_20250521\guides\MCP_CREATION_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\guides\MULTI_AGENT_WORKFLOW.md
+- C:\EGOS\archive\docs\docs_old_20250521\guides\SYSTEM_VISUALIZATION_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\process\auditing\PROC-AUDIT-01_python_json_script_audit_v1.mdc
+- C:\EGOS\archive\docs\docs_old_20250521\products\website\CURRENT_TASKS.md
+- C:\EGOS\archive\docs\docs_old_20250521\products\website\DESIGN_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\products\website\DEVELOPMENT_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\products\website\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\products\website\USER_RESEARCH_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\products\website\WEBSITE_DESIGN.md
+- C:\EGOS\archive\docs\docs_old_20250521\products\website\website_README.md
+- C:\EGOS\archive\docs\docs_old_20250521\products\website\website_WEBSITE_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\products\website\docs\system\EGOS_UI_Documentation.md
+- C:\EGOS\archive\docs\docs_old_20250521\project\ARCHITECTURE.md
+- C:\EGOS\archive\docs\docs_old_20250521\project\EGOS_OVERVIEW.md
+- C:\EGOS\archive\docs\docs_old_20250521\project\GOVERNANCE.md
+- C:\EGOS\archive\docs\docs_old_20250521\project\INTEGRATION_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\project\MCP grande avanço roadmap.txt
+- C:\EGOS\archive\docs\docs_old_20250521\project\MQP.md
+- C:\EGOS\archive\docs\docs_old_20250521\project\NAO PARE Futuro Projeto importante.txt
+- C:\EGOS\archive\docs\docs_old_20250521\project\PHILOSOPHY.md
+- C:\EGOS\archive\docs\docs_old_20250521\project\Roadmap Mycellium.txt
+- C:\EGOS\archive\docs\docs_old_20250521\project\STRATEGY.md
+- C:\EGOS\archive\docs\docs_old_20250521\project\archived_strategy_subdirs\strategy_archive\Competitive_Analysis.md
+- C:\EGOS\archive\docs\docs_old_20250521\project\archived_strategy_subdirs\strategy_archive\Customer_Journey_Map.md
+- C:\EGOS\archive\docs\docs_old_20250521\project\archived_strategy_subdirs\strategy_archive\EGOS_Business_Plan_v1.0.md
+- C:\EGOS\archive\docs\docs_old_20250521\project\archived_strategy_subdirs\strategy_archive\EGOS_PRESENTATION_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\project\archived_strategy_subdirs\strategy_archive\Monetization_Model.md
+- C:\EGOS\archive\docs\docs_old_20250521\project\archived_strategy_subdirs\strategy_archive\MVP_Definition.md
+- C:\EGOS\archive\docs\docs_old_20250521\project\archived_strategy_subdirs\strategy_archive\Target_Platform_Analysis.md
+- C:\EGOS\archive\docs\docs_old_20250521\prompts\CURSOR_QUANTUM_PROMPT.md
+- C:\EGOS\archive\docs\docs_old_20250521\prompts\CURSOR_SYSTEM_PROMPT.txt
+- C:\EGOS\archive\docs\docs_old_20250521\prompts\Prompt Quantico 7.0 EGOS.txt
+- C:\EGOS\archive\docs\docs_old_20250521\prompts\Prompts quanticos EGOS.txt
+- C:\EGOS\archive\docs\docs_old_20250521\prompts\Quantum Prompt Rules e inicializaçao.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\MQP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\OCIOCRIATIVO.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\Work_2025-05-20_Documentation_Diagnosis.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\Work_2025-05-20_Phase2_Execution_Plan.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\DOCUMENTATION_INDEX.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\core_materials\KOIOS_Interaction_Standards.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\core_materials\MQP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\core_materials\historical_changelogs\EVA & GUARANI - Quantum Unified Master Prompt 2024 (Versão 8.0).txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\core_materials\historical_changelogs\MCP grande avanço roadmap.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\core_materials\historical_changelogs\PLANO DE NEGOCIO EVA (1).txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\core_materials\historical_changelogs\RPG EVA.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\core_materials\historical_changelogs\ULTIMA quase tudo revisado.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\core_materials\historical_changelogs\Unification system PRD.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\core_materials\standards\KOIOS_Interaction_Standards.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\core_materials\strategy\EGOS_Business_Plan_v1.0.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\core_materials\website\DESIGN_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\diagnostics\diagnosticoENIO_Batch7_20250518.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\2025-04-21_system_enhancement_update.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\2025-05-05_centralization_system_progress.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\CHANGELOG.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\CHANGES_SUMMARY.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\CORUJA-MYC-02_circuit_breaker_implementation.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\CORUJA-MYC-05_performance_analysis_plan.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\CORUJA-MYC-05_performance_metrics_implementation.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\DOCUMENTATION_METRICS_DASHBOARD.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\EGOS Ethical Marketing Strategy_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\EGOS Trust Weave MVP.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\GO_TO_MARKET_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\Integração Context7 e _egos_ aprimorada_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\LEGACY_MIGRATION.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\MCP grande avanço roadmap.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\RPG EVA.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\SPARC_methodology.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\STRATEGY.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\TASK-2025-04-22-cross-reference-system-enhancement.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\ULTIMA quase tudo revisado.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\reorganization\DOCS_MIGRATION_CASE_STUDY.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\reorganization\DOCS_MIGRATION_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\reorganization\SYSTEM_ORGANIZATION_TASKS.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\reports\EGOS_Project_Diagnostic_Report.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\guides\CORUJA_PERFORMANCE_METRICS_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\guides\CRONOS_REFACTORING_EXAMPLE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\guides\MCP_CREATION_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\guides\MULTI_AGENT_WORKFLOW.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\guides\SYSTEM_VISUALIZATION_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\guides\VIBE_CODING_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\products\dashboard\dashboard_ARCHITECTURE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\products\dashboard\dashboard_FILE_ANALYSIS.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\products\dashboard\dashboard_README.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\products\dashboard\dashboard_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\products\dashboard\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\products\egos_dashboard\egos_dashboard_README.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\products\website\CURRENT_TASKS.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\products\website\DESIGN_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\products\website\DEVELOPMENT_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\products\website\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\products\website\USER_RESEARCH_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\products\website\website_DASHBOARD-ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\products\website\WEBSITE_DESIGN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\products\website\website_MYCELIUM-INTEGRATION-PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\products\website\website_README.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\products\website\website_WEBSITE_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\project\EGOS_OVERVIEW.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\project\GOVERNANCE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\project\INTEGRATION_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\project\MCP grande avanço roadmap.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\project\MQP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\project\PHILOSOPHY.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\project\STRATEGY.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\project\archived_strategy_subdirs\strategy_archive\Competitive_Analysis.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\project\archived_strategy_subdirs\strategy_archive\Customer_Journey_Map.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\project\archived_strategy_subdirs\strategy_archive\EGOS_Business_Plan_v1.0.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\project\archived_strategy_subdirs\strategy_archive\EGOS_PRESENTATION_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\project\archived_strategy_subdirs\strategy_archive\Monetization_Model.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\project\archived_strategy_subdirs\strategy_archive\MVP_Definition.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\project\archived_strategy_subdirs\strategy_archive\Target_Platform_Analysis.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\prompts\CURSOR_QUANTUM_PROMPT.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\research\OK no roadmap\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\research\OK no roadmap\EGOS Ethical Marketing Strategy_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\research\OK no roadmap\Scraper com IA.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\standards\KOIOS_Interaction_Standards.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\standards\STANDARDS_SCRIPT_FEEDBACK.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\standards\validation_procedures\PROC-VALIDATE-01_roadmap_tasks_validation.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\standards\validation_procedures\PROC-VALIDATE-02_subsystem_structure_validation.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\STRATEGIC_THINKING\research\Integração Context7 e _egos_ aprimorada_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\STRATEGIC_THINKING\research\roadmap_related\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\STRATEGIC_THINKING\research\roadmap_related\EGOS Ethical Marketing Strategy_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\STRATEGIC_THINKING\research\roadmap_related\Scraper com IA.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\STRATEGIC_THINKING\strategy_archive\EGOS_Business_Plan_v1.0.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\technical\MYCELIUM_INTEGRATION.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\technical\WEBSITE_DESIGN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\technical\ai_systems\ai_collaboration_archive\MULTI_AGENT_WORKFLOW.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\technical\ai_systems\ai_integration_archive\MULTI_MODEL_INSIGHTS.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\technical\components\website_dev_archive\CONTENT_STRATEGY.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\technical\components\website_dev_archive\CURRENT_TASKS.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\technical\components\website_dev_archive\DESIGN_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\technical\components\website_dev_archive\DEVELOPMENT_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\technical\components\website_dev_archive\USER_RESEARCH_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\technical\components\website_dev_archive\WEBSITE_DESIGN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\templates\reference_templates\PDD_Template.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\website\DESIGN_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\SUMMARY.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\00_project_overview\ARCHITECTURE.MD
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\00_project_overview\DOCUMENTATION_INDEX.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\00_project_overview\README_core_materials_overview.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\00_project_overview\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\00_project_overview\project_EGOS_docs_optimization\Work_2025-05-20_Documentation_Diagnosis.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\00_project_overview\project_EGOS_docs_optimization\Work_2025-05-20_Phase2_Execution_Plan.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_concepts\strategic_thinking\research\Integração Context7 e _egos_ aprimorada_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_concepts\strategic_thinking\research\roadmap_related\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_concepts\strategic_thinking\research\roadmap_related\EGOS Ethical Marketing Strategy_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_concepts\strategic_thinking\research\roadmap_related\Scraper com IA.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_concepts\strategic_thinking\strategy_archive\EGOS_Business_Plan_v1.0.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\KOIOS_Interaction_Standards.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\historical_changelogs\EVA & GUARANI - Quantum Unified Master Prompt 2024 (Versão 8.0).txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\historical_changelogs\MCP grande avanço roadmap.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\historical_changelogs\PLANO DE NEGOCIO EVA (1).txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\historical_changelogs\RPG EVA.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\historical_changelogs\ULTIMA quase tudo revisado.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\historical_changelogs\Unification system PRD.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\standards\KOIOS_Interaction_Standards.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\strategy\EGOS_Business_Plan_v1.0.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\website\DESIGN_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\2025-04-21_system_enhancement_update.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\2025-05-05_centralization_system_progress.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\CHANGELOG.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\CHANGES_SUMMARY.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\CORUJA-MYC-02_circuit_breaker_implementation.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\CORUJA-MYC-05_performance_analysis_plan.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\CORUJA-MYC-05_performance_metrics_implementation.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\DOCUMENTATION_METRICS_DASHBOARD.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\EGOS Ethical Marketing Strategy_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\EGOS Trust Weave MVP.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\GO_TO_MARKET_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\Integração Context7 e _egos_ aprimorada_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\LEGACY_MIGRATION.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\MCP grande avanço roadmap.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\RPG EVA.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\SPARC_methodology.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\STRATEGY.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\TASK-2025-04-22-cross-reference-system-enhancement.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\ULTIMA quase tudo revisado.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\reorganization\DOCS_MIGRATION_CASE_STUDY.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\reorganization\DOCS_MIGRATION_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\reorganization\SYSTEM_ORGANIZATION_TASKS.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\reports\EGOS_Project_Diagnostic_Report.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\standards_documents\KOIOS_Interaction_Standards.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\standards_documents\STANDARDS_SCRIPT_FEEDBACK.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\standards_documents\TASK_DOCUMENTATION_STANDARD.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\standards_documents\validation_procedures\PROC-VALIDATE-01_roadmap_tasks_validation.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\standards_documents\validation_procedures\PROC-VALIDATE-02_subsystem_structure_validation.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\MYCELIUM_INTEGRATION.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\WEBSITE_DESIGN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\ai_systems\ai_collaboration_archive\MULTI_AGENT_WORKFLOW.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\ai_systems\ai_integration_archive\MULTI_MODEL_INSIGHTS.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\components\website_dev_archive\CONTENT_STRATEGY.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\components\website_dev_archive\CURRENT_TASKS.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\components\website_dev_archive\DESIGN_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\components\website_dev_archive\DEVELOPMENT_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\components\website_dev_archive\USER_RESEARCH_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\components\website_dev_archive\WEBSITE_DESIGN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\02_koios_standards\KOIOS_Interaction_Standards.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\02_koios_standards\STANDARDS_SCRIPT_FEEDBACK.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\02_koios_standards\TASK_DOCUMENTATION_STANDARD.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\03_processes\development\KOS_process_documentation_review.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\03_processes\development\PROC-VALIDATE-01_roadmap_tasks_validation.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\03_processes\development\PROC-VALIDATE-02_subsystem_structure_validation.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\README_OLD_OVERVIEW.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\ATLAS\ATL_architecture.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\CORUJA\ARCHITECTURE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\ETHIK\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\KOIOS\processes\KOS_process_documentation_review.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\TRUST_WEAVER\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\04_modules_and_components\CORUJA\prompts\CURSOR_QUANTUM_PROMPT.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\04_modules_and_components\CORUJA\prompts_legacy\CURSOR_QUANTUM_PROMPT.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\04_products_services\website\DESIGN_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\06_guides_and_tutorials\CORUJA_PERFORMANCE_METRICS_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\06_guides_and_tutorials\CRONOS_REFACTORING_EXAMPLE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\06_guides_and_tutorials\MCP_CREATION_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\06_guides_and_tutorials\MULTI_AGENT_WORKFLOW.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\06_guides_and_tutorials\SYSTEM_VISUALIZATION_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\06_guides_and_tutorials\VIBE_CODING_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\07_standards_and_guidelines\research_archive\OK no roadmap\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\07_standards_and_guidelines\research_archive\OK no roadmap\EGOS Ethical Marketing Strategy_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\07_standards_and_guidelines\research_archive\OK no roadmap\Scraper com IA.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\08_tooling_and_scripts\migration_utilities\Invoke-EGOSMigration_Guide.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\08_tooling_and_scripts\tooling_docs_legacy\specifications\KOS_AUD_001_file_reference_checker.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\dashboard\dashboard_ARCHITECTURE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\dashboard\dashboard_FILE_ANALYSIS.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\dashboard\dashboard_README.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\dashboard\dashboard_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\dashboard\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\egos_dashboard\egos_dashboard_README.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\website\CURRENT_TASKS.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\website\DESIGN_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\website\DEVELOPMENT_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\website\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\website\USER_RESEARCH_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\website\website_DASHBOARD-ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\website\WEBSITE_DESIGN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\website\website_MYCELIUM-INTEGRATION-PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\website\website_README.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\website\website_WEBSITE_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\EGOS_OVERVIEW.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\GOVERNANCE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\INTEGRATION_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\MCP grande avanço roadmap.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\MQP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\PHILOSOPHY.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\STRATEGY.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\archived_strategy_subdirs\strategy_archive\Competitive_Analysis.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\archived_strategy_subdirs\strategy_archive\Customer_Journey_Map.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\archived_strategy_subdirs\strategy_archive\EGOS_Business_Plan_v1.0.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\archived_strategy_subdirs\strategy_archive\EGOS_PRESENTATION_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\archived_strategy_subdirs\strategy_archive\Monetization_Model.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\archived_strategy_subdirs\strategy_archive\MVP_Definition.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\archived_strategy_subdirs\strategy_archive\Target_Platform_Analysis.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\recovery_analysis\RECOVERY_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\reports\handovers\windsurf_handover_code_health_2025-04-25.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\10_system_health\diagnostics\diagnosticoENIO_Batch7_20250518.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\12_website_and_public_docs\website_content_legacy\DESIGN_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\legacy_archive\docs_root_README_OLD.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\templates\reference_templates\PDD_Template.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\archived_references\reference_README.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\changelogs_archive\NEXUS_MODULAR_changelog.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\archived_md_from_reference\AI_AGENT_CAPABILITIES_2025.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\archived_md_from_reference\CONTENT_AGGREGATOR_DEEP_DIVE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\archived_md_from_reference\reference_README.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\archived_reference_txt\RPG EVA.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\archived_reference_txt\ULTIMA quase tudo revisado.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\historical_changelogs_from_reference\EVA & GUARANI - Quantum Unified Master Prompt 2024 (Versão 8.0).txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\historical_changelogs_from_reference\MCP grande avanço roadmap.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\historical_changelogs_from_reference\NEXUS_MODULAR.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\historical_changelogs_from_reference\PLANO DE NEGOCIO EVA (1).txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\historical_changelogs_from_reference\RPG EVA.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\historical_changelogs_from_reference\ULTIMA quase tudo revisado.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\historical_changelogs_from_reference\Unification system PRD.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\third_party_tool_docs\lovable_README.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181428\docs\governance\.-summary.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181440\docs\governance\business\EGOS_BUSINESS_STRATEGY.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181440\docs\governance\business\EGOS_SYSTEM_ARCHITECTURE_VISUALIZATION.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181440\docs\governance\business\GITHUB_REPOSITORY_ANALYSIS.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181441\docs\governance\business\SUBSYSTEM_VALUE_MATRIX.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181441\docs\governance\business\external_docs\ARCHITECTURE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181441\docs\governance\business\external_docs\EGOS_OVERVIEW.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181441\docs\governance\business\external_docs\GETTING_STARTED.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181442\docs\governance\business\github_updates\subsystems\ethik\docs\ETHIK_Architecture.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181442\docs\governance\business\github_updates\subsystems\ethik\docs\ValidationEngine.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181526\docs\governance\migrations\processed\MVP OK 7.0.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181526\docs\governance\migrations\processed\PLANO DE NEGOCIO EVA (14).md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181526\docs\governance\migrations\processed\Prompt quantico 7 ingles.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181527\docs\governance\migrations\processed\mixed\BIOS-Q Cursor sistema EVA.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181527\docs\governance\migrations\processed\mixed\Mycelium atualizado.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181527\docs\governance\migrations\processed\mixed\Prometheus Grafana.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181527\docs\governance\migrations\processed\mixed\sandbox testando eva na web.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181527\docs\governance\migrations\processed\mixed-en-pt\Backup system.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181527\docs\governance\migrations\processed\mixed-en-pt\Dinamicidade no sistema.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181528\docs\governance\migrations\processed\mixed-en-pt\Filesystem SLOP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181528\docs\governance\migrations\processed\mixed-en-pt\Focus Definition EGOS Coruja.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181528\docs\governance\migrations\processed\mixed-en-pt\Integration Codeguide Paella MQP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181528\docs\governance\migrations\processed\mixed-en-pt\Maior diagnostico ate entao.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181528\docs\governance\migrations\processed\mixed-en-pt\Mycellium explained.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181528\docs\governance\migrations\processed\mixed-en-pt\NAO PARE Futuro Projeto importante.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181529\docs\governance\migrations\processed\mixed-en-pt\OpenSource Repos.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181529\docs\governance\migrations\processed\mixed-en-pt\Overview projeto.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181529\docs\governance\migrations\processed\mixed-en-pt\Panorama sistema TODO.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181529\docs\governance\migrations\processed\mixed-en-pt\Prompt quantico 7.5.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181529\docs\governance\migrations\processed\mixed-en-pt\Quantum prompt 7.5 OK.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181529\docs\governance\migrations\processed\mixed-en-pt\Quantum prompt 8.0 BIOS-Q.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181529\docs\governance\migrations\processed\mixed-en-pt\Quantum unification.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181529\docs\governance\migrations\processed\mixed-en-pt\Roadmap apos estudos.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181530\docs\governance\migrations\processed\mixed-en-pt\ROADMAP INTERATIVO.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181530\docs\governance\migrations\processed\mixed-en-pt\Roadmap Mycellium.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181530\docs\governance\migrations\processed\mixed-en-pt\Site novo e outras melhorias.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181530\docs\governance\migrations\processed\mixed-en-pt\Subsystems and tools 8.2.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181530\docs\governance\migrations\processed\mixed-en-pt\Unification system PRD.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181530\docs\governance\migrations\processed\mixed-en-pt\Voando alto indo p outros sistemas.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181531\docs\governance\migrations\processed\mixed-pt-en\atualizacao bot unificado.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181531\docs\governance\migrations\processed\mixed-pt-en\ava7.0 novv.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181531\docs\governance\migrations\processed\mixed-pt-en\BACKUP quantico.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181531\docs\governance\migrations\processed\mixed-pt-en\BIOS-Q MCP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181531\docs\governance\migrations\processed\mixed-pt-en\BOT ok melhorando.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181531\docs\governance\migrations\processed\mixed-pt-en\EGOS 1.0.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181531\docs\governance\migrations\processed\mixed-pt-en\EVA 7.3.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181531\docs\governance\migrations\processed\mixed-pt-en\eva atendimento inicio.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181532\docs\governance\migrations\processed\mixed-pt-en\grande atualizacao.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181532\docs\governance\migrations\processed\mixed-pt-en\Link simbolico fonte de verdade sistema.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181532\docs\governance\migrations\processed\mixed-pt-en\MATRIZ  quantica.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181532\docs\governance\migrations\processed\mixed-pt-en\Melhorias BOT telegram.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181532\docs\governance\migrations\processed\mixed-pt-en\muito longe.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181532\docs\governance\migrations\processed\mixed-pt-en\Personas no bot.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181532\docs\governance\migrations\processed\mixed-pt-en\PLANO DE NEGOCIO EVA (1).md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181533\docs\governance\migrations\processed\mixed-pt-en\Prompt Quantico 7.0 EGOS.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181533\docs\governance\migrations\processed\mixed-pt-en\Promtps quanticos v7.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181536\docs\governance\migrations\processed\mixed-pt-en\RPG EVA.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181536\docs\governance\migrations\processed\mixed-pt-en\SLOP integration proximos passos potencial.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181536\docs\governance\migrations\processed\mixed-pt-en\tentando perplexity.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181537\docs\governance\migrations\processed\mixed-pt-en\ULTIMA quase tudo revisado.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181538\docs\governance\migrations\processed\mixed-pt-en\Unification ETHIK.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181538\docs\governance\migrations\processed\mixed-pt-en\Updates system EVA.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181538\docs\governance\migrations\processed\mixed-pt-en\viagem neural quantica.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181539\docs\governance\migrations\processed\mixed-pt-en\websearch atualizacao.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181539\docs\governance\migrations\processed\pt\Benchmark do Sistema EVA & GUARANI.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181539\docs\governance\migrations\processed\pt\EGOS1.1 visao geral.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181539\docs\governance\migrations\processed\pt\INstruicoes bot telegram.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181539\docs\governance\migrations\processed\pt\NEXUS elovuindo MUITO.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181539\docs\governance\migrations\processed\pt\OUTLINE cursor FODA.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181539\docs\governance\migrations\processed\pt\PLANO DE NEGOCIO EVA (11).md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181540\docs\governance\migrations\processed\pt\PLANO DE NEGOCIO EVA (3).md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181540\docs\governance\migrations\processed\pt\PLANO DE NEGOCIO EVA SENNA.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181540\docs\governance\migrations\processed\pt\Projecao tradutor EVA.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181540\docs\governance\migrations\processed\pt\Prompts quanticos EGOS.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181540\docs\governance\migrations\processed\pt\Quantum Prompt 5.0.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181540\docs\governance\migrations\processed\pt\ROADMAP DO TRADUTO EVA.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181540\docs\governance\migrations\processed\pt\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181540\docs\governance\migrations\processed\pt\Visao geral inicialization.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181541\docs\governance\reorganization\2025_05_REORGANIZATION.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181541\docs\governance\reports\EGOS_Project_Diagnostic_Report.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181541\docs\governance\research\AI_AGENT_CAPABILITIES_2025.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181541\docs\governance\research\CONTENT_AGGREGATOR_DEEP_DIVE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181541\docs\governance\research\EGOS_Strategic_Analysis_Integration_Summary_Apr2025.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181541\docs\governance\research\NEXUS_MODULAR.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181542\docs\governance\research\STRAT-MKT-001_EGOS_Trust_Weaver_MVP_Plan.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181542\docs\governance\research\Vibe_Coding_Market_Analysis.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181543\docs\governance\roadmaps\DASHBOARD-ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181544\docs\governance\roadmaps\MAIN_EGOS_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181544\docs\governance\roadmaps\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181545\docs\governance\roadmaps\WEBSITE-UNIFY-001-diagram.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181546\docs\governance\roadmaps\WEBSITE-UNIFY-001.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181546\docs\governance\roadmaps\AETHER\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181547\docs\governance\roadmaps\apps\dashboard\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181547\docs\governance\roadmaps\apps\website\DASHBOARD-ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181548\docs\governance\roadmaps\apps\website\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181548\docs\governance\roadmaps\ATLAS\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181548\docs\governance\roadmaps\CHRONICLER\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181549\docs\governance\roadmaps\CORUJA\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181550\docs\governance\roadmaps\CRONOS\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181550\docs\governance\roadmaps\dashboard\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181551\docs\governance\roadmaps\ETHIK\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181551\docs\governance\roadmaps\GUARDIAN\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181552\docs\governance\roadmaps\HARMONY\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181553\docs\governance\roadmaps\KARDIA\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181554\docs\governance\roadmaps\KOIOS\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181554\docs\governance\roadmaps\MASTER\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181555\docs\governance\roadmaps\MYCELIUM\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181555\docs\governance\roadmaps\NEXUS\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181555\docs\governance\roadmaps\SOPHIA\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181555\docs\governance\roadmaps\STRAT\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181555\docs\governance\roadmaps\subsystems\AETHER\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181556\docs\governance\roadmaps\subsystems\ATLAS\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181556\docs\governance\roadmaps\subsystems\CHRONICLER\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181557\docs\governance\roadmaps\subsystems\CORUJA\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181557\docs\governance\roadmaps\subsystems\CRONOS\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181558\docs\governance\roadmaps\subsystems\ETHIK\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181558\docs\governance\roadmaps\subsystems\GUARDIAN\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181559\docs\governance\roadmaps\subsystems\HARMONY\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181559\docs\governance\roadmaps\subsystems\KARDIA\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181600\docs\governance\roadmaps\subsystems\KOIOS\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181600\docs\governance\roadmaps\subsystems\MASTER\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\MYCELIUM\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\NEXUS\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\SOPHIA\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\STRAT\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\SYNC\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\TRANSLATOR\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181602\docs\governance\roadmaps\subsystems\TRUST_WEAVER\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181602\docs\governance\roadmaps\SYNC\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181603\docs\governance\roadmaps\TRANSLATOR\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181604\docs\governance\roadmaps\TRUST_WEAVER\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181604\docs\governance\roadmaps\website\DASHBOARD-ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181604\docs\governance\roadmaps\website\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181605\docs\governance\roadmaps\website\WEBSITE-UNIFY-001-diagram.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181605\docs\governance\roadmaps\website\WEBSITE-UNIFY-001.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181605\docs\governance\skeletons\KOIOS-DOC-007_task_skeleton.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181605\docs\governance\strategy_archive\Competitive_Analysis.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181605\docs\governance\strategy_archive\Customer_Journey_Map.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181605\docs\governance\strategy_archive\EGOS_Business_Plan_v1.0.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181605\docs\governance\strategy_archive\EGOS_PRESENTATION_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181606\docs\governance\strategy_archive\Monetization_Model.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181606\docs\governance\strategy_archive\MVP_Definition.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181606\docs\governance\strategy_archive\Target_Platform_Analysis.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181607\docs\guides\COMPLETE_SETUP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181607\docs\guides\CORUJA_MYCELIUM_INTEGRATION_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181607\docs\guides\CORUJA_REASONING_PHASE_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181608\docs\guides\DEVELOPER_ENVIRONMENT.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181608\docs\guides\propagation_strategy_SDRE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181608\docs\guides\TRUST_WEAVER_case_sensitivity_2025-05-05.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181609\docs\guides\personal_development\GUIDELINES.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181609\docs\guides\projects\pikjourney\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181611\docs\guides\standards\TASK_DOCUMENTATION_STANDARD.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181612\docs\markdown\apps\dashboard\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181613\docs\markdown\apps\website\DASHBOARD-ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181613\docs\markdown\apps\website\WEBSITE_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181615\docs\markdown\docs\apps\CURRENT_TASKS.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181617\docs\markdown\docs\apps\dashboard_ARCHITECTURE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181618\docs\markdown\docs\apps\dashboard_FILE_ANALYSIS.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181619\docs\markdown\docs\apps\DESIGN_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181619\docs\markdown\docs\apps\DEVELOPMENT_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181620\docs\markdown\docs\apps\USER_RESEARCH_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181620\docs\markdown\docs\apps\WEBSITE_DESIGN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181620\docs\markdown\docs\apps\website_MYCELIUM-INTEGRATION-PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181620\docs\markdown\governance\2025-04-21_system_enhancement_update.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181620\docs\markdown\governance\2025-05-05_centralization_system_progress.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181621\docs\markdown\governance\CHANGELOG.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181621\docs\markdown\governance\CHANGES_SUMMARY.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181623\docs\markdown\governance\DOCUMENTATION_METRICS_DASHBOARD.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181623\docs\markdown\governance\GO_TO_MARKET_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181623\docs\markdown\governance\LEGACY_MIGRATION.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181624\docs\markdown\governance\SPARC_methodology.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181624\docs\markdown\governance\STRATEGY.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181624\docs\markdown\governance\TASK-2025-04-22-cross-reference-system-enhancement.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181625\docs\markdown\project_governance\MQP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181633\docs\reference\ARCHITECTURE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181634\docs\reference\CORUJA_PERFORMANCE_METRICS_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181634\docs\reference\CRONOS_REFACTORING_EXAMPLE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181636\docs\reference\EGOS_OVERVIEW.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181637\docs\reference\GOVERNANCE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181637\docs\reference\INTEGRATION_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181637\docs\reference\KOIOS_Interaction_Standards.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181637\docs\reference\MCP_CREATION_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181638\docs\reference\MQP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181638\docs\reference\MULTI_AGENT_WORKFLOW.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181638\docs\reference\MYCELIUM_INTEGRATION.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181639\docs\reference\PHILOSOPHY.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181641\docs\reference\STANDARDS_SCRIPT_FEEDBACK.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181641\docs\reference\STRATEGY.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181641\docs\reference\SYSTEM_VISUALIZATION_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181641\docs\reference\VIBE_CODING_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181642\docs\reference\WEBSITE_DESIGN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181642\docs\reference\ai_collaboration\MULTI_AGENT_WORKFLOW.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181642\docs\reference\ai_integration\MULTI_MODEL_INSIGHTS.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181645\docs\reference\historical_changelogs\NEXUS_MODULAR.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181646\docs\reference\process\validation\PROC-VALIDATE-01_roadmap_tasks_validation.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181646\docs\reference\process\validation\PROC-VALIDATE-02_subsystem_structure_validation.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181646\docs\reference\prompts\CURSOR_QUANTUM_PROMPT.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181647\docs\reference\research\AI_AGENT_CAPABILITIES_2025.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181647\docs\reference\research\CONTENT_AGGREGATOR_DEEP_DIVE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181647\docs\reference\standards\KOIOS_Interaction_Standards.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181647\docs\reference\standards\KOIOS_PDD_Standard.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181647\docs\reference\strategy\Competitive_Analysis.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181647\docs\reference\strategy\Customer_Journey_Map.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181647\docs\reference\strategy\EGOS_Business_Plan_v1.0.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181647\docs\reference\strategy\EGOS_PRESENTATION_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181647\docs\reference\strategy\Monetization_Model.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181648\docs\reference\strategy\MVP_Definition.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181648\docs\reference\strategy\Target_Platform_Analysis.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181648\docs\reference\templates\PDD_Template.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181648\docs\reference\website\CONTENT_STRATEGY.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181648\docs\reference\website\CURRENT_TASKS.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181648\docs\reference\website\DESIGN_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181648\docs\reference\website\DEVELOPMENT_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181648\docs\reference\website\USER_RESEARCH_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181648\docs\reference\website\WEBSITE_DESIGN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181649\docs\subsystems\EGO_AET_API.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181649\docs\subsystems\EGO_AET_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181649\docs\subsystems\EGO_AET_USER_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181650\docs\subsystems\EGO_ATL_QUICK_REFERENCE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181650\docs\subsystems\EGO_ATL_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181650\docs\subsystems\EGO_CHR_PROJECT_CHRONICLER_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181650\docs\subsystems\EGO_CHR_PROJECT_CHRONICLER_VISION.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181651\docs\subsystems\EGO_CRJ_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181651\docs\subsystems\EGO_CRO_cronos_improvement_recommendations.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181651\docs\subsystems\EGO_CRO_procedures.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181651\docs\subsystems\EGO_CRO_QUICK_REFERENCE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181652\docs\subsystems\EGO_CRO_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181652\docs\subsystems\EGO_ETH_API.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181652\docs\subsystems\EGO_ETH_QUICK_REFERENCE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181653\docs\subsystems\EGO_ETH_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181653\docs\subsystems\EGO_GRD_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181654\docs\subsystems\EGO_HAR_cross_platform_compatibility.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181654\docs\subsystems\EGO_HAR_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181654\docs\subsystems\EGO_KAR_README.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181654\docs\subsystems\EGO_KAR_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181655\docs\subsystems\EGO_KOI_code_evolution_process.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181655\docs\subsystems\EGO_KOI_FILE_ANALYSIS.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181655\docs\subsystems\EGO_KOI_lint_error_resolution_processes.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181655\docs\subsystems\EGO_KOI_MDC_RULES_STANDARD.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181655\docs\subsystems\EGO_KOI_process_index.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181655\docs\subsystems\EGO_KOI_project_diagnostic_standard.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181656\docs\subsystems\EGO_KOI_QUICK_REFERENCE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181656\docs\subsystems\EGO_KOI_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181656\docs\subsystems\EGO_KOI_SDRE_ANALYSIS_20250505_100916.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181657\docs\subsystems\EGO_KOI_SDRE_IMPLEMENTATION_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181657\docs\subsystems\EGO_KOI_SDRE_TEST_ANALYSIS.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181657\docs\subsystems\EGO_KOI_STANDARDS.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181657\docs\subsystems\EGO_KOI_subsystem_structure.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181657\docs\subsystems\EGO_KOI_syntax_standardization.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181657\docs\subsystems\EGO_KOI_troubleshooting_guide.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181657\docs\subsystems\EGO_MAS_egos_unified_documentation.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181657\docs\subsystems\EGO_MAS_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181657\docs\subsystems\EGO_MYC_FILE_ANALYSIS.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181658\docs\subsystems\EGO_MYC_ide_integration.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181658\docs\subsystems\EGO_MYC_MYCELIUM_VISUALIZATION_INTEGRATION.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181658\docs\subsystems\EGO_MYC_protocol_design.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181659\docs\subsystems\EGO_MYC_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181659\docs\subsystems\EGO_MYC_sparc_integration.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181659\docs\subsystems\EGO_MYC_technology_evaluation.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181700\docs\subsystems\EGO_MYC_topics.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181700\docs\subsystems\EGO_MYC_topics_and_formats.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181701\docs\subsystems\EGO_MYC_visualization.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181701\docs\subsystems\EGO_NEX_QUICK_REFERENCE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181701\docs\subsystems\EGO_NEX_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181701\docs\subsystems\EGO_SOP_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181701\docs\subsystems\EGO_STR_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181701\docs\subsystems\EGO_SYN_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181701\docs\subsystems\EGO_SYN_roadmap_sync.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181702\docs\subsystems\EGO_SYN_roadmap_template.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181702\docs\subsystems\EGO_SYN_sync_definition.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181702\docs\subsystems\EGO_TRN_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181703\docs\subsystems\EGO_TRW_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181703\docs\subsystems\EGO_TRW_user_guide.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181703\docs\subsystems\AETHER\EGO_AET_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181703\docs\subsystems\ATLAS\EGO_ATL_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181703\docs\subsystems\CHRONICLER\EGO_CHR_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181703\docs\subsystems\CHRONICLER\EGO_CHR_VISION.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181704\docs\subsystems\CORUJA\EGO_CRJ_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181704\docs\subsystems\CORUJA\prompts\pdds\EGO_pdd_website_generation_v3.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181705\docs\subsystems\CRONOS\EGO_CRN_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181705\docs\subsystems\ETHIK\EGO_ETK_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181706\docs\subsystems\GUARDIAN\EGO_GRD_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181706\docs\subsystems\HARMONY\EGO_HRM_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181707\docs\subsystems\KARDIA\EGO_KRD_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181707\docs\subsystems\KOIOS\EGO_KOS_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181707\docs\subsystems\KOIOS\chronicler_module\EGO_KOS_README.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181707\docs\subsystems\KOIOS\templates\EGO_KOS_external_research_prompt_template.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181708\docs\subsystems\KOIOS\tools\EGO_KOS_file_size_analysis.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181708\docs\subsystems\KOIOS\tools\EGO_KOS_README.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181708\docs\subsystems\MASTER\EGO_MST_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181708\docs\subsystems\MYCELIUM\EGO_MYC_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181709\docs\subsystems\NEXUS\EGO_NXS_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181709\docs\subsystems\SOPHIA\EGO_SPH_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181709\docs\subsystems\STRAT\EGO_STR_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181709\docs\subsystems\SYNC\EGO_SYC_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181709\docs\subsystems\TRANSLATOR\EGO_TRL_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181709\docs\subsystems\TRANSLATOR\core\language\EGO_TRL_translation_report.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181710\docs\subsystems\TRUST_WEAVER\EGO_TWV_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\_website_backup_20250520_011220\website\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\_website_backup_20250520_011220\website\scripts\migration\fix-components-structure.ps1
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\_website_backup_20250520_011220\website\scripts\migration\fix-website-structure.ps1
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\_website_backup_20250520_011220\website\scripts\migration\migrate-en-content.ps1
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\planning_records\project_planning\Work_2025-05-20_Docs_Optimization.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\research_archive\AI_AGENT_CAPABILITIES_2025_vOld.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\research_archive\CONTENT_AGGREGATOR_DEEP_DIVE_vOld.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\recovery_analysis\RECOVERY_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\research\OK no roadmap\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\research\OK no roadmap\EGOS Ethical Marketing Strategy_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\research\OK no roadmap\Scraper com IA.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\scripts\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\scripts\cross_reference\integration\INTEGRATION_DESIGN.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\STRATEGIC_THINKING\research\Integração Context7 e _egos_ aprimorada_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\STRATEGIC_THINKING\research\roadmap_related\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\STRATEGIC_THINKING\research\roadmap_related\EGOS Ethical Marketing Strategy_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\STRATEGIC_THINKING\research\roadmap_related\Scraper com IA.txt
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\STRATEGIC_THINKING\strategy_archive\EGOS_Business_Plan_v1.0.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\subsystems\CORUJA\ARCHITECTURE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\website\DESIGN_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\website\ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\website\scripts\migration\fix-components-structure.ps1
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\website\scripts\migration\fix-website-structure.ps1
+- C:\EGOS\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\website\scripts\migration\migrate-en-content.ps1
+- C:\EGOS\archive\docs\docs_old_20250521\reports\temp_grep_results\grep_Doc_results.json
+- C:\EGOS\archive\docs\docs_old_20250521\reports\temp_grep_results\grep_LinkTo_results.json
+- C:\EGOS\archive\docs\docs_old_20250521\reports\temp_grep_results\grep_Ref_results.json
+- C:\EGOS\archive\docs\docs_old_20250521\reports\temp_grep_results\grep_REF_XYZ_Start_results.json
+- C:\EGOS\archive\docs\docs_old_20250521\reports\temp_grep_results\grep_Related_results.json
+- C:\EGOS\archive\docs\docs_old_20250521\reports\temp_grep_results\grep_SeeAlso_results.json
+- C:\EGOS\archive\docs\docs_old_20250521\research\Analise site design.txt
+- C:\EGOS\archive\docs\docs_old_20250521\research\Análise e Refinamento do Projeto EGOS_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\research\Criaçao de site com IA.txt
+- C:\EGOS\archive\docs\docs_old_20250521\research\EGOS design e ferramentas web.txt
+- C:\EGOS\archive\docs\docs_old_20250521\research\EGOS design GROK.txt
+- C:\EGOS\archive\docs\docs_old_20250521\research\EGOS_Strategic_Analysis_Integration_Summary_Apr2025.md
+- C:\EGOS\archive\docs\docs_old_20250521\research\MARKET_ANALYSIS.txt
+- C:\EGOS\archive\docs\docs_old_20250521\research\TIPS_HESAMATION.txt
+- C:\EGOS\archive\docs\docs_old_20250521\research\Vibe_Coding_Market_Analysis.md
+- C:\EGOS\archive\docs\docs_old_20250521\research\OK no roadmap\Analise Gopher-Egos
+- C:\EGOS\archive\docs\docs_old_20250521\research\OK no roadmap\Analysis of Opportunities for Project EVA GUARANI - EGOS within the Stellar Blockchain Ecosystem.txt
+- C:\EGOS\archive\docs\docs_old_20250521\research\OK no roadmap\Análise de Integração de Ferramentas e Empresas com o Sistema EVA GUARANI - EGOS.txt
+- C:\EGOS\archive\docs\docs_old_20250521\research\OK no roadmap\Comparacao ferramentas data ia.txt
+- C:\EGOS\archive\docs\docs_old_20250521\research\OK no roadmap\EGOS - Gemini AI System Market Analysis.txt
+- C:\EGOS\archive\docs\docs_old_20250521\research\OK no roadmap\EGOS - Grok Presentation p2.txt
+- C:\EGOS\archive\docs\docs_old_20250521\research\OK no roadmap\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt
+- C:\EGOS\archive\docs\docs_old_20250521\research\OK no roadmap\EGOS Ethical Marketing Strategy_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\research\OK no roadmap\EGOS_ GitHub Project Search_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\research\OK no roadmap\Estudo EAAS ethics as a service Gemini.txt
+- C:\EGOS\archive\docs\docs_old_20250521\research\OK no roadmap\Estudo KOIOS.txt
+- C:\EGOS\archive\docs\docs_old_20250521\research\OK no roadmap\Estudo MCPs.txt
+- C:\EGOS\archive\docs\docs_old_20250521\research\OK no roadmap\Estudo Mycellium Gemini.txt
+- C:\EGOS\archive\docs\docs_old_20250521\research\OK no roadmap\Market Positioning Strategy for Eva Guarani Egos An Expert Analysis.txt
+- C:\EGOS\archive\docs\docs_old_20250521\research\OK no roadmap\Mercado de Prompts.txt
+- C:\EGOS\archive\docs\docs_old_20250521\research\OK no roadmap\Scraper com IA.txt
+- C:\EGOS\archive\docs\docs_old_20250521\research\OK no roadmap\Vibe Coding Avanço e Oportunidades.txt
+- C:\EGOS\archive\docs\docs_old_20250521\research\OK no roadmap\WebSite analise.txt
+- C:\EGOS\archive\docs\docs_old_20250521\research\OK no roadmap\WebSite Enio Grok e Gemini.txt
+- C:\EGOS\archive\docs\docs_old_20250521\resources\data\PDD_Template.yaml
+- C:\EGOS\archive\docs\docs_old_20250521\standards\KOIOS_Interaction_Standards.md
+- C:\EGOS\archive\docs\docs_old_20250521\standards\KOIOS_PDD_Standard.md
+- C:\EGOS\archive\docs\docs_old_20250521\standards\STANDARDS_SCRIPT_FEEDBACK.md
+- C:\EGOS\archive\docs\docs_old_20250521\standards\TASK_DOCUMENTATION_STANDARD.md
+- C:\EGOS\archive\docs\docs_old_20250521\standards\validation_procedures\PROC-VALIDATE-01_roadmap_tasks_validation.md
+- C:\EGOS\archive\docs\docs_old_20250521\standards\validation_procedures\PROC-VALIDATE-02_subsystem_structure_validation.md
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\STRATEGY.md
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\products\chronicler\PROJECT_CHRONICLER_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\products\chronicler\PROJECT_CHRONICLER_VISION.md
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\products\scribe\PROJECT_SCRIBE_ROADMAP.md
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\products\scribe\PROJECT_SCRIBE_VISION.md
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\AI_AGENT_CAPABILITIES_2025.md
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\Analise site design.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\Análise e Refinamento do Projeto EGOS_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\CodeGuide e Integração no EGOS_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\Concorrentes gratuitos do CodeGuide_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\CONTENT_AGGREGATOR_DEEP_DIVE.md
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\Criaçao de site com IA.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\EGOS CodeGuide PRD.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\EGOS design e ferramentas web.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\EGOS design GROK.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\EGOS_ Competindo com CodeGuide_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\EGOS_Strategic_Analysis_Integration_Summary_Apr2025.md
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\Estudo CodeTime.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\Integração Context7 e _egos_ aprimorada_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\Integração LLM em IDEs_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\Integração_ Análise e Estudo do Ego_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\MARKET_ANALYSIS.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\TIPS_HESAMATION.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\Vibe_Coding_Market_Analysis.md
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\Windsurf Prompt for EGOS Project_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\roadmap_related\Analise Gopher-Egos
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\roadmap_related\Analysis of Opportunities for Project EVA GUARANI - EGOS within the Stellar Blockchain Ecosystem.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\roadmap_related\Análise de Integração de Ferramentas e Empresas com o Sistema EVA GUARANI - EGOS.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\roadmap_related\Comparacao ferramentas data ia.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\roadmap_related\EGOS - Gemini AI System Market Analysis.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\roadmap_related\EGOS - Grok Presentation p2.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\roadmap_related\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\roadmap_related\EGOS Ethical Marketing Strategy_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\roadmap_related\EGOS_ GitHub Project Search_.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\roadmap_related\Estudo DATA com IA Gemini.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\roadmap_related\Estudo EAAS ethics as a service Gemini.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\roadmap_related\Estudo KOIOS.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\roadmap_related\Estudo MCPs.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\roadmap_related\Estudo Mycellium Gemini.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\roadmap_related\Market Positioning Strategy for Eva Guarani Egos An Expert Analysis.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\roadmap_related\Mercado de Prompts.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\roadmap_related\Scraper com IA.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\roadmap_related\Vibe Coding Avanço e Oportunidades.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\roadmap_related\WebSite analise.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\roadmap_related\WebSite Enio Grok e Gemini.txt
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\strategy_archive\Competitive_Analysis.md
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\strategy_archive\Customer_Journey_Map.md
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\strategy_archive\EGOS_Business_Plan_v1.0.md
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\strategy_archive\EGOS_PRESENTATION_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\strategy_archive\Monetization_Model.md
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\strategy_archive\MVP_Definition.md
+- C:\EGOS\archive\docs\docs_old_20250521\STRATEGIC_THINKING\strategy_archive\Target_Platform_Analysis.md
+- C:\EGOS\archive\docs\docs_old_20250521\technical\BIOS-Q MCP.txt
+- C:\EGOS\archive\docs\docs_old_20250521\technical\Cursor X Web limitaçoes.txt
+- C:\EGOS\archive\docs\docs_old_20250521\technical\EGOS 1.0.txt
+- C:\EGOS\archive\docs\docs_old_20250521\technical\EGOS1.1 visao geral.txt
+- C:\EGOS\archive\docs\docs_old_20250521\technical\Integration Codeguide Paella MQP.txt
+- C:\EGOS\archive\docs\docs_old_20250521\technical\MYCELIUM_INTEGRATION.md
+- C:\EGOS\archive\docs\docs_old_20250521\technical\Panorama sistema TODO.txt
+- C:\EGOS\archive\docs\docs_old_20250521\technical\Prometheus Grafana.txt
+- C:\EGOS\archive\docs\docs_old_20250521\technical\WEBSITE_DESIGN.md
+- C:\EGOS\archive\docs\docs_old_20250521\technical\ai_systems\ai_collaboration_archive\MULTI_AGENT_WORKFLOW.md
+- C:\EGOS\archive\docs\docs_old_20250521\technical\ai_systems\ai_integration_archive\MULTI_MODEL_INSIGHTS.md
+- C:\EGOS\archive\docs\docs_old_20250521\technical\components\website_dev_archive\CONTENT_STRATEGY.md
+- C:\EGOS\archive\docs\docs_old_20250521\technical\components\website_dev_archive\CURRENT_TASKS.md
+- C:\EGOS\archive\docs\docs_old_20250521\technical\components\website_dev_archive\DESIGN_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\technical\components\website_dev_archive\DEVELOPMENT_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\technical\components\website_dev_archive\USER_RESEARCH_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\technical\components\website_dev_archive\WEBSITE_DESIGN.md
+- C:\EGOS\archive\docs\docs_old_20250521\templates\reference_templates\EGOS_DIAGNOSTIC_REPORT_TEMPLATE.md
+- C:\EGOS\archive\docs\docs_old_20250521\templates\reference_templates\PDD_Template.md
+- C:\EGOS\archive\docs\docs_old_20250521\templates\reference_templates\PDD_Template.yaml
+- C:\EGOS\archive\docs\docs_old_20250521\tooling\specifications\KOS_AUD_001_file_reference_checker.md
+- C:\EGOS\archive\docs\docs_old_20250521\website\CURRENT_TASKS.md
+- C:\EGOS\archive\docs\docs_old_20250521\website\DESIGN_GUIDE.md
+- C:\EGOS\archive\docs\docs_old_20250521\website\DEVELOPMENT_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\website\USER_RESEARCH_PLAN.md
+- C:\EGOS\archive\docs\docs_old_20250521\website\WEBSITE_DESIGN.md
+- C:\EGOS\archive\technical\components\website_dev_archive\WEBSITE_DESIGN.md
+- C:\EGOS\archive\unused_libs\tom-select\tom-select.complete.min.js
+- C:\EGOS\archive\unused_libs\tom-select\tom-select.css
+- C:\EGOS\archive\unused_libs\vis-9.1.2\vis-network.css
+- C:\EGOS\archive\unused_libs\vis-9.1.2\vis-network.min.js
+- C:\EGOS\archive\work_tracking_archive\Work_2025-05-19.md
+- C:\EGOS\archive\work_tracking_archive\Work_2025-05-20_Docs_Optimization.md
+- C:\EGOS\archive\work_tracking_archive\Work_2025-05-20_Documentation_Diagnosis.md
+- C:\EGOS\archive\work_tracking_archive\Work_2025-05-20_Phase2_Execution_Plan.md
+- C:\EGOS\archive\work_tracking_archive\Work_2025-05-20_Project_Reorganization_Plan.md
+- C:\EGOS\archive\work_tracking_archive\WORK_2025-05-21.md
+- C:\EGOS\archive\work_tracking_archive\WORK_2025-05-21_Cross_Reference.md
+- C:\EGOS\archive\work_tracking_archive\WORK_2025-05-21_update.md
+- C:\EGOS\archive\work_tracking_archive\WORK_2025_05_20.md
+- C:\EGOS\archive\work_tracking_archive\WORK_2025_05_21.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\dashboardClient.ts
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\ErrorBoundary.tsx
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\graph-data.js
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\ROADMAP.md.bak.20250418190753
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\validationRunner.ts
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\WORK_2025_05_21_update.md.bak
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\WORK_2025_05_22_file_duplication_management.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\WORK_2025_05_22_run_tools_enhancement.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\WORK_2025_05_22_tool_registry_system_plan.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\WORK_2025_05_23_Dashboard_Consolidation_Plan.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\WORK_2025_05_23_Directory_Unification_Analysis.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\WORK_2025_05_23_Directory_Unification_Implementation.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\WORK_2025_05_23_Directory_Unification_Tool_Enhancements.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\2025-04-21_system_enhancement_update.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\Analise site design.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\Analysis of Opportunities for Project EVA GUARANI - EGOS within the Stellar Blockchain Ecosystem.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\Análise INTP-T e Projeto EGOS_.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\ARCHITECTURE.MD
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\Benchmark do Sistema EVA & GUARANI.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\BIOS-Q Cursor sistema EVA.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\CORUJA-MYC-02_circuit_breaker_implementation.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\CORUJA-MYC-05_performance_metrics_implementation.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\DEVELOPMENT_PLAN.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\DOCUMENTATION_INDEX.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\DOCUMENTATION_INDEX_OLD.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\DOCUMENTATION_METRICS_DASHBOARD.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\EGOS - Grok Presentation p2.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\EGOS design e ferramentas web.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\EGOS design GROK.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\EGOS Trust Weave MVP.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\EGOS1.1 visao geral.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\EGOS_ Competindo com CodeGuide_.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\EGOS_Project_Diagnostic_Report.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\EnioTransicaoPersonalidadeEGOS.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\Estudo DATA com IA Gemini.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\Estudo de Tempo e Tokens_.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\GO_TO_MARKET_ROADMAP.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\grep_EGOS_ID_Start_results.json
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\grep_MEMORY_results.json
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\grep_Reference_results.json
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\grep_RelativePathParent_results.json
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\grep_RelativePathSelf_results.json
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\grep_Source_results.json
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\grep_WikiLinkStart_results.json
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\KOS_AUD_001_file_reference_checker.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\MCP grande avanço roadmap.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\MVP_Definition.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\MYCELIUM_INTEGRATION.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\Mycellium explained.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\Personas no bot.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\Plano Completo Plataforma EGOS Aprimorado_.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\PLANO DE NEGOCIO EVA (1).txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\PLANO DE NEGOCIO EVA (11).txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\PLANO DE NEGOCIO EVA (3).txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\PROC-AUDIT-01_python_json_script_audit_v1.mdc
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\Prometheus Grafana.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\Prompt quantico 7.5.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\Quantum prompt 7.5 OK.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\Relatório de Análise e Preparação para Implantação em Ambiente Externo.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\Reorganizaçao do sistem EVA e Guarani.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\ROADMAP.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\ROADMAP_updated.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\Site novo e outras melhorias.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\SLOP integration proximos passos potencial.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\TASK-2025-04-22-cross-reference-system-enhancement.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\TASK_DOCUMENTATION_STANDARD.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\ULTIMA quase tudo revisado.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\Unification system PRD.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\VIBE_CODING_GUIDE.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\Voando alto indo p outros sistemas.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\WebSite Enio Grok e Gemini.txt
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\website_DASHBOARD-ROADMAP.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\WEBSITE_DESIGN.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\website_MYCELIUM-INTEGRATION-PLAN.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\Work_2025-05-20_Docs_Optimization.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\WORK_2025_05_21.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\dashboard\dashboard_ARCHITECTURE.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\dashboard\dashboard_FILE_ANALYSIS.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\dashboard\dashboard_README.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\dashboard\dashboard_ROADMAP.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\dashboard\ROADMAP.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\dashboard\docs\dashboard_ARCHITECTURE.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\dashboard\docs\dashboard_FILE_ANALYSIS.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\dashboard\docs\dashboard_README.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\dashboard\docs\dashboard_ROADMAP.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\dashboard\docs\ROADMAP.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\dashboards\docs\dashboard_ARCHITECTURE.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\dashboards\docs\dashboard_FILE_ANALYSIS.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\dashboards\docs\dashboard_README.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\dashboards\docs\dashboard_ROADMAP.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\dashboards\docs\ROADMAP.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\archive\egos_dashboard\egos_dashboard_README.md
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\dashboard\CrossReferenceVisualizer.tsx
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\dashboard\DashboardLayout.tsx
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\dashboard\MetricsPanel.tsx
+- C:\EGOS\backups\dashboard_archive_20250523184402\app\dashboard\SystemStatus.tsx
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\dashboardClient.ts
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\ErrorBoundary.tsx
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\graph-data.js
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\ROADMAP.md.bak.20250418190753
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\validationRunner.ts
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\WORK_2025_05_21_update.md.bak
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\WORK_2025_05_22_file_duplication_management.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\WORK_2025_05_22_run_tools_enhancement.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\WORK_2025_05_22_tool_registry_system_plan.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\WORK_2025_05_23_Dashboard_Consolidation_Plan.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\WORK_2025_05_23_Directory_Unification_Analysis.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\WORK_2025_05_23_Directory_Unification_Implementation.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\WORK_2025_05_23_Directory_Unification_Tool_Enhancements.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\2025-04-21_system_enhancement_update.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\Analise site design.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\Analysis of Opportunities for Project EVA GUARANI - EGOS within the Stellar Blockchain Ecosystem.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\Análise INTP-T e Projeto EGOS_.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\ARCHITECTURE.MD
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\Benchmark do Sistema EVA & GUARANI.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\BIOS-Q Cursor sistema EVA.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\CORUJA-MYC-02_circuit_breaker_implementation.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\CORUJA-MYC-05_performance_metrics_implementation.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\DEVELOPMENT_PLAN.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\DOCUMENTATION_INDEX.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\DOCUMENTATION_INDEX_OLD.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\DOCUMENTATION_METRICS_DASHBOARD.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\EGOS - Grok Presentation p2.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\EGOS design e ferramentas web.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\EGOS design GROK.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\EGOS Trust Weave MVP.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\EGOS1.1 visao geral.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\EGOS_ Competindo com CodeGuide_.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\EGOS_Project_Diagnostic_Report.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\EnioTransicaoPersonalidadeEGOS.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\Estudo DATA com IA Gemini.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\Estudo de Tempo e Tokens_.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\GO_TO_MARKET_ROADMAP.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\grep_EGOS_ID_Start_results.json
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\grep_MEMORY_results.json
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\grep_Reference_results.json
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\grep_RelativePathParent_results.json
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\grep_RelativePathSelf_results.json
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\grep_Source_results.json
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\grep_WikiLinkStart_results.json
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\KOS_AUD_001_file_reference_checker.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\MCP grande avanço roadmap.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\MVP_Definition.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\MYCELIUM_INTEGRATION.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\Mycellium explained.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\Personas no bot.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\Plano Completo Plataforma EGOS Aprimorado_.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\PLANO DE NEGOCIO EVA (1).txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\PLANO DE NEGOCIO EVA (11).txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\PLANO DE NEGOCIO EVA (3).txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\PROC-AUDIT-01_python_json_script_audit_v1.mdc
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\Prometheus Grafana.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\Prompt quantico 7.5.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\Quantum prompt 7.5 OK.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\Relatório de Análise e Preparação para Implantação em Ambiente Externo.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\Reorganizaçao do sistem EVA e Guarani.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\ROADMAP.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\ROADMAP_updated.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\Site novo e outras melhorias.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\SLOP integration proximos passos potencial.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\TASK-2025-04-22-cross-reference-system-enhancement.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\TASK_DOCUMENTATION_STANDARD.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\ULTIMA quase tudo revisado.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\Unification system PRD.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\VIBE_CODING_GUIDE.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\Voando alto indo p outros sistemas.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\WebSite Enio Grok e Gemini.txt
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\website_DASHBOARD-ROADMAP.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\WEBSITE_DESIGN.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\website_MYCELIUM-INTEGRATION-PLAN.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\Work_2025-05-20_Docs_Optimization.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\WORK_2025_05_21.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\dashboard\dashboard_ARCHITECTURE.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\dashboard\dashboard_FILE_ANALYSIS.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\dashboard\dashboard_README.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\dashboard\dashboard_ROADMAP.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\dashboard\ROADMAP.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\dashboard\docs\dashboard_ARCHITECTURE.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\dashboard\docs\dashboard_FILE_ANALYSIS.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\dashboard\docs\dashboard_README.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\dashboard\docs\dashboard_ROADMAP.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\dashboard\docs\ROADMAP.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\dashboards\docs\dashboard_ARCHITECTURE.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\dashboards\docs\dashboard_FILE_ANALYSIS.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\dashboards\docs\dashboard_README.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\dashboards\docs\dashboard_ROADMAP.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\dashboards\docs\ROADMAP.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\archive\egos_dashboard\egos_dashboard_README.md
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\dashboard\CrossReferenceVisualizer.tsx
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\dashboard\DashboardLayout.tsx
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\dashboard\MetricsPanel.tsx
+- C:\EGOS\backups\dashboard_consolidation_20250523_130729\dashboard\SystemStatus.tsx
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\DiagEnio.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\apps\dashboards\docs\dashboard_ARCHITECTURE.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\apps\dashboards\docs\dashboard_FILE_ANALYSIS.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\apps\dashboards\docs\dashboard_README.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\apps\dashboards\docs\dashboard_ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\apps\dashboards\docs\ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\DOCUMENTATION_INDEX.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\core_materials\MYCELIUM_INTEGRATION.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\core_materials\WEBSITE_DESIGN.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Benchmark do Sistema EVA & GUARANI.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\core_materials\historical_changelogs\BIOS-Q Cursor sistema EVA.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\core_materials\historical_changelogs\EGOS1.1 visao geral.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\core_materials\historical_changelogs\MCP grande avanço roadmap.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Personas no bot.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\core_materials\historical_changelogs\PLANO DE NEGOCIO EVA (1).txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\core_materials\historical_changelogs\PLANO DE NEGOCIO EVA (11).txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\core_materials\historical_changelogs\PLANO DE NEGOCIO EVA (3).txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Prometheus Grafana.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Prompt quantico 7.5.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Quantum prompt 7.5 OK.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Relatório de Análise e Preparação para Implantação em Ambiente Externo.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Reorganizaçao do sistem EVA e Guarani.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\core_materials\historical_changelogs\SLOP integration proximos passos potencial.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\core_materials\historical_changelogs\ULTIMA quase tudo revisado.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Unification system PRD.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\core_materials\historical_changelogs\Voando alto indo p outros sistemas.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\core_materials\strategy\MVP_Definition.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\core_materials\website\DEVELOPMENT_PLAN.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\governance\2025-04-21_system_enhancement_update.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\governance\Analise site design.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\governance\Analysis of Opportunities for Project EVA GUARANI - EGOS within the Stellar Blockchain Ecosystem.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\governance\Análise INTP-T e Projeto EGOS_.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\governance\CORUJA-MYC-02_circuit_breaker_implementation.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\governance\CORUJA-MYC-05_performance_metrics_implementation.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\governance\DOCUMENTATION_METRICS_DASHBOARD.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\governance\EGOS - Grok Presentation p2.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\governance\EGOS design e ferramentas web.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\governance\EGOS design GROK.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\governance\EGOS Trust Weave MVP.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\governance\EGOS1.1 visao geral.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\governance\EGOS_ Competindo com CodeGuide_.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\governance\EnioTransicaoPersonalidadeEGOS.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\governance\GO_TO_MARKET_ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\governance\MCP grande avanço roadmap.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\governance\Mycellium explained.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\governance\Plano Completo Plataforma EGOS Aprimorado_.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\governance\PROC-AUDIT-01_python_json_script_audit_v1.mdc
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\governance\Site novo e outras melhorias.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\governance\TASK-2025-04-22-cross-reference-system-enhancement.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\governance\ULTIMA quase tudo revisado.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\governance\WebSite Enio Grok e Gemini.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\governance\reports\EGOS_Project_Diagnostic_Report.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\guides\VIBE_CODING_GUIDE.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\process\auditing\PROC-AUDIT-01_python_json_script_audit_v1.mdc
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\products\dashboard\dashboard_ARCHITECTURE.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\products\dashboard\dashboard_FILE_ANALYSIS.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\products\dashboard\dashboard_README.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\products\dashboard\dashboard_ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\products\dashboard\ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\products\egos_dashboard\egos_dashboard_README.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\products\website\website_DASHBOARD-ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\products\website\website_MYCELIUM-INTEGRATION-PLAN.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\project\MCP grande avanço roadmap.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\project\archived_strategy_subdirs\strategy_archive\MVP_Definition.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\ARCHITECTURE.MD
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\Work_2025-05-20_Docs_Optimization.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\WORK_2025_05_21.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\DOCUMENTATION_INDEX.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\core_materials\historical_changelogs\MCP grande avanço roadmap.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\core_materials\historical_changelogs\PLANO DE NEGOCIO EVA (1).txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\core_materials\historical_changelogs\ULTIMA quase tudo revisado.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\core_materials\historical_changelogs\Unification system PRD.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\2025-04-21_system_enhancement_update.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\CORUJA-MYC-02_circuit_breaker_implementation.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\CORUJA-MYC-05_performance_metrics_implementation.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\DOCUMENTATION_METRICS_DASHBOARD.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\EGOS Trust Weave MVP.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\GO_TO_MARKET_ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\MCP grande avanço roadmap.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\TASK-2025-04-22-cross-reference-system-enhancement.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\ULTIMA quase tudo revisado.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\governance\reports\EGOS_Project_Diagnostic_Report.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\guides\VIBE_CODING_GUIDE.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\products\dashboard\dashboard_ARCHITECTURE.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\products\dashboard\dashboard_FILE_ANALYSIS.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\products\dashboard\dashboard_README.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\products\dashboard\dashboard_ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\products\dashboard\ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\products\egos_dashboard\egos_dashboard_README.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\products\website\website_DASHBOARD-ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\products\website\website_MYCELIUM-INTEGRATION-PLAN.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\project\MCP grande avanço roadmap.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\project\archived_strategy_subdirs\strategy_archive\MVP_Definition.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\standards\TASK_DOCUMENTATION_STANDARD.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\technical\MYCELIUM_INTEGRATION.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\technical\WEBSITE_DESIGN.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\technical\components\website_dev_archive\DEVELOPMENT_PLAN.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs\tooling\specifications\KOS_AUD_001_file_reference_checker.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\00_project_overview\ARCHITECTURE.MD
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\00_project_overview\DOCUMENTATION_INDEX.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\00_project_overview\ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\historical_changelogs\MCP grande avanço roadmap.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\historical_changelogs\PLANO DE NEGOCIO EVA (1).txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\historical_changelogs\ULTIMA quase tudo revisado.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\historical_changelogs\Unification system PRD.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\2025-04-21_system_enhancement_update.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\CORUJA-MYC-02_circuit_breaker_implementation.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\CORUJA-MYC-05_performance_metrics_implementation.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\DOCUMENTATION_METRICS_DASHBOARD.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\EGOS Trust Weave MVP.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\GO_TO_MARKET_ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\MCP grande avanço roadmap.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\TASK-2025-04-22-cross-reference-system-enhancement.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\ULTIMA quase tudo revisado.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\reports\EGOS_Project_Diagnostic_Report.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\standards_documents\TASK_DOCUMENTATION_STANDARD.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\MYCELIUM_INTEGRATION.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\WEBSITE_DESIGN.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\02_koios_standards\TASK_DOCUMENTATION_STANDARD.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\06_guides_and_tutorials\VIBE_CODING_GUIDE.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\08_tooling_and_scripts\tooling_docs_legacy\specifications\KOS_AUD_001_file_reference_checker.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\DOCUMENTATION_INDEX_OLD.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\dashboard\dashboard_ARCHITECTURE.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\dashboard\dashboard_FILE_ANALYSIS.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\dashboard\dashboard_README.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\dashboard\dashboard_ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\dashboard\ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\egos_dashboard\egos_dashboard_README.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\website\website_DASHBOARD-ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\website\website_MYCELIUM-INTEGRATION-PLAN.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\MCP grande avanço roadmap.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\reports\ROADMAP_updated.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\archived_reference_txt\ULTIMA quase tudo revisado.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\historical_changelogs_from_reference\MCP grande avanço roadmap.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\historical_changelogs_from_reference\PLANO DE NEGOCIO EVA (1).txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\historical_changelogs_from_reference\ULTIMA quase tudo revisado.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\historical_changelogs_from_reference\Unification system PRD.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\docs_egos\zz_archive\planning_records\project_planning\Work_2025-05-20_Docs_Optimization.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\backups\backup_20250521_110900\scripts\ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\temp_grep_results\grep_EGOS_ID_Start_results.json
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\temp_grep_results\grep_MEMORY_results.json
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\temp_grep_results\grep_Reference_results.json
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\temp_grep_results\grep_RelativePathParent_results.json
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\temp_grep_results\grep_RelativePathSelf_results.json
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\temp_grep_results\grep_Source_results.json
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\reports\temp_grep_results\grep_WikiLinkStart_results.json
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\research\Analise site design.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\research\EGOS design e ferramentas web.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\research\EGOS design GROK.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\research\OK no roadmap\Analysis of Opportunities for Project EVA GUARANI - EGOS within the Stellar Blockchain Ecosystem.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\research\OK no roadmap\EGOS - Grok Presentation p2.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\research\OK no roadmap\Estudo DATA com IA Gemini.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\research\OK no roadmap\WebSite Enio Grok e Gemini.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\standards\TASK_DOCUMENTATION_STANDARD.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\Analise site design.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\EGOS design e ferramentas web.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\EGOS design GROK.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\EGOS_ Competindo com CodeGuide_.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\Estudo de Tempo e Tokens_.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\roadmap_related\Analysis of Opportunities for Project EVA GUARANI - EGOS within the Stellar Blockchain Ecosystem.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\roadmap_related\EGOS - Grok Presentation p2.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\roadmap_related\Estudo DATA com IA Gemini.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\STRATEGIC_THINKING\research\roadmap_related\WebSite Enio Grok e Gemini.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\STRATEGIC_THINKING\strategy_archive\MVP_Definition.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\technical\EGOS1.1 visao geral.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\technical\MYCELIUM_INTEGRATION.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\technical\Prometheus Grafana.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\technical\WEBSITE_DESIGN.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\docs\docs_old_20250521\technical\components\website_dev_archive\DEVELOPMENT_PLAN.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\work_tracking_archive\Work_2025-05-20_Docs_Optimization.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\archive\work_tracking_archive\WORK_2025_05_21.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\backups\unification\20250523_092120\dashboard\docs\dashboard_ARCHITECTURE.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\backups\unification\20250523_092120\dashboard\docs\dashboard_FILE_ANALYSIS.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\backups\unification\20250523_092120\dashboard\docs\dashboard_README.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\backups\unification\20250523_092120\dashboard\docs\dashboard_ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\backups\unification\20250523_092120\dashboard\docs\ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\backups\unification\20250523_092131\dashboard\docs\dashboard_ARCHITECTURE.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\backups\unification\20250523_092131\dashboard\docs\dashboard_FILE_ANALYSIS.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\backups\unification\20250523_092131\dashboard\docs\dashboard_README.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\backups\unification\20250523_092131\dashboard\docs\dashboard_ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\backups\unification\20250523_092131\dashboard\docs\ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\dashboard\docs\dashboard_ARCHITECTURE.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\dashboard\docs\dashboard_FILE_ANALYSIS.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\dashboard\docs\dashboard_README.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\dashboard\docs\dashboard_ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\dashboard\docs\ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\DOCUMENTATION_INDEX.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\architecture\ARCHITECTURE.MD
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\core_materials\MYCELIUM_INTEGRATION.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\core_materials\WEBSITE_DESIGN.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\core_materials\historical_changelogs\Benchmark do Sistema EVA & GUARANI.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\core_materials\historical_changelogs\BIOS-Q Cursor sistema EVA.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\core_materials\historical_changelogs\EGOS1.1 visao geral.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\core_materials\historical_changelogs\MCP grande avanço roadmap.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\core_materials\historical_changelogs\Personas no bot.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\core_materials\historical_changelogs\PLANO DE NEGOCIO EVA (1).txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\core_materials\historical_changelogs\PLANO DE NEGOCIO EVA (11).txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\core_materials\historical_changelogs\PLANO DE NEGOCIO EVA (3).txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\core_materials\historical_changelogs\Prometheus Grafana.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\core_materials\historical_changelogs\Prompt quantico 7.5.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\core_materials\historical_changelogs\Quantum prompt 7.5 OK.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\core_materials\historical_changelogs\Relatório de Análise e Preparação para Implantação em Ambiente Externo.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\core_materials\historical_changelogs\Reorganizaçao do sistem EVA e Guarani.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\core_materials\historical_changelogs\SLOP integration proximos passos potencial.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\core_materials\historical_changelogs\ULTIMA quase tudo revisado.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\core_materials\historical_changelogs\Unification system PRD.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\core_materials\historical_changelogs\Voando alto indo p outros sistemas.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\core_materials\strategy\MVP_Definition.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\core_materials\website\DEVELOPMENT_PLAN.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\governance\2025-04-21_system_enhancement_update.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\governance\Analise site design.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\governance\Analysis of Opportunities for Project EVA GUARANI - EGOS within the Stellar Blockchain Ecosystem.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\governance\Análise INTP-T e Projeto EGOS_.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\governance\CORUJA-MYC-02_circuit_breaker_implementation.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\governance\CORUJA-MYC-05_performance_metrics_implementation.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\governance\DOCUMENTATION_METRICS_DASHBOARD.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\governance\EGOS - Grok Presentation p2.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\governance\EGOS design e ferramentas web.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\governance\EGOS design GROK.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\governance\EGOS Trust Weave MVP.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\governance\EGOS1.1 visao geral.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\governance\EGOS_ Competindo com CodeGuide_.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\governance\EnioTransicaoPersonalidadeEGOS.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\governance\GO_TO_MARKET_ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\governance\MCP grande avanço roadmap.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\governance\Mycellium explained.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\governance\Plano Completo Plataforma EGOS Aprimorado_.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\governance\PROC-AUDIT-01_python_json_script_audit_v1.mdc
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\governance\Site novo e outras melhorias.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\governance\TASK-2025-04-22-cross-reference-system-enhancement.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\governance\ULTIMA quase tudo revisado.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\governance\WebSite Enio Grok e Gemini.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\governance\reports\EGOS_Project_Diagnostic_Report.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\guides\VIBE_CODING_GUIDE.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\process\auditing\PROC-AUDIT-01_python_json_script_audit_v1.mdc
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\products\dashboard\dashboard_ARCHITECTURE.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\products\dashboard\dashboard_FILE_ANALYSIS.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\products\dashboard\dashboard_README.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\products\dashboard\dashboard_ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\products\dashboard\ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\products\egos_dashboard\egos_dashboard_README.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\products\website\website_DASHBOARD-ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\products\website\website_MYCELIUM-INTEGRATION-PLAN.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\project\MCP grande avanço roadmap.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\project\archived_strategy_subdirs\strategy_archive\MVP_Definition.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\ARCHITECTURE.MD
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\Work_2025-05-20_Docs_Optimization.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\WORK_2025_05_21.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\DOCUMENTATION_INDEX.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\core_materials\historical_changelogs\MCP grande avanço roadmap.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\core_materials\historical_changelogs\PLANO DE NEGOCIO EVA (1).txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\core_materials\historical_changelogs\ULTIMA quase tudo revisado.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\core_materials\historical_changelogs\Unification system PRD.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\governance\2025-04-21_system_enhancement_update.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\governance\CORUJA-MYC-02_circuit_breaker_implementation.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\governance\CORUJA-MYC-05_performance_metrics_implementation.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\governance\DOCUMENTATION_METRICS_DASHBOARD.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\governance\EGOS Trust Weave MVP.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\governance\GO_TO_MARKET_ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\governance\MCP grande avanço roadmap.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\governance\TASK-2025-04-22-cross-reference-system-enhancement.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\governance\ULTIMA quase tudo revisado.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\governance\reports\EGOS_Project_Diagnostic_Report.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\guides\VIBE_CODING_GUIDE.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\products\dashboard\dashboard_ARCHITECTURE.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\products\dashboard\dashboard_FILE_ANALYSIS.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\products\dashboard\dashboard_README.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\products\dashboard\dashboard_ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\products\dashboard\ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\products\egos_dashboard\egos_dashboard_README.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\products\website\website_DASHBOARD-ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\products\website\website_MYCELIUM-INTEGRATION-PLAN.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\project\MCP grande avanço roadmap.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\project\archived_strategy_subdirs\strategy_archive\MVP_Definition.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\standards\TASK_DOCUMENTATION_STANDARD.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\technical\MYCELIUM_INTEGRATION.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\technical\WEBSITE_DESIGN.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\technical\components\website_dev_archive\DEVELOPMENT_PLAN.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs\tooling\specifications\KOS_AUD_001_file_reference_checker.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\00_project_overview\ARCHITECTURE.MD
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\00_project_overview\DOCUMENTATION_INDEX.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\00_project_overview\ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\historical_changelogs\MCP grande avanço roadmap.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\historical_changelogs\PLANO DE NEGOCIO EVA (1).txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\historical_changelogs\ULTIMA quase tudo revisado.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\historical_changelogs\Unification system PRD.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\2025-04-21_system_enhancement_update.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\CORUJA-MYC-02_circuit_breaker_implementation.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\CORUJA-MYC-05_performance_metrics_implementation.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\DOCUMENTATION_METRICS_DASHBOARD.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\EGOS Trust Weave MVP.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\GO_TO_MARKET_ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\MCP grande avanço roadmap.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\TASK-2025-04-22-cross-reference-system-enhancement.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\ULTIMA quase tudo revisado.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\reports\EGOS_Project_Diagnostic_Report.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\standards_documents\TASK_DOCUMENTATION_STANDARD.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\MYCELIUM_INTEGRATION.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\WEBSITE_DESIGN.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\components\website_dev_archive\DEVELOPMENT_PLAN.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\02_koios_standards\TASK_DOCUMENTATION_STANDARD.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\06_guides_and_tutorials\VIBE_CODING_GUIDE.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\08_tooling_and_scripts\tooling_docs_legacy\specifications\KOS_AUD_001_file_reference_checker.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\DOCUMENTATION_INDEX_OLD.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\dashboard\dashboard_ARCHITECTURE.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\dashboard\dashboard_FILE_ANALYSIS.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\dashboard\dashboard_README.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\dashboard\dashboard_ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\dashboard\ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\egos_dashboard\egos_dashboard_README.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\website\website_DASHBOARD-ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\website\website_MYCELIUM-INTEGRATION-PLAN.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\MCP grande avanço roadmap.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\archived_strategy_subdirs\strategy_archive\MVP_Definition.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\reports\ROADMAP_updated.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\archived_reference_txt\ULTIMA quase tudo revisado.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\historical_changelogs_from_reference\MCP grande avanço roadmap.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\historical_changelogs_from_reference\PLANO DE NEGOCIO EVA (1).txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\historical_changelogs_from_reference\ULTIMA quase tudo revisado.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\historical_changelogs_from_reference\Unification system PRD.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\planning_records\project_planning\Work_2025-05-20_Docs_Optimization.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\backups\backup_20250521_110900\scripts\ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\temp_grep_results\grep_EGOS_ID_Start_results.json
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\temp_grep_results\grep_MEMORY_results.json
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\temp_grep_results\grep_Reference_results.json
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\temp_grep_results\grep_RelativePathParent_results.json
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\temp_grep_results\grep_RelativePathSelf_results.json
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\temp_grep_results\grep_Source_results.json
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\reports\temp_grep_results\grep_WikiLinkStart_results.json
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\research\Analise site design.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\research\EGOS design e ferramentas web.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\research\EGOS design GROK.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\research\EGOS_ Competindo com CodeGuide_.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\research\Estudo de Tempo e Tokens_.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\research\OK no roadmap\Analysis of Opportunities for Project EVA GUARANI - EGOS within the Stellar Blockchain Ecosystem.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\research\OK no roadmap\EGOS - Grok Presentation p2.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\research\OK no roadmap\Estudo DATA com IA Gemini.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\research\OK no roadmap\WebSite Enio Grok e Gemini.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\research\roadmap_related\Analysis of Opportunities for Project EVA GUARANI - EGOS within the Stellar Blockchain Ecosystem.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\research\roadmap_related\EGOS - Grok Presentation p2.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\research\roadmap_related\Estudo DATA com IA Gemini.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\research\roadmap_related\WebSite Enio Grok e Gemini.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\standards\TASK_DOCUMENTATION_STANDARD.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\STRATEGIC_THINKING\research\Analise site design.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\STRATEGIC_THINKING\research\EGOS design e ferramentas web.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\STRATEGIC_THINKING\research\EGOS design GROK.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\STRATEGIC_THINKING\research\EGOS_ Competindo com CodeGuide_.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\STRATEGIC_THINKING\research\Estudo de Tempo e Tokens_.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\STRATEGIC_THINKING\research\roadmap_related\Analysis of Opportunities for Project EVA GUARANI - EGOS within the Stellar Blockchain Ecosystem.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\STRATEGIC_THINKING\research\roadmap_related\EGOS - Grok Presentation p2.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\STRATEGIC_THINKING\research\roadmap_related\Estudo DATA com IA Gemini.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\STRATEGIC_THINKING\research\roadmap_related\WebSite Enio Grok e Gemini.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\STRATEGIC_THINKING\strategy_archive\MVP_Definition.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\strategy_archive\MVP_Definition.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\technical\EGOS1.1 visao geral.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\technical\MYCELIUM_INTEGRATION.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\technical\Prometheus Grafana.txt
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\technical\WEBSITE_DESIGN.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\technical\components\website_dev_archive\DEVELOPMENT_PLAN.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\tooling\specifications\KOS_AUD_001_file_reference_checker.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\work_logs\Work_2025-05-20_Docs_Optimization.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\work_logs\WORK_2025_05_22_file_duplication_management.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\work_logs\WORK_2025_05_22_run_tools_enhancement.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\work_logs\WORK_2025_05_22_tool_registry_system_plan.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\work_logs\WORK_2025_05_23_Directory_Unification_Analysis.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\work_logs\WORK_2025_05_23_Directory_Unification_Implementation.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\docs\work_logs\WORK_2025_05_23_Directory_Unification_Tool_Enhancements.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\scripts\ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\scripts\cross_reference\zz_archive\WORK_2025_05_21_update.md.bak
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\subsystems\CORUJA\ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\subsystems\KOIOS\ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\subsystems\MYCELIUM\ROADMAP.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\subsystems\MYCELIUM\ROADMAP.md.bak.20250418190753
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\website\docs\design\WEBSITE_DESIGN.md
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\website\src\components\ErrorBoundary.tsx
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\website\src\components\dashboard\CrossReferenceVisualizer.tsx
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\website\src\components\dashboard\DashboardLayout.tsx
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\website\src\components\dashboard\MetricsPanel.tsx
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\website\src\components\dashboard\SystemStatus.tsx
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\website\src\data\graph-data.js
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\website\src\lib\api\dashboardClient.ts
+- C:\EGOS\backups\directory_unification_dashboard_20250523_120929\website\src\lib\api\validationRunner.ts
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\ATLAS\ROADMAP.md
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\ATLAS\ROADMAP.md.bak.20250418190753
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\CORUJA\ARCHITECTURE.md
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\CORUJA\ROADMAP.md
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\CORUJA\docs\ARCHITECTURE.md
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\CORUJA\docs\CORUJA_roadmap.md
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\CRONOS\ROADMAP.md
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\ETHIK\ROADMAP.md
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\ETHIK\ROADMAP.md.bak.20250418190753
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\ETHIK\docs\API.md
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\ETHIK\tests\test_ETHIK-BACKUP-001_sistema_backup.py
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\ETHIK\tests\test_ETHIK-BACKUP-001_sistema_backup.py.bak.20250419075328
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\ETHIK\tests\test_ETHIK-BACKUP-001_sistema_backup.py.bak2
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\ETHIK\tests\test_ETHIK-VERIFY-001_verificacao_migracao.py
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\ETHIK\tests\test_ETHIK-VERIFY-001_verificacao_migracao.py.bak.20250419075328
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\ETHIK\tests\test_ETHIK-VERIFY-001_verificacao_migracao.py.bak2
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\HARMONY\ROADMAP.md
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\KOIOS\ROADMAP.md
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\KOIOS\chronicler_module\chronicler_output\chronicler_module_Chronicler_Summary.html
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\KOIOS\docs\MDC_RULES_STANDARD.md
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\KOIOS\docs\STANDARDS.md
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\MASTER\ROADMAP.md
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\MYCELIUM\ROADMAP.md
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\NEXUS\ROADMAP.md
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\NEXUS\ROADMAP.md.bak.20250418190753
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\SYNC\ROADMAP.md
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\TRANSLATOR\ROADMAP.md
+- C:\EGOS\backups\subsystems_backup_20250523\subsystems\TRANSLATOR\ROADMAP.md.bak.20250418190753
+- C:\EGOS\backups\unification\20250523_092131\dashboard\docs\dashboard_ARCHITECTURE.md
+- C:\EGOS\backups\unification\20250523_092131\dashboard\docs\dashboard_FILE_ANALYSIS.md
+- C:\EGOS\backups\unification\20250523_092131\dashboard\docs\dashboard_README.md
+- C:\EGOS\backups\unification\20250523_092131\dashboard\docs\dashboard_ROADMAP.md
+- C:\EGOS\backups\unification\20250523_092131\dashboard\docs\ROADMAP.md
+- C:\EGOS\docs\DOCUMENTATION_INDEX.md
+- C:\EGOS\docs\GOVERNANCE.md
+- C:\EGOS\docs\INTEGRATION_PLAN.md
+- C:\EGOS\docs\STRATEGY.md
+- C:\EGOS\docs\02_Development_Standards\KOS_script_analysis_framework.md
+- C:\EGOS\docs\ai_collaboration\MULTI_AGENT_WORKFLOW.md
+- C:\EGOS\docs\architecture\ARCHITECTURE.MD
+- C:\EGOS\docs\core_materials\ARCHITECTURE.md
+- C:\EGOS\docs\core_materials\CRONOS_REFACTORING_EXAMPLE.md
+- C:\EGOS\docs\core_materials\EGOS_OVERVIEW.md
+- C:\EGOS\docs\core_materials\GOVERNANCE.md
+- C:\EGOS\docs\core_materials\INTEGRATION_PLAN.md
+- C:\EGOS\docs\core_materials\KOIOS_Interaction_Standards.md
+- C:\EGOS\docs\core_materials\MCP_CREATION_GUIDE.md
+- C:\EGOS\docs\core_materials\MQP.md
+- C:\EGOS\docs\core_materials\MYCELIUM_INTEGRATION.md
+- C:\EGOS\docs\core_materials\PHILOSOPHY.md
+- C:\EGOS\docs\core_materials\STANDARDS_SCRIPT_FEEDBACK.md
+- C:\EGOS\docs\core_materials\STRATEGY.md
+- C:\EGOS\docs\core_materials\WEBSITE_DESIGN.md
+- C:\EGOS\docs\core_materials\ai_collaboration\MULTI_AGENT_WORKFLOW.md
+- C:\EGOS\docs\core_materials\ai_integration\MULTI_MODEL_INSIGHTS.md
+- C:\EGOS\docs\core_materials\historical_changelogs\apresentaçao e concorrentes.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\atualizacao bot unificado.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\atualização botava.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\ava7.0 novv.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\BACKUP quantico.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Backup system.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Benchmark do Sistema EVA & GUARANI.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\BIOS-Q Cursor sistema EVA.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\BIOS-Q MCP.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\BOT ok melhorando.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Cursor X Web limitaçoes.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Dinamicidade no sistema.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\EGOS 1.0.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\EGOS1.1 visao geral.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\EVA & GUARANI - Quantum Unified Master Prompt 2024 (Versão 8.0).txt
+- C:\EGOS\docs\core_materials\historical_changelogs\eva 5 inicializaçao.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\EVA 7.3.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\eva atendimento inicio.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Filesystem SLOP.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\grande atualizacao.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Instalaçao EVA.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\INstruicoes bot telegram.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Integration Codeguide Paella MQP.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Integraçao Cursor e Eva.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Integraçao Eliza.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Integraçao sistema quantico com bot.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Link simbolico fonte de verdade sistema.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\MATRIZ  quantica.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\MCP grande avanço roadmap.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\MCP OK avanços e futuro.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Melhorias BOT telegram.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\muito longe.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\MVP OK 7.0.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Mycelium atualizado.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\NAO PARE Futuro Projeto importante.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\NEXUS elovuindo MUITO.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\NEXUS_MODULAR.md
+- C:\EGOS\docs\core_materials\historical_changelogs\OUTLINE cursor FODA.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Overview projeto.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Panorama sistema TODO.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Personas no bot.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\PLANO DE NEGOCIO EVA (1).txt
+- C:\EGOS\docs\core_materials\historical_changelogs\PLANO DE NEGOCIO EVA (11).txt
+- C:\EGOS\docs\core_materials\historical_changelogs\PLANO DE NEGOCIO EVA (14).txt
+- C:\EGOS\docs\core_materials\historical_changelogs\PLANO DE NEGOCIO EVA (3).txt
+- C:\EGOS\docs\core_materials\historical_changelogs\PLANO DE NEGOCIO EVA SENNA.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Plano reorganizaçao pastas.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Prometheus Grafana.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Prompt quantico 7 ingles.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Prompt Quantico 7.0 EGOS.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Prompt quantico 7.5.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Prompts quanticos EGOS.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Promtps quanticos v7.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\próximos passoATLAS.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Quantum Prompt 5.0.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Quantum prompt 7.5 OK.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Quantum prompt 8.0 BIOS-Q.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Quantum Prompt Rules e inicializaçao.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Quantum unification.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Relatório de Análise e Preparação para Implantação em Ambiente Externo.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Reorganizaçao do sistem EVA e Guarani.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Roadmap Mycellium.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\ROADMAP.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\RPG EVA.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\sistema validaçao etica RPG.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\SLOP integration proximos passos potencial.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\tentando perplexity.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\ULTIMA quase tudo revisado.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Unification ETHIK.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Unification system PRD.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Updates system EVA.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\viagem neural quantica.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Visao geral inicialization.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Voando alto indo p outros sistemas.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\Web application avançando.txt
+- C:\EGOS\docs\core_materials\historical_changelogs\websearch atualizacao.txt
+- C:\EGOS\docs\core_materials\process\validation\PROC-VALIDATE-01_roadmap_tasks_validation.md
+- C:\EGOS\docs\core_materials\process\validation\PROC-VALIDATE-02_subsystem_structure_validation.md
+- C:\EGOS\docs\core_materials\prompts\CURSOR_QUANTUM_PROMPT.md
+- C:\EGOS\docs\core_materials\prompts\CURSOR_SYSTEM_PROMPT.txt
+- C:\EGOS\docs\core_materials\research\AI_AGENT_CAPABILITIES_2025.md
+- C:\EGOS\docs\core_materials\research\CONTENT_AGGREGATOR_DEEP_DIVE.md
+- C:\EGOS\docs\core_materials\standards\KOIOS_Interaction_Standards.md
+- C:\EGOS\docs\core_materials\standards\KOIOS_PDD_Standard.md
+- C:\EGOS\docs\core_materials\standards\MCP_Testing_Framework.md
+- C:\EGOS\docs\core_materials\strategy\Competitive_Analysis.md
+- C:\EGOS\docs\core_materials\strategy\Customer_Journey_Map.md
+- C:\EGOS\docs\core_materials\strategy\EGOS_Business_Plan_v1.0.md
+- C:\EGOS\docs\core_materials\strategy\EGOS_PRESENTATION_GUIDE.md
+- C:\EGOS\docs\core_materials\strategy\Monetization_Model.md
+- C:\EGOS\docs\core_materials\strategy\MVP_Definition.md
+- C:\EGOS\docs\core_materials\strategy\Target_Platform_Analysis.md
+- C:\EGOS\docs\core_materials\templates\PDD_Template.md
+- C:\EGOS\docs\core_materials\templates\PDD_Template.yaml
+- C:\EGOS\docs\core_materials\website\CONTENT_STRATEGY.md
+- C:\EGOS\docs\core_materials\website\CURRENT_TASKS.md
+- C:\EGOS\docs\core_materials\website\DESIGN_GUIDE.md
+- C:\EGOS\docs\core_materials\website\DEVELOPMENT_PLAN.md
+- C:\EGOS\docs\core_materials\website\USER_RESEARCH_PLAN.md
+- C:\EGOS\docs\core_materials\website\WEBSITE_DESIGN.md
+- C:\EGOS\docs\diagnostics\diagnosticoENIO_Batch7_20250518.md
+- C:\EGOS\docs\diagnostics\DOCS_DIRECTORY_DIAGNOSTIC_20250518.md
+- C:\EGOS\docs\governance\2025-04-21_system_enhancement_update.md
+- C:\EGOS\docs\governance\2025-05-05_centralization_system_progress.md
+- C:\EGOS\docs\governance\Adaptação de Prompts para EGOS_.txt
+- C:\EGOS\docs\governance\Analise site design.txt
+- C:\EGOS\docs\governance\AnaliseEnioEgos.txt
+- C:\EGOS\docs\governance\Analysis of Opportunities for Project EVA GUARANI - EGOS within the Stellar Blockchain Ecosystem.txt
+- C:\EGOS\docs\governance\Análise de Integração de Ferramentas e Empresas com o Sistema EVA GUARANI - EGOS.txt
+- C:\EGOS\docs\governance\Análise e Ferramentas para EGOS_.txt
+- C:\EGOS\docs\governance\Análise e Refinamento do Projeto EGOS_.txt
+- C:\EGOS\docs\governance\Análise INTP-T e Projeto EGOS_.txt
+- C:\EGOS\docs\governance\Aprimorando o site EGOS_.txt
+- C:\EGOS\docs\governance\Aprimorando Prompt para EGOS_.txt
+- C:\EGOS\docs\governance\Avanço Windsurf.txt
+- C:\EGOS\docs\governance\BIOS-Q MCP.txt
+- C:\EGOS\docs\governance\CHANGELOG.md
+- C:\EGOS\docs\governance\CHANGES_SUMMARY.md
+- C:\EGOS\docs\governance\Comparacao ferramentas data ia.txt
+- C:\EGOS\docs\governance\Concorrentes gratuitos do CodeGuide_.txt
+- C:\EGOS\docs\governance\CORUJA-MYC-02_circuit_breaker_implementation.md
+- C:\EGOS\docs\governance\CORUJA-MYC-05_performance_analysis_plan.md
+- C:\EGOS\docs\governance\CORUJA-MYC-05_performance_metrics_implementation.md
+- C:\EGOS\docs\governance\Criaçao de site com IA.txt
+- C:\EGOS\docs\governance\DOCUMENTATION_METRICS_DASHBOARD.md
+- C:\EGOS\docs\governance\EGOS - Gemini AI System Market Analysis.txt
+- C:\EGOS\docs\governance\EGOS - Grok Presentation p2.txt
+- C:\EGOS\docs\governance\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt
+- C:\EGOS\docs\governance\EGOS 1.0.txt
+- C:\EGOS\docs\governance\EGOS CodeGuide PRD.txt
+- C:\EGOS\docs\governance\EGOS design e ferramentas web.txt
+- C:\EGOS\docs\governance\EGOS design GROK.txt
+- C:\EGOS\docs\governance\EGOS Ethical Marketing Strategy_.txt
+- C:\EGOS\docs\governance\EGOS Trust Weave MVP.txt
+- C:\EGOS\docs\governance\EGOS1.1 visao geral.txt
+- C:\EGOS\docs\governance\EGOS_ Competindo com CodeGuide_.txt
+- C:\EGOS\docs\governance\EGOS_ GitHub Project Search_.txt
+- C:\EGOS\docs\governance\EGOS_STRATEGIC_OVERVIEW.md
+- C:\EGOS\docs\governance\EnioTransicaoPersonalidadeEGOS.txt
+- C:\EGOS\docs\governance\Estudo KOIOS.txt
+- C:\EGOS\docs\governance\Focus Definition EGOS Coruja.txt
+- C:\EGOS\docs\governance\GO_TO_MARKET_ROADMAP.md
+- C:\EGOS\docs\governance\Instalaçao EVA.txt
+- C:\EGOS\docs\governance\Integration Codeguide Paella MQP.txt
+- C:\EGOS\docs\governance\Integraçao sistema quantico com bot.txt
+- C:\EGOS\docs\governance\Integração Context7 e _egos_ aprimorada_.txt
+- C:\EGOS\docs\governance\KOIOS-summary.md
+- C:\EGOS\docs\governance\LEGACY_MIGRATION.md
+- C:\EGOS\docs\governance\Market Positioning Strategy for Eva Guarani Egos An Expert Analysis.txt
+- C:\EGOS\docs\governance\MARKET_ANALYSIS.txt
+- C:\EGOS\docs\governance\MCP grande avanço roadmap.txt
+- C:\EGOS\docs\governance\Melhorias BOT telegram.txt
+- C:\EGOS\docs\governance\MVP OK 7.0.txt
+- C:\EGOS\docs\governance\Mycellium explained.txt
+- C:\EGOS\docs\governance\NAO PARE Futuro Projeto importante.txt
+- C:\EGOS\docs\governance\OpenSource Repos.txt
+- C:\EGOS\docs\governance\Plano Completo Plataforma EGOS Aprimorado_.txt
+- C:\EGOS\docs\governance\PLANO DE NEGOCIO EVA (14).txt
+- C:\EGOS\docs\governance\Plano reorganizaçao pastas.txt
+- C:\EGOS\docs\governance\PROC-AUDIT-01_python_json_script_audit_v1.mdc
+- C:\EGOS\docs\governance\Prompt quantico 7 ingles.txt
+- C:\EGOS\docs\governance\Prompt Quantico 7.0 EGOS.txt
+- C:\EGOS\docs\governance\Prompts quanticos EGOS.txt
+- C:\EGOS\docs\governance\Quantum Prompt Rules e inicializaçao.txt
+- C:\EGOS\docs\governance\REORGANIZATION_2025.md
+- C:\EGOS\docs\governance\Roadmap apos estudos.txt
+- C:\EGOS\docs\governance\Roadmap Mycellium.txt
+- C:\EGOS\docs\governance\RPG EVA.txt
+- C:\EGOS\docs\governance\Site novo e outras melhorias.txt
+- C:\EGOS\docs\governance\SPARC_methodology.md
+- C:\EGOS\docs\governance\STRATEGY.md
+- C:\EGOS\docs\governance\Subsystems and tools 8.2.txt
+- C:\EGOS\docs\governance\TASK-2025-04-22-cross-reference-system-enhancement.md
+- C:\EGOS\docs\governance\TIPS_HESAMATION.txt
+- C:\EGOS\docs\governance\ULTIMA quase tudo revisado.txt
+- C:\EGOS\docs\governance\Visao EVA até aqui, fit go to market.txt
+- C:\EGOS\docs\governance\WebSite analise.txt
+- C:\EGOS\docs\governance\WebSite Enio Grok e Gemini.txt
+- C:\EGOS\docs\governance\Windsurf Prompt for EGOS Project_.txt
+- C:\EGOS\docs\governance\reorganization\DOCS_MIGRATION_CASE_STUDY.md
+- C:\EGOS\docs\governance\reorganization\DOCS_MIGRATION_PLAN.md
+- C:\EGOS\docs\governance\reorganization\SYSTEM_ORGANIZATION_PLAN.md
+- C:\EGOS\docs\governance\reorganization\SYSTEM_ORGANIZATION_TASKS.md
+- C:\EGOS\docs\governance\reports\EGOS_Project_Diagnostic_Report.md
+- C:\EGOS\docs\guides\CORUJA_PERFORMANCE_METRICS_GUIDE.md
+- C:\EGOS\docs\guides\CRONOS_REFACTORING_EXAMPLE.md
+- C:\EGOS\docs\guides\MCP_CREATION_GUIDE.md
+- C:\EGOS\docs\guides\MULTI_AGENT_WORKFLOW.md
+- C:\EGOS\docs\guides\SYSTEM_VISUALIZATION_GUIDE.md
+- C:\EGOS\docs\guides\VIBE_CODING_GUIDE.md
+- C:\EGOS\docs\handovers\HANDOVER_2025-05-24_DocOrganizerEnhancements.md
+- C:\EGOS\docs\process\auditing\PROC-AUDIT-01_python_json_script_audit_v1.mdc
+- C:\EGOS\docs\products\chronicler\PROJECT_CHRONICLER_ROADMAP.md
+- C:\EGOS\docs\products\chronicler\PROJECT_CHRONICLER_VISION.md
+- C:\EGOS\docs\products\dashboard\dashboard_ARCHITECTURE.md
+- C:\EGOS\docs\products\dashboard\dashboard_FILE_ANALYSIS.md
+- C:\EGOS\docs\products\dashboard\dashboard_README.md
+- C:\EGOS\docs\products\dashboard\dashboard_ROADMAP.md
+- C:\EGOS\docs\products\dashboard\ROADMAP.md
+- C:\EGOS\docs\products\egos_dashboard\egos_dashboard_README.md
+- C:\EGOS\docs\products\scribe\PROJECT_SCRIBE_ROADMAP.md
+- C:\EGOS\docs\products\scribe\PROJECT_SCRIBE_VISION.md
+- C:\EGOS\docs\products\website\CURRENT_TASKS.md
+- C:\EGOS\docs\products\website\DESIGN_GUIDE.md
+- C:\EGOS\docs\products\website\DEVELOPMENT_PLAN.md
+- C:\EGOS\docs\products\website\ROADMAP.md
+- C:\EGOS\docs\products\website\USER_RESEARCH_PLAN.md
+- C:\EGOS\docs\products\website\website_DASHBOARD-ROADMAP.md
+- C:\EGOS\docs\products\website\WEBSITE_DESIGN.md
+- C:\EGOS\docs\products\website\website_MYCELIUM-INTEGRATION-PLAN.md
+- C:\EGOS\docs\products\website\website_README.md
+- C:\EGOS\docs\products\website\website_WEBSITE_ROADMAP.md
+- C:\EGOS\docs\products\website\docs\system\EGOS_UI_Documentation.md
+- C:\EGOS\docs\project\ARCHITECTURE.md
+- C:\EGOS\docs\project\EGOS_OVERVIEW.md
+- C:\EGOS\docs\project\GOVERNANCE.md
+- C:\EGOS\docs\project\INTEGRATION_PLAN.md
+- C:\EGOS\docs\project\MCP grande avanço roadmap.txt
+- C:\EGOS\docs\project\MQP.md
+- C:\EGOS\docs\project\NAO PARE Futuro Projeto importante.txt
+- C:\EGOS\docs\project\PHILOSOPHY.md
+- C:\EGOS\docs\project\Roadmap Mycellium.txt
+- C:\EGOS\docs\project\STRATEGY.md
+- C:\EGOS\docs\project\archived_strategy_subdirs\strategy_archive\Competitive_Analysis.md
+- C:\EGOS\docs\project\archived_strategy_subdirs\strategy_archive\Customer_Journey_Map.md
+- C:\EGOS\docs\project\archived_strategy_subdirs\strategy_archive\EGOS_Business_Plan_v1.0.md
+- C:\EGOS\docs\project\archived_strategy_subdirs\strategy_archive\EGOS_PRESENTATION_GUIDE.md
+- C:\EGOS\docs\project\archived_strategy_subdirs\strategy_archive\Monetization_Model.md
+- C:\EGOS\docs\project\archived_strategy_subdirs\strategy_archive\MVP_Definition.md
+- C:\EGOS\docs\project\archived_strategy_subdirs\strategy_archive\Target_Platform_Analysis.md
+- C:\EGOS\docs\prompts\CURSOR_QUANTUM_PROMPT.md
+- C:\EGOS\docs\prompts\CURSOR_SYSTEM_PROMPT.txt
+- C:\EGOS\docs\prompts\Prompt Quantico 7.0 EGOS.txt
+- C:\EGOS\docs\prompts\Prompts quanticos EGOS.txt
+- C:\EGOS\docs\prompts\Quantum Prompt Rules e inicializaçao.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\ARCHITECTURE.MD
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\MQP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\OCIOCRIATIVO.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\Work_2025-05-20_Docs_Optimization.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\Work_2025-05-20_Documentation_Diagnosis.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\Work_2025-05-20_Phase2_Execution_Plan.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\WORK_2025_05_21.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\DOCUMENTATION_INDEX.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\core_materials\KOIOS_Interaction_Standards.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\core_materials\MQP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\core_materials\historical_changelogs\EVA & GUARANI - Quantum Unified Master Prompt 2024 (Versão 8.0).txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\core_materials\historical_changelogs\MCP grande avanço roadmap.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\core_materials\historical_changelogs\PLANO DE NEGOCIO EVA (1).txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\core_materials\historical_changelogs\RPG EVA.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\core_materials\historical_changelogs\ULTIMA quase tudo revisado.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\core_materials\historical_changelogs\Unification system PRD.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\core_materials\standards\KOIOS_Interaction_Standards.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\core_materials\strategy\EGOS_Business_Plan_v1.0.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\core_materials\website\DESIGN_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\diagnostics\diagnosticoENIO_Batch7_20250518.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\governance\2025-04-21_system_enhancement_update.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\governance\2025-05-05_centralization_system_progress.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\governance\CHANGELOG.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\governance\CHANGES_SUMMARY.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\governance\CORUJA-MYC-02_circuit_breaker_implementation.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\governance\CORUJA-MYC-05_performance_analysis_plan.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\governance\CORUJA-MYC-05_performance_metrics_implementation.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\governance\DOCUMENTATION_METRICS_DASHBOARD.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\governance\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\governance\EGOS Ethical Marketing Strategy_.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\governance\EGOS Trust Weave MVP.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\governance\GO_TO_MARKET_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\governance\Integração Context7 e _egos_ aprimorada_.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\governance\LEGACY_MIGRATION.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\governance\MCP grande avanço roadmap.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\governance\RPG EVA.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\governance\SPARC_methodology.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\governance\STRATEGY.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\governance\TASK-2025-04-22-cross-reference-system-enhancement.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\governance\ULTIMA quase tudo revisado.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\governance\reorganization\DOCS_MIGRATION_CASE_STUDY.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\governance\reorganization\DOCS_MIGRATION_PLAN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\governance\reorganization\SYSTEM_ORGANIZATION_TASKS.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\governance\reports\EGOS_Project_Diagnostic_Report.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\guides\CORUJA_PERFORMANCE_METRICS_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\guides\CRONOS_REFACTORING_EXAMPLE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\guides\MCP_CREATION_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\guides\MULTI_AGENT_WORKFLOW.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\guides\SYSTEM_VISUALIZATION_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\guides\VIBE_CODING_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\products\dashboard\dashboard_ARCHITECTURE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\products\dashboard\dashboard_FILE_ANALYSIS.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\products\dashboard\dashboard_README.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\products\dashboard\dashboard_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\products\dashboard\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\products\egos_dashboard\egos_dashboard_README.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\products\website\CURRENT_TASKS.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\products\website\DESIGN_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\products\website\DEVELOPMENT_PLAN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\products\website\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\products\website\USER_RESEARCH_PLAN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\products\website\website_DASHBOARD-ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\products\website\WEBSITE_DESIGN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\products\website\website_MYCELIUM-INTEGRATION-PLAN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\products\website\website_README.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\products\website\website_WEBSITE_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\project\EGOS_OVERVIEW.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\project\GOVERNANCE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\project\INTEGRATION_PLAN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\project\MCP grande avanço roadmap.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\project\MQP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\project\PHILOSOPHY.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\project\STRATEGY.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\project\archived_strategy_subdirs\strategy_archive\Competitive_Analysis.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\project\archived_strategy_subdirs\strategy_archive\Customer_Journey_Map.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\project\archived_strategy_subdirs\strategy_archive\EGOS_Business_Plan_v1.0.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\project\archived_strategy_subdirs\strategy_archive\EGOS_PRESENTATION_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\project\archived_strategy_subdirs\strategy_archive\Monetization_Model.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\project\archived_strategy_subdirs\strategy_archive\MVP_Definition.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\project\archived_strategy_subdirs\strategy_archive\Target_Platform_Analysis.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\prompts\CURSOR_QUANTUM_PROMPT.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\research\OK no roadmap\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\research\OK no roadmap\EGOS Ethical Marketing Strategy_.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\research\OK no roadmap\Scraper com IA.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\standards\KOIOS_Interaction_Standards.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\standards\STANDARDS_SCRIPT_FEEDBACK.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\standards\TASK_DOCUMENTATION_STANDARD.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\standards\validation_procedures\PROC-VALIDATE-01_roadmap_tasks_validation.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\standards\validation_procedures\PROC-VALIDATE-02_subsystem_structure_validation.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\STRATEGIC_THINKING\research\Integração Context7 e _egos_ aprimorada_.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\STRATEGIC_THINKING\research\roadmap_related\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\STRATEGIC_THINKING\research\roadmap_related\EGOS Ethical Marketing Strategy_.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\STRATEGIC_THINKING\research\roadmap_related\Scraper com IA.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\STRATEGIC_THINKING\strategy_archive\EGOS_Business_Plan_v1.0.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\technical\MYCELIUM_INTEGRATION.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\technical\WEBSITE_DESIGN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\technical\ai_systems\ai_collaboration_archive\MULTI_AGENT_WORKFLOW.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\technical\ai_systems\ai_integration_archive\MULTI_MODEL_INSIGHTS.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\technical\components\website_dev_archive\CONTENT_STRATEGY.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\technical\components\website_dev_archive\CURRENT_TASKS.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\technical\components\website_dev_archive\DESIGN_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\technical\components\website_dev_archive\DEVELOPMENT_PLAN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\technical\components\website_dev_archive\USER_RESEARCH_PLAN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\technical\components\website_dev_archive\WEBSITE_DESIGN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\templates\reference_templates\PDD_Template.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\tooling\specifications\KOS_AUD_001_file_reference_checker.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs\website\DESIGN_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\SUMMARY.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\00_project_overview\ARCHITECTURE.MD
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\00_project_overview\DOCUMENTATION_INDEX.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\00_project_overview\README_core_materials_overview.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\00_project_overview\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\00_project_overview\project_EGOS_docs_optimization\Work_2025-05-20_Documentation_Diagnosis.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\00_project_overview\project_EGOS_docs_optimization\Work_2025-05-20_Phase2_Execution_Plan.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_concepts\strategic_thinking\research\Integração Context7 e _egos_ aprimorada_.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_concepts\strategic_thinking\research\roadmap_related\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_concepts\strategic_thinking\research\roadmap_related\EGOS Ethical Marketing Strategy_.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_concepts\strategic_thinking\research\roadmap_related\Scraper com IA.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_concepts\strategic_thinking\strategy_archive\EGOS_Business_Plan_v1.0.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\KOIOS_Interaction_Standards.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\historical_changelogs\EVA & GUARANI - Quantum Unified Master Prompt 2024 (Versão 8.0).txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\historical_changelogs\MCP grande avanço roadmap.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\historical_changelogs\PLANO DE NEGOCIO EVA (1).txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\historical_changelogs\RPG EVA.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\historical_changelogs\ULTIMA quase tudo revisado.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\historical_changelogs\Unification system PRD.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\standards\KOIOS_Interaction_Standards.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\strategy\EGOS_Business_Plan_v1.0.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\core_materials\website\DESIGN_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\2025-04-21_system_enhancement_update.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\2025-05-05_centralization_system_progress.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\CHANGELOG.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\CHANGES_SUMMARY.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\CORUJA-MYC-02_circuit_breaker_implementation.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\CORUJA-MYC-05_performance_analysis_plan.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\CORUJA-MYC-05_performance_metrics_implementation.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\DOCUMENTATION_METRICS_DASHBOARD.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\EGOS Ethical Marketing Strategy_.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\EGOS Trust Weave MVP.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\GO_TO_MARKET_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\Integração Context7 e _egos_ aprimorada_.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\LEGACY_MIGRATION.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\MCP grande avanço roadmap.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\RPG EVA.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\SPARC_methodology.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\STRATEGY.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\TASK-2025-04-22-cross-reference-system-enhancement.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\ULTIMA quase tudo revisado.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\reorganization\DOCS_MIGRATION_CASE_STUDY.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\reorganization\DOCS_MIGRATION_PLAN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\reorganization\SYSTEM_ORGANIZATION_TASKS.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\governance_documents\reports\EGOS_Project_Diagnostic_Report.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\standards_documents\KOIOS_Interaction_Standards.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\standards_documents\STANDARDS_SCRIPT_FEEDBACK.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\standards_documents\TASK_DOCUMENTATION_STANDARD.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\standards_documents\validation_procedures\PROC-VALIDATE-01_roadmap_tasks_validation.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\01_core_principles\standards_documents\validation_procedures\PROC-VALIDATE-02_subsystem_structure_validation.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\MYCELIUM_INTEGRATION.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\WEBSITE_DESIGN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\ai_systems\ai_collaboration_archive\MULTI_AGENT_WORKFLOW.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\ai_systems\ai_integration_archive\MULTI_MODEL_INSIGHTS.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\components\website_dev_archive\CONTENT_STRATEGY.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\components\website_dev_archive\CURRENT_TASKS.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\components\website_dev_archive\DESIGN_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\components\website_dev_archive\DEVELOPMENT_PLAN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\components\website_dev_archive\USER_RESEARCH_PLAN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\02_architecture\technical_documents\components\website_dev_archive\WEBSITE_DESIGN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\02_koios_standards\KOIOS_Interaction_Standards.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\02_koios_standards\STANDARDS_SCRIPT_FEEDBACK.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\02_koios_standards\TASK_DOCUMENTATION_STANDARD.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\03_processes\development\KOS_process_documentation_review.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\03_processes\development\PROC-VALIDATE-01_roadmap_tasks_validation.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\03_processes\development\PROC-VALIDATE-02_subsystem_structure_validation.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\README_OLD_OVERVIEW.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\ATLAS\ATL_architecture.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\CORUJA\ARCHITECTURE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\ETHIK\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\KOIOS\processes\KOS_process_documentation_review.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\03_subsystems\TRUST_WEAVER\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\04_modules_and_components\CORUJA\prompts\CURSOR_QUANTUM_PROMPT.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\04_modules_and_components\CORUJA\prompts_legacy\CURSOR_QUANTUM_PROMPT.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\04_products_services\website\DESIGN_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\06_guides_and_tutorials\CORUJA_PERFORMANCE_METRICS_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\06_guides_and_tutorials\CRONOS_REFACTORING_EXAMPLE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\06_guides_and_tutorials\MCP_CREATION_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\06_guides_and_tutorials\MULTI_AGENT_WORKFLOW.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\06_guides_and_tutorials\SYSTEM_VISUALIZATION_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\06_guides_and_tutorials\VIBE_CODING_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\07_standards_and_guidelines\research_archive\OK no roadmap\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\07_standards_and_guidelines\research_archive\OK no roadmap\EGOS Ethical Marketing Strategy_.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\07_standards_and_guidelines\research_archive\OK no roadmap\Scraper com IA.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\08_tooling_and_scripts\migration_utilities\Invoke-EGOSMigration_Guide.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\08_tooling_and_scripts\tooling_docs_legacy\specifications\KOS_AUD_001_file_reference_checker.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\DOCUMENTATION_INDEX_OLD.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\dashboard\dashboard_ARCHITECTURE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\dashboard\dashboard_FILE_ANALYSIS.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\dashboard\dashboard_README.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\dashboard\dashboard_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\dashboard\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\egos_dashboard\egos_dashboard_README.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\website\CURRENT_TASKS.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\website\DESIGN_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\website\DEVELOPMENT_PLAN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\website\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\website\USER_RESEARCH_PLAN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\website\website_DASHBOARD-ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\website\WEBSITE_DESIGN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\website\website_MYCELIUM-INTEGRATION-PLAN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\website\website_README.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\products_overview\website\website_WEBSITE_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\EGOS_OVERVIEW.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\GOVERNANCE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\INTEGRATION_PLAN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\MCP grande avanço roadmap.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\MQP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\PHILOSOPHY.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\STRATEGY.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\archived_strategy_subdirs\strategy_archive\Competitive_Analysis.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\archived_strategy_subdirs\strategy_archive\Customer_Journey_Map.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\archived_strategy_subdirs\strategy_archive\EGOS_Business_Plan_v1.0.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\archived_strategy_subdirs\strategy_archive\EGOS_PRESENTATION_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\archived_strategy_subdirs\strategy_archive\Monetization_Model.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\archived_strategy_subdirs\strategy_archive\MVP_Definition.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\project_documentation\archived_strategy_subdirs\strategy_archive\Target_Platform_Analysis.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\recovery_analysis\RECOVERY_PLAN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\reports\ROADMAP_updated.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\09_project_meta\reports\handovers\windsurf_handover_code_health_2025-04-25.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\10_system_health\diagnostics\diagnosticoENIO_Batch7_20250518.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\12_website_and_public_docs\website_content_legacy\DESIGN_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\legacy_archive\docs_root_README_OLD.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\templates\reference_templates\PDD_Template.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\archived_references\reference_README.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\changelogs_archive\NEXUS_MODULAR_changelog.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\archived_md_from_reference\AI_AGENT_CAPABILITIES_2025.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\archived_md_from_reference\CONTENT_AGGREGATOR_DEEP_DIVE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\archived_md_from_reference\reference_README.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\archived_reference_txt\RPG EVA.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\archived_reference_txt\ULTIMA quase tudo revisado.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\historical_changelogs_from_reference\EVA & GUARANI - Quantum Unified Master Prompt 2024 (Versão 8.0).txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\historical_changelogs_from_reference\MCP grande avanço roadmap.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\historical_changelogs_from_reference\NEXUS_MODULAR.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\historical_changelogs_from_reference\PLANO DE NEGOCIO EVA (1).txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\historical_changelogs_from_reference\RPG EVA.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\historical_changelogs_from_reference\ULTIMA quase tudo revisado.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\historical_changelogs_from_reference\Unification system PRD.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_archive\third_party_tool_docs\lovable_README.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181428\docs\governance\.-summary.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181440\docs\governance\business\EGOS_BUSINESS_STRATEGY.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181440\docs\governance\business\EGOS_SYSTEM_ARCHITECTURE_VISUALIZATION.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181440\docs\governance\business\GITHUB_REPOSITORY_ANALYSIS.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181441\docs\governance\business\SUBSYSTEM_VALUE_MATRIX.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181441\docs\governance\business\external_docs\ARCHITECTURE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181441\docs\governance\business\external_docs\EGOS_OVERVIEW.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181441\docs\governance\business\external_docs\GETTING_STARTED.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181442\docs\governance\business\github_updates\subsystems\ethik\docs\ETHIK_Architecture.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181442\docs\governance\business\github_updates\subsystems\ethik\docs\ValidationEngine.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181526\docs\governance\migrations\processed\MVP OK 7.0.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181526\docs\governance\migrations\processed\PLANO DE NEGOCIO EVA (14).md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181526\docs\governance\migrations\processed\Prompt quantico 7 ingles.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181527\docs\governance\migrations\processed\mixed\BIOS-Q Cursor sistema EVA.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181527\docs\governance\migrations\processed\mixed\Mycelium atualizado.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181527\docs\governance\migrations\processed\mixed\Prometheus Grafana.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181527\docs\governance\migrations\processed\mixed\sandbox testando eva na web.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181527\docs\governance\migrations\processed\mixed-en-pt\Backup system.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181527\docs\governance\migrations\processed\mixed-en-pt\Dinamicidade no sistema.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181528\docs\governance\migrations\processed\mixed-en-pt\Filesystem SLOP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181528\docs\governance\migrations\processed\mixed-en-pt\Focus Definition EGOS Coruja.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181528\docs\governance\migrations\processed\mixed-en-pt\Integration Codeguide Paella MQP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181528\docs\governance\migrations\processed\mixed-en-pt\Maior diagnostico ate entao.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181528\docs\governance\migrations\processed\mixed-en-pt\Mycellium explained.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181528\docs\governance\migrations\processed\mixed-en-pt\NAO PARE Futuro Projeto importante.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181529\docs\governance\migrations\processed\mixed-en-pt\OpenSource Repos.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181529\docs\governance\migrations\processed\mixed-en-pt\Overview projeto.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181529\docs\governance\migrations\processed\mixed-en-pt\Panorama sistema TODO.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181529\docs\governance\migrations\processed\mixed-en-pt\Prompt quantico 7.5.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181529\docs\governance\migrations\processed\mixed-en-pt\Quantum prompt 7.5 OK.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181529\docs\governance\migrations\processed\mixed-en-pt\Quantum prompt 8.0 BIOS-Q.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181529\docs\governance\migrations\processed\mixed-en-pt\Quantum unification.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181529\docs\governance\migrations\processed\mixed-en-pt\Roadmap apos estudos.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181530\docs\governance\migrations\processed\mixed-en-pt\ROADMAP INTERATIVO.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181530\docs\governance\migrations\processed\mixed-en-pt\Roadmap Mycellium.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181530\docs\governance\migrations\processed\mixed-en-pt\Site novo e outras melhorias.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181530\docs\governance\migrations\processed\mixed-en-pt\Subsystems and tools 8.2.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181530\docs\governance\migrations\processed\mixed-en-pt\Unification system PRD.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181530\docs\governance\migrations\processed\mixed-en-pt\Voando alto indo p outros sistemas.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181531\docs\governance\migrations\processed\mixed-pt-en\atualizacao bot unificado.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181531\docs\governance\migrations\processed\mixed-pt-en\ava7.0 novv.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181531\docs\governance\migrations\processed\mixed-pt-en\BACKUP quantico.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181531\docs\governance\migrations\processed\mixed-pt-en\BIOS-Q MCP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181531\docs\governance\migrations\processed\mixed-pt-en\BOT ok melhorando.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181531\docs\governance\migrations\processed\mixed-pt-en\EGOS 1.0.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181531\docs\governance\migrations\processed\mixed-pt-en\EVA 7.3.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181531\docs\governance\migrations\processed\mixed-pt-en\eva atendimento inicio.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181532\docs\governance\migrations\processed\mixed-pt-en\grande atualizacao.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181532\docs\governance\migrations\processed\mixed-pt-en\Link simbolico fonte de verdade sistema.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181532\docs\governance\migrations\processed\mixed-pt-en\MATRIZ  quantica.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181532\docs\governance\migrations\processed\mixed-pt-en\Melhorias BOT telegram.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181532\docs\governance\migrations\processed\mixed-pt-en\muito longe.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181532\docs\governance\migrations\processed\mixed-pt-en\Personas no bot.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181532\docs\governance\migrations\processed\mixed-pt-en\PLANO DE NEGOCIO EVA (1).md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181533\docs\governance\migrations\processed\mixed-pt-en\Prompt Quantico 7.0 EGOS.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181533\docs\governance\migrations\processed\mixed-pt-en\Promtps quanticos v7.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181536\docs\governance\migrations\processed\mixed-pt-en\RPG EVA.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181536\docs\governance\migrations\processed\mixed-pt-en\SLOP integration proximos passos potencial.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181536\docs\governance\migrations\processed\mixed-pt-en\tentando perplexity.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181537\docs\governance\migrations\processed\mixed-pt-en\ULTIMA quase tudo revisado.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181538\docs\governance\migrations\processed\mixed-pt-en\Unification ETHIK.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181538\docs\governance\migrations\processed\mixed-pt-en\Updates system EVA.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181538\docs\governance\migrations\processed\mixed-pt-en\viagem neural quantica.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181539\docs\governance\migrations\processed\mixed-pt-en\websearch atualizacao.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181539\docs\governance\migrations\processed\pt\Benchmark do Sistema EVA & GUARANI.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181539\docs\governance\migrations\processed\pt\EGOS1.1 visao geral.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181539\docs\governance\migrations\processed\pt\INstruicoes bot telegram.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181539\docs\governance\migrations\processed\pt\NEXUS elovuindo MUITO.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181539\docs\governance\migrations\processed\pt\OUTLINE cursor FODA.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181539\docs\governance\migrations\processed\pt\PLANO DE NEGOCIO EVA (11).md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181540\docs\governance\migrations\processed\pt\PLANO DE NEGOCIO EVA (3).md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181540\docs\governance\migrations\processed\pt\PLANO DE NEGOCIO EVA SENNA.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181540\docs\governance\migrations\processed\pt\Projecao tradutor EVA.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181540\docs\governance\migrations\processed\pt\Prompts quanticos EGOS.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181540\docs\governance\migrations\processed\pt\Quantum Prompt 5.0.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181540\docs\governance\migrations\processed\pt\ROADMAP DO TRADUTO EVA.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181540\docs\governance\migrations\processed\pt\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181540\docs\governance\migrations\processed\pt\Visao geral inicialization.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181541\docs\governance\reorganization\2025_05_REORGANIZATION.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181541\docs\governance\reports\EGOS_Project_Diagnostic_Report.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181541\docs\governance\research\AI_AGENT_CAPABILITIES_2025.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181541\docs\governance\research\CONTENT_AGGREGATOR_DEEP_DIVE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181541\docs\governance\research\EGOS_Strategic_Analysis_Integration_Summary_Apr2025.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181541\docs\governance\research\NEXUS_MODULAR.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181542\docs\governance\research\STRAT-MKT-001_EGOS_Trust_Weaver_MVP_Plan.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181542\docs\governance\research\Vibe_Coding_Market_Analysis.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181543\docs\governance\roadmaps\DASHBOARD-ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181544\docs\governance\roadmaps\MAIN_EGOS_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181544\docs\governance\roadmaps\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181545\docs\governance\roadmaps\WEBSITE-UNIFY-001-diagram.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181546\docs\governance\roadmaps\WEBSITE-UNIFY-001.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181546\docs\governance\roadmaps\AETHER\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181547\docs\governance\roadmaps\apps\dashboard\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181547\docs\governance\roadmaps\apps\website\DASHBOARD-ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181548\docs\governance\roadmaps\apps\website\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181548\docs\governance\roadmaps\ATLAS\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181548\docs\governance\roadmaps\CHRONICLER\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181549\docs\governance\roadmaps\CORUJA\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181550\docs\governance\roadmaps\CRONOS\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181550\docs\governance\roadmaps\dashboard\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181551\docs\governance\roadmaps\ETHIK\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181551\docs\governance\roadmaps\GUARDIAN\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181552\docs\governance\roadmaps\HARMONY\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181553\docs\governance\roadmaps\KARDIA\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181554\docs\governance\roadmaps\KOIOS\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181554\docs\governance\roadmaps\MASTER\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181555\docs\governance\roadmaps\MYCELIUM\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181555\docs\governance\roadmaps\NEXUS\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181555\docs\governance\roadmaps\SOPHIA\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181555\docs\governance\roadmaps\STRAT\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181555\docs\governance\roadmaps\subsystems\AETHER\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181556\docs\governance\roadmaps\subsystems\ATLAS\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181556\docs\governance\roadmaps\subsystems\CHRONICLER\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181557\docs\governance\roadmaps\subsystems\CORUJA\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181557\docs\governance\roadmaps\subsystems\CRONOS\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181558\docs\governance\roadmaps\subsystems\ETHIK\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181558\docs\governance\roadmaps\subsystems\GUARDIAN\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181559\docs\governance\roadmaps\subsystems\HARMONY\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181559\docs\governance\roadmaps\subsystems\KARDIA\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181600\docs\governance\roadmaps\subsystems\KOIOS\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181600\docs\governance\roadmaps\subsystems\MASTER\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\MYCELIUM\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\NEXUS\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\SOPHIA\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\STRAT\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\SYNC\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181601\docs\governance\roadmaps\subsystems\TRANSLATOR\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181602\docs\governance\roadmaps\subsystems\TRUST_WEAVER\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181602\docs\governance\roadmaps\SYNC\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181603\docs\governance\roadmaps\TRANSLATOR\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181604\docs\governance\roadmaps\TRUST_WEAVER\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181604\docs\governance\roadmaps\website\DASHBOARD-ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181604\docs\governance\roadmaps\website\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181605\docs\governance\roadmaps\website\WEBSITE-UNIFY-001-diagram.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181605\docs\governance\roadmaps\website\WEBSITE-UNIFY-001.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181605\docs\governance\skeletons\KOIOS-DOC-007_task_skeleton.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181605\docs\governance\strategy_archive\Competitive_Analysis.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181605\docs\governance\strategy_archive\Customer_Journey_Map.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181605\docs\governance\strategy_archive\EGOS_Business_Plan_v1.0.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181605\docs\governance\strategy_archive\EGOS_PRESENTATION_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181606\docs\governance\strategy_archive\Monetization_Model.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181606\docs\governance\strategy_archive\MVP_Definition.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181606\docs\governance\strategy_archive\Target_Platform_Analysis.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181607\docs\guides\COMPLETE_SETUP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181607\docs\guides\CORUJA_MYCELIUM_INTEGRATION_PLAN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181607\docs\guides\CORUJA_REASONING_PHASE_PLAN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181608\docs\guides\DEVELOPER_ENVIRONMENT.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181608\docs\guides\propagation_strategy_SDRE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181608\docs\guides\TRUST_WEAVER_case_sensitivity_2025-05-05.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181609\docs\guides\personal_development\GUIDELINES.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181609\docs\guides\projects\pikjourney\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181611\docs\guides\standards\TASK_DOCUMENTATION_STANDARD.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181612\docs\markdown\apps\dashboard\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181613\docs\markdown\apps\website\DASHBOARD-ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181613\docs\markdown\apps\website\WEBSITE_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181615\docs\markdown\docs\apps\CURRENT_TASKS.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181617\docs\markdown\docs\apps\dashboard_ARCHITECTURE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181618\docs\markdown\docs\apps\dashboard_FILE_ANALYSIS.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181619\docs\markdown\docs\apps\DESIGN_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181619\docs\markdown\docs\apps\DEVELOPMENT_PLAN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181620\docs\markdown\docs\apps\USER_RESEARCH_PLAN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181620\docs\markdown\docs\apps\WEBSITE_DESIGN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181620\docs\markdown\docs\apps\website_MYCELIUM-INTEGRATION-PLAN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181620\docs\markdown\governance\2025-04-21_system_enhancement_update.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181620\docs\markdown\governance\2025-05-05_centralization_system_progress.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181621\docs\markdown\governance\CHANGELOG.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181621\docs\markdown\governance\CHANGES_SUMMARY.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181623\docs\markdown\governance\DOCUMENTATION_METRICS_DASHBOARD.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181623\docs\markdown\governance\GO_TO_MARKET_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181623\docs\markdown\governance\LEGACY_MIGRATION.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181624\docs\markdown\governance\SPARC_methodology.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181624\docs\markdown\governance\STRATEGY.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181624\docs\markdown\governance\TASK-2025-04-22-cross-reference-system-enhancement.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181625\docs\markdown\project_governance\MQP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181633\docs\reference\ARCHITECTURE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181634\docs\reference\CORUJA_PERFORMANCE_METRICS_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181634\docs\reference\CRONOS_REFACTORING_EXAMPLE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181636\docs\reference\EGOS_OVERVIEW.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181637\docs\reference\GOVERNANCE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181637\docs\reference\INTEGRATION_PLAN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181637\docs\reference\KOIOS_Interaction_Standards.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181637\docs\reference\MCP_CREATION_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181638\docs\reference\MQP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181638\docs\reference\MULTI_AGENT_WORKFLOW.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181638\docs\reference\MYCELIUM_INTEGRATION.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181639\docs\reference\PHILOSOPHY.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181641\docs\reference\STANDARDS_SCRIPT_FEEDBACK.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181641\docs\reference\STRATEGY.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181641\docs\reference\SYSTEM_VISUALIZATION_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181641\docs\reference\VIBE_CODING_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181642\docs\reference\WEBSITE_DESIGN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181642\docs\reference\ai_collaboration\MULTI_AGENT_WORKFLOW.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181642\docs\reference\ai_integration\MULTI_MODEL_INSIGHTS.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181645\docs\reference\historical_changelogs\NEXUS_MODULAR.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181646\docs\reference\process\validation\PROC-VALIDATE-01_roadmap_tasks_validation.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181646\docs\reference\process\validation\PROC-VALIDATE-02_subsystem_structure_validation.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181646\docs\reference\prompts\CURSOR_QUANTUM_PROMPT.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181647\docs\reference\research\AI_AGENT_CAPABILITIES_2025.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181647\docs\reference\research\CONTENT_AGGREGATOR_DEEP_DIVE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181647\docs\reference\standards\KOIOS_Interaction_Standards.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181647\docs\reference\standards\KOIOS_PDD_Standard.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181647\docs\reference\strategy\Competitive_Analysis.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181647\docs\reference\strategy\Customer_Journey_Map.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181647\docs\reference\strategy\EGOS_Business_Plan_v1.0.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181647\docs\reference\strategy\EGOS_PRESENTATION_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181647\docs\reference\strategy\Monetization_Model.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181648\docs\reference\strategy\MVP_Definition.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181648\docs\reference\strategy\Target_Platform_Analysis.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181648\docs\reference\templates\PDD_Template.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181648\docs\reference\website\CONTENT_STRATEGY.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181648\docs\reference\website\CURRENT_TASKS.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181648\docs\reference\website\DESIGN_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181648\docs\reference\website\DEVELOPMENT_PLAN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181648\docs\reference\website\USER_RESEARCH_PLAN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181648\docs\reference\website\WEBSITE_DESIGN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181649\docs\subsystems\EGO_AET_API.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181649\docs\subsystems\EGO_AET_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181649\docs\subsystems\EGO_AET_USER_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181650\docs\subsystems\EGO_ATL_QUICK_REFERENCE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181650\docs\subsystems\EGO_ATL_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181650\docs\subsystems\EGO_CHR_PROJECT_CHRONICLER_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181650\docs\subsystems\EGO_CHR_PROJECT_CHRONICLER_VISION.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181651\docs\subsystems\EGO_CRJ_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181651\docs\subsystems\EGO_CRO_cronos_improvement_recommendations.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181651\docs\subsystems\EGO_CRO_procedures.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181651\docs\subsystems\EGO_CRO_QUICK_REFERENCE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181652\docs\subsystems\EGO_CRO_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181652\docs\subsystems\EGO_ETH_API.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181652\docs\subsystems\EGO_ETH_QUICK_REFERENCE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181653\docs\subsystems\EGO_ETH_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181653\docs\subsystems\EGO_GRD_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181654\docs\subsystems\EGO_HAR_cross_platform_compatibility.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181654\docs\subsystems\EGO_HAR_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181654\docs\subsystems\EGO_KAR_README.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181654\docs\subsystems\EGO_KAR_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181655\docs\subsystems\EGO_KOI_code_evolution_process.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181655\docs\subsystems\EGO_KOI_FILE_ANALYSIS.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181655\docs\subsystems\EGO_KOI_lint_error_resolution_processes.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181655\docs\subsystems\EGO_KOI_MDC_RULES_STANDARD.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181655\docs\subsystems\EGO_KOI_process_index.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181655\docs\subsystems\EGO_KOI_project_diagnostic_standard.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181656\docs\subsystems\EGO_KOI_QUICK_REFERENCE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181656\docs\subsystems\EGO_KOI_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181656\docs\subsystems\EGO_KOI_SDRE_ANALYSIS_20250505_100916.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181657\docs\subsystems\EGO_KOI_SDRE_IMPLEMENTATION_PLAN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181657\docs\subsystems\EGO_KOI_SDRE_TEST_ANALYSIS.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181657\docs\subsystems\EGO_KOI_STANDARDS.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181657\docs\subsystems\EGO_KOI_subsystem_structure.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181657\docs\subsystems\EGO_KOI_syntax_standardization.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181657\docs\subsystems\EGO_KOI_troubleshooting_guide.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181657\docs\subsystems\EGO_MAS_egos_unified_documentation.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181657\docs\subsystems\EGO_MAS_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181657\docs\subsystems\EGO_MYC_FILE_ANALYSIS.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181658\docs\subsystems\EGO_MYC_ide_integration.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181658\docs\subsystems\EGO_MYC_MYCELIUM_VISUALIZATION_INTEGRATION.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181658\docs\subsystems\EGO_MYC_protocol_design.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181659\docs\subsystems\EGO_MYC_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181659\docs\subsystems\EGO_MYC_sparc_integration.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181659\docs\subsystems\EGO_MYC_technology_evaluation.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181700\docs\subsystems\EGO_MYC_topics.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181700\docs\subsystems\EGO_MYC_topics_and_formats.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181701\docs\subsystems\EGO_MYC_visualization.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181701\docs\subsystems\EGO_NEX_QUICK_REFERENCE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181701\docs\subsystems\EGO_NEX_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181701\docs\subsystems\EGO_SOP_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181701\docs\subsystems\EGO_STR_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181701\docs\subsystems\EGO_SYN_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181701\docs\subsystems\EGO_SYN_roadmap_sync.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181702\docs\subsystems\EGO_SYN_roadmap_template.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181702\docs\subsystems\EGO_SYN_sync_definition.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181702\docs\subsystems\EGO_TRN_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181703\docs\subsystems\EGO_TRW_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181703\docs\subsystems\EGO_TRW_user_guide.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181703\docs\subsystems\AETHER\EGO_AET_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181703\docs\subsystems\ATLAS\EGO_ATL_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181703\docs\subsystems\CHRONICLER\EGO_CHR_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181703\docs\subsystems\CHRONICLER\EGO_CHR_VISION.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181704\docs\subsystems\CORUJA\EGO_CRJ_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181704\docs\subsystems\CORUJA\prompts\pdds\EGO_pdd_website_generation_v3.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181705\docs\subsystems\CRONOS\EGO_CRN_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181705\docs\subsystems\ETHIK\EGO_ETK_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181706\docs\subsystems\GUARDIAN\EGO_GRD_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181706\docs\subsystems\HARMONY\EGO_HRM_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181707\docs\subsystems\KARDIA\EGO_KRD_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181707\docs\subsystems\KOIOS\EGO_KOS_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181707\docs\subsystems\KOIOS\chronicler_module\EGO_KOS_README.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181707\docs\subsystems\KOIOS\templates\EGO_KOS_external_research_prompt_template.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181708\docs\subsystems\KOIOS\tools\EGO_KOS_file_size_analysis.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181708\docs\subsystems\KOIOS\tools\EGO_KOS_README.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181708\docs\subsystems\MASTER\EGO_MST_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181708\docs\subsystems\MYCELIUM\EGO_MYC_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181709\docs\subsystems\NEXUS\EGO_NXS_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181709\docs\subsystems\SOPHIA\EGO_SPH_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181709\docs\subsystems\STRAT\EGO_STR_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181709\docs\subsystems\SYNC\EGO_SYC_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181709\docs\subsystems\TRANSLATOR\EGO_TRL_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181709\docs\subsystems\TRANSLATOR\core\language\EGO_TRL_translation_report.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\docs\20250513_181710\docs\subsystems\TRUST_WEAVER\EGO_TWV_ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\_website_backup_20250520_011220\website\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\_website_backup_20250520_011220\website\scripts\migration\fix-components-structure.ps1
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\_website_backup_20250520_011220\website\scripts\migration\fix-website-structure.ps1
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\legacy_root_backups\_website_backup_20250520_011220\website\scripts\migration\migrate-en-content.ps1
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\planning_records\project_planning\Work_2025-05-20_Docs_Optimization.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\research_archive\AI_AGENT_CAPABILITIES_2025_vOld.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\docs_egos\zz_archive\research_archive\CONTENT_AGGREGATOR_DEEP_DIVE_vOld.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\recovery_analysis\RECOVERY_PLAN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\research\OK no roadmap\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\research\OK no roadmap\EGOS Ethical Marketing Strategy_.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\research\OK no roadmap\Scraper com IA.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\scripts\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\scripts\cross_reference\integration\INTEGRATION_DESIGN.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\STRATEGIC_THINKING\research\Integração Context7 e _egos_ aprimorada_.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\STRATEGIC_THINKING\research\roadmap_related\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\STRATEGIC_THINKING\research\roadmap_related\EGOS Ethical Marketing Strategy_.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\STRATEGIC_THINKING\research\roadmap_related\Scraper com IA.txt
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\STRATEGIC_THINKING\strategy_archive\EGOS_Business_Plan_v1.0.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\subsystems\CORUJA\ARCHITECTURE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\website\DESIGN_GUIDE.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\website\ROADMAP.md
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\website\scripts\migration\fix-components-structure.ps1
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\website\scripts\migration\fix-website-structure.ps1
+- C:\EGOS\docs\reports\backups\backup_20250521_110900\website\scripts\migration\migrate-en-content.ps1
+- C:\EGOS\docs\reports\temp_grep_results\grep_Doc_results.json
+- C:\EGOS\docs\reports\temp_grep_results\grep_EGOS_ID_Start_results.json
+- C:\EGOS\docs\reports\temp_grep_results\grep_LinkTo_results.json
+- C:\EGOS\docs\reports\temp_grep_results\grep_MEMORY_results.json
+- C:\EGOS\docs\reports\temp_grep_results\grep_Reference_results.json
+- C:\EGOS\docs\reports\temp_grep_results\grep_Ref_results.json
+- C:\EGOS\docs\reports\temp_grep_results\grep_REF_XYZ_Start_results.json
+- C:\EGOS\docs\reports\temp_grep_results\grep_Related_results.json
+- C:\EGOS\docs\reports\temp_grep_results\grep_RelativePathParent_results.json
+- C:\EGOS\docs\reports\temp_grep_results\grep_RelativePathSelf_results.json
+- C:\EGOS\docs\reports\temp_grep_results\grep_SeeAlso_results.json
+- C:\EGOS\docs\reports\temp_grep_results\grep_Source_results.json
+- C:\EGOS\docs\reports\temp_grep_results\grep_WikiLinkStart_results.json
+- C:\EGOS\docs\research\AI_AGENT_CAPABILITIES_2025.md
+- C:\EGOS\docs\research\Analise site design.txt
+- C:\EGOS\docs\research\Análise e Refinamento do Projeto EGOS_.txt
+- C:\EGOS\docs\research\CodeGuide e Integração no EGOS_.txt
+- C:\EGOS\docs\research\Concorrentes gratuitos do CodeGuide_.txt
+- C:\EGOS\docs\research\CONTENT_AGGREGATOR_DEEP_DIVE.md
+- C:\EGOS\docs\research\Criaçao de site com IA.txt
+- C:\EGOS\docs\research\EGOS CodeGuide PRD.txt
+- C:\EGOS\docs\research\EGOS design e ferramentas web.txt
+- C:\EGOS\docs\research\EGOS design GROK.txt
+- C:\EGOS\docs\research\EGOS_ Competindo com CodeGuide_.txt
+- C:\EGOS\docs\research\EGOS_Strategic_Analysis_Integration_Summary_Apr2025.md
+- C:\EGOS\docs\research\Estudo CodeTime.txt
+- C:\EGOS\docs\research\Estudo de Tempo e Tokens_.txt
+- C:\EGOS\docs\research\Integração Context7 e _egos_ aprimorada_.txt
+- C:\EGOS\docs\research\Integração LLM em IDEs_.txt
+- C:\EGOS\docs\research\Integração_ Análise e Estudo do Ego_.txt
+- C:\EGOS\docs\research\MARKET_ANALYSIS.txt
+- C:\EGOS\docs\research\TIPS_HESAMATION.txt
+- C:\EGOS\docs\research\Vibe_Coding_Market_Analysis.md
+- C:\EGOS\docs\research\Windsurf Prompt for EGOS Project_.txt
+- C:\EGOS\docs\research\OK no roadmap\Analise Gopher-Egos
+- C:\EGOS\docs\research\OK no roadmap\Analysis of Opportunities for Project EVA GUARANI - EGOS within the Stellar Blockchain Ecosystem.txt
+- C:\EGOS\docs\research\OK no roadmap\Análise de Integração de Ferramentas e Empresas com o Sistema EVA GUARANI - EGOS.txt
+- C:\EGOS\docs\research\OK no roadmap\Comparacao ferramentas data ia.txt
+- C:\EGOS\docs\research\OK no roadmap\EGOS - Gemini AI System Market Analysis.txt
+- C:\EGOS\docs\research\OK no roadmap\EGOS - Grok Presentation p2.txt
+- C:\EGOS\docs\research\OK no roadmap\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt
+- C:\EGOS\docs\research\OK no roadmap\EGOS Ethical Marketing Strategy_.txt
+- C:\EGOS\docs\research\OK no roadmap\EGOS_ GitHub Project Search_.txt
+- C:\EGOS\docs\research\OK no roadmap\Estudo CrewAI.txt
+- C:\EGOS\docs\research\OK no roadmap\Estudo DATA com IA Gemini.txt
+- C:\EGOS\docs\research\OK no roadmap\Estudo EAAS ethics as a service Gemini.txt
+- C:\EGOS\docs\research\OK no roadmap\Estudo KOIOS.txt
+- C:\EGOS\docs\research\OK no roadmap\Estudo MCPs.txt
+- C:\EGOS\docs\research\OK no roadmap\Estudo Mycellium Gemini.txt
+- C:\EGOS\docs\research\OK no roadmap\Market Positioning Strategy for Eva Guarani Egos An Expert Analysis.txt
+- C:\EGOS\docs\research\OK no roadmap\Mercado de Prompts.txt
+- C:\EGOS\docs\research\OK no roadmap\Scraper com IA.txt
+- C:\EGOS\docs\research\OK no roadmap\Vibe Coding Avanço e Oportunidades.txt
+- C:\EGOS\docs\research\OK no roadmap\WebSite analise.txt
+- C:\EGOS\docs\research\OK no roadmap\WebSite Enio Grok e Gemini.txt
+- C:\EGOS\docs\research\roadmap_related\Analise Gopher-Egos
+- C:\EGOS\docs\research\roadmap_related\Analysis of Opportunities for Project EVA GUARANI - EGOS within the Stellar Blockchain Ecosystem.txt
+- C:\EGOS\docs\research\roadmap_related\Análise de Integração de Ferramentas e Empresas com o Sistema EVA GUARANI - EGOS.txt
+- C:\EGOS\docs\research\roadmap_related\Comparacao ferramentas data ia.txt
+- C:\EGOS\docs\research\roadmap_related\EGOS - Gemini AI System Market Analysis.txt
+- C:\EGOS\docs\research\roadmap_related\EGOS - Grok Presentation p2.txt
+- C:\EGOS\docs\research\roadmap_related\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt
+- C:\EGOS\docs\research\roadmap_related\EGOS Ethical Marketing Strategy_.txt
+- C:\EGOS\docs\research\roadmap_related\EGOS_ GitHub Project Search_.txt
+- C:\EGOS\docs\research\roadmap_related\Estudo CrewAI.txt
+- C:\EGOS\docs\research\roadmap_related\Estudo DATA com IA Gemini.txt
+- C:\EGOS\docs\research\roadmap_related\Estudo EAAS ethics as a service Gemini.txt
+- C:\EGOS\docs\research\roadmap_related\Estudo KOIOS.txt
+- C:\EGOS\docs\research\roadmap_related\Estudo MCPs.txt
+- C:\EGOS\docs\research\roadmap_related\Estudo Mycellium Gemini.txt
+- C:\EGOS\docs\research\roadmap_related\Market Positioning Strategy for Eva Guarani Egos An Expert Analysis.txt
+- C:\EGOS\docs\research\roadmap_related\Mercado de Prompts.txt
+- C:\EGOS\docs\research\roadmap_related\Scraper com IA.txt
+- C:\EGOS\docs\research\roadmap_related\Vibe Coding Avanço e Oportunidades.txt
+- C:\EGOS\docs\research\roadmap_related\WebSite analise.txt
+- C:\EGOS\docs\research\roadmap_related\WebSite Enio Grok e Gemini.txt
+- C:\EGOS\docs\resources\data\PDD_Template.yaml
+- C:\EGOS\docs\standards\KOIOS_Interaction_Standards.md
+- C:\EGOS\docs\standards\KOIOS_PDD_Standard.md
+- C:\EGOS\docs\standards\STANDARDS_SCRIPT_FEEDBACK.md
+- C:\EGOS\docs\standards\TASK_DOCUMENTATION_STANDARD.md
+- C:\EGOS\docs\standards\validation_procedures\PROC-VALIDATE-01_roadmap_tasks_validation.md
+- C:\EGOS\docs\standards\validation_procedures\PROC-VALIDATE-02_subsystem_structure_validation.md
+- C:\EGOS\docs\STRATEGIC_THINKING\STRATEGY.md
+- C:\EGOS\docs\STRATEGIC_THINKING\products\chronicler\PROJECT_CHRONICLER_ROADMAP.md
+- C:\EGOS\docs\STRATEGIC_THINKING\products\chronicler\PROJECT_CHRONICLER_VISION.md
+- C:\EGOS\docs\STRATEGIC_THINKING\products\scribe\PROJECT_SCRIBE_ROADMAP.md
+- C:\EGOS\docs\STRATEGIC_THINKING\products\scribe\PROJECT_SCRIBE_VISION.md
+- C:\EGOS\docs\STRATEGIC_THINKING\research\AI_AGENT_CAPABILITIES_2025.md
+- C:\EGOS\docs\STRATEGIC_THINKING\research\Analise site design.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\Análise e Refinamento do Projeto EGOS_.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\CodeGuide e Integração no EGOS_.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\Concorrentes gratuitos do CodeGuide_.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\CONTENT_AGGREGATOR_DEEP_DIVE.md
+- C:\EGOS\docs\STRATEGIC_THINKING\research\Criaçao de site com IA.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\EGOS CodeGuide PRD.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\EGOS design e ferramentas web.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\EGOS design GROK.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\EGOS_ Competindo com CodeGuide_.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\EGOS_Strategic_Analysis_Integration_Summary_Apr2025.md
+- C:\EGOS\docs\STRATEGIC_THINKING\research\Estudo CodeTime.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\Estudo de Tempo e Tokens_.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\Integração Context7 e _egos_ aprimorada_.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\Integração LLM em IDEs_.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\Integração_ Análise e Estudo do Ego_.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\MARKET_ANALYSIS.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\TIPS_HESAMATION.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\Vibe_Coding_Market_Analysis.md
+- C:\EGOS\docs\STRATEGIC_THINKING\research\Windsurf Prompt for EGOS Project_.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Analise Gopher-Egos
+- C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Analysis of Opportunities for Project EVA GUARANI - EGOS within the Stellar Blockchain Ecosystem.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Análise de Integração de Ferramentas e Empresas com o Sistema EVA GUARANI - EGOS.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Comparacao ferramentas data ia.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\EGOS - Gemini AI System Market Analysis.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\EGOS - Grok Presentation p2.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\EGOS Ethical Marketing Strategy_.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\EGOS_ GitHub Project Search_.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Estudo CrewAI.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Estudo DATA com IA Gemini.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Estudo EAAS ethics as a service Gemini.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Estudo KOIOS.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Estudo MCPs.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Estudo Mycellium Gemini.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Market Positioning Strategy for Eva Guarani Egos An Expert Analysis.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Mercado de Prompts.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Scraper com IA.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\Vibe Coding Avanço e Oportunidades.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\WebSite analise.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\research\roadmap_related\WebSite Enio Grok e Gemini.txt
+- C:\EGOS\docs\STRATEGIC_THINKING\strategy_archive\Competitive_Analysis.md
+- C:\EGOS\docs\STRATEGIC_THINKING\strategy_archive\Customer_Journey_Map.md
+- C:\EGOS\docs\STRATEGIC_THINKING\strategy_archive\EGOS_Business_Plan_v1.0.md
+- C:\EGOS\docs\STRATEGIC_THINKING\strategy_archive\EGOS_PRESENTATION_GUIDE.md
+- C:\EGOS\docs\STRATEGIC_THINKING\strategy_archive\Monetization_Model.md
+- C:\EGOS\docs\STRATEGIC_THINKING\strategy_archive\MVP_Definition.md
+- C:\EGOS\docs\STRATEGIC_THINKING\strategy_archive\Target_Platform_Analysis.md
+- C:\EGOS\docs\strategy_archive\Competitive_Analysis.md
+- C:\EGOS\docs\strategy_archive\Customer_Journey_Map.md
+- C:\EGOS\docs\strategy_archive\EGOS_Business_Plan_v1.0.md
+- C:\EGOS\docs\strategy_archive\EGOS_PRESENTATION_GUIDE.md
+- C:\EGOS\docs\strategy_archive\Monetization_Model.md
+- C:\EGOS\docs\strategy_archive\MVP_Definition.md
+- C:\EGOS\docs\strategy_archive\Target_Platform_Analysis.md
+- C:\EGOS\docs\technical\BIOS-Q MCP.txt
+- C:\EGOS\docs\technical\Cursor X Web limitaçoes.txt
+- C:\EGOS\docs\technical\EGOS 1.0.txt
+- C:\EGOS\docs\technical\EGOS1.1 visao geral.txt
+- C:\EGOS\docs\technical\Integration Codeguide Paella MQP.txt
+- C:\EGOS\docs\technical\MYCELIUM_INTEGRATION.md
+- C:\EGOS\docs\technical\Panorama sistema TODO.txt
+- C:\EGOS\docs\technical\Prometheus Grafana.txt
+- C:\EGOS\docs\technical\WEBSITE_DESIGN.md
+- C:\EGOS\docs\technical\ai_systems\ai_collaboration_archive\MULTI_AGENT_WORKFLOW.md
+- C:\EGOS\docs\technical\ai_systems\ai_integration_archive\MULTI_MODEL_INSIGHTS.md
+- C:\EGOS\docs\technical\components\website_dev_archive\CONTENT_STRATEGY.md
+- C:\EGOS\docs\technical\components\website_dev_archive\CURRENT_TASKS.md
+- C:\EGOS\docs\technical\components\website_dev_archive\DESIGN_GUIDE.md
+- C:\EGOS\docs\technical\components\website_dev_archive\DEVELOPMENT_PLAN.md
+- C:\EGOS\docs\technical\components\website_dev_archive\USER_RESEARCH_PLAN.md
+- C:\EGOS\docs\technical\components\website_dev_archive\WEBSITE_DESIGN.md
+- C:\EGOS\docs\templates\README_WORK_template.md
+- C:\EGOS\docs\templates\WORK_template.md
+- C:\EGOS\docs\templates\reference_templates\EGOS_DIAGNOSTIC_REPORT_TEMPLATE.md
+- C:\EGOS\docs\templates\reference_templates\PDD_Template.md
+- C:\EGOS\docs\templates\reference_templates\PDD_Template.yaml
+- C:\EGOS\docs\tooling\specifications\KOS_AUD_001_file_reference_checker.md
+- C:\EGOS\docs\work_logs\WORK-2025-05-22-file-duplication-management.md
+- C:\EGOS\docs\work_logs\WORK-2025-05-22-run-tools-enhancement.md
+- C:\EGOS\docs\work_logs\WORK-2025-05-22-tool-registry-system-plan.md
+- C:\EGOS\docs\work_logs\WORK-2025-05-23-Dashboard-Consolidation-Plan.md
+- C:\EGOS\docs\work_logs\WORK-2025-05-23-Directory-Unification-Analysis.md
+- C:\EGOS\docs\work_logs\WORK-2025-05-23-Directory-Unification-Implementation.md
+- C:\EGOS\docs\work_logs\WORK-2025-05-23-Directory-Unification-Tool-Enhancements.md
+- C:\EGOS\docs\work_logs\Work_2025-05-20_Docs_Optimization.md
+- C:\EGOS\docs\work_logs\WORK_2025-05-22_DiagEnio_Enhancements.md
+- C:\EGOS\docs\work_logs\WORK_2025-05-22_file_duplication_management.md
+- C:\EGOS\docs\work_logs\WORK_2025-05-22_GitHub_Sync_Status.md
+- C:\EGOS\docs\work_logs\WORK_2025-05-22_run_tools_enhancement.md
+- C:\EGOS\docs\work_logs\WORK_2025-05-22_tool_registry_phase2.md
+- C:\EGOS\docs\work_logs\WORK_2025-05-22_tool_registry_system_plan.md
+- C:\EGOS\docs\work_logs\WORK_2025-05-22_website_design_analysis.md
+- C:\EGOS\docs\work_logs\WORK_2025-05-23_Dashboard_Consolidation.md
+- C:\EGOS\docs\work_logs\WORK_2025-05-23_Dashboard_Consolidation_Plan.md
+- C:\EGOS\docs\work_logs\WORK_2025-05-23_Directory_Unification_Analysis.md
+- C:\EGOS\docs\work_logs\WORK_2025-05-23_Directory_Unification_Implementation.md
+- C:\EGOS\docs\work_logs\WORK_2025-05-23_Directory_Unification_Tool_Enhancements.md
+- C:\EGOS\docs\work_logs\WORK_2025-05-23_Directory_Unification_Verification.md
+- C:\EGOS\docs\work_logs\WORK_2025-05-23_Docs_Reorg_Initial_Cleanup_Log.md
+- C:\EGOS\docs\work_logs\WORK_2025-05-23_GitHub_Sync.md
+- C:\EGOS\docs\work_logs\WORK_2025-05-23_GitHub_Sync_Manager_Implementation.md
+- C:\EGOS\docs\work_logs\WORK_2025-05-23_GitHub_Sync_System_Implementation.md
+- C:\EGOS\docs\work_logs\WORK_2025-05-23_Roadmap_Cleanup.md
+- C:\EGOS\docs\work_logs\WORK_2025-05-23_Work_Log_Standardization.md
+- C:\EGOS\docs\work_logs\WORK_2025-05-24_Additional_Dashboard_Consolidation.md
+- C:\EGOS\docs\work_logs\WORK_2025_05_22_DiagEnio_Enhancements.md
+- C:\EGOS\docs\work_logs\WORK_2025_05_22_GitHub_Sync_Status.md
+- C:\EGOS\docs\work_logs\WORK_2025_05_22_tool_registry_phase2.md
+- C:\EGOS\docs\work_logs\WORK_2025_05_22_website_design_analysis.md
+- C:\EGOS\docs\work_logs\WORK_2025_05_23_Directory_Unification_Verification.md
+- C:\EGOS\docs\work_logs\WORK_2025_05_23_GitHub_Sync.md
+- C:\EGOS\docs\work_logs\WORK_2025_05_23_GitHub_Sync_Manager_Implementation.md
+- C:\EGOS\docs\work_logs\WORK_2025_05_23_GitHub_Sync_System_Implementation.md
+- C:\EGOS\docs\work_logs\active\WORK_2025-05-26_global_rules_refinement_and_work_planning.md
+- C:\EGOS\EGOS_Framework\ROADMAP.md
+- C:\EGOS\EGOS_Framework\docs\00_Introduction.md
+- C:\EGOS\EGOS_Framework\docs\01_Philosophy_and_Principles.md
+- C:\EGOS\EGOS_Framework\docs\02_Architecture_Overview.md
+- C:\EGOS\EGOS_Framework\docs\03_MCP_Subsystem.md
+- C:\EGOS\EGOS_Framework\docs\04_Getting_Started.md
+- C:\EGOS\EGOS_Framework\docs\05_Core_Components.md
+- C:\EGOS\EGOS_Framework\docs\06_Development_Guide.md
+- C:\EGOS\EGOS_Framework\docs\07_Contribution_Guidelines.md
+- C:\EGOS\EGOS_Framework\docs\08_Code_of_Conduct.md
+- C:\EGOS\EGOS_Framework\docs\09_Archive_Policy.md
+- C:\EGOS\EGOS_Framework\docs\10_Glossary.md
+- C:\EGOS\EGOS_Framework\docs\mcp_product_briefs\CRONOS-VersionControl_Product_Brief.md
+- C:\EGOS\EGOS_Framework\docs\mcp_product_briefs\ETHIK-ActionValidator_Product_Brief.md
+- C:\EGOS\EGOS_Framework\docs\mcp_product_briefs\GUARDIAN-AuthManager_Product_Brief.md
+- C:\EGOS\EGOS_Framework\docs\mcp_product_briefs\HARMONY-Live_Product_Brief_Template.md
+- C:\EGOS\EGOS_Framework\docs\mcp_product_briefs\HARMONY-PlatformAdapter_Product_Brief.md
+- C:\EGOS\EGOS_Framework\docs\mcp_product_briefs\KOIOS-DocGen_Product_Brief.md
+- C:\EGOS\EGOS_Framework\docs\mcp_product_briefs\MYCELIUM-MessageBroker_Product_Brief.md
+- C:\EGOS\EGOS_Framework\docs\mcp_product_briefs\NEXUS-GraphManager_Product_Brief.md
+- C:\EGOS\EGOS_Framework\docs\mcp_product_briefs\PRISM-SystemAnalyzer_Product_Brief.md
+- C:\EGOS\EGOS_Framework\docs\standards\EGOS_MCP_Standardization_Guidelines.md
+- C:\EGOS\EGOS_Framework\docs\tutorials\Developing_an_MCP_Server.md
+- C:\EGOS\handovers\handover_2025-05-24_23-34.md
+- C:\EGOS\scripts\READMEtools.md
+- C:\EGOS\scripts\ROADMAP.md
+- C:\EGOS\scripts\cross_reference\ARCHIVE_POLICY.md
+- C:\EGOS\scripts\cross_reference\WORK_2025_05_21.md
+- C:\EGOS\scripts\cross_reference\WORK_2025_05_21_update.md
+- C:\EGOS\scripts\cross_reference\integration\INTEGRATION_DESIGN.md
+- C:\EGOS\scripts\cross_reference\zz_archive\ARCHIVE_MANIFEST.md
+- C:\EGOS\scripts\maintenance\work_log_manager_README.md
+- C:\EGOS\scripts\maintenance\directory_unification\Invoke-DirectoryUnification.ps1
+- C:\EGOS\scripts\maintenance\docs\reports\documentation\visualizations\documentation_graph_2025-04-20.html
+- C:\EGOS\scripts\maintenance\docs\reports\documentation\visualizations\documentation_graph_data_2025-04-20.json
+- C:\EGOS\scripts\migrations\imported\FetchZendeskTickets.py
+- C:\EGOS\scripts\powershell\utils\Invoke-EGOSMigration.ps1
+- C:\EGOS\scripts\powershell\utils\Invoke-EGOSMigration_Log_20250520181104.log
+- C:\EGOS\scripts\powershell\utils\Invoke-EGOSMigration_Log_20250520_181013.log
+- C:\EGOS\scripts\powershell\utils\Invoke-EGOSMigration_Log_20250520_181046.log
+- C:\EGOS\scripts\powershell\utils\TEMP_MIGRATION_TEST.log
+- C:\EGOS\scripts\tools\terminal\egos-terminal-0.1.0.vsix
+- C:\EGOS\scripts\tools\terminal\package-lock.json
+- C:\EGOS\website\CURRENT_TASKS.md
+- C:\EGOS\website\CURRENT_TASKS.md - Atalho.lnk
+- C:\EGOS\website\DESIGN_GUIDE.md
+- C:\EGOS\website\DESIGN_GUIDE.md - Atalho.lnk
+- C:\EGOS\website\DESIGN_PATTERNS.md
+- C:\EGOS\website\DESIGN_PATTERNS.md - Atalho.lnk
+- C:\EGOS\website\DEVELOPMENT_PLAN.md
+- C:\EGOS\website\DEVELOPMENT_PLAN.md - Atalho.lnk
+- C:\EGOS\website\next-env.d.ts
+- C:\EGOS\website\next-intl.config.js
+- C:\EGOS\website\package-lock.json
+- C:\EGOS\website\ROADMAP.md
+- C:\EGOS\website\USER_RESEARCH_PLAN.md
+- C:\EGOS\website\USER_RESEARCH_PLAN.md - Atalho.lnk
+- C:\EGOS\website\WEBSITE_DESIGN.md
+- C:\EGOS\website\WEBSITE_DESIGN.md - Atalho.lnk
+- C:\EGOS\website\.next\app-build-manifest.json
+- C:\EGOS\website\.next\build-manifest.json
+- C:\EGOS\website\.next\fallback-build-manifest.json
+- C:\EGOS\website\.next\react-loadable-manifest.json
+- C:\EGOS\website\.next\server\app-paths-manifest.json
+- C:\EGOS\website\.next\server\interception-route-rewrite-manifest.js
+- C:\EGOS\website\.next\server\middleware-build-manifest.js
+- C:\EGOS\website\.next\server\middleware-manifest.json
+- C:\EGOS\website\.next\server\middleware-react-loadable-manifest.js
+- C:\EGOS\website\.next\server\next-font-manifest.js
+- C:\EGOS\website\.next\server\next-font-manifest.json
+- C:\EGOS\website\.next\server\pages-manifest.json
+- C:\EGOS\website\.next\server\server-reference-manifest.js
+- C:\EGOS\website\.next\server\server-reference-manifest.json
+- C:\EGOS\website\.next\server\webpack-runtime.js
+- C:\EGOS\website\.next\server\app\page_client-reference-manifest.js
+- C:\EGOS\website\.next\server\vendor-chunks\@radix-ui.js
+- C:\EGOS\website\.next\server\vendor-chunks\class-variance-authority.js
+- C:\EGOS\website\.next\server\vendor-chunks\lucide-react.js
+- C:\EGOS\website\.next\server\vendor-chunks\next-themes.js
+- C:\EGOS\website\.next\server\vendor-chunks\tailwind-merge.js
+- C:\EGOS\website\.next\static\chunks\app-pages-internals.js
+- C:\EGOS\website\.next\static\chunks\main-app.js
+- C:\EGOS\website\.next\static\chunks\fallback\main-app.js
+- C:\EGOS\website\.next\static\chunks\fallback\react-refresh.js
+- C:\EGOS\website\.next\static\development\_buildManifest.js
+- C:\EGOS\website\.next\static\development\_ssgManifest.js
+- C:\EGOS\website\.next\static\media\26a46d62cd723877-s.woff2
+- C:\EGOS\website\.next\static\media\55c55f0601d81cf3-s.woff2
+- C:\EGOS\website\.next\static\media\581909926a08bbc8-s.woff2
+- C:\EGOS\website\.next\static\media\5d4a6d6d18033392-s.woff2
+- C:\EGOS\website\.next\static\media\6d93bde91c0c2823-s.woff2
+- C:\EGOS\website\.next\static\media\73b9b49ded63c2ac-s.woff2
+- C:\EGOS\website\.next\static\media\7aa35bcef8fce17b-s.p.woff2
+- C:\EGOS\website\.next\static\media\891631c764a307b2-s.woff2
+- C:\EGOS\website\.next\static\media\8b7ed269fbb6e772-s.woff2
+- C:\EGOS\website\.next\static\media\97e0cb1ae144a2a9-s.woff2
+- C:\EGOS\website\.next\static\media\a34f9d1faa5f3315-s.p.woff2
+- C:\EGOS\website\.next\static\media\d7b29b398dd797a1-s.woff2
+- C:\EGOS\website\.next\static\media\df0a9ae256c0569c-s.woff2
+- C:\EGOS\website\.next\static\media\ef23c27b86d93109-s.woff2
+- C:\EGOS\website\.next\static\webpack\633457081244afec._.hot-update.json
+- C:\EGOS\website\.next\static\webpack\bf5ca777a3ebf540.webpack.hot-update.json
+- C:\EGOS\website\.next\static\webpack\webpack.bf5ca777a3ebf540.hot-update.js
+- C:\EGOS\website\.next\static\webpack\app\layout.bf5ca777a3ebf540.hot-update.js
+- C:\EGOS\website\.next\types\cache-life.d.ts
+- C:\EGOS\website\content\tools\cross-reference-validator.md
+- C:\EGOS\website\content\tools\cross-reference-visualizer.md
+- C:\EGOS\website\content\tools\directory-structure-manager.md
+- C:\EGOS\website\content\tools\directory-structure-validator.md
+- C:\EGOS\website\content\tools\file-duplication-auditor.md
+- C:\EGOS\website\docs\design\WEBSITE_DESIGN.md
+- C:\EGOS\website\scripts\migration\copy-all-components.ps1
+- C:\EGOS\website\scripts\migration\final-cleanup.ps1
+- C:\EGOS\website\scripts\migration\finalize-locale-migration.ps1
+- C:\EGOS\website\scripts\migration\fix-components-structure.ps1
+- C:\EGOS\website\scripts\migration\fix-locale-routing.ps1
+- C:\EGOS\website\scripts\migration\fix-website-structure.ps1
+- C:\EGOS\website\scripts\migration\migrate-en-content.ps1
+- C:\EGOS\website\scripts\migration\migrate-locale-content.ps1
+- C:\EGOS\website\scripts\migration\remove-locale-routing.ps1
+- C:\EGOS\website\scripts\migration\remove-special-dirs.ps1
+- C:\EGOS\website\src\components\CallToAction.tsx
+- C:\EGOS\website\src\components\ClientSystemGraph.tsx
+- C:\EGOS\website\src\components\FilterControls.tsx
+- C:\EGOS\website\src\components\Footer.tsx
+- C:\EGOS\website\src\components\Header.tsx
+- C:\EGOS\website\src\components\Hero.tsx
+- C:\EGOS\website\src\components\HomeContent.tsx
+- C:\EGOS\website\src\components\Principles.tsx
+- C:\EGOS\website\src\components\QuantumPromptGenerator.tsx
+- C:\EGOS\website\src\components\Roadmap.module.css
+- C:\EGOS\website\src\components\Roadmap.tsx
+- C:\EGOS\website\src\components\Subsystems.tsx
+- C:\EGOS\website\src\components\SystemGraph.tsx
+- C:\EGOS\website\src\components\theme-provider.tsx
+- C:\EGOS\website\src\components\Visualization.tsx
+- C:\EGOS\website\src\components\content\PrincipleCard.tsx
+- C:\EGOS\website\src\components\content\RoadmapSection.tsx
+- C:\EGOS\website\src\components\content\SubsystemCard.tsx
+- C:\EGOS\website\src\components\content\TechStackSection.tsx
+- C:\EGOS\website\src\components\cross-reference\CrossReferenceControls.tsx
+- C:\EGOS\website\src\components\cross-reference\CrossReferenceExplorer.tsx
+- C:\EGOS\website\src\components\cross-reference\CrossReferenceGraph.tsx
+- C:\EGOS\website\src\components\cross-reference\CrossReferenceStats.tsx
+- C:\EGOS\website\src\components\features\QuantumPromptGenerator.tsx
+- C:\EGOS\website\src\components\layout\Footer.tsx
+- C:\EGOS\website\src\components\layout\Header.tsx
+- C:\EGOS\website\src\components\svg\CodeBlocksSvg.tsx
+- C:\EGOS\website\src\components\svg\IconsSvg.tsx
+- C:\EGOS\website\src\components\svg\NetworkIcon.tsx
+- C:\EGOS\website\src\components\svg\NetworkSvg.tsx
+- C:\EGOS\website\src\components\svg\WaveSvg.tsx
+- C:\EGOS\website\src\components\tools\ToolCard.tsx
+- C:\EGOS\website\src\components\tools\ToolDetailPage.tsx
+- C:\EGOS\website\src\components\tools\ToolFiltersPanel.tsx
+- C:\EGOS\website\src\components\tools\ToolsList.tsx
+- C:\EGOS\website\src\components\tools\ToolsPage.tsx
+- C:\EGOS\website\src\components\ui\alert-dialog.tsx
+- C:\EGOS\website\src\components\ui\aspect-ratio.tsx
+- C:\EGOS\website\src\data\roadmapData.ts
+- C:\EGOS\website\src\hooks\useToolRegistry.ts
+- C:\EGOS\website\src\utils\graphDataUtils.ts
+

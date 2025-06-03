@@ -1,0 +1,55 @@
+{
+  "request_id": "req_0076e367-592b-4411-a4cd-64fe36c19fd2",
+  "alternatives": [
+    {
+      "title": "Alternative 1",
+      "description": "For 'the specified action', consider applying data minimization or exploring privacy-enhancing technologies (PETs).",
+      "benefits": [
+        "Enhanced privacy",
+        "Reduced data exposure",
+        "Better user control"
+      ],
+      "considerations": [
+        "Implementation complexity",
+        "Resource requirements"
+      ],
+      "principles_addressed": [
+        "Sacred Privacy",
+        "Reciprocal Trust"
+      ]
+    },
+    {
+      "title": "Alternative 2",
+      "description": "For 'the specified action', consider applying data minimization or exploring privacy-enhancing technologies (PETs).",
+      "benefits": [
+        "Enhanced privacy",
+        "Reduced data exposure",
+        "Better user control"
+      ],
+      "considerations": null,
+      "principles_addressed": [
+        "Sacred Privacy",
+        "Reciprocal Trust"
+      ]
+    },
+    {
+      "title": "Alternative 3",
+      "description": "For 'the specified action', consider applying data minimization or exploring privacy-enhancing technologies (PETs).",
+      "benefits": [
+        "Enhanced privacy",
+        "Reduced data exposure",
+        "Better user control"
+      ],
+      "considerations": [
+        "Implementation complexity",
+        "Resource requirements"
+      ],
+      "principles_addressed": [
+        "Sacred Privacy",
+        "Reciprocal Trust"
+      ]
+    }
+  ],
+  "original_evaluation_id": "eval_c4b16b8f-102f-44d5-ab77-dd334a2a320e",
+  "timestamp": "2025-06-02 02:03:28.285154"
+}

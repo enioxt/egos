@@ -1,0 +1,71 @@
+{
+  "timestamp": "20250521_170809",
+  "base_path": "C:\\EGOS",
+  "directory": "C:\\EGOS\\docs_egos\\03_subsystems",
+  "stats": {
+    "files_scanned": 1,
+    "references_found": 9,
+    "valid_references": 1,
+    "invalid_references": 8,
+    "files_with_invalid_references": 1,
+    "processing_time": 0.12727093696594238
+  },
+  "invalid_references": [
+    {
+      "file": "C:\\EGOS\\docs_egos\\03_subsystems\\NEXUS\\search_engine_technical_spec.md",
+      "reference": "NEXUS Search Engine Design",
+      "target": "./search_engine_design.md",
+      "reason": "Target file not found: C:\\EGOS\\docs_egos\\03_subsystems\\NEXUS\\search_engine_design.md",
+      "suggested_fix": "Consider changing to: [NEXUS Search Engine Design](search_engine_technical_spec.md)"
+    },
+    {
+      "file": "C:\\EGOS\\docs_egos\\03_subsystems\\NEXUS\\search_engine_technical_spec.md",
+      "reference": "EGOS Cross-Reference Standardization",
+      "target": "../../05_development/standards/cross_reference_standard.md",
+      "reason": "Target file not found: C:\\EGOS\\docs_egos\\03_subsystems\\NEXUS\\..\\..\\05_development\\standards\\cross_reference_standard.md",
+      "suggested_fix": "Consider changing to: [EGOS Cross-Reference Standardization](search_engine_technical_spec.md)"
+    },
+    {
+      "file": "C:\\EGOS\\docs_egos\\03_subsystems\\NEXUS\\search_engine_technical_spec.md",
+      "reference": "NEXUS Subsystem Documentation",
+      "target": "./README.md",
+      "reason": "Target file not found: C:\\EGOS\\docs_egos\\03_subsystems\\NEXUS\\README.md",
+      "suggested_fix": "Consider changing to: [NEXUS Subsystem Documentation](search_engine_technical_spec.md)"
+    },
+    {
+      "file": "C:\\EGOS\\docs_egos\\03_subsystems\\NEXUS\\search_engine_technical_spec.md",
+      "reference": "Qdrant Documentation",
+      "target": "https://qdrant.tech/documentation/",
+      "reason": "Target file not found: https://qdrant.tech/documentation/",
+      "suggested_fix": "Consider changing to: [Qdrant Documentation](search_engine_technical_spec.md)"
+    },
+    {
+      "file": "C:\\EGOS\\docs_egos\\03_subsystems\\NEXUS\\search_engine_technical_spec.md",
+      "reference": "Sentence Transformers",
+      "target": "https://www.sbert.net/",
+      "reason": "Target file not found: https://www.sbert.net/",
+      "suggested_fix": "Consider changing to: [Sentence Transformers](search_engine_technical_spec.md)"
+    },
+    {
+      "file": "C:\\EGOS\\docs_egos\\03_subsystems\\NEXUS\\search_engine_technical_spec.md",
+      "reference": "React Documentation",
+      "target": "https://reactjs.org/docs/getting-started.html",
+      "reason": "Target file not found: https://reactjs.org/docs/getting-started.html",
+      "suggested_fix": "Consider changing to: [React Documentation](search_engine_technical_spec.md)"
+    },
+    {
+      "file": "C:\\EGOS\\docs_egos\\03_subsystems\\NEXUS\\search_engine_technical_spec.md",
+      "reference": "OpenAPI Specification",
+      "target": "https://swagger.io/specification/",
+      "reason": "Target file not found: https://swagger.io/specification/",
+      "suggested_fix": "Consider changing to: [OpenAPI Specification](search_engine_technical_spec.md)"
+    },
+    {
+      "file": "C:\\EGOS\\docs_egos\\03_subsystems\\NEXUS\\search_engine_technical_spec.md",
+      "reference": "JWT Authentication",
+      "target": "https://jwt.io/introduction",
+      "reason": "Target file not found: https://jwt.io/introduction",
+      "suggested_fix": "Consider changing to: [JWT Authentication](search_engine_technical_spec.md)"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "operation_id": "code_generation_1748392957_93799df3",
+  "operation_type": "code_generation",
+  "context": {
+    "prompt": "Generate a function to calculate factorial",
+    "language": "python",
+    "project_id": "sample_project"
+  },
+  "result": {
+    "operation_id": "code_generation_20250527214237_-8498289719926950217",
+    "allowed": "indeterminate",
+    "guidance": "Continue developing with EGOS principles in mind.",
+    "guidance_type": "suggestion",
+    "trust_level": 0.5,
+    "should_notify": true,
+    "notification_priority": "low",
+    "ethical_warnings": [
+      "Ethical rule set is empty."
+    ],
+    "contains_sensitive_data": false,
+    "detected_keywords": []
+  },
+  "timestamp": "2025-05-27T21:42:37.911307",
+  "user_id": "demo_user"
+}

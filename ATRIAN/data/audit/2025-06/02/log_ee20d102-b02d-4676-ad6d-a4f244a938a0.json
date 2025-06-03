@@ -1,0 +1,17 @@
+{
+  "log_id": "log_ee20d102-b02d-4676-ad6d-a4f244a938a0",
+  "timestamp": "2025-06-02 01:55:04.054494",
+  "action_type": "system",
+  "user_id": "system",
+  "resource_id": null,
+  "request_data": null,
+  "response_data": null,
+  "metadata": null,
+  "endpoint_called": "startup",
+  "request_summary": {
+    "action": "initialize_frameworks"
+  },
+  "response_summary": {
+    "frameworks_count": 3
+  }
+}

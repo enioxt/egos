@@ -1,0 +1,36 @@
+{
+    "organization": "Advanced Manufacturing Solutions",
+    "industry": "Manufacturing",
+    "analysis_date": "2025-06-02T20:03:50.523045",
+    "time_horizon": 5,
+    "discount_rate": 0.11,
+    "roi": 3310.939238774202,
+    "npv": 33124841.637291256,
+    "irr": 12.875093521146788,
+    "payback_period": 0.07766918770739561,
+    "initial_investment": 520000,
+    "annual_costs": 130000,
+    "total_benefits_npv": 34125308.24958569,
+    "total_costs_npv": 1000466.6122944304,
+    "benefit_breakdown": {
+        "risk_mitigation": 1164189.8202538965,
+        "operational_efficiency": 3732649.017592971,
+        "brand_value": 5555908.934339805,
+        "regulatory_compliance": 2879835.564358427,
+        "innovation_enablement": 20792724.913040593
+    },
+    "sensitivity": {
+        "roi_10th_percentile": "N/A",
+        "roi_90th_percentile": "N/A",
+        "positive_roi_probability": "N/A"
+    },
+    "cash_flows": [],
+    "cumulative_net_benefits": [
+        -520000,
+        6175061.649917138,
+        12870123.299834276,
+        19565184.949751414,
+        26260246.59966855,
+        32955308.249585688
+    ]
+}

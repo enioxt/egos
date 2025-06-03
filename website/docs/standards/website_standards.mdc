@@ -1,0 +1,147 @@
+---
+description: Standards for the EGOS project website, covering technology stack, UI/UX, accessibility, and content
+globs: ["website/**/*.tsx", "website/**/*.css", "website/**/*.mdx"]
+alwaysApply: false
+---
+---
+description: EGOS Website Development Standards
+globs: ["docs/website/*.html", "docs/website/css/**/*.css", "docs/website/js/**/*.js"]
+alwaysApply: true
+priority: 1
+version: 1.1.0
+tags: [website, frontend, koios, standards]
+---
+
+# EGOS Website Development Standards (v1.1.0)
+
+## 0. Document Hierarchy & Scope
+
+*   **Purpose:** This document defines the core standards for all EGOS website development.
+*   **Hierarchy:** These Rules establish baseline requirements. Project-specific Design Concepts (like `research/WebSite Enio Grok e Gemini.txt`) provide visual and feature specifications. Task-specific instructions (Prompts) provide implementation details.
+*   **Precedence:** Task instructions must adhere to the Rules and the relevant Design Concept. Where instructions provide greater specificity compatible with the Rules, they should be followed. Core principles in the Rules take precedence in case of conflict. Overarching KOIOS and ETHIK standards always apply.
+*   **Updates:** This document is versioned and subject to updates based on project evolution and best practices.
+
+## 1. Language & Accessibility
+
+- All content, comments, and code **must be in English** (except localized content placeholders).
+- Follow accessibility best practices rigorously (WCAG AA as a target): semantic HTML5, appropriate ARIA roles/attributes, sufficient color contrast (check ratios), keyboard navigability, focus indicators.
+
+## 2. Structure & Architecture
+
+- Use **semantic HTML5** with clear sectioning (`<header>`, `<nav>`, `<main>`, `<article>`, `<section>`, `<footer>`, etc.).
+- **Architectural Pattern:** Unless a specific Design Concept dictates otherwise (e.g., multi-page app), prefer Single-Page Application (SPA) structures using named anchors for navigation within a single `index.html` for simpler projects. Complex web applications should have their architecture explicitly defined in their design documentation.
+- Organize CSS modularly (e.g., BEM, ITCSS, or component-based) and JS modularly (e.g., ES Modules, specific framework patterns).
+
+## 3. Multilingual Support
+
+- Use a consistent mechanism for multilingual content (e.g., dedicated CSS classes like `.lang-content` with language codes, data attributes `data-lang="en"`).
+- Toggle visibility via JS based on user selection or browser preferences.
+- Utilize standardized placeholders for untranslated content (see Section 9).
+
+## 4. Styling (CSS)
+
+- **Adherence to Design Concept:** Strictly follow the visual direction (layout, minimalism, feel) defined in the project-specific Design Concept (e.g., `research/WebSite Enio Grok e Gemini.txt`).
+- **Color Palette:** Implement the defined primary, accent, and background colors consistently. Ensure high contrast ratios meet accessibility guidelines.
+- **Typography:** Utilize the specified fonts (e.g., Inter for body, Playfair Display for headings) with a clear and consistent typographic scale (h1-h6, p, small) to establish visual hierarchy.
+- **Layout:** Employ modern CSS layout techniques like **Flexbox and Grid** for building responsive and maintainable layouts.
+- **Responsiveness:** Implement a **mobile-first** approach with well-defined breakpoints using media queries.
+- **Interactive States:** Define clear CSS styles for `hover`, `focus`, `active`, and potentially `visited` states for all interactive elements (links, buttons, form inputs, cards) to provide visual feedback.
+
+## 5. Baseline Interactivity (JavaScript)
+
+- **Core Navigation:** Ensure essential navigation elements (e.g., mobile hamburger menu toggle) are functional.
+- **Basic Feedback:** Implement basic interactive feedback defined in the Design Concept (e.g., expand/collapse for cards on hover/click, modal dialog triggers).
+- **Modularity:** Organize JS code into modules/functions with clear responsibilities.
+- **Event Listeners:** Use efficient and clearly defined event listeners.
+- **Comments:** Add clear comments explaining complex logic, assumptions, and placeholders for future functionality (see Section 9).
+
+## 6. Representing Complex Information / Subsystems
+
+- **Consistency:** Strive for consistent patterns when representing similar types of complex information (e.g., system components, data flows, timelines).
+- **Design Concept Driven:** Primarily follow the specific visualization methods (diagrams, flowcharts, maps, dashboards) and structural representations defined in the project's Design Concept or task instructions.
+- **Placeholder Usage:** Use standardized placeholders (see Section 9) where specific visualizations or complex content are not yet implemented.
+- **Future Consideration:** A dedicated EGOS Component Library or Design System may be developed later to standardize these representations further.
+
+## 7. Core Feature UI Patterns (e.g., LLM Integration)
+
+- **Standardization:** Implement recurring core features using consistent, predefined UI patterns to ensure a predictable user experience.
+- **LLM Access:**
+    - **Chatbot:** Use a floating action button/icon, consistently placed (e.g., bottom-right), as the primary access point, unless the Design Concept specifies otherwise.
+    - **Contextual Help:** Use a subtle, standardized icon (e.g., '?', info symbol) placed consistently within relevant content sections to trigger context-specific LLM assistance.
+- **Reference Design Concept:** Always refer to the specific Design Concept for the exact styling and behavior of these standard patterns.
+
+## 8. Content Guidelines
+
+- **Tone & Style:** Maintain a consistent tone aligned with EGOS principles: **Human, accessible, inspiring, clear, ethical, reflecting depth without excessive jargon.** Adhere to any project-specific Content Style Guide if available.
+- **Source:** Base initial content on authoritative project documents (e.g., README, PHILOSOPHY.md, subsystem docs) as specified in task instructions.
+- **Clarity & Accuracy:** Ensure all textual content is clear, concise, accurate, and easy to understand for the target audience.
+
+## 9. Placeholder Conventions
+
+- **Purpose:** Use placeholders consistently to mark areas where content, assets, or functionality will be added later.
+- **Method:** Employ a combination of:
+    - **HTML Comments:** `<!-- TODO: [Description of missing element/content] -->` or `<!-- PLACEHOLDER: [Asset type/name] -->`
+    - **CSS Classes:** Use dedicated classes like `.placeholder`, `.placeholder--image`, `.placeholder--diagram`, `.placeholder--llm-trigger`, `.placeholder--icon`. Style these classes minimally to indicate their presence and reserve layout space if necessary.
+    - **Placeholder Text:** Use meaningful placeholder text (e.g., `[Brief description of subsystem X functionality here...]`, `[Contact Email Address]`) that simulates the intended content tone.
+    - **JS Comments:** `// TODO: Implement [feature name] logic here` or `// PLACEHOLDER: API call for [data type]`
+- **Scope:** Apply placeholders for visual assets (logos, icons, illustrations), complex content components (diagrams, charts, timelines), text content, external links, LLM triggers, and future JS/CSS logic.
+
+## 10. Performance Requirements
+
+- **Goal:** Optimize for fast load times and a smooth user experience (target high Lighthouse scores).
+- **Implementation Timing:** Critical performance optimizations **must be addressed** before merging to the main branch or as part of the build/deployment process, not deferred indefinitely.
+- **Required Techniques (Apply where appropriate):**
+    - **Image Optimization:** Use appropriate formats (WebP, AVIF), compress images, and implement lazy loading (`loading="lazy"` attribute).
+    - **Minification:** Minify CSS and JavaScript files.
+    - **Script Loading:** Use `async` or `defer` attributes for non-critical JavaScript.
+    - **Reduce Requests:** Bundle CSS/JS where feasible.
+    - **Caching:** Leverage browser caching effectively.
+    - **Code Efficiency:** Write efficient CSS selectors and JavaScript code.
+
+## 11. Documentation & Compliance
+
+- **Inline Documentation:** Write clear, well-commented code (HTML, CSS, JS) explaining structure, logic, placeholders, and future intentions.
+- **Formal Documentation:** Update relevant formal project documents (e.g., `README.md`, `docs/website/WEBSITE_DESIGN.md` or equivalent) to reflect website status and design decisions.
+- **Roadmap:** Update the project roadmap (`ROADMAP.md`, `docs/CRONOS_ROADMAP_UPDATES.md`) with website-related tasks and progress.
+- **Compliance:** Strictly adhere to overarching KOIOS standards (code quality, commit messages, etc.) and ETHIK principles (privacy, accessibility, clarity, ethical content).
+
+## 12. Website Standards (KOIOS Standard)
+
+### Rule
+
+Specify Next.js, Tailwind CSS, adherence to WCAG accessibility guidelines, consistent branding, content guidelines for clarity and accuracy, and performance optimization.
+
+### Rationale
+
+Ensures a positive user experience, accessibility for all users (Universal Accessibility), maintainability, performance, and consistent project representation.
+
+### Examples
+
+#### Correct Usage
+
+-   Using semantic HTML5 elements (`<nav>`, `<main>`, `<article>`).
+-   Providing alt text for all images.
+-   Ensuring sufficient color contrast.
+-   Using responsive design principles (Tailwind breakpoints).
+-   Optimizing images and leveraging Next.js image component.
+-   Keeping components modular and reusable.
+
+#### Incorrect Usage
+
+-   Using `<div>` for everything instead of semantic elements.
+-   Missing alt text for images.
+-   Hardcoding styles instead of using Tailwind utility classes.
+-   Poor color contrast ratios.
+-   Large, unoptimized images impacting load times.
+-   Inconsistent layout or branding across pages.
+
+**Build the website following modern web standards, accessibility guidelines, and the chosen tech stack.**
+
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# EGOS Website Development Standards (v1.1.0)
+
+✧༺❀༻∞ EGOS ∞༺❀༻✧

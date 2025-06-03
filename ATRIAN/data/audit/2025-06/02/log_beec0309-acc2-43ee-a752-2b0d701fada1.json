@@ -1,0 +1,16 @@
+{
+  "log_id": "log_beec0309-acc2-43ee-a752-2b0d701fada1",
+  "timestamp": "2025-06-02 02:11:06.154144",
+  "action_type": "create_framework",
+  "user_id": "anonymous",
+  "resource_id": null,
+  "request_data": null,
+  "response_data": null,
+  "metadata": null,
+  "endpoint_called": "/ethics/framework",
+  "request_summary": {
+    "name": "Test Ethical Framework",
+    "principles_count": 3
+  },
+  "response_summary": null
+}

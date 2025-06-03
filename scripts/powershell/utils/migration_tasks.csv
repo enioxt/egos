@@ -1,0 +1,3 @@
+SourcePath,DestinationPath,ItemType,Operation,CreateParents,Overwrite
+C:\EGOS\docs\ai_collaboration,C:\EGOS\docs_egos\05_processes_and_workflows\ai_collaboration_legacy,Directory,Move,true,false
+C:\EGOS\docs\prompts,C:\EGOS\docs_egos\04_modules_and_components\CORUJA\prompts,Directory,Copy,true,false

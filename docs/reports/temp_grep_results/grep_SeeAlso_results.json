@@ -1,0 +1,72 @@
+[
+  {
+    "File": "C:\\EGOS\\WORK_2025_05_21.md",
+    "LineNumber": 157,
+    "LineContent": "            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`)."
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\cross_reference_inventory_20250521.md",
+    "LineNumber": 73,
+    "LineContent": "              *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, ..."
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_Doc_results.json",
+    "LineNumber": 10,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_EGOS_ID_Start_results.json",
+    "LineNumber": 155,
+    "LineContent": "    \"LineContent\": \"    \\\"LineContent\\\": \\\"**See also:** EGOS systemic improvement EGOS-IMPORT-2025-01\\\"\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_LinkTo_results.json",
+    "LineNumber": 5,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_Reference_results.json",
+    "LineNumber": 10,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_Ref_results.json",
+    "LineNumber": 20,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_Related_results.json",
+    "LineNumber": 5,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_SeeAlso_results.json",
+    "LineNumber": 5,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_Source_results.json",
+    "LineNumber": 10,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181435\\docs\\governance\\dynamic_import_resilience.md",
+    "LineNumber": 107,
+    "LineContent": "**See also:** EGOS systemic improvement EGOS-IMPORT-2025-01"
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\cross_reference\\execute_inventory_scan.py",
+    "LineNumber": 41,
+    "LineContent": "    {\"query\": \"See also:\", \"output_file\": \"grep_SeeAlso_results.json\", \"case_insensitive\": True, \"category\": \"keyword\"},"
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\cross_reference\\purge_old_references.py",
+    "LineNumber": 195,
+    "LineContent": "    {\"name\": \"SeeAlso\", \"pattern\": r\"See also:\\s\", \"context_required\": False},"
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\cross_reference\\documentation_reference_manager\\manager.py",
+    "LineNumber": 127,
+    "LineContent": "            r'See also: ([^,\\n]+\\.md)',  # Plain text \"See also\" references"
+  }
+]

@@ -1,0 +1,9 @@
+SourcePath,DestinationPath,ItemType,Operation,CreateParents,Overwrite
+C:\EGOS\docs\prd,C:\EGOS\docs_egos\06_product_management\prd,Directory,Move,true,false
+C:\EGOS\docs\projects,C:\EGOS\docs_egos\09_project_meta\projects_legacy,Directory,Move,true,false
+C:\EGOS\docs\prompts,C:\EGOS\docs_egos\04_modules_and_components\CORUJA\prompts_legacy,Directory,Move,true,false
+C:\EGOS\docs\research,C:\EGOS\docs_egos\07_standards_and_guidelines\research_archive,Directory,Move,true,false
+C:\EGOS\docs\resources,C:\EGOS\docs_egos\11_resources_and_assets\misc_resources,Directory,Move,true,false
+C:\EGOS\docs\scripts,C:\EGOS\docs_egos\08_tooling_and_scripts\script_docs_legacy,Directory,Move,true,false
+C:\EGOS\docs\tooling,C:\EGOS\docs_egos\08_tooling_and_scripts\tooling_docs_legacy,Directory,Move,true,false
+C:\EGOS\docs\website,C:\EGOS\docs_egos\12_website_and_public_docs\website_content_legacy,Directory,Move,true,false

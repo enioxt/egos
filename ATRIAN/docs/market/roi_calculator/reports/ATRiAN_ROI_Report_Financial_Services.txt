@@ -1,0 +1,43 @@
+ATRiAN Ethics ROI Analysis for Global Financial Partners
+Industry: Financial Services
+Date: 2025-06-02
+
+ROI SUMMARY
+===========
+ROI: 3684.41%
+Net Benefits (NPV): 47,855,373.73
+Payback Period: 0.8 months
+Time Horizon: 5 years
+
+COSTS
+=====
+Implementation Cost: 650,000.00
+Annual Cost: 180,000.00
+Total Costs (NPV): 1,298,859.72
+
+BENEFITS BY CATEGORY
+====================
+Total Benefits (NPV): 49,154,233.44
+  Risk Mitigation: 2,221,533.45 (4.5%)
+  Operational Efficiency: 5,603,840.89 (11.4%)
+  Brand Value: 25,873,641.67 (52.6%)
+  Regulatory Compliance: 5,179,919.21 (10.5%)
+  Innovation Enablement: 10,275,298.21 (20.9%)
+
+SENSITIVITY ANALYSIS
+====================
+Best Case ROI (95th percentile): 5069.22%
+Expected ROI: 3684.41%
+Worst Case ROI (5th percentile): 2674.76%
+90% Confidence Interval: (2674.76%, 5069.22%)
+
+YEARLY BREAKDOWN
+================
+Year | Benefits | Costs | Net Benefits | Cumulative Net Benefits
+---------------------------------------------------------------------------
+0 | 0.00 | 650,000.00 | -650,000.00 | -650,000.00
+1 | 9,830,846.69 | 180,000.00 | 9,650,846.69 | 9,000,846.69
+2 | 9,830,846.69 | 180,000.00 | 9,650,846.69 | 18,651,693.38
+3 | 9,830,846.69 | 180,000.00 | 9,650,846.69 | 28,302,540.07
+4 | 9,830,846.69 | 180,000.00 | 9,650,846.69 | 37,953,386.75
+5 | 9,830,846.69 | 180,000.00 | 9,650,846.69 | 47,604,233.44

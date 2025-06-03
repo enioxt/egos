@@ -1,0 +1,44 @@
+{
+  "timestamp": "2025-05-21 22:53:07",
+  "files_analyzed": 100,
+  "recently_modified_files": 0,
+  "orphaned_files": 0,
+  "undocumented_files": 0,
+  "well_documented_files": 0,
+  "action_items": [],
+  "files_needing_attention": [],
+  "performance_metrics": {
+    "total_time": 15.60899999999674,
+    "total_time_formatted": "15.61s",
+    "phases": {
+      "file_scanning": {
+        "duration": 0.062000000005355105,
+        "percentage": 0.397206739735845
+      },
+      "documentation_analysis": {
+        "duration": 2.2660000000032596,
+        "percentage": 14.517265680080293
+      },
+      "cross_reference_analysis": {
+        "duration": 12.905999999988126,
+        "percentage": 82.68306746102134
+      }
+    },
+    "file_processing": {
+      "processed": 100,
+      "total_time": 12.89100000000326,
+      "min_time": 0.0,
+      "max_time": 5.23399999999674,
+      "avg_time": 0.1289100000000326,
+      "std_dev": 0.7343734647697756
+    },
+    "metrics": {},
+    "system_stats": {
+      "start_memory": 31.484375,
+      "cpu_percent": 40.4,
+      "end_memory": 32.34765625,
+      "memory_delta": 0.86328125,
+      "final_cpu_percent": 38.5
+    }
+  }
+}

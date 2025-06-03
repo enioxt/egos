@@ -1,0 +1,17 @@
+{
+  "log_id": "log_e7231c72-cb67-4a47-8314-84f32104fafc",
+  "timestamp": "2025-06-02 02:11:05.514246",
+  "action_type": "list_frameworks",
+  "user_id": "anonymous",
+  "resource_id": null,
+  "request_data": null,
+  "response_data": null,
+  "metadata": null,
+  "endpoint_called": "/ethics/framework",
+  "request_summary": {
+    "action": "list_all_frameworks"
+  },
+  "response_summary": {
+    "frameworks_count": 3
+  }
+}

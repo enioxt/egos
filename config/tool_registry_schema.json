@@ -1,0 +1,208 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EGOS Tool Registry Schema",
+  "description": "Schema definition for the EGOS tool registry, which catalogs all tools and scripts in the ecosystem",
+  "type": "object",
+  "required": ["schema_version", "last_updated", "tools"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "description": "Version of the tool registry schema",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "last_updated": {
+      "type": "string",
+      "description": "Date when the registry was last updated (YYYY-MM-DD)",
+      "format": "date"
+    },
+    "updated_by": {
+      "type": "string",
+      "description": "Person or system that last updated the registry"
+    },
+    "tools": {
+      "type": "array",
+      "description": "List of all tools registered in the system",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "path", "description", "status"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the tool",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "name": {
+            "type": "string",
+            "description": "Human-readable name of the tool"
+          },
+          "path": {
+            "type": "string",
+            "description": "Relative path to the tool from the EGOS root directory"
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed description of the tool's purpose and functionality"
+          },
+          "usage": {
+            "type": "string",
+            "description": "Instructions on how to use the tool"
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags for categorizing and searching for the tool",
+            "items": {
+              "type": "string"
+            }
+          },
+          "category": {
+            "type": "string",
+            "description": "Primary category for the tool",
+            "enum": [
+              "Validation",
+              "Analysis",
+              "Maintenance",
+              "Documentation",
+              "Development",
+              "Testing",
+              "Deployment",
+              "Visualization",
+              "Integration",
+              "Security",
+              "Utility",
+              "Other"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "description": "Current status of the tool",
+            "enum": ["active", "deprecated", "experimental", "planning", "archived"]
+          },
+          "created": {
+            "type": "string",
+            "description": "Date when the tool was created (YYYY-MM-DD)",
+            "format": "date"
+          },
+          "last_updated": {
+            "type": "string",
+            "description": "Date when the tool was last updated (YYYY-MM-DD)",
+            "format": "date"
+          },
+          "maintainer": {
+            "type": "string",
+            "description": "Person or team responsible for maintaining the tool"
+          },
+          "dependencies": {
+            "type": "array",
+            "description": "Other files, tools, or systems that this tool depends on",
+            "items": {
+              "type": "string"
+            }
+          },
+          "website_integration": {
+            "type": "object",
+            "description": "Information for website integration",
+            "properties": {
+              "page": {
+                "type": "string",
+                "description": "Page path where the tool should appear on the website"
+              },
+              "category": {
+                "type": "string",
+                "description": "Website category for the tool"
+              },
+              "priority": {
+                "type": "string",
+                "description": "Display priority on the website",
+                "enum": ["high", "medium", "low"]
+              },
+              "icon": {
+                "type": "string",
+                "description": "Icon to use for the tool on the website"
+              }
+            }
+          },
+          "automation": {
+            "type": "object",
+            "description": "Automation settings for the tool",
+            "properties": {
+              "git_hook": {
+                "type": "string",
+                "description": "Git hook where this tool should run",
+                "enum": ["pre-commit", "post-commit", "pre-push", "post-checkout", "other"]
+              },
+              "ci_integration": {
+                "type": "boolean",
+                "description": "Whether this tool should run in CI/CD pipelines"
+              },
+              "schedule": {
+                "type": "string",
+                "description": "Schedule for running this tool automatically (cron format)"
+              },
+              "auto_fix": {
+                "type": "boolean",
+                "description": "Whether this tool can automatically fix issues it detects"
+              }
+            }
+          },
+          "examples": {
+            "type": "array",
+            "description": "Example usages of the tool",
+            "items": {
+              "type": "object",
+              "properties": {
+                "description": {
+                  "type": "string",
+                  "description": "Description of the example"
+                },
+                "command": {
+                  "type": "string",
+                  "description": "Example command to run"
+                },
+                "output": {
+                  "type": "string",
+                  "description": "Expected output from the command"
+                }
+              }
+            }
+          },
+          "documentation": {
+            "type": "object",
+            "description": "Additional documentation resources",
+            "properties": {
+              "readme": {
+                "type": "string",
+                "description": "Path to README file specific to this tool"
+              },
+              "guide": {
+                "type": "string",
+                "description": "Path to comprehensive guide for this tool"
+              },
+              "api_docs": {
+                "type": "string",
+                "description": "Path to API documentation if applicable"
+              }
+            }
+          },
+          "metrics": {
+            "type": "object",
+            "description": "Usage and performance metrics for this tool",
+            "properties": {
+              "usage_count": {
+                "type": "integer",
+                "description": "Number of times the tool has been used"
+              },
+              "average_runtime": {
+                "type": "number",
+                "description": "Average runtime in seconds"
+              },
+              "last_run": {
+                "type": "string",
+                "description": "Date and time of last run (ISO format)"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

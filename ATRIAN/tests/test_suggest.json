@@ -1,0 +1,13 @@
+{
+  "evaluation_id": "eval_c4b16b8f-102f-44d5-ab77-dd334a2a320e",
+  "context": {
+    "domain": "Public Security",
+    "data_sources": ["Security camera feeds", "Facial recognition database"],
+    "purpose": "Developing security measures for a public transportation system",
+    "stakeholders": ["Transportation users", "Security personnel", "Public officials", "Privacy advocates"]
+  },
+  "options": {
+    "detail_level": "comprehensive",
+    "include_alternatives": true
+  }
+}

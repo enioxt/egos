@@ -1,0 +1,45 @@
+{
+    "start_path": "C:\\EGOS",
+    "exclusions": {
+        "directories": [
+            ".git", 
+            "venv", 
+            ".venv", 
+            "env", 
+            "node_modules", 
+            "__pycache__", 
+            ".vscode", 
+            ".idea",
+            "docs\\assets",
+            "egos_backup"
+        ],
+        "files": [
+            "README.md", 
+            "LICENSE", 
+            "Makefile", 
+            "requirements.txt",
+            "CONTRIBUTING.md",
+            "CODE_OF_CONDUCT.md",
+            ".gitignore",
+            ".gitattributes"
+        ],
+        "extensions": [
+            ".png",
+            ".jpg",
+            ".jpeg",
+            ".gif",
+            ".svg",
+            ".ico",
+            ".pdf",
+            ".docx",
+            ".xlsx",
+            ".pptx",
+            ".zip",
+            ".tar.gz",
+            ".exe",
+            ".dll",
+            ".DS_Store"
+        ]
+    },
+    "report_file": "C:\\EGOS\\reports\\snake_case_audit_report.md"
+}

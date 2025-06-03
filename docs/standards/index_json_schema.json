@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EGOS Index Schema",
+  "description": "Schema for the central EGOS component and documentation manifest",
+  "type": "object",
+  "required": ["manifest_version", "last_updated", "description", "subsystems", "components", "files", "metadata"],
+  "properties": {
+    "manifest_version": {
+      "type": "string",
+      "description": "Version of the manifest format",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "last_updated": {
+      "type": "string",
+      "description": "Timestamp of the last update",
+      "format": "date-time"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the manifest purpose"
+    },
+    "status": {
+      "type": "string",
+      "description": "Current status of the manifest",
+      "enum": ["initial", "in_progress", "active", "deprecated"]
+    },
+    "subsystems": {
+      "type": "object",
+      "description": "Map of EGOS subsystems",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["description", "path", "primary_purpose"],
+        "properties": {
+          "description": {
+            "type": "string",
+            "description": "Description of the subsystem"
+          },
+          "path": {
+            "type": "string",
+            "description": "Path to the subsystem root"
+          },
+          "primary_purpose": {
+            "type": "string",
+            "description": "Primary purpose of the subsystem"
+          },
+          "key_components": {
+            "type": "array",
+            "description": "Key components provided by the subsystem",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "type": "object",
+      "description": "Map of components across subsystems",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["description", "primary_subsystem", "primary_files", "provides"],
+        "properties": {
+          "description": {
+            "type": "string",
+            "description": "Description of the component"
+          },
+          "primary_subsystem": {
+            "type": "string",
+            "description": "Primary subsystem owning this component"
+          },
+          "primary_files": {
+            "type": "array",
+            "description": "List of primary files implementing this component",
+            "items": {
+              "type": "string"
+            }
+          },
+          "provides": {
+            "type": "array",
+            "description": "List of functionalities provided by this component",
+            "items": {
+              "type": "string"
+            }
+          },
+          "integrations": {
+            "type": "array",
+            "description": "List of subsystems this component integrates with",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "files": {
+      "type": "object",
+      "description": "Map of significant files in the codebase",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["type", "subsystem", "purpose"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "File type",
+            "enum": ["python", "markdown", "configuration", "javascript", "typescript", "c", "cpp", "java", "other"]
+          },
+          "subsystem": {
+            "type": "string",
+            "description": "Subsystem the file belongs to"
+          },
+          "component": {
+            "type": "string",
+            "description": "Component the file is part of"
+          },
+          "purpose": {
+            "type": "string",
+            "description": "Purpose of the file"
+          },
+          "provides": {
+            "type": "array",
+            "description": "List of functionalities provided by this file",
+            "items": {
+              "type": "string"
+            }
+          },
+          "last_updated": {
+            "type": "string",
+            "description": "Timestamp of the last update",
+            "format": "date-time"
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags for improved discoverability",
+            "items": {
+              "type": "string"
+            }
+          },
+          "dependencies": {
+            "type": "array",
+            "description": "Files this file depends on",
+            "items": {
+              "type": "string"
+            }
+          },
+          "public_apis": {
+            "type": "array",
+            "description": "List of public APIs exposed by this file",
+            "items": {
+              "type": "string"
+            }
+          },
+          "configuration": {
+            "type": "object",
+            "description": "Configuration options for this file",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Metadata about the manifest itself",
+      "required": ["schema_version", "indexed_directories"],
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "description": "Version of the schema used",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        },
+        "trust_weaver_compatibility": {
+          "type": "boolean",
+          "description": "Whether this manifest integrates with Trust Weaver"
+        },
+        "integrations": {
+          "type": "object",
+          "description": "Integration flags with other components",
+          "additionalProperties": {
+            "type": "boolean"
+          }
+        },
+        "indexed_directories": {
+          "type": "array",
+          "description": "List of directories indexed in this manifest",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

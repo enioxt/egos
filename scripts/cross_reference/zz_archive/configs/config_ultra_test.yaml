@@ -1,0 +1,100 @@
+# Test configuration for Cross-Reference Checker Ultra (subset test)
+# Modified from config_ultra.yaml to test with a small subset
+
+# General project settings
+project_base_path: "c:\\EGOS" # Absolute path to the project root
+
+# Logging configuration
+logging:
+  level: "INFO"
+  file_path: "./cross_reference_ultra_debug_test.log"
+
+# Exclusion system configuration (unchanged)
+exclusions:
+  global:
+    - ".git"
+    - ".idea"
+    - ".vscode"
+    - "venv"
+    - ".venv"
+    - "__pycache__"
+    - "node_modules"
+    - "*.pyc"
+    - "*.pyo"
+    - "*.so"
+    - "*.dll"
+    - "*.exe"
+    - "*.o"
+    - "*.a"
+    - "*.obj"
+    - "dist"
+    - "build"
+    - "eggs"
+    - "*.egg-info"
+    - "target"
+    - ".DS_Store"
+    - "Thumbs.db"
+    - "**/zz_archive/**"
+    - "**/legacy_root_backups/**"
+    - "**/legacy_root_archive/**"
+    - "**/*.bak"
+    - "**/archive/**"
+    - "**/backups/**"
+    - "./scripts/cross_reference/cross_reference_*.md"
+    - "./scripts/cross_reference/cross_reference_*.json"
+  cache_exclusions: true
+
+# Scan parameters (focused on just scripts/cross_reference)
+scan_parameters:
+  # Only scan the cross_reference directory for this test
+  scan_directories:
+    - "./scripts/cross_reference"
+  
+  time_window_hours: 8760 # 1 year - to ensure we get enough files for testing
+  
+  target_file_extensions:
+    - ".py"
+    - ".yaml"
+    - ".md"
+  
+  max_file_size_mb: 25
+  min_file_size_bytes: 0
+  modification_detection_method: "mtime"
+
+# Reference finding parameters (focused on the same directory)
+reference_finding:
+  # Only search in cross_reference directory
+  search_in_directories:
+    - "./scripts/cross_reference"
+
+  search_in_file_extensions:
+    - ".py"
+    - ".yaml"
+    - ".md"
+    - ".json"
+
+  # Standard patterns
+  patterns:
+    - "{filename}"
+    - "{filepath_relative}"
+    - "import {module_name}"
+    - "from {module_name}"
+    - "[{filename}]"
+    - "({filepath_relative})"
+    - "[some text]({filepath_relative})"
+    - "[some text]({filename})"
+
+  resolve_python_modules: true
+  max_line_length_for_reference_content: 500
+  file_processing_timeout_sec: 30
+  search_method: "python_regex"
+
+# Reporting configuration
+reporting:
+  output_formats: ["markdown", "json"]
+  output_filename_base: "cross_reference_ultra_test_report"
+  report_retention_days: 15
+
+# Performance and Concurrency
+performance:
+  max_workers: "cpu_count"

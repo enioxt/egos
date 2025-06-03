@@ -1,0 +1,87 @@
+{
+  "timestamp": "2025-05-21 23:11:04",
+  "files_analyzed": 17,
+  "recently_modified_files": 2,
+  "orphaned_files": 0,
+  "undocumented_files": 0,
+  "well_documented_files": 0,
+  "action_items": [],
+  "files_needing_attention": [],
+  "performance_metrics": {
+    "total_time": 0.3909999999741558,
+    "total_time_formatted": "391.00ms",
+    "phases": {
+      "file_scanning": {
+        "duration": 0.0,
+        "percentage": 0.0
+      },
+      "documentation_analysis": {
+        "duration": 0.015000000013969839,
+        "percentage": 3.8363171393762925
+      },
+      "cross_reference_analysis": {
+        "duration": 0.0,
+        "percentage": 0.0
+      }
+    },
+    "file_processing": {
+      "processed": 17,
+      "total_time": 0.0,
+      "min_time": 0.0,
+      "max_time": 0,
+      "avg_time": 0.0,
+      "std_dev": 0.0
+    },
+    "metrics": {},
+    "system_stats": {
+      "start_memory": 31.71484375,
+      "cpu_percent": 32.1,
+      "end_memory": 33.046875,
+      "memory_delta": 1.33203125,
+      "final_cpu_percent": 33.9
+    }
+  },
+  "recent_files_by_type": {
+    "txt": 2
+  },
+  "recent_files_list": [
+    {
+      "path": "C:\\EGOS\\scripts\\system_monitor\\test_data\\new_test_file_1.txt",
+      "last_modified": 1747878755.5455616,
+      "size": 68,
+      "has_references": false,
+      "is_referenced": false,
+      "reference_count": 0,
+      "referenced_by_count": 0,
+      "documentation_score": 0.0,
+      "needs_attention": true,
+      "suggested_actions": [
+        "Add header at the beginning",
+        "Add section headers"
+      ],
+      "file_type": "unknown",
+      "content_hash": null,
+      "binary": false,
+      "processed": false
+    },
+    {
+      "path": "C:\\EGOS\\scripts\\system_monitor\\test_data\\new_test_file_2.txt",
+      "last_modified": 1747878761.6504169,
+      "size": 91,
+      "has_references": false,
+      "is_referenced": false,
+      "reference_count": 0,
+      "referenced_by_count": 0,
+      "documentation_score": 0.0,
+      "needs_attention": true,
+      "suggested_actions": [
+        "Add header at the beginning",
+        "Add section headers"
+      ],
+      "file_type": "unknown",
+      "content_hash": null,
+      "binary": false,
+      "processed": false
+    }
+  ]
+}

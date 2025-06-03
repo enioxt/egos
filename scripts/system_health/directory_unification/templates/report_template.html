@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directory Unification Report</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        pre { background-color: #f4f4f4; padding: 15px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Directory Unification Report</h1>
+    <p><strong>Keyword:</strong> {{ keyword }}</p>
+    <p><strong>Timestamp:</strong> {{ timestamp }}</p>
+    <p><strong>Output Directory:</strong> {{ output_directory }}</p>
+    
+    <h2>Summary</h2>
+    <p>Overall Success: {{ success }}</p>
+    {% if error %}
+    <p>Error: <pre>{{ error }}</pre></p>
+    {% endif %}
+    <p>Elapsed Time: {{ elapsed_time_total }} seconds</p>
+
+    <h2>Phases</h2>
+    {% for phase_name, phase_data in phases.items() %}
+    <h3>{{ phase_name | capitalize }}</h3>
+    <p>Status: {{ phase_data.status }}</p>
+    {% if phase_data.elapsed_time %}
+    <p>Elapsed Time: {{ phase_data.elapsed_time | round(2) }} seconds</p>
+    {% endif %}
+    {% if phase_data.error %}
+    <p>Error: <pre>{{ phase_data.error }}</pre></p>
+    {% endif %}
+    {% if phase_data.output_file %}
+    <p>Output File: {{ phase_data.output_file }}</p>
+    {% endif %}
+    <!-- Add more phase-specific details as needed -->
+    {% endfor %}
+
+    <h2>Content Discovery Details</h2>
+    <pre>{{ content_discovery_json }}</pre>
+
+    <h2>Cross-Reference Analysis Details</h2>
+    <pre>{{ cross_reference_analysis_json }}</pre>
+    
+    <h2>Consolidation Plan Details</h2>
+    <pre>{{ consolidation_plan_json }}</pre>
+
+</body>
+</html>
