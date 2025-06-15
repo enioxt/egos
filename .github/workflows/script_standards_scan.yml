@@ -1,0 +1,60 @@
+name: EGOS Script Standards Scan
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main", "develop" ]
+  # Allow manual triggering
+  workflow_dispatch:
+  # Run weekly to track compliance improvements
+  schedule:
+    - cron: '0 0 * * 0'  # Run at midnight on Sundays
+
+jobs:
+  script-standards-scan:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Fetch all history for proper reference validation
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r scripts/cross_reference/requirements.txt
+        pip install colorama tqdm pyyaml
+
+    - name: Run Script Standards Scanner
+      run: |
+        python scripts/cross_reference/script_standards_scanner.py --directory . --exclude venv,node_modules,.git --report-format html --report-path ./script_standards_report.html
+
+    - name: Upload Standards Scan Report
+      uses: actions/upload-artifact@v3
+      with:
+        name: script-standards-report
+        path: ./script_standards_report.html
+        retention-days: 14
+
+    - name: Run Cross-Reference Validator
+      run: |
+        python scripts/cross_reference/cross_reference_validator.py --directory ./docs_egos --verbose --report-format html --report-path ./cross_reference_report.html
+
+    - name: Upload Cross-Reference Report
+      uses: actions/upload-artifact@v3
+      with:
+        name: cross-reference-report
+        path: ./cross_reference_report.html
+        retention-days: 14
+
+    # This step will fail the build if critical standards are not met
+    # Comment out or adjust threshold as needed during initial implementation
+    - name: Check Standards Compliance
+      run: |
+        echo "Checking standards compliance..."
+        python scripts/cross_reference/script_standards_scanner.py --directory . --exclude venv,node_modules,.git --check-only --min-score 70

@@ -1,0 +1,127 @@
+---
+# ATRiAN Sector-Specific Rules: Mobility
+# Version: 1.0.0
+# Date: 2025-06-14
+
+@references:
+- .windsurfrules
+- CODE_OF_CONDUCT.md
+- MQP.md
+- ROADMAP.md
+- CROSSREF_STANDARD.md
+
+@references(level=1):
+- ATRIAN/docs/methods/incident_analysis_methods.md
+- ATRIAN/docs/case_studies/top_incidents.md
+- docs/workflows/atrian_data_pipeline_roi_workflow.md
+- scripts/roi_simulate.py
+- .windsurf/workflows/atrian_roi_calc.md
+
+# Detector Configurations for Mobility Sector
+# These detectors can be loaded by ATRiAN's rule engine and trigger alerts
+
+detectors:
+  perception_confusion:
+    id: "mobility-001"
+    name: "Perception Confusion Matrix Deficit"
+    description: "Detects gaps in perception system's ability to classify rare or critical objects"
+    severity: "high"
+    operational_context: "training, testing, runtime"
+    reference_incident_ids: [4, 23]
+    
+    parameters:
+      min_recall_vulnerable_road_users: 0.995
+      min_precision_emergency_vehicles: 0.99
+      min_test_cases_per_category: 1000
+      required_edge_cases:
+        - "pedestrian_at_night"
+        - "partially_obscured_cyclist"
+        - "emergency_vehicle_lights_only"
+        - "wheelchair_user_crossing"
+      
+    implementation:
+      module: "atrian.detectors.mobility.perception"
+      class: "ConfusionMatrixAnalyzer"
+      threshold_violation_action: "ci_fail"
+      
+    webhook_targets:
+      - "ci_pipeline"
+      - "review_queue"
+      
+  evasion_capability:
+    id: "mobility-002"
+    name: "Evasion Capability Monitor"
+    description: "Ensures autonomous system always has at least one viable evasion path"
+    severity: "critical"
+    operational_context: "runtime, simulation"
+    reference_incident_ids: [23]
+    
+    parameters:
+      min_evasion_paths: 1
+      evasion_lookahead_seconds: 5.0
+      reaction_time_ms: 300
+      
+    implementation:
+      module: "atrian.detectors.mobility.safety"
+      class: "EvasionPathAnalyzer"
+      threshold_violation_action: "alert"
+      
+    webhook_targets:
+      - "safety_control_system"
+      - "operator_dashboard"
+      
+  driver_monitoring:
+    id: "mobility-003"
+    name: "Safety Driver Attention Monitor"
+    description: "Detects safety driver inattention or distraction"
+    severity: "high"
+    operational_context: "runtime"
+    reference_incident_ids: [4]
+    
+    parameters:
+      max_eyes_off_road_seconds: 2.0
+      alert_after_ms: 1500
+      require_secondary_confirmation: true
+      
+    implementation:
+      module: "atrian.detectors.mobility.human"
+      class: "DriverAttentionMonitor"
+      threshold_violation_action: "alert_driver"
+      
+    webhook_targets:
+      - "vehicle_hmi"
+      - "safety_log"
+
+# Integration Settings
+integration:
+  simulator_hooks:
+    - module: "atrian.hooks.carla"
+      entry_point: "on_scenario_complete"
+      detector_ids: ["mobility-001", "mobility-002"]
+    - module: "atrian.hooks.lgsvl"
+      entry_point: "on_perception_update"
+      detector_ids: ["mobility-001"]
+      
+  ci_integration:
+    run_on:
+      - "pre_merge"
+      - "nightly"
+    blocking_detectors: ["mobility-001"]
+    
+  dashboard_widgets:
+    - name: "Perception Performance by Object Class"
+      detector_id: "mobility-001"
+      chart_type: "bar"
+      refresh_rate_seconds: 3600
+    - name: "Evasion Paths Available (Last 24h)"
+      detector_id: "mobility-002"
+      chart_type: "time_series"
+      refresh_rate_seconds: 300
+
+# Mitigation Factors for ROI Model
+roi_factors:
+  sector_risk_mitigation_multiplier: 1.2  # 20% higher risk mitigation in mobility vs. baseline
+  cost_severity_mapping:
+    fatality: 10000000  # $10M per statistical life
+    severe_injury: 1400000  # $1.4M per statistical severe injury
+    minor_injury: 42000  # $42K per statistical minor injury

@@ -1,0 +1,138 @@
+# Configuration for the File Reference Checker
+
+# Base directory of the EGOS project to scan for recently modified files
+# and to search for references.
+# Example: "c:\\EGOS" or "/mnt/c/EGOS" (use path appropriate for your OS)
+project_base_path: "c:\\EGOS"
+
+# Directories to scan for recently modified files.
+# Paths are relative to project_base_path.
+# Use "." to scan the entire project_base_path.
+scan_directories:
+  - "."
+  - "docs_egos/01_getting_started"
+  - "docs_egos/02_architecture"
+  - "docs_egos/03_subsystems"
+  - "docs_egos/04_user_guides"
+  - "docs_egos/05_technical_references"
+  - "subsystems"
+
+# File extensions to consider as "target files" (recently modified files we care about).
+# Example: ['.py', '.md', '.txt']
+target_file_extensions:
+  - ".py"
+  - ".md"
+  - ".yml"
+  - ".yaml"
+  - ".json"
+  - ".js"
+  - ".ts"
+  - ".html"
+  - ".css"
+
+# Directories to search for references to the target files.
+# Paths are relative to project_base_path.
+# Example: ["docs", "src", "scripts"] or ["."] for all.
+reference_search_directories:
+  - "."          # Project root and other root files
+  - "docs_egos/" # New primary documentation directory
+  - "subsystems/"# Subsystem specific documentation and code
+  - "apps/"      # Applications like website
+  - "scripts/"   # To find references within other scripts/tools
+
+# File extensions to search within for references.
+# Example: ['.py', '.md', '.txt']
+reference_file_extensions:
+  - ".py"
+  - ".md"
+  - ".yml"
+  - ".yaml"
+  - ".json"
+  - ".js"
+  - ".ts"
+  - ".html"
+  - ".css"
+  - ".txt" # General text files might also contain references
+
+# Directories to exclude from both scanning and reference searching.
+# Paths are relative to project_base_path.
+# Common examples: virtual environments, git folders, cache folders.
+excluded_directories:
+  - ".git"
+  - ".idea"
+  - ".vscode"
+  - "venv"
+  - "**/node_modules/**" # Pattern to match any node_modules directory at any level
+  - "__pycache__"
+  - ".venv"
+  - "**/cross_ref_network_*.html" # Exclude cross-reference HTML reports to prevent recursion
+  - "docs_egos/09_project_meta/reports/cross_references" # Exclude the entire cross-references report directory
+  - "docs/build" # Example project-specific exclusion
+  - "dist"
+  - "build"
+  - "eggs"
+  - "*.egg-info"
+  - "**/backup*/**" # Exclude all backup directories
+  - "**/backups/**"
+  - "**/*_bak/**"
+  - "**/*_backup/**"
+  - "**/bak/**"
+  - "**/archive/**"
+  - "**/arquivos/**"
+  - "zz_archive/**" # Archive directory from migration
+  - "docs_egos/zz_archive/**" # Explicitly exclude the zz_archive directory in docs_egos
+  - "docs_egos/zz_archive/legacy_root_archive/**" # Explicitly exclude legacy_root_archive
+  - "docs_egos/zz_archive/legacy_root_backups/**" # Explicitly exclude legacy_root_backups
+  - "**/*.bak" # Backup files
+
+# Time window in hours to identify "recently modified" files.
+# Files modified within this period will be checked.
+time_window_hours: 168 # Focus on files modified in the last week
+
+# Output formats for the report. Options: "json", "markdown", "console".
+# Can be a list: ["json", "markdown"]
+output_formats:
+  - "markdown"
+  - "json"
+
+# Output file name (without extension).
+# The script will append appropriate extensions (e.g., .json, .md).
+# The file will be saved in the same directory as the script.
+output_filename: "file_reference_report"
+
+# Number of days to retain generated reports.
+# Reports older than this will be deleted automatically.
+# Set to 0 or a negative number to disable report retention.
+report_retention_days: 30
+
+# Search method. Options:
+# - "in_memory": Loads reference files into memory. Good for smaller projects.
+# - "ripgrep": Uses ripgrep for searching. Faster for larger projects, requires ripgrep installed.
+search_method: "in_memory" # Using in_memory for reliability, but limiting file size processing
+
+# Number of parallel processes to use for searching.
+# Set to 0 or 1 for no parallelism.
+# 'cpu_count' uses the number of available CPU cores.
+parallel_processes: "cpu_count" # or a specific number like 4
+
+# Logging level. Options: "DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"
+log_level: "DEBUG"
+
+# Patterns to identify as references.
+# {filename} will be replaced with the name of the modified file.
+# {filepath} will be replaced with the relative path of the modified file.
+# These patterns will be searched for in reference files.
+reference_patterns:
+  - "{filename}"       # e.g., "my_module.py"
+  - "docs/{filename}"  # e.g., "docs/my_module.py" (if docs are structured this way)
+  # Add more specific patterns if needed, e.g., import statements
+  # For Python:
+  - "import {module_name}" # where module_name is filename without .py
+  - "from {module_name}"   # where module_name is filename without .py
+  # For Markdown:
+  - "[{filename}]"       # e.g., [my_document.md]
+  - "({filepath})"       # e.g., (path/to/my_document.md)
+
+# If true, the script will try to resolve module names for Python files
+# e.g., for a file "utils/helpers.py", it will also search for "utils.helpers"
+resolve_python_modules: true

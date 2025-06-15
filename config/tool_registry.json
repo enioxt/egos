@@ -1,0 +1,307 @@
+{
+  "schema_version": "1.0.0",
+  "last_updated": "2025-05-26",
+  "updated_by": "EGOS Development Team",
+  "tools": [
+    {
+      "id": "work_log_standardizer",
+      "name": "EGOS Work Log Standardizer",
+      "path": "scripts/utils/work_log_standardizer/work_log_standardizer.py",
+      "description": "Standardizes work log files (WORK_*.md) in the EGOS system to ensure consistency with the format defined in the Work Log Standardization document. Handles locating, parsing, validating, reformatting, and archiving work logs.",
+      "usage": "python scripts/utils/work_log_standardizer/work_log_standardizer.py [--active-dir <path>] [--archive-dir <path>] [--dry-run] [--log-level {DEBUG,INFO,WARNING,ERROR,CRITICAL}] [--no-integration] [--register-only]",
+      "tags": ["work_logs", "standardization", "documentation", "validation", "archiving", "python"],
+      "category": "Documentation",
+      "status": "active",
+      "created": "2025-05-27",
+      "last_updated": "2025-05-27",
+      "maintainer": "EGOS Development Team",
+      "dependencies": ["python3", "yaml"],
+      "version": "1.0.0",
+      "documentation": {
+        "main": "C:\\EGOS\\docs\\tools\\work_log_standardizer.md",
+        "standard": "C:\\EGOS\\docs\\work_logs\\WORK_2025-05-23_Work_Log_Standardization.md",
+        "integration": "C:\\EGOS\\docs\\planning\\work_log_standardizer_integration_plan.md"
+      },
+      "integration": {
+        "provides": ["work_log_validation", "work_log_standardization", "work_log_archiving"],
+        "consumes": ["file_system_events", "ecosystem_analysis"],
+        "hooks": {
+          "on_startup": "register_with_tool_registry",
+          "on_file_change": "standardize_work_log",
+          "on_ecosystem_analysis": "provide_tool_metadata"
+        }
+      },
+      "examples": [
+        {
+          "name": "Standardize all work logs",
+          "command": "python scripts/utils/work_log_standardizer/work_log_standardizer.py",
+          "description": "Standardizes all work logs in the default active directory."
+        },
+        {
+          "name": "Dry run mode",
+          "command": "python scripts/utils/work_log_standardizer/work_log_standardizer.py --dry-run",
+          "description": "Simulates standardization without making any changes to files."
+        },
+        {
+          "name": "Standardize specific directory",
+          "command": "python scripts/utils/work_log_standardizer/work_log_standardizer.py --active-dir C:\\EGOS\\docs\\work_logs\\active\\project_x",
+          "description": "Standardizes work logs in a specific directory."
+        }
+      ]
+    },
+    {
+      "id": "audit_snake_case",
+      "name": "EGOS snake_case Naming Convention Auditor",
+      "path": "scripts/utils/audit_snake_case.py",
+      "description": "Recursively audits the EGOS workspace for files and directories not adhering to the snake_case naming convention. Generates a comprehensive report with statistics and lists of non-compliant items.",
+      "usage": "python scripts/utils/audit_snake_case.py [--start-path <path>] [--config-file <path>] [--report-file <path>]",
+      "tags": ["naming_convention", "snake_case", "audit", "standards", "file_management", "python"],
+      "category": "Standards Compliance",
+      "status": "active",
+      "created": "2025-05-26",
+      "last_updated": "2025-05-26",
+      "maintainer": "EGOS Development Team",
+      "dependencies": ["python3"],
+      "version": "1.0.0",
+      "documentation": {
+        "standard": "C:\\EGOS\\docs\\core_materials\\standards\\snake_case_naming_convention.md",
+        "plan": "C:\\EGOS\\docs\\planning\\snake_case_conversion_plan.md",
+        "work_log": "C:\\EGOS\\WORK_2025-05-26_snake_case_Conversion_Implementation.md"
+      },
+      "examples": [
+        {
+          "name": "Audit entire EGOS workspace",
+          "command": "python scripts/utils/audit_snake_case.py",
+          "description": "Audits the entire EGOS workspace for snake_case compliance using default configuration."
+        },
+        {
+          "name": "Audit specific directory with custom config",
+          "command": "python scripts/utils/audit_snake_case.py --start-path C:\\EGOS\\scripts --config-file C:\\EGOS\\config\\snake_case_audit_config.json",
+          "description": "Audits only the scripts directory using a custom configuration file."
+        },
+        {
+          "name": "Generate report to custom location",
+          "command": "python scripts/utils/audit_snake_case.py --report-file C:\\EGOS\\reports\\custom_snake_case_report.md",
+          "description": "Audits the workspace and saves the report to a custom location."
+        }
+      ]
+    },
+    {
+      "id": "convert_to_snake_case",
+      "name": "EGOS snake_case Naming Convention Converter",
+      "path": "scripts/utils/convert_to_snake_case.py",
+      "description": "Interactive tool to convert file and directory names to snake_case. Features dry-run mode, interactive prompting, comprehensive exclusion mechanisms, and detailed logging.",
+      "usage": "python scripts/utils/convert_to_snake_case.py <start_path> [--config-file <path>] [--log-file <path>] [--dry-run | --no-dry-run] [--interactive | --no-interactive]",
+      "tags": ["naming_convention", "snake_case", "conversion", "standards", "file_management", "python"],
+      "category": "Standards Compliance",
+      "status": "active",
+      "created": "2025-05-26",
+      "last_updated": "2025-05-26",
+      "maintainer": "EGOS Development Team",
+      "dependencies": ["python3"],
+      "version": "1.0.0",
+      "documentation": {
+        "standard": "C:\\EGOS\\docs\\core_materials\\standards\\snake_case_naming_convention.md",
+        "plan": "C:\\EGOS\\docs\\planning\\snake_case_conversion_plan.md",
+        "work_log": "C:\\EGOS\\WORK_2025-05-26_snake_case_Conversion_Implementation.md"
+      },
+      "examples": [
+        {
+          "name": "Dry run with interactive prompts",
+          "command": "python scripts/utils/convert_to_snake_case.py C:\\EGOS\\scripts --dry-run",
+          "description": "Simulates conversion of the scripts directory with interactive prompts for each item."
+        },
+        {
+          "name": "Convert with custom configuration",
+          "command": "python scripts/utils/convert_to_snake_case.py C:\\EGOS\\docs --config-file C:\\EGOS\\config\\snake_case_convert_config.json --no-interactive",
+          "description": "Converts the docs directory using a custom configuration file without interactive prompts."
+        },
+        {
+          "name": "Convert with custom log file",
+          "command": "python scripts/utils/convert_to_snake_case.py C:\\EGOS\\website --log-file C:\\EGOS\\logs\\website_conversion_log.txt",
+          "description": "Converts the website directory and saves the log to a custom location."
+        }
+      ]
+    },
+    {
+      "id": "work_log_manager",
+      "name": "WORK Log Manager",
+      "path": "scripts/maintenance/work_log_manager.ps1",
+      "description": "Manages WORK log files according to EGOS standards. Creates, archives, validates, and reports on WORK files following the standardized format defined in WORK_2025-05-23_Work_Log_Standardization.md.",
+      "usage": "powershell -File scripts/maintenance/work_log_manager.ps1 -Action [Create|Archive|Validate|Status] [-Title \"Title\"] [-RoadmapIds \"ID1,ID2\"] [-Priority \"High|Medium|Low|Critical\"]",
+      "tags": ["documentation", "standards", "work_logs", "maintenance"],
+      "category": "Documentation",
+      "status": "active",
+      "created": "2025-05-23",
+      "last_updated": "2025-05-23",
+      "maintainer": "EGOS Development Team",
+      "dependencies": [],
+      "website_integration": {
+        "page": "/tools/documentation",
+        "category": "Documentation Tools",
+        "priority": 2
+      },
+      "examples": [
+        {
+          "name": "Create a new WORK log",
+          "command": "powershell -File scripts/maintenance/work_log_manager.ps1 -Action Create -Title \"Feature Implementation\" -RoadmapIds \"EGOS-EPIC-001\" -Priority \"High\"",
+          "description": "Creates a new WORK log file with the specified parameters"
+        },
+        {
+          "name": "Archive completed WORK logs",
+          "command": "powershell -File scripts/maintenance/work_log_manager.ps1 -Action Archive",
+          "description": "Identifies completed WORK files older than 7 days and moves them to the archive"
+        },
+        {
+          "name": "Validate WORK logs",
+          "command": "powershell -File scripts/maintenance/work_log_manager.ps1 -Action Validate",
+          "description": "Validates all WORK files against the standard and reports non-compliant files"
+        },
+        {
+          "name": "Show WORK logs status",
+          "command": "powershell -File scripts/maintenance/work_log_manager.ps1 -Action Status",
+          "description": "Shows the status of all WORK logs, including pending, completed, and overdue items"
+        }
+      ],
+      "documentation": {
+        "readme": "scripts/maintenance/README_work_log_manager.md",
+        "guide": "docs/guides/work_log_management_guide.md"
+      }
+    },
+    {
+      "id": "github_sync_manager",
+      "name": "GitHub Synchronization Manager",
+      "path": "scripts/maintenance/github_sync_manager.py",
+      "description": "Manages synchronization of the EGOS repository with GitHub, including pre-flight checks, backup, verification, and handling of large files to prevent commit issues.",
+      "usage": "python scripts/maintenance/github_sync_manager.py [--backup | --verify | --handle-large-files | --all]",
+      "tags": ["git", "github", "synchronization", "maintenance", "version_control"],
+      "category": "Version Control & Synchronization",
+      "status": "active",
+      "created": "2025-05-22",
+      "last_updated": "2025-05-22",
+      "maintainer": "EGOS Development Team",
+      "dependencies": ["python3", "git"],
+      "version": "1.1.0",
+      "examples": [
+        {
+          "description": "Perform a backup of critical files before synchronization",
+          "command": "python scripts/maintenance/github_sync_manager.py --backup",
+          "output": "Performing backup of critical files...\nBackup completed: C:\\EGOS\\backups\\github_sync\\backup_20250523_001920\nWork log created: C:\\EGOS\\docs\\work_logs\\WORK_2025_05_23_GitHub_Sync.md"
+        },
+        {
+          "description": "Verify repository integrity after synchronization",
+          "command": "python scripts/maintenance/github_sync_manager.py --verify",
+          "output": "Verifying repository integrity...\nVerification status: PASS\nWork log created: C:\\EGOS\\docs\\work_logs\\WORK_2025_05_23_GitHub_Sync.md"
+        },
+        {
+          "description": "Handle large files that might cause GitHub issues",
+          "command": "python scripts/maintenance/github_sync_manager.py --handle-large-files",
+          "output": "Checking for large files...\nDetected 2 large files that may cause GitHub issues\n  - scripts/cross_reference/zz_archive/reports/cross_reference_ultra_report_20250520_233235.md (175.55 MB)\n  - reports/system_analysis/system_analysis_report_20250518.md (120.32 MB)\n.gitignore updated to exclude large files\nWork log created: C:\\EGOS\\docs\\work_logs\\WORK_2025_05_23_GitHub_Sync.md"
+        },
+        {
+          "description": "Perform all operations (recommended before major Git operations)",
+          "command": "python scripts/maintenance/github_sync_manager.py --all",
+          "output": "Performing backup of critical files...\nBackup completed: C:\\EGOS\\backups\\github_sync\\backup_20250523_001920\nWork log created: C:\\EGOS\\docs\\work_logs\\WORK_2025_05_23_GitHub_Sync.md\nVerifying repository integrity...\nVerification status: PASS\nWork log created: C:\\EGOS\\docs\\work_logs\\WORK_2025_05_23_GitHub_Sync_2.md\nChecking for large files...\nNo large files detected\nEGOS GitHub Synchronization Manager completed successfully!"
+        }
+      ],
+      "documentation": {
+        "readme": "scripts/maintenance/README.md",
+        "guide": "docs/work_logs/WORK_2025_05_23_GitHub_Sync_Manager_Implementation.md"
+      }
+    },
+    {
+      "id": "script_standards_scanner_advanced",
+      "name": "Advanced Script Standards Scanner",
+      "path": "scripts/cross_reference/script_standards_scanner.py",
+      "description": "Advanced scanner for Python scripts to ensure compliance with EGOS standards. Checks for docstrings, comments, error handling, logging, MQP references, and more. Generates detailed compliance reports (Markdown by default, even with --html-report flag) and can attempt auto-fixing for some issues. Reports are typically saved in a 'docs/reports' subdirectory relative to the scanned script's location if --base-path is a directory, or alongside the script if --base-path is a file (behavior needs full confirmation).",
+      "usage": "python scripts/cross_reference/script_standards_scanner.py --base-path <path_to_script.py_or_directory> [--include-pattern <pattern_if_base_is_dir>] [--verbose] [--html-report] [--auto-templates] [--min-score <score>] [--batch-scan] [--target-dir <dir_for_batch_scan_output>]",
+      "tags": ["validation", "standards", "python", "linter", "code_quality", "automation", "reporting", "cross_reference"],
+      "category": "Code Quality & Validation",
+      "status": "active",
+      "created": "2025-05-23",
+      "last_updated": "2025-05-23",
+      "maintainer": "EGOS Development Team",
+      "dependencies": ["python3", "PyYAML"],
+      "version": "1.2.1",
+      "documentation": {
+        "guide": "C:\\EGOS\\docs\\standards\\scripting\\script_validation_guide.md",
+        "changelog": "C:\\EGOS\\docs\\changelogs\\script_standards_scanner_changelog.md"
+      },
+      "notes": "This scanner is crucial for maintaining code quality across the EGOS project. Ensure it's run regularly. NOTE: The --html-report flag currently generates a Markdown (.md) report. The exact output directory for reports can vary based on input arguments and needs to be consistently managed (see MEMORY[93aa45f4-23ef-4851-b735-3ad3b20283ca]).",
+      "examples": [
+        {
+          "name": "Scan a single script (doc_organizer.py example)",
+          "command": "python scripts/cross_reference/script_standards_scanner.py --base-path scripts/doc_management/ --include-pattern \"doc_organizer.py\" --verbose --html-report",
+          "description": "Scans 'doc_organizer.py' within its directory. Note: --html-report currently produces Markdown."
+        },
+        {
+          "name": "Scan all scripts in a directory (general example)",
+          "command": "python scripts/cross_reference/script_standards_scanner.py --base-path C:\\EGOS\\scripts\\project_alpha --verbose --html-report",
+          "description": "Scans all scripts in 'project_alpha' directory. Note: --html-report currently produces Markdown."
+        },
+        {
+          "name": "Batch scan with auto-template generation for non-compliant scripts",
+          "command": "python scripts/cross_reference/script_standards_scanner.py --batch-scan --auto-templates [--target-dir <output_dir_for_templates>]",
+          "description": "Scans all scripts in the project (defaulting to configured locations or CWD), generates reports, and attempts to create compliant template versions for scripts below a certain compliance threshold."
+        }
+      ]
+    },
+    {
+      "id": "doc_organizer",
+      "name": "EGOS Document Organizer",
+      "path": "scripts/doc_management/doc_organizer.py",
+      "description": "Recursively scans a target directory and deletes empty subdirectories. Provides detailed logging, statistics, and supports a dry-run mode. Helps maintain a clean documentation structure within the EGOS project.",
+      "usage": "python scripts/doc_management/doc_organizer.py --base-path <target_directory> [--dry-run] [--log-level <LEVEL>]",
+      "tags": ["documentation", "file_management", "organization", "cleanup", "python", "maintenance"],
+      "category": "Documentation & File Management",
+      "status": "active",
+      "created": "2025-05-23",
+      "last_updated": "2025-05-23",
+      "maintainer": "EGOS Development Team",
+      "dependencies": ["python3", "tqdm", "colorama"],
+      "version": "1.0.0",
+      "documentation": {
+        "guide": "C:\\EGOS\\docs\\standards\\scripting\\script_management_best_practices.md",
+        "context": "C:\\EGOS\\docs\\work_logs\\WORK_2025-05-23_Docs_Reorg_Initial_Cleanup_Log.md"
+      },
+      "examples": [
+        {
+          "name": "Dry-run scan of a specific directory",
+          "command": "python scripts/doc_management/doc_organizer.py --base-path C:\\EGOS\\docs --dry-run",
+          "description": "Performs a dry run, scanning 'C:\\EGOS\\docs' for empty directories and logging what would be deleted."
+        },
+        {
+          "name": "Delete empty directories in a specific path with verbose logging",
+          "command": "python scripts/doc_management/doc_organizer.py --base-path C:\\EGOS\\docs\\community --log-level DEBUG",
+          "description": "Deletes all empty subdirectories within 'C:\\EGOS\\docs\\community' and provides detailed debug level logging."
+        }
+      ]
+    },
+    {
+      "id": "atrian_eaas_server",
+      "name": "ATRiAN EaaS API Server",
+      "path": "ATRIAN/run_eaas_api_server.py",
+      "description": "Runs ATRiAN Ethics as a Service FastAPI server (Uvicorn).",
+      "usage": "python ATRIAN/run_eaas_api_server.py",
+      "tags": ["atrian", "ethics", "api", "fastapi", "server"],
+      "category": "AI Services",
+      "status": "active",
+      "created": "2025-06-11",
+      "last_updated": "2025-06-11",
+      "maintainer": "EGOS AI Core Team",
+      "dependencies": ["python3", "fastapi", "uvicorn"],
+      "version": "0.3.1",
+      "documentation": {
+        "guide": "C:\\EGOS\\ATRIAN\\README.md",
+        "integration": "C:\\EGOS\\ATRIAN\\docs\\atrian_windsurf_adapter_api.md"
+      },
+      "examples": [
+        {
+          "name": "Run development server",
+          "command": "python ATRIAN/run_eaas_api_server.py",
+          "description": "Starts the EaaS API server at http://127.0.0.1:8000"
+        }
+      ]
+    }
+  ]
+}

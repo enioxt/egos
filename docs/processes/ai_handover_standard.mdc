@@ -1,0 +1,177 @@
+# @references:
+<!-- @references: -->
+#   - .windsurfrules
+#   - CODE_OF_CONDUCT.md
+#   - MQP.md
+#   - README.md
+#   - ROADMAP.md
+#   - subsystems/AutoCrossRef/CROSSREF_STANDARD.md
+
+---
+title: EGOS AI Handover Protocol Standard
+description: Standardized protocol for AI agent handovers to maintain context continuity across sessions
+created: 2025-05-21
+updated: 2025-05-21
+author: EGOS Team
+version: 1.0.0
+status: Active
+tags: [process, ai, handover, continuity, protocol, CORUJA]
+---
+
+# EGOS AI Handover Protocol Standard
+
+**@references: MQP.md (Context Continuity, Conscious Modularity), ROADMAP.md, MEMORY[5cb745d2-92a6-4669-9621-962d277dbaf4] (Core operational rules), MEMORY[3cf1baed-b031-4124-994a-9af789dd937b] (Communication values)**
+
+## Overview
+
+The EGOS AI Handover Protocol Standard defines a consistent methodology for maintaining context continuity across AI agent sessions. This protocol ensures that critical information, recent work, and ongoing tasks are efficiently transferred between sessions, supporting the EGOS principles of Context Continuity and Conscious Modularity.
+
+## Protocol Activation
+
+The handover protocol is activated by the user command:
+
+```
+!EGOS_HANDOVER
+```
+
+When this command is issued, the AI agent will generate a comprehensive handover document following the structure defined in this standard.
+
+## Handover Document Structure
+
+### 1. Project State Summary
+
+A concise overview of the current project state, including:
+
+- Active subsystems and components
+- Recent major milestones achieved
+- Current phase of development
+- Critical pending tasks
+
+### 2. Recent Activity Log
+
+Detailed log of recent activities:
+
+- Files modified in the last session
+- Key decisions made
+- Challenges encountered and solutions implemented
+- Changes to architecture or design
+
+### 3. Current Task Context
+
+Specific information about in-progress tasks:
+
+- Task identifiers (from ROADMAP.md)
+- Current implementation status
+- Blocking issues or dependencies
+- Next implementation steps
+
+### 4. Technical Environment
+
+Relevant details about the technical environment:
+
+- Active branches or environments
+- Running services and their status
+- Configuration changes
+- Dependencies and versions
+
+### 5. Knowledge Transfer
+
+Critical knowledge that should be maintained:
+
+- References to key documentation
+- Custom conventions or patterns in use
+- Recent learnings or insights
+- Architectural decisions and their rationales
+
+### 6. Next Steps Roadmap
+
+Clear direction for continuing work:
+
+- Immediate next actions with prioritization
+- Medium-term objectives
+- Decision points requiring attention
+- Expected challenges
+
+## Implementation Guidelines
+
+### For AI Agents
+
+1. **Comprehensive Analysis**: Before generating a handover, analyze recent file modifications, work logs, and ROADMAP.md to ensure complete context.
+
+2. **Validation Command**: When receiving the `!EGOS_HANDOVER` command, validate the current state by checking:
+   ```powershell
+   Get-ChildItem -Path C:\EGOS -Recurse -File | Where-Object { $_.LastWriteTime -gt (Get-Date).AddHours(-24) } | Sort-Object LastWriteTime -Descending
+   ```
+
+3. **Memory Integration**: Reference relevant MEMORY entries to maintain important context.
+
+4. **Communication Style**: Follow CORUJA communication standards, with clear, concise, and modular information.
+
+### For Developers
+
+1. **Regular Handovers**: Request handovers at the end of significant work sessions or when switching contexts.
+
+2. **Verification**: Review handover documents for accuracy and completeness.
+
+3. **Storage**: Save handover documents in `C:\EGOS\handovers\` with the naming convention `handover_YYYY-MM-DD_HH-MM.md`.
+
+4. **Referencing**: Reference handover documents in subsequent work logs.
+
+## Example Handover Document
+
+```markdown
+# EGOS Handover Document: 2025-05-21
+
+## Project State Summary
+Currently implementing the Cross-Reference Visualization System, Phase 2 (backend integration).
+Major components completed include SystemGraph visualization and ErrorBoundary components.
+Moving into performance testing and Python backend deployment.
+
+## Recent Activity Log
+- Created FastAPI validation server (scripts/cross_reference/api/validation_api.py)
+- Implemented TypeScript API bridge (website/src/lib/api/validationRunner.ts)
+- Added test data generation scripts (website/scripts/testing/generate_large_dataset.ts)
+- Documented integration architecture (docs_egos/integration/python_nextjs_bridge.md)
+
+## Current Task Context
+- Task: CREF-BACKEND-CONNECT-01 (Connect Python validator to Next.js API)
+- Status: Implementation complete, testing in progress
+- Blockers: None
+- Next Steps: Deploy to production environment
+
+## Technical Environment
+- Development branch: feature/cross-reference-backend
+- Services: FastAPI running on localhost:8000, Next.js on localhost:3000
+- Added dependencies: fastapi, uvicorn, schedule
+
+## Knowledge Transfer
+- Integration follows the pattern documented in docs_egos/integration/python_nextjs_bridge.md
+- Validation uses background tasks for non-blocking operation
+- Security considerations documented for production deployment
+
+## Next Steps Roadmap
+1. Execute performance testing with benchmark scripts
+2. Deploy FastAPI server to production environment
+3. Implement saved filter presets in UI
+4. Add export capabilities to visualization
+
+References:
+- ROADMAP.md#cross-reference-visualization-system
+- WORK_2025_05_21.md
+- docs_egos/integration/python_nextjs_bridge.md
+```
+
+## Verification & Improvement
+
+The handover protocol should be reviewed quarterly to identify improvements and ensure it continues to meet the needs of the EGOS ecosystem. Each handover should be evaluated against these criteria:
+
+1. **Completeness**: Does it capture all relevant information?
+2. **Clarity**: Is the information presented clearly and concisely?
+3. **Actionability**: Can work be effectively resumed based on the handover?
+4. **Efficiency**: Is the handover process streamlined and not overly time-consuming?
+
+## Conclusion
+
+The EGOS AI Handover Protocol Standard ensures continuity of context across development sessions, supporting the EGOS principles of Context Continuity and maintaining the efficiency of development efforts. By following this standard, we ensure that knowledge is preserved, progress is maintained, and development can proceed smoothly across multiple sessions and contributors.
+
+✧༺❀༻∞ EGOS ∞༺❀༻✧

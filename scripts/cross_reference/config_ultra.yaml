@@ -1,0 +1,213 @@
+# Configuration for Cross-Reference Checker Ultra (v4.0.0)
+
+# General project settings
+project_base_path: "c:\\EGOS" # Absolute path to the project root
+
+# Logging configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file_path: "./cross_reference_ultra_debug.log" # Relative to script dir, or absolute. Set to null to disable file logging.
+
+# Exclusion system configuration
+exclusions:
+  # Global exclusions applied in all phases and to all scans unless overridden
+  global:
+    - ".git"
+    - ".idea"
+    - ".vscode"
+    - "venv"
+    - ".venv"
+    - "__pycache__"
+    - "node_modules" # Simple string, implies **/node_modules/**
+    - "*.pyc"
+    - "*.pyo"
+    - "*.so"
+    - "*.dll"
+    - "*.exe"
+    - "*.o"
+    - "*.a"
+    - "*.obj"
+    - "dist"
+    - "build"
+    - "eggs"
+    - "*.egg-info"
+    - "target" # Common for Rust/Java projects
+    - ".DS_Store"
+    - "Thumbs.db"
+    - "**/zz_archive/**" # Specific archive directories
+    - "**/legacy_root_backups/**"
+    - "**/legacy_root_archive/**"
+    - "**/*.bak"
+    - "**/*_backup*/**"
+    - "**/*_bak/**"
+    - "**/archive/**"
+    - "**/archives/**"
+    - "**/backup/**"
+    - "**/backups/**"
+    - "./scripts/cross_reference/cross_reference_*.md" # Exclude previous reports by pattern
+    - "./scripts/cross_reference/cross_reference_*.json"
+    - "./scripts/cross_reference/cross_reference_ultra_*.md"
+    - "./scripts/cross_reference/cross_reference_ultra_*.json"
+    - "./scripts/cross_reference/*_debug_output.log"
+    - "./scripts/cross_reference/cross_reference_ultra_debug.log"
+    - "./scripts/cross_reference/.crossref_ultra_cache.json" # Exclude cache file
+
+  # Phase-specific exclusions (can add to global or override)
+  # Phases: 'scan_root', 'scan_dir', 'scan_file', 'reference_search_target', 'reference_search_content'
+  # Example: To be very aggressive during initial directory scanning
+  # phase_specific:
+  #   scan_dir:
+  #     - type: "regex" # 'glob', 'regex', 'literal'
+  #       pattern: ".*test.*" # Exclude directories with 'test' in their name during dir scan
+  #       # condition: "if_parent_is_not:'src'" # Future: conditional exclusions
+
+  # Cache settings for exclusion decisions
+  cache_exclusions: true
+  # max_cache_size: 100000 # Max number of paths to cache exclusion decision for
+
+# Scan parameters
+scan_parameters:
+  # Directories to scan for recently modified files (relative to project_base_path)
+  # Can define multiple scan profiles later, for now, a default set.
+  scan_directories:
+    - "." # Project root
+    - "docs_egos"
+    - "subsystems"
+    - "apps"
+    - "scripts"
+    - "config"
+    # - path: "src/very_active_module"
+    #   priority: "high" # Future: scan priority
+
+  time_window_hours: 168 # (1 week) Files modified within this period are 'recent'
+  
+  target_file_extensions: # Files with these extensions, if recent, will be checked FOR references TO THEM
+    - ".py"
+    - ".md"
+    - ".rst"
+    - ".ipynb"
+    - ".java"
+    - ".kt"
+    - ".scala"
+    - ".go"
+    - ".rs"
+    - ".js"
+    - ".ts"
+    - ".html"
+    - ".css"
+    - ".scss"
+    - ".yaml"
+    - ".yml"
+    - ".json"
+    - ".proto"
+    - ".thrift"
+    - ".avsc"
+    - ".puml" # PlantUML
+    - ".drawio"
+    - ".xml"
+    - ".sh"
+    - ".ps1"
+
+  max_file_size_mb: 25 # Skip scanning content of individual files larger than this
+  min_file_size_bytes: 0 # Skip files smaller than this (e.g. to ignore empty files)
+
+  # Options: 'mtime', 'git' (if git is available and repo detected)
+  # 'git' can be more accurate for changes if mtime is unreliable (e.g., after a fresh clone)
+  # 'git' might be slower as it involves running git commands.
+  modification_detection_method: "mtime"
+
+# Reference finding parameters
+reference_finding:
+  # Directories to search for references IN (relative to project_base_path)
+  search_in_directories:
+    - "." # Search everywhere by default, exclusions will trim this down
+
+  # File extensions to search FOR references WITHIN them
+  search_in_file_extensions:
+    - ".py"
+    - ".md"
+    - ".rst"
+    - ".ipynb"
+    - ".java"
+    - ".kt"
+    - ".scala"
+    - ".go"
+    - ".rs"
+    - ".js"
+    - ".ts"
+    - ".html"
+    - ".css"
+    - ".scss"
+    - ".yaml"
+    - ".yml"
+    - ".json"
+    - ".xml"
+    - ".txt"
+    - ".log"
+    - ".sh"
+    - ".ps1"
+    - ".tf"
+    - ".hcl"
+    - ".puml"
+    - ".drawio"
+    - "Dockerfile"
+    - ".conf"
+    - ".cfg"
+    - ".ini"
+
+  # Reference patterns to look for. {filename}, {filepath_relative}, {module_name} are placeholders.
+  # Order can matter if some patterns are more specific.
+  patterns:
+    - "{filename}"                   # e.g., my_module.py
+    - "{filepath_relative}"        # e.g., src/my_module.py
+    # Python specific
+    - "import {module_name}"        # e.g., import my_module or import src.my_module
+    - "from {module_name}"         # e.g., from my_module import ... or from src.my_module import ...
+    # Markdown specific
+    - "[{filename}]"               # e.g., [my_document.md]
+    - "({filepath_relative})"     # e.g., (docs/my_document.md)
+    - "[some text]({filepath_relative})"
+    - "[some text]({filename})"
+    # General paths that might appear in strings, configs, etc.
+    - "path: {filepath_relative}"
+    - "file: {filepath_relative}"
+    - "source: {filepath_relative}"
+    - "target: {filepath_relative}"
+    - "include: {filepath_relative}"
+    - "uses: {filepath_relative}" # Common in GitHub Actions
+    # Add more language/framework specific patterns as needed
+
+  resolve_python_modules: true # If true, for 'foo/bar.py', module_name can be 'bar' and 'foo.bar'
+  max_line_length_for_reference_content: 500 # Max chars of a matching line to store in report
+  file_processing_timeout_sec: 60 # Max time to spend searching in a single file for references
+
+  # Search method: 'ripgrep' (if available, fastest), 'python_regex' (fallback)
+  search_method: "python_regex" # Start with python_regex for broader compatibility, can be switched to ripgrep
+  # ripgrep_path: "rg" # Path to ripgrep executable if not in PATH
+
+# Reporting configuration
+reporting:
+  output_formats: ["markdown", "json"] # "console" can be added for direct terminal summary
+  output_filename_base: "cross_reference_ultra_report"
+  report_retention_days: 15 # Number of days to keep old reports (0 to disable)
+  # include_performance_summary: true # Already part of the plan for ultra
+  # include_files_without_references: false # Option to list files that had no refs found
+
+# Performance and Concurrency
+performance:
+  # Number of parallel workers for tasks like file scanning and reference finding.
+  # Can be an integer or 'cpu_count'. Consider I/O vs CPU bound nature of tasks.
+  # For asyncio, this might translate to async task limits rather than processes/threads.
+  max_workers: "cpu_count" 
+  # Controls for asyncio if used, e.g., semaphore limits for concurrent file reads
+  # asyncio_semaphore_limit: 100 
+
+  # Throttling if system load is high (future feature)
+  # max_system_load_avg: 0.8 # e.g., 80% of (number of cores * 1.0)
+
+# State management for incremental scans (future feature)
+# state_management:
+#   enabled: false
+#   state_file_path: "./.crossref_ultra_cache.json" # Or a small SQLite DB
+#   # How to determine if a file changed: 'mtime_size', 'checksum' (slower)
+#   change_detection_method: 'mtime_size'

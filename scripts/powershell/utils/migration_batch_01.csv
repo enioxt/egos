@@ -1,0 +1,6 @@
+SourcePath,DestinationPath,ItemType,Operation,CreateParents,Overwrite
+C:\EGOS\docs\ai_collaboration,C:\EGOS\docs_egos\05_processes_and_workflows\ai_collaboration_legacy,Directory,Move,true,false
+C:\EGOS\docs\diagnostics,C:\EGOS\docs_egos\10_system_health\diagnostics,Directory,Move,true,false
+C:\EGOS\docs\maintenance,C:\EGOS\docs_egos\10_system_health\maintenance_procedures,Directory,Move,true,false
+C:\EGOS\docs\STRATEGIC_THINKING,C:\EGOS\docs_egos\01_core_concepts\strategic_thinking,Directory,Move,true,false
+C:\EGOS\docs\troubleshooting,C:\EGOS\docs_egos\10_system_health\troubleshooting_guides,Directory,Move,true,false

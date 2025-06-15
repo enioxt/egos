@@ -1,0 +1,34 @@
+{
+    "organization": {
+        "name": "Global Financial Partners",
+        "industry": "Financial Services",
+        "calculation_date": "2025-06-02"
+    },
+    "roi_summary": {
+        "roi_percentage": 3684.41,
+        "net_benefits": 47855373.73,
+        "payback_period_months": 0.8,
+        "time_horizon_years": 5
+    },
+    "costs": {
+        "implementation_cost": 650000,
+        "annual_cost": 180000,
+        "npv_total_costs": 1298859.72
+    },
+    "benefits": {
+        "npv_total_benefits": 49154233.44,
+        "risk_mitigation": 2221533.45,
+        "operational_efficiency": 5603840.89,
+        "brand_value": 25873641.67,
+        "regulatory_compliance": 5179919.21,
+        "innovation_enablement": 10275298.21
+    },
+    "sensitivity_analysis": {
+        "best_case_roi": 5069.22,
+        "worst_case_roi": 2674.76,
+        "confidence_interval": [
+            2674.76,
+            5069.22
+        ]
+    }
+}

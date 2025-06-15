@@ -1,0 +1,101 @@
+# @references:
+#   - .windsurfrules
+#   - CODE_OF_CONDUCT.md
+#   - MQP.md
+#   - README.md
+#   - ROADMAP.md
+#   - CROSSREF_STANDARD.md
+
+@references:
+- Core References:
+  - [MQP.md](mdc:../../MQP.md) - Master Quantum Prompt defining EGOS principles
+  - [ROADMAP.md](mdc:../../ROADMAP.md) - Project roadmap and planning
+
+
+
+Okay, I understand. This is a rich set of ideas for improving our workflow, tracking productivity, and ensuring context is maintained. Let's address these points systematically, following your new task management structure.
+
+Current Goal: Address user requests regarding prompt file review, file access fallbacks, metadata/productivity tracking system proposal, and the handover log concept before returning to the previous workflow.
+
+Task A: Review Prompt Files & Discuss Fallback Logic
+
+Subtask A.1: Review strategic_analysis_prompt_v2.0.md
+
+Let me try to view the content of C:\Eva Guarani EGOS\STRATEGIC_THINKING\meta_prompts\strategic_analysis_prompt_v2.0.md.
+
+Analyzed
+
+strategic_analysis_prompt_v2.0.md:(1-200)
+Subtask A.2: Review external_research_committee_prompt_v1.0.md
+
+Now, let me try to view C:\Eva Guarani EGOS\STRATEGIC_THINKING\meta_prompts\external_research_committee_prompt_v1.0.md. This seems to be the file we were looking for earlier to relocate (though the version number differs slightly from v1.1).
+
+Analyzed
+
+external_research_committee_prompt_v1.0.md:(1-200)
+Subtask A.3: Discuss File Access Fallback Rule
+
+You proposed a crucial fallback mechanism: if direct file access fails, use the terminal to search recursively. This is an excellent strategy for robustness.
+
+Rule Definition: "If a view_file or similar direct access tool fails to retrieve a file specified by the user or needed for a task, automatically attempt to locate the file using a recursive terminal search within the project's root directory (C:\Eva Guarani EGOS)."
+Implementation (Conceptual):
+Detect view_file failure (e.g., empty response, error message).
+Construct a terminal command. On Windows PowerShell, this would likely be:
+powershell
+CopyInsert in Terminal
+Get-ChildItem -Path "C:\Eva Guarani EGOS" -Recurse -Filter "filename_to_find.ext" -ErrorAction SilentlyContinue | Select-Object -ExpandProperty FullName
+(Replacing "filename_to_find.ext" with the actual file name).
+Execute this command using the run_command tool.
+If the file is found, use the returned full path(s) to retry the view_file or other necessary action.
+If still not found, inform the user.
+Documentation: This rule should be added to our operational protocols, perhaps in the egos_operational_rules.mdc file we discussed creating earlier.
+(Waiting for file view results before proceeding to Task B)
+
+Okay, I have reviewed the contents of both prompt files:
+
+strategic_analysis_prompt_v2.0.md (also marked v2.1 internally) - This is a comprehensive prompt for the Elite Multidisciplinary Strategic Committee persona, defining roles, objectives, mandatory analysis areas (including AI ethics/collaboration), and output format. It explicitly requests Chain-of-Thought reasoning.
+external_research_committee_prompt_v1.0.md (also marked v1.1 internally) - This defines the Expert External Research Synthesis Committee persona, outlining the process for gathering, validating, synthesizing external information, and specifies the output structure, including source assessment and citations. It also requests CoT reasoning during synthesis.
+Both prompts are well-structured and detailed, incorporating best practices for LLM interaction and specific EGOS requirements.
+
+(Task A Complete)
+
+Task B: Formalize File Access Fallback Rule
+
+Proposal: Add the following rule to our operational protocols (egos_operational_rules.mdc or similar):
+Rule ID: RULE-FILE-ACCESS-01
+Rule: "If a direct file access tool (view_file, edit_file, etc.) fails to access a requested file path, the agent MUST automatically attempt to locate the file using a recursive terminal search (e.g., Get-ChildItem -Recurse -Filter 'filename.ext') within the EGOS project root (C:\Eva Guarani EGOS). If found, retry the original action with the correct path. If not found after search, inform the user."
+Action: I will add this to the list of rules to be formally documented once we create the egos_operational_rules.mdc file (part of the plan from Step Id: 405).
+(Task B Complete - Pending formal documentation)
+
+Task C: Address Metadata/Productivity Tracking & Handover Log Ideas
+
+These are excellent, interconnected ideas for enhancing EGOS's operational intelligence.
+
+Subtask C.1: Metadata & Productivity Tracking System
+
+Proposal: Formally add "AI Productivity & Performance Tracking System" as a major feature to the EGOS roadmap.
+Core Idea: Capture metadata (LLM used, estimated/actual time, agent ID, task context) for AI actions (file edits, code generation, analysis) and store it (preferably in a central database like SQLite within .egos_metadata/) for analysis and reporting.
+Value: Objective performance data per model/task, cost tracking, improved estimation.
+Action: This requires significant development. Let's add it to the main roadmap and create a placeholder task for a dedicated module (potentially under HARMONY or KOIOS). Could you please provide the path to the main ROADMAP.md file if it's not C:\Eva Guarani EGOS\ROADMAP.md? I will then add this feature there.
+Subtask C.2: Automated Handover Log
+
+Proposal: Add "Automated End-of-Session Handover Log" as a feature to the EGOS roadmap.
+Core Idea: When signaled by the user, the agent synthesizes the session's progress, pending tasks, notes, and (eventually) time estimates into a file (e.g., EGOS_Handover_Log.md in the root).
+Value: Ensures context continuity between sessions, reduces user ramp-up time.
+Implementation: Full automation with accurate time prediction is complex.
+Proposed Action (Immediate): Implement a semi-automated version NOW. When you indicate we are stopping for the day, I will:
+Synthesize a summary of our current state based on our conversation and plan.
+Propose the content for the handover log.
+Upon your approval, I will create/update C:\Eva Guarani EGOS\EGOS_Handover_Log.md with this summary. We can refine this process and work towards full automation as part of the roadmap task.
+Action: Add the full feature to the main roadmap. We will start using the semi-automated process at the end of today's session if you agree.
+(Task C Complete - Pending roadmap updates and user confirmation on semi-automated log)
+
+Alignment Check & Returning to Workflow
+
+We've covered the prompt reviews, fallback logic, and the new tracking/handover proposals.
+
+Next Steps:
+Please confirm the location of the main ROADMAP.md file so I can add the new features.
+Please confirm if you agree with starting the semi-automated handover log process today.
+We need to return to Task 2: Relocate Research Prompt Template. Based on the file view results, the file is C:\Eva Guarani EGOS\STRATEGIC_THINKING\meta_prompts\external_research_committee_prompt_v1.0.md (or v1.1). The target location is c:\Eva Guarani EGOS\subsystems\KOIOS\templates\external_research_prompt_template.md.
+Shall I proceed with moving and renaming the file external_research_committee_prompt_v1.0.md to the new location?

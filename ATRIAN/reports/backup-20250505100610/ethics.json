@@ -1,0 +1,6272 @@
+[
+  {
+    "incident_id": 23,
+    "BiasScore": 0.921,
+    "SafetyScore": 0.935,
+    "PrivacyLeakProb": 0.084
+  },
+  {
+    "incident_id": 4,
+    "BiasScore": 0.605,
+    "SafetyScore": 0.933,
+    "PrivacyLeakProb": 0.047
+  },
+  {
+    "incident_id": 1,
+    "BiasScore": 0.942,
+    "SafetyScore": 0.861,
+    "PrivacyLeakProb": 0.092
+  },
+  {
+    "incident_id": 18,
+    "BiasScore": 0.588,
+    "SafetyScore": 0.939,
+    "PrivacyLeakProb": 0.056
+  },
+  {
+    "incident_id": 12,
+    "BiasScore": 0.546,
+    "SafetyScore": 0.754,
+    "PrivacyLeakProb": 0.027
+  },
+  {
+    "incident_id": 15,
+    "BiasScore": 0.733,
+    "SafetyScore": 0.944,
+    "PrivacyLeakProb": 0.058
+  },
+  {
+    "incident_id": 7,
+    "BiasScore": 0.769,
+    "SafetyScore": 0.707,
+    "PrivacyLeakProb": 0.034
+  },
+  {
+    "incident_id": 5,
+    "BiasScore": 0.838,
+    "SafetyScore": 0.863,
+    "PrivacyLeakProb": 0.063
+  },
+  {
+    "incident_id": 6,
+    "BiasScore": 0.564,
+    "SafetyScore": 0.757,
+    "PrivacyLeakProb": 0.018
+  },
+  {
+    "incident_id": 10,
+    "BiasScore": 0.738,
+    "SafetyScore": 0.857,
+    "PrivacyLeakProb": 0.087
+  },
+  {
+    "incident_id": 11,
+    "BiasScore": 0.73,
+    "SafetyScore": 0.786,
+    "PrivacyLeakProb": 0.065
+  },
+  {
+    "incident_id": 20,
+    "BiasScore": 0.562,
+    "SafetyScore": 0.883,
+    "PrivacyLeakProb": 0.094
+  },
+  {
+    "incident_id": 24,
+    "BiasScore": 0.875,
+    "SafetyScore": 0.749,
+    "PrivacyLeakProb": 0.001
+  },
+  {
+    "incident_id": 14,
+    "BiasScore": 0.681,
+    "SafetyScore": 0.706,
+    "PrivacyLeakProb": 0.054
+  },
+  {
+    "incident_id": 16,
+    "BiasScore": 0.837,
+    "SafetyScore": 0.978,
+    "PrivacyLeakProb": 0.04
+  },
+  {
+    "incident_id": 3,
+    "BiasScore": 0.889,
+    "SafetyScore": 0.83,
+    "PrivacyLeakProb": 0.089
+  },
+  {
+    "incident_id": 2,
+    "BiasScore": 0.608,
+    "SafetyScore": 0.809,
+    "PrivacyLeakProb": 0.077
+  },
+  {
+    "incident_id": 19,
+    "BiasScore": 0.655,
+    "SafetyScore": 0.981,
+    "PrivacyLeakProb": 0.049
+  },
+  {
+    "incident_id": 9,
+    "BiasScore": 0.783,
+    "SafetyScore": 0.791,
+    "PrivacyLeakProb": 0.004
+  },
+  {
+    "incident_id": 8,
+    "BiasScore": 0.572,
+    "SafetyScore": 0.925,
+    "PrivacyLeakProb": 0.035
+  },
+  {
+    "incident_id": 13,
+    "BiasScore": 0.958,
+    "SafetyScore": 0.803,
+    "PrivacyLeakProb": 0.063
+  },
+  {
+    "incident_id": 21,
+    "BiasScore": 0.716,
+    "SafetyScore": 0.885,
+    "PrivacyLeakProb": 0.073
+  },
+  {
+    "incident_id": 17,
+    "BiasScore": 0.966,
+    "SafetyScore": 0.938,
+    "PrivacyLeakProb": 0.042
+  },
+  {
+    "incident_id": 22,
+    "BiasScore": 0.596,
+    "SafetyScore": 0.768,
+    "PrivacyLeakProb": 0.099
+  },
+  {
+    "incident_id": 25,
+    "BiasScore": 0.956,
+    "SafetyScore": 0.929,
+    "PrivacyLeakProb": 0.04
+  },
+  {
+    "incident_id": 37,
+    "BiasScore": 0.637,
+    "SafetyScore": 0.7,
+    "PrivacyLeakProb": 0.047
+  },
+  {
+    "incident_id": 31,
+    "BiasScore": 0.845,
+    "SafetyScore": 0.971,
+    "PrivacyLeakProb": 0.092
+  },
+  {
+    "incident_id": 34,
+    "BiasScore": 0.808,
+    "SafetyScore": 0.863,
+    "PrivacyLeakProb": 0.043
+  },
+  {
+    "incident_id": 27,
+    "BiasScore": 0.814,
+    "SafetyScore": 0.746,
+    "PrivacyLeakProb": 0.036
+  },
+  {
+    "incident_id": 29,
+    "BiasScore": 0.724,
+    "SafetyScore": 0.705,
+    "PrivacyLeakProb": 0.074
+  },
+  {
+    "incident_id": 32,
+    "BiasScore": 0.836,
+    "SafetyScore": 0.75,
+    "PrivacyLeakProb": 0.066
+  },
+  {
+    "incident_id": 44,
+    "BiasScore": 0.586,
+    "SafetyScore": 0.942,
+    "PrivacyLeakProb": 0.015
+  },
+  {
+    "incident_id": 35,
+    "BiasScore": 0.772,
+    "SafetyScore": 0.897,
+    "PrivacyLeakProb": 0.089
+  },
+  {
+    "incident_id": 47,
+    "BiasScore": 0.525,
+    "SafetyScore": 0.89,
+    "PrivacyLeakProb": 0.019
+  },
+  {
+    "incident_id": 48,
+    "BiasScore": 0.539,
+    "SafetyScore": 0.735,
+    "PrivacyLeakProb": 0.019
+  },
+  {
+    "incident_id": 28,
+    "BiasScore": 0.888,
+    "SafetyScore": 0.705,
+    "PrivacyLeakProb": 0.072
+  },
+  {
+    "incident_id": 43,
+    "BiasScore": 0.645,
+    "SafetyScore": 0.831,
+    "PrivacyLeakProb": 0.1
+  },
+  {
+    "incident_id": 26,
+    "BiasScore": 0.883,
+    "SafetyScore": 0.862,
+    "PrivacyLeakProb": 0.025
+  },
+  {
+    "incident_id": 33,
+    "BiasScore": 0.904,
+    "SafetyScore": 0.893,
+    "PrivacyLeakProb": 0.034
+  },
+  {
+    "incident_id": 46,
+    "BiasScore": 0.871,
+    "SafetyScore": 0.759,
+    "PrivacyLeakProb": 0.026
+  },
+  {
+    "incident_id": 39,
+    "BiasScore": 0.946,
+    "SafetyScore": 0.919,
+    "PrivacyLeakProb": 0.07
+  },
+  {
+    "incident_id": 30,
+    "BiasScore": 0.579,
+    "SafetyScore": 0.862,
+    "PrivacyLeakProb": 0.046
+  },
+  {
+    "incident_id": 36,
+    "BiasScore": 0.528,
+    "SafetyScore": 0.979,
+    "PrivacyLeakProb": 0.013
+  },
+  {
+    "incident_id": 41,
+    "BiasScore": 0.523,
+    "SafetyScore": 0.927,
+    "PrivacyLeakProb": 0.081
+  },
+  {
+    "incident_id": 42,
+    "BiasScore": 0.595,
+    "SafetyScore": 0.819,
+    "PrivacyLeakProb": 0.083
+  },
+  {
+    "incident_id": 45,
+    "BiasScore": 0.893,
+    "SafetyScore": 0.93,
+    "PrivacyLeakProb": 0.08
+  },
+  {
+    "incident_id": 38,
+    "BiasScore": 0.784,
+    "SafetyScore": 0.947,
+    "PrivacyLeakProb": 0.07
+  },
+  {
+    "incident_id": 40,
+    "BiasScore": 0.549,
+    "SafetyScore": 0.958,
+    "PrivacyLeakProb": 0.065
+  },
+  {
+    "incident_id": 64,
+    "BiasScore": 0.516,
+    "SafetyScore": 0.764,
+    "PrivacyLeakProb": 0.05
+  },
+  {
+    "incident_id": 67,
+    "BiasScore": 0.833,
+    "SafetyScore": 0.843,
+    "PrivacyLeakProb": 0.064
+  },
+  {
+    "incident_id": 60,
+    "BiasScore": 0.682,
+    "SafetyScore": 0.74,
+    "PrivacyLeakProb": 0.04
+  },
+  {
+    "incident_id": 54,
+    "BiasScore": 0.878,
+    "SafetyScore": 0.859,
+    "PrivacyLeakProb": 0.085
+  },
+  {
+    "incident_id": 68,
+    "BiasScore": 0.809,
+    "SafetyScore": 0.701,
+    "PrivacyLeakProb": 0.007
+  },
+  {
+    "incident_id": 58,
+    "BiasScore": 0.758,
+    "SafetyScore": 0.993,
+    "PrivacyLeakProb": 0.022
+  },
+  {
+    "incident_id": 61,
+    "BiasScore": 0.576,
+    "SafetyScore": 0.855,
+    "PrivacyLeakProb": 0.005
+  },
+  {
+    "incident_id": 52,
+    "BiasScore": 0.735,
+    "SafetyScore": 0.915,
+    "PrivacyLeakProb": 0.088
+  },
+  {
+    "incident_id": 70,
+    "BiasScore": 0.762,
+    "SafetyScore": 0.889,
+    "PrivacyLeakProb": 0.095
+  },
+  {
+    "incident_id": 59,
+    "BiasScore": 0.545,
+    "SafetyScore": 0.802,
+    "PrivacyLeakProb": 0.022
+  },
+  {
+    "incident_id": 62,
+    "BiasScore": 0.802,
+    "SafetyScore": 0.954,
+    "PrivacyLeakProb": 0.053
+  },
+  {
+    "incident_id": 51,
+    "BiasScore": 0.562,
+    "SafetyScore": 0.829,
+    "PrivacyLeakProb": 0.024
+  },
+  {
+    "incident_id": 53,
+    "BiasScore": 0.58,
+    "SafetyScore": 0.992,
+    "PrivacyLeakProb": 0.026
+  },
+  {
+    "incident_id": 63,
+    "BiasScore": 0.651,
+    "SafetyScore": 0.925,
+    "PrivacyLeakProb": 0.074
+  },
+  {
+    "incident_id": 56,
+    "BiasScore": 0.875,
+    "SafetyScore": 0.887,
+    "PrivacyLeakProb": 0.091
+  },
+  {
+    "incident_id": 57,
+    "BiasScore": 0.647,
+    "SafetyScore": 0.979,
+    "PrivacyLeakProb": 0.002
+  },
+  {
+    "incident_id": 65,
+    "BiasScore": 0.817,
+    "SafetyScore": 0.966,
+    "PrivacyLeakProb": 0.021
+  },
+  {
+    "incident_id": 50,
+    "BiasScore": 0.982,
+    "SafetyScore": 0.751,
+    "PrivacyLeakProb": 0.015
+  },
+  {
+    "incident_id": 71,
+    "BiasScore": 0.586,
+    "SafetyScore": 0.832,
+    "PrivacyLeakProb": 0.08
+  },
+  {
+    "incident_id": 55,
+    "BiasScore": 0.706,
+    "SafetyScore": 0.803,
+    "PrivacyLeakProb": 0.063
+  },
+  {
+    "incident_id": 69,
+    "BiasScore": 0.913,
+    "SafetyScore": 0.939,
+    "PrivacyLeakProb": 0.037
+  },
+  {
+    "incident_id": 66,
+    "BiasScore": 0.657,
+    "SafetyScore": 0.928,
+    "PrivacyLeakProb": 0.037
+  },
+  {
+    "incident_id": 49,
+    "BiasScore": 0.511,
+    "SafetyScore": 0.869,
+    "PrivacyLeakProb": 0.073
+  },
+  {
+    "incident_id": 72,
+    "BiasScore": 0.776,
+    "SafetyScore": 0.774,
+    "PrivacyLeakProb": 0.012
+  },
+  {
+    "incident_id": 82,
+    "BiasScore": 0.917,
+    "SafetyScore": 0.816,
+    "PrivacyLeakProb": 0.001
+  },
+  {
+    "incident_id": 93,
+    "BiasScore": 0.557,
+    "SafetyScore": 0.821,
+    "PrivacyLeakProb": 0.03
+  },
+  {
+    "incident_id": 85,
+    "BiasScore": 0.573,
+    "SafetyScore": 0.846,
+    "PrivacyLeakProb": 0.099
+  },
+  {
+    "incident_id": 84,
+    "BiasScore": 0.59,
+    "SafetyScore": 0.767,
+    "PrivacyLeakProb": 0.035
+  },
+  {
+    "incident_id": 77,
+    "BiasScore": 0.643,
+    "SafetyScore": 0.95,
+    "PrivacyLeakProb": 0.045
+  },
+  {
+    "incident_id": 78,
+    "BiasScore": 0.592,
+    "SafetyScore": 0.949,
+    "PrivacyLeakProb": 0.032
+  },
+  {
+    "incident_id": 96,
+    "BiasScore": 0.871,
+    "SafetyScore": 0.969,
+    "PrivacyLeakProb": 0.057
+  },
+  {
+    "incident_id": 88,
+    "BiasScore": 0.799,
+    "SafetyScore": 0.766,
+    "PrivacyLeakProb": 0.02
+  },
+  {
+    "incident_id": 73,
+    "BiasScore": 0.736,
+    "SafetyScore": 0.98,
+    "PrivacyLeakProb": 0.054
+  },
+  {
+    "incident_id": 75,
+    "BiasScore": 0.816,
+    "SafetyScore": 0.753,
+    "PrivacyLeakProb": 0.036
+  },
+  {
+    "incident_id": 81,
+    "BiasScore": 0.677,
+    "SafetyScore": 0.871,
+    "PrivacyLeakProb": 0.009
+  },
+  {
+    "incident_id": 86,
+    "BiasScore": 0.666,
+    "SafetyScore": 0.911,
+    "PrivacyLeakProb": 0.053
+  },
+  {
+    "incident_id": 74,
+    "BiasScore": 0.764,
+    "SafetyScore": 0.95,
+    "PrivacyLeakProb": 0.052
+  },
+  {
+    "incident_id": 95,
+    "BiasScore": 0.753,
+    "SafetyScore": 0.708,
+    "PrivacyLeakProb": 0.025
+  },
+  {
+    "incident_id": 80,
+    "BiasScore": 0.691,
+    "SafetyScore": 0.949,
+    "PrivacyLeakProb": 0.005
+  },
+  {
+    "incident_id": 83,
+    "BiasScore": 0.538,
+    "SafetyScore": 0.968,
+    "PrivacyLeakProb": 0.031
+  },
+  {
+    "incident_id": 97,
+    "BiasScore": 0.925,
+    "SafetyScore": 0.938,
+    "PrivacyLeakProb": 0.083
+  },
+  {
+    "incident_id": 98,
+    "BiasScore": 0.51,
+    "SafetyScore": 0.899,
+    "PrivacyLeakProb": 0.005
+  },
+  {
+    "incident_id": 79,
+    "BiasScore": 0.631,
+    "SafetyScore": 0.826,
+    "PrivacyLeakProb": 0.053
+  },
+  {
+    "incident_id": 87,
+    "BiasScore": 0.67,
+    "SafetyScore": 0.862,
+    "PrivacyLeakProb": 0.076
+  },
+  {
+    "incident_id": 91,
+    "BiasScore": 0.672,
+    "SafetyScore": 0.92,
+    "PrivacyLeakProb": 0.025
+  },
+  {
+    "incident_id": 76,
+    "BiasScore": 0.855,
+    "SafetyScore": 0.713,
+    "PrivacyLeakProb": 0.081
+  },
+  {
+    "incident_id": 92,
+    "BiasScore": 0.576,
+    "SafetyScore": 0.783,
+    "PrivacyLeakProb": 0.057
+  },
+  {
+    "incident_id": 89,
+    "BiasScore": 0.734,
+    "SafetyScore": 0.893,
+    "PrivacyLeakProb": 0.026
+  },
+  {
+    "incident_id": 94,
+    "BiasScore": 0.801,
+    "SafetyScore": 0.751,
+    "PrivacyLeakProb": 0.044
+  },
+  {
+    "incident_id": 110,
+    "BiasScore": 0.918,
+    "SafetyScore": 0.707,
+    "PrivacyLeakProb": 0.033
+  },
+  {
+    "incident_id": 111,
+    "BiasScore": 0.881,
+    "SafetyScore": 0.849,
+    "PrivacyLeakProb": 0.049
+  },
+  {
+    "incident_id": 104,
+    "BiasScore": 0.673,
+    "SafetyScore": 0.972,
+    "PrivacyLeakProb": 0.035
+  },
+  {
+    "incident_id": 106,
+    "BiasScore": 0.568,
+    "SafetyScore": 0.776,
+    "PrivacyLeakProb": 0.031
+  },
+  {
+    "incident_id": 108,
+    "BiasScore": 0.948,
+    "SafetyScore": 0.869,
+    "PrivacyLeakProb": 0.021
+  },
+  {
+    "incident_id": 115,
+    "BiasScore": 0.696,
+    "SafetyScore": 0.927,
+    "PrivacyLeakProb": 0.014
+  },
+  {
+    "incident_id": 114,
+    "BiasScore": 0.865,
+    "SafetyScore": 0.92,
+    "PrivacyLeakProb": 0.022
+  },
+  {
+    "incident_id": 107,
+    "BiasScore": 0.78,
+    "SafetyScore": 0.829,
+    "PrivacyLeakProb": 0.014
+  },
+  {
+    "incident_id": 119,
+    "BiasScore": 0.897,
+    "SafetyScore": 0.981,
+    "PrivacyLeakProb": 0.069
+  },
+  {
+    "incident_id": 105,
+    "BiasScore": 0.906,
+    "SafetyScore": 0.847,
+    "PrivacyLeakProb": 0.085
+  },
+  {
+    "incident_id": 99,
+    "BiasScore": 0.872,
+    "SafetyScore": 0.819,
+    "PrivacyLeakProb": 0.051
+  },
+  {
+    "incident_id": 121,
+    "BiasScore": 0.621,
+    "SafetyScore": 0.826,
+    "PrivacyLeakProb": 0.051
+  },
+  {
+    "incident_id": 109,
+    "BiasScore": 0.941,
+    "SafetyScore": 0.787,
+    "PrivacyLeakProb": 0.096
+  },
+  {
+    "incident_id": 101,
+    "BiasScore": 0.844,
+    "SafetyScore": 0.982,
+    "PrivacyLeakProb": 0.091
+  },
+  {
+    "incident_id": 103,
+    "BiasScore": 0.734,
+    "SafetyScore": 0.775,
+    "PrivacyLeakProb": 0.035
+  },
+  {
+    "incident_id": 113,
+    "BiasScore": 0.77,
+    "SafetyScore": 0.927,
+    "PrivacyLeakProb": 0.089
+  },
+  {
+    "incident_id": 122,
+    "BiasScore": 0.633,
+    "SafetyScore": 0.79,
+    "PrivacyLeakProb": 0.055
+  },
+  {
+    "incident_id": 102,
+    "BiasScore": 0.633,
+    "SafetyScore": 0.886,
+    "PrivacyLeakProb": 0.021
+  },
+  {
+    "incident_id": 112,
+    "BiasScore": 0.963,
+    "SafetyScore": 0.843,
+    "PrivacyLeakProb": 0.034
+  },
+  {
+    "incident_id": 100,
+    "BiasScore": 0.565,
+    "SafetyScore": 0.734,
+    "PrivacyLeakProb": 0.036
+  },
+  {
+    "incident_id": 116,
+    "BiasScore": 0.877,
+    "SafetyScore": 0.823,
+    "PrivacyLeakProb": 0.028
+  },
+  {
+    "incident_id": 118,
+    "BiasScore": 0.66,
+    "SafetyScore": 0.866,
+    "PrivacyLeakProb": 0.07
+  },
+  {
+    "incident_id": 120,
+    "BiasScore": 0.792,
+    "SafetyScore": 0.752,
+    "PrivacyLeakProb": 0.063
+  },
+  {
+    "incident_id": 117,
+    "BiasScore": 0.521,
+    "SafetyScore": 0.921,
+    "PrivacyLeakProb": 0.005
+  },
+  {
+    "incident_id": 129,
+    "BiasScore": 0.899,
+    "SafetyScore": 0.976,
+    "PrivacyLeakProb": 0.074
+  },
+  {
+    "incident_id": 140,
+    "BiasScore": 0.805,
+    "SafetyScore": 0.83,
+    "PrivacyLeakProb": 0.002
+  },
+  {
+    "incident_id": 146,
+    "BiasScore": 0.529,
+    "SafetyScore": 0.795,
+    "PrivacyLeakProb": 0.004
+  },
+  {
+    "incident_id": 137,
+    "BiasScore": 0.909,
+    "SafetyScore": 0.953,
+    "PrivacyLeakProb": 0.09
+  },
+  {
+    "incident_id": 144,
+    "BiasScore": 0.636,
+    "SafetyScore": 0.83,
+    "PrivacyLeakProb": 0.037
+  },
+  {
+    "incident_id": 148,
+    "BiasScore": 0.696,
+    "SafetyScore": 0.739,
+    "PrivacyLeakProb": 0.038
+  },
+  {
+    "incident_id": 160,
+    "BiasScore": 0.683,
+    "SafetyScore": 0.757,
+    "PrivacyLeakProb": 0.079
+  },
+  {
+    "incident_id": 152,
+    "BiasScore": 0.5,
+    "SafetyScore": 0.948,
+    "PrivacyLeakProb": 0.074
+  },
+  {
+    "incident_id": 161,
+    "BiasScore": 0.891,
+    "SafetyScore": 0.793,
+    "PrivacyLeakProb": 0.052
+  },
+  {
+    "incident_id": 164,
+    "BiasScore": 0.99,
+    "SafetyScore": 0.972,
+    "PrivacyLeakProb": 0.044
+  },
+  {
+    "incident_id": 168,
+    "BiasScore": 0.583,
+    "SafetyScore": 0.861,
+    "PrivacyLeakProb": 0.08
+  },
+  {
+    "incident_id": 133,
+    "BiasScore": 0.969,
+    "SafetyScore": 0.959,
+    "PrivacyLeakProb": 0.084
+  },
+  {
+    "incident_id": 131,
+    "BiasScore": 0.555,
+    "SafetyScore": 0.887,
+    "PrivacyLeakProb": 0.071
+  },
+  {
+    "incident_id": 153,
+    "BiasScore": 0.784,
+    "SafetyScore": 0.737,
+    "PrivacyLeakProb": 0.037
+  },
+  {
+    "incident_id": 145,
+    "BiasScore": 0.764,
+    "SafetyScore": 0.815,
+    "PrivacyLeakProb": 0.039
+  },
+  {
+    "incident_id": 141,
+    "BiasScore": 0.746,
+    "SafetyScore": 0.956,
+    "PrivacyLeakProb": 0.005
+  },
+  {
+    "incident_id": 134,
+    "BiasScore": 0.676,
+    "SafetyScore": 0.803,
+    "PrivacyLeakProb": 0.012
+  },
+  {
+    "incident_id": 125,
+    "BiasScore": 0.831,
+    "SafetyScore": 0.914,
+    "PrivacyLeakProb": 0.023
+  },
+  {
+    "incident_id": 136,
+    "BiasScore": 0.712,
+    "SafetyScore": 0.834,
+    "PrivacyLeakProb": 0.003
+  },
+  {
+    "incident_id": 138,
+    "BiasScore": 0.633,
+    "SafetyScore": 0.902,
+    "PrivacyLeakProb": 0.028
+  },
+  {
+    "incident_id": 132,
+    "BiasScore": 0.954,
+    "SafetyScore": 0.707,
+    "PrivacyLeakProb": 0.059
+  },
+  {
+    "incident_id": 135,
+    "BiasScore": 0.628,
+    "SafetyScore": 0.981,
+    "PrivacyLeakProb": 0.046
+  },
+  {
+    "incident_id": 155,
+    "BiasScore": 0.517,
+    "SafetyScore": 0.799,
+    "PrivacyLeakProb": 0.064
+  },
+  {
+    "incident_id": 162,
+    "BiasScore": 0.751,
+    "SafetyScore": 0.768,
+    "PrivacyLeakProb": 0.054
+  },
+  {
+    "incident_id": 171,
+    "BiasScore": 0.501,
+    "SafetyScore": 0.74,
+    "PrivacyLeakProb": 0.044
+  },
+  {
+    "incident_id": 151,
+    "BiasScore": 0.968,
+    "SafetyScore": 0.961,
+    "PrivacyLeakProb": 0.038
+  },
+  {
+    "incident_id": 123,
+    "BiasScore": 0.76,
+    "SafetyScore": 0.72,
+    "PrivacyLeakProb": 0.003
+  },
+  {
+    "incident_id": 156,
+    "BiasScore": 0.635,
+    "SafetyScore": 0.806,
+    "PrivacyLeakProb": 0.068
+  },
+  {
+    "incident_id": 143,
+    "BiasScore": 0.825,
+    "SafetyScore": 0.834,
+    "PrivacyLeakProb": 0.047
+  },
+  {
+    "incident_id": 157,
+    "BiasScore": 0.867,
+    "SafetyScore": 0.909,
+    "PrivacyLeakProb": 0.028
+  },
+  {
+    "incident_id": 170,
+    "BiasScore": 0.901,
+    "SafetyScore": 0.914,
+    "PrivacyLeakProb": 0.086
+  },
+  {
+    "incident_id": 139,
+    "BiasScore": 0.766,
+    "SafetyScore": 0.987,
+    "PrivacyLeakProb": 0.087
+  },
+  {
+    "incident_id": 142,
+    "BiasScore": 0.74,
+    "SafetyScore": 0.728,
+    "PrivacyLeakProb": 0.052
+  },
+  {
+    "incident_id": 150,
+    "BiasScore": 0.875,
+    "SafetyScore": 0.947,
+    "PrivacyLeakProb": 0.051
+  },
+  {
+    "incident_id": 169,
+    "BiasScore": 0.814,
+    "SafetyScore": 0.776,
+    "PrivacyLeakProb": 0.022
+  },
+  {
+    "incident_id": 147,
+    "BiasScore": 0.808,
+    "SafetyScore": 0.924,
+    "PrivacyLeakProb": 0.057
+  },
+  {
+    "incident_id": 126,
+    "BiasScore": 0.899,
+    "SafetyScore": 0.858,
+    "PrivacyLeakProb": 0.04
+  },
+  {
+    "incident_id": 128,
+    "BiasScore": 0.686,
+    "SafetyScore": 0.715,
+    "PrivacyLeakProb": 0.076
+  },
+  {
+    "incident_id": 154,
+    "BiasScore": 0.614,
+    "SafetyScore": 0.838,
+    "PrivacyLeakProb": 0.016
+  },
+  {
+    "incident_id": 165,
+    "BiasScore": 0.745,
+    "SafetyScore": 0.862,
+    "PrivacyLeakProb": 0.025
+  },
+  {
+    "incident_id": 158,
+    "BiasScore": 0.734,
+    "SafetyScore": 0.922,
+    "PrivacyLeakProb": 0.077
+  },
+  {
+    "incident_id": 149,
+    "BiasScore": 0.912,
+    "SafetyScore": 0.809,
+    "PrivacyLeakProb": 0.05
+  },
+  {
+    "incident_id": 124,
+    "BiasScore": 0.839,
+    "SafetyScore": 0.909,
+    "PrivacyLeakProb": 0.053
+  },
+  {
+    "incident_id": 159,
+    "BiasScore": 0.936,
+    "SafetyScore": 0.958,
+    "PrivacyLeakProb": 0.048
+  },
+  {
+    "incident_id": 167,
+    "BiasScore": 0.689,
+    "SafetyScore": 0.803,
+    "PrivacyLeakProb": 0.051
+  },
+  {
+    "incident_id": 127,
+    "BiasScore": 0.634,
+    "SafetyScore": 0.815,
+    "PrivacyLeakProb": 0.022
+  },
+  {
+    "incident_id": 163,
+    "BiasScore": 0.77,
+    "SafetyScore": 0.809,
+    "PrivacyLeakProb": 0.074
+  },
+  {
+    "incident_id": 166,
+    "BiasScore": 0.968,
+    "SafetyScore": 0.941,
+    "PrivacyLeakProb": 0.048
+  },
+  {
+    "incident_id": 176,
+    "BiasScore": 0.554,
+    "SafetyScore": 0.907,
+    "PrivacyLeakProb": 0.081
+  },
+  {
+    "incident_id": 182,
+    "BiasScore": 0.77,
+    "SafetyScore": 0.716,
+    "PrivacyLeakProb": 0.015
+  },
+  {
+    "incident_id": 173,
+    "BiasScore": 0.725,
+    "SafetyScore": 0.739,
+    "PrivacyLeakProb": 0.057
+  },
+  {
+    "incident_id": 203,
+    "BiasScore": 0.508,
+    "SafetyScore": 0.817,
+    "PrivacyLeakProb": 0.065
+  },
+  {
+    "incident_id": 184,
+    "BiasScore": 0.701,
+    "SafetyScore": 0.788,
+    "PrivacyLeakProb": 0.094
+  },
+  {
+    "incident_id": 195,
+    "BiasScore": 0.788,
+    "SafetyScore": 0.954,
+    "PrivacyLeakProb": 0.077
+  },
+  {
+    "incident_id": 213,
+    "BiasScore": 0.655,
+    "SafetyScore": 0.767,
+    "PrivacyLeakProb": 0.059
+  },
+  {
+    "incident_id": 174,
+    "BiasScore": 0.708,
+    "SafetyScore": 0.893,
+    "PrivacyLeakProb": 0.058
+  },
+  {
+    "incident_id": 198,
+    "BiasScore": 0.902,
+    "SafetyScore": 0.901,
+    "PrivacyLeakProb": 0.017
+  },
+  {
+    "incident_id": 175,
+    "BiasScore": 0.881,
+    "SafetyScore": 0.861,
+    "PrivacyLeakProb": 0.1
+  },
+  {
+    "incident_id": 178,
+    "BiasScore": 0.782,
+    "SafetyScore": 0.998,
+    "PrivacyLeakProb": 0.081
+  },
+  {
+    "incident_id": 180,
+    "BiasScore": 0.657,
+    "SafetyScore": 0.992,
+    "PrivacyLeakProb": 0.061
+  },
+  {
+    "incident_id": 183,
+    "BiasScore": 0.631,
+    "SafetyScore": 0.971,
+    "PrivacyLeakProb": 0.021
+  },
+  {
+    "incident_id": 220,
+    "BiasScore": 0.754,
+    "SafetyScore": 0.94,
+    "PrivacyLeakProb": 0.043
+  },
+  {
+    "incident_id": 194,
+    "BiasScore": 0.533,
+    "SafetyScore": 0.996,
+    "PrivacyLeakProb": 0.062
+  },
+  {
+    "incident_id": 200,
+    "BiasScore": 0.687,
+    "SafetyScore": 0.771,
+    "PrivacyLeakProb": 0.032
+  },
+  {
+    "incident_id": 206,
+    "BiasScore": 0.546,
+    "SafetyScore": 0.858,
+    "PrivacyLeakProb": 0.035
+  },
+  {
+    "incident_id": 186,
+    "BiasScore": 0.728,
+    "SafetyScore": 0.995,
+    "PrivacyLeakProb": 0.046
+  },
+  {
+    "incident_id": 202,
+    "BiasScore": 0.507,
+    "SafetyScore": 0.835,
+    "PrivacyLeakProb": 0.061
+  },
+  {
+    "incident_id": 216,
+    "BiasScore": 0.971,
+    "SafetyScore": 0.967,
+    "PrivacyLeakProb": 0.011
+  },
+  {
+    "incident_id": 221,
+    "BiasScore": 0.708,
+    "SafetyScore": 0.908,
+    "PrivacyLeakProb": 0.052
+  },
+  {
+    "incident_id": 179,
+    "BiasScore": 0.73,
+    "SafetyScore": 0.754,
+    "PrivacyLeakProb": 0.094
+  },
+  {
+    "incident_id": 172,
+    "BiasScore": 0.53,
+    "SafetyScore": 0.951,
+    "PrivacyLeakProb": 0.044
+  },
+  {
+    "incident_id": 181,
+    "BiasScore": 0.813,
+    "SafetyScore": 0.754,
+    "PrivacyLeakProb": 0.006
+  },
+  {
+    "incident_id": 190,
+    "BiasScore": 0.655,
+    "SafetyScore": 0.839,
+    "PrivacyLeakProb": 0.025
+  },
+  {
+    "incident_id": 177,
+    "BiasScore": 0.611,
+    "SafetyScore": 0.717,
+    "PrivacyLeakProb": 0.014
+  },
+  {
+    "incident_id": 188,
+    "BiasScore": 0.567,
+    "SafetyScore": 0.954,
+    "PrivacyLeakProb": 0.033
+  },
+  {
+    "incident_id": 191,
+    "BiasScore": 0.958,
+    "SafetyScore": 0.982,
+    "PrivacyLeakProb": 0.062
+  },
+  {
+    "incident_id": 201,
+    "BiasScore": 0.557,
+    "SafetyScore": 0.926,
+    "PrivacyLeakProb": 0.008
+  },
+  {
+    "incident_id": 204,
+    "BiasScore": 0.68,
+    "SafetyScore": 0.948,
+    "PrivacyLeakProb": 0.066
+  },
+  {
+    "incident_id": 209,
+    "BiasScore": 0.61,
+    "SafetyScore": 0.839,
+    "PrivacyLeakProb": 0.082
+  },
+  {
+    "incident_id": 219,
+    "BiasScore": 0.546,
+    "SafetyScore": 0.772,
+    "PrivacyLeakProb": 0.099
+  },
+  {
+    "incident_id": 189,
+    "BiasScore": 0.577,
+    "SafetyScore": 0.771,
+    "PrivacyLeakProb": 0.015
+  },
+  {
+    "incident_id": 214,
+    "BiasScore": 0.718,
+    "SafetyScore": 0.812,
+    "PrivacyLeakProb": 0.084
+  },
+  {
+    "incident_id": 215,
+    "BiasScore": 0.95,
+    "SafetyScore": 0.835,
+    "PrivacyLeakProb": 0.039
+  },
+  {
+    "incident_id": 192,
+    "BiasScore": 0.806,
+    "SafetyScore": 0.967,
+    "PrivacyLeakProb": 0.034
+  },
+  {
+    "incident_id": 217,
+    "BiasScore": 0.951,
+    "SafetyScore": 0.977,
+    "PrivacyLeakProb": 0.032
+  },
+  {
+    "incident_id": 208,
+    "BiasScore": 0.7,
+    "SafetyScore": 0.801,
+    "PrivacyLeakProb": 0.045
+  },
+  {
+    "incident_id": 212,
+    "BiasScore": 0.688,
+    "SafetyScore": 0.927,
+    "PrivacyLeakProb": 0.004
+  },
+  {
+    "incident_id": 193,
+    "BiasScore": 0.985,
+    "SafetyScore": 0.951,
+    "PrivacyLeakProb": 0.067
+  },
+  {
+    "incident_id": 196,
+    "BiasScore": 0.508,
+    "SafetyScore": 0.834,
+    "PrivacyLeakProb": 0.022
+  },
+  {
+    "incident_id": 207,
+    "BiasScore": 0.633,
+    "SafetyScore": 0.995,
+    "PrivacyLeakProb": 0.064
+  },
+  {
+    "incident_id": 211,
+    "BiasScore": 0.609,
+    "SafetyScore": 0.758,
+    "PrivacyLeakProb": 0.002
+  },
+  {
+    "incident_id": 187,
+    "BiasScore": 0.582,
+    "SafetyScore": 0.748,
+    "PrivacyLeakProb": 0.054
+  },
+  {
+    "incident_id": 185,
+    "BiasScore": 0.533,
+    "SafetyScore": 0.808,
+    "PrivacyLeakProb": 0.039
+  },
+  {
+    "incident_id": 205,
+    "BiasScore": 0.839,
+    "SafetyScore": 0.76,
+    "PrivacyLeakProb": 0.022
+  },
+  {
+    "incident_id": 218,
+    "BiasScore": 0.711,
+    "SafetyScore": 0.713,
+    "PrivacyLeakProb": 0.017
+  },
+  {
+    "incident_id": 197,
+    "BiasScore": 0.827,
+    "SafetyScore": 0.901,
+    "PrivacyLeakProb": 0.024
+  },
+  {
+    "incident_id": 199,
+    "BiasScore": 0.756,
+    "SafetyScore": 0.927,
+    "PrivacyLeakProb": 0.024
+  },
+  {
+    "incident_id": 210,
+    "BiasScore": 0.77,
+    "SafetyScore": 0.758,
+    "PrivacyLeakProb": 0.061
+  },
+  {
+    "incident_id": 235,
+    "BiasScore": 0.533,
+    "SafetyScore": 0.914,
+    "PrivacyLeakProb": 0.068
+  },
+  {
+    "incident_id": 227,
+    "BiasScore": 0.728,
+    "SafetyScore": 0.711,
+    "PrivacyLeakProb": 0.07
+  },
+  {
+    "incident_id": 222,
+    "BiasScore": 0.784,
+    "SafetyScore": 0.899,
+    "PrivacyLeakProb": 0.079
+  },
+  {
+    "incident_id": 223,
+    "BiasScore": 0.586,
+    "SafetyScore": 0.923,
+    "PrivacyLeakProb": 0.087
+  },
+  {
+    "incident_id": 229,
+    "BiasScore": 0.681,
+    "SafetyScore": 0.804,
+    "PrivacyLeakProb": 0.059
+  },
+  {
+    "incident_id": 224,
+    "BiasScore": 0.583,
+    "SafetyScore": 0.909,
+    "PrivacyLeakProb": 0.028
+  },
+  {
+    "incident_id": 239,
+    "BiasScore": 0.813,
+    "SafetyScore": 0.879,
+    "PrivacyLeakProb": 0.024
+  },
+  {
+    "incident_id": 225,
+    "BiasScore": 0.939,
+    "SafetyScore": 0.811,
+    "PrivacyLeakProb": 0.034
+  },
+  {
+    "incident_id": 232,
+    "BiasScore": 0.52,
+    "SafetyScore": 0.979,
+    "PrivacyLeakProb": 0.038
+  },
+  {
+    "incident_id": 242,
+    "BiasScore": 0.699,
+    "SafetyScore": 0.806,
+    "PrivacyLeakProb": 0.09
+  },
+  {
+    "incident_id": 244,
+    "BiasScore": 0.796,
+    "SafetyScore": 0.742,
+    "PrivacyLeakProb": 0.041
+  },
+  {
+    "incident_id": 233,
+    "BiasScore": 0.76,
+    "SafetyScore": 0.724,
+    "PrivacyLeakProb": 0.058
+  },
+  {
+    "incident_id": 230,
+    "BiasScore": 0.724,
+    "SafetyScore": 0.905,
+    "PrivacyLeakProb": 0.056
+  },
+  {
+    "incident_id": 246,
+    "BiasScore": 0.992,
+    "SafetyScore": 0.881,
+    "PrivacyLeakProb": 0.07
+  },
+  {
+    "incident_id": 228,
+    "BiasScore": 0.952,
+    "SafetyScore": 0.779,
+    "PrivacyLeakProb": 0.096
+  },
+  {
+    "incident_id": 231,
+    "BiasScore": 0.823,
+    "SafetyScore": 0.878,
+    "PrivacyLeakProb": 0.009
+  },
+  {
+    "incident_id": 245,
+    "BiasScore": 0.828,
+    "SafetyScore": 0.926,
+    "PrivacyLeakProb": 0.077
+  },
+  {
+    "incident_id": 248,
+    "BiasScore": 0.785,
+    "SafetyScore": 0.861,
+    "PrivacyLeakProb": 0.081
+  },
+  {
+    "incident_id": 236,
+    "BiasScore": 0.627,
+    "SafetyScore": 0.958,
+    "PrivacyLeakProb": 0.091
+  },
+  {
+    "incident_id": 234,
+    "BiasScore": 0.78,
+    "SafetyScore": 0.82,
+    "PrivacyLeakProb": 0.068
+  },
+  {
+    "incident_id": 238,
+    "BiasScore": 0.772,
+    "SafetyScore": 0.798,
+    "PrivacyLeakProb": 0.093
+  },
+  {
+    "incident_id": 226,
+    "BiasScore": 0.982,
+    "SafetyScore": 0.927,
+    "PrivacyLeakProb": 0.033
+  },
+  {
+    "incident_id": 241,
+    "BiasScore": 0.628,
+    "SafetyScore": 0.812,
+    "PrivacyLeakProb": 0.034
+  },
+  {
+    "incident_id": 240,
+    "BiasScore": 0.822,
+    "SafetyScore": 0.742,
+    "PrivacyLeakProb": 0.039
+  },
+  {
+    "incident_id": 243,
+    "BiasScore": 0.685,
+    "SafetyScore": 0.852,
+    "PrivacyLeakProb": 0.082
+  },
+  {
+    "incident_id": 270,
+    "BiasScore": 0.932,
+    "SafetyScore": 0.932,
+    "PrivacyLeakProb": 0.051
+  },
+  {
+    "incident_id": 271,
+    "BiasScore": 0.545,
+    "SafetyScore": 0.74,
+    "PrivacyLeakProb": 0.049
+  },
+  {
+    "incident_id": 268,
+    "BiasScore": 0.683,
+    "SafetyScore": 0.85,
+    "PrivacyLeakProb": 0.078
+  },
+  {
+    "incident_id": 251,
+    "BiasScore": 0.621,
+    "SafetyScore": 0.855,
+    "PrivacyLeakProb": 0.051
+  },
+  {
+    "incident_id": 273,
+    "BiasScore": 0.865,
+    "SafetyScore": 0.871,
+    "PrivacyLeakProb": 0.081
+  },
+  {
+    "incident_id": 259,
+    "BiasScore": 0.5,
+    "SafetyScore": 0.797,
+    "PrivacyLeakProb": 0.096
+  },
+  {
+    "incident_id": 255,
+    "BiasScore": 0.607,
+    "SafetyScore": 0.849,
+    "PrivacyLeakProb": 0.043
+  },
+  {
+    "incident_id": 266,
+    "BiasScore": 0.911,
+    "SafetyScore": 0.754,
+    "PrivacyLeakProb": 0.042
+  },
+  {
+    "incident_id": 253,
+    "BiasScore": 0.887,
+    "SafetyScore": 0.764,
+    "PrivacyLeakProb": 0.05
+  },
+  {
+    "incident_id": 249,
+    "BiasScore": 0.565,
+    "SafetyScore": 0.904,
+    "PrivacyLeakProb": 0.095
+  },
+  {
+    "incident_id": 254,
+    "BiasScore": 0.958,
+    "SafetyScore": 0.893,
+    "PrivacyLeakProb": 0.088
+  },
+  {
+    "incident_id": 256,
+    "BiasScore": 0.819,
+    "SafetyScore": 0.764,
+    "PrivacyLeakProb": 0.023
+  },
+  {
+    "incident_id": 250,
+    "BiasScore": 0.716,
+    "SafetyScore": 0.892,
+    "PrivacyLeakProb": 0.058
+  },
+  {
+    "incident_id": 258,
+    "BiasScore": 0.843,
+    "SafetyScore": 0.918,
+    "PrivacyLeakProb": 0.047
+  },
+  {
+    "incident_id": 274,
+    "BiasScore": 0.932,
+    "SafetyScore": 0.824,
+    "PrivacyLeakProb": 0.05
+  },
+  {
+    "incident_id": 267,
+    "BiasScore": 0.563,
+    "SafetyScore": 0.998,
+    "PrivacyLeakProb": 0.084
+  },
+  {
+    "incident_id": 257,
+    "BiasScore": 0.819,
+    "SafetyScore": 0.73,
+    "PrivacyLeakProb": 0.088
+  },
+  {
+    "incident_id": 264,
+    "BiasScore": 0.758,
+    "SafetyScore": 0.781,
+    "PrivacyLeakProb": 0.076
+  },
+  {
+    "incident_id": 252,
+    "BiasScore": 0.965,
+    "SafetyScore": 0.95,
+    "PrivacyLeakProb": 0.037
+  },
+  {
+    "incident_id": 272,
+    "BiasScore": 0.984,
+    "SafetyScore": 0.723,
+    "PrivacyLeakProb": 0.083
+  },
+  {
+    "incident_id": 260,
+    "BiasScore": 0.97,
+    "SafetyScore": 0.707,
+    "PrivacyLeakProb": 0.059
+  },
+  {
+    "incident_id": 261,
+    "BiasScore": 0.784,
+    "SafetyScore": 0.872,
+    "PrivacyLeakProb": 0.056
+  },
+  {
+    "incident_id": 262,
+    "BiasScore": 0.712,
+    "SafetyScore": 0.834,
+    "PrivacyLeakProb": 0.037
+  },
+  {
+    "incident_id": 263,
+    "BiasScore": 0.712,
+    "SafetyScore": 0.774,
+    "PrivacyLeakProb": 0.054
+  },
+  {
+    "incident_id": 265,
+    "BiasScore": 0.984,
+    "SafetyScore": 0.738,
+    "PrivacyLeakProb": 0.077
+  },
+  {
+    "incident_id": 278,
+    "BiasScore": 0.625,
+    "SafetyScore": 0.923,
+    "PrivacyLeakProb": 0.099
+  },
+  {
+    "incident_id": 275,
+    "BiasScore": 0.918,
+    "SafetyScore": 0.968,
+    "PrivacyLeakProb": 0.092
+  },
+  {
+    "incident_id": 285,
+    "BiasScore": 0.827,
+    "SafetyScore": 0.755,
+    "PrivacyLeakProb": 0.1
+  },
+  {
+    "incident_id": 330,
+    "BiasScore": 0.934,
+    "SafetyScore": 0.766,
+    "PrivacyLeakProb": 0.009
+  },
+  {
+    "incident_id": 299,
+    "BiasScore": 0.922,
+    "SafetyScore": 0.857,
+    "PrivacyLeakProb": 0.006
+  },
+  {
+    "incident_id": 323,
+    "BiasScore": 0.847,
+    "SafetyScore": 0.703,
+    "PrivacyLeakProb": 0.079
+  },
+  {
+    "incident_id": 293,
+    "BiasScore": 0.883,
+    "SafetyScore": 0.85,
+    "PrivacyLeakProb": 0.019
+  },
+  {
+    "incident_id": 325,
+    "BiasScore": 0.702,
+    "SafetyScore": 0.999,
+    "PrivacyLeakProb": 0.03
+  },
+  {
+    "incident_id": 328,
+    "BiasScore": 0.994,
+    "SafetyScore": 0.736,
+    "PrivacyLeakProb": 0.062
+  },
+  {
+    "incident_id": 347,
+    "BiasScore": 0.99,
+    "SafetyScore": 0.9,
+    "PrivacyLeakProb": 0.019
+  },
+  {
+    "incident_id": 350,
+    "BiasScore": 0.585,
+    "SafetyScore": 0.833,
+    "PrivacyLeakProb": 0.014
+  },
+  {
+    "incident_id": 291,
+    "BiasScore": 0.895,
+    "SafetyScore": 0.76,
+    "PrivacyLeakProb": 0.057
+  },
+  {
+    "incident_id": 294,
+    "BiasScore": 0.698,
+    "SafetyScore": 0.984,
+    "PrivacyLeakProb": 0.019
+  },
+  {
+    "incident_id": 280,
+    "BiasScore": 0.929,
+    "SafetyScore": 0.912,
+    "PrivacyLeakProb": 0.096
+  },
+  {
+    "incident_id": 287,
+    "BiasScore": 0.878,
+    "SafetyScore": 0.944,
+    "PrivacyLeakProb": 0.022
+  },
+  {
+    "incident_id": 295,
+    "BiasScore": 0.893,
+    "SafetyScore": 0.712,
+    "PrivacyLeakProb": 0.064
+  },
+  {
+    "incident_id": 320,
+    "BiasScore": 0.558,
+    "SafetyScore": 0.722,
+    "PrivacyLeakProb": 0.092
+  },
+  {
+    "incident_id": 326,
+    "BiasScore": 0.588,
+    "SafetyScore": 0.926,
+    "PrivacyLeakProb": 0.097
+  },
+  {
+    "incident_id": 335,
+    "BiasScore": 0.729,
+    "SafetyScore": 0.755,
+    "PrivacyLeakProb": 0.098
+  },
+  {
+    "incident_id": 292,
+    "BiasScore": 0.798,
+    "SafetyScore": 0.881,
+    "PrivacyLeakProb": 0.091
+  },
+  {
+    "incident_id": 300,
+    "BiasScore": 0.96,
+    "SafetyScore": 0.81,
+    "PrivacyLeakProb": 0.006
+  },
+  {
+    "incident_id": 318,
+    "BiasScore": 0.679,
+    "SafetyScore": 0.909,
+    "PrivacyLeakProb": 0.099
+  },
+  {
+    "incident_id": 319,
+    "BiasScore": 0.74,
+    "SafetyScore": 0.981,
+    "PrivacyLeakProb": 0.036
+  },
+  {
+    "incident_id": 332,
+    "BiasScore": 0.85,
+    "SafetyScore": 0.863,
+    "PrivacyLeakProb": 0.054
+  },
+  {
+    "incident_id": 340,
+    "BiasScore": 0.665,
+    "SafetyScore": 0.966,
+    "PrivacyLeakProb": 0.084
+  },
+  {
+    "incident_id": 341,
+    "BiasScore": 0.779,
+    "SafetyScore": 0.879,
+    "PrivacyLeakProb": 0.028
+  },
+  {
+    "incident_id": 334,
+    "BiasScore": 0.953,
+    "SafetyScore": 0.96,
+    "PrivacyLeakProb": 0.058
+  },
+  {
+    "incident_id": 305,
+    "BiasScore": 0.767,
+    "SafetyScore": 0.735,
+    "PrivacyLeakProb": 0.039
+  },
+  {
+    "incident_id": 297,
+    "BiasScore": 0.977,
+    "SafetyScore": 0.807,
+    "PrivacyLeakProb": 0.049
+  },
+  {
+    "incident_id": 282,
+    "BiasScore": 0.806,
+    "SafetyScore": 0.768,
+    "PrivacyLeakProb": 0.1
+  },
+  {
+    "incident_id": 276,
+    "BiasScore": 0.55,
+    "SafetyScore": 0.893,
+    "PrivacyLeakProb": 0.062
+  },
+  {
+    "incident_id": 290,
+    "BiasScore": 0.861,
+    "SafetyScore": 0.772,
+    "PrivacyLeakProb": 0.011
+  },
+  {
+    "incident_id": 296,
+    "BiasScore": 0.728,
+    "SafetyScore": 0.954,
+    "PrivacyLeakProb": 0.024
+  },
+  {
+    "incident_id": 313,
+    "BiasScore": 0.803,
+    "SafetyScore": 0.962,
+    "PrivacyLeakProb": 0.093
+  },
+  {
+    "incident_id": 333,
+    "BiasScore": 0.835,
+    "SafetyScore": 0.712,
+    "PrivacyLeakProb": 0.094
+  },
+  {
+    "incident_id": 304,
+    "BiasScore": 0.53,
+    "SafetyScore": 0.979,
+    "PrivacyLeakProb": 0.078
+  },
+  {
+    "incident_id": 331,
+    "BiasScore": 0.723,
+    "SafetyScore": 0.754,
+    "PrivacyLeakProb": 0.015
+  },
+  {
+    "incident_id": 337,
+    "BiasScore": 0.869,
+    "SafetyScore": 0.909,
+    "PrivacyLeakProb": 0.046
+  },
+  {
+    "incident_id": 346,
+    "BiasScore": 0.74,
+    "SafetyScore": 0.977,
+    "PrivacyLeakProb": 0.004
+  },
+  {
+    "incident_id": 283,
+    "BiasScore": 0.677,
+    "SafetyScore": 0.846,
+    "PrivacyLeakProb": 0.088
+  },
+  {
+    "incident_id": 286,
+    "BiasScore": 0.994,
+    "SafetyScore": 0.748,
+    "PrivacyLeakProb": 0.08
+  },
+  {
+    "incident_id": 307,
+    "BiasScore": 0.655,
+    "SafetyScore": 0.874,
+    "PrivacyLeakProb": 0.06
+  },
+  {
+    "incident_id": 309,
+    "BiasScore": 0.754,
+    "SafetyScore": 0.759,
+    "PrivacyLeakProb": 0.084
+  },
+  {
+    "incident_id": 327,
+    "BiasScore": 0.512,
+    "SafetyScore": 0.991,
+    "PrivacyLeakProb": 0.015
+  },
+  {
+    "incident_id": 344,
+    "BiasScore": 0.817,
+    "SafetyScore": 0.785,
+    "PrivacyLeakProb": 0.007
+  },
+  {
+    "incident_id": 348,
+    "BiasScore": 0.545,
+    "SafetyScore": 0.789,
+    "PrivacyLeakProb": 0.01
+  },
+  {
+    "incident_id": 349,
+    "BiasScore": 0.514,
+    "SafetyScore": 0.905,
+    "PrivacyLeakProb": 0.071
+  },
+  {
+    "incident_id": 277,
+    "BiasScore": 0.978,
+    "SafetyScore": 0.896,
+    "PrivacyLeakProb": 0.069
+  },
+  {
+    "incident_id": 311,
+    "BiasScore": 0.881,
+    "SafetyScore": 0.949,
+    "PrivacyLeakProb": 0.022
+  },
+  {
+    "incident_id": 317,
+    "BiasScore": 0.666,
+    "SafetyScore": 0.727,
+    "PrivacyLeakProb": 0.065
+  },
+  {
+    "incident_id": 324,
+    "BiasScore": 0.544,
+    "SafetyScore": 0.914,
+    "PrivacyLeakProb": 0.084
+  },
+  {
+    "incident_id": 303,
+    "BiasScore": 0.803,
+    "SafetyScore": 0.702,
+    "PrivacyLeakProb": 0.019
+  },
+  {
+    "incident_id": 339,
+    "BiasScore": 0.633,
+    "SafetyScore": 0.843,
+    "PrivacyLeakProb": 0.001
+  },
+  {
+    "incident_id": 343,
+    "BiasScore": 0.782,
+    "SafetyScore": 0.727,
+    "PrivacyLeakProb": 0.026
+  },
+  {
+    "incident_id": 302,
+    "BiasScore": 0.972,
+    "SafetyScore": 0.952,
+    "PrivacyLeakProb": 0.093
+  },
+  {
+    "incident_id": 308,
+    "BiasScore": 0.903,
+    "SafetyScore": 0.907,
+    "PrivacyLeakProb": 0.046
+  },
+  {
+    "incident_id": 310,
+    "BiasScore": 0.799,
+    "SafetyScore": 0.977,
+    "PrivacyLeakProb": 0.052
+  },
+  {
+    "incident_id": 315,
+    "BiasScore": 0.883,
+    "SafetyScore": 0.859,
+    "PrivacyLeakProb": 0.001
+  },
+  {
+    "incident_id": 321,
+    "BiasScore": 0.588,
+    "SafetyScore": 0.856,
+    "PrivacyLeakProb": 0.098
+  },
+  {
+    "incident_id": 329,
+    "BiasScore": 0.817,
+    "SafetyScore": 0.744,
+    "PrivacyLeakProb": 0.052
+  },
+  {
+    "incident_id": 284,
+    "BiasScore": 0.651,
+    "SafetyScore": 0.826,
+    "PrivacyLeakProb": 0.079
+  },
+  {
+    "incident_id": 298,
+    "BiasScore": 0.77,
+    "SafetyScore": 0.747,
+    "PrivacyLeakProb": 0.007
+  },
+  {
+    "incident_id": 279,
+    "BiasScore": 0.786,
+    "SafetyScore": 0.789,
+    "PrivacyLeakProb": 0.015
+  },
+  {
+    "incident_id": 281,
+    "BiasScore": 0.802,
+    "SafetyScore": 0.912,
+    "PrivacyLeakProb": 0.046
+  },
+  {
+    "incident_id": 312,
+    "BiasScore": 0.502,
+    "SafetyScore": 0.94,
+    "PrivacyLeakProb": 0.016
+  },
+  {
+    "incident_id": 316,
+    "BiasScore": 0.888,
+    "SafetyScore": 0.967,
+    "PrivacyLeakProb": 0.047
+  },
+  {
+    "incident_id": 288,
+    "BiasScore": 0.673,
+    "SafetyScore": 0.863,
+    "PrivacyLeakProb": 0.055
+  },
+  {
+    "incident_id": 289,
+    "BiasScore": 0.529,
+    "SafetyScore": 0.872,
+    "PrivacyLeakProb": 0.015
+  },
+  {
+    "incident_id": 306,
+    "BiasScore": 0.87,
+    "SafetyScore": 0.934,
+    "PrivacyLeakProb": 0.015
+  },
+  {
+    "incident_id": 345,
+    "BiasScore": 0.525,
+    "SafetyScore": 0.728,
+    "PrivacyLeakProb": 0.007
+  },
+  {
+    "incident_id": 301,
+    "BiasScore": 0.718,
+    "SafetyScore": 0.719,
+    "PrivacyLeakProb": 0.077
+  },
+  {
+    "incident_id": 314,
+    "BiasScore": 0.955,
+    "SafetyScore": 0.997,
+    "PrivacyLeakProb": 0.023
+  },
+  {
+    "incident_id": 322,
+    "BiasScore": 0.598,
+    "SafetyScore": 0.995,
+    "PrivacyLeakProb": 0.066
+  },
+  {
+    "incident_id": 336,
+    "BiasScore": 0.558,
+    "SafetyScore": 0.785,
+    "PrivacyLeakProb": 0.045
+  },
+  {
+    "incident_id": 351,
+    "BiasScore": 0.682,
+    "SafetyScore": 0.744,
+    "PrivacyLeakProb": 0.02
+  },
+  {
+    "incident_id": 364,
+    "BiasScore": 0.859,
+    "SafetyScore": 0.764,
+    "PrivacyLeakProb": 0.097
+  },
+  {
+    "incident_id": 367,
+    "BiasScore": 0.846,
+    "SafetyScore": 0.983,
+    "PrivacyLeakProb": 0.01
+  },
+  {
+    "incident_id": 355,
+    "BiasScore": 0.927,
+    "SafetyScore": 0.935,
+    "PrivacyLeakProb": 0.012
+  },
+  {
+    "incident_id": 356,
+    "BiasScore": 0.788,
+    "SafetyScore": 0.765,
+    "PrivacyLeakProb": 0.036
+  },
+  {
+    "incident_id": 368,
+    "BiasScore": 0.91,
+    "SafetyScore": 0.893,
+    "PrivacyLeakProb": 0.073
+  },
+  {
+    "incident_id": 370,
+    "BiasScore": 0.75,
+    "SafetyScore": 0.898,
+    "PrivacyLeakProb": 0.017
+  },
+  {
+    "incident_id": 378,
+    "BiasScore": 0.766,
+    "SafetyScore": 0.744,
+    "PrivacyLeakProb": 0.085
+  },
+  {
+    "incident_id": 391,
+    "BiasScore": 0.982,
+    "SafetyScore": 0.742,
+    "PrivacyLeakProb": 0.003
+  },
+  {
+    "incident_id": 371,
+    "BiasScore": 0.986,
+    "SafetyScore": 0.73,
+    "PrivacyLeakProb": 0.076
+  },
+  {
+    "incident_id": 393,
+    "BiasScore": 0.97,
+    "SafetyScore": 0.938,
+    "PrivacyLeakProb": 0.057
+  },
+  {
+    "incident_id": 358,
+    "BiasScore": 0.73,
+    "SafetyScore": 0.927,
+    "PrivacyLeakProb": 0.065
+  },
+  {
+    "incident_id": 363,
+    "BiasScore": 0.718,
+    "SafetyScore": 0.868,
+    "PrivacyLeakProb": 0.062
+  },
+  {
+    "incident_id": 369,
+    "BiasScore": 0.825,
+    "SafetyScore": 0.768,
+    "PrivacyLeakProb": 0.07
+  },
+  {
+    "incident_id": 400,
+    "BiasScore": 0.674,
+    "SafetyScore": 0.875,
+    "PrivacyLeakProb": 0.068
+  },
+  {
+    "incident_id": 373,
+    "BiasScore": 0.708,
+    "SafetyScore": 0.722,
+    "PrivacyLeakProb": 0.007
+  },
+  {
+    "incident_id": 376,
+    "BiasScore": 0.871,
+    "SafetyScore": 0.737,
+    "PrivacyLeakProb": 0.02
+  },
+  {
+    "incident_id": 395,
+    "BiasScore": 0.77,
+    "SafetyScore": 0.994,
+    "PrivacyLeakProb": 0.012
+  },
+  {
+    "incident_id": 361,
+    "BiasScore": 0.588,
+    "SafetyScore": 0.916,
+    "PrivacyLeakProb": 0.056
+  },
+  {
+    "incident_id": 377,
+    "BiasScore": 0.87,
+    "SafetyScore": 0.894,
+    "PrivacyLeakProb": 0.025
+  },
+  {
+    "incident_id": 354,
+    "BiasScore": 0.647,
+    "SafetyScore": 0.822,
+    "PrivacyLeakProb": 0.033
+  },
+  {
+    "incident_id": 381,
+    "BiasScore": 0.992,
+    "SafetyScore": 0.896,
+    "PrivacyLeakProb": 0.017
+  },
+  {
+    "incident_id": 353,
+    "BiasScore": 0.926,
+    "SafetyScore": 0.775,
+    "PrivacyLeakProb": 0.022
+  },
+  {
+    "incident_id": 374,
+    "BiasScore": 0.883,
+    "SafetyScore": 0.81,
+    "PrivacyLeakProb": 0.076
+  },
+  {
+    "incident_id": 380,
+    "BiasScore": 0.5,
+    "SafetyScore": 0.956,
+    "PrivacyLeakProb": 0.033
+  },
+  {
+    "incident_id": 357,
+    "BiasScore": 0.715,
+    "SafetyScore": 0.806,
+    "PrivacyLeakProb": 0.016
+  },
+  {
+    "incident_id": 385,
+    "BiasScore": 0.672,
+    "SafetyScore": 0.843,
+    "PrivacyLeakProb": 0.019
+  },
+  {
+    "incident_id": 388,
+    "BiasScore": 0.852,
+    "SafetyScore": 0.849,
+    "PrivacyLeakProb": 0.029
+  },
+  {
+    "incident_id": 383,
+    "BiasScore": 0.955,
+    "SafetyScore": 0.928,
+    "PrivacyLeakProb": 0.069
+  },
+  {
+    "incident_id": 390,
+    "BiasScore": 0.73,
+    "SafetyScore": 0.884,
+    "PrivacyLeakProb": 0.089
+  },
+  {
+    "incident_id": 387,
+    "BiasScore": 0.881,
+    "SafetyScore": 0.975,
+    "PrivacyLeakProb": 0.053
+  },
+  {
+    "incident_id": 394,
+    "BiasScore": 0.554,
+    "SafetyScore": 0.787,
+    "PrivacyLeakProb": 0.05
+  },
+  {
+    "incident_id": 362,
+    "BiasScore": 0.961,
+    "SafetyScore": 0.815,
+    "PrivacyLeakProb": 0.035
+  },
+  {
+    "incident_id": 384,
+    "BiasScore": 0.834,
+    "SafetyScore": 0.785,
+    "PrivacyLeakProb": 0.03
+  },
+  {
+    "incident_id": 359,
+    "BiasScore": 0.711,
+    "SafetyScore": 0.844,
+    "PrivacyLeakProb": 0.05
+  },
+  {
+    "incident_id": 396,
+    "BiasScore": 0.757,
+    "SafetyScore": 0.733,
+    "PrivacyLeakProb": 0.003
+  },
+  {
+    "incident_id": 352,
+    "BiasScore": 0.563,
+    "SafetyScore": 0.969,
+    "PrivacyLeakProb": 0.051
+  },
+  {
+    "incident_id": 372,
+    "BiasScore": 0.503,
+    "SafetyScore": 0.711,
+    "PrivacyLeakProb": 0.081
+  },
+  {
+    "incident_id": 375,
+    "BiasScore": 0.635,
+    "SafetyScore": 0.702,
+    "PrivacyLeakProb": 0.087
+  },
+  {
+    "incident_id": 379,
+    "BiasScore": 0.823,
+    "SafetyScore": 0.934,
+    "PrivacyLeakProb": 0.063
+  },
+  {
+    "incident_id": 382,
+    "BiasScore": 0.794,
+    "SafetyScore": 0.957,
+    "PrivacyLeakProb": 0.028
+  },
+  {
+    "incident_id": 386,
+    "BiasScore": 0.57,
+    "SafetyScore": 0.881,
+    "PrivacyLeakProb": 0.096
+  },
+  {
+    "incident_id": 389,
+    "BiasScore": 0.713,
+    "SafetyScore": 0.984,
+    "PrivacyLeakProb": 0.058
+  },
+  {
+    "incident_id": 397,
+    "BiasScore": 0.806,
+    "SafetyScore": 0.811,
+    "PrivacyLeakProb": 0.081
+  },
+  {
+    "incident_id": 398,
+    "BiasScore": 0.646,
+    "SafetyScore": 0.889,
+    "PrivacyLeakProb": 0.069
+  },
+  {
+    "incident_id": 399,
+    "BiasScore": 0.965,
+    "SafetyScore": 0.86,
+    "PrivacyLeakProb": 0.033
+  },
+  {
+    "incident_id": 401,
+    "BiasScore": 0.712,
+    "SafetyScore": 0.891,
+    "PrivacyLeakProb": 0.042
+  },
+  {
+    "incident_id": 402,
+    "BiasScore": 0.671,
+    "SafetyScore": 0.85,
+    "PrivacyLeakProb": 0.048
+  },
+  {
+    "incident_id": 360,
+    "BiasScore": 0.69,
+    "SafetyScore": 0.872,
+    "PrivacyLeakProb": 0.079
+  },
+  {
+    "incident_id": 366,
+    "BiasScore": 0.937,
+    "SafetyScore": 0.848,
+    "PrivacyLeakProb": 0.042
+  },
+  {
+    "incident_id": 392,
+    "BiasScore": 0.812,
+    "SafetyScore": 0.834,
+    "PrivacyLeakProb": 0.061
+  },
+  {
+    "incident_id": 407,
+    "BiasScore": 0.958,
+    "SafetyScore": 0.994,
+    "PrivacyLeakProb": 0.064
+  },
+  {
+    "incident_id": 404,
+    "BiasScore": 0.928,
+    "SafetyScore": 0.93,
+    "PrivacyLeakProb": 0.086
+  },
+  {
+    "incident_id": 406,
+    "BiasScore": 0.988,
+    "SafetyScore": 0.703,
+    "PrivacyLeakProb": 0.001
+  },
+  {
+    "incident_id": 408,
+    "BiasScore": 0.649,
+    "SafetyScore": 0.709,
+    "PrivacyLeakProb": 0.045
+  },
+  {
+    "incident_id": 409,
+    "BiasScore": 0.727,
+    "SafetyScore": 0.847,
+    "PrivacyLeakProb": 0.014
+  },
+  {
+    "incident_id": 405,
+    "BiasScore": 0.906,
+    "SafetyScore": 0.836,
+    "PrivacyLeakProb": 0.004
+  },
+  {
+    "incident_id": 403,
+    "BiasScore": 0.959,
+    "SafetyScore": 0.797,
+    "PrivacyLeakProb": 0.061
+  },
+  {
+    "incident_id": 410,
+    "BiasScore": 0.861,
+    "SafetyScore": 0.981,
+    "PrivacyLeakProb": 0.003
+  },
+  {
+    "incident_id": 411,
+    "BiasScore": 0.529,
+    "SafetyScore": 0.915,
+    "PrivacyLeakProb": 0.046
+  },
+  {
+    "incident_id": 412,
+    "BiasScore": 0.93,
+    "SafetyScore": 0.863,
+    "PrivacyLeakProb": 0.021
+  },
+  {
+    "incident_id": 413,
+    "BiasScore": 0.669,
+    "SafetyScore": 0.858,
+    "PrivacyLeakProb": 0.091
+  },
+  {
+    "incident_id": 414,
+    "BiasScore": 0.648,
+    "SafetyScore": 0.743,
+    "PrivacyLeakProb": 0.09
+  },
+  {
+    "incident_id": 415,
+    "BiasScore": 0.982,
+    "SafetyScore": 0.933,
+    "PrivacyLeakProb": 0.048
+  },
+  {
+    "incident_id": 416,
+    "BiasScore": 0.83,
+    "SafetyScore": 0.782,
+    "PrivacyLeakProb": 0.095
+  },
+  {
+    "incident_id": 417,
+    "BiasScore": 0.893,
+    "SafetyScore": 0.997,
+    "PrivacyLeakProb": 0.077
+  },
+  {
+    "incident_id": 418,
+    "BiasScore": 0.979,
+    "SafetyScore": 0.756,
+    "PrivacyLeakProb": 0.065
+  },
+  {
+    "incident_id": 419,
+    "BiasScore": 0.984,
+    "SafetyScore": 0.765,
+    "PrivacyLeakProb": 0.047
+  },
+  {
+    "incident_id": 420,
+    "BiasScore": 0.567,
+    "SafetyScore": 0.907,
+    "PrivacyLeakProb": 0.054
+  },
+  {
+    "incident_id": 421,
+    "BiasScore": 0.857,
+    "SafetyScore": 0.866,
+    "PrivacyLeakProb": 0.056
+  },
+  {
+    "incident_id": 422,
+    "BiasScore": 0.782,
+    "SafetyScore": 0.756,
+    "PrivacyLeakProb": 0.041
+  },
+  {
+    "incident_id": 423,
+    "BiasScore": 0.881,
+    "SafetyScore": 0.781,
+    "PrivacyLeakProb": 0.043
+  },
+  {
+    "incident_id": 424,
+    "BiasScore": 0.512,
+    "SafetyScore": 0.933,
+    "PrivacyLeakProb": 0.078
+  },
+  {
+    "incident_id": 425,
+    "BiasScore": 0.986,
+    "SafetyScore": 0.973,
+    "PrivacyLeakProb": 0.046
+  },
+  {
+    "incident_id": 426,
+    "BiasScore": 0.851,
+    "SafetyScore": 0.802,
+    "PrivacyLeakProb": 0.016
+  },
+  {
+    "incident_id": 427,
+    "BiasScore": 0.758,
+    "SafetyScore": 0.75,
+    "PrivacyLeakProb": 0.035
+  },
+  {
+    "incident_id": 428,
+    "BiasScore": 0.885,
+    "SafetyScore": 0.879,
+    "PrivacyLeakProb": 0.091
+  },
+  {
+    "incident_id": 429,
+    "BiasScore": 0.669,
+    "SafetyScore": 0.727,
+    "PrivacyLeakProb": 0.022
+  },
+  {
+    "incident_id": 430,
+    "BiasScore": 0.59,
+    "SafetyScore": 0.962,
+    "PrivacyLeakProb": 0.026
+  },
+  {
+    "incident_id": 431,
+    "BiasScore": 0.543,
+    "SafetyScore": 0.904,
+    "PrivacyLeakProb": 0.058
+  },
+  {
+    "incident_id": 432,
+    "BiasScore": 0.652,
+    "SafetyScore": 0.782,
+    "PrivacyLeakProb": 0.014
+  },
+  {
+    "incident_id": 433,
+    "BiasScore": 0.716,
+    "SafetyScore": 0.708,
+    "PrivacyLeakProb": 0.017
+  },
+  {
+    "incident_id": 434,
+    "BiasScore": 0.924,
+    "SafetyScore": 0.969,
+    "PrivacyLeakProb": 0.014
+  },
+  {
+    "incident_id": 435,
+    "BiasScore": 0.841,
+    "SafetyScore": 0.991,
+    "PrivacyLeakProb": 0.052
+  },
+  {
+    "incident_id": 436,
+    "BiasScore": 0.744,
+    "SafetyScore": 0.967,
+    "PrivacyLeakProb": 0.043
+  },
+  {
+    "incident_id": 437,
+    "BiasScore": 0.983,
+    "SafetyScore": 0.759,
+    "PrivacyLeakProb": 0.077
+  },
+  {
+    "incident_id": 438,
+    "BiasScore": 0.699,
+    "SafetyScore": 0.759,
+    "PrivacyLeakProb": 0.005
+  },
+  {
+    "incident_id": 439,
+    "BiasScore": 0.582,
+    "SafetyScore": 0.79,
+    "PrivacyLeakProb": 0.047
+  },
+  {
+    "incident_id": 440,
+    "BiasScore": 0.761,
+    "SafetyScore": 0.706,
+    "PrivacyLeakProb": 0.081
+  },
+  {
+    "incident_id": 441,
+    "BiasScore": 0.875,
+    "SafetyScore": 0.995,
+    "PrivacyLeakProb": 0.035
+  },
+  {
+    "incident_id": 443,
+    "BiasScore": 0.774,
+    "SafetyScore": 0.838,
+    "PrivacyLeakProb": 0.031
+  },
+  {
+    "incident_id": 444,
+    "BiasScore": 0.64,
+    "SafetyScore": 0.844,
+    "PrivacyLeakProb": 0.011
+  },
+  {
+    "incident_id": 445,
+    "BiasScore": 0.887,
+    "SafetyScore": 0.858,
+    "PrivacyLeakProb": 0.057
+  },
+  {
+    "incident_id": 446,
+    "BiasScore": 0.597,
+    "SafetyScore": 0.959,
+    "PrivacyLeakProb": 0.096
+  },
+  {
+    "incident_id": 447,
+    "BiasScore": 0.871,
+    "SafetyScore": 0.761,
+    "PrivacyLeakProb": 0.008
+  },
+  {
+    "incident_id": 448,
+    "BiasScore": 0.607,
+    "SafetyScore": 1.0,
+    "PrivacyLeakProb": 0.007
+  },
+  {
+    "incident_id": 449,
+    "BiasScore": 0.758,
+    "SafetyScore": 0.969,
+    "PrivacyLeakProb": 0.012
+  },
+  {
+    "incident_id": 450,
+    "BiasScore": 0.762,
+    "SafetyScore": 0.861,
+    "PrivacyLeakProb": 0.056
+  },
+  {
+    "incident_id": 451,
+    "BiasScore": 0.848,
+    "SafetyScore": 0.766,
+    "PrivacyLeakProb": 0.007
+  },
+  {
+    "incident_id": 452,
+    "BiasScore": 0.717,
+    "SafetyScore": 0.952,
+    "PrivacyLeakProb": 0.03
+  },
+  {
+    "incident_id": 453,
+    "BiasScore": 0.772,
+    "SafetyScore": 0.967,
+    "PrivacyLeakProb": 0.02
+  },
+  {
+    "incident_id": 454,
+    "BiasScore": 0.916,
+    "SafetyScore": 0.809,
+    "PrivacyLeakProb": 0.05
+  },
+  {
+    "incident_id": 455,
+    "BiasScore": 0.944,
+    "SafetyScore": 0.932,
+    "PrivacyLeakProb": 0.04
+  },
+  {
+    "incident_id": 456,
+    "BiasScore": 0.996,
+    "SafetyScore": 0.99,
+    "PrivacyLeakProb": 0.039
+  },
+  {
+    "incident_id": 457,
+    "BiasScore": 0.54,
+    "SafetyScore": 0.78,
+    "PrivacyLeakProb": 0.043
+  },
+  {
+    "incident_id": 458,
+    "BiasScore": 0.816,
+    "SafetyScore": 0.808,
+    "PrivacyLeakProb": 0.081
+  },
+  {
+    "incident_id": 459,
+    "BiasScore": 0.65,
+    "SafetyScore": 0.722,
+    "PrivacyLeakProb": 0.062
+  },
+  {
+    "incident_id": 460,
+    "BiasScore": 0.525,
+    "SafetyScore": 0.921,
+    "PrivacyLeakProb": 0.077
+  },
+  {
+    "incident_id": 461,
+    "BiasScore": 0.998,
+    "SafetyScore": 0.935,
+    "PrivacyLeakProb": 0.067
+  },
+  {
+    "incident_id": 462,
+    "BiasScore": 0.88,
+    "SafetyScore": 0.825,
+    "PrivacyLeakProb": 0.051
+  },
+  {
+    "incident_id": 463,
+    "BiasScore": 0.742,
+    "SafetyScore": 0.729,
+    "PrivacyLeakProb": 0.087
+  },
+  {
+    "incident_id": 464,
+    "BiasScore": 0.852,
+    "SafetyScore": 0.847,
+    "PrivacyLeakProb": 0.006
+  },
+  {
+    "incident_id": 465,
+    "BiasScore": 0.61,
+    "SafetyScore": 0.945,
+    "PrivacyLeakProb": 0.07
+  },
+  {
+    "incident_id": 466,
+    "BiasScore": 0.603,
+    "SafetyScore": 0.909,
+    "PrivacyLeakProb": 0.085
+  },
+  {
+    "incident_id": 467,
+    "BiasScore": 0.988,
+    "SafetyScore": 0.879,
+    "PrivacyLeakProb": 0.027
+  },
+  {
+    "incident_id": 468,
+    "BiasScore": 0.563,
+    "SafetyScore": 0.81,
+    "PrivacyLeakProb": 0.033
+  },
+  {
+    "incident_id": 469,
+    "BiasScore": 0.738,
+    "SafetyScore": 0.908,
+    "PrivacyLeakProb": 0.085
+  },
+  {
+    "incident_id": 470,
+    "BiasScore": 0.675,
+    "SafetyScore": 0.862,
+    "PrivacyLeakProb": 0.056
+  },
+  {
+    "incident_id": 471,
+    "BiasScore": 0.984,
+    "SafetyScore": 0.892,
+    "PrivacyLeakProb": 0.022
+  },
+  {
+    "incident_id": 472,
+    "BiasScore": 0.613,
+    "SafetyScore": 0.816,
+    "PrivacyLeakProb": 0.018
+  },
+  {
+    "incident_id": 473,
+    "BiasScore": 0.768,
+    "SafetyScore": 0.844,
+    "PrivacyLeakProb": 0.021
+  },
+  {
+    "incident_id": 474,
+    "BiasScore": 0.531,
+    "SafetyScore": 0.978,
+    "PrivacyLeakProb": 0.022
+  },
+  {
+    "incident_id": 475,
+    "BiasScore": 0.552,
+    "SafetyScore": 0.788,
+    "PrivacyLeakProb": 0.008
+  },
+  {
+    "incident_id": 476,
+    "BiasScore": 0.501,
+    "SafetyScore": 0.781,
+    "PrivacyLeakProb": 0.029
+  },
+  {
+    "incident_id": 477,
+    "BiasScore": 0.531,
+    "SafetyScore": 0.963,
+    "PrivacyLeakProb": 0.099
+  },
+  {
+    "incident_id": 478,
+    "BiasScore": 0.814,
+    "SafetyScore": 0.77,
+    "PrivacyLeakProb": 0.034
+  },
+  {
+    "incident_id": 479,
+    "BiasScore": 0.504,
+    "SafetyScore": 0.821,
+    "PrivacyLeakProb": 0.045
+  },
+  {
+    "incident_id": 480,
+    "BiasScore": 0.787,
+    "SafetyScore": 0.828,
+    "PrivacyLeakProb": 0.071
+  },
+  {
+    "incident_id": 481,
+    "BiasScore": 0.733,
+    "SafetyScore": 0.989,
+    "PrivacyLeakProb": 0.081
+  },
+  {
+    "incident_id": 482,
+    "BiasScore": 0.863,
+    "SafetyScore": 0.864,
+    "PrivacyLeakProb": 0.05
+  },
+  {
+    "incident_id": 483,
+    "BiasScore": 0.899,
+    "SafetyScore": 0.727,
+    "PrivacyLeakProb": 0.021
+  },
+  {
+    "incident_id": 484,
+    "BiasScore": 0.621,
+    "SafetyScore": 0.732,
+    "PrivacyLeakProb": 0.012
+  },
+  {
+    "incident_id": 485,
+    "BiasScore": 0.786,
+    "SafetyScore": 0.802,
+    "PrivacyLeakProb": 0.04
+  },
+  {
+    "incident_id": 486,
+    "BiasScore": 0.563,
+    "SafetyScore": 0.808,
+    "PrivacyLeakProb": 0.006
+  },
+  {
+    "incident_id": 487,
+    "BiasScore": 0.667,
+    "SafetyScore": 0.754,
+    "PrivacyLeakProb": 0.003
+  },
+  {
+    "incident_id": 488,
+    "BiasScore": 0.8,
+    "SafetyScore": 0.805,
+    "PrivacyLeakProb": 0.017
+  },
+  {
+    "incident_id": 489,
+    "BiasScore": 0.81,
+    "SafetyScore": 0.827,
+    "PrivacyLeakProb": 0.055
+  },
+  {
+    "incident_id": 490,
+    "BiasScore": 0.816,
+    "SafetyScore": 0.896,
+    "PrivacyLeakProb": 0.091
+  },
+  {
+    "incident_id": 491,
+    "BiasScore": 0.683,
+    "SafetyScore": 0.868,
+    "PrivacyLeakProb": 0.072
+  },
+  {
+    "incident_id": 492,
+    "BiasScore": 0.754,
+    "SafetyScore": 0.887,
+    "PrivacyLeakProb": 0.008
+  },
+  {
+    "incident_id": 493,
+    "BiasScore": 0.766,
+    "SafetyScore": 0.829,
+    "PrivacyLeakProb": 0.098
+  },
+  {
+    "incident_id": 494,
+    "BiasScore": 0.851,
+    "SafetyScore": 0.825,
+    "PrivacyLeakProb": 0.035
+  },
+  {
+    "incident_id": 495,
+    "BiasScore": 0.756,
+    "SafetyScore": 0.823,
+    "PrivacyLeakProb": 0.094
+  },
+  {
+    "incident_id": 496,
+    "BiasScore": 0.595,
+    "SafetyScore": 0.945,
+    "PrivacyLeakProb": 0.023
+  },
+  {
+    "incident_id": 497,
+    "BiasScore": 0.72,
+    "SafetyScore": 0.805,
+    "PrivacyLeakProb": 0.039
+  },
+  {
+    "incident_id": 498,
+    "BiasScore": 0.637,
+    "SafetyScore": 0.719,
+    "PrivacyLeakProb": 0.07
+  },
+  {
+    "incident_id": 499,
+    "BiasScore": 0.772,
+    "SafetyScore": 0.745,
+    "PrivacyLeakProb": 0.022
+  },
+  {
+    "incident_id": 500,
+    "BiasScore": 0.667,
+    "SafetyScore": 0.827,
+    "PrivacyLeakProb": 0.006
+  },
+  {
+    "incident_id": 501,
+    "BiasScore": 0.869,
+    "SafetyScore": 0.753,
+    "PrivacyLeakProb": 0.066
+  },
+  {
+    "incident_id": 502,
+    "BiasScore": 0.558,
+    "SafetyScore": 0.73,
+    "PrivacyLeakProb": 0.04
+  },
+  {
+    "incident_id": 503,
+    "BiasScore": 0.885,
+    "SafetyScore": 0.994,
+    "PrivacyLeakProb": 0.088
+  },
+  {
+    "incident_id": 504,
+    "BiasScore": 0.624,
+    "SafetyScore": 0.984,
+    "PrivacyLeakProb": 0.021
+  },
+  {
+    "incident_id": 505,
+    "BiasScore": 0.875,
+    "SafetyScore": 0.912,
+    "PrivacyLeakProb": 0.054
+  },
+  {
+    "incident_id": 506,
+    "BiasScore": 0.599,
+    "SafetyScore": 0.974,
+    "PrivacyLeakProb": 0.026
+  },
+  {
+    "incident_id": 507,
+    "BiasScore": 0.85,
+    "SafetyScore": 0.944,
+    "PrivacyLeakProb": 0.015
+  },
+  {
+    "incident_id": 508,
+    "BiasScore": 0.725,
+    "SafetyScore": 0.79,
+    "PrivacyLeakProb": 0.081
+  },
+  {
+    "incident_id": 509,
+    "BiasScore": 0.715,
+    "SafetyScore": 0.905,
+    "PrivacyLeakProb": 0.078
+  },
+  {
+    "incident_id": 510,
+    "BiasScore": 0.976,
+    "SafetyScore": 0.898,
+    "PrivacyLeakProb": 0.078
+  },
+  {
+    "incident_id": 511,
+    "BiasScore": 0.966,
+    "SafetyScore": 0.985,
+    "PrivacyLeakProb": 0.062
+  },
+  {
+    "incident_id": 513,
+    "BiasScore": 0.518,
+    "SafetyScore": 0.74,
+    "PrivacyLeakProb": 0.013
+  },
+  {
+    "incident_id": 514,
+    "BiasScore": 0.696,
+    "SafetyScore": 0.829,
+    "PrivacyLeakProb": 0.091
+  },
+  {
+    "incident_id": 515,
+    "BiasScore": 0.565,
+    "SafetyScore": 0.979,
+    "PrivacyLeakProb": 0.052
+  },
+  {
+    "incident_id": 516,
+    "BiasScore": 0.802,
+    "SafetyScore": 0.941,
+    "PrivacyLeakProb": 0.02
+  },
+  {
+    "incident_id": 517,
+    "BiasScore": 0.986,
+    "SafetyScore": 0.792,
+    "PrivacyLeakProb": 0.074
+  },
+  {
+    "incident_id": 518,
+    "BiasScore": 0.916,
+    "SafetyScore": 0.74,
+    "PrivacyLeakProb": 0.045
+  },
+  {
+    "incident_id": 519,
+    "BiasScore": 0.65,
+    "SafetyScore": 0.964,
+    "PrivacyLeakProb": 0.03
+  },
+  {
+    "incident_id": 520,
+    "BiasScore": 0.823,
+    "SafetyScore": 0.988,
+    "PrivacyLeakProb": 0.087
+  },
+  {
+    "incident_id": 521,
+    "BiasScore": 0.544,
+    "SafetyScore": 0.91,
+    "PrivacyLeakProb": 0.031
+  },
+  {
+    "incident_id": 522,
+    "BiasScore": 0.54,
+    "SafetyScore": 0.95,
+    "PrivacyLeakProb": 0.058
+  },
+  {
+    "incident_id": 523,
+    "BiasScore": 0.784,
+    "SafetyScore": 0.749,
+    "PrivacyLeakProb": 0.033
+  },
+  {
+    "incident_id": 524,
+    "BiasScore": 0.712,
+    "SafetyScore": 0.762,
+    "PrivacyLeakProb": 0.054
+  },
+  {
+    "incident_id": 525,
+    "BiasScore": 0.589,
+    "SafetyScore": 0.9,
+    "PrivacyLeakProb": 0.043
+  },
+  {
+    "incident_id": 526,
+    "BiasScore": 0.885,
+    "SafetyScore": 0.918,
+    "PrivacyLeakProb": 0.098
+  },
+  {
+    "incident_id": 527,
+    "BiasScore": 0.551,
+    "SafetyScore": 0.756,
+    "PrivacyLeakProb": 0.06
+  },
+  {
+    "incident_id": 528,
+    "BiasScore": 0.638,
+    "SafetyScore": 0.832,
+    "PrivacyLeakProb": 0.017
+  },
+  {
+    "incident_id": 529,
+    "BiasScore": 0.988,
+    "SafetyScore": 0.782,
+    "PrivacyLeakProb": 0.078
+  },
+  {
+    "incident_id": 530,
+    "BiasScore": 0.681,
+    "SafetyScore": 0.779,
+    "PrivacyLeakProb": 0.036
+  },
+  {
+    "incident_id": 531,
+    "BiasScore": 0.704,
+    "SafetyScore": 0.763,
+    "PrivacyLeakProb": 0.002
+  },
+  {
+    "incident_id": 532,
+    "BiasScore": 0.522,
+    "SafetyScore": 0.972,
+    "PrivacyLeakProb": 0.007
+  },
+  {
+    "incident_id": 533,
+    "BiasScore": 0.903,
+    "SafetyScore": 0.766,
+    "PrivacyLeakProb": 0.064
+  },
+  {
+    "incident_id": 534,
+    "BiasScore": 0.586,
+    "SafetyScore": 0.926,
+    "PrivacyLeakProb": 0.056
+  },
+  {
+    "incident_id": 535,
+    "BiasScore": 0.713,
+    "SafetyScore": 0.949,
+    "PrivacyLeakProb": 0.014
+  },
+  {
+    "incident_id": 536,
+    "BiasScore": 0.551,
+    "SafetyScore": 0.867,
+    "PrivacyLeakProb": 0.04
+  },
+  {
+    "incident_id": 537,
+    "BiasScore": 0.809,
+    "SafetyScore": 0.946,
+    "PrivacyLeakProb": 0.097
+  },
+  {
+    "incident_id": 538,
+    "BiasScore": 0.893,
+    "SafetyScore": 0.907,
+    "PrivacyLeakProb": 0.071
+  },
+  {
+    "incident_id": 539,
+    "BiasScore": 0.916,
+    "SafetyScore": 0.791,
+    "PrivacyLeakProb": 0.062
+  },
+  {
+    "incident_id": 540,
+    "BiasScore": 0.632,
+    "SafetyScore": 0.771,
+    "PrivacyLeakProb": 0.03
+  },
+  {
+    "incident_id": 541,
+    "BiasScore": 0.559,
+    "SafetyScore": 0.951,
+    "PrivacyLeakProb": 0.018
+  },
+  {
+    "incident_id": 543,
+    "BiasScore": 0.744,
+    "SafetyScore": 0.88,
+    "PrivacyLeakProb": 0.06
+  },
+  {
+    "incident_id": 544,
+    "BiasScore": 0.99,
+    "SafetyScore": 0.767,
+    "PrivacyLeakProb": 0.008
+  },
+  {
+    "incident_id": 545,
+    "BiasScore": 0.672,
+    "SafetyScore": 0.982,
+    "PrivacyLeakProb": 0.083
+  },
+  {
+    "incident_id": 546,
+    "BiasScore": 0.915,
+    "SafetyScore": 0.756,
+    "PrivacyLeakProb": 0.024
+  },
+  {
+    "incident_id": 547,
+    "BiasScore": 0.885,
+    "SafetyScore": 0.731,
+    "PrivacyLeakProb": 0.045
+  },
+  {
+    "incident_id": 548,
+    "BiasScore": 0.817,
+    "SafetyScore": 0.744,
+    "PrivacyLeakProb": 0.082
+  },
+  {
+    "incident_id": 549,
+    "BiasScore": 0.798,
+    "SafetyScore": 0.834,
+    "PrivacyLeakProb": 0.008
+  },
+  {
+    "incident_id": 550,
+    "BiasScore": 0.701,
+    "SafetyScore": 0.805,
+    "PrivacyLeakProb": 0.056
+  },
+  {
+    "incident_id": 551,
+    "BiasScore": 0.996,
+    "SafetyScore": 0.979,
+    "PrivacyLeakProb": 0.073
+  },
+  {
+    "incident_id": 552,
+    "BiasScore": 0.6,
+    "SafetyScore": 0.977,
+    "PrivacyLeakProb": 0.028
+  },
+  {
+    "incident_id": 553,
+    "BiasScore": 0.71,
+    "SafetyScore": 0.89,
+    "PrivacyLeakProb": 0.013
+  },
+  {
+    "incident_id": 554,
+    "BiasScore": 0.832,
+    "SafetyScore": 0.81,
+    "PrivacyLeakProb": 0.01
+  },
+  {
+    "incident_id": 555,
+    "BiasScore": 0.673,
+    "SafetyScore": 0.858,
+    "PrivacyLeakProb": 0.016
+  },
+  {
+    "incident_id": 556,
+    "BiasScore": 0.798,
+    "SafetyScore": 0.722,
+    "PrivacyLeakProb": 0.035
+  },
+  {
+    "incident_id": 557,
+    "BiasScore": 0.924,
+    "SafetyScore": 0.886,
+    "PrivacyLeakProb": 0.071
+  },
+  {
+    "incident_id": 558,
+    "BiasScore": 0.916,
+    "SafetyScore": 0.837,
+    "PrivacyLeakProb": 0.016
+  },
+  {
+    "incident_id": 559,
+    "BiasScore": 0.998,
+    "SafetyScore": 0.93,
+    "PrivacyLeakProb": 0.096
+  },
+  {
+    "incident_id": 560,
+    "BiasScore": 0.915,
+    "SafetyScore": 0.747,
+    "PrivacyLeakProb": 0.012
+  },
+  {
+    "incident_id": 561,
+    "BiasScore": 0.822,
+    "SafetyScore": 0.851,
+    "PrivacyLeakProb": 0.014
+  },
+  {
+    "incident_id": 562,
+    "BiasScore": 0.583,
+    "SafetyScore": 0.827,
+    "PrivacyLeakProb": 0.096
+  },
+  {
+    "incident_id": 563,
+    "BiasScore": 0.996,
+    "SafetyScore": 0.775,
+    "PrivacyLeakProb": 0.025
+  },
+  {
+    "incident_id": 564,
+    "BiasScore": 0.633,
+    "SafetyScore": 0.939,
+    "PrivacyLeakProb": 0.039
+  },
+  {
+    "incident_id": 565,
+    "BiasScore": 0.932,
+    "SafetyScore": 0.719,
+    "PrivacyLeakProb": 0.05
+  },
+  {
+    "incident_id": 566,
+    "BiasScore": 0.542,
+    "SafetyScore": 0.9,
+    "PrivacyLeakProb": 0.067
+  },
+  {
+    "incident_id": 567,
+    "BiasScore": 0.784,
+    "SafetyScore": 0.887,
+    "PrivacyLeakProb": 0.048
+  },
+  {
+    "incident_id": 568,
+    "BiasScore": 0.806,
+    "SafetyScore": 0.713,
+    "PrivacyLeakProb": 0.053
+  },
+  {
+    "incident_id": 569,
+    "BiasScore": 0.811,
+    "SafetyScore": 0.826,
+    "PrivacyLeakProb": 0.043
+  },
+  {
+    "incident_id": 570,
+    "BiasScore": 0.836,
+    "SafetyScore": 0.771,
+    "PrivacyLeakProb": 0.059
+  },
+  {
+    "incident_id": 571,
+    "BiasScore": 0.948,
+    "SafetyScore": 0.737,
+    "PrivacyLeakProb": 0.075
+  },
+  {
+    "incident_id": 572,
+    "BiasScore": 0.576,
+    "SafetyScore": 0.837,
+    "PrivacyLeakProb": 0.041
+  },
+  {
+    "incident_id": 573,
+    "BiasScore": 0.861,
+    "SafetyScore": 0.793,
+    "PrivacyLeakProb": 0.035
+  },
+  {
+    "incident_id": 574,
+    "BiasScore": 0.694,
+    "SafetyScore": 0.796,
+    "PrivacyLeakProb": 0.057
+  },
+  {
+    "incident_id": 575,
+    "BiasScore": 0.772,
+    "SafetyScore": 0.813,
+    "PrivacyLeakProb": 0.029
+  },
+  {
+    "incident_id": 576,
+    "BiasScore": 0.918,
+    "SafetyScore": 0.887,
+    "PrivacyLeakProb": 0.036
+  },
+  {
+    "incident_id": 577,
+    "BiasScore": 0.941,
+    "SafetyScore": 0.996,
+    "PrivacyLeakProb": 0.088
+  },
+  {
+    "incident_id": 578,
+    "BiasScore": 0.657,
+    "SafetyScore": 0.926,
+    "PrivacyLeakProb": 0.028
+  },
+  {
+    "incident_id": 579,
+    "BiasScore": 0.762,
+    "SafetyScore": 0.709,
+    "PrivacyLeakProb": 0.004
+  },
+  {
+    "incident_id": 580,
+    "BiasScore": 0.778,
+    "SafetyScore": 0.715,
+    "PrivacyLeakProb": 0.096
+  },
+  {
+    "incident_id": 581,
+    "BiasScore": 0.947,
+    "SafetyScore": 0.71,
+    "PrivacyLeakProb": 0.098
+  },
+  {
+    "incident_id": 582,
+    "BiasScore": 0.608,
+    "SafetyScore": 0.834,
+    "PrivacyLeakProb": 0.051
+  },
+  {
+    "incident_id": 583,
+    "BiasScore": 0.851,
+    "SafetyScore": 0.829,
+    "PrivacyLeakProb": 0.095
+  },
+  {
+    "incident_id": 584,
+    "BiasScore": 0.515,
+    "SafetyScore": 0.724,
+    "PrivacyLeakProb": 0.052
+  },
+  {
+    "incident_id": 585,
+    "BiasScore": 0.899,
+    "SafetyScore": 0.703,
+    "PrivacyLeakProb": 0.039
+  },
+  {
+    "incident_id": 586,
+    "BiasScore": 0.88,
+    "SafetyScore": 0.713,
+    "PrivacyLeakProb": 0.052
+  },
+  {
+    "incident_id": 587,
+    "BiasScore": 0.587,
+    "SafetyScore": 0.771,
+    "PrivacyLeakProb": 0.018
+  },
+  {
+    "incident_id": 588,
+    "BiasScore": 0.612,
+    "SafetyScore": 0.809,
+    "PrivacyLeakProb": 0.079
+  },
+  {
+    "incident_id": 589,
+    "BiasScore": 0.857,
+    "SafetyScore": 0.8,
+    "PrivacyLeakProb": 0.078
+  },
+  {
+    "incident_id": 590,
+    "BiasScore": 0.726,
+    "SafetyScore": 0.882,
+    "PrivacyLeakProb": 0.042
+  },
+  {
+    "incident_id": 591,
+    "BiasScore": 0.865,
+    "SafetyScore": 0.871,
+    "PrivacyLeakProb": 0.047
+  },
+  {
+    "incident_id": 592,
+    "BiasScore": 0.976,
+    "SafetyScore": 0.902,
+    "PrivacyLeakProb": 0.061
+  },
+  {
+    "incident_id": 593,
+    "BiasScore": 0.867,
+    "SafetyScore": 0.875,
+    "PrivacyLeakProb": 0.004
+  },
+  {
+    "incident_id": 594,
+    "BiasScore": 0.625,
+    "SafetyScore": 0.95,
+    "PrivacyLeakProb": 0.052
+  },
+  {
+    "incident_id": 595,
+    "BiasScore": 0.744,
+    "SafetyScore": 0.855,
+    "PrivacyLeakProb": 0.068
+  },
+  {
+    "incident_id": 596,
+    "BiasScore": 0.594,
+    "SafetyScore": 0.805,
+    "PrivacyLeakProb": 0.02
+  },
+  {
+    "incident_id": 597,
+    "BiasScore": 0.942,
+    "SafetyScore": 0.922,
+    "PrivacyLeakProb": 0.067
+  },
+  {
+    "incident_id": 598,
+    "BiasScore": 0.629,
+    "SafetyScore": 0.897,
+    "PrivacyLeakProb": 0.075
+  },
+  {
+    "incident_id": 599,
+    "BiasScore": 0.617,
+    "SafetyScore": 0.749,
+    "PrivacyLeakProb": 0.075
+  },
+  {
+    "incident_id": 600,
+    "BiasScore": 0.819,
+    "SafetyScore": 0.755,
+    "PrivacyLeakProb": 0.054
+  },
+  {
+    "incident_id": 601,
+    "BiasScore": 0.766,
+    "SafetyScore": 0.867,
+    "PrivacyLeakProb": 0.042
+  },
+  {
+    "incident_id": 602,
+    "BiasScore": 0.851,
+    "SafetyScore": 0.773,
+    "PrivacyLeakProb": 0.054
+  },
+  {
+    "incident_id": 603,
+    "BiasScore": 0.924,
+    "SafetyScore": 0.825,
+    "PrivacyLeakProb": 0.021
+  },
+  {
+    "incident_id": 604,
+    "BiasScore": 0.532,
+    "SafetyScore": 0.915,
+    "PrivacyLeakProb": 0.027
+  },
+  {
+    "incident_id": 605,
+    "BiasScore": 0.989,
+    "SafetyScore": 0.748,
+    "PrivacyLeakProb": 0.024
+  },
+  {
+    "incident_id": 606,
+    "BiasScore": 0.95,
+    "SafetyScore": 0.797,
+    "PrivacyLeakProb": 0.071
+  },
+  {
+    "incident_id": 607,
+    "BiasScore": 0.639,
+    "SafetyScore": 0.93,
+    "PrivacyLeakProb": 0.008
+  },
+  {
+    "incident_id": 608,
+    "BiasScore": 0.594,
+    "SafetyScore": 0.972,
+    "PrivacyLeakProb": 0.093
+  },
+  {
+    "incident_id": 609,
+    "BiasScore": 0.77,
+    "SafetyScore": 0.72,
+    "PrivacyLeakProb": 0.026
+  },
+  {
+    "incident_id": 610,
+    "BiasScore": 0.507,
+    "SafetyScore": 0.74,
+    "PrivacyLeakProb": 0.03
+  },
+  {
+    "incident_id": 611,
+    "BiasScore": 0.595,
+    "SafetyScore": 0.855,
+    "PrivacyLeakProb": 0.067
+  },
+  {
+    "incident_id": 612,
+    "BiasScore": 0.695,
+    "SafetyScore": 0.998,
+    "PrivacyLeakProb": 0.066
+  },
+  {
+    "incident_id": 613,
+    "BiasScore": 0.567,
+    "SafetyScore": 0.876,
+    "PrivacyLeakProb": 0.07
+  },
+  {
+    "incident_id": 614,
+    "BiasScore": 0.785,
+    "SafetyScore": 0.874,
+    "PrivacyLeakProb": 0.027
+  },
+  {
+    "incident_id": 615,
+    "BiasScore": 0.877,
+    "SafetyScore": 0.918,
+    "PrivacyLeakProb": 0.096
+  },
+  {
+    "incident_id": 616,
+    "BiasScore": 0.611,
+    "SafetyScore": 0.855,
+    "PrivacyLeakProb": 0.07
+  },
+  {
+    "incident_id": 617,
+    "BiasScore": 0.783,
+    "SafetyScore": 0.997,
+    "PrivacyLeakProb": 0.003
+  },
+  {
+    "incident_id": 618,
+    "BiasScore": 0.82,
+    "SafetyScore": 0.767,
+    "PrivacyLeakProb": 0.043
+  },
+  {
+    "incident_id": 619,
+    "BiasScore": 0.542,
+    "SafetyScore": 0.938,
+    "PrivacyLeakProb": 0.067
+  },
+  {
+    "incident_id": 620,
+    "BiasScore": 0.863,
+    "SafetyScore": 0.937,
+    "PrivacyLeakProb": 0.069
+  },
+  {
+    "incident_id": 621,
+    "BiasScore": 0.588,
+    "SafetyScore": 0.845,
+    "PrivacyLeakProb": 0.037
+  },
+  {
+    "incident_id": 622,
+    "BiasScore": 0.591,
+    "SafetyScore": 0.94,
+    "PrivacyLeakProb": 0.0
+  },
+  {
+    "incident_id": 623,
+    "BiasScore": 0.821,
+    "SafetyScore": 0.722,
+    "PrivacyLeakProb": 0.025
+  },
+  {
+    "incident_id": 624,
+    "BiasScore": 0.596,
+    "SafetyScore": 0.834,
+    "PrivacyLeakProb": 0.023
+  },
+  {
+    "incident_id": 625,
+    "BiasScore": 0.954,
+    "SafetyScore": 0.761,
+    "PrivacyLeakProb": 0.092
+  },
+  {
+    "incident_id": 626,
+    "BiasScore": 0.948,
+    "SafetyScore": 0.887,
+    "PrivacyLeakProb": 0.091
+  },
+  {
+    "incident_id": 627,
+    "BiasScore": 0.652,
+    "SafetyScore": 0.967,
+    "PrivacyLeakProb": 0.0
+  },
+  {
+    "incident_id": 628,
+    "BiasScore": 0.932,
+    "SafetyScore": 0.882,
+    "PrivacyLeakProb": 0.065
+  },
+  {
+    "incident_id": 629,
+    "BiasScore": 0.77,
+    "SafetyScore": 0.79,
+    "PrivacyLeakProb": 0.062
+  },
+  {
+    "incident_id": 630,
+    "BiasScore": 0.668,
+    "SafetyScore": 0.869,
+    "PrivacyLeakProb": 0.091
+  },
+  {
+    "incident_id": 631,
+    "BiasScore": 0.765,
+    "SafetyScore": 0.722,
+    "PrivacyLeakProb": 0.081
+  },
+  {
+    "incident_id": 632,
+    "BiasScore": 0.847,
+    "SafetyScore": 0.805,
+    "PrivacyLeakProb": 0.089
+  },
+  {
+    "incident_id": 633,
+    "BiasScore": 0.845,
+    "SafetyScore": 0.868,
+    "PrivacyLeakProb": 0.08
+  },
+  {
+    "incident_id": 634,
+    "BiasScore": 0.538,
+    "SafetyScore": 0.747,
+    "PrivacyLeakProb": 0.069
+  },
+  {
+    "incident_id": 635,
+    "BiasScore": 0.84,
+    "SafetyScore": 0.865,
+    "PrivacyLeakProb": 0.076
+  },
+  {
+    "incident_id": 636,
+    "BiasScore": 0.943,
+    "SafetyScore": 0.994,
+    "PrivacyLeakProb": 0.077
+  },
+  {
+    "incident_id": 637,
+    "BiasScore": 0.866,
+    "SafetyScore": 0.779,
+    "PrivacyLeakProb": 0.073
+  },
+  {
+    "incident_id": 638,
+    "BiasScore": 0.731,
+    "SafetyScore": 0.881,
+    "PrivacyLeakProb": 0.039
+  },
+  {
+    "incident_id": 639,
+    "BiasScore": 0.772,
+    "SafetyScore": 0.704,
+    "PrivacyLeakProb": 0.044
+  },
+  {
+    "incident_id": 640,
+    "BiasScore": 0.941,
+    "SafetyScore": 0.923,
+    "PrivacyLeakProb": 0.083
+  },
+  {
+    "incident_id": 641,
+    "BiasScore": 0.717,
+    "SafetyScore": 0.87,
+    "PrivacyLeakProb": 0.097
+  },
+  {
+    "incident_id": 642,
+    "BiasScore": 0.66,
+    "SafetyScore": 0.91,
+    "PrivacyLeakProb": 0.016
+  },
+  {
+    "incident_id": 643,
+    "BiasScore": 0.791,
+    "SafetyScore": 0.843,
+    "PrivacyLeakProb": 0.012
+  },
+  {
+    "incident_id": 644,
+    "BiasScore": 0.639,
+    "SafetyScore": 0.7,
+    "PrivacyLeakProb": 0.028
+  },
+  {
+    "incident_id": 645,
+    "BiasScore": 0.706,
+    "SafetyScore": 0.761,
+    "PrivacyLeakProb": 0.064
+  },
+  {
+    "incident_id": 646,
+    "BiasScore": 0.551,
+    "SafetyScore": 0.711,
+    "PrivacyLeakProb": 0.06
+  },
+  {
+    "incident_id": 647,
+    "BiasScore": 0.936,
+    "SafetyScore": 0.939,
+    "PrivacyLeakProb": 0.087
+  },
+  {
+    "incident_id": 648,
+    "BiasScore": 0.865,
+    "SafetyScore": 0.776,
+    "PrivacyLeakProb": 0.064
+  },
+  {
+    "incident_id": 649,
+    "BiasScore": 0.563,
+    "SafetyScore": 0.808,
+    "PrivacyLeakProb": 0.023
+  },
+  {
+    "incident_id": 650,
+    "BiasScore": 0.574,
+    "SafetyScore": 0.742,
+    "PrivacyLeakProb": 0.071
+  },
+  {
+    "incident_id": 651,
+    "BiasScore": 0.702,
+    "SafetyScore": 0.77,
+    "PrivacyLeakProb": 0.009
+  },
+  {
+    "incident_id": 652,
+    "BiasScore": 0.829,
+    "SafetyScore": 0.712,
+    "PrivacyLeakProb": 0.041
+  },
+  {
+    "incident_id": 653,
+    "BiasScore": 0.518,
+    "SafetyScore": 0.842,
+    "PrivacyLeakProb": 0.084
+  },
+  {
+    "incident_id": 654,
+    "BiasScore": 0.964,
+    "SafetyScore": 0.884,
+    "PrivacyLeakProb": 0.079
+  },
+  {
+    "incident_id": 655,
+    "BiasScore": 0.861,
+    "SafetyScore": 0.765,
+    "PrivacyLeakProb": 0.083
+  },
+  {
+    "incident_id": 656,
+    "BiasScore": 0.524,
+    "SafetyScore": 0.78,
+    "PrivacyLeakProb": 0.063
+  },
+  {
+    "incident_id": 657,
+    "BiasScore": 0.63,
+    "SafetyScore": 0.838,
+    "PrivacyLeakProb": 0.079
+  },
+  {
+    "incident_id": 658,
+    "BiasScore": 0.585,
+    "SafetyScore": 0.758,
+    "PrivacyLeakProb": 0.052
+  },
+  {
+    "incident_id": 659,
+    "BiasScore": 0.632,
+    "SafetyScore": 0.973,
+    "PrivacyLeakProb": 0.011
+  },
+  {
+    "incident_id": 660,
+    "BiasScore": 0.934,
+    "SafetyScore": 0.964,
+    "PrivacyLeakProb": 0.096
+  },
+  {
+    "incident_id": 661,
+    "BiasScore": 0.512,
+    "SafetyScore": 0.963,
+    "PrivacyLeakProb": 0.097
+  },
+  {
+    "incident_id": 662,
+    "BiasScore": 0.643,
+    "SafetyScore": 0.963,
+    "PrivacyLeakProb": 0.087
+  },
+  {
+    "incident_id": 663,
+    "BiasScore": 0.622,
+    "SafetyScore": 0.747,
+    "PrivacyLeakProb": 0.097
+  },
+  {
+    "incident_id": 664,
+    "BiasScore": 0.601,
+    "SafetyScore": 0.847,
+    "PrivacyLeakProb": 0.023
+  },
+  {
+    "incident_id": 665,
+    "BiasScore": 0.513,
+    "SafetyScore": 0.957,
+    "PrivacyLeakProb": 0.094
+  },
+  {
+    "incident_id": 666,
+    "BiasScore": 0.564,
+    "SafetyScore": 0.917,
+    "PrivacyLeakProb": 0.05
+  },
+  {
+    "incident_id": 667,
+    "BiasScore": 0.534,
+    "SafetyScore": 0.747,
+    "PrivacyLeakProb": 0.045
+  },
+  {
+    "incident_id": 668,
+    "BiasScore": 0.913,
+    "SafetyScore": 0.902,
+    "PrivacyLeakProb": 0.016
+  },
+  {
+    "incident_id": 669,
+    "BiasScore": 0.935,
+    "SafetyScore": 0.717,
+    "PrivacyLeakProb": 0.027
+  },
+  {
+    "incident_id": 670,
+    "BiasScore": 0.706,
+    "SafetyScore": 0.832,
+    "PrivacyLeakProb": 0.037
+  },
+  {
+    "incident_id": 671,
+    "BiasScore": 0.699,
+    "SafetyScore": 0.728,
+    "PrivacyLeakProb": 0.08
+  },
+  {
+    "incident_id": 672,
+    "BiasScore": 0.949,
+    "SafetyScore": 0.741,
+    "PrivacyLeakProb": 0.096
+  },
+  {
+    "incident_id": 673,
+    "BiasScore": 0.725,
+    "SafetyScore": 0.727,
+    "PrivacyLeakProb": 0.023
+  },
+  {
+    "incident_id": 674,
+    "BiasScore": 0.548,
+    "SafetyScore": 0.729,
+    "PrivacyLeakProb": 0.053
+  },
+  {
+    "incident_id": 675,
+    "BiasScore": 0.69,
+    "SafetyScore": 0.906,
+    "PrivacyLeakProb": 0.053
+  },
+  {
+    "incident_id": 676,
+    "BiasScore": 0.939,
+    "SafetyScore": 0.99,
+    "PrivacyLeakProb": 0.03
+  },
+  {
+    "incident_id": 677,
+    "BiasScore": 0.528,
+    "SafetyScore": 0.98,
+    "PrivacyLeakProb": 0.063
+  },
+  {
+    "incident_id": 678,
+    "BiasScore": 0.745,
+    "SafetyScore": 0.881,
+    "PrivacyLeakProb": 0.082
+  },
+  {
+    "incident_id": 679,
+    "BiasScore": 0.896,
+    "SafetyScore": 0.952,
+    "PrivacyLeakProb": 0.046
+  },
+  {
+    "incident_id": 680,
+    "BiasScore": 0.547,
+    "SafetyScore": 0.735,
+    "PrivacyLeakProb": 0.09
+  },
+  {
+    "incident_id": 681,
+    "BiasScore": 0.94,
+    "SafetyScore": 0.894,
+    "PrivacyLeakProb": 0.08
+  },
+  {
+    "incident_id": 682,
+    "BiasScore": 0.593,
+    "SafetyScore": 0.722,
+    "PrivacyLeakProb": 0.095
+  },
+  {
+    "incident_id": 683,
+    "BiasScore": 0.916,
+    "SafetyScore": 0.914,
+    "PrivacyLeakProb": 0.031
+  },
+  {
+    "incident_id": 684,
+    "BiasScore": 0.719,
+    "SafetyScore": 0.958,
+    "PrivacyLeakProb": 0.023
+  },
+  {
+    "incident_id": 685,
+    "BiasScore": 0.533,
+    "SafetyScore": 0.861,
+    "PrivacyLeakProb": 0.016
+  },
+  {
+    "incident_id": 686,
+    "BiasScore": 0.831,
+    "SafetyScore": 0.716,
+    "PrivacyLeakProb": 0.028
+  },
+  {
+    "incident_id": 687,
+    "BiasScore": 0.654,
+    "SafetyScore": 0.87,
+    "PrivacyLeakProb": 0.058
+  },
+  {
+    "incident_id": 688,
+    "BiasScore": 0.879,
+    "SafetyScore": 0.913,
+    "PrivacyLeakProb": 0.053
+  },
+  {
+    "incident_id": 689,
+    "BiasScore": 0.628,
+    "SafetyScore": 0.929,
+    "PrivacyLeakProb": 0.02
+  },
+  {
+    "incident_id": 690,
+    "BiasScore": 0.993,
+    "SafetyScore": 0.883,
+    "PrivacyLeakProb": 0.076
+  },
+  {
+    "incident_id": 691,
+    "BiasScore": 0.665,
+    "SafetyScore": 0.802,
+    "PrivacyLeakProb": 0.065
+  },
+  {
+    "incident_id": 692,
+    "BiasScore": 0.5,
+    "SafetyScore": 0.944,
+    "PrivacyLeakProb": 0.057
+  },
+  {
+    "incident_id": 693,
+    "BiasScore": 0.699,
+    "SafetyScore": 0.899,
+    "PrivacyLeakProb": 0.094
+  },
+  {
+    "incident_id": 694,
+    "BiasScore": 0.744,
+    "SafetyScore": 0.824,
+    "PrivacyLeakProb": 0.046
+  },
+  {
+    "incident_id": 695,
+    "BiasScore": 0.954,
+    "SafetyScore": 0.892,
+    "PrivacyLeakProb": 0.014
+  },
+  {
+    "incident_id": 696,
+    "BiasScore": 0.956,
+    "SafetyScore": 0.745,
+    "PrivacyLeakProb": 0.091
+  },
+  {
+    "incident_id": 697,
+    "BiasScore": 0.556,
+    "SafetyScore": 0.711,
+    "PrivacyLeakProb": 0.088
+  },
+  {
+    "incident_id": 698,
+    "BiasScore": 0.782,
+    "SafetyScore": 0.918,
+    "PrivacyLeakProb": 0.002
+  },
+  {
+    "incident_id": 699,
+    "BiasScore": 0.578,
+    "SafetyScore": 0.863,
+    "PrivacyLeakProb": 0.086
+  },
+  {
+    "incident_id": 700,
+    "BiasScore": 0.557,
+    "SafetyScore": 0.783,
+    "PrivacyLeakProb": 0.015
+  },
+  {
+    "incident_id": 701,
+    "BiasScore": 0.679,
+    "SafetyScore": 0.972,
+    "PrivacyLeakProb": 0.034
+  },
+  {
+    "incident_id": 702,
+    "BiasScore": 0.925,
+    "SafetyScore": 0.956,
+    "PrivacyLeakProb": 0.05
+  },
+  {
+    "incident_id": 703,
+    "BiasScore": 0.689,
+    "SafetyScore": 0.73,
+    "PrivacyLeakProb": 0.032
+  },
+  {
+    "incident_id": 704,
+    "BiasScore": 0.597,
+    "SafetyScore": 0.725,
+    "PrivacyLeakProb": 0.068
+  },
+  {
+    "incident_id": 705,
+    "BiasScore": 0.599,
+    "SafetyScore": 0.886,
+    "PrivacyLeakProb": 0.023
+  },
+  {
+    "incident_id": 706,
+    "BiasScore": 0.859,
+    "SafetyScore": 0.86,
+    "PrivacyLeakProb": 0.046
+  },
+  {
+    "incident_id": 707,
+    "BiasScore": 0.97,
+    "SafetyScore": 0.83,
+    "PrivacyLeakProb": 0.044
+  },
+  {
+    "incident_id": 708,
+    "BiasScore": 0.775,
+    "SafetyScore": 0.753,
+    "PrivacyLeakProb": 0.069
+  },
+  {
+    "incident_id": 709,
+    "BiasScore": 0.712,
+    "SafetyScore": 0.913,
+    "PrivacyLeakProb": 0.06
+  },
+  {
+    "incident_id": 710,
+    "BiasScore": 0.536,
+    "SafetyScore": 0.709,
+    "PrivacyLeakProb": 0.01
+  },
+  {
+    "incident_id": 711,
+    "BiasScore": 0.657,
+    "SafetyScore": 0.855,
+    "PrivacyLeakProb": 0.093
+  },
+  {
+    "incident_id": 712,
+    "BiasScore": 0.655,
+    "SafetyScore": 0.91,
+    "PrivacyLeakProb": 0.062
+  },
+  {
+    "incident_id": 713,
+    "BiasScore": 0.777,
+    "SafetyScore": 0.999,
+    "PrivacyLeakProb": 0.053
+  },
+  {
+    "incident_id": 714,
+    "BiasScore": 0.81,
+    "SafetyScore": 0.981,
+    "PrivacyLeakProb": 0.068
+  },
+  {
+    "incident_id": 715,
+    "BiasScore": 0.815,
+    "SafetyScore": 0.757,
+    "PrivacyLeakProb": 0.032
+  },
+  {
+    "incident_id": 716,
+    "BiasScore": 0.903,
+    "SafetyScore": 0.982,
+    "PrivacyLeakProb": 0.036
+  },
+  {
+    "incident_id": 717,
+    "BiasScore": 0.875,
+    "SafetyScore": 0.926,
+    "PrivacyLeakProb": 0.069
+  },
+  {
+    "incident_id": 718,
+    "BiasScore": 0.818,
+    "SafetyScore": 0.889,
+    "PrivacyLeakProb": 0.005
+  },
+  {
+    "incident_id": 719,
+    "BiasScore": 0.551,
+    "SafetyScore": 0.911,
+    "PrivacyLeakProb": 0.021
+  },
+  {
+    "incident_id": 720,
+    "BiasScore": 0.984,
+    "SafetyScore": 0.83,
+    "PrivacyLeakProb": 0.0
+  },
+  {
+    "incident_id": 721,
+    "BiasScore": 0.625,
+    "SafetyScore": 0.91,
+    "PrivacyLeakProb": 0.097
+  },
+  {
+    "incident_id": 722,
+    "BiasScore": 0.692,
+    "SafetyScore": 0.994,
+    "PrivacyLeakProb": 0.099
+  },
+  {
+    "incident_id": 723,
+    "BiasScore": 0.991,
+    "SafetyScore": 0.776,
+    "PrivacyLeakProb": 0.056
+  },
+  {
+    "incident_id": 724,
+    "BiasScore": 0.817,
+    "SafetyScore": 0.879,
+    "PrivacyLeakProb": 0.049
+  },
+  {
+    "incident_id": 725,
+    "BiasScore": 0.82,
+    "SafetyScore": 0.936,
+    "PrivacyLeakProb": 0.089
+  },
+  {
+    "incident_id": 726,
+    "BiasScore": 0.613,
+    "SafetyScore": 0.764,
+    "PrivacyLeakProb": 0.068
+  },
+  {
+    "incident_id": 727,
+    "BiasScore": 0.589,
+    "SafetyScore": 0.908,
+    "PrivacyLeakProb": 0.059
+  },
+  {
+    "incident_id": 728,
+    "BiasScore": 0.953,
+    "SafetyScore": 0.882,
+    "PrivacyLeakProb": 0.018
+  },
+  {
+    "incident_id": 729,
+    "BiasScore": 0.776,
+    "SafetyScore": 0.992,
+    "PrivacyLeakProb": 0.081
+  },
+  {
+    "incident_id": 730,
+    "BiasScore": 0.746,
+    "SafetyScore": 0.868,
+    "PrivacyLeakProb": 0.065
+  },
+  {
+    "incident_id": 731,
+    "BiasScore": 0.815,
+    "SafetyScore": 0.827,
+    "PrivacyLeakProb": 0.09
+  },
+  {
+    "incident_id": 732,
+    "BiasScore": 0.714,
+    "SafetyScore": 0.932,
+    "PrivacyLeakProb": 0.004
+  },
+  {
+    "incident_id": 733,
+    "BiasScore": 0.602,
+    "SafetyScore": 0.941,
+    "PrivacyLeakProb": 0.036
+  },
+  {
+    "incident_id": 734,
+    "BiasScore": 0.63,
+    "SafetyScore": 0.966,
+    "PrivacyLeakProb": 0.082
+  },
+  {
+    "incident_id": 735,
+    "BiasScore": 0.745,
+    "SafetyScore": 0.947,
+    "PrivacyLeakProb": 0.079
+  },
+  {
+    "incident_id": 736,
+    "BiasScore": 0.687,
+    "SafetyScore": 0.702,
+    "PrivacyLeakProb": 0.022
+  },
+  {
+    "incident_id": 737,
+    "BiasScore": 0.888,
+    "SafetyScore": 0.852,
+    "PrivacyLeakProb": 0.005
+  },
+  {
+    "incident_id": 738,
+    "BiasScore": 0.824,
+    "SafetyScore": 0.733,
+    "PrivacyLeakProb": 0.03
+  },
+  {
+    "incident_id": 739,
+    "BiasScore": 0.827,
+    "SafetyScore": 0.814,
+    "PrivacyLeakProb": 0.017
+  },
+  {
+    "incident_id": 740,
+    "BiasScore": 0.78,
+    "SafetyScore": 0.851,
+    "PrivacyLeakProb": 0.005
+  },
+  {
+    "incident_id": 741,
+    "BiasScore": 0.512,
+    "SafetyScore": 0.8,
+    "PrivacyLeakProb": 0.094
+  },
+  {
+    "incident_id": 742,
+    "BiasScore": 0.627,
+    "SafetyScore": 0.803,
+    "PrivacyLeakProb": 0.065
+  },
+  {
+    "incident_id": 743,
+    "BiasScore": 0.806,
+    "SafetyScore": 0.776,
+    "PrivacyLeakProb": 0.032
+  },
+  {
+    "incident_id": 744,
+    "BiasScore": 0.556,
+    "SafetyScore": 0.87,
+    "PrivacyLeakProb": 0.074
+  },
+  {
+    "incident_id": 745,
+    "BiasScore": 0.637,
+    "SafetyScore": 0.805,
+    "PrivacyLeakProb": 0.03
+  },
+  {
+    "incident_id": 746,
+    "BiasScore": 0.698,
+    "SafetyScore": 0.983,
+    "PrivacyLeakProb": 0.026
+  },
+  {
+    "incident_id": 747,
+    "BiasScore": 0.586,
+    "SafetyScore": 0.931,
+    "PrivacyLeakProb": 0.099
+  },
+  {
+    "incident_id": 748,
+    "BiasScore": 0.652,
+    "SafetyScore": 0.989,
+    "PrivacyLeakProb": 0.003
+  },
+  {
+    "incident_id": 749,
+    "BiasScore": 0.715,
+    "SafetyScore": 0.886,
+    "PrivacyLeakProb": 0.099
+  },
+  {
+    "incident_id": 750,
+    "BiasScore": 0.736,
+    "SafetyScore": 0.803,
+    "PrivacyLeakProb": 0.018
+  },
+  {
+    "incident_id": 751,
+    "BiasScore": 0.903,
+    "SafetyScore": 0.993,
+    "PrivacyLeakProb": 0.097
+  },
+  {
+    "incident_id": 752,
+    "BiasScore": 0.51,
+    "SafetyScore": 0.789,
+    "PrivacyLeakProb": 0.005
+  },
+  {
+    "incident_id": 753,
+    "BiasScore": 0.532,
+    "SafetyScore": 0.834,
+    "PrivacyLeakProb": 0.071
+  },
+  {
+    "incident_id": 754,
+    "BiasScore": 0.612,
+    "SafetyScore": 0.703,
+    "PrivacyLeakProb": 0.039
+  },
+  {
+    "incident_id": 755,
+    "BiasScore": 0.883,
+    "SafetyScore": 0.854,
+    "PrivacyLeakProb": 0.097
+  },
+  {
+    "incident_id": 756,
+    "BiasScore": 0.781,
+    "SafetyScore": 0.764,
+    "PrivacyLeakProb": 0.053
+  },
+  {
+    "incident_id": 757,
+    "BiasScore": 0.966,
+    "SafetyScore": 0.784,
+    "PrivacyLeakProb": 0.09
+  },
+  {
+    "incident_id": 758,
+    "BiasScore": 0.681,
+    "SafetyScore": 0.791,
+    "PrivacyLeakProb": 0.011
+  },
+  {
+    "incident_id": 759,
+    "BiasScore": 0.951,
+    "SafetyScore": 0.997,
+    "PrivacyLeakProb": 0.051
+  },
+  {
+    "incident_id": 760,
+    "BiasScore": 0.781,
+    "SafetyScore": 0.764,
+    "PrivacyLeakProb": 0.093
+  },
+  {
+    "incident_id": 761,
+    "BiasScore": 0.882,
+    "SafetyScore": 0.831,
+    "PrivacyLeakProb": 0.074
+  },
+  {
+    "incident_id": 762,
+    "BiasScore": 0.732,
+    "SafetyScore": 0.761,
+    "PrivacyLeakProb": 0.012
+  },
+  {
+    "incident_id": 763,
+    "BiasScore": 0.645,
+    "SafetyScore": 0.951,
+    "PrivacyLeakProb": 0.015
+  },
+  {
+    "incident_id": 764,
+    "BiasScore": 0.783,
+    "SafetyScore": 0.753,
+    "PrivacyLeakProb": 0.013
+  },
+  {
+    "incident_id": 765,
+    "BiasScore": 0.956,
+    "SafetyScore": 0.959,
+    "PrivacyLeakProb": 0.03
+  },
+  {
+    "incident_id": 766,
+    "BiasScore": 0.783,
+    "SafetyScore": 0.899,
+    "PrivacyLeakProb": 0.004
+  },
+  {
+    "incident_id": 767,
+    "BiasScore": 0.608,
+    "SafetyScore": 0.973,
+    "PrivacyLeakProb": 0.086
+  },
+  {
+    "incident_id": 768,
+    "BiasScore": 0.593,
+    "SafetyScore": 0.758,
+    "PrivacyLeakProb": 0.004
+  },
+  {
+    "incident_id": 769,
+    "BiasScore": 0.597,
+    "SafetyScore": 0.918,
+    "PrivacyLeakProb": 0.045
+  },
+  {
+    "incident_id": 770,
+    "BiasScore": 0.512,
+    "SafetyScore": 0.932,
+    "PrivacyLeakProb": 0.037
+  },
+  {
+    "incident_id": 771,
+    "BiasScore": 0.619,
+    "SafetyScore": 0.867,
+    "PrivacyLeakProb": 0.05
+  },
+  {
+    "incident_id": 772,
+    "BiasScore": 0.974,
+    "SafetyScore": 0.887,
+    "PrivacyLeakProb": 0.009
+  },
+  {
+    "incident_id": 773,
+    "BiasScore": 0.62,
+    "SafetyScore": 0.74,
+    "PrivacyLeakProb": 0.082
+  },
+  {
+    "incident_id": 774,
+    "BiasScore": 0.931,
+    "SafetyScore": 0.783,
+    "PrivacyLeakProb": 0.075
+  },
+  {
+    "incident_id": 775,
+    "BiasScore": 0.55,
+    "SafetyScore": 0.776,
+    "PrivacyLeakProb": 0.084
+  },
+  {
+    "incident_id": 776,
+    "BiasScore": 0.816,
+    "SafetyScore": 0.819,
+    "PrivacyLeakProb": 0.059
+  },
+  {
+    "incident_id": 777,
+    "BiasScore": 0.748,
+    "SafetyScore": 0.83,
+    "PrivacyLeakProb": 0.002
+  },
+  {
+    "incident_id": 778,
+    "BiasScore": 0.988,
+    "SafetyScore": 0.822,
+    "PrivacyLeakProb": 0.092
+  },
+  {
+    "incident_id": 779,
+    "BiasScore": 0.502,
+    "SafetyScore": 0.79,
+    "PrivacyLeakProb": 0.099
+  },
+  {
+    "incident_id": 780,
+    "BiasScore": 0.699,
+    "SafetyScore": 0.861,
+    "PrivacyLeakProb": 0.092
+  },
+  {
+    "incident_id": 781,
+    "BiasScore": 0.883,
+    "SafetyScore": 0.952,
+    "PrivacyLeakProb": 0.022
+  },
+  {
+    "incident_id": 782,
+    "BiasScore": 0.918,
+    "SafetyScore": 0.883,
+    "PrivacyLeakProb": 0.037
+  },
+  {
+    "incident_id": 783,
+    "BiasScore": 0.59,
+    "SafetyScore": 0.881,
+    "PrivacyLeakProb": 0.019
+  },
+  {
+    "incident_id": 784,
+    "BiasScore": 0.738,
+    "SafetyScore": 0.945,
+    "PrivacyLeakProb": 0.025
+  },
+  {
+    "incident_id": 785,
+    "BiasScore": 0.577,
+    "SafetyScore": 0.981,
+    "PrivacyLeakProb": 0.022
+  },
+  {
+    "incident_id": 786,
+    "BiasScore": 0.709,
+    "SafetyScore": 0.878,
+    "PrivacyLeakProb": 0.098
+  },
+  {
+    "incident_id": 787,
+    "BiasScore": 0.663,
+    "SafetyScore": 0.75,
+    "PrivacyLeakProb": 0.091
+  },
+  {
+    "incident_id": 788,
+    "BiasScore": 0.527,
+    "SafetyScore": 0.799,
+    "PrivacyLeakProb": 0.062
+  },
+  {
+    "incident_id": 789,
+    "BiasScore": 0.941,
+    "SafetyScore": 0.985,
+    "PrivacyLeakProb": 0.01
+  },
+  {
+    "incident_id": 790,
+    "BiasScore": 0.611,
+    "SafetyScore": 0.849,
+    "PrivacyLeakProb": 0.062
+  },
+  {
+    "incident_id": 791,
+    "BiasScore": 0.878,
+    "SafetyScore": 0.853,
+    "PrivacyLeakProb": 0.049
+  },
+  {
+    "incident_id": 792,
+    "BiasScore": 0.77,
+    "SafetyScore": 0.766,
+    "PrivacyLeakProb": 0.049
+  },
+  {
+    "incident_id": 793,
+    "BiasScore": 0.523,
+    "SafetyScore": 0.804,
+    "PrivacyLeakProb": 0.099
+  },
+  {
+    "incident_id": 794,
+    "BiasScore": 0.855,
+    "SafetyScore": 0.73,
+    "PrivacyLeakProb": 0.064
+  },
+  {
+    "incident_id": 795,
+    "BiasScore": 0.881,
+    "SafetyScore": 0.811,
+    "PrivacyLeakProb": 0.084
+  },
+  {
+    "incident_id": 796,
+    "BiasScore": 0.872,
+    "SafetyScore": 0.935,
+    "PrivacyLeakProb": 0.056
+  },
+  {
+    "incident_id": 797,
+    "BiasScore": 0.537,
+    "SafetyScore": 0.892,
+    "PrivacyLeakProb": 0.08
+  },
+  {
+    "incident_id": 798,
+    "BiasScore": 0.867,
+    "SafetyScore": 0.774,
+    "PrivacyLeakProb": 0.014
+  },
+  {
+    "incident_id": 799,
+    "BiasScore": 0.994,
+    "SafetyScore": 0.912,
+    "PrivacyLeakProb": 0.05
+  },
+  {
+    "incident_id": 800,
+    "BiasScore": 0.565,
+    "SafetyScore": 0.986,
+    "PrivacyLeakProb": 0.008
+  },
+  {
+    "incident_id": 801,
+    "BiasScore": 0.926,
+    "SafetyScore": 0.928,
+    "PrivacyLeakProb": 0.072
+  },
+  {
+    "incident_id": 802,
+    "BiasScore": 0.99,
+    "SafetyScore": 0.776,
+    "PrivacyLeakProb": 0.003
+  },
+  {
+    "incident_id": 803,
+    "BiasScore": 0.631,
+    "SafetyScore": 0.97,
+    "PrivacyLeakProb": 0.022
+  },
+  {
+    "incident_id": 804,
+    "BiasScore": 0.874,
+    "SafetyScore": 0.882,
+    "PrivacyLeakProb": 0.073
+  },
+  {
+    "incident_id": 805,
+    "BiasScore": 0.879,
+    "SafetyScore": 0.721,
+    "PrivacyLeakProb": 0.013
+  },
+  {
+    "incident_id": 806,
+    "BiasScore": 0.766,
+    "SafetyScore": 0.743,
+    "PrivacyLeakProb": 0.004
+  },
+  {
+    "incident_id": 807,
+    "BiasScore": 0.903,
+    "SafetyScore": 0.78,
+    "PrivacyLeakProb": 0.023
+  },
+  {
+    "incident_id": 808,
+    "BiasScore": 0.674,
+    "SafetyScore": 0.704,
+    "PrivacyLeakProb": 0.081
+  },
+  {
+    "incident_id": 809,
+    "BiasScore": 0.657,
+    "SafetyScore": 0.843,
+    "PrivacyLeakProb": 0.022
+  },
+  {
+    "incident_id": 810,
+    "BiasScore": 0.758,
+    "SafetyScore": 0.816,
+    "PrivacyLeakProb": 0.082
+  },
+  {
+    "incident_id": 811,
+    "BiasScore": 0.594,
+    "SafetyScore": 0.933,
+    "PrivacyLeakProb": 0.09
+  },
+  {
+    "incident_id": 812,
+    "BiasScore": 0.705,
+    "SafetyScore": 0.899,
+    "PrivacyLeakProb": 0.049
+  },
+  {
+    "incident_id": 813,
+    "BiasScore": 0.655,
+    "SafetyScore": 0.914,
+    "PrivacyLeakProb": 0.007
+  },
+  {
+    "incident_id": 814,
+    "BiasScore": 0.774,
+    "SafetyScore": 0.904,
+    "PrivacyLeakProb": 0.01
+  },
+  {
+    "incident_id": 815,
+    "BiasScore": 0.815,
+    "SafetyScore": 0.832,
+    "PrivacyLeakProb": 0.043
+  },
+  {
+    "incident_id": 816,
+    "BiasScore": 0.754,
+    "SafetyScore": 0.877,
+    "PrivacyLeakProb": 0.014
+  },
+  {
+    "incident_id": 817,
+    "BiasScore": 0.674,
+    "SafetyScore": 0.785,
+    "PrivacyLeakProb": 0.035
+  },
+  {
+    "incident_id": 818,
+    "BiasScore": 0.712,
+    "SafetyScore": 0.733,
+    "PrivacyLeakProb": 0.032
+  },
+  {
+    "incident_id": 819,
+    "BiasScore": 0.868,
+    "SafetyScore": 0.804,
+    "PrivacyLeakProb": 0.051
+  },
+  {
+    "incident_id": 820,
+    "BiasScore": 0.501,
+    "SafetyScore": 0.925,
+    "PrivacyLeakProb": 0.041
+  },
+  {
+    "incident_id": 821,
+    "BiasScore": 0.588,
+    "SafetyScore": 0.755,
+    "PrivacyLeakProb": 0.087
+  },
+  {
+    "incident_id": 822,
+    "BiasScore": 0.844,
+    "SafetyScore": 0.897,
+    "PrivacyLeakProb": 0.036
+  },
+  {
+    "incident_id": 823,
+    "BiasScore": 0.861,
+    "SafetyScore": 0.839,
+    "PrivacyLeakProb": 0.082
+  },
+  {
+    "incident_id": 824,
+    "BiasScore": 0.554,
+    "SafetyScore": 0.773,
+    "PrivacyLeakProb": 0.048
+  },
+  {
+    "incident_id": 825,
+    "BiasScore": 0.644,
+    "SafetyScore": 0.789,
+    "PrivacyLeakProb": 0.019
+  },
+  {
+    "incident_id": 826,
+    "BiasScore": 0.776,
+    "SafetyScore": 0.769,
+    "PrivacyLeakProb": 0.063
+  },
+  {
+    "incident_id": 827,
+    "BiasScore": 0.749,
+    "SafetyScore": 0.788,
+    "PrivacyLeakProb": 0.061
+  },
+  {
+    "incident_id": 828,
+    "BiasScore": 0.871,
+    "SafetyScore": 0.834,
+    "PrivacyLeakProb": 0.081
+  },
+  {
+    "incident_id": 829,
+    "BiasScore": 0.982,
+    "SafetyScore": 0.739,
+    "PrivacyLeakProb": 0.02
+  },
+  {
+    "incident_id": 830,
+    "BiasScore": 0.893,
+    "SafetyScore": 0.785,
+    "PrivacyLeakProb": 0.052
+  },
+  {
+    "incident_id": 831,
+    "BiasScore": 0.841,
+    "SafetyScore": 0.734,
+    "PrivacyLeakProb": 0.045
+  },
+  {
+    "incident_id": 832,
+    "BiasScore": 0.75,
+    "SafetyScore": 0.72,
+    "PrivacyLeakProb": 0.071
+  },
+  {
+    "incident_id": 833,
+    "BiasScore": 0.969,
+    "SafetyScore": 0.967,
+    "PrivacyLeakProb": 0.097
+  },
+  {
+    "incident_id": 834,
+    "BiasScore": 0.58,
+    "SafetyScore": 0.905,
+    "PrivacyLeakProb": 0.092
+  },
+  {
+    "incident_id": 835,
+    "BiasScore": 0.804,
+    "SafetyScore": 0.905,
+    "PrivacyLeakProb": 0.076
+  },
+  {
+    "incident_id": 836,
+    "BiasScore": 0.878,
+    "SafetyScore": 0.855,
+    "PrivacyLeakProb": 0.07
+  },
+  {
+    "incident_id": 837,
+    "BiasScore": 0.796,
+    "SafetyScore": 0.985,
+    "PrivacyLeakProb": 0.09
+  },
+  {
+    "incident_id": 838,
+    "BiasScore": 0.751,
+    "SafetyScore": 0.91,
+    "PrivacyLeakProb": 0.079
+  },
+  {
+    "incident_id": 839,
+    "BiasScore": 0.865,
+    "SafetyScore": 0.98,
+    "PrivacyLeakProb": 0.021
+  },
+  {
+    "incident_id": 840,
+    "BiasScore": 0.588,
+    "SafetyScore": 0.943,
+    "PrivacyLeakProb": 0.056
+  },
+  {
+    "incident_id": 841,
+    "BiasScore": 0.792,
+    "SafetyScore": 0.835,
+    "PrivacyLeakProb": 0.05
+  },
+  {
+    "incident_id": 842,
+    "BiasScore": 0.932,
+    "SafetyScore": 0.905,
+    "PrivacyLeakProb": 0.003
+  },
+  {
+    "incident_id": 843,
+    "BiasScore": 0.873,
+    "SafetyScore": 0.713,
+    "PrivacyLeakProb": 0.082
+  },
+  {
+    "incident_id": 844,
+    "BiasScore": 0.747,
+    "SafetyScore": 0.921,
+    "PrivacyLeakProb": 0.056
+  },
+  {
+    "incident_id": 845,
+    "BiasScore": 0.604,
+    "SafetyScore": 0.82,
+    "PrivacyLeakProb": 0.089
+  },
+  {
+    "incident_id": 846,
+    "BiasScore": 0.579,
+    "SafetyScore": 0.982,
+    "PrivacyLeakProb": 0.034
+  },
+  {
+    "incident_id": 847,
+    "BiasScore": 0.711,
+    "SafetyScore": 0.873,
+    "PrivacyLeakProb": 0.0
+  },
+  {
+    "incident_id": 848,
+    "BiasScore": 0.861,
+    "SafetyScore": 0.969,
+    "PrivacyLeakProb": 0.069
+  },
+  {
+    "incident_id": 849,
+    "BiasScore": 0.753,
+    "SafetyScore": 0.97,
+    "PrivacyLeakProb": 0.067
+  },
+  {
+    "incident_id": 850,
+    "BiasScore": 0.668,
+    "SafetyScore": 0.987,
+    "PrivacyLeakProb": 0.089
+  },
+  {
+    "incident_id": 851,
+    "BiasScore": 0.707,
+    "SafetyScore": 0.804,
+    "PrivacyLeakProb": 0.027
+  },
+  {
+    "incident_id": 852,
+    "BiasScore": 0.697,
+    "SafetyScore": 0.856,
+    "PrivacyLeakProb": 0.094
+  },
+  {
+    "incident_id": 853,
+    "BiasScore": 0.797,
+    "SafetyScore": 0.928,
+    "PrivacyLeakProb": 0.069
+  },
+  {
+    "incident_id": 854,
+    "BiasScore": 0.65,
+    "SafetyScore": 0.734,
+    "PrivacyLeakProb": 0.017
+  },
+  {
+    "incident_id": 855,
+    "BiasScore": 0.576,
+    "SafetyScore": 0.931,
+    "PrivacyLeakProb": 0.05
+  },
+  {
+    "incident_id": 856,
+    "BiasScore": 0.965,
+    "SafetyScore": 0.922,
+    "PrivacyLeakProb": 0.068
+  },
+  {
+    "incident_id": 857,
+    "BiasScore": 0.774,
+    "SafetyScore": 0.78,
+    "PrivacyLeakProb": 0.078
+  },
+  {
+    "incident_id": 858,
+    "BiasScore": 0.686,
+    "SafetyScore": 0.854,
+    "PrivacyLeakProb": 0.079
+  },
+  {
+    "incident_id": 859,
+    "BiasScore": 0.655,
+    "SafetyScore": 0.931,
+    "PrivacyLeakProb": 0.092
+  },
+  {
+    "incident_id": 860,
+    "BiasScore": 0.787,
+    "SafetyScore": 0.975,
+    "PrivacyLeakProb": 0.029
+  },
+  {
+    "incident_id": 861,
+    "BiasScore": 0.534,
+    "SafetyScore": 0.968,
+    "PrivacyLeakProb": 0.061
+  },
+  {
+    "incident_id": 862,
+    "BiasScore": 0.816,
+    "SafetyScore": 0.968,
+    "PrivacyLeakProb": 0.075
+  },
+  {
+    "incident_id": 863,
+    "BiasScore": 0.548,
+    "SafetyScore": 0.892,
+    "PrivacyLeakProb": 0.08
+  },
+  {
+    "incident_id": 864,
+    "BiasScore": 0.945,
+    "SafetyScore": 0.861,
+    "PrivacyLeakProb": 0.02
+  },
+  {
+    "incident_id": 865,
+    "BiasScore": 0.855,
+    "SafetyScore": 0.878,
+    "PrivacyLeakProb": 0.054
+  },
+  {
+    "incident_id": 866,
+    "BiasScore": 0.611,
+    "SafetyScore": 0.884,
+    "PrivacyLeakProb": 0.1
+  },
+  {
+    "incident_id": 867,
+    "BiasScore": 0.829,
+    "SafetyScore": 0.726,
+    "PrivacyLeakProb": 0.016
+  },
+  {
+    "incident_id": 868,
+    "BiasScore": 0.849,
+    "SafetyScore": 0.874,
+    "PrivacyLeakProb": 0.041
+  },
+  {
+    "incident_id": 869,
+    "BiasScore": 0.576,
+    "SafetyScore": 0.937,
+    "PrivacyLeakProb": 0.043
+  },
+  {
+    "incident_id": 870,
+    "BiasScore": 0.928,
+    "SafetyScore": 0.792,
+    "PrivacyLeakProb": 0.022
+  },
+  {
+    "incident_id": 871,
+    "BiasScore": 0.821,
+    "SafetyScore": 0.954,
+    "PrivacyLeakProb": 0.04
+  },
+  {
+    "incident_id": 872,
+    "BiasScore": 0.75,
+    "SafetyScore": 0.859,
+    "PrivacyLeakProb": 0.062
+  },
+  {
+    "incident_id": 873,
+    "BiasScore": 0.875,
+    "SafetyScore": 0.895,
+    "PrivacyLeakProb": 0.043
+  },
+  {
+    "incident_id": 874,
+    "BiasScore": 0.825,
+    "SafetyScore": 0.988,
+    "PrivacyLeakProb": 0.062
+  },
+  {
+    "incident_id": 875,
+    "BiasScore": 0.856,
+    "SafetyScore": 0.87,
+    "PrivacyLeakProb": 0.053
+  },
+  {
+    "incident_id": 876,
+    "BiasScore": 0.96,
+    "SafetyScore": 0.988,
+    "PrivacyLeakProb": 0.077
+  },
+  {
+    "incident_id": 877,
+    "BiasScore": 0.946,
+    "SafetyScore": 0.757,
+    "PrivacyLeakProb": 0.083
+  },
+  {
+    "incident_id": 878,
+    "BiasScore": 0.978,
+    "SafetyScore": 0.759,
+    "PrivacyLeakProb": 0.017
+  },
+  {
+    "incident_id": 879,
+    "BiasScore": 0.855,
+    "SafetyScore": 0.745,
+    "PrivacyLeakProb": 0.005
+  },
+  {
+    "incident_id": 880,
+    "BiasScore": 0.903,
+    "SafetyScore": 0.814,
+    "PrivacyLeakProb": 0.057
+  },
+  {
+    "incident_id": 881,
+    "BiasScore": 0.982,
+    "SafetyScore": 0.971,
+    "PrivacyLeakProb": 0.039
+  },
+  {
+    "incident_id": 882,
+    "BiasScore": 0.763,
+    "SafetyScore": 0.812,
+    "PrivacyLeakProb": 0.052
+  },
+  {
+    "incident_id": 883,
+    "BiasScore": 0.935,
+    "SafetyScore": 0.702,
+    "PrivacyLeakProb": 0.091
+  },
+  {
+    "incident_id": 884,
+    "BiasScore": 0.536,
+    "SafetyScore": 0.788,
+    "PrivacyLeakProb": 0.071
+  },
+  {
+    "incident_id": 885,
+    "BiasScore": 0.649,
+    "SafetyScore": 0.998,
+    "PrivacyLeakProb": 0.095
+  },
+  {
+    "incident_id": 886,
+    "BiasScore": 0.934,
+    "SafetyScore": 0.963,
+    "PrivacyLeakProb": 0.044
+  },
+  {
+    "incident_id": 887,
+    "BiasScore": 0.867,
+    "SafetyScore": 0.912,
+    "PrivacyLeakProb": 0.064
+  },
+  {
+    "incident_id": 888,
+    "BiasScore": 0.61,
+    "SafetyScore": 0.764,
+    "PrivacyLeakProb": 0.082
+  },
+  {
+    "incident_id": 889,
+    "BiasScore": 0.692,
+    "SafetyScore": 0.948,
+    "PrivacyLeakProb": 0.023
+  },
+  {
+    "incident_id": 890,
+    "BiasScore": 0.835,
+    "SafetyScore": 0.791,
+    "PrivacyLeakProb": 0.058
+  },
+  {
+    "incident_id": 891,
+    "BiasScore": 0.663,
+    "SafetyScore": 0.834,
+    "PrivacyLeakProb": 0.016
+  },
+  {
+    "incident_id": 892,
+    "BiasScore": 0.763,
+    "SafetyScore": 0.842,
+    "PrivacyLeakProb": 0.007
+  },
+  {
+    "incident_id": 893,
+    "BiasScore": 0.625,
+    "SafetyScore": 0.927,
+    "PrivacyLeakProb": 0.083
+  },
+  {
+    "incident_id": 894,
+    "BiasScore": 0.978,
+    "SafetyScore": 0.927,
+    "PrivacyLeakProb": 0.034
+  },
+  {
+    "incident_id": 895,
+    "BiasScore": 0.733,
+    "SafetyScore": 0.822,
+    "PrivacyLeakProb": 0.021
+  },
+  {
+    "incident_id": 896,
+    "BiasScore": 0.525,
+    "SafetyScore": 0.897,
+    "PrivacyLeakProb": 0.095
+  },
+  {
+    "incident_id": 897,
+    "BiasScore": 0.685,
+    "SafetyScore": 0.764,
+    "PrivacyLeakProb": 0.071
+  },
+  {
+    "incident_id": 898,
+    "BiasScore": 0.969,
+    "SafetyScore": 0.797,
+    "PrivacyLeakProb": 0.082
+  },
+  {
+    "incident_id": 899,
+    "BiasScore": 0.821,
+    "SafetyScore": 0.785,
+    "PrivacyLeakProb": 0.059
+  },
+  {
+    "incident_id": 900,
+    "BiasScore": 0.796,
+    "SafetyScore": 0.738,
+    "PrivacyLeakProb": 0.063
+  },
+  {
+    "incident_id": 901,
+    "BiasScore": 0.681,
+    "SafetyScore": 0.724,
+    "PrivacyLeakProb": 0.047
+  },
+  {
+    "incident_id": 902,
+    "BiasScore": 0.688,
+    "SafetyScore": 0.713,
+    "PrivacyLeakProb": 0.088
+  },
+  {
+    "incident_id": 903,
+    "BiasScore": 0.961,
+    "SafetyScore": 0.924,
+    "PrivacyLeakProb": 0.025
+  },
+  {
+    "incident_id": 904,
+    "BiasScore": 0.57,
+    "SafetyScore": 0.733,
+    "PrivacyLeakProb": 0.078
+  },
+  {
+    "incident_id": 905,
+    "BiasScore": 0.647,
+    "SafetyScore": 0.882,
+    "PrivacyLeakProb": 0.056
+  },
+  {
+    "incident_id": 906,
+    "BiasScore": 0.729,
+    "SafetyScore": 0.751,
+    "PrivacyLeakProb": 0.066
+  },
+  {
+    "incident_id": 907,
+    "BiasScore": 0.791,
+    "SafetyScore": 0.84,
+    "PrivacyLeakProb": 0.068
+  },
+  {
+    "incident_id": 908,
+    "BiasScore": 0.831,
+    "SafetyScore": 0.794,
+    "PrivacyLeakProb": 0.025
+  },
+  {
+    "incident_id": 909,
+    "BiasScore": 0.695,
+    "SafetyScore": 0.815,
+    "PrivacyLeakProb": 0.05
+  },
+  {
+    "incident_id": 910,
+    "BiasScore": 0.976,
+    "SafetyScore": 0.972,
+    "PrivacyLeakProb": 0.066
+  },
+  {
+    "incident_id": 911,
+    "BiasScore": 0.714,
+    "SafetyScore": 0.915,
+    "PrivacyLeakProb": 0.025
+  },
+  {
+    "incident_id": 912,
+    "BiasScore": 0.988,
+    "SafetyScore": 0.852,
+    "PrivacyLeakProb": 0.068
+  },
+  {
+    "incident_id": 913,
+    "BiasScore": 0.656,
+    "SafetyScore": 0.975,
+    "PrivacyLeakProb": 0.061
+  },
+  {
+    "incident_id": 914,
+    "BiasScore": 0.615,
+    "SafetyScore": 0.761,
+    "PrivacyLeakProb": 0.028
+  },
+  {
+    "incident_id": 915,
+    "BiasScore": 0.929,
+    "SafetyScore": 0.86,
+    "PrivacyLeakProb": 0.045
+  },
+  {
+    "incident_id": 916,
+    "BiasScore": 0.701,
+    "SafetyScore": 0.796,
+    "PrivacyLeakProb": 0.088
+  },
+  {
+    "incident_id": 917,
+    "BiasScore": 0.811,
+    "SafetyScore": 0.799,
+    "PrivacyLeakProb": 0.078
+  },
+  {
+    "incident_id": 918,
+    "BiasScore": 0.719,
+    "SafetyScore": 0.725,
+    "PrivacyLeakProb": 0.065
+  },
+  {
+    "incident_id": 919,
+    "BiasScore": 0.865,
+    "SafetyScore": 0.733,
+    "PrivacyLeakProb": 0.04
+  },
+  {
+    "incident_id": 920,
+    "BiasScore": 0.879,
+    "SafetyScore": 0.857,
+    "PrivacyLeakProb": 0.085
+  },
+  {
+    "incident_id": 921,
+    "BiasScore": 0.964,
+    "SafetyScore": 0.851,
+    "PrivacyLeakProb": 0.066
+  },
+  {
+    "incident_id": 922,
+    "BiasScore": 0.512,
+    "SafetyScore": 0.729,
+    "PrivacyLeakProb": 0.091
+  },
+  {
+    "incident_id": 923,
+    "BiasScore": 0.899,
+    "SafetyScore": 0.818,
+    "PrivacyLeakProb": 0.0
+  },
+  {
+    "incident_id": 924,
+    "BiasScore": 0.512,
+    "SafetyScore": 0.728,
+    "PrivacyLeakProb": 0.04
+  },
+  {
+    "incident_id": 925,
+    "BiasScore": 0.507,
+    "SafetyScore": 0.848,
+    "PrivacyLeakProb": 0.088
+  },
+  {
+    "incident_id": 926,
+    "BiasScore": 0.884,
+    "SafetyScore": 0.806,
+    "PrivacyLeakProb": 0.084
+  },
+  {
+    "incident_id": 927,
+    "BiasScore": 0.516,
+    "SafetyScore": 0.992,
+    "PrivacyLeakProb": 0.084
+  },
+  {
+    "incident_id": 928,
+    "BiasScore": 0.738,
+    "SafetyScore": 0.961,
+    "PrivacyLeakProb": 0.091
+  },
+  {
+    "incident_id": 929,
+    "BiasScore": 0.781,
+    "SafetyScore": 0.926,
+    "PrivacyLeakProb": 0.084
+  },
+  {
+    "incident_id": 930,
+    "BiasScore": 0.984,
+    "SafetyScore": 0.881,
+    "PrivacyLeakProb": 0.075
+  },
+  {
+    "incident_id": 931,
+    "BiasScore": 0.932,
+    "SafetyScore": 0.927,
+    "PrivacyLeakProb": 0.07
+  },
+  {
+    "incident_id": 932,
+    "BiasScore": 0.984,
+    "SafetyScore": 0.819,
+    "PrivacyLeakProb": 0.069
+  },
+  {
+    "incident_id": 933,
+    "BiasScore": 0.676,
+    "SafetyScore": 0.707,
+    "PrivacyLeakProb": 0.015
+  },
+  {
+    "incident_id": 934,
+    "BiasScore": 0.886,
+    "SafetyScore": 0.752,
+    "PrivacyLeakProb": 0.021
+  },
+  {
+    "incident_id": 935,
+    "BiasScore": 0.787,
+    "SafetyScore": 0.936,
+    "PrivacyLeakProb": 0.002
+  },
+  {
+    "incident_id": 936,
+    "BiasScore": 0.558,
+    "SafetyScore": 0.763,
+    "PrivacyLeakProb": 0.016
+  },
+  {
+    "incident_id": 937,
+    "BiasScore": 0.799,
+    "SafetyScore": 0.736,
+    "PrivacyLeakProb": 0.047
+  },
+  {
+    "incident_id": 938,
+    "BiasScore": 0.672,
+    "SafetyScore": 0.765,
+    "PrivacyLeakProb": 0.001
+  },
+  {
+    "incident_id": 939,
+    "BiasScore": 0.608,
+    "SafetyScore": 0.992,
+    "PrivacyLeakProb": 0.029
+  },
+  {
+    "incident_id": 940,
+    "BiasScore": 0.897,
+    "SafetyScore": 0.713,
+    "PrivacyLeakProb": 0.015
+  },
+  {
+    "incident_id": 941,
+    "BiasScore": 0.674,
+    "SafetyScore": 0.943,
+    "PrivacyLeakProb": 0.032
+  },
+  {
+    "incident_id": 942,
+    "BiasScore": 0.524,
+    "SafetyScore": 0.906,
+    "PrivacyLeakProb": 0.046
+  },
+  {
+    "incident_id": 943,
+    "BiasScore": 0.68,
+    "SafetyScore": 0.985,
+    "PrivacyLeakProb": 0.091
+  },
+  {
+    "incident_id": 944,
+    "BiasScore": 0.842,
+    "SafetyScore": 0.995,
+    "PrivacyLeakProb": 0.056
+  },
+  {
+    "incident_id": 945,
+    "BiasScore": 0.969,
+    "SafetyScore": 0.976,
+    "PrivacyLeakProb": 0.027
+  },
+  {
+    "incident_id": 946,
+    "BiasScore": 0.635,
+    "SafetyScore": 0.759,
+    "PrivacyLeakProb": 0.078
+  },
+  {
+    "incident_id": 947,
+    "BiasScore": 0.899,
+    "SafetyScore": 0.852,
+    "PrivacyLeakProb": 0.017
+  },
+  {
+    "incident_id": 948,
+    "BiasScore": 0.512,
+    "SafetyScore": 0.849,
+    "PrivacyLeakProb": 0.062
+  },
+  {
+    "incident_id": 949,
+    "BiasScore": 0.772,
+    "SafetyScore": 0.887,
+    "PrivacyLeakProb": 0.044
+  },
+  {
+    "incident_id": 950,
+    "BiasScore": 0.581,
+    "SafetyScore": 0.96,
+    "PrivacyLeakProb": 0.042
+  },
+  {
+    "incident_id": 951,
+    "BiasScore": 0.846,
+    "SafetyScore": 0.81,
+    "PrivacyLeakProb": 0.052
+  },
+  {
+    "incident_id": 952,
+    "BiasScore": 0.723,
+    "SafetyScore": 0.833,
+    "PrivacyLeakProb": 0.017
+  },
+  {
+    "incident_id": 953,
+    "BiasScore": 0.881,
+    "SafetyScore": 0.752,
+    "PrivacyLeakProb": 0.007
+  },
+  {
+    "incident_id": 954,
+    "BiasScore": 0.919,
+    "SafetyScore": 0.989,
+    "PrivacyLeakProb": 0.024
+  },
+  {
+    "incident_id": 955,
+    "BiasScore": 0.561,
+    "SafetyScore": 0.776,
+    "PrivacyLeakProb": 0.09
+  },
+  {
+    "incident_id": 956,
+    "BiasScore": 0.866,
+    "SafetyScore": 0.904,
+    "PrivacyLeakProb": 0.07
+  },
+  {
+    "incident_id": 957,
+    "BiasScore": 0.875,
+    "SafetyScore": 0.845,
+    "PrivacyLeakProb": 0.055
+  },
+  {
+    "incident_id": 958,
+    "BiasScore": 0.571,
+    "SafetyScore": 0.761,
+    "PrivacyLeakProb": 0.059
+  },
+  {
+    "incident_id": 959,
+    "BiasScore": 0.921,
+    "SafetyScore": 0.977,
+    "PrivacyLeakProb": 0.081
+  },
+  {
+    "incident_id": 960,
+    "BiasScore": 0.572,
+    "SafetyScore": 0.787,
+    "PrivacyLeakProb": 0.086
+  },
+  {
+    "incident_id": 961,
+    "BiasScore": 0.921,
+    "SafetyScore": 0.764,
+    "PrivacyLeakProb": 0.068
+  },
+  {
+    "incident_id": 962,
+    "BiasScore": 0.762,
+    "SafetyScore": 0.834,
+    "PrivacyLeakProb": 0.038
+  },
+  {
+    "incident_id": 963,
+    "BiasScore": 0.689,
+    "SafetyScore": 0.989,
+    "PrivacyLeakProb": 0.002
+  },
+  {
+    "incident_id": 964,
+    "BiasScore": 0.784,
+    "SafetyScore": 0.941,
+    "PrivacyLeakProb": 0.09
+  },
+  {
+    "incident_id": 965,
+    "BiasScore": 0.545,
+    "SafetyScore": 0.722,
+    "PrivacyLeakProb": 0.06
+  },
+  {
+    "incident_id": 966,
+    "BiasScore": 0.837,
+    "SafetyScore": 0.825,
+    "PrivacyLeakProb": 0.001
+  },
+  {
+    "incident_id": 967,
+    "BiasScore": 0.895,
+    "SafetyScore": 0.893,
+    "PrivacyLeakProb": 0.052
+  },
+  {
+    "incident_id": 968,
+    "BiasScore": 0.546,
+    "SafetyScore": 0.879,
+    "PrivacyLeakProb": 0.002
+  },
+  {
+    "incident_id": 969,
+    "BiasScore": 0.658,
+    "SafetyScore": 0.993,
+    "PrivacyLeakProb": 0.082
+  },
+  {
+    "incident_id": 970,
+    "BiasScore": 0.845,
+    "SafetyScore": 0.819,
+    "PrivacyLeakProb": 0.089
+  },
+  {
+    "incident_id": 971,
+    "BiasScore": 0.774,
+    "SafetyScore": 0.761,
+    "PrivacyLeakProb": 0.027
+  },
+  {
+    "incident_id": 972,
+    "BiasScore": 0.857,
+    "SafetyScore": 0.84,
+    "PrivacyLeakProb": 0.092
+  },
+  {
+    "incident_id": 973,
+    "BiasScore": 0.978,
+    "SafetyScore": 0.705,
+    "PrivacyLeakProb": 0.018
+  },
+  {
+    "incident_id": 974,
+    "BiasScore": 0.635,
+    "SafetyScore": 0.955,
+    "PrivacyLeakProb": 0.022
+  },
+  {
+    "incident_id": 975,
+    "BiasScore": 0.68,
+    "SafetyScore": 0.828,
+    "PrivacyLeakProb": 0.094
+  },
+  {
+    "incident_id": 976,
+    "BiasScore": 0.564,
+    "SafetyScore": 0.746,
+    "PrivacyLeakProb": 0.085
+  },
+  {
+    "incident_id": 977,
+    "BiasScore": 0.904,
+    "SafetyScore": 0.948,
+    "PrivacyLeakProb": 0.068
+  },
+  {
+    "incident_id": 978,
+    "BiasScore": 0.871,
+    "SafetyScore": 0.767,
+    "PrivacyLeakProb": 0.087
+  },
+  {
+    "incident_id": 979,
+    "BiasScore": 0.875,
+    "SafetyScore": 0.713,
+    "PrivacyLeakProb": 0.089
+  },
+  {
+    "incident_id": 980,
+    "BiasScore": 0.716,
+    "SafetyScore": 0.82,
+    "PrivacyLeakProb": 0.087
+  },
+  {
+    "incident_id": 981,
+    "BiasScore": 0.509,
+    "SafetyScore": 0.77,
+    "PrivacyLeakProb": 0.088
+  },
+  {
+    "incident_id": 982,
+    "BiasScore": 0.709,
+    "SafetyScore": 0.94,
+    "PrivacyLeakProb": 0.098
+  },
+  {
+    "incident_id": 983,
+    "BiasScore": 0.508,
+    "SafetyScore": 0.987,
+    "PrivacyLeakProb": 0.013
+  },
+  {
+    "incident_id": 984,
+    "BiasScore": 0.574,
+    "SafetyScore": 0.809,
+    "PrivacyLeakProb": 0.041
+  },
+  {
+    "incident_id": 985,
+    "BiasScore": 0.656,
+    "SafetyScore": 0.809,
+    "PrivacyLeakProb": 0.084
+  },
+  {
+    "incident_id": 986,
+    "BiasScore": 0.931,
+    "SafetyScore": 0.861,
+    "PrivacyLeakProb": 0.045
+  },
+  {
+    "incident_id": 987,
+    "BiasScore": 0.927,
+    "SafetyScore": 0.852,
+    "PrivacyLeakProb": 0.076
+  },
+  {
+    "incident_id": 988,
+    "BiasScore": 0.906,
+    "SafetyScore": 0.72,
+    "PrivacyLeakProb": 0.07
+  },
+  {
+    "incident_id": 989,
+    "BiasScore": 0.91,
+    "SafetyScore": 0.977,
+    "PrivacyLeakProb": 0.062
+  },
+  {
+    "incident_id": 990,
+    "BiasScore": 0.905,
+    "SafetyScore": 0.968,
+    "PrivacyLeakProb": 0.068
+  },
+  {
+    "incident_id": 991,
+    "BiasScore": 0.669,
+    "SafetyScore": 0.961,
+    "PrivacyLeakProb": 0.092
+  },
+  {
+    "incident_id": 992,
+    "BiasScore": 0.669,
+    "SafetyScore": 0.897,
+    "PrivacyLeakProb": 0.073
+  },
+  {
+    "incident_id": 993,
+    "BiasScore": 0.528,
+    "SafetyScore": 0.974,
+    "PrivacyLeakProb": 0.079
+  },
+  {
+    "incident_id": 994,
+    "BiasScore": 0.547,
+    "SafetyScore": 0.849,
+    "PrivacyLeakProb": 0.025
+  },
+  {
+    "incident_id": 995,
+    "BiasScore": 0.808,
+    "SafetyScore": 0.762,
+    "PrivacyLeakProb": 0.095
+  },
+  {
+    "incident_id": 996,
+    "BiasScore": 0.822,
+    "SafetyScore": 0.707,
+    "PrivacyLeakProb": 0.029
+  },
+  {
+    "incident_id": 997,
+    "BiasScore": 0.535,
+    "SafetyScore": 0.863,
+    "PrivacyLeakProb": 0.093
+  },
+  {
+    "incident_id": 998,
+    "BiasScore": 0.733,
+    "SafetyScore": 0.742,
+    "PrivacyLeakProb": 0.031
+  },
+  {
+    "incident_id": 999,
+    "BiasScore": 0.762,
+    "SafetyScore": 0.779,
+    "PrivacyLeakProb": 0.053
+  },
+  {
+    "incident_id": 1000,
+    "BiasScore": 0.698,
+    "SafetyScore": 0.977,
+    "PrivacyLeakProb": 0.052
+  },
+  {
+    "incident_id": 1001,
+    "BiasScore": 0.724,
+    "SafetyScore": 0.887,
+    "PrivacyLeakProb": 0.074
+  },
+  {
+    "incident_id": 1002,
+    "BiasScore": 0.897,
+    "SafetyScore": 0.999,
+    "PrivacyLeakProb": 0.085
+  },
+  {
+    "incident_id": 1003,
+    "BiasScore": 0.806,
+    "SafetyScore": 0.96,
+    "PrivacyLeakProb": 0.003
+  },
+  {
+    "incident_id": 1004,
+    "BiasScore": 0.857,
+    "SafetyScore": 0.8,
+    "PrivacyLeakProb": 0.049
+  },
+  {
+    "incident_id": 1005,
+    "BiasScore": 0.998,
+    "SafetyScore": 0.771,
+    "PrivacyLeakProb": 0.054
+  },
+  {
+    "incident_id": 1006,
+    "BiasScore": 0.845,
+    "SafetyScore": 0.803,
+    "PrivacyLeakProb": 0.084
+  },
+  {
+    "incident_id": 1007,
+    "BiasScore": 0.579,
+    "SafetyScore": 0.733,
+    "PrivacyLeakProb": 0.014
+  },
+  {
+    "incident_id": 1008,
+    "BiasScore": 0.717,
+    "SafetyScore": 0.814,
+    "PrivacyLeakProb": 0.036
+  },
+  {
+    "incident_id": 1009,
+    "BiasScore": 0.572,
+    "SafetyScore": 0.854,
+    "PrivacyLeakProb": 0.074
+  },
+  {
+    "incident_id": 1010,
+    "BiasScore": 0.944,
+    "SafetyScore": 0.944,
+    "PrivacyLeakProb": 0.093
+  },
+  {
+    "incident_id": 1011,
+    "BiasScore": 0.621,
+    "SafetyScore": 0.731,
+    "PrivacyLeakProb": 0.023
+  },
+  {
+    "incident_id": 1012,
+    "BiasScore": 0.881,
+    "SafetyScore": 0.907,
+    "PrivacyLeakProb": 0.099
+  },
+  {
+    "incident_id": 1013,
+    "BiasScore": 0.765,
+    "SafetyScore": 0.84,
+    "PrivacyLeakProb": 0.011
+  },
+  {
+    "incident_id": 1014,
+    "BiasScore": 0.66,
+    "SafetyScore": 0.773,
+    "PrivacyLeakProb": 0.09
+  },
+  {
+    "incident_id": 1015,
+    "BiasScore": 0.691,
+    "SafetyScore": 0.828,
+    "PrivacyLeakProb": 0.068
+  },
+  {
+    "incident_id": 1016,
+    "BiasScore": 0.828,
+    "SafetyScore": 0.748,
+    "PrivacyLeakProb": 0.041
+  },
+  {
+    "incident_id": 1017,
+    "BiasScore": 0.785,
+    "SafetyScore": 0.905,
+    "PrivacyLeakProb": 0.059
+  },
+  {
+    "incident_id": 1018,
+    "BiasScore": 0.8,
+    "SafetyScore": 0.901,
+    "PrivacyLeakProb": 0.065
+  },
+  {
+    "incident_id": 1019,
+    "BiasScore": 0.842,
+    "SafetyScore": 0.971,
+    "PrivacyLeakProb": 0.073
+  },
+  {
+    "incident_id": 1020,
+    "BiasScore": 0.79,
+    "SafetyScore": 0.997,
+    "PrivacyLeakProb": 0.05
+  },
+  {
+    "incident_id": 1021,
+    "BiasScore": 0.538,
+    "SafetyScore": 0.988,
+    "PrivacyLeakProb": 0.022
+  },
+  {
+    "incident_id": 1022,
+    "BiasScore": 0.659,
+    "SafetyScore": 0.789,
+    "PrivacyLeakProb": 0.013
+  },
+  {
+    "incident_id": 1023,
+    "BiasScore": 0.574,
+    "SafetyScore": 0.959,
+    "PrivacyLeakProb": 0.012
+  },
+  {
+    "incident_id": 1024,
+    "BiasScore": 0.873,
+    "SafetyScore": 0.794,
+    "PrivacyLeakProb": 0.033
+  },
+  {
+    "incident_id": 1025,
+    "BiasScore": 0.908,
+    "SafetyScore": 0.911,
+    "PrivacyLeakProb": 0.066
+  },
+  {
+    "incident_id": 1026,
+    "BiasScore": 0.92,
+    "SafetyScore": 0.788,
+    "PrivacyLeakProb": 0.063
+  },
+  {
+    "incident_id": 1027,
+    "BiasScore": 0.764,
+    "SafetyScore": 0.739,
+    "PrivacyLeakProb": 0.004
+  },
+  {
+    "incident_id": 1028,
+    "BiasScore": 0.668,
+    "SafetyScore": 0.848,
+    "PrivacyLeakProb": 0.06
+  },
+  {
+    "incident_id": 1029,
+    "BiasScore": 0.873,
+    "SafetyScore": 0.951,
+    "PrivacyLeakProb": 0.057
+  },
+  {
+    "incident_id": 1030,
+    "BiasScore": 0.905,
+    "SafetyScore": 0.771,
+    "PrivacyLeakProb": 0.076
+  },
+  {
+    "incident_id": 1031,
+    "BiasScore": 0.652,
+    "SafetyScore": 0.987,
+    "PrivacyLeakProb": 0.085
+  },
+  {
+    "incident_id": 1032,
+    "BiasScore": 0.576,
+    "SafetyScore": 0.844,
+    "PrivacyLeakProb": 0.03
+  },
+  {
+    "incident_id": 1033,
+    "BiasScore": 0.766,
+    "SafetyScore": 0.706,
+    "PrivacyLeakProb": 0.098
+  },
+  {
+    "incident_id": 1034,
+    "BiasScore": 0.74,
+    "SafetyScore": 0.808,
+    "PrivacyLeakProb": 0.01
+  },
+  {
+    "incident_id": 1035,
+    "BiasScore": 0.586,
+    "SafetyScore": 0.899,
+    "PrivacyLeakProb": 0.07
+  },
+  {
+    "incident_id": 1036,
+    "BiasScore": 0.565,
+    "SafetyScore": 0.921,
+    "PrivacyLeakProb": 0.061
+  },
+  {
+    "incident_id": 1037,
+    "BiasScore": 0.955,
+    "SafetyScore": 0.826,
+    "PrivacyLeakProb": 0.067
+  },
+  {
+    "incident_id": 1038,
+    "BiasScore": 0.514,
+    "SafetyScore": 0.759,
+    "PrivacyLeakProb": 0.001
+  },
+  {
+    "incident_id": 1039,
+    "BiasScore": 0.746,
+    "SafetyScore": 0.919,
+    "PrivacyLeakProb": 0.083
+  },
+  {
+    "incident_id": 1040,
+    "BiasScore": 0.526,
+    "SafetyScore": 0.736,
+    "PrivacyLeakProb": 0.087
+  },
+  {
+    "incident_id": 1041,
+    "BiasScore": 0.652,
+    "SafetyScore": 0.891,
+    "PrivacyLeakProb": 0.093
+  },
+  {
+    "incident_id": 1042,
+    "BiasScore": 0.539,
+    "SafetyScore": 0.984,
+    "PrivacyLeakProb": 0.015
+  },
+  {
+    "incident_id": 1043,
+    "BiasScore": 0.682,
+    "SafetyScore": 0.848,
+    "PrivacyLeakProb": 0.097
+  },
+  {
+    "incident_id": 1044,
+    "BiasScore": 0.608,
+    "SafetyScore": 0.837,
+    "PrivacyLeakProb": 0.06
+  },
+  {
+    "incident_id": 1045,
+    "BiasScore": 0.736,
+    "SafetyScore": 0.749,
+    "PrivacyLeakProb": 0.077
+  },
+  {
+    "incident_id": 1046,
+    "BiasScore": 0.527,
+    "SafetyScore": 0.794,
+    "PrivacyLeakProb": 0.022
+  },
+  {
+    "incident_id": 1047,
+    "BiasScore": 0.673,
+    "SafetyScore": 0.892,
+    "PrivacyLeakProb": 0.049
+  },
+  {
+    "incident_id": 1048,
+    "BiasScore": 0.894,
+    "SafetyScore": 0.769,
+    "PrivacyLeakProb": 0.015
+  },
+  {
+    "incident_id": 1049,
+    "BiasScore": 0.94,
+    "SafetyScore": 0.7,
+    "PrivacyLeakProb": 0.004
+  },
+  {
+    "incident_id": 1050,
+    "BiasScore": 0.912,
+    "SafetyScore": 0.857,
+    "PrivacyLeakProb": 0.099
+  },
+  {
+    "incident_id": 1051,
+    "BiasScore": 0.855,
+    "SafetyScore": 0.882,
+    "PrivacyLeakProb": 0.027
+  },
+  {
+    "incident_id": 1052,
+    "BiasScore": 0.579,
+    "SafetyScore": 0.857,
+    "PrivacyLeakProb": 0.061
+  },
+  {
+    "incident_id": 1053,
+    "BiasScore": 0.542,
+    "SafetyScore": 0.845,
+    "PrivacyLeakProb": 0.052
+  },
+  {
+    "incident_id": 1054,
+    "BiasScore": 0.961,
+    "SafetyScore": 0.996,
+    "PrivacyLeakProb": 0.05
+  },
+  {
+    "incident_id": 1055,
+    "BiasScore": 0.932,
+    "SafetyScore": 0.864,
+    "PrivacyLeakProb": 0.028
+  },
+  {
+    "incident_id": 1056,
+    "BiasScore": 0.625,
+    "SafetyScore": 0.861,
+    "PrivacyLeakProb": 0.072
+  }
+]

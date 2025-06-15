@@ -1,0 +1,13 @@
+{
+  "operation_id": "test_operation_1748395451_c2b9b1aa",
+  "operation_type": "test_operation",
+  "context": {
+    "test_key": "test_key_1748395451",
+    "test_data": "Test value for memory adapter"
+  },
+  "result": {
+    "status": "success"
+  },
+  "timestamp": "2025-05-27T22:24:11.770410",
+  "user_id": "test_user"
+}

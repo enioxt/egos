@@ -1,0 +1,182 @@
+{
+  "timestamp": "2025-05-21 23:10:40",
+  "files_analyzed": 15,
+  "recently_modified_files": 7,
+  "orphaned_files": 0,
+  "undocumented_files": 0,
+  "well_documented_files": 0,
+  "action_items": [],
+  "files_needing_attention": [],
+  "performance_metrics": {
+    "total_time": 0.5,
+    "total_time_formatted": "500.00ms",
+    "phases": {
+      "file_scanning": {
+        "duration": 0.015000000013969839,
+        "percentage": 3.0000000027939677
+      },
+      "documentation_analysis": {
+        "duration": 0.01600000000325963,
+        "percentage": 3.200000000651926
+      },
+      "cross_reference_analysis": {
+        "duration": 0.0,
+        "percentage": 0.0
+      }
+    },
+    "file_processing": {
+      "processed": 15,
+      "total_time": 0.0,
+      "min_time": 0.0,
+      "max_time": 0,
+      "avg_time": 0.0,
+      "std_dev": 0.0
+    },
+    "metrics": {},
+    "system_stats": {
+      "start_memory": 31.83984375,
+      "cpu_percent": 31.7,
+      "end_memory": 33.1171875,
+      "memory_delta": 1.27734375,
+      "final_cpu_percent": 35.7
+    }
+  },
+  "recent_files_by_type": {
+    "json": 7
+  },
+  "recent_files_list": [
+    {
+      "path": "C:\\EGOS\\scripts\\system_monitor\\test_data\\reports\\system_monitor\\system_health_20250521_225329.json",
+      "last_modified": 1747878809.9889205,
+      "size": 1047,
+      "has_references": false,
+      "is_referenced": false,
+      "reference_count": 0,
+      "referenced_by_count": 0,
+      "documentation_score": 0.0,
+      "needs_attention": true,
+      "suggested_actions": [
+        "Add header at the beginning",
+        "Add section headers"
+      ],
+      "file_type": "unknown",
+      "content_hash": null,
+      "binary": false,
+      "processed": false
+    },
+    {
+      "path": "C:\\EGOS\\scripts\\system_monitor\\test_data\\reports\\system_monitor\\system_health_20250521_225415.json",
+      "last_modified": 1747878855.227892,
+      "size": 1052,
+      "has_references": false,
+      "is_referenced": false,
+      "reference_count": 0,
+      "referenced_by_count": 0,
+      "documentation_score": 0.0,
+      "needs_attention": true,
+      "suggested_actions": [
+        "Add header at the beginning",
+        "Add section headers"
+      ],
+      "file_type": "unknown",
+      "content_hash": null,
+      "binary": false,
+      "processed": false
+    },
+    {
+      "path": "C:\\EGOS\\scripts\\system_monitor\\test_data\\reports\\system_monitor\\system_health_20250521_225511.json",
+      "last_modified": 1747878911.3846083,
+      "size": 1153,
+      "has_references": false,
+      "is_referenced": false,
+      "reference_count": 0,
+      "referenced_by_count": 0,
+      "documentation_score": 0.0,
+      "needs_attention": true,
+      "suggested_actions": [
+        "Add header at the beginning",
+        "Add section headers"
+      ],
+      "file_type": "unknown",
+      "content_hash": null,
+      "binary": false,
+      "processed": false
+    },
+    {
+      "path": "C:\\EGOS\\scripts\\system_monitor\\test_data\\reports\\system_monitor\\system_health_20250521_225543.json",
+      "last_modified": 1747878943.665198,
+      "size": 1083,
+      "has_references": false,
+      "is_referenced": false,
+      "reference_count": 0,
+      "referenced_by_count": 0,
+      "documentation_score": 0.0,
+      "needs_attention": true,
+      "suggested_actions": [
+        "Add header at the beginning",
+        "Add section headers"
+      ],
+      "file_type": "unknown",
+      "content_hash": null,
+      "binary": false,
+      "processed": false
+    },
+    {
+      "path": "C:\\EGOS\\scripts\\system_monitor\\test_data\\reports\\system_monitor\\system_health_20250521_225737.json",
+      "last_modified": 1747879057.3695674,
+      "size": 1119,
+      "has_references": false,
+      "is_referenced": false,
+      "reference_count": 0,
+      "referenced_by_count": 0,
+      "documentation_score": 0.0,
+      "needs_attention": true,
+      "suggested_actions": [
+        "Add header at the beginning",
+        "Add section headers"
+      ],
+      "file_type": "unknown",
+      "content_hash": null,
+      "binary": false,
+      "processed": false
+    },
+    {
+      "path": "C:\\EGOS\\scripts\\system_monitor\\test_data\\reports\\system_monitor\\system_health_20250521_230007.json",
+      "last_modified": 1747879207.8104951,
+      "size": 1115,
+      "has_references": false,
+      "is_referenced": false,
+      "reference_count": 0,
+      "referenced_by_count": 0,
+      "documentation_score": 0.0,
+      "needs_attention": true,
+      "suggested_actions": [
+        "Add header at the beginning",
+        "Add section headers"
+      ],
+      "file_type": "unknown",
+      "content_hash": null,
+      "binary": false,
+      "processed": false
+    },
+    {
+      "path": "C:\\EGOS\\scripts\\system_monitor\\test_data\\reports\\system_monitor\\system_health_20250521_231003.json",
+      "last_modified": 1747879803.0308502,
+      "size": 1151,
+      "has_references": false,
+      "is_referenced": false,
+      "reference_count": 0,
+      "referenced_by_count": 0,
+      "documentation_score": 0.0,
+      "needs_attention": true,
+      "suggested_actions": [
+        "Add header at the beginning",
+        "Add section headers"
+      ],
+      "file_type": "unknown",
+      "content_hash": null,
+      "binary": false,
+      "processed": false
+    }
+  ]
+}

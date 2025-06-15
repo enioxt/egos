@@ -1,0 +1,46 @@
+{
+  "validators": {
+    "naming_convention": {
+      "enabled": true,
+      "severity_threshold": "warning",
+      "exclusions": {
+        "directories": [".git", "venv", ".venv", "env", "node_modules", "__pycache__", ".vscode", ".idea"],
+        "files": ["README.md", "LICENSE", "Makefile", "requirements.txt", ".gitignore", ".gitattributes"],
+        "extensions_to_ignore": [".md", ".MD"],
+        "patterns_to_ignore": [".*\\.git.*", ".*node_modules.*", ".*__pycache__.*", ".*\\.vscode.*"]
+      },
+      "pattern_types": {
+        "UPPERCASE_TO_LOWERCASE": "^[A-Z]+$",
+        "PASCALCASE_TO_SNAKE_CASE": "^[A-Z][a-zA-Z0-9]*$",
+        "CAMELCASE_TO_SNAKE_CASE": "^[a-z]+[A-Z][a-zA-Z0-9]*$",
+        "KEBABCASE_TO_SNAKE_CASE": "^[a-z0-9]+(-[a-z0-9]+)+$",
+        "SPACE_TO_SNAKE_CASE": "^.*\\s+.*$",
+        "MIXED_PATTERN": ".*"
+      }
+    },
+    "directory_structure": {
+      "enabled": false,
+      "severity_threshold": "error",
+      "structure_definition": "C:\\EGOS\\scripts\\system_health\\config\\directory_structure_definition.json"
+    },
+    "script_standards": {
+      "enabled": false,
+      "severity_threshold": "warning",
+      "script_standards_definition": "C:\\EGOS\\config\\script_standards_definition.yaml"
+    },
+    "cross_reference": {
+      "enabled": false,
+      "severity_threshold": "warning"
+    }
+  },
+  "reporting": {
+    "format": "markdown",
+    "output_directory": "C:\\EGOS\\reports\\health_check",
+    "include_visualizations": true
+  },
+  "remediation": {
+    "suggest_fixes": true,
+    "auto_apply": false,
+    "backup_before_fix": true
+  }
+}

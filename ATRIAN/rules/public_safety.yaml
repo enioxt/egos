@@ -1,0 +1,139 @@
+---
+# ATRiAN Sector-Specific Rules: Public Safety
+# Version: 1.0.0
+# Date: 2025-06-14
+
+@references:
+- .windsurfrules
+- CODE_OF_CONDUCT.md
+- MQP.md
+- ROADMAP.md
+- CROSSREF_STANDARD.md
+
+@references(level=1):
+- ATRIAN/docs/methods/incident_analysis_methods.md
+- ATRIAN/docs/case_studies/top_incidents.md
+- docs/workflows/atrian_data_pipeline_roi_workflow.md
+- scripts/roi_simulate.py
+- .windsurf/workflows/atrian_roi_calc.md
+
+# Detector Configurations for Public Safety Sector
+# These detectors can be loaded by ATRiAN's rule engine and trigger alerts
+
+detectors:
+  fairness_kpi_monitor:
+    id: "pubsafe-001"
+    name: "Algorithmic Fairness KPI Monitor"
+    description: "Monitors fairness metrics across demographic groups to prevent bias amplification"
+    severity: "high"
+    operational_context: "training, runtime"
+    reference_incident_ids: [54]
+    
+    parameters:
+      fairness_metrics:
+        - "statistical_parity"
+        - "equal_opportunity"
+        - "predictive_parity"
+      protected_attributes:
+        - "race"
+        - "gender"
+        - "age_group"
+        - "income_bracket"
+        - "neighborhood"
+      max_disparity_threshold: 0.15
+      confidence_interval: 0.95
+      
+    implementation:
+      module: "atrian.detectors.pubsafety.fairness"
+      class: "FairnessMetricsMonitor"
+      threshold_violation_action: "block_deployment"
+      
+    webhook_targets:
+      - "model_governance_board"
+      - "ml_operations"
+      - "compliance_officer"
+      
+  feedback_loop_detector:
+    id: "pubsafe-002"
+    name: "Bias Feedback Loop Detector"
+    description: "Detects bias-reinforcing feedback loops in predictive systems"
+    severity: "high"
+    operational_context: "runtime, monitoring"
+    reference_incident_ids: [54]
+    
+    parameters:
+      loop_detection_window_days: 90
+      intervention_threshold: 0.22
+      min_sample_size: 1000
+      stability_test_frequency_days: 7
+      
+    implementation:
+      module: "atrian.detectors.pubsafety.feedback"
+      class: "FeedbackLoopAnalyzer"
+      threshold_violation_action: "alert_and_recommend"
+      
+    webhook_targets:
+      - "model_review_board"
+      - "data_science_team"
+      
+  counterfactual_disparity_evaluator:
+    id: "pubsafe-003"
+    name: "Counterfactual Disparity Evaluator"
+    description: "Evaluates predictions on counterfactuals with changed protected attributes"
+    severity: "medium"
+    operational_context: "evaluation, audit"
+    reference_incident_ids: [54]
+    
+    parameters:
+      counterfactual_generation_method: "demographic_parity"
+      attributes_to_flip:
+        - "race"
+        - "gender"
+        - "neighborhood"
+      min_counterfactual_pairs: 5000
+      max_allowed_flip_ratio: 0.15
+      
+    implementation:
+      module: "atrian.detectors.pubsafety.counterfactual"
+      class: "CounterfactualAnalyzer"
+      threshold_violation_action: "flag_for_review"
+      
+    webhook_targets:
+      - "ethics_review_board"
+      - "data_scientists"
+
+# Integration Settings
+integration:
+  ml_pipeline_hooks:
+    - module: "atrian.hooks.ml"
+      entry_point: "on_model_train"
+      detector_ids: ["pubsafe-001"]
+    - module: "atrian.hooks.ml"
+      entry_point: "on_prediction_batch"
+      detector_ids: ["pubsafe-002"]
+    - module: "atrian.hooks.ml"
+      entry_point: "on_model_audit"
+      detector_ids: ["pubsafe-003"]
+      
+  governance_workflow:
+    required_approvals_for_override: 3
+    max_override_duration_days: 30
+    mandatory_remediation_plan: true
+    
+  dashboard_widgets:
+    - name: "Fairness Metrics by Demographic"
+      detector_id: "pubsafe-001"
+      chart_type: "radar"
+      refresh_rate_seconds: 86400
+    - name: "Bias Amplification Trend"
+      detector_id: "pubsafe-002"
+      chart_type: "line"
+      refresh_rate_seconds: 86400
+
+# Mitigation Factors for ROI Model
+roi_factors:
+  sector_risk_mitigation_multiplier: 1.35  # 35% higher risk mitigation in public safety vs. baseline
+  cost_severity_mapping:
+    discrimination_lawsuit: 12500000      # $12.5M average discrimination lawsuit settlement
+    public_trust_decline_percent: 750000  # $750K cost per 1% public trust decline
+    regulatory_intervention: 3500000      # $3.5M average compliance and remediation cost

@@ -1,0 +1,25 @@
+{
+  "exclusions": [
+    ".git", 
+    "venv", 
+    ".venv", 
+    "env", 
+    "node_modules", 
+    "__pycache__", 
+    ".vscode", 
+    ".idea", 
+    "build", 
+    "dist", 
+    ".pytest_cache"
+  ],
+  "script_extensions": [".py", ".sh", ".bat", ".ps1", ".js", ".ts", ".rb"],
+  "doc_extensions": [".md", ".txt", ".rst", ".html", ".pdf", ".docx"],
+  "max_age_days": 180,
+  "min_references": 1,
+  "min_scripts_per_dir": 3,
+  "visualization": {
+    "enabled": true,
+    "max_depth": 4,
+    "heat_scale": ["❄️", "🔵", "🟢", "🟡", "🔴", "🔥"]
+  }
+}

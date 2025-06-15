@@ -1,0 +1,153 @@
+# EGOS ATRiAN - Healthcare Ethical Constitution Template
+# Version: 0.1.0
+# Last Modified: 2025-06-12
+# 
+# Purpose:
+# This ethical constitution template extends both the base and regulatory templates
+# with healthcare-specific ethical principles and rules. It provides specialized
+# validation for prompts used in healthcare and medical AI applications.
+# 
+# Usage:
+# Use this template for validating prompts for AI systems in healthcare contexts,
+# especially those handling patient data or supporting clinical decision-making.
+# 
+# Cross-references:
+# - [Base Ethical Constitution](../base/base_constitution.yaml)
+# - [EU AI Act Constitution](../regulatory/eu_ai_act_constitution.yaml)
+# - [GDPR Constitution](../regulatory/gdpr_constitution.yaml)
+# --- 
+
+id: "egos-healthcare-ethical-constitution-v1"
+name: "EGOS Healthcare Ethical Constitution"
+description: "Specialized ethical framework for healthcare AI applications combining core ethics, regulatory compliance, and healthcare-specific principles."
+
+metadata:
+  version: "0.1.0"
+  created_date: "2025-06-12T00:00:00Z"
+  modified_date: null
+  author: "EGOS Team"
+  purpose: "Provide ethical and regulatory validation for healthcare AI prompts"
+  applicable_domains: ["healthcare", "medical", "clinical", "patient_care"]
+  tags: ["sectorial", "healthcare", "medical_ethics"]
+  parent_constitutions: ["egos-base-ethical-constitution-v1", "egos-eu-ai-act-ethical-constitution-v1", "egos-gdpr-ethical-constitution-v1"]
+  regulatory_alignment: ["EU AI Act", "GDPR", "HIPAA", "general_ethics"]
+
+principles:
+  - id: "HC-BEN-001"
+    name: "Patient Benefit"
+    description: "Healthcare AI must prioritize patient benefit and wellbeing above all other considerations."
+    severity: "critical"
+    references: ["Hippocratic Oath", "Medical ethics - Beneficence"]
+  
+  - id: "HC-NON-001"
+    name: "Non-maleficence"
+    description: "Healthcare AI must first do no harm and minimize potential negative impacts on patients."
+    severity: "critical"
+    references: ["Medical ethics - Non-maleficence", "Primum non nocere"]
+  
+  - id: "HC-AUT-001"
+    name: "Patient Autonomy"
+    description: "Healthcare AI must respect and support patient autonomy in decision-making."
+    severity: "high"
+    references: ["Medical ethics - Autonomy"]
+  
+  - id: "HC-JUS-001"
+    name: "Healthcare Justice"
+    description: "Healthcare AI must promote fair and equitable distribution of healthcare benefits and burdens."
+    severity: "high"
+    references: ["Medical ethics - Justice"]
+  
+  - id: "HC-PRV-001"
+    name: "Medical Confidentiality"
+    description: "Healthcare AI must uphold the highest standards of confidentiality for patient information."
+    severity: "critical"
+    references: ["Medical ethics - Confidentiality", "HIPAA Privacy Rule"]
+  
+  - id: "HC-COM-001"
+    name: "Clinician-Patient Communication"
+    description: "Healthcare AI must support, not disrupt, the clinician-patient relationship."
+    severity: "medium"
+    references: ["Medical ethics - Communication"]
+  
+  - id: "HC-EVI-001"
+    name: "Evidence-Based Practice"
+    description: "Healthcare AI must be grounded in scientific evidence and medical best practices."
+    severity: "high"
+    references: ["Evidence-based medicine principles"]
+
+rules:
+  - id: "HC-R-001"
+    principle_ids: ["HC-BEN-001", "HC-NON-001"]
+    description: "Prompts for clinical decision support must prioritize patient safety and clinical benefit."
+    trigger_keywords: ["clinical decision", "diagnosis", "treatment", "patient safety"]
+    validation_patterns: []
+    recommendations: 
+      - "Include explicit patient safety considerations"
+      - "Reference clinical evidence base"
+      - "Specify limitations of AI in clinical contexts"
+  
+  - id: "HC-R-002"
+    principle_ids: ["HC-PRV-001", "GDPR-SEC-001", "SP-001"]
+    description: "Prompts handling patient data must implement the highest privacy and security standards."
+    trigger_keywords: ["patient data", "medical record", "health information", "PHI"]
+    validation_patterns: []
+    recommendations: 
+      - "Implement healthcare-specific data protection"
+      - "Reference relevant healthcare privacy regulations"
+      - "Specify data minimization for sensitive health data"
+  
+  - id: "HC-R-003"
+    principle_ids: ["HC-AUT-001", "EU-HUM-001"]
+    description: "Prompts must support informed consent and shared decision-making in healthcare."
+    trigger_keywords: ["consent", "patient decision", "inform patient", "shared decision"]
+    validation_patterns: []
+    recommendations: 
+      - "Include informed consent mechanisms"
+      - "Support patient autonomy in decision processes"
+      - "Provide information in understandable formats"
+  
+  - id: "HC-R-004"
+    principle_ids: ["HC-JUS-001", "EU-BIAS-001"]
+    description: "Healthcare AI prompts must address potential biases that could create or exacerbate health disparities."
+    trigger_keywords: ["disparity", "bias", "equity", "underserved", "access"]
+    validation_patterns: []
+    recommendations: 
+      - "Check for encoded health disparities"
+      - "Consider diverse patient populations"
+      - "Address social determinants of health"
+  
+  - id: "HC-R-005"
+    principle_ids: ["HC-EVI-001", "EU-TECH-001"]
+    description: "Clinical AI prompts must reference appropriate medical evidence and be technically validated."
+    trigger_keywords: ["evidence", "clinical validation", "medical literature", "accuracy"]
+    validation_patterns: []
+    recommendations: 
+      - "Reference relevant clinical guidelines"
+      - "Specify validation methodology"
+      - "Include clinical performance metrics"
+  
+  - id: "HC-R-006"
+    principle_ids: ["HC-COM-001", "RT-001"]
+    description: "Healthcare AI prompts should enhance, not replace, human clinical communication."
+    trigger_keywords: ["communication", "explain", "clinician relationship", "patient interaction"]
+    validation_patterns: []
+    recommendations: 
+      - "Support transparent communication"
+      - "Enhance clinician-patient interactions"
+      - "Avoid disrupting clinical relationships"
+  
+  - id: "HC-R-007"
+    principle_ids: ["HC-BEN-001", "HC-JUS-001", "UA-001"]
+    description: "Healthcare AI prompts should consider accessibility needs of diverse patients."
+    trigger_keywords: ["accessibility", "disability", "comprehension", "literacy"]
+    validation_patterns: []
+    recommendations: 
+      - "Address healthcare accessibility needs"
+      - "Consider health literacy variations"
+      - "Support inclusive healthcare design"
+
+validation_config:
+  minimum_pass_threshold: 0.90  # Higher threshold for healthcare applications
+  critical_failure_principles: ["HC-BEN-001", "HC-NON-001", "HC-PRV-001", "SP-001", "GDPR-SEC-001"]
+  allow_override: false  # No override for healthcare requirements
+  inheritance_behavior: "extend"  # Extend parent constitution rules

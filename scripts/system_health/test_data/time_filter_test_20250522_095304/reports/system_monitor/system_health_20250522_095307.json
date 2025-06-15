@@ -1,0 +1,20 @@
+{
+  "timestamp": "2025-05-22 09:53:07",
+  "files_analyzed": 14,
+  "recently_modified_files": 1,
+  "orphaned_files": 0,
+  "undocumented_files": 0,
+  "well_documented_files": 0,
+  "action_items": [],
+  "recent_files_by_type": {
+    "md": 1
+  },
+  "recent_files_list": [
+    {
+      "path": "C:\\EGOS\\scripts\\system_monitor\\test_data\\time_filter_test_20250522_095304\\recent_md_1hour.md",
+      "last_modified": 1747914784.320662,
+      "size": 123,
+      "file_type": ".md"
+    }
+  ]
+}

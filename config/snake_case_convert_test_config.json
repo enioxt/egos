@@ -1,0 +1,12 @@
+{
+    "exclusions": {
+        "directories": ["ProductV1.0_Docs", "already_snake_case_dir"],
+        "files": ["already_snake_case.md"],
+        "patterns_to_ignore": [
+            ".*Rev2\\.pdf$"
+        ],
+        "extensions_to_ignore_stem_case": [".TXT"]
+    },
+    "dry_run": true,
+    "interactive": true
+}

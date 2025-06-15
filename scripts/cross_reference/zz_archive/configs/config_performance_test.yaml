@@ -1,0 +1,86 @@
+# Performance Test Configuration for Reference Checker Ultra
+project_base_path: "C:/EGOS"  # Absolute path to project base directory
+
+# Only include specific subdirectories for testing
+included_directories:
+  - "scripts"                    # Our scripts directory
+  - "subsystems/KOIOS"           # Knowledge management subsystem
+  - "subsystems/ETHIK"           # Ethical framework subsystem
+  - "docs/templates"             # Documentation templates
+
+# File types to check for references
+file_types:
+  - "*.py"     # Python files
+  - "*.md"     # Markdown files
+  - "*.yaml"   # YAML files
+  - "*.yml"    # YAML files
+
+# Directories to exclude from scanning
+excluded_directories:
+  - "**/venv/**"        # Virtual environments
+  - "**/__pycache__/**" # Python cache
+  - "**/node_modules/**" # Node.js modules
+  - "**/build/**"        # Build directories
+  - "**/dist/**"         # Distribution directories
+  - "**/tests/**"        # Test directories (for quicker testing)
+
+# Files to exclude from scanning
+excluded_files:
+  - "**/*.pyc"          # Python compiled files
+  - "**/*.pyo"          # Python optimized files
+  - "**/*.pyd"          # Python dynamically loaded modules
+  - "**/.DS_Store"      # macOS metadata
+  - "**/Thumbs.db"      # Windows thumbnail cache
+  - "**/.git/**"        # Git files
+
+# Target files to find references to (only modified in last X days)
+target_file_pattern:
+  days_modified: 180     # Reduced from default to get a smaller test set
+  min_size_bytes: 100    # Minimum file size to consider
+  max_size_mb: 5         # Maximum file size to consider (in MB)
+
+# Performance settings
+performance:
+  max_workers: "cpu_count"  # Use CPU count or specific number
+  batch_size: 10            # Process files in batches
+  cache_enabled: true       # Use file content caching
+  timeout_sec: 20           # Timeout for processing a single file
+  partial_run_percentage: 25  # Set to 25, 50, or 75 for partial runs
+  avg_time_per_file_sec: 7.0   # Average time to process a single file (used for estimates)
+  prioritize_by_references: false  # When true, prioritize files with more references
+  create_checkpoint: true   # Create checkpoints during processing
+  continue_from_checkpoint: false  # Continue from last checkpoint
+
+# Scan parameters
+scan_parameters:
+  scan_directories: ["scripts", "subsystems/KOIOS", "subsystems/ETHIK", "docs/templates"] # Directories to scan
+  max_depth: 10            # Maximum directory depth to scan
+  follow_symlinks: false   # Whether to follow symbolic links
+  min_similarity: 0.8      # Minimum similarity threshold for fuzzy matching
+
+# Reference finding parameters
+reference_finding:
+  method: "auto"          # auto, python, or ripgrep
+  max_line_length: 200    # Maximum line length to include in results
+  include_context: true   # Whether to include surrounding context
+  timeout_sec: 30         # Timeout for processing a single file
+  patterns: ["{filename}", "{module}", "{basename}"] # Patterns to search for
+
+# Output settings
+output:
+  report_dir: "reports/cross_reference"  # Directory to save reports
+  max_references_per_file: 100  # Maximum references to show per file
+  console_detail_level: "normal"  # minimal, normal, or detailed
+
+# Reporting configuration
+reporting:
+  format: "html"              # html, json, or markdown
+  include_stats: true         # Include performance statistics
+  include_visualization: true # Include visualizations
+  report_path: "reports/cross_reference/report.html"  # Path for the main report
+  summary_path: "reports/cross_reference/summary.md"  # Path for the summary report
+
+# Experimental features
+experimental:
+  use_aho_corasick: true    # Use Aho-Corasick for multi-pattern matching
+  use_ripgrep: false        # Use external ripgrep tool if available

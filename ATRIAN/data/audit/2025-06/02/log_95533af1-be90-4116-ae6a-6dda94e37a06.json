@@ -1,0 +1,21 @@
+{
+  "log_id": "log_95533af1-be90-4116-ae6a-6dda94e37a06",
+  "timestamp": "2025-06-02 02:11:05.943061",
+  "action_type": "suggest_alternatives",
+  "user_id": "anonymous",
+  "resource_id": "req_6bb5440a-5e53-4be6-97e3-1ec2de919d48",
+  "request_data": null,
+  "response_data": null,
+  "metadata": null,
+  "endpoint_called": "/ethics/suggest",
+  "request_summary": {
+    "evaluation_id": null,
+    "action_description": "Implementing a facial recognition system for public surveillance",
+    "concerns_count": 3
+  },
+  "response_summary": {
+    "request_id": "req_6bb5440a-5e53-4be6-97e3-1ec2de919d48",
+    "alternatives_count": 3,
+    "based_on_evaluation": false
+  }
+}

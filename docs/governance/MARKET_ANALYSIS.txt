@@ -1,0 +1,22 @@
+# @references:
+#   - .windsurfrules
+#   - CODE_OF_CONDUCT.md
+#   - MQP.md
+#   - README.md
+#   - ROADMAP.md
+#   - CROSSREF_STANDARD.md
+
+@references:
+- Core References:
+  - [MQP.md](mdc:../../MQP.md) - Master Quantum Prompt defining EGOS principles
+  - [ROADMAP.md](mdc:../../ROADMAP.md) - Project roadmap and planning
+
+
+
+# Market Analysis: Ethical AI Tools (Task STRATEGY-2)
+
+**Date:** 2025-04-10
+
+**Objective:** Analyze market demand and trends for 'ethical AI tools' (e.g., via Google Trends) to inform EGOS product strategy and MVP definition.
+
+**(Content to be added based on research task completion)** 

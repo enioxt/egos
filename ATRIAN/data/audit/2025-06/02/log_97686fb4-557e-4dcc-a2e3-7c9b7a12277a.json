@@ -1,0 +1,19 @@
+{
+  "log_id": "log_97686fb4-557e-4dcc-a2e3-7c9b7a12277a",
+  "timestamp": "2025-06-02 02:03:00.419966",
+  "action_type": "explain_ethics",
+  "user_id": "anonymous",
+  "resource_id": "eval_c4b16b8f-102f-44d5-ab77-dd334a2a320e",
+  "request_data": null,
+  "response_data": null,
+  "metadata": null,
+  "endpoint_called": "/ethics/explain",
+  "request_summary": {
+    "evaluation_id": "eval_c4b16b8f-102f-44d5-ab77-dd334a2a320e"
+  },
+  "response_summary": {
+    "found": true,
+    "source": "generated",
+    "principles_count": 3
+  }
+}

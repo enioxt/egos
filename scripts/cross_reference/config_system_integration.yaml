@@ -1,0 +1,134 @@
+# System Integration Configuration for Reference Checker Ultra
+# Purpose: Cross-reference all roadmaps, READMEs, and important system files
+# @references: EGOS-EPIC-XREF-01, KOIOS documentation standards
+<!-- @references: -->
+#   - .windsurfrules
+#   - CODE_OF_CONDUCT.md
+#   - MQP.md
+#   - README.md
+#   - ROADMAP.md
+#   - CROSSREF_STANDARD.md
+
+#   - .windsurfrules
+#   - CODE_OF_CONDUCT.md
+#   - MQP.md
+#   - README.md
+#   - ROADMAP.md
+#   - CROSSREF_STANDARD.md
+
+# Include all key system directories
+included_directories:
+  - "docs"           # All documentation
+  - "scripts"        # All scripts
+  - "ROADMAP.md"     # Main roadmap
+  - "README.md"      # Main readme
+
+# File types to check for references
+file_types:
+  - "*.md"     # Markdown files (documentation, roadmaps)
+  - "*.py"     # Python files
+  - "*.yaml"   # YAML files
+  - "*.yml"    # YAML files
+  - "*.json"   # JSON files
+  - "*.txt"    # Text files
+
+# Directories to exclude from scanning
+excluded_directories:
+  - "**/venv/**"        # Virtual environments
+  - "**/__pycache__/**" # Python cache
+  - "**/node_modules/**" # Node.js modules
+  - "**/build/**"        # Build directories
+  - "**/dist/**"         # Distribution directories
+
+# Files to exclude from scanning
+excluded_files:
+  - "**/*.pyc"          # Python compiled files
+  - "**/*.pyo"          # Python optimized files
+  - "**/*.pyd"          # Python dynamically loaded modules
+  - "**/.DS_Store"      # macOS metadata
+  - "**/Thumbs.db"      # Windows thumbnail cache
+  - "**/.git/**"        # Git files
+
+# Target files to find references to
+target_file_pattern:
+  days_modified: 365    # Include files modified in the last year
+  min_size_bytes: 100   # Minimum file size to consider
+  max_size_mb: 10       # Maximum file size to consider (in MB)
+
+# Performance settings
+performance:
+  max_workers: "cpu_count"  # Use CPU count or specific number
+  batch_size: 20            # Process files in batches
+  cache_enabled: true       # Use file content caching
+  timeout_sec: 30           # Timeout for processing a single file
+  partial_run_percentage: 100  # Process all files
+  avg_time_per_file_sec: 5.0   # Average time to process a single file
+  create_checkpoint: true      # Create checkpoints during processing
+  continue_from_checkpoint: false  # Continue from last checkpoint
+  persistent_cache: true       # Enable persistent caching between runs
+  persistent_cache_file: "reports/cross_reference/system_integration/file_content_cache.json"  # Path to persistent cache file
+  hierarchical_priority: true  # Enable hierarchical priority processing
+  reference_frequency_weighting: true  # Weight files by reference frequency
+
+# Scan parameters
+scan_parameters:
+  scan_directories: ["docs", "scripts", "."]  # Scan all key directories
+  max_depth: 10         # Maximum directory depth to scan
+  follow_symlinks: false # Whether to follow symbolic links
+  min_similarity: 0.8   # Minimum similarity threshold for fuzzy matching
+  target_file_extensions:
+    - "md"              # Markdown files
+    - "py"              # Python files
+    - "yaml"            # YAML files
+    - "yml"             # YAML files
+    - "json"            # JSON files
+    - "txt"             # Text files
+
+# Reference finding parameters
+reference_finding:
+  method: "auto"        # auto, python, or ripgrep
+  max_line_length: 500  # Maximum line length to include in results
+  include_context: true # Whether to include surrounding context
+  timeout_sec: 30       # Timeout for processing a single file
+  patterns:
+    - "{filename}"      # Exact filename
+    - "{basename}"      # Filename without extension
+    - "{module}"        # Python module name
+    - "EGOS-EPIC-*"     # Roadmap epic IDs
+    - "@references:*"   # Reference tags
+    - "MEMORY\\[*\\]"   # Memory references
+    - "KOIOS"           # KOIOS documentation standard
+    - "ETHIK"           # ETHIK subsystem
+    - "AETHER"          # AETHER subsystem
+    - "CORUJA"          # CORUJA subsystem
+    - "HARMONY"         # HARMONY subsystem
+    - "NEXUS"           # NEXUS subsystem
+    - "MYCELIUM"        # MYCELIUM subsystem
+
+# Output settings
+output:
+  report_dir: "reports/cross_reference/system_integration"  # Directory to save reports
+  max_references_per_file: 500  # Maximum references to show per file
+  console_detail_level: "normal"  # minimal, normal, or detailed
+
+# Reporting configuration
+reporting:
+  format: "html"              # html, json, or markdown
+  include_stats: true         # Include performance statistics
+  include_visualization: true # Include visualizations
+  report_path: "reports/cross_reference/system_integration/report.html"  # Path for the main report
+  summary_path: "reports/cross_reference/system_integration/summary.md"  # Path for the summary report
+  checkpoint_path: "reports/cross_reference/system_integration/checkpoint.json"  # Path for checkpoint file
+  missing_references_report: "reports/cross_reference/system_integration/missing_references.md"  # Missing references report
+
+# Experimental features
+experimental:
+  use_aho_corasick: true    # Use Aho-Corasick for multi-pattern matching
+  use_ripgrep: false        # Use external ripgrep tool if available
+  hierarchical_priority: true  # Enable hierarchical priority processing
+  reference_frequency_weighting: true  # Weight files by reference frequency
+
+# Logging configuration
+logging:
+  level: "INFO"  # Logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+  file_path: "logs/cross_reference/system_integration.log"  # Log file path

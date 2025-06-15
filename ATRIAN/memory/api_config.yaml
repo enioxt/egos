@@ -1,0 +1,62 @@
+# ATRiAN Memory API Configuration
+# Version: 0.1.0
+# Last Modified: 2025-05-27
+#
+# MQP Alignment:
+# - Systemic Cartography (SC): Mapping API endpoints and environments
+# - Evolutionary Preservation (EP): Configuration versioning
+#
+# Cross-references:
+# - @references {C:\EGOS\ATRiAN\memory\windsurf_api_backend.py}
+# - @references {C:\EGOS\ATRiAN\memory\mock_windsurf_api.py}
+# - @references {C:\EGOS\ATRiAN\memory\windsurf_memory_adapter.py}
+
+# Environment configurations
+environments:
+  # Development environment (local testing)
+  development:
+    api_base_url: "http://localhost:8000/api/v1/atrian"
+    api_key: null  # No authentication for local development
+    timeout: 5  # seconds
+    retry_count: 3
+    retry_delay: 1  # seconds
+    namespace: "atrian_dev"
+  
+  # Testing environment
+  testing:
+    api_base_url: "http://test-server:8000/api/v1/atrian"
+    api_key: "test_key_12345"
+    timeout: 5  # seconds
+    retry_count: 3
+    retry_delay: 1  # seconds
+    namespace: "atrian_test"
+  
+  # Staging environment
+  staging:
+    api_base_url: "https://staging-api.windsurf.example/api/v1/atrian"
+    api_key: "PLACEHOLDER_STAGING_KEY"
+    timeout: 10  # seconds
+    retry_count: 4
+    retry_delay: 2  # seconds
+    namespace: "atrian_staging"
+  
+  # Production environment
+  production:
+    api_base_url: "https://api.windsurf.example/api/v1/atrian"
+    api_key: "PLACEHOLDER_PRODUCTION_KEY"
+    timeout: 15  # seconds
+    retry_count: 5
+    retry_delay: 3  # seconds
+    namespace: "atrian"
+
+# Default environment to use
+default_environment: "development"
+
+# Feature flags
+features:
+  enable_encryption: false
+  enable_compression: false
+  enable_caching: true
+  cache_ttl: 300  # seconds
+  log_api_calls: true
+  anonymize_logs: true

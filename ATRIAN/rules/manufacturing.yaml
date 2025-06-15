@@ -1,0 +1,131 @@
+---
+# ATRiAN Sector-Specific Rules: Manufacturing
+# Version: 1.0.0
+# Date: 2025-06-14
+
+@references:
+- .windsurfrules
+- CODE_OF_CONDUCT.md
+- MQP.md
+- ROADMAP.md
+- CROSSREF_STANDARD.md
+
+@references(level=1):
+- ATRIAN/docs/methods/incident_analysis_methods.md
+- ATRIAN/docs/case_studies/top_incidents.md
+- docs/workflows/atrian_data_pipeline_roi_workflow.md
+- scripts/roi_simulate.py
+- .windsurf/workflows/atrian_roi_calc.md
+
+# Detector Configurations for Manufacturing Sector
+# These detectors can be loaded by ATRiAN's rule engine and trigger alerts
+
+detectors:
+  safety_config_drift:
+    id: "mfg-001"
+    name: "Safety Configuration Drift Monitor"
+    description: "Detects unauthorized changes to safety parameters or lockout configurations"
+    severity: "critical"
+    operational_context: "runtime, maintenance"
+    reference_incident_ids: [12]
+    
+    parameters:
+      config_check_interval_seconds: 60
+      golden_config_path: "/atrian/configs/safety/baseline.json"
+      critical_params:
+        - "safety_cage_enabled"
+        - "proximity_sensor_threshold"
+        - "emergency_stop_sensitivity"
+      require_authorization_for_changes: true
+      
+    implementation:
+      module: "atrian.detectors.manufacturing.safety"
+      class: "ConfigDriftMonitor"
+      threshold_violation_action: "lock_and_alert"
+      
+    webhook_targets:
+      - "plant_operations"
+      - "safety_officer_pager"
+      - "audit_log"
+      
+  human_proximity_anomaly:
+    id: "mfg-002"
+    name: "Human Proximity in Restricted Zone"
+    description: "Detects human presence in robot operation zones that should be restricted"
+    severity: "critical"
+    operational_context: "runtime"
+    reference_incident_ids: [12]
+    
+    parameters:
+      detection_methods:
+        - "lidar"
+        - "thermal_camera"
+        - "pressure_sensor"
+      min_confidence_threshold: 0.92
+      safe_distance_meters: 2.5
+      required_confirmation_sensors: 2
+      
+    implementation:
+      module: "atrian.detectors.manufacturing.zone"
+      class: "HumanProximityDetector"
+      threshold_violation_action: "emergency_stop"
+      
+    webhook_targets:
+      - "robot_controller"
+      - "floor_supervisor_alert"
+      
+  dual_authorization:
+    id: "mfg-003"
+    name: "Safety Override Authorization"
+    description: "Enforces dual-authorization workflow for safety overrides"
+    severity: "high"
+    operational_context: "maintenance, setup"
+    reference_incident_ids: [12]
+    
+    parameters:
+      required_auth_level: "supervisor"
+      max_override_duration_minutes: 30
+      require_active_confirmation_interval_minutes: 5
+      log_all_override_attempts: true
+      
+    implementation:
+      module: "atrian.detectors.manufacturing.auth"
+      class: "DualAuthorizationEnforcer"
+      threshold_violation_action: "deny_override"
+      
+    webhook_targets:
+      - "authorization_system"
+      - "compliance_log"
+
+# Integration Settings
+integration:
+  plc_hooks:
+    - module: "atrian.hooks.industrial"
+      entry_point: "on_config_change"
+      detector_ids: ["mfg-001"]
+    - module: "atrian.hooks.industrial"
+      entry_point: "on_sensor_update"
+      detector_ids: ["mfg-002"]
+      
+  authorization_hooks:
+    - module: "atrian.hooks.auth"
+      entry_point: "before_permission_change"
+      detector_ids: ["mfg-003"]
+    
+  dashboard_widgets:
+    - name: "Safety Parameter Status"
+      detector_id: "mfg-001"
+      chart_type: "status"
+      refresh_rate_seconds: 60
+    - name: "Zone Access Violations (24h)"
+      detector_id: "mfg-002"
+      chart_type: "heatmap"
+      refresh_rate_seconds: 300
+
+# Mitigation Factors for ROI Model
+roi_factors:
+  sector_risk_mitigation_multiplier: 1.4  # 40% higher risk mitigation in manufacturing vs. baseline
+  cost_severity_mapping:
+    fatality: 8500000  # $8.5M per statistical life (industry standard)
+    safety_violation_fine: 145000  # $145K average regulatory fine
+    production_downtime_hour: 25000  # $25K per hour of production line stoppage

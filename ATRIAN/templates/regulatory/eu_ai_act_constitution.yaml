@@ -1,0 +1,152 @@
+# EGOS ATRiAN - EU AI Act Ethical Constitution Template
+# Version: 0.1.0
+# Last Modified: 2025-06-12
+# 
+# Purpose:
+# This ethical constitution template implements the requirements of the EU AI Act
+# for prompt validation in the ATRiAN system. It extends the base constitution
+# with specific principles and rules aligned with EU regulation.
+# 
+# Usage:
+# Use this template for validating prompts that must comply with EU AI Act requirements,
+# particularly when developing or deploying AI systems within EU jurisdictions.
+# 
+# Cross-references:
+# - [Base Ethical Constitution](../base/base_constitution.yaml)
+# - [EU AI Act](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai)
+# --- 
+
+id: "egos-eu-ai-act-ethical-constitution-v1"
+name: "EGOS EU AI Act Ethical Constitution"
+description: "Ethical framework for prompt validation aligned with EU AI Act regulatory requirements."
+
+metadata:
+  version: "0.1.0"
+  created_date: "2025-06-12T00:00:00Z"
+  modified_date: null
+  author: "EGOS Team"
+  purpose: "Provide regulatory compliance validation for prompts under EU AI Act"
+  applicable_domains: ["eu_jurisdiction", "regulated_ai_systems", "high_risk_ai"]
+  tags: ["regulatory", "compliance", "eu_ai_act"]
+  parent_constitutions: ["egos-base-ethical-constitution-v1"]
+  regulatory_alignment: ["EU AI Act", "general_ethics"]
+
+principles:
+  - id: "EU-RISK-001"
+    name: "Risk-Based Approach"
+    description: "Apply controls proportionate to the risk level of the AI system, with particular attention to high-risk applications."
+    severity: "critical"
+    references: ["EU AI Act Article 6", "EU AI Act Annex III"]
+  
+  - id: "EU-TRANS-001"
+    name: "Transparency and Explainability"
+    description: "Ensure AI systems operate transparently with appropriate levels of explainability based on their impact and audience."
+    severity: "high"
+    references: ["EU AI Act Article 13"]
+  
+  - id: "EU-HUM-001"
+    name: "Human Oversight"
+    description: "Maintain meaningful human oversight of AI systems, especially for significant decisions affecting individuals."
+    severity: "high"
+    references: ["EU AI Act Article 14"]
+  
+  - id: "EU-TECH-001"
+    name: "Technical Robustness"
+    description: "Ensure AI systems are technically robust, accurate, and resilient to errors and attacks."
+    severity: "high"
+    references: ["EU AI Act Article 15"]
+  
+  - id: "EU-DATA-001"
+    name: "Data and Data Governance"
+    description: "Implement appropriate data governance measures for training, validation, and testing datasets."
+    severity: "high"
+    references: ["EU AI Act Article 10"]
+  
+  - id: "EU-DOC-001"
+    name: "Documentation and Record Keeping"
+    description: "Maintain comprehensive documentation of AI system development, testing, and deployment."
+    severity: "medium"
+    references: ["EU AI Act Article 11"]
+  
+  - id: "EU-BIAS-001"
+    name: "Non-Discrimination and Fairness"
+    description: "Prevent and mitigate bias, discrimination, and unfair outcomes in AI systems."
+    severity: "critical"
+    references: ["EU AI Act Article 10(5)"]
+
+rules:
+  - id: "EU-R-001"
+    principle_ids: ["EU-RISK-001"]
+    description: "Prompts for high-risk AI applications must explicitly acknowledge their risk classification."
+    trigger_keywords: ["high-risk", "critical system", "safety critical", "human rights", "essential services"]
+    validation_patterns: []
+    recommendations: 
+      - "Include risk classification statement in prompt context"
+      - "Ensure appropriate safeguards are referenced"
+      - "Reference relevant provisions of EU AI Act for the specific high-risk category"
+  
+  - id: "EU-R-002"
+    principle_ids: ["EU-TRANS-001", "RT-001"]
+    description: "Prompts should enable transparency about AI identification, capabilities, and purpose."
+    trigger_keywords: ["transparency", "disclosure", "identify as AI", "capabilities"]
+    validation_patterns: []
+    recommendations: 
+      - "Include disclosure of AI identity when relevant"
+      - "Clearly describe system purpose and limitations"
+      - "Provide context on responsible parties/entities"
+  
+  - id: "EU-R-003"
+    principle_ids: ["EU-HUM-001", "UR-001"]
+    description: "High-impact decisions should reference human oversight mechanisms in prompts."
+    trigger_keywords: ["decision", "automated", "assessment", "evaluation", "determination"]
+    validation_patterns: []
+    recommendations: 
+      - "Specify human oversight mechanisms"
+      - "Include escalation paths for contentious decisions"
+      - "Define human-AI interaction boundaries"
+  
+  - id: "EU-R-004"
+    principle_ids: ["EU-DATA-001", "SP-001"]
+    description: "Prompts referencing training or handling data must address data quality and governance."
+    trigger_keywords: ["training data", "dataset", "data processing", "data collection"]
+    validation_patterns: []
+    recommendations: 
+      - "Address data quality considerations"
+      - "Reference data governance policies"
+      - "Specify data minimization approaches"
+  
+  - id: "EU-R-005"
+    principle_ids: ["EU-BIAS-001", "IE-001"]
+    description: "Prompts must not reinforce or amplify discriminatory biases or unfair outcomes."
+    trigger_keywords: ["bias", "fairness", "discrimination", "equity", "equality"]
+    validation_patterns: []
+    recommendations: 
+      - "Include bias mitigation considerations"
+      - "Use inclusive language and examples"
+      - "Consider diverse stakeholder impacts"
+  
+  - id: "EU-R-006"
+    principle_ids: ["EU-TECH-001", "CM-001"]
+    description: "Prompts for technical implementations should address accuracy, reliability and error handling."
+    trigger_keywords: ["technical", "implementation", "error handling", "reliability", "accuracy"]
+    validation_patterns: []
+    recommendations: 
+      - "Specify accuracy requirements"
+      - "Address error handling procedures"
+      - "Include resilience considerations"
+  
+  - id: "EU-R-007"
+    principle_ids: ["EU-DOC-001", "SC-001"]
+    description: "System documentation requirements and record-keeping should be referenced in relevant prompts."
+    trigger_keywords: ["document", "log", "record", "tracking", "audit"]
+    validation_patterns: []
+    recommendations: 
+      - "Include documentation requirements"
+      - "Reference audit trail needs"
+      - "Specify record retention policies"
+
+validation_config:
+  minimum_pass_threshold: 0.85  # Higher threshold for regulatory compliance
+  critical_failure_principles: ["SP-001", "EU-BIAS-001", "EU-RISK-001"]  # Critical principles
+  allow_override: false  # No override for regulatory requirements
+  inheritance_behavior: "extend"  # Extend base constitution rules

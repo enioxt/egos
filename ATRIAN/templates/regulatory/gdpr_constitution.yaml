@@ -1,0 +1,162 @@
+# EGOS ATRiAN - GDPR Ethical Constitution Template
+# Version: 0.1.0
+# Last Modified: 2025-06-12
+# 
+# Purpose:
+# This ethical constitution template implements the requirements of the General Data 
+# Protection Regulation (GDPR) for prompt validation in the ATRiAN system. It extends
+# the base constitution with specific principles and rules focused on data protection.
+# 
+# Usage:
+# Use this template for validating prompts that must comply with GDPR requirements,
+# particularly when processing personal data of EU data subjects.
+# 
+# Cross-references:
+# - [Base Ethical Constitution](../base/base_constitution.yaml)
+# - [GDPR](https://gdpr-info.eu/)
+# --- 
+
+id: "egos-gdpr-ethical-constitution-v1"
+name: "EGOS GDPR Ethical Constitution"
+description: "Ethical framework for prompt validation aligned with GDPR data protection requirements."
+
+metadata:
+  version: "0.1.0"
+  created_date: "2025-06-12T00:00:00Z"
+  modified_date: null
+  author: "EGOS Team"
+  purpose: "Provide data protection compliance validation for prompts handling personal data"
+  applicable_domains: ["personal_data_processing", "eu_data_subjects", "data_governance"]
+  tags: ["regulatory", "compliance", "gdpr", "data_protection"]
+  parent_constitutions: ["egos-base-ethical-constitution-v1"]
+  regulatory_alignment: ["GDPR", "general_ethics"]
+
+principles:
+  - id: "GDPR-LAW-001"
+    name: "Lawfulness, Fairness and Transparency"
+    description: "Personal data must be processed lawfully, fairly and in a transparent manner in relation to the data subject."
+    severity: "critical"
+    references: ["GDPR Article 5(1)(a)"]
+  
+  - id: "GDPR-PUR-001"
+    name: "Purpose Limitation"
+    description: "Personal data must be collected for specified, explicit and legitimate purposes and not further processed in a manner incompatible with those purposes."
+    severity: "high"
+    references: ["GDPR Article 5(1)(b)"]
+  
+  - id: "GDPR-MIN-001"
+    name: "Data Minimization"
+    description: "Personal data must be adequate, relevant and limited to what is necessary in relation to the purposes for which they are processed."
+    severity: "high"
+    references: ["GDPR Article 5(1)(c)"]
+  
+  - id: "GDPR-ACC-001"
+    name: "Accuracy"
+    description: "Personal data must be accurate and, where necessary, kept up to date."
+    severity: "medium"
+    references: ["GDPR Article 5(1)(d)"]
+  
+  - id: "GDPR-STO-001"
+    name: "Storage Limitation"
+    description: "Personal data must be kept in a form which permits identification of data subjects for no longer than is necessary."
+    severity: "medium"
+    references: ["GDPR Article 5(1)(e)"]
+  
+  - id: "GDPR-SEC-001"
+    name: "Integrity and Confidentiality"
+    description: "Personal data must be processed in a manner that ensures appropriate security of the personal data."
+    severity: "critical"
+    references: ["GDPR Article 5(1)(f)"]
+  
+  - id: "GDPR-ACC-002"
+    name: "Accountability"
+    description: "The controller shall be responsible for, and be able to demonstrate compliance with, all GDPR principles."
+    severity: "high"
+    references: ["GDPR Article 5(2)"]
+
+rules:
+  - id: "GDPR-R-001"
+    principle_ids: ["GDPR-LAW-001", "SP-001"]
+    description: "Prompts must define a clear lawful basis for any personal data processing."
+    trigger_keywords: ["personal data", "processing", "consent", "legitimate interest"]
+    validation_patterns: []
+    recommendations: 
+      - "Specify the lawful basis for processing (consent, contract, legal obligation, etc.)"
+      - "Include transparency notice requirements"
+      - "Reference appropriate privacy notices and policies"
+  
+  - id: "GDPR-R-002"
+    principle_ids: ["GDPR-PUR-001"]
+    description: "Prompts must specify clear purposes for any personal data collection or processing."
+    trigger_keywords: ["purpose", "collect data", "use data", "data purpose"]
+    validation_patterns: []
+    recommendations: 
+      - "Clearly state specific data processing purposes"
+      - "Avoid purpose creep or ambiguous uses"
+      - "Link data fields to specific purposes"
+  
+  - id: "GDPR-R-003"
+    principle_ids: ["GDPR-MIN-001", "SP-001"]
+    description: "Prompts must implement data minimization principles for any data collection."
+    trigger_keywords: ["collect", "gather data", "request information", "submit data"]
+    validation_patterns: []
+    recommendations: 
+      - "Only request data absolutely necessary for the stated purpose"
+      - "Question any collection of special category data"
+      - "Consider pseudonymization or anonymization where applicable"
+  
+  - id: "GDPR-R-004"
+    principle_ids: ["GDPR-ACC-001"]
+    description: "When referencing data processing, include mechanisms for ensuring data accuracy."
+    trigger_keywords: ["accuracy", "data quality", "update data", "correction"]
+    validation_patterns: []
+    recommendations: 
+      - "Include data verification steps"
+      - "Provide mechanisms for data correction"
+      - "Implement data quality checks"
+  
+  - id: "GDPR-R-005"
+    principle_ids: ["GDPR-STO-001"]
+    description: "Prompts should include storage limitation considerations where relevant."
+    trigger_keywords: ["retain", "store", "keep data", "data retention", "deletion"]
+    validation_patterns: []
+    recommendations: 
+      - "Specify data retention periods"
+      - "Include deletion or anonymization timelines"
+      - "Reference data lifecycle management"
+  
+  - id: "GDPR-R-006"
+    principle_ids: ["GDPR-SEC-001", "SP-001"]
+    description: "Security measures must be addressed for any prompt involving personal data."
+    trigger_keywords: ["security", "protection", "confidential", "sensitive data", "encrypt"]
+    validation_patterns: []
+    recommendations: 
+      - "Reference appropriate security measures"
+      - "Consider data transmission security"
+      - "Address appropriate access controls"
+  
+  - id: "GDPR-R-007"
+    principle_ids: ["GDPR-ACC-002"]
+    description: "Prompts should enable accountability through appropriate documentation and controls."
+    trigger_keywords: ["compliance", "document", "evidence", "audit", "record"]
+    validation_patterns: []
+    recommendations: 
+      - "Include documentation requirements"
+      - "Reference record-keeping needs"
+      - "Specify accountability mechanisms"
+  
+  - id: "GDPR-R-008"
+    principle_ids: ["GDPR-LAW-001", "RT-001"]
+    description: "Data subject rights must be acknowledged and facilitated in relevant prompts."
+    trigger_keywords: ["data subject rights", "access request", "erasure", "rectification"]
+    validation_patterns: []
+    recommendations: 
+      - "Reference data subject rights mechanisms"
+      - "Include procedures for rights requests"
+      - "Ensure transparency about rights"
+
+validation_config:
+  minimum_pass_threshold: 0.85  # Higher threshold for regulatory compliance
+  critical_failure_principles: ["SP-001", "GDPR-LAW-001", "GDPR-SEC-001"]  # Critical principles
+  allow_override: false  # No override for regulatory requirements
+  inheritance_behavior: "extend"  # Extend base constitution rules

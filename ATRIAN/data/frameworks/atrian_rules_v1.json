@@ -1,0 +1,18 @@
+{
+  "id": "atrian_rules_v1",
+  "name": "ATRiAN Core Ethical Rules Set",
+  "description": "The set of configurable ethical rules loaded by EthicalCompass from ethics_rules.yaml. This entry represents the live, operational ruleset.",
+  "version": "1.0",
+  "principles": [
+    "Universal Redemption",
+    "Sacred Privacy",
+    "Integrated Ethics"
+  ],
+  "last_updated": "2025-06-11 22:56:22.754188",
+  "active": true,
+  "metadata": {
+    "rules_count": 17,
+    "rules_source": "C:/EGOS/ATRiAN/ethics_rules.yaml",
+    "last_loaded": "2025-06-11T22:56:22.754188"
+  }
+}

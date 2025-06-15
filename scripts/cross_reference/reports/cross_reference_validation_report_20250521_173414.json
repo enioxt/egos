@@ -1,0 +1,56 @@
+{
+  "timestamp": "20250521_173414",
+  "base_path": "C:\\Users\\Enidi\\AppData\\Local\\Temp\\tmp7d2uim9f",
+  "stats": {
+    "files_scanned": 0,
+    "references_found": 0,
+    "valid_references": 0,
+    "invalid_references": 0,
+    "files_with_invalid_references": 0,
+    "processing_time": 0.12443399429321289
+  },
+  "invalid_references": [
+    {
+      "file": "C:\\Users\\Enidi\\AppData\\Local\\Temp\\tmp7d2uim9f\\docs\\invalid_references.md",
+      "reference": "non_existent.md",
+      "target": "non_existent.md",
+      "reason": "Target file not found: non_existent.md",
+      "suggested_fix": "Consider changing to: [non_existent.md](invalid_references.md)"
+    },
+    {
+      "file": "C:\\Users\\Enidi\\AppData\\Local\\Temp\\tmp7d2uim9f\\docs\\invalid_references.md",
+      "reference": "does_not_exist.md",
+      "target": "does_not_exist.md",
+      "reason": "Target file not found: does_not_exist.md",
+      "suggested_fix": "Consider changing to: [does_not_exist.md](invalid_references.md)"
+    },
+    {
+      "file": "C:\\Users\\Enidi\\AppData\\Local\\Temp\\tmp7d2uim9f\\docs\\invalid_references.md",
+      "reference": "Link to non-existent file",
+      "target": "non_existent.md",
+      "reason": "Target file not found: non_existent.md",
+      "suggested_fix": "Consider changing to: [Link to non-existent file](invalid_references.md)"
+    },
+    {
+      "file": "C:\\Users\\Enidi\\AppData\\Local\\Temp\\tmp7d2uim9f\\docs\\invalid_references.md",
+      "reference": "Another broken link",
+      "target": "does_not_exist.md",
+      "reason": "Target file not found: does_not_exist.md",
+      "suggested_fix": "Consider changing to: [Another broken link](invalid_references.md)"
+    },
+    {
+      "file": "C:\\Users\\Enidi\\AppData\\Local\\Temp\\tmp7d2uim9f\\docs\\invalid_references.md",
+      "reference": "non_existent.md",
+      "target": "non_existent.md",
+      "reason": "Target file not found: non_existent.md",
+      "suggested_fix": "Consider changing to: [non_existent.md](invalid_references.md)"
+    },
+    {
+      "file": "C:\\Users\\Enidi\\AppData\\Local\\Temp\\tmp7d2uim9f\\docs\\invalid_references.md",
+      "reference": "does_not_exist.md",
+      "target": "does_not_exist.md",
+      "reason": "Target file not found: does_not_exist.md",
+      "suggested_fix": "Consider changing to: [does_not_exist.md](invalid_references.md)"
+    }
+  ]
+}

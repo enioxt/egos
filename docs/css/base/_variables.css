@@ -1,0 +1,41 @@
+:root {
+    /* Dark Theme Color Palette */
+    --primary-color: #0A2342; /* Deep Blue */
+    --accent-color: #FF6600;  /* Warm Orange */
+    --secondary-color: #0A2342; /* Same as primary for now */
+
+    --background-color: #f9f9f9; /* Light background */
+    --background-alternate: #ffffff; /* White for alternate sections */
+    --card-background: #ffffff; /* White cards */
+
+    --text-color: #222; /* Dark text */
+    --text-secondary: #666; /* Lighter dark text */
+    --text-on-primary: #ffffff; /* White text on primary background */
+    --link-color: var(--accent-color); /* Accent color for links */
+    --link-hover-color: #0A2342; /* Deep blue on hover */
+
+    --border-color: #ccc; /* Light border */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    --hover-shadow-color: rgba(0, 0, 0, 0.2); /* Hover shadow */
+
+    /* TODO: Optimize font loading */
+    /* TODO: Minify CSS before production */
+    /* TODO: Add animations for subsystem diagrams and transitions */
+
+    /* Fonts (Mantendo as atuais) */
+    --font-body: 'Inter', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 32px;
+    --spacing-xl: 64px;
+
+    /* Border Radius */
+    --border-radius: 8px;
+
+    /* Max Width */
+    --max-width: 1200px;
+} 

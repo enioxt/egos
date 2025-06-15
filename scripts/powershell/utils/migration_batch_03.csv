@@ -1,0 +1,7 @@
+"SourcePath","DestinationPath","Operation"
+"C:\EGOS\analysis_results","C:\EGOS\docs_egos\09_project_meta\analysis_results","Move"
+"C:\EGOS\archive","C:\EGOS\docs_egos\zz_archive\legacy_root_archive","Move"
+"C:\EGOS\backups","C:\EGOS\docs_egos\zz_archive\legacy_root_backups","Move"
+"C:\EGOS\examples","C:\EGOS\docs_egos\05_technical_references\examples","Move"
+"C:\EGOS\recovery_analysis","C:\EGOS\docs_egos\09_project_meta\recovery_analysis","Move"
+"C:\EGOS\reports","C:\EGOS\docs_egos\09_project_meta\reports","Move"

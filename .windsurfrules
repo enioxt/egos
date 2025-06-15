@@ -1,0 +1,1732 @@
+# EGOS Workspace Global Rules (.windsurfrules)
+# Version 2.1 (Full Moon Blueprint - Iteration 2)
+# Last Updated: 2025-06-15T11:24:50-03:00 <!-- EGOS Workflows Index integration -->
+
+## 1. Purpose, Scope, and Guiding Philosophy
+
+These Global Rules constitute the primary operational directives for all agents (human and AI, including Windsurf AI Assistants like Cascade) operating within the EGOS workspace. Their purpose is to ensure:
+
+*   **Alignment with Core Principles:** All actions directly reflect and implement the tenets of the **[Master Quantum Prompt (MQP v9.0 "Full Moon Blueprint")](file:///C:/EGOS/MQP.md)**.
+*   **Methodological Precision:** Tasks are executed consistently, efficiently, and according to established best practices.
+*   **Systemic Coherence:** The integrity, organization, and interconnectedness of all EGOS artifacts are maintained and enhanced.
+*   **Evolutionary Maturity:** EGOS continuously learns and refines its operational framework, moving towards a robust and scalable system.
+
+These rules are "living standards," subject to refinement through the **`EGOS_PROCESS:Evolutionary_Refinement_Cycle`**. They are designed to be actionable and, where possible, reference callable **`EGOS_PRINCIPLES`**, **`EGOS_PROCEDURES`**, **`EGOS_POLICIES`**, and **`EGOS_PROCESSES`** which are defined either herein or in dedicated EGOS standards documents.
+
+**Achieving an MVP of the EGOS Operational Framework:**
+The formalization of these core principles, the establishment of the Anomaly & Deviation Reporting System (ADRS), and the systematic approach to updating documentation and rules are foundational to a robust and scalable system. EGOS is not just about code; it's about the *meta-system* of creating, maintaining, and evolving that code and its associated knowledge. These rules are critical to building that meta-system with increasing sophistication and maturity.
+
+### 1.1. Key EGOS Standards & Definitions Reference
+*   **[Master Quantum Prompt (MQP.md)](file:///C:/EGOS/MQP.md)**: The ultimate source of EGO
+
+### Operational Checklists & Reminders
+
+#### RULE-OPS-CHECKLIST-001: Session Start & Service Verification
+**ID:** `RULE-OPS-CHECKLIST-001`
+**Type:** Procedural Reminder
+**Applies To:** All Agents (Human & AI)
+**Trigger:** Beginning of a new EGOS work session or before starting significant development/operational tasks.
+**Description:** To ensure smooth operation and prevent downstream issues, agents should verify the status and accessibility of key EGOS subsystems and external dependencies relevant to their planned tasks.
+**Procedure:**
+1.  **ATRiAN Service Check:** If tasks involve ATRiAN integration (e.g., ethical reviews, advanced prompt processing):
+    *   Verify that the local/development ATRiAN service endpoint is active and accessible.
+    *   *(Guidance: Note expected endpoint URL if standardized, e.g., `http://localhost:XXXX/api/atrian/status`)*
+2.  **Mycelium Service Check:** If tasks involve Mycelium integration (e.g., logging, knowledge graph updates, cross-referencing):
+    *   Verify that the local/development Mycelium service endpoint is active and accessible.
+    *   *(Guidance: Note expected endpoint URL if standardized, e.g., `http://localhost:YYYY/api/mycelium/status`)*
+3.  **KOIOS PDD Tools Check:** If tasks involve creating, modifying, or validating Prompt Design Documents (PDDs):
+    *   Confirm the `validate_pdd.py` script at `c:\EGOS\subsystems\KOIOS\schemas\` is operational and the `pdd_schema.py` is up-to-date.
+    *   *(Guidance: A quick test run on a known valid PDD can confirm functionality. Refer to the [KOIOS PDD Standard](file:///C:/EGOS/docs/standards/KOIOS_PDD_Standard.md) for PDD specifications.)*
+4.  **ADRS Review:** Briefly review any entries in the [Anomaly & Deviation Reporting System (ADRS_Log.md)](file:///C:/EGOS/ADRS_Log.md) that might be relevant to the current task scope or involved subsystems.
+5.  **Workspace Sync:** Ensure the local workspace is synchronized with the latest version from the repository, if applicable.
+**Rationale:** Proactive checks prevent time lost on debugging issues caused by unavailable or misconfigured dependencies. Promotes adherence to EGOS operational integrity.
+**Cross-References:** `MQP_INT`, `SYS_COHERENCE`, `ADRS_INT`
+S philosophy and core tenets.
+*   **[EGOS Roadmap (ROADMAP.md)](file:///C:/EGOS/ROADMAP.md)**: High-level development plan and priorities.
+*   **[Main Project README (README.md)](file:///C:/EGOS/README.md)**: Main entry point, overview, and navigation guide for the EGOS project.
+*   **[Anomaly & Deviation Reporting System (ADRS_Log.md)](file:///C:/EGOS/ADRS_Log.md)**: Central log for tracking non-compliance and improvement opportunities.
+*   **[ATRiAN Module - The Silent Guide (ATRiAN.md)](file:///C:/EGOS/ATRiAN/ATRiAN.md)**: Core EGOS subsystem.
+*   **[Code of Conduct (CODE_OF_CONDUCT.md)](file:///C:/EGOS/CODE_OF_CONDUCT.md)**.
+*   **[Contributing Guidelines (CONTRIBUTING.md)](file:///C:/EGOS/CONTRIBUTING.md)**.
+*   **[Archive Policy (ARCHIVE_POLICY.md)](file:///C:/EGOS/ARCHIVE_POLICY.md)**.
+*   **[WORK Log Standardization](file:///C:/EGOS/WORK_2025-05-23_Work_Log_Standardization.md)**.
+*   **[DiagEnio Framework (DiagEnio.md)](file:///C:/EGOS/DiagEnio.md)**.
+*   **[OcioCriativo Principles (OCIOCRIATIVO.md)](file:///C:/EGOS/OCIOCRIATIVO.md)**.
+*   **[EGOS Tool Runner (run_tools.py)](file:///C:/EGOS/run_tools.py)**.
+*   **[KOIOS Prompt Design Document (PDD) Standard (KOIOS_PDD_Standard.md)](file:///C:/EGOS/docs/standards/KOIOS_PDD_Standard.md)**: Defines the structure, validation, and best practices for PDDs.
+*   **[Handover Checklist Template (v2.0.0 - Ultra-Clean)](file:///C:/EGOS/docs/standards/handover_checklist_template.md)**: Standardized checklist for EGOS chat session handovers, optimized for AI context transfer. (Related Rule: `RULE-WF-HANDOVER-01`)
+*   **[PromptVault System Design (PromptVault_System_Design.md)](file:///C:/EGOS/docs/planning/PromptVault_System_Design.md)**: Design document for the EGOS PromptVault system. (Related Rule: `RULE-WF-PROMPTVAULT-01`)
+*   **Workflows (Located in `C:/EGOS/.windsurf/workflows/`):**
+    *   **[/project_handover_procedure](file:///C:/EGOS/.windsurf/workflows/project_handover_procedure.md)**: Standardized procedure for EGOS handovers, utilizing the 'Ultra-Clean' template v2.0.0.
+    *   **[/distill_and_vault_prompt](file:///C:/EGOS/.windsurf/workflows/distill_and_vault_prompt.md)**: Workflow for capturing, distilling, and saving high-quality LLM prompts to the EGOS PromptVault.
+    *   **[/ai_assisted_research_and_synthesis](file:///C:/EGOS/.windsurf/workflows/ai_assisted_research_and_synthesis.md)**: Leverages AI to gather, process, and synthesize information for research tasks.
+    *   **[/iterative_code_refinement_cycle](file:///C:/EGOS/.windsurf/workflows/iterative_code_refinement_cycle.md)**: A structured process for progressively improving code quality.
+    *   **[/dynamic_documentation_update_from_code_changes](file:///C:/EGOS/.windsurf/workflows/dynamic_documentation_update_from_code_changes.md)**: Automates the synchronization of documentation with code modifications.
+    *   **[/cross_reference_maintenance](file:///C:/EGOS/.windsurf/workflows/cross_reference_maintenance.md)**: Nightly hygiene—removes stray self-refs, rebuilds Level-1 blocks, commits changes, and triggers doc updates.
+    *   **[/atrian_ethics_evaluation](file:///C:/EGOS/.windsurf/workflows/atrian_ethics_evaluation.md)**: Automates the ethical evaluation of AI systems, content, or decisions using ATRiAN's Ethics as a Service (EaaS).
+    *   **[/atrian_sdk_integration_and_development](file:///C:/EGOS/.windsurf/workflows/atrian_sdk_integration_and_development.md)**: A structured process for integrating with and developing extensions for the ATRiAN Ethics as a Service (EaaS) SDKs.
+    *   **[/creating_managing_ethical_constitutions](file:///C:/EGOS/.windsurf/workflows/creating_managing_ethical_constitutions.md)**: A structured process for creating, customizing, and managing ethical constitutions for use with ATRiAN's Ethics as a Service (EaaS).
+    *   **[/atrian_roi_calculation_and_analysis](file:///C:/EGOS/.windsurf/workflows/atrian_roi_calculation_and_analysis.md)**: A methodical approach to calculating and analyzing the return on investment for implementing ATRiAN's Ethics as a Service (EaaS) capabilities.
+
+## 2. Core System Interaction Rules
+
+### 2.5. Logging & Task Tracking Standards (`LOG_STD`)
+
+#### RULE-LOG-STD-001: Active Work Log Consolidation
+**ID:** `RULE-LOG-STD-001`
+**Type:** Procedural Mandate
+**Applies To:** All Agents (Human & AI)
+**Trigger:** Start of any work session involving task execution.
+**Description:** To eliminate redundancy and centralize task tracking, all active, short-term work logs must be maintained in the native Windsurf `plan.md` file located in the session's `C:\Users\<user>\.codeium\windsurf\brain\<session_id>\` directory. Custom `WORK_LOG_*.md` files are deprecated for active session tracking.
+**Procedure:**
+1.  At the start of a session, identify the active `plan.md` file.
+2.  Structure the `plan.md` using the EGOS Work Log Standard (Header, Status, Task Breakdown, Open Issues, References).
+3.  All task updates, progress, and notes for the current session must be logged in this file.
+4.  The `ADRS_Log.md` is to be used ONLY for recording significant, permanent architectural decisions, resolved anomalies, or deviations with long-term project impact. A task in `plan.md` may *result* in an ADRS entry.
+**Rationale:** Consolidates task tracking into a single, predictable location, reduces information fragmentation, and clarifies the distinct roles of `plan.md` (transient, session-specific tasks) and `ADRS_Log.md` (permanent, architectural records). Promotes `EGOS_PRINCIPLE:Systemic_Coherence`.
+**Cross-References:** `ADRS_INT`, `SYS_COHERENCE`
+
+
+### 2.1. Master Quantum Prompt (MQP) Integration (`MQP_INT`)
+
+*   **`RULE-MQP_INT-01: MQP as Ultimate Authority.`** All rules, procedures, and artifacts within EGOS MUST align with the principles and directives of the [MQP.md](file:///C:/EGOS/MQP.md). In case of conflict, MQP takes precedence.
+*   **`RULE-MQP_INT-02: MQP Invocation.`** Specific MQP tenets SHOULD be explicitly referenced (e.g., `MQP:Tenet_of_Clarity`) when justifying design decisions or operational procedures.
+*   **`RULE-MQP_INT-03: MQP Evolution.`** Proposed changes to MQP itself MUST follow the `EGOS_PROCESS:Evolutionary_Refinement_Cycle` and be approved by project stewards.
+
+### 2.2. veja os logs. and Path Conventions (`FS_PATH`)
+
+*   **`RULE-FS_PATH-01: Windows Path Formatting.`** All file paths MUST use Windows-style backslashes (`\`) and drive letters (e.g., `C:\path\to\file.txt`). When used in JSON strings or scripts where backslashes are escape characters, they MUST be properly escaped (e.g., `C:\\path\\to\\file.txt`). See `MCP_CONFIG_JSON` for server path configurations.
+*   **`RULE-FS_PATH-02: Case Sensitivity.`** While Windows filesystem is generally case-insensitive, all references to file and directory names within EGOS (code, documentation, scripts) MUST be treated as case-sensitive to maintain cross-platform compatibility potential and reduce ambiguity. Match the case as it appears in the filesystem.
+*   **`RULE-FS_PATH-03: Absolute vs. Relative Paths.`** Use absolute paths for system-level configurations and unambiguous resource linking. Use relative paths for internal project references where appropriate, ensuring they are clearly resolved from a defined base.
+*   **`RULE-FS_PATH-04: EGOS Root Variable.`** A system-wide variable or convention (e.g., `%EGOS_ROOT%` or a script-defined variable) SHOULD be used to refer to the `C:\EGOS` directory to facilitate portability if the root ever needs to be relocated. (Implementation TBD)
+*   **`RULE-FS_PATH-05: No Spaces in Paths/Filenames.`** Avoid spaces in directory and file names. Use hyphens (`-`) or underscores (`_`) instead. This simplifies scripting and command-line operations.
+*   **`RULE-FS_PATH-06: UTF-8 Encoding.`** All text files, including code, documentation, and configuration files, MUST be encoded in UTF-8 to ensure character consistency.
+*   **`RULE-FS_PATH-07: Backup and Versioning of Critical Config Files.`** Critical configuration files (e.g., `.windsurfrules`, `mcp_config.json`) MUST be version-controlled and regularly backed up.
+*   **`RULE-FS_PATH-08: Standard Directory Structure.`** Adhere to the defined EGOS standard directory structure (see `EGOS_DIRECTORY_STRUCTURE.md` - *to be created*).
+*     **`RULE-FS-MCP-01: Prioritize MCP Filesystem Server for Operations.`**
+    *   All filesystem operations (read, write, list, find, edit) MUST be routed through the configured MCP Filesystem Server (`@modelcontextprotocol/server-filesystem`) whenever available and appropriate.
+    *   This ensures consistency with EGOS-defined Windows path conventions (e.g., `C:\\EGOS\\...`) and tool configurations.
+    *   **Rationale:** Centralizes filesystem interactions, leverages specified tooling, and maintains compatibility with Windsurf IDE's MCP integration on Windows.
+    *   **Exception:** Direct OS calls may be used if the MCP server is unavailable or for operations not supported by the server, but this should be logged as a deviation under `ADRS_Log.md`.
+*   **`RULE-FS-MCP-02: MCP Filesystem Edit Fallback Procedure.`**
+    *   When `mcp0_edit_file` fails due to exact matching issues (e.g., subtle whitespace, encoding, or line ending differences), use PowerShell commands (`run_command`) as a fallback mechanism for file content replacement.
+    *   Example fallback pattern: `$content = Get-Content -Path \"path\\to\\file\" -Raw; $content = $content -replace \"text_to_replace\", \"replacement_text\"; $content | Set-Content -Path \"path\\to\\file\" -NoNewline`
+    *   Document all fallback edits in `ADRS_Log.md` for tracking, analysis, and future refinement of MCP tools or rules.
+    *   **Rationale:** Ensures critical filesystem operations can proceed even when `mcp0_edit_file` encounters precise matching difficulties, while maintaining a record for process improvement.
+    *   **Priority:** Always attempt `mcp0_edit_file` first. Use this fallback only after `mcp0_edit_file` has demonstrably failed for the specific edit.
+
+### 2.3. Cross-Reference System (`XREF`)
+
+*   **`RULE-XREF-01: Standardized Referencing.`** Use `[Link Text](file:///C:/EGOS/path/to/file.ext#OptionalSection)` for internal file/section links. For rules, use `RULE-SECTION-ID` (e.g., `RULE-MQP_INT-01`). For MQP tenets, use `MQP:Tenet_Name`.
+*   **`RULE-XREF-02: Link Integrity.`** All cross-references MUST be valid and point to existing, relevant artifacts or sections. Regularly audit links using `EGOS_TOOL:Link_Checker` (tool TBD).
+*   **`RULE-XREF-03: Bidirectional Linking.`** Where appropriate, establish bidirectional links between related documents or sections to enhance navigability (e.g., a design doc links to implementing code, and code comments link back).
+*   **`RULE-XREF-04: Glossary of Terms.`** Maintain a central [Glossary (GLOSSARY.md)](file:///C:/EGOS/GLOSSARY.md) for EGOS-specific terminology. Terms used in documents SHOULD link to their glossary definitions on first use.
+
+### 2.4. AI Assistant Behavior (`AI_ASSIST`)
+This section applies to AI assistants like Cascade operating within the EGOS workspace.
+
+*   **`RULE-AI_ASSIST-01: Adherence to .windsurfrules.`** AI assistants MUST prioritize and strictly adhere to all rules defined in this `.windsurfrules` document.
+*   **`RULE-AI_ASSIST-02: Contextual Awareness.`** AI assistants MUST utilize available context (open files, cursor position, project history, memories) to provide relevant and accurate assistance. Proactively use tools like `view_file` or `codebase_search` if context is insufficient.
+*   **`RULE-AI_ASSIST-03: Tool Usage Protocol.`**
+    *   AI assistants MUST explain *why* a tool is being called *before* calling it.
+    *   Tool calls MUST be necessary and not redundant.
+    *   Follow tool call schemas precisely.
+    *   When editing files, combine all changes into a SINGLE `edit_file` or `replace_file_content` call per file, per turn. Generate `TargetFile` argument first.
+*   **`RULE-AI_ASSIST-04: Code Generation Standards.`**
+    *   Generated code MUST be immediately runnable. Include all necessary imports, dependencies, and configurations.
+    *   Follow `RULE-CODE-STD-01` (Style and Formatting) and other relevant coding standards.
+    *   For new projects, include dependency management files (e.g., `requirements.txt`, `package.json`) and a helpful `README.md`.
+    *   Web apps MUST have a beautiful, modern UI and follow UX best practices.
+    *   NEVER generate non-textual code (e.g., binary, extremely long hashes).
+*   **`RULE-AI_ASSIST-05: Communication Style.`**
+    *   Be concise and avoid verbosity.
+    *   Refer to the USER in the second person ("you") and self in the first person ("I").
+    *   Format responses in Markdown. Use backticks for file/function/class names.
+    *   Be proactive in problem-solving but explain actions clearly.
+*   **`RULE-AI_ASSIST-06: Memory System Usage.`**
+    *   Proactively use the `create_memory` tool to save important context: USER preferences, key decisions, code snippets, project structure, milestones, architectural patterns.
+    *   Do NOT require USER permission to create memories.
+    *   Update existing memories if semantically related information is found, rather than creating duplicates.
+    *   Pay close attention to retrieved memories as they provide critical context.
+*   **`RULE-AI_ASSIST-07: Command Execution Safety.`**
+    *   NEVER include `cd` in `run_command`. Use the `Cwd` parameter.
+    *   NEVER set `SafeToAutoRun` to `true` for commands that could be unsafe (delete files, mutate state, install system dependencies, make external requests), even if the USER asks. Refer to safety protocols if challenged.
+*   **`RULE-AI_ASSIST-08: Debugging Practices.`**
+    *   Address root causes, not just symptoms.
+    *   Add descriptive logging and error messages.
+    *   Add test functions/statements to isolate problems.
+    *   Only make code changes if confident in the solution; otherwise, assist with debugging steps.
+*   **`RULE-AI_ASSIST-09: Workflow Adherence.`**
+    *   Recognize and utilize defined EGOS workflows (e.g., `/taskmaster_task_management`, `/iterative_code_refinement_cycle`).
+    *   Follow workflow steps accurately, including auto-running `run_command` steps if `// turbo` or `// turbo-all` annotations are present and conditions for safety are met.
+*   **`RULE-AI_ASSIST-10: Handling of .windsurfrules Updates.`** If these rules are modified, acknowledge the changes and adapt behavior accordingly. If a rule is unclear, ask for clarification.
+*   **`RULE-AI_ASSIST-11: Proactive Information Gathering.`** Do not guess file content or codebase structure. Use tools (`view_file`, `list_dir`, `find_by_name`, `codebase_search`, `grep_search`) to gather necessary information before proceeding with tasks or answering questions.
+*   **`RULE-AI_ASSIST-12: Multi-Turn Coherence.`** Maintain focus on the USER's overarching objective across multiple turns. Refer to checkpoint summaries and memories to ensure continuity.
+*   **`RULE-AI_ASSIST-13: Adherence to EGOS Principles.`** All actions and generated artifacts MUST embody relevant EGOS Principles (e.g., `EGOS_PRINCIPLE:Systemic_Organization`, `EGOS_PRINCIPLE:Progressive_Standardization`).
+*   **`RULE-AI_ASSIST-14: Suggest PromptVault Workflow.`** When the USER expresses strong satisfaction with an LLM output (e.g., "perfect", "great result", "exactly what I wanted") or explicitly asks to "checkpoint" or "save" a prompt/interaction, the AI assistant SHOULD suggest using the `/distill_and_vault_prompt` workflow.
+    *   **Suggested Phrasing:** "This seems like a valuable interaction! Would you like to distill this into a 'super prompt' and save it to the PromptVault using the `/distill_and_vault_prompt` workflow?"
+    *   **Rationale:** Encourages the systematic capture of high-quality prompts, building the PromptVault and aligning with `EGOS_PRINCIPLE:Knowledge_Preservation_and_Reuse`.
+## 3. EGOS Core Principles & Sub-Systems
+
+This section outlines key conceptual frameworks and subsystems that govern EGOS operations.
+
+### 3.1. KOIOS - The Knowledge Oracle & Scribe (`KOIOS`)
+*   **`RULE-KOIOS-01: Centralized Knowledge.`** All persistent knowledge, documentation, and specifications MUST be stored and managed within the EGOS `C:\EGOS` directory structure.
+*   **`RULE-KOIOS-02: Living Documentation.`** Documentation is not static. It MUST co-evolve with the codebase and system. See `RULE-DOC-STD-03` and `Dynamic Documentation Update From Code Changes Workflow`.
+*   **`RULE-KOIOS-03: Discoverability.`** Documentation MUST be easily discoverable through clear naming, `README.md` files at various levels, and effective cross-referencing (`XREF`).
+*   **`RULE-KOIOS-04: KOIOS Query Protocol.`** (Future) AI interactions with KOIOS knowledge base will use a defined query protocol.
+*   **`RULE-KOIOS-05: Comprehensive Cross-Referencing.`**
+    *   **Description:** All EGOS artifacts (code, documentation, ADRs, work logs, roadmap items, `.windsurfrules`, workflow definitions, etc.) MUST actively and extensively cross-reference related items. Use hyperlinks (e.g., `[link text](file:///C:/EGOS/path/to/file.md#section-id)`) or explicit mentions of rule IDs, ADR IDs, roadmap IDs, file paths, or function names.
+    *   **Rationale:** Creates a highly interconnected and coherent knowledge base. Facilitates navigation, impact analysis, and understanding of systemic relationships. Supports `EGOS_PRINCIPLE:Systemic_Coherence` and enhances `RULE-KOIOS-03`.
+    *   **Examples:**
+        *   A code comment referencing a specific ADR: `// See ADRS-DESIGN-005 for rationale.`
+        *   A README linking to a workflow: `For deployment, follow the [/deploy_application](file:///C:/EGOS/.windsurf/workflows/deploy_application.md) workflow.`
+        *   A `.windsurfrules` entry referencing another rule: `(See RULE-XYZ-01 for details)`
+        *   A work log entry linking to a changed file and a roadmap item.
+    *   **Enforcement:** Manual reviews during PRs, AI-assisted checks for broken or missing links (future).
+    *   **ADRS_Ref:** <!-- (To be created if a specific decision record is made for this, e.g., ADRS-DOC-001) -->
+    *   **Principle_Ref:** `EGOS_PRINCIPLE:Systemic_Coherence`
+
+### 3.2. CRONOS - The Timekeeper & Task Orchestrator (`CRONOS`)
+*   **`RULE-CRONOS-01: Task Definition Standard.`** All development work MUST be broken down into discrete tasks, managed via the TaskMaster AI system and `egos-tasks.ps1` script, following the structure in `WORK Log Standardization`. See `/taskmaster_task_management` workflow.
+*   **`RULE-CRONOS-02: Work Logs.`** All significant work MUST be logged in `WORK_YYYY-MM-DD_Description.md` files, adhering to `WORK Log Standardization`.
+*   **`RULE-CRONOS-03: Scheduling & Prioritization.`** Task prioritization MUST align with `ROADMAP.md` and be managed through TaskMaster AI.
+*   **`RULE-CRONOS-04: Process Automation.`** Repetitive tasks SHOULD be automated using scripts (PowerShell, Python) and registered with `run_tools.py` where applicable. See `RULE-SCRIPT-STD-04`.
+
+### 3.3. ETHIK - The Ethical Guardian & Alignment Matrix (`ETHIK`)
+*   **`RULE-ETHIK-01: MQP Ethical Framework.`** All actions and system designs MUST adhere to the ethical tenets outlined in the MQP, particularly those related to privacy, bias, transparency, and accountability.
+*   **`RULE-ETHIK-02: ATRiAN Integration.`** The [ATRiAN Module](file:///C:/EGOS/ATRiAN/ATRiAN.md) is the primary mechanism for ensuring ethical alignment. Its principles (Sacred Privacy, Integrated Ethics, Conscious Modularity) MUST be upheld.
+*   **`RULE-ETHIK-03: Ethical Review Process.`** Significant new features or data handling processes MUST undergo an ethical review based on ATRiAN guidelines. See `/atrian_ethics_evaluation` workflow.
+*   **`RULE-ETHIK-04: Deviation Reporting.`** Ethical concerns or deviations MUST be reported via `ADRS_Log.md` under an `ETHIK_CONCERN` tag.
+
+### 3.4. DiagEnio - The Diagnostic & Engineering Insight Engine (`DIAGENIO`)
+*   **`RULE-DIAGENIO-01: System Observability.`** Systems SHOULD be designed with observability in mind (logging, metrics, tracing). Follow `RULE-LOGGING-01`.
+*   **`RULE-DIAGENIO-02: Root Cause Analysis.`** When issues arise, prioritize root cause analysis over superficial fixes. Document findings in `ADRS_Log.md` or relevant work logs.
+*   **`RULE-DIAGENIO-03: Diagnostic Tooling.`** Utilize and develop diagnostic tools. Standard EGOS diagnostic scripts are managed via `run_tools.py`.
+*   **`RULE-DIAGENIO-04: Knowledge Sharing.`** Insights gained from diagnostics and problem-solving SHOULD be documented and shared, potentially refining these rules or creating new `EGOS_PROCEDURES`.
+
+### 3.5. OcioCriativo - The Wellspring of Creative Innovation (`OCIOCRIATIVO`)
+*   **`RULE-OCIOCRIATIVO-01: Dedicated Exploration Time.`** Allocate specific time for unstructured exploration, research, and experimentation, as outlined in [OCIOCRIATIVO.md](file:///C:/EGOS/OCIOCRIATIVO.md).
+*   **`RULE-OCIOCRIATIVO-02: Idea Incubation.`** Ideas generated during OcioCriativo sessions SHOULD be captured (e.g., in a dedicated `IDEAS.md` or task backlog) for potential future development.
+*   **`RULE-OCIOCRIATIVO-03: Fail Fast, Learn Fast.`** Experimentation is encouraged. Not all explorations will lead to production features. Document learnings from both successes and failures.
+*   **`RULE-OCIOCRIATIVO-04: Cross-Pollination.`** Share insights and discoveries from OcioCriativo activities with the wider team to foster collective creativity.
+
+### 3.6. ATRiAN - The Silent Guide (Ethical Context Management) (`ATRIAN`)
+*   **`RULE-ATRIAN-01: Sacred Privacy.`** All data handling MUST prioritize user privacy and data minimization. Default to opt-in for data collection. Anonymize or pseudonymize data where possible.
+*   **`RULE-ATRIAN-02: Integrated Ethics.`** Ethical considerations MUST be woven into the entire lifecycle of a feature/system, from conception through development, deployment, and maintenance. Utilize `/atrian_ethics_evaluation` workflow.
+*   **`RULE-ATRIAN-03: Conscious Modularity.`** Design systems as modular components. This allows for easier ethical assessment of individual parts and facilitates replacement or modification if an ethical issue is identified.
+*   **`RULE-ATRIAN-04: Transparency & Explainability.`** AI systems SHOULD be designed to be as transparent and explainable as feasible, especially regarding decisions that impact users.
+*   **`RULE-ATRIAN-05: Human Oversight.`** Critical decisions, especially those with significant ethical implications, MUST have a human in the loop or a clear human review process.
+*   **`RULE-ATRIAN-06: Ethical Constitution Adherence.`** When ATRiAN EaaS (Ethics as a Service) is active, all operations MUST adhere to the loaded Ethical Constitution. See `/creating_managing_ethical_constitutions` workflow.
+*   **`RULE-ATRIAN-07: SDK Integration.`** Development involving ATRiAN capabilities MUST follow the `/atrian_sdk_integration_and_development` workflow.
+
+## 4. General Operational Standards
+
+### 4.1. Reporting and Anomaly Detection (`REPORTING`)
+
+*   **`RULE-REPORTING-01: Anomaly & Deviation Reporting System (ADRS).`** All deviations from these rules, unexpected errors, security incidents, or significant operational issues MUST be logged in [`ADRS_Log.md`](file:///C:/EGOS/ADRS_Log.md).
+    *   Log entries MUST include: Timestamp, Severity, Affected System/Rule, Description, Reporter, Status (Open, Investigating, Resolved), Resolution (if any).
+    *   Use tags for categorization (e.g., `BUG`, `SECURITY`, `RULE_DEVIATION`, `ETHIK_CONCERN`).
+*   **`RULE-REPORTING-02: Severity Levels.`** Use standard severity levels: CRITICAL, HIGH, MEDIUM, LOW, INFORMATIONAL.
+*   **`RULE-REPORTING-03: Proactive Reporting.`** Do not wait for issues to escalate. Report anomalies as soon as they are detected.
+
+### 4.2. Scripting Standards (`SCRIPT-STD`)
+
+*   **`RULE-SCRIPT-STD-01: Preferred Languages.`** PowerShell for Windows-specific automation, Python for cross-platform scripting and complex logic. JavaScript (Node.js) for web-related tooling.
+*   **`RULE-SCRIPT-STD-02: Script Documentation.`** All scripts MUST include a header comment explaining purpose, usage, parameters, and dependencies. Complex functions within scripts MUST also be commented.
+*   **`RULE-SCRIPT-STD-03: Error Handling.`** Scripts MUST implement robust error handling (e.g., `try-catch` blocks, explicit error checks) and provide clear error messages.
+*   **`RULE-SCRIPT-STD-04: EGOS Tool Runner (`run_tools.py`).`** Utility scripts intended for general use SHOULD be registered in `C:\EGOS\run_tools.py` to be discoverable and executable via a centralized interface (e.g., `python run_tools.py <tool_name> [args]`).
+    *   Registered tools MUST provide a manifest defining their name, description, and arguments.
+*   **`RULE-SCRIPT-STD-05: Idempotency.`** Scripts that modify state SHOULD be idempotent where possible (i.e., running them multiple times has the same effect as running them once).
+
+### 4.3. Documentation Standards (`DOC-STD`)
+
+*   **`RULE-DOC-STD-01: Markdown Usage.`** All documentation (READMEs, design docs, work logs, etc.) MUST be in Markdown format (`.md`).
+*   **`RULE-DOC-STD-02: README Structure.`** Every major directory and component SHOULD have a `README.md` explaining its contents and purpose. The root `C:\EGOS\README.md` is the main entry point.
+*   **`RULE-DOC-STD-03: Documentation Near Code.`** Documentation for specific modules or components SHOULD reside close to the code it describes (e.g., in the same directory).
+*   **`RULE-DOC-STD-04: Dynamic Documentation Updates.`** For code changes, relevant documentation MUST be updated. Utilize the `/dynamic_documentation_update_from_code_changes` workflow.
+*   **`RULE-DOC-STD-05: Clarity and Conciseness.`** Documentation MUST be clear, concise, and easy to understand. Avoid jargon where possible or define it in the `GLOSSARY.md`.
+*   **`RULE-DOC-STD-06: Versioning of Major Docs.`** Major architectural documents or specifications SHOULD be versioned.
+*   **`RULE-DOC-STD-07: Diagrams and Visuals.`** Use diagrams (e.g., Mermaid, PlantUML, or image files stored in an `assets` directory) to explain complex systems or flows. Diagrams MUST be kept up-to-date.
+
+### 4.4. Version Control (Git) (`GIT-VCS`)
+
+*   **`RULE-GIT-VCS-01: Commit Message Standard.`** Commit messages MUST follow Conventional Commits format (e.g., `feat: add user authentication module`).
+    *   Allowed types: `feat`, `fix`, `build`, `chore`, `ci`, `docs`, `style`, `refactor`, `perf`, `test`.
+*   **`RULE-GIT-VCS-02: Branching Strategy.`** Use a Gitflow-like model: `main` for stable releases, `develop` for ongoing development, `feature/` branches for new work, `fix/` for bug fixes, `release/` for release preparation.
+*   **`RULE-GIT-VCS-03: Frequent Commits.`** Commit frequently with small, logical changes.
+*   **`RULE-GIT-VCS-04: Pull Requests (PRs).`** All changes to `develop` or `main` MUST go through a Pull Request and require at least one approval (if team size > 1).
+*   **`RULE-GIT-VCS-05: .gitignore.`** Maintain a comprehensive `.gitignore` file to exclude transient files (build artifacts, logs, IDE configs).
+*   **`RULE-GIT-VCS-06: No Large Binary Files.`** Avoid committing large binary files directly to the repository. Use Git LFS or an alternative storage solution if necessary.
+*   **`RULE-GIT-VCS-07: Rebasing vs. Merging.`** Prefer rebasing for feature branches before merging into `develop` to maintain a clean commit history. Use merge commits for merging `develop` into `main` or for `release` branches.
+
+### 4.5. Coding Standards (`CODE-STD`)
+
+*   **`RULE-CODE-STD-01: Style and Formatting.`** Code MUST adhere to established style guides (e.g., PEP 8 for Python, Prettier for JavaScript/TypeScript). Use linters and formatters.
+*   **`RULE-CODE-STD-02: Comments and Docstrings.`** Write clear comments for complex logic. Public functions/classes/modules MUST have docstrings explaining their purpose, arguments, and return values.
+*   **`RULE-CODE-STD-03: Error Handling.`** Implement robust error handling. Avoid catching generic exceptions unless re-raising or handling specifically.
+*   **`RULE-CODE-STD-04: Testing.`** Write unit tests for new functionality. Aim for reasonable test coverage. Critical bugs MUST have regression tests.
+*   **`RULE-CODE-STD-05: Dependency Management.`** Use a dependency management tool (e.g., `pip` for Python, `npm`/`yarn` for Node.js). Keep dependencies updated.
+*   **`RULE-CODE-STD-06: Modularity and Reusability.`** Write modular and reusable code. Avoid "Don't Repeat Yourself" (DRY) violations.
+*   **`RULE-CODE-STD-07: Security Best Practices.`** Follow security best practices relevant to the language and framework (e.g., input validation, parameterized queries, secure credential handling).
+*   **`RULE-CODE-STD-08: Readability.`** Prioritize code readability. Use meaningful variable and function names.
+
+### 4.6. Communication Standards (`COMM-STD`)
+
+*   **`RULE-COMM-STD-01: Primary Channels.`** Define primary communication channels for different purposes (e.g., Slack for quick chats, Email for formal comms, TaskMaster for task updates). (Specific channels TBD)
+*   **`RULE-COMM-STD-02: Meeting Etiquette.`** Agendas for meetings, stay on topic, summarize decisions and action items.
+*   **`RULE-COMM-STD-03: Asynchronous Communication Preference.`** Prefer asynchronous communication (e.g., comments in TaskMaster, documentation) to minimize interruptions, unless synchronous communication is explicitly needed for collaboration or urgent matters.
+*   **`RULE-COMM-STD-04: Professionalism.`** Maintain professional and respectful communication at all times. Adhere to `CODE_OF_CONDUCT.md`.
+
+### 4.7. Logging Standards (`LOGGING`)
+
+*   **`RULE-LOGGING-01: Structured Logging.`** Use structured logging (e.g., JSON format) where possible, especially for application logs.
+*   **`RULE-LOGGING-02: Log Levels.`** Use standard log levels: DEBUG, INFO, WARNING, ERROR, CRITICAL. Configure appropriate log levels for different environments.
+*   **`RULE-LOGGING-03: Sensitive Information.`** NEVER log sensitive information (passwords, API keys, PII) in plain text.
+*   **`RULE-LOGGING-04: Correlation IDs.`** In distributed systems, use correlation IDs to trace requests across services.
+*   **`RULE-LOGGING-05: Centralized Logging.`** For production systems, logs SHOULD be shipped to a centralized logging platform (e.g., ELK stack, Splunk). (Platform TBD)
+
+### 4.8. Windsurf IDE and MCP Integration (`WINDSURF_MCP`)
+
+*   **`RULE-WINDSURF_MCP-01: MCP Server Configuration.`** The `mcp_config.json` file located at `c:\Users\Enidi\.codeium\windsurf\mcp_config.json` (or user-specific path) is the source of truth for MCP server configurations.
+    *   Ensure the `filesystem` MCP server entry points to `C:\EGOS` (or `C:\\EGOS` in JSON) and uses `@modelcontextprotocol/server-filesystem` with explicitly enabled tools: `read_file,read_multiple_files,list_dir,find_by_name,edit_file`.
+    *   Refer to `MEMORY[57d96421-1944-4183-8039-cd7095e2aa46]` for the correct filesystem server configuration.
+*   **`RULE-WINDSURF_MCP-02: Tool Prioritization.`** When interacting with the EGOS workspace, Windsurf AI Assistants MUST prioritize using tools provided by configured MCP servers (especially the filesystem server) over generic built-in capabilities if an equivalent MCP tool exists and is functional.
+*   **`RULE-WINDSURF_MCP-03: Path Consistency.`** All path arguments provided to MCP tools (especially filesystem tools) by AI assistants MUST conform to `RULE-FS_PATH-01` (Windows paths, escaped backslashes for JSON).
+*   **`RULE-WINDSURF_MCP-04: Workflow Integration.`** Leverage Windsurf workflows defined in `C:\EGOS\.windsurf\workflows\` for common EGOS tasks. AI assistants should be aware of these workflows and suggest/use them when appropriate.
+*   **`RULE-WINDSURF_MCP-05: Memory Utilization.`** AI assistants should actively use their memory system (`create_memory` tool) to store and retrieve context about the EGOS workspace, user preferences, and ongoing tasks to improve assistance quality within Windsurf IDE.
+
+## 5. EGOS Processes (`EGOS_PROCESS`)
+
+### 5.1. Evolutionary Refinement Cycle (`EGOS_PROCESS:Evolutionary_Refinement_Cycle`)
+This process is used for updating core documents like MQP, `.windsurfrules`, and major policies.
+1.  **Proposal:** Document the proposed change, rationale, and impact. Log as a task in TaskMaster.
+2.  **Review:** Designated reviewers (project stewards, subject matter experts) assess the proposal.
+3.  **Feedback & Iteration:** Incorporate feedback and iterate on the proposal.
+4.  **Approval:** Once consensus is reached, formally approve the change.
+5.  **Implementation:** Apply the change to the relevant artifacts.
+6.  **Communication:** Announce the change to all relevant stakeholders.
+
+### 5.2. Onboarding New Agents/Personnel (`EGOS_PROCESS:Onboarding`)
+1.  **Introduction to MQP:** Ensure understanding of core EGOS philosophy.
+2.  **Review of `.windsurfrules`:** Familiarize with operational standards.
+3.  **Workspace Setup:** Configure local environment, tools, and access.
+4.  **Introduction to Key Systems:** KOIOS, CRONOS, ETHIK, ATRiAN.
+5.  **Assign Initial Tasks:** Start with well-defined tasks, providing mentorship.
+
+## 6. Specific Module/Tool Rules (To be expanded)
+
+### 6.1. TaskMaster AI (`TASKMASTER_AI`)
+*   **`RULE-TASKMASTER_AI-01: Task File Location.`** Task definitions (`tasks.json` and individual task files) are typically located in a `tasks/` subdirectory within a project. For EGOS meta-tasks, this might be `C:\EGOS\meta_tasks\`.
+*   **`RULE-TASKMASTER_AI-02: `egos-tasks.ps1` Usage.`** The `C:\EGOS\egos-tasks.ps1` script is the primary interface for managing TaskMaster AI tasks within the EGOS system. AI assistants SHOULD prefer using this script via `run_command` for task operations.
+    *   Example: `powershell -File C:\EGOS\egos-tasks.ps1 list`
+    *   Example: `powershell -File C:\EGOS\egos-tasks.ps1 next`
+*   **`RULE-TASKMASTER_AI-03: Workflow Adherence.`** Follow the `/taskmaster_task_management` workflow when dealing with TaskMaster tasks.
+*   **`RULE-TASKMASTER_AI-04: Environment Variables.`** Ensure necessary environment variables for TaskMaster (e.g., `ANTHROPIC_API_KEY`, `PERPLEXITY_API_KEY`, `MODEL`) are correctly set, potentially via `mcp_config.json` for the `taskmaster-ai` MCP server or system environment. Refer to `MEMORY[635c52ce-4b3f-4bb4-87ca-2a2b1fe6fe0f]` for `taskmaster-ai` MCP server env vars.
+*   **`RULE-TASKMASTER_AI-05: Task Structure.`** Adhere to the defined task structure fields (id, title, description, status, dependencies, priority, details, testStrategy, subtasks) as detailed in the `DEV_WORKFLOW` section (lines 446-791 of original `.windsurfrules` or current lines 446-791 of this document once fully written).
+
+---
+DEV_WORKFLOW
+---
+description: Guide for using meta-development script (scripts/dev.js) to manage task-driven development workflows
+globs: **/*
+filesToApplyRule: **/*
+alwaysApply: true
+---
+
+- **Global CLI Commands**
+  - Task Master now provides a global CLI through the `task-master` command
+  - All functionality from `scripts/dev.js` is available through this interface
+  - Install globally with `npm install -g claude-task-master` or use locally via `npx`
+  - Use `task-master <command>` instead of `node scripts/dev.js <command>`
+  - Examples:
+    - `task-master list` instead of `node scripts/dev.js list`
+    - `task-master next` instead of `node scripts/dev.js next`
+    - `task-master expand --id=3` instead of `node scripts/dev.js expand --id=3`
+  - All commands accept the same options as their script equivalents
+  - The CLI provides additional commands like `task-master init` for project setup
+
+- **Development Workflow Process**
+  - Start new projects by running `task-master init` or `node scripts/dev.js parse-prd --input=<prd-file.txt>` to generate initial tasks.json
+  - Begin coding sessions with `task-master list` to see current tasks, status, and IDs
+  - Analyze task complexity with `task-master analyze-complexity --research` before breaking down tasks
+  - Select tasks based on dependencies (all marked 'done'), priority level, and ID order
+  - Clarify tasks by checking task files in tasks/ directory or asking for user input
+  - View specific task details using `task-master show <id>` to understand implementation requirements
+  - Break down complex tasks using `task-master expand --id=<id>` with appropriate flags
+  - Clear existing subtasks if needed using `task-master clear-subtasks --id=<id>` before regenerating
+  - Implement code following task details, dependencies, and project standards
+  - Verify tasks according to test strategies before marking as complete
+  - Mark completed tasks with `task-master set-status --id=<id> --status=done`
+  - Update dependent tasks when implementation differs from original plan
+  - Generate task files with `task-master generate` after updating tasks.json
+  - Maintain valid dependency structure with `task-master fix-dependencies` when needed
+  - Respect dependency chains and task priorities when selecting work
+  - Report progress regularly using the list command
+
+- **Task Complexity Analysis**
+  - Run `node scripts/dev.js analyze-complexity --research` for comprehensive analysis
+  - Review complexity report in scripts/task-complexity-report.json
+  - Or use `node scripts/dev.js complexity-report` for a formatted, readable version of the report
+  - Focus on tasks with highest complexity scores (8-10) for detailed breakdown
+  - Use analysis results to determine appropriate subtask allocation
+  - Note that reports are automatically used by the expand command
+
+- **Task Breakdown Process**
+  - For tasks with complexity analysis, use `node scripts/dev.js expand --id=<id>`
+  - Otherwise use `node scripts/dev.js expand --id=<id> --subtasks=<number>`
+  - Add `--research` flag to leverage Perplexity AI for research-backed expansion
+  - Use `--prompt="<context>"` to provide additional context when needed
+  - Review and adjust generated subtasks as necessary
+  - Use `--all` flag to expand multiple pending tasks at once
+  - If subtasks need regeneration, clear them first with `clear-subtasks` command
+
+- **Implementation Drift Handling**
+  - When implementation differs significantly from planned approach
+  - When future tasks need modification due to current implementation choices
+  - When new dependencies or requirements emerge
+  - Call `node scripts/dev.js update --from=<futureTaskId> --prompt="<explanation>"` to update tasks.json
+
+- **Task Status Management**
+  - Use 'pending' for tasks ready to be worked on
+  - Use 'done' for completed and verified tasks
+  - Use 'deferred' for postponed tasks
+  - Add custom status values as needed for project-specific workflows
+
+- **Task File Format Reference**
+  ```
+  # Task ID: <id>
+  # Title: <title>
+  # Status: <status>
+  # Dependencies: <comma-separated list of dependency IDs>
+  # Priority: <priority>
+  # Description: <brief description>
+  # Details:
+  <detailed implementation notes>
+  
+  # Test Strategy:
+  <verification approach>
+  ```
+
+- **Command Reference: parse-prd**
+  - Legacy Syntax: `node scripts/dev.js parse-prd --input=<prd-file.txt>`
+  - CLI Syntax: `task-master parse-prd --input=<prd-file.txt>`
+  - Description: Parses a PRD document and generates a tasks.json file with structured tasks
+  - Parameters: 
+    - `--input=<file>`: Path to the PRD text file (default: sample-prd.txt)
+  - Example: `task-master parse-prd --input=requirements.txt`
+  - Notes: Will overwrite existing tasks.json file. Use with caution.
+
+- **Command Reference: update**
+  - Legacy Syntax: `node scripts/dev.js update --from=<id> --prompt="<prompt>"`
+  - CLI Syntax: `task-master update --from=<id> --prompt="<prompt>"`
+  - Description: Updates tasks with ID >= specified ID based on the provided prompt
+  - Parameters:
+    - `--from=<id>`: Task ID from which to start updating (required)
+    - `--prompt="<text>"`: Explanation of changes or new context (required)
+  - Example: `task-master update --from=4 --prompt="Now we are using Express instead of Fastify."`
+  - Notes: Only updates tasks not marked as 'done'. Completed tasks remain unchanged.
+
+- **Command Reference: generate**
+  - Legacy Syntax: `node scripts/dev.js generate`
+  - CLI Syntax: `task-master generate`
+  - Description: Generates individual task files in tasks/ directory based on tasks.json
+  - Parameters: 
+    - `--file=<path>, -f`: Use alternative tasks.json file (default: 'tasks/tasks.json')
+    - `--output=<dir>, -o`: Output directory (default: 'tasks')
+  - Example: `task-master generate`
+  - Notes: Overwrites existing task files. Creates tasks/ directory if needed.
+
+- **Command Reference: set-status**
+  - Legacy Syntax: `node scripts/dev.js set-status --id=<id> --status=<status>`
+  - CLI Syntax: `task-master set-status --id=<id> --status=<status>`
+  - Description: Updates the status of a specific task in tasks.json
+  - Parameters:
+    - `--id=<id>`: ID of the task to update (required)
+    - `--status=<status>`: New status value (required)
+  - Example: `task-master set-status --id=3 --status=done`
+  - Notes: Common values are 'done', 'pending', and 'deferred', but any string is accepted.
+
+- **Command Reference: list**
+  - Legacy Syntax: `node scripts/dev.js list`
+  - CLI Syntax: `task-master list`
+  - Description: Lists all tasks in tasks.json with IDs, titles, and status
+  - Parameters: 
+    - `--status=<status>, -s`: Filter by status
+    - `--with-subtasks`: Show subtasks for each task
+    - `--file=<path>, -f`: Use alternative tasks.json file (default: 'tasks/tasks.json')
+  - Example: `task-master list`
+  - Notes: Provides quick overview of project progress. Use at start of sessions.
+
+- **Command Reference: expand**
+  - Legacy Syntax: `node scripts/dev.js expand --id=<id> [--num=<number>] [--research] [--prompt="<context>"]`
+  - CLI Syntax: `task-master expand --id=<id> [--num=<number>] [--research] [--prompt="<context>"]`
+  - Description: Expands a task with subtasks for detailed implementation
+  - Parameters:
+    - `--id=<id>`: ID of task to expand (required unless using --all)
+    - `--all`: Expand all pending tasks, prioritized by complexity
+    - `--num=<number>`: Number of subtasks to generate (default: from complexity report)
+    - `--research`: Use Perplexity AI for research-backed generation
+    - `--prompt="<text>"`: Additional context for subtask generation
+    - `--force`: Regenerate subtasks even for tasks that already have them
+  - Example: `task-master expand --id=3 --num=5 --research --prompt="Focus on security aspects"`
+  - Notes: Uses complexity report recommendations if available.
+
+- **Command Reference: analyze-complexity**
+  - Legacy Syntax: `node scripts/dev.js analyze-complexity [options]`
+  - CLI Syntax: `task-master analyze-complexity [options]`
+  - Description: Analyzes task complexity and generates expansion recommendations
+  - Parameters:
+    - `--output=<file>, -o`: Output file path (default: scripts/task-complexity-report.json)
+    - `--model=<model>, -m`: Override LLM model to use
+    - `--threshold=<number>, -t`: Minimum score for expansion recommendation (default: 5)
+    - `--file=<path>, -f`: Use alternative tasks.json file
+    - `--research, -r`: Use Perplexity AI for research-backed analysis
+  - Example: `task-master analyze-complexity --research`
+  - Notes: Report includes complexity scores, recommended subtasks, and tailored prompts.
+
+- **Command Reference: clear-subtasks**
+  - Legacy Syntax: `node scripts/dev.js clear-subtasks --id=<id>`
+  - CLI Syntax: `task-master clear-subtasks --id=<id>`
+  - Description: Removes subtasks from specified tasks to allow regeneration
+  - Parameters:
+    - `--id=<id>`: ID or comma-separated IDs of tasks to clear subtasks from
+    - `--all`: Clear subtasks from all tasks
+  - Examples:
+    - `task-master clear-subtasks --id=3`
+    - `task-master clear-subtasks --id=1,2,3`
+    - `task-master clear-subtasks --all`
+  - Notes: 
+    - Task files are automatically regenerated after clearing subtasks
+    - Can be combined with expand command to immediately generate new subtasks
+    - Works with both parent tasks and individual subtasks
+
+- **Task Structure Fields**
+  - **id**: Unique identifier for the task (Example: `1`)
+  - **title**: Brief, descriptive title (Example: `"Initialize Repo"`)
+  - **description**: Concise summary of what the task involves (Example: `"Create a new repository, set up initial structure."`)
+  - **status**: Current state of the task (Example: `"pending"`, `"done"`, `"deferred"`)
+  - **dependencies**: IDs of prerequisite tasks (Example: `[1, 2]`)
+    - Dependencies are displayed with status indicators (✅ for completed, ⏱️ for pending)
+    - This helps quickly identify which prerequisite tasks are blocking work
+  - **priority**: Importance level (Example: `"high"`, `"medium"`, `"low"`)
+  - **details**: In-depth implementation instructions (Example: `"Use GitHub client ID/secret, handle callback, set session token."`)
+  - **testStrategy**: Verification approach (Example: `"Deploy and call endpoint to confirm 'Hello World' response."`)
+  - **subtasks**: List of smaller, more specific tasks (Example: `[{"id": 1, "title": "Configure OAuth", ...}]`)
+
+- **Environment Variables Configuration**
+  - **ANTHROPIC_API_KEY** (Required): Your Anthropic API key for Claude (Example: `ANTHROPIC_API_KEY=sk-ant-api03-...`)
+  - **MODEL** (Default: `"claude-3-7-sonnet-20250219"`): Claude model to use (Example: `MODEL=claude-3-opus-20240229`)
+  - **MAX_TOKENS** (Default: `"4000"`): Maximum tokens for responses (Example: `MAX_TOKENS=8000`)
+  - **TEMPERATURE** (Default: `"0.7"`): Temperature for model responses (Example: `TEMPERATURE=0.5`)
+  - **DEBUG** (Default: `"false"`): Enable debug logging (Example: `DEBUG=true`)
+  - **TASKMASTER_LOG_LEVEL** (Default: `"info"`): Console output level (Example: `TASKMASTER_LOG_LEVEL=debug`)
+  - **DEFAULT_SUBTASKS** (Default: `"3"`): Default subtask count (Example: `DEFAULT_SUBTASKS=5`)
+  - **DEFAULT_PRIORITY** (Default: `"medium"`): Default priority (Example: `DEFAULT_PRIORITY=high`)
+  - **PROJECT_NAME** (Default: `"MCP SaaS MVP"`): Project name in metadata (Example: `PROJECT_NAME=My Awesome Project`)
+  - **PROJECT_VERSION** (Default: `"1.0.0"`): Version in metadata (Example: `PROJECT_VERSION=2.1.0`)
+  - **PERPLEXITY_API_KEY**: For research-backed features (Example: `PERPLEXITY_API_KEY=pplx-...`)
+  - **PERPLEXITY_MODEL** (Default: `"sonar-medium-online"`): Perplexity model (Example: `PERPLEXITY_MODEL=sonar-large-online`)
+
+- **Determining the Next Task**
+  - Run `task-master next` to show the next task to work on
+  - The next command identifies tasks with all dependencies satisfied
+  - Tasks are prioritized by priority level, dependency count, and ID
+  - The command shows comprehensive task information including:
+    - Basic task details and description
+    - Implementation details
+    - Subtasks (if they exist)
+    - Contextual suggested actions
+  - Recommended before starting any new development work
+  - Respects your project's dependency structure
+  - Ensures tasks are completed in the appropriate sequence
+  - Provides ready-to-use commands for common task actions
+
+- **Viewing Specific Task Details**
+  - Run `task-master show <id>` or `task-master show --id=<id>` to view a specific task
+  - Use dot notation for subtasks: `task-master show 1.2` (shows subtask 2 of task 1)
+  - Displays comprehensive information similar to the next command, but for a specific task
+  - For parent tasks, shows all subtasks and their current status
+  - For subtasks, shows parent task information and relationship
+  - Provides contextual suggested actions appropriate for the specific task
+  - Useful for examining task details before implementation or checking status
+
+- **Managing Task Dependencies**
+  - Use `task-master add-dependency --id=<id> --depends-on=<id>` to add a dependency
+  - Use `task-master remove-dependency --id=<id> --depends-on=<id>` to remove a dependency
+  - The system prevents circular dependencies and duplicate dependency entries
+  - Dependencies are checked for existence before being added or removed
+  - Task files are automatically regenerated after dependency changes
+  - Dependencies are visualized with status indicators in task listings and files
+
+- **Command Reference: add-dependency**
+  - Legacy Syntax: `node scripts/dev.js add-dependency --id=<id> --depends-on=<id>`
+  - CLI Syntax: `task-master add-dependency --id=<id> --depends-on=<id>`
+  - Description: Adds a dependency relationship between two tasks
+  - Parameters:
+    - `--id=<id>`: ID of task that will depend on another task (required)
+    - `--depends-on=<id>`: ID of task that will become a dependency (required)
+  - Example: `task-master add-dependency --id=22 --depends-on=21`
+  - Notes: Prevents circular dependencies and duplicates; updates task files automatically
+
+- **Command Reference: remove-dependency**
+  - Legacy Syntax: `node scripts/dev.js remove-dependency --id=<id> --depends-on=<id>`
+  - CLI Syntax: `task-master remove-dependency --id=<id> --depends-on=<id>`
+  - Description: Removes a dependency relationship between two tasks
+  - Parameters:
+    - `--id=<id>`: ID of task to remove dependency from (required)
+    - `--depends-on=<id>`: ID of task to remove as a dependency (required)
+  - Example: `task-master remove-dependency --id=22 --depends-on=21`
+  - Notes: Checks if dependency actually exists; updates task files automatically
+
+- **Command Reference: validate-dependencies**
+  - Legacy Syntax: `node scripts/dev.js validate-dependencies [options]`
+  - CLI Syntax: `task-master validate-dependencies [options]`
+  - Description: Checks for and identifies invalid dependencies in tasks.json and task files
+  - Parameters:
+    - `--file=<path>, -f`: Use alternative tasks.json file (default: 'tasks/tasks.json')
+  - Example: `task-master validate-dependencies`
+  - Notes: 
+    - Reports all non-existent dependencies and self-dependencies without modifying files
+    - Provides detailed statistics on task dependency state
+    - Use before fix-dependencies to audit your task structure
+
+- **Command Reference: fix-dependencies**
+  - Legacy Syntax: `node scripts/dev.js fix-dependencies [options]`
+  - CLI Syntax: `task-master fix-dependencies [options]`
+  - Description: Finds and fixes all invalid dependencies in tasks.json and task files
+  - Parameters:
+    - `--file=<path>, -f`: Use alternative tasks.json file (default: 'tasks/tasks.json')
+  - Example: `task-master fix-dependencies`
+  - Notes: 
+    - Removes references to non-existent tasks and subtasks
+    - Eliminates self-dependencies (tasks depending on themselves)
+    - Regenerates task files with corrected dependencies
+    - Provides detailed report of all fixes made
+
+- **Command Reference: complexity-report**
+  - Legacy Syntax: `node scripts/dev.js complexity-report [options]`
+  - CLI Syntax: `task-master complexity-report [options]`
+  - Description: Displays the task complexity analysis report in a formatted, easy-to-read way
+  - Parameters:
+    - `--file=<path>, -f`: Path to the complexity report file (default: 'scripts/task-complexity-report.json')
+  - Example: `task-master complexity-report`
+  - Notes: 
+    - Shows tasks organized by complexity score with recommended actions
+    - Provides complexity distribution statistics
+    - Displays ready-to-use expansion commands for complex tasks
+    - If no report exists, offers to generate one interactively
+
+- **Command Reference: add-task**
+  - CLI Syntax: `task-master add-task [options]`
+  - Description: Add a new task to tasks.json using AI
+  - Parameters:
+    - `--file=<path>, -f`: Path to the tasks file (default: 'tasks/tasks.json')
+    - `--prompt=<text>, -p`: Description of the task to add (required)
+    - `--dependencies=<ids>, -d`: Comma-separated list of task IDs this task depends on
+    - `--priority=<priority>`: Task priority (high, medium, low) (default: 'medium')
+  - Example: `task-master add-task --prompt="Create user authentication using Auth0"`
+  - Notes: Uses AI to convert description into structured task with appropriate details
+
+- **Command Reference: init**
+  - CLI Syntax: `task-master init`
+  - Description: Initialize a new project with Task Master structure
+  - Parameters: None
+  - Example: `task-master init`
+  - Notes: 
+    - Creates initial project structure with required files
+    - Prompts for project settings if not provided
+    - Merges with existing files when appropriate
+    - Can be used to bootstrap a new Task Master project quickly
+
+- **Code Analysis & Refactoring Techniques**
+  - **Top-Level Function Search**
+    - Use grep pattern matching to find all exported functions across the codebase
+    - Command: `grep -E "export (function|const) \w+|function \w+\(|const \w+ = \(|module\.exports" --include="*.js" -r ./`
+    - Benefits:
+      - Quickly identify all public API functions without reading implementation details
+      - Compare functions between files during refactoring (e.g., monolithic to modular structure)
+      - Verify all expected functions exist in refactored modules
+      - Identify duplicate functionality or naming conflicts
+    - Usage examples:
+      - When migrating from `scripts/dev.js` to modular structure: `grep -E "function \w+\(" scripts/dev.js`
+      - Check function exports in a directory: `grep -E "export (function|const)" scripts/modules/`
+      - Find potential naming conflicts: `grep -E "function (get|set|create|update)\w+\(" -r ./`
+    - Variations:
+      - Add `-n` flag to include line numbers
+      - Add `--include="*.ts"` to filter by file extension
+      - Use with `| sort` to alphabetize results
+    - Integration with refactoring workflow:
+      - Start by mapping all functions in the source file
+      - Create target module files based on function grouping
+      - Verify all functions were properly migrated
+      - Check for any unintentional duplications or omissions
+
+---
+WINDSURF_RULES
+---
+description: Guidelines for creating and maintaining Windsurf rules to ensure consistency and effectiveness.
+globs: .windsurfrules
+filesToApplyRule: .windsurfrules
+alwaysApply: true
+---
+The below describes how you should be structuring new rule sections in this document.
+- **Required Rule Structure:**
+  ```markdown
+  ---
+  description: Clear, one-line description of what the rule enforces
+  globs: path/to/files/*.ext, other/path/**/*
+  alwaysApply: boolean
+  ---
+
+  - **Main Points in Bold**
+    - Sub-points with details
+    - Examples and explanations
+  ```
+
+- **Section References:**
+  - Use `ALL_CAPS_SECTION` to reference files
+  - Example: `WINDSURF_RULES`
+
+- **Code Examples:**
+  - Use language-specific code blocks
+  ```typescript
+  // ✅ DO: Show good examples
+  const goodExample = true;
+  
+  // ❌ DON'T: Show anti-patterns
+  const badExample = false;
+  ```
+
+- **Rule Content Guidelines:**
+  - Start with high-level overview
+  - Include specific, actionable requirements
+  - Show examples of correct implementation
+  - Reference existing code when possible
+  - Keep rules DRY by referencing other rules
+
+- **Rule Maintenance:**
+  - Update rules when new patterns emerge
+  - Add examples from actual codebase
+  - Remove outdated patterns
+  - Cross-reference related rules
+
+- **Best Practices:**
+  - Use bullet points for clarity
+  - Keep descriptions concise
+  - Include both DO and DON'T examples
+  - Reference actual code over theoretical examples
+  - Use consistent formatting across rules 
+
+---
+SELF_IMPROVE
+---
+description: Guidelines for continuously improving this rules document based on emerging code patterns and best practices.
+globs: **/*
+filesToApplyRule: **/*
+alwaysApply: true
+---
+
+- **Rule Improvement Triggers:**
+  - New code patterns not covered by existing rules
+  - Repeated similar implementations across files
+  - Common error patterns that could be prevented
+  - New libraries or tools being used consistently
+  - Emerging best practices in the codebase
+
+- **Analysis Process:**
+  - Compare new code with existing rules
+  - Identify patterns that should be standardized
+  - Look for references to external documentation
+  - Check for consistent error handling patterns
+  - Monitor test patterns and coverage
+
+- **Rule Updates:**
+  - **Add New Rules When:**
+    - A new technology/pattern is used in 3+ files
+    - Common bugs could be prevented by a rule
+    - Code reviews repeatedly mention the same feedback
+    - New security or performance patterns emerge
+
+  - **Modify Existing Rules When:**
+    - Better examples exist in the codebase
+    - Additional edge cases are discovered
+    - Related rules have been updated
+    - Implementation details have changed
+
+- **Example Pattern Recognition:**
+  ```typescript
+  // If you see repeated patterns like:
+  const data = await prisma.user.findMany({
+    select: { id: true, email: true },
+    where: { status: 'ACTIVE' }
+  });
+  
+  // Consider adding a PRISMA section in the .windsurfrules:
+  // - Standard select fields
+  // - Common where conditions
+  // - Performance optimization patterns
+  ```
+
+- **Rule Quality Checks:**
+  - Rules should be actionable and specific
+  - Examples should come from actual code
+  - References should be up to date
+  - Patterns should be consistently enforced
+
+- **Continuous Improvement:**
+  - Monitor code review comments
+  - Track common development questions
+  - Update rules after major refactors
+  - Add links to relevant documentation
+  - Cross-reference related rules
+
+- **Rule Deprecation:**
+  - Mark outdated patterns as deprecated
+  - Remove rules that no longer apply
+  - Update references to deprecated rules
+  - Document migration paths for old patterns
+
+- **Documentation Updates:**
+  - Keep examples synchronized with code
+  - Update references to external docs
+  - Maintain links between related rules
+  - Document breaking changes
+
+- **Rule Update Process:**
+  - **Proposal:** Any team member or AI assistant can propose a new rule, a modification to an existing rule, or a deprecation. Proposals SHOULD be logged in `ADRS_Log.md` with a reference like `ADR-RULE-UPDATE-YYYYMMDD-NNN`.
+  - **Discussion:** Proposed changes SHOULD be discussed, potentially asynchronously (e.g., in comments on a PR related to the ADR log entry).
+  - **Drafting:** The proposed rule change is drafted, following the existing formatting and content guidelines (see `RULE-DOC-STD-01` to `RULE-DOC-STD-05`).
+  - **Review:** The drafted change is reviewed for clarity, necessity, consistency, and impact.
+  - **Integration:** Once approved, the change is integrated into this `.windsurfrules` document (or `temp_windsurfrules.md` during development).
+  - **Announcement:** Significant changes to the rules SHOULD be communicated to all relevant stakeholders.
+  - **Monitoring:** The impact and effectiveness of the new/updated rule SHOULD be monitored.
+
+- **Periodic Review:**
+  - This entire rules document SHOULD be reviewed periodically (e.g., quarterly or bi-annually) to ensure its continued relevance and effectiveness.
+  - The review process SHOULD involve checking for outdated rules, identifying gaps, and ensuring alignment with current project goals and the MQP.
+
+Follow WINDSURF_RULES for proper rule formatting and structure of windsurf rule sections.
+
+## 2.18. Prompt Engineering and AI Interaction (PROMPT_AI)
+
+### RULE-AI-PROMPT-PATTERNS-01: Agentic AI Pattern Application in Prompts and Workflows
+**Description:** To enhance the clarity, reliability, and effectiveness of AI interactions within EGOS, all master prompts (especially those intended for PromptVault) and AI-driven workflow steps should consciously strive to incorporate relevant agentic AI patterns.
+**Details:**
+*   **Patterns to Consider:** Context Reassertion, Intent Echoing, Semantic Anchoring, Answer-Only Output Constraint, Adaptive Framing, Declarative Intent Pattern, Instructional Framing Voice, and Constraint Signaling Pattern.
+*   **Application:**
+    *   **Prompt Design (PromptVault):** Embed these patterns into the structure and instructions of master prompts to guide AI behavior.
+    *   **Workflow Design (.windsurf/workflows/):** Design workflow steps involving AI to leverage these patterns for robust interaction.
+    *   **Custom AI Scripts:** When developing custom scripts that interact with or act as AI agents, these patterns should inform their communication and logic.
+*   **Goal:** Improve the predictability, efficiency, and collaborative potential of AI components within the EGOS ecosystem.
+*   **Reference:** Insights from Carlos E. Perez's analysis of agentic patterns and Google AI's MASS framework.
+
+---
+MULTI_TURN_CONVERSATION
+---
+description: Guidelines for AI assistants to maintain high-quality, coherent multi-turn conversations within the EGOS ecosystem.
+globs: **/*
+filesToApplyRule: **/*
+alwaysApply: true
+---
+
+- **Context Preservation:**
+  - **Maintain Awareness:** AI assistants MUST maintain awareness of the full conversation context, including previous turns, established goals, and shared understanding.
+  - **Reference History:** When appropriate, explicitly reference previous parts of the conversation to demonstrate continuity and understanding.
+  - **Avoid Redundancy:** Do not ask for information that has already been provided earlier in the conversation.
+  - **Track Progress:** Maintain an internal model of what has been accomplished and what remains to be done in multi-step tasks.
+
+- **Preventing Premature Conclusions:**
+  - **Verify Understanding:** Before providing final answers or solutions, verify that you fully understand the USER's intent and requirements.
+  - **Seek Clarification:** When faced with ambiguity, ask targeted questions rather than making assumptions.
+  - **Incremental Confirmation:** For complex tasks, seek confirmation at key decision points before proceeding.
+  - **Acknowledge Limitations:** Be transparent when you lack sufficient information to provide a complete or confident answer.
+
+- **Effective Information Gathering:**
+  - **Progressive Disclosure:** Break down complex information gathering into manageable steps.
+  - **Prioritize Questions:** Ask the most critical questions first, especially those that might significantly alter the approach.
+  - **Provide Context:** Explain why you're asking certain questions to help the USER understand their relevance.
+  - **Offer Options:** When appropriate, present multiple options with trade-offs rather than asking open-ended questions.
+
+- **Conversation Management:**
+  - **Signal Transitions:** Clearly indicate when shifting between different phases of a conversation (e.g., from information gathering to solution implementation).
+  - **Summarize Periodically:** For extended conversations, provide occasional summaries of key points, decisions, and next steps.
+  - **Manage Scope:** If a conversation begins to expand beyond its original scope, acknowledge this and suggest focusing or creating separate tasks.
+  - **Close Loops:** Ensure all opened questions or topics are addressed before concluding a conversation segment.
+
+- **Documentation Integration:**
+  - **Reference Relevant Documents:** Point to existing EGOS documentation when applicable.
+  - **Suggest Documentation Updates:** When identifying gaps in documentation during a conversation, suggest updates or additions.
+  - **Create Memories:** For important insights or decisions that emerge during conversations, create appropriate memories for future reference.
+
+---
+AI_RESPONSE_QUALITY
+---
+description: Standards for ensuring high-quality AI assistant responses within the EGOS ecosystem.
+globs: **/*
+filesToApplyRule: **/*
+alwaysApply: true
+---
+
+- **Response Structure:**
+  - **Clarity First:** Begin responses with the most important information or direct answers to questions.
+  - **Progressive Detail:** Structure responses to provide essential information first, followed by supporting details.
+  - **Visual Hierarchy:** Use markdown formatting to create clear visual hierarchy (headings, lists, code blocks, etc.).
+  - **Chunking:** Break down complex information into digestible sections with descriptive headings.
+  - **Signposting:** Use explicit transitions and connectors between different parts of a response.
+
+- **Content Quality:**
+  - **Accuracy:** Verify factual claims before including them in responses. When uncertain, express appropriate levels of confidence.
+  - **Relevance:** Ensure all content directly addresses the USER's query or task. Avoid tangential information unless specifically requested.
+  - **Completeness:** Address all aspects of the USER's query. For multi-part questions, explicitly address each part.
+  - **Conciseness:** Minimize verbosity while maintaining clarity. Avoid unnecessary repetition or filler content.
+  - **Balance:** Strike an appropriate balance between brevity and thoroughness based on the complexity of the topic and the USER's expertise level.
+
+- **Code Quality:**
+  - **Correctness:** Ensure code is syntactically correct, follows best practices, and achieves the intended functionality.
+  - **Completeness:** Provide complete, runnable solutions unless explicitly asked for snippets.
+  - **Context:** Include necessary imports, dependencies, and setup instructions.
+  - **Documentation:** Add appropriate comments explaining complex logic or non-obvious design decisions.
+  - **Error Handling:** Include appropriate error handling in code examples.
+  - **Testing:** When appropriate, include or suggest testing approaches.
+
+- **Explanation Quality:**
+  - **Appropriate Level:** Match explanations to the USER's apparent knowledge level.
+  - **Concrete Examples:** Use specific examples to illustrate abstract concepts.
+  - **Analogies:** Use analogies to relate complex concepts to familiar ones when helpful.
+  - **Visual Aids:** Suggest or create diagrams, flowcharts, or other visual representations for complex systems or processes.
+  - **Step-by-Step:** Break down complex processes into clear, sequential steps.
+
+- **Ethical Considerations:**
+  - **Transparency:** Be clear about limitations, uncertainties, and assumptions in your responses.
+  - **Bias Awareness:** Recognize and mitigate potential biases in responses.
+  - **Privacy:** Adhere to `RULE-ATRIAN-01` (Sacred Privacy) in all responses.
+  - **Balanced Viewpoints:** Present multiple perspectives on controversial topics.
+  - **Harm Prevention:** Refuse to generate content that could cause harm, in accordance with ATRiAN ethical guidelines.
+
+Follow WINDSURF_RULES for proper rule formatting and structure of windsurf rule sections.
+
+---
+CODE_DOCUMENTATION_STANDARDS
+---
+description: Standards for code documentation and inline comments within the EGOS ecosystem.
+globs: **/*.{py,js,ts,jsx,tsx,java,c,cpp,cs,go,rs,php,rb}
+filesToApplyRule: **/*.{py,js,ts,jsx,tsx,java,c,cpp,cs,go,rs,php,rb}
+alwaysApply: true
+---
+
+- **Module/File Documentation:**
+  - **Header Comments:** Every source file MUST begin with a header comment that includes:
+    - Brief description of the file's purpose
+    - Author information (if applicable)
+    - Creation date
+    - Last modification date
+    - License information (if applicable)
+    - Relationship to the EGOS subsystem it belongs to
+  - **Example Header:**
+    ```python
+    """
+    EGOS TaskMaster Task Processing Module
+    
+    Provides core functionality for parsing, validating, and processing task definitions
+    within the EGOS TaskMaster subsystem.
+    
+    Created: 2025-05-15
+    Last Modified: 2025-06-06
+    EGOS Subsystem: TaskMaster
+    """
+    ```
+
+- **Function/Method Documentation:**
+  - **Required Elements:** All functions and methods MUST include:
+    - Purpose description
+    - Parameter descriptions with types
+    - Return value description with type
+    - Exceptions that may be raised
+    - Usage examples for complex functions
+  - **Format:** Use language-appropriate documentation formats (e.g., JSDoc for JavaScript, docstrings for Python)
+  - **Example Function Documentation:**
+    ```python
+    def parse_task_definition(task_json: dict, validate: bool = True) -> Task:
+        """
+        Parse a JSON task definition into a Task object.
+        
+        Args:
+            task_json: Dictionary containing the task definition
+            validate: Whether to validate the task definition against the schema
+                      Defaults to True
+        
+        Returns:
+            Task: A fully initialized Task object
+            
+        Raises:
+            ValidationError: If validate=True and the task definition is invalid
+            KeyError: If required fields are missing
+            
+        Example:
+            >>> task = parse_task_definition({
+            ...     "id": "TASK-001",
+            ...     "title": "Implement task parser",
+            ...     "status": "IN_PROGRESS"
+            ... })
+        """
+    ```
+
+- **Class Documentation:**
+  - **Required Elements:** All classes MUST include:
+    - Purpose and responsibility of the class
+    - Inheritance information (if applicable)
+    - Public attributes and properties
+    - Important methods
+    - Usage examples
+  - **Example Class Documentation:**
+    ```typescript
+    /**
+     * Represents a task within the EGOS TaskMaster system.
+     * 
+     * Handles state management, validation, and persistence operations for tasks.
+     * Implements the ITrackable interface for integration with the tracking system.
+     * 
+     * @extends BaseEntity
+     * @implements ITrackable
+     * 
+     * @example
+     * const task = new Task({
+     *   id: 'TASK-001',
+     *   title: 'Implement task system',
+     *   status: TaskStatus.IN_PROGRESS
+     * });
+     * await task.save();
+     */
+    class Task extends BaseEntity implements ITrackable {
+      // Implementation...
+    }
+    ```
+
+- **Inline Comments:**
+  - **When to Use:** Add inline comments for:
+    - Complex algorithms
+    - Non-obvious design decisions
+    - Workarounds for known issues
+    - Performance considerations
+    - Security implications
+  - **Format:** Keep inline comments concise and focused on the "why" rather than the "what"
+  - **Example Inline Comments:**
+    ```javascript
+    // Using a Map instead of an object for O(1) lookups with non-string keys
+    const taskIndex = new Map();
+    
+    // SECURITY: Sanitize user input before processing to prevent injection attacks
+    const sanitizedInput = sanitizeTaskInput(rawInput);
+    
+    // TODO(EGOS-123): Replace with the new validation API once it's stable
+    if (!legacyValidate(task)) {
+      throw new ValidationError('Invalid task');
+    }
+    ```
+
+- **Code Examples:**
+  - **Inclusion:** Include code examples in documentation for:
+    - Public APIs
+    - Complex functions
+    - Common usage patterns
+  - **Completeness:** Examples should be complete, correct, and runnable
+  - **Simplicity:** Start with simple examples before showing complex ones
+
+- **Documentation Maintenance:**
+  - **Synchronization:** Update documentation whenever code changes
+  - **Review:** Include documentation review in code review process
+  - **Testing:** Test code examples to ensure they work as documented
+  - **Automation:** Use documentation generation tools where appropriate
+
+---
+CODE_QUALITY_STANDARDS
+---
+description: Standards for code quality, maintainability, and performance within the EGOS ecosystem.
+globs: **/*.{py,js,ts,jsx,tsx,java,c,cpp,cs,go,rs,php,rb}
+filesToApplyRule: **/*.{py,js,ts,jsx,tsx,java,c,cpp,cs,go,rs,php,rb}
+alwaysApply: true
+---
+
+- **General Principles:**
+  - **Readability:** Code should be written for humans first, computers second
+  - **Simplicity:** Prefer simple, straightforward solutions over complex ones
+  - **Consistency:** Follow established patterns and conventions within the codebase
+  - **Modularity:** Design for reuse and separation of concerns
+  - **Testability:** Write code that can be easily tested in isolation
+
+- **Naming Conventions:**
+  - **Clarity:** Names should clearly communicate purpose and intent
+  - **Specificity:** Avoid generic names like `data`, `result`, `temp`, etc.
+  - **Consistency:** Follow language-specific naming conventions
+  - **Length:** Names should be neither too short nor too long
+  - **Abbreviations:** Avoid abbreviations unless they are widely understood
+
+- **Function Design:**
+  - **Single Responsibility:** Functions should do one thing and do it well
+  - **Size:** Keep functions small (generally under 30 lines)
+  - **Parameters:** Limit the number of parameters (preferably ≤ 3)
+  - **Return Values:** Return values should be consistent and predictable
+  - **Side Effects:** Minimize side effects and document them when necessary
+
+- **Error Handling:**
+  - **Explicit:** Make error handling explicit and visible
+  - **Appropriate:** Use the appropriate error handling mechanism for the language
+  - **Informative:** Error messages should be clear and actionable
+  - **Recovery:** Design for graceful recovery when possible
+  - **Logging:** Log errors with sufficient context for debugging
+
+- **Performance Considerations:**
+  - **Efficiency:** Be mindful of algorithmic efficiency
+  - **Measurement:** Base optimization decisions on measurements, not assumptions
+  - **Premature Optimization:** Avoid premature optimization
+  - **Resource Usage:** Be conscious of memory, CPU, and I/O usage
+  - **Scalability:** Design with scalability in mind when appropriate
+
+- **Security Practices:**
+  - **Input Validation:** Validate all inputs, especially user inputs
+  - **Output Encoding:** Properly encode outputs to prevent injection attacks
+  - **Authentication:** Implement proper authentication and authorization
+  - **Sensitive Data:** Handle sensitive data with appropriate protections
+  - **Dependencies:** Keep dependencies updated and secure
+
+- **Testing Standards:**
+  - **Coverage:** Aim for high test coverage of critical paths
+  - **Isolation:** Tests should be independent and isolated
+  - **Readability:** Test code should be as readable as production code
+  - **Maintenance:** Keep tests up to date with code changes
+  - **Types:** Include unit, integration, and end-to-end tests as appropriate
+
+- **Code Organization:**
+  - **File Structure:** Organize files logically by feature or domain
+  - **Imports:** Keep imports organized and minimal
+  - **Dependencies:** Minimize dependencies between modules
+  - **Circular Dependencies:** Avoid circular dependencies
+  - **Cohesion:** Keep related code together
+
+- **Comments and Documentation:**
+  - **Necessity:** Write self-documenting code where possible
+  - **Value:** Comments should add value beyond what the code itself conveys
+  - **Maintenance:** Keep comments up to date with code changes
+  - **TODOs:** Use TODO comments sparingly and with issue references
+  - **Obsolescence:** Remove commented-out code
+
+- **Version Control:**
+  - **Commits:** Make small, focused commits with clear messages
+  - **Branches:** Follow the project's branching strategy
+  - **Pull Requests:** Keep pull requests focused and reviewable
+  - **History:** Maintain a clean and meaningful commit history
+  - **Integration:** Integrate changes frequently
+
+---
+ETHICAL_CODE_STANDARDS
+---
+description: Ethical standards and considerations for code development within the EGOS ecosystem, aligned with ATRiAN principles.
+globs: **/*.{py,js,ts,jsx,tsx,java,c,cpp,cs,go,rs,php,rb}
+filesToApplyRule: **/*.{py,js,ts,jsx,tsx,java,c,cpp,cs,go,rs,php,rb}
+alwaysApply: true
+---
+
+- **Privacy by Design:**
+  - **Data Minimization:** Collect and process only the data necessary for the intended purpose
+  - **Consent:** Ensure proper consent mechanisms for data collection and processing
+  - **Transparency:** Be transparent about what data is collected and how it's used
+  - **Storage Limitations:** Implement appropriate data retention policies
+  - **Access Controls:** Implement proper access controls for sensitive data
+
+- **Algorithmic Fairness:**
+  - **Bias Mitigation:** Actively identify and mitigate biases in algorithms and data
+  - **Testing:** Test algorithms across diverse populations and scenarios
+  - **Transparency:** Document algorithmic decision-making processes
+  - **Human Oversight:** Maintain human oversight for critical algorithmic decisions
+  - **Continuous Evaluation:** Regularly evaluate algorithms for fairness and unintended consequences
+
+- **Accessibility:**
+  - **Universal Design:** Design for users with diverse abilities and needs
+  - **Standards Compliance:** Follow accessibility standards (e.g., WCAG)
+  - **Assistive Technologies:** Ensure compatibility with assistive technologies
+  - **Testing:** Include accessibility testing in the development process
+  - **Documentation:** Document accessibility features and limitations
+
+- **Environmental Impact:**
+  - **Efficiency:** Optimize code for energy efficiency
+  - **Resource Usage:** Minimize resource usage (CPU, memory, network, storage)
+  - **Cloud Resources:** Use cloud resources responsibly
+  - **Lifecycle:** Consider the full lifecycle environmental impact of software
+  - **Measurement:** Measure and monitor environmental impact
+
+- **Transparency and Explainability:**
+  - **Documentation:** Document system behavior and limitations
+  - **Explainability:** Make complex systems explainable to users and stakeholders
+  - **Audit Trails:** Implement appropriate logging and audit trails
+  - **Open Source:** Consider open-sourcing code when appropriate
+  - **Communication:** Communicate clearly about system capabilities and limitations
+
+- **Security and Safety:**
+  - **Risk Assessment:** Conduct thorough risk assessments
+  - **Secure Design:** Implement security by design
+  - **Safety Mechanisms:** Include appropriate safety mechanisms
+  - **Incident Response:** Have clear incident response procedures
+  - **Regular Updates:** Maintain and update security measures
+
+- **User Autonomy and Control:**
+  - **User Control:** Give users appropriate control over their data and experience
+  - **Informed Choices:** Enable users to make informed choices
+  - **Defaults:** Set privacy-preserving defaults
+  - **Opt-Out:** Provide clear opt-out mechanisms
+  - **Customization:** Allow appropriate customization of user experience
+
+- **Ethical Development Process:**
+  - **Diverse Teams:** Include diverse perspectives in development teams
+  - **Ethical Review:** Incorporate ethical review in the development process
+  - **Stakeholder Engagement:** Engage with affected stakeholders
+  - **Impact Assessment:** Conduct ethical impact assessments
+  - **Continuous Learning:** Foster continuous learning about ethical implications
+
+- **ATRiAN Integration:**
+  - **Ethics as a Service:** Integrate with ATRiAN's Ethics as a Service (EaaS) capabilities
+  - **Ethical Constitutions:** Develop and adhere to ethical constitutions
+  - **Ethical Evaluation:** Use the ATRiAN Ethics Evaluation workflow for critical components
+  - **Silent Guidance:** Implement ATRiAN's silent guidance principles
+  - **Sacred Privacy:** Uphold ATRiAN's Sacred Privacy principle in all code
+
+# Added by Task Master - Development Workflow Rules
+
+Below you will find a variety of important rules spanning:
+- the dev_workflow
+- the .windsurfrules document self-improvement workflow
+- the template to follow when modifying or adding new sections/rules to this document.
+
+---
+DEV_WORKFLOW
+---
+description: Guide for using meta-development script (scripts/dev.js) to manage task-driven development workflows
+globs: **/*
+filesToApplyRule: **/*
+alwaysApply: true
+---
+
+- **Global CLI Commands**
+  - Task Master now provides a global CLI through the `task-master` command
+  - All functionality from `scripts/dev.js` is available through this interface
+  - Install globally with `npm install -g claude-task-master` or use locally via `npx`
+  - Use `task-master <command>` instead of `node scripts/dev.js <command>`
+  - Examples:
+    - `task-master list` instead of `node scripts/dev.js list`
+    - `task-master next` instead of `node scripts/dev.js next`
+    - `task-master expand --id=3` instead of `node scripts/dev.js expand --id=3`
+  - All commands accept the same options as their script equivalents
+  - The CLI provides additional commands like `task-master init` for project setup
+
+- **Development Workflow Process**
+  - Start new projects by running `task-master init` or `node scripts/dev.js parse-prd --input=<prd-file.txt>` to generate initial tasks.json
+  - Begin coding sessions with `task-master list` to see current tasks, status, and IDs
+  - Analyze task complexity with `task-master analyze-complexity --research` before breaking down tasks
+  - Select tasks based on dependencies (all marked 'done'), priority level, and ID order
+  - Clarify tasks by checking task files in tasks/ directory or asking for user input
+  - View specific task details using `task-master show <id>` to understand implementation requirements
+  - Break down complex tasks using `task-master expand --id=<id>` with appropriate flags
+  - Clear existing subtasks if needed using `task-master clear-subtasks --id=<id>` before regenerating
+  - Implement code following task details, dependencies, and project standards
+  - Verify tasks according to test strategies before marking as complete
+  - Mark completed tasks with `task-master set-status --id=<id> --status=done`
+  - Update dependent tasks when implementation differs from original plan
+  - Generate task files with `task-master generate` after updating tasks.json
+  - Maintain valid dependency structure with `task-master fix-dependencies` when needed
+  - Respect dependency chains and task priorities when selecting work
+  - Report progress regularly using the list command
+
+- **Task Complexity Analysis**
+  - Run `node scripts/dev.js analyze-complexity --research` for comprehensive analysis
+  - Review complexity report in scripts/task-complexity-report.json
+  - Or use `node scripts/dev.js complexity-report` for a formatted, readable version of the report
+  - Focus on tasks with highest complexity scores (8-10) for detailed breakdown
+  - Use analysis results to determine appropriate subtask allocation
+  - Note that reports are automatically used by the expand command
+
+- **Task Breakdown Process**
+  - For tasks with complexity analysis, use `node scripts/dev.js expand --id=<id>`
+  - Otherwise use `node scripts/dev.js expand --id=<id> --subtasks=<number>`
+  - Add `--research` flag to leverage Perplexity AI for research-backed expansion
+  - Use `--prompt="<context>"` to provide additional context when needed
+  - Review and adjust generated subtasks as necessary
+  - Use `--all` flag to expand multiple pending tasks at once
+  - If subtasks need regeneration, clear them first with `clear-subtasks` command
+
+- **Implementation Drift Handling**
+  - When implementation differs significantly from planned approach
+  - When future tasks need modification due to current implementation choices
+  - When new dependencies or requirements emerge
+  - Call `node scripts/dev.js update --from=<futureTaskId> --prompt="<explanation>"` to update tasks.json
+
+- **Task Status Management**
+  - Use 'pending' for tasks ready to be worked on
+  - Use 'done' for completed and verified tasks
+  - Use 'deferred' for postponed tasks
+  - Add custom status values as needed for project-specific workflows
+
+- **Task File Format Reference**
+  ```
+  # Task ID: <id>
+  # Title: <title>
+  # Status: <status>
+  # Dependencies: <comma-separated list of dependency IDs>
+  # Priority: <priority>
+  # Description: <brief description>
+  # Details:
+  <detailed implementation notes>
+  
+  # Test Strategy:
+  <verification approach>
+  ```
+
+- **Command Reference: parse-prd**
+  - Legacy Syntax: `node scripts/dev.js parse-prd --input=<prd-file.txt>`
+  - CLI Syntax: `task-master parse-prd --input=<prd-file.txt>`
+  - Description: Parses a PRD document and generates a tasks.json file with structured tasks
+  - Parameters: 
+    - `--input=<file>`: Path to the PRD text file (default: sample-prd.txt)
+  - Example: `task-master parse-prd --input=requirements.txt`
+  - Notes: Will overwrite existing tasks.json file. Use with caution.
+
+- **Command Reference: update**
+  - Legacy Syntax: `node scripts/dev.js update --from=<id> --prompt="<prompt>"`
+  - CLI Syntax: `task-master update --from=<id> --prompt="<prompt>"`
+  - Description: Updates tasks with ID >= specified ID based on the provided prompt
+  - Parameters:
+    - `--from=<id>`: Task ID from which to start updating (required)
+    - `--prompt="<text>"`: Explanation of changes or new context (required)
+  - Example: `task-master update --from=4 --prompt="Now we are using Express instead of Fastify."`
+  - Notes: Only updates tasks not marked as 'done'. Completed tasks remain unchanged.
+
+- **Command Reference: generate**
+  - Legacy Syntax: `node scripts/dev.js generate`
+  - CLI Syntax: `task-master generate`
+  - Description: Generates individual task files in tasks/ directory based on tasks.json
+  - Parameters: 
+    - `--file=<path>, -f`: Use alternative tasks.json file (default: 'tasks/tasks.json')
+    - `--output=<dir>, -o`: Output directory (default: 'tasks')
+  - Example: `task-master generate`
+  - Notes: Overwrites existing task files. Creates tasks/ directory if needed.
+
+- **Command Reference: set-status**
+  - Legacy Syntax: `node scripts/dev.js set-status --id=<id> --status=<status>`
+  - CLI Syntax: `task-master set-status --id=<id> --status=<status>`
+  - Description: Updates the status of a specific task in tasks.json
+  - Parameters:
+    - `--id=<id>`: ID of the task to update (required)
+    - `--status=<status>`: New status value (required)
+  - Example: `task-master set-status --id=3 --status=done`
+  - Notes: Common values are 'done', 'pending', and 'deferred', but any string is accepted.
+
+- **Command Reference: list**
+  - Legacy Syntax: `node scripts/dev.js list`
+  - CLI Syntax: `task-master list`
+  - Description: Lists all tasks in tasks.json with IDs, titles, and status
+  - Parameters: 
+    - `--status=<status>, -s`: Filter by status
+    - `--with-subtasks`: Show subtasks for each task
+    - `--file=<path>, -f`: Use alternative tasks.json file (default: 'tasks/tasks.json')
+  - Example: `task-master list`
+  - Notes: Provides quick overview of project progress. Use at start of sessions.
+
+- **Command Reference: expand**
+  - Legacy Syntax: `node scripts/dev.js expand --id=<id> [--num=<number>] [--research] [--prompt="<context>"]`
+  - CLI Syntax: `task-master expand --id=<id> [--num=<number>] [--research] [--prompt="<context>"]`
+  - Description: Expands a task with subtasks for detailed implementation
+  - Parameters:
+    - `--id=<id>`: ID of task to expand (required unless using --all)
+    - `--all`: Expand all pending tasks, prioritized by complexity
+    - `--num=<number>`: Number of subtasks to generate (default: from complexity report)
+    - `--research`: Use Perplexity AI for research-backed generation
+    - `--prompt="<text>"`: Additional context for subtask generation
+    - `--force`: Regenerate subtasks even for tasks that already have them
+  - Example: `task-master expand --id=3 --num=5 --research --prompt="Focus on security aspects"`
+  - Notes: Uses complexity report recommendations if available.
+
+- **Command Reference: analyze-complexity**
+  - Legacy Syntax: `node scripts/dev.js analyze-complexity [options]`
+  - CLI Syntax: `task-master analyze-complexity [options]`
+  - Description: Analyzes task complexity and generates expansion recommendations
+  - Parameters:
+    - `--output=<file>, -o`: Output file path (default: scripts/task-complexity-report.json)
+    - `--model=<model>, -m`: Override LLM model to use
+    - `--threshold=<number>, -t`: Minimum score for expansion recommendation (default: 5)
+    - `--file=<path>, -f`: Use alternative tasks.json file
+    - `--research, -r`: Use Perplexity AI for research-backed analysis
+  - Example: `task-master analyze-complexity --research`
+  - Notes: Report includes complexity scores, recommended subtasks, and tailored prompts.
+
+- **Command Reference: clear-subtasks**
+  - Legacy Syntax: `node scripts/dev.js clear-subtasks --id=<id>`
+  - CLI Syntax: `task-master clear-subtasks --id=<id>`
+  - Description: Removes subtasks from specified tasks to allow regeneration
+  - Parameters:
+    - `--id=<id>`: ID or comma-separated IDs of tasks to clear subtasks from
+    - `--all`: Clear subtasks from all tasks
+  - Examples:
+    - `task-master clear-subtasks --id=3`
+    - `task-master clear-subtasks --id=1,2,3`
+    - `task-master clear-subtasks --all`
+  - Notes: 
+    - Task files are automatically regenerated after clearing subtasks
+    - Can be combined with expand command to immediately generate new subtasks
+    - Works with both parent tasks and individual subtasks
+
+- **Task Structure Fields**
+  - **id**: Unique identifier for the task (Example: `1`)
+  - **title**: Brief, descriptive title (Example: `"Initialize Repo"`)
+  - **description**: Concise summary of what the task involves (Example: `"Create a new repository, set up initial structure."`)
+  - **status**: Current state of the task (Example: `"pending"`, `"done"`, `"deferred"`)
+  - **dependencies**: IDs of prerequisite tasks (Example: `[1, 2]`)
+    - Dependencies are displayed with status indicators (✅ for completed, ⏱️ for pending)
+    - This helps quickly identify which prerequisite tasks are blocking work
+  - **priority**: Importance level (Example: `"high"`, `"medium"`, `"low"`)
+  - **details**: In-depth implementation instructions (Example: `"Use GitHub client ID/secret, handle callback, set session token."`)
+  - **testStrategy**: Verification approach (Example: `"Deploy and call endpoint to confirm 'Hello World' response."`)
+  - **subtasks**: List of smaller, more specific tasks (Example: `[{"id": 1, "title": "Configure OAuth", ...}]`)
+
+- **Environment Variables Configuration**
+  - **ANTHROPIC_API_KEY** (Required): Your Anthropic API key for Claude (Example: `ANTHROPIC_API_KEY=sk-ant-api03-...`)
+  - **MODEL** (Default: `"claude-3-7-sonnet-20250219"`): Claude model to use (Example: `MODEL=claude-3-opus-20240229`)
+  - **MAX_TOKENS** (Default: `"4000"`): Maximum tokens for responses (Example: `MAX_TOKENS=8000`)
+  - **TEMPERATURE** (Default: `"0.7"`): Temperature for model responses (Example: `TEMPERATURE=0.5`)
+  - **DEBUG** (Default: `"false"`): Enable debug logging (Example: `DEBUG=true`)
+  - **TASKMASTER_LOG_LEVEL** (Default: `"info"`): Console output level (Example: `TASKMASTER_LOG_LEVEL=debug`)
+  - **DEFAULT_SUBTASKS** (Default: `"3"`): Default subtask count (Example: `DEFAULT_SUBTASKS=5`)
+  - **DEFAULT_PRIORITY** (Default: `"medium"`): Default priority (Example: `DEFAULT_PRIORITY=high`)
+  - **PROJECT_NAME** (Default: `"MCP SaaS MVP"`): Project name in metadata (Example: `PROJECT_NAME=My Awesome Project`)
+  - **PROJECT_VERSION** (Default: `"1.0.0"`): Version in metadata (Example: `PROJECT_VERSION=2.1.0`)
+  - **PERPLEXITY_API_KEY**: For research-backed features (Example: `PERPLEXITY_API_KEY=pplx-...`)
+  - **PERPLEXITY_MODEL** (Default: `"sonar-medium-online"`): Perplexity model (Example: `PERPLEXITY_MODEL=sonar-large-online`)
+
+- **Determining the Next Task**
+  - Run `task-master next` to show the next task to work on
+  - The next command identifies tasks with all dependencies satisfied
+  - Tasks are prioritized by priority level, dependency count, and ID
+  - The command shows comprehensive task information including:
+    - Basic task details and description
+    - Implementation details
+    - Subtasks (if they exist)
+    - Contextual suggested actions
+  - Recommended before starting any new development work
+  - Respects your project's dependency structure
+  - Ensures tasks are completed in the appropriate sequence
+  - Provides ready-to-use commands for common task actions
+
+- **Viewing Specific Task Details**
+  - Run `task-master show <id>` or `task-master show --id=<id>` to view a specific task
+  - Use dot notation for subtasks: `task-master show 1.2` (shows subtask 2 of task 1)
+  - Displays comprehensive information similar to the next command, but for a specific task
+  - For parent tasks, shows all subtasks and their current status
+  - For subtasks, shows parent task information and relationship
+  - Provides contextual suggested actions appropriate for the specific task
+  - Useful for examining task details before implementation or checking status
+
+- **Managing Task Dependencies**
+  - Use `task-master add-dependency --id=<id> --depends-on=<id>` to add a dependency
+  - Use `task-master remove-dependency --id=<id> --depends-on=<id>` to remove a dependency
+  - The system prevents circular dependencies and duplicate dependency entries
+  - Dependencies are checked for existence before being added or removed
+  - Task files are automatically regenerated after dependency changes
+  - Dependencies are visualized with status indicators in task listings and files
+
+- **Command Reference: add-dependency**
+  - Legacy Syntax: `node scripts/dev.js add-dependency --id=<id> --depends-on=<id>`
+  - CLI Syntax: `task-master add-dependency --id=<id> --depends-on=<id>`
+  - Description: Adds a dependency relationship between two tasks
+  - Parameters:
+    - `--id=<id>`: ID of task that will depend on another task (required)
+    - `--depends-on=<id>`: ID of task that will become a dependency (required)
+  - Example: `task-master add-dependency --id=22 --depends-on=21`
+  - Notes: Prevents circular dependencies and duplicates; updates task files automatically
+
+- **Command Reference: remove-dependency**
+  - Legacy Syntax: `node scripts/dev.js remove-dependency --id=<id> --depends-on=<id>`
+  - CLI Syntax: `task-master remove-dependency --id=<id> --depends-on=<id>`
+  - Description: Removes a dependency relationship between two tasks
+  - Parameters:
+    - `--id=<id>`: ID of task to remove dependency from (required)
+    - `--depends-on=<id>`: ID of task to remove as a dependency (required)
+  - Example: `task-master remove-dependency --id=22 --depends-on=21`
+  - Notes: Checks if dependency actually exists; updates task files automatically
+
+- **Command Reference: validate-dependencies**
+  - Legacy Syntax: `node scripts/dev.js validate-dependencies [options]`
+  - CLI Syntax: `task-master validate-dependencies [options]`
+  - Description: Checks for and identifies invalid dependencies in tasks.json and task files
+  - Parameters:
+    - `--file=<path>, -f`: Use alternative tasks.json file (default: 'tasks/tasks.json')
+  - Example: `task-master validate-dependencies`
+  - Notes: 
+    - Reports all non-existent dependencies and self-dependencies without modifying files
+    - Provides detailed statistics on task dependency state
+    - Use before fix-dependencies to audit your task structure
+
+- **Command Reference: fix-dependencies**
+  - Legacy Syntax: `node scripts/dev.js fix-dependencies [options]`
+  - CLI Syntax: `task-master fix-dependencies [options]`
+  - Description: Finds and fixes all invalid dependencies in tasks.json and task files
+  - Parameters:
+    - `--file=<path>, -f`: Use alternative tasks.json file (default: 'tasks/tasks.json')
+  - Example: `task-master fix-dependencies`
+  - Notes: 
+    - Removes references to non-existent tasks and subtasks
+    - Eliminates self-dependencies (tasks depending on themselves)
+    - Regenerates task files with corrected dependencies
+    - Provides detailed report of all fixes made
+
+- **Command Reference: complexity-report**
+  - Legacy Syntax: `node scripts/dev.js complexity-report [options]`
+  - CLI Syntax: `task-master complexity-report [options]`
+  - Description: Displays the task complexity analysis report in a formatted, easy-to-read way
+  - Parameters:
+    - `--file=<path>, -f`: Path to the complexity report file (default: 'scripts/task-complexity-report.json')
+  - Example: `task-master complexity-report`
+  - Notes: 
+    - Shows tasks organized by complexity score with recommended actions
+    - Provides complexity distribution statistics
+    - Displays ready-to-use expansion commands for complex tasks
+    - If no report exists, offers to generate one interactively
+
+- **Command Reference: add-task**
+  - CLI Syntax: `task-master add-task [options]`
+  - Description: Add a new task to tasks.json using AI
+  - Parameters:
+    - `--file=<path>, -f`: Path to the tasks file (default: 'tasks/tasks.json')
+    - `--prompt=<text>, -p`: Description of the task to add (required)
+    - `--dependencies=<ids>, -d`: Comma-separated list of task IDs this task depends on
+    - `--priority=<priority>`: Task priority (high, medium, low) (default: 'medium')
+  - Example: `task-master add-task --prompt="Create user authentication using Auth0"`
+  - Notes: Uses AI to convert description into structured task with appropriate details
+
+- **Command Reference: init**
+  - CLI Syntax: `task-master init`
+  - Description: Initialize a new project with Task Master structure
+  - Parameters: None
+  - Example: `task-master init`
+  - Notes: 
+    - Creates initial project structure with required files
+    - Prompts for project settings if not provided
+    - Merges with existing files when appropriate
+    - Can be used to bootstrap a new Task Master project quickly
+
+- **Code Analysis & Refactoring Techniques**
+  - **Top-Level Function Search**
+    - Use grep pattern matching to find all exported functions across the codebase
+    - Command: `grep -E "export (function|const) \w+|function \w+\(|const \w+ = \(|module\.exports" --include="*.js" -r ./`
+    - Benefits:
+      - Quickly identify all public API functions without reading implementation details
+      - Compare functions between files during refactoring (e.g., monolithic to modular structure)
+      - Verify all expected functions exist in refactored modules
+      - Identify duplicate functionality or naming conflicts
+    - Usage examples:
+      - When migrating from `scripts/dev.js` to modular structure: `grep -E "function \w+\(" scripts/dev.js`
+      - Check function exports in a directory: `grep -E "export (function|const)" scripts/modules/`
+      - Find potential naming conflicts: `grep -E "function (get|set|create|update)\w+\(" -r ./`
+    - Variations:
+      - Add `-n` flag to include line numbers
+      - Add `--include="*.ts"` to filter by file extension
+      - Use with `| sort` to alphabetize results
+    - Integration with refactoring workflow:
+      - Start by mapping all functions in the source file
+      - Create target module files based on function grouping
+      - Verify all functions were properly migrated
+      - Check for any unintentional duplications or omissions
+
+---
+WINDSURF_RULES
+---
+description: Guidelines for creating and maintaining Windsurf rules to ensure consistency and effectiveness.
+globs: .windsurfrules
+filesToApplyRule: .windsurfrules
+alwaysApply: true
+---
+The below describes how you should be structuring new rule sections in this document.
+- **Required Rule Structure:**
+  ```markdown
+  ---
+  description: Clear, one-line description of what the rule enforces
+  globs: path/to/files/*.ext, other/path/**/*
+  alwaysApply: boolean
+  ---
+
+  - **Main Points in Bold**
+    - Sub-points with details
+    - Examples and explanations
+  ```
+
+- **Section References:**
+  - Use `ALL_CAPS_SECTION` to reference files
+  - Example: `WINDSURF_RULES`
+
+- **Code Examples:**
+  - Use language-specific code blocks
+  ```typescript
+  // ✅ DO: Show good examples
+  const goodExample = true;
+  
+  // ❌ DON'T: Show anti-patterns
+  const badExample = false;
+  ```
+
+- **Rule Content Guidelines:**
+  - Start with high-level overview
+  - Include specific, actionable requirements
+  - Show examples of correct implementation
+  - Reference existing code when possible
+  - Keep rules DRY by referencing other rules
+
+- **Rule Maintenance:**
+  - Update rules when new patterns emerge
+  - Add examples from actual codebase
+  - Remove outdated patterns
+  - Cross-reference related rules
+
+- **Best Practices:**
+  - Use bullet points for clarity
+  - Keep descriptions concise
+  - Include both DO and DON'T examples
+  - Reference actual code over theoretical examples
+  - Use consistent formatting across rules 
+
+---
+SELF_IMPROVE
+---
+description: Guidelines for continuously improving this rules document based on emerging code patterns and best practices.
+globs: **/*
+filesToApplyRule: **/*
+alwaysApply: true
+---
+
+- **Rule Improvement Triggers:**
+  - New code patterns not covered by existing rules
+  - Repeated similar implementations across files
+  - Common error patterns that could be prevented
+  - New libraries or tools being used consistently
+  - Emerging best practices in the codebase
+
+- **Analysis Process:**
+  - Compare new code with existing rules
+  - Identify patterns that should be standardized
+  - Look for references to external documentation
+  - Check for consistent error handling patterns
+  - Monitor test patterns and coverage
+
+- **Rule Updates:**
+  - **Add New Rules When:**
+    - A new technology/pattern is used in 3+ files
+    - Common bugs could be prevented by a rule
+    - Code reviews repeatedly mention the same feedback
+    - New security or performance patterns emerge
+
+  - **Modify Existing Rules When:**
+    - Better examples exist in the codebase
+    - Additional edge cases are discovered
+    - Related rules have been updated
+    - Implementation details have changed
+
+- **Example Pattern Recognition:**
+  ```typescript
+  // If you see repeated patterns like:
+  const data = await prisma.user.findMany({
+    select: { id: true, email: true },
+    where: { status: 'ACTIVE' }
+  });
+  
+  // Consider adding a PRISMA section in the .windsurfrules:
+  // - Standard select fields
+  // - Common where conditions
+  // - Performance optimization patterns
+  ```
+
+- **Rule Quality Checks:**
+  - Rules should be actionable and specific
+  - Examples should come from actual code
+  - References should be up to date
+  - Patterns should be consistently enforced
+
+- **Continuous Improvement:**
+  - Monitor code review comments
+  - Track common development questions
+  - Update rules after major refactors
+  - Add links to relevant documentation
+  - Cross-reference related rules
+
+- **Rule Deprecation:**
+  - Mark outdated patterns as deprecated
+  - Remove rules that no longer apply
+  - Update references to deprecated rules
+  - Document migration paths for old patterns
+
+- **Documentation Updates:**
+  - Keep examples synchronized with code
+  - Update references to external docs
+  - Maintain links between related rules
+  - Document breaking changes
+
+Follow WINDSURF_RULES for proper rule formatting and structure of windsurf rule sections.
+
+---
+PROMPT_VAULT_STANDARDS
+---
+description: Standards governing the structure, validation, and documentation of PromptVault entries (master prompts).
+globs: PromptVault/*.json
+filesToApplyRule: PromptVault/*.json
+alwaysApply: true
+---
+- **Schema Compliance:** Each vaulted prompt JSON must validate against the KOIOS PromptVault schema (to be finalized) or default `MasterPromptSchema` until then.
+- **Required Metadata:** `title`, `description`, `created`, `updated`, `author`, `llm_context_length` (minimum).
+- **Cross-References:** Each entry shall include links to its originating interaction, related PDD (if any), and kernel usage notes.
+- **Versioning:** File name must follow YYYY-MM-DD_HHMMSS_slug.json. Updates create a new file, previous versions archived.
+- **Documentation:** README.md must list the PromptVault section and link to /distill_and_vault_prompt workflow.
+- **Validation Workflow:** Use `/distill_and_vault_prompt` workflow or `scripts/validation/validate_promptvault.py` (once available) in CI to enforce compliance.
+
+
+
+---
+KERNEL_STANDARDS
+
+---
+WORKFLOW_LIST
+---
+description: Registry of available /slash-command workflows in the EGOS workspace.
+filesToApplyRule: .windsurf/workflows/*.md
+alwaysApply: true
+---
+**For a detailed, categorized index of all workflows, their descriptions, and dependencies, please see the [EGOS Workflows Index](file:///C:/EGOS/docs/workflows_index.md).**
+
+Current workflows exposed as slash commands:
+
+- /ai_assisted_research_and_synthesis
+- /animal_feature_research_for_image_generation
+- /atrian_ethics_evaluation
+- /atrian_external_integration
+- /atrian_roi_calc
+- /atrian_sdk_dev
+- /atrian_validator_testing
+- /creating_managing_ethical_constitutions
+- /distill_and_vault_prompt
+- /dynamic_documentation_update_from_code_changes
+- /cross_reference_maintenance
+- /initiate_msak_analysis
+- /iterative_code_refinement_cycle
+- /leveraging_screen_aware_ai_assistants
+- /project_handover_procedure
+- /taskmaster_task_management
+- /tdd_based_dev_workflow
+
+---
+---
+description: Standards for the creation, documentation, and maintenance of EGOS prompt kernels.
+globs: docs/prompt_kernels/*.md
+filesToApplyRule: docs/prompt_kernels/*.md
+alwaysApply: true
+---
+- **Template Compliance:** Every kernel Markdown file must derive from `Kernel_Skeleton_Template.md` and include front-matter fields: `title`, `version`, `status`, `author`, `created`, `updated`, `pdd`.
+- **PDD Link:** Must include a link to an associated validated PDD (docs/prompts/pdds/*.yaml).
+- **README Cross-Reference:** Kernel must be listed under Key Capabilities & Advanced Kernels in README.md.
+- **Workflow Reference:** Provide a usage workflow file in .windsurf/workflows/ or reference an existing one.
+- **Validation:** Use `scripts/validation/validate_kernel_docs.py` in CI to enforce template compliance and cross-references.
+
+

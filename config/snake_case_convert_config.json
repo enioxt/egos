@@ -1,0 +1,46 @@
+{
+    "exclusions": {
+        "directories": [
+            ".git", 
+            "venv", 
+            ".venv", 
+            "env", 
+            "node_modules", 
+            "__pycache__", 
+            ".vscode", 
+            ".idea",
+            ".github"
+        ],
+        "files": [
+            "README.md", 
+            "LICENSE", 
+            "Makefile", 
+            "requirements.txt", 
+            ".gitignore", 
+            ".gitattributes", 
+            "DS_Store",
+            "MQP.md",
+            "ROADMAP.md",
+            "ADRS_Log.md"
+        ],
+        "extensions_to_ignore_stem_case": [
+            ".SQL", 
+            ".DLL", 
+            ".EXE", 
+            ".BAT", 
+            ".MD"
+        ],
+        "patterns_to_ignore": [
+            ".*\\.git.*",
+            ".*node_modules.*",
+            ".*__pycache__.*",
+            ".*\\.vscode.*",
+            ".*\\.idea.*",
+            ".*\\.github.*",
+            ".*WORK_\\d{4}-\\d{2}-\\d{2}_.*"
+        ]
+    },
+    "dry_run": true,
+    "interactive": true,
+    "log_file": "C:\\EGOS\\logs\\snake_case_conversion_log.txt"
+}

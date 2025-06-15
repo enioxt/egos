@@ -1,0 +1,138 @@
+{
+    "report_generated_at": "2025-05-19T13:28:26.563052",
+    "project_base_path": "C:\\EGOS",
+    "time_window_hours": 2,
+    "target_file_extensions": [
+        ".md",
+        ".ts",
+        ".css",
+        ".yaml",
+        ".js",
+        ".py",
+        ".yml",
+        ".json",
+        ".html"
+    ],
+    "reference_search_directories": [
+        "README.md",
+        "docs/",
+        "scripts/"
+    ],
+    "reference_file_extensions_search": [
+        ".md",
+        ".ts",
+        ".css",
+        ".txt",
+        ".yaml",
+        ".js",
+        ".py",
+        ".yml",
+        ".json",
+        ".html"
+    ],
+    "reference_patterns": [
+        "{filename}",
+        "docs/{filename}",
+        "import {module_name}",
+        "from {module_name}",
+        "[{filename}]",
+        "({filepath})"
+    ],
+    "scan_directories": [
+        "src",
+        "docs"
+    ],
+    "excluded_directories_abs": [
+        "C:\\EGOS\\.git",
+        "C:\\EGOS\\.idea",
+        "C:\\EGOS\\.vscode",
+        "C:\\EGOS\\venv",
+        "C:\\EGOS\\node_modules",
+        "C:\\EGOS\\__pycache__",
+        "C:\\EGOS\\.venv",
+        "C:\\EGOS\\docs\\build",
+        "C:\\EGOS\\dist",
+        "C:\\EGOS\\build",
+        "C:\\EGOS\\eggs"
+    ],
+    "excluded_patterns": [
+        "*.egg-info"
+    ],
+    "files_processed_count": 4,
+    "files": [
+        {
+            "path": "docs\\new_module_notes.md",
+            "references_found": [
+                {
+                    "found_in_file": "scripts\\another_script.py",
+                    "line_number": 14,
+                    "line_content": "# Text reference to new_module_notes.md"
+                },
+                {
+                    "found_in_file": "scripts\\another_script.py",
+                    "line_number": 15,
+                    "line_content": "# This script complements new_module_notes.md for extended details."
+                },
+                {
+                    "found_in_file": "scripts\\another_script.py",
+                    "line_number": 16,
+                    "line_content": "print(\"Checking notes in new_module_notes.md\")"
+                }
+            ]
+        },
+        {
+            "path": "docs\\reference\\file_reference_checker_optimized.md",
+            "references_found": [
+                {
+                    "found_in_file": "scripts\\cross_reference\\file_reference_checker_optimized.py",
+                    "line_number": 30,
+                    "line_content": "- Main Documentation: ../../../docs/reference/file_reference_checker_optimized.md (to be created/updated)"
+                }
+            ]
+        },
+        {
+            "path": "src\\new_module.py",
+            "references_found": [
+                {
+                    "found_in_file": "README.md",
+                    "line_number": 3,
+                    "line_content": "See documentation for new_module.py."
+                },
+                {
+                    "found_in_file": "docs\\new_module_notes.md",
+                    "line_number": 2,
+                    "line_content": "<!-- Intentionally no direct reference to new_module.py here for testing. -->"
+                },
+                {
+                    "found_in_file": "scripts\\another_script.py",
+                    "line_number": 4,
+                    "line_content": "# Reference to new_module.py"
+                },
+                {
+                    "found_in_file": "scripts\\another_script.py",
+                    "line_number": 6,
+                    "line_content": "# For testing, let's assume a simple import if new_module.py is in src"
+                },
+                {
+                    "found_in_file": "scripts\\another_script.py",
+                    "line_number": 7,
+                    "line_content": "# and the checker is run from a context where src is importable or patterns match `src/new_module.py`"
+                },
+                {
+                    "found_in_file": "scripts\\another_script.py",
+                    "line_number": 11,
+                    "line_content": "# The presence of the string 'new_module.py' or 'src.new_module' will be searched by patterns"
+                },
+                {
+                    "found_in_file": "scripts\\another_script.py",
+                    "line_number": 12,
+                    "line_content": "# Example: import src.new_module"
+                }
+            ]
+        },
+        {
+            "path": "src\\old_module.py",
+            "references_found": []
+        }
+    ]
+}

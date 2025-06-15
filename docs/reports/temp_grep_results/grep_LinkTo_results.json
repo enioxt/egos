@@ -1,0 +1,57 @@
+[
+  {
+    "File": "C:\\EGOS\\WORK_2025_05_21.md",
+    "LineNumber": 157,
+    "LineContent": "            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`)."
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_Doc_results.json",
+    "LineNumber": 5,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_LinkTo_results.json",
+    "LineNumber": 5,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_Reference_results.json",
+    "LineNumber": 10,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_Ref_results.json",
+    "LineNumber": 20,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_Related_results.json",
+    "LineNumber": 5,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_SeeAlso_results.json",
+    "LineNumber": 5,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_Source_results.json",
+    "LineNumber": 10,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\02_koios_standards\\consolidated_project_rules.md",
+    "LineNumber": 326,
+    "LineContent": "*   **MUST** link to:"
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\cross_reference\\execute_inventory_scan.py",
+    "LineNumber": 44,
+    "LineContent": "    {\"query\": \"Link to:\", \"output_file\": \"grep_LinkTo_results.json\", \"case_insensitive\": True, \"category\": \"keyword\"},"
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\cross_reference\\purge_old_references.py",
+    "LineNumber": 194,
+    "LineContent": "    {\"name\": \"LinkTo\", \"pattern\": r\"Link to:\\s\", \"context_required\": False},"
+  }
+]

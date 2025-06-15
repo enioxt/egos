@@ -1,0 +1,59 @@
+# Configuration for the AutoCrossRef Subsystem
+# Version: 0.2 (Aligned with DESIGN.md)
+
+# Default paths to scan if no paths are provided on the command line.
+# Paths should be relative to the EGOS project root or absolute.
+scan_paths:
+  - "docs/"
+  - "subsystems/"
+
+# Patterns for the Candidate Identification Module.
+# See DESIGN.md section 6 for details.
+candidate_detection_patterns:
+  - name: "capitalized_phrase"
+    regex: '\b([A-Z][a-zA-Z0-9_]+(?:\s[A-Z][a-zA-Z0-9_]+)*)\b'
+    type: "capitalized_phrase_regex"
+  - name: "known_acronyms"
+    regex: '\b(MQP|KOIOS|ATRiAN|CRONOS|EGOS|PDD|EaaS)\b'
+    type: "acronym_match"
+  - name: "markdown_link"
+    regex: '\[(?P<text>[^\]]+)\]\((?P<path>[^)]+)\)' # Basic markdown link regex
+    type: "markdown_link"
+
+# Mapping of common terms/acronyms/titles to their canonical file paths.
+# Used by Path Resolution Module.
+known_terms_to_paths:
+  "MQP": "C:/EGOS/MQP.md"
+  "Master Quantum Prompt": "C:/EGOS/MQP.md"
+  "KOIOS PDD Standard": "C:/EGOS/docs/standards/KOIOS_PDD_Standard.md"
+  "PDD Standard": "C:/EGOS/docs/standards/KOIOS_PDD_Standard.md"
+  "ATRiAN": "C:/EGOS/ATRiAN/ATRiAN.md"
+
+# Specific keywords/acronyms to actively look for during candidate identification.
+standalone_keywords:
+  - "PDD"
+  - "EaaS"
+  - "Mycelium"
+  - "AutoCrossRef"
+  - "ETHIK Framework"
+
+# File types to scan for cross-references (relevant for File System Scanner).
+# This might overlap with config_ultra.yaml but provides a specific filter for AutoCrossRef.
+include_file_extensions:
+  - ".md"
+  # - ".py" # Future: for code cross-referencing
+
+# Backup options for the Reference Injection Module.
+backup_options:
+  enabled: true
+  directory: "C:/EGOS/backups/autocrossref/"
+  timestamp_format: "%Y%m%d_%H%M%S"
+
+# Maximum number of suggestions to process in a single run without interactive mode.
+max_suggestions_batch_mode: 50
+
+# Logging configuration
+logging:
+  level: "INFO" # DEBUG, INFO, WARNING, ERROR
+  # Using forward slashes for paths is generally safer in YAML and Python cross-platform.
+  file: "C:/EGOS/logs/autocrossref.log"

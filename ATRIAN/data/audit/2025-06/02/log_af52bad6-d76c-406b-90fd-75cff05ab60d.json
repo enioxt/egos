@@ -1,0 +1,22 @@
+{
+  "log_id": "log_af52bad6-d76c-406b-90fd-75cff05ab60d",
+  "timestamp": "2025-06-02 02:11:06.069406",
+  "action_type": "retrieve_audit_logs",
+  "user_id": "anonymous",
+  "resource_id": null,
+  "request_data": null,
+  "response_data": null,
+  "metadata": null,
+  "endpoint_called": "/ethics/audit",
+  "request_summary": {
+    "start_date": null,
+    "end_date": null,
+    "action_type": "evaluate",
+    "user_id": null,
+    "limit": 5,
+    "offset": 0
+  },
+  "response_summary": {
+    "error": "4 validation errors for EthicsAuditResponse\ntotal_count\n  Field required [type=missing, input_value={'logs': [], 'count': 0, ...6, 2, 2, 11, 6, 110776)}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.10/v/missing\npage\n  Field required [type=missing, input_value={'logs': [], 'count': 0, ...6, 2, 2, 11, 6, 110776)}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.10/v/missing\npage_size\n  Field required [type=missing, input_value={'logs': [], 'count': 0, ...6, 2, 2, 11, 6, 110776)}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.10/v/missing\nhas_more\n  Field required [type=missing, input_value={'logs': [], 'count': 0, ...6, 2, 2, 11, 6, 110776)}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.10/v/missing"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "operation_id": "system_config_1748393364_ae8846c9",
+  "operation_type": "system_config",
+  "context": {
+    "setting": "theme",
+    "value": "dark",
+    "persist": true
+  },
+  "result": {
+    "operation_id": "system_config_20250527214924_7867778797653097462",
+    "allowed": "indeterminate",
+    "guidance": "Follow standard EGOS protocols for this operation.",
+    "guidance_type": "suggestion",
+    "trust_level": 0.505,
+    "should_notify": true,
+    "notification_priority": "low",
+    "ethical_warnings": [
+      "Ethical rule set is empty."
+    ],
+    "contains_sensitive_data": false,
+    "detected_keywords": []
+  },
+  "timestamp": "2025-05-27T21:49:24.495632",
+  "user_id": "demo_user"
+}

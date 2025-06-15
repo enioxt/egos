@@ -1,0 +1,52 @@
+{
+  "request_id": "req_6bb5440a-5e53-4be6-97e3-1ec2de919d48",
+  "alternatives": [
+    {
+      "title": "Alternative 1",
+      "description": "For 'Implementing a facial recognition system for public surveillance', consider applying data minimization or exploring privacy-enhancing technologies (PETs).",
+      "benefits": [
+        "Enhanced privacy",
+        "Reduced data exposure",
+        "Better user control"
+      ],
+      "considerations": [
+        "Implementation complexity",
+        "Resource requirements"
+      ],
+      "principles_addressed": [
+        "Sacred Privacy"
+      ]
+    },
+    {
+      "title": "Alternative 2",
+      "description": "For 'Implementing a facial recognition system for public surveillance', consider applying data minimization or exploring privacy-enhancing technologies (PETs).",
+      "benefits": [
+        "Enhanced privacy",
+        "Reduced data exposure",
+        "Better user control"
+      ],
+      "considerations": null,
+      "principles_addressed": [
+        "Sacred Privacy"
+      ]
+    },
+    {
+      "title": "Alternative 3",
+      "description": "For 'Implementing a facial recognition system for public surveillance', consider applying data minimization or exploring privacy-enhancing technologies (PETs).",
+      "benefits": [
+        "Enhanced privacy",
+        "Reduced data exposure",
+        "Better user control"
+      ],
+      "considerations": [
+        "Implementation complexity",
+        "Resource requirements"
+      ],
+      "principles_addressed": [
+        "Sacred Privacy"
+      ]
+    }
+  ],
+  "original_evaluation_id": null,
+  "timestamp": "2025-06-02 02:11:05.944236"
+}

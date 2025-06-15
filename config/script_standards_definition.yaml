@@ -1,0 +1,203 @@
+# @references:
+#   - .windsurfrules
+#   - CODE_OF_CONDUCT.md
+#   - MQP.md
+#   - README.md
+#   - ROADMAP.md
+#   - CROSSREF_STANDARD.md
+
+schema_version: "1.0"
+description: "Machine-readable EGOS script standards, derived from script_management_best_practices.md and global_rules.md"
+source_documents:
+  - "C:\\EGOS\\docs\\standards\\scripting\\script_management_best_practices.md"
+  - "C:\\EGOS\\.windsurfrules" # (global_rules.md)
+
+standards:
+  - id: "STD_SCRIPT_001"
+    name: "Shebang Line (Python3)"
+    description: "Scripts must start with #!/usr/bin/env python3"
+    category: "structure"
+    type: "regex_present"
+    pattern: "^#!/usr/bin/env python3"
+    scope: "file_top_line"
+    severity: "mandatory"
+    points: 5
+    message: "Script must include a Python 3 shebang line: #!/usr/bin/env python3"
+
+  - id: "STD_SCRIPT_002"
+    name: "UTF-8 Encoding Declaration"
+    description: "Scripts must declare UTF-8 encoding: # -*- coding: utf-8 -*-"
+    category: "structure"
+    type: "regex_present"
+    pattern: "^# -\\*- coding: utf-8 -\\*-"
+    scope: "file_second_line"
+    severity: "mandatory"
+    points: 5
+    message: "Script must include UTF-8 encoding declaration: # -*- coding: utf-8 -*-"
+
+  - id: "STD_SCRIPT_003"
+    name: "Main Docstring Present"
+    description: "Script must have a main docstring."
+    category: "documentation"
+    type: "ast_module_docstring_present"
+    severity: "mandatory"
+    points: 10
+    message: "Script is missing a main module-level docstring."
+
+  - id: "STD_SCRIPT_003_01"
+    name: "Docstring - Purpose"
+    description: "Main docstring should contain a description of the script's purpose."
+    category: "documentation"
+    type: "regex_present_in_docstring"
+    docstring_target: "module"
+    pattern: "(?i)(purpose|description|objective|goal)"
+    severity: "mandatory"
+    points: 2
+    message: "Main docstring should clearly state the script's purpose."
+
+  - id: "STD_SCRIPT_003_02"
+    name: "Docstring - Author"
+    description: "Main docstring should list Author(s)."
+    category: "documentation"
+    type: "regex_present_in_docstring"
+    docstring_target: "module"
+    pattern: "(?i)Author\\(s\\)?|"
+    severity: "mandatory"
+    points: 2
+    message: "Main docstring should specify Author(s)."
+
+  - id: "STD_SCRIPT_003_03"
+    name: "Docstring - Creation Date"
+    description: "Main docstring should include Creation Date."
+    category: "documentation"
+    type: "regex_present_in_docstring"
+    docstring_target: "module"
+    pattern: "(?i)Created|Creation Date:"
+    severity: "mandatory"
+    points: 2
+    message: "Main docstring should include Creation Date."
+
+  - id: "STD_SCRIPT_003_04"
+    name: "Docstring - Version"
+    description: "Main docstring should specify a Version."
+    category: "documentation"
+    type: "regex_present_in_docstring"
+    docstring_target: "module"
+    pattern: "(?i)Version:"
+    severity: "mandatory"
+    points: 2
+    message: "Main docstring should include a Version number."
+
+  - id: "STD_SCRIPT_003_05"
+    name: "Docstring - @references"
+    description: "Main docstring should have an @references section for EGOS documents."
+    category: "documentation"
+    type: "regex_present_in_docstring"
+    docstring_target: "module"
+    pattern: "@references:"
+    severity: "mandatory"
+    points: 2
+    message: "Main docstring should include an @references section."
+    sub_checks:
+      - id: "STD_SCRIPT_003_05_01"
+        name: "Canonical Path in @references"
+        type: "regex_match_all_in_block"
+        block_start_pattern: "@references:"
+        block_end_pattern: "(?m)(^$|^\\S)" 
+        docstring_target: "module"
+        item_pattern: "C:\\\\EGOS\\\\.*"
+        severity: "recommended"
+        points: 1
+        message: "References in @references section should use canonical EGOS paths (e.g., C:\\EGOS\\path\\to\\file.md)."
+
+  - id: "STD_SCRIPT_006"
+    name: "Configuration - CONFIG Dictionary"
+    description: "Scripts should use a CONFIG dictionary for script-specific configurations."
+    category: "configuration"
+    type: "ast_variable_defined"
+    variable_name: "CONFIG"
+    variable_type: "Dict"
+    severity: "mandatory"
+    points: 5
+    message: "A 'CONFIG' dictionary should be used for script-specific configurations."
+
+  - id: "STD_SCRIPT_007"
+    name: "Logging - BasicConfig Called"
+    description: "logging.basicConfig should be called to set up logging."
+    category: "logging"
+    type: "ast_function_call_present"
+    function_name: "logging.basicConfig"
+    severity: "mandatory"
+    points: 5
+    message: "Logging should be initialized using logging.basicConfig()."
+
+  - id: "STD_SCRIPT_008"
+    name: "Logging - Logger Instance Created"
+    description: "A logger instance should be obtained, e.g., logger = logging.getLogger(...)."
+    category: "logging"
+    type: "regex_present"
+    pattern: "\\w+\\s*=\\s*logging\\.getLogger\\("
+    scope: "file_content"
+    severity: "mandatory"
+    points: 3
+    message: "A logger instance should be created (e.g., logger = logging.getLogger(__name__))."
+
+  - id: "STD_SCRIPT_MAIN_FUNC_001"
+    name: "Main Function - Defined"
+    description: "Script logic should be encapsulated in a main() function."
+    category: "structure"
+    type: "ast_function_defined"
+    function_name: "main"
+    severity: "mandatory"
+    points: 5
+    message: "A 'main()' function should be defined to encapsulate script logic."
+
+  - id: "STD_SCRIPT_MAIN_FUNC_002"
+    name: "Main Function - Entry Point"
+    description: "Script should have a main entry point: if __name__ == \"__main__\"."
+    category: "structure"
+    type: "ast_main_entry_point_present"
+    severity: "mandatory"
+    points: 5
+    message: "Script must have the standard entry point: if __name__ == \"__main__\": main()"
+
+  - id: "STD_SCRIPT_SIGNATURE_001"
+    name: "EGOS Signature"
+    description: "Scripts should print the EGOS signature at the end of successful execution."
+    category: "visual"
+    type: "regex_present"
+    pattern: "print\\(.*EGOS.*\\)" 
+    scope: "file_content"
+    severity: "mandatory"
+    points: 2
+    message: "Script should print the EGOS signature upon successful completion."
+
+  - id: "STD_IMPORT_001"
+    name: "Required Import - argparse"
+    description: "Scripts requiring argument parsing must import argparse."
+    category: "imports"
+    type: "ast_import_present"
+    module_name: "argparse"
+    severity: "conditional_mandatory"
+    condition_description: "If script uses command-line arguments"
+    points: 3
+    message: "Import 'argparse' if command-line arguments are used."
+
+  - id: "STD_VISUAL_001"
+    name: "Visual Element - print_banner"
+    description: "Scripts with significant output should use a print_banner function."
+    category: "visual"
+    type: "ast_function_call_present"
+    function_name: "print_banner"
+    severity: "recommended"
+    points: 2
+    message: "Consider using a 'print_banner' function for visual consistency."
+
+  - id: "STD_ERROR_HANDLING_001"
+    name: "Error Handling - try-except"
+    description: "Use try-except blocks for robust error handling."
+    category: "error_handling"
+    type: "ast_try_except_present"
+    severity: "mandatory"
+    points: 5
+    message: "Implement try-except blocks for operations that might fail."

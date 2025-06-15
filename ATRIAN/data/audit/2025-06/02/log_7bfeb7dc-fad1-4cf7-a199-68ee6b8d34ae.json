@@ -1,0 +1,22 @@
+{
+  "log_id": "log_7bfeb7dc-fad1-4cf7-a199-68ee6b8d34ae",
+  "timestamp": "2025-06-02 02:26:40.243802",
+  "action_type": "retrieve_audit_logs",
+  "user_id": "anonymous",
+  "resource_id": null,
+  "request_data": null,
+  "response_data": null,
+  "metadata": null,
+  "endpoint_called": "/ethics/audit",
+  "request_summary": {
+    "start_date": null,
+    "end_date": null,
+    "action_type": null,
+    "user_id": null,
+    "limit": 100,
+    "offset": 0
+  },
+  "response_summary": {
+    "logs_count": 32
+  }
+}

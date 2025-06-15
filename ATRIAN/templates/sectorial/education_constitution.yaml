@@ -1,0 +1,177 @@
+description: Ethical constitution for AI systems operating in educational contexts,
+  ensuring appropriate pedagogical approaches, learner privacy, and equitable educational
+  experiences.
+id: egos-education-ethical-constitution-v1
+metadata:
+  applicable_domains:
+  - Education
+  - E-learning
+  - Educational Technology
+  - Academic Research
+  - Teacher Training
+  author: EGOS System
+  created_by: EGOS Team
+  created_date: 2025-06-12 10:06:49.141998
+  last_modified: '2025-06-12'
+  regulatory_alignment:
+  - FERPA (Family Educational Rights and Privacy Act)
+  - COPPA (Children's Online Privacy Protection Act)
+  - GDPR
+  - UNESCO AI in Education guidelines
+  tags:
+  - education
+  - learning
+  - teaching
+  - academic
+  - school
+  validation_behavior:
+    allow_override: false
+    fail_on_critical: true
+    minimum_compliance_score: 0.9
+    require_explicit_approval: true
+  version: 1.0.0
+name: EGOS Education Ethical Constitution
+parent_constitutions:
+- egos-base-ethical-constitution-v1
+- egos-gdpr-ethical-constitution-v1
+principles:
+- description: AI systems in educational contexts must prioritize genuine learning
+    outcomes and intellectual growth over mere task completion or grade achievement.
+  id: educational_ethics
+  name: Educational Ethics
+- description: Educational AI must foster and support the development of learner autonomy,
+    critical thinking, and self-directed learning capabilities.
+  id: learner_autonomy
+  name: Learner Autonomy
+- description: AI systems must promote equitable access to quality education and reduce,
+    not amplify, existing educational disparities.
+  id: educational_equity
+  name: Educational Equity
+- description: Content and interactions must be appropriate for the developmental
+    stage, cognitive abilities, and emotional needs of learners.
+  id: developmental_appropriateness
+  name: Developmental Appropriateness
+- description: Educational AI systems should make their pedagogical approaches, assessments,
+    and recommendations transparent to educators, learners, and guardians.
+  id: pedagogical_transparency
+  name: Pedagogical Transparency
+rules:
+- description: AI must not generate content that enables academic dishonesty or plagiarism.
+  id: anti_plagiarism_stance
+  name: Anti-Plagiarism Stance
+  principle_id: educational_ethics
+  recommendation: Reframe the prompt to focus on explaining concepts, providing learning
+    guidance, or offering educational support rather than completing academic work
+    for the student.
+  severity: critical
+  trigger_keywords:
+  - write my essay
+  - complete my assignment
+  - do my homework
+  - solve this problem for me
+  - write paper for me
+  - cheat on test
+  - answer exam questions
+  trigger_regex: \b(write|do|complete|finish|solve)\s+(my|the)\s+(essay|assignment|homework|paper|test|exam|quiz)\b
+- description: Educational content should provide appropriate scaffolding that supports
+    learning without replacing the learning process.
+  id: scaffolded_learning
+  name: Scaffolded Learning
+  principle_id: learner_autonomy
+  recommendation: Structure prompts to guide the learning process through hints, questions,
+    and explanations rather than providing direct answers. Include prompts for reflection
+    and critical thinking.
+  severity: high
+  trigger_keywords:
+  - give me the answer
+  - tell me the solution
+  - what is the answer to
+- description: Educational content must be culturally responsive, inclusive, and respectful
+    of diversity.
+  id: inclusive_educational_content
+  name: Inclusive Educational Content
+  principle_id: educational_equity
+  recommendation: Ensure educational content represents diverse perspectives, cultures,
+    and experiences. Avoid stereotypes and biases in examples and scenarios.
+  severity: high
+  trigger_keywords:
+  - curriculum development
+  - educational materials
+  - teaching resources
+  - lesson plans
+  - educational content
+- description: Content must be tailored to the appropriate age and developmental stage
+    of the intended learners.
+  id: age_appropriate_content
+  name: Age-Appropriate Content
+  principle_id: developmental_appropriateness
+  recommendation: Specify the intended age group or educational level in prompts related
+    to educational content, and ensure language, concepts, and examples are appropriate
+    for that developmental stage.
+  severity: critical
+  trigger_keywords:
+  - children's education
+  - k-12
+  - elementary school
+  - middle school
+  - high school
+  - minor students
+  - young learners
+- description: Assessment methods and automated grading systems must be fair, transparent,
+    and valid.
+  id: educational_assessment_ethics
+  name: Educational Assessment Ethics
+  principle_id: pedagogical_transparency
+  recommendation: Ensure assessment systems are transparent in their methodology,
+    provide constructive feedback, and allow for human oversight and appeal processes.
+  severity: high
+  trigger_keywords:
+  - automated grading
+  - assessment algorithm
+  - student evaluation
+  - scoring system
+  - performance metrics
+- description: Student data must be handled with particular care, especially for minors,
+    with strict limitations on use, retention, and sharing.
+  id: student_data_protection
+  name: Student Data Protection
+  principle_id: educational_ethics
+  recommendation: Apply enhanced privacy protections to all student data. Limit data
+    collection to what is necessary, anonymize where possible, and implement strict
+    access controls.
+  severity: critical
+  trigger_keywords:
+  - student data
+  - learner analytics
+  - educational records
+  - learning management system
+  - student performance data
+  - student profiles
+- description: AI educational tools should complement and empower educators rather
+    than replace or diminish their role.
+  id: educator_empowerment
+  name: Educator Empowerment
+  principle_id: pedagogical_transparency
+  recommendation: Design prompts that position AI as a tool to support educators,
+    enhance their capabilities, and free them for higher-value interactions with students,
+    not as a replacement for human teaching.
+  severity: medium
+  trigger_keywords:
+  - teacher replacement
+  - automated teaching
+  - AI educator
+  - classroom automation
+- description: Educational AI must support diverse learning styles, multiple intelligences,
+    and varied approaches to mastery.
+  id: multidimensional_learning
+  name: Multidimensional Learning
+  principle_id: learner_autonomy
+  recommendation: Design educational content that accommodates multiple learning modalities
+    (visual, auditory, kinesthetic, etc.) and provides diverse pathways to understanding
+    concepts.
+  severity: medium
+  trigger_keywords:
+  - learning styles
+  - teaching methods
+  - educational approaches
+  - differentiated instruction

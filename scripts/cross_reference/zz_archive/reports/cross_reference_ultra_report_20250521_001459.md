@@ -1,0 +1,1137 @@
+@references:
+<!-- @references: -->
+- .windsurfrules
+- CODE_OF_CONDUCT.md
+- MQP.md
+- README.md
+- ROADMAP.md
+- subsystems/AutoCrossRef/CROSSREF_STANDARD.md
+
+  - scripts/cross_reference/zz_archive/reports/cross_reference_ultra_report_20250521_001459.md
+
+# Cross-Reference Ultra Report - 20250521_001459
+## Performance Metrics
+{
+  "total_execution_time_sec": 32.82799999997951,
+  "total_execution_time_formatted": "32.8 seconds",
+  "phases": {
+    "generate_reports": {
+      "duration_sec": 0.0,
+      "duration_formatted": "0.0 seconds",
+      "percentage": 0.0
+    }
+  },
+  "metrics": {
+    "files_processed_for_references_count": 3,
+    "cache_size": 0
+  },
+  "file_processing": {
+    "count": 0,
+    "total_time": 0,
+    "avg_time": 0,
+    "min_time": 0,
+    "max_time": 0
+  }
+}
+## Reference Details (3 files analyzed)
+### File: `docs_egos\01_core_principles\core_materials\strategy\Target_Platform_Analysis.md`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L1684: `"id": "docs/core_materials/strategy/Target_Platform_Analysis.md",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L10457: `"docs/core_materials/strategy/Target_Platform_Analysis.md",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L2814: `"id": "docs/core_materials/strategy/Target_Platform_Analysis.md",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L2815: `"label": "Target_Platform_Analysis.md",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L2816: `"title": "docs/core_materials/strategy/Target_Platform_Analysis.md",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L15413: `"docs/core_materials/strategy/Target_Platform_Analysis.md",`
+  - Found in: `apps\data\cross_references_latest.json` L2814: `"id": "docs/core_materials/strategy/Target_Platform_Analysis.md",`
+  - Found in: `apps\data\cross_references_latest.json` L2815: `"label": "Target_Platform_Analysis.md",`
+  - Found in: `apps\data\cross_references_latest.json` L2816: `"title": "docs/core_materials/strategy/Target_Platform_Analysis.md",`
+  - Found in: `apps\data\cross_references_latest.json` L15413: `"docs/core_materials/strategy/Target_Platform_Analysis.md",`
+  - Found in: `apps\exports\cross_references_20250422_164422_nodes.csv` L283: `docs/core_materials/strategy/Target_Platform_Analysis.md,Target_Platform_Analysis.md,docs/core_mater`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\documentation_migration_map.csv` L28: `"C:\EGOS\STRATEGIC_THINKING\strategy_archive\Target_Platform_Analysis.md","C:\EGOS\docs_egos\zz_arch`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\documentation_migration_map.csv` L324: `"C:\EGOS\backups\docs\20250513_181606\docs\governance\strategy_archive\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\documentation_migration_map.csv` L496: `"C:\EGOS\backups\docs\20250513_181648\docs\reference\strategy\Target_Platform_Analysis.md","C:\docs_`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\documentation_migration_map.csv` L660: `"C:\EGOS\docs\core_materials\strategy\Target_Platform_Analysis.md","C:\docs_egos\05_technical_refere`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\documentation_migration_map.csv` L782: `"C:\EGOS\docs\project\archived_strategy_subdirs\strategy_archive\Target_Platform_Analysis.md","C:\do`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\documentation_migration_map.csv` L830: `"C:\EGOS\docs\STRATEGIC_THINKING\strategy_archive\Target_Platform_Analysis.md","C:\docs_egos\05_tech`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\documentation_migration_map.csv.backup_20250520_165051.csv` L28: `"C:\EGOS\STRATEGIC_THINKING\strategy_archive\Target_Platform_Analysis.md","C:\EGOS\docs_egos\zz_arch`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\documentation_migration_map.csv.new_entries_20250520_165051.csv` L249: `"C:\EGOS\backups\docs\20250513_181606\docs\governance\strategy_archive\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\documentation_migration_map.csv.new_entries_20250520_165051.csv` L421: `"C:\EGOS\backups\docs\20250513_181648\docs\reference\strategy\Target_Platform_Analysis.md","C:\docs_`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\documentation_migration_map.csv.new_entries_20250520_165051.csv` L585: `"C:\EGOS\docs\core_materials\strategy\Target_Platform_Analysis.md","C:\docs_egos\05_technical_refere`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\documentation_migration_map.csv.new_entries_20250520_165051.csv` L707: `"C:\EGOS\docs\project\archived_strategy_subdirs\strategy_archive\Target_Platform_Analysis.md","C:\do`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\documentation_migration_map.csv.new_entries_20250520_165051.csv` L755: `"C:\EGOS\docs\STRATEGIC_THINKING\strategy_archive\Target_Platform_Analysis.md","C:\docs_egos\05_tech`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\modified_files.csv` L225: `"C:\EGOS\docs\core_materials\strategy\Target_Platform_Analysis.md","20/05/2025 00:48:36","983"`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\modified_files.csv` L653: `"C:\EGOS\STRATEGIC_THINKING\strategy_archive\Target_Platform_Analysis.md","20/05/2025 00:48:36","928`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\modified_files_by_directory.csv` L29: `"C:\EGOS\docs\core_materials\strategy","7","Competitive_Analysis.md, Customer_Journey_Map.md, EGOS_B`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\modified_files_by_directory.csv` L130: `"C:\EGOS\STRATEGIC_THINKING\strategy_archive","7","Competitive_Analysis.md, Customer_Journey_Map.md,`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\project_structure_analysis_20250520_164733.md` L1496: `- C:\EGOS\backups\docs\20250513_181606\docs\governance\strategy_archive\Target_Platform_Analysis.md `
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\project_structure_analysis_20250520_164733.md` L1497: `- C:\EGOS\backups\docs\20250513_181648\docs\reference\strategy\Target_Platform_Analysis.md (2.1 KB)`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\project_structure_analysis_20250520_164733.md` L1498: `- C:\EGOS\docs\core_materials\strategy\Target_Platform_Analysis.md (0.96 KB)`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\project_structure_analysis_20250520_164733.md` L1499: `- C:\EGOS\docs\project\archived_strategy_subdirs\strategy_archive\Target_Platform_Analysis.md (2.1 K`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\project_structure_analysis_20250520_164733.md` L1500: `- C:\EGOS\docs\STRATEGIC_THINKING\strategy_archive\Target_Platform_Analysis.md (0.91 KB)`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\recovery_analysis_report.md` L240: `- C:\EGOS\docs\core_materials\strategy\Target_Platform_Analysis.md (Modified: 05/20/2025 00:48:36)`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\recovery_analysis_report.md` L668: `- C:\EGOS\STRATEGIC_THINKING\strategy_archive\Target_Platform_Analysis.md (Modified: 05/20/2025 00:4`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L4135: `"id": "docs\\core_materials\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L4136: `"label": "Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L4137: `"title": "Path: docs\\core_materials\\strategy\\Target_Platform_Analysis.md\nStatus: Orphan (No conn`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L4145: `"fullPath": "docs\\core_materials\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L13332: `"id": "strategic-thinking\\strategy_archive\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L13333: `"label": "Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L13334: `"title": "Path: strategic-thinking\\strategy_archive\\Target_Platform_Analysis.md\nStatus: Orphan (N`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L13342: `"fullPath": "strategic-thinking\\strategy_archive\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_baseline_20250421_225040.json` L970: `"docs\\core_materials\\strategy\\Target_Platform_Analysis.md": [`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_baseline_20250421_225040.json` L5792: `"strategic-thinking\\strategy_archive\\Target_Platform_Analysis.md": [`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_baseline_20250421_225040.json` L9150: `"file": "docs\\core_materials\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_baseline_20250421_225040.json` L19642: `"file": "strategic-thinking\\strategy_archive\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_network.graphml` L97: `<node id="docs/core_materials/strategy/Target_Platform_Analysis.md" />`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_validation_report.json` L388: `"file": "C:\\EGOS\\docs\\core_materials\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_validation_report_full.json` L388: `"file": "C:\\EGOS\\docs\\core_materials\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_validation_report_updated.json` L388: `"file": "C:\\EGOS\\docs\\core_materials\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_validation_report_v2.json` L1608: `"file": "C:\\EGOS\\docs\\core_materials\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_validation_report_v3.json` L1348: `"file": "C:\\EGOS\\docs\\core_materials\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_validation_report_v4.json` L432: `"file": "C:\\EGOS\\docs\\core_materials\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_validation_report_v5.json` L388: `"file": "C:\\EGOS\\docs\\core_materials\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_validation_report_v6.json` L388: `"file": "C:\\EGOS\\docs\\core_materials\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\full_cross_reference_graph.graphml` L97: `<node id="docs/core_materials/strategy/Target_Platform_Analysis.md" />`
+  - Found in: `docs_egos\09_project_meta\reports\interactive_cross_ref_network.html` L130: `const nodes = [{"id": "CHANGELOG.md", "label": "CHANGELOG.md", "title": "CHANGELOG.md (Missing refer`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L4237: `"id": "docs\\core_materials\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L4238: `"label": "Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L4239: `"title": "Path: docs\\core_materials\\strategy\\Target_Platform_Analysis.md\nStatus: Orphan (No conn`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L4247: `"fullPath": "docs\\core_materials\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L13723: `"id": "strategic-thinking\\strategy_archive\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L13724: `"label": "Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L13725: `"title": "Path: strategic-thinking\\strategy_archive\\Target_Platform_Analysis.md\nStatus: Orphan (N`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L13733: `"fullPath": "strategic-thinking\\strategy_archive\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_ref_network_20250422_151057.html` L112: `var nodesArray = [{"id": "CHANGELOG.md", "label": "CHANGELOG.md", "title": "Path: CHANGELOG.md\nStat`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_ref_network_20250422_151218.html` L112: `var nodesArray = [{"id": "CHANGELOG.md", "label": "CHANGELOG.md", "title": "Path: CHANGELOG.md\nStat`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_ref_network_20250422_151836.html` L112: `var nodesArray = [{"id": "CHANGELOG.md", "label": "CHANGELOG.md", "title": "Path: CHANGELOG.md\nStat`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L289: `- `docs\core_materials\strategy\Target_Platform_Analysis.md``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L1035: `- `docs\core_materials\strategy\Target_Platform_Analysis.md``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L2321: `- `strategy_archive\Target_Platform_Analysis.md``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L4186: `- `docs\core_materials\strategy\Target_Platform_Analysis.md``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L4539: `- `strategic-thinking\strategy_archive\Target_Platform_Analysis.md``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L5154: `### `docs\core_materials\strategy\Target_Platform_Analysis.md``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L7714: `### `strategic-thinking\strategy_archive\Target_Platform_Analysis.md``
+  - Found in: `docs_egos\09_project_meta\reports\documentation\xref_analysis_report.json` L4475: `"docs\\core_materials\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\xref_analysis_report.json` L4865: `"strategic-thinking\\strategy_archive\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\xref_analysis_report.json` L41111: `"path": "docs\\core_materials\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\xref_analysis_report.json` L44231: `"path": "strategic-thinking\\strategy_archive\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\related_docs_checkpoint_20250518220842.json` L124: `"docs/governance/strategy_archive/Target_Platform_Analysis.md": [],`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\related_docs_checkpoint_20250518220842.json` L584: `"docs/reference/strategy/Target_Platform_Analysis.md": [],`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\related_docs_checkpoint_latest.json` L124: `"docs/governance/strategy_archive/Target_Platform_Analysis.md": [],`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\related_docs_checkpoint_latest.json` L584: `"docs/reference/strategy/Target_Platform_Analysis.md": [],`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\scan_checkpoint_20250518220839.json` L1644: `"..\\backups\\docs\\20250513_181606\\docs\\governance\\strategy_archive\\Target_Platform_Analysis.md`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\scan_checkpoint_20250518220839.json` L1816: `"..\\backups\\docs\\20250513_181648\\docs\\reference\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\scan_checkpoint_20250518220839.json` L2043: `"..\\docs\\governance\\strategy_archive\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\scan_checkpoint_20250518220839.json` L2503: `"..\\docs\\reference\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\scan_checkpoint_20250518223726.json` L1644: `"..\\backups\\docs\\20250513_181606\\docs\\governance\\strategy_archive\\Target_Platform_Analysis.md`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\scan_checkpoint_20250518223726.json` L1816: `"..\\backups\\docs\\20250513_181648\\docs\\reference\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\scan_checkpoint_20250518223726.json` L2045: `"..\\docs\\governance\\strategy_archive\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\scan_checkpoint_20250518223726.json` L2505: `"..\\docs\\reference\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\scan_checkpoint_20250518224100.json` L1644: `"..\\backups\\docs\\20250513_181606\\docs\\governance\\strategy_archive\\Target_Platform_Analysis.md`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\scan_checkpoint_20250518224100.json` L1816: `"..\\backups\\docs\\20250513_181648\\docs\\reference\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\scan_checkpoint_20250518224100.json` L2045: `"..\\docs\\governance\\strategy_archive\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\scan_checkpoint_20250518224100.json` L2505: `"..\\docs\\reference\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\scan_checkpoint_20250518224702.json` L1644: `"..\\backups\\docs\\20250513_181606\\docs\\governance\\strategy_archive\\Target_Platform_Analysis.md`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\scan_checkpoint_20250518224702.json` L1816: `"..\\backups\\docs\\20250513_181648\\docs\\reference\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\scan_checkpoint_20250518224702.json` L2046: `"..\\docs\\governance\\strategy_archive\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\scan_checkpoint_20250518224702.json` L2506: `"..\\docs\\reference\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\scan_checkpoint_latest.json` L1644: `"..\\backups\\docs\\20250513_181606\\docs\\governance\\strategy_archive\\Target_Platform_Analysis.md`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\scan_checkpoint_latest.json` L1816: `"..\\backups\\docs\\20250513_181648\\docs\\reference\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\scan_checkpoint_latest.json` L2046: `"..\\docs\\governance\\strategy_archive\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\scan_checkpoint_latest.json` L2506: `"..\\docs\\reference\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_analysis_2025-04-19T18-59-27.016359.json` L35379: `"docs\\core_materials\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_analysis_2025-04-19T18-59-27.016359.json` L38499: `"strategic-thinking\\strategy_archive\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by.json` L27023: `"..\\core_materials\\strategy\\Target_Platform_Analysis.md": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by.json` L28567: `"..\\..\\strategy_archive\\Target_Platform_Analysis.md": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by_2025-04-19T13-20-18.600301.json` L27020: `"..\\core_materials\\strategy\\Target_Platform_Analysis.md": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by_2025-04-19T13-20-18.600301.json` L28564: `"..\\..\\strategy_archive\\Target_Platform_Analysis.md": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by_2025-04-19T13-20-18.727384.json` L27020: `"..\\core_materials\\strategy\\Target_Platform_Analysis.md": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by_2025-04-19T13-20-18.727384.json` L28564: `"..\\..\\strategy_archive\\Target_Platform_Analysis.md": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by_2025-04-19T13-22-29.039819.json` L27023: `"..\\core_materials\\strategy\\Target_Platform_Analysis.md": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by_2025-04-19T13-22-29.039819.json` L28567: `"..\\..\\strategy_archive\\Target_Platform_Analysis.md": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L16561: `"..\\core_materials\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L16812: `"..\\..\\strategy_archive\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L15838: `"..\\core_materials\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L16801: `"..\\..\\strategy_archive\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L15838: `"..\\core_materials\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L16801: `"..\\..\\strategy_archive\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L15930: `"..\\core_materials\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L16840: `"..\\..\\strategy_archive\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_scan.json` L5941: `"docs\\core_materials\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_scan.json` L6439: `"strategic-thinking\\strategy_archive\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_scan_2025-04-19T13-19-22.979014.json` L5938: `"docs\\core_materials\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_scan_2025-04-19T13-19-22.979014.json` L6436: `"strategic-thinking\\strategy_archive\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_scan_2025-04-19T13-19-28.877864.json` L5938: `"docs\\core_materials\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_scan_2025-04-19T13-19-28.877864.json` L6436: `"strategic-thinking\\strategy_archive\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_scan_2025-04-19T13-20-18.683776.json` L5938: `"docs\\core_materials\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_scan_2025-04-19T13-20-18.683776.json` L6436: `"strategic-thinking\\strategy_archive\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_scan_2025-04-19T13-22-28.906550.json` L5941: `"docs\\core_materials\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_scan_2025-04-19T13-22-28.906550.json` L6439: `"strategic-thinking\\strategy_archive\\Target_Platform_Analysis.md",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\recent_files\recent_files_report_20250518223804.json` L1772: `"docs/governance/strategy_archive/Target_Platform_Analysis.md": {`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\recent_files\recent_files_report_20250518223804.json` L6176: `"docs/reference/strategy/Target_Platform_Analysis.md": {`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\recent_files\recent_files_report_20250518223804.md` L164: `| `docs/governance/strategy_archive/Target_Platform_Analysis.md` | Has fewer than 2 outgoing referen`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\recent_files\recent_files_report_20250518223804.md` L531: `| `docs/reference/strategy/Target_Platform_Analysis.md` | Has fewer than 2 outgoing references (0 fo`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\recent_files\recent_files_report_20250518223804.md` L769: `| `docs/governance/strategy_archive/Target_Platform_Analysis.md` | ⚠️ | 0 | 0 | 2025-05-18T17:58:56.`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\recent_files\recent_files_report_20250518223804.md` L1136: `| `docs/reference/strategy/Target_Platform_Analysis.md` | ⚠️ | 0 | 0 | 2025-05-18T17:59:02.528518 |`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\recent_files\recent_files_report_20250518224107.json` L1832: `"docs/governance/strategy_archive/Target_Platform_Analysis.md": {`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\recent_files\recent_files_report_20250518224107.json` L6272: `"docs/reference/strategy/Target_Platform_Analysis.md": {`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\recent_files\recent_files_report_20250518224107.md` L169: `| `docs/governance/strategy_archive/Target_Platform_Analysis.md` | Has fewer than 2 outgoing referen`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\recent_files\recent_files_report_20250518224107.md` L539: `| `docs/reference/strategy/Target_Platform_Analysis.md` | Has fewer than 2 outgoing references (0 fo`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\recent_files\recent_files_report_20250518224107.md` L799: `| `docs/governance/strategy_archive/Target_Platform_Analysis.md` | ⚠️ | 0 | 0 | 2025-05-18T17:58:56.`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\recent_files\recent_files_report_20250518224107.md` L1169: `| `docs/reference/strategy/Target_Platform_Analysis.md` | ⚠️ | 0 | 0 | 2025-05-18T17:59:02.528518 |`
+  - Found in: `docs_egos\09_project_meta\reports\static\graph-data.js` L8: `nodes: [{"id": ".pre-commit-config.yaml", "label": ".pre-commit-config.yaml", "path": "C:\\EGOS\\.pr`
+  - Found in: `docs_egos\09_project_meta\reports\static\graph-data.js` L11: `edges: [{"source": "CHANGELOG.md", "target": "ROADMAP.md", "weight": 1}, {"source": "CHANGELOG.md", `
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181512\docs\governance\migrations\egos_inventory_sample.md` L624: `| [docs\core_materials\strategy\Target_Platform_Analysis.md](docs\core_materials\strategy\Target_Pla`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181524\docs\governance\migrations\strategic_thinking_inventory.md` L268: `| [strategy_archive\Target_Platform_Analysis.md](strategy_archive\Target_Platform_Analysis.md) | 928`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\_website_backup_20250520_011220\website\src\data\graph-data.js` L8: `nodes: [{"id": ".pre-commit-config.yaml", "label": ".pre-commit-config.yaml", "path": "C:\\EGOS\\.pr`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\_website_backup_20250520_011220\website\src\data\graph-data.js` L11: `edges: [{"source": "CHANGELOG.md", "target": "ROADMAP.md", "weight": 1}, {"source": "CHANGELOG.md", `
+  - Found in: `scripts\cross_reference\checker_debug_output.log` L108: `2025-05-20 22:18:56,527 | INFO | file_reference_checker_windows:260 | Found candidate: docs_egos\01_`
+  - Found in: `scripts\cross_reference\checker_debug_output.log` L154: `2025-05-20 22:18:56,679 | INFO | file_reference_checker_windows:260 | Found candidate: docs_egos\01_`
+  - Found in: `scripts\cross_reference\checker_debug_output.log` L705: `2025-05-20 22:18:58,024 | INFO | file_reference_checker_windows:260 | Found candidate: docs_egos\09_`
+  - Found in: `scripts\cross_reference\file_reference_report.json` L594: `"path": "docs\\governance\\strategy_archive\\Target_Platform_Analysis.md",`
+  - Found in: `scripts\cross_reference\file_reference_report.json` L2094: `"path": "docs\\reference\\strategy\\Target_Platform_Analysis.md",`
+  - Found in: `scripts\cross_reference\file_reference_report.md` L151: `- `docs\governance\strategy_archive\Target_Platform_Analysis.md``
+  - Found in: `scripts\cross_reference\file_reference_report.md` L526: `- `docs\reference\strategy\Target_Platform_Analysis.md``
+  - Found in: `scripts\migrations\migration_plan.log` L515: `2025-05-18 17:58:08,197 - docs_structure_migrator - INFO -   Target_Platform_Analysis.md -> C:\EGOS\`
+  - Found in: `scripts\migrations\migration_plan.log` L752: `2025-05-18 17:58:08,239 - docs_structure_migrator - INFO -   Target_Platform_Analysis.md -> C:\EGOS\`
+  - Found in: `scripts\migrations\migration_plan.log` L1118: `2025-05-18 17:58:08,588 - docs_structure_migrator - INFO - Moving C:\EGOS\docs\reference\strategy\Ta`
+  - Found in: `scripts\migrations\migration_plan.log` L1432: `2025-05-18 17:58:10,455 - docs_structure_migrator - INFO - Moving C:\EGOS\docs\governance\strategy_a`
+  - Found in: `website\src\data\graph-data.js` L8: `nodes: [{"id": ".pre-commit-config.yaml", "label": ".pre-commit-config.yaml", "path": "C:\\EGOS\\.pr`
+  - Found in: `website\src\data\graph-data.js` L11: `edges: [{"source": "CHANGELOG.md", "target": "ROADMAP.md", "weight": 1}, {"source": "CHANGELOG.md", `
+### File: `docs_egos\01_core_concepts\strategic_thinking\products\scribe\PROJECT_SCRIBE_ROADMAP.md`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\documentation_migration_map.csv` L13: `"C:\EGOS\STRATEGIC_THINKING\products\scribe\PROJECT_SCRIBE_ROADMAP.md","C:\EGOS\docs_egos\04_product`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\documentation_migration_map.csv` L817: `"C:\EGOS\docs\STRATEGIC_THINKING\products\scribe\PROJECT_SCRIBE_ROADMAP.md","C:\docs_egos\05_technic`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\documentation_migration_map.csv.backup_20250520_165051.csv` L13: `"C:\EGOS\STRATEGIC_THINKING\products\scribe\PROJECT_SCRIBE_ROADMAP.md","C:\EGOS\docs_egos\04_product`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\documentation_migration_map.csv.new_entries_20250520_165051.csv` L742: `"C:\EGOS\docs\STRATEGIC_THINKING\products\scribe\PROJECT_SCRIBE_ROADMAP.md","C:\docs_egos\05_technic`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\modified_files.csv` L603: `"C:\EGOS\STRATEGIC_THINKING\products\scribe\PROJECT_SCRIBE_ROADMAP.md","20/05/2025 00:48:36","5175"`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\modified_files_by_directory.csv` L126: `"C:\EGOS\STRATEGIC_THINKING\products\scribe","2","PROJECT_SCRIBE_ROADMAP.md, PROJECT_SCRIBE_VISION.m`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\project_structure_analysis_20250520_164733.md` L3813: `- C:\EGOS\docs\STRATEGIC_THINKING\products\scribe\PROJECT_SCRIBE_ROADMAP.md (5.05 KB)`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\recovery_analysis_report.md` L618: `- C:\EGOS\STRATEGIC_THINKING\products\scribe\PROJECT_SCRIBE_ROADMAP.md (Modified: 05/20/2025 00:48:3`
+  - Found in: `scripts\cross_reference\checker_debug_output.log` L95: `2025-05-20 22:18:56,466 | INFO | file_reference_checker_windows:260 | Found candidate: docs_egos\01_`
+### File: `docs_egos\03_subsystems\NEXUS\tests\nexus\test_placeholder.py`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L3520: `"id": "subsystems/TRANSLATOR/tests/translator/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L3568: `"id": "subsystems/SYNC/tests/sync/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L3622: `"id": "subsystems/STRAT/tests/strat/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L3718: `"id": "subsystems/NEXUS/tests/nexus/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L4066: `"id": "subsystems/HARMONY/tests/harmony/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L9716: `"source": "subsystems/TRANSLATOR/tests/translator/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L9720: `"source": "subsystems/TRANSLATOR/tests/translator/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L9724: `"source": "subsystems/TRANSLATOR/tests/translator/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L9728: `"source": "subsystems/TRANSLATOR/tests/translator/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L9844: `"source": "subsystems/SYNC/tests/sync/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L9848: `"source": "subsystems/SYNC/tests/sync/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L9852: `"source": "subsystems/SYNC/tests/sync/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L9856: `"source": "subsystems/SYNC/tests/sync/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L9908: `"source": "subsystems/STRAT/tests/strat/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L9912: `"source": "subsystems/STRAT/tests/strat/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L9916: `"source": "subsystems/STRAT/tests/strat/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L9920: `"source": "subsystems/STRAT/tests/strat/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L10084: `"source": "subsystems/NEXUS/tests/nexus/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L10088: `"source": "subsystems/NEXUS/tests/nexus/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L10092: `"source": "subsystems/NEXUS/tests/nexus/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L10096: `"source": "subsystems/NEXUS/tests/nexus/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L10729: `"subsystems/TRANSLATOR/tests/translator/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L10737: `"subsystems/SYNC/tests/sync/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L10741: `"subsystems/STRAT/tests/strat/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L10752: `"subsystems/NEXUS/tests/nexus/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_163218.json` L10807: `"subsystems/HARMONY/tests/harmony/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L5874: `"id": "subsystems/TRANSLATOR/tests/translator/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L5875: `"label": "test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L5876: `"title": "subsystems/TRANSLATOR/tests/translator/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L5954: `"id": "subsystems/SYNC/tests/sync/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L5955: `"label": "test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L5956: `"title": "subsystems/SYNC/tests/sync/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L6044: `"id": "subsystems/STRAT/tests/strat/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L6045: `"label": "test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L6046: `"title": "subsystems/STRAT/tests/strat/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L6204: `"id": "subsystems/NEXUS/tests/nexus/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L6205: `"label": "test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L6206: `"title": "subsystems/NEXUS/tests/nexus/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L6784: `"id": "subsystems/HARMONY/tests/harmony/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L6785: `"label": "test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L6786: `"title": "subsystems/HARMONY/tests/harmony/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L14541: `"from": "subsystems/TRANSLATOR/tests/translator/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L14546: `"from": "subsystems/TRANSLATOR/tests/translator/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L14551: `"from": "subsystems/TRANSLATOR/tests/translator/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L14556: `"from": "subsystems/TRANSLATOR/tests/translator/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L14701: `"from": "subsystems/SYNC/tests/sync/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L14706: `"from": "subsystems/SYNC/tests/sync/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L14711: `"from": "subsystems/SYNC/tests/sync/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L14716: `"from": "subsystems/SYNC/tests/sync/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L14781: `"from": "subsystems/STRAT/tests/strat/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L14786: `"from": "subsystems/STRAT/tests/strat/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L14791: `"from": "subsystems/STRAT/tests/strat/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L14796: `"from": "subsystems/STRAT/tests/strat/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L15001: `"from": "subsystems/NEXUS/tests/nexus/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L15006: `"from": "subsystems/NEXUS/tests/nexus/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L15011: `"from": "subsystems/NEXUS/tests/nexus/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L15016: `"from": "subsystems/NEXUS/tests/nexus/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L15685: `"subsystems/TRANSLATOR/tests/translator/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L15693: `"subsystems/SYNC/tests/sync/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L15697: `"subsystems/STRAT/tests/strat/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L15708: `"subsystems/NEXUS/tests/nexus/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_20250422_164422.json` L15763: `"subsystems/HARMONY/tests/harmony/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L5874: `"id": "subsystems/TRANSLATOR/tests/translator/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L5875: `"label": "test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L5876: `"title": "subsystems/TRANSLATOR/tests/translator/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L5954: `"id": "subsystems/SYNC/tests/sync/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L5955: `"label": "test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L5956: `"title": "subsystems/SYNC/tests/sync/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L6044: `"id": "subsystems/STRAT/tests/strat/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L6045: `"label": "test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L6046: `"title": "subsystems/STRAT/tests/strat/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L6204: `"id": "subsystems/NEXUS/tests/nexus/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L6205: `"label": "test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L6206: `"title": "subsystems/NEXUS/tests/nexus/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L6784: `"id": "subsystems/HARMONY/tests/harmony/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L6785: `"label": "test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L6786: `"title": "subsystems/HARMONY/tests/harmony/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L14541: `"from": "subsystems/TRANSLATOR/tests/translator/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L14546: `"from": "subsystems/TRANSLATOR/tests/translator/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L14551: `"from": "subsystems/TRANSLATOR/tests/translator/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L14556: `"from": "subsystems/TRANSLATOR/tests/translator/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L14701: `"from": "subsystems/SYNC/tests/sync/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L14706: `"from": "subsystems/SYNC/tests/sync/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L14711: `"from": "subsystems/SYNC/tests/sync/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L14716: `"from": "subsystems/SYNC/tests/sync/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L14781: `"from": "subsystems/STRAT/tests/strat/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L14786: `"from": "subsystems/STRAT/tests/strat/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L14791: `"from": "subsystems/STRAT/tests/strat/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L14796: `"from": "subsystems/STRAT/tests/strat/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L15001: `"from": "subsystems/NEXUS/tests/nexus/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L15006: `"from": "subsystems/NEXUS/tests/nexus/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L15011: `"from": "subsystems/NEXUS/tests/nexus/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L15016: `"from": "subsystems/NEXUS/tests/nexus/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L15685: `"subsystems/TRANSLATOR/tests/translator/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L15693: `"subsystems/SYNC/tests/sync/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L15697: `"subsystems/STRAT/tests/strat/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L15708: `"subsystems/NEXUS/tests/nexus/test_placeholder.py",`
+  - Found in: `apps\data\cross_references_latest.json` L15763: `"subsystems/HARMONY/tests/harmony/test_placeholder.py",`
+  - Found in: `apps\exports\cross_references_20250422_164422_edges.csv` L965: `subsystems/TRANSLATOR/tests/translator/test_placeholder.py,subsystems/TRANSLATOR/MQP.md,to`
+  - Found in: `apps\exports\cross_references_20250422_164422_edges.csv` L966: `subsystems/TRANSLATOR/tests/translator/test_placeholder.py,subsystems/TRANSLATOR/ROADMAP.md,to`
+  - Found in: `apps\exports\cross_references_20250422_164422_edges.csv` L967: `subsystems/TRANSLATOR/tests/translator/test_placeholder.py,subsystems/TRANSLATOR/subsystems/TRANSLAT`
+  - Found in: `apps\exports\cross_references_20250422_164422_edges.csv` L968: `subsystems/TRANSLATOR/tests/translator/test_placeholder.py,subsystems/TRANSLATOR/subsystems/TRANSLAT`
+  - Found in: `apps\exports\cross_references_20250422_164422_edges.csv` L997: `subsystems/SYNC/tests/sync/test_placeholder.py,subsystems/SYNC/MQP.md,to`
+  - Found in: `apps\exports\cross_references_20250422_164422_edges.csv` L998: `subsystems/SYNC/tests/sync/test_placeholder.py,subsystems/SYNC/ROADMAP.md,to`
+  - Found in: `apps\exports\cross_references_20250422_164422_edges.csv` L999: `subsystems/SYNC/tests/sync/test_placeholder.py,subsystems/SYNC/subsystems/SYNC/README.md,to`
+  - Found in: `apps\exports\cross_references_20250422_164422_edges.csv` L1000: `subsystems/SYNC/tests/sync/test_placeholder.py,subsystems/SYNC/subsystems/SYNC/ROADMAP.md,to`
+  - Found in: `apps\exports\cross_references_20250422_164422_edges.csv` L1013: `subsystems/STRAT/tests/strat/test_placeholder.py,subsystems/STRAT/MQP.md,to`
+  - Found in: `apps\exports\cross_references_20250422_164422_edges.csv` L1014: `subsystems/STRAT/tests/strat/test_placeholder.py,subsystems/STRAT/ROADMAP.md,to`
+  - Found in: `apps\exports\cross_references_20250422_164422_edges.csv` L1015: `subsystems/STRAT/tests/strat/test_placeholder.py,subsystems/STRAT/subsystems/STRAT/README.md,to`
+  - Found in: `apps\exports\cross_references_20250422_164422_edges.csv` L1016: `subsystems/STRAT/tests/strat/test_placeholder.py,subsystems/STRAT/subsystems/STRAT/ROADMAP.md,to`
+  - Found in: `apps\exports\cross_references_20250422_164422_edges.csv` L1057: `subsystems/NEXUS/tests/nexus/test_placeholder.py,subsystems/NEXUS/MQP.md,to`
+  - Found in: `apps\exports\cross_references_20250422_164422_edges.csv` L1058: `subsystems/NEXUS/tests/nexus/test_placeholder.py,subsystems/NEXUS/ROADMAP.md,to`
+  - Found in: `apps\exports\cross_references_20250422_164422_edges.csv` L1059: `subsystems/NEXUS/tests/nexus/test_placeholder.py,subsystems/NEXUS/subsystems/NEXUS/README.md,to`
+  - Found in: `apps\exports\cross_references_20250422_164422_edges.csv` L1060: `subsystems/NEXUS/tests/nexus/test_placeholder.py,subsystems/NEXUS/subsystems/NEXUS/ROADMAP.md,to`
+  - Found in: `apps\exports\cross_references_20250422_164422_nodes.csv` L589: `subsystems/TRANSLATOR/tests/translator/test_placeholder.py,test_placeholder.py,subsystems/TRANSLATOR`
+  - Found in: `apps\exports\cross_references_20250422_164422_nodes.csv` L597: `subsystems/SYNC/tests/sync/test_placeholder.py,test_placeholder.py,subsystems/SYNC/tests/sync/test_p`
+  - Found in: `apps\exports\cross_references_20250422_164422_nodes.csv` L606: `subsystems/STRAT/tests/strat/test_placeholder.py,test_placeholder.py,subsystems/STRAT/tests/strat/te`
+  - Found in: `apps\exports\cross_references_20250422_164422_nodes.csv` L622: `subsystems/NEXUS/tests/nexus/test_placeholder.py,test_placeholder.py,subsystems/NEXUS/tests/nexus/te`
+  - Found in: `apps\exports\cross_references_20250422_164422_nodes.csv` L680: `subsystems/HARMONY/tests/harmony/test_placeholder.py,test_placeholder.py,subsystems/HARMONY/tests/ha`
+  - Found in: `docs_egos\03_subsystems\TRANSLATOR\tests\translator\test_placeholder.py` L1: `"""TODO: Module docstring for test_placeholder.py"""`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\modified_files.csv` L963: `"C:\EGOS\subsystems\NEXUS\tests\nexus\test_placeholder.py","20/05/2025 00:48:37","456"`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\modified_files.csv` L992: `"C:\EGOS\subsystems\TRANSLATOR\tests\translator\test_placeholder.py","20/05/2025 00:48:37","466"`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\modified_files_by_directory.csv` L209: `"C:\EGOS\subsystems\NEXUS\tests\nexus","1","test_placeholder.py"`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\modified_files_by_directory.csv` L219: `"C:\EGOS\subsystems\TRANSLATOR\tests\translator","1","test_placeholder.py"`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\project_structure_analysis_20250520_164733.md` L2779: `- C:\EGOS\docs\subsystems\NEXUS\tests\nexus\test_placeholder.py (0.45 KB)`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\project_structure_analysis_20250520_164733.md` L2780: `- C:\EGOS\docs\subsystems\TRANSLATOR\tests\translator\test_placeholder.py (0.46 KB)`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\recovery_analysis_report.md` L978: `- C:\EGOS\subsystems\NEXUS\tests\nexus\test_placeholder.py (Modified: 05/20/2025 00:48:37)`
+  - Found in: `docs_egos\09_project_meta\recovery_analysis\recovery_analysis_report.md` L1007: `- C:\EGOS\subsystems\TRANSLATOR\tests\translator\test_placeholder.py (Modified: 05/20/2025 00:48:37)`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L15593: `"id": "subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L15594: `"label": "test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L15595: `"title": "Path: subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py\nStatus: Orphan (No connect`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L15603: `"fullPath": "subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L17072: `"id": "subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L17073: `"label": "test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L17074: `"title": "Path: subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py\nStatus: Orphan (No connections`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L17082: `"fullPath": "subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L17174: `"id": "subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L17175: `"label": "test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L17176: `"title": "Path: subsystems\\STRAT\\tests\\strat\\test_placeholder.py\nStatus: Orphan (No connections`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L17184: `"fullPath": "subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L17395: `"id": "subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L17396: `"label": "test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L17397: `"title": "Path: subsystems\\SYNC\\tests\\sync\\test_placeholder.py\nStatus: Orphan (No connections)"`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L17405: `"fullPath": "subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L17633: `"id": "subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L17634: `"label": "test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L17635: `"title": "Path: subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py\nStatus: Orphan (No c`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_data.json` L17643: `"fullPath": "subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_graph.graphml` L135: `<node id="HARMONY/tests/harmony/test_placeholder.py" />`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_graph.graphml` L211: `<node id="NEXUS/tests/nexus/test_placeholder.py" />`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_graph.graphml` L217: `<node id="STRAT/tests/strat/test_placeholder.py" />`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_graph.graphml` L230: `<node id="SYNC/tests/sync/test_placeholder.py" />`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_graph.graphml` L240: `<node id="TRANSLATOR/tests/translator/test_placeholder.py" />`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_baseline_20250421_225340.json` L233: `"subsystems/NEXUS\\tests\\nexus\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_baseline_20250421_225340.json` L288: `"subsystems/HARMONY\\tests\\harmony\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_baseline_20250421_225340.json` L369: `"subsystems/STRAT\\tests\\strat\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_baseline_20250421_225340.json` L382: `"subsystems/SYNC\\tests\\sync\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_baseline_20250421_225340.json` L395: `"subsystems/TRANSLATOR\\tests\\translator\\test_placeholder.py": []`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_network.graphml` L484: `<node id="subsystems/HARMONY/tests/harmony/test_placeholder.py" />`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_network.graphml` L560: `<node id="subsystems/NEXUS/tests/nexus/test_placeholder.py" />`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_network.graphml` L566: `<node id="subsystems/STRAT/tests/strat/test_placeholder.py" />`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_network.graphml` L579: `<node id="subsystems/SYNC/tests/sync/test_placeholder.py" />`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_network.graphml` L589: `<node id="subsystems/TRANSLATOR/tests/translator/test_placeholder.py" />`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_debug.json` L401: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_debug.json` L485: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_debug.json` L491: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_debug.json` L503: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_debug.json` L513: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_debug.json` L921: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_debug.json` L998: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_debug.json` L1004: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_debug.json` L1016: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_debug.json` L1026: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_debug.json` L1477: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_debug.json` L1574: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_debug.json` L1580: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_debug.json` L1592: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_debug.json` L1602: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated.json` L401: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated.json` L485: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated.json` L491: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated.json` L503: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated.json` L513: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated.json` L921: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated.json` L998: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated.json` L1004: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated.json` L1016: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated.json` L1026: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated.json` L1477: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated.json` L1574: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated.json` L1580: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated.json` L1592: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated.json` L1602: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated_debug.json` L401: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated_debug.json` L485: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated_debug.json` L491: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated_debug.json` L503: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated_debug.json` L513: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated_debug.json` L921: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated_debug.json` L998: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated_debug.json` L1004: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated_debug.json` L1016: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated_debug.json` L1026: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated_debug.json` L1477: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated_debug.json` L1574: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated_debug.json` L1580: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated_debug.json` L1592: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_generated_debug.json` L1602: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical.json` L401: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical.json` L485: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical.json` L491: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical.json` L503: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical.json` L513: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical.json` L921: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical.json` L998: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical.json` L1004: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical.json` L1016: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical.json` L1026: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical.json` L1477: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical.json` L1574: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical.json` L1580: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical.json` L1592: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical.json` L1602: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical_detailed.json` L401: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical_detailed.json` L485: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical_detailed.json` L491: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical_detailed.json` L503: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical_detailed.json` L513: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical_detailed.json` L921: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical_detailed.json` L998: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical_detailed.json` L1004: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical_detailed.json` L1016: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical_detailed.json` L1026: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical_detailed.json` L1477: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical_detailed.json` L1574: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical_detailed.json` L1580: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical_detailed.json` L1592: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_hierarchical_detailed.json` L1602: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf.json` L401: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf.json` L485: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf.json` L491: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf.json` L503: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf.json` L513: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf.json` L921: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf.json` L998: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf.json` L1004: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf.json` L1016: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf.json` L1026: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf.json` L1477: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf.json` L1574: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf.json` L1580: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf.json` L1592: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf.json` L1602: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf_lower.json` L401: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf_lower.json` L485: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf_lower.json` L491: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf_lower.json` L503: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf_lower.json` L513: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf_lower.json` L921: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf_lower.json` L998: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf_lower.json` L1004: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf_lower.json` L1016: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf_lower.json` L1026: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf_lower.json` L1477: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf_lower.json` L1574: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf_lower.json` L1580: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf_lower.json` L1592: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestions_tfidf_lower.json` L1602: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report.json` L401: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report.json` L485: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report.json` L491: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report.json` L503: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report.json` L513: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report.json` L925: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report.json` L1011: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report.json` L1017: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report.json` L1029: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report.json` L1039: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report.json` L1491: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report.json` L1588: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report.json` L1594: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report.json` L1606: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report.json` L1616: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report_normfix.json` L401: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report_normfix.json` L485: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report_normfix.json` L491: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report_normfix.json` L503: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report_normfix.json` L513: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report_normfix.json` L921: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report_normfix.json` L998: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report_normfix.json` L1004: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report_normfix.json` L1016: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report_normfix.json` L1026: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report_normfix.json` L1477: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report_normfix.json` L1574: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report_normfix.json` L1580: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report_normfix.json` L1592: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_suggestion_report_normfix.json` L1602: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_validation_report_v2.json` L4830: `"file": "C:\\EGOS\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_validation_report_v2.json` L5540: `"file": "C:\\EGOS\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_validation_report_v2.json` L5600: `"file": "C:\\EGOS\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_validation_report_v2.json` L5730: `"file": "C:\\EGOS\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_validation_report_v2.json` L5850: `"file": "C:\\EGOS\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_validation_report_v2.txt` L2866: `### C:\EGOS\subsystems\NEXUS\tests\nexus\test_placeholder.py`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_validation_report_v2.txt` L2914: `### C:\EGOS\subsystems\STRAT\tests\strat\test_placeholder.py`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_validation_report_v2.txt` L3018: `### C:\EGOS\subsystems\SYNC\tests\sync\test_placeholder.py`
+  - Found in: `docs_egos\09_project_meta\reports\cross_ref_validation_report_v2.txt` L3114: `### C:\EGOS\subsystems\TRANSLATOR\tests\translator\test_placeholder.py`
+  - Found in: `docs_egos\09_project_meta\reports\docstring_check_report_20250419_093210.html` L29595: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\docstring_check_report_20250419_093210.html` L29811: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\docstring_check_report_20250419_093210.html` L29847: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\docstring_check_report_20250419_093210.html` L29931: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\docstring_check_report_20250419_093210.html` L30003: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\full_cross_reference_graph.graphml` L481: `<node id="subsystems/HARMONY/tests/harmony/test_placeholder.py" />`
+  - Found in: `docs_egos\09_project_meta\reports\full_cross_reference_graph.graphml` L557: `<node id="subsystems/NEXUS/tests/nexus/test_placeholder.py" />`
+  - Found in: `docs_egos\09_project_meta\reports\full_cross_reference_graph.graphml` L563: `<node id="subsystems/STRAT/tests/strat/test_placeholder.py" />`
+  - Found in: `docs_egos\09_project_meta\reports\full_cross_reference_graph.graphml` L576: `<node id="subsystems/SYNC/tests/sync/test_placeholder.py" />`
+  - Found in: `docs_egos\09_project_meta\reports\full_cross_reference_graph.graphml` L586: `<node id="subsystems/TRANSLATOR/tests/translator/test_placeholder.py" />`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092241.json` L3256: `"file_path": "C:\\EGOS\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092241.json` L3257: `"relative_path": "subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092241.json` L3905: `"file_path": "C:\\EGOS\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092241.json` L3906: `"relative_path": "subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092241.json` L3910: `"error_message": "Syntax errors after fixing: File \"C:\\EGOS\\subsystems\\NEXUS\\tests\\nexus\\test`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092241.json` L3913: `"diff": "--- a/test_placeholder.py\n+++ b/test_placeholder.py\n@@ -1,12 +1,12 @@\n \"\"\"TODO: Modul`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092241.json` L3949: `"file_path": "C:\\EGOS\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092241.json` L3950: `"relative_path": "subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092241.json` L3954: `"error_message": "Syntax errors after fixing: File \"C:\\EGOS\\subsystems\\STRAT\\tests\\strat\\test`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092241.json` L3957: `"diff": "--- a/test_placeholder.py\n+++ b/test_placeholder.py\n@@ -1,17 +1,18 @@\n \"\"\"TODO: Modul`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092241.json` L4037: `"file_path": "C:\\EGOS\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092241.json` L4038: `"relative_path": "subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092241.json` L4042: `"error_message": "Syntax errors after fixing: File \"C:\\EGOS\\subsystems\\SYNC\\tests\\sync\\test_p`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092241.json` L4045: `"diff": "--- a/test_placeholder.py\n+++ b/test_placeholder.py\n@@ -1,12 +1,12 @@\n \"\"\"TODO: Modul`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092241.json` L4125: `"file_path": "C:\\EGOS\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092241.json` L4126: `"relative_path": "subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092241.json` L4130: `"error_message": "Syntax errors after fixing: File \"C:\\EGOS\\subsystems\\TRANSLATOR\\tests\\transl`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092241.json` L4133: `"diff": "--- a/test_placeholder.py\n+++ b/test_placeholder.py\n@@ -1,12 +1,12 @@\n \"\"\"TODO: Modul`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092632.json` L3267: `"file_path": "C:\\EGOS\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092632.json` L3268: `"relative_path": "subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092632.json` L3916: `"file_path": "C:\\EGOS\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092632.json` L3917: `"relative_path": "subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092632.json` L3960: `"file_path": "C:\\EGOS\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092632.json` L3961: `"relative_path": "subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092632.json` L4048: `"file_path": "C:\\EGOS\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092632.json` L4049: `"relative_path": "subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092632.json` L4136: `"file_path": "C:\\EGOS\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\html_comment_report_20250425_092632.json` L4137: `"relative_path": "subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\interactive_cross_ref_network.html` L130: `const nodes = [{"id": "CHANGELOG.md", "label": "CHANGELOG.md", "title": "CHANGELOG.md (Missing refer`
+  - Found in: `docs_egos\09_project_meta\reports\analysis_reports\reference_analysis.json` L401: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\analysis_reports\reference_analysis.json` L485: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\analysis_reports\reference_analysis.json` L491: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\analysis_reports\reference_analysis.json` L503: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\analysis_reports\reference_analysis.json` L513: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\analysis_reports\reference_analysis.json` L922: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\analysis_reports\reference_analysis.json` L999: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\analysis_reports\reference_analysis.json` L1005: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\analysis_reports\reference_analysis.json` L1017: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\analysis_reports\reference_analysis.json` L1027: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\analysis_reports\reference_analysis.json` L1483: `"subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\analysis_reports\reference_analysis.json` L1580: `"subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\analysis_reports\reference_analysis.json` L1586: `"subsystems\\STRAT\\tests\\strat\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\analysis_reports\reference_analysis.json` L1598: `"subsystems\\SYNC\\tests\\sync\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\analysis_reports\reference_analysis.json` L1608: `"subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py": [],`
+  - Found in: `docs_egos\09_project_meta\reports\analysis_reports\subsystems_report_current.json` L26086: `"file_path": ".\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\analysis_reports\subsystems_report_current.json` L30542: `"file_path": ".\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\analysis_reports\subsystems_report_current.json` L30606: `"file_path": ".\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\analysis_reports\subsystems_report_current.json` L30686: `"file_path": ".\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\analysis_reports\subsystems_report_current.json` L30798: `"file_path": ".\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\docstring_check_report_20250419_075558.html` L28797: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\docstring_check_report_20250419_080258.html` L28797: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\import_fix_report_20250419_075148.html` L2038: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\import_fix_report_20250419_075148.html` L2338: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\import_fix_report_20250419_075148.html` L2358: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\import_fix_report_20250419_075148.html` L2398: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\import_fix_report_20250419_075148.html` L2438: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\import_fix_report_20250419_075329.html` L2038: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\import_fix_report_20250419_075329.html` L2338: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\import_fix_report_20250419_075329.html` L2358: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\import_fix_report_20250419_075329.html` L2398: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\import_fix_report_20250419_075329.html` L2438: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\import_fix_report_20250419_080223.html` L2043: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\import_fix_report_20250419_080223.html` L2343: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\import_fix_report_20250419_080223.html` L2363: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\import_fix_report_20250419_080223.html` L2403: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\import_fix_report_20250419_080223.html` L2443: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\import_fix_report_20250419_080226.html` L2043: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\import_fix_report_20250419_080226.html` L2343: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\import_fix_report_20250419_080226.html` L2363: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\import_fix_report_20250419_080226.html` L2403: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\import_fix_report_20250419_080226.html` L2443: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\pre_commit_syntax_check.json` L2170: `"file_path": "C:/EGOS\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\pre_commit_syntax_check.json` L2590: `"file_path": "C:/EGOS\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\pre_commit_syntax_check.json` L2618: `"file_path": "C:/EGOS\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\pre_commit_syntax_check.json` L2674: `"file_path": "C:/EGOS\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\pre_commit_syntax_check.json` L2730: `"file_path": "C:/EGOS\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_084711.html` L3791: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_084711.html` L4511: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_084711.html` L4559: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_084711.html` L4655: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_084711.html` L4751: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_084820.html` L2603: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_084820.html` L3311: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_084820.html` L3359: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_084820.html` L3455: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_084820.html` L3551: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_085029.html` L2603: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_085029.html` L3311: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_085029.html` L3359: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_085029.html` L3455: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_085029.html` L3551: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_085606.html` L2399: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_085606.html` L3095: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_085606.html` L3143: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_085606.html` L3239: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_085606.html` L3335: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_090629.html` L2363: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_090629.html` L3059: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_090629.html` L3107: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_090629.html` L3203: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_090629.html` L3299: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_090835.html` L2351: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_090835.html` L3047: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_090835.html` L3095: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_090835.html` L3191: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_090835.html` L3287: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_091155.html` L2351: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_091155.html` L3047: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_091155.html` L3095: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_091155.html` L3191: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_091155.html` L3287: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_091401.html` L2351: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_091401.html` L3047: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_091401.html` L3095: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_091401.html` L3191: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_091401.html` L3287: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_091509.html` L2351: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_091509.html` L3047: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_091509.html` L3095: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_091509.html` L3191: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_091509.html` L3287: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_092726.html` L1185: `<div class="file-path">html_comment_backups_20250425_092241\subsystems\NEXUS\tests\nexus\test_placeh`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_092726.html` L1233: `<div class="file-path">html_comment_backups_20250425_092241\subsystems\STRAT\tests\strat\test_placeh`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_092726.html` L1329: `<div class="file-path">html_comment_backups_20250425_092241\subsystems\SYNC\tests\sync\test_placehol`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_092726.html` L1425: `<div class="file-path">html_comment_backups_20250425_092241\subsystems\TRANSLATOR\tests\translator\t`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_092726.html` L3529: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_092726.html` L4153: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_092726.html` L4177: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_092726.html` L4201: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_092726.html` L4237: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L1929: `<div class="file-path">html_comment_backups_20250425_092241\subsystems\NEXUS\tests\nexus\test_placeh`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L1977: `<div class="file-path">html_comment_backups_20250425_092241\subsystems\STRAT\tests\strat\test_placeh`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L2073: `<div class="file-path">html_comment_backups_20250425_092241\subsystems\SYNC\tests\sync\test_placehol`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L2169: `<div class="file-path">html_comment_backups_20250425_092241\subsystems\TRANSLATOR\tests\translator\t`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L29946: `<div class="file-path">subsystems\HARMONY\tests\code_health_backups_20250425_105533\test_placeholder`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L29958: `<div class="file-path">subsystems\HARMONY\tests\docstring_backups_20250425_100242\test_placeholder.p`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L29970: `<div class="file-path">subsystems\HARMONY\tests\docstring_backups_20250425_100409\test_placeholder.p`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L29982: `<div class="file-path">subsystems\HARMONY\tests\docstring_backups_20250425_100816\test_placeholder.p`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L29994: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L30006: `<div class="file-path">subsystems\HARMONY\tests\indentation_backups_20250425_102015\test_placeholder`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L30018: `<div class="file-path">subsystems\HARMONY\tests\indentation_backups_20250425_102036\test_placeholder`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37350: `<div class="file-path">subsystems\NEXUS\tests\code_health_backups_20250425_105535\test_placeholder.p`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37362: `<div class="file-path">subsystems\NEXUS\tests\docstring_backups_20250425_100243\test_placeholder.py `
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37374: `<div class="file-path">subsystems\NEXUS\tests\docstring_backups_20250425_100411\test_placeholder.py `
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37386: `<div class="file-path">subsystems\NEXUS\tests\docstring_backups_20250425_100819\test_placeholder.py `
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37398: `<div class="file-path">subsystems\NEXUS\tests\indentation_backups_20250425_102016\test_placeholder.p`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37410: `<div class="file-path">subsystems\NEXUS\tests\indentation_backups_20250425_102037\test_placeholder.p`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37422: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37506: `<div class="file-path">subsystems\STRAT\tests\docstring_backups_20250425_100243\test_placeholder.py `
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37518: `<div class="file-path">subsystems\STRAT\tests\docstring_backups_20250425_100411\test_placeholder.py `
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37530: `<div class="file-path">subsystems\STRAT\tests\docstring_backups_20250425_100819\test_placeholder.py `
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37542: `<div class="file-path">subsystems\STRAT\tests\indentation_backups_20250425_102016\test_placeholder.p`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37554: `<div class="file-path">subsystems\STRAT\tests\indentation_backups_20250425_102037\test_placeholder.p`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37566: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37650: `<div class="file-path">subsystems\SYNC\tests\docstring_backups_20250425_100243\test_placeholder.py (`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37662: `<div class="file-path">subsystems\SYNC\tests\docstring_backups_20250425_100411\test_placeholder.py (`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37674: `<div class="file-path">subsystems\SYNC\tests\docstring_backups_20250425_100819\test_placeholder.py (`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37686: `<div class="file-path">subsystems\SYNC\tests\indentation_backups_20250425_102016\test_placeholder.py`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37698: `<div class="file-path">subsystems\SYNC\tests\indentation_backups_20250425_102037\test_placeholder.py`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37710: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37902: `<div class="file-path">subsystems\TRANSLATOR\tests\code_health_backups_20250425_103950\test_placehol`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37914: `<div class="file-path">subsystems\TRANSLATOR\tests\code_health_backups_20250425_104420\test_placehol`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37926: `<div class="file-path">subsystems\TRANSLATOR\tests\code_health_backups_20250425_104909\test_placehol`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37938: `<div class="file-path">subsystems\TRANSLATOR\tests\code_health_backups_20250425_105536\test_placehol`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37950: `<div class="file-path">subsystems\TRANSLATOR\tests\docstring_backups_20250425_100243\test_placeholde`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37962: `<div class="file-path">subsystems\TRANSLATOR\tests\docstring_backups_20250425_100411\test_placeholde`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37974: `<div class="file-path">subsystems\TRANSLATOR\tests\docstring_backups_20250425_100819\test_placeholde`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37986: `<div class="file-path">subsystems\TRANSLATOR\tests\indentation_backups_20250425_102016\test_placehol`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L37998: `<div class="file-path">subsystems\TRANSLATOR\tests\indentation_backups_20250425_102037\test_placehol`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_172720.html` L38010: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L1929: `<div class="file-path">html_comment_backups_20250425_092241\subsystems\NEXUS\tests\nexus\test_placeh`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L1977: `<div class="file-path">html_comment_backups_20250425_092241\subsystems\STRAT\tests\strat\test_placeh`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L2073: `<div class="file-path">html_comment_backups_20250425_092241\subsystems\SYNC\tests\sync\test_placehol`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L2169: `<div class="file-path">html_comment_backups_20250425_092241\subsystems\TRANSLATOR\tests\translator\t`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L29946: `<div class="file-path">subsystems\HARMONY\tests\code_health_backups_20250425_105533\test_placeholder`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L29958: `<div class="file-path">subsystems\HARMONY\tests\docstring_backups_20250425_100242\test_placeholder.p`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L29970: `<div class="file-path">subsystems\HARMONY\tests\docstring_backups_20250425_100409\test_placeholder.p`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L29982: `<div class="file-path">subsystems\HARMONY\tests\docstring_backups_20250425_100816\test_placeholder.p`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L29994: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L30006: `<div class="file-path">subsystems\HARMONY\tests\indentation_backups_20250425_102015\test_placeholder`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L30018: `<div class="file-path">subsystems\HARMONY\tests\indentation_backups_20250425_102036\test_placeholder`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37350: `<div class="file-path">subsystems\NEXUS\tests\code_health_backups_20250425_105535\test_placeholder.p`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37362: `<div class="file-path">subsystems\NEXUS\tests\docstring_backups_20250425_100243\test_placeholder.py `
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37374: `<div class="file-path">subsystems\NEXUS\tests\docstring_backups_20250425_100411\test_placeholder.py `
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37386: `<div class="file-path">subsystems\NEXUS\tests\docstring_backups_20250425_100819\test_placeholder.py `
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37398: `<div class="file-path">subsystems\NEXUS\tests\indentation_backups_20250425_102016\test_placeholder.p`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37410: `<div class="file-path">subsystems\NEXUS\tests\indentation_backups_20250425_102037\test_placeholder.p`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37422: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37506: `<div class="file-path">subsystems\STRAT\tests\docstring_backups_20250425_100243\test_placeholder.py `
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37518: `<div class="file-path">subsystems\STRAT\tests\docstring_backups_20250425_100411\test_placeholder.py `
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37530: `<div class="file-path">subsystems\STRAT\tests\docstring_backups_20250425_100819\test_placeholder.py `
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37542: `<div class="file-path">subsystems\STRAT\tests\indentation_backups_20250425_102016\test_placeholder.p`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37554: `<div class="file-path">subsystems\STRAT\tests\indentation_backups_20250425_102037\test_placeholder.p`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37566: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37650: `<div class="file-path">subsystems\SYNC\tests\docstring_backups_20250425_100243\test_placeholder.py (`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37662: `<div class="file-path">subsystems\SYNC\tests\docstring_backups_20250425_100411\test_placeholder.py (`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37674: `<div class="file-path">subsystems\SYNC\tests\docstring_backups_20250425_100819\test_placeholder.py (`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37686: `<div class="file-path">subsystems\SYNC\tests\indentation_backups_20250425_102016\test_placeholder.py`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37698: `<div class="file-path">subsystems\SYNC\tests\indentation_backups_20250425_102037\test_placeholder.py`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37710: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37902: `<div class="file-path">subsystems\TRANSLATOR\tests\code_health_backups_20250425_103950\test_placehol`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37914: `<div class="file-path">subsystems\TRANSLATOR\tests\code_health_backups_20250425_104420\test_placehol`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37926: `<div class="file-path">subsystems\TRANSLATOR\tests\code_health_backups_20250425_104909\test_placehol`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37938: `<div class="file-path">subsystems\TRANSLATOR\tests\code_health_backups_20250425_105536\test_placehol`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37950: `<div class="file-path">subsystems\TRANSLATOR\tests\docstring_backups_20250425_100243\test_placeholde`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37962: `<div class="file-path">subsystems\TRANSLATOR\tests\docstring_backups_20250425_100411\test_placeholde`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37974: `<div class="file-path">subsystems\TRANSLATOR\tests\docstring_backups_20250425_100819\test_placeholde`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37986: `<div class="file-path">subsystems\TRANSLATOR\tests\indentation_backups_20250425_102016\test_placehol`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L37998: `<div class="file-path">subsystems\TRANSLATOR\tests\indentation_backups_20250425_102037\test_placehol`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250425_173300.html` L38010: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L1917: `<div class="file-path">html_comment_backups_20250425_092241\subsystems\NEXUS\tests\nexus\test_placeh`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L1965: `<div class="file-path">html_comment_backups_20250425_092241\subsystems\STRAT\tests\strat\test_placeh`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L2061: `<div class="file-path">html_comment_backups_20250425_092241\subsystems\SYNC\tests\sync\test_placehol`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L2157: `<div class="file-path">html_comment_backups_20250425_092241\subsystems\TRANSLATOR\tests\translator\t`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L29934: `<div class="file-path">subsystems\HARMONY\tests\code_health_backups_20250425_105533\test_placeholder`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L29946: `<div class="file-path">subsystems\HARMONY\tests\docstring_backups_20250425_100242\test_placeholder.p`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L29958: `<div class="file-path">subsystems\HARMONY\tests\docstring_backups_20250425_100409\test_placeholder.p`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L29970: `<div class="file-path">subsystems\HARMONY\tests\docstring_backups_20250425_100816\test_placeholder.p`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L29982: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L29994: `<div class="file-path">subsystems\HARMONY\tests\indentation_backups_20250425_102015\test_placeholder`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L30006: `<div class="file-path">subsystems\HARMONY\tests\indentation_backups_20250425_102036\test_placeholder`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37338: `<div class="file-path">subsystems\NEXUS\tests\code_health_backups_20250425_105535\test_placeholder.p`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37350: `<div class="file-path">subsystems\NEXUS\tests\docstring_backups_20250425_100243\test_placeholder.py `
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37362: `<div class="file-path">subsystems\NEXUS\tests\docstring_backups_20250425_100411\test_placeholder.py `
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37374: `<div class="file-path">subsystems\NEXUS\tests\docstring_backups_20250425_100819\test_placeholder.py `
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37386: `<div class="file-path">subsystems\NEXUS\tests\indentation_backups_20250425_102016\test_placeholder.p`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37398: `<div class="file-path">subsystems\NEXUS\tests\indentation_backups_20250425_102037\test_placeholder.p`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37410: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37494: `<div class="file-path">subsystems\STRAT\tests\docstring_backups_20250425_100243\test_placeholder.py `
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37506: `<div class="file-path">subsystems\STRAT\tests\docstring_backups_20250425_100411\test_placeholder.py `
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37518: `<div class="file-path">subsystems\STRAT\tests\docstring_backups_20250425_100819\test_placeholder.py `
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37530: `<div class="file-path">subsystems\STRAT\tests\indentation_backups_20250425_102016\test_placeholder.p`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37542: `<div class="file-path">subsystems\STRAT\tests\indentation_backups_20250425_102037\test_placeholder.p`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37554: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37638: `<div class="file-path">subsystems\SYNC\tests\docstring_backups_20250425_100243\test_placeholder.py (`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37650: `<div class="file-path">subsystems\SYNC\tests\docstring_backups_20250425_100411\test_placeholder.py (`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37662: `<div class="file-path">subsystems\SYNC\tests\docstring_backups_20250425_100819\test_placeholder.py (`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37674: `<div class="file-path">subsystems\SYNC\tests\indentation_backups_20250425_102016\test_placeholder.py`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37686: `<div class="file-path">subsystems\SYNC\tests\indentation_backups_20250425_102037\test_placeholder.py`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37698: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37890: `<div class="file-path">subsystems\TRANSLATOR\tests\code_health_backups_20250425_103950\test_placehol`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37902: `<div class="file-path">subsystems\TRANSLATOR\tests\code_health_backups_20250425_104420\test_placehol`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37914: `<div class="file-path">subsystems\TRANSLATOR\tests\code_health_backups_20250425_104909\test_placehol`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37926: `<div class="file-path">subsystems\TRANSLATOR\tests\code_health_backups_20250425_105536\test_placehol`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37938: `<div class="file-path">subsystems\TRANSLATOR\tests\docstring_backups_20250425_100243\test_placeholde`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37950: `<div class="file-path">subsystems\TRANSLATOR\tests\docstring_backups_20250425_100411\test_placeholde`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37962: `<div class="file-path">subsystems\TRANSLATOR\tests\docstring_backups_20250425_100819\test_placeholde`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37974: `<div class="file-path">subsystems\TRANSLATOR\tests\indentation_backups_20250425_102016\test_placehol`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37986: `<div class="file-path">subsystems\TRANSLATOR\tests\indentation_backups_20250425_102037\test_placehol`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\syntax_check_report_20250428_114847.html` L37998: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\docstring_check\docstring_check_report_20250419_081554.html` L29663: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\docstring_check\docstring_check_report_20250419_081554.html` L29879: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\docstring_check\docstring_check_report_20250419_081554.html` L29915: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\docstring_check\docstring_check_report_20250419_081554.html` L29999: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\docstring_check\docstring_check_report_20250419_081554.html` L30071: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\docstring_check\docstring_check_report_20250419_084620.html` L29677: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\docstring_check\docstring_check_report_20250419_084620.html` L29893: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\docstring_check\docstring_check_report_20250419_084620.html` L29929: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\docstring_check\docstring_check_report_20250419_084620.html` L30013: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\docstring_check\docstring_check_report_20250419_084620.html` L30085: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\docstring_check\docstring_issues.json` L26158: `"file_path": "c:\\EGOS\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\docstring_check\docstring_issues.json` L30614: `"file_path": "c:\\EGOS\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\docstring_check\docstring_issues.json` L30678: `"file_path": "c:\\EGOS\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\docstring_check\docstring_issues.json` L30758: `"file_path": "c:\\EGOS\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\code_health\docstring_check\docstring_issues.json` L30870: `"file_path": "c:\\EGOS\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L16001: `"id": "subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L16002: `"label": "test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L16003: `"title": "Path: subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py\nStatus: Orphan (No connect`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L16011: `"fullPath": "subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L17531: `"id": "subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L17532: `"label": "test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L17533: `"title": "Path: subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py\nStatus: Code (References tag f`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L17541: `"fullPath": "subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L17718: `"id": "subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L17719: `"label": "test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L17720: `"title": "Path: subsystems\\STRAT\\tests\\strat\\test_placeholder.py\nStatus: Code (References tag f`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L17728: `"fullPath": "subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L18024: `"id": "subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L18025: `"label": "test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L18026: `"title": "Path: subsystems\\SYNC\\tests\\sync\\test_placeholder.py\nStatus: Code (References tag fou`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L18034: `"fullPath": "subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L18415: `"id": "subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L18416: `"label": "test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L18417: `"title": "Path: subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py\nStatus: Code (Refere`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L18425: `"fullPath": "subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L24008: `"from": "subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L24013: `"from": "subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L24018: `"from": "subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L24023: `"from": "subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L24128: `"from": "subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L24133: `"from": "subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L24138: `"from": "subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L24143: `"from": "subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L24388: `"from": "subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L24393: `"from": "subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L24398: `"from": "subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L24403: `"from": "subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L24668: `"from": "subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L24673: `"from": "subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L24678: `"from": "subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_reference_data.json` L24683: `"from": "subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_ref_network_20250422_151057.html` L112: `var nodesArray = [{"id": "CHANGELOG.md", "label": "CHANGELOG.md", "title": "Path: CHANGELOG.md\nStat`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_ref_network_20250422_151057.html` L113: `var edgesArray = [{"from": "MQP.md", "to": "path", "title": "link"}, {"from": "docs\\ai_collaboratio`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_ref_network_20250422_151218.html` L112: `var nodesArray = [{"id": "CHANGELOG.md", "label": "CHANGELOG.md", "title": "Path: CHANGELOG.md\nStat`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_ref_network_20250422_151218.html` L113: `var edgesArray = [{"from": "MQP.md", "to": "path", "title": "link"}, {"from": "docs\\ai_collaboratio`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_ref_network_20250422_151836.html` L112: `var nodesArray = [{"id": "CHANGELOG.md", "label": "CHANGELOG.md", "title": "Path: CHANGELOG.md\nStat`
+  - Found in: `docs_egos\09_project_meta\reports\cross_references\cross_ref_network_20250422_151836.html` L113: `var edgesArray = [{"from": "MQP.md", "to": "path", "title": "link"}, {"from": "docs\\ai_collaboratio`
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L418: `- `subsystems\TRANSLATOR\tests\translator\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L419: `- `subsystems\HARMONY\tests\harmony\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L420: `- `subsystems\NEXUS\tests\nexus\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L421: `- `subsystems\STRAT\tests\strat\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L422: `- `subsystems\SYNC\tests\sync\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L476: `- `subsystems\TRANSLATOR\tests\translator\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L477: `- `subsystems\HARMONY\tests\harmony\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L478: `- `subsystems\NEXUS\tests\nexus\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L479: `- `subsystems\STRAT\tests\strat\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L480: `- `subsystems\SYNC\tests\sync\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L534: `- `subsystems\TRANSLATOR\tests\translator\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L535: `- `subsystems\HARMONY\tests\harmony\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L536: `- `subsystems\NEXUS\tests\nexus\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L537: `- `subsystems\STRAT\tests\strat\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L538: `- `subsystems\SYNC\tests\sync\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L595: `- `subsystems\TRANSLATOR\tests\translator\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L596: `- `subsystems\HARMONY\tests\harmony\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L597: `- `subsystems\NEXUS\tests\nexus\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L598: `- `subsystems\STRAT\tests\strat\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L599: `- `subsystems\SYNC\tests\sync\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L1295: `- `subsystems\HARMONY\tests\harmony\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L1322: `- `subsystems\NEXUS\tests\nexus\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L1327: `- `subsystems\STRAT\tests\strat\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L1332: `- `subsystems\SYNC\tests\sync\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L1337: `- `subsystems\TRANSLATOR\tests\translator\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L2106: `- `subsystems\TRANSLATOR\tests\translator\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L2107: `- `subsystems\HARMONY\tests\harmony\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L2108: `- `subsystems\NEXUS\tests\nexus\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L2109: `- `subsystems\STRAT\tests\strat\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L2110: `- `subsystems\SYNC\tests\sync\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L2164: `- `subsystems\TRANSLATOR\tests\translator\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L2165: `- `subsystems\HARMONY\tests\harmony\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L2166: `- `subsystems\NEXUS\tests\nexus\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L2167: `- `subsystems\STRAT\tests\strat\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L2168: `- `subsystems\SYNC\tests\sync\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L2375: `- `subsystems\TRANSLATOR\tests\translator\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L2376: `- `subsystems\HARMONY\tests\harmony\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L2377: `- `subsystems\NEXUS\tests\nexus\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L2378: `- `subsystems\STRAT\tests\strat\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L2379: `- `subsystems\SYNC\tests\sync\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L3639: `- `subsystems\HARMONY\tests\harmony\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L3948: `- `subsystems\NEXUS\tests\nexus\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L3993: `- `subsystems\STRAT\tests\strat\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L4037: `- `subsystems\SYNC\tests\sync\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L4091: `- `subsystems\TRANSLATOR\tests\translator\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L4641: `- `subsystems\HARMONY\tests\harmony\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L4692: `- `subsystems\NEXUS\tests\nexus\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L4700: `- `subsystems\STRAT\tests\strat\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L4709: `- `subsystems\SYNC\tests\sync\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L4720: `- `subsystems\TRANSLATOR\tests\translator\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L8500: `### `subsystems\HARMONY\tests\harmony\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L8980: `### `subsystems\NEXUS\tests\nexus\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L9034: `### `subsystems\STRAT\tests\strat\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L9088: `### `subsystems\SYNC\tests\sync\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\cross_reference_analysis\cross_reference_report_20250423_104548.md` L9160: `### `subsystems\TRANSLATOR\tests\translator\test_placeholder.py``
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by.json` L25697: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by.json` L25706: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by.json` L25715: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by.json` L25724: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by.json` L25733: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by_2025-04-19T13-20-18.600301.json` L25694: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by_2025-04-19T13-20-18.600301.json` L25703: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by_2025-04-19T13-20-18.600301.json` L25712: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by_2025-04-19T13-20-18.600301.json` L25721: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by_2025-04-19T13-20-18.600301.json` L25730: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by_2025-04-19T13-20-18.727384.json` L25694: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by_2025-04-19T13-20-18.727384.json` L25703: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by_2025-04-19T13-20-18.727384.json` L25712: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by_2025-04-19T13-20-18.727384.json` L25721: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by_2025-04-19T13-20-18.727384.json` L25730: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by_2025-04-19T13-22-29.039819.json` L25697: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by_2025-04-19T13-22-29.039819.json` L25706: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by_2025-04-19T13-22-29.039819.json` L25715: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by_2025-04-19T13-22-29.039819.json` L25724: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_referenced_by_2025-04-19T13-22-29.039819.json` L25733: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py": [`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L15645: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L15646: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L15675: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L15676: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L15687: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L15702: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L15703: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L15732: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L15733: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L15745: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L15760: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L15761: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L15792: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L15793: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L15806: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L16006: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L16272: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L16504: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L16516: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L16528: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L16683: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L16684: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L16713: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L16714: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L16725: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L16740: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L16741: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L16771: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L16772: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L16784: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L16947: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L16948: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L16977: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L16978: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references.json` L16990: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L15651: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L15654: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L15671: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L15680: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L15689: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L15708: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L15711: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L15729: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L15738: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L15747: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L15768: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L15771: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L15790: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L15799: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L15808: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L15916: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L16088: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L16111: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L16213: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L16222: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L16689: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L16692: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L16709: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L16718: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L16727: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L16746: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L16749: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L16767: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L16776: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L16785: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L16953: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L16956: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L16974: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L16983: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.572124.json` L16992: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L15651: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L15654: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L15671: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L15680: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L15689: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L15708: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L15711: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L15729: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L15738: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L15747: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L15768: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L15771: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L15790: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L15799: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L15808: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L15916: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L16088: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L16111: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L16213: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L16222: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L16689: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L16692: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L16709: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L16718: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L16727: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L16746: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L16749: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L16767: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L16776: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L16785: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L16953: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L16956: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L16974: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L16983: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-20-18.697365.json` L16992: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L15664: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L15671: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L15685: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L15695: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L15698: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py"`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L15721: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L15728: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L15743: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L15753: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L15756: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py"`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L15782: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L15789: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L15804: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L15814: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L15817: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py"`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L16020: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L16066: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L16086: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L16283: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L16374: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L16702: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L16709: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L16723: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L16733: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L16736: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py"`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L16760: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L16767: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L16782: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L16792: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L16795: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py"`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L16966: `"..\\..\\subsystems\\STRAT\\tests\\strat\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L16973: `"..\\..\\subsystems\\NEXUS\\tests\\nexus\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L16988: `"..\\..\\subsystems\\SYNC\\tests\\sync\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L16998: `"..\\..\\subsystems\\HARMONY\\tests\\harmony\\test_placeholder.py",`
+  - Found in: `docs_egos\09_project_meta\reports\documentation\checkpoints\xref_checkpoint_references_2025-04-19T13-22-28.979663.json` L17001: `"..\\..\\subsystems\\TRANSLATOR\\tests\\translator\\test_placeholder.py"`
+  - Found in: `docs_egos\09_project_meta\reports\static\graph-data.js` L8: `nodes: [{"id": ".pre-commit-config.yaml", "label": ".pre-commit-config.yaml", "path": "C:\\EGOS\\.pr`
+  - Found in: `docs_egos\09_project_meta\reports\static\graph-data.js` L11: `edges: [{"source": "CHANGELOG.md", "target": "ROADMAP.md", "weight": 1}, {"source": "CHANGELOG.md", `
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250419_094735.html` L34471: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py (2 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250419_094735.html` L39958: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py (2 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250419_094735.html` L40034: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py (2 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250419_094735.html` L40186: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py (2 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250419_094735.html` L40513: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py (2 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250424_181738.html` L4181: `<div class="file-path">backups\docstrings\NEXUS_backup_20250419_100533\tests\nexus\test_placeholder.`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250424_181738.html` L64117: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py (3 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250424_181738.html` L73818: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250424_181738.html` L73866: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250424_181738.html` L73962: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250424_181738.html` L74240: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250424_182011.html` L744: `<div class="file-path">backups\docstrings\NEXUS_backup_20250419_100533\tests\nexus\test_placeholder.`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250424_182011.html` L8379: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py (2 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250424_182011.html` L9855: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250424_182011.html` L9903: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250424_182011.html` L9999: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250424_182011.html` L10116: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250424_182111.html` L3803: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250424_182111.html` L4523: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250424_182111.html` L4571: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250424_182111.html` L4667: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250424_182111.html` L4763: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250424_182134.html` L3803: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250424_182134.html` L4523: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250424_182134.html` L4571: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250424_182134.html` L4667: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250424_182134.html` L4763: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250425_084411.html` L3791: `<div class="file-path">subsystems\HARMONY\tests\harmony\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250425_084411.html` L4511: `<div class="file-path">subsystems\NEXUS\tests\nexus\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250425_084411.html` L4559: `<div class="file-path">subsystems\STRAT\tests\strat\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250425_084411.html` L4655: `<div class="file-path">subsystems\SYNC\tests\sync\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\09_project_meta\reports\syntax\syntax_check_report_20250425_084411.html` L4751: `<div class="file-path">subsystems\TRANSLATOR\tests\translator\test_placeholder.py (1 issues)</div>`
+  - Found in: `docs_egos\zz_archive\legacy_root_archive\reports\file_ref_check_report_20250518_204006.md` L367: `### `subsystems\NEXUS\tests\nexus\test_placeholder.py``
+  - Found in: `docs_egos\zz_archive\legacy_root_archive\reports\file_ref_check_report_20250518_204006.md` L412: `### `subsystems\TRANSLATOR\tests\translator\test_placeholder.py``
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181428\docs\governance\.-summary.md` L596: `- **TODO/FIXME:** Line 3913 - "diff": "--- a/test_placeholder.py\n+++ b/test_placeholder.py\n@@ -1,1`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181428\docs\governance\.-summary.md` L606: `- **TODO/FIXME:** Line 3957 - "diff": "--- a/test_placeholder.py\n+++ b/test_placeholder.py\n@@ -1,1`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181428\docs\governance\.-summary.md` L624: `- **TODO/FIXME:** Line 4045 - "diff": "--- a/test_placeholder.py\n+++ b/test_placeholder.py\n@@ -1,1`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181428\docs\governance\.-summary.md` L641: `- **TODO/FIXME:** Line 4133 - "diff": "--- a/test_placeholder.py\n+++ b/test_placeholder.py\n@@ -1,1`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181444\docs\governance\migrations\backups_inventory.md` L177: `| [subsystems\TRANSLATOR\tests\translator\test_placeholder.py](subsystems\TRANSLATOR\tests\translato`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181444\docs\governance\migrations\backups_inventory.md` L178: `| [subsystems\HARMONY\tests\harmony\test_placeholder.py](subsystems\HARMONY\tests\harmony\test_place`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181444\docs\governance\migrations\backups_inventory.md` L179: `| [subsystems\NEXUS\tests\nexus\test_placeholder.py](subsystems\NEXUS\tests\nexus\test_placeholder.p`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181444\docs\governance\migrations\backups_inventory.md` L180: `| [subsystems\STRAT\tests\strat\test_placeholder.py](subsystems\STRAT\tests\strat\test_placeholder.p`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181444\docs\governance\migrations\backups_inventory.md` L181: `| [subsystems\SYNC\tests\sync\test_placeholder.py](subsystems\SYNC\tests\sync\test_placeholder.py) |`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181446\docs\governance\migrations\core_inventory.md` L178: `| [subsystems\TRANSLATOR\tests\translator\test_placeholder.py](subsystems\TRANSLATOR\tests\translato`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181446\docs\governance\migrations\core_inventory.md` L179: `| [subsystems\HARMONY\tests\harmony\test_placeholder.py](subsystems\HARMONY\tests\harmony\test_place`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181446\docs\governance\migrations\core_inventory.md` L180: `| [subsystems\NEXUS\tests\nexus\test_placeholder.py](subsystems\NEXUS\tests\nexus\test_placeholder.p`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181446\docs\governance\migrations\core_inventory.md` L181: `| [subsystems\STRAT\tests\strat\test_placeholder.py](subsystems\STRAT\tests\strat\test_placeholder.p`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181446\docs\governance\migrations\core_inventory.md` L182: `| [subsystems\SYNC\tests\sync\test_placeholder.py](subsystems\SYNC\tests\sync\test_placeholder.py) |`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181448\docs\governance\migrations\docs_inventory.md` L178: `| [subsystems\TRANSLATOR\tests\translator\test_placeholder.py](subsystems\TRANSLATOR\tests\translato`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181448\docs\governance\migrations\docs_inventory.md` L179: `| [subsystems\HARMONY\tests\harmony\test_placeholder.py](subsystems\HARMONY\tests\harmony\test_place`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181448\docs\governance\migrations\docs_inventory.md` L180: `| [subsystems\NEXUS\tests\nexus\test_placeholder.py](subsystems\NEXUS\tests\nexus\test_placeholder.p`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181448\docs\governance\migrations\docs_inventory.md` L181: `| [subsystems\STRAT\tests\strat\test_placeholder.py](subsystems\STRAT\tests\strat\test_placeholder.p`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181448\docs\governance\migrations\docs_inventory.md` L182: `| [subsystems\SYNC\tests\sync\test_placeholder.py](subsystems\SYNC\tests\sync\test_placeholder.py) |`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181512\docs\governance\migrations\egos_inventory_sample.md` L177: `| [subsystems\TRANSLATOR\tests\translator\test_placeholder.py](subsystems\TRANSLATOR\tests\translato`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181512\docs\governance\migrations\egos_inventory_sample.md` L178: `| [subsystems\HARMONY\tests\harmony\test_placeholder.py](subsystems\HARMONY\tests\harmony\test_place`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181512\docs\governance\migrations\egos_inventory_sample.md` L179: `| [subsystems\NEXUS\tests\nexus\test_placeholder.py](subsystems\NEXUS\tests\nexus\test_placeholder.p`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181512\docs\governance\migrations\egos_inventory_sample.md` L180: `| [subsystems\STRAT\tests\strat\test_placeholder.py](subsystems\STRAT\tests\strat\test_placeholder.p`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181512\docs\governance\migrations\egos_inventory_sample.md` L181: `| [subsystems\SYNC\tests\sync\test_placeholder.py](subsystems\SYNC\tests\sync\test_placeholder.py) |`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181512\docs\governance\migrations\egos_inventory_sample.md` L884: `| [subsystems\HARMONY\tests\harmony\test_placeholder.py](subsystems\HARMONY\tests\harmony\test_place`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181512\docs\governance\migrations\egos_inventory_sample.md` L911: `| [subsystems\NEXUS\tests\nexus\test_placeholder.py](subsystems\NEXUS\tests\nexus\test_placeholder.p`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181512\docs\governance\migrations\egos_inventory_sample.md` L916: `| [subsystems\STRAT\tests\strat\test_placeholder.py](subsystems\STRAT\tests\strat\test_placeholder.p`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181512\docs\governance\migrations\egos_inventory_sample.md` L921: `| [subsystems\SYNC\tests\sync\test_placeholder.py](subsystems\SYNC\tests\sync\test_placeholder.py) |`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181512\docs\governance\migrations\egos_inventory_sample.md` L926: `| [subsystems\TRANSLATOR\tests\translator\test_placeholder.py](subsystems\TRANSLATOR\tests\translato`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181517\docs\governance\migrations\research_inventory.md` L177: `| [subsystems\TRANSLATOR\tests\translator\test_placeholder.py](subsystems\TRANSLATOR\tests\translato`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181517\docs\governance\migrations\research_inventory.md` L178: `| [subsystems\HARMONY\tests\harmony\test_placeholder.py](subsystems\HARMONY\tests\harmony\test_place`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181517\docs\governance\migrations\research_inventory.md` L179: `| [subsystems\NEXUS\tests\nexus\test_placeholder.py](subsystems\NEXUS\tests\nexus\test_placeholder.p`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181517\docs\governance\migrations\research_inventory.md` L180: `| [subsystems\STRAT\tests\strat\test_placeholder.py](subsystems\STRAT\tests\strat\test_placeholder.p`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181517\docs\governance\migrations\research_inventory.md` L181: `| [subsystems\SYNC\tests\sync\test_placeholder.py](subsystems\SYNC\tests\sync\test_placeholder.py) |`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181520\docs\governance\migrations\scripts_inventory.md` L178: `| [subsystems\TRANSLATOR\tests\translator\test_placeholder.py](subsystems\TRANSLATOR\tests\translato`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181520\docs\governance\migrations\scripts_inventory.md` L179: `| [subsystems\HARMONY\tests\harmony\test_placeholder.py](subsystems\HARMONY\tests\harmony\test_place`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181520\docs\governance\migrations\scripts_inventory.md` L180: `| [subsystems\NEXUS\tests\nexus\test_placeholder.py](subsystems\NEXUS\tests\nexus\test_placeholder.p`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181520\docs\governance\migrations\scripts_inventory.md` L181: `| [subsystems\STRAT\tests\strat\test_placeholder.py](subsystems\STRAT\tests\strat\test_placeholder.p`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181520\docs\governance\migrations\scripts_inventory.md` L182: `| [subsystems\SYNC\tests\sync\test_placeholder.py](subsystems\SYNC\tests\sync\test_placeholder.py) |`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181526\docs\governance\migrations\subsystems_inventory.md` L178: `| [subsystems\TRANSLATOR\tests\translator\test_placeholder.py](subsystems\TRANSLATOR\tests\translato`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181526\docs\governance\migrations\subsystems_inventory.md` L179: `| [subsystems\HARMONY\tests\harmony\test_placeholder.py](subsystems\HARMONY\tests\harmony\test_place`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181526\docs\governance\migrations\subsystems_inventory.md` L180: `| [subsystems\NEXUS\tests\nexus\test_placeholder.py](subsystems\NEXUS\tests\nexus\test_placeholder.p`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181526\docs\governance\migrations\subsystems_inventory.md` L181: `| [subsystems\STRAT\tests\strat\test_placeholder.py](subsystems\STRAT\tests\strat\test_placeholder.p`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\docs\20250513_181526\docs\governance\migrations\subsystems_inventory.md` L182: `| [subsystems\SYNC\tests\sync\test_placeholder.py](subsystems\SYNC\tests\sync\test_placeholder.py) |`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\_website_backup_20250520_011220\website\src\data\graph-data.js` L8: `nodes: [{"id": ".pre-commit-config.yaml", "label": ".pre-commit-config.yaml", "path": "C:\\EGOS\\.pr`
+  - Found in: `docs_egos\zz_archive\legacy_root_backups\_website_backup_20250520_011220\website\src\data\graph-data.js` L11: `edges: [{"source": "CHANGELOG.md", "target": "ROADMAP.md", "weight": 1}, {"source": "CHANGELOG.md", `
+  - Found in: `scripts\cross_reference\checker_debug_output.log` L492: `2025-05-20 22:18:57,377 | INFO | file_reference_checker_windows:260 | Found candidate: docs_egos\03_`
+  - Found in: `scripts\cross_reference\checker_debug_output.log` L518: `2025-05-20 22:18:57,418 | INFO | file_reference_checker_windows:260 | Found candidate: docs_egos\03_`
+  - Found in: `scripts\cross_reference\checker_debug_output.log` L1199: `2025-05-20 22:18:59,388 | INFO | file_reference_checker_windows:260 | Found candidate: docs_egos\03_`
+  - Found in: `scripts\cross_reference\checker_debug_output.log` L1225: `2025-05-20 22:18:59,429 | INFO | file_reference_checker_windows:260 | Found candidate: docs_egos\03_`
+  - Found in: `website\src\data\graph-data.js` L8: `nodes: [{"id": ".pre-commit-config.yaml", "label": ".pre-commit-config.yaml", "path": "C:\\EGOS\\.pr`
+  - Found in: `website\src\data\graph-data.js` L11: `edges: [{"source": "CHANGELOG.md", "target": "ROADMAP.md", "weight": 1}, {"source": "CHANGELOG.md", `

@@ -1,0 +1,29 @@
+{
+  "retention_policies": {
+    "temp_files": 7,
+    "logs": 30,
+    "backups": 90,
+    "htmlcov": 14,
+    "cache": 7,
+    "old_versions": 180
+  },
+  "cleanup_patterns": {
+    "temp_files": ["*.tmp", "*.temp", "*.bak", "*.old", "*.backup", "~*"],
+    "logs": ["*.log", "log/*.txt", "logs/*.log", "*.log.*"],
+    "htmlcov": ["htmlcov/*", "*/htmlcov/*"],
+    "cache": ["__pycache__", "*.pyc", "*.pyo", ".pytest_cache", ".ruff_cache", ".mypy_cache"],
+    "old_versions": ["*_v[0-9].*", "*_old.*", "*_backup.*", "*_bak.*"]
+  },
+  "exclude_dirs": [
+    ".git", 
+    ".github", 
+    ".vscode", 
+    "venv", 
+    ".venv", 
+    "env", 
+    "node_modules",
+    "docs/core_materials",
+    "subsystems/ETHIK/core",
+    "subsystems/KOIOS/templates"
+  ]
+}

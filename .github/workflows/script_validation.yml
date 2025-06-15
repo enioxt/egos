@@ -1,0 +1,81 @@
+name: EGOS Script Validation
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - '**.py'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - '**.py'
+  workflow_dispatch:
+    inputs:
+      target_directory:
+        description: 'Target directory to validate scripts in'
+        required: false
+        default: 'scripts'
+        type: string
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    name: Validate Scripts
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          cache: 'pip'
+      
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install networkx pyvis matplotlib
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      
+      - name: Run Script Validator
+        run: |
+          python scripts/maintenance/code_health/script_validator.py --root ${{ github.event.inputs.target_directory || 'scripts' }} --output reports --format json
+      
+      - name: Run Script Ecosystem Visualizer
+        run: |
+          python scripts/maintenance/code_health/script_ecosystem_visualizer.py --input reports/script_validation_report.json --output docs/visualizations
+      
+      - name: Check Reference Coverage
+        run: |
+          python scripts/maintenance/code_health/update_script_references.py --root ${{ github.event.inputs.target_directory || 'scripts' }} --output reports --dry-run
+      
+      - name: Upload Reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: validation-reports
+          path: |
+            reports/script_validation_report.*
+            reports/script_reference_update_report.md
+      
+      - name: Upload Visualizations
+        uses: actions/upload-artifact@v3
+        with:
+          name: ecosystem-visualizations
+          path: docs/visualizations/
+      
+      - name: Check Validation Results
+        run: |
+          # Extract coverage percentage from report
+          VALID_PERCENTAGE=$(grep "valid_percentage" reports/script_validation_report.json | awk -F: '{print $2}' | tr -d '," ')
+          
+          # Set threshold
+          THRESHOLD=50
+          
+          # Compare with threshold
+          if (( $(echo "$VALID_PERCENTAGE < $THRESHOLD" | bc -l) )); then
+            echo "Script validation coverage ($VALID_PERCENTAGE%) is below threshold ($THRESHOLD%)"
+            echo "::warning::Script validation coverage is below threshold"
+          else
+            echo "Script validation coverage ($VALID_PERCENTAGE%) meets threshold ($THRESHOLD%)"
+          fi

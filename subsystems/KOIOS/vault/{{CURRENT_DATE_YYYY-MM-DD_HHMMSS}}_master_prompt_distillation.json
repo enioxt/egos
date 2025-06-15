@@ -1,0 +1,35 @@
+{
+  "id": "pv_mpd_001",
+  "timestamp_created": "{{CURRENT_DATETIME_ISO_8601}}",
+  "timestamp_updated": "{{CURRENT_DATETIME_ISO_8601}}",
+  "created": "2025-06-11T22:47:00-03:00",
+  "updated": "2025-06-11T22:47:00-03:00",
+  "author": "EGOS System (Template)",
+  "title": "Master Prompt: LLM Interaction Analysis & Super Prompt Distillation",
+  "description": "A meta-prompt designed to analyze LLM interactions and distill them into reusable 'super prompts' for the EGOS PromptVault system, capturing effective patterns for future use.",
+  "distilled_prompt": "Objective: Analyze the provided [User-LLM Interaction Log/Interaction Summary] to distill a concise, reusable \"Super Prompt\" and extract key metadata for the EGOS PromptVault.\n\nInput: \n[User-LLM Interaction Log/Interaction Summary Start]\n---\n{{PASTE_INTERACTION_LOG_OR_SUMMARY_HERE}}\n---\n[User-LLM Interaction Log/Interaction Summary End]\n\nAnalysis & Distillation Tasks:\n\n1.  **Identify Core User Goal:** What was the primary objective the user aimed to achieve with the LLM?\n2.  **Extract Key Information Provided by User:** List the critical pieces of information, context, specific instructions, or constraints the user provided that were essential for the LLM's successful output.\n3.  **Identify LLM's Successful Output Characteristics:** Briefly describe the nature of the LLM's output that was deemed successful (e.g., generated code, provided a specific explanation, created a document).\n4.  **Determine LLM Persona (if any):** Did the LLM adopt or was it guided into a specific persona or role (e.g., \"expert Python programmer,\" \"technical writer\")? If so, describe it.\n5.  **Formulate Candidate Super Prompt:** Based on the above, construct a concise, standalone \"Super Prompt\" that, if given to the *same type of LLM* in a fresh session, would likely reproduce the successful output. This Super Prompt should:\n    *   Be self-contained and embed crucial implicit context.\n    *   Clearly state the desired output format or structure if applicable.\n    *   Incorporate the key information identified in Task 2.\n    *   If a persona was identified (Task 4), include instructions for the LLM to adopt it.\n6.  **Suggest Metadata Values:** Based on your analysis and the formulated Super Prompt, suggest values for the following EGOS PromptVault metadata fields:\n    *   `title`: (A concise, descriptive title for this Super Prompt)\n    *   `user_goal_summary`: (From Task 1)\n    *   `key_information_provided_by_user`: (From Task 2, summarized)\n    *   `llm_persona_elicited`: (From Task 4, if applicable)\n    *   `asset_type`: (Suggest from EGOS vocabulary: e.g., `code_generation`, `text_analysis`, `prompt_distillation_itself`)\n    *   `tags`: (Suggest 3-5 relevant keywords)\n    *   `usage_instructions_or_notes`: (Any brief notes for using the formulated Super Prompt)\n\nOutput Format:\nProvide your response structured with clear headings for each task (1-6) and the requested information.",
+  "original_interaction_log": "N/A - This is a foundational meta-prompt designed by human & AI for the distillation process itself.",
+  "user_goal_summary": "To guide an LLM/AI in analyzing a user-LLM interaction log and producing a candidate 'super prompt' along with relevant metadata for storage in PromptVault.",
+  "key_information_provided_by_user": "The primary input is the {{PASTE_INTERACTION_LOG_OR_SUMMARY_HERE}} placeholder, which should contain the conversation to be analyzed. The prompt also defines specific analysis tasks and desired output structure.",
+  "llm_source_original_output": "N/A - Human & AI co-created (User & Cascade)",
+  "llm_source_distillation": "N/A - This is the distillation prompt itself.",
+  "llm_persona_elicited": "The LLM executing this prompt is expected to act as a diligent 'Prompt Engineer' or 'Interaction Analyst'.",
+  "llm_parameters_inferred": {},
+  "asset_type": "prompt_distillation_itself",
+  "tags": ["meta-prompt", "prompt-engineering", "distillation", "analysis", "PromptVault", "reverse-prompt-engineering"],
+  "related_files_or_artifacts": [
+    "c:/EGOS/docs/planning/PromptVault_System_Design.md",
+    "c:/EGOS/.windsurf/workflows/distill_and_vault_prompt.md"
+  ],
+  "usage_instructions_or_notes": "Replace the `{{PASTE_INTERACTION_LOG_OR_SUMMARY_HERE}}` placeholder with the actual user-LLM conversation log or a concise summary of the interaction. The executing LLM should be capable of following detailed instructions and structured output formats.",
+  "refinement_iterations": 1,
+  "distillation_method": "human_refined",
+  "validation_results": {
+    "success": true,
+    "tested_on_llm": "Cascade (simulated execution)",
+    "validation_notes": "Successfully processed a sample interaction log (PowerShell generation) and produced relevant distilled prompt and metadata. Considered good for initial vaulting.",
+    "user_effectiveness_rating": 5
+  },
+  "version": "1.0",
+  "llm_context_length": 4096
+}

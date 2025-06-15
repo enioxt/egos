@@ -1,0 +1,27 @@
+{
+  "operation_id": "authentication_1748393363_7eaed171",
+  "operation_type": "authentication",
+  "context": {
+    "username": "[EMAIL]",
+    "password": "password123",
+    "remember_me": true
+  },
+  "result": {
+    "operation_id": "[API_KEY]",
+    "allowed": "indeterminate",
+    "guidance": "Enhanced security practices recommended for security_operation.",
+    "guidance_type": "suggestion",
+    "trust_level": 0.5,
+    "should_notify": true,
+    "notification_priority": "medium",
+    "ethical_warnings": [
+      "Ethical rule set is empty."
+    ],
+    "contains_sensitive_data": true,
+    "detected_keywords": [
+      "password"
+    ]
+  },
+  "timestamp": "2025-05-27T21:49:23.476336",
+  "user_id": "demo_user"
+}

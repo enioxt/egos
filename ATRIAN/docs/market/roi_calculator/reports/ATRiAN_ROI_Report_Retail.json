@@ -1,0 +1,35 @@
+{
+    "organization": "Omni Retail Innovations",
+    "industry": "Retail",
+    "analysis_date": "2025-06-02T20:03:51.874423",
+    "time_horizon": 4,
+    "discount_rate": 0.1,
+    "roi": 8443.339237052503,
+    "npv": 73983339.96202444,
+    "irr": 38.728928799590946,
+    "payback_period": 0.025820481732894942,
+    "initial_investment": 480000,
+    "annual_costs": 125000,
+    "total_benefits_npv": 74859573.1428181,
+    "total_costs_npv": 876233.1807936616,
+    "benefit_breakdown": {
+        "risk_mitigation": 1277582.569496619,
+        "operational_efficiency": 3071675.694283177,
+        "brand_value": 52419938.091660395,
+        "regulatory_compliance": 2383353.360016392,
+        "innovation_enablement": 15707023.427361514
+    },
+    "sensitivity": {
+        "roi_10th_percentile": "N/A",
+        "roi_90th_percentile": "N/A",
+        "positive_roi_probability": "N/A"
+    },
+    "cash_flows": [],
+    "cumulative_net_benefits": [
+        -480000,
+        18109893.285704523,
+        36699786.57140905,
+        55289679.85711357,
+        73879573.1428181
+    ]
+}

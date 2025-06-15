@@ -1,0 +1,346 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EGOS Cross-Reference Tools Configuration Schema",
+  "description": "Schema for validating the consolidated configuration file for EGOS cross-reference tools",
+  "type": "object",
+  "required": ["project", "files", "exclusions", "references", "performance", "reporting", "logging", "validation", "integration", "schema"],
+  "properties": {
+    "project": {
+      "type": "object",
+      "required": ["base_path", "default_scan_directories"],
+      "properties": {
+        "base_path": {
+          "type": "string",
+          "description": "Base directory of the EGOS project"
+        },
+        "default_scan_directories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Default directories to scan (relative to base_path)"
+        }
+      }
+    },
+    "files": {
+      "type": "object",
+      "required": ["extensions"],
+      "properties": {
+        "extensions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "File extensions to process"
+        },
+        "size_limits": {
+          "type": "object",
+          "properties": {
+            "min_bytes": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Minimum file size to consider in bytes"
+            },
+            "max_mb": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Maximum file size to consider in MB"
+            }
+          }
+        },
+        "age_limits": {
+          "type": "object",
+          "properties": {
+            "days_modified": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Include files modified in the last X days"
+            }
+          }
+        }
+      }
+    },
+    "exclusions": {
+      "type": "object",
+      "required": ["global"],
+      "properties": {
+        "global": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Global exclusions applied to all operations"
+        }
+      }
+    },
+    "references": {
+      "type": "object",
+      "required": ["patterns"],
+      "properties": {
+        "patterns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Patterns to identify cross-references"
+        },
+        "resolution": {
+          "type": "object",
+          "properties": {
+            "resolve_python_modules": {
+              "type": "boolean",
+              "description": "Whether to resolve Python module names"
+            },
+            "max_line_length": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Maximum line length to consider for references"
+            },
+            "file_processing_timeout_sec": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Timeout for processing a single file in seconds"
+            }
+          }
+        }
+      }
+    },
+    "performance": {
+      "type": "object",
+      "properties": {
+        "max_workers": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": ["cpu_count"]
+            },
+            {
+              "type": "integer",
+              "minimum": 1
+            }
+          ],
+          "description": "Maximum number of worker threads or processes"
+        },
+        "batch_size": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Number of files to process in a batch"
+        },
+        "cache_enabled": {
+          "type": "boolean",
+          "description": "Whether to enable caching"
+        },
+        "search_method": {
+          "type": "string",
+          "enum": ["python_regex", "ripgrep"],
+          "description": "Method to use for searching references"
+        },
+        "timeout_sec": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Timeout for processing a single file in seconds"
+        }
+      }
+    },
+    "reporting": {
+      "type": "object",
+      "required": ["formats", "paths"],
+      "properties": {
+        "formats": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["html", "json", "markdown"]
+          },
+          "description": "Output formats for reports"
+        },
+        "paths": {
+          "type": "object",
+          "properties": {
+            "base_dir": {
+              "type": "string",
+              "description": "Base directory for reports"
+            },
+            "html_report": {
+              "type": "string",
+              "description": "Path to HTML report relative to base_dir"
+            },
+            "json_report": {
+              "type": "string",
+              "description": "Path to JSON report relative to base_dir"
+            },
+            "markdown_report": {
+              "type": "string",
+              "description": "Path to Markdown report relative to base_dir"
+            }
+          }
+        },
+        "retention_days": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of days to keep old reports"
+        },
+        "features": {
+          "type": "object",
+          "properties": {
+            "include_stats": {
+              "type": "boolean",
+              "description": "Whether to include statistics in reports"
+            },
+            "include_visualization": {
+              "type": "boolean",
+              "description": "Whether to include visualizations in reports"
+            },
+            "include_suggestions": {
+              "type": "boolean",
+              "description": "Whether to include fix suggestions in reports"
+            },
+            "include_summary": {
+              "type": "boolean",
+              "description": "Whether to include a summary in reports"
+            }
+          }
+        }
+      }
+    },
+    "logging": {
+      "type": "object",
+      "required": ["level"],
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"],
+          "description": "Logging level"
+        },
+        "file_path": {
+          "type": "string",
+          "description": "Path to log file"
+        },
+        "console": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "description": "Whether to enable console logging"
+            },
+            "color": {
+              "type": "boolean",
+              "description": "Whether to use colored output in console"
+            },
+            "level": {
+              "type": "string",
+              "enum": ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"],
+              "description": "Console logging level"
+            }
+          }
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "properties": {
+        "strictness": {
+          "type": "string",
+          "enum": ["strict", "normal", "relaxed"],
+          "description": "Validation strictness level"
+        },
+        "rules": {
+          "type": "object",
+          "properties": {
+            "check_external_urls": {
+              "type": "boolean",
+              "description": "Whether to check external URLs"
+            },
+            "check_file_existence": {
+              "type": "boolean",
+              "description": "Whether to check if referenced files exist"
+            },
+            "check_format_validity": {
+              "type": "boolean",
+              "description": "Whether to check if references follow the canonical format"
+            },
+            "suggest_fixes": {
+              "type": "boolean",
+              "description": "Whether to suggest fixes for invalid references"
+            }
+          }
+        },
+        "thresholds": {
+          "type": "object",
+          "properties": {
+            "min_valid_percentage": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100,
+              "description": "Minimum percentage of valid references required"
+            }
+          }
+        }
+      }
+    },
+    "integration": {
+      "type": "object",
+      "properties": {
+        "ci_cd": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "description": "Whether to enable CI/CD integration"
+            },
+            "fail_on_error": {
+              "type": "boolean",
+              "description": "Whether to fail the build on validation errors"
+            },
+            "min_score": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100,
+              "description": "Minimum validation score required to pass"
+            }
+          }
+        },
+        "ide": {
+          "type": "object",
+          "properties": {
+            "vscode_extension": {
+              "type": "boolean",
+              "description": "Whether to enable VS Code extension integration"
+            },
+            "intellij_plugin": {
+              "type": "boolean",
+              "description": "Whether to enable IntelliJ plugin integration"
+            }
+          }
+        },
+        "notifications": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "boolean",
+              "description": "Whether to enable email notifications"
+            },
+            "slack": {
+              "type": "boolean",
+              "description": "Whether to enable Slack notifications"
+            }
+          }
+        }
+      }
+    },
+    "schema": {
+      "type": "object",
+      "required": ["version"],
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Schema version"
+        },
+        "validation_enabled": {
+          "type": "boolean",
+          "description": "Whether to enable schema validation"
+        }
+      }
+    }
+  }
+}

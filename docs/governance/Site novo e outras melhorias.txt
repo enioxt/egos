@@ -1,0 +1,252 @@
+# @references:
+#   - .windsurfrules
+#   - CODE_OF_CONDUCT.md
+#   - MQP.md
+#   - README.md
+#   - ROADMAP.md
+#   - CROSSREF_STANDARD.md
+
+@references:
+- Core References:
+  - [MQP.md](mdc:../../MQP.md) - Master Quantum Prompt defining EGOS principles
+  - [ROADMAP.md](mdc:../../ROADMAP.md) - Project roadmap and planning
+
+
+
+
+Okay, let's document the changes, register any new observed standards, and then outline the current website/dashboard status and how to run them.
+
+**1. Documentation: Commit Message**
+
+Here's a commit message covering the `docs/` folder refactoring and the initial Streamlit dashboard theme alignment:
+
+```
+refactor(docs, dashboard): Reorganize docs folder and align dashboard theme
+
+- Refactored the `docs/` directory structure:
+    - Moved non-website documentation files (*.md, reports, research, etc.) into a new `docs/project_documentation/` subfolder.
+    - Kept website assets (`index.html`, `css/`, `js/`, `images/`) at the root of `docs/` for GitHub Pages compatibility.
+- Aligned Streamlit dashboard theme (`egos_dashboard/src/theming.py` and `.streamlit/config.toml`) with the main website's color palette and fonts (`docs/css/base/_variables.css`) for brand consistency.
+```
+
+*(**KOIOS Note:** This uses the `refactor` type as it improves the non-functional attributes of the codebase (organization, consistency). Ensure this commit message is used.)*
+
+**2. New/Updated Rules (.mdc)**
+
+Based on our recent work, I've identified a need to formalize or update standards related to documentation structure and visual consistency:
+
+*   **New Rule:** `documentation_structure.mdc` to standardize how documentation files are organized within the project.
+*   **Update:** Enhance `website_standards.mdc` to explicitly mention applying Golden Ratio principles and maintaining visual consistency across related interfaces (like the dashboard).
+
+I will update `website_standards.mdc` first.
+
+```markdown:docs/project_documentation/WEBSITE_DESIGN.md
+--- # Existing frontmatter... tags: [website, frontend, koios, standards] ---
+
+# EGOS Website Development Standards
+
+## 1. Language & Accessibility
+
+- All content, comments, and code **must be in English** (except localized content placeholders).
+- Follow accessibility best practices (semantic HTML5, ARIA labels, contrast).
+
+## 2. Structure & Modularity
+
+- Use **semantic HTML5** with clear sectioning (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`).
+- Organize CSS modularly by components (`css/components/`), layout (`css/layout/`), base (`css/base/`), etc.
+- Organize JS modularly, with clear event listeners and comments.
+
+## 3. Multilingual Support
+
+- Use `.lang-content` divs for each language.
+- Toggle visibility via JS.
+- Use placeholders for untranslated content.
+
+## 4. Styling & Visual Design
+
+- Follow the design concept in `research/WebSite Enio Grok e Gemini.txt`.
+- Color palette: Deep Blue (`--primary-color`), Warm Orange (`--accent-color`), light backgrounds (`--background-color`), defined in `css/base/_variables.css`.
+- Typography: Inter (body), Playfair Display (headings), defined in `css/base/_variables.css` and `css/base/_typography.css`.
+- Emphasize minimalism: whitespace, clear hierarchy, limited color use.
+- Responsive design: mobile-first approach, using media queries.
+- **Golden Ratio:** Apply principles of the Golden Ratio (approx. 1:1.618) for spacing, layout proportions (widths, heights), and element sizing where appropriate to enhance visual harmony.
+
+## 5. Interactivity
+
+- Implement hamburger menu toggle for mobile.
+- Implement expandable subsystem cards.
+- Add placeholders for future LLM chatbot and contextual help icons.
+- Add comments for future animations, LLM integration, and advanced interactivity.
+
+## 6. Performance
+
+- Add TODO comments for:
+  - Lazy loading images.
+  - Minifying CSS/JS.
+  - Async/defer script loading.
+- Optimize images for web use.
+- Aim for fast load times (e.g., good Lighthouse scores).
+
+## 7. Documentation
+
+- Document website features, design decisions, and changes in `docs/project_documentation/WEBSITE_DESIGN.md`.
+- Update `ROADMAP.md` with all website-related tasks and progress.
+
+## 8. Consistency & Compliance
+
+- Follow KOIOS standards for code quality, documentation, and commit messages.
+- Align with ETHIK principles (privacy, accessibility, clarity).
+- **Visual Consistency:** Ensure related user interfaces (e.g., the Streamlit dashboard) visually align with the main website's color palette, typography, and overall style to maintain a cohesive brand identity.
+```
+Now I'll create the new `documentation_structure.mdc` rule:
+
+```plain text:.cursor/rules/documentation_structure.mdc
+---
+description: Defines the standard structure for organizing documentation within the EGOS project.
+globs: ["docs/**", "README.md", "CONTRIBUTING.md", "LICENSE"]
+alwaysApply: true
+tags: [koios, documentation, structure]
+priority: 2
+version: 1.0.0
+---
+
+# Documentation Structure Standard (KOIOS)
+
+## Rule
+
+All project documentation MUST be organized according to the following structure to ensure clarity, discoverability, and separation of concerns:
+
+1.  **Root Level Documentation:**
+    *   `README.md`: High-level project overview, setup instructions, and entry point.
+    *   `CONTRIBUTING.md`: Guidelines for contributors.
+    *   `LICENSE`: Project license file.
+    *   `CHANGELOG.md`: Manually updated or auto-generated log of changes.
+    *   `ROADMAP.md`: High-level project goals, phases, and task tracking.
+
+2.  **`docs/` Directory:** This directory serves **two primary purposes**: hosting the public-facing website (served by GitHub Pages) and containing internal project documentation.
+    *   **Website Files (Root of `docs/`):**
+        *   `index.html`: Main landing page for the GitHub Pages site.
+        *   `css/`: Directory containing all website CSS files (modularly organized: `base/`, `layout/`, `components/`, `utils/`).
+        *   `js/`: Directory containing website JavaScript files.
+        *   `images/`: Directory containing images used *only* by the website.
+        *   *Other website-specific assets* (e.g., fonts, favicons if not linked externally).
+    *   **Internal Project Documentation (`docs/project_documentation/`):**
+        *   This subdirectory MUST contain all other detailed project documentation not directly part of the website or root-level files.
+        *   **Examples:**
+            *   `MQP.md` (Master Quantum Prompt)
+            *   `STRATEGY.md`
+            *   `ARCHITECTURE.md`
+            *   `PHILOSOPHY.md`
+            *   `WEBSITE_DESIGN.md`
+            *   `subsystem_guides/` (Detailed guides per subsystem)
+            *   `research/`
+            *   `code_analysis/`
+            *   `standards_details/` (If KOIOS standards need more space than rules)
+            *   *Any other internal design docs, reports, analyses, etc.*
+
+3.  **Subsystem Documentation:**
+    *   Each subsystem directory (e.g., `subsystems/ETHIK/`) MAY contain a `docs/` subfolder for documentation specific to that subsystem's *internal* implementation or detailed design, if not covered in the central `docs/project_documentation/`.
+
+## Rationale
+
+*   **Clarity:** Separates public-facing website code/assets from internal project knowledge.
+*   **Discoverability:** Makes it easier to find specific types of documentation.
+*   **GitHub Pages Compatibility:** Keeps website files at the expected root of the `docs/` directory for seamless deployment without extra build steps.
+*   **Maintainability:** Reduces clutter in the main `docs/` directory and groups related internal documents.
+*   **KOIOS Alignment:** Standardizes a critical aspect of project organization.
+
+## Example Structure Snapshot
+
+```
+EGOS/
+├── .github/
+├── .cursor/
+│   └── rules/
+│       └── documentation_structure.mdc
+│       └── ...
+├── docs/
+│   ├── index.html
+│   ├── css/
+│   │   ├── base/
+│   │   └── ...
+│   ├── js/
+│   │   └── script.js
+│   ├── images/
+│   │   └── logo.png
+│   └── project_documentation/
+│       ├── MQP.md
+│       ├── ROADMAP.md
+│       ├── ARCHITECTURE.md
+│       ├── research/
+│       └── ...
+├── egos_dashboard/
+├── subsystems/
+│   ├── ETHIK/
+│   │   ├── core/
+│   │   └── docs/ (Optional: ETHIK-specific internal docs)
+│   └── ...
+├── tests/
+├── .gitignore
+├── LICENSE
+├── README.md
+├── CONTRIBUTING.md
+├── requirements.txt
+└── ...
+```
+
+**Adhere strictly to this structure for all documentation files.**
+
+✧༺❀༻∞ EGOS ∞༺❀༻✧
+```
+**3. Website and Dashboard Status**
+
+*   **Website (`docs/`):**
+    *   **Functionality:** The core website structure is in place (`index.html`, CSS, JS). It displays the mission, vision, principles, subsystems, tech stack, and roadmap sections. The language switcher and expandable subsystem cards are functional. The "Quantum Prompt Generator" is a placeholder UI.
+    *   **Links:**
+        *   Navigation links (`#mission`, `#vision`, etc.) work for scrolling within the page.
+        *   External links (GitHub repository, Roadmap, Issues) work.
+        *   Subsystem links point to the correct GitHub directories.
+        *   Streamlit Dashboard link (`https://egosos.streamlit.app/`) points to the live dashboard.
+    *   **Running Locally:**
+        1.  Simply open the `docs/index.html` file directly in your web browser. Changes to HTML, CSS, or JS will require a browser refresh to be seen.
+        2.  Alternatively, for a more realistic local server experience (e.g., if you were testing server-side includes or specific server behaviours, though not needed currently), you could run a simple HTTP server from the `docs` directory:
+            ```bash
+            # Navigate to the docs directory
+            cd docs
+            # Run Python's built-in HTTP server (Python 3)
+            python -m http.server 8000
+            # Then open http://localhost:8000 in your browser
+            cd .. # Go back to the project root when done
+            ```
+    *   **External Link:** The website is automatically published via GitHub Pages whenever changes are pushed to the `main` branch. The current live version reflecting our recent changes should be available at the standard GitHub Pages URL for your repository (usually `https://<username>.github.io/<repository-name>/` if serving from `docs/` on `main`, but you might have a custom domain configured). **You need to push the recent changes for the live site to update.**
+
+*   **Dashboard (`egos_dashboard/app.py`):**
+    *   **Functionality:** The dashboard (`app.py`) uses Streamlit to display an overview of subsystems, simulated metrics, and allows selecting individual subsystems for details. It includes language switching and dark/light mode toggles. The visual theme now matches the website. It uses a *mock* NATS client (`nats_mock.py`) to simulate live data updates when the "Connect to Live Data" button is clicked.
+    *   **Running Locally:**
+        1.  Ensure you have Python and the necessary requirements installed (activate your virtual environment if you have one):
+            ```bash
+            # Navigate to the project root
+            # cd /path/to/EGOS
+            # Activate venv if applicable: source .venv/Scripts/activate (or similar)
+
+            # Install requirements specifically for the dashboard
+            pip install -r egos_dashboard/requirements.txt
+            ```
+        2.  Navigate to the dashboard directory:
+            ```bash
+            cd egos_dashboard
+            ```
+        3.  Run the Streamlit app:
+            ```bash
+            streamlit run app.py
+            ```
+        4.  Open the local URL provided by Streamlit (usually `http://localhost:8501`) in your browser.
+    *   **Automatic Updates:** The running local Streamlit app *does* automatically watch `app.py` and files in `egos_dashboard/src/` for changes. When you save a modification to these files, Streamlit will usually detect it and show a "Source file changed" notification in the app, allowing you to rerun the app with the changes.
+    *   **External Link:** The link `https://egosos.streamlit.app/` points to a version deployed on Streamlit Community Cloud. **This deployed version will *not* automatically update** when you push changes to GitHub. To update the live dashboard, you would typically need to:
+        1.  Connect your GitHub repository to your Streamlit Community Cloud account.
+        2.  Ensure the app is configured to deploy from the `main` branch and points to `egos_dashboard/app.py`.
+        3.  Pushing changes to `main` *might* trigger an automatic redeploy if configured, otherwise, you may need to manually redeploy through the Streamlit Cloud dashboard.
+
+We have successfully updated the documentation structure and aligned the dashboard theme. The next logical step according to the plan would be **Phase 2: Basic Data Publishing**, where we start making the EGOS subsystems publish basic status/metrics to Mycelium (or prepare the mock client to consume data in the expected *real* format).
+
+✧༺❀༻∞ EGOS ∞༺❀༻✧

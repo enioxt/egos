@@ -1,0 +1,17 @@
+{
+  "log_id": "log_dc0c9020-8046-454c-a5dd-aa81df5d95bd",
+  "timestamp": "2025-06-02 02:11:06.230773",
+  "action_type": "delete_framework",
+  "user_id": "anonymous",
+  "resource_id": "framework_4d4a8423",
+  "request_data": null,
+  "response_data": null,
+  "metadata": null,
+  "endpoint_called": "/ethics/framework/framework_4d4a8423",
+  "request_summary": {
+    "framework_id": "framework_4d4a8423"
+  },
+  "response_summary": {
+    "deleted": true
+  }
+}

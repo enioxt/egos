@@ -1,0 +1,104 @@
+{
+    "source": "Migrated from .cursor/mcp.json on 2025-06-11 by Cascade.",
+    "note": "Original MCP server definitions from old Cursor configuration. Not currently auto-loaded but kept for reference.",
+    "mcp": {
+        "sequential-thinking": {
+            "command": "node",
+            "args": [
+                "C:/Users/Enidi/AppData/Roaming/npm/node_modules/@modelcontextprotocol/server-sequential-thinking/dist/index.js"
+            ],
+            "type": "stdio",
+            "env": {
+                "DEBUG": "*",
+                "NODE_ENV": "development",
+                "MCP_LOG_LEVEL": "debug",
+                "MCP_LOG_FILE": "C:/EGOS/logs/mcp/sequential-thinking.log"
+            },
+            "windowsHide": true
+        },
+        "filesystem": {
+            "command": "node",
+            "args": [
+                "C:/Users/Enidi/AppData/Roaming/npm/node_modules/@modelcontextprotocol/server-filesystem/dist/index.js",
+                "C:/EGOS"
+            ],
+            "type": "stdio",
+            "env": {
+                "DEBUG": "*",
+                "NODE_ENV": "development",
+                "MCP_LOG_LEVEL": "debug",
+                "MCP_LOG_FILE": "C:/EGOS/logs/mcp/filesystem.log",
+                "NODE_DEBUG": "net,stream,module,http",
+                "NO_COLOR": "1",
+                "FORCE_COLOR": "0",
+                "rootPath": "C:/EGOS/"
+            },
+            "windowsHide": true
+        },
+        "perplexity": {
+            "command": "node",
+            "args": [
+                "C:\\Users\\Enidi\\AppData\\Roaming\\npm\\node_modules\\@modelcontextprotocol\\server-perplexity\\dist\\index.js"
+            ],
+            "type": "stdio",
+            "env": {
+                "DEBUG": "mcp:*",
+                "LOG_LEVEL": "debug",
+                "LOG_FORMAT": "json",
+                "LOG_DIR": "C:\\EGOS\\logs",
+                "NODE_ENV": "development",
+                "NODE_DEBUG": "net,stream,module,http",
+                "NO_COLOR": "1",
+                "FORCE_COLOR": "0",
+                "PERPLEXITY_API_KEY": "REDACTED",
+                "PERPLEXITY_MODEL": "sonar-pro",
+                "DB_PATH": "C:\\EGOS\\logs\\perplexity_chats.db"
+            },
+            "windowsHide": true
+        },
+        "openrouter": {
+            "command": "node",
+            "args": [
+                "C:\\Users\\Enidi\\AppData\\Roaming\\npm\\node_modules\\@modelcontextprotocol\\server-openrouter\\dist\\index.js"
+            ],
+            "type": "stdio",
+            "env": {
+                "DEBUG": "*",
+                "LOG_LEVEL": "debug",
+                "LOG_FORMAT": "json",
+                "LOG_DIR": "C:\\EGOS\\logs",
+                "NODE_ENV": "development",
+                "NODE_DEBUG": "net,stream,module,http",
+                "NO_COLOR": "1",
+                "FORCE_COLOR": "0",
+                "OPENROUTER_API_KEY": "REDACTED",
+                "MCP_LOG_FILE": "C:\\EGOS\\logs\\mcp\\openrouter.log",
+                "mcpDescription": "MCP Server for OpenRouter Integration",
+                "path": "C:\\EGOS\\.cursor\\mcp-servers\\openrouter_mcp_server.js",
+                "nodePath": "C:\\Program Files\\nodejs\\node.exe",
+                "API_KEYS_FILE": "C:\\EGOS\\config\\api_keys.json",
+                "SYSTEM_ROOT": "C:\\EGOS"
+            },
+            "windowsHide": true
+        },
+        "task-master-ai": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "--package=task-master-ai",
+                "task-master-ai"
+            ],
+            "env": {
+                "ANTHROPIC_API_KEY": "ANTHROPIC_API_KEY_HERE",
+                "PERPLEXITY_API_KEY": "PERPLEXITY_API_KEY_HERE",
+                "OPENAI_API_KEY": "OPENAI_API_KEY_HERE",
+                "GOOGLE_API_KEY": "GOOGLE_API_KEY_HERE",
+                "XAI_API_KEY": "XAI_API_KEY_HERE",
+                "OPENROUTER_API_KEY": "OPENROUTER_API_KEY_HERE",
+                "MISTRAL_API_KEY": "MISTRAL_API_KEY_HERE",
+                "AZURE_OPENAI_API_KEY": "AZURE_OPENAI_API_KEY_HERE",
+                "OLLAMA_API_KEY": "OLLAMA_API_KEY_HERE"
+            }
+        }
+    }
+}

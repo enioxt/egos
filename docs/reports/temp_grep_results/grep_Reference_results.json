@@ -1,0 +1,535 @@
+# @references:
+#   - .windsurfrules
+#   - CODE_OF_CONDUCT.md
+#   - MQP.md
+#   - README.md
+#   - ROADMAP.md
+#   - CROSSREF_STANDARD.md
+
+[
+  {
+    "File": "C:\\EGOS\\MQP.md",
+    "LineNumber": 22,
+    "LineContent": "**Primary Reference:** This document serves as the CORE guiding prompt for the EGOS project. Detailed subsystem specifications, the live project status, and operational standards are further elaborated in **[`ROADMAP.md`](mdc:../../ROADMAP.md)**, individual subsystem documentation (e.g., `subsystems/<SubSystem>/README.md`), and the specific KOIOS standard documents located primarily in **[`\\\\.cursor\\\\rules\\\\`](mdc:../../.cursor/rules/)**. Strategic context is maintained in **[`docs_egos/STRATEGY.md`](mdc:../STRATEGY.md)**."
+  },
+  {
+    "File": "C:\\EGOS\\WORK_2025_05_21.md",
+    "LineNumber": 157,
+    "LineContent": "            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`)."
+  },
+  {
+    "File": "C:\\EGOS\\apps\\dashboard\\app_dashboard_diagnostic_roadmap.py",
+    "LineNumber": 371,
+    "LineContent": "            self.logger.error(f\"Error updating roadmap with issue reference: {e}\")"
+  },
+  {
+    "File": "C:\\EGOS\\docs\\core_materials\\MQP.md",
+    "LineNumber": 22,
+    "LineContent": "**Primary Reference:** This document serves as the CORE guiding prompt for the EGOS project. Detailed subsystem specifications, the live project status, and operational standards are further elaborated in **[`ROADMAP.md`](mdc:../../ROADMAP.md)**, individual subsystem documentation (e.g., `subsystems/<SubSystem>/README.md`), and the specific KOIOS standard documents located primarily in **[`\\\\.cursor\\\\rules\\\\`](mdc:../../.cursor/rules/)**. Strategic context is maintained in **[`docs_egos/STRATEGY.md`](mdc:../STRATEGY.md)**."
+  },
+  {
+    "File": "C:\\EGOS\\docs\\core_materials\\archive\\ROADMAPS\\active\\20250330_task_dynamic_roadmap_implementation.md",
+    "LineNumber": 6,
+    "LineContent": "Reference: QUANTUM_PROMPTS/MASTER/quantum_roadmap.md"
+  },
+  {
+    "File": "C:\\EGOS\\docs\\core_materials\\archive\\ROADMAPS\\templates\\task_roadmap_template.md",
+    "LineNumber": 6,
+    "LineContent": "Reference: {MAIN_REFERENCE}"
+  },
+  {
+    "File": "C:\\EGOS\\docs\\core_materials\\historical_changelogs\\ava7.0 novv.txt",
+    "LineNumber": 164,
+    "LineContent": "    user_preference: Dict[str, Any] = field(default_factory=dict)"
+  },
+  {
+    "File": "C:\\EGOS\\docs\\core_materials\\process\\review_actions_summary_20240726.md",
+    "LineNumber": 5,
+    "LineContent": "**Reference:** See the full findings and detailed action plan in `docs_egos/project_documentation/process/project_review_summary_20240726.md`."
+  },
+  {
+    "File": "C:\\EGOS\\docs\\core_materials\\prompts\\pdd_website_generation_v3.md",
+    "LineNumber": 54,
+    "LineContent": "* **Design Concept Reference:** Based on the report \"Website Design Concept for the EGOS Project Integrated with LLMs\" (The LLM should assume implicit access to the details of this concept, including 2025 trends, examples, tables, etc.)."
+  },
+  {
+    "File": "C:\\EGOS\\docs\\governance\\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt",
+    "LineNumber": 21,
+    "LineContent": "*   **Core Principles:** Universal Redemption, Unconditional Love, Sacred Privacy, Integrated Ethics, Conscious Modularity, Systemic Cartography, Evolutionary Preservation, Context Continuity, Harmonious Integration, Standardization & Knowledge. (Reference: `docs_egos/MQP.md`, `README.md`)"
+  },
+  {
+    "File": "C:\\EGOS\\docs\\project\\MQP.md",
+    "LineNumber": 24,
+    "LineContent": "**Primary Reference:** This document serves as the CORE guiding prompt for the EGOS project. Detailed subsystem specifications, the live project status, and operational standards are further elaborated in **[ROADMAP](../../ROADMAP.md)**, individual subsystem documentation (e.g., `subsystems/<SubSystem>/README.md`), and the specific KOIOS standard documents located primarily in **[rules](../governance/business/github_updates/subsystems/ethik/egos/ethik/rules)**. Strategic context is maintained in **[STRATEGY](../markdown/governance/STRATEGY.md)**."
+  },
+  {
+    "File": "C:\\EGOS\\docs\\prompts\\pdd_website_generation_v3.md",
+    "LineNumber": 112,
+    "LineContent": "* **Design Concept Reference:** Based on the report \"Website Design Concept for the EGOS Project Integrated with LLMs\" (The LLM should assume implicit access to the details of this concept, including 2025 trends, examples, tables, etc.)."
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\cross_reference_inventory_20250521.md",
+    "LineNumber": 73,
+    "LineContent": "              *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, ..."
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_Doc_results.json",
+    "LineNumber": 10,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_LinkTo_results.json",
+    "LineNumber": 5,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_Reference_results.json",
+    "LineNumber": 5,
+    "LineContent": "    \"LineContent\": \"**Primary Reference:** This document serves as the CORE guiding prompt for the EGOS project. Detailed subsystem specifications, the live project status, and operational standards are further elaborated in **[`ROADMAP.md`](mdc:../../ROADMAP.md)**, individual subsystem documentation (e.g., `subsystems/<SubSystem>/README.md`), and the specific KOIOS standard documents located primarily in **[`\\\\\\\\.cursor\\\\\\\\rules\\\\\\\\`](mdc:../../.cursor/rules/)**. Strategic context is maintained in **[`docs_egos/STRATEGY.md`](mdc:../STRATEGY.md)**.\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_Ref_results.json",
+    "LineNumber": 20,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_Related_results.json",
+    "LineNumber": 5,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_RelativePathParent_results.json",
+    "LineNumber": 915,
+    "LineContent": "    \"LineContent\": \"**Primary Reference:** This document serves as the CORE guiding prompt for the EGOS project. Detailed subsystem specifications, the live project status, and operational standards are further elaborated in **[ROADMAP](../../ROADMAP.md)**, individual subsystem documentation (e.g., `subsystems/<SubSystem>/README.md`), and the specific KOIOS standard documents located primarily in **[rules](../governance/business/github_updates/subsystems/ethik/egos/ethik/rules)**. Strategic context is maintained in **[STRATEGY](../markdown/governance/STRATEGY.md)**.\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_RelativePathSelf_results.json",
+    "LineNumber": 990,
+    "LineContent": "    \"LineContent\": \"**Primary Reference:** This document serves as the CORE guiding prompt for the EGOS project. Detailed subsystem specifications, the live project status, and operational standards are further elaborated in **[ROADMAP](../../ROADMAP.md)**, individual subsystem documentation (e.g., `subsystems/<SubSystem>/README.md`), and the specific KOIOS standard documents located primarily in **[rules](../governance/business/github_updates/subsystems/ethik/egos/ethik/rules)**. Strategic context is maintained in **[STRATEGY](../markdown/governance/STRATEGY.md)**.\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_SeeAlso_results.json",
+    "LineNumber": 5,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_Source_results.json",
+    "LineNumber": 10,
+    "LineContent": "    \"LineContent\": \"            *   Common referencing keywords (e.g., `Ref:`, `Reference:`, `Source:`, `See also:`, `Related:`, `Doc:`, `Link to:`).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\research\\OK no roadmap\\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt",
+    "LineNumber": 14,
+    "LineContent": "*   **Core Principles:** Universal Redemption, Unconditional Love, Sacred Privacy, Integrated Ethics, Conscious Modularity, Systemic Cartography, Evolutionary Preservation, Context Continuity, Harmonious Integration, Standardization & Knowledge. (Reference: `docs_egos/MQP.md`, `README.md`)"
+  },
+  {
+    "File": "C:\\EGOS\\docs\\STRATEGIC_THINKING\\research\\roadmap_related\\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt",
+    "LineNumber": 14,
+    "LineContent": "*   **Core Principles:** Universal Redemption, Unconditional Love, Sacred Privacy, Integrated Ethics, Conscious Modularity, Systemic Cartography, Evolutionary Preservation, Context Continuity, Harmonious Integration, Standardization & Knowledge. (Reference: `docs_egos/MQP.md`, `README.md`)"
+  },
+  {
+    "File": "C:\\EGOS\\docs\\templates\\reference_templates\\windsurf_ai_agent_configuration.md",
+    "LineNumber": 122,
+    "LineContent": "Core project documents to reference:"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\01_core_concepts\\strategic_thinking\\research\\roadmap_related\\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt",
+    "LineNumber": 14,
+    "LineContent": "*   **Core Principles:** Universal Redemption, Unconditional Love, Sacred Privacy, Integrated Ethics, Conscious Modularity, Systemic Cartography, Evolutionary Preservation, Context Continuity, Harmonious Integration, Standardization & Knowledge. (Reference: `docs_egos/MQP.md`, `README.md`)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\01_core_principles\\core_materials\\archive\\ROADMAPS\\active\\20250330_task_dynamic_roadmap_implementation.md",
+    "LineNumber": 6,
+    "LineContent": "Reference: QUANTUM_PROMPTS/MASTER/quantum_roadmap.md"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\01_core_principles\\core_materials\\archive\\ROADMAPS\\templates\\task_roadmap_template.md",
+    "LineNumber": 6,
+    "LineContent": "Reference: {MAIN_REFERENCE}"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\01_core_principles\\core_materials\\historical_changelogs\\ava7.0 novv.txt",
+    "LineNumber": 164,
+    "LineContent": "    user_preference: Dict[str, Any] = field(default_factory=dict)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\01_core_principles\\core_materials\\process\\review_actions_summary_20240726.md",
+    "LineNumber": 5,
+    "LineContent": "**Reference:** See the full findings and detailed action plan in `docs_egos/project_documentation/process/project_review_summary_20240726.md`."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\01_core_principles\\core_materials\\prompts\\pdd_website_generation_v3.md",
+    "LineNumber": 54,
+    "LineContent": "* **Design Concept Reference:** Based on the report \"Website Design Concept for the EGOS Project Integrated with LLMs\" (The LLM should assume implicit access to the details of this concept, including 2025 trends, examples, tables, etc.)."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\01_core_principles\\governance_documents\\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt",
+    "LineNumber": 21,
+    "LineContent": "*   **Core Principles:** Universal Redemption, Unconditional Love, Sacred Privacy, Integrated Ethics, Conscious Modularity, Systemic Cartography, Evolutionary Preservation, Context Continuity, Harmonious Integration, Standardization & Knowledge. (Reference: `docs_egos/MQP.md`, `README.md`)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\02_koios_standards\\consolidated_project_rules.md",
+    "LineNumber": 61,
+    "LineContent": "**Primary Reference:** Full MQP v9.0 specifications, project status, subsystem details, and operational standards are detailed in **`ROADMAP.md`** and the complete **Master Quantum Prompt file (`docs_egos/MQP.md`)**. Additional strategic context is in `docs_egos/STRATEGY.md`. Consult these primary sources for comprehensive guidance."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\03_subsystems\\CORUJA\\README.md",
+    "LineNumber": 46,
+    "LineContent": "Cross-reference: See ROADMAP.md sections \"Dynamic Roadmap Sync & Mycelium Interconnection\" and \"Technical Implementation Plan: Dynamic Roadmap Sync (Phase 1)\"."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\03_subsystems\\CORUJA\\core\\basic_orchestrator.py",
+    "LineNumber": 152,
+    "LineContent": "            if handler_type == \"specialized_crew\" and handler_reference:"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\03_subsystems\\CORUJA\\prompts\\pdds\\pdd_website_generation_v3.md",
+    "LineNumber": 53,
+    "LineContent": "* **Design Concept Reference:** Based on the report \"Website Design Concept for the EGOS Project Integrated with LLMs\" (The LLM should assume implicit access to the details of this concept, including 2025 trends, examples, tables, etc.)."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\03_subsystems\\CRONOS\\README.md",
+    "LineNumber": 14,
+    "LineContent": "Cross-reference: See ROADMAP.md sections \"Dynamic Roadmap Sync & Mycelium Interconnection\" and \"Technical Implementation Plan: Dynamic Roadmap Sync (Phase 1)\"."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\03_subsystems\\ETHIK\\README.md",
+    "LineNumber": 17,
+    "LineContent": "Cross-reference: See ROADMAP.md sections \"Dynamic Roadmap Sync & Mycelium Interconnection\" and \"Technical Implementation Plan: Dynamic Roadmap Sync (Phase 1)\"."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\03_subsystems\\HARMONY\\README.md",
+    "LineNumber": 10,
+    "LineContent": "Cross-reference: See ROADMAP.md sections \"Dynamic Roadmap Sync & Mycelium Interconnection\" and \"Technical Implementation Plan: Dynamic Roadmap Sync (Phase 1)\"."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\03_subsystems\\KOIOS\\README.md",
+    "LineNumber": 37,
+    "LineContent": "Cross-reference: See ROADMAP.md sections \"Dynamic Roadmap Sync & Mycelium Interconnection\" and \"Technical Implementation Plan: Dynamic Roadmap Sync (Phase 1)\"."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\03_subsystems\\KOIOS\\docs\\MDC_RULES_STANDARD.md",
+    "LineNumber": 97,
+    "LineContent": "6. **Cross-Reference:** Reference relevant KOIOS standards documents when applicable"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\03_subsystems\\MYCELIUM\\README.md",
+    "LineNumber": 14,
+    "LineContent": "Cross-reference: See ROADMAP.md sections \"Dynamic Roadmap Sync & Mycelium Interconnection\" and \"Technical Implementation Plan: Dynamic Roadmap Sync (Phase 1)\"."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\03_subsystems\\NEXUS\\README.md",
+    "LineNumber": 17,
+    "LineContent": "Cross-reference: See ROADMAP.md sections \"Dynamic Roadmap Sync & Mycelium Interconnection\" and \"Technical Implementation Plan: Dynamic Roadmap Sync (Phase 1)\"."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\03_subsystems\\SYNC\\README.md",
+    "LineNumber": 10,
+    "LineContent": "Cross-reference: See ROADMAP.md sections \"Dynamic Roadmap Sync & Mycelium Interconnection\" and \"Technical Implementation Plan: Dynamic Roadmap Sync (Phase 1)\"."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\04_modules_and_components\\CORUJA\\prompts\\pdd_website_generation_v3.md",
+    "LineNumber": 112,
+    "LineContent": "* **Design Concept Reference:** Based on the report \"Website Design Concept for the EGOS Project Integrated with LLMs\" (The LLM should assume implicit access to the details of this concept, including 2025 trends, examples, tables, etc.)."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\04_modules_and_components\\CORUJA\\prompts_legacy\\pdd_website_generation_v3.md",
+    "LineNumber": 112,
+    "LineContent": "* **Design Concept Reference:** Based on the report \"Website Design Concept for the EGOS Project Integrated with LLMs\" (The LLM should assume implicit access to the details of this concept, including 2025 trends, examples, tables, etc.)."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\07_standards_and_guidelines\\research_archive\\OK no roadmap\\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt",
+    "LineNumber": 14,
+    "LineContent": "*   **Core Principles:** Universal Redemption, Unconditional Love, Sacred Privacy, Integrated Ethics, Conscious Modularity, Systemic Cartography, Evolutionary Preservation, Context Continuity, Harmonious Integration, Standardization & Knowledge. (Reference: `docs_egos/MQP.md`, `README.md`)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\project_documentation\\MQP.md",
+    "LineNumber": 24,
+    "LineContent": "**Primary Reference:** This document serves as the CORE guiding prompt for the EGOS project. Detailed subsystem specifications, the live project status, and operational standards are further elaborated in **[ROADMAP](../../ROADMAP.md)**, individual subsystem documentation (e.g., `subsystems/<SubSystem>/README.md`), and the specific KOIOS standard documents located primarily in **[rules](../governance/business/github_updates/subsystems/ethik/egos/ethik/rules)**. Strategic context is maintained in **[STRATEGY](../markdown/governance/STRATEGY.md)**."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\recovery_analysis\\phase1_implementation_plan.md",
+    "LineNumber": 5,
+    "LineContent": "**Reference:** Work_2025-05-20_Project_Reorganization_Plan.md  "
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\reports\\cross_reference_analysis_20250422_232525.md",
+    "LineNumber": 75,
+    "LineContent": "- Files without MQP reference: 32"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\reports\\cross_reference_analysis_20250422_234633.md",
+    "LineNumber": 75,
+    "LineContent": "- Files without MQP reference: 12"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\reports\\cross_reference_analysis_20250423_073912.md",
+    "LineNumber": 75,
+    "LineContent": "- Files without MQP reference: 14"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\reports\\cross_reference_analysis_20250423_073958.md",
+    "LineNumber": 75,
+    "LineContent": "- Files without MQP reference: 14"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\reports\\cross_reference_analysis_20250423_080517.md",
+    "LineNumber": 75,
+    "LineContent": "- Files without MQP reference: 16"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\reports\\cross_reference_analysis_20250423_081831.md",
+    "LineNumber": 75,
+    "LineContent": "- Files without MQP reference: 16"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\reports\\cross_reference_analysis_20250423_081845.md",
+    "LineNumber": 75,
+    "LineContent": "- Files without MQP reference: 16"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\reports\\html_comment_report_20250425_092241.json",
+    "LineNumber": 1570,
+    "LineContent": "      \"diff\": \"--- a/generate_subsystem_reference.py\\n+++ b/generate_subsystem_reference.py\\n@@ -1,10 +1,10 @@\\n-<!-- \\n+\\\"\\\"\\\"\\n @references:\\n - Core References:\\n-  - [MQP.md](mdc:../../MQP.md) - Master Quantum Prompt defining EGOS principles\\n-  - [ROADMAP.md](mdc:../../ROADMAP.md) - Project roadmap and planning\\n+- [MQP.md](mdc:../../MQP.md) - Master Quantum Prompt defining EGOS principles\\n+- [ROADMAP.md](mdc:../../ROADMAP.md) - Project roadmap and planning\\n - Process Documentation:\\n-  - [system_maintenance.md](mdc:../../docs_egos/process/system_maintenance.md)\\n+- [system_maintenance.md](mdc:../../docs_egos/process/system_maintenance.md)\\n \\n \\n \\n@@ -33,720 +33,720 @@\\n \\n # Import Rich components for progress bars\\n from rich.progress import (\\n-    Progress,\\n-    SpinnerColumn,\\n-    TextColumn,\\n-    BarColumn,\\n-    TimeRemainingColumn,\\n-    TaskID,\\n+Progress,\\n+SpinnerColumn,\\n+TextColumn,\\n+BarColumn,\\n+TimeRemainingColumn,\\n+TaskID,\\n )\\n \\n # Setup logging\\n logging.basicConfig(\\n-    level=logging.INFO,\\n-    format=\\\"%(asctime)s | %(levelname)s | %(message)s\\\",\\n-    datefmt=\\\"%H:%M:%S\\\",\\n+level=logging.INFO,\\n+format=\\\"%(asctime)s | %(levelname)s | %(message)s\\\",\\n+datefmt=\\\"%H:%M:%S\\\",\\n )\\n logger = logging.getLogger(__name__)\\n \\n \\n class SubsystemAnalyzer:\\n-    \\\"\\\"\\\"Analyzes EGOS subsystem code to extract relevant information for documentation.\\n-    \\n-    Attributes:\\n-        subsystem_name: Name of the subsystem being analyzed\\n-        subsystem_path: Path to the subsystem directory\\n-        components: Dictionary of discovered components\\n-        principles: List of principles associated with the subsystem\\n-        integration_patterns: Dictionary of identified integration patterns\\n-    \\\"\\\"\\\"\\n-    \\n-    def __init__(self, subsystem_name: str, base_path: str = None):\\n-        \\\"\\\"\\\"Initialize the SubsystemAnalyzer.\\n-        \\n-        Args:\\n-            subsystem_name: Name of the subsystem to analyze\\n-            base_path: Base path to the EGOS project\\n-        \\\"\\\"\\\"\\n-        self.subsystem_name = subsystem_name\\n-        \\n-        if base_path is None:\\n-            # Try to detect base path\\n-            current_path = Path(os.getcwd())\\n-            while current_path.name and current_path.name != \\\"EGOS\\\":\\n-                current_path = current_path.parent\\n-            \\n-            if current_path.name == \\\"EGOS\\\":\\n-                base_path = str(current_path)\\n-            else:\\n-                base_path = \\\".\\\"\\n-        \\n-        self.base_path = base_path\\n-        self.subsystem_path = os.path.join(\\n-            base_path, \\\"subsystems\\\", subsystem_name\\n-        )\\n-        \\n-        # Initialize collections\\n-        self.components = {}\\n-        self.principles = []\\n-        self.integration_patterns = {}\\n-        self.config = {}\\n-        \\n-        # Verify subsystem exists\\n-        if not os.path.isdir(self.subsystem_path):\\n-            raise ValueError(f\\\"Subsystem directory not found: {self.subsystem_path}\\\")\\n-    \\n-    def analyze(self) -> Dict[str, Any]:\\n-        \\\"\\\"\\\"Analyze the subsystem and return the collected information.\\n-        \\n-        Returns:\\n-            Dictionary containing subsystem information\\n-        \\\"\\\"\\\"\\n-        logger.info(f\\\"Analyzing subsystem: {self.subsystem_name}\\\")\\n-        \\n-        self._extract_components()\\n-        self._extract_principles()\\n-        self._extract_integration_patterns()\\n-        self._extract_configuration()\\n-        \\n-        result = {\\n-            \\\"subsystem_name\\\": self.subsystem_name,\\n-            \\\"components\\\": self.components,\\n-            \\\"principles\\\": self.principles,\\n-            \\\"integration_patterns\\\": self.integration_patterns,\\n-            \\\"configuration\\\": self.config,\\n-        }\\n-        \\n-        logger.info(f\\\"Analysis complete: found {len(self.components)} components\\\")\\n-        return result\\n-    \\n-    def _extract_components(self):\\n-        \\\"\\\"\\\"Extract information about subsystem components.\\\"\\\"\\\"\\n-        logger.info(\\\"Extracting component information...\\\")\\n-        \\n-        # Core subdirectory is the primary focus\\n-        core_path = os.path.join(self.subsystem_path, \\\"core\\\")\\n-        if not os.path.isdir(core_path):\\n-            logger.warning(f\\\"No core directory found for {self.subsystem_name}\\\")\\n-            return\\n-        \\n-        # Count files first for progress bar\\n-        total_files = sum(len(files) for _, _, files in os.walk(core_path) if any(f.endswith('.py') and not f.startswith('__') for f in files))\\n-        \\n-        if console:\\n-            with Progress(\\n-                SpinnerColumn(),\\n-                TextColumn(\\\"[progress.description]{task.description}\\\"),\\n-                BarColumn(),\\n-                TextColumn(\\\"[progress.percentage]{task.percentage:>3.0f}%\\\"),\\n-                TextColumn(\\\"({task.completed}/{task.total})\\\"),\\n-                TimeRemainingColumn(),\\n-                console=console,\\n-                transient=False, \\n-            ) as progress:\\n-                component_task = progress.add_task(f\\\"Analyzing {self.subsystem_name} components...\\\", total=total_files)\\n-                \\n-                for root, _, files in os.walk(core_path):\\n-                    for file in files:\\n-                        if file.endswith(\\\".py\\\") and not file.startswith(\\\"__\\\"):\\n-                            file_path = os.path.join(root, file)\\n-                            rel_path = os.path.relpath(file_path, self.base_path)\\n-                            \\n-                            try:\\n-                                with open(file_path, \\\"r\\\", encoding=\\\"utf-8\\\") as f:\\n-                                    content = f.read()\\n-                                \\n-                                # Parse the file\\n-                                tree = ast.parse(content)\\n-                                \\n-                                # Extract docstring\\n-                                module_docstring = ast.get_docstring(tree)\\n-                                \\n-                                # Extract classes and functions\\n-                                classes = {}\\n-                                functions = {}\\n-                                \\n-                                for node in tree.body:\\n-                                    if isinstance(node, ast.ClassDef):\\n-                                        class_docstring = ast.get_docstring(node)\\n-                                        methods = {}\\n-                                        \\n-                                        for child in node.body:\\n-                                            if isinstance(child, ast.FunctionDef):\\n-                                                method_docstring = ast.get_docstring(child)\\n-                                                methods[child.name] = {\\n-                                                    \\\"docstring\\\": method_docstring,\\n-                                                    \\\"params\\\": [a.arg for a in child.args.args if a.arg != \\\"self\\\"],\\n-                                                }\\n-                                        \\n-                                        classes[node.name] = {\\n-                                            \\\"docstring\\\": class_docstring,\\n-                                            \\\"methods\\\": methods,\\n-                                        }\\n-                                    \\n-                                    elif isinstance(node, ast.FunctionDef):\\n-                                        func_docstring = ast.get_docstring(node)\\n-                                        functions[node.name] = {\\n-                                            \\\"docstring\\\": func_docstring,\\n-                                            \\\"params\\\": [a.arg for a in node.args.args],\\n-                                        }\\n-                                \\n-                                # Add component information\\n-                                component_name = os.path.splitext(file)[0]\\n-                                self.components[component_name] = {\\n-                                    \\\"path\\\": rel_path,\\n-                                    \\\"docstring\\\": module_docstring,\\n-                                    \\\"classes\\\": classes,\\n-                                    \\\"functions\\\": functions,\\n-                                }\\n-                            \\n-                            except Exception as e:\\n-                                logger.error(f\\\"Error analyzing {file_path}: {str(e)}\\\")\\n-                            finally:\\n-                                # Always advance progress\\n-                                progress.update(component_task, advance=1)\\n-                        # Also advance if file is skipped (not .py or starts with __)\\n-                        # else: \\n-                        # progress.update(component_task, advance=1) # Causes double counting if total_files is accurate\\n-        else:\\n-            # Fallback logging\\n-            logger.info(f\\\"Analyzing {self.subsystem_name} components (basic logging)...\\\")\\n-            for root, _, files in os.walk(core_path):\\n-                for file in files:\\n-                    if file.endswith(\\\".py\\\") and not file.startswith(\\\"__\\\"):\\n-                        file_path = os.path.join(root, file)\\n-                        rel_path = os.path.relpath(file_path, self.base_path)\\n-                        logger.debug(f\\\"Processing: {rel_path}\\\")\\n-                        try:\\n-                            with open(file_path, \\\"r\\\", encoding=\\\"utf-8\\\") as f:\\n-                                content = f.read()\\n-                            # Parse the file\\n-                            tree = ast.parse(content)\\n-                            # Extract docstring\\n-                            module_docstring = ast.get_docstring(tree)\\n-                            # Extract classes and functions\\n-                            classes = {}\\n-                            functions = {}\\n-                            for node in tree.body:\\n-                                if isinstance(node, ast.ClassDef):\\n-                                    class_docstring = ast.get_docstring(node)\\n-                                    methods = {}\\n-                                    for child in node.body:\\n-                                        if isinstance(child, ast.FunctionDef):\\n-                                            method_docstring = ast.get_docstring(child)\\n-                                            methods[child.name] = {\\n-                                                \\\"docstring\\\": method_docstring,\\n-                                                \\\"params\\\": [a.arg for a in child.args.args if a.arg != \\\"self\\\"],\\n-                                            }\\n-                                    classes[node.name] = {\\\"docstring\\\": class_docstring, \\\"methods\\\": methods}\\n-                                elif isinstance(node, ast.FunctionDef):\\n-                                    func_docstring = ast.get_docstring(node)\\n-                                    functions[node.name] = {\\\"docstring\\\": func_docstring, \\\"params\\\": [a.arg for a in node.args.args]}\\n-                            # Add component information\\n-                            component_name = os.path.splitext(file)[0]\\n-                            self.components[component_name] = {\\\"path\\\": rel_path, \\\"docstring\\\": module_docstring, \\\"classes\\\": classes, \\\"functions\\\": functions}\\n-                        except Exception as e:\\n-                            logger.error(f\\\"Error analyzing {file_path}: {str(e)}\\\")\\n-\\n-    def _extract_principles(self):\\n-        \\\"\\\"\\\"Extract principles associated with the subsystem.\\\"\\\"\\\"\\n-        logger.info(\\\"Extracting principle information...\\\")\\n-        \\n-        # Look for principle-related files\\n-        principle_paths = [\\n-            os.path.join(self.subsystem_path, \\\"principles.json\\\"),\\n-            os.path.join(self.subsystem_path, \\\"config\\\", \\\"principles.json\\\"),\\n-        ]\\n-        \\n-        for path in principle_paths:\\n-            if os.path.exists(path):\\n-                try:\\n-                    with open(path, \\\"r\\\", encoding=\\\"utf-8\\\") as f:\\n-                        principles_data = json.load(f)\\n-                    \\n-                    if isinstance(principles_data, dict) and \\\"principles\\\" in principles_data:\\n-                        self.principles = principles_data[\\\"principles\\\"]\\n-                    elif isinstance(principles_data, list):\\n-                        self.principles = principles_data\\n-                    \\n-                    logger.info(f\\\"Found {len(self.principles)} principles\\\")\\n-                    break\\n-                except Exception as e:\\n-                    logger.error(f\\\"Error reading principles from {path}: {str(e)}\\\")\\n-        \\n-        # If no principles file found, try to extract from code comments\\n-        if not self.principles:\\n-            principle_pattern = r\\\"(?:principle|PRINCIPLE)s?:?\\\\s*([\\\\w\\\\s,]+)\\\"\\n-            for component_info in self.components.values():\\n-                if component_info[\\\"docstring\\\"]:\\n-                    # Extract first paragraph from docstring\\n-                    docstring_parts = component_info[\\\"docstring\\\"].split(\\\"\\\\n\\\\n\\\")\\n-                    if docstring_parts:\\n-                        first_para = docstring_parts[0].strip()\\n-                        if self.subsystem_name in first_para:\\n-                            description = first_para\\n-                            break\\n-            \\n-            # Extract principles from description\\n-            matches = re.findall(principle_pattern, description)\\n-            if matches:\\n-                principles_text = matches[0]\\n-                extracted_principles = [\\n-                    p.strip() for p in principles_text.split(\\\",\\\")\\n-                ]\\n-                self.principles.extend(extracted_principles)\\n-            \\n-            # Remove duplicates\\n-            self.principles = list(set(self.principles))\\n-    \\n-    def _extract_integration_patterns(self):\\n-        \\\"\\\"\\\"Extract integration patterns used by the subsystem.\\\"\\\"\\\"\\n-        logger.info(\\\"Extracting integration patterns...\\\")\\n-        \\n-        # Common patterns to look for\\n-        patterns = {\\n-            \\\"mycelium\\\": {\\n-                \\\"marker\\\": \\\"@mycelium_client.subscribe\\\",\\n-                \\\"found\\\": False,\\n-                \\\"examples\\\": [],\\n-            },\\n-            \\\"direct_api\\\": {\\n-                \\\"marker\\\": \\\"from subsystems.{}.api import\\\".format(self.subsystem_name),\\n-                \\\"found\\\": False,\\n-                \\\"examples\\\": [],\\n-            },\\n-            \\\"event_driven\\\": {\\n-                \\\"marker\\\": \\\"publish(Topic\\\",\\n-                \\\"found\\\": False,\\n-                \\\"examples\\\": [],\\n-            },\\n-        }\\n-        \\n-        # Search for patterns in code\\n-        for component_name, component_info in self.components.items():\\n-            path = os.path.join(self.base_path, component_info[\\\"path\\\"])\\n-            try:\\n-                with open(path, \\\"r\\\", encoding=\\\"utf-8\\\") as f:\\n-                    content = f.read()\\n-                \\n-                for pattern_name, pattern_info in patterns.items():\\n-                    if pattern_info[\\\"marker\\\"] in content:\\n-                        patterns[pattern_name][\\\"found\\\"] = True\\n-                        \\n-                        # Extract example snippets\\n-                        if pattern_name == \\\"mycelium\\\":\\n-                            matches = re.findall(\\n-                                r\\\"@mycelium_client\\\\.subscribe\\\\(Topic\\\\([\\\\\\\"']([^\\\\\\\"']+)[\\\\\\\"']\\\\)\\\\)\\\"\\n-                                r\\\"\\\\s+async def ([^\\\\(]+)\\\",\\n-                                content\\n-                            )\\n-                            if matches:\\n-                                for topic, func_name in matches:\\n-                                    patterns[pattern_name][\\\"examples\\\"].append({\\n-                                        \\\"topic\\\": topic,\\n-                                        \\\"handler\\\": func_name,\\n-                                        \\\"component\\\": component_name,\\n-                                    })\\n-            \\n-            except Exception as e:\\n-                logger.error(f\\\"Error analyzing {path} for patterns: {str(e)}\\\")\\n-        \\n-        # Filter to found patterns only\\n-        self.integration_patterns = {\\n-            name: info for name, info in patterns.items() if info[\\\"found\\\"]\\n-        }\\n-    \\n-    def _extract_configuration(self):\\n-        \\\"\\\"\\\"Extract configuration information for the subsystem.\\\"\\\"\\\"\\n-        logger.info(\\\"Extracting configuration information...\\\")\\n-        \\n-        # Look for configuration files\\n-        config_paths = [\\n-            os.path.join(self.subsystem_path, \\\"config.json\\\"),\\n-            os.path.join(self.subsystem_path, \\\"config\\\", f\\\"{self.subsystem_name.lower()}_config.json\\\"),\\n-            os.path.join(self.base_path, \\\"config\\\", f\\\"{self.subsystem_name.lower()}_config.json\\\"),\\n-        ]\\n-        \\n-        for path in config_paths:\\n-            if os.path.exists(path):\\n-                try:\\n-                    with open(path, \\\"r\\\", encoding=\\\"utf-8\\\") as f:\\n-                        self.config = json.load(f)\\n-                    \\n-                    logger.info(f\\\"Found configuration at {path}\\\")\\n-                    break\\n-                except Exception as e:\\n-                    logger.error(f\\\"Error reading configuration from {path}: {str(e)}\\\")\\n+\\\"\\\"\\\"Analyzes EGOS subsystem code to extract relevant information for documentation.\\n+\\n+Attributes:\\n+subsystem_name: Name of the subsystem being analyzed\\n+subsystem_path: Path to the subsystem directory\\n+components: Dictionary of discovered components\\n+principles: List of principles associated with the subsystem\\n+integration_patterns: Dictionary of identified integration patterns\\n+\\\"\\\"\\\"\\n+\\n+def __init__(self, subsystem_name: str, base_path: str = None):\\n+\\\"\\\"\\\"Initialize the SubsystemAnalyzer.\\n+\\n+Args:\\n+subsystem_name: Name of the subsystem to analyze\\n+base_path: Base path to the EGOS project\\n+\\\"\\\"\\\"\\n+self.subsystem_name = subsystem_name\\n+\\n+if base_path is None:\\n+# Try to detect base path\\n+current_path = Path(os.getcwd())\\n+while current_path.name and current_path.name != \\\"EGOS\\\":\\n+current_path = current_path.parent\\n+\\n+if current_path.name == \\\"EGOS\\\":\\n+base_path = str(current_path)\\n+else:\\n+base_path = \\\".\\\"\\n+\\n+self.base_path = base_path\\n+self.subsystem_path = os.path.join(\\n+base_path, \\\"subsystems\\\", subsystem_name\\n+)\\n+\\n+# Initialize collections\\n+self.components = {}\\n+self.principles = []\\n+self.integration_patterns = {}\\n+self.config = {}\\n+\\n+# Verify subsystem exists\\n+if not os.path.isdir(self.subsystem_path):\\n+raise ValueError(f\\\"Subsystem directory not found: {self.subsystem_path}\\\")\\n+\\n+def analyze(self) -> Dict[str, Any]:\\n+\\\"\\\"\\\"Analyze the subsystem and return the collected information.\\n+\\n+Returns:\\n+Dictionary containing subsystem information\\n+\\\"\\\"\\\"\\n+logger.info(f\\\"Analyzing subsystem: {self.subsystem_name}\\\")\\n+\\n+self._extract_components()\\n+self._extract_principles()\\n+self._extract_integration_patterns()\\n+self._extract_configuration()\\n+\\n+result = {\\n+\\\"subsystem_name\\\": self.subsystem_name,\\n+\\\"components\\\": self.components,\\n+\\\"principles\\\": self.principles,\\n+\\\"integration_patterns\\\": self.integration_patterns,\\n+\\\"configuration\\\": self.config,\\n+}\\n+\\n+logger.info(f\\\"Analysis complete: found {len(self.components)} components\\\")\\n+return result\\n+\\n+def _extract_components(self):\\n+\\\"\\\"\\\"Extract information about subsystem components.\\\"\\\"\\\"\\n+logger.info(\\\"Extracting component information...\\\")\\n+\\n+# Core subdirectory is the primary focus\\n+core_path = os.path.join(self.subsystem_path, \\\"core\\\")\\n+if not os.path.isdir(core_path):\\n+logger.warning(f\\\"No core directory found for {self.subsystem_name}\\\")\\n+return\\n+\\n+# Count files first for progress bar\\n+total_files = sum(len(files) for _, _, files in os.walk(core_path) if any(f.endswith('.py') and not f.startswith('__') for f in files))\\n+\\n+if console:\\n+with Progress(\\n+SpinnerColumn(),\\n+TextColumn(\\\"[progress.description]{task.description}\\\"),\\n+BarColumn(),\\n+TextColumn(\\\"[progress.percentage]{task.percentage:>3.0f}%\\\"),\\n+TextColumn(\\\"({task.completed}/{task.total})\\\"),\\n+TimeRemainingColumn(),\\n+console=console,\\n+transient=False,\\n+) as progress:\\n+component_task = progress.add_task(f\\\"Analyzing {self.subsystem_name} components...\\\", total=total_files)\\n+\\n+for root, _, files in os.walk(core_path):\\n+for file in files:\\n+if file.endswith(\\\".py\\\") and not file.startswith(\\\"__\\\"):\\n+file_path = os.path.join(root, file)\\n+rel_path = os.path.relpath(file_path, self.base_path)\\n+\\n+try:\\n+with open(file_path, \\\"r\\\", encoding=\\\"utf-8\\\") as f:\\n+content = f.read()\\n+\\n+# Parse the file\\n+tree = ast.parse(content)\\n+\\n+# Extract docstring\\n+module_docstring = ast.get_docstring(tree)\\n+\\n+# Extract classes and functions\\n+classes = {}\\n+functions = {}\\n+\\n+for node in tree.body:\\n+if isinstance(node, ast.ClassDef):\\n+class_docstring = ast.get_docstring(node)\\n+methods = {}\\n+\\n+for child in node.body:\\n+if isinstance(child, ast.FunctionDef):\\n+method_docstring = ast.get_docstring(child)\\n+methods[child.name] = {\\n+\\\"docstring\\\": method_docstring,\\n+\\\"params\\\": [a.arg for a in child.args.args if a.arg != \\\"self\\\"],\\n+}\\n+\\n+classes[node.name] = {\\n+\\\"docstring\\\": class_docstring,\\n+\\\"methods\\\": methods,\\n+}\\n+\\n+elif isinstance(node, ast.FunctionDef):\\n+func_docstring = ast.get_docstring(node)\\n+functions[node.name] = {\\n+\\\"docstring\\\": func_docstring,\\n+\\\"params\\\": [a.arg for a in node.args.args],\\n+}\\n+\\n+# Add component information\\n+component_name = os.path.splitext(file)[0]\\n+self.components[component_name] = {\\n+\\\"path\\\": rel_path,\\n+\\\"docstring\\\": module_docstring,\\n+\\\"classes\\\": classes,\\n+\\\"functions\\\": functions,\\n+}\\n+\\n+except Exception as e:\\n+logger.error(f\\\"Error analyzing {file_path}: {str(e)}\\\")\\n+finally:\\n+# Always advance progress\\n+progress.update(component_task, advance=1)\\n+# Also advance if file is skipped (not .py or starts with __)\\n+# else:\\n+# progress.update(component_task, advance=1) # Causes double counting if total_files is accurate\\n+else:\\n+# Fallback logging\\n+logger.info(f\\\"Analyzing {self.subsystem_name} components (basic logging)...\\\")\\n+for root, _, files in os.walk(core_path):\\n+for file in files:\\n+if file.endswith(\\\".py\\\") and not file.startswith(\\\"__\\\"):\\n+file_path = os.path.join(root, file)\\n+rel_path = os.path.relpath(file_path, self.base_path)\\n+logger.debug(f\\\"Processing: {rel_path}\\\")\\n+try:\\n+with open(file_path, \\\"r\\\", encoding=\\\"utf-8\\\") as f:\\n+content = f.read()\\n+# Parse the file\\n+tree = ast.parse(content)\\n+# Extract docstring\\n+module_docstring = ast.get_docstring(tree)\\n+# Extract classes and functions\\n+classes = {}\\n+functions = {}\\n+for node in tree.body:\\n+if isinstance(node, ast.ClassDef):\\n+class_docstring = ast.get_docstring(node)\\n+methods = {}\\n+for child in node.body:\\n+if isinstance(child, ast.FunctionDef):\\n+method_docstring = ast.get_docstring(child)\\n+methods[child.name] = {\\n+\\\"docstring\\\": method_docstring,\\n+\\\"params\\\": [a.arg for a in child.args.args if a.arg != \\\"self\\\"],\\n+}\\n+classes[node.name] = {\\\"docstring\\\": class_docstring, \\\"methods\\\": methods}\\n+elif isinstance(node, ast.FunctionDef):\\n+func_docstring = ast.get_docstring(node)\\n+functions[node.name] = {\\\"docstring\\\": func_docstring, \\\"params\\\": [a.arg for a in node.args.args]}\\n+# Add component information\\n+component_name = os.path.splitext(file)[0]\\n+self.components[component_name] = {\\\"path\\\": rel_path, \\\"docstring\\\": module_docstring, \\\"classes\\\": classes, \\\"functions\\\": functions}\\n+except Exception as e:\\n+logger.error(f\\\"Error analyzing {file_path}: {str(e)}\\\")\\n+\\n+def _extract_principles(self):\\n+\\\"\\\"\\\"Extract principles associated with the subsystem.\\\"\\\"\\\"\\n+logger.info(\\\"Extracting principle information...\\\")\\n+\\n+# Look for principle-related files\\n+principle_paths = [\\n+os.path.join(self.subsystem_path, \\\"principles.json\\\"),\\n+os.path.join(self.subsystem_path, \\\"config\\\", \\\"principles.json\\\"),\\n+]\\n+\\n+for path in principle_paths:\\n+if os.path.exists(path):\\n+try:\\n+with open(path, \\\"r\\\", encoding=\\\"utf-8\\\") as f:\\n+principles_data = json.load(f)\\n+\\n+if isinstance(principles_data, dict) and \\\"principles\\\" in principles_data:\\n+self.principles = principles_data[\\\"principles\\\"]\\n+elif isinstance(principles_data, list):\\n+self.principles = principles_data\\n+\\n+logger.info(f\\\"Found {len(self.principles)} principles\\\")\\n+break\\n+except Exception as e:\\n+logger.error(f\\\"Error reading principles from {path}: {str(e)}\\\")\\n+\\n+# If no principles file found, try to extract from code comments\\n+if not self.principles:\\n+principle_pattern = r\\\"(?:principle|PRINCIPLE)s?:?\\\\s*([\\\\w\\\\s,]+)\\\"\\n+for component_info in self.components.values():\\n+if component_info[\\\"docstring\\\"]:\\n+# Extract first paragraph from docstring\\n+docstring_parts = component_info[\\\"docstring\\\"].split(\\\"\\\\n\\\\n\\\")\\n+if docstring_parts:\\n+first_para = docstring_parts[0].strip()\\n+if self.subsystem_name in first_para:\\n+description = first_para\\n+break\\n+\\n+# Extract principles from description\\n+matches = re.findall(principle_pattern, description)\\n+if matches:\\n+principles_text = matches[0]\\n+extracted_principles = [\\n+p.strip() for p in principles_text.split(\\\",\\\")\\n+]\\n+self.principles.extend(extracted_principles)\\n+\\n+# Remove duplicates\\n+self.principles = list(set(self.principles))\\n+\\n+def _extract_integration_patterns(self):\\n+\\\"\\\"\\\"Extract integration patterns used by the subsystem.\\\"\\\"\\\"\\n+logger.info(\\\"Extracting integration patterns...\\\")\\n+\\n+# Common patterns to look for\\n+patterns = {\\n+\\\"mycelium\\\": {\\n+\\\"marker\\\": \\\"@mycelium_client.subscribe\\\",\\n+\\\"found\\\": False,\\n+\\\"examples\\\": [],\\n+},\\n+\\\"direct_api\\\": {\\n+\\\"marker\\\": \\\"from subsystems.{}.api import\\\".format(self.subsystem_name),\\n+\\\"found\\\": False,\\n+\\\"examples\\\": [],\\n+},\\n+\\\"event_driven\\\": {\\n+\\\"marker\\\": \\\"publish(Topic\\\",\\n+\\\"found\\\": False,\\n+\\\"examples\\\": [],\\n+},\\n+}\\n+\\n+# Search for patterns in code\\n+for component_name, component_info in self.components.items():\\n+path = os.path.join(self.base_path, component_info[\\\"path\\\"])\\n+try:\\n+with open(path, \\\"r\\\", encoding=\\\"utf-8\\\") as f:\\n+content = f.read()\\n+\\n+for pattern_name, pattern_info in patterns.items():\\n+if pattern_info[\\\"marker\\\"] in content:\\n+patterns[pattern_name][\\\"found\\\"] = True\\n+\\n+# Extract example snippets\\n+if pattern_name == \\\"mycelium\\\":\\n+matches = re.findall(\\n+r\\\"@mycelium_client\\\\.subscribe\\\\(Topic\\\\([\\\\\\\"']([^\\\\\\\"']+)[\\\\\\\"']\\\\)\\\\)\\\"\\n+r\\\"\\\\s+async def ([^\\\\(]+)\\\",\\n+content\\n+)\\n+if matches:\\n+for topic, func_name in matches:\\n+patterns[pattern_name][\\\"examples\\\"].append({\\n+\\\"topic\\\": topic,\\n+\\\"handler\\\": func_name,\\n+\\\"component\\\": component_name,\\n+})\\n+\\n+except Exception as e:\\n+logger.error(f\\\"Error analyzing {path} for patterns: {str(e)}\\\")\\n+\\n+# Filter to found patterns only\\n+self.integration_patterns = {\\n+name: info for name, info in patterns.items() if info[\\\"found\\\"]\\n+}\\n+\\n+def _extract_configuration(self):\\n+\\\"\\\"\\\"Extract configuration information for the subsystem.\\\"\\\"\\\"\\n+logger.info(\\\"Extracting configuration information...\\\")\\n+\\n+# Look for configuration files\\n+config_paths = [\\n+os.path.join(self.subsystem_path, \\\"config.json\\\"),\\n+os.path.join(self.subsystem_path, \\\"config\\\", f\\\"{self.subsystem_name.lower()}_config.json\\\"),\\n+os.path.join(self.base_path, \\\"config\\\", f\\\"{self.subsystem_name.lower()}_config.json\\\"),\\n+]\\n+\\n+for path in config_paths:\\n+if os.path.exists(path):\\n+try:\\n+with open(path, \\\"r\\\", encoding=\\\"utf-8\\\") as f:\\n+self.config = json.load(f)\\n+\\n+logger.info(f\\\"Found configuration at {path}\\\")\\n+break\\n+except Exception as e:\\n+logger.error(f\\\"Error reading configuration from {path}: {str(e)}\\\")\\n \\n \\n class ReferenceGenerator:\\n-    \\\"\\\"\\\"Generates quick reference documentation for EGOS subsystems.\\n-    \\n-    Attributes:\\n-        subsystem_data: Analysis data for the subsystem\\n-        output_path: Path where the generated documentation will be saved\\n-    \\\"\\\"\\\"\\n-    \\n-    def __init__(self, subsystem_data: Dict[str, Any], output_path: str = None):\\n-        \\\"\\\"\\\"Initialize the ReferenceGenerator.\\n-        \\n-        Args:\\n-            subsystem_data: Subsystem analysis data\\n-            output_path: Path to save the generated documentation\\n-        \\\"\\\"\\\"\\n-        self.subsystem_data = subsystem_data\\n-        \\n-        if output_path is None:\\n-            # Default output path\\n-            base_dir = Path(os.getcwd())\\n-            while base_dir.name and base_dir.name != \\\"EGOS\\\":\\n-                base_dir = base_dir.parent\\n-            \\n-            if base_dir.name == \\\"EGOS\\\":\\n-                self.output_path = os.path.join(\\n-                    str(base_dir),\\n-                    \\\"docs\\\",\\n-                    \\\"subsystems\\\",\\n-                    subsystem_data[\\\"subsystem_name\\\"],\\n-                    \\\"QUICK_REFERENCE.md\\\",\\n-                )\\n-            else:\\n-                self.output_path = f\\\"{subsystem_data['subsystem_name']}_QUICK_REFERENCE.md\\\"\\n-        else:\\n-            self.output_path = output_path\\n-    \\n-    def generate(self) -> str:\\n-        \\\"\\\"\\\"Generate the reference documentation.\\n-        \\n-        Returns:\\n-            Path to the generated documentation file\\n-        \\\"\\\"\\\"\\n-        logger.info(f\\\"Generating reference for {self.subsystem_data['subsystem_name']}\\\")\\n-        \\n-        # Create content\\n-        content = self._create_content()\\n-        \\n-        # Ensure output directory exists\\n-        os.makedirs(os.path.dirname(self.output_path), exist_ok=True)\\n-        \\n-        # Write to file\\n-        with open(self.output_path, \\\"w\\\", encoding=\\\"utf-8\\\") as f:\\n-            f.write(content)\\n-        \\n-        logger.info(f\\\"Reference generated: {self.output_path}\\\")\\n-        return self.output_path\\n-    \\n-    def _create_content(self) -> str:\\n-        \\\"\\\"\\\"Create the content for the reference documentation.\\n-        \\n-        Returns:\\n-            Markdown content for the reference documentation\\n-        \\\"\\\"\\\"\\n-        subsystem_name = self.subsystem_data[\\\"subsystem_name\\\"]\\n-        now = datetime.now().strftime(\\\"%Y-%m-%d\\\")\\n-        \\n-        sections = [\\n-            self._create_header(subsystem_name, now),\\n-            self._create_overview(subsystem_name),\\n-            self._create_principles_section(),\\n-            self._create_architecture_section(subsystem_name),\\n-            self._create_components_section(),\\n-            self._create_integration_patterns_section(),\\n-            self._create_configuration_section(),\\n-            self._create_references_section(subsystem_name),\\n-        ]\\n-        \\n-        return \\\"\\\\n\\\\n\\\".join(sections) + \\\"\\\\n\\\\n\\u2727\\u0f3a\\u2740\\u0f3b\\u221e EGOS \\u221e\\u0f3a\\u2740\\u0f3b\\u2727\\\"\\n-    \\n-    def _create_header(self, subsystem_name: str, date: str) -> str:\\n-        \\\"\\\"\\\"Create the document header.\\n-        \\n-        Args:\\n-            subsystem_name: Name of the subsystem\\n-            date: Current date\\n-        \\n-        Returns:\\n-            Header content\\n-        \\\"\\\"\\\"\\n-        return f\\\"\\\"\\\"# {subsystem_name} Subsystem Quick Reference Guide\\n-\\n-**Document ID:** DOCS-{subsystem_name}-001  \\n-**Version:** 1.0.0  \\n-**Last Updated:** {date}  \\n+\\\"\\\"\\\"Generates quick reference documentation for EGOS subsystems.\\n+\\n+Attributes:\\n+subsystem_data: Analysis data for the subsystem\\n+output_path: Path where the generated documentation will be saved\\n+\\\"\\\"\\\"\\n+\\n+def __init__(self, subsystem_data: Dict[str, Any], output_path: str = None):\\n+\\\"\\\"\\\"Initialize the ReferenceGenerator.\\n+\\n+Args:\\n+subsystem_data: Subsystem analysis data\\n+output_path: Path to save the generated documentation\\n+\\\"\\\"\\\"\\n+self.subsystem_data = subsystem_data\\n+\\n+if output_path is None:\\n+# Default output path\\n+base_dir = Path(os.getcwd())\\n+while base_dir.name and base_dir.name != \\\"EGOS\\\":\\n+base_dir = base_dir.parent\\n+\\n+if base_dir.name == \\\"EGOS\\\":\\n+self.output_path = os.path.join(\\n+str(base_dir),\\n+\\\"docs\\\",\\n+\\\"subsystems\\\",\\n+subsystem_data[\\\"subsystem_name\\\"],\\n+\\\"QUICK_REFERENCE.md\\\",\\n+)\\n+else:\\n+self.output_path = f\\\"{subsystem_data['subsystem_name']}_QUICK_REFERENCE.md\\\"\\n+else:\\n+self.output_path = output_path\\n+\\n+def generate(self) -> str:\\n+\\\"\\\"\\\"Generate the reference documentation.\\n+\\n+Returns:\\n+Path to the generated documentation file\\n+\\\"\\\"\\\"\\n+logger.info(f\\\"Generating reference for {self.subsystem_data['subsystem_name']}\\\")\\n+\\n+# Create content\\n+content = self._create_content()\\n+\\n+# Ensure output directory exists\\n+os.makedirs(os.path.dirname(self.output_path), exist_ok=True)\\n+\\n+# Write to file\\n+with open(self.output_path, \\\"w\\\", encoding=\\\"utf-8\\\") as f:\\n+f.write(content)\\n+\\n+logger.info(f\\\"Reference generated: {self.output_path}\\\")\\n+return self.output_path\\n+\\n+def _create_content(self) -> str:\\n+\\\"\\\"\\\"Create the content for the reference documentation.\\n+\\n+Returns:\\n+Markdown content for the reference documentation\\n+\\\"\\\"\\\"\\n+subsystem_name = self.subsystem_data[\\\"subsystem_name\\\"]\\n+now = datetime.now().strftime(\\\"%Y-%m-%d\\\")\\n+\\n+sections = [\\n+self._create_header(subsystem_name, now),\\n+self._create_overview(subsystem_name),\\n+self._create_principles_section(),\\n+self._create_architecture_section(subsystem_name),\\n+self._create_components_section(),\\n+self._create_integration_patterns_section(),\\n+self._create_configuration_section(),\\n+self._create_references_section(subsystem_name),\\n+]\\n+\\n+return \\\"\\\\n\\\\n\\\".join(sections) + \\\"\\\\n\\\\n\\u2727\\u0f3a\\u2740\\u0f3b\\u221e EGOS \\u221e\\u0f3a\\u2740\\u0f3b\\u2727\\\"\\n+\\n+def _create_header(self, subsystem_name: str, date: str) -> str:\\n+\\\"\\\"\\\"Create the document header.\\n+\\n+Args:\\n+subsystem_name: Name of the subsystem\\n+date: Current date\\n+\\n+Returns:\\n+Header content\\n+\\\"\\\"\\\"\\n+return f\\\"\\\"\\\"# {subsystem_name} Subsystem Quick Reference Guide\\n+\\n+**Document ID:** DOCS-{subsystem_name}-001\\n+**Version:** 1.0.0\\n+**Last Updated:** {date}\\n **Status:** Active\\\"\\\"\\\"\\n-    \\n-    def _create_overview(self, subsystem_name: str) -> str:\\n-        \\\"\\\"\\\"Create the overview section.\\n-        \\n-        Args:\\n-            subsystem_name: Name of the subsystem\\n-        \\n-        Returns:\\n-            Overview section content\\n-        \\\"\\\"\\\"\\n-        # Try to find a concise description from component docstrings\\n-        description = f\\\"The {subsystem_name} subsystem is a core component of the EGOS framework.\\\"\\n-        \\n-        for component_info in self.subsystem_data[\\\"components\\\"].values():\\n-            if component_info[\\\"docstring\\\"]:\\n-                # Extract first paragraph from docstring\\n-                docstring_parts = component_info[\\\"docstring\\\"].split(\\\"\\\\n\\\\n\\\")\\n-                if docstring_parts:\\n-                    first_para = docstring_parts[0].strip()\\n-                    if subsystem_name in first_para:\\n-                        description = first_para\\n-                        break\\n-        \\n-        return f\\\"\\\"\\\"## Overview\\n+\\n+def _create_overview(self, subsystem_name: str) -> str:\\n+\\\"\\\"\\\"Create the overview section.\\n+\\n+Args:\\n+subsystem_name: Name of the subsystem\\n+\\n+Returns:\\n+Overview section content\\n+\\\"\\\"\\\"\\n+# Try to find a concise description from component docstrings\\n+description = f\\\"The {subsystem_name} subsystem is a core component of the EGOS framework.\\\"\\n+\\n+for component_info in self.subsystem_data[\\\"components\\\"].values():\\n+if component_info[\\\"docstring\\\"]:\\n+# Extract first paragraph from docstring\\n+docstring_parts = component_info[\\\"docstring\\\"].split(\\\"\\\\n\\\\n\\\")\\n+if docstring_parts:\\n+first_para = docstring_parts[0].strip()\\n+if subsystem_name in first_para:\\n+description = first_para\\n+break\\n+\\n+return f\\\"\\\"\\\"## Overview\\n \\n {description}\\n \\n This quick reference guide provides essential information for developers working with or integrating the {subsystem_name} subsystem.\\\"\\\"\\\"\\n-    \\n-    def _create_principles_section(self) -> str:\\n-        \\\"\\\"\\\"Create the principles section.\\n-        \\n-        Returns:\\n-            Principles section content\\n-        \\\"\\\"\\\"\\n-        principles = self.subsystem_data[\\\"principles\\\"]\\n-        \\n-        if not principles:\\n-            principles = [\\\"Universal Redemption\\\", \\\"Integrated Ethics\\\", \\n-                         \\\"Sacred Privacy\\\", \\\"Reciprocal Trust\\\"]\\n-        \\n-        principles_content = \\\"\\\\n\\\".join([f\\\"{i+1}. **{p}**\\\" for i, p in enumerate(principles)])\\n-        \\n-        return f\\\"\\\"\\\"## Core Principles\\n+\\n+def _create_principles_section(self) -> str:\\n+\\\"\\\"\\\"Create the principles section.\\n+\\n+Returns:\\n+Principles section content\\n+\\\"\\\"\\\"\\n+principles = self.subsystem_data[\\\"principles\\\"]\\n+\\n+if not principles:\\n+principles = [\\\"Universal Redemption\\\", \\\"Integrated Ethics\\\",\\n+\\\"Sacred Privacy\\\", \\\"Reciprocal Trust\\\"]\\n+\\n+principles_content = \\\"\\\\n\\\".join([f\\\"{i+1}. **{p}**\\\" for i, p in enumerate(principles)])\\n+\\n+return f\\\"\\\"\\\"## Core Principles\\n \\n {self.subsystem_data[\\\"subsystem_name\\\"]} enforces the following EGOS fundamental principles:\\n \\n {principles_content}\\\"\\\"\\\"\\n-    \\n-    def _create_architecture_section(self, subsystem_name: str) -> str:\\n-        \\\"\\\"\\\"Create the architecture section.\\n-        \\n-        Args:\\n-            subsystem_name: Name of the subsystem\\n-        \\n-        Returns:\\n-            Architecture section content\\n-        \\\"\\\"\\\"\\n-        # Create a basic mermaid diagram based on components\\n-        components = self.subsystem_data[\\\"components\\\"]\\n-        \\n-        mermaid = f\\\"\\\"\\\"```mermaid\\n+\\n+def _create_architecture_section(self, subsystem_name: str) -> str:\\n+\\\"\\\"\\\"Create the architecture section.\\n+\\n+Args:\\n+subsystem_name: Name of the subsystem\\n+\\n+Returns:\\n+Architecture section content\\n+\\\"\\\"\\\"\\n+# Create a basic mermaid diagram based on components\\n+components = self.subsystem_data[\\\"components\\\"]\\n+\\n+mermaid = f\\\"\\\"\\\"```mermaid\\n graph TD\\n-    classDef core fill:{theme.color.primary},stroke:#333,stroke-width:1px,color:white;\\n-    classDef module fill:{theme.color.secondary},stroke:#333,stroke-width:1px,color:white;\\n-    classDef data fill:{theme.color.medium_grey},stroke:#333,stroke-width:1px,color:white;\\n-    classDef external fill:{theme.color.light_grey},stroke:#333,stroke-width:1px;\\n-    \\n-    {subsystem_name}_CORE[{subsystem_name} Core]\\\"\\\"\\\"\\n-        \\n-        # Add component connections\\n-        for i, component_name in enumerate(components.keys()):\\n-            if component_name.lower() != \\\"core\\\" and component_name.lower() != f\\\"{subsystem_name.lower()}_core\\\":\\n-                node_name = component_name.upper().replace(\\\"_\\\", \\\" \\\")\\n-                mermaid += f\\\"\\\\n    {subsystem_name}_CORE# HTML-END {component_name}[{node_name}]\\\"\\n-        \\n-        # Add class definitions\\n-        mermaid += f\\\"\\\"\\\"\\n-    \\n-    class {subsystem_name}_CORE core;\\n-    class {\\\", \\\".join(components.keys())} module;\\n+classDef core fill:{theme.color.primary},stroke:#333,stroke-width:1px,color:white;\\n+classDef module fill:{theme.color.secondary},stroke:#333,stroke-width:1px,color:white;\\n+classDef data fill:{theme.color.medium_grey},stroke:#333,stroke-width:1px,color:white;\\n+classDef external fill:{theme.color.light_grey},stroke:#333,stroke-width:1px;\\n+\\n+{subsystem_name}_CORE[{subsystem_name} Core]\\\"\\\"\\\"\\n+\\n+# Add component connections\\n+for i, component_name in enumerate(components.keys()):\\n+if component_name.lower() != \\\"core\\\" and component_name.lower() != f\\\"{subsystem_name.lower()}_core\\\":\\n+node_name = component_name.upper().replace(\\\"_\\\", \\\" \\\")\\n+mermaid += f\\\"\\\\n    {subsystem_name}_CORE# HTML-END {component_name}[{node_name}]\\\"\\n+\\n+# Add class definitions\\n+mermaid += f\\\"\\\"\\\"\\n+\\n+class {subsystem_name}_CORE core;\\n+class {\\\", \\\".join(components.keys())} module;\\n ```\\\"\\\"\\\"\\n-        \\n-        return f\\\"\\\"\\\"## Architecture\\n+\\n+return f\\\"\\\"\\\"## Architecture\\n \\n {mermaid}\\\"\\\"\\\"\\n-    \\n-    def _create_components_section(self) -> str:\\n-        \\\"\\\"\\\"Create the components section.\\n-        \\n-        Returns:\\n-            Components section content\\n-        \\\"\\\"\\\"\\n-        components = self.subsystem_data[\\\"components\\\"]\\n-        \\n-        if not components:\\n-            return \\\"## Key Components\\\\n\\\\nNo components identified.\\\"\\n-        \\n-        content = \\\"## Key Components\\\\n\\\"\\n-        \\n-        for component_name, component_info in components.items():\\n-            # Skip components with no docstring\\n-            if not component_info[\\\"docstring\\\"]:\\n-                continue\\n-            \\n-            content += f\\\"\\\\n### {component_name.replace('_', ' ').title()} (`{component_info['path']}`)\\\\n\\\\n\\\"\\n-            \\n-            # Get first paragraph of docstring\\n-            docstring_parts = component_info[\\\"docstring\\\"].split(\\\"\\\\n\\\\n\\\")\\n-            description = docstring_parts[0].strip() if docstring_parts else \\\"\\\"\\n-            content += f\\\"{description}\\\\n\\\\n\\\"\\n-            \\n-            # Add example code if there's a class\\n-            if component_info[\\\"classes\\\"]:\\n-                main_class = next(iter(component_info[\\\"classes\\\"].items()))\\n-                class_name, class_info = main_class\\n-                \\n-                # Show class with a few methods\\n-                code_example = f\\\"```python\\\\nclass {class_name}:\\\\n\\\"\\n-                \\n-                if class_info[\\\"docstring\\\"]:\\n-                    docstring_lines = class_info[\\\"docstring\\\"].split(\\\"\\\\n\\\")\\n-                    docstring = \\\"\\\\n    \\\".join(docstring_lines)\\n-                    code_example += f'    \\\"\\\"\\\"{docstring}\\\\n    \\\"\\\"\\\"\\\\n'\\n-                \\n-                # Add a couple of methods\\n-                for method_name, method_info in list(class_info[\\\"methods\\\"].items())[:2]:\\n-                    params = \\\", \\\".join([\\\"self\\\"] + method_info[\\\"params\\\"])\\n-                    code_example += f\\\"\\\\n    def {method_name}({params}):\\\\n\\\"\\n-                    \\n-                    if method_info[\\\"docstring\\\"]:\\n-                        docstring_lines = method_info[\\\"docstring\\\"].split(\\\"\\\\n\\\")\\n-                        method_docstring = \\\"\\\\n        \\\".join(docstring_lines)\\n-                        code_example += f'        \\\"\\\"\\\"{method_docstring}\\\\n        \\\"\\\"\\\"\\\\n'\\n-                    code_example += \\\"        # Implementation\\\\n\\\"\\n-                \\n-                code_example += \\\"```\\\"\\n-                content += code_example\\n-            \\n-            # Or function if no class\\n-            elif component_info[\\\"functions\\\"]:\\n-                main_func = next(iter(component_info[\\\"functions\\\"].items()))\\n-                func_name, func_info = main_func\\n-                \\n-                params = \\\", \\\".join(func_info[\\\"params\\\"])\\n-                code_example = f\\\"```python\\\\ndef {func_name}({params}):\\\\n\\\"\\n-                \\n-                if func_info[\\\"docstring\\\"]:\\n-                    docstring_lines = func_info[\\\"docstring\\\"].split(\\\"\\\\n\\\")\\n-                    docstring = \\\"\\\\n    \\\".join(docstring_lines)\\n-                    code_example += f'    \\\"\\\"\\\"{docstring}\\\\n    \\\"\\\"\\\"\\\\n'\\n-                code_example += \\\"    # Implementation\\\\n```\\\"\\n-                content += code_example\\n-        \\n-        return content\\n-    \\n-    def _create_integration_patterns_section(self) -> str:\\n-        \\\"\\\"\\\"Create the integration patterns section.\\n-        \\n-        Returns:\\n-            Integration patterns section content\\n-        \\\"\\\"\\\"\\n-        patterns = self.subsystem_data[\\\"integration_patterns\\\"]\\n-        \\n-        if not patterns:\\n-            return \\\"## Common Integration Patterns\\\\n\\\\nNo integration patterns identified.\\\"\\n-        \\n-        content = \\\"## Common Integration Patterns\\\\n\\\"\\n-        \\n-        if \\\"mycelium\\\" in patterns and patterns[\\\"mycelium\\\"][\\\"found\\\"]:\\n-            content += \\\"\\\\n### Mycelium-Based Integration\\\\n\\\\n\\\"\\n-            content += \\\"```python\\\\n\\\"\\n-            content += \\\"from subsystems.MYCELIUM.client import mycelium_client\\\\n\\\"\\n-            content += \\\"from subsystems.MYCELIUM.schema import Topic\\\\n\\\"\\n-            content += \\\"import uuid\\\\n\\\\n\\\"\\n-            \\n-            # Request example\\n-            content += \\\"# Request operation via Mycelium\\\\n\\\"\\n-            content += \\\"request_id = str(uuid.uuid4())\\\\n\\\"\\n-            \\n-            subsystem = self.subsystem_data[\\\"subsystem_name\\\"].lower()\\n-            operation = \\\"operation\\\"\\n-            \\n-            if patterns[\\\"mycelium\\\"][\\\"examples\\\"]:\\n-                example = patterns[\\\"mycelium\\\"][\\\"examples\\\"][0]\\n-                topic = example[\\\"topic\\\"]\\n-            else:\\n-                topic = f\\\"{subsystem}.request\\\"\\n-            \\n-            content += f\\\"await mycelium_client.publish(\\\\n\\\"\\n-            content += f\\\"    Topic(\\\\\\\"{topic}\\\\\\\"),\\\\n\\\"\\n-            content += \\\"    {\\\\n\\\"\\n-            content += \\\"        \\\\\\\"request_id\\\\\\\": request_id,\\\\n\\\"\\n-            content += \\\"        \\\\\\\"parameters\\\\\\\": {\\\\n\\\"\\n-            content += \\\"            \\\\\\\"param1\\\\\\\": \\\\\\\"value1\\\\\\\",\\\\n\\\"\\n-            content += \\\"            \\\\\\\"param2\\\\\\\": \\\\\\\"value2\\\\\\\"\\\\n\\\"\\n-            content += \\\"        }\\\\n\\\"\\n-            content += \\\"    }\\\\n\\\"\\n-            content += \\\")\\\\n\\\\n\\\"\\n-            \\n-            # Response handler\\n-            content += \\\"# Handle the result\\\\n\\\"\\n-            content += f\\\"@mycelium_client.subscribe(Topic(f\\\\\\\"{subsystem}.result.{{request_id}}\\\\\\\"))\\\\n\\\"\\n-            content += \\\"async def handle_result(message: Message):\\\\n\\\"\\n-            content += \\\"    result = message.data\\\\n\\\"\\n-            content += \\\"    if result[\\\\\\\"success\\\\\\\"]:\\\\n\\\"\\n-            content += \\\"        # Process successful result\\\\n\\\"\\n-            content += \\\"        pass\\\\n\\\"\\n-            content += \\\"    else:\\\\n\\\"\\n-            content += \\\"        # Handle error\\\\n\\\"\\n-            content += \\\"        error = result.get(\\\\\\\"error\\\\\\\")\\\\n\\\"\\n-            content += \\\"```\\\"\\n-        \\n-        if \\\"direct_api\\\" in patterns and patterns[\\\"direct_api\\\"][\\\"found\\\"]:\\n-            content += \\\"\\\\n### Direct API Integration\\\\n\\\\n\\\"\\n-            content += \\\"```python\\\\n\\\"\\n-            subsystem = self.subsystem_data[\\\"subsystem_name\\\"]\\n-            content += f\\\"from subsystems.{subsystem}.api import perform_operation\\\\n\\\\n\\\"\\n-            content += \\\"# Call the API directly\\\\n\\\"\\n-            content += \\\"result = await perform_operation(\\\\n\\\"\\n-            content += \\\"    param1=\\\\\\\"value1\\\\\\\",\\\\n\\\"\\n-            content += \\\"    param2=\\\\\\\"value2\\\\\\\"\\\\n\\\"\\n-            content += \\\")\\\\n\\\\n\\\"\\n-            content += \\\"if result.success:\\\\n\\\"\\n-            content += \\\"    # Process successful result\\\\n\\\"\\n-            content += \\\"    pass\\\\n\\\"\\n-            content += \\\"else:\\\\n\\\"\\n-            content += \\\"    # Handle error\\\\n\\\"\\n-            content += \\\"    error = result.error\\\\n\\\"\\n-            content += \\\"```\\\"\\n-        \\n-        return content\\n-    \\n-    def _create_configuration_section(self) -> str:\\n-        \\\"\\\"\\\"Create the configuration section.\\n-        \\n-        Returns:\\n-            Configuration section content\\n-        \\\"\\\"\\\"\\n-        config = self.subsystem_data[\\\"configuration\\\"]\\n-        \\n-        if not config:\\n-            return \\\"## Configuration\\\\n\\\\nNo configuration information available.\\\"\\n-        \\n-        content = \\\"## Configuration\\\\n\\\\n\\\"\\n-        subsystem = self.subsystem_data[\\\"subsystem_name\\\"]\\n-        \\n-        content += f\\\"{subsystem} configuration is stored in `config/{subsystem.lower()}_config.json`:\\\\n\\\\n\\\"\\n-        \\n-        # Pretty print a subset of the config\\n-        sample_config = json.dumps(config, indent=2)\\n-        \\n-        # Limit to reasonable size\\n-        if len(sample_config) > 500:\\n-            lines = sample_config.split(\\\"\\\\n\\\")\\n-            if len(lines) > 20:\\n-                truncated = \\\"\\\\n\\\".join(lines[:18] + [\\\"  ...\\\", \\\"}\\\"])\\n-                sample_config = truncated\\n-        \\n-        content += f\\\"```json\\\\n{sample_config}\\\\n```\\\"\\n-        \\n-        return content\\n-    \\n-    def _create_references_section(self, subsystem_name: str) -> str:\\n-        \\\"\\\"\\\"Create the references section.\\n-        \\n-        Args:\\n-            subsystem_name: Name of the subsystem\\n-        \\n-        Returns:\\n-            References section content\\n-        \\\"\\\"\\\"\\n-        return f\\\"\\\"\\\"## References\\n+\\n+def _create_components_section(self) -> str:\\n+\\\"\\\"\\\"Create the components section.\\n+\\n+Returns:\\n+Components section content\\n+\\\"\\\"\\\"\\n+components = self.subsystem_data[\\\"components\\\"]\\n+\\n+if not components:\\n+return \\\"## Key Components\\\\n\\\\nNo components identified.\\\"\\n+\\n+content = \\\"## Key Components\\\\n\\\"\\n+\\n+for component_name, component_info in components.items():\\n+# Skip components with no docstring\\n+if not component_info[\\\"docstring\\\"]:\\n+continue\\n+\\n+content += f\\\"\\\\n### {component_name.replace('_', ' ').title()} (`{component_info['path']}`)\\\\n\\\\n\\\"\\n+\\n+# Get first paragraph of docstring\\n+docstring_parts = component_info[\\\"docstring\\\"].split(\\\"\\\\n\\\\n\\\")\\n+description = docstring_parts[0].strip() if docstring_parts else \\\"\\\"\\n+content += f\\\"{description}\\\\n\\\\n\\\"\\n+\\n+# Add example code if there's a class\\n+if component_info[\\\"classes\\\"]:\\n+main_class = next(iter(component_info[\\\"classes\\\"].items()))\\n+class_name, class_info = main_class\\n+\\n+# Show class with a few methods\\n+code_example = f\\\"```python\\\\nclass {class_name}:\\\\n\\\"\\n+\\n+if class_info[\\\"docstring\\\"]:\\n+docstring_lines = class_info[\\\"docstring\\\"].split(\\\"\\\\n\\\")\\n+docstring = \\\"\\\\n    \\\".join(docstring_lines)\\n+code_example += f'    \\\"\\\"\\\"{docstring}\\\\n    \\\"\\\"\\\"\\\\n'\\n+\\n+# Add a couple of methods\\n+for method_name, method_info in list(class_info[\\\"methods\\\"].items())[:2]:\\n+params = \\\", \\\".join([\\\"self\\\"] + method_info[\\\"params\\\"])\\n+code_example += f\\\"\\\\n    def {method_name}({params}):\\\\n\\\"\\n+\\n+if method_info[\\\"docstring\\\"]:\\n+docstring_lines = method_info[\\\"docstring\\\"].split(\\\"\\\\n\\\")\\n+method_docstring = \\\"\\\\n        \\\".join(docstring_lines)\\n+code_example += f'        \\\"\\\"\\\"{method_docstring}\\\\n        \\\"\\\"\\\"\\\\n'\\n+code_example += \\\"        # Implementation\\\\n\\\"\\n+\\n+code_example += \\\"```\\\"\\n+content += code_example\\n+\\n+# Or function if no class\\n+elif component_info[\\\"functions\\\"]:\\n+main_func = next(iter(component_info[\\\"functions\\\"].items()))\\n+func_name, func_info = main_func\\n+\\n+params = \\\", \\\".join(func_info[\\\"params\\\"])\\n+code_example = f\\\"```python\\\\ndef {func_name}({params}):\\\\n\\\"\\n+\\n+if func_info[\\\"docstring\\\"]:\\n+docstring_lines = func_info[\\\"docstring\\\"].split(\\\"\\\\n\\\")\\n+docstring = \\\"\\\\n    \\\".join(docstring_lines)\\n+code_example += f'    \\\"\\\"\\\"{docstring}\\\\n    \\\"\\\"\\\"\\\\n'\\n+code_example += \\\"    # Implementation\\\\n```\\\"\\n+content += code_example\\n+\\n+return content\\n+\\n+def _create_integration_patterns_section(self) -> str:\\n+\\\"\\\"\\\"Create the integration patterns section.\\n+\\n+Returns:\\n+Integration patterns section content\\n+\\\"\\\"\\\"\\n+patterns = self.subsystem_data[\\\"integration_patterns\\\"]\\n+\\n+if not patterns:\\n+return \\\"## Common Integration Patterns\\\\n\\\\nNo integration patterns identified.\\\"\\n+\\n+content = \\\"## Common Integration Patterns\\\\n\\\"\\n+\\n+if \\\"mycelium\\\" in patterns and patterns[\\\"mycelium\\\"][\\\"found\\\"]:\\n+content += \\\"\\\\n### Mycelium-Based Integration\\\\n\\\\n\\\"\\n+content += \\\"```python\\\\n\\\"\\n+content += \\\"from subsystems.MYCELIUM.client import mycelium_client\\\\n\\\"\\n+content += \\\"from subsystems.MYCELIUM.schema import Topic\\\\n\\\"\\n+content += \\\"import uuid\\\\n\\\\n\\\"\\n+\\n+# Request example\\n+content += \\\"# Request operation via Mycelium\\\\n\\\"\\n+content += \\\"request_id = str(uuid.uuid4())\\\\n\\\"\\n+\\n+subsystem = self.subsystem_data[\\\"subsystem_name\\\"].lower()\\n+operation = \\\"operation\\\"\\n+\\n+if patterns[\\\"mycelium\\\"][\\\"examples\\\"]:\\n+example = patterns[\\\"mycelium\\\"][\\\"examples\\\"][0]\\n+topic = example[\\\"topic\\\"]\\n+else:\\n+topic = f\\\"{subsystem}.request\\\"\\n+\\n+content += f\\\"await mycelium_client.publish(\\\\n\\\"\\n+content += f\\\"    Topic(\\\\\\\"{topic}\\\\\\\"),\\\\n\\\"\\n+content += \\\"    {\\\\n\\\"\\n+content += \\\"        \\\\\\\"request_id\\\\\\\": request_id,\\\\n\\\"\\n+content += \\\"        \\\\\\\"parameters\\\\\\\": {\\\\n\\\"\\n+content += \\\"            \\\\\\\"param1\\\\\\\": \\\\\\\"value1\\\\\\\",\\\\n\\\"\\n+content += \\\"            \\\\\\\"param2\\\\\\\": \\\\\\\"value2\\\\\\\"\\\\n\\\"\\n+content += \\\"        }\\\\n\\\"\\n+content += \\\"    }\\\\n\\\"\\n+content += \\\")\\\\n\\\\n\\\"\\n+\\n+# Response handler\\n+content += \\\"# Handle the result\\\\n\\\"\\n+content += f\\\"@mycelium_client.subscribe(Topic(f\\\\\\\"{subsystem}.result.{{request_id}}\\\\\\\"))\\\\n\\\"\\n+content += \\\"async def handle_result(message: Message):\\\\n\\\"\\n+content += \\\"    result = message.data\\\\n\\\"\\n+content += \\\"    if result[\\\\\\\"success\\\\\\\"]:\\\\n\\\"\\n+content += \\\"        # Process successful result\\\\n\\\"\\n+content += \\\"        pass\\\\n\\\"\\n+content += \\\"    else:\\\\n\\\"\\n+content += \\\"        # Handle error\\\\n\\\"\\n+content += \\\"        error = result.get(\\\\\\\"error\\\\\\\")\\\\n\\\"\\n+content += \\\"```\\\"\\n+\\n+if \\\"direct_api\\\" in patterns and patterns[\\\"direct_api\\\"][\\\"found\\\"]:\\n+content += \\\"\\\\n### Direct API Integration\\\\n\\\\n\\\"\\n+content += \\\"```python\\\\n\\\"\\n+subsystem = self.subsystem_data[\\\"subsystem_name\\\"]\\n+content += f\\\"from subsystems.{subsystem}.api import perform_operation\\\\n\\\\n\\\"\\n+content += \\\"# Call the API directly\\\\n\\\"\\n+content += \\\"result = await perform_operation(\\\\n\\\"\\n+content += \\\"    param1=\\\\\\\"value1\\\\\\\",\\\\n\\\"\\n+content += \\\"    param2=\\\\\\\"value2\\\\\\\"\\\\n\\\"\\n+content += \\\")\\\\n\\\\n\\\"\\n+content += \\\"if result.success:\\\\n\\\"\\n+content += \\\"    # Process successful result\\\\n\\\"\\n+content += \\\"    pass\\\\n\\\"\\n+content += \\\"else:\\\\n\\\"\\n+content += \\\"    # Handle error\\\\n\\\"\\n+content += \\\"    error = result.error\\\\n\\\"\\n+content += \\\"```\\\"\\n+\\n+return content\\n+\\n+def _create_configuration_section(self) -> str:\\n+\\\"\\\"\\\"Create the configuration section.\\n+\\n+Returns:\\n+Configuration section content\\n+\\\"\\\"\\\"\\n+config = self.subsystem_data[\\\"configuration\\\"]\\n+\\n+if not config:\\n+return \\\"## Configuration\\\\n\\\\nNo configuration information available.\\\"\\n+\\n+content = \\\"## Configuration\\\\n\\\\n\\\"\\n+subsystem = self.subsystem_data[\\\"subsystem_name\\\"]\\n+\\n+content += f\\\"{subsystem} configuration is stored in `config/{subsystem.lower()}_config.json`:\\\\n\\\\n\\\"\\n+\\n+# Pretty print a subset of the config\\n+sample_config = json.dumps(config, indent=2)\\n+\\n+# Limit to reasonable size\\n+if len(sample_config) > 500:\\n+lines = sample_config.split(\\\"\\\\n\\\")\\n+if len(lines) > 20:\\n+truncated = \\\"\\\\n\\\".join(lines[:18] + [\\\"  ...\\\", \\\"}\\\"])\\n+sample_config = truncated\\n+\\n+content += f\\\"```json\\\\n{sample_config}\\\\n```\\\"\\n+\\n+return content\\n+\\n+def _create_references_section(self, subsystem_name: str) -> str:\\n+\\\"\\\"\\\"Create the references section.\\n+\\n+Args:\\n+subsystem_name: Name of the subsystem\\n+\\n+Returns:\\n+References section content\\n+\\\"\\\"\\\"\\n+return f\\\"\\\"\\\"## References\\n \\n - [{subsystem_name} API Reference](../{subsystem_name}/API_REFERENCE.md)\\n - [{subsystem_name} Architecture Guide](../{subsystem_name}/ARCHITECTURE.md)\\n@@ -754,37 +754,38 @@\\n \\n \\n def main():\\n-    \\\"\\\"\\\"Main entry point for the reference generator script.\\\"\\\"\\\"\\n-    parser = argparse.ArgumentParser(\\n-        description=\\\"Generate quick reference documentation for EGOS subsystems\\\"\\n-    )\\n-    parser.add_argument(\\n-        \\\"subsystem\\\", help=\\\"Name of the subsystem to document (e.g., ETHIK)\\\"\\n-    )\\n-    parser.add_argument(\\n-        \\\"--output\\\", \\\"-o\\\", help=\\\"Path to save the generated documentation\\\"\\n-    )\\n-    parser.add_argument(\\n-        \\\"--base-path\\\", help=\\\"Base path to the EGOS project\\\"\\n-    )\\n-    args = parser.parse_args()\\n-    \\n-    try:\\n-        # Analyze subsystem\\n-        analyzer = SubsystemAnalyzer(args.subsystem, base_path=args.base_path)\\n-        subsystem_data = analyzer.analyze()\\n-        \\n-        # Generate reference\\n-        generator = ReferenceGenerator(subsystem_data, output_path=args.output)\\n-        output_path = generator.generate()\\n-        \\n-        logger.info(f\\\"Quick reference guide generated: {output_path}\\\")\\n-        return 0\\n-    \\n-    except Exception as e:\\n-        logger.error(f\\\"Error generating reference: {str(e)}\\\")\\n-        return 1\\n+\\\"\\\"\\\"Main entry point for the reference generator script.\\\"\\\"\\\"\\n+parser = argparse.ArgumentParser(\\n+description=\\\"Generate quick reference documentation for EGOS subsystems\\\"\\n+)\\n+parser.add_argument(\\n+\\\"subsystem\\\", help=\\\"Name of the subsystem to document (e.g., ETHIK)\\\"\\n+)\\n+parser.add_argument(\\n+\\\"--output\\\", \\\"-o\\\", help=\\\"Path to save the generated documentation\\\"\\n+)\\n+parser.add_argument(\\n+\\\"--base-path\\\", help=\\\"Base path to the EGOS project\\\"\\n+)\\n+args = parser.parse_args()\\n+\\n+try:\\n+# Analyze subsystem\\n+analyzer = SubsystemAnalyzer(args.subsystem, base_path=args.base_path)\\n+subsystem_data = analyzer.analyze()\\n+\\n+# Generate reference\\n+generator = ReferenceGenerator(subsystem_data, output_path=args.output)\\n+output_path = generator.generate()\\n+\\n+logger.info(f\\\"Quick reference guide generated: {output_path}\\\")\\n+return 0\\n+\\n+except Exception as e:\\n+logger.error(f\\\"Error generating reference: {str(e)}\\\")\\n+return 1\\n \\n \\n if __name__ == \\\"__main__\\\":\\n-    sys.exit(main())+sys.exit(main())\\n+\\\"\\\"\\\"\""
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\reports\\reference_analysis_20250422_190356.txt",
+    "LineNumber": 17,
+    "LineContent": "- Missing description for reference: MQP.md"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\reports\\reference_check.txt",
+    "LineNumber": 327,
+    "LineContent": "        logger.info(f\"Files already with MQP reference: {files_with_mqp}\")"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\reports\\reference_check_report_20250422_213228.txt",
+    "LineNumber": 25,
+    "LineContent": "- Has MQP reference: True"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\reports\\reference_check_report_20250422_213403.txt",
+    "LineNumber": 25,
+    "LineContent": "- Has MQP reference: True"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\reports\\reference_check_report_20250422_213500.txt",
+    "LineNumber": 25,
+    "LineContent": "- Has MQP reference: True"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\09_project_meta\\reports\\reference_format_verification_20250422_212832.txt",
+    "LineNumber": 21,
+    "LineContent": "- Has MQP reference: True"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\templates\\reference_templates\\windsurf_ai_agent_configuration.md",
+    "LineNumber": 122,
+    "LineContent": "Core project documents to reference:"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_archive\\historical_changelogs_from_reference\\ava7.0 novv.txt",
+    "LineNumber": 173,
+    "LineContent": "    user_preference: Dict[str, Any] = field(default_factory=dict)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181531\\docs\\governance\\migrations\\processed\\mixed-pt-en\\ava7.0 novv.md",
+    "LineNumber": 219,
+    "LineContent": "    user_preference: Dict[str, Any] = field(default_factory=dict)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181555\\docs\\governance\\roadmaps\\MYCELIUM\\ROADMAP.md",
+    "LineNumber": 356,
+    "LineContent": "- Reference: [MYCELIUM_VISUALIZATION_INTEGRATION.md](../../../..\\..\\subsystems\\MYCELIUM\\docs\\MYCELIUM_VISUALIZATION_INTEGRATION.md)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181601\\docs\\governance\\roadmaps\\subsystems\\MYCELIUM\\ROADMAP.md",
+    "LineNumber": 356,
+    "LineContent": "- Reference: [MYCELIUM_VISUALIZATION_INTEGRATION.md](../../../..\\..\\subsystems\\MYCELIUM\\docs\\MYCELIUM_VISUALIZATION_INTEGRATION.md)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181625\\docs\\markdown\\project_governance\\MQP.md",
+    "LineNumber": 66,
+    "LineContent": "**Primary Reference:** This document serves as the CORE guiding prompt for the EGOS project. Detailed subsystem specifications, the live project status, and operational standards are further elaborated in **[`ROADMAP.md`](../../..\\..\\ROADMAP.md)**, individual subsystem documentation (e.g., `subsystems/<SubSystem>/README.md`), and the specific KOIOS standard documents located primarily in **[`\\\\.cursor\\\\rules\\\\`](../../..\\..\\.cursor\\rules\\)**. Strategic context is maintained in **[`docs_egos/STRATEGY.md`](../../..\\STRATEGY.md)**."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181638\\docs\\reference\\MQP.md",
+    "LineNumber": 66,
+    "LineContent": "**Primary Reference:** This document serves as the CORE guiding prompt for the EGOS project. Detailed subsystem specifications, the live project status, and operational standards are further elaborated in **[`ROADMAP.md`](../../..\\..\\ROADMAP.md)**, individual subsystem documentation (e.g., `subsystems/<SubSystem>/README.md`), and the specific KOIOS standard documents located primarily in **[`\\\\.cursor\\\\rules\\\\`](../../..\\..\\.cursor\\rules\\)**. Strategic context is maintained in **[`docs_egos/STRATEGY.md`](../../..\\STRATEGY.md)**."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181646\\docs\\reference\\process\\review_actions_summary_20240726.md",
+    "LineNumber": 63,
+    "LineContent": "**Reference:** See the full findings and detailed action plan in `docs_egos/project_documentation/process/project_review_summary_20240726.md`."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181646\\docs\\reference\\prompts\\pdd_website_generation_v3.md",
+    "LineNumber": 112,
+    "LineContent": "* **Design Concept Reference:** Based on the report \"Website Design Concept for the EGOS Project Integrated with LLMs\" (The LLM should assume implicit access to the details of this concept, including 2025 trends, examples, tables, etc.)."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181655\\docs\\subsystems\\EGO_KOI_MDC_RULES_STANDARD.md",
+    "LineNumber": 155,
+    "LineContent": "6. **Cross-Reference:** Reference relevant KOIOS standards documents when applicable"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181658\\docs\\subsystems\\EGO_MYC_MYCELIUM_VISUALIZATION_INTEGRATION.md",
+    "LineNumber": 60,
+    "LineContent": "   - Reference: [WEBSITE_ROADMAP.md](../../../..\\..\\..\\apps\\website\\WEBSITE_ROADMAP.md)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181659\\docs\\subsystems\\EGO_MYC_ROADMAP.md",
+    "LineNumber": 356,
+    "LineContent": "- Reference: [MYCELIUM_VISUALIZATION_INTEGRATION.md](../../..\\..\\subsystems\\MYCELIUM\\docs\\MYCELIUM_VISUALIZATION_INTEGRATION.md)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181704\\docs\\subsystems\\CORUJA\\prompts\\pdds\\EGO_pdd_website_generation_v3.md",
+    "LineNumber": 111,
+    "LineContent": "* **Design Concept Reference:** Based on the report \"Website Design Concept for the EGOS Project Integrated with LLMs\" (The LLM should assume implicit access to the details of this concept, including 2025 trends, examples, tables, etc.)."
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181708\\docs\\subsystems\\MYCELIUM\\EGO_MYC_ROADMAP.md",
+    "LineNumber": 356,
+    "LineContent": "- Reference: [MYCELIUM_VISUALIZATION_INTEGRATION.md](../../..\\..\\subsystems\\MYCELIUM\\docs\\MYCELIUM_VISUALIZATION_INTEGRATION.md)"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\docs\\20250513_181713\\docs\\templates\\windsurf_ai_agent_configuration.md",
+    "LineNumber": 122,
+    "LineContent": "Core project documents to reference:"
+  },
+  {
+    "File": "C:\\EGOS\\docs_egos\\zz_archive\\legacy_root_backups\\scripts\\maintenance\\_archive_analyzers\\cross_reference_analyzer_v2.py",
+    "LineNumber": 456,
+    "LineContent": "        console.print(f\"  Files without MQP reference: {len(analyzer_instance.files_without_mqp)}\")"
+  },
+  {
+    "File": "C:\\EGOS\\logs\\process_activity\\review_actions_summary_20240726.md",
+    "LineNumber": 63,
+    "LineContent": "**Reference:** See the full findings and detailed action plan in `docs_egos/project_documentation/process/project_review_summary_20240726.md`."
+  },
+  {
+    "File": "C:\\EGOS\\recovery_analysis\\phase1_implementation_plan.md",
+    "LineNumber": 5,
+    "LineContent": "**Reference:** Work_2025-05-20_Project_Reorganization_Plan.md  "
+  },
+  {
+    "File": "C:\\EGOS\\research\\OK no roadmap\\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt",
+    "LineNumber": 14,
+    "LineContent": "*   **Core Principles:** Universal Redemption, Unconditional Love, Sacred Privacy, Integrated Ethics, Conscious Modularity, Systemic Cartography, Evolutionary Preservation, Context Continuity, Harmonious Integration, Standardization & Knowledge. (Reference: `docs_egos/MQP.md`, `README.md`)"
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\cross_reference\\cross_reference_ultra_report_20250520_233235.md",
+    "LineNumber": 11697,
+    "LineContent": "  - Found in: `MQP.md` L22: `**Primary Reference:** This document serves as the CORE guiding prompt for the EGOS project. Detaile`"
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\cross_reference\\execute_inventory_scan.py",
+    "LineNumber": 39,
+    "LineContent": "    {\"query\": \"Reference:\", \"output_file\": \"grep_Reference_results.json\", \"case_insensitive\": True, \"category\": \"keyword\"},"
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\cross_reference\\inventory_consolidator.py",
+    "LineNumber": 269,
+    "LineContent": "        f.write(f\"- 🔗 Reference: [mqp.md](../docs_egos/mqp.md)\\n\")"
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\cross_reference\\purge_old_references.py",
+    "LineNumber": 190,
+    "LineContent": "    {\"name\": \"Reference\", \"pattern\": r\"Reference:\\s\", \"context_required\": False},"
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\cross_reference\\README.md",
+    "LineNumber": 24,
+    "LineContent": "- 🔗 Reference: [mqp.md](../docs_egos/mqp.md)"
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\cross_reference\\reference_migration.py",
+    "LineNumber": 247,
+    "LineContent": "                    if new_reference != old_reference:"
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\cross_reference\\integration\\script_standards.md",
+    "LineNumber": 21,
+    "LineContent": "- 🔗 Reference: [file_reference_checker_ultra.py](../file_reference_checker_ultra.py)"
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\migrations\\unique_files_analysis_report.md",
+    "LineNumber": 26,
+    "LineContent": "- **reference:** 311"
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\migrations\\verify_migration_integrity.py",
+    "LineNumber": 204,
+    "LineContent": "                            file_issues.append(f\"Orphaned reference: [{link_text}]({link_path})\")"
+  },
+  {
+    "File": "C:\\EGOS\\STRATEGIC_THINKING\\research\\roadmap_related\\EGOS - Quantum Unified Master System Diagnostic & Strategic Market Presentation.txt",
+    "LineNumber": 14,
+    "LineContent": "*   **Core Principles:** Universal Redemption, Unconditional Love, Sacred Privacy, Integrated Ethics, Conscious Modularity, Systemic Cartography, Evolutionary Preservation, Context Continuity, Harmonious Integration, Standardization & Knowledge. (Reference: `docs_egos/MQP.md`, `README.md`)"
+  },
+  {
+    "File": "C:\\EGOS\\subsystems\\ATLAS\\README.md",
+    "LineNumber": 40,
+    "LineContent": "Cross-reference: See ROADMAP.md sections \"Dynamic Roadmap Sync & Mycelium Interconnection\" and \"Technical Implementation Plan: Dynamic Roadmap Sync (Phase 1)\"."
+  },
+  {
+    "File": "C:\\EGOS\\subsystems\\CORUJA\\README.md",
+    "LineNumber": 46,
+    "LineContent": "Cross-reference: See ROADMAP.md sections \"Dynamic Roadmap Sync & Mycelium Interconnection\" and \"Technical Implementation Plan: Dynamic Roadmap Sync (Phase 1)\"."
+  },
+  {
+    "File": "C:\\EGOS\\subsystems\\CORUJA\\core\\basic_orchestrator.py",
+    "LineNumber": 152,
+    "LineContent": "            if handler_type == \"specialized_crew\" and handler_reference:"
+  },
+  {
+    "File": "C:\\EGOS\\subsystems\\CORUJA\\prompts\\pdds\\pdd_website_generation_v3.md",
+    "LineNumber": 53,
+    "LineContent": "* **Design Concept Reference:** Based on the report \"Website Design Concept for the EGOS Project Integrated with LLMs\" (The LLM should assume implicit access to the details of this concept, including 2025 trends, examples, tables, etc.)."
+  },
+  {
+    "File": "C:\\EGOS\\subsystems\\CRONOS\\README.md",
+    "LineNumber": 14,
+    "LineContent": "Cross-reference: See ROADMAP.md sections \"Dynamic Roadmap Sync & Mycelium Interconnection\" and \"Technical Implementation Plan: Dynamic Roadmap Sync (Phase 1)\"."
+  },
+  {
+    "File": "C:\\EGOS\\subsystems\\ETHIK\\README.md",
+    "LineNumber": 17,
+    "LineContent": "Cross-reference: See ROADMAP.md sections \"Dynamic Roadmap Sync & Mycelium Interconnection\" and \"Technical Implementation Plan: Dynamic Roadmap Sync (Phase 1)\"."
+  },
+  {
+    "File": "C:\\EGOS\\subsystems\\HARMONY\\README.md",
+    "LineNumber": 10,
+    "LineContent": "Cross-reference: See ROADMAP.md sections \"Dynamic Roadmap Sync & Mycelium Interconnection\" and \"Technical Implementation Plan: Dynamic Roadmap Sync (Phase 1)\"."
+  },
+  {
+    "File": "C:\\EGOS\\subsystems\\KOIOS\\README.md",
+    "LineNumber": 37,
+    "LineContent": "Cross-reference: See ROADMAP.md sections \"Dynamic Roadmap Sync & Mycelium Interconnection\" and \"Technical Implementation Plan: Dynamic Roadmap Sync (Phase 1)\"."
+  },
+  {
+    "File": "C:\\EGOS\\subsystems\\KOIOS\\script_standards.md",
+    "LineNumber": 21,
+    "LineContent": "- 🔗 Reference: [file_reference_checker_ultra.py](../../scripts/cross_reference/file_reference_checker_ultra.py)"
+  },
+  {
+    "File": "C:\\EGOS\\subsystems\\KOIOS\\docs\\MDC_RULES_STANDARD.md",
+    "LineNumber": 97,
+    "LineContent": "6. **Cross-Reference:** Reference relevant KOIOS standards documents when applicable"
+  },
+  {
+    "File": "C:\\EGOS\\subsystems\\MYCELIUM\\README.md",
+    "LineNumber": 14,
+    "LineContent": "Cross-reference: See ROADMAP.md sections \"Dynamic Roadmap Sync & Mycelium Interconnection\" and \"Technical Implementation Plan: Dynamic Roadmap Sync (Phase 1)\"."
+  },
+  {
+    "File": "C:\\EGOS\\subsystems\\NEXUS\\README.md",
+    "LineNumber": 17,
+    "LineContent": "Cross-reference: See ROADMAP.md sections \"Dynamic Roadmap Sync & Mycelium Interconnection\" and \"Technical Implementation Plan: Dynamic Roadmap Sync (Phase 1)\"."
+  },
+  {
+    "File": "C:\\EGOS\\subsystems\\SYNC\\README.md",
+    "LineNumber": 10,
+    "LineContent": "Cross-reference: See ROADMAP.md sections \"Dynamic Roadmap Sync & Mycelium Interconnection\" and \"Technical Implementation Plan: Dynamic Roadmap Sync (Phase 1)\"."
+  }
+]

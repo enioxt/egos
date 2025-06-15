@@ -1,0 +1,143 @@
+# EGOS ATRiAN - Base Ethical Constitution Template
+# Version: 0.1.0
+# Last Modified: 2025-06-12
+# 
+# Purpose:
+# This file defines the base ethical constitution template that serves as a foundation
+# for all specialized ethical constitutions in the ATRiAN system. It establishes the
+# core ethical principles and rules that should be inherited by all derived constitutions.
+# 
+# Usage:
+# This template can be extended by specialized templates for specific regulatory
+# frameworks (EU AI Act, GDPR) or industry sectors (healthcare, finance).
+# 
+# Cross-references:
+# - [ATRiAN README](../../README.md)
+# - [Ethics Rules YAML](../../ethics_rules.yaml)
+# - [Ethical Constitution Schema](./ethical_constitution_schema.py)
+# --- 
+
+id: "egos-base-ethical-constitution-v1"
+name: "EGOS Base Ethical Constitution"
+description: "Foundational ethical framework based on the EGOS Master Quantum Prompt principles and universal ethical values."
+
+metadata:
+  version: "0.1.0"
+  created_date: "2025-06-12T00:00:00Z"
+  modified_date: null
+  author: "EGOS Team"
+  purpose: "Provide a universal baseline for ethical validation of AI prompts"
+  applicable_domains: ["general", "ai_systems", "prompt_engineering"]
+  tags: ["base", "universal", "mqp_aligned"]
+  parent_constitutions: []
+  regulatory_alignment: ["general_ethics"]
+
+principles:
+  - id: "SP-001"
+    name: "Sacred Privacy"
+    description: "Respect and protect user privacy and sensitive information, recognizing privacy as a fundamental right rather than a commodity."
+    severity: "critical"
+    references: ["EGOS MQP v9.0 'Sacred Privacy' Tenet"]
+  
+  - id: "IE-001"
+    name: "Integrated Ethics"
+    description: "Ensure ethical considerations are embedded within system design and operations, not merely added as compliance checkboxes."
+    severity: "high"
+    references: ["EGOS MQP v9.0 'Integrated Ethics' Tenet"]
+  
+  - id: "RT-001"
+    name: "Radical Transparency"
+    description: "Maintain openness about system capabilities, limitations, and decision-making processes while balancing security considerations."
+    severity: "medium"
+    references: ["EGOS MQP v9.0 'Radical Transparency' Tenet"]
+  
+  - id: "UA-001"
+    name: "Universal Accessibility"
+    description: "Design systems that are accessible and beneficial to diverse users regardless of background, ability, or resources."
+    severity: "medium"
+    references: ["EGOS MQP v9.0 'Universal Accessibility' Tenet"]
+  
+  - id: "UR-001"
+    name: "User Responsibility"
+    description: "Encourage and enable users to engage responsibly with AI systems, with appropriate education and safeguards."
+    severity: "high"
+    references: ["EGOS MQP v9.0 'User Responsibility' Tenet"]
+  
+  - id: "CM-001"
+    name: "Conscious Modularity"
+    description: "Create systems with clear boundaries and interfaces that respect integration but maintain appropriate separation."
+    severity: "medium"
+    references: ["EGOS MQP v9.0 'Conscious Modularity' Tenet"]
+  
+  - id: "SC-001"
+    name: "Systemic Cartography"
+    description: "Map interconnections between system components and external contexts to understand impacts and dependencies."
+    severity: "medium"
+    references: ["EGOS MQP v9.0 'Systemic Cartography' Tenet"]
+
+rules:
+  - id: "BASE-R-001"
+    principle_ids: ["SP-001"]
+    description: "No prompt should request, encourage, or enable the collection of personal data without explicit purpose and consent."
+    trigger_keywords: ["personal data", "private information", "PII", "collect data", "user data"]
+    validation_patterns: []
+    recommendations: 
+      - "Include explicit consent mechanism"
+      - "Clearly state data usage purpose"
+      - "Minimize data collection to only what's essential"
+  
+  - id: "BASE-R-002"
+    principle_ids: ["IE-001", "RT-001"]
+    description: "All prompts should disclose AI system capabilities and limitations relevant to the task."
+    trigger_keywords: ["capabilities", "limitations", "what can you do", "can you"]
+    validation_patterns: []
+    recommendations: 
+      - "Include clear statements about AI capabilities"
+      - "Disclose known limitations relevant to the task"
+      - "Be transparent about the AI's role in the interaction"
+  
+  - id: "BASE-R-003"
+    principle_ids: ["UA-001"]
+    description: "Prompts should use clear, accessible language and avoid unnecessary jargon or complexity."
+    trigger_keywords: ["technical terms", "complex language", "jargon", "specialized vocabulary"]
+    validation_patterns: []
+    recommendations: 
+      - "Use plain language where possible"
+      - "Define necessary technical terms"
+      - "Consider different audience knowledge levels"
+  
+  - id: "BASE-R-004"
+    principle_ids: ["IE-001", "UR-001"]
+    description: "Prompts should not encourage harmful, illegal, or unethical behaviors."
+    trigger_keywords: ["harmful", "illegal", "unethical", "dangerous", "exploit", "attack"]
+    validation_patterns: []
+    recommendations: 
+      - "Remove or rephrase content encouraging harmful actions"
+      - "Include ethical guardrails in prompt design"
+      - "Consider potential misuse vectors"
+  
+  - id: "BASE-R-005"
+    principle_ids: ["SC-001", "CM-001"]
+    description: "Prompts should acknowledge system boundaries and dependencies when relevant to task outcomes."
+    trigger_keywords: ["integration", "external system", "dependency", "connection", "boundary"]
+    validation_patterns: []
+    recommendations: 
+      - "Identify key dependencies affecting prompt performance"
+      - "Clarify boundaries of responsibility between systems"
+      - "Map potential cross-system impacts"
+
+  - id: "BASE-R-006"
+    principle_ids: ["RT-001", "UR-001"]
+    description: "Users should be informed of significant automated decision-making and have options for human oversight."
+    trigger_keywords: ["decision", "automated", "algorithm", "determine", "evaluate"]
+    validation_patterns: []
+    recommendations: 
+      - "Disclose when significant decisions are automated"
+      - "Provide pathway to human review when appropriate"
+      - "Explain key factors in automated decisions"
+
+validation_config:
+  minimum_pass_threshold: 0.75  # Minimum compliance score (0-1) to pass validation
+  critical_failure_principles: ["SP-001"]  # Principles that cause automatic failure if violated
+  allow_override: false  # Whether manual override of validation results is permitted
+  inheritance_behavior: "extend"  # How to handle rules from parent constitutions (extend/replace)

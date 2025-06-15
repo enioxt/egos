@@ -1,0 +1,836 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+EGOS Cross-Reference Validator
+
+This script validates cross-references across the EGOS ecosystem to ensure they
+follow the standardized format and point to valid targets. It analyzes documents,
+extracts references, validates their targets, and generates a comprehensive report.
+
+Part of the EGOS Cross-Reference Standardization Initiative.
+
+Author: EGOS Development Team
+Created: 2025-05-21
+Version: 1.0.0
+"""
+
+# Standard library imports
+import os
+import re
+import sys
+import time
+import json
+import logging
+import argparse
+import asyncio
+import math
+import fnmatch
+from datetime import datetime
+from pathlib import Path
+from typing import List, Dict, Any, Optional, Set, Tuple, Pattern, Union, Callable
+from collections import defaultdict, Counter
+
+# Third-party imports
+import concurrent.futures
+from tqdm import tqdm
+try:
+    from colorama import init, Fore, Style
+    init(autoreset=True)
+    HAVE_COLORAMA = True
+except ImportError:
+    HAVE_COLORAMA = False
+    # Fallback implementation for colorama
+    class DummyColorama:
+        def __init__(self):
+            self.BLUE = self.GREEN = self.RED = self.YELLOW = self.CYAN = self.MAGENTA = self.WHITE = ""
+            self.RESET_ALL = self.BRIGHT = self.DIM = ""
+    
+    class DummyStyle:
+        def __init__(self):
+            self.RESET_ALL = self.BRIGHT = self.DIM = ""
+    
+    if not 'Fore' in globals():
+        Fore = DummyColorama()
+    if not 'Style' in globals():
+        Style = DummyStyle()
+
+# Constants
+BANNER_WIDTH = 80
+TERMINAL_WIDTH = 120
+DEFAULT_TIMEOUT = 30  # seconds
+DEFAULT_BATCH_SIZE = 100
+DEFAULT_MAX_WORKERS = 4
+DEFAULT_MAX_FILE_SIZE = 10 * 1024 * 1024  # 10MB
+
+# Configuration
+CONFIG = {
+    # Performance settings
+    "batch_size": DEFAULT_BATCH_SIZE,
+    "max_workers": DEFAULT_MAX_WORKERS,
+    "timeout": DEFAULT_TIMEOUT,
+    
+    # Logging settings
+    "log_file": os.path.join(os.path.dirname(__file__), 'logs', 'cross_reference_validator.log'),
+    "log_level": "INFO",
+    
+    # File processing settings
+    "max_file_size": DEFAULT_MAX_FILE_SIZE,
+    "chunk_size": 8192,  # Read files in chunks of this size
+    
+    # Reference settings
+    "reference_block_start": "<!-- crossref_block:start -->",
+    "reference_block_end": "<!-- crossref_block:end -->",
+    "reference_line_prefix": "- 🔗 Reference: ",
+    "egos_id_prefix": "EGOS-REF-",
+    
+    # File extensions to process
+    "file_extensions": ['.md', '.txt', '.py', '.js', '.html', '.css', '.json', '.yaml', '.yml'],
+    
+    # Directories to exclude
+    "exclude_dirs": {'.git', 'venv', 'node_modules', '__pycache__', 'dist', 'build', 'target', 'bin', 'obj'},
+    
+    # Reference patterns to validate
+    "reference_patterns": [
+        # Standard markdown links
+        r'\[([^\]]+)\]\(([^)]+)\)',
+        
+        # Standardized reference format
+        r'<!-- crossref_block:start -->.*?<!-- crossref_block:end -->',
+        
+        # EGOS ID references
+        r'EGOS-[A-Z]+-\d+',
+    ],
+}
+
+# Configure logging
+os.makedirs(os.path.dirname(CONFIG["log_file"]), exist_ok=True)
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.StreamHandler()
+    ]
+)
+
+logger = logging.getLogger("cross_reference_validator")
+
+# Add file handler if configured
+if CONFIG["log_file"]:
+    os.makedirs(os.path.dirname(CONFIG["log_file"]), exist_ok=True)
+    file_handler = logging.FileHandler(CONFIG["log_file"])
+    file_handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
+    logger.addHandler(file_handler)
+
+# Helper functions
+def print_banner(title: str, subtitle: Optional[str] = None) -> None:
+    """Print a visually appealing banner."""
+    width = BANNER_WIDTH
+    
+    # Top border
+    print(f"{Fore.BLUE}╔{'═' * (width-2)}╗{Style.RESET_ALL}")
+    
+    # Title
+    title_padding = (width - 2 - len(title)) // 2
+    print(f"{Fore.BLUE}║{' ' * title_padding}{Fore.YELLOW}{title}{' ' * (width - 2 - len(title) - title_padding)}║{Style.RESET_ALL}")
+    
+    # Subtitle if provided
+    if subtitle:
+        subtitle_padding = (width - 2 - len(subtitle)) // 2
+        print(f"{Fore.BLUE}║{' ' * subtitle_padding}{Fore.CYAN}{subtitle}{' ' * (width - 2 - len(subtitle) - subtitle_padding)}║{Style.RESET_ALL}")
+    
+    # Bottom border
+    print(f"{Fore.BLUE}╚{'═' * (width-2)}╝{Style.RESET_ALL}")
+    print()
+
+def format_time(seconds: float) -> str:
+    """Format time in a human-readable format."""
+    if seconds < 60:
+        return f"{seconds:.1f} seconds"
+    elif seconds < 3600:
+        minutes = seconds / 60
+        return f"{minutes:.1f} minutes"
+    else:
+        hours = seconds / 3600
+        return f"{hours:.1f} hours"
+
+class ProgressTracker:
+    """Enhanced progress tracking with ETA and visual feedback."""
+    
+    def __init__(self, total: int, description: str = "Processing", unit: str = "files"):
+        self.total = total
+        self.description = description
+        self.unit = unit
+        self.processed = 0
+        self.start_time = time.time()
+        
+        # Create progress bar
+        self.pbar = tqdm(
+            total=total,
+            desc=f"{Fore.CYAN}{description}{Style.RESET_ALL}",
+            unit=unit,
+            ncols=TERMINAL_WIDTH - 20,
+            bar_format='{l_bar}{bar}| {n_fmt}/{total_fmt} [{elapsed}<{remaining}, {rate_fmt}]'
+        )
+    
+    def update(self, n: int = 1) -> None:
+        """Update progress by n units."""
+        self.processed += n
+        self.pbar.update(n)
+    
+    def close(self) -> None:
+        """Close the progress bar."""
+        self.pbar.close()
+
+class ReferenceValidator:
+    """Cross-reference validator for EGOS documents."""
+    
+    def __init__(self, base_path: str, verbose: bool = False):
+        """Initialize the reference validator.
+        
+        Args:
+            base_path: Base path to process
+            verbose: If True, print detailed information
+        """
+        self.base_path = Path(base_path)
+        self.verbose = verbose
+        
+        # Statistics
+        self.stats = {
+            "files_scanned": 0,
+            "references_found": 0,
+            "valid_references": 0,
+            "invalid_references": 0,
+            "files_with_invalid_references": 0,
+            "errors": 0,
+            "processing_time": 0,
+        }
+        
+        # Results
+        self.results = []
+        
+        # Cache of all files
+        self.all_files = set()
+    
+    def find_files(self) -> List[Path]:
+        """Find all files to process with enhanced filtering."""
+        logger.info(f"Finding files to process in {self.base_path}")
+        
+        files = []
+        for root, dirs, filenames in os.walk(self.base_path):
+            # Skip excluded directories
+            dirs[:] = [d for d in dirs if d not in CONFIG["exclude_dirs"]]
+            
+            for filename in filenames:
+                file_path = Path(os.path.join(root, filename))
+                
+                # Check if extension is in the list to process
+                if file_path.suffix.lower() in CONFIG["file_extensions"]:
+                    # Skip files that are too large
+                    try:
+                        if file_path.stat().st_size > CONFIG["max_file_size"]:
+                            logger.warning(f"Skipping large file: {file_path} ({file_path.stat().st_size / 1024 / 1024:.2f} MB)")
+                            continue
+                    except Exception as e:
+                        logger.error(f"Error checking file size for {file_path}: {str(e)}")
+                        self.stats["errors"] += 1
+                        continue
+                    
+                    files.append(file_path)
+                    self.all_files.add(file_path.resolve())
+        
+        logger.info(f"Found {len(files)} files to process")
+        return files
+    
+    def extract_references(self, file_path: Path) -> List[Tuple[str, str]]:
+        """Extract references from a file.
+        
+        Args:
+            file_path: Path to the file
+            
+        Returns:
+            List of tuples (reference_text, reference_target)
+        """
+        references = []
+        
+        try:
+            # Read file content
+            with open(file_path, 'r', encoding='utf-8', errors='replace') as f:
+                content = f.read()
+            
+            # Look for canonical reference blocks
+            crossref_blocks = re.findall(r'<!--\s*crossref_block:start\s*-->\s*(.*?)\s*<!--\s*crossref_block:end\s*-->', content, re.DOTALL)
+            
+            if crossref_blocks:
+                # Process canonical references
+                for block in crossref_blocks:
+                    # Extract references within the block
+                    canonical_refs = re.findall(r'-\s*🔗\s*Reference:\s*\[([^\]]+)\]\(([^)]+)\)', block)
+                    
+                    for title, target in canonical_refs:
+                        references.append((f"- 🔗 Reference: [{title}]({target})", target))
+            else:
+                # Fall back to finding all markdown links if no canonical blocks
+                matches = re.findall(r'\[([^\]]+)\]\(([^)]+)\)', content)
+                
+                # Process matches
+                for match in matches:
+                    text, target = match
+                    # Skip non-reference links (images, etc.)
+                    if "reference" in text.lower() or any(ext in target.lower() for ext in CONFIG["file_extensions"]):
+                        references.append((f"[{text}]({target})", target))
+        
+        except Exception as e:
+            logger.error(f"Error extracting references from {file_path}: {str(e)}")
+            self.stats["errors"] += 1
+        
+        return references
+    
+    def _generate_fix_suggestion(self, file_path: str, reference: str, target_path: Optional[str]) -> str:
+        """
+        Generate a suggested fix for an invalid reference.
+        
+        Args:
+            file_path: Source file path
+            reference: The invalid reference text
+            target_path: The resolved target path (may be None)
+            
+        Returns:
+            A suggested fix for the reference
+        """
+        # Extract title and path from reference if possible
+        ref_match = re.search(r'\[([^\]]+)\]\(([^)]+)\)', reference)
+        if not ref_match:
+            # Can't parse the reference format, suggest canonical format
+            return f"- 🔗 Reference: [filename](path/to/file)"
+        
+        title, path = ref_match.groups()
+        
+        # Check if path is valid but format is wrong
+        if target_path and os.path.exists(target_path):
+            rel_path = os.path.relpath(target_path, os.path.dirname(file_path))
+            # Path is valid, just needs correct format
+            return f"- 🔗 Reference: [{title}]({rel_path.replace(os.sep, '/')})"
+        
+        # Try to find similar files
+        suggestions = []
+        base_dir = os.path.dirname(file_path)
+        search_pattern = f"*{os.path.basename(path)}*" if path else "*.md"
+        
+        try:
+            for root, _, files in os.walk(base_dir):
+                for file in files:
+                    if fnmatch.fnmatch(file.lower(), search_pattern.lower()):
+                        rel_path = os.path.relpath(os.path.join(root, file), base_dir)
+                        suggestions.append(f"- 🔗 Reference: [{title}]({rel_path.replace(os.sep, '/')})") 
+                        if len(suggestions) >= 3:  # Limit to 3 suggestions
+                            break
+                if len(suggestions) >= 3:
+                    break
+        except Exception as e:
+            logger.debug(f"Error finding similar files: {str(e)}")
+        
+        if suggestions:
+            return "\n".join(["Possible fixes:"] + suggestions)
+        
+        # Fallback to generic suggestion
+        return f"- 🔗 Reference: [{title}](correct/path/to/file)"
+
+    def validate_reference(self, reference: Tuple[str, str], source_file: Path) -> Dict[str, Any]:
+        """Validate a reference.
+        
+        Args:
+            reference: Tuple (reference_text, reference_target)
+            source_file: Path to the source file
+            
+        Returns:
+            Dictionary with validation results
+        """
+        result = {
+            "valid": False,
+            "text": reference[0],
+            "target": reference[1],
+            "error": None,
+            "format_valid": False,
+            "suggested_fix": None
+        }
+        
+        try:
+            # Extract target from reference
+            text, target = reference
+            
+            # Check if the format matches the canonical format
+            canonical_ref_pattern = re.compile(r'-\s*🔗\s*Reference:\s*\[(.*?)\]\((.*?)\)')
+            format_match = canonical_ref_pattern.match(text)
+            result["format_valid"] = bool(format_match)
+            
+            # Check if target is a URL
+            if target.startswith("http://") or target.startswith("https://"):
+                # For now, just validate that it's a URL format
+                result["valid"] = result["format_valid"]
+                if not result["format_valid"]:
+                    result["error"] = "Reference format does not match canonical pattern"
+                    result["suggested_fix"] = self._generate_fix_suggestion(str(source_file), text, None)
+                return result
+            
+            # Check if target is a relative path
+            if not target.startswith("/"):
+                target_path = source_file.parent / target
+            else:
+                target_path = Path(target)
+            
+            # Normalize path
+            target_path = target_path.resolve()
+            
+            # Check if target exists and format is valid
+            if target_path in self.all_files and result["format_valid"]:
+                result["valid"] = True
+            else:
+                # Determine error reason
+                if not result["format_valid"]:
+                    result["error"] = "Reference format does not match canonical pattern"
+                elif target_path not in self.all_files:
+                    result["error"] = "Target file does not exist"
+                    
+                    # Check if target exists with a different extension
+                    for ext in CONFIG["file_extensions"]:
+                        alt_path = Path(str(target_path) + ext)
+                        if alt_path in self.all_files:
+                            result["error"] = f"Target file does not exist, but found similar file with extension {ext}"
+                            break
+                
+                # Generate fix suggestion
+                result["suggested_fix"] = self._generate_fix_suggestion(str(source_file), text, str(target_path) if target_path in self.all_files else None)
+        
+        except Exception as e:
+            result["error"] = f"Validation error: {str(e)}"
+            logger.debug(f"Error validating reference {text} in {source_file}: {str(e)}", exc_info=True)
+        
+        return result
+    
+    def process_file(self, file_path: Path) -> Dict[str, Any]:
+        """Process a single file with timeout protection.
+        
+        Args:
+            file_path: Path to the file to process
+            
+        Returns:
+            Dictionary containing processing results
+        """
+        result = {
+            "file": str(file_path),
+            "references_found": 0,
+            "valid_references": 0,
+            "invalid_references": 0,
+            "invalid_reference_details": [],
+            "error": None,
+            "processing_time": 0
+        }
+        
+        start_time = time.time()
+        
+        try:
+            # Check if file exists and is readable
+            if not file_path.exists() or not os.access(file_path, os.R_OK):
+                result["error"] = f"File does not exist or is not readable"
+                return result
+            
+            # Process with timeout protection
+            while time.time() - start_time < CONFIG["timeout"]:
+                # Extract references
+                references = self.extract_references(file_path)
+                result["references_found"] = len(references)
+                
+                # Validate references
+                for ref in references:
+                    validation = self.validate_reference(ref, file_path)
+                    
+                    if validation["valid"]:
+                        result["valid_references"] += 1
+                    else:
+                        result["invalid_references"] += 1
+                        result["invalid_reference_details"].append({
+                            "text": ref[0],
+                            "target": ref[1],
+                            "error": validation["error"]
+                        })
+                
+                # Calculate processing time
+                result["processing_time"] = time.time() - start_time
+                return result
+            
+            # If we get here, we've timed out
+            result["error"] = f"Processing timed out after {CONFIG['timeout']} seconds"
+            return result
+        
+        except Exception as e:
+            result["error"] = str(e)
+            result["processing_time"] = time.time() - start_time
+            return result
+    
+    async def process_files_async(self, files: List[Path]) -> List[Dict[str, Any]]:
+        """Process files asynchronously in batches.
+        
+        Args:
+            files: List of files to process
+            
+        Returns:
+            List of processing results
+        """
+        results = []
+        total_files = len(files)
+        
+        # Process files in batches
+        batch_size = CONFIG["batch_size"]
+        num_batches = math.ceil(total_files / batch_size)
+        
+        progress = ProgressTracker(total_files, "Validating references", "files")
+        
+        for batch_idx in range(num_batches):
+            start_idx = batch_idx * batch_size
+            end_idx = min(start_idx + batch_size, total_files)
+            batch_files = files[start_idx:end_idx]
+            
+            # Process batch in parallel
+            with concurrent.futures.ThreadPoolExecutor(max_workers=CONFIG["max_workers"]) as executor:
+                # Submit all tasks
+                future_to_file = {
+                    executor.submit(self.process_file, file_path): file_path
+                    for file_path in batch_files
+                }
+                
+                # Process results as they complete
+                for future in concurrent.futures.as_completed(future_to_file):
+                    file_path = future_to_file[future]
+                    try:
+                        result = future.result()
+                        results.append(result)
+                        
+                        # Update statistics
+                        self.stats["files_scanned"] += 1
+                        self.stats["references_found"] += result["references_found"]
+                        self.stats["valid_references"] += result["valid_references"]
+                        self.stats["invalid_references"] += result["invalid_references"]
+                        
+                        if result["invalid_references"] > 0:
+                            self.stats["files_with_invalid_references"] += 1
+                        
+                        if result["error"]:
+                            self.stats["errors"] += 1
+                        
+                        # Update progress
+                        progress.update()
+                        
+                        # Print verbose output if requested
+                        if self.verbose and result["invalid_references"] > 0:
+                            logger.warning(f"Found {result['invalid_references']} invalid references in {file_path}")
+                            for ref in result["invalid_reference_details"]:
+                                logger.warning(f"  - {ref['text']} -> {ref['target']} ({ref['error']})")
+                    
+                    except Exception as e:
+                        logger.error(f"Error processing {file_path}: {str(e)}")
+                        self.stats["errors"] += 1
+                        progress.update()
+            
+            # Allow event loop to process other tasks
+            await asyncio.sleep(0.1)
+        
+        progress.close()
+        return results
+    
+    def generate_report(self, results: List[Dict[str, Any]]) -> str:
+        """Generate a comprehensive report of the validation results.
+        
+        Args:
+            results: List of processing results
+            
+        Returns:
+            Path to the generated report
+        """
+        logger.info("Generating validation report...")
+        
+        # Prepare report directory
+        os.makedirs(os.path.join(os.path.dirname(__file__), "reports"), exist_ok=True)
+        
+        # Generate report filename
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        report_dir = os.path.join(os.path.dirname(__file__), "reports")
+        report_path = os.path.join(report_dir, f"cross_reference_validation_report_{timestamp}.json")
+        
+        # Prepare report data
+        report_data = {
+            "timestamp": timestamp,
+            "base_path": str(self.base_path),
+            "stats": self.stats,
+            "invalid_references": []
+        }
+        
+        # Group invalid references by file for easier analysis
+        files_with_issues = {}
+        
+        # Collect invalid references
+        for invalid_ref in self.invalid_references:
+            file_path = invalid_ref.get("source", "unknown")
+            
+            if file_path not in files_with_issues:
+                files_with_issues[file_path] = []
+            
+            files_with_issues[file_path].append({
+                "reference": invalid_ref.get("reference", ""),
+                "target": invalid_ref.get("target", ""),
+                "reason": invalid_ref.get("reason", "Unknown error"),
+                "suggested_fix": invalid_ref.get("suggested_fix", "")
+            })
+        
+        # Format for the report
+        for file_path, issues in files_with_issues.items():
+            for issue in issues:
+                report_data["invalid_references"].append({
+                    "file": file_path,
+                    "reference": issue["reference"],
+                    "target": issue["target"],
+                    "reason": issue["reason"],
+                    "suggested_fix": issue["suggested_fix"]
+                })
+        
+        # Sort invalid references by file path
+        report_data["invalid_references"] = sorted(
+            report_data["invalid_references"],
+            key=lambda x: x["file"]
+        )
+        
+        # Write report to file
+        with open(report_path, "w", encoding="utf-8") as f:
+            json.dump(report_data, f, indent=2, ensure_ascii=False)
+        
+        # Generate HTML report as well
+        html_report_path = os.path.join(report_dir, f"cross_reference_validation_report_{timestamp}.html")
+        
+        with open(html_report_path, "w", encoding="utf-8") as f:
+            f.write(f"""<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cross-Reference Validation Report</title>
+    <style>
+        body {{ font-family: Arial, sans-serif; margin: 0; padding: 20px; }}
+        h1, h2, h3 {{ color: #333; }}
+        .stats {{ display: flex; flex-wrap: wrap; margin-bottom: 20px; }}
+        .stat-card {{ background-color: #f5f5f5; border-radius: 5px; padding: 15px; margin: 10px; flex: 1; min-width: 200px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }}
+        .stat-value {{ font-size: 24px; font-weight: bold; color: #007bff; }}
+        .stat-label {{ font-size: 14px; color: #666; }}
+        table {{ width: 100%; border-collapse: collapse; margin-top: 20px; }}
+        th, td {{ text-align: left; padding: 12px; border-bottom: 1px solid #ddd; }}
+        th {{ background-color: #f2f2f2; }}
+        tr:hover {{ background-color: #f5f5f5; }}
+        .error {{ color: #dc3545; }}
+        .file-path {{ color: #28a745; font-family: monospace; }}
+        .reference {{ color: #007bff; font-family: monospace; }}
+        .fix {{ background-color: #e9f7ef; padding: 8px; border-left: 4px solid #28a745; margin-top: 5px; white-space: pre-wrap; }}
+        .toggle-fix {{ color: #28a745; cursor: pointer; text-decoration: underline; }}
+        .hidden {{ display: none; }}
+    </style>
+    <script>
+        function toggleFix(id) {
+            var element = document.getElementById(id);
+            if(element.classList.contains('hidden')) {
+                element.classList.remove('hidden');
+            } else {
+                element.classList.add('hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Cross-Reference Validation Report</h1>
+    <p>Generated on {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}</p>
+    <p>Base path: {report_data["base_path"]}</p>
+    
+    <h2>Summary</h2>
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-value">{report_data["stats"]["files_scanned"]:,}</div>
+            <div class="stat-label">Files Scanned</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">{report_data["stats"]["references_found"]:,}</div>
+            <div class="stat-label">References Found</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">{report_data["stats"]["valid_references"]:,}</div>
+            <div class="stat-label">Valid References</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">{report_data["stats"]["invalid_references"]:,}</div>
+            <div class="stat-label">Invalid References</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">{report_data["stats"]["files_with_invalid_references"]:,}</div>
+            <div class="stat-label">Files with Invalid References</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">{report_data["stats"]["errors"]:,}</div>
+            <div class="stat-label">Errors</div>
+        </div>
+    </div>
+    
+    <h2>Invalid References</h2>
+    <table>
+        <tr>
+            <th>File</th>
+            <th>Reference</th>
+            <th>Target</th>
+            <th>Issue</th>
+            <th>Fix</th>
+        </tr>
+        {"\n".join([f"<tr><td class='file-path'>{ref['file']}</td><td class='reference'>{ref['reference']}</td><td>{ref['target']}</td><td class='error'>{ref['reason']}</td><td><span class='toggle-fix' onclick='toggleFix(\"fix-{i}\")'>Show suggested fix</span><div id='fix-{i}' class='fix hidden'>{ref['suggested_fix']}</div></td></tr>" for i, ref in enumerate(report_data["invalid_references"])])}
+    </table>
+    
+    <h2>Next Steps</h2>
+    <ol>
+        <li>Fix the invalid references identified in this report</li>
+        <li>Re-run the validation to confirm all issues are resolved</li>
+        <li>Regularly validate cross-references as part of your development workflow</li>
+    </ol>
+    
+    <footer>
+        <p>Generated by EGOS Cross-Reference Validator v1.0.0</p>
+        <p>✧༺❀༻∞ EGOS ∞༺❀༻✧</p>
+    </footer>
+</body>
+</html>
+""")
+        
+        logger.info(f"Report generated at {report_path} and {html_report_path}")
+        return html_report_path           
+            
+    async def run(self) -> str:
+        """Run the reference validator.
+        
+        Returns:
+            Path to the generated report
+        """
+        start_time = time.time()
+        
+        # Find all files to process
+        files = self.find_files()
+        
+        # Extract references from all files
+        self.references = {}
+        self.valid_references = []
+        self.invalid_references = []
+        self.files_with_invalid_refs = set()
+        
+        progress = ProgressTracker(len(files), "Scanning files", "files")
+        for file_path in files:
+            try:
+                refs = self.extract_references(file_path)
+                if refs:
+                    self.references[str(file_path)] = refs
+                    self.stats["references_found"] += len(refs)
+            except Exception as e:
+                logger.error(f"Error processing {file_path}: {str(e)}")
+                self.stats["errors"] += 1
+            finally:
+                progress.update()
+                self.stats["files_scanned"] += 1
+        
+        progress.close()
+        
+        # Validate references
+        self.validate_references()
+        
+        # Generate report
+        report_path = self.generate_report([])
+        
+        # Update processing time
+        self.stats["processing_time"] = time.time() - start_time
+        
+        return report_path
+
+def main():
+    """Main entry point for the script."""
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(
+        description="Validate cross-references across the EGOS ecosystem.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""Examples:
+  # Validate all references in the current directory
+  python cross_reference_validator.py
+  
+  # Validate references in a specific directory
+  python cross_reference_validator.py --base-path /path/to/directory
+  
+  # Validate references with verbose output
+  python cross_reference_validator.py --verbose
+
+Part of the EGOS Cross-Reference Standardization Initiative
+✧༺❀༻∞ EGOS ∞༺❀༻✧"""
+    )
+    
+    parser.add_argument("--base-path", type=str, default=os.getcwd(), help="Base path to process")
+    parser.add_argument("--verbose", action="store_true", help="Print detailed information")
+    parser.add_argument("--workers", type=int, default=CONFIG["max_workers"], help="Number of worker threads")
+    parser.add_argument("--batch-size", type=int, default=CONFIG["batch_size"], help="Number of files to process in each batch")
+    parser.add_argument("--timeout", type=int, default=CONFIG["timeout"], help="Timeout for processing a single file (seconds)")
+    
+    args = parser.parse_args()
+    
+    # Update configuration from command line arguments
+    CONFIG["max_workers"] = args.workers
+    CONFIG["batch_size"] = args.batch_size
+    CONFIG["timeout"] = args.timeout
+    
+    # Print banner
+    print_banner(
+        "EGOS Cross-Reference Validator",
+        f"Validating references in {args.base_path}"
+    )
+    
+    # Create and run the reference validator
+    validator = ReferenceValidator(
+        base_path=args.base_path,
+        verbose=args.verbose
+    )
+    
+    try:
+        # Create and run the event loop
+        if sys.platform == 'win32':
+            asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+        
+        loop = asyncio.get_event_loop()
+        report_path = loop.run_until_complete(validator.run())
+        
+    except KeyboardInterrupt:
+        logger.info("Operation interrupted by user.")
+        sys.exit(0)
+    except Exception as e:
+        logger.error(f"Error running reference validator: {str(e)}")
+        sys.exit(1)
+    
+    # Display summary statistics
+    logger.info(f"\n{Fore.GREEN}Reference validation completed successfully!{Style.RESET_ALL}")
+    logger.info(f"  • {Fore.CYAN}Files scanned:{Style.RESET_ALL} {validator.stats['files_scanned']:,}")
+    logger.info(f"  • {Fore.CYAN}References found:{Style.RESET_ALL} {validator.stats['references_found']:,}")
+    logger.info(f"  • {Fore.CYAN}Valid references:{Style.RESET_ALL} {validator.stats['valid_references']:,} ({validator.stats['valid_references'] / validator.stats['references_found'] * 100:.1f}% of total)")
+    logger.info(f"  • {Fore.CYAN}Invalid references:{Style.RESET_ALL} {validator.stats['invalid_references']:,} ({validator.stats['invalid_references'] / validator.stats['references_found'] * 100:.1f}% of total)")
+    logger.info(f"  • {Fore.CYAN}Files with invalid references:{Style.RESET_ALL} {validator.stats['files_with_invalid_references']:,} ({validator.stats['files_with_invalid_references'] / validator.stats['files_scanned'] * 100:.1f}% of files)")
+    logger.info(f"  • {Fore.CYAN}Errors:{Style.RESET_ALL} {validator.stats['errors']:,}")
+    logger.info(f"  • {Fore.CYAN}Processing time:{Style.RESET_ALL} {format_time(validator.stats['processing_time'])}")
+    logger.info(f"  • {Fore.CYAN}Report:{Style.RESET_ALL} {report_path}")
+    
+    # Suggest next steps
+    print(f"\n{Fore.YELLOW}Next Steps:{Style.RESET_ALL}")
+    print(f"1. Review the report at {report_path}")
+    
+    if validator.stats["invalid_references"] > 0:
+        print(f"2. Fix invalid references starting with the files that have the most issues")
+        print(f"3. Re-run validation to confirm all references are valid")
+    else:
+        print(f"2. Maintain reference validity by running validation regularly")
+        print(f"3. Add validation to CI/CD pipeline to prevent invalid references in the future")
+    
+    print(f"\n✧༺❀༻∞ EGOS ∞༺❀༻✧")
+
+if __name__ == "__main__":
+    main()

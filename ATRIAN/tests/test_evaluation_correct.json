@@ -1,0 +1,21 @@
+{
+  "action": "Implementing a facial recognition system for public surveillance",
+  "context": {
+    "domain": "Public Security",
+    "purpose": "Developing security measures for a public transportation system",
+    "stakeholders": [
+      "Transportation users",
+      "Security personnel",
+      "Public officials",
+      "Privacy advocates"
+    ],
+    "data_sources": [
+      "Security camera feeds",
+      "Facial recognition database"
+    ]
+  },
+  "options": {
+    "detail_level": "comprehensive",
+    "include_alternatives": true
+  }
+}

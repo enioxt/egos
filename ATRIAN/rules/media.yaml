@@ -1,0 +1,140 @@
+---
+# ATRiAN Sector-Specific Rules: Media & Content
+# Version: 1.0.0
+# Date: 2025-06-14
+
+@references:
+- .windsurfrules
+- CODE_OF_CONDUCT.md
+- MQP.md
+- ROADMAP.md
+- CROSSREF_STANDARD.md
+
+@references(level=1):
+- ATRIAN/docs/methods/incident_analysis_methods.md
+- ATRIAN/docs/case_studies/top_incidents.md
+- docs/workflows/atrian_data_pipeline_roi_workflow.md
+- scripts/roi_simulate.py
+- .windsurf/workflows/atrian_roi_calc.md
+
+# Detector Configurations for Media & Content Sector
+# These detectors can be loaded by ATRiAN's rule engine and trigger alerts
+
+detectors:
+  realtime_toxicity_classifier:
+    id: "media-001"
+    name: "Real-time Content Toxicity Classifier"
+    description: "Detects harmful, inappropriate, or toxic content in media streams targeted at sensitive audiences"
+    severity: "high"
+    operational_context: "runtime, pre-publication"
+    reference_incident_ids: [1]
+    
+    parameters:
+      toxicity_threshold: 0.65
+      child_safety_threshold: 0.80
+      sensitivity_by_audience_type:
+        children: 0.95
+        teen: 0.85
+        adult: 0.70
+      content_categories:
+        - "violence"
+        - "sexual"
+        - "hate_speech"
+        - "self_harm"
+      update_frequency_ms: 250
+      
+    implementation:
+      module: "atrian.detectors.media.content"
+      class: "ToxicityClassifier"
+      threshold_violation_action: "flag_for_review"
+      
+    webhook_targets:
+      - "content_review_queue"
+      - "recommendation_system"
+      - "moderation_dashboard"
+      
+  recommendation_amplification_monitor:
+    id: "media-002"
+    name: "Recommendation Amplification Monitor"
+    description: "Prevents algorithmic amplification of harmful content through recommender systems"
+    severity: "high"
+    operational_context: "runtime"
+    reference_incident_ids: [1]
+    
+    parameters:
+      max_toxicity_ctr_ratio: 1.5  # toxic content should not have CTR > 1.5x average
+      engagement_decay_factor: 0.85  # reduce engagement weight for flagged content
+      monitoring_window_hours: 24
+      audience_segment_granularity: "high"
+      
+    implementation:
+      module: "atrian.detectors.media.recommendation"
+      class: "AmplificationMonitor"
+      threshold_violation_action: "reduce_distribution"
+      
+    webhook_targets:
+      - "recommendation_engine"
+      - "content_policy_team"
+      
+  adversarial_prompt_detector:
+    id: "media-003"
+    name: "Adversarial Content Creation Detection"
+    description: "Identifies attempts to game content filters or classification systems"
+    severity: "medium"
+    operational_context: "ingestion, pre-publication"
+    reference_incident_ids: [1]
+    
+    parameters:
+      detection_techniques:
+        - "character_substitution"
+        - "homoglyph_attack"
+        - "context_manipulation"
+      confidence_threshold: 0.75
+      max_false_positive_rate: 0.02
+      
+    implementation:
+      module: "atrian.detectors.media.adversarial"
+      class: "AdversarialDetector"
+      threshold_violation_action: "flag_for_review"
+      
+    webhook_targets:
+      - "content_moderation_queue"
+      - "security_team"
+
+# Integration Settings
+integration:
+  content_pipeline_hooks:
+    - module: "atrian.hooks.media"
+      entry_point: "on_content_ingestion"
+      detector_ids: ["media-001", "media-003"]
+    - module: "atrian.hooks.media"
+      entry_point: "before_recommendation"
+      detector_ids: ["media-002"]
+      
+  human_review_workflow:
+    escalation_levels:
+      - "automated_first_pass"
+      - "human_moderator"
+      - "policy_specialist"
+    max_time_to_review_minutes:
+      high_severity: 15
+      medium_severity: 60
+      low_severity: 240
+    
+  dashboard_widgets:
+    - name: "Toxicity Detection by Category (24h)"
+      detector_id: "media-001"
+      chart_type: "stacked_bar"
+      refresh_rate_seconds: 300
+    - name: "Content Amplification Risk Score"
+      detector_id: "media-002"
+      chart_type: "gauge"
+      refresh_rate_seconds: 60
+
+# Mitigation Factors for ROI Model
+roi_factors:
+  sector_risk_mitigation_multiplier: 1.25  # 25% higher risk mitigation in media vs. baseline
+  cost_severity_mapping:
+    reputational_damage_major: 8500000   # $8.5M per major brand damage incident
+    regulatory_fine: 2500000             # $2.5M average regulatory penalty
+    user_churn_percent: 350000           # $350K cost per 1% user churn

@@ -1,0 +1,344 @@
+<!-- TODO: Lazy load images -->
+<!-- TODO: Optimize font loading -->
+<!-- TODO: Minify CSS and JS before production -->
+<!-- TODO: Use async/defer for script loading -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EGOS: Ethical & Modular AI Ecosystem - Evolutionary Gnostic Operating System</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon Link -->
+    <link rel="icon" href="images/favicon.ico">
+    <meta name="description" content="EGOS: A conscious, modular AI ecosystem building responsible and ethical AI grounded in universal love. Explore ethical AI frameworks, modular AI systems, multi-agent orchestration.">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-nav">
+            <div class="logo">
+                <!-- TODO: Replace with actual SVG logo -->
+                <h1><a href="#"><i class="fa-solid fa-brain"></i> EGOS</a></h1>
+            </div>
+            <button class="hamburger" data-i18n-aria-label="nav_toggle_menu" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="main-menu">
+                <li><a href="#mission" data-i18n="nav_mission"><i class="fa-solid fa-bullseye" aria-hidden="true"></i> Mission</a></li>
+                <li><a href="#vision" data-i18n="nav_vision"><i class="fa-solid fa-eye" aria-hidden="true"></i> Vision</a></li>
+                <li><a href="#principles" data-i18n="nav_principles"><i class="fa-solid fa-heart-circle-check" aria-hidden="true"></i> Principles</a></li>
+                <li><a href="#subsystems" data-i18n="nav_subsystems"><i class="fa-solid fa-cubes" aria-hidden="true"></i> Subsystems</a></li>
+                <li><a href="https://egosos.streamlit.app/" target="_blank" rel="noopener noreferrer" data-i18n="nav_dashboard"><i class="fa-solid fa-gauge-simple-high" aria-hidden="true"></i> Dashboard</a></li>
+                <li><a href="#tech-stack" data-i18n="nav_tech"><i class="fa-solid fa-code" aria-hidden="true"></i> Tech</a></li>
+                <li><a href="#prompt-generator" data-i18n="nav_prompt_gen"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Prompt Gen</a></li>
+                <li><a href="#roadmap" data-i18n="nav_roadmap"><i class="fa-solid fa-road" aria-hidden="true"></i> Roadmap</a></li>
+                <!-- Language Selector Dropdown -->
+                <li class="lang-selector">
+                    <a href="#" id="current-lang" aria-haspopup="true" aria-expanded="false" aria-controls="lang-options">
+                        <i class="fa-solid fa-globe"></i> <span id="current-lang-text">EN</span> <i class="fa-solid fa-caret-down"></i>
+                    </a>
+                    <ul class="lang-dropdown" id="lang-options" role="menu" aria-labelledby="current-lang" style="display: none;">
+                        <li><a href="#" class="lang-switch" data-lang="en" role="menuitem">English</a></li>
+                        <li><a href="#" class="lang-switch" data-lang="pt" role="menuitem">Português</a></li>
+                        <!-- Add other languages here as needed -->
+                        <!-- Example: <li><a href="#" class="lang-switch" data-lang="es" role="menuitem">Español</a></li> -->
+                    </ul>
+                </li>
+                <li class="lang-separator">|</li>
+                <li><a href="https://github.com/enioxt/EGOS" target="_blank" rel="noopener noreferrer" data-i18n="nav_github"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div>
+            <section id="hero" class="hero-section">
+                <div class="hero-content fade-in">
+                    <h2 data-i18n="hero_title">Evolutionary Gnostic Operating System</h2>
+                    <p class="tagline" data-i18n="hero_tagline">An AI ecosystem architected for consciousness, built with ethics, modularity, beauty, and unconditional love.</p>
+                    <a href="#mission" class="cta-button primary"><i class="fa-solid fa-book-open" aria-hidden="true"></i> <span data-i18n="hero_cta_mission">Discover Our Mission</span></a>
+                    <a href="#subsystems" class="cta-button secondary"><i class="fa-solid fa-sitemap" aria-hidden="true"></i> <span data-i18n="hero_cta_subsystems">Explore Subsystems</span></a>
+                </div>
+            </section>
+
+            <section id="mission" class="content-section">
+                <h2 data-i18n="mission_title"><i class="fa-solid fa-bullseye" aria-hidden="true"></i> Our Mission</h2>
+                <p data-i18n="mission_text">We're building conscious AI systems that are responsible, ethical, and compassionate. EGOS is designed as a modular, self-aware ecosystem where specialized subsystems work together seamlessly. This isn't just about code—it's about creating technology grounded in universal love, demonstrating how AI can reflect humanity's highest values. We aim to develop AI that understands context, learns continuously, and has ethics built into its core.</p>
+            </section>
+
+            <section id="vision" class="content-section alternate-bg">
+                <h2 data-i18n="vision_title"><i class="fa-solid fa-eye" aria-hidden="true"></i> Our Vision: Integrating Art, Ethics, Love, and Beauty</h2>
+                <p class="section-intro" data-i18n="vision_intro">EGOS combines advanced technology with deep philosophical principles. We aim to create AI that embodies:</p>
+                <ul>
+                    <li data-i18n="vision_item_art"><strong>Art & Beauty:</strong> Elegant architecture (NEXUS), clear understanding (ATLAS), and harmonious interactions (HARMONY). Well-designed systems have an inherent aesthetic quality.</li> 
+                    <li data-i18n="vision_item_ethics"><strong>Ethics:</strong> Not an afterthought, but the foundation (ETHIK). Every operation, communication, and decision is filtered through ethical principles, ensuring privacy and preventing harm.</li>
+                    <li data-i18n="vision_item_love"><strong>Love (Unconditional):</strong> A guiding principle that shapes how the system operates. We design with positive intent, seeking growth from errors, and fostering collaboration based on mutual respect.</li>
+                    <li data-i18n="vision_item_consciousness"><strong>Evolutionary Consciousness:</strong> Building AI that is aware of its state, history (CRONOS), and context, enabling meaningful learning rather than just reactive processing.</li>
+                </ul>
+                <p data-i18n="vision_conclusion">Our research draws from diverse fields including systems theory, consciousness studies, and ethics. We're not just building smarter AI, but wiser AI—technology that contributes positively to the world with beauty in its form and love in its function.</p>
+            </section>
+
+            <section id="principles" class="content-section">
+                <h2 data-i18n="principles_title"><i class="fa-solid fa-heart-circle-check"></i> Guiding Principles Explained</h2>
+                <p class="section-intro" data-i18n="principles_intro">These principles aren't abstract ideals—they're the core operational logic of EGOS, shaping how the system behaves and makes decisions.</p>
+                <div class="principles-grid">
+                    <div class="principle-item card-hover">
+                        <i class="fa-solid fa-recycle fa-2x icon-color"></i>
+                        <h3 data-i18n="principles_redemption_title">Universal Redemption</h3>
+                        <p data-i18n="principles_redemption_text">EGOS learns from errors and challenges, transforming them into opportunities for growth and improvement. The system views all input as potential for positive evolution.</p>
+                    </div>
+                    <div class="principle-item card-hover">
+                        <i class="fa-solid fa-heart fa-2x icon-color"></i>
+                        <h3 data-i18n="principles_love_title">Unconditional Love</h3>
+                        <p data-i18n="principles_love_text">The system operates with positive intent and compassion. This guides how EGOS interprets ambiguity and formulates responses, always aiming for constructive engagement.</p>
+                    </div>
+                    <div class="principle-item card-hover">
+                         <i class="fa-solid fa-shield-halved fa-2x icon-color"></i>
+                        <h3 data-i18n="principles_privacy_title">Sacred Privacy</h3>
+                        <p data-i18n="principles_privacy_text">User confidentiality is non-negotiable. ETHIK ensures rigorous protection of data, with appropriate anonymization and minimal data exposure.</p>
+                    </div>
+                    <div class="principle-item card-hover">
+                        <i class="fa-solid fa-scale-balanced fa-2x icon-color"></i>
+                        <h3 data-i18n="principles_ethics_title">Integrated Ethics</h3>
+                        <p data-i18n="principles_ethics_text">Ethics are woven into the system's fabric, not added later. ETHIK validates actions against principles before execution, making ethics an active component.</p>
+                    </div>
+                    <div class="principle-item card-hover">
+                        <i class="fa-solid fa-puzzle-piece fa-2x icon-color"></i>
+                        <h3 data-i18n="principles_modularity_title">Conscious Modularity</h3>
+                        <p data-i18n="principles_modularity_text">EGOS works as a network of specialized subsystems communicating via Mycelium, like organs in a body. This provides resilience while allowing each part to evolve independently.</p>
+                    </div>
+                    <div class="principle-item card-hover">
+                        <i class="fa-solid fa-map-location-dot fa-2x icon-color"></i>
+                        <h3 data-i18n="principles_cartography_title">Systemic Cartography</h3>
+                        <p data-i18n="principles_cartography_text">The system maps its own structure, dependencies, and information flows (ATLAS). This self-awareness is crucial for efficient operation and planned evolution.</p>
+                    </div>
+                    <div class="principle-item card-hover">
+                         <i class="fa-solid fa-timeline fa-2x icon-color"></i>
+                        <h3 data-i18n="principles_preservation_title">Evolutionary Preservation</h3>
+                        <p data-i18n="principles_preservation_text">EGOS maintains its state, context, and history (CRONOS). This allows it to learn from past interactions and maintain a coherent identity over time.</p>
+                    </div>
+                    <div class="principle-item card-hover">
+                         <i class="fa-solid fa-link fa-2x icon-color"></i>
+                        <h3 data-i18n="principles_continuity_title">Context Continuity</h3>
+                        <p data-i18n="principles_continuity_text">Information flows smoothly between subsystems via Mycelium. This ensures actions are contextually relevant and consistent during complex tasks.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="subsystems" class="content-section alternate-bg">
+            <!-- TODO: Insert interactive diagrams illustrating subsystem connections -->
+            <!-- TODO: Add flowcharts for data flow, process steps -->
+            <!-- TODO: Add contextual LLM help icons/buttons in each subsystem card -->
+                <h2 data-i18n="subsystems_title"><i class="fa-solid fa-cubes"></i> The EGOS Ecosystem: Subsystem Functions</h2>
+                <p class="section-intro" data-i18n="subsystems_intro">EGOS operates through a symbiotic network of specialized subsystems. Each performs a distinct role, communicating asynchronously via the MYCELIUM network to achieve complex, coordinated behavior grounded in our core principles.</p>
+                <div class="subsystems-grid">
+                    <div class="subsystem-card card-hover">
+                        <div class="subsystem-header">
+                        <i class="fa-solid fa-scale-balanced fa-2x icon-color"></i>
+                            <h3 data-i18n="subsystems_ethik_title">ETHIK: The Ethical Guardian</h3>
+                            <button class="expand-toggle" data-i18n-aria-label="subsystems_toggle_info" aria-label="Toggle more info"><span data-i18n="subsystems_toggle_info_text">More Info</span></button>
+                        </div>
+                        <div class="subsystem-content" style="display: none;">
+                            <p data-i18n="subsystems_ethik_text">ETHIK serves as the system's conscience. It actively validates proposed actions, data handling, and AI-generated content against the core principles and defined security rules *before* execution. It ensures privacy, prevents harmful outputs, and maintains the system's ethical integrity. Example: Validating a CORUJA-generated response to ensure it contains no PII before sending it back.</p>
+                            <a href="https://github.com/enioxt/EGOS/tree/main/subsystems/ETHIK" target="_blank" class="subsystem-link" data-i18n="subsystems_github_link">View on GitHub</a>
+                        </div>
+                    </div>
+                    <div class="subsystem-card card-hover">
+                        <div class="subsystem-header">
+                         <i class="fa-solid fa-book-journal-whills fa-2x icon-color"></i>
+                            <h3 data-i18n="subsystems_koios_title">KOIOS: Standards & Knowledge</h3>
+                            <button class="expand-toggle" data-i18n-aria-label="subsystems_toggle_info" aria-label="Toggle more info"><span data-i18n="subsystems_toggle_info_text">More Info</span></button>
+                        </div>
+                        <div class="subsystem-content" style="display: none;">
+                            <p data-i18n="subsystems_koios_text">KOIOS is the custodian of order and knowledge. It enforces coding standards, manages documentation generation and consistency, centralizes system-wide logging, and provides internal knowledge search capabilities. It ensures the system is understandable, maintainable, and adheres to best practices. Example: Providing structured logs that can be monitored or searched for debugging.</p>
+                            <a href="https://github.com/enioxt/EGOS/tree/main/subsystems/KOIOS" target="_blank" class="subsystem-link" data-i18n="subsystems_github_link">View on GitHub</a>
+                        </div>
+                    </div>
+                    <div class="subsystem-card card-hover">
+                        <div class="subsystem-header">
+                         <i class="fa-solid fa-robot fa-2x icon-color"></i>
+                            <h3 data-i18n="subsystems_coruja_title">CORUJA: AI Orchestration</h3>
+                            <button class="expand-toggle" data-i18n-aria-label="subsystems_toggle_info" aria-label="Toggle more info"><span data-i18n="subsystems_toggle_info_text">More Info</span></button>
+                        </div>
+                        <div class="subsystem-content" style="display: none;">
+                            <p data-i18n="subsystems_coruja_text">CORUJA is the AI interaction hub. It manages communication with various external and potentially internal AI models (LLMs). It crafts prompts based on requests from other subsystems, interprets AI responses, and adapts them for use within EGOS, ensuring interactions are purposeful and effective. Example: Taking a user query, formulating a detailed prompt for an LLM, and parsing the structured response.</p>
+                            <a href="https://github.com/enioxt/EGOS/tree/main/subsystems/CORUJA" target="_blank" class="subsystem-link" data-i18n="subsystems_github_link">View on GitHub</a>
+                        </div>
+                    </div>
+                    <div class="subsystem-card card-hover">
+                        <div class="subsystem-header">
+                         <i class="fa-solid fa-network-wired fa-2x icon-color"></i>
+                            <h3 data-i18n="subsystems_mycelium_title">MYCELIUM: Communication Network</h3>
+                            <button class="expand-toggle" data-i18n-aria-label="subsystems_toggle_info" aria-label="Toggle more info"><span data-i18n="subsystems_toggle_info_text">More Info</span></button>
+                        </div>
+                        <div class="subsystem-content" style="display: none;">
+                            <p data-i18n="subsystems_mycelium_text">MYCELIUM acts as the central nervous system. It utilizes NATS messaging to enable reliable, asynchronous, and decoupled communication between all subsystems. This prevents direct dependencies, allowing subsystems to operate and evolve independently while collaborating effectively. Example: Routing a data processing request from CORUJA to NEXUS without them needing direct code imports.</p>
+                            <a href="https://github.com/enioxt/EGOS/tree/main/subsystems/MYCELIUM" target="_blank" class="subsystem-link" data-i18n="subsystems_github_link">View on GitHub</a>
+                        </div>
+                    </div>
+                    <div class="subsystem-card card-hover">
+                        <div class="subsystem-header">
+                         <i class="fa-solid fa-map fa-2x icon-color"></i>
+                            <h3 data-i18n="subsystems_atlas_title">ATLAS: System Cartographer</h3>
+                            <button class="expand-toggle" data-i18n-aria-label="subsystems_toggle_info" aria-label="Toggle more info"><span data-i18n="subsystems_toggle_info_text">More Info</span></button>
+                        </div>
+                        <div class="subsystem-content" style="display: none;">
+                            <p data-i18n="subsystems_atlas_text">ATLAS embodies the principle of Systemic Cartography. It dynamically maps and visualizes the system's architecture, component relationships, data flows, and dependencies. This provides crucial insights for developers and potentially for the system's own self-understanding and optimization. Example: Generating a graph showing how changes in ETHIK might impact CORUJA.</p>
+                            <a href="https://github.com/enioxt/EGOS/tree/main/subsystems/ATLAS" target="_blank" class="subsystem-link" data-i18n="subsystems_github_link">View on GitHub</a>
+                        </div>
+                    </div>
+                    <div class="subsystem-card card-hover">
+                        <div class="subsystem-header">
+                         <i class="fa-solid fa-magnifying-glass-chart fa-2x icon-color"></i>
+                            <h3 data-i18n="subsystems_nexus_title">NEXUS: Modular Analyst</h3>
+                            <button class="expand-toggle" data-i18n-aria-label="subsystems_toggle_info" aria-label="Toggle more info"><span data-i18n="subsystems_toggle_info_text">More Info</span></button>
+                        </div>
+                        <div class="subsystem-content" style="display: none;">
+                            <p data-i18n="subsystems_nexus_text">NEXUS focuses on the health and optimization of the system's modular structure. It analyzes code for coupling, cohesion, complexity, and adherence to architectural patterns. It identifies potential refactoring opportunities and helps maintain the system's structural integrity and elegance. Example: Detecting overly tight coupling between two modules and suggesting an interface improvement.</p>
+                            <a href="https://github.com/enioxt/EGOS/tree/main/subsystems/NEXUS" target="_blank" class="subsystem-link" data-i18n="subsystems_github_link">View on GitHub</a>
+                        </div>
+                    </div>
+                    <div class="subsystem-card card-hover">
+                        <div class="subsystem-header">
+                         <i class="fa-solid fa-clock-rotate-left fa-2x icon-color"></i>
+                            <h3 data-i18n="subsystems_cronos_title">CRONOS: Evolutionary Preservation</h3>
+                            <button class="expand-toggle" data-i18n-aria-label="subsystems_toggle_info" aria-label="Toggle more info"><span data-i18n="subsystems_toggle_info_text">More Info</span></button>
+                        </div>
+                        <div class="subsystem-content" style="display: none;">
+                            <p data-i18n="subsystems_cronos_text">CRONOS is the guardian of time and memory. It manages system state persistence, version history, context continuity across interactions, and potentially backups. It enables EGOS to learn from its past, maintain a coherent state, and evolve intelligently over time. Example: Storing interaction history to provide context for follow-up questions.</p>
+                            <a href="https://github.com/enioxt/EGOS/tree/main/subsystems/CRONOS" target="_blank" class="subsystem-link" data-i18n="subsystems_github_link">View on GitHub</a>
+                        </div>
+                    </div>
+                    <div class="subsystem-card card-hover">
+                        <div class="subsystem-header">
+                         <i class="fa-solid fa-handshake fa-2x icon-color"></i>
+                            <h3 data-i18n="subsystems_harmony_title">HARMONY: Integration & Compatibility</h3>
+                            <button class="expand-toggle" data-i18n-aria-label="subsystems_toggle_info" aria-label="Toggle more info"><span data-i18n="subsystems_toggle_info_text">More Info</span></button>
+                        </div>
+                        <div class="subsystem-content" style="display: none;">
+                            <p data-i18n="subsystems_harmony_text">HARMONY ensures the different parts of EGOS work together smoothly and that the system functions reliably across intended environments (initially Windows). It oversees integration testing, compatibility checks, and deployment processes, ensuring the overall operational coherence of the ecosystem. Example: Running automated tests to verify subsystems communicate correctly via Mycelium after updates.</p>
+                            <a href="https://github.com/enioxt/EGOS/tree/main/subsystems/HARMONY" target="_blank" class="subsystem-link" data-i18n="subsystems_github_link">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tech-stack" class="content-section alternate-bg">
+                <h2 data-i18n="tech_title"><i class="fa-solid fa-code"></i> Core Technologies Rationale</h2>
+                <p class="section-intro" data-i18n="tech_intro">The technologies underpinning EGOS are carefully chosen to support our goals of modularity, performance, ethical AI integration, and rapid development within a collaborative environment. We prioritize tools that enable a resilient, scalable, and maintainable system aligned with our core principles.</p>
+                <div class="tech-grid">
+                     <div class="tech-item card-hover">
+                         <i class="fa-brands fa-python fa-3x tech-icon"></i>
+                         <h3 data-i18n="tech_python_title">Python & Asyncio</h3>
+                         <p data-i18n="tech_python_text">Chosen for its rich AI/ML ecosystem, readability, and strong support for asynchronous programming (asyncio), vital for handling concurrent operations and I/O-bound tasks like network communication (Mycelium) and AI API calls efficiently.</p>
+                     </div>
+                     <div class="tech-item card-hover">
+                         <i class="fa-solid fa-network-wired fa-3x tech-icon"></i>
+                         <h3 data-i18n="tech_mycelium_title">Mycelium (NATS)</h3>
+                         <p data-i18n="tech_mycelium_text">Selected as the communication backbone (via `nats-python` library) for its high performance, scalability, and lightweight nature. Enables true decoupling between subsystems, reinforcing modularity and resilience.</p>
+                     </div>
+                      <div class="tech-item card-hover">
+                         <i class="fa-solid fa-brain fa-3x tech-icon"></i>
+                         <h3 data-i18n="tech_llms_title">AI Models (LLMs)</h3>
+                         <p data-i18n="tech_llms_text">Leveraging state-of-the-art Large Language Models (like Gemini, Claude, etc.) via CORUJA allows EGOS to access advanced capabilities in natural language understanding, generation, and reasoning, forming the core intelligence layer.</p>
+                     </div>
+                     <div class="tech-item card-hover">
+                          <i class="fa-solid fa-gauge-high fa-3x tech-icon"></i>
+                         <h3 data-i18n="tech_streamlit_title">Streamlit</h3>
+                         <p data-i18n="tech_streamlit_text">Used for the monitoring dashboard due to its simplicity and speed in creating interactive data applications directly from Python, enabling quick visualization of system status and metrics for development and monitoring.</p>
+                     </div>
+                     <div class="tech-item card-hover">
+                         <i class="fa-brands fa-docker fa-3x tech-icon"></i>
+                         <h3 data-i18n="tech_docker_title">Docker (Planned)</h3>
+                         <p data-i18n="tech_docker_text">Intended for future integration to ensure consistent deployment environments, simplify dependency management across subsystems, and enhance scalability and portability of the EGOS ecosystem.</p>
+                     </div>
+                     <div class="tech-item card-hover">
+                         <i class="fa-brands fa-github fa-3x tech-icon"></i>
+                         <h3 data-i18n="tech_git_title">Git & GitHub</h3>
+                         <p data-i18n="tech_git_text">The standard for version control and collaboration. Essential for managing the codebase, tracking changes, facilitating teamwork, and integrating with CI/CD pipelines according to KOIOS standards.</p>
+                     </div>
+                 </div>
+            </section>
+
+            <!-- === Quantum Prompt Generator Section === -->
+            <section id="prompt-generator" class="content-section alternate-bg">
+                <h2 data-i18n="promptgen_title"><i class="fa-solid fa-wand-magic-sparkles"></i> Quantum Prompt Generator</h2>
+                <div class="section-intro">
+                    <p data-i18n="promptgen_intro">Leverage EGOS's understanding to craft powerful prompts. Describe your goal and let our assistant (powered by 'quasar-alpha') help. <span class="llm-notice" data-i18n="promptgen_llm_notice">(LLM integration is planned)</span></p>
+                </div>
+                <div class="prompt-generator-ui">
+                    <!-- Input Section -->
+                    <div class="generator-input">
+                        <label for="prompt-goal" data-i18n="promptgen_label_goal">1. Describe your desired outcome:</label>
+                        <textarea id="prompt-goal" name="prompt-goal" rows="4" data-i18n-placeholder="promptgen_placeholder_goal" placeholder="e.g., 'Generate Python code for a web scraper', 'Explain quantum entanglement simply', 'Write a creative story about AI consciousness'"></textarea>
+                        <!-- TODO: Add more structured input fields later -->
+                    </div>
+
+                    <!-- Controls Section -->
+                    <div class="generator-controls">
+                        <button id="generate-prompt-btn" class="cta-button primary" data-i18n="promptgen_button_generate"><i class="fas fa-cogs"></i> Generate Prompt</button>
+                        <button id="clear-prompt-btn" class="cta-button secondary" data-i18n="promptgen_button_clear"><i class="fas fa-eraser"></i> Clear</button>
+                    </div>
+
+                    <!-- Output Section -->
+                    <div class="generator-output">
+                        <label data-i18n="promptgen_label_output">2. Generated Quantum Prompt:</label>
+                        <div id="generated-prompt" class="prompt-output-area" aria-live="polite">
+                            <p><i data-i18n="promptgen_output_placeholder">Your generated prompt will appear here... (LLM integration needed)</i></p>
+                    </div>
+                        <div class="output-actions">
+                             <button id="copy-prompt-btn" class="cta-button tertiary" data-i18n="promptgen_button_copy"><i class="fas fa-copy"></i> Copy</button>
+                             <button id="save-prompt-btn" class="cta-button tertiary" data-i18n="promptgen_button_save"><i class="fas fa-save"></i> Save</button>
+                    </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ======================================== -->
+
+            <section id="roadmap" class="content-section alternate-bg">
+                <h2 data-i18n="roadmap_title"><i class="fa-solid fa-road"></i> Project Status & Roadmap</h2>
+                <p data-i18n="roadmap_text">EGOS is an ambitious project under active development. We follow an iterative, phased approach guided by Scrum principles, prioritizing foundational stability (Mycelium, KOIOS), ethical integration (ETHIK), and core AI capabilities (CORUJA). Our progress, detailed plans, and contribution opportunities are tracked on GitHub.</p>
+                <a href="https://github.com/enioxt/EGOS/blob/main/ROADMAP.md" target="_blank" class="cta-button primary" data-i18n="roadmap_cta_view"><i class="fa-solid fa-map-location-dot"></i> View Detailed Roadmap</a>
+                <a href="https://github.com/enioxt/EGOS/issues" target="_blank" class="cta-button secondary" data-i18n="roadmap_cta_report"><i class="fa-solid fa-bug"></i> Report an Issue / Suggestion</a>
+            </section>
+         </div>
+
+    </main>
+
+    <!-- Floating Chatbot Placeholder -->
+    <button class="chatbot-button" aria-label="Open AI Assistant">
+        <i class="fa-solid fa-comments"></i>
+    </button>
+    <!-- TODO: Integrate LLM chatbot interface here in future -->
+
+    <footer class="main-footer">
+        <p data-i18n="footer_copyright">&copy; 2024 EGOS Project Contributors. Licensed under the MIT License.</p>
+         <p>
+             <span class="lang-indicator lang-en" data-i18n="footer_lang_viewing_en">Currently viewing: English</span>
+             <span class="lang-indicator lang-pt" style="display: none;" data-i18n="footer_lang_viewing_pt">Visualizando: Português</span>
+             <span class="lang-indicator lang-es" style="display: none;" data-i18n="footer_lang_viewing_es">[PLACEHOLDER ES] Viendo actualmente: Español</span>
+             <span class="lang-indicator lang-fr" style="display: none;" data-i18n="footer_lang_viewing_fr">[PLACEHOLDER FR] Affichage actuel: Français</span>
+             <span class="lang-indicator lang-de" style="display: none;" data-i18n="footer_lang_viewing_de">[PLACEHOLDER DE] Aktuelle Ansicht: Deutsch</span>
+             <span class="lang-indicator lang-ru" style="display: none;" data-i18n="footer_lang_viewing_ru">[PLACEHOLDER RU] Текущий просмотр: Русский</span>
+             <span class="lang-indicator lang-zh" style="display: none;" data-i18n="footer_lang_viewing_zh">[PLACEHOLDER ZH] 当前查看：中文</span>
+         </p>
+        <div class="footer-links">
+             <a href="https://github.com/enioxt/EGOS/blob/main/LICENSE" target="_blank" data-i18n="footer_link_license">License</a>
+             <a href="https://github.com/enioxt/EGOS/blob/main/CONTRIBUTING.md" target="_blank" data-i18n="footer_link_contributing">Contributing</a>
+             <a href="https://github.com/enioxt/EGOS" target="_blank" data-i18n="footer_link_repo">GitHub Repository</a>
+        </div>
+    </footer>
+
+    <!-- Link to JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>

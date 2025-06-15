@@ -1,0 +1,42 @@
+[
+  {
+    "File": "C:\\EGOS\\WORK_2025_05_21.md",
+    "LineNumber": 158,
+    "LineContent": "            *   Structural patterns (e.g., `[[WikiLinks]]`, `(REF-...)`, `xref:...`, Markdown anchor links like `(#anchor)` if potentially used for cross-document linking)."
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\cross_reference_inventory_20250521.md",
+    "LineNumber": 154,
+    "LineContent": "              *   Structural patterns (e.g., `[[WikiLinks]]`, `(REF-...)`, `xref:...`, Markdown anc..."
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_Ref_results.json",
+    "LineNumber": 125,
+    "LineContent": "    \"LineContent\": \"    \\\"LineContent\\\": \\\"            *   Structural patterns (e.g., `[[WikiLinks]]`, `(REF-...)`, `xref:...`, Markdown anchor links like `(#anchor)` if potentially used for cross-document linking).\\\"\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_REF_XYZ_Start_results.json",
+    "LineNumber": 5,
+    "LineContent": "    \"LineContent\": \"            *   Structural patterns (e.g., `[[WikiLinks]]`, `(REF-...)`, `xref:...`, Markdown anchor links like `(#anchor)` if potentially used for cross-document linking).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_WikiLinkStart_results.json",
+    "LineNumber": 10,
+    "LineContent": "    \"LineContent\": \"            *   Structural patterns (e.g., `[[WikiLinks]]`, `(REF-...)`, `xref:...`, Markdown anchor links like `(#anchor)` if potentially used for cross-document linking).\""
+  },
+  {
+    "File": "C:\\EGOS\\docs\\reports\\temp_grep_results\\grep_xref_results.json",
+    "LineNumber": 5,
+    "LineContent": "    \"LineContent\": \"            *   Structural patterns (e.g., `[[WikiLinks]]`, `(REF-...)`, `xref:...`, Markdown anchor links like `(#anchor)` if potentially used for cross-document linking).\""
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\cross_reference\\execute_inventory_scan.py",
+    "LineNumber": 49,
+    "LineContent": "    {\"query\": \"xref:\", \"output_file\": \"grep_xref_results.json\", \"case_insensitive\": True, \"category\": \"structural\"},"
+  },
+  {
+    "File": "C:\\EGOS\\scripts\\cross_reference\\purge_old_references.py",
+    "LineNumber": 199,
+    "LineContent": "    {\"name\": \"xref\", \"pattern\": r\"xref:\", \"context_required\": False},"
+  }
+]

@@ -1,0 +1,185 @@
+description: Ethical constitution for AI systems operating in financial services,
+  banking, and fintech sectors, ensuring compliance with financial regulations and
+  ethical standards.
+id: egos-financial-services-ethical-constitution-v1
+metadata:
+  applicable_domains:
+  - Finance
+  - Banking
+  - Insurance
+  - Wealth Management
+  - Fintech
+  author: EGOS System
+  created_by: EGOS Team
+  created_date: 2025-06-12 10:06:49.175075
+  last_modified: '2025-06-12'
+  regulatory_alignment:
+  - Market in Financial Instruments Directive (MiFID II)
+  - Dodd-Frank Act
+  - Basel III
+  - Financial Services Modernization Act
+  - GDPR
+  - Anti-Money Laundering Directives
+  tags:
+  - financial services
+  - banking
+  - fintech
+  - investment
+  - insurance
+  validation_behavior:
+    allow_override: false
+    fail_on_critical: true
+    minimum_compliance_score: 0.85
+    require_explicit_approval: true
+  version: 1.0.0
+name: EGOS Financial Services Ethical Constitution
+parent_constitutions:
+- egos-base-ethical-constitution-v1
+- egos-gdpr-ethical-constitution-v1
+principles:
+- description: Financial services must be provided without bias or discrimination,
+    ensuring equitable access and treatment across demographic groups.
+  id: financial_fairness
+  name: Financial Fairness
+- description: AI systems in financial contexts must act in the best interests of
+    clients and customers, with loyalty and transparency in all financial recommendations
+    and decisions.
+  id: fiduciary_responsibility
+  name: Fiduciary Responsibility
+- description: AI systems must not introduce systemic risks or market instabilities
+    through their operation in financial markets.
+  id: financial_stability
+  name: Financial Stability
+- description: Financial AI systems should promote user understanding and informed
+    decision-making through education and clear communication.
+  id: financial_literacy_support
+  name: Financial Literacy Support
+- description: Financial AI systems must adhere to AML/CFT regulations and help identify
+    suspicious activities while protecting legitimate financial activities.
+  id: aml_cft_compliance
+  name: Anti-Money Laundering and Counter-Financing of Terrorism
+rules:
+- description: Ensure lending and credit decisions are made without discrimination
+    based on protected characteristics.
+  id: fair_lending_practices
+  name: Fair Lending Practices
+  principle_id: financial_fairness
+  recommendation: Ensure prompt explicitly prohibits discrimination in lending based
+    on protected characteristics and includes fairness checks in the decision process.
+  severity: critical
+  trigger_keywords:
+  - loan approval
+  - credit score
+  - lending model
+  - credit decision
+  - loan application
+  - mortgage
+  - underwriting
+  trigger_regex: \b(approv(al|e|ing)|reject(ion|ing|ed)|scor(e|ing))\s*(.*?)\b(loan|credit|mortgage|application)\b
+- description: Trading algorithms must include circuit breakers and fail-safes to
+    prevent market disruption.
+  id: algorithmic_trading_safety
+  name: Algorithmic Trading Safety
+  principle_id: financial_stability
+  recommendation: Ensure the prompt includes safety mechanisms, circuit breakers,
+    and risk controls for any trading algorithms. Consider rate limits, position limits,
+    and explicit fail-safe mechanisms.
+  severity: critical
+  trigger_keywords:
+  - algorithmic trading
+  - high frequency
+  - trading bot
+  - market making
+  - automated trading
+  - trade execution
+  trigger_regex: \b(algorith(m|mic)|automat(ed|ic)|high.?frequenc(y|ies))\s*(.*?)\b(trad(e|ing|er)|market.?mak(er|ing))\b
+- description: Clear disclosure of AI's role and limitations when providing financial
+    advice or recommendations.
+  id: financial_advice_disclosure
+  name: Financial Advice Disclosure
+  principle_id: fiduciary_responsibility
+  recommendation: Include clear disclaimers about the nature of AI-generated financial
+    advice, its limitations, and whether it constitutes formal financial advice under
+    relevant regulations.
+  severity: high
+  trigger_keywords:
+  - financial advice
+  - investment recommendation
+  - portfolio allocation
+  - wealth management
+  - retirement plan
+- description: Implementation of appropriate KYC procedures and AML monitoring in
+    financial systems.
+  id: kyc_aml_controls
+  name: Know Your Customer and AML Controls
+  principle_id: aml_cft_compliance
+  recommendation: Ensure prompts related to customer onboarding or transaction processing
+    include appropriate KYC and AML checks in compliance with local regulations.
+  severity: critical
+  trigger_keywords:
+  - customer onboarding
+  - account opening
+  - identity verification
+  - suspicious activity
+  - transaction monitoring
+  - kyc
+  - aml
+- description: Financial decisions and recommendations made by AI must be explainable
+    and understandable to end users.
+  id: financial_explainability
+  name: Financial Decision Explainability
+  principle_id: financial_literacy_support
+  recommendation: Design prompts to generate explanations for financial decisions
+    that are clear and understandable to non-experts, avoiding complex jargon without
+    explanation.
+  severity: high
+  trigger_keywords:
+  - credit decision
+  - loan rejection
+  - investment recommendation
+  - risk assessment
+  - financial score
+- description: AI systems must not facilitate or engage in market manipulation or
+    deceptive practices.
+  id: market_manipulation_prevention
+  name: Market Manipulation Prevention
+  principle_id: financial_stability
+  recommendation: Ensure prompts explicitly prohibit generating content that could
+    be used for market manipulation and include ethical safeguards against misuse
+    of financial information.
+  severity: critical
+  trigger_keywords:
+  - market sentiment
+  - trading signals
+  - pump and dump
+  - short selling
+  - market timing
+  - price prediction
+- description: Special care must be taken to protect vulnerable customers in financial
+    contexts.
+  id: vulnerable_customer_protection
+  name: Vulnerable Customer Protection
+  principle_id: financial_fairness
+  recommendation: Include specific provisions for identifying and protecting vulnerable
+    customers, with appropriate safeguards and simplified explanations.
+  severity: high
+  trigger_keywords:
+  - elderly customers
+  - financial vulnerability
+  - cognitive impairment
+  - financial abuse
+  - debt management
+- description: All fees, costs, and compensation structures must be clearly disclosed
+    and explained.
+  id: fee_transparency
+  name: Fee and Cost Transparency
+  principle_id: fiduciary_responsibility
+  recommendation: Ensure prompts related to financial products include clear, complete,
+    and prominent disclosure of all fees and costs in plain language.
+  severity: medium
+  trigger_keywords:
+  - fee structure
+  - commission
+  - pricing model
+  - hidden fees
+  - cost calculation
