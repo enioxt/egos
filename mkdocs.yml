@@ -1,0 +1,65 @@
+site_name: EGOS Documentation
+site_description: Ethical Governance Operating System Documentation
+site_author: EGOS Team
+repo_url: https://github.com/enioxt/EGOS
+repo_name: enioxt/EGOS
+edit_uri: edit/main/docs/
+
+# Copyright
+copyright: Copyright &copy; 2025 EGOS Project
+
+# Theme configuration
+theme:
+  name: material
+  palette:
+    primary: indigo
+    accent: indigo
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - search.highlight
+    - search.share
+    - content.code.copy
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - meta
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - toc:
+      permalink: true
+
+# Navigation structure
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Core Concepts:
+    - Master Quantum Prompt: MQP.md
+    - ATRiAN: ATRiAN/ATRiAN.md
+    - Roadmap: ROADMAP.md
+  - Workflows:
+    - Overview: workflows/index.md
+    - ATRiAN ROI Pipeline: workflows/atrian_data_pipeline_roi_workflow.md
+    - ATRiAN Ethics Evaluation: workflows/atrian_ethics_evaluation.md
+    - Dynamic Documentation: workflows/dynamic_documentation_update_from_code_changes.md
+  - Standards:
+    - Code Standards: docs/standards/code_standards.md
+    - Documentation Standards: docs/standards/documentation_standards.md
+    - KOIOS PDD Standard: docs/standards/KOIOS_PDD_Standard.md
+  - Contributing: CONTRIBUTING.md
+
+# Plugins
+plugins:
+  - search
+  - minify:
+      minify_html: true
