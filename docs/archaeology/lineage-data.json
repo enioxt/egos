@@ -1,0 +1,4594 @@
+{
+  "generated": "2026-03-13T20:15:21.110Z",
+  "timeline": [
+    {
+      "date": "2026-02-13",
+      "hash": "cd9ca0f08a094a163b689e556305882021613b85",
+      "message": "feat(governance): shared EGOS framework + idea categorization",
+      "files": [
+        ".guarani/IDENTITY.md",
+        ".guarani/PREFERENCES.md"
+      ],
+      "category": "governance",
+      "wave": 0,
+      "tags": []
+    },
+    {
+      "date": "2026-02-13",
+      "hash": "2805e6fca9e09f526291f310c134b61ce1f96e0f",
+      "message": "feat: initial egos-lab monorepo + Eagle Eye MVP",
+      "files": [
+        "packages/shared/package.json",
+        "packages/shared/src/ai-client.ts",
+        "packages/shared/src/index.ts",
+        "packages/shared/src/rate-limiter.ts",
+        "packages/shared/src/types.ts"
+      ],
+      "category": "infra",
+      "wave": 0,
+      "tags": []
+    },
+    {
+      "date": "2026-02-13",
+      "hash": "c34d121b3953af40b0733b0404a94c908db1f8e3",
+      "message": "feat: system activation, valuation report, ai logger, and eagle-eye cron",
+      "files": [
+        "scripts/apply_schema_direct.ts",
+        "scripts/list_downloads.ts",
+        "scripts/migrate_to_supabase.ts",
+        "scripts/setup_supabase_schema.ts",
+        "scripts/test_exa.ts"
+      ],
+      "category": "infra",
+      "wave": 0,
+      "tags": []
+    },
+    {
+      "date": "2026-02-13",
+      "hash": "cd9ca0f08a094a163b689e556305882021613b85",
+      "message": "feat(governance): shared EGOS framework + idea categorization",
+      "files": [
+        "scripts/categorize_ideas.ts",
+        "scripts/scan_ideas.ts"
+      ],
+      "category": "governance",
+      "wave": 0,
+      "tags": []
+    },
+    {
+      "date": "2026-02-13",
+      "hash": "c34d121b3953af40b0733b0404a94c908db1f8e3",
+      "message": "feat: system activation, valuation report, ai logger, and eagle-eye cron",
+      "files": [
+        "apps/eagle-eye/Dockerfile",
+        "apps/eagle-eye/docs/opportunities/report_2026-02-13.md",
+        "apps/eagle-eye/src/analyze_viability.ts",
+        "apps/eagle-eye/src/data/territories.ts",
+        "apps/eagle-eye/src/enrich_opportunity.ts",
+        "apps/eagle-eye/src/process_enrichment.ts",
+        "apps/eagle-eye/src/research/timeline_tracer.ts",
+        "apps/eagle-eye/src/scripts/scan_brazil.ts",
+        "apps/eagle-eye/src/ui/analytics.html",
+        "apps/eagle-eye/src/ui/css/style.css",
+        "apps/eagle-eye/src/ui/dashboard.html",
+        "apps/eagle-eye/src/ui/detail.html",
+        "apps/eagle-eye/src/ui/js/app.js",
+        "apps/eagle-eye/src/ui/map.html",
+        "apps/eagle-eye/src/ui/server.ts"
+      ],
+      "category": "apps",
+      "wave": 0,
+      "tags": []
+    },
+    {
+      "date": "2026-02-13",
+      "hash": "0fdc001f731ad50be1b3b5cf512bfe816c83c710",
+      "message": "feat(eagle-eye): Bun migration + batch scan + Stitch design docs",
+      "files": [
+        "apps/eagle-eye/src/batch_scan.ts"
+      ],
+      "category": "apps",
+      "wave": 0,
+      "tags": []
+    },
+    {
+      "date": "2026-02-13",
+      "hash": "2805e6fca9e09f526291f310c134b61ce1f96e0f",
+      "message": "feat: initial egos-lab monorepo + Eagle Eye MVP",
+      "files": [
+        "apps/eagle-eye/README.md",
+        "apps/eagle-eye/package.json",
+        "apps/eagle-eye/src/analyze_gazette.ts",
+        "apps/eagle-eye/src/fetch_gazettes.ts",
+        "apps/eagle-eye/src/idea_patterns.ts",
+        "apps/eagle-eye/src/index.ts"
+      ],
+      "category": "apps",
+      "wave": 0,
+      "tags": []
+    },
+    {
+      "date": "2026-02-14",
+      "hash": "2598f49ec07bf437f451bce7a5501cd86283a8ae",
+      "message": "feat: add radio-philein app (migrated from carteira-livre) + marketplace-core scaffold",
+      "files": [
+        "apps/marketplace-core/.gitignore",
+        "apps/marketplace-core/README.md",
+        "apps/marketplace-core/eslint.config.mjs",
+        "apps/marketplace-core/next.config.ts",
+        "apps/marketplace-core/package.json",
+        "apps/marketplace-core/postcss.config.mjs",
+        "apps/marketplace-core/public/file.svg",
+        "apps/marketplace-core/public/globe.svg",
+        "apps/marketplace-core/public/next.svg",
+        "apps/marketplace-core/public/vercel.svg",
+        "apps/marketplace-core/public/window.svg",
+        "apps/marketplace-core/src/app/favicon.ico",
+        "apps/marketplace-core/src/app/globals.css",
+        "apps/marketplace-core/src/app/layout.tsx",
+        "apps/marketplace-core/src/app/page.tsx",
+        "apps/marketplace-core/src/app/provider/dashboard/page.tsx",
+        "apps/marketplace-core/src/app/request/page.tsx",
+        "apps/marketplace-core/src/components/ui/AddressInput.tsx",
+        "apps/marketplace-core/src/components/ui/Badge.tsx",
+        "apps/marketplace-core/src/components/ui/Button.tsx",
+        "apps/marketplace-core/src/components/ui/Card.tsx",
+        "apps/marketplace-core/src/components/ui/EmptyState.tsx",
+        "apps/marketplace-core/src/components/ui/FilterButton.tsx",
+        "apps/marketplace-core/src/components/ui/Input.tsx",
+        "apps/marketplace-core/src/components/ui/ModernSlider.tsx",
+        "apps/marketplace-core/src/components/ui/PageHeader.tsx",
+        "apps/marketplace-core/src/components/ui/RangeSlider.tsx",
+        "apps/marketplace-core/src/components/ui/SearchInput.tsx",
+        "apps/marketplace-core/src/components/ui/StatsCard.tsx",
+        "apps/marketplace-core/src/components/ui/ThemeToggle.tsx",
+        "apps/marketplace-core/src/components/ui/Toast.tsx",
+        "apps/marketplace-core/src/components/ui/TrustBadges.tsx",
+        "apps/marketplace-core/src/components/ui/WhatsAppButton.tsx",
+        "apps/marketplace-core/src/components/ui/index.ts",
+        "apps/marketplace-core/src/components/ui/lazy-component.tsx",
+        "apps/marketplace-core/src/components/ui/optimized-image.tsx",
+        "apps/marketplace-core/src/components/ui/skeleton.tsx",
+        "apps/marketplace-core/src/domain/identity/types.ts",
+        "apps/marketplace-core/src/domain/marketplace/state-machine.test.ts",
+        "apps/marketplace-core/src/domain/marketplace/state-machine.ts",
+        "apps/marketplace-core/src/domain/marketplace/types.ts",
+        "apps/marketplace-core/src/domain/payment/ledger.test.ts",
+        "apps/marketplace-core/src/domain/payment/ledger.ts",
+        "apps/marketplace-core/src/domain/payment/types.ts",
+        "apps/marketplace-core/tsconfig.json",
+        "apps/radio-philein/README.md",
+        "apps/radio-philein/api/cron/route.ts",
+        "apps/radio-philein/api/radio/history/route.ts",
+        "apps/radio-philein/api/radio/now-playing/advance/route.ts",
+        "apps/radio-philein/api/radio/now-playing/route.ts",
+        "apps/radio-philein/api/radio/philein/route.ts",
+        "apps/radio-philein/api/radio/queue/route.ts",
+        "apps/radio-philein/api/radio/resolve-links/route.ts",
+        "apps/radio-philein/api/radio/search/route.ts",
+        "apps/radio-philein/api/radio/suggestions/route.ts",
+        "apps/radio-philein/components/RadioManager.tsx",
+        "apps/radio-philein/pages/philein/now/page.tsx",
+        "apps/radio-philein/pages/philein/page.tsx",
+        "apps/radio-philein/pages/philein/tracks/page.tsx",
+        "apps/radio-philein/services/spotify-service.ts"
+      ],
+      "category": "apps",
+      "wave": 0,
+      "tags": []
+    },
+    {
+      "date": "2026-02-16",
+      "hash": "15b7548c125b4c5b7df11fdffa8f145016bcf829",
+      "message": "chore: configuration complete & handoff prep",
+      "files": [
+        "scripts/rho.ts"
+      ],
+      "category": "infra",
+      "wave": 0,
+      "tags": []
+    },
+    {
+      "date": "2026-02-16",
+      "hash": "b90542d1a3b99f0bcf9d3d25a6b65272e894c4a4",
+      "message": "feat: Spiral Genesis (Web + Protocol) + Portable Lab Configs",
+      "files": [
+        "scripts/disseminate.ts",
+        "scripts/review.ts"
+      ],
+      "category": "infra",
+      "wave": 0,
+      "tags": []
+    },
+    {
+      "date": "2026-02-16",
+      "hash": "abbc741fcec534b560aa38eca1c91551b3f517d0",
+      "message": "feat: public launch of egos-lab ecosystem with eagle-eye intelligence",
+      "files": [
+        "scripts/security_scan.ts"
+      ],
+      "category": "infra",
+      "wave": 0,
+      "tags": []
+    },
+    {
+      "date": "2026-02-16",
+      "hash": "fe69d6ed01e3b92087ed5e2cff3775055fbb5767",
+      "message": "feat(egos-web): Mission Control UI + RAG pipeline + Zustand store + Stitch assets",
+      "files": [
+        "apps/egos-web/scripts/ingest-commits.ts",
+        "apps/egos-web/src/components/Dashboard.tsx",
+        "apps/egos-web/src/services/chat.ts",
+        "apps/egos-web/src/store/useAppStore.ts"
+      ],
+      "category": "apps",
+      "wave": 0,
+      "tags": [
+        "prompt-engineering"
+      ]
+    },
+    {
+      "date": "2026-02-16",
+      "hash": "15b7548c125b4c5b7df11fdffa8f145016bcf829",
+      "message": "chore: configuration complete & handoff prep",
+      "files": [
+        "apps/egos-web/scripts/test-connections.ts",
+        "apps/egos-web/src/components/CommunityChat.tsx",
+        "apps/egos-web/src/lib/supabase.ts",
+        "apps/egos-web/src/services/github.ts"
+      ],
+      "category": "apps",
+      "wave": 0,
+      "tags": []
+    },
+    {
+      "date": "2026-02-16",
+      "hash": "b90542d1a3b99f0bcf9d3d25a6b65272e894c4a4",
+      "message": "feat: Spiral Genesis (Web + Protocol) + Portable Lab Configs",
+      "files": [
+        "apps/egos-web/.gitignore",
+        "apps/egos-web/README.md",
+        "apps/egos-web/eslint.config.js",
+        "apps/egos-web/index.html",
+        "apps/egos-web/package.json",
+        "apps/egos-web/public/vite.svg",
+        "apps/egos-web/src/App.css",
+        "apps/egos-web/src/App.tsx",
+        "apps/egos-web/src/assets/react.svg",
+        "apps/egos-web/src/components/ListeningSpiral.tsx",
+        "apps/egos-web/src/index.css",
+        "apps/egos-web/src/main.tsx",
+        "apps/egos-web/tsconfig.app.json",
+        "apps/egos-web/tsconfig.json",
+        "apps/egos-web/tsconfig.node.json",
+        "apps/egos-web/vercel.json",
+        "apps/egos-web/vite.config.ts"
+      ],
+      "category": "apps",
+      "wave": 0,
+      "tags": []
+    },
+    {
+      "date": "2026-02-16",
+      "hash": "abbc741fcec534b560aa38eca1c91551b3f517d0",
+      "message": "feat: public launch of egos-lab ecosystem with eagle-eye intelligence",
+      "files": [
+        "apps/eagle-eye/docs/API_STRATEGY.md",
+        "apps/eagle-eye/docs/COMMUNITY_STRATEGY.md",
+        "apps/eagle-eye/docs/FINAL_DESIGN_PACKAGE.md",
+        "apps/eagle-eye/docs/GAMIFICATION_REPORT.md",
+        "apps/eagle-eye/docs/PHASE_20_PLAN.md",
+        "apps/eagle-eye/docs/SCRAPER_REPORT.md",
+        "apps/eagle-eye/docs/SEO_STRATEGY.md",
+        "apps/eagle-eye/docs/STITCH_PROMPTS.md",
+        "apps/eagle-eye/docs/_current_handoffs/handoff_tourism_v1.md",
+        "apps/eagle-eye/docs/_current_handoffs/handoff_tourism_v2.md",
+        "apps/eagle-eye/docs/_current_handoffs/handoff_tourism_v3.md",
+        "apps/eagle-eye/src/app/dashboard/page.tsx",
+        "apps/eagle-eye/src/app/login/page.tsx",
+        "apps/eagle-eye/src/components/auth/AuthLayout.tsx",
+        "apps/eagle-eye/src/modules/events/event-pattern-matcher.ts",
+        "apps/eagle-eye/src/modules/influencers/influencer-detector.ts",
+        "apps/eagle-eye/src/modules/tourism/citizen-logger.ts",
+        "apps/eagle-eye/src/modules/tourism/gamification.ts",
+        "apps/eagle-eye/src/modules/tourism/influencer-radar.ts",
+        "apps/eagle-eye/src/modules/tourism/maps-instructor.ts",
+        "apps/eagle-eye/src/modules/tourism/scraper-patoshoje.ts",
+        "apps/eagle-eye/src/modules/tourism/scraper-patosja.ts",
+        "apps/eagle-eye/src/modules/tourism/seo-factory.ts",
+        "apps/eagle-eye/src/modules/tourism/social-listener.ts",
+        "apps/eagle-eye/src/modules/tourism/truth-consensus.ts",
+        "apps/eagle-eye/src/modules/tourism/web-scraper.ts",
+        "apps/eagle-eye/src/scripts/check_coverage.ts",
+        "apps/eagle-eye/src/scripts/run_patos_scraper.ts",
+        "apps/eagle-eye/src/scripts/test_citizen.ts",
+        "apps/eagle-eye/src/scripts/test_citizen_consensus.ts",
+        "apps/eagle-eye/src/scripts/test_consensus.ts",
+        "apps/eagle-eye/src/scripts/test_gamification.ts",
+        "apps/eagle-eye/src/scripts/test_tourism.ts",
+        "apps/eagle-eye/src/scripts/test_web_scraper.ts",
+        "apps/eagle-eye/src/test-intelligence.ts"
+      ],
+      "category": "apps",
+      "wave": 0,
+      "tags": []
+    },
+    {
+      "date": "2026-02-16",
+      "hash": "197adf75471c0bca7cda4a09376bf84b3ca89cb7",
+      "message": "feat(eagle-eye): add tourism module MVP (types, prompt, logic) from chatgpt insight",
+      "files": [
+        "apps/eagle-eye/docs/TOURISM_MODULE.md",
+        "apps/eagle-eye/src/modules/tourism/campaign.ts",
+        "apps/eagle-eye/src/modules/tourism/checklist.ts",
+        "apps/eagle-eye/src/modules/tourism/index.ts",
+        "apps/eagle-eye/src/modules/tourism/system-prompt.ts",
+        "apps/eagle-eye/src/modules/tourism/types.ts"
+      ],
+      "category": "apps",
+      "wave": 0,
+      "tags": [
+        "llm-shift",
+        "prompt-engineering"
+      ]
+    },
+    {
+      "date": "2026-02-17",
+      "hash": "9b03e63bf3ae0ab4d83e57006f0685793fd14335",
+      "message": "docs: standardized .env.example files across all modules",
+      "files": [
+        "agents/.env.example"
+      ],
+      "category": "infra",
+      "wave": 1,
+      "tags": []
+    },
+    {
+      "date": "2026-02-17",
+      "hash": "b03569edb3d8e94338861b675e122a24e0dd0567",
+      "message": "feat(agents): orchestrator — run all 9 agents, combined report, 100% health score + TASKS v2.7",
+      "files": [
+        "agents/agents/orchestrator.ts"
+      ],
+      "category": "agents",
+      "wave": 1,
+      "tags": []
+    },
+    {
+      "date": "2026-02-17",
+      "hash": "7c080cbe2d3f0f9132765ed3478ce6dff1221784",
+      "message": "feat(agents): dep-auditor + dead-code-detector + Medusa case study + LinkedIn posts + TASKS v2.6",
+      "files": [
+        "agents/agents/dead-code-detector.ts",
+        "agents/agents/dep-auditor.ts"
+      ],
+      "category": "agents",
+      "wave": 1,
+      "tags": []
+    },
+    {
+      "date": "2026-02-17",
+      "hash": "0c5afdbb28e7a8e012ec69160d6fa7aaef8d778d",
+      "message": "feat(agents): Auth Roles Checker + Code Reviewer wired to LLM",
+      "files": [
+        "agents/agents/auth-roles-checker.ts"
+      ],
+      "category": "agents",
+      "wave": 1,
+      "tags": []
+    },
+    {
+      "date": "2026-02-17",
+      "hash": "ca85cb7609faf00248600fd0a67663e4ed8e3a10",
+      "message": "feat(agents): implement Agentic Platform foundation — registry, runner, CLI, SSOT Auditor",
+      "files": [
+        "agents/agents/ssot-auditor.ts",
+        "agents/cli.ts",
+        "agents/registry/agents.json",
+        "agents/runtime/runner.ts"
+      ],
+      "category": "agents",
+      "wave": 1,
+      "tags": []
+    },
+    {
+      "date": "2026-02-17",
+      "hash": "c7254868151dcac7c6a0d8de27ddb2669a02e4f1",
+      "message": "feat(governance): SSOT pre-commit checks — duplicate types, orphan docs, select-star, config drift",
+      "files": [
+        "scripts/ssot_governance.ts"
+      ],
+      "category": "governance",
+      "wave": 1,
+      "tags": []
+    },
+    {
+      "date": "2026-02-17",
+      "hash": "9b03e63bf3ae0ab4d83e57006f0685793fd14335",
+      "message": "docs: standardized .env.example files across all modules",
+      "files": [
+        "apps/eagle-eye/.env.example"
+      ],
+      "category": "apps",
+      "wave": 1,
+      "tags": []
+    },
+    {
+      "date": "2026-02-17",
+      "hash": "b8cfca5f3c2283d90a7390f21a2f2193669f3517",
+      "message": "docs: diagnostic report + launch plan + security keys map + env example",
+      "files": [
+        "apps/egos-web/.env.example"
+      ],
+      "category": "apps",
+      "wave": 1,
+      "tags": []
+    },
+    {
+      "date": "2026-02-17",
+      "hash": "5d4d053f899d4ad5a301f37a63750b7c3dafd83a",
+      "message": "feat(egos-web): GitHub OAuth login in Espiral de Escuta",
+      "files": [
+        "apps/egos-web/src/hooks/useAuth.ts"
+      ],
+      "category": "apps",
+      "wave": 1,
+      "tags": []
+    },
+    {
+      "date": "2026-02-17",
+      "hash": "61f226bf199e42ae8e4c73eae4837c464668892e",
+      "message": "feat: integrate intelink into egos-lab monorepo (604 files, PII sanitized, secrets removed)",
+      "files": [
+        "apps/intelink/.dockerignore",
+        "apps/intelink/.env.example",
+        "apps/intelink/.gitignore",
+        "apps/intelink/.guarani/ACTIVATION_PAYLOAD.md",
+        "apps/intelink/.guarani/ARCHITECTURE.md",
+        "apps/intelink/.guarani/ARCHITECTURE_SECURITY.md",
+        "apps/intelink/.guarani/COMPONENTIZATION_RULES.md",
+        "apps/intelink/.guarani/CONVERSATION_FLOW.md",
+        "apps/intelink/.guarani/DESIGN_STANDARDS.md",
+        "apps/intelink/.guarani/ENTITY_TYPES_REFERENCE.md",
+        "apps/intelink/.guarani/HISTORY_AUTO.md",
+        "apps/intelink/.guarani/IDENTITY.md",
+        "apps/intelink/.guarani/INTELINK_DESIGN_SYSTEM.md",
+        "apps/intelink/.guarani/MCP_ORCHESTRATION_GUIDE.md",
+        "apps/intelink/.guarani/PREFERENCES.md",
+        "apps/intelink/.guarani/SYSTEM_INDEX.md",
+        "apps/intelink/.guarani/WINDSURFRULES_V4.md",
+        "apps/intelink/.guarani/knowledge/12-padroes-v2-enhanced.md",
+        "apps/intelink/.guarani/knowledge/meta-prompts-v2-enhanced.md",
+        "apps/intelink/.guarani/nexus/INDEX.md",
+        "apps/intelink/.guarani/nexus/NEXUS_ZERO.md",
+        "apps/intelink/.guarani/nexus/QUANTUM_PROMPT.md",
+        "apps/intelink/.guarani/nexus/auditor.md",
+        "apps/intelink/.guarani/nexus/debate_mode.md",
+        "apps/intelink/.guarani/nexus/evaluator.md",
+        "apps/intelink/.guarani/nexus/generator.md",
+        "apps/intelink/.guarani/nexus/lifecycle.md",
+        "apps/intelink/.guarani/nexus/medic.md",
+        "apps/intelink/.guarani/philosophy/TSUN_CHA_PROTOCOL.md",
+        "apps/intelink/.guarani/preprocessor.md",
+        "apps/intelink/.guarani/refinery/README.md",
+        "apps/intelink/.guarani/refinery/classifier.md",
+        "apps/intelink/.guarani/refinery/compiler.md",
+        "apps/intelink/.guarani/refinery/interrogators/bug.md",
+        "apps/intelink/.guarani/refinery/interrogators/feature.md",
+        "apps/intelink/.guarani/refinery/interrogators/knowledge.md",
+        "apps/intelink/.guarani/refinery/interrogators/refactor.md",
+        "apps/intelink/.guarani/refinery/state.json",
+        "apps/intelink/.guarani/refinery/telemetry_integration.md",
+        "apps/intelink/.guarani/refinery/tests/scenarios.md",
+        "apps/intelink/.guarani/refinery/user_profile.json",
+        "apps/intelink/.guarani/refinery/vocabulary_learner.md",
+        "apps/intelink/.guarani/standards/MCP_TOOL_AUDIT_2025_12.md",
+        "apps/intelink/.guarani/standards/MCP_TOOL_QUALITY_FRAMEWORK.md",
+        "apps/intelink/.windsurfrules",
+        "apps/intelink/AGENTS.md",
+        "apps/intelink/Dockerfile",
+        "apps/intelink/README.md",
+        "apps/intelink/README_DEV.md",
+        "apps/intelink/SYSTEM_DIAGNOSIS.md",
+        "apps/intelink/app/activity/page.tsx",
+        "apps/intelink/app/admin/audit/page.tsx",
+        "apps/intelink/app/admin/sessions/page.tsx",
+        "apps/intelink/app/admin/telemetry/page.tsx",
+        "apps/intelink/app/analytics/page.tsx",
+        "apps/intelink/app/api/activities/route.ts",
+        "apps/intelink/app/api/admin/delete/route.ts",
+        "apps/intelink/app/api/admin/sessions/[id]/revoke/route.ts",
+        "apps/intelink/app/api/admin/sessions/route.ts",
+        "apps/intelink/app/api/analysis/anchoring/route.ts",
+        "apps/intelink/app/api/analysis/crit/route.ts",
+        "apps/intelink/app/api/analysis/diligences/route.ts",
+        "apps/intelink/app/api/analysis/mo/route.ts",
+        "apps/intelink/app/api/analysis/risk/route.ts",
+        "apps/intelink/app/api/analysis/summary/route.ts",
+        "apps/intelink/app/api/analytics/route.ts",
+        "apps/intelink/app/api/audio/transcribe/route.ts",
+        "apps/intelink/app/api/audit/route.ts",
+        "apps/intelink/app/api/audit/verify/route.ts",
+        "apps/intelink/app/api/cache/stats/route.ts",
+        "apps/intelink/app/api/central/cross-case-alerts/route.ts",
+        "apps/intelink/app/api/central/graph/route.ts",
+        "apps/intelink/app/api/central/route.ts",
+        "apps/intelink/app/api/chat/conversations/route.ts",
+        "apps/intelink/app/api/chat/history/[sessionId]/route.ts",
+        "apps/intelink/app/api/chat/history/route.ts",
+        "apps/intelink/app/api/chat/messages/route.ts",
+        "apps/intelink/app/api/chat/pdf/route.ts",
+        "apps/intelink/app/api/chat/route.ts",
+        "apps/intelink/app/api/chat/share/route.ts",
+        "apps/intelink/app/api/chat/shared/route.ts",
+        "apps/intelink/app/api/chat/vision/route.ts",
+        "apps/intelink/app/api/compliance/justify/route.ts",
+        "apps/intelink/app/api/contributions/leaderboard/route.ts",
+        "apps/intelink/app/api/cron/sync-laws/route.ts",
+        "apps/intelink/app/api/debate/route.ts",
+        "apps/intelink/app/api/documents/[id]/route.ts",
+        "apps/intelink/app/api/documents/batch/route.ts",
+        "apps/intelink/app/api/documents/check-duplicate/route.ts",
+        "apps/intelink/app/api/documents/embeddings/route.ts",
+        "apps/intelink/app/api/documents/extract/route.ts",
+        "apps/intelink/app/api/documents/guardian/route.ts",
+        "apps/intelink/app/api/documents/save/route.ts",
+        "apps/intelink/app/api/documents/upload/route.ts",
+        "apps/intelink/app/api/entities/[id]/route.ts",
+        "apps/intelink/app/api/entities/cleanup-duplicates/route.ts",
+        "apps/intelink/app/api/entities/generate-relationships/route.ts",
+        "apps/intelink/app/api/entities/merge-duplicates/route.ts",
+        "apps/intelink/app/api/entities/merge/history/route.ts",
+        "apps/intelink/app/api/entities/merge/route.ts",
+        "apps/intelink/app/api/entities/merge/vote/route.ts",
+        "apps/intelink/app/api/entities/route.ts",
+        "apps/intelink/app/api/entity-resolution/route.ts",
+        "apps/intelink/app/api/entity/[id]/indirect/route.ts",
+        "apps/intelink/app/api/entity/[id]/related/route.ts",
+        "apps/intelink/app/api/findings/route.ts",
+        "apps/intelink/app/api/gamification/stats/route.ts",
+        "apps/intelink/app/api/health/route.ts",
+        "apps/intelink/app/api/history/route.ts",
+        "apps/intelink/app/api/intelink/alerts/[id]/route.ts",
+        "apps/intelink/app/api/intelink/alerts/route.ts",
+        "apps/intelink/app/api/intelink/cross-case-analysis/route.ts",
+        "apps/intelink/app/api/intelink/cross-references/route.ts",
+        "apps/intelink/app/api/intelink/edits/route.ts",
+        "apps/intelink/app/api/intelink/graph-analysis/route.ts",
+        "apps/intelink/app/api/intelink/match-entities/route.ts",
+        "apps/intelink/app/api/intelligence/dossier/route.ts",
+        "apps/intelink/app/api/intelligence/journey/route.ts",
+        "apps/intelink/app/api/intelligence/jurista/route.ts",
+        "apps/intelink/app/api/intelligence/narrative-links/route.ts",
+        "apps/intelink/app/api/investigation/[id]/predictions/route.ts",
+        "apps/intelink/app/api/investigation/[id]/report/pdf/route.ts",
+        "apps/intelink/app/api/investigation/[id]/report/route.ts",
+        "apps/intelink/app/api/investigation/[id]/restore/route.ts",
+        "apps/intelink/app/api/investigation/[id]/route.ts",
+        "apps/intelink/app/api/investigation/[id]/timeline/route.ts",
+        "apps/intelink/app/api/investigation/analyze/route.ts",
+        "apps/intelink/app/api/investigations/route.ts",
+        "apps/intelink/app/api/jobs/analyze/route.ts",
+        "apps/intelink/app/api/jobs/route.ts",
+        "apps/intelink/app/api/jobs/scan/route.ts",
+        "apps/intelink/app/api/journeys/compare/route.ts",
+        "apps/intelink/app/api/journeys/route.ts",
+        "apps/intelink/app/api/journeys/share/route.ts",
+        "apps/intelink/app/api/legal/detect/route.ts",
+        "apps/intelink/app/api/legal/sync/route.ts",
+        "apps/intelink/app/api/link-prediction/accuracy/route.ts",
+        "apps/intelink/app/api/links/confirm/route.ts",
+        "apps/intelink/app/api/links/verify/route.ts",
+        "apps/intelink/app/api/members/[id]/route.ts",
+        "apps/intelink/app/api/members/access-code/route.ts",
+        "apps/intelink/app/api/members/add-email/route.ts",
+        "apps/intelink/app/api/members/me/route.ts",
+        "apps/intelink/app/api/members/reset-password/route.ts",
+        "apps/intelink/app/api/members/role/route.ts",
+        "apps/intelink/app/api/members/route.ts",
+        "apps/intelink/app/api/merge-pending/route.ts",
+        "apps/intelink/app/api/merge/[suggestionId]/vote/route.ts",
+        "apps/intelink/app/api/notifications/route.ts",
+        "apps/intelink/app/api/ocr/route.ts",
+        "apps/intelink/app/api/otp/generate/route.ts",
+        "apps/intelink/app/api/otp/verify/route.ts",
+        "apps/intelink/app/api/permissions/route.ts",
+        "apps/intelink/app/api/predictions/feedback/route.ts",
+        "apps/intelink/app/api/profile/update/route.ts",
+        "apps/intelink/app/api/reports/entity/route.ts",
+        "apps/intelink/app/api/reports/entity/unified/route.ts",
+        "apps/intelink/app/api/reports/generate/route.ts",
+        "apps/intelink/app/api/reports/route.ts",
+        "apps/intelink/app/api/rho/alerts/[id]/acknowledge/route.ts",
+        "apps/intelink/app/api/rho/alerts/route.ts",
+        "apps/intelink/app/api/rho/calculate/route.ts",
+        "apps/intelink/app/api/rho/global/route.ts",
+        "apps/intelink/app/api/rho/history/route.ts",
+        "apps/intelink/app/api/rho/status/route.ts",
+        "apps/intelink/app/api/roles/route.ts",
+        "apps/intelink/app/api/search/route.ts",
+        "apps/intelink/app/api/session/route.ts",
+        "apps/intelink/app/api/stats/route.ts",
+        "apps/intelink/app/api/telegram/webhook/route.ts",
+        "apps/intelink/app/api/telemetry/export/route.ts",
+        "apps/intelink/app/api/telemetry/ingestion/route.ts",
+        "apps/intelink/app/api/telemetry/route.ts",
+        "apps/intelink/app/api/transcribe/route.ts",
+        "apps/intelink/app/api/units/delete-request/route.ts",
+        "apps/intelink/app/api/units/route.ts",
+        "apps/intelink/app/api/v2/auth/approve-access/route.ts",
+        "apps/intelink/app/api/v2/auth/check-phone/route.ts",
+        "apps/intelink/app/api/v2/auth/create-password/route.ts",
+        "apps/intelink/app/api/v2/auth/login/route.ts",
+        "apps/intelink/app/api/v2/auth/logout/route.ts",
+        "apps/intelink/app/api/v2/auth/me/route.ts",
+        "apps/intelink/app/api/v2/auth/otp/send/route.ts",
+        "apps/intelink/app/api/v2/auth/otp/verify/route.ts",
+        "apps/intelink/app/api/v2/auth/password/reset-confirm/route.ts",
+        "apps/intelink/app/api/v2/auth/password/reset-request/route.ts",
+        "apps/intelink/app/api/v2/auth/refresh/route.ts",
+        "apps/intelink/app/api/v2/auth/request-access/route.ts",
+        "apps/intelink/app/api/v2/auth/verify/route.ts",
+        "apps/intelink/app/api/vibe-coding/check-updates/route.ts",
+        "apps/intelink/app/auth/page.tsx",
+        "apps/intelink/app/central/alertas/page.tsx",
+        "apps/intelink/app/central/analise-vinculos/page.tsx",
+        "apps/intelink/app/central/auditoria/page.tsx",
+        "apps/intelink/app/central/capabilities/page.tsx",
+        "apps/intelink/app/central/configuracoes/page.tsx",
+        "apps/intelink/app/central/delegacias/page.tsx",
+        "apps/intelink/app/central/documentos/page.tsx",
+        "apps/intelink/app/central/entidades/page.tsx",
+        "apps/intelink/app/central/equipe/page.tsx",
+        "apps/intelink/app/central/evidencias/page.tsx",
+        "apps/intelink/app/central/graph/page.tsx",
+        "apps/intelink/app/central/intelligence-lab/page.tsx",
+        "apps/intelink/app/central/layout.tsx",
+        "apps/intelink/app/central/membros/page.tsx",
+        "apps/intelink/app/central/operacoes/page.tsx",
+        "apps/intelink/app/central/page.tsx",
+        "apps/intelink/app/central/permissoes/page.tsx",
+        "apps/intelink/app/central/qualidade/page.tsx",
+        "apps/intelink/app/central/saude/page.tsx",
+        "apps/intelink/app/central/unit/[id]/graph/page.tsx",
+        "apps/intelink/app/central/vinculos/page.tsx",
+        "apps/intelink/app/chat/[sessionId]/page.tsx",
+        "apps/intelink/app/chat/layout.tsx",
+        "apps/intelink/app/chat/page.tsx",
+        "apps/intelink/app/dashboard/page.tsx",
+        "apps/intelink/app/dev/gamification/page.tsx",
+        "apps/intelink/app/dev/rho-demo/page.tsx",
+        "apps/intelink/app/equipe/page.tsx",
+        "apps/intelink/app/globals.css",
+        "apps/intelink/app/graph/[id]/3d/page.tsx",
+        "apps/intelink/app/graph/[id]/page.tsx",
+        "apps/intelink/app/investigation/[id]/history/page.tsx",
+        "apps/intelink/app/investigation/[id]/page.tsx",
+        "apps/intelink/app/investigation/[id]/reports/page.tsx",
+        "apps/intelink/app/investigation/new/page.tsx",
+        "apps/intelink/app/jobs/page.tsx",
+        "apps/intelink/app/layout.tsx",
+        "apps/intelink/app/login/page.tsx",
+        "apps/intelink/app/offline/page.tsx",
+        "apps/intelink/app/page.tsx",
+        "apps/intelink/app/profile/page.tsx",
+        "apps/intelink/app/reports/page.tsx",
+        "apps/intelink/components/CrossCaseAlertsPanel.tsx",
+        "apps/intelink/components/DeleteButton.tsx",
+        "apps/intelink/components/EvidencePanel.tsx",
+        "apps/intelink/components/FindingsPanel.tsx",
+        "apps/intelink/components/central/CentralNav.tsx",
+        "apps/intelink/components/central/LiveCard.tsx",
+        "apps/intelink/components/central/index.ts",
+        "apps/intelink/components/charts/AnalyticsCharts.tsx",
+        "apps/intelink/components/chat/ChatGraphWidget.tsx",
+        "apps/intelink/components/chat/ChatHeader.tsx",
+        "apps/intelink/components/chat/ChatInput.tsx",
+        "apps/intelink/components/chat/ChatMessages.tsx",
+        "apps/intelink/components/chat/ChatOnboarding.tsx",
+        "apps/intelink/components/chat/ChatSidebar.tsx",
+        "apps/intelink/components/chat/index.ts",
+        "apps/intelink/components/compliance/JustificationModal.tsx",
+        "apps/intelink/components/dashboard/DashboardHeader.tsx",
+        "apps/intelink/components/dashboard/InvestigationsList.tsx",
+        "apps/intelink/components/dashboard/MobileMenu.tsx",
+        "apps/intelink/components/dashboard/index.ts",
+        "apps/intelink/components/demo/DemoWalkthrough.tsx",
+        "apps/intelink/components/document-upload/LoadingSteps.tsx",
+        "apps/intelink/components/document-upload/constants.ts",
+        "apps/intelink/components/document-upload/index.ts",
+        "apps/intelink/components/graph/ConnectionList.tsx",
+        "apps/intelink/components/graph/PredictedLinksPanel.tsx",
+        "apps/intelink/components/intelink/ActivityHistory.tsx",
+        "apps/intelink/components/intelink/AddEntityModal.tsx",
+        "apps/intelink/components/intelink/ConnectionHeatmap.tsx",
+        "apps/intelink/components/intelink/DeleteConfirmModal.tsx",
+        "apps/intelink/components/intelink/DocumentActionButtons.tsx",
+        "apps/intelink/components/intelink/DocumentUploadModal.tsx",
+        "apps/intelink/components/intelink/DuplicateDiffView.tsx",
+        "apps/intelink/components/intelink/EditButton.tsx",
+        "apps/intelink/components/intelink/EditEntityModal.tsx",
+        "apps/intelink/components/intelink/EntityMergePanel.tsx",
+        "apps/intelink/components/intelink/EvidencePanel.tsx",
+        "apps/intelink/components/intelink/FeedbackButton.tsx",
+        "apps/intelink/components/intelink/FindingsPanel.tsx",
+        "apps/intelink/components/intelink/GroupedEntityList.tsx",
+        "apps/intelink/components/intelink/InvestigationTimeline.tsx",
+        "apps/intelink/components/intelink/MergeHistoryPanel.tsx",
+        "apps/intelink/components/intelink/NarrativeSummary.tsx",
+        "apps/intelink/components/intelink/QuickStats.tsx",
+        "apps/intelink/components/intelink/ReportModal.tsx",
+        "apps/intelink/components/intelink/Toast.tsx",
+        "apps/intelink/components/intelink/UrgencyBadge.tsx",
+        "apps/intelink/components/intelink/UrgencyIndicator.tsx",
+        "apps/intelink/components/intelligence/CronosTab.tsx",
+        "apps/intelink/components/intelligence/EntityResolverTab.tsx",
+        "apps/intelink/components/intelligence/JuristaTab.tsx",
+        "apps/intelink/components/intelligence/MergeVotingCard.tsx",
+        "apps/intelink/components/intelligence/NexusTab.tsx",
+        "apps/intelink/components/investigation/CrossInvestigationLinks.tsx",
+        "apps/intelink/components/investigation/EntityCard.tsx",
+        "apps/intelink/components/investigation/SetupWizard.tsx",
+        "apps/intelink/components/investigation/constants.ts",
+        "apps/intelink/components/investigation/entity-forms/FirearmForm.tsx",
+        "apps/intelink/components/investigation/entity-forms/LocationForm.tsx",
+        "apps/intelink/components/investigation/entity-forms/OrganizationForm.tsx",
+        "apps/intelink/components/investigation/entity-forms/PersonForm.tsx",
+        "apps/intelink/components/investigation/entity-forms/PhoneForm.tsx",
+        "apps/intelink/components/investigation/entity-forms/VehicleForm.tsx",
+        "apps/intelink/components/investigation/entity-forms/index.ts",
+        "apps/intelink/components/investigation/entity-forms/types.ts",
+        "apps/intelink/components/investigation/index.ts",
+        "apps/intelink/components/investigation/new/AttachmentsTab.tsx",
+        "apps/intelink/components/investigation/new/EntitiesTab.tsx",
+        "apps/intelink/components/investigation/new/InfoTab.tsx",
+        "apps/intelink/components/investigation/new/TeamTab.tsx",
+        "apps/intelink/components/investigation/new/index.ts",
+        "apps/intelink/components/investigation/new/types.ts",
+        "apps/intelink/components/layout/LoadingScreen.tsx",
+        "apps/intelink/components/layout/PageContainer.tsx",
+        "apps/intelink/components/layout/PageHeader.tsx",
+        "apps/intelink/components/layout/index.ts",
+        "apps/intelink/components/mobile/MobileNavBar.tsx",
+        "apps/intelink/components/patterns/EmptyState.tsx",
+        "apps/intelink/components/patterns/index.ts",
+        "apps/intelink/components/permissoes/constants.ts",
+        "apps/intelink/components/permissoes/index.ts",
+        "apps/intelink/components/pramana/DebateButton.tsx",
+        "apps/intelink/components/pramana/PramanaBadge.tsx",
+        "apps/intelink/components/pramana/ProvenanceEditor.tsx",
+        "apps/intelink/components/pramana/index.ts",
+        "apps/intelink/components/pwa/ServiceWorkerRegistration.tsx",
+        "apps/intelink/components/qualidade/constants.ts",
+        "apps/intelink/components/qualidade/index.ts",
+        "apps/intelink/components/reports/index.ts",
+        "apps/intelink/components/reports/types.ts",
+        "apps/intelink/components/rho/RhoHealthWidget.tsx",
+        "apps/intelink/components/rho/RhoHistoryChart.tsx",
+        "apps/intelink/components/rho/TunnelVisionAlert.tsx",
+        "apps/intelink/components/rho/index.ts",
+        "apps/intelink/components/search/constants.ts",
+        "apps/intelink/components/search/index.ts",
+        "apps/intelink/components/security/OTPModal.tsx",
+        "apps/intelink/components/security/index.ts",
+        "apps/intelink/components/shared/AIActionButton.tsx",
+        "apps/intelink/components/shared/BreakTheGlassModal.tsx",
+        "apps/intelink/components/shared/ClientOnly.tsx",
+        "apps/intelink/components/shared/CollapsibleCard.tsx",
+        "apps/intelink/components/shared/CollapsibleWidget.tsx",
+        "apps/intelink/components/shared/DashboardLayoutContext.tsx",
+        "apps/intelink/components/shared/DragDropOnboarding.tsx",
+        "apps/intelink/components/shared/DraggableGridLayout.tsx",
+        "apps/intelink/components/shared/DraggableWidget.tsx",
+        "apps/intelink/components/shared/EntityDetailModal.tsx",
+        "apps/intelink/components/shared/EntityNarrativeSummary.tsx",
+        "apps/intelink/components/shared/ErrorBoundary.tsx",
+        "apps/intelink/components/shared/EvidenceDetailModal.tsx",
+        "apps/intelink/components/shared/GlobalSearch.tsx",
+        "apps/intelink/components/shared/GlobalSearchProvider.tsx",
+        "apps/intelink/components/shared/IndirectConnectionsModal.tsx",
+        "apps/intelink/components/shared/JourneyCompareModal.tsx",
+        "apps/intelink/components/shared/JourneyFABGlobal.tsx",
+        "apps/intelink/components/shared/JourneyList.tsx",
+        "apps/intelink/components/shared/JourneyReplayModal.tsx",
+        "apps/intelink/components/shared/JourneyReportModal.tsx",
+        "apps/intelink/components/shared/PageHeader.tsx",
+        "apps/intelink/components/shared/PhoneDisplay.tsx",
+        "apps/intelink/components/shared/ResponsiveWidgetRow.tsx",
+        "apps/intelink/components/shared/ResumeProcessingBanner.tsx",
+        "apps/intelink/components/shared/ShareJourneyDialog.tsx",
+        "apps/intelink/components/shared/Skeleton.tsx",
+        "apps/intelink/components/shared/SmartTextInput.tsx",
+        "apps/intelink/components/shared/SortableWidgetGrid.tsx",
+        "apps/intelink/components/shared/VoteModal.tsx",
+        "apps/intelink/components/shared/WIDGET_STANDARDS.md",
+        "apps/intelink/components/ui/Card.tsx",
+        "apps/intelink/components/ui/OptimizedImage.tsx",
+        "apps/intelink/components/ui/Skeleton.tsx",
+        "apps/intelink/components/ui/StandardCard.tsx",
+        "apps/intelink/components/ui/StatusBadge.tsx",
+        "apps/intelink/components/ui/index.ts",
+        "apps/intelink/components/vinculos/UIComponents.tsx",
+        "apps/intelink/components/vinculos/constants.ts",
+        "apps/intelink/components/vinculos/index.ts",
+        "apps/intelink/contexts/IntelinkFocusContext.tsx",
+        "apps/intelink/docker-compose.yml",
+        "apps/intelink/docs/API_DIAGNOSTIC_2025-12-04.md",
+        "apps/intelink/docs/API_SECURITY_AUDIT.md",
+        "apps/intelink/docs/ARCHITECTURE.md",
+        "apps/intelink/docs/AUTH_REFACTOR_PLAN.md",
+        "apps/intelink/docs/AUTH_V2_EXECUTION_PLAN.md",
+        "apps/intelink/docs/CHANGELOG_2025-12-12.md",
+        "apps/intelink/docs/DEPLOY.md",
+        "apps/intelink/docs/DEPLOY_DIAGNOSTIC.md",
+        "apps/intelink/docs/DEPLOY_READINESS.md",
+        "apps/intelink/docs/DIAGNOSTIC_REPORT_2025.md",
+        "apps/intelink/docs/ENTITY_MATCHING_HIERARCHY.md",
+        "apps/intelink/docs/ENTITY_SYNTHESIS_FEATURE.md",
+        "apps/intelink/docs/HEALTH_REPORT_2025-12-05.md",
+        "apps/intelink/docs/INTELINK_GLOSSARY.md",
+        "apps/intelink/docs/INTELINK_TEST_CHECKLIST.md",
+        "apps/intelink/docs/INVESTIGATION_JOURNEY_FEATURE.md",
+        "apps/intelink/docs/LLM_CONFIGURATION.md",
+        "apps/intelink/docs/MARKET_DIAGNOSIS.md",
+        "apps/intelink/docs/PAGES_DIAGNOSTIC.md",
+        "apps/intelink/docs/PERFORMANCE_AUDIT.md",
+        "apps/intelink/docs/REPORTS_REDESIGN_RFC.md",
+        "apps/intelink/docs/SECURITY_AUDIT_2025-12-05.md",
+        "apps/intelink/docs/SECURITY_MODULE.md",
+        "apps/intelink/docs/SPRINT_40_PLAN.md",
+        "apps/intelink/docs/SUPABASE_QUERY_PATTERNS.md",
+        "apps/intelink/docs/UNIFIED_LINK_SYSTEM_ARCHITECTURE.md",
+        "apps/intelink/docs/UX_REDESIGN_RFC.md",
+        "apps/intelink/ecosystem.config.js",
+        "apps/intelink/hooks/index.ts",
+        "apps/intelink/hooks/useAudit.ts",
+        "apps/intelink/hooks/useCollapsible.ts",
+        "apps/intelink/hooks/useEntityModals.ts",
+        "apps/intelink/hooks/useGuardianAnalysis.ts",
+        "apps/intelink/hooks/useLayoutPreferences.ts",
+        "apps/intelink/hooks/usePermissions.ts",
+        "apps/intelink/hooks/useProcessingCheckpoint.ts",
+        "apps/intelink/hooks/useRole.tsx",
+        "apps/intelink/hooks/useTelemetry.ts",
+        "apps/intelink/lib/adaptive-retry.test.ts",
+        "apps/intelink/lib/adaptive-retry.ts",
+        "apps/intelink/lib/analysis/anchoring-score.ts",
+        "apps/intelink/lib/analysis/crit-judging.ts",
+        "apps/intelink/lib/analysis/diligence-suggestions.ts",
+        "apps/intelink/lib/analysis/executive-summary.ts",
+        "apps/intelink/lib/analysis/modus-operandi.ts",
+        "apps/intelink/lib/analysis/risk-assessment.ts",
+        "apps/intelink/lib/analysis/urgency-service.ts",
+        "apps/intelink/lib/api-security.ts",
+        "apps/intelink/lib/api-utils.ts",
+        "apps/intelink/lib/audio-service.ts",
+        "apps/intelink/lib/audit-service.ts",
+        "apps/intelink/lib/auth-client.ts",
+        "apps/intelink/lib/auth/README.md",
+        "apps/intelink/lib/auth/audit.ts",
+        "apps/intelink/lib/auth/constants.ts",
+        "apps/intelink/lib/auth/hooks/index.ts",
+        "apps/intelink/lib/auth/hooks/useAuth.ts",
+        "apps/intelink/lib/auth/index.ts",
+        "apps/intelink/lib/auth/jwt.ts",
+        "apps/intelink/lib/auth/password.ts",
+        "apps/intelink/lib/auth/session.ts",
+        "apps/intelink/lib/auth/types.ts",
+        "apps/intelink/lib/bot-setup.ts",
+        "apps/intelink/lib/cache/bloom-filter.ts",
+        "apps/intelink/lib/cache/embedding-cache.ts",
+        "apps/intelink/lib/cache/entity-cache.ts",
+        "apps/intelink/lib/cache/incremental-index.ts",
+        "apps/intelink/lib/cache/index.ts",
+        "apps/intelink/lib/cache/indexed-db-cache.ts",
+        "apps/intelink/lib/constants.ts",
+        "apps/intelink/lib/content-guardian.test.ts",
+        "apps/intelink/lib/content-guardian.ts",
+        "apps/intelink/lib/design-tokens.ts",
+        "apps/intelink/lib/document-extraction.ts",
+        "apps/intelink/lib/documents/cross-case-utils.ts",
+        "apps/intelink/lib/documents/index.ts",
+        "apps/intelink/lib/email.ts",
+        "apps/intelink/lib/entity-resolution/auto-merge.ts",
+        "apps/intelink/lib/entity-resolution/matcher.ts",
+        "apps/intelink/lib/etl/rate-limiter.ts",
+        "apps/intelink/lib/gamification/gamification-adapter.ts",
+        "apps/intelink/lib/i18n/index.ts",
+        "apps/intelink/lib/i18n/translations.ts",
+        "apps/intelink/lib/i18n/useTranslation.ts",
+        "apps/intelink/lib/intelink-service.ts",
+        "apps/intelink/lib/intelink/ai-chat.ts",
+        "apps/intelink/lib/intelink/analysis-prompts.ts",
+        "apps/intelink/lib/intelink/commands.ts",
+        "apps/intelink/lib/intelink/commands/achados.ts",
+        "apps/intelink/lib/intelink/commands/analisar.ts",
+        "apps/intelink/lib/intelink/commands/buscar.ts",
+        "apps/intelink/lib/intelink/commands/comandos.ts",
+        "apps/intelink/lib/intelink/commands/equipe.ts",
+        "apps/intelink/lib/intelink/commands/exportar.ts",
+        "apps/intelink/lib/intelink/commands/grafo.ts",
+        "apps/intelink/lib/intelink/commands/help.test.ts",
+        "apps/intelink/lib/intelink/commands/help.ts",
+        "apps/intelink/lib/intelink/commands/index.ts",
+        "apps/intelink/lib/intelink/commands/inserir.ts",
+        "apps/intelink/lib/intelink/commands/investigacoes.ts",
+        "apps/intelink/lib/intelink/commands/limpar.ts",
+        "apps/intelink/lib/intelink/commands/modelo.ts",
+        "apps/intelink/lib/intelink/commands/quem.ts",
+        "apps/intelink/lib/intelink/commands/registry.test.ts",
+        "apps/intelink/lib/intelink/commands/registry.ts",
+        "apps/intelink/lib/intelink/commands/relatorio.ts",
+        "apps/intelink/lib/intelink/commands/start.ts",
+        "apps/intelink/lib/intelink/commands/types.ts",
+        "apps/intelink/lib/intelink/commands/vincular.ts",
+        "apps/intelink/lib/intelink/cross-reference-service.ts",
+        "apps/intelink/lib/intelink/entity-matcher.ts",
+        "apps/intelink/lib/intelink/evidence-validation.ts",
+        "apps/intelink/lib/intelink/file-handling.ts",
+        "apps/intelink/lib/intelink/graph-algorithms.ts",
+        "apps/intelink/lib/intelink/investigations.ts",
+        "apps/intelink/lib/intelink/llm-verifier.ts",
+        "apps/intelink/lib/intelink/messages.ts",
+        "apps/intelink/lib/intelink/meta-prompts.ts",
+        "apps/intelink/lib/intelink/telegram-utils.ts",
+        "apps/intelink/lib/intelligence/graph-aggregator.ts",
+        "apps/intelink/lib/intelligence/index.ts",
+        "apps/intelink/lib/intelligence/narrative-prompt.ts",
+        "apps/intelink/lib/legal/criminal-articles.ts",
+        "apps/intelink/lib/legal/law-sync-service.ts",
+        "apps/intelink/lib/link-prediction/accuracy-tracker.ts",
+        "apps/intelink/lib/llm/llm-provider.ts",
+        "apps/intelink/lib/logger.ts",
+        "apps/intelink/lib/masks.ts",
+        "apps/intelink/lib/memory/chat-memory.ts",
+        "apps/intelink/lib/notification-service.ts",
+        "apps/intelink/lib/notifications/push-notifications.ts",
+        "apps/intelink/lib/ocr/image-ocr.ts",
+        "apps/intelink/lib/permissions.ts",
+        "apps/intelink/lib/pii-masking.ts",
+        "apps/intelink/lib/pramana/confidence-system.ts",
+        "apps/intelink/lib/prompts/PROMPT_REGISTRY.md",
+        "apps/intelink/lib/prompts/chat/debate.ts",
+        "apps/intelink/lib/prompts/chat/vision.ts",
+        "apps/intelink/lib/prompts/documents/extraction.ts",
+        "apps/intelink/lib/prompts/documents/guardian.ts",
+        "apps/intelink/lib/prompts/extraction/audio.ts",
+        "apps/intelink/lib/prompts/extraction/comunicacao.ts",
+        "apps/intelink/lib/prompts/extraction/depoimento.ts",
+        "apps/intelink/lib/prompts/extraction/laudo-pericial.ts",
+        "apps/intelink/lib/prompts/extraction/reds.ts",
+        "apps/intelink/lib/prompts/index.ts",
+        "apps/intelink/lib/prompts/intelink-system-prompt.ts",
+        "apps/intelink/lib/prompts/intelligence/jurista.ts",
+        "apps/intelink/lib/prompts/intelligence/narrative-links.ts",
+        "apps/intelink/lib/prompts/journey/analyst.ts",
+        "apps/intelink/lib/prompts/registry.ts",
+        "apps/intelink/lib/prompts/reports/intelligence.ts",
+        "apps/intelink/lib/prompts/types.ts",
+        "apps/intelink/lib/prompts/validation/document-type-detector.ts",
+        "apps/intelink/lib/rag/context-retriever.ts",
+        "apps/intelink/lib/rate-limit.ts",
+        "apps/intelink/lib/rbac/RBAC_RULES.md",
+        "apps/intelink/lib/rbac/index.ts",
+        "apps/intelink/lib/rbac/useRBAC.tsx",
+        "apps/intelink/lib/reports/arkham-templates.ts",
+        "apps/intelink/lib/reports/export-utils.ts",
+        "apps/intelink/lib/rho-governance.ts",
+        "apps/intelink/lib/security/audit.ts",
+        "apps/intelink/lib/security/auth.ts",
+        "apps/intelink/lib/security/headers.ts",
+        "apps/intelink/lib/security/index.ts",
+        "apps/intelink/lib/security/middleware.ts",
+        "apps/intelink/lib/security/rate-limit.ts",
+        "apps/intelink/lib/security/validation.ts",
+        "apps/intelink/lib/session.ts",
+        "apps/intelink/lib/similarity-detector.ts",
+        "apps/intelink/lib/supabase-client.ts",
+        "apps/intelink/lib/supabase.ts",
+        "apps/intelink/lib/telemetry.ts",
+        "apps/intelink/lib/telemetry/index.ts",
+        "apps/intelink/lib/telemetry/ingestion-telemetry.ts",
+        "apps/intelink/lib/telemetry/prompt-classifier.ts",
+        "apps/intelink/lib/tenant-guard.ts",
+        "apps/intelink/lib/tenant-isolation.ts",
+        "apps/intelink/lib/tools/intelink-tools.ts",
+        "apps/intelink/lib/types/journey.ts",
+        "apps/intelink/lib/upload-config.ts",
+        "apps/intelink/lib/utils.ts",
+        "apps/intelink/lib/utils/formatters.ts",
+        "apps/intelink/lib/utils/index.ts",
+        "apps/intelink/lib/utils/phone-normalizer.ts",
+        "apps/intelink/lib/utils/search.ts",
+        "apps/intelink/lib/validations.ts",
+        "apps/intelink/middleware.ts",
+        "apps/intelink/migrations/003_add_system_roles.sql",
+        "apps/intelink/next-env.d.ts",
+        "apps/intelink/next.config.js",
+        "apps/intelink/package.json",
+        "apps/intelink/playwright.config.ts",
+        "apps/intelink/postcss.config.js",
+        "apps/intelink/prompts/JOURNEY_ANALYST.md",
+        "apps/intelink/providers/AuthProvider.tsx",
+        "apps/intelink/providers/ChatContext.tsx",
+        "apps/intelink/providers/JourneyContext.tsx",
+        "apps/intelink/public/favicon.svg",
+        "apps/intelink/public/icons/icon.svg",
+        "apps/intelink/public/manifest.json",
+        "apps/intelink/public/sw.js",
+        "apps/intelink/scripts/audit/check-top-connections.ts",
+        "apps/intelink/scripts/generate-cross-case-scenarios.ts",
+        "apps/intelink/scripts/generate-synthetic-data.ts",
+        "apps/intelink/scripts/intelink_polling_dev.ts",
+        "apps/intelink/scripts/manual-extraction-test.cjs",
+        "apps/intelink/scripts/set_intelink_commands.ts",
+        "apps/intelink/scripts/set_intelink_webhook.ts",
+        "apps/intelink/scripts/telegram-polling.ts",
+        "apps/intelink/styles/DESIGN_SYSTEM.md",
+        "apps/intelink/tailwind.config.js",
+        "apps/intelink/test/data/05-versions-space.pdf",
+        "apps/intelink/tests/e2e/auth.spec.ts",
+        "apps/intelink/tests/e2e/create-operation.spec.ts",
+        "apps/intelink/tests/e2e/ghost-vehicle.spec.ts",
+        "apps/intelink/tests/e2e/load.spec.ts",
+        "apps/intelink/tests/e2e/navigation.spec.ts",
+        "apps/intelink/tests/e2e/source-tracking.spec.ts",
+        "apps/intelink/tests/e2e/tenant-isolation.spec.ts",
+        "apps/intelink/tests/load.spec.ts",
+        "apps/intelink/tests/unit/cross-reference-service.test.ts",
+        "apps/intelink/tests/unit/data-quality-alerts.test.ts",
+        "apps/intelink/tsconfig.json",
+        "apps/intelink/types/api.ts",
+        "apps/intelink/types/chat.ts",
+        "apps/intelink/types/pdf-parse.d.ts",
+        "apps/intelink/vercel.json",
+        "apps/intelink/vitest.config.ts",
+        "apps/intelink/vitest.setup.ts"
+      ],
+      "category": "governance",
+      "wave": 1,
+      "tags": []
+    },
+    {
+      "date": "2026-02-17",
+      "hash": "66b20695b2b36d9c44efbe883532ec9d4b39aa5c",
+      "message": "feat(egos-web): ideas catalog + SSOT chatbot with rate limiting + enhanced suggestions",
+      "files": [
+        "apps/egos-web/src/components/IdeasCatalog.tsx"
+      ],
+      "category": "apps",
+      "wave": 1,
+      "tags": []
+    },
+    {
+      "date": "2026-02-17",
+      "hash": "ceadbd549d9de1e47eb7042dc1c7904c28db1e61",
+      "message": "feat(branding): EGOS logo + favicon + OG meta tags + LinkedIn action plan",
+      "files": [
+        "apps/egos-web/public/egos-logo.svg"
+      ],
+      "category": "apps",
+      "wave": 1,
+      "tags": []
+    },
+    {
+      "date": "2026-02-17",
+      "hash": "64d93f71d88a195f3daee60c28396ee0bebaeca2",
+      "message": "refactor: consolidate VercelRequest/VercelResponse into shared api/_types.ts (SSOT fix)",
+      "files": [
+        "apps/egos-web/api/_types.ts"
+      ],
+      "category": "apps",
+      "wave": 1,
+      "tags": []
+    },
+    {
+      "date": "2026-02-17",
+      "hash": "251e36795c56a08b835f9949f01f8190ab98038f",
+      "message": "feat: AI-enriched commit ingestion endpoint + Intelink analysis + SSOT governance rules",
+      "files": [
+        "apps/egos-web/api/ingest-commits.ts"
+      ],
+      "category": "governance",
+      "wave": 1,
+      "tags": []
+    },
+    {
+      "date": "2026-02-17",
+      "hash": "1d8216e4c79483047413d6c65bb2b1454d25a0c9",
+      "message": "security(egos-web): move secrets to Vercel serverless proxy",
+      "files": [
+        "apps/egos-web/api/chat.ts",
+        "apps/egos-web/api/github-commits.ts"
+      ],
+      "category": "apps",
+      "wave": 1,
+      "tags": []
+    },
+    {
+      "date": "2026-02-17",
+      "hash": "0693995fc92b1507365bffc3a70caffb501efd36",
+      "message": "feat(egos-web): complete UI redesign — scrollable single-page portal",
+      "files": [
+        "apps/egos-web/src/components/ActivityStream.tsx",
+        "apps/egos-web/src/components/EcosystemGrid.tsx",
+        "apps/egos-web/src/components/HeroSection.tsx",
+        "apps/egos-web/src/components/IntelligenceChat.tsx"
+      ],
+      "category": "apps",
+      "wave": 1,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "6d00fdbcd167411119f03a457b92dc09d92ecfc3",
+      "message": "feat: Regression Watcher agent (Layer 4) + pre-push gate + prompt injection fix v2 + 15 agents",
+      "files": [
+        "agents/agents/regression-watcher.ts"
+      ],
+      "category": "agents",
+      "wave": 2,
+      "tags": [
+        "prompt-engineering"
+      ]
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "534e4a65298f39730cea4630c53b0a44585e58ec",
+      "message": "feat: AI Verifier agent (Layer 5) + fix chatbot prompt injection + factual accuracy",
+      "files": [
+        "agents/agents/ai-verifier.ts"
+      ],
+      "category": "agents",
+      "wave": 2,
+      "tags": [
+        "prompt-engineering"
+      ]
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "880ca31209e2a23bf03f0c6e966e084331875aff",
+      "message": "feat: testing architecture + contract-tester + integration-tester agents",
+      "files": [
+        "agents/agents/contract-tester.ts",
+        "agents/agents/integration-tester.ts"
+      ],
+      "category": "agents",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "d7eeaefb0bb513eae44a8bcac6eebe02acc33a27",
+      "message": "feat: ui-designer agent + 7 mockups + 4 skills + registry schema + dep fixes",
+      "files": [
+        "agents/agents/ui-designer.ts",
+        "agents/registry/schema.json"
+      ],
+      "category": "agents",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "f6fbaf378d227c84ae6f5be0973dac05f02f1942",
+      "message": "docs: improve repo documentation and security hardening",
+      "files": [
+        "agents/README.md"
+      ],
+      "category": "infra",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "77364c1c478479a39a664920682681484d2b9d8e",
+      "message": "feat(registry): API Registry SSOT — 28 routes, searchable UI, shared package",
+      "files": [
+        "packages/shared/src/api-registry.ts"
+      ],
+      "category": "infra",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "d7eeaefb0bb513eae44a8bcac6eebe02acc33a27",
+      "message": "feat: ui-designer agent + 7 mockups + 4 skills + registry schema + dep fixes",
+      "files": [
+        "packages/nexus-shared/src/ai/image-generator.ts",
+        "packages/nexus-shared/src/ai/photo-hunter.ts",
+        "packages/nexus-shared/src/ai/product-enricher.ts",
+        "packages/nexus-shared/src/ai/web-search.ts",
+        "packages/nexus-shared/src/theme/index.ts"
+      ],
+      "category": "agents",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "f6fbaf378d227c84ae6f5be0973dac05f02f1942",
+      "message": "docs: improve repo documentation and security hardening",
+      "files": [
+        "packages/README.md",
+        "packages/nexus-shared/package.json",
+        "packages/nexus-shared/src/hooks/index.ts",
+        "packages/nexus-shared/src/index.ts",
+        "packages/nexus-shared/src/lib/supabase.ts",
+        "packages/nexus-shared/src/types/index.ts",
+        "packages/nexus-shared/src/utils/index.ts",
+        "packages/nexus-shared/tsconfig.json"
+      ],
+      "category": "infra",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "d7eeaefb0bb513eae44a8bcac6eebe02acc33a27",
+      "message": "feat: ui-designer agent + 7 mockups + 4 skills + registry schema + dep fixes",
+      "files": [
+        "scripts/deploy_global_catalog.ts",
+        "scripts/simulate_audit.ts"
+      ],
+      "category": "agents",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "6ef2f7d553748df83ae1ce938abcf39d4efb77b3",
+      "message": "security: remediate GitGuardian incident — remove hardcoded password, add pre-commit hook + gitleaks",
+      "files": [
+        "scripts/hooks/pre-commit",
+        "scripts/setup-hooks.sh"
+      ],
+      "category": "infra",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "9818f4bd0808777d25669363706aa1eca145a645",
+      "message": "docs: complete open source documentation overhaul + security hardening",
+      "files": [
+        "scripts/deploy_nexus_schema.ts"
+      ],
+      "category": "infra",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "f6fbaf378d227c84ae6f5be0973dac05f02f1942",
+      "message": "docs: improve repo documentation and security hardening",
+      "files": [
+        "scripts/extract_system_map.ts"
+      ],
+      "category": "infra",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "6409ca4077a5b9c0d2820c891585cdcb8cb6d085",
+      "message": "feat(egos-web): Security Hub — dynamic tools, shared rules, AI-powered version insights",
+      "files": [
+        "apps/egos-web/api/rule-history.ts",
+        "apps/egos-web/api/security-tools.ts",
+        "apps/egos-web/api/shared-rules.ts",
+        "apps/egos-web/src/components/SecurityHub.tsx"
+      ],
+      "category": "apps",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "1b078ac6ef5db94ac75b28b5dbd65c99cd4e3122",
+      "message": "feat(intelink): add email+password registration/login flow",
+      "files": [
+        "apps/intelink/app/api/v2/auth/check-email/route.ts"
+      ],
+      "category": "apps",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "59301b6749d7319a03bc3a416a5402686fbf082e",
+      "message": "feat(egos-web): add SystemPrompts viewer + GitHub file API proxy",
+      "files": [
+        "apps/egos-web/api/github-file.ts",
+        "apps/egos-web/src/components/SystemPrompts.tsx"
+      ],
+      "category": "apps",
+      "wave": 2,
+      "tags": [
+        "prompt-engineering"
+      ]
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "1172b445591a7c82fa42009d105347986e8f8f7c",
+      "message": "feat(egos-web): add UserWorkspace for authenticated GitHub users",
+      "files": [
+        "apps/egos-web/api/github-user.ts",
+        "apps/egos-web/src/components/UserWorkspace.tsx"
+      ],
+      "category": "apps",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "3d27517ed33565bdb9ff2cd804aece806680e937",
+      "message": "feat(intelink): add demo seed script with 5 interconnected investigations",
+      "files": [
+        "apps/intelink/scripts/seed-demo-data.ts"
+      ],
+      "category": "apps",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "5a5203af4b16cca69ca9b1b311e1acedb3260863",
+      "message": "feat(egos-web): interactive background, rich ecosystem, IDE onboarding, fix 0 commits",
+      "files": [
+        "apps/egos-web/src/components/NetworkBackground.tsx"
+      ],
+      "category": "apps",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "d61d8eea6345634848ec9f3fa78f2f2d135a9ac5",
+      "message": "feat(egos-web): collapsible sections + OAuth implicit flow fix",
+      "files": [
+        "apps/egos-web/src/components/CollapsibleSection.tsx"
+      ],
+      "category": "apps",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "e2c5b8ae1890dfd6b6fabec9b164b7843e098ee1",
+      "message": "fix(registry): use local copy instead of cross-package import (fix Vercel build)",
+      "files": [
+        "apps/egos-web/src/lib/api-registry.ts"
+      ],
+      "category": "apps",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "77364c1c478479a39a664920682681484d2b9d8e",
+      "message": "feat(registry): API Registry SSOT — 28 routes, searchable UI, shared package",
+      "files": [
+        "apps/egos-web/api/registry.ts",
+        "apps/egos-web/src/pages/ApiDocs.tsx"
+      ],
+      "category": "apps",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "79bd9aabfdac145c05e0bfd3b9f9e4674dabbd60",
+      "message": "feat(hub): complete Builder Hub MVP — auth, new-project wizard, help requests, user profile, settings",
+      "files": [
+        "apps/egos-web/src/pages/HelpDetail.tsx",
+        "apps/egos-web/src/pages/HelpRequests.tsx",
+        "apps/egos-web/src/pages/NewHelpRequest.tsx",
+        "apps/egos-web/src/pages/NewProject.tsx",
+        "apps/egos-web/src/pages/Settings.tsx",
+        "apps/egos-web/src/pages/UserProfile.tsx"
+      ],
+      "category": "apps",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "aa16046b2ea4404e93d8f4798d99db010c74900e",
+      "message": "feat(hub): Builder Hub pages — Projects feed, Project detail, LegalLab + React Router + CSS",
+      "files": [
+        "apps/egos-web/src/components/Layout.tsx",
+        "apps/egos-web/src/pages/LegalLab.tsx",
+        "apps/egos-web/src/pages/ProjectDetail.tsx",
+        "apps/egos-web/src/pages/ProjectsFeed.tsx"
+      ],
+      "category": "apps",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "29d9dc74d09401b4d2e4c4b57d65d0cce62c5085",
+      "message": "feat(hub): Builder Hub schema — 10 tables, RLS, triggers, 10 LegalLab tasks seeded",
+      "files": [
+        "apps/egos-web/src/types/hub.ts"
+      ],
+      "category": "apps",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "62f7bc33c7e24b4b9c91f214720d49314c954e3c",
+      "message": "chore: nexus dashboard pages + update AGENTS.md version",
+      "files": [
+        "apps/nexus/web/src/app/dashboard/chat/page.tsx",
+        "apps/nexus/web/src/app/dashboard/driver/page.tsx"
+      ],
+      "category": "agents",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "6d00fdbcd167411119f03a457b92dc09d92ecfc3",
+      "message": "feat: Regression Watcher agent (Layer 4) + pre-push gate + prompt injection fix v2 + 15 agents",
+      "files": [
+        "apps/nexus/ARCHITECTURE.md",
+        "apps/nexus/README.md",
+        "apps/nexus/docs/UI_PROMPTS.md",
+        "apps/nexus/supabase/schema.sql",
+        "apps/nexus/supabase/schema_global.sql"
+      ],
+      "category": "agents",
+      "wave": 2,
+      "tags": [
+        "prompt-engineering"
+      ]
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "e2fb6fd344090fecfa2f670a5bac8c29c57a4979",
+      "message": "feat(nexus): Import Wizard, Cost Tracker, Theme Toggle",
+      "files": [
+        "apps/nexus-mobile/src/hooks/useTheme.ts",
+        "apps/nexus-web/src/app/dashboard/import/page.tsx",
+        "apps/nexus-web/src/app/dashboard/settings/page.tsx"
+      ],
+      "category": "apps",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "d7eeaefb0bb513eae44a8bcac6eebe02acc33a27",
+      "message": "feat: ui-designer agent + 7 mockups + 4 skills + registry schema + dep fixes",
+      "files": [
+        "apps/nexus-market/docs/UI_PROMPTS.md",
+        "apps/nexus-market/supabase/schema_global.sql",
+        "apps/nexus-mobile/src/components/CategoryFilter.tsx",
+        "apps/nexus-mobile/src/components/ProductCard.tsx",
+        "apps/nexus-mobile/src/hooks/useProducts.ts",
+        "apps/nexus-mobile/src/screens/HomeScreen.tsx",
+        "apps/nexus-web/public/assets/stitch/home/screen.png",
+        "apps/nexus-web/public/assets/stitch/product/screen.png",
+        "apps/nexus-web/scripts/smart-import.ts",
+        "apps/nexus-web/src/app/dashboard/layout.tsx",
+        "apps/nexus-web/src/app/dashboard/page.tsx",
+        "apps/nexus-web/src/app/dashboard/products/page.tsx"
+      ],
+      "category": "agents",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "b17aaff55cf9ec69f43641c3b08af75de50f4a41",
+      "message": "chore: add vercel ignore build script",
+      "files": [
+        "apps/egos-web/vercel-ignore-build.sh"
+      ],
+      "category": "apps",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "9818f4bd0808777d25669363706aa1eca145a645",
+      "message": "docs: complete open source documentation overhaul + security hardening",
+      "files": [
+        "apps/intelink/migrations/005_security_hardening_batch2.sql"
+      ],
+      "category": "apps",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "f6fbaf378d227c84ae6f5be0973dac05f02f1942",
+      "message": "docs: improve repo documentation and security hardening",
+      "files": [
+        "apps/README.md",
+        "apps/intelink/migrations/004_security_hardening.sql",
+        "apps/nexus-market/ARCHITECTURE.md",
+        "apps/nexus-market/README.md",
+        "apps/nexus-market/supabase/schema.sql",
+        "apps/nexus-mobile/.gitignore",
+        "apps/nexus-mobile/App.tsx",
+        "apps/nexus-mobile/app.json",
+        "apps/nexus-mobile/assets/adaptive-icon.png",
+        "apps/nexus-mobile/assets/favicon.png",
+        "apps/nexus-mobile/assets/icon.png",
+        "apps/nexus-mobile/assets/splash-icon.png",
+        "apps/nexus-mobile/index.ts",
+        "apps/nexus-mobile/metro.config.js",
+        "apps/nexus-mobile/package.json",
+        "apps/nexus-mobile/tsconfig.json",
+        "apps/nexus-web/.gitignore",
+        "apps/nexus-web/README.md",
+        "apps/nexus-web/eslint.config.mjs",
+        "apps/nexus-web/next.config.ts",
+        "apps/nexus-web/package.json",
+        "apps/nexus-web/postcss.config.mjs",
+        "apps/nexus-web/public/file.svg",
+        "apps/nexus-web/public/globe.svg",
+        "apps/nexus-web/public/next.svg",
+        "apps/nexus-web/public/vercel.svg",
+        "apps/nexus-web/public/window.svg",
+        "apps/nexus-web/src/app/favicon.ico",
+        "apps/nexus-web/src/app/globals.css",
+        "apps/nexus-web/src/app/layout.tsx",
+        "apps/nexus-web/src/app/page.tsx",
+        "apps/nexus-web/src/test-shared.ts",
+        "apps/nexus-web/tsconfig.json"
+      ],
+      "category": "apps",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-19",
+      "hash": "606f4e71d04f1a1e333ade1c2d5ae16c7bbe8474",
+      "message": "feat: AI enrichment layer + private repo architecture + pipeline integration",
+      "files": [
+        "agents/worker/ai-enricher.ts"
+      ],
+      "category": "infra",
+      "wave": 2,
+      "tags": [
+        "prompt-engineering"
+      ]
+    },
+    {
+      "date": "2026-02-19",
+      "hash": "8f1c32feb84bf259beb19a8dc5bbfcb169ddee7f",
+      "message": "feat(worker): Phase 3 — real execution pipeline with modular architecture",
+      "files": [
+        "agents/worker/aggregator.ts",
+        "agents/worker/executor.ts",
+        "agents/worker/sandbox.ts"
+      ],
+      "category": "infra",
+      "wave": 2,
+      "tags": [
+        "prompt-engineering"
+      ]
+    },
+    {
+      "date": "2026-02-19",
+      "hash": "fc4a9da427c52ff2821afb7f7bb2c9f3c45a72aa",
+      "message": "feat: agent worker infrastructure + audit hub UI + roadmap",
+      "files": [
+        "agents/worker/.env.example",
+        "agents/worker/README.md",
+        "agents/worker/index.ts"
+      ],
+      "category": "agents",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-19",
+      "hash": "516f5f8d6ee29062c09cec8ba1c096011ad5e4de",
+      "message": "feat: AI model strategy + tier-based selector + enhanced telemetry",
+      "files": [
+        "packages/shared/src/ai-models.ts"
+      ],
+      "category": "infra",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-19",
+      "hash": "2cb6f05a5e60f0940298e10f183daad945ded277",
+      "message": "chore: add Advanced Red Team Super Prompt and vulnerability insights",
+      "files": [
+        "scripts/disseminate_index.sh",
+        "scripts/hooks/entropy-check.js"
+      ],
+      "category": "infra",
+      "wave": 2,
+      "tags": [
+        "prompt-engineering"
+      ]
+    },
+    {
+      "date": "2026-02-19",
+      "hash": "1248039ef0767d9a9266eeae99f17540c6508707",
+      "message": "feat(api): replace x402 with BYOK and implement Viral Gamification Loop MVP",
+      "files": [
+        "apps/egos-web/public/llms.txt"
+      ],
+      "category": "apps",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-19",
+      "hash": "afc83c067de4f7b4330bb754e8924cdd0eb12ccb",
+      "message": "feat: Self-Service Audit Hub UI + AI Enhancement Plan + model research sources",
+      "files": [
+        "apps/egos-web/src/components/AuditHub.css",
+        "apps/egos-web/src/components/AuditHub.tsx"
+      ],
+      "category": "research",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-19",
+      "hash": "35a4332b20a977a9ce1f0a380ec1ea8afe4fe30f",
+      "message": "feat: run-audit trigger API + audit-results read API + per-agent save",
+      "files": [
+        "apps/egos-web/api/run-audit.ts"
+      ],
+      "category": "agents",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-19",
+      "hash": "9c2084cfaacfdc068a36f09387f1a9045c520b4b",
+      "message": "feat: Phase 5 — per-agent detail storage, audit-results API, strong secret",
+      "files": [
+        "apps/egos-web/api/audit-results.ts"
+      ],
+      "category": "agents",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-19",
+      "hash": "8de6394b5336d962d7ec97491119f0c4129889bc",
+      "message": "feat: system hardening — rate limits, cost guard, observability, audit_results table",
+      "files": [
+        "apps/egos-web/api/_cost-guard.ts",
+        "apps/egos-web/api/_rate-limit.ts",
+        "apps/egos-web/api/status.ts"
+      ],
+      "category": "apps",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-19",
+      "hash": "f973dda6b077a58f117aa1f7cb03fa67db64fe21",
+      "message": "feat(worker): setup native Railway CLI deployment and HTTP listener",
+      "files": [
+        "apps/intelink/scripts/check_intelink_users.mjs",
+        "apps/intelink/tsconfig.tsbuildinfo"
+      ],
+      "category": "apps",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-19",
+      "hash": "fc4a9da427c52ff2821afb7f7bb2c9f3c45a72aa",
+      "message": "feat: agent worker infrastructure + audit hub UI + roadmap",
+      "files": [
+        "apps/egos-web/api/agents/webhook.ts",
+        "apps/egos-web/src/pages/AuditHub.tsx"
+      ],
+      "category": "agents",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-19",
+      "hash": "0a8a941fac0832390864cf97e28bc963990104ee",
+      "message": "feat(egos-web): add social links footer and fix missing env crash",
+      "files": [
+        "apps/egos-web/src/components/Footer.tsx"
+      ],
+      "category": "apps",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-20",
+      "hash": "58701685718daf7e08db36e05056fb3d80614372",
+      "message": "feat: rewrite domain engine v2 + living laboratory agent + descript analysis",
+      "files": [
+        "agents/agents/living-laboratory.ts",
+        "agents/registry/agents.json.patch"
+      ],
+      "category": "agents",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-20",
+      "hash": "e0da8195e67aac9b7d8931541c5b782eae8792f9",
+      "message": "feat(agents): implement agnostic domain-to-solution engine (Descript Revelation)",
+      "files": [
+        "agents/agents/domain_explorer.ts"
+      ],
+      "category": "agents",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-20",
+      "hash": "4e511545d5e76efe5a04d6de0c8c99b60ebab737",
+      "message": "feat(quantum): AI-era 4-layer test engine — 100% quantum score",
+      "files": [
+        "agents/runtime/quantum-test.ts"
+      ],
+      "category": "infra",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-20",
+      "hash": "809df5b363900af4ef4b54177d3be2e547337a59",
+      "message": "feat(mycelium): inter-agent event bus with 18/18 tests passing",
+      "files": [
+        "agents/runtime/__tests__/event-bus.test.ts",
+        "agents/runtime/event-bus.ts"
+      ],
+      "category": "agents",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-20",
+      "hash": "a84d709634cf589b4c52c742f9937f105612f852",
+      "message": "feat(ambient): autonomous ambient disseminator loop & fix security scan",
+      "files": [
+        "scripts/ambient_disseminator.ts"
+      ],
+      "category": "infra",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "53b38b53c4e407ea171458fc31a2518590974a1a",
+      "message": "feat(social): implement X and Telegram clients + core agent logic",
+      "files": [
+        "agents/agents/social-media.ts"
+      ],
+      "category": "agents",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "53b38b53c4e407ea171458fc31a2518590974a1a",
+      "message": "feat(social): implement X and Telegram clients + core agent logic",
+      "files": [
+        "packages/shared/src/social/index.ts",
+        "packages/shared/src/social/telegram-client.ts",
+        "packages/shared/src/social/x-client.ts"
+      ],
+      "category": "agents",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "1550e047710cbc4703570ed5204e7e77dc228674",
+      "message": "feat(core): add Sacred Math library + EGOS Ecosystem Map — RHO/ETHIK/Mycelium interconnection documented",
+      "files": [
+        "packages/shared/src/sacred-math/index.ts"
+      ],
+      "category": "mycelium",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "f32be205a1a45b3695aa9265f9097eeff044fa6e",
+      "message": "feat(mycelium): implement phase 2 Redis pub/sub node abstraction with ZKP schema",
+      "files": [
+        "packages/shared/src/mycelium/node.ts",
+        "packages/shared/src/mycelium/schema.ts"
+      ],
+      "category": "mycelium",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "b740535c56b724625d7da709f8c8b45f2120f0a9",
+      "message": "feat: telegram bot agent, .windsurfrules v3.0, TASKS.md v6.0, legal docs, social media scripts",
+      "files": [
+        "scripts/x-test-auth.ts"
+      ],
+      "category": "agents",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "69c008692ffbd84587741796f64b43124db47f6d",
+      "message": "feat: create persistent telegram bot agent (EGOS) with group monitoring and insights",
+      "files": [
+        "scripts/create-telegram-table.ts",
+        "scripts/telegram-test.ts"
+      ],
+      "category": "agents",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "d95f20c46dc27d2e3243881a1395d2f2bce3b901",
+      "message": "feat: reorder website UX, update hero, post consciousness content to Telegram",
+      "files": [
+        "scripts/apply-migration.ts",
+        "scripts/post-alvaro-content.ts",
+        "scripts/read-tweet.ts",
+        "scripts/x-reply.ts"
+      ],
+      "category": "apps",
+      "wave": 3,
+      "tags": [
+        "consciousness"
+      ]
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "b3d9d165022699a0006815aade81bc6111bf5b8f",
+      "message": "chore(social): add launch post scripts",
+      "files": [
+        "scripts/launch-posts.ts",
+        "scripts/x-post.ts"
+      ],
+      "category": "infra",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "70f3cd6e88babb4def0c95af06fc0661213061c5",
+      "message": "docs: rewrite README for launch — consciousness tools, Sacred Math,  featured",
+      "files": [
+        "scripts/first-posts.ts"
+      ],
+      "category": "philosophy",
+      "wave": 3,
+      "tags": [
+        "consciousness"
+      ]
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "f32be205a1a45b3695aa9265f9097eeff044fa6e",
+      "message": "feat(mycelium): implement phase 2 Redis pub/sub node abstraction with ZKP schema",
+      "files": [
+        "scripts/mycelium/test-poc.ts"
+      ],
+      "category": "mycelium",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "f5eb77a1bf30eee52b1b39e36bc577607227cfd5",
+      "message": "feat(web): chatbot-first UX, promote Espiral de Escuta, add UI sync pre-commit hook",
+      "files": [
+        "scripts/ui_sync_check.ts"
+      ],
+      "category": "apps",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "332d19e842d2fcd6ef8f1da4ee7aeb3f108a1431",
+      "message": "feat: MyceliumDashboard + PM2 ecosystem config from stitch (4) designs",
+      "files": [
+        "apps/egos-web/src/components/MyceliumDashboard.css",
+        "apps/egos-web/src/components/MyceliumDashboard.tsx"
+      ],
+      "category": "mycelium",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "6cad9fcf4144529a525037c349c91c9807f31b83",
+      "message": "feat: Network State synthesis, Spotify security, feedback→GitHub pipeline",
+      "files": [
+        "apps/egos-web/api/feedback-to-issue.ts"
+      ],
+      "category": "apps",
+      "wave": 3,
+      "tags": [
+        "prompt-engineering"
+      ]
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "4650ae69994359c58d91b4993b4f34d43b15f9ab",
+      "message": "feat: add CommunityFeedback + AICostsTransparency widgets to website",
+      "files": [
+        "apps/egos-web/src/components/AICostsTransparency.tsx",
+        "apps/egos-web/src/components/CommunityFeedback.tsx"
+      ],
+      "category": "apps",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "4eb1b085c516786bec72921656e7439357234665",
+      "message": "feat: tool→chat transition, AI costs transparency, community feedback, Spotify/Radio Philein",
+      "files": [
+        "apps/egos-web/api/ai-costs.ts",
+        "apps/egos-web/api/feedback.ts",
+        "apps/egos-web/api/spotify/callback.ts"
+      ],
+      "category": "apps",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "db9e628e8dcd4bd7f4a590d00c2dab1a90b9bb56",
+      "message": "feat(consciousness): shareable reports with SHA-256 hashes, PII detection, WhatsApp format",
+      "files": [
+        "apps/egos-web/api/_privacy.ts"
+      ],
+      "category": "apps",
+      "wave": 3,
+      "tags": [
+        "consciousness"
+      ]
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "4521806e3fee3c75cc39549c19396fd6c8ccc73a",
+      "message": "fix(api): rewrite 3 broken routes + centralized _supabase.ts helper",
+      "files": [
+        "apps/egos-web/api/_supabase.ts"
+      ],
+      "category": "apps",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "529898d24329ee0ce16ad6e020c5bd697a6d3b90",
+      "message": "feat(chat): add localStorage persistence + golden ratio spiral animation",
+      "files": [
+        "apps/egos-web/src/components/SpiralIntro.tsx"
+      ],
+      "category": "apps",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "69c008692ffbd84587741796f64b43124db47f6d",
+      "message": "feat: create persistent telegram bot agent (EGOS) with group monitoring and insights",
+      "files": [
+        "apps/telegram-bot/package.json",
+        "apps/telegram-bot/src/index.ts",
+        "apps/telegram-bot/tsconfig.json"
+      ],
+      "category": "agents",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "36c5726b9068e3880487223b6a7a7e77c511818b",
+      "message": "fix(observability): correct RHO calculation for 1-contributor centralization and use real metrics",
+      "files": [
+        "apps/egos-web/api/stats.ts"
+      ],
+      "category": "apps",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "16d057717f512f14075b3f0b90abc833bff644a4",
+      "message": "feat(observability): add EcosystemPulse live dashboard and telemetry hooks",
+      "files": [
+        "apps/egos-web/src/components/EcosystemPulse.css",
+        "apps/egos-web/src/components/EcosystemPulse.tsx",
+        "apps/egos-web/src/hooks/useObservability.ts"
+      ],
+      "category": "apps",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "0375eeff16b06060975b923083b6768a9751e2af",
+      "message": "feat(consciousness): add Collective Consciousness Tools — Calculadora PJ, Scanner de Precarização, Rights Consultant + branding folder",
+      "files": [
+        "apps/egos-web/api/consciousness.ts",
+        "apps/egos-web/src/components/ConsciousnessTools.css",
+        "apps/egos-web/src/components/ConsciousnessTools.tsx"
+      ],
+      "category": "apps",
+      "wave": 3,
+      "tags": [
+        "consciousness"
+      ]
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "6a30de945f4af2c61aebd6b88594db1192c7bb6e",
+      "message": "feat(ethik): integrate OnchainKit Identity for wallet visualization",
+      "files": [
+        "apps/egos-web/src/components/Providers.tsx"
+      ],
+      "category": "apps",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "4b06510f6f535f7e111d8c3877d1b465e4967cc3",
+      "message": "feat(ethik): add x402 gateway, wallet balance API, ETHIK score API, wallet lookup UI, README badges, Stitch designs",
+      "files": [
+        "apps/egos-web/api/ethik-score.ts",
+        "apps/egos-web/api/ethik-wallet.ts",
+        "apps/egos-web/api/x402-gate.ts"
+      ],
+      "category": "apps",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "b771876530325872fda6ba0474885b7c08285432",
+      "message": "feat(ethik): add complete ETHIK token documentation + website section with Sacred Math, ZKP, x402",
+      "files": [
+        "apps/egos-web/src/components/EthikToken.css",
+        "apps/egos-web/src/components/EthikToken.tsx"
+      ],
+      "category": "apps",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-22",
+      "hash": "ab6cdc68944821f065e517647c20d601984c2207",
+      "message": "fix(intelink): apply 5 SSOT codemods + unblock CrossCaseEntity",
+      "files": [
+        "apps/intelink/lib/documents/cross-case-types.ts"
+      ],
+      "category": "apps",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-23",
+      "hash": "010b89f4cfa73c86f02bb677ce9c8e82e9d88c86",
+      "message": "feat: Open Source Readiness platform — 3 new agents + AuditHub UI rewrite",
+      "files": [
+        "agents/agents/open-source-readiness.ts",
+        "agents/agents/security-scanner.ts",
+        "agents/agents/showcase-writer.ts"
+      ],
+      "category": "agents",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-23",
+      "hash": "483540e5b167732a5566e51eb6ebad535ea18d1c",
+      "message": "feat: fix UI issues - social icons, dynamic stats, audit 401, UserWorkspace EGOS activity",
+      "files": [
+        "scripts/analyze_logs_detailed.ts"
+      ],
+      "category": "infra",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-23",
+      "hash": "cf0022ad5eb326652c13f0b2392705366c071dbb",
+      "message": "feat: /valor-real page, risk tiers T0-T3, feedback auto-trigger, Railway env vars",
+      "files": [
+        "apps/egos-web/src/pages/ValorReal.css",
+        "apps/egos-web/src/pages/ValorReal.tsx"
+      ],
+      "category": "apps",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-23",
+      "hash": "daea6dffd527002b83a15f7ccb20013027f5f3a7",
+      "message": "feat(expansion): add Patos de Minas research and opportunity scanner tool",
+      "files": [
+        "apps/eagle-eye/src/scripts/local-expansion/city_opportunity_scanner.ts"
+      ],
+      "category": "research",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-23",
+      "hash": "e83fb3bd59aaed3b27c0851c700ae4f7c54c0b44",
+      "message": "feat: Mycelium Network v2.0 plan + real stats API + dashboard wiring",
+      "files": [
+        "apps/egos-web/api/mycelium-stats.ts"
+      ],
+      "category": "mycelium",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-24",
+      "hash": "e6e5bf55d62bc44be9ca9c1680602622bdd9e820",
+      "message": "fix: resolve all Intelink build errors + feat: GitHub OAuth auth redesign",
+      "files": [
+        "packages/data-workers/.gitignore",
+        "packages/data-workers/CLAUDE.md",
+        "packages/data-workers/README.md",
+        "packages/data-workers/index.ts",
+        "packages/data-workers/package.json",
+        "packages/data-workers/src/index.ts",
+        "packages/data-workers/src/utils/config.ts",
+        "packages/data-workers/src/workers/cnpj.ts",
+        "packages/data-workers/src/workers/tse.ts",
+        "packages/data-workers/tsconfig.json"
+      ],
+      "category": "infra",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-24",
+      "hash": "bbdaf143361a8f34b54d7897dea3031f637521eb",
+      "message": "feat(social): Discord bot + unified social agent + daily digest system",
+      "files": [
+        "packages/shared/src/social/discord-bot.ts",
+        "packages/shared/src/social/social-agent.ts"
+      ],
+      "category": "agents",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-24",
+      "hash": "2b56bdd360194f5bc8107df70b7ecd2ea8372ed7",
+      "message": "feat(ssot): expand carteira-livre MCP contracts for core booking flow",
+      "files": [
+        "packages/mcp/schemas/carteira-livre/booking.confirm.input.schema.json",
+        "packages/mcp/schemas/carteira-livre/booking.find-slots.input.schema.json",
+        "packages/mcp/schemas/carteira-livre/crm.upsert-lead.input.schema.json",
+        "packages/shared/schemas/carteira-livre/booking-confirm-core.schema.json",
+        "packages/shared/schemas/carteira-livre/booking-find-slots-core.schema.json",
+        "packages/shared/schemas/carteira-livre/contact-core.schema.json"
+      ],
+      "category": "infra",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-24",
+      "hash": "f6522393e90d75fd48ca126000569bdec341021a",
+      "message": "feat(ssot): add CI drift checker for booking and whatsapp MCP schemas",
+      "files": [
+        "packages/mcp/schemas/carteira-livre/booking.reserve-slot.input.schema.json",
+        "packages/mcp/schemas/carteira-livre/whatsapp.send-template.input.schema.json",
+        "packages/shared/schemas/carteira-livre/booking-core.schema.json",
+        "packages/shared/schemas/carteira-livre/whatsapp-core.schema.json"
+      ],
+      "category": "infra",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-24",
+      "hash": "9d09498135f1843bdecfc8d5ae9c39b8b8ab6e1d",
+      "message": "feat(intelink): Add CEAP ingestion script and python audit integration",
+      "files": [
+        "scripts/ceap_audit.py"
+      ],
+      "category": "infra",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-24",
+      "hash": "b10485cb7ca10e928a4d4523ba10a17ea4c1aad8",
+      "message": "feat(agent): implement ssot-drift-check.ts for Carteira Livre MCP governance",
+      "files": [
+        "scripts/ssot-drift-check.ts"
+      ],
+      "category": "governance",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-24",
+      "hash": "bbdaf143361a8f34b54d7897dea3031f637521eb",
+      "message": "feat(social): Discord bot + unified social agent + daily digest system",
+      "files": [
+        "scripts/social-start.ts"
+      ],
+      "category": "agents",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-24",
+      "hash": "329fe064f07a5e2a1f839cbd966941e49bb86041",
+      "message": "feat(portability): add carteira-livre migration gate and transfer plan",
+      "files": [
+        "scripts/carteira-livre-portability-check.ts"
+      ],
+      "category": "infra",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-24",
+      "hash": "0444eb7c77744334c9543aecf1f7861049a15ab3",
+      "message": "feat(analytics): add booking funnel contract gate to ssot pipeline",
+      "files": [
+        "scripts/booking-funnel-check.ts",
+        "scripts/booking-funnel-events.json"
+      ],
+      "category": "infra",
+      "wave": 3,
+      "tags": [
+        "prompt-engineering"
+      ]
+    },
+    {
+      "date": "2026-02-24",
+      "hash": "94785fd2235e9ff7d952f6fd424b9e75b6670ab7",
+      "message": "feat(mcp): add readiness gate for custom MCP connection quality",
+      "files": [
+        "scripts/mcp-readiness-check.ts"
+      ],
+      "category": "infra",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-24",
+      "hash": "e95b6495f26f6198517c23c4aa3cc395caae4ac5",
+      "message": "feat(metrics): add automated roadmap progress snapshot from TASKS",
+      "files": [
+        "scripts/progress_snapshot.ts"
+      ],
+      "category": "infra",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-24",
+      "hash": "216ad6df2f962e1975a7b534b57efc4787202c49",
+      "message": "refactor(ssot): centralize drift configuration in ssot-map.json",
+      "files": [
+        "scripts/ssot-map.json"
+      ],
+      "category": "infra",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-24",
+      "hash": "c34bc72510057d4afd510d036ee04420afcdc4d3",
+      "message": "feat(ssot): add API registry drift check between shared and egos-web",
+      "files": [
+        "scripts/ssot-api-registry-check.ts"
+      ],
+      "category": "infra",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-24",
+      "hash": "f6522393e90d75fd48ca126000569bdec341021a",
+      "message": "feat(ssot): add CI drift checker for booking and whatsapp MCP schemas",
+      "files": [
+        "scripts/ssot-drift-check.ts"
+      ],
+      "category": "infra",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-24",
+      "hash": "e6e5bf55d62bc44be9ca9c1680602622bdd9e820",
+      "message": "fix: resolve all Intelink build errors + feat: GitHub OAuth auth redesign",
+      "files": [
+        "apps/intelink/app/auth/callback/page.tsx"
+      ],
+      "category": "apps",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-24",
+      "hash": "9d09498135f1843bdecfc8d5ae9c39b8b8ab6e1d",
+      "message": "feat(intelink): Add CEAP ingestion script and python audit integration",
+      "files": [
+        "apps/intelink/scripts/ingest_ceap.ts"
+      ],
+      "category": "apps",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-24",
+      "hash": "8c883e1574e8a94c71e1cec8b57940326885d182",
+      "message": "feat(intelink): Benford's Law + HHI concentration detectors, AI auto-fill for new projects",
+      "files": [
+        "apps/intelink/lib/detectors/benford-anomaly.ts",
+        "apps/intelink/lib/detectors/hhi-concentration.ts",
+        "apps/intelink/lib/detectors/index.ts"
+      ],
+      "category": "apps",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-24",
+      "hash": "9d9bff5a5e7335bd377cefeade3622dffa64c5bd",
+      "message": "feat(intelink): demo mode with synthetic data — graph, anomalies, timeline, evidence",
+      "files": [
+        "apps/intelink/app/demo/page.tsx",
+        "apps/intelink/lib/demo-data.ts"
+      ],
+      "category": "apps",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-24",
+      "hash": "e3b7a46e1be5e9cca2e77e8fa74d92ed4c2780d5",
+      "message": "feat(intelink): architecture & ETL skeleton for public data pipeline",
+      "files": [
+        "apps/intelink/components/intelink/AnomalyExposureWidget.tsx",
+        "apps/intelink/lib/detectors/ghost-employees.ts",
+        "apps/intelink/lib/etl/base-dos-dados.ts",
+        "apps/intelink/lib/etl/normalizer.ts",
+        "apps/intelink/scripts/verify-etl-detectors.ts"
+      ],
+      "category": "apps",
+      "wave": 3,
+      "tags": [
+        "prompt-engineering"
+      ]
+    },
+    {
+      "date": "2026-02-24",
+      "hash": "f524999fa1d945db177e75e914e9031a64e52c77",
+      "message": "docs(plan): adapt carteira livre to whatsapp-first agentic MCP architecture",
+      "files": [
+        "apps/egos-web/src/pages/Roadmap.css",
+        "apps/egos-web/src/pages/Roadmap.tsx",
+        "apps/egos-web/src/pages/roadmapData.ts"
+      ],
+      "category": "agents",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-24",
+      "hash": "796c8c53e11e0e672d8c1596429a3f0a52030b9e",
+      "message": "feat: interactive Timeline & Roadmap page at /roadmap on egos.ia.br",
+      "files": [
+        "apps/egos-web/src/pages/Roadmap.tsx"
+      ],
+      "category": "apps",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-25",
+      "hash": "91d24217b2dc622ed468f1d9352e1dbe8999f87e",
+      "message": "feat(osint): OSINT reports, CEIS integration, VLibras, and WAF bypass strategy",
+      "files": [
+        "agents/extractors/python_extractor.py",
+        "agents/runtime/__tests__/event-bus.test.ts.rej",
+        "agents/runtime/event-bus.ts.rej"
+      ],
+      "category": "infra",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-25",
+      "hash": "42eb5cafa9a1c24e841d39d8c15166040c055551",
+      "message": "feat(guarani): deep archaeology scan — privacy scanner, code health monitor, engineering standards, /start v5.0, refinery triggers in .windsurfrules",
+      "files": [
+        ".guarani/ARCHAEOLOGY_INVENTORY.md",
+        ".guarani/ENGINEERING_STANDARDS_2026.md",
+        ".guarani/tools/code-health-monitor.ts",
+        ".guarani/tools/privacy-scanner.ts"
+      ],
+      "category": "governance",
+      "wave": 3,
+      "tags": [
+        "prompt-engineering",
+        "archaeology"
+      ]
+    },
+    {
+      "date": "2026-02-25",
+      "hash": "4b932730a58ff047ec67f604451bd3e3ffd3f7f8",
+      "message": "feat(guarani): recover EGOSv5 gems — refinery, preprocessor, tsun-cha, MCP guide, design standards",
+      "files": [
+        ".guarani/DESIGN_STANDARDS.md",
+        ".guarani/MCP_ORCHESTRATION_GUIDE.md",
+        ".guarani/nexus/debate_mode.md",
+        ".guarani/philosophy/TSUN_CHA_PROTOCOL.md",
+        ".guarani/preprocessor.md",
+        ".guarani/refinery/README.md",
+        ".guarani/refinery/classifier.md",
+        ".guarani/refinery/compiler.md",
+        ".guarani/refinery/interrogators/bug.md",
+        ".guarani/refinery/interrogators/feature.md",
+        ".guarani/refinery/interrogators/knowledge.md",
+        ".guarani/refinery/interrogators/refactor.md",
+        ".guarani/refinery/vocabulary_learner.md",
+        ".guarani/standards/MCP_TOOL_AUDIT_2025_12.md",
+        ".guarani/standards/MCP_TOOL_QUALITY_FRAMEWORK.md"
+      ],
+      "category": "governance",
+      "wave": 3,
+      "tags": [
+        "prompt-engineering",
+        "consciousness",
+        "archaeology"
+      ]
+    },
+    {
+      "date": "2026-02-25",
+      "hash": "df5cbd06b177df96f120721fadcac4f45524d003",
+      "message": "feat(orchestration): create Agent Cognitive Protocol - PIPELINE, QUESTION_BANK, GATES, DOMAIN_RULES",
+      "files": [
+        ".guarani/orchestration/DOMAIN_RULES.md",
+        ".guarani/orchestration/GATES.md",
+        ".guarani/orchestration/PIPELINE.md",
+        ".guarani/orchestration/QUESTION_BANK.md"
+      ],
+      "category": "governance",
+      "wave": 3,
+      "tags": [
+        "prompt-engineering"
+      ]
+    },
+    {
+      "date": "2026-02-25",
+      "hash": "da4790013e664f92e82a25c95d2f422f7a30455f",
+      "message": "feat(egos-lab): apply Codex code review improvements",
+      "files": [
+        "packages/mcp/schemas/carteira-livre/booking.confirm.input.schema.json",
+        "packages/mcp/schemas/carteira-livre/booking.find-slots.input.schema.json",
+        "packages/mcp/schemas/carteira-livre/booking.reserve-slot.input.schema.json",
+        "packages/mcp/schemas/carteira-livre/crm.upsert-lead.input.schema.json",
+        "packages/mcp/schemas/carteira-livre/whatsapp.send-template.input.schema.json",
+        "packages/mcp/src/index.ts",
+        "packages/shared/schemas/carteira-livre/booking-confirm-core.schema.json",
+        "packages/shared/schemas/carteira-livre/booking-core.schema.json",
+        "packages/shared/schemas/carteira-livre/booking-find-slots-core.schema.json",
+        "packages/shared/schemas/carteira-livre/contact-core.schema.json",
+        "packages/shared/schemas/carteira-livre/whatsapp-core.schema.json"
+      ],
+      "category": "infra",
+      "wave": 3,
+      "tags": [
+        "llm-shift"
+      ]
+    },
+    {
+      "date": "2026-02-25",
+      "hash": "d3db7ccae14c320883b06e94c36010e6251db5ba",
+      "message": "feat: cross-repo sync system, memory DB migration, archive consolidation",
+      "files": [
+        "scripts/sync-check.sh"
+      ],
+      "category": "infra",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-25",
+      "hash": "91d24217b2dc622ed468f1d9352e1dbe8999f87e",
+      "message": "feat(osint): OSINT reports, CEIS integration, VLibras, and WAF bypass strategy",
+      "files": [
+        "scripts/__pycache__/integracao_cgu_sancoes.cpython-312.pyc",
+        "scripts/etl_data_dump.py",
+        "scripts/integracao_cgu_sancoes.py",
+        "scripts/integracao_pncp.py",
+        "scripts/investigacao_municipios_mg.py"
+      ],
+      "category": "infra",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-25",
+      "hash": "da4790013e664f92e82a25c95d2f422f7a30455f",
+      "message": "feat(egos-lab): apply Codex code review improvements",
+      "files": [
+        "scripts/booking-funnel-check.ts",
+        "scripts/booking-funnel-events.json",
+        "scripts/booking-kpi-dashboard.ts",
+        "scripts/carteira-livre-portability-check.ts",
+        "scripts/docs-canonical-index.json",
+        "scripts/docs-ssot-lint.ts",
+        "scripts/egos-web-smoke-check.ts",
+        "scripts/mcp-core-smoke.ts",
+        "scripts/mcp-readiness-check.ts",
+        "scripts/mcp-runtime-contract-check.ts",
+        "scripts/metrics-governance-check.ts",
+        "scripts/ops-weekly-scorecard.ts",
+        "scripts/progress_snapshot.ts",
+        "scripts/ssot-api-registry-check.ts",
+        "scripts/ssot-map.json"
+      ],
+      "category": "infra",
+      "wave": 3,
+      "tags": [
+        "llm-shift"
+      ]
+    },
+    {
+      "date": "2026-02-25",
+      "hash": "91d24217b2dc622ed468f1d9352e1dbe8999f87e",
+      "message": "feat(osint): OSINT reports, CEIS integration, VLibras, and WAF bypass strategy",
+      "files": [
+        "apps/egos-web/src/components/a11y/__tests__/announcer.test.tsx",
+        "apps/egos-web/src/components/a11y/__tests__/font-size-control.test.tsx",
+        "apps/egos-web/src/components/a11y/__tests__/form-field.test.tsx",
+        "apps/egos-web/src/components/a11y/__tests__/high-contrast-toggle.test.tsx",
+        "apps/egos-web/src/components/a11y/__tests__/live-announcer.test.tsx",
+        "apps/egos-web/src/components/a11y/__tests__/skip-links.test.tsx",
+        "apps/egos-web/src/components/a11y/__tests__/vlibras-toggle.test.tsx",
+        "apps/egos-web/src/components/a11y/accessibility-panel.tsx",
+        "apps/egos-web/src/components/a11y/accessibility.test.tsx",
+        "apps/egos-web/src/components/a11y/announcer.tsx",
+        "apps/egos-web/src/components/a11y/font-size-control.tsx",
+        "apps/egos-web/src/components/a11y/form-field.tsx",
+        "apps/egos-web/src/components/a11y/high-contrast-toggle.tsx",
+        "apps/egos-web/src/components/a11y/index.ts",
+        "apps/egos-web/src/components/a11y/keyboard-navigation.test.tsx",
+        "apps/egos-web/src/components/a11y/live-announcer.tsx",
+        "apps/egos-web/src/components/a11y/skip-links.tsx",
+        "apps/egos-web/src/components/a11y/vlibras-lazy.tsx",
+        "apps/egos-web/src/components/a11y/vlibras-toggle.tsx",
+        "apps/egos-web/src/components/a11y/vlibras-widget.tsx"
+      ],
+      "category": "apps",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-25",
+      "hash": "da4790013e664f92e82a25c95d2f422f7a30455f",
+      "message": "feat(egos-lab): apply Codex code review improvements",
+      "files": [
+        "apps/egos-web/src/pages/Roadmap.css",
+        "apps/egos-web/src/pages/ToolDetail.tsx",
+        "apps/egos-web/src/pages/ToolsCatalog.css",
+        "apps/egos-web/src/pages/ToolsCatalog.tsx",
+        "apps/egos-web/src/pages/roadmapData.ts",
+        "apps/egos-web/src/pages/toolsCatalogData.ts"
+      ],
+      "category": "apps",
+      "wave": 3,
+      "tags": [
+        "llm-shift"
+      ]
+    },
+    {
+      "date": "2026-02-25",
+      "hash": "7aa4372a2a7805af1de7e9496601c588cbf710eb",
+      "message": "feat(intelink): add AI Router for natural language conversational intelligence",
+      "files": [
+        "apps/intelink/lib/intelink/ai-router.ts"
+      ],
+      "category": "apps",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-26",
+      "hash": "cba8f6b6d34a4705d5351c70b952a61177ce3455",
+      "message": "feat: agent-commander and proactive nudge agent complete",
+      "files": [
+        "agents/agents/carteira-x-engine.ts"
+      ],
+      "category": "agents",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-02-26",
+      "hash": "29217b948e22e9852d9e6fb0e555e7bbf9e213e4",
+      "message": "fix: authorized users split by comma",
+      "files": [
+        "apps/agent-commander/poll-test.js"
+      ],
+      "category": "apps",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-02-26",
+      "hash": "174c98124d7b4d214f8f595dc370e89376c608c7",
+      "message": "test: agent-commander test suite 4/4 passing, debug logs, offset sync",
+      "files": [
+        "apps/agent-commander/test-bot.ts"
+      ],
+      "category": "agents",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-02-26",
+      "hash": "504e9727ef34672d1ed1b3a75fe1e52d2669e1f4",
+      "message": "fix: manual polling timeout=5s, offset sync, eliminates 409 conflict permanently",
+      "files": [
+        "apps/agent-commander/start.sh"
+      ],
+      "category": "apps",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-02-26",
+      "hash": "d4c8d1e34d7c97023edb92715a8c5b183b7480fe",
+      "message": "fix: agent-commander DM mode, ebfrocha auth, conversational LLM, Supabase db queries",
+      "files": [
+        "apps/agent-commander/src/db-query-handler.ts"
+      ],
+      "category": "agents",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-02-26",
+      "hash": "f0be238171379472f329ba47d2dc6339b8fa0d1b",
+      "message": "fix: patch telegraf bun compat, fix security scan false positives, add agent-commander env",
+      "files": [
+        "apps/carteira-x/reports/onchain_report_2026-02-26.json",
+        "apps/carteira-x/reports/onchain_report_2026-02-26.md",
+        "apps/carteira-x/reports/onchain_report_v2_2026-02-26.json",
+        "apps/carteira-x/reports/onchain_report_v2_2026-02-26.md",
+        "apps/carteira-x/scripts/generate-report.ts",
+        "apps/carteira-x/src/lib/onchain/analytics.ts",
+        "apps/carteira-x/src/lib/onchain/cex-labels.ts",
+        "apps/carteira-x/src/lib/onchain/time-analysis.ts",
+        "apps/carteira-x/src/lib/onchain/tx-fetcher.ts",
+        "apps/carteira-x/test-evm.js"
+      ],
+      "category": "agents",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-02-26",
+      "hash": "cba8f6b6d34a4705d5351c70b952a61177ce3455",
+      "message": "feat: agent-commander and proactive nudge agent complete",
+      "files": [
+        "apps/carteira-x/.gitignore",
+        "apps/carteira-x/README.md",
+        "apps/carteira-x/eslint.config.mjs",
+        "apps/carteira-x/next.config.ts",
+        "apps/carteira-x/package.json",
+        "apps/carteira-x/postcss.config.mjs",
+        "apps/carteira-x/public/file.svg",
+        "apps/carteira-x/public/globe.svg",
+        "apps/carteira-x/public/next.svg",
+        "apps/carteira-x/public/vercel.svg",
+        "apps/carteira-x/public/window.svg",
+        "apps/carteira-x/scripts/trace-wallets.ts",
+        "apps/carteira-x/src/app/api/webhooks/whatsapp/route.ts",
+        "apps/carteira-x/src/app/favicon.ico",
+        "apps/carteira-x/src/app/globals.css",
+        "apps/carteira-x/src/app/layout.tsx",
+        "apps/carteira-x/src/app/page.tsx",
+        "apps/carteira-x/src/components/EmotionalHeatmap.tsx",
+        "apps/carteira-x/src/components/PreTradeJournal.tsx",
+        "apps/carteira-x/src/lib/api-utils.ts",
+        "apps/carteira-x/src/lib/notifications.ts",
+        "apps/carteira-x/src/lib/onchain/gateway.ts",
+        "apps/carteira-x/src/lib/onchain/tracer.ts",
+        "apps/carteira-x/src/lib/score-engine.ts",
+        "apps/carteira-x/src/lib/supabase-client.ts",
+        "apps/carteira-x/src/lib/types/finance-psychology.ts",
+        "apps/carteira-x/src/lib/utils.ts",
+        "apps/carteira-x/tsconfig.json"
+      ],
+      "category": "agents",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-02-26",
+      "hash": "8622f5788afa198be08c0b2b6f2da05cc7de6aeb",
+      "message": "feat: implement telegram agent-commander with whisper and github pr sandbox",
+      "files": [
+        "apps/agent-commander/package.json",
+        "apps/agent-commander/src/__tests__/orchestrator.test.ts",
+        "apps/agent-commander/src/__tests__/session-store.test.ts",
+        "apps/agent-commander/src/audio-handler.ts",
+        "apps/agent-commander/src/github-executor.ts",
+        "apps/agent-commander/src/index.ts",
+        "apps/agent-commander/src/orchestrator.ts",
+        "apps/agent-commander/src/session-store.ts",
+        "apps/agent-commander/tsconfig.json"
+      ],
+      "category": "agents",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-02-27",
+      "hash": "ecbedf2e7b35af3dec172e7374c0cede44ce3040",
+      "message": "feat(osint): add Supabase event persistence layer + fix table creation",
+      "files": [
+        "packages/shared/src/osint/supabase-events.ts"
+      ],
+      "category": "infra",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-02-27",
+      "hash": "21ad32d3ebb7847a1e021f4e3ec563de3fd3c28c",
+      "message": "test(osint): add battery test for all 8 OSINT tools — 14/14 pass",
+      "files": [
+        "packages/shared/src/osint/__tests__/tool-battery.ts"
+      ],
+      "category": "infra",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-02-27",
+      "hash": "045432eba1f26a12154e4b3fd460c20d5df96f6e",
+      "message": "refactor(osint): extract tool registry for agnostic bot architecture",
+      "files": [
+        "packages/shared/src/osint/tool-registry.ts"
+      ],
+      "category": "apps",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-02-27",
+      "hash": "5cb71e01d0d1ce9e891f1ca4be0974f07a832d7a",
+      "message": "feat(osint): 8 OSINT tools + rate-limiting + OpenAudit Brasil alignment",
+      "files": [
+        "packages/shared/src/osint/eagle-eye.ts"
+      ],
+      "category": "infra",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-02-27",
+      "hash": "8156544dc66017cd9dea587d778c25d334bc79a2",
+      "message": "feat(discord): add OSINT tool-calling architecture with Extrateto integration",
+      "files": [
+        "packages/shared/src/osint/extrateto.ts"
+      ],
+      "category": "apps",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-02-27",
+      "hash": "790ea80792d443085d87d26ea52b8edf7efc7584",
+      "message": "fix(egos-web): resolve a11y build errors + update OSINT docs",
+      "files": [
+        "apps/egos-web/src/components/ui/button.tsx",
+        "apps/egos-web/src/components/ui/index.ts",
+        "apps/egos-web/src/components/ui/input.tsx",
+        "apps/egos-web/src/lib/utils.ts"
+      ],
+      "category": "apps",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-01",
+      "hash": "d49201ff088be224c33fc9dd4c0f181a5130b228",
+      "message": "feat: shared AI engine + Telegram bot with 13 OSINT tools",
+      "files": [
+        "packages/shared/src/social/ai-engine.ts",
+        "packages/shared/src/social/telegram-bot.ts"
+      ],
+      "category": "apps",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-01",
+      "hash": "ba445b29a32a302513418af6322eb5b55d2a7f6a",
+      "message": "feat(bot): add web search (Exa), conversation memory, 13 OSINT tools",
+      "files": [
+        "packages/shared/src/osint/web-search.ts"
+      ],
+      "category": "apps",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-01",
+      "hash": "b7981a138f7c345384cd8498338983d2da7cbbe4",
+      "message": "feat(osint): add BR/ACC Open Graph wrapper + 3 OSINT tools (meta, company_graph, patterns)",
+      "files": [
+        "packages/shared/src/osint/bracc.ts"
+      ],
+      "category": "infra",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-01",
+      "hash": "842157a2154ec9dce5b2f896147e4df7b33fa596",
+      "message": "feat: add BR/ACC repo monitor script (forks, PRs, duplicate detection)",
+      "files": [
+        "scripts/bracc-monitor.ts"
+      ],
+      "category": "infra",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-01",
+      "hash": "134cc7476d5eb1cbb64eb1d273874c99e05a10c1",
+      "message": "feat(ethik): real-time price ticker with GeckoTerminal API",
+      "files": [
+        "apps/egos-web/api/ethik-price.ts"
+      ],
+      "category": "apps",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-02",
+      "hash": "32298e431a730f6c7154c396b83059b1dd834ae8",
+      "message": "feat: add Supabase persistent memory for bot conversations (LettaBot-inspired)",
+      "files": [
+        "packages/shared/src/osint/conversation-store.ts"
+      ],
+      "category": "apps",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-02",
+      "hash": "1a599ed12fdd33881258cdc9ed2c6a8594f8408c",
+      "message": "feat: add BNDES financing tool (15th tool) - proven with Patense investigation",
+      "files": [
+        "packages/shared/src/osint/bndes.ts"
+      ],
+      "category": "infra",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-02",
+      "hash": "4b5cd65d9d7800bfc215d8b383ab2bd5121f852f",
+      "message": "feat(rho): filter bot commits from human contributor metrics",
+      "files": [
+        "scripts/ops/health-monitor.sh",
+        "scripts/ops/logs/benchmark_20260301_105059.jsonl",
+        "scripts/ops/logs/health_20260301_105053.jsonl",
+        "scripts/ops/terminal-benchmark.sh"
+      ],
+      "category": "apps",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-05",
+      "hash": "602780dbaccd4135628efb97dd61f94977349633",
+      "message": "chore: sync egos-self with standalone repo — Git Layer + config + 11 commands",
+      "files": [
+        "apps/egos-self/src/egos_self/config.py",
+        "apps/egos-self/src/egos_self/git_layer.py"
+      ],
+      "category": "apps",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-05",
+      "hash": "935033e705fc0b9fde1d156f765eb4bff4436ad1",
+      "message": "chore: sync egos-self with standalone repo — transport layer + sharing DNA",
+      "files": [
+        "apps/egos-self/src/egos_self/relay.py",
+        "apps/egos-self/src/egos_self/transport.py"
+      ],
+      "category": "apps",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-05",
+      "hash": "ae5c5029e6f6bcc1fc4a640f6e8aeccadfa91d87",
+      "message": "feat: CV Engineering Method + EGOS Self CLI scaffold + cv-builder workflow",
+      "files": [
+        "apps/egos-self/README.md",
+        "apps/egos-self/ROADMAP.md",
+        "apps/egos-self/pyproject.toml",
+        "apps/egos-self/src/egos_self/__init__.py",
+        "apps/egos-self/src/egos_self/cli.py"
+      ],
+      "category": "apps",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-06",
+      "hash": "e0f2d7a7071e677e02e250f6039391cd2694e18d",
+      "message": "feat: AGENT-027 Gem Hunter — multi-source discovery agent",
+      "files": [
+        "agents/agents/gem-hunter.ts"
+      ],
+      "category": "agents",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-06",
+      "hash": "f535ce5e25e73b90c0d4208366a0132ee2ce315b",
+      "message": "feat: AGENT-007 ssot-fixer v1.0 — consumes auditor JSON, applies safe LOW-risk codemods",
+      "files": [
+        "agents/agents/ssot-fixer.ts"
+      ],
+      "category": "agents",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-06",
+      "hash": "8c2feef240fe120b2d1b0c8e6b0708aa8ae0efcc",
+      "message": "docs: DESIGN_IDENTITY.md — unified visual system (colors, fonts, glassmorphism, spacing)",
+      "files": [
+        ".guarani/DESIGN_IDENTITY.md"
+      ],
+      "category": "governance",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-06",
+      "hash": "b79227414ac6270671006192b78fb4c2da44df66",
+      "message": "feat: centralized meta-prompt system + chatbot markdown rendering",
+      "files": [
+        ".guarani/prompts/PROMPT_SYSTEM.md",
+        ".guarani/prompts/meta/brainet-collective.md",
+        ".guarani/prompts/meta/universal-strategist.md",
+        ".guarani/prompts/triggers.json"
+      ],
+      "category": "governance",
+      "wave": 4,
+      "tags": [
+        "prompt-engineering"
+      ]
+    },
+    {
+      "date": "2026-03-06",
+      "hash": "a854eb1556bff4c601788b8423e618ba920c3d02",
+      "message": "chore: SEPARATION_POLICY + MASTER_PLAN for ecosystem hardening",
+      "files": [
+        ".guarani/SEPARATION_POLICY.md"
+      ],
+      "category": "governance",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-06",
+      "hash": "fa7a67389cfbc49e49276ffbf16f823e84576c6e",
+      "message": "chore: rho-calibration v0.3.69 — system resonance patterns documented",
+      "files": [
+        "packages/shared/src/sacred-math/.trail"
+      ],
+      "category": "infra",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-06",
+      "hash": "cd74a34d43b557a185816ddc4dc48d2cecbb994f",
+      "message": "feat: governance sync — /end v5.0, /start v5.2 (meta-prompts), /disseminate, /pre, sync script",
+      "files": [
+        "scripts/sync-governance.sh"
+      ],
+      "category": "governance",
+      "wave": 4,
+      "tags": [
+        "prompt-engineering"
+      ]
+    },
+    {
+      "date": "2026-03-06",
+      "hash": "77a33753a856991800b1d1b3c2d9b7c368c97180",
+      "message": "feat: GOV-006 governance baseline + GOV-007 private surface separation",
+      "files": [
+        "scripts/base_etl.py"
+      ],
+      "category": "governance",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-06",
+      "hash": "82785731ee5bc27684724a5d5af483c6d5df03df",
+      "message": "feat: EGOS API scaffold for APINow.fun + TASKS.md Phase 1.7",
+      "files": [
+        "apps/egos-web/api/egos/_prompts.ts",
+        "apps/egos-web/api/egos/brainet.ts",
+        "apps/egos-web/api/egos/catalog.ts",
+        "apps/egos-web/api/egos/strategist.ts"
+      ],
+      "category": "apps",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-06",
+      "hash": "c8b0f1049075ffc8d131fcc88fee18b596a34b2e",
+      "message": "feat(web): dedicated Hacash Explorer page at /explorer/hacash — auto-refresh, 12 stats, data sources, copy buttons",
+      "files": [
+        "apps/egos-web/src/pages/HacashExplorerPage.css",
+        "apps/egos-web/src/pages/HacashExplorerPage.tsx"
+      ],
+      "category": "apps",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-06",
+      "hash": "d55c38e85adbd548fe8c2e04f369a2341b244c07",
+      "message": "feat(web): add Published Reports section — 8 case studies with findings stats",
+      "files": [
+        "apps/egos-web/src/components/PublishedReports.tsx"
+      ],
+      "category": "apps",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-06",
+      "hash": "9e8dfdcad904cfdb0cdfc3313c42e5c3b4196774",
+      "message": "feat: Hacash Explorer v2 — API proxy, service layer, dashboard + detail views (#15)",
+      "files": [
+        "apps/egos-web/api/hacash.ts",
+        "apps/egos-web/src/components/HacashExplorer.css",
+        "apps/egos-web/src/components/HacashExplorer.tsx",
+        "apps/egos-web/src/services/hacash.ts"
+      ],
+      "category": "apps",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-06",
+      "hash": "b5ce9f2c1f83d59ed0c340671532b406c6572205",
+      "message": "feat: WEB-001 Rho health badge on egos-web + JSON export from rho script",
+      "files": [
+        "apps/egos-web/public/rho.json",
+        "apps/egos-web/src/components/RhoHealthBadge.tsx"
+      ],
+      "category": "apps",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-06",
+      "hash": "c59ed464300ec52fffaf5c88f5741b1e0020a623",
+      "message": "feat: Eagle Eye dedicated page — OSINT gazette monitor with live scan data",
+      "files": [
+        "apps/egos-web/public/eagle-eye-results/scan_2026-02-13T12-44-04-080Z.json",
+        "apps/egos-web/src/pages/EagleEye.css",
+        "apps/egos-web/src/pages/EagleEye.tsx"
+      ],
+      "category": "apps",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-06",
+      "hash": "fa7a67389cfbc49e49276ffbf16f823e84576c6e",
+      "message": "chore: rho-calibration v0.3.69 — system resonance patterns documented",
+      "files": [
+        "apps/egos-web/public/robots.txt"
+      ],
+      "category": "apps",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-06",
+      "hash": "9d8fbbacf4d5f8ccc55850666ee167ad361e99c6",
+      "message": "feat: website redesign — GitHub integrator, 3 hidden landings, discovery game, rich footer",
+      "files": [
+        "apps/egos-web/src/components/ConnectGitHub.css",
+        "apps/egos-web/src/components/ConnectGitHub.tsx",
+        "apps/egos-web/src/lib/discovery.ts",
+        "apps/egos-web/src/pages/LandingGate.tsx",
+        "apps/egos-web/src/pages/LandingPulse.tsx",
+        "apps/egos-web/src/pages/LandingSearch.tsx"
+      ],
+      "category": "apps",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-07",
+      "hash": "293e73a6c2396c998f4510aa5b3ae83a460b7a91",
+      "message": "security: SEC-001 phone bridge paused — kill KDE Connect, remove device-bridge track, create security policy",
+      "files": [
+        ".guarani/security/SEC-001_PHONE_BRIDGE.md"
+      ],
+      "category": "governance",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-07",
+      "hash": "d9c3469419a2865542ac293482554561b64f47c0",
+      "message": "feat: mycelium orchestrator + workflow /mycelium + GitHub OAuth fix + gem-hunter tracks + honest stats",
+      "files": [
+        ".guarani/prompts/meta/mycelium-orchestrator.md"
+      ],
+      "category": "governance",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-07",
+      "hash": "d9c3469419a2865542ac293482554561b64f47c0",
+      "message": "feat: mycelium orchestrator + workflow /mycelium + GitHub OAuth fix + gem-hunter tracks + honest stats",
+      "files": [
+        "packages/shared/src/osint/brazil-visible.ts",
+        "packages/shared/src/osint/media-intel.ts",
+        "packages/shared/tsconfig.json"
+      ],
+      "category": "mycelium",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-07",
+      "hash": "8814fd20ca1c63936320fb938b0c7dc3accdaeb4",
+      "message": "chore: remove orphan .js files from Codex review breaking Vite build",
+      "files": [
+        "apps/egos-web/src/lib/mycelium.ts"
+      ],
+      "category": "mycelium",
+      "wave": 5,
+      "tags": [
+        "breakpoint",
+        "llm-shift"
+      ]
+    },
+    {
+      "date": "2026-03-07",
+      "hash": "1be59c63d921c28d42aae8b082eb8e5a2fade0cc",
+      "message": "refactor: centralize AI model config + free fallback in _ai.ts",
+      "files": [
+        "apps/egos-web/api/_ai.ts"
+      ],
+      "category": "apps",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-07",
+      "hash": "0d699ae07826b589c86f1b7091780a18ba70ca4c",
+      "message": "refactor: consolidate PIIDetection + ReportData into src/types/privacy.ts",
+      "files": [
+        "apps/egos-web/src/types/privacy.ts"
+      ],
+      "category": "apps",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-07",
+      "hash": "d9c3469419a2865542ac293482554561b64f47c0",
+      "message": "feat: mycelium orchestrator + workflow /mycelium + GitHub OAuth fix + gem-hunter tracks + honest stats",
+      "files": [
+        "apps/egos-web/intlayer.config.ts",
+        "apps/egos-web/src/components/LanguageSwitcher.tsx",
+        "apps/egos-web/src/components/RouteSuspense.tsx",
+        "apps/egos-web/src/components/layout.content.ts"
+      ],
+      "category": "mycelium",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-08",
+      "hash": "3effbaa44b332a33ecdda1bfffeab9720c960a81",
+      "message": "feat: report-generator agent v1.0 + registry (28 agents)",
+      "files": [
+        "agents/agents/report-generator.ts"
+      ],
+      "category": "agents",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-08",
+      "hash": "4f6842f8f1451386fd1be8192bbc94b11e8bb44d",
+      "message": "feat(core): create canonical CORE_WHITELIST.json for reduced-context kernel (CORE-001)",
+      "files": [
+        ".guarani/CORE_WHITELIST.json"
+      ],
+      "category": "governance",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-08",
+      "hash": "39ec2d26c715a53eaf019cd96f95812d89e372fb",
+      "message": "feat: security & decentralization plan + Chain Abstraction Layer (CAL)",
+      "files": [
+        ".guarani/security/SEC-002_VPS_HARDENING.md"
+      ],
+      "category": "governance",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-08",
+      "hash": "39ec2d26c715a53eaf019cd96f95812d89e372fb",
+      "message": "feat: security & decentralization plan + Chain Abstraction Layer (CAL)",
+      "files": [
+        "packages/shared/src/chain/chains.ts",
+        "packages/shared/src/chain/fallback-provider.ts",
+        "packages/shared/src/chain/index.ts",
+        "packages/shared/src/chain/pokt-provider.ts",
+        "packages/shared/src/chain/types.ts"
+      ],
+      "category": "infra",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-08",
+      "hash": "4d1072351d9c4a9ad8da835c33efef87796bae08",
+      "message": "feat: gem-hunter v2 auto-exec + AI landscape research + orchestrator fixes",
+      "files": [
+        "packages/shared/src/llm-provider.ts"
+      ],
+      "category": "research",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-08",
+      "hash": "a8ea75e5adc6e141962c29672e60f8e53f9c8713",
+      "message": "feat: landing page SSOT + RAG assessment + Community Notes design",
+      "files": [
+        "packages/shared/src/mycelium/reference-graph.ts"
+      ],
+      "category": "mycelium",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-08",
+      "hash": "4d1072351d9c4a9ad8da835c33efef87796bae08",
+      "message": "feat: gem-hunter v2 auto-exec + AI landscape research + orchestrator fixes",
+      "files": [
+        "scripts/alibaba/test-models.ts",
+        "scripts/session-guard.ts"
+      ],
+      "category": "research",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-08",
+      "hash": "a8ea75e5adc6e141962c29672e60f8e53f9c8713",
+      "message": "feat: landing page SSOT + RAG assessment + Community Notes design",
+      "files": [
+        "scripts/generate-ecosystem-reports.ts"
+      ],
+      "category": "infra",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-08",
+      "hash": "6f48850f59dc629d69a65f3b790c58eac9c8f9e0",
+      "message": "feat: landing page rotation system + theme customizer + agent discovery",
+      "files": [
+        "apps/egos-web/public/.well-known/ai-plugin.json",
+        "apps/egos-web/src/components/ThemePickerWidget.tsx",
+        "apps/egos-web/src/lib/landingRotation.ts",
+        "apps/egos-web/src/lib/themeCustomizer.ts",
+        "apps/egos-web/src/pages/LandingRotator.tsx"
+      ],
+      "category": "agents",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-08",
+      "hash": "2b271a588593c42309df9d250e7c63d03683ebd9",
+      "message": "feat: CV Builder — AI-powered resume generator from GitHub profile",
+      "files": [
+        "apps/egos-web/api/cv-generate.ts",
+        "apps/egos-web/public/examples/cv-example-enio.html",
+        "apps/egos-web/src/pages/CvBuilder.tsx"
+      ],
+      "category": "apps",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-08",
+      "hash": "4d1072351d9c4a9ad8da835c33efef87796bae08",
+      "message": "feat: gem-hunter v2 auto-exec + AI landscape research + orchestrator fixes",
+      "files": [
+        "apps/agent-commander/README.md",
+        "apps/symphony-egos/README.md",
+        "apps/symphony-egos/package.json",
+        "apps/symphony-egos/src/index.ts",
+        "apps/symphony-egos/src/workflow-loader.ts",
+        "apps/symphony-egos/tsconfig.json",
+        "apps/telegram-bot/README.md"
+      ],
+      "category": "research",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-08",
+      "hash": "a8ea75e5adc6e141962c29672e60f8e53f9c8713",
+      "message": "feat: landing page SSOT + RAG assessment + Community Notes design",
+      "files": [
+        "apps/egos-web/src/lib/landingConstants.ts"
+      ],
+      "category": "apps",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-09",
+      "hash": "4cf51464e7e577c857e25351d96b9f3a726e64a1",
+      "message": "feat: Mycelium README Linker v1.0 — auto-injected cross-links into 11 READMEs (40 edges)",
+      "files": [
+        "scripts/mycelium/readme-linker.ts"
+      ],
+      "category": "mycelium",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-09",
+      "hash": "92e4782d1dc90fa2826951e0543dfaa8c2785a50",
+      "message": "feat: AI governance hardening — lint tool, llms.txt, workflow optimization",
+      "files": [
+        "scripts/governance-ai-lint.ts"
+      ],
+      "category": "governance",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-09",
+      "hash": "b1f990ef08f4bfde68b691becdbf6c945e3c38d7",
+      "message": "autoresearch: Replace vague verb 'MUST support' with precise imperative 'SHALL support",
+      "files": [
+        "scripts/apply-migration.mjs"
+      ],
+      "category": "research",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-09",
+      "hash": "a932a7ff9284ff93333468f8c56f39abe6565b28",
+      "message": "chore: add untracked files from sessions 4-6 (workflows, components, research docs, handoffs, scripts)",
+      "files": [
+        "scripts/x-client.ts"
+      ],
+      "category": "research",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-09",
+      "hash": "b3c3e2f3e722a39b6af039ccdd4e7770af11dba4",
+      "message": "feat: SSE streaming chat + Supabase conversation persistence",
+      "files": [
+        "apps/egos-web/api/chat-stream.ts",
+        "apps/egos-web/src/services/chatPersistence.ts"
+      ],
+      "category": "apps",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-09",
+      "hash": "a932a7ff9284ff93333468f8c56f39abe6565b28",
+      "message": "chore: add untracked files from sessions 4-6 (workflows, components, research docs, handoffs, scripts)",
+      "files": [
+        "apps/egos-web/src/components/EgosEntryChat.css",
+        "apps/egos-web/src/components/EgosEntryChat.tsx",
+        "apps/egos-web/src/lib/__tests__/personalizationCommands.test.ts",
+        "apps/egos-web/src/lib/chatWelcome.ts",
+        "apps/egos-web/src/lib/egosMainChatProfile.ts",
+        "apps/egos-web/src/lib/layoutPreferences.ts",
+        "apps/egos-web/src/lib/personalizationCommands.ts"
+      ],
+      "category": "research",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-10",
+      "hash": "f6a6d6a7272ae53cbb00b96945991b42d5b6c201",
+      "message": "feat: llm file-reference system v2 — search, growth constraints, governance integration",
+      "files": [
+        "packages/shared/src/mycelium/file-reference-manifest.ts"
+      ],
+      "category": "governance",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-10",
+      "hash": "f6a6d6a7272ae53cbb00b96945991b42d5b6c201",
+      "message": "feat: llm file-reference system v2 — search, growth constraints, governance integration",
+      "files": [
+        "scripts/mycelium/file-signature-sync.ts"
+      ],
+      "category": "governance",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-11",
+      "hash": "f089d5c8d8c13a42757748f5ebb49b04a9ef7878",
+      "message": "feat: integrate VRCP Coherence Model, define 12 Use Cases, and upgrade Gem Hunter with Zenodo AI analysis",
+      "files": [
+        "packages/shared/src/sacred-math/vrcp.test.ts",
+        "packages/shared/src/sacred-math/vrcp.ts"
+      ],
+      "category": "infra",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-11",
+      "hash": "f089d5c8d8c13a42757748f5ebb49b04a9ef7878",
+      "message": "feat: integrate VRCP Coherence Model, define 12 Use Cases, and upgrade Gem Hunter with Zenodo AI analysis",
+      "files": [
+        "scripts/validate_integration.sh"
+      ],
+      "category": "infra",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-12",
+      "hash": "00c45651511f5ddcab46e0b2f4c05e9f1293b570",
+      "message": "docs: orchestration deep audit — ACTIVATION_PAYLOAD, SYSTEM_INDEX, Windsurf limitations, stale fixes",
+      "files": [
+        ".guarani/ACTIVATION_PAYLOAD.md",
+        ".guarani/SYSTEM_INDEX.md"
+      ],
+      "category": "governance",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-12",
+      "hash": "d30869eab7d83491e27478dc3d3ce74cf98b0262",
+      "message": "feat: mycelium agent visualization + model SSOT cleanup + nav update",
+      "files": [
+        "scripts/gem-hunter-freshness.ts"
+      ],
+      "category": "agents",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-12",
+      "hash": "d30869eab7d83491e27478dc3d3ce74cf98b0262",
+      "message": "feat: mycelium agent visualization + model SSOT cleanup + nav update",
+      "files": [
+        "apps/egos-web/api/_agent-telemetry.ts",
+        "apps/egos-web/api/agents.ts",
+        "apps/egos-web/api/agents/results.ts",
+        "apps/egos-web/src/components/MyceliumCanvas.tsx"
+      ],
+      "category": "agents",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-12",
+      "hash": "0ad9a44e9015f64fb82905bd2522c5448e5fc35c",
+      "message": "feat(agentes): hero carousel with 7 Gemini images + fade transitions + WebP optimization",
+      "files": [
+        "apps/egos-web/public/images/agentes/audits.webp",
+        "apps/egos-web/public/images/agentes/command.webp",
+        "apps/egos-web/public/images/agentes/conscious.webp",
+        "apps/egos-web/public/images/agentes/governance.webp",
+        "apps/egos-web/public/images/agentes/scale.webp",
+        "apps/egos-web/public/images/agentes/security.webp",
+        "apps/egos-web/public/images/agentes/transparency.webp"
+      ],
+      "category": "agents",
+      "wave": 5,
+      "tags": [
+        "llm-shift"
+      ]
+    },
+    {
+      "date": "2026-03-12",
+      "hash": "dfd4ec5664ed6f6071e492ba124741211822bbc7",
+      "message": "feat: add /agentes dashboard — visual agent registry with 29 agents, filters, search, and interactive cards",
+      "files": [
+        "apps/egos-web/src/data/agents-registry.ts",
+        "apps/egos-web/src/pages/AgentsDashboard.tsx"
+      ],
+      "category": "agents",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-13",
+      "hash": "62355f797e91d34b22ebc553cf308dcf00d642b3",
+      "message": "feat: b1-b5 — header fix, canvas compact+expand+modal, agent tags/category, Alibaba model tiers, blog page",
+      "files": [
+        "apps/egos-web/src/pages/Blog.tsx"
+      ],
+      "category": "agents",
+      "wave": 5,
+      "tags": [
+        "llm-shift"
+      ]
+    },
+    {
+      "date": "2026-03-13",
+      "hash": "d7be59ce06a1087861326c2454a92100f3940b2c",
+      "message": "feat: GitHub Actions CI + first agent migration (dep-auditor)",
+      "files": [
+        "agents/agents/dep-auditor.ts"
+      ],
+      "category": "agents",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-13",
+      "hash": "0fb9f8e0df128f450f376998bee9f4e8bb33c564",
+      "message": "feat: EGOS framework core v1.0.0 — governance, orchestration, agent runtime, shared packages",
+      "files": [
+        "agents/cli.ts",
+        "agents/registry/agents.json",
+        "agents/registry/schema.json",
+        "agents/runtime/event-bus.ts",
+        "agents/runtime/runner.ts"
+      ],
+      "category": "governance",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-13",
+      "hash": "95de045aeb2e9af24d4c4bc24979fbd26c749049",
+      "message": "feat: deep scan cherry-pick — refinery, security, tools, workflows, concepts, governance-sync",
+      "files": [
+        ".guarani/ENGINEERING_STANDARDS_2026.md",
+        ".guarani/SEPARATION_POLICY.md",
+        ".guarani/preprocessor.md",
+        ".guarani/prompts/meta/mycelium-orchestrator.md",
+        ".guarani/refinery/README.md",
+        ".guarani/refinery/classifier.md",
+        ".guarani/refinery/compiler.md",
+        ".guarani/refinery/interrogators/bug.md",
+        ".guarani/refinery/interrogators/feature.md",
+        ".guarani/refinery/interrogators/knowledge.md",
+        ".guarani/refinery/interrogators/refactor.md",
+        ".guarani/refinery/vocabulary_learner.md",
+        ".guarani/security/SEC-001_PHONE_BRIDGE.md",
+        ".guarani/security/SEC-002_VPS_HARDENING.md",
+        ".guarani/standards/MCP_TOOL_QUALITY_FRAMEWORK.md",
+        ".guarani/tools/code-health-monitor.ts",
+        ".guarani/tools/privacy-scanner.ts"
+      ],
+      "category": "governance",
+      "wave": 5,
+      "tags": [
+        "prompt-engineering"
+      ]
+    },
+    {
+      "date": "2026-03-13",
+      "hash": "0fb9f8e0df128f450f376998bee9f4e8bb33c564",
+      "message": "feat: EGOS framework core v1.0.0 — governance, orchestration, agent runtime, shared packages",
+      "files": [
+        ".guarani/DESIGN_IDENTITY.md",
+        ".guarani/IDENTITY.md",
+        ".guarani/PREFERENCES.md",
+        ".guarani/orchestration/DOMAIN_RULES.md",
+        ".guarani/orchestration/GATES.md",
+        ".guarani/orchestration/PIPELINE.md",
+        ".guarani/orchestration/QUESTION_BANK.md",
+        ".guarani/philosophy/TSUN_CHA_PROTOCOL.md",
+        ".guarani/prompts/PROMPT_SYSTEM.md",
+        ".guarani/prompts/meta/brainet-collective.md",
+        ".guarani/prompts/meta/universal-strategist.md",
+        ".guarani/prompts/triggers.json"
+      ],
+      "category": "governance",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-13",
+      "hash": "0fb9f8e0df128f450f376998bee9f4e8bb33c564",
+      "message": "feat: EGOS framework core v1.0.0 — governance, orchestration, agent runtime, shared packages",
+      "files": [
+        "packages/shared/package.json",
+        "packages/shared/src/index.ts",
+        "packages/shared/src/llm-provider.ts",
+        "packages/shared/src/rate-limiter.ts",
+        "packages/shared/src/types.ts",
+        "packages/shared/tsconfig.json"
+      ],
+      "category": "governance",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-13",
+      "hash": "95de045aeb2e9af24d4c4bc24979fbd26c749049",
+      "message": "feat: deep scan cherry-pick — refinery, security, tools, workflows, concepts, governance-sync",
+      "files": [
+        "scripts/governance-sync.sh"
+      ],
+      "category": "governance",
+      "wave": 5,
+      "tags": [
+        "prompt-engineering"
+      ]
+    }
+  ],
+  "agents": [
+    {
+      "id": "idea_scanner",
+      "name": "Idea Scanner",
+      "createdAt": "2026-02-13",
+      "commitHash": "cd9ca0f08a094a163b689e556305882021613b85",
+      "wave": 0,
+      "area": "knowledge",
+      "catalyst": "tactical-need",
+      "entrypoint": "scripts/scan_ideas.ts"
+    },
+    {
+      "id": "security_scanner",
+      "name": "Security Scanner",
+      "createdAt": "2026-02-16",
+      "commitHash": "abbc741fcec534b560aa38eca1c91551b3f517d0",
+      "wave": 0,
+      "area": "security",
+      "catalyst": "tactical-need",
+      "entrypoint": "scripts/security_scan.ts"
+    },
+    {
+      "id": "rho_calculator",
+      "name": "Rho Calculator",
+      "createdAt": "2026-02-16",
+      "commitHash": "15b7548c125b4c5b7df11fdffa8f145016bcf829",
+      "wave": 0,
+      "area": "observability",
+      "catalyst": "organic-growth",
+      "entrypoint": "scripts/rho.ts"
+    },
+    {
+      "id": "code_reviewer",
+      "name": "Cortex Reviewer",
+      "createdAt": "2026-02-16",
+      "commitHash": "b90542d1a3b99f0bcf9d3d25a6b65272e894c4a4",
+      "wave": 0,
+      "area": "qa",
+      "catalyst": "research-expansion",
+      "entrypoint": "scripts/review.ts"
+    },
+    {
+      "id": "disseminator",
+      "name": "Knowledge Disseminator",
+      "createdAt": "2026-02-16",
+      "commitHash": "b90542d1a3b99f0bcf9d3d25a6b65272e894c4a4",
+      "wave": 0,
+      "area": "knowledge",
+      "catalyst": "organic-growth",
+      "entrypoint": "scripts/disseminate.ts"
+    },
+    {
+      "id": "ssot_auditor",
+      "name": "SSOT Auditor",
+      "createdAt": "2026-02-17",
+      "commitHash": "ca85cb7609faf00248600fd0a67663e4ed8e3a10",
+      "wave": 0,
+      "area": "architecture",
+      "catalyst": "governance-enforcement",
+      "entrypoint": "agents/agents/ssot-auditor.ts"
+    },
+    {
+      "id": "auth_roles_checker",
+      "name": "Auth & Roles Checker",
+      "createdAt": "2026-02-17",
+      "commitHash": "0c5afdbb28e7a8e012ec69160d6fa7aaef8d778d",
+      "wave": 0,
+      "area": "auth",
+      "catalyst": "organic-growth",
+      "entrypoint": "agents/agents/auth-roles-checker.ts"
+    },
+    {
+      "id": "dep_auditor",
+      "name": "Dependency Auditor",
+      "createdAt": "2026-02-17",
+      "commitHash": "7c080cbe2d3f0f9132765ed3478ce6dff1221784",
+      "wave": 0,
+      "area": "architecture",
+      "catalyst": "tactical-need",
+      "entrypoint": "agents/agents/dep-auditor.ts"
+    },
+    {
+      "id": "dead_code_detector",
+      "name": "Dead Code Detector",
+      "createdAt": "2026-02-17",
+      "commitHash": "7c080cbe2d3f0f9132765ed3478ce6dff1221784",
+      "wave": 0,
+      "area": "qa",
+      "catalyst": "organic-growth",
+      "entrypoint": "agents/agents/dead-code-detector.ts"
+    },
+    {
+      "id": "orchestrator",
+      "name": "Agent Orchestrator",
+      "createdAt": "2026-02-17",
+      "commitHash": "b03569edb3d8e94338861b675e122a24e0dd0567",
+      "wave": 0,
+      "area": "orchestration",
+      "catalyst": "organic-growth",
+      "entrypoint": "agents/agents/orchestrator.ts"
+    },
+    {
+      "id": "ui_designer",
+      "name": "Stitch UI Designer",
+      "createdAt": "2026-02-18",
+      "commitHash": "d7eeaefb0bb513eae44a8bcac6eebe02acc33a27",
+      "wave": 1,
+      "area": "design",
+      "catalyst": "research-expansion",
+      "entrypoint": "agents/agents/ui-designer.ts"
+    },
+    {
+      "id": "contract_tester",
+      "name": "Contract Tester",
+      "createdAt": "2026-02-18",
+      "commitHash": "880ca31209e2a23bf03f0c6e966e084331875aff",
+      "wave": 1,
+      "area": "qa",
+      "catalyst": "qa-architecture",
+      "entrypoint": "agents/agents/contract-tester.ts"
+    },
+    {
+      "id": "integration_tester",
+      "name": "Integration Tester",
+      "createdAt": "2026-02-18",
+      "commitHash": "880ca31209e2a23bf03f0c6e966e084331875aff",
+      "wave": 1,
+      "area": "qa",
+      "catalyst": "qa-architecture",
+      "entrypoint": "agents/agents/integration-tester.ts"
+    },
+    {
+      "id": "regression_watcher",
+      "name": "Regression Watcher",
+      "createdAt": "2026-02-18",
+      "commitHash": "6d00fdbcd167411119f03a457b92dc09d92ecfc3",
+      "wave": 1,
+      "area": "qa",
+      "catalyst": "qa-architecture",
+      "entrypoint": "agents/agents/regression-watcher.ts"
+    },
+    {
+      "id": "ai_verifier",
+      "name": "AI Verifier",
+      "createdAt": "2026-02-18",
+      "commitHash": "534e4a65298f39730cea4630c53b0a44585e58ec",
+      "wave": 1,
+      "area": "qa",
+      "catalyst": "qa-architecture",
+      "entrypoint": "agents/agents/ai-verifier.ts"
+    },
+    {
+      "id": "ambient_disseminator",
+      "name": "Ambient Disseminator",
+      "createdAt": "2026-02-20",
+      "commitHash": "a84d709634cf589b4c52c742f9937f105612f852",
+      "wave": 2,
+      "area": "knowledge",
+      "catalyst": "organic-growth",
+      "entrypoint": "scripts/ambient_disseminator.ts"
+    },
+    {
+      "id": "domain_explorer",
+      "name": "Domain Explorer",
+      "createdAt": "2026-02-20",
+      "commitHash": "e0da8195e67aac9b7d8931541c5b782eae8792f9",
+      "wave": 2,
+      "area": "architecture",
+      "catalyst": "governance-enforcement",
+      "entrypoint": "agents/agents/domain_explorer.ts"
+    },
+    {
+      "id": "living_laboratory",
+      "name": "Living Laboratory",
+      "createdAt": "2026-02-20",
+      "commitHash": "58701685718daf7e08db36e05056fb3d80614372",
+      "wave": 2,
+      "area": "architecture",
+      "catalyst": "organic-growth",
+      "entrypoint": "agents/agents/living-laboratory.ts"
+    },
+    {
+      "id": "social_media_agent",
+      "name": "Social Media Agent",
+      "createdAt": "2026-02-22",
+      "commitHash": "53b38b53c4e407ea171458fc31a2518590974a1a",
+      "wave": 3,
+      "area": "knowledge",
+      "catalyst": "research-expansion",
+      "entrypoint": "agents/agents/social-media.ts"
+    },
+    {
+      "id": "security_scanner_v2",
+      "name": "Security Scanner v2",
+      "createdAt": "2026-02-23",
+      "commitHash": "010b89f4cfa73c86f02bb677ce9c8e82e9d88c86",
+      "wave": 3,
+      "area": "security",
+      "catalyst": "tactical-need",
+      "entrypoint": "agents/agents/security-scanner.ts"
+    },
+    {
+      "id": "showcase_writer",
+      "name": "Showcase Writer",
+      "createdAt": "2026-02-23",
+      "commitHash": "010b89f4cfa73c86f02bb677ce9c8e82e9d88c86",
+      "wave": 3,
+      "area": "qa",
+      "catalyst": "tactical-need",
+      "entrypoint": "agents/agents/showcase-writer.ts"
+    },
+    {
+      "id": "open_source_readiness",
+      "name": "Open Source Readiness",
+      "createdAt": "2026-02-23",
+      "commitHash": "010b89f4cfa73c86f02bb677ce9c8e82e9d88c86",
+      "wave": 3,
+      "area": "orchestration",
+      "catalyst": "tactical-need",
+      "entrypoint": "agents/agents/open-source-readiness.ts"
+    },
+    {
+      "id": "carteira_x_engine",
+      "name": "Carteira X Emotional Engine",
+      "createdAt": "2026-02-26",
+      "commitHash": "cba8f6b6d34a4705d5351c70b952a61177ce3455",
+      "wave": 3,
+      "area": "observability",
+      "catalyst": "organic-growth",
+      "entrypoint": "agents/agents/carteira-x-engine.ts"
+    },
+    {
+      "id": "ssot_fixer",
+      "name": "SSOT Fixer",
+      "createdAt": "2026-03-06",
+      "commitHash": "f535ce5e25e73b90c0d4208366a0132ee2ce315b",
+      "wave": 4,
+      "area": "architecture",
+      "catalyst": "governance-enforcement",
+      "entrypoint": "agents/agents/ssot-fixer.ts"
+    },
+    {
+      "id": "gem_hunter",
+      "name": "Gem Hunter",
+      "createdAt": "2026-03-06",
+      "commitHash": "e0f2d7a7071e677e02e250f6039391cd2694e18d",
+      "wave": 4,
+      "area": "knowledge",
+      "catalyst": "research-expansion",
+      "entrypoint": "agents/agents/gem-hunter.ts"
+    },
+    {
+      "id": "ghost_hunter",
+      "name": "??? (unnamed)",
+      "createdAt": "2026-03-06",
+      "commitHash": "fa7a67389cfbc49e49276ffbf16f823e84576c6e",
+      "wave": 4,
+      "area": "discovery",
+      "catalyst": "research-expansion",
+      "entrypoint": "docs/protocols/rho-calibration.md"
+    },
+    {
+      "id": "report_generator",
+      "name": "Report Generator",
+      "createdAt": "2026-03-08",
+      "commitHash": "3effbaa44b332a33ecdda1bfffeab9720c960a81",
+      "wave": 5,
+      "area": "knowledge",
+      "catalyst": "research-expansion",
+      "entrypoint": "agents/agents/report-generator.ts"
+    },
+    {
+      "id": "autoresearch",
+      "name": "AutoResearch",
+      "createdAt": "2026-03-09",
+      "commitHash": "9bf334facc3fd2ae65617bf75613f26b470834e8",
+      "wave": 5,
+      "area": "qa",
+      "catalyst": "research-expansion",
+      "entrypoint": "egos-autoresearch/autoresearch.ts"
+    },
+    {
+      "id": "e2e_smoke",
+      "name": "E2E Smoke Validator",
+      "createdAt": "unknown",
+      "commitHash": "unknown",
+      "wave": 5,
+      "area": "qa",
+      "catalyst": "qa-architecture",
+      "entrypoint": "agents/agents/e2e-smoke.ts"
+    },
+    {
+      "id": "dep_auditor",
+      "name": "Dependency Auditor",
+      "createdAt": "2026-03-13",
+      "commitHash": "d7be59ce06a1087861326c2454a92100f3940b2c",
+      "wave": 5,
+      "area": "architecture",
+      "catalyst": "tactical-need",
+      "entrypoint": "agents/agents/dep-auditor.ts"
+    },
+    {
+      "id": "archaeology_digger",
+      "name": "Archaeology Digger",
+      "createdAt": "unknown",
+      "commitHash": "unknown",
+      "wave": 5,
+      "area": "knowledge",
+      "catalyst": "governance-enforcement",
+      "entrypoint": "agents/agents/archaeology-digger.ts"
+    }
+  ],
+  "governance": [
+    {
+      "date": "2026-02-13",
+      "hash": "cd9ca0f08a094a163b689e556305882021613b85",
+      "message": "feat(governance): shared EGOS framework + idea categorization",
+      "files": [
+        ".guarani/IDENTITY.md",
+        ".guarani/PREFERENCES.md"
+      ],
+      "category": "governance",
+      "wave": 0,
+      "tags": []
+    },
+    {
+      "date": "2026-02-17",
+      "hash": "6a9fd5d9cee5730a13dd0bbce6fc40063683d729",
+      "message": "docs: master diagnostic + 4 automation workflows",
+      "files": [
+        ".windsurf/workflows/audit-external.md",
+        ".windsurf/workflows/consulting-diagnostic.md",
+        ".windsurf/workflows/launch-content.md",
+        ".windsurf/workflows/partnership-outreach.md"
+      ],
+      "category": "infra",
+      "wave": 1,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "d7eeaefb0bb513eae44a8bcac6eebe02acc33a27",
+      "message": "feat: ui-designer agent + 7 mockups + 4 skills + registry schema + dep fixes",
+      "files": [
+        ".windsurf/skills/agent-dev.md",
+        ".windsurf/skills/audit.md",
+        ".windsurf/skills/deploy.md",
+        ".windsurf/skills/security.md"
+      ],
+      "category": "agents",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-18",
+      "hash": "f6fbaf378d227c84ae6f5be0973dac05f02f1942",
+      "message": "docs: improve repo documentation and security hardening",
+      "files": [
+        ".windsurf/workflows/start.md"
+      ],
+      "category": "infra",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-20",
+      "hash": "e0da8195e67aac9b7d8931541c5b782eae8792f9",
+      "message": "feat(agents): implement agnostic domain-to-solution engine (Descript Revelation)",
+      "files": [
+        ".windsurf/workflows/domain.md"
+      ],
+      "category": "agents",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-20",
+      "hash": "a84d709634cf589b4c52c742f9937f105612f852",
+      "message": "feat(ambient): autonomous ambient disseminator loop & fix security scan",
+      "files": [
+        ".windsurf/skills/disseminate.md"
+      ],
+      "category": "infra",
+      "wave": 2,
+      "tags": []
+    },
+    {
+      "date": "2026-02-23",
+      "hash": "3b476449578e58ef9fc421b55ebbc2359ba48153",
+      "message": "feat: dynamic agent counts, Mycelium dedup, AuditHub UX, /scan workflow, TASKS v9",
+      "files": [
+        ".windsurf/workflows/scan.md"
+      ],
+      "category": "agents",
+      "wave": 3,
+      "tags": []
+    },
+    {
+      "date": "2026-02-25",
+      "hash": "42eb5cafa9a1c24e841d39d8c15166040c055551",
+      "message": "feat(guarani): deep archaeology scan — privacy scanner, code health monitor, engineering standards, /start v5.0, refinery triggers in .windsurfrules",
+      "files": [
+        ".guarani/ARCHAEOLOGY_INVENTORY.md",
+        ".guarani/ENGINEERING_STANDARDS_2026.md",
+        ".guarani/tools/code-health-monitor.ts",
+        ".guarani/tools/privacy-scanner.ts"
+      ],
+      "category": "governance",
+      "wave": 3,
+      "tags": [
+        "prompt-engineering",
+        "archaeology"
+      ]
+    },
+    {
+      "date": "2026-02-25",
+      "hash": "4b932730a58ff047ec67f604451bd3e3ffd3f7f8",
+      "message": "feat(guarani): recover EGOSv5 gems — refinery, preprocessor, tsun-cha, MCP guide, design standards",
+      "files": [
+        ".guarani/DESIGN_STANDARDS.md",
+        ".guarani/MCP_ORCHESTRATION_GUIDE.md",
+        ".guarani/nexus/debate_mode.md",
+        ".guarani/philosophy/TSUN_CHA_PROTOCOL.md",
+        ".guarani/preprocessor.md",
+        ".guarani/refinery/README.md",
+        ".guarani/refinery/classifier.md",
+        ".guarani/refinery/compiler.md",
+        ".guarani/refinery/interrogators/bug.md",
+        ".guarani/refinery/interrogators/feature.md",
+        ".guarani/refinery/interrogators/knowledge.md",
+        ".guarani/refinery/interrogators/refactor.md",
+        ".guarani/refinery/vocabulary_learner.md",
+        ".guarani/standards/MCP_TOOL_AUDIT_2025_12.md",
+        ".guarani/standards/MCP_TOOL_QUALITY_FRAMEWORK.md"
+      ],
+      "category": "governance",
+      "wave": 3,
+      "tags": [
+        "prompt-engineering",
+        "consciousness",
+        "archaeology"
+      ]
+    },
+    {
+      "date": "2026-02-25",
+      "hash": "df5cbd06b177df96f120721fadcac4f45524d003",
+      "message": "feat(orchestration): create Agent Cognitive Protocol - PIPELINE, QUESTION_BANK, GATES, DOMAIN_RULES",
+      "files": [
+        ".guarani/orchestration/DOMAIN_RULES.md",
+        ".guarani/orchestration/GATES.md",
+        ".guarani/orchestration/PIPELINE.md",
+        ".guarani/orchestration/QUESTION_BANK.md"
+      ],
+      "category": "governance",
+      "wave": 3,
+      "tags": [
+        "prompt-engineering"
+      ]
+    },
+    {
+      "date": "2026-02-25",
+      "hash": "aa4f4e4df500cdd07c2fecd662c52f9a3afb6a54",
+      "message": "feat: Resolvero product plan + Codex CLI workflow + AGENTS.md update",
+      "files": [
+        ".windsurf/workflows/codex-review.md"
+      ],
+      "category": "agents",
+      "wave": 3,
+      "tags": [
+        "llm-shift"
+      ]
+    },
+    {
+      "date": "2026-03-02",
+      "hash": "4b5cd65d9d7800bfc215d8b383ab2bd5121f852f",
+      "message": "feat(rho): filter bot commits from human contributor metrics",
+      "files": [
+        ".windsurf/workflows/postar.md"
+      ],
+      "category": "apps",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-05",
+      "hash": "2d6a921606a1c88bd740e30716044cae6d821ac2",
+      "message": "feat: meta prompt v2.0 ecosystem audit + /audit workflow for all repos",
+      "files": [
+        ".windsurf/workflows/audit.md"
+      ],
+      "category": "infra",
+      "wave": 4,
+      "tags": [
+        "prompt-engineering"
+      ]
+    },
+    {
+      "date": "2026-03-05",
+      "hash": "ae5c5029e6f6bcc1fc4a640f6e8aeccadfa91d87",
+      "message": "feat: CV Engineering Method + EGOS Self CLI scaffold + cv-builder workflow",
+      "files": [
+        ".windsurf/workflows/cv-builder.md"
+      ],
+      "category": "infra",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-06",
+      "hash": "8c2feef240fe120b2d1b0c8e6b0708aa8ae0efcc",
+      "message": "docs: DESIGN_IDENTITY.md — unified visual system (colors, fonts, glassmorphism, spacing)",
+      "files": [
+        ".guarani/DESIGN_IDENTITY.md"
+      ],
+      "category": "governance",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-06",
+      "hash": "b79227414ac6270671006192b78fb4c2da44df66",
+      "message": "feat: centralized meta-prompt system + chatbot markdown rendering",
+      "files": [
+        ".guarani/prompts/PROMPT_SYSTEM.md",
+        ".guarani/prompts/meta/brainet-collective.md",
+        ".guarani/prompts/meta/universal-strategist.md",
+        ".guarani/prompts/triggers.json"
+      ],
+      "category": "governance",
+      "wave": 4,
+      "tags": [
+        "prompt-engineering"
+      ]
+    },
+    {
+      "date": "2026-03-06",
+      "hash": "a854eb1556bff4c601788b8423e618ba920c3d02",
+      "message": "chore: SEPARATION_POLICY + MASTER_PLAN for ecosystem hardening",
+      "files": [
+        ".guarani/SEPARATION_POLICY.md"
+      ],
+      "category": "governance",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-06",
+      "hash": "7a7535a6ddfb6d8be51cbee1119d58d05bf472b3",
+      "message": "docs: APINow collaboration analysis + skill files integration",
+      "files": [
+        ".windsurf/skills/apinow/SKILL.md",
+        ".windsurf/skills/apinow/egosapicatalog-api-egos-catalog.md"
+      ],
+      "category": "infra",
+      "wave": 4,
+      "tags": []
+    },
+    {
+      "date": "2026-03-06",
+      "hash": "cd74a34d43b557a185816ddc4dc48d2cecbb994f",
+      "message": "feat: governance sync — /end v5.0, /start v5.2 (meta-prompts), /disseminate, /pre, sync script",
+      "files": [
+        ".windsurf/workflows/disseminate.md",
+        ".windsurf/workflows/end.md",
+        ".windsurf/workflows/pre.md"
+      ],
+      "category": "governance",
+      "wave": 4,
+      "tags": [
+        "prompt-engineering"
+      ]
+    },
+    {
+      "date": "2026-03-07",
+      "hash": "293e73a6c2396c998f4510aa5b3ae83a460b7a91",
+      "message": "security: SEC-001 phone bridge paused — kill KDE Connect, remove device-bridge track, create security policy",
+      "files": [
+        ".guarani/security/SEC-001_PHONE_BRIDGE.md"
+      ],
+      "category": "governance",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-07",
+      "hash": "d9c3469419a2865542ac293482554561b64f47c0",
+      "message": "feat: mycelium orchestrator + workflow /mycelium + GitHub OAuth fix + gem-hunter tracks + honest stats",
+      "files": [
+        ".guarani/prompts/meta/mycelium-orchestrator.md"
+      ],
+      "category": "governance",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-07",
+      "hash": "d9c3469419a2865542ac293482554561b64f47c0",
+      "message": "feat: mycelium orchestrator + workflow /mycelium + GitHub OAuth fix + gem-hunter tracks + honest stats",
+      "files": [
+        ".windsurf/workflows/mycelium.md"
+      ],
+      "category": "mycelium",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-08",
+      "hash": "4f6842f8f1451386fd1be8192bbc94b11e8bb44d",
+      "message": "feat(core): create canonical CORE_WHITELIST.json for reduced-context kernel (CORE-001)",
+      "files": [
+        ".guarani/CORE_WHITELIST.json"
+      ],
+      "category": "governance",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-08",
+      "hash": "39ec2d26c715a53eaf019cd96f95812d89e372fb",
+      "message": "feat: security & decentralization plan + Chain Abstraction Layer (CAL)",
+      "files": [
+        ".guarani/security/SEC-002_VPS_HARDENING.md"
+      ],
+      "category": "governance",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-08",
+      "hash": "d2265319119012c5d0ca8bbf62b3da5b7a0c0d0d",
+      "message": "feat(skills+docs): add Alibaba video skill, agent creation skill, quota guide, orchestration map",
+      "files": [
+        ".windsurf/skills/alibaba-video/SKILL.md",
+        ".windsurf/skills/egos-agent/SKILL.md"
+      ],
+      "category": "agents",
+      "wave": 5,
+      "tags": [
+        "llm-shift"
+      ]
+    },
+    {
+      "date": "2026-03-09",
+      "hash": "bb3b9c3acf410158320f847e535cd3104cdeb9cd",
+      "message": "chore: sync workflows and skills (Windsurf/Antigravity)",
+      "files": [
+        ".windsurf/skills/stitch-design",
+        ".windsurf/workflows/prompt.md",
+        ".windsurf/workflows/regras.md",
+        ".windsurf/workflows/research.md"
+      ],
+      "category": "infra",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-09",
+      "hash": "a932a7ff9284ff93333468f8c56f39abe6565b28",
+      "message": "chore: add untracked files from sessions 4-6 (workflows, components, research docs, handoffs, scripts)",
+      "files": [
+        ".windsurf/workflows/disse.md",
+        ".windsurf/workflows/relatorio.md"
+      ],
+      "category": "research",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-11",
+      "hash": "f089d5c8d8c13a42757748f5ebb49b04a9ef7878",
+      "message": "feat: integrate VRCP Coherence Model, define 12 Use Cases, and upgrade Gem Hunter with Zenodo AI analysis",
+      "files": [
+        ".windsurf/workflows/chatbot-vps-hardening.md"
+      ],
+      "category": "infra",
+      "wave": 5,
+      "tags": []
+    },
+    {
+      "date": "2026-03-12",
+      "hash": "00c45651511f5ddcab46e0b2f4c05e9f1293b570",
+      "message": "docs: orchestration deep audit — ACTIVATION_PAYLOAD, SYSTEM_INDEX, Windsurf limitations, stale fixes",
+      "files": [
+        ".guarani/ACTIVATION_PAYLOAD.md",
+        ".guarani/SYSTEM_INDEX.md"
+      ],
+      "category": "governance",
+      "wave": 5,
+      "tags": []
+    }
+  ],
+  "handoffs": [
+    {
+      "date": "2026-02-19",
+      "file": "handoff_apex_secure_2026-02-19_2342.md",
+      "summary": "🔄 HANDOFF — APEX SECURE & Advanced Red Team"
+    },
+    {
+      "date": "2026-02-19",
+      "file": "handoff_apex_secure_completed_2026-02-19_2344.md",
+      "summary": "🔄 HANDOFF — APEX SECURE: THREATS NEUTRALIZED"
+    },
+    {
+      "date": "2026-02-19",
+      "file": "handoff_2026-02-19.md",
+      "summary": "Session Handoff: 2026-02-19"
+    },
+    {
+      "date": "2026-02-24",
+      "file": "handoff_2026-02-24.md",
+      "summary": "Handoff: 2026-02-24 (Intelink Public Data Pipeline & CEAP Integration)"
+    },
+    {
+      "date": "2026-02-24",
+      "file": "handoff_2026-02-24_whatsapp_first.md",
+      "summary": "🔄 HANDOFF — Session: Carteira Livre WhatsApp-First Blueprint & MCP Governance"
+    },
+    {
+      "date": "2026-02-24",
+      "file": "handoff_diagnostic_2026-02-24_windsurf.md",
+      "summary": "🔄 HANDOFF — Full System Diagnostic (Antigravity → Windsurf)"
+    },
+    {
+      "date": "2026-02-24",
+      "file": "handoff_social_detectors_2026-02-24.md",
+      "summary": "🔄 HANDOFF — Massive Feature Sprint + Infrastructure Analysis"
+    },
+    {
+      "date": "2026-02-25",
+      "file": "handoff_2026-02-25.md",
+      "summary": "Handoff: 25 de Fevereiro de 2026"
+    },
+    {
+      "date": "2026-03-07",
+      "file": "handoff_2026-03-07.md",
+      "summary": "Handoff — 2026-03-07"
+    },
+    {
+      "date": "2026-03-07",
+      "file": "handoff_2026-03-07_session2.md",
+      "summary": "Handoff — 2026-03-07 Session 2"
+    },
+    {
+      "date": "2026-03-08",
+      "file": "handoff_2026-03-08_session4.md",
+      "summary": "Handoff — 2026-03-08 Session 4"
+    },
+    {
+      "date": "2026-03-08",
+      "file": "SYMPHONY_EGOS_ADAPTATION_HANDOFF_2026-03-08.md",
+      "summary": "Handoff — Symphony-EGOS Adaptation"
+    },
+    {
+      "date": "2026-03-08",
+      "file": "handoff_2026-03-08_session5.md",
+      "summary": "Handoff — 2026-03-08 Session 5"
+    },
+    {
+      "date": "2026-03-08",
+      "file": "ALIBABA_QWEN_ORCHESTRATION_HANDOFF_2026-03-08.md",
+      "summary": "Handoff — Alibaba/Qwen Orchestration Integration"
+    },
+    {
+      "date": "2026-03-08",
+      "file": "handoff_2026-03-08_session3.md",
+      "summary": "Handoff — 2026-03-08 Session 3"
+    },
+    {
+      "date": "2026-03-08",
+      "file": "handoff_2026-03-08.md",
+      "summary": "Handoff — 2026-03-08"
+    },
+    {
+      "date": "2026-03-08",
+      "file": "handoff_2026-03-08_session2.md",
+      "summary": "Handoff — 2026-03-08 (Session 2)"
+    },
+    {
+      "date": "2026-03-09",
+      "file": "handoff_2026-03-09_session6.md",
+      "summary": "Handoff — 2026-03-09 Session 6"
+    },
+    {
+      "date": "2026-03-09",
+      "file": "handoff_2026-03-09_session8.md",
+      "summary": "Session 8 Handoff — 2026-03-09"
+    },
+    {
+      "date": "2026-03-09",
+      "file": "handoff_2026-03-09_session7.md",
+      "summary": "Handoff — Session 7 (2026-03-09)"
+    },
+    {
+      "date": "2026-03-09",
+      "file": "handoff_2026-03-09.md",
+      "summary": "Handoff — 2026-03-09"
+    },
+    {
+      "date": "2026-03-10",
+      "file": "handoff_2026-03-10_session9.md",
+      "summary": "Session Handoff: 2026-03-10 (Session 9)"
+    },
+    {
+      "date": "2026-03-11",
+      "file": "handoff_2026-03-11-vrcp.md",
+      "summary": "Handoff: VRCP Integration & Gem Hunter Evolution"
+    },
+    {
+      "date": "2026-03-11",
+      "file": "handoff_2026-03-11_session10.md",
+      "summary": "Handoff Report: IPED Contribution, Antigravity Handoff & Dissemination"
+    },
+    {
+      "date": "2026-03-12",
+      "file": "handoff_2026-03-12.md",
+      "summary": "Handoff Report: Agent Hub Benchmark, Triage, and White-Box Roadmap"
+    },
+    {
+      "date": "2026-03-13",
+      "file": "handoff_2026-03-13.md",
+      "summary": "Handoff: 2026-03-13 (Session 16)"
+    },
+    {
+      "date": "unknown",
+      "file": "handoff_session44_multi_tool_hub.md",
+      "summary": "HANDOFF — Session 44: Multi-Tool Hub + MCP Redesign + Roadmap"
+    },
+    {
+      "date": "unknown",
+      "file": "handoff_session_41.md",
+      "summary": "🔄 HANDOFF — Session: Local Expansion & Governance Audit"
+    },
+    {
+      "date": "unknown",
+      "file": "handoff_nexus_market_migration.md",
+      "summary": "🔄 HANDOFF — Nexus Market Migration & Automation"
+    },
+    {
+      "date": "unknown",
+      "file": "handoff_session_ui_designer_skills_perf.md",
+      "summary": "Handoff: UI Designer Agent + Skills + Performance Session"
+    },
+    {
+      "date": "unknown",
+      "file": "handoff_intelink_public_data.md",
+      "summary": "🔄 HANDOFF — Intelink Public Data Evolution (Twitter Prototype Reverse Engineering)"
+    },
+    {
+      "date": "unknown",
+      "file": "handoff_mission_control_config.md",
+      "summary": "🔄 HANDOFF — Configure Supabase & Intelligence"
+    },
+    {
+      "date": "unknown",
+      "file": "handoff_session_42.md",
+      "summary": "🔄 HANDOFF — Session: Deep Architectural Audits"
+    },
+    {
+      "date": "unknown",
+      "file": "handoff_session_15_agents_regression_watcher.md",
+      "summary": "HANDOFF — Session: 15 Agents + Regression Watcher + 100% AI Verifier"
+    },
+    {
+      "date": "unknown",
+      "file": "handoff_session14_infra_cleanup.md",
+      "summary": "🔄 HANDOFF — Session 14: Infra Cleanup + Chat History + Railway 24/7"
+    },
+    {
+      "date": "unknown",
+      "file": "handoff_spiral_genesis.md",
+      "summary": "🔄 HANDOFF — Spiral Genesis & Portable Lab"
+    },
+    {
+      "date": "unknown",
+      "file": "handoff_activation.md",
+      "summary": "🔄 HANDOFF — SYSTEM ACTIVATION & VALUATION"
+    },
+    {
+      "date": "unknown",
+      "file": "handoff_session_security_branding_deploy.md",
+      "summary": "HANDOFF — Session: Security Hardening + Branding + Deploy Discipline"
+    },
+    {
+      "date": "unknown",
+      "file": "handoff_session_43.md",
+      "summary": "🔄 HANDOFF — Session: Deep Lancelot Audit"
+    },
+    {
+      "date": "unknown",
+      "file": "handoff_session_testing_architecture_14_agents.md",
+      "summary": "HANDOFF — Session: Testing Architecture + 14 Agents"
+    },
+    {
+      "date": "unknown",
+      "file": "handoff_session39_discord_railway.md",
+      "summary": "🔄 HANDOFF — Session 39: Discord Bot PT-BR + Railway Deploy"
+    },
+    {
+      "date": "unknown",
+      "file": "handoff_session_docs_security.md",
+      "summary": "Handoff: Documentation & Security Hardening (2026-02-18)"
+    }
+  ],
+  "tagCounts": {
+    "prompt-engineering": 19,
+    "llm-shift": 7,
+    "consciousness": 5,
+    "archaeology": 2,
+    "breakpoint": 1
+  }
+}

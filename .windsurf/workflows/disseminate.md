@@ -60,6 +60,14 @@ Use `/postar` workflow for unified posting:
 
 If new data sources, tools, or capabilities were added, update relevant system prompts.
 
+## 7. Update Capability Registry (if applicable)
+
+If a new capability was created, improved, or adopted:
+
+- Update `egos/docs/CAPABILITY_REGISTRY.md` — add/modify capability entry with SSOT ref, quality rating, adoption status
+- If chatbot-related, verify compliance with `egos/docs/modules/CHATBOT_SSOT.md`
+- If a module was ported to `packages/shared/`, update the SSOT column in the registry
+
 ---
 
 ## Checklist
@@ -69,4 +77,5 @@ If new data sources, tools, or capabilities were added, update relevant system p
 - [ ] Codex usage recorded (or explicit reason why not used)
 - [ ] TASKS.md updated
 - [ ] Documentation updated (HARVEST.md, .guarani/)
+- [ ] Capability Registry updated (if new capability created/adopted)
 - [ ] Social channels posted (if milestone)

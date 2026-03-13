@@ -22,11 +22,10 @@ that makes agents think like governed systems.
 ```bash
 git clone https://github.com/enioxt/egos.git
 cd egos
-bun install
-cp .env.example .env  # fill in your API keys
-bun agent:list        # see registered agents
-bun agent:lint        # validate registry
-bun typecheck         # verify TypeScript
+bash setup.sh
+bun typecheck
+bun governance:check
+bun agent:list
 ```
 
 ## Architecture

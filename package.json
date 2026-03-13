@@ -14,6 +14,8 @@
     "packages/*"
   ],
   "scripts": {
+    "setup": "sh setup.sh",
+    "egos:init": "sh scripts/egos-init.sh",
     "agent:list": "bun agents/cli.ts list",
     "agent:run": "bun agents/cli.ts run",
     "agent:lint": "bun agents/cli.ts lint-registry",
@@ -23,7 +25,9 @@
     "precommit": "bash .husky/pre-commit",
     "governance:sync": "sh scripts/governance-sync.sh --dry",
     "governance:sync:exec": "sh scripts/governance-sync.sh --exec",
-    "governance:check": "sh scripts/governance-sync.sh --check"
+    "governance:check": "sh scripts/governance-sync.sh --check",
+    "ssot:link": "sh scripts/link-ssot-files.sh --dry",
+    "ssot:link:exec": "sh scripts/link-ssot-files.sh --exec"
   },
   "devDependencies": {
     "@types/bun": "^1.2.0",

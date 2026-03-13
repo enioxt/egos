@@ -16,6 +16,32 @@
       "risk_level": "T0",
       "status": "active",
       "migrated_from": "egos-lab"
+    },
+    {
+      "id": "archaeology_digger",
+      "name": "Archaeology Digger",
+      "description": "Recursively traverses git history, agent registries, governance files, and handoff documents to reconstruct the complete evolution lineage of the EGOS ecosystem",
+      "area": "knowledge",
+      "entrypoint": "agents/agents/archaeology-digger.ts",
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual"],
+      "tools_allowed": [],
+      "risk_level": "T0",
+      "status": "active",
+      "migrated_from": "egos-native"
+    },
+    {
+      "id": "chatbot_compliance_checker",
+      "name": "Chatbot Compliance Checker",
+      "description": "Scans a target repository for the required modules defined in CHATBOT_SSOT and reports missing chatbot capabilities",
+      "area": "knowledge",
+      "entrypoint": "agents/agents/chatbot-compliance-checker.ts",
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual"],
+      "tools_allowed": [],
+      "risk_level": "T0",
+      "status": "active",
+      "migrated_from": "egos-native"
     }
   ]
 }

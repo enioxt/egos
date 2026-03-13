@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EGOS — Tree of Life</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0a0a0f;color:#e0e0e0;overflow-x:hidden}
+.header{text-align:center;padding:2rem;background:linear-gradient(135deg,#0d1117 0%,#161b22 100%);border-bottom:1px solid #30363d}
+.header h1{font-size:2rem;background:linear-gradient(90deg,#58a6ff,#bc8cff,#f778ba);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header p{color:#8b949e;margin-top:.5rem;font-size:.9rem}
+.legend{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;padding:1rem;background:#161b22;border-bottom:1px solid #21262d}
+.legend-item{display:flex;align-items:center;gap:.3rem;font-size:.75rem;cursor:pointer;opacity:1;transition:opacity .2s}
+.legend-item.dimmed{opacity:.3}
+.dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.cat-governance{background:#f0883e}
+.cat-agents{background:#58a6ff}
+.cat-mycelium{background:#bc8cff}
+.cat-research{background:#f778ba}
+.cat-infra{background:#3fb950}
+.cat-apps{background:#d29922}
+.cat-philosophy{background:#db61a2}
+.cat-breakpoint{background:#f85149;border:2px solid #ff7b72}
+.timeline{position:relative;max-width:1100px;margin:2rem auto;padding:0 1rem}
+.timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(180deg,#30363d 0%,#58a6ff 20%,#bc8cff 50%,#f778ba 80%,#3fb950 100%);transform:translateX(-50%)}
+.era{margin:2rem 0}
+.era-label{text-align:center;position:relative;z-index:2}
+.era-label span{background:#0d1117;border:1px solid #58a6ff;color:#58a6ff;padding:.3rem 1rem;border-radius:20px;font-size:.8rem;font-weight:600}
+.node{position:relative;width:48%;padding:1rem;background:#161b22;border:1px solid #30363d;border-radius:8px;cursor:pointer;transition:all .2s;margin:.5rem 0}
+.node:hover{border-color:#58a6ff;transform:translateY(-2px);box-shadow:0 4px 12px rgba(88,166,255,.15)}
+.node.left{margin-right:auto}
+.node.right{margin-left:auto}
+.node-date{font-size:.7rem;color:#8b949e;margin-bottom:.3rem}
+.node-title{font-size:.9rem;font-weight:600;display:flex;align-items:center;gap:.4rem}
+.node-desc{font-size:.78rem;color:#8b949e;margin-top:.3rem;display:none}
+.node.expanded .node-desc{display:block}
+.node-tags{display:flex;gap:.3rem;flex-wrap:wrap;margin-top:.4rem}
+.tag{font-size:.65rem;padding:1px 6px;border-radius:10px;border:1px solid #30363d;color:#8b949e}
+.tag-llm{border-color:#f0883e;color:#f0883e}
+.tag-consciousness{border-color:#bc8cff;color:#bc8cff}
+.tag-external{border-color:#3fb950;color:#3fb950}
+.tag-prompt{border-color:#f778ba;color:#f778ba}
+.tag-breakpoint{border-color:#f85149;color:#f85149}
+.detail-panel{position:fixed;top:0;right:-420px;width:400px;height:100vh;background:#161b22;border-left:1px solid #30363d;padding:1.5rem;overflow-y:auto;transition:right .3s;z-index:100}
+.detail-panel.open{right:0}
+.detail-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:#8b949e;font-size:1.5rem;cursor:pointer}
+.detail-panel h2{font-size:1.1rem;margin-bottom:1rem;color:#58a6ff}
+.detail-panel h3{font-size:.9rem;margin:1rem 0 .5rem;color:#bc8cff}
+.detail-panel p,.detail-panel li{font-size:.82rem;color:#c9d1d9;line-height:1.5}
+.detail-panel ul{padding-left:1.2rem}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;padding:1rem;max-width:1100px;margin:0 auto}
+.stat-card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:1rem;text-align:center}
+.stat-card .num{font-size:1.8rem;font-weight:700;background:linear-gradient(90deg,#58a6ff,#bc8cff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-card .lbl{font-size:.7rem;color:#8b949e;margin-top:.2rem}
+.growth-chart{max-width:1100px;margin:1rem auto;padding:1rem;background:#161b22;border:1px solid #30363d;border-radius:8px}
+.growth-bar{display:flex;align-items:center;gap:.5rem;margin:.3rem 0}
+.growth-bar .date{font-size:.7rem;color:#8b949e;width:80px;text-align:right}
+.growth-bar .bar{height:20px;background:linear-gradient(90deg,#58a6ff,#bc8cff);border-radius:4px;transition:width .5s;position:relative}
+.growth-bar .bar span{position:absolute;right:6px;top:2px;font-size:.7rem;color:#fff;font-weight:600}
+@media(max-width:768px){.timeline::before{left:20px}.node{width:85%;margin-left:40px!important}.stats{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>EGOS — Tree of Life</h1>
+<p>Archaeological Evolution Map — From Scripts to Governed AI Operating System</p>
+<p style="font-size:.75rem;color:#484f58;margin-top:.3rem">Generated 2026-03-13 from git history, agent registry, and governance files</p>
+</div>
+
+<div class="stats">
+<div class="stat-card"><div class="num">29</div><div class="lbl">Registered Agents</div></div>
+<div class="stat-card"><div class="num">27</div><div class="lbl">SSOT Files Synced</div></div>
+<div class="stat-card"><div class="num">5</div><div class="lbl">Active Repos</div></div>
+<div class="stat-card"><div class="num">30</div><div class="lbl">Days of Evolution</div></div>
+</div>
+
+<div class="growth-chart">
+<h3 style="font-size:.85rem;color:#8b949e;margin-bottom:.5rem">Agent Growth Curve</h3>
+<div class="growth-bar"><span class="date">Feb 17</span><div class="bar" style="width:31%"><span>9</span></div></div>
+<div class="growth-bar"><span class="date">Feb 18</span><div class="bar" style="width:52%"><span>15</span></div></div>
+<div class="growth-bar"><span class="date">Feb 20</span><div class="bar" style="width:59%"><span>17</span></div></div>
+<div class="growth-bar"><span class="date">Feb 23</span><div class="bar" style="width:69%"><span>20</span></div></div>
+<div class="growth-bar"><span class="date">Feb 26</span><div class="bar" style="width:76%"><span>22</span></div></div>
+<div class="growth-bar"><span class="date">Mar 06</span><div class="bar" style="width:90%"><span>26</span></div></div>
+<div class="growth-bar"><span class="date">Mar 07</span><div class="bar" style="width:93%"><span>27</span></div></div>
+<div class="growth-bar"><span class="date">Mar 08</span><div class="bar" style="width:97%"><span>28</span></div></div>
+<div class="growth-bar"><span class="date">Mar 09</span><div class="bar" style="width:100%"><span>29</span></div></div>
+</div>
+
+<div class="legend" id="legend"></div>
+
+<div class="timeline" id="timeline"></div>
+
+<div class="detail-panel" id="detailPanel">
+<button class="detail-close" onclick="closeDetail()">&times;</button>
+<div id="detailContent"></div>
+</div>
+
+<script>
+const CATEGORIES = {
+  governance: { label: 'Governance', color: '#f0883e', icon: '🏛️' },
+  agents: { label: 'Agents', color: '#58a6ff', icon: '🤖' },
+  mycelium: { label: 'Mycelium', color: '#bc8cff', icon: '🍄' },
+  research: { label: 'Research', color: '#f778ba', icon: '🔬' },
+  infra: { label: 'Infrastructure', color: '#3fb950', icon: '🏗️' },
+  apps: { label: 'Apps', color: '#d29922', icon: '📱' },
+  philosophy: { label: 'Philosophy', color: '#db61a2', icon: '🧠' },
+  breakpoint: { label: 'Breakpoint', color: '#f85149', icon: '⚡' }
+};
+
+const EVENTS = [
+  // ERA 1: Survival Coding (pre-governance)
+  { era: 'Phase 1 — Survival Coding', date: '2026-02-13', cat: 'governance', title: 'Repo governance base created',
+    desc: 'AGENTS.md, TASKS.md, .windsurfrules, IDENTITY.md, PREFERENCES.md — the first governance DNA.',
+    detail: '<h3>What happened</h3><p>The very first commit established governance <em>before</em> any agent code. This is the foundational insight: rules came first, code came second.</p><h3>Catalyst</h3><p>Consciousness elevation: realizing that without SSOT, every new tool increases confusion instead of capability.</p><h3>Files created</h3><ul><li>AGENTS.md</li><li>TASKS.md</li><li>.windsurfrules</li><li>.guarani/IDENTITY.md</li><li>.guarani/PREFERENCES.md</li></ul>', tags: ['consciousness'] },
+
+  { era: 'Phase 1 — Survival Coding', date: '2026-02-16', cat: 'infra', title: 'Script-born utility phase',
+    desc: 'security_scan.ts, scan_ideas.ts, rho.ts, review.ts, disseminate.ts — raw scripts solving immediate pain.',
+    detail: '<h3>What happened</h3><p>Small utility scripts written to solve specific problems: scanning for secrets, extracting ideas from chat logs, calculating project health, reviewing code, disseminating knowledge.</p><h3>Catalyst</h3><p>Tactical need — these scripts had no governance, no registry, no runtime. They just ran.</p><h3>Pattern</h3><p>This is the "primordial soup" — the scripts that would later evolve into governed agents.</p>', tags: [] },
+
+  // ERA 2: Agent Kernel
+  { era: 'Phase 2 — Agent Kernel Crystallizes', date: '2026-02-17', cat: 'agents', title: 'Agent runtime + first 9 agents',
+    desc: 'runner.ts, agents.json, ssot_auditor, auth_roles_checker, dep_auditor, dead_code_detector, code_reviewer, orchestrator — the kernel moment.',
+    detail: '<h3>What happened</h3><p>In a single day, the agent runtime (runner.ts), the registry (agents.json), and 7 agents were created. The orchestrator tied them all together.</p><h3>Catalyst</h3><p>External reference: studying agentic frameworks (AutoGen, CrewAI, LangGraph) and realizing EGOS needed its own lightweight, zero-dependency runtime.</p><h3>Breakpoint</h3><p>This is the single most important day in EGOS history — the transition from "scripts" to "governed agents".</p><h3>LLM</h3><p>Gemini Flash via OpenRouter was the primary model at this point.</p>', tags: ['breakpoint', 'external'] },
+
+  { era: 'Phase 2 — Agent Kernel Crystallizes', date: '2026-02-17', cat: 'breakpoint', title: '⚡ BREAKPOINT: Scripts → Governed Agents',
+    desc: 'The transition from ad-hoc scripts to a registry-based, runtime-governed agent system.',
+    detail: '<h3>What changed</h3><p>Before: individual .ts scripts run manually.<br>After: agents with IDs, registries, dry-run/exec modes, correlation IDs, JSONL logging, event bus.</p><h3>Why it matters</h3><p>This is the moment EGOS stopped being a collection of tools and started being a <em>system</em>.</p>', tags: ['breakpoint', 'consciousness'] },
+
+  { era: 'Phase 2 — Agent Kernel Crystallizes', date: '2026-02-18', cat: 'agents', title: 'QA + Design expansion → 15 agents',
+    desc: 'ui_designer, contract_tester, integration_tester, regression_watcher, ai_verifier — 5-layer testing architecture.',
+    detail: '<h3>What happened</h3><p>A complete 5-layer testing architecture was designed and implemented in a single session:</p><ul><li>L1: Contract testing (API shapes)</li><li>L2: Integration testing (Supabase RLS)</li><li>L3: Regression watching (diff comparison)</li><li>L4: AI verification (adversarial + factual)</li><li>L5: UI design (Gemini mockups)</li></ul><h3>Catalyst</h3><p>Prompt engineering: using structured interrogator prompts from the refinery system to decompose QA into testable layers.</p>', tags: ['prompt'] },
+
+  // ERA 3: Self-Observation
+  { era: 'Phase 3 — Reflexive Architecture', date: '2026-02-20', cat: 'agents', title: 'Event bus + self-observing agents',
+    desc: 'event-bus.ts, ambient_disseminator, domain_explorer, living_laboratory — the system starts watching itself.',
+    detail: '<h3>What happened</h3><p>The MyceliumBus (event-bus.ts) was created, enabling agents to communicate. Three new agents added self-observation capabilities:</p><ul><li><strong>ambient_disseminator</strong>: spreads knowledge automatically</li><li><strong>domain_explorer</strong>: maps unknown domains into primitives</li><li><strong>living_laboratory</strong>: runs experiments on the codebase itself</li></ul><h3>Catalyst</h3><p>Consciousness elevation: the realization that a system that cannot observe itself cannot improve itself.</p>', tags: ['consciousness', 'breakpoint'] },
+
+  { era: 'Phase 3 — Reflexive Architecture', date: '2026-02-20', cat: 'mycelium', title: 'MyceliumBus — local event bus',
+    desc: 'First implementation of the Mycelium concept: in-memory event dispatch with JSONL audit trail.',
+    detail: '<h3>What happened</h3><p>The event bus was created as a lightweight, zero-dependency, in-memory pub/sub system. It uses typed topics, wildcard matching, and writes a JSONL audit trail.</p><h3>Design decision</h3><p>Deliberately kept simple: no Redis, no external deps, no distributed claims. Just honest local event dispatch.</p>', tags: [] },
+
+  // ERA 4: Operational Hardening
+  { era: 'Phase 4 — Operational Hardening', date: '2026-02-22', cat: 'apps', title: 'Social media agent + bots',
+    desc: 'Telegram bot, X.com client, social_media_agent — the system starts speaking externally.',
+    detail: '<h3>What happened</h3><p>The social media agent was implemented with X.com and Telegram clients. This was the first time EGOS produced externally-visible output.</p><h3>Rule created</h3><p>Human-in-the-loop rule: all social posts require user review before publishing.</p>', tags: [] },
+
+  { era: 'Phase 4 — Operational Hardening', date: '2026-02-23', cat: 'agents', title: 'Open Source Readiness → 20 agents',
+    desc: 'security_scanner_v2, showcase_writer, open_source_readiness — preparing the system for public contribution.',
+    detail: '<h3>What happened</h3><p>Three new agents focused on making EGOS ready for open-source collaboration:</p><ul><li><strong>security_scanner_v2</strong>: enhanced gitleaks + pattern detection</li><li><strong>showcase_writer</strong>: generates case studies from audit results</li><li><strong>open_source_readiness</strong>: checks README, LICENSE, CONTRIBUTING, CI</li></ul>', tags: [] },
+
+  { era: 'Phase 4 — Operational Hardening', date: '2026-02-24', cat: 'infra', title: 'Discord bot + SSOT drift checks',
+    desc: 'ssot-drift-check.ts, booking-funnel-check.ts, mcp-readiness-check.ts — governance becomes executable.',
+    detail: '<h3>What happened</h3><p>A battery of governance scripts was created: SSOT drift detection, API registry alignment, MCP readiness gates, booking funnel checks. The Discord bot with 13 OSINT tools was also deployed.</p><h3>Catalyst</h3><p>Codex CLI integration: using codex review as a second-opinion lane for diff-heavy work.</p>', tags: ['external'] },
+
+  // ERA 5: Orchestration Formalization
+  { era: 'Phase 5 — Orchestration Formalization', date: '2026-02-25', cat: 'governance', title: 'PIPELINE.md + GATES.md + orchestration protocol',
+    desc: 'The 7-phase cognitive protocol: INTAKE → CHALLENGE → PLAN → GATE → EXECUTE → VERIFY → LEARN.',
+    detail: '<h3>What happened</h3><p>The Agent Cognitive Protocol was formalized into four canonical documents:</p><ul><li><strong>PIPELINE.md</strong>: 7-phase execution protocol</li><li><strong>GATES.md</strong>: quality gates with scoring</li><li><strong>QUESTION_BANK.md</strong>: maieutic questioning patterns</li><li><strong>DOMAIN_RULES.md</strong>: domain-specific constraints</li></ul><h3>Catalyst</h3><p>Prompt engineering breakthrough: instead of generic instructions, decompose agent behavior into discrete phases with explicit quality gates.</p><h3>This became a frozen zone.</h3>', tags: ['prompt', 'breakpoint', 'consciousness'] },
+
+  { era: 'Phase 5 — Orchestration Formalization', date: '2026-02-25', cat: 'governance', title: 'EGOSv5 archaeology — refinery, preprocessor, Tsun-Cha',
+    desc: 'Recovered gems from archived repos: the refinery system, preprocessor, MCP standards, philosophical protocols.',
+    detail: '<h3>What happened</h3><p>Deep archaeology scan of EGOSv5 archives recovered valuable governance patterns:</p><ul><li><strong>Refinery</strong>: classifier → interrogators → compiler pipeline for processing user requests</li><li><strong>Preprocessor</strong>: translates vague instructions into structured prompts</li><li><strong>Tsun-Cha Protocol</strong>: philosophical framework for agent consciousness</li><li><strong>MCP Tool Quality Framework</strong>: standards for tool implementation</li></ul><h3>Catalyst</h3><p>Archaeological insight: the best patterns were already invented in earlier iterations but lost in repo entropy.</p>', tags: ['consciousness', 'external'] },
+
+  { era: 'Phase 5 — Orchestration Formalization', date: '2026-02-25', cat: 'infra', title: 'Cross-repo sync system created',
+    desc: '~/.egos/sync.sh — symlink-based governance propagation across all workspace roots.',
+    detail: '<h3>What happened</h3><p>The sync.sh script was created to automatically propagate governance files (.guarani/), workflows (.windsurf/), and skills across all registered repositories via symlinks.</p><h3>Design</h3><p>One-way sync: egos → ~/.egos → leaf repos. Never the reverse.</p>', tags: [] },
+
+  { era: 'Phase 5 — Orchestration Formalization', date: '2026-02-25', cat: 'breakpoint', title: '⚡ BREAKPOINT: Codex CLI integration',
+    desc: 'Codex becomes the second-opinion lane for mechanical, audit, and diff-heavy work.',
+    detail: '<h3>What changed</h3><p>Before: all code review and mechanical work done by a single AI agent.<br>After: Codex CLI handles audit, diff-review, and cleanup lanes in parallel. The .windsurfrules explicitly mandates Codex for these task types.</p><h3>Impact</h3><p>This was the first time EGOS formally split work between multiple AI models based on task type.</p>', tags: ['breakpoint', 'llm'] },
+
+  // ERA 6: Research Flagship
+  { era: 'Phase 6 — Research & Ecosystem Coupling', date: '2026-02-26', cat: 'agents', title: 'carteira_x_engine + agent-commander',
+    desc: 'Trading/emotional engine + Telegram-to-GitHub orchestration bot.',
+    detail: '<h3>What happened</h3><p>Two specialized agents added:</p><ul><li><strong>carteira_x_engine</strong>: emotional/behavioral trading analysis</li><li><strong>agent-commander</strong>: Telegram → GitHub orchestration (private operator channel)</li></ul>', tags: [] },
+
+  { era: 'Phase 6 — Research & Ecosystem Coupling', date: '2026-03-02', cat: 'breakpoint', title: '⚡ BREAKPOINT: Gemini Flash → GPT-4o-mini',
+    desc: 'Chat agent upgraded from Gemini Flash (1 tool) to GPT-4o-mini (4 tools parallel).',
+    detail: '<h3>What changed</h3><p>The 852 chatbot LLM was upgraded:</p><ul><li>Gemini Flash: 1 tool call at a time</li><li>GPT-4o-mini: 4 parallel tool calls</li><li>Tool count: 18 → 24 OSINT tools</li><li>Rate limiting: 10 premium + 20 free per IP/day</li></ul><h3>Impact</h3><p>4x parallelism in tool usage. BYOK (Bring Your Own Key) also introduced.</p>', tags: ['breakpoint', 'llm'] },
+
+  { era: 'Phase 6 — Research & Ecosystem Coupling', date: '2026-03-06', cat: 'agents', title: 'ssot_fixer + Gem Hunter',
+    desc: 'First self-modifying agent (ssot_fixer) + multi-source discovery engine (gem_hunter).',
+    detail: '<h3>What happened</h3><p>Two landmark agents:</p><ul><li><strong>ssot_fixer</strong>: consumes auditor JSON and applies safe LOW-risk codemods automatically</li><li><strong>gem_hunter</strong>: multi-source discovery (arXiv, GitHub, web) for valuable patterns, tools, and research</li></ul><h3>Catalyst</h3><p>Gem Hunter represents the system producing original research output, not just maintaining itself.</p>', tags: ['consciousness'] },
+
+  { era: 'Phase 6 — Research & Ecosystem Coupling', date: '2026-03-07', cat: 'mycelium', title: 'Mycelium Reference Graph designed',
+    desc: 'Canonical entity/relation/evidence graph specification — the map of what exists and how it connects.',
+    detail: '<h3>What happened</h3><p>The Mycelium Reference Graph was formally designed with:</p><ul><li>25+ entity types (workspace, agent, surface, document, policy...)</li><li>20+ relation types (belongs_to, depends_on, governs, cites...)</li><li>Evidence semantics (code, runtime, log, plan, issue)</li><li>Status markers (active, degraded, offline, planned)</li></ul><h3>Key insight</h3><p>"The event bus tells us what moved. The reference graph tells us what is connected."</p>', tags: ['consciousness'] },
+
+  { era: 'Phase 6 — Research & Ecosystem Coupling', date: '2026-03-08', cat: 'research', title: 'Ocean Protocol + Adaptive Workspace study',
+    desc: 'Comparative analysis of Ocean, Vana, Bittensor, Story Protocol, Autonolas, Gensyn → EGOS L0-L4 architecture.',
+    detail: '<h3>What happened</h3><p>Deep research into 6 external protocols produced the 5-layer Adaptive Workspace Architecture:</p><ul><li>L0: Personal Data Vault (Vana-inspired)</li><li>L1: Adaptive Engine (Sacred Math)</li><li>L2: Tool & Agent Composition (Autonolas-inspired)</li><li>L3: Evidence & Trust (Bittensor-inspired)</li><li>L4: Value Capture (ETHIK + Story Protocol)</li></ul>', tags: ['external', 'consciousness'] },
+
+  { era: 'Phase 6 — Research & Ecosystem Coupling', date: '2026-03-08', cat: 'agents', title: 'report_generator → 28 agents',
+    desc: 'Automated ecosystem reporting agent — generates audit reports from agent findings.',
+    detail: '<h3>What happened</h3><p>The report_generator agent was created to consume findings from all other agents and produce structured markdown reports. It reads from the reporting-registry and builds the Capability Atlas.</p>', tags: [] },
+
+  { era: 'Phase 6 — Research & Ecosystem Coupling', date: '2026-03-09', cat: 'agents', title: 'autoresearch → 29 agents',
+    desc: 'Automated research agent — the system starts producing original research autonomously.',
+    detail: '<h3>What happened</h3><p>The autoresearch agent was registered, completing the current agent roster at 29. It automates the research pipeline that was previously manual.</p><h3>Catalyst</h3><p>Inspired by Andrej Karpathy\'s call for "autoresearch" tools that let AI systems investigate autonomously.</p>', tags: ['external'] },
+
+  { era: 'Phase 6 — Research & Ecosystem Coupling', date: '2026-03-09', cat: 'breakpoint', title: '⚡ BREAKPOINT: Alibaba Qwen as primary LLM',
+    desc: 'Strategic shift: Alibaba DashScope Qwen-plus becomes the preferred orchestrator model.',
+    detail: '<h3>What changed</h3><p>Before: Gemini via OpenRouter was the primary LLM.<br>After: Alibaba Qwen-plus via DashScope became the preferred orchestrator. Gemini became the fallback.</p><h3>Why</h3><p>Cost efficiency + quality + international API availability. The .windsurfrules was updated to mandate this preference.</p>', tags: ['breakpoint', 'llm'] },
+
+  // ERA 7: Kernel Extraction
+  { era: 'Phase 7 — Kernel Extraction', date: '2026-03-13', cat: 'infra', title: 'egos/ canonical kernel created',
+    desc: 'Extracted governance DNA, agent runtime, shared packages into a standalone egos/ repo.',
+    detail: '<h3>What happened</h3><p>The canonical EGOS kernel was extracted from egos-lab into its own repository:</p><ul><li>.guarani/ governance DNA</li><li>agents/ runtime + registry + CLI</li><li>packages/shared/ LLM provider, rate limiter, types</li><li>CI, pre-commit hooks, frozen zones</li></ul><h3>Design</h3><p>egos/ is the kernel. egos-lab/ is the incubator. Leaf repos consume the kernel via ~/.egos symlinks.</p>', tags: ['breakpoint', 'consciousness'] },
+
+  { era: 'Phase 7 — Kernel Extraction', date: '2026-03-13', cat: 'governance', title: 'SSOT symlink rollout across 5 repos',
+    desc: 'Exact-match governance files replaced with symlinks to ~/.egos in egos-lab, 852, br-acc, carteira-livre, forja.',
+    detail: '<h3>What happened</h3><p>The link-ssot-files.sh script was created and executed across all leaf repos. Only exact-match files were replaced; drifted files were intentionally preserved.</p><h3>Impact</h3><p>27/29 .guarani files and 7/7 core workflows now flow from egos → ~/.egos → leaf repos via symlinks.</p>', tags: [] },
+
+  { era: 'Phase 7 — Kernel Extraction', date: '2026-03-13', cat: 'infra', title: 'egos-init one-command installer',
+    desc: 'setup.sh + scripts/egos-init.sh — bootstrap Bun, install deps, link .egos, run governance sync.',
+    detail: '<h3>What happened</h3><p>The first version of the egos-init installer was created. It detects/installs Bun, runs bun install, creates .env from .env.example, links .egos, and runs governance sync.</p>', tags: [] },
+
+  { era: 'Phase 7 — Kernel Extraction', date: '2026-03-13', cat: 'mycelium', title: 'Mycelium docs migrated to egos/ kernel',
+    desc: 'MYCELIUM_OVERVIEW, REFERENCE_GRAPH_DESIGN, NETWORK_PLAN moved to egos/docs/concepts/mycelium/.',
+    detail: '<h3>What happened</h3><p>The three canonical Mycelium documents were copied from egos-lab/docs/ into egos/docs/concepts/mycelium/, establishing the Mycelium reference system as part of the kernel rather than just the lab.</p>', tags: [] },
+
+  { era: 'Phase 7 — Kernel Extraction', date: '2026-03-13', cat: 'research', title: 'Development Tree Diagnostic + Journey Brief',
+    desc: 'Archaeological evidence compiled into canonical diagnostic and narrative documents.',
+    detail: '<h3>What happened</h3><p>Three documents created from archaeological evidence:</p><ul><li>DEVELOPMENT_TREE_DIAGNOSTIC: timeline, agent waves, order vs entropy</li><li>SSOT_TRANSITION_AUDIT: exact duplicate analysis, symlink rollout status</li><li>JOURNEY_NARRATIVE_BRIEF: article angles, personal voice anchors, story spine</li></ul>', tags: [] }
+];
+
+// Build legend
+const legendEl = document.getElementById('legend');
+Object.entries(CATEGORIES).forEach(([key, cat]) => {
+  const item = document.createElement('div');
+  item.className = 'legend-item';
+  item.dataset.cat = key;
+  item.innerHTML = `<span class="dot cat-${key}"></span>${cat.icon} ${cat.label}`;
+  item.onclick = () => toggleCategory(key);
+  legendEl.appendChild(item);
+});
+
+let hiddenCats = new Set();
+function toggleCategory(cat) {
+  if (hiddenCats.has(cat)) hiddenCats.delete(cat); else hiddenCats.add(cat);
+  document.querySelectorAll('.legend-item').forEach(el => {
+    el.classList.toggle('dimmed', hiddenCats.has(el.dataset.cat));
+  });
+  renderTimeline();
+}
+
+// Build timeline
+function renderTimeline() {
+  const tl = document.getElementById('timeline');
+  tl.innerHTML = '';
+  let currentEra = '';
+  let side = 0;
+  EVENTS.filter(e => !hiddenCats.has(e.cat)).forEach((ev, i) => {
+    if (ev.era !== currentEra) {
+      currentEra = ev.era;
+      const eraDiv = document.createElement('div');
+      eraDiv.className = 'era-label';
+      eraDiv.innerHTML = `<span>${ev.era}</span>`;
+      tl.appendChild(eraDiv);
+    }
+    const node = document.createElement('div');
+    node.className = `node ${side % 2 === 0 ? 'left' : 'right'}`;
+    node.style.borderLeftColor = CATEGORIES[ev.cat].color;
+    node.style.borderLeftWidth = '3px';
+    const tagsHtml = (ev.tags || []).map(t => `<span class="tag tag-${t}">${t}</span>`).join('');
+    node.innerHTML = `
+      <div class="node-date">${ev.date}</div>
+      <div class="node-title"><span class="dot cat-${ev.cat}"></span>${CATEGORIES[ev.cat].icon} ${ev.title}</div>
+      <div class="node-desc">${ev.desc}</div>
+      ${tagsHtml ? `<div class="node-tags">${tagsHtml}</div>` : ''}
+    `;
+    node.onclick = () => { openDetail(ev); node.classList.toggle('expanded'); };
+    tl.appendChild(node);
+    side++;
+  });
+}
+
+function openDetail(ev) {
+  const panel = document.getElementById('detailPanel');
+  const content = document.getElementById('detailContent');
+  content.innerHTML = `
+    <h2>${CATEGORIES[ev.cat].icon} ${ev.title}</h2>
+    <p style="color:#8b949e;font-size:.78rem">${ev.date} · ${CATEGORIES[ev.cat].label}</p>
+    <p style="margin-top:.8rem">${ev.desc}</p>
+    ${ev.detail || ''}
+    ${ev.tags && ev.tags.length ? `<h3>Tags</h3><div class="node-tags">${ev.tags.map(t => `<span class="tag tag-${t}">${t}</span>`).join('')}</div>` : ''}
+  `;
+  panel.classList.add('open');
+}
+
+function closeDetail() {
+  document.getElementById('detailPanel').classList.remove('open');
+}
+
+renderTimeline();
+</script>
+</body>
+</html>

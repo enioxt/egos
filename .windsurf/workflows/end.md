@@ -62,6 +62,8 @@ Before ending, the agent MUST persist knowledge:
 | Meta-prompt trigger suspected | Check `.guarani/prompts/triggers.json` |
 | Architecture changed | Document in `.guarani/` or repo docs |
 | New reusable pattern | Append to `docs/knowledge/HARVEST.md` |
+| Capability created / improved / adopted | Update `docs/CAPABILITY_REGISTRY.md` |
+| Chatbot surface changed | Re-check `docs/modules/CHATBOT_SSOT.md` adoption table + rollout protocol |
 | Agents / dashboards / mesh claims changed | Apply `.windsurf/workflows/mycelium.md` logic and add maturity snapshot to handoff |
 | Codex used | Record availability, mode, and accept/reject outcome in handoff |
 | Research / discovery session | Run `bun agent:run gem-hunter --exec --quick` |
@@ -107,4 +109,4 @@ Signed by: cascade-agent — [ISO8601]
 
 ---
 
-_v5.3 — Compacted bash blocks, exported ROOT for cross-phase use, compressed Codex check._
+_v5.4 — Added capability-registry and chatbot-SSOT dissemination requirements to finalization flow._

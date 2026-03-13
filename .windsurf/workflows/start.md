@@ -1,4 +1,4 @@
-# /start — Session Initialization (v5.1)
+# /start — Session Initialization (v5.4)
 
 ## 1. Load Core Context
 
@@ -6,6 +6,7 @@ Read these files in order (all paths relative to repo root):
 
 - `AGENTS.md` — Project config, stack, commands, SSOT files list
 - `TASKS.md` — Current priorities (P0 → P1 → P2)
+- `docs/CAPABILITY_REGISTRY.md` — Ecosystem capability map and current adoption truth
 - `.guarani/PREFERENCES.md` — Coding standards and rules
 - `.guarani/IDENTITY.md` — Agent identity and mission
 
@@ -34,6 +35,8 @@ Scan `.guarani/prompts/triggers.json` for active trigger mappings:
 Acknowledge: "Meta-prompt system loaded. [N] prompts, [N] triggers active."
 
 If the task mentions `mycelium`, `mesh`, `sync`, `agents`, `auto melhorar`, or `teia`, load `.windsurf/workflows/mycelium.md` immediately after `/start`.
+
+If the task mentions `chatbot`, `prompt`, `replication`, `shared modules`, `backfill`, or `compliance`, load `docs/modules/CHATBOT_SSOT.md` immediately after `/start`.
 
 ## 4. Load Refinery (Intent Processing)
 
@@ -105,10 +108,10 @@ Present to user:
 
 ## File Existence Check
 
-Required (flag if missing): `AGENTS.md`, `TASKS.md`, `.windsurfrules`, `.guarani/PREFERENCES.md`, `.guarani/IDENTITY.md`, `.guarani/orchestration/PIPELINE.md`, `.guarani/orchestration/GATES.md`, `.guarani/orchestration/QUESTION_BANK.md`, `.guarani/orchestration/DOMAIN_RULES.md`, `.guarani/refinery/classifier.md`, `.guarani/refinery/interrogators/*.md`, `.guarani/preprocessor.md`, `.guarani/prompts/PROMPT_SYSTEM.md`, `.guarani/prompts/triggers.json`, `docs/SYSTEM_MAP.md`.
+Required (flag if missing): `AGENTS.md`, `TASKS.md`, `docs/CAPABILITY_REGISTRY.md`, `.windsurfrules`, `.guarani/PREFERENCES.md`, `.guarani/IDENTITY.md`, `.guarani/orchestration/PIPELINE.md`, `.guarani/orchestration/GATES.md`, `.guarani/orchestration/QUESTION_BANK.md`, `.guarani/orchestration/DOMAIN_RULES.md`, `.guarani/refinery/classifier.md`, `.guarani/refinery/interrogators/*.md`, `.guarani/preprocessor.md`, `.guarani/prompts/PROMPT_SYSTEM.md`, `.guarani/prompts/triggers.json`, `docs/SYSTEM_MAP.md`.
 
 Optional: `.guarani/philosophy/TSUN_CHA_PROTOCOL.md`, `.guarani/MCP_ORCHESTRATION_GUIDE.md`, `.guarani/DESIGN_STANDARDS.md`.
 
 ---
 
-*v5.3 — Compressed Codex/Alibaba/Research into single dispatch table (step 8), removed redundant sub-sections 8.5/8.7*
+*v5.4 — Added capability registry to core load order, conditional CHATBOT_SSOT dispatch, and file-existence checks for capability-map-driven sessions.*
