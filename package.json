@@ -20,7 +20,10 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "prepare": "husky",
-    "precommit": "bash .husky/pre-commit"
+    "precommit": "bash .husky/pre-commit",
+    "governance:sync": "sh scripts/governance-sync.sh --dry",
+    "governance:sync:exec": "sh scripts/governance-sync.sh --exec",
+    "governance:check": "sh scripts/governance-sync.sh --check"
   },
   "devDependencies": {
     "@types/bun": "^1.2.0",
