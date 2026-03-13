@@ -1,0 +1,61 @@
+name: EGOS CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: TypeScript check
+        run: bun run typecheck
+
+      - name: Agent registry lint
+        run: bun run agent:lint
+
+      - name: SSOT drift check
+        run: |
+          check_lines() {
+            file="$1"; max="$2"
+            if [ -f "$file" ]; then
+              lines=$(wc -l < "$file")
+              if [ "$lines" -gt "$max" ]; then
+                echo "SSOT DRIFT: $file has $lines lines (max: $max)"
+                return 1
+              fi
+              echo "  $file: $lines/$max OK"
+            fi
+          }
+          check_lines "AGENTS.md" 200
+          check_lines "TASKS.md" 500
+          check_lines ".windsurfrules" 150
+          check_lines ".guarani/PREFERENCES.md" 100
+
+      - name: Frozen zones check
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            CHANGED=$(git diff --name-only origin/main...HEAD)
+            FROZEN="agents/runtime/runner.ts agents/runtime/event-bus.ts .husky/pre-commit"
+            for f in $FROZEN; do
+              if echo "$CHANGED" | grep -q "^${f}$"; then
+                echo "::error::Frozen zone modified: $f"
+                exit 1
+              fi
+            done
+            echo "No frozen zones modified"
+          else
+            echo "Push to main — frozen zone check skipped (enforced by pre-commit)"
+          fi

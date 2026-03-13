@@ -3,5 +3,19 @@
   "version": "1.0.0",
   "updated": "2026-03-13",
   "description": "EGOS Agent Registry — Core framework starts clean. Agent implementations live in leaf repos (egos-lab, 852, br-acc, etc.).",
-  "agents": []
+  "agents": [
+    {
+      "id": "dep_auditor",
+      "name": "Dependency Auditor",
+      "description": "Scans package.json files for version conflicts, misplaced dev deps, and unused dependencies",
+      "area": "architecture",
+      "entrypoint": "agents/agents/dep-auditor.ts",
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual"],
+      "tools_allowed": [],
+      "risk_level": "T0",
+      "status": "active",
+      "migrated_from": "egos-lab"
+    }
+  ]
 }
