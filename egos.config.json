@@ -1,0 +1,25 @@
+{
+  "role": "kernel",
+  "version": "2.0.0",
+  "surfaces": {
+    "agent_runtime": true,
+    "shared_packages": true,
+    "governance_dna": true,
+    "meta_prompts": true,
+    "mycelium_graph": true,
+    "model_router": true,
+    "activation_check": true,
+    "session_guard": false,
+    "gem_hunter": false,
+    "report_generator": false,
+    "web_dashboard": false,
+    "telegram_bot": false,
+    "worker_queue": false,
+    "supabase_db": false
+  },
+  "governance": {
+    "check_command": "bun run governance:check",
+    "sync_command": "bun run governance:sync:exec",
+    "activation_command": "bun run activation:check"
+  }
+}

@@ -12,9 +12,11 @@
 
 import { existsSync } from 'fs';
 import { resolve } from 'path';
+import { detectRepoRole, roleDescription } from '../packages/shared/src/repo-role';
 
 const ROOT = resolve(import.meta.dir, '..');
 const mode = process.argv.includes('--exec') ? 'exec' : 'dry';
+const repoConfig = detectRepoRole(ROOT);
 
 // ═══════════════════════════════════════════════════════════
 // Required Files
@@ -134,6 +136,7 @@ const total = results.length;
 const score = Math.round((ok / total) * 100);
 
 console.log(`\n  EGOS Activation Check (${mode} mode)\n`);
+console.log(`  Repo: ${repoConfig.role} v${repoConfig.version}`);
 console.log(`  Score: ${score}% (${ok}/${total} OK, ${warn} warnings, ${fail} failures)\n`);
 
 if (fail > 0) {

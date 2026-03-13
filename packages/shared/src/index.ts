@@ -19,3 +19,5 @@ export type { PIICategory, PIIFinding, PIIPatternDefinition } from './pii-scanne
 export type { AIAnalysisResult, AgentMetadata } from './types';
 export { createGraph, findNode, findEdgesFrom, findEdgesTo, nodesByType, nodesByStatus, graphHealth, getKernelSeedGraph } from './mycelium/reference-graph';
 export type { ReferenceEntityType, ReferenceRelation, ReferenceEvidence, NodeStatus, ReferenceNode, ReferenceEdge, ReferenceGraph } from './mycelium/reference-graph';
+export { detectRepoRole, hasSurface, roleDescription } from './repo-role';
+export type { RepoRole, EgosConfig } from './repo-role';

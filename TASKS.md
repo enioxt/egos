@@ -38,10 +38,10 @@
 - [x] EGOS-009: Set up GitHub Actions CI (lint + typecheck + registry lint)
 - [x] EGOS-010: Create CONTRIBUTING.md with governance rules
 - [x] EGOS-011: Migrate first agent from egos-lab as proof-of-concept
-- [ ] EGOS-049: Create repo-role-aware activation logic (`kernel` vs `lab` vs `leaf`) so shared workflows stop assuming every repo has the same surfaces
+- [x] EGOS-049: Create repo-role-aware activation logic — `egos.config.json` + `repo-role.ts` + heuristic fallback
 - [x] EGOS-050: Create `activation:check` command for the core repo — 42 checks, 100% pass rate
 - [ ] EGOS-051: Migrate the next wave of core-safe agents/docs from `egos-lab` after role-boundary review
-- [ ] EGOS-052: Document the kernel-to-leaf migration matrix and criteria for what belongs in `egos` vs `egos-lab`
+- [x] EGOS-052: Document the kernel-to-leaf migration matrix — `docs/strategy/MIGRATION_MATRIX.md`
 
 ### P2 (Important) — Archaeology Sprint
 
