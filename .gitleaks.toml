@@ -1,0 +1,8 @@
+title = "EGOS Gitleaks Config"
+
+[allowlist]
+description = "Global allowlist"
+paths = [
+    '''\.env\.example''',
+    '''\.gitleaks\.toml''',
+]

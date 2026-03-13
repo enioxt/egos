@@ -1,0 +1,83 @@
+# .windsurfrules — EGOS Framework Core
+# VERSION 1.0.0 — Created 2026-03-13
+---
+project: "egos"
+type: "framework-core + orchestration-kernel + agent-runtime"
+---
+
+## SSOT (Single Source of Truth)
+
+| File | Purpose | MAX lines |
+|------|---------|-----------|
+| `AGENTS.md` | System map, stack, commands | 200 |
+| `TASKS.md` | All tasks | 500 |
+| `.windsurfrules` | Agent rules (this file) | 150 |
+| `.guarani/PREFERENCES.md` | Coding standards | 100 |
+| `agents/registry/agents.json` | Agent registry (SSOT) | — |
+
+## PRIME DIRECTIVE
+
+> **Rules govern agents. Agents enforce rules. Community evolves rules.**
+> **NEVER write manual logic if a Tool (MCP) or Agent exists.**
+> **CHALLENGE before EXECUTE. Process before code.**
+> **DRY-RUN FIRST. Always.**
+
+## ORCHESTRATION PROTOCOL (MANDATORY)
+
+> **Every message follows:** INTAKE -> CHALLENGE -> PLAN -> GATE -> EXECUTE -> VERIFY -> LEARN
+> **Full spec:** `.guarani/orchestration/PIPELINE.md`
+
+| Complexity | Pipeline Depth | Min Thoughts |
+|------------|---------------|---------------|
+| TRIVIAL | Skip to Execute | 0 |
+| SIMPLE | Intake + Plan + Execute | 0 |
+| MODERATE | Full pipeline, questions mandatory | 3 |
+| COMPLEX | Full pipeline + Sequential Thinking | 5 |
+| CRITICAL | Full pipeline + user approval | 7 |
+
+## MANDAMENTOS
+
+1. **CHALLENGE** — Question, detect contradictions, ask for evidence.
+2. **ONE THING** — Each agent does ONE thing. Each module solves ONE problem.
+3. **ZERO DEPS** — Agents use only Node/Bun stdlib. No framework dependencies.
+4. **DRY-RUN FIRST** — Every agent SHALL support `--dry` before `--exec`.
+5. **REGISTRY** — No agent runs without `agents/registry/agents.json` entry.
+6. **COST** — AI calls use `packages/shared/src/llm-provider.ts`. Cost tracked.
+7. **SHARED** — Reusable code goes in `packages/shared/`. Zero duplication.
+8. **COMMIT** — Conventional commits every 30-60min.
+9. **SCOPE** — Do ONLY what was asked. ASK before creating new features.
+10. **TEACH** — Explain WHY, not just WHAT. Question bad ideas.
+11. **EDIT SIZE** — Max 80 lines per write_to_file/edit call.
+12. **FROZEN** — Never edit frozen zones without explicit user approval + proof.
+13. **CODEX** — Use Codex for diff-heavy, audit, and mechanical work.
+14. **HUMAN LOOP** — For ambiguous decisions, ask before acting.
+
+## FROZEN ZONES
+
+> **DO NOT EDIT** without explicit user request + proof-of-work:
+> - `agents/runtime/runner.ts` — core agent runtime
+> - `agents/runtime/event-bus.ts` — core event infrastructure
+> - `.husky/` — pre-commit enforcement
+> - `.guarani/orchestration/PIPELINE.md` — master protocol
+
+## TASK-TYPE CHECKLISTS
+
+| Task | Mandatory Steps |
+|------|----------------|
+| **New agent** | Entry in registry + `--dry` before `--exec` + zero deps + single responsibility |
+| **Bug fix** | Classify complexity + `tsc --noEmit` before commit + root-cause first |
+| **New API** | Add to api-registry + server-side keys only + `.env` for secrets |
+| **Schema change** | Contract test + update types in `packages/shared/` |
+
+## SECURITY
+
+- Pre-commit: gitleaks + tsc + frozen zones check + SSOT drift check
+- API Keys: NEVER hardcode. Use `.env`.
+- PII: Mask CPF/email in all output.
+- RLS: Every new table MUST have `ENABLE ROW LEVEL SECURITY`.
+
+## META-PROMPT SYSTEM
+
+Boot: `.guarani/prompts/PROMPT_SYSTEM.md`
+Triggers: `.guarani/prompts/triggers.json`
+Atoms: Persona, Mission, Rules, Phases, Mathematics, Output, Philosophy

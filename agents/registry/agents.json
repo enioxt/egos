@@ -1,0 +1,7 @@
+{
+  "$schema": "./schema.json",
+  "version": "1.0.0",
+  "updated": "2026-03-13",
+  "description": "EGOS Agent Registry — Core framework starts clean. Agent implementations live in leaf repos (egos-lab, 852, br-acc, etc.).",
+  "agents": []
+}

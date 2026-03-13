@@ -1,0 +1,31 @@
+{
+  "name": "egos",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "EGOS — Orchestration kernel for governed AI agents",
+  "license": "MIT",
+  "author": "Enio Rocha <enio@egos.ia.br>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/enioxt/egos.git"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "agent:list": "bun agents/cli.ts list",
+    "agent:run": "bun agents/cli.ts run",
+    "agent:lint": "bun agents/cli.ts lint-registry",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "prepare": "husky",
+    "precommit": "bash .husky/pre-commit"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.0",
+    "eslint": "^9.0.0",
+    "husky": "^9.0.0",
+    "typescript": "^5.7.0"
+  }
+}

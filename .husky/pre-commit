@@ -1,0 +1,70 @@
+#!/bin/sh
+# EGOS Pre-Commit Hook — Maximum Enforcement
+# FROZEN ZONE: Do not weaken without explicit approval + proof-of-work.
+
+set -eu
+
+echo "🔒 EGOS Pre-Commit: Maximum enforcement active"
+
+# 1. Gitleaks — Secret scanning
+if command -v gitleaks > /dev/null 2>&1; then
+  echo "  [1/4] gitleaks: scanning for secrets..."
+  gitleaks protect --staged --no-banner || {
+    echo "❌ BLOCKED: Secrets detected. Remove them before committing."
+    exit 1
+  }
+else
+  echo "  [1/4] gitleaks: NOT INSTALLED (install: brew install gitleaks)"
+fi
+
+# 2. TypeScript — Strict type check
+echo "  [2/4] tsc: running strict type check..."
+npx tsc --noEmit 2>/dev/null || bun run typecheck 2>/dev/null || {
+  echo "❌ BLOCKED: TypeScript errors found. Fix before committing."
+  exit 1
+}
+
+# 3. Frozen Zones — Check for unauthorized changes
+STAGED=$(git diff --cached --name-only 2>/dev/null || true)
+FROZEN_VIOLATED=0
+
+for frozen in \
+  "agents/runtime/runner.ts" \
+  "agents/runtime/event-bus.ts" \
+  ".husky/pre-commit" \
+  ".guarani/orchestration/PIPELINE.md" \
+  ".guarani/orchestration/GATES.md"; do
+  if echo "$STAGED" | grep -q "^${frozen}$"; then
+    echo "  FROZEN ZONE: $frozen is staged for commit."
+    echo "   This file requires explicit user approval + proof-of-work."
+    FROZEN_VIOLATED=1
+  fi
+done
+
+if [ "$FROZEN_VIOLATED" -eq 1 ]; then
+  echo ""
+  echo "❌ BLOCKED: Frozen zone files modified."
+  echo "   To override: git commit --no-verify (requires proof-of-work in message)"
+  exit 1
+fi
+
+# 4. SSOT Drift — Check file size limits
+echo "  [3/4] SSOT drift: checking file size limits..."
+check_lines() {
+  _cl_file="$1"; _cl_max="$2"
+  if [ -f "$_cl_file" ]; then
+    _cl_lines=$(wc -l < "$_cl_file")
+    if [ "$_cl_lines" -gt "$_cl_max" ]; then
+      echo "SSOT DRIFT: $_cl_file has $_cl_lines lines (max: $_cl_max)"
+      return 1
+    fi
+  fi
+}
+
+check_lines "AGENTS.md" 200 || exit 1
+check_lines "TASKS.md" 500 || exit 1
+check_lines ".windsurfrules" 150 || exit 1
+check_lines ".guarani/PREFERENCES.md" 100 || exit 1
+
+echo "  [4/4] All checks passed."
+echo "✅ EGOS Pre-Commit: Commit approved."
