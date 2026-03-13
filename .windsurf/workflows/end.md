@@ -66,8 +66,8 @@ Before ending, the agent MUST persist knowledge:
 | Chatbot surface changed | Re-check `docs/modules/CHATBOT_SSOT.md` adoption table + rollout protocol |
 | Agents / dashboards / mesh claims changed | Apply `.windsurf/workflows/mycelium.md` logic and add maturity snapshot to handoff |
 | Codex used | Record availability, mode, and accept/reject outcome in handoff |
-| Research / discovery session | Run `bun agent:run gem-hunter --exec --quick` |
-| Research data generated | Run `bun agent:run report-generator --exec --topic="<session topic>" --data=<latest gem-hunter report>` |
+| Research / discovery session in repos that ship Gem Hunter | Run `bun agent:run gem-hunter --exec --quick` |
+| Research data generated in repos that ship report generation | Run `bun agent:run report-generator --exec --topic="<session topic>" --data=<latest gem-hunter report>` |
 
 ## Phase 5: Codex Cleanup
 

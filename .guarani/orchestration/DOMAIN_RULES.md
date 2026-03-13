@@ -1,7 +1,7 @@
-# DOMAIN RULES — egos-lab
+# DOMAIN RULES — EGOS Kernel
 
-> **Version:** 1.1.0 | **Updated:** 2026-02-25
-> **Project:** egos-lab (monorepo-lab + agentic-platform)
+> **Version:** 2.0.0 | **Updated:** 2026-03-13
+> **Project:** egos (orchestration-kernel + agent-runtime)
 
 ---
 
@@ -9,6 +9,10 @@
 
 When a task touches a specific domain, load that domain's section
 and apply its checklist BEFORE executing. Multiple domains can apply.
+
+> **Note:** This file covers the **kernel repo** (`/home/enio/egos`).
+> Leaf-repo-specific domains (egos-web, telegram-bot, eagle-eye, nexus)
+> live in their own `DOMAIN_RULES.md` or inherit from `~/.egos/guarani/`.
 
 ---
 
@@ -20,7 +24,7 @@ and apply its checklist BEFORE executing. Multiple domains can apply.
 - **Agent runner:** `agents/runtime/runner.ts` (frozen zone)
 - **Agent CLI:** `agents/cli.ts`
 - **Agent implementations:** `agents/agents/*.ts`
-- **Shared utils:** `packages/shared/` (ai-client, rate limiter, types)
+- **Shared utils:** `packages/shared/src/` (llm-provider, model-router, types)
 
 ### Anti-Patterns
 
@@ -35,7 +39,8 @@ and apply its checklist BEFORE executing. Multiple domains can apply.
 - [ ] Agent has registry entry in `agents.json` (id, name, description, path)
 - [ ] Agent supports `--dry` mode (default)
 - [ ] Agent produces structured JSON output
-- [ ] Agent uses `packages/shared/ai-client.ts` for AI calls
+- [ ] Agent uses `packages/shared/src/llm-provider.ts` for AI calls
+- [ ] Agent calls `routeForChat(taskType)` before LLM invocation
 - [ ] Agent is idempotent (safe to re-run)
 - [ ] Cost tracked per AI call
 - [ ] PII masked in all output (CPF, email)
@@ -44,149 +49,112 @@ and apply its checklist BEFORE executing. Multiple domains can apply.
 
 ```
 agents/runtime/runner.ts
+agents/runtime/event-bus.ts
 agents/registry/agents.json (structure, not content)
 ```
 
 ---
 
-## 2. EGOS-WEB (Mission Control)
+## 2. LLM PROVIDER & MODEL ROUTER
 
 ### SSOT
 
-- **Framework:** React + Vite
-- **Deploy:** Vercel (auto on push)
-- **URL:** egos.ia.br
-- **Design:** Tailwind, Lucide icons, dark mode first
+- **LLM client:** `packages/shared/src/llm-provider.ts`
+- **Model router:** `packages/shared/src/model-router.ts`
+- **Rate limiter:** `packages/shared/src/rate-limiter.ts`
+- **Env vars:** `ALIBABA_DASHSCOPE_API_KEY`, `OPENROUTER_API_KEY`, `OPENAI_API_KEY`, `GROQ_API_KEY`
+- **Reference:** `.env.example` for all expected keys
 
 ### Anti-Patterns
 
-- Creating new pages without updating navigation
-- Using inline styles instead of Tailwind
-- Adding heavy dependencies to the frontend bundle
-- Forgetting to run `tsc -b && vite build` before push
+- Hardcoding a model name without going through `routeForChat()`
+- Adding a new LLM provider without updating `MODEL_CATALOG`
+- Calling APIs without checking `isAvailable()` first
+- Ignoring cost tiers (using premium for bulk/cheap tasks)
 
 ### Checklist
 
-- [ ] Checked existing components before creating new ones
-- [ ] Mobile responsive
-- [ ] Dark mode compatible
-- [ ] `tsc -b` passes
-- [ ] `vite build` succeeds locally before push
+- [ ] New model added to `MODEL_CATALOG` with accurate pricing
+- [ ] Task type defined in `TaskType` union if new
+- [ ] `.env.example` updated if new env key required
+- [ ] End-to-end test with real API call passes
+- [ ] Cost tracked in `AIAnalysisResult.cost_usd`
 
 ---
 
-## 3. TELEGRAM BOT
+## 3. GOVERNANCE & SYNC
 
 ### SSOT
 
-- **Framework:** Telegraf + Bun
-- **PM2 name:** `egos-telegram`
-- **Channel:** @ethikin
-- **Token:** `TELEGRAM_BOT_TOKEN` env var
-- **Entry:** `apps/telegram-bot/src/index.ts`
+- **Governance DNA:** `.guarani/` (identity, orchestration, prompts, philosophy)
+- **Sync script:** `scripts/governance-sync.sh` (kernel → `~/.egos` → leaf repos)
+- **Shared home:** `~/.egos/` (guarani + workflows)
+- **Downstream sync:** `~/.egos/sync.sh`
+- **Governance check:** `bun run governance:check`
 
 ### Anti-Patterns
 
-- Hardcoding bot token in code
-- Not handling Telegram API rate limits
-- Sending unsanitized user input to LLM (prompt injection)
-- Not logging errors to console for PM2 to capture
+- Editing governance files in leaf repos instead of the kernel
+- Forgetting to propagate after kernel edits
+- Creating leaf-specific overrides that shadow kernel rules
 
 ### Checklist
 
-- [ ] Bot token from env var, never hardcoded
-- [ ] Input sanitized before LLM processing
-- [ ] Rate limiting on user commands
-- [ ] Error handling with user-friendly messages
-- [ ] PM2 restart tested after changes
-
----
-
-## 4. EAGLE-EYE (OSINT)
-
-### SSOT
-
-- **Framework:** Bun scripts
-- **Path:** `apps/eagle-eye/`
-- **Purpose:** Gazette monitoring + AI analysis
-
-### Checklist
-
-- [ ] API connections tested before analysis
-- [ ] AI analysis uses `packages/shared/ai-client.ts`
-- [ ] Results structured as JSON
-- [ ] PII handling follows masking rules
-
----
-
-## 5. INFRASTRUCTURE & DEPLOY
-
-### SSOT
-
-- **Web deploy:** Vercel (auto on push)
-- **Worker deploy:** Railway (`egos-lab-infrastructure`)
-- **Database:** Supabase (`lhscgsqhiooyatkebose`)
-- **Queue:** Railway Redis (internal)
-- **Bot:** PM2 local
-
-### Anti-Patterns
-
-- More than 3 pushes per session
-- Pushing without `tsc -b && vite build`
-- Hardcoding env vars
-- Missing env vars in Vercel/Railway
-
-### Checklist
-
-- [ ] `tsc -b` passes
-- [ ] `vite build` succeeds
+- [ ] Change made in kernel `.guarani/` first
+- [ ] `scripts/governance-sync.sh --exec` run after edits
+- [ ] `~/.egos/sync.sh` propagated to all leaves
+- [ ] `bun run governance:check` passes with 0 drift
 - [ ] No hardcoded secrets or API keys
-- [ ] Env vars set in all deploy targets
-- [ ] Pre-push hooks pass
 
 ---
 
-## 6. SECURITY & GOVERNANCE
+## 4. SECURITY
 
 ### SSOT
 
 - **Pre-commit:** `scripts/security_scan.ts` + `scripts/ssot_governance.ts`
-- **Pre-push:** `.husky/pre-push` (registry lint + vite build)
+- **Frozen zones:** `agents/runtime/runner.ts`, `agents/runtime/event-bus.ts`, `.husky/`, `.guarani/orchestration/PIPELINE.md`
 - **PII policy:** Mask CPF/email in ALL agent output
 - **Prompt injection:** Sanitize external text before LLM
 - **RLS:** Every new Supabase table MUST have RLS enabled
-- **Extensions:** Install in `extensions` schema, never `public`
 
 ### Checklist
 
-- [ ] No secrets in committed code
+- [ ] No secrets in committed code (gitleaks clean)
 - [ ] PII masked in logs and agent output
 - [ ] External text sanitized before LLM calls
 - [ ] RLS enabled on new tables
-- [ ] Extensions in `extensions` schema
+- [ ] Frozen zones untouched unless user-approved
 
 ---
 
-## 7. SHARED PACKAGES
+## 5. SHARED PACKAGES
 
 ### SSOT
 
-- **Path:** `packages/shared/`
-- **AI client:** `packages/shared/ai-client.ts` (all AI calls go through here)
-- **Types:** `packages/shared/types/`
-- **API registry:** `packages/shared/api-registry/`
+- **Path:** `packages/shared/src/`
+- **LLM client:** `llm-provider.ts` (all AI calls go through here)
+- **Model router:** `model-router.ts` (task-aware model selection)
+- **Types:** `types.ts`
+- **ATRiAN:** `atrian.ts` (ethical validation)
+- **PII scanner:** `pii-scanner.ts`
+- **Conversation memory:** `conversation-memory.ts`
+- **Rate limiter:** `rate-limiter.ts`
+- **Exports:** `index.ts` (barrel file)
 
 ### Anti-Patterns
 
 - Duplicating logic that exists in shared packages
 - Agent-specific code leaking into shared packages
-- Breaking the ai-client interface without updating all consumers
+- Breaking the llm-provider interface without updating all consumers
+- Adding leaf-repo-specific utilities (OSINT, social, etc.) to shared
 
 ### Checklist
 
 - [ ] New shared code is truly reusable (not agent-specific)
-- [ ] TypeScript types exported properly
+- [ ] TypeScript types exported via `index.ts`
 - [ ] No circular dependencies
+- [ ] `bun run typecheck` passes
 - [ ] All consumers updated if interface changes
 
 ---
@@ -196,9 +164,7 @@ agents/registry/agents.json (structure, not content)
 | Task Keywords | Domains to Load |
 |---------------|----------------|
 | agent, registry, runner, orchestrator, dry-run | Agentic Platform |
-| web, dashboard, mission control, egos.ia.br | egos-web |
-| telegram, bot, PM2, @ethikin, telegraf | Telegram Bot |
-| eagle-eye, gazette, OSINT, monitor | Eagle-Eye |
-| deploy, vercel, railway, redis, infra, env | Infrastructure |
-| security, PII, RLS, secret, scan, governance | Security & Governance |
-| shared, ai-client, packages, types | Shared Packages |
+| llm, model, qwen, openrouter, alibaba, router, cost | LLM Provider & Model Router |
+| governance, sync, guarani, workflow, propagate | Governance & Sync |
+| security, PII, RLS, secret, scan, frozen | Security |
+| shared, llm-provider, packages, types, atrian | Shared Packages |

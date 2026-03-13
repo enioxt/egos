@@ -27,7 +27,8 @@
     "governance:sync:exec": "sh scripts/governance-sync.sh --exec",
     "governance:check": "sh scripts/governance-sync.sh --check",
     "ssot:link": "sh scripts/link-ssot-files.sh --dry",
-    "ssot:link:exec": "sh scripts/link-ssot-files.sh --exec"
+    "ssot:link:exec": "sh scripts/link-ssot-files.sh --exec",
+    "activation:check": "bun scripts/activation-check.ts"
   },
   "devDependencies": {
     "@types/bun": "^1.2.0",

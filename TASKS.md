@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 1.2.0 | **Updated:** 2026-03-13
+> **Version:** 2.0.0 | **Updated:** 2026-03-13
 
 ---
 
@@ -9,22 +9,39 @@
 ### P0 (Blockers)
 
 - [x] EGOS-001: Create clean repo structure with governance from commit 0
-- [ ] EGOS-002: Initialize git + first commit with all SSOT files
-- [ ] EGOS-003: Connect to GitHub (github.com/enioxt/egos) and push
+- [x] EGOS-002: Initialize git + first commit with all SSOT files
+- [x] EGOS-003: Connect to GitHub (github.com/enioxt/egos) and push
+- [x] EGOS-041: Align `/start` with core repo reality — remove or gate stale checks for `docs/SYSTEM_MAP.md`, `session:guard`, `docs/gem-hunter`, and `docs/reports`
+- [x] EGOS-042: Create canonical core system-map surface and wire `/start` to it (`docs/SYSTEM_MAP.md` or an explicit repo-local equivalent)
+- [x] EGOS-043: Restore/add `.windsurf/workflows/mycelium.md` or remove stale Mycelium workflow references across `/start`, `/end`, and Mycelium docs
+- [x] EGOS-044: Create `docs/knowledge/HARVEST.md` or relax `/end` and `/disseminate` assumptions to match the current core repo
+- [x] EGOS-056: Propagate updated kernel workflows into `~/.egos/workflows` and downstream synced repos, then rerun `bun run governance:check`
 
 ### P1 (Critical)
 
-- [ ] EGOS-004: Run `bun install` and validate `tsc --noEmit` passes
-- [ ] EGOS-005: Validate pre-commit hooks work (gitleaks + tsc + frozen)
+- [x] EGOS-004: Run `bun install` and validate `tsc --noEmit` passes
+- [x] EGOS-005: Validate pre-commit hooks work (gitleaks + tsc + frozen)
 - [x] EGOS-006: Update `~/.egos/SYSTEM_MAP.md` to include `egos` root
 - [x] EGOS-007: Create `.egos` symlink to shared governance home
+- [x] EGOS-045: Refresh `.guarani/orchestration/DOMAIN_RULES.md` from `egos-lab` assumptions to kernel reality (`egos`, leaf repos, `llm-provider.ts`)
+- [x] EGOS-046: Validate Codex cloud + Alibaba live readiness for `egos` core and record evidence in workflows/handoff
+- [x] EGOS-047: Fix missing `docs/META_PROMPT_ECOSYSTEM_AUDIT.md` reference — created `meta/ecosystem-audit.md` + fixed stale refs in `PROMPT_SYSTEM.md`
+- [x] EGOS-048: Align Mycelium docs with actual core artifacts — created `packages/shared/src/mycelium/reference-graph.ts` (27 nodes, 32 edges)
+- [x] EGOS-058: Consolidate `.env` credentials from ecosystem repos (egos-lab, 852, br-acc, policia) into kernel `.env` — 14 vars, all providers live
+- [x] EGOS-059: Create `packages/shared/src/mycelium/reference-graph.ts` — Phase 1 canonical schema + kernel seed graph + utilities
+- [x] EGOS-055: Add `.env.example` for kernel-level provider and sync expectations (`ALIBABA_DASHSCOPE_API_KEY`, `OPENROUTER_API_KEY`, optional GitHub/Codex hints)
+- [x] EGOS-057: Create task-aware model router (`packages/shared/src/model-router.ts`) with 8 models, 3 cost tiers, 10 task types
 
 ### P2 (Important)
 
 - [x] EGOS-008: Write comprehensive README.md with install instructions
 - [x] EGOS-009: Set up GitHub Actions CI (lint + typecheck + registry lint)
-- [ ] EGOS-010: Create CONTRIBUTING.md with governance rules
+- [x] EGOS-010: Create CONTRIBUTING.md with governance rules
 - [x] EGOS-011: Migrate first agent from egos-lab as proof-of-concept
+- [ ] EGOS-049: Create repo-role-aware activation logic (`kernel` vs `lab` vs `leaf`) so shared workflows stop assuming every repo has the same surfaces
+- [x] EGOS-050: Create `activation:check` command for the core repo — 42 checks, 100% pass rate
+- [ ] EGOS-051: Migrate the next wave of core-safe agents/docs from `egos-lab` after role-boundary review
+- [ ] EGOS-052: Document the kernel-to-leaf migration matrix and criteria for what belongs in `egos` vs `egos-lab`
 
 ### P2 (Important) — Archaeology Sprint
 
@@ -66,3 +83,51 @@
 - [ ] EGOS-016: Review remaining workflow overrides in leaf repos after SSOT rollout
 - [ ] EGOS-023: Publish egos-init via hosted installer URL
 - [ ] EGOS-024: Full per-agent lineage matrix (ARCH-003) — continue with commit-level tracing
+- [ ] EGOS-053: Build cross-repo capability compliance dashboard for kernel and leaf adoption state
+- [ ] EGOS-054: Make `/end` and `/disseminate` repo-role-aware so Gem Hunter, report generation, and Mycelium steps run only where the surfaces exist
+
+## Roadmap — Progress Dashboard
+
+### Overall Progress
+
+| Horizon | Total | Done | Open | Progress |
+|---------|-------|------|------|----------|
+| **Foundation (P0/P1)** | 21 | 21 | 0 | **100%** |
+| **Replication (P2)** | 14 | 10 | 4 | **71%** |
+| **Backlog** | 8 | 1 | 7 | **13%** |
+| **TOTAL** | **43** | **32** | **11** | **74%** |
+
+---
+
+### Short Term (0-7 days) — Target: 75%
+
+**Objective:** Complete all P2 core hardening. CONTRIBUTING.md, activation:check, and cross-repo adoption alignment.
+
+- [x] EGOS-010 — CONTRIBUTING.md with governance rules
+- [/] EGOS-034 — Forja chatbot production parity
+- [ ] EGOS-039 — egos-web chat alignment with shared modules
+- [ ] EGOS-040 — br-acc Python adapter for CHATBOT_SSOT
+- [x] EGOS-050 — `activation:check` command for core repo (42 checks, 100%)
+
+### Medium Term (1-4 weeks) — Target: 85%
+
+**Objective:** Repo-role architecture, migration framework, go-to-market research, capability drift monitoring.
+
+- [ ] EGOS-037 — Research go-to-market theories for framework validation
+- [ ] EGOS-038 — capability-drift-checker agent
+- [ ] EGOS-049 — Repo-role-aware activation logic (kernel/lab/leaf)
+- [ ] EGOS-051 — Migrate next wave of core-safe agents from egos-lab
+- [ ] EGOS-052 — Document kernel-to-leaf migration matrix
+- [ ] EGOS-016 — Review remaining workflow overrides in leaf repos
+
+### Long Term (1-3 months) — Target: 95%
+
+**Objective:** Public npm package, compliance dashboard, distributed verification, community adoption.
+
+- [ ] EGOS-012 — Publish `@egos/shared` to npm
+- [ ] EGOS-014 — VRCP Coherence Model integration
+- [ ] EGOS-015 — Context Doctor agent
+- [ ] EGOS-023 — Publish egos-init via hosted installer URL
+- [ ] EGOS-024 — Full per-agent lineage matrix (ARCH-003)
+- [ ] EGOS-053 — Cross-repo capability compliance dashboard
+- [ ] EGOS-054 — `/end` and `/disseminate` repo-role-aware

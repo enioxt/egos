@@ -35,6 +35,7 @@ Scan `.guarani/prompts/triggers.json` for active trigger mappings:
 Acknowledge: "Meta-prompt system loaded. [N] prompts, [N] triggers active."
 
 If the task mentions `mycelium`, `mesh`, `sync`, `agents`, `auto melhorar`, or `teia`, load `.windsurf/workflows/mycelium.md` immediately after `/start`.
+If that workflow is absent in the current repo, load `docs/concepts/mycelium/MYCELIUM_OVERVIEW.md` instead and flag the missing workflow as drift.
 
 If the task mentions `chatbot`, `prompt`, `replication`, `shared modules`, `backfill`, or `compliance`, load `docs/modules/CHATBOT_SSOT.md` immediately after `/start`.
 
@@ -55,12 +56,14 @@ If the task involves setup, auth, platform configuration, or multiple valid path
 > **CRITICAL:** LLMs suffer from probabilistic rule drift over long contexts.
 
 Read `.windsurfrules` and confirm the active ruleset:
+
 - Print: "Rules v[X.X.X] loaded. Mandamentos: [count]. Frozen zones: [count]."
 - Verify `AGENTS.md` version matches `.windsurfrules` expectations.
 
 ## 6. System Map & Handoff
 
-- Read `docs/SYSTEM_MAP.md` for full system overview
+- Read `docs/SYSTEM_MAP.md` for the repo-local system overview
+- Use `~/.egos/SYSTEM_MAP.md` only when the task requires cross-repo topology beyond this kernel
 - Check latest handoff in `docs/_current_handoffs/` (most recent file)
 - Recent commits: `git log --oneline -5`
 
@@ -80,15 +83,16 @@ The agent MUST verify these before implementation work:
 | Codex | `codex --version` | MODERATE+ tasks | `codex review --uncommitted` |
 | Codex cloud | `codex cloud list` | If pending tasks exist | Inspect before new work |
 | Alibaba | `.env` has `ALIBABA_DASHSCOPE_API_KEY` | Yes | `alibaba:qwen-plus` |
-| Session guard | `bun run session:guard` | Pre-commit | Recovers handoff + checks readiness |
-| Gem Hunter | `ls -t docs/gem-hunter/gems-*.md 2>/dev/null \| head -1` | Research sessions only | Suggest if > 7 days old |
-| Report Generator | `ls -t docs/reports/report-*.html 2>/dev/null \| head -1` | Research sessions only | `bun agent:run report-generator --exec` |
+| Session guard | `bun run session:guard` | Only if this repo exposes it | Else use `bun run governance:check` + `bun run agent:lint` |
+| Gem Hunter | `ls -t docs/gem-hunter/gems-*.md 2>/dev/null \| head -1` | Research sessions in repos that ship Gem Hunter | Suggest if > 7 days old |
+| Report Generator | `ls -t docs/reports/report-*.html 2>/dev/null \| head -1` | Research sessions in repos that ship report generation | `bun agent:run report-generator --exec` |
 
 Rules:
 
 - Codex runs in a **parallel terminal**, NEVER in main chat
 - Codex NEVER owns SSOT; it reviews under human/Cascade supervision
 - Alibaba is the preferred orchestrator when configured
+- Kernel repos may not expose `session:guard`, `docs/gem-hunter`, or `docs/reports`; treat them as optional surfaces, not activation blockers
 
 ## 9. Output Briefing
 
@@ -101,7 +105,7 @@ Present to user:
 - **Meta-prompts:** Count loaded + active triggers
 - **Codex:** Availability + pending cloud tasks + chosen mode (cloud vs local read-only)
 - **Alibaba:** Availability + chosen orchestrator provider/model
-- **Research:** Latest gem-hunter report age + report count
+- **Research:** Latest gem-hunter/report state or `N/A` for kernel repos without those surfaces
 - **Orchestration:** "Pipeline active. Refinery ready. Gate threshold: 75."
 
 ---

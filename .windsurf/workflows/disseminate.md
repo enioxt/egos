@@ -21,7 +21,7 @@ What was created or changed?
 
 ## 2. Save to Cascade Memory
 
-```
+```ts
 create_memory({
   Title: "Session — [description]",
   Content: "Detailed markdown with files, decisions, gotchas...",
@@ -33,7 +33,7 @@ create_memory({
 
 ## 3. Check Meta-Prompt Triggers
 
-```
+```text
 Read .guarani/prompts/triggers.json
 - Did any trigger apply this session?
 - Should a new trigger be added?
@@ -46,12 +46,13 @@ Read .guarani/prompts/triggers.json
 - `TASKS.md` — Mark completed, add discovered tasks
 - `.guarani/` — If architecture decisions were made
 - Record Codex usage: availability, mode used (`review`, `read-only`, `cloud`), suggestions applied/rejected
-- Record Alibaba orchestration status and whether `session:guard` / mini `/start` recovery surfaces were updated
-- If mesh, agents, workflows, or event-bus reality changed, include a `/mycelium` snapshot with maturity, connected agents, systems in mesh, and drift notes
+- Record Alibaba orchestration status and whether the repo's readiness surface (`session:guard` when present, otherwise local activation checks) was updated
+- If mesh, agents, workflows, or event-bus reality changed, include a `/mycelium` snapshot with maturity, connected systems, and drift notes
 
 ## 5. Post on Social Channels (if milestone)
 
 Use `/postar` workflow for unified posting:
+
 - **Telegram** (@ethikin): Full markdown, up to 4096 chars
 - **Discord**: Markdown, up to 2000 chars
 - **X.com** (@anoineim): 280 chars max + link

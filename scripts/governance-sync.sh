@@ -15,6 +15,8 @@
 EGOS_KERNEL="${EGOS_KERNEL:-$HOME/egos}"
 EGOS_HOME="${EGOS_HOME:-$HOME/.egos}"
 MODE="${1:---dry}"
+WORKFLOWS_SRC="$EGOS_KERNEL/.windsurf/workflows"
+WORKFLOWS_DST="$EGOS_HOME/workflows"
 
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -42,14 +44,22 @@ if [ ! -d "$EGOS_HOME/guarani" ]; then
   mkdir -p "$EGOS_HOME/guarani"
 fi
 
+if [ -d "$WORKFLOWS_SRC" ] && [ ! -d "$WORKFLOWS_DST" ]; then
+  printf "${YELLOW}WARN:${NC} %s/workflows not found, creating...\n" "$EGOS_HOME"
+  mkdir -p "$WORKFLOWS_DST"
+fi
+
 # ── Compare each file in kernel .guarani/ with ~/.egos/guarani/ ──
 compare_file() {
   rel_path="$1"
-  src="$EGOS_KERNEL/.guarani/$rel_path"
-  dst="$EGOS_HOME/guarani/$rel_path"
+  src_root="$2"
+  dst_root="$3"
+  label="$4"
+  src="$src_root/$rel_path"
+  dst="$dst_root/$rel_path"
 
   if [ ! -f "$dst" ]; then
-    printf "  ${YELLOW}NEW${NC}   %s\n" "$rel_path"
+    printf "  ${YELLOW}NEW${NC}   %s: %s\n" "$label" "$rel_path"
     DRIFT_COUNT=$((DRIFT_COUNT + 1))
     if [ "$MODE" = "--exec" ]; then
       dst_dir=$(dirname "$dst")
@@ -59,7 +69,7 @@ compare_file() {
       printf "        ${GREEN}-> copied${NC}\n"
     fi
   elif ! diff -q "$src" "$dst" > /dev/null 2>&1; then
-    printf "  ${YELLOW}DRIFT${NC} %s\n" "$rel_path"
+    printf "  ${YELLOW}DRIFT${NC} %s: %s\n" "$label" "$rel_path"
     DRIFT_COUNT=$((DRIFT_COUNT + 1))
     if [ "$MODE" = "--exec" ]; then
       cp "$src" "$dst"
@@ -77,9 +87,20 @@ find "$EGOS_KERNEL/.guarani" -type f | sort > "$TMPLIST"
 
 while read -r filepath; do
   rel=$(echo "$filepath" | sed "s|$EGOS_KERNEL/.guarani/||")
-  compare_file "$rel"
+  compare_file "$rel" "$EGOS_KERNEL/.guarani" "$EGOS_HOME/guarani" "guarani"
 done < "$TMPLIST"
 rm -f "$TMPLIST"
+
+if [ -d "$WORKFLOWS_SRC" ]; then
+  TMPLIST=$(mktemp)
+  find "$WORKFLOWS_SRC" -type f | sort > "$TMPLIST"
+
+  while read -r filepath; do
+    rel=$(echo "$filepath" | sed "s|$WORKFLOWS_SRC/||")
+    compare_file "$rel" "$WORKFLOWS_SRC" "$WORKFLOWS_DST" "workflow"
+  done < "$TMPLIST"
+  rm -f "$TMPLIST"
+fi
 
 echo ""
 echo "---"
@@ -92,7 +113,7 @@ fi
 
 if [ "$MODE" = "--exec" ] && [ "$SYNC_COUNT" -gt 0 ]; then
   echo ""
-  printf "${GREEN}Synced %d files to ~/.egos/guarani/${NC}\n" "$SYNC_COUNT"
+  printf "${GREEN}Synced %d files to ~/.egos/guarani/ and ~/.egos/workflows/${NC}\n" "$SYNC_COUNT"
   echo ""
   if [ -x "$EGOS_HOME/sync.sh" ]; then
     printf "Run ${BLUE}~/.egos/sync.sh${NC} to propagate to leaf repos? [y/N] "
