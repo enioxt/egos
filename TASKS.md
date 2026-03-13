@@ -40,7 +40,7 @@
 - [x] EGOS-011: Migrate first agent from egos-lab as proof-of-concept
 - [x] EGOS-049: Create repo-role-aware activation logic — `egos.config.json` + `repo-role.ts` + heuristic fallback
 - [x] EGOS-050: Create `activation:check` command for the core repo — 42 checks, 100% pass rate
-- [ ] EGOS-051: Migrate the next wave of core-safe agents/docs from `egos-lab` after role-boundary review
+- [/] EGOS-051: Migrate core-safe agents from egos-lab — `dead_code_detector` migrated (4 kernel agents now); SSOT Auditor + Contract Tester need generalization (medium-term)
 - [x] EGOS-052: Document the kernel-to-leaf migration matrix — `docs/strategy/MIGRATION_MATRIX.md`
 
 ### P2 (Important) — Archaeology Sprint

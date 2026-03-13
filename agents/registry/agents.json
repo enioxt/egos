@@ -42,6 +42,19 @@
       "risk_level": "T0",
       "status": "active",
       "migrated_from": "egos-native"
+    },
+    {
+      "id": "dead_code_detector",
+      "name": "Dead Code Detector",
+      "description": "Finds dead exports, orphan files, and empty stubs across any TypeScript codebase using regex-based analysis (no external deps)",
+      "area": "qa",
+      "entrypoint": "agents/agents/dead-code-detector.ts",
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual"],
+      "tools_allowed": [],
+      "risk_level": "T0",
+      "status": "active",
+      "migrated_from": "egos-lab"
     }
   ]
 }
