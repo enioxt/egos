@@ -64,6 +64,7 @@ Before ending, the agent MUST persist knowledge:
 | Any session | `create_memory()` with patterns, decisions, gotchas |
 | Meta-prompt trigger suspected | Check `.guarani/prompts/triggers.json` |
 | Architecture changed | Document in `.guarani/` or repo docs |
+| Kernel governance / workflows changed | Run `bun run governance:sync:exec` then `bun run governance:check` |
 | New reusable pattern | Append to `docs/knowledge/HARVEST.md` |
 | Capability created / improved / adopted | Update `docs/CAPABILITY_REGISTRY.md` |
 | Chatbot surface changed | Re-check `docs/modules/CHATBOT_SSOT.md` adoption table + rollout protocol |

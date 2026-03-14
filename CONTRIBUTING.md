@@ -30,6 +30,13 @@ EGOS uses a **kernel + leaf** architecture:
 
 All governance changes flow **kernel → shared home → leaves**. Never edit
 governance files in a leaf repo.
+If you change `.guarani/`, `.windsurf/workflows/`, or kernel governance docs,
+you MUST propagate before finalizing:
+
+```bash
+bun run governance:sync:exec   # kernel -> ~/.egos -> leaf repos
+bun run governance:check       # must return 0 drift
+```
 
 ## Core Rules
 
@@ -75,6 +82,7 @@ git checkout -b feat/EGOS-XXX-short-description
 ```bash
 bun run typecheck         # TypeScript strict check
 bun agents/cli.ts lint-registry  # Registry consistency
+bun run governance:sync:exec     # propagate kernel governance changes
 bun run governance:check  # Governance drift = 0
 ```
 

@@ -10,11 +10,29 @@
 #   ./scripts/governance-sync.sh          # dry-run (default)
 #   ./scripts/governance-sync.sh --exec   # actually sync
 #   ./scripts/governance-sync.sh --check  # CI mode (exit 1 if drift)
+#   ./scripts/governance-sync.sh --exec --propagate  # sync + auto-propagate to leaf repos
 # ═══════════════════════════════════════════════════════════
 
 EGOS_KERNEL="${EGOS_KERNEL:-$HOME/egos}"
 EGOS_HOME="${EGOS_HOME:-$HOME/.egos}"
-MODE="${1:---dry}"
+MODE="--dry"
+PROPAGATE_MODE="prompt"
+for arg in "$@"; do
+  case "$arg" in
+    --dry|--exec|--check)
+      MODE="$arg"
+      ;;
+    --propagate|--yes|--auto-propagate)
+      PROPAGATE_MODE="yes"
+      ;;
+    --no-propagate)
+      PROPAGATE_MODE="no"
+      ;;
+  esac
+done
+if [ "${EGOS_AUTO_PROPAGATE:-0}" = "1" ]; then
+  PROPAGATE_MODE="yes"
+fi
 WORKFLOWS_SRC="$EGOS_KERNEL/.windsurf/workflows"
 WORKFLOWS_DST="$EGOS_HOME/workflows"
 
@@ -116,11 +134,25 @@ if [ "$MODE" = "--exec" ] && [ "$SYNC_COUNT" -gt 0 ]; then
   printf "${GREEN}Synced %d files to ~/.egos/guarani/ and ~/.egos/workflows/${NC}\n" "$SYNC_COUNT"
   echo ""
   if [ -x "$EGOS_HOME/sync.sh" ]; then
-    printf "Run ${BLUE}~/.egos/sync.sh${NC} to propagate to leaf repos? [y/N] "
-    read -r answer
-    if [ "$answer" = "y" ] || [ "$answer" = "Y" ]; then
-      "$EGOS_HOME/sync.sh"
-    fi
+    case "$PROPAGATE_MODE" in
+      yes)
+        "$EGOS_HOME/sync.sh"
+        ;;
+      no)
+        printf "Skipping leaf propagation (${BLUE}--no-propagate${NC}).\n"
+        ;;
+      *)
+        if [ -t 0 ]; then
+          printf "Run ${BLUE}~/.egos/sync.sh${NC} to propagate to leaf repos? [y/N] "
+          read -r answer
+          if [ "$answer" = "y" ] || [ "$answer" = "Y" ]; then
+            "$EGOS_HOME/sync.sh"
+          fi
+        else
+          printf "Non-interactive shell detected. Skipping leaf propagation; use ${BLUE}--propagate${NC} or ${BLUE}EGOS_AUTO_PROPAGATE=1${NC}.\n"
+        fi
+        ;;
+    esac
   fi
 fi
 

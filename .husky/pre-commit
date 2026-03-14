@@ -48,8 +48,20 @@ if [ "$FROZEN_VIOLATED" -eq 1 ]; then
   exit 1
 fi
 
-# 4. SSOT Drift — Check file size limits
-echo "  [3/4] SSOT drift: checking file size limits..."
+# 4. Governance propagation — canonical kernel files must be synced to ~/.egos
+if echo "$STAGED" | grep -Eq '^\.guarani/|^\.windsurf/workflows/'; then
+  echo "  [3/5] governance sync: checking kernel -> ~/.egos drift..."
+  sh scripts/governance-sync.sh --check >/dev/null 2>&1 || {
+    echo "❌ BLOCKED: Governance drift detected between kernel and ~/.egos."
+    echo "   Run: bun run governance:sync:exec"
+    exit 1
+  }
+else
+  echo "  [3/5] governance sync: no canonical governance changes staged"
+fi
+
+# 5. SSOT Drift — Check file size limits
+echo "  [4/5] SSOT drift: checking file size limits..."
 check_lines() {
   _cl_file="$1"; _cl_max="$2"
   if [ -f "$_cl_file" ]; then
@@ -66,5 +78,5 @@ check_lines "TASKS.md" 500 || exit 1
 check_lines ".windsurfrules" 150 || exit 1
 check_lines ".guarani/PREFERENCES.md" 100 || exit 1
 
-echo "  [4/4] All checks passed."
+echo "  [5/5] All checks passed."
 echo "✅ EGOS Pre-Commit: Commit approved."
