@@ -118,7 +118,7 @@
 - [x] EGOS-049 — Repo-role-aware activation logic — `egos.config.json` + `repo-role.ts`
 - [/] EGOS-051 — Migrate core-safe agents — `dead_code_detector` done; SSOT Auditor needs generalization
 - [x] EGOS-052 — Kernel-to-leaf migration matrix — `docs/strategy/MIGRATION_MATRIX.md`
-- [ ] EGOS-016 — Review remaining workflow overrides in leaf repos
+- [x] EGOS-016 — Workflow override audit: 1 legitimate (egos-lab mycelium), 9 stale (br-acc/forja/egos-self v5.0→v5.4) — `docs/reports/workflow-override-audit.md`
 
 ### Long Term (1-3 months) — Target: 95%
 
