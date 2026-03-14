@@ -1,7 +1,7 @@
 # EGOS — Go-to-Market Research for Open Source Framework Validation
 
-> **VERSION:** 1.0.0 | **CREATED:** 2026-03-13
-> **STATUS:** Research — theories extracted, not yet validated in code
+> **VERSION:** 2.0.0 | **CREATED:** 2026-03-13 | **UPDATED:** 2026-03-13
+> **STATUS:** Research — theories extracted, new metrics framework added
 
 ---
 
@@ -160,3 +160,105 @@ Before any GTM push, these must be TRUE:
 ---
 
 *"Build it. Prove it. Then tell people." — EGOS Build-First Directive*
+
+---
+
+## 8. OSS Economics — Quantitative Patterns (Pandey, 2025)
+
+Source: "The Economics of Open Source Dev Tools" (PEXT, Nov 2025)
+
+- GitHub stars correlate with **initial** funding but NOT long-term success
+- Revenue model choice is more predictive than raw adoption metrics
+- **Hosted service** models monetize 40% faster than open-core
+- **Open-core** models show stronger retention and expansion revenue
+- 90% of IT leaders already use enterprise open source
+
+### EGOS Implication
+
+EGOS is an orchestration kernel, not a hosted service. The open-core model fits better: free governance + paid multi-team orchestration. Stars matter for awareness but not for proving value — case studies and agent reports matter more.
+
+---
+
+## 9. Developer Funnel Metrics Framework (HackMamba + Stateshift, 2025)
+
+### Three-Stage Developer Funnel
+
+| Stage | Metrics | EGOS Equivalent |
+|-------|---------|-----------------|
+| **TOFU** (awareness) | Docs page views, GitHub traffic, blog reads | egos.ia.br visits, GitHub stars/forks |
+| **MOFU** (trial) | `egos-init` installs, first governance check pass | `activation:check` runs, first commit with pre-commit hooks |
+| **BOFU** (adoption) | Active repos using kernel, agent runs/week, drift-check frequency | Repos with `.egos` symlink, governance:check cadence |
+
+### Key Benchmarks (Stateshift, 2025)
+
+- Developer activation rate target: **20-40%** (first value in <15 min)
+- Community-driven retention: **37% faster** feature adoption
+- Trial-to-paid conversion: **15-25%** (vs 10-15% traditional SaaS)
+- Community-supported users generate **20-40% more expansion revenue**
+
+### EGOS Current State
+
+- **Time-to-first-value:** ~2 min (egos-init) — excellent
+- **Activation:** Currently 1 user, 6 repos — needs external adopters
+- **Retention signal:** governance:check cadence shows daily usage internally
+
+---
+
+## 10. Lighthouse Users Strategy (Unusual VC, 2025)
+
+### Two Adopter Categories
+
+- **Lighthouse users:** Technically sophisticated, may never pay, but evangelize powerfully
+- **Mainstream users:** Need polish, docs, support — these are the conversion targets
+
+### Key Insight
+
+> "Lighthouse users may only use OSS and never pay, but they serve as important evangelists, amplifying mindshare and awareness."
+
+### EGOS Lighthouse Strategy
+
+1. Find 3-5 technically sophisticated devs building AI agent systems
+2. Offer `egos-init` + 30-min onboarding call
+3. Let them contribute agents/workflows back
+4. Their public usage becomes case studies
+5. Mainstream users follow lighthouse adoption
+
+---
+
+## 11. Anti-Selling for Developers (MAXIMIZE, 2025)
+
+> "If you're building for developers, your audience doesn't want to be sold to. They want proof, autonomy, and to try before they buy."
+
+### OSS as Demand Engine
+
+- Open source flips the funnel: **create value upfront**, earn workflow inclusion
+- GitHub stars → brand equity (but NOT revenue directly)
+- Contributions → qualified leads (contributors already understand the product)
+
+### EGOS Application
+
+- Never gate core governance behind sign-up
+- Let `egos-init` work completely offline, no telemetry
+- Publish all agent results as open reports on egos.ia.br
+- Track adoption via opt-in anonymous ping (governance:check can report version)
+
+---
+
+## 12. Updated Validation Checklist
+
+Before any GTM push, these must be TRUE:
+
+- [ ] `egos-init` works on a fresh repo in <2 minutes
+- [ ] At least 3 case studies with real repos (852, carteira-livre, forja)
+- [ ] Presentable HTML reports on egos.ia.br showing agent results
+- [ ] CHATBOT_SSOT compliance visible (852 = A, others improving)
+- [ ] Capability Registry live on website with search/filter
+- [ ] At least 1 external contributor or adopter (lighthouse user)
+- [ ] arXiv paper draft with reproducible methodology
+- [ ] Cost comparison: EGOS governance vs manual governance overhead
+- [ ] Developer funnel metrics instrumented (TOFU/MOFU/BOFU)
+- [ ] Time-to-first-value benchmark documented and reproducible
+
+---
+
+*"The product is your marketing." — Unusual VC OSS Funnel Guide*

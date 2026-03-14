@@ -113,7 +113,7 @@
 
 **Objective:** Repo-role architecture, migration framework, go-to-market research, capability drift monitoring.
 
-- [ ] EGOS-037 — Research go-to-market theories for framework validation
+- [x] EGOS-037 — GTM research v2.0: OSS economics, developer funnel metrics (TOFU/MOFU/BOFU), lighthouse strategy, 10-item validation checklist — `docs/strategy/GO_TO_MARKET_RESEARCH.md`
 - [x] EGOS-038 — capability-drift-checker agent (15 checks, kernel 100%, carteira-livre 93%)
 - [x] EGOS-049 — Repo-role-aware activation logic — `egos.config.json` + `repo-role.ts`
 - [/] EGOS-051 — Migrate core-safe agents — `dead_code_detector` done; SSOT Auditor needs generalization
