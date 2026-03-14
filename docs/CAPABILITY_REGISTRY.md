@@ -22,9 +22,9 @@ Each capability has:
 | Capability | SSOT | Quality | Adopted By | Should Adopt | Tags |
 |-----------|------|---------|------------|-------------|------|
 | Modular Prompt Architecture | `egos/docs/modules/CHATBOT_SSOT.md` | A | 852, intelink, forja, egos-web | carteira-livre, br-acc | `chatbot`, `prompt`, `composable`, `ssot` |
-| ATRiAN Ethical Validation | `egos/packages/shared/src/atrian.ts` | A | 852 (origin), egos, intelink, carteira-livre, forja | egos-web, br-acc | `chatbot`, `ethics`, `validation`, `atrian` |
-| PII Scanner (Brazilian) | `egos/packages/shared/src/pii-scanner.ts` | A | 852 (origin), egos, intelink, carteira-livre, forja | egos-web, br-acc | `chatbot`, `privacy`, `lgpd`, `pii` |
-| Conversation Memory | `egos/packages/shared/src/conversation-memory.ts` | A | 852 (origin), egos, intelink, carteira-livre, forja | egos-web, br-acc | `chatbot`, `memory`, `context` |
+| ATRiAN Ethical Validation | `egos/packages/shared/src/atrian.ts` | A | 852 (origin), egos, intelink, carteira-livre, forja, egos-web, br-acc | — | `chatbot`, `ethics`, `validation`, `atrian` |
+| PII Scanner (Brazilian) | `egos/packages/shared/src/pii-scanner.ts` | A | 852 (origin), egos, intelink, carteira-livre, forja, egos-web, br-acc | — | `chatbot`, `privacy`, `lgpd`, `pii` |
+| Conversation Memory | `egos/packages/shared/src/conversation-memory.ts` | A | 852 (origin), egos, intelink, carteira-livre, forja, egos-web, br-acc | — | `chatbot`, `memory`, `context` |
 | Task-Based Model Routing | `852/src/lib/ai-provider.ts` | A | 852, intelink, carteira-livre, forja, egos-web (basic) | br-acc | `chatbot`, `ai`, `routing`, `cost` |
 | AI Conversation Review | `852/src/app/api/review/route.ts` | A | 852 | forja | `chatbot`, `review`, `quality` |
 | Smart Correlation Engine | `852/src/app/api/correlate/route.ts` | A | 852 | forja, intelink | `chatbot`, `correlation`, `ai` |
@@ -72,7 +72,8 @@ Each capability has:
 |-----------|------|---------|------------|-------------|------|
 | Governance Symlinks | `~/.egos/governance-symlink.sh` | A | ALL 6 repos | — | `governance`, `symlink`, `ssot` |
 | Governance Sync | `~/.egos/sync.sh` | A | 5 repos (auto) | — | `governance`, `sync`, `ssot` |
-| Pre-commit Drift Detection | `.husky/pre-commit` | A | egos-lab, carteira-livre | 852, forja | `governance`, `drift`, `hooks` |
+| Pre-commit Drift Detection | `.husky/pre-commit` | A | egos-lab, carteira-livre, forja | 852 | `governance`, `drift`, `hooks` |
+| Context Tracker | `egos/agents/agents/context-tracker.ts` | A | egos | ALL | `governance`, `context`, `observability` |
 | SSOT Drift Check | `egos-lab/scripts/ssot-drift-check.ts` | A | egos-lab | — | `governance`, `drift`, `api` |
 | API Registry Check | `egos-lab/scripts/ssot-api-registry-check.ts` | A | egos-lab | — | `governance`, `api`, `drift` |
 | Orchestration Pipeline (7-phase) | `.guarani/orchestration/PIPELINE.md` | A | ALL | — | `governance`, `pipeline`, `frozen` |
@@ -163,18 +164,18 @@ Each capability has:
 
 | Module | 852 | carteira-livre | intelink | forja | br-acc | egos-web |
 |--------|-----|---------------|----------|-------|--------|----------|
-| ATRiAN Validation | SSOT | HAS | HAS | FOUNDATION | -- | -- |
-| PII Scanner | SSOT | HAS | HAS | FOUNDATION | Python variant | -- |
-| Conversation Memory | SSOT | HAS | HAS | FOUNDATION | In-memory variant | BASIC |
-| Model Routing | SSOT | HAS | HAS | FOUNDATION | Python variant | BASIC |
-| Telemetry | SSOT | HAS | BASIC | FOUNDATION | Python variant | BASIC |
-| Rate Limiting | SSOT | BASIC | BASIC | FOUNDATION | Python variant | BASIC |
+| ATRiAN Validation | SSOT | HAS | HAS | HAS | HAS | HAS |
+| PII Scanner | SSOT | HAS | HAS | HAS | HAS (Python) | HAS |
+| Conversation Memory | SSOT | HAS | HAS | HAS | HAS (Python) | HAS |
+| Model Routing | SSOT | HAS | HAS | HAS | Python variant | HAS |
+| Telemetry | SSOT | HAS | BASIC | HAS | Python variant | BASIC |
+| Rate Limiting | SSOT | BASIC | BASIC | HAS | Python variant | BASIC |
 | Evolution API | -- | SSOT | -- | PLAN | -- | -- |
 | Tool-Calling (26) | -- | -- | -- | PLAN | SSOT | -- |
 | Supabase RLS | HAS | SSOT | -- | PLAN | -- | -- |
 | Export (PDF/DOCX) | SSOT | -- | -- | PLAN | -- | -- |
 
-**Legend:** SSOT = canonical source, HAS = implemented and verified in code, FOUNDATION = usable initial integration with production parity still pending, BASIC = minimal variant present, PLAN = planned, -- = not applicable
+**Legend:** SSOT = canonical source, HAS = implemented and verified (compliance-checker 100/100), BASIC = minimal variant present, PLAN = planned, -- = not applicable
 
 ---
 

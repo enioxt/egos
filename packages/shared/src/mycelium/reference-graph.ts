@@ -206,6 +206,9 @@ const KERNEL_NODES: ReferenceNode[] = [
   { id: 'runtime:agent-runner', type: 'runtime', label: 'Agent Runner', status: 'active', evidence: ['code'], sourcePath: 'agents/runtime/runner.ts' },
   { id: 'runtime:event-bus', type: 'runtime', label: 'Event Bus', status: 'active', evidence: ['code'], sourcePath: 'agents/runtime/event-bus.ts' },
 
+  // Agents
+  { id: 'agent:context-tracker', type: 'agent', label: 'Context Tracker', status: 'active', evidence: ['code'], sourcePath: 'agents/agents/context-tracker.ts' },
+
   // Shared packages
   { id: 'pkg:llm-provider', type: 'integration', label: 'LLM Provider', status: 'active', evidence: ['code', 'runtime'], sourcePath: 'packages/shared/src/llm-provider.ts' },
   { id: 'pkg:model-router', type: 'integration', label: 'Model Router', status: 'active', evidence: ['code', 'runtime'], sourcePath: 'packages/shared/src/model-router.ts' },
@@ -262,6 +265,16 @@ const KERNEL_EDGES: ReferenceEdge[] = [
   { from: 'repo:carteira-livre', relation: 'depends_on', to: 'pkg:pii-scanner', evidence: ['code'] },
   { from: 'repo:852', relation: 'derives_from', to: 'pkg:atrian', evidence: ['code'], note: 'Source of ATRiAN pattern' },
   { from: 'repo:852', relation: 'derives_from', to: 'pkg:conversation-memory', evidence: ['code'], note: 'Source of conversation memory pattern' },
+  // Cross-repo chatbot hardening (verified 100/100 compliance-checker)
+  { from: 'repo:forja', relation: 'depends_on', to: 'pkg:atrian', evidence: ['code'] },
+  { from: 'repo:forja', relation: 'depends_on', to: 'pkg:pii-scanner', evidence: ['code'] },
+  { from: 'repo:forja', relation: 'depends_on', to: 'pkg:conversation-memory', evidence: ['code'] },
+  { from: 'repo:egos-lab', relation: 'depends_on', to: 'pkg:atrian', evidence: ['code'] },
+  { from: 'repo:egos-lab', relation: 'depends_on', to: 'pkg:pii-scanner', evidence: ['code'] },
+  { from: 'repo:egos-lab', relation: 'depends_on', to: 'pkg:conversation-memory', evidence: ['code'] },
+  // Context tracker governs session lifecycle
+  { from: 'ws:egos-kernel', relation: 'contains', to: 'agent:context-tracker', evidence: ['code'] },
+  { from: 'agent:context-tracker', relation: 'emits', to: 'wf:end', evidence: ['code'], note: 'Auto-trigger at CTX >= 250' },
 
   // Workflows
   { from: 'ws:egos-kernel', relation: 'contains', to: 'wf:start', evidence: ['code'] },

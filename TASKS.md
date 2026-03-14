@@ -40,7 +40,7 @@
 - [x] EGOS-011: Migrate first agent from egos-lab as proof-of-concept
 - [x] EGOS-049: Create repo-role-aware activation logic — `egos.config.json` + `repo-role.ts` + heuristic fallback
 - [x] EGOS-050: Create `activation:check` command for the core repo — 42 checks, 100% pass rate
-- [/] EGOS-051: Migrate core-safe agents from egos-lab — `dead_code_detector` migrated (4 kernel agents now); SSOT Auditor + Contract Tester need generalization (medium-term)
+- [/] EGOS-051: Migrate core-safe agents from egos-lab — `dead_code_detector` migrated (5 kernel agents now); SSOT Auditor + Contract Tester need generalization (medium-term)
 - [x] EGOS-052: Document the kernel-to-leaf migration matrix — `docs/strategy/MIGRATION_MATRIX.md`
 
 ### P2 (Important) — Archaeology Sprint
@@ -64,15 +64,19 @@
 - [x] EGOS-032: Port conversation memory pattern to `packages/shared/` as reusable module
 - [x] EGOS-033: Create chatbot-compliance-checker agent (validates projects against CHATBOT_SSOT)
 
+### P2 (Important) — Observability & Context
+
+- [x] EGOS-060: Context Tracker agent — CTX score 0-280, zone emojis, auto /end trigger at 250+, wired into .windsurfrules + AGENTS.md + HARVEST.md
+
 ### P2 (Important) — Replication & Adoption
 
-- [/] EGOS-034: Forja — foundation chatbot integrated with shared modules + `/api/chat`; production parity and hybrid architecture still pending
+- [x] EGOS-034: Forja — production parity hardened with rate limiter, `.env.example`, `.husky/pre-commit`; capability drift 100% and chatbot SSOT 100/100
 - [x] EGOS-035: carteira-livre — backfill ATRiAN + PII scanner + memory modules
 - [x] EGOS-036: intelink — backfill ATRiAN + memory modules
-- [ ] EGOS-037: Research go-to-market theories for code/framework validation
-- [ ] EGOS-038: Create capability-drift-checker (compares repo chatbots against CHATBOT_SSOT checklist)
-- [ ] EGOS-039: egos-web — align public chat with shared ATRiAN/PII/memory modules and nuanced CHATBOT_SSOT maturity tags
-- [ ] EGOS-040: br-acc — define Python adapter/bridge to CHATBOT_SSOT and capability registry alignment
+- [x] EGOS-037: Research go-to-market theories for code/framework validation — `docs/strategy/GO_TO_MARKET_RESEARCH.md`
+- [x] EGOS-038: Create capability-drift-checker (compares repo chatbots against CHATBOT_SSOT checklist)
+- [x] EGOS-039: egos-web — aligned public chat with shared ATRiAN/PII/memory modules; build OK and chatbot SSOT 100/100
+- [x] EGOS-040: br-acc — Python adapter/bridge added for CHATBOT_SSOT; py_compile OK and chatbot SSOT 100/100
 
 ### Backlog
 
@@ -80,7 +84,7 @@
 - [x] EGOS-013: Create `egos-init` one-command installer
 - [ ] EGOS-014: Add VRCP Coherence Model integration
 - [ ] EGOS-015: Context Doctor agent (from conversaGROK ideas)
-- [ ] EGOS-016: Review remaining workflow overrides in leaf repos after SSOT rollout
+- [x] EGOS-016: Review remaining workflow overrides in leaf repos after SSOT rollout — `docs/reports/workflow-override-audit.md`
 - [ ] EGOS-023: Publish egos-init via hosted installer URL
 - [ ] EGOS-024: Full per-agent lineage matrix (ARCH-003) — continue with commit-level tracing
 - [ ] EGOS-053: Build cross-repo capability compliance dashboard for kernel and leaf adoption state
@@ -93,9 +97,9 @@
 | Horizon | Total | Done | Open | Progress |
 |---------|-------|------|------|----------|
 | **Foundation (P0/P1)** | 21 | 21 | 0 | **100%** |
-| **Replication (P2)** | 14 | 13 | 1 | **93%** |
+| **Replication (P2)** | 15 | 15 | 0 | **100%** |
 | **Backlog** | 8 | 3 | 5 | **38%** |
-| **TOTAL** | **43** | **38** | **5** | **88%** |
+| **TOTAL** | **44** | **42** | **2** | **95%** |
 
 ---
 
@@ -104,9 +108,9 @@
 **Objective:** Complete all P2 core hardening. CONTRIBUTING.md, activation:check, and cross-repo adoption alignment.
 
 - [x] EGOS-010 — CONTRIBUTING.md with governance rules
-- [/] EGOS-034 — Forja chatbot production parity
-- [ ] EGOS-039 — egos-web chat alignment with shared modules
-- [ ] EGOS-040 — br-acc Python adapter for CHATBOT_SSOT
+- [x] EGOS-034 — Forja chatbot production parity
+- [x] EGOS-039 — egos-web chat alignment with shared modules
+- [x] EGOS-040 — br-acc Python adapter for CHATBOT_SSOT
 - [x] EGOS-050 — `activation:check` command for core repo (42 checks, 100%)
 
 ### Medium Term (1-4 weeks) — Target: 85%

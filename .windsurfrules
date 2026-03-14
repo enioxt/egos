@@ -51,6 +51,7 @@ type: "framework-core + orchestration-kernel + agent-runtime"
 12. **FROZEN** — Never edit frozen zones without explicit user approval + proof.
 13. **CODEX** — Use Codex for diff-heavy, audit, and mechanical work.
 14. **HUMAN LOOP** — For ambiguous decisions, ask before acting.
+15. **PROPAGATE** — Kernel governance/workflow changes are not complete until `bun run governance:sync:exec` passes and `bun run governance:check` returns 0 drift.
 
 ## FROZEN ZONES
 
@@ -68,6 +69,7 @@ type: "framework-core + orchestration-kernel + agent-runtime"
 | **Bug fix** | Classify complexity + `tsc --noEmit` before commit + root-cause first |
 | **New API** | Add to api-registry + server-side keys only + `.env` for secrets |
 | **Schema change** | Contract test + update types in `packages/shared/` |
+| **Governance / workflow change** | Run `bun run governance:sync:exec` + verify `bun run governance:check` = 0 drift before finalizing |
 
 ## SECURITY
 
@@ -75,6 +77,21 @@ type: "framework-core + orchestration-kernel + agent-runtime"
 - API Keys: NEVER hardcode. Use `.env`.
 - PII: Mask CPF/email in all output.
 - RLS: Every new table MUST have `ENABLE ROW LEVEL SECURITY`.
+
+## CONTEXT TRACKER (MANDATORY)
+
+> Every session carries a **CTX score** (0–280). When CTX ≥ 180 the agent MUST warn. When CTX ≥ 250 the agent MUST run `/end` autonomously.
+
+| Zone | CTX | Action |
+|------|-----|--------|
+| 🟢 SAFE | 0–100 | Continue normally |
+| 🟡 WARN | 101–180 | Wrap up subtask, plan /end |
+| 🔴 HIGH | 181–250 | Start /end soon — commit + handoff |
+| ⛔ CRITICAL | 251–280 | Execute /end NOW, then ask user to open new chat |
+
+- **Agent:** `bun agent:run context_tracker --dry` — run anytime, mandatory before long multi-step tasks
+- **Auto-trigger rule:** If the agent detects CTX ≥ 250 it MUST emit `/end` without waiting for user prompt
+- **Score factors:** uncommitted files × 4, session commits × 2, changed code files × 1, handoff size (KB) × 0.5, agent runs × 8
 
 ## META-PROMPT SYSTEM
 

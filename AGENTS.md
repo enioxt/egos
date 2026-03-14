@@ -84,10 +84,17 @@ egos/
 ## Commands
 
 ```bash
-bun agent:list              # List all registered agents
+bun agent:list              # List all registered agents (6 total)
 bun agent:run <id> --dry    # Run agent in dry-run mode
 bun agent:run <id> --exec   # Run agent in execute mode
 bun agent:lint              # Validate agent registry
 bun typecheck               # TypeScript strict check
 bun lint                    # ESLint
+bun governance:sync         # Dry-run kernel -> ~/.egos governance propagation
+bun governance:sync:exec    # Sync kernel -> ~/.egos -> leaf repos
+bun governance:sync:local   # Sync kernel -> ~/.egos only (skip leaf repos)
+bun governance:check        # Verify kernel and ~/.egos have 0 drift
+
+# Context Tracker (run anytime — mandatory before long multi-step tasks)
+bun agent:run context_tracker --dry   # CTX score 0-280 with zone emoji + /end advice
 ```

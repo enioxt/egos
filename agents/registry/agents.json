@@ -68,6 +68,19 @@
       "risk_level": "T0",
       "status": "active",
       "migrated_from": "egos-native"
+    },
+    {
+      "id": "context_tracker",
+      "name": "Context Tracker",
+      "description": "Estimates remaining usable context window (CTX 0-280) from uncommitted files, session commits, handoff size, and agent runs. Emits zone emoji + /end recommendation when CTX > 180.",
+      "area": "observability",
+      "entrypoint": "agents/agents/context-tracker.ts",
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual", "pre_end"],
+      "tools_allowed": [],
+      "risk_level": "T0",
+      "status": "active",
+      "migrated_from": "egos-native"
     }
   ]
 }
