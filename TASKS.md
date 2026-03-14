@@ -94,8 +94,8 @@
 |---------|-------|------|------|----------|
 | **Foundation (P0/P1)** | 21 | 21 | 0 | **100%** |
 | **Replication (P2)** | 14 | 13 | 1 | **93%** |
-| **Backlog** | 8 | 2 | 6 | **25%** |
-| **TOTAL** | **43** | **36** | **7** | **84%** |
+| **Backlog** | 8 | 3 | 5 | **38%** |
+| **TOTAL** | **43** | **38** | **5** | **88%** |
 
 ---
 
@@ -130,4 +130,4 @@
 - [ ] EGOS-023 — Publish egos-init via hosted installer URL
 - [ ] EGOS-024 — Full per-agent lineage matrix (ARCH-003)
 - [ ] EGOS-053 — Cross-repo capability compliance dashboard
-- [ ] EGOS-054 — `/end` and `/disseminate` repo-role-aware
+- [x] EGOS-054 — `/end` and `/disseminate` repo-role-aware — `egos.config.json` detection + conditional gating
