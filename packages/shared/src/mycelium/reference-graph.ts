@@ -197,7 +197,7 @@ const KERNEL_NODES: ReferenceNode[] = [
   { id: 'repo:egos-lab', type: 'repository', label: 'egos-lab', status: 'active', evidence: ['code', 'runtime'], sourcePath: '/home/enio/egos-lab' },
   { id: 'repo:carteira-livre', type: 'repository', label: 'carteira-livre', status: 'active', evidence: ['code', 'runtime'], sourcePath: '/home/enio/carteira-livre' },
   { id: 'repo:br-acc', type: 'repository', label: 'br-acc', status: 'active', evidence: ['code', 'runtime'], sourcePath: '/home/enio/br-acc' },
-  { id: 'repo:forja', type: 'repository', label: 'forja', status: 'degraded', evidence: ['code'], sourcePath: '/home/enio/forja' },
+  { id: 'repo:forja', type: 'repository', label: 'forja', status: 'active', evidence: ['code'], sourcePath: '/home/enio/forja' },
   { id: 'repo:852', type: 'repository', label: '852', status: 'active', evidence: ['code', 'runtime'], sourcePath: '/home/enio/852' },
   { id: 'repo:policia', type: 'repository', label: 'policia', status: 'degraded', evidence: ['code'], sourcePath: '/home/enio/policia' },
   { id: 'repo:egos-self', type: 'repository', label: 'egos-self', status: 'degraded', evidence: ['code'], sourcePath: '/home/enio/egos-self' },

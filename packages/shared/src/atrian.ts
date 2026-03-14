@@ -15,7 +15,7 @@ export interface AtrianConfig {
 
 export const DEFAULT_ABSOLUTE_CLAIM_PATTERNS = [
   /\b(com certeza|sem dúvida|indubitavelmente|incontestável|inequivocamente)\b/gi,
-  /\b(sempre|nunca|todos os|nenhum|100%)\b/gi,
+  /\b(sempre|nunca|todos os|nenhum)\b|(?<!\d)100%/gi,
   /\b(comprovadamente|cientificamente provado|fato consumado)\b/gi,
 ];
 export const DEFAULT_FABRICATED_DATA_PATTERNS = [/\b(segundo (dados|pesquisas|estudos|estatísticas) (da|do|de))\b/gi, /\b(de acordo com (relatórios|levantamentos|números) (da|do|de))\b/gi];
