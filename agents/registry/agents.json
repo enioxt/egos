@@ -55,6 +55,19 @@
       "risk_level": "T0",
       "status": "active",
       "migrated_from": "egos-lab"
+    },
+    {
+      "id": "capability_drift_checker",
+      "name": "Capability Drift Checker",
+      "description": "Scans any target repo against the EGOS kernel's shared capabilities, governance files, workflows, and security basics to detect missing adoptions",
+      "area": "architecture",
+      "entrypoint": "agents/agents/capability-drift-checker.ts",
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual"],
+      "tools_allowed": [],
+      "risk_level": "T0",
+      "status": "active",
+      "migrated_from": "egos-native"
     }
   ]
 }

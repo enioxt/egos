@@ -93,9 +93,9 @@
 | Horizon | Total | Done | Open | Progress |
 |---------|-------|------|------|----------|
 | **Foundation (P0/P1)** | 21 | 21 | 0 | **100%** |
-| **Replication (P2)** | 14 | 10 | 4 | **71%** |
-| **Backlog** | 8 | 1 | 7 | **13%** |
-| **TOTAL** | **43** | **32** | **11** | **74%** |
+| **Replication (P2)** | 14 | 13 | 1 | **93%** |
+| **Backlog** | 8 | 2 | 6 | **25%** |
+| **TOTAL** | **43** | **36** | **7** | **84%** |
 
 ---
 
@@ -114,10 +114,10 @@
 **Objective:** Repo-role architecture, migration framework, go-to-market research, capability drift monitoring.
 
 - [ ] EGOS-037 — Research go-to-market theories for framework validation
-- [ ] EGOS-038 — capability-drift-checker agent
-- [ ] EGOS-049 — Repo-role-aware activation logic (kernel/lab/leaf)
-- [ ] EGOS-051 — Migrate next wave of core-safe agents from egos-lab
-- [ ] EGOS-052 — Document kernel-to-leaf migration matrix
+- [x] EGOS-038 — capability-drift-checker agent (15 checks, kernel 100%, carteira-livre 93%)
+- [x] EGOS-049 — Repo-role-aware activation logic — `egos.config.json` + `repo-role.ts`
+- [/] EGOS-051 — Migrate core-safe agents — `dead_code_detector` done; SSOT Auditor needs generalization
+- [x] EGOS-052 — Kernel-to-leaf migration matrix — `docs/strategy/MIGRATION_MATRIX.md`
 - [ ] EGOS-016 — Review remaining workflow overrides in leaf repos
 
 ### Long Term (1-3 months) — Target: 95%
