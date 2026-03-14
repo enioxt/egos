@@ -23,7 +23,10 @@ printf "📂 Repo: %s | Last: %s | Uncommitted: %s | Session commits: %s\n" \
   "$(git -C "$ROOT" log --oneline --since='6 hours ago' 2>/dev/null | wc -l)"
 git -C "$ROOT" log --oneline --since="6 hours ago" 2>/dev/null || git -C "$ROOT" log --oneline -5
 [ -f "$ROOT/TASKS.md" ] && printf "📝 TASKS.md: %s lines\n" "$(wc -l < "$ROOT/TASKS.md")"
+[ -f "$ROOT/egos.config.json" ] && printf "🏷️  Role: %s\n" "$(cat "$ROOT/egos.config.json" | grep -o '"role": "[^"]*"')" || printf "🏷️  Role: (no egos.config.json — heuristic detection)\n"
 ```
+
+**Repo-role detection:** If `egos.config.json` exists, read `role` and `surfaces` to gate conditional steps below. If absent, assume `leaf` role and skip surfaces like gem-hunter, report-generator, and session:guard.
 
 ## Phase 2: Agent Handoff Generation
 

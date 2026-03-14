@@ -6,6 +6,7 @@ description: "Saves new knowledge and patterns to Memory MCP, documentation, and
 
 > **Works in:** ANY EGOS repo
 > **When to Use:** After implementing a feature, fixing a bug, making an architectural decision, or completing a milestone.
+> **Repo-role:** Check `egos.config.json` for `role` and `surfaces`. If absent, assume `leaf` and skip surfaces like gem-hunter, report-generator, session:guard, and activation:check.
 
 ---
 

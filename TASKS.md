@@ -84,7 +84,7 @@
 - [ ] EGOS-023: Publish egos-init via hosted installer URL
 - [ ] EGOS-024: Full per-agent lineage matrix (ARCH-003) — continue with commit-level tracing
 - [ ] EGOS-053: Build cross-repo capability compliance dashboard for kernel and leaf adoption state
-- [ ] EGOS-054: Make `/end` and `/disseminate` repo-role-aware so Gem Hunter, report generation, and Mycelium steps run only where the surfaces exist
+- [x] EGOS-054: Make `/end` and `/disseminate` repo-role-aware — `egos.config.json` detection in Phase 1, conditional surface gating
 
 ## Roadmap — Progress Dashboard
 
