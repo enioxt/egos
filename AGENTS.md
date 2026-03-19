@@ -1,6 +1,6 @@
 # AGENTS.md — EGOS Framework Core
 
-> **VERSION:** 1.0.0 | **UPDATED:** 2026-03-13
+> **VERSION:** 1.1.0 | **UPDATED:** 2026-03-19
 > **TYPE:** Framework Core + Orchestration Kernel + Agent Runtime
 
 ---
