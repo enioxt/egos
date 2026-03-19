@@ -10,6 +10,8 @@ Read these files in order (all paths relative to repo root):
 - `.guarani/PREFERENCES.md` — Coding standards and rules
 - `.guarani/IDENTITY.md` — Agent identity and mission
 
+If `docs/CAPABILITY_REGISTRY.md` is missing in a leaf repo, load the canonical fallback at `/home/enio/egos/docs/CAPABILITY_REGISTRY.md` and flag the local absence as governance drift.
+
 ## 2. Load Orchestration System
 
 Read the orchestration pipeline that governs ALL work:
@@ -38,6 +40,7 @@ If the task mentions `mycelium`, `mesh`, `sync`, `agents`, `auto melhorar`, or `
 If that workflow is absent in the current repo, load `docs/concepts/mycelium/MYCELIUM_OVERVIEW.md` instead and flag the missing workflow as drift.
 
 If the task mentions `chatbot`, `prompt`, `replication`, `shared modules`, `backfill`, or `compliance`, load `docs/modules/CHATBOT_SSOT.md` immediately after `/start`.
+If that file is absent in the current repo, load `/home/enio/egos/docs/modules/CHATBOT_SSOT.md` instead and flag the local absence as drift.
 
 ## 4. Load Refinery (Intent Processing)
 
@@ -48,6 +51,8 @@ For MODERATE+ tasks, the Refinery activates automatically:
 - `.guarani/preprocessor.md` — Vague→explicit translation with persona simulation
 
 These are loaded ON-DEMAND when the pipeline activates. No need to read all at start.
+
+If the local repo does not ship these Refinery surfaces, load the shared fallback from `~/.egos/guarani/refinery/*` and `~/.egos/guarani/preprocessor.md`, then record the missing local surfaces as drift instead of silently claiming them loaded.
 
 If the task involves setup, auth, platform configuration, or multiple valid paths, prefer `ask_user_question` early to keep the human in the loop. Default to multiple-choice prompts unless the choice is strictly binary/exclusive.
 
@@ -92,6 +97,7 @@ Rules:
 - Codex runs in a **parallel terminal**, NEVER in main chat
 - Codex NEVER owns SSOT; it reviews under human/Cascade supervision
 - Alibaba is the preferred orchestrator when configured
+- If Alibaba is not configured, the agent MUST say `unavailable` and MUST NOT claim `alibaba:qwen-plus` is active
 - Kernel repos may not expose `session:guard`, `docs/gem-hunter`, or `docs/reports`; treat them as optional surfaces, not activation blockers
 
 ## 9. Output Briefing
@@ -113,6 +119,8 @@ Present to user:
 ## File Existence Check
 
 Required (flag if missing): `AGENTS.md`, `TASKS.md`, `docs/CAPABILITY_REGISTRY.md`, `.windsurfrules`, `.guarani/PREFERENCES.md`, `.guarani/IDENTITY.md`, `.guarani/orchestration/PIPELINE.md`, `.guarani/orchestration/GATES.md`, `.guarani/orchestration/QUESTION_BANK.md`, `.guarani/orchestration/DOMAIN_RULES.md`, `.guarani/refinery/classifier.md`, `.guarani/refinery/interrogators/*.md`, `.guarani/preprocessor.md`, `.guarani/prompts/PROMPT_SYSTEM.md`, `.guarani/prompts/triggers.json`, `docs/SYSTEM_MAP.md`.
+
+For leaf repos, missing required files MUST produce both: (1) an explicit drift note in the `/start` briefing, and (2) a canonical fallback load when a verified upstream source exists.
 
 Optional: `.guarani/philosophy/TSUN_CHA_PROTOCOL.md`, `.guarani/MCP_ORCHESTRATION_GUIDE.md`, `.guarani/DESIGN_STANDARDS.md`.
 

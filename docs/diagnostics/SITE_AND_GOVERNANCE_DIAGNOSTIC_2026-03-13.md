@@ -60,7 +60,7 @@
 
 **Risk:** If someone updates `.guarani/PREFERENCES.md` in `carteira-livre`, it will NOT propagate. Governance DNA can silently drift.
 
-**Note:** `AGENTS.md` and `TASKS.md` are correctly repo-specific (each repo has its own). But `.windsurfrules` and `.guarani/orchestration/`, `.guarani/philosophy/`, `.guarani/prompts/` SHOULD be symlinked from the kernel.
+**Note:** `AGENTS.md`, `TASKS.md`, and `.windsurfrules` are repo-specific. Shared governance DNA like `.guarani/orchestration/`, `.guarani/philosophy/`, and `.guarani/prompts/` can be symlinked from the kernel when the local copy is an exact match.
 
 ---
 

@@ -83,6 +83,23 @@ When moving code from leaf → kernel:
 | Session Guard | egos-lab | ❌ | Lab-specific, checks lab-only surfaces |
 | SSOT Auditor | egos-lab | 🔄 | Candidate — needs generalization |
 | Contract Tester | egos-lab | 🔄 | Candidate — needs API registry abstraction |
+| API Registry | egos-lab | 🔄 | Candidate — shared contract surface, still lab-coupled |
+| Mycelium Node/Schema | egos-lab | 🔄 | Candidate — kernel-worthy after dependency reduction |
+
+## Current `egos-lab` Surface Snapshot (2026-03-19)
+
+| Surface | Verdict | Why |
+|---------|---------|-----|
+| `agents/agents/ssot-auditor.ts` | migrate candidate | Cross-repo governance value, portable, already identified as candidate |
+| `agents/agents/contract-tester.ts` | migrate candidate | Useful beyond lab, but must stop assuming `egos-web` hardcoded endpoints |
+| `scripts/session-guard.ts` | extract pattern only | Valuable startup gate, but current implementation is lab-specific |
+| `packages/shared/src/api-registry.ts` | migrate candidate | Central contract layer for multi-app routing and testing |
+| `packages/shared/src/mycelium/node.ts` + `schema.ts` | migrate candidate | Kernel-worthy if reduced to generic graph/event primitives |
+| `apps/egos-web`, `apps/intelink`, `apps/eagle-eye`, `apps/agent-commander`, `apps/telegram-bot` | keep in lab | Product/runtime surfaces, deployable apps, not kernel scope |
+| `apps/carteira-x`, `apps/nexus*`, `apps/radio-philein`, `apps/symphony-egos` | keep in lab | Incubator or paused product surfaces, still app-specific |
+| `packages/nexus-shared`, `packages/data-workers`, `packages/shared/src/social`, `packages/shared/src/osint` | keep in lab | Domain/product packages, not governance-kernel primitives |
+| `projects/*` | archive blueprint surface | Blueprint catalog, not runtime; preserve as planning knowledge until promoted |
+| `docs/TASKS_ARCHIVE.md` and superseded historical maps | archive/reference | Keep for archaeology, but not active governance truth |
 
 ## Anti-Patterns
 

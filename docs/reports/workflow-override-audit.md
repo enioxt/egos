@@ -54,6 +54,15 @@ rm /home/enio/egos-self/.windsurf/workflows/{start,end,disseminate}.md
 
 The egos-lab mycelium.md override should be preserved as a legitimate local extension.
 
+## Addendum — 2026-03-19
+
+- `852` remains the clean reference for inherited shared workflows: `/start`, `/end`, and `/disseminate` are all linked to `~/.egos/workflows`.
+- `egos-lab` also remains healthy for these three workflows; its legitimate customization stays on `mycelium.md`, not on the global session workflows.
+- `carteira-livre` no longer shows stale content, but it still keeps exact-match local copies of `/start`, `/end`, and `/disseminate`; these should be re-linked to the shared source to reduce future drift risk.
+- `forja` and `br-acc` still keep local overrides for `/start`, `/end`, and `/disseminate`; they should either become thin wrappers with explicit repo-local needs or fall back to inherited shared workflows.
+- `policia` is a legitimate mixed case: repo-local `/start` remains justified by sigilo and mapped-only precedence, while `/end` and `/disseminate` can stay inherited from `~/.egos`.
+- `santiago` is currently outside the governance mesh: no `.egos`, no shared workflow surface, and no repo-local `.windsurfrules` were found during the audit.
+
 ## Prevention
 
 The kernel's `governance-sync.sh` already detects drift. To prevent future stale overrides:

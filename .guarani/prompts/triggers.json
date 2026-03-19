@@ -2,7 +2,7 @@
   "_version": "1.1.0",
   "_system": "EGOS Meta-Prompt Trigger System",
   "description": "Maps situations/keywords to the appropriate meta-prompt",
-  "updated": "2026-03-07",
+  "updated": "2026-03-17",
   "triggers": [
     {
       "id": "strategy.universal",
@@ -30,11 +30,11 @@
     },
     {
       "id": "audit.ecosystem",
-      "file": "../../docs/META_PROMPT_ECOSYSTEM_AUDIT.md",
+      "file": "meta/ecosystem-audit.md",
       "keywords": ["auditoria", "diagnóstico", "análise de repo", "reverse engineering", "code review"],
       "situations": ["Onboarding to a new codebase", "Periodic health check", "Cross-repo analysis"],
       "priority": "medium",
-      "apps": ["egos-lab"]
+      "apps": ["all"]
     },
     {
       "id": "debate.tsun-cha",
@@ -54,7 +54,7 @@
     },
     {
       "id": "engineering.prompt",
-      "file": "../../.agent/workflows/prompt.md",
+      "file": "../../.windsurf/workflows/prompt.md",
       "keywords": ["criar prompt", "system prompt", "instrução AI", "meta-prompt", "prompt engineering"],
       "situations": ["Building a new AI prompt", "Improving existing prompt", "Creating agent instructions"],
       "priority": "medium",

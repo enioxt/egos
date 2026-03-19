@@ -1,44 +1,42 @@
 # 🍄 Mycelium Network — Complete Integration Plan
+ 
+ > **Version:** 2.1.1 | **Updated:** 2026-03-19
+ > **Status:** Phase 1 (Local Event Bus + Reference Graph) LIVE · Phase 2 (Distributed Bridge) PLANNED
+ > **Concept:** The "Fungal Root System" — invisible infrastructure connecting all EGOS agents, apps, and services.
+ 
+ ---
+ 
+ ## 1. Current State (What Exists)
+ 
+ Before reading this plan, keep the canonical separation from `docs/concepts/mycelium/MYCELIUM_OVERVIEW.md`:
+ 
+ - **Runtime Bus** = `agents/runtime/event-bus.ts`
+ - **Reference Graph** = `packages/shared/src/mycelium/reference-graph.ts`
+ - **Workflow / Overview** = `.windsurf/workflows/mycelium.md` + `docs/SYSTEM_MAP.md`
+ - **Distributed bridge / dashboard** = consumer-repo concern, not implemented in the kernel today
+ 
+ | Layer | Implementation | Status |
+ |-------|---------------|--------|
+ | **Event Bus** | `agents/runtime/event-bus.ts` — In-memory, sync, TypeScript-native | ✅ LIVE |
+ | **Workflow + Overview** | `.windsurf/workflows/mycelium.md` + `docs/SYSTEM_MAP.md` | ✅ LIVE |
+ | **Reference Graph** | `packages/shared/src/mycelium/reference-graph.ts` — Canonical topology/reporting seed | ✅ LIVE |
+ | **Distributed Bridge** | No verified kernel implementation yet | 🟡 PLANNED |
+ | **Snapshot / Dashboard** | Lives in consumer surfaces outside the kernel, not in `/home/enio/egos` | 🟡 EXTERNAL |
 
-> **Version:** 2.1.0 | **Updated:** 2026-03-08
-> **Status:** Phase 1 (Local Event Bus) LIVE · Phase 2 (Distributed Bridge) PARTIAL/UNVERIFIED
-> **Concept:** The "Fungal Root System" — invisible infrastructure connecting all EGOS agents, apps, and services.
+ The kernel currently ships no `apps/` directory and no `agents/worker/` directory. Any Mycelium dashboard, API, or worker claim must therefore be treated as either a consumer-repo surface or stale documentation until runtime evidence proves otherwise.
 
----
-
-## 1. Current State (What Exists)
-
-Before reading this plan, keep the canonical separation from `docs/knowledge/MYCELIUM_OVERVIEW.md`:
-
-- **Runtime Bus** = `agents/runtime/event-bus.ts`
-- **Bridge / PoC** = `packages/shared/src/mycelium/node.ts` + `scripts/mycelium/test-poc.ts`
-- **Snapshot / Dashboard** = `apps/egos-web/src/lib/mycelium.ts` + `/api/mycelium-stats`
-- **Reference Graph** = `packages/shared/src/mycelium/reference-graph.ts`
-
-| Layer | Implementation | Status |
-|-------|---------------|--------|
-| **Event Bus** | `agents/runtime/event-bus.ts` — In-memory, sync, TypeScript-native | ✅ LIVE |
-| **Worker** | `agents/worker/index.ts` — Railway + Redis queue | ✅ LIVE (24/7) |
-| **Dashboard UI** | `MyceliumDashboard.tsx` — Snapshot projection, ZKP planned state, Inspector | ✅ LIVE (snapshot-based, not live mesh) |
-| **Stats API** | `apps/egos-web/api/mycelium-stats.ts` — Evidence-based topology snapshot | ✅ LIVE |
-| **Reference Graph** | `packages/shared/src/mycelium/reference-graph.ts` — Canonical topology/reporting map | ✅ LIVE |
-| **Harvester** | `scripts/disseminate.ts` — Knowledge extraction | ✅ LIVE |
-| **Registered Agents** | `agents/registry/agents.json` | ✅ LIVE (count changes with registry) |
-
-### Current Event Flow
-```
-Agent → MyceliumBus.emit() → In-memory dispatch → JSONL audit trail
+ ### Current Event Flow
+ ```
+ Agent → MyceliumBus.emit() → In-memory dispatch → local subscribers
                                 ↓
-                    Orchestrator aggregates results
-                                ↓
-                    Worker (Railway) processes tasks via Redis
-```
+                    JSONL audit trail / topology evidence
+ ```
+ 
+ ### Limitation: No cross-process communication
+ The Event Bus is in-memory only. No cross-process bridge is verified inside the kernel, and consumer-repo dashboards do not prove a live kernel mesh by themselves.
 
-### Limitation: No cross-process communication
-The Event Bus is in-memory only. Vercel serverless functions, Railway workers, and the frontend dashboard do not yet share verified real-time Mycelium events in production.
-
-### Limitation: Reference Graph Is Not the Event Stream
-The reference graph is already canonical for topology/reporting, but it does not mean the distributed event mesh is live. It maps what exists and what is planned; it does not replace runtime evidence.
+ ### Limitation: Reference Graph Is Not the Event Stream
+ The reference graph is already canonical for topology/reporting, but it does not mean the distributed event mesh is live. It maps what exists and what is planned; it does not replace runtime evidence.
 
 ---
 
@@ -234,23 +232,20 @@ Vercel (egos-web)                    Railway (Worker)
 ---
 
 ## 5. Implementation Phases
-
-### Phase 1: Foundation ✅ DONE
-- [x] MyceliumBus class with typed events
-- [x] JSONL audit trail
-- [x] Topic matching with wildcards
-- [x] Agent registry wired as the authoritative count source
-- [x] Worker on Railway with Redis queue
-- [x] Dashboard UI using evidence-based snapshot instead of simulated live mesh
-- [x] Canonical reference graph seed in `packages/shared/src/mycelium/reference-graph.ts`
+ 
+ ### Phase 1: Foundation ✅ DONE
+ - [x] MyceliumBus class with typed events
+ - [x] JSONL audit trail
+ - [x] Topic matching with wildcards
+ - [x] Agent registry wired as the authoritative count source
+ - [x] Canonical reference graph seed in `packages/shared/src/mycelium/reference-graph.ts`
 
 ### Phase 2: Real-Time Bridge (CURRENT)
-- [ ] **API endpoint** `/api/mycelium/events` — SSE stream from Redis
-- [x] **API endpoint** `/api/mycelium-stats` — Honest snapshot of declared topology and observed signals
-- [ ] **Worker integration** — Worker publishes events to Redis Pub/Sub
-- [x] **Dashboard wiring** — MyceliumDashboard fetches snapshot data
-- [ ] **Dashboard wiring** — real-time events stream beyond local JSONL snapshots
-- [ ] **Supabase table** `mycelium_events` — Persistent event storage
+- [ ] **Bridge contract** — Define the canonical cross-process event contract beyond the in-memory bus
+- [ ] **Consumer owner** — Choose which repo owns SSE/API projection (`egos-lab` or another consumer surface)
+- [ ] **Publisher wiring** — Connect a verified external publisher/subscriber path to the kernel bus
+- [ ] **Persistent snapshots** — Store Mycelium events or snapshots in a verified consumer surface
+- [ ] **Dashboard wiring** — Expose real-time views only after bridge proof exists
 
 ### Phase 3: ZKP Integration
 - [ ] Install `snarkjs` + compile circom circuits
@@ -376,9 +371,8 @@ The Mycelium Network transforms EGOS from a **collection of tools** into a **liv
 | File | Purpose |
 |------|---------|
 | `agents/runtime/event-bus.ts` | Core MyceliumBus class |
-| `agents/worker/index.ts` | Railway worker (Redis queue) |
-| `apps/egos-web/src/components/MyceliumDashboard.tsx` | Network dashboard UI |
-| `apps/egos-web/src/components/MyceliumDashboard.css` | Dashboard styles |
-| `docs/plans/tech/MYCELIUM_NETWORK.md` | This plan |
-| `docs/knowledge/MYCELIUM_OVERVIEW.md` | Consolidated overview |
-| `docs/agentic/HANDOFF_MYCELIUM.md` | Agent-to-agent handoff prompt |
+| `packages/shared/src/mycelium/reference-graph.ts` | Canonical topology/reference graph seed |
+| `docs/concepts/mycelium/MYCELIUM_OVERVIEW.md` | Consolidated layer separation and reality rules |
+| `docs/concepts/mycelium/REFERENCE_GRAPH_DESIGN.md` | Graph vocabulary and design rationale |
+| `docs/concepts/mycelium/NETWORK_PLAN.md` | This plan |
+| `.windsurf/workflows/mycelium.md` | Kernel Mycelium reality-check workflow |
