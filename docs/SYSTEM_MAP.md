@@ -1,6 +1,6 @@
 # SYSTEM_MAP.md — EGOS Framework Core
 
-> **VERSION:** 1.0.0 | **UPDATED:** 2026-03-13
+> **VERSION:** 2.0.0 | **UPDATED:** 2026-03-19
 > **ROLE:** repo-local map for `/start` in the canonical kernel
 
 <!-- llmrefs:start -->
@@ -50,5 +50,39 @@
 
 - Sync: `scripts/governance-sync.sh`, `scripts/link-ssot-files.sh`
 - Validation: `bun run typecheck`, `bun run agent:lint`, `bun run governance:check`
-- Agents: `dep_auditor`, `archaeology_digger`, `chatbot_compliance_checker`
+- Agents: `dep_auditor`, `archaeology_digger`, `chatbot_compliance_checker`, `context_tracker`
 - Docs: `docs/concepts/mycelium/`, `docs/archaeology/`, `docs/modules/`
+
+## Shared Modules (@egos/shared)
+
+| Module | File | Status | Description |
+|--------|------|--------|-------------|
+| LLM Provider | `llm-provider.ts` | ✅ Active | Multi-provider chat (Alibaba/OpenRouter) |
+| Model Router | `model-router.ts` | ✅ Active | Task-based model selection (8 models, 10 tasks) |
+| ATRiAN | `atrian.ts` | ✅ Active | Ethical validation (7 axioms) |
+| PII Scanner | `pii-scanner.ts` | ✅ Active | Brazilian PII detection (CPF, CNPJ, etc.) |
+| Conversation Memory | `conversation-memory.ts` | ✅ Active | Session memory + summarization |
+| Rate Limiter | `rate-limiter.ts` | ✅ Active | Token bucket rate limiting |
+| Telemetry | `telemetry.ts` | ✅ Active | Dual output (Supabase + JSON logs) |
+| Mycelium Graph | `mycelium/reference-graph.ts` | ✅ Active | Reference graph (27 nodes, 32 edges) |
+| Repo Role | `repo-role.ts` | ✅ Active | Repo classification heuristics |
+
+## Skills
+
+| Skill | File | Purpose |
+|-------|------|---------|
+| System Map | `.windsurf/skills/system-map.md` | SYSTEM_MAP.md structure and triggers |
+| Capability Import | `.windsurf/skills/capability-import.md` | Cross-repo feature import process |
+
+## Workflows
+
+| Workflow | File | Version |
+|----------|------|---------|
+| /start | `.windsurf/workflows/start.md` | v5.4 |
+| /end | `.windsurf/workflows/end.md` | v5.5 |
+| /pre | `.windsurf/workflows/pre.md` | v1.0 |
+| /prompt | `.windsurf/workflows/prompt.md` | v1.0 |
+| /research | `.windsurf/workflows/research.md` | v1.0 |
+| /disseminate | `.windsurf/workflows/disseminate.md` | v1.0 |
+| /mycelium | `.windsurf/workflows/mycelium.md` | v1.0 |
+| /regras | `.windsurf/workflows/regras.md` | v1.0 |
