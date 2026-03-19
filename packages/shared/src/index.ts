@@ -21,3 +21,5 @@ export { createGraph, findNode, findEdgesFrom, findEdgesTo, nodesByType, nodesBy
 export type { ReferenceEntityType, ReferenceRelation, ReferenceEvidence, NodeStatus, ReferenceNode, ReferenceEdge, ReferenceGraph } from './mycelium/reference-graph';
 export { detectRepoRole, hasSurface, roleDescription } from './repo-role';
 export type { RepoRole, EgosConfig } from './repo-role';
+export { createTelemetryRecorder, getStats } from './telemetry';
+export type { TelemetryConfig, TelemetryEvent, TelemetryEventType, TelemetryRecorder, TelemetryStats } from './telemetry';

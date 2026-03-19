@@ -1,10 +1,27 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.0.0 | **Updated:** 2026-03-13
+> **Version:** 2.2.0 | **Updated:** 2026-03-19
 
 ---
 
 ## Current Sprint: Foundation
+
+## Strategic Reset — Product Focus (2026-03-18)
+
+- [x] EGOS-061: Publish consolidated ecosystem verdict and repo roles — `docs/strategy/ECOSYSTEM_PRODUCT_VERDICT_2026-03.md`
+- [ ] EGOS-062: Package the canonical product boundary for `EGOS Guard Brasil` — ATRiAN + PII Scanner BR + public guard + evidence discipline
+- [ ] EGOS-063: Define free vs paid surface for the flagship (open SDK/specs vs hosted API/MCP/audit console)
+- [ ] EGOS-064: Deliver the first monetizable surface as a reusable package or MCP before expanding any new product line
+- [ ] EGOS-073: Run the full `egos-lab` consolidation diagnostic — classify every active surface as `migrate_to_egos`, `keep_in_lab`, `standalone_candidate`, `internal_infra`, `archive`, or `discard`, with source→destination pointers
+- [ ] EGOS-074: Execute the kernel-first consolidation of SSOT/governance surfaces from `egos-lab` into `egos` and eliminate duplicated docs, maps, workflows, and stale claims with explicit archive references
+- [ ] EGOS-075: Canonicalize the System Map control plane — one orchestrator contract, one machine map, one human map, freshness rules, and one cross-repo update flow
+- [ ] EGOS-076: Create the ecosystem classification registry for products/modules/ideas (`standalone`, `candidate`, `lab`, `internal_infra`, `archive`) and wire it into `TASKS.md`, `SYSTEM_MAP.md`, and `CAPABILITY_REGISTRY.md`
+- [ ] EGOS-077: Add the new-project gate for PRD, ICP, go-to-market, objective, success metric, and multi-model review mode with a recorded blocking-vs-advisory decision
+- [ ] EGOS-078: Define the `Agent Claim Contract` — formal taxonomy for `component`, `skill`, `agent_candidate`, `verified_agent`, and `online_agent`, with mandatory proof fields for runtime, triggers, evals, observability, and ownership
+- [ ] EGOS-079: Enforce the `Agent Claim Gate` in kernel governance — registry lint + pre-commit/pre-push + docs/tasks checks must block any surface claimed as agent without executable entrypoint, existing eval, valid run modes, and runtime evidence
+- [ ] EGOS-080: Define the `LLM Orchestration Matrix` for EGOS — explicit lane ownership for Cascade, terminal orchestration, Codex, Claude Code, Alibaba, and OpenRouter, with approval mode, authority level, and allowed task classes
+
+> **Directive:** Until EGOS-062..064 are resolved, new work should strengthen the flagship guardrails product or its proof cases only.
 
 ### P0 (Blockers)
 
@@ -74,9 +91,15 @@
 - [x] EGOS-035: carteira-livre — backfill ATRiAN + PII scanner + memory modules
 - [x] EGOS-036: intelink — backfill ATRiAN + memory modules
 - [x] EGOS-037: Research go-to-market theories for code/framework validation — `docs/strategy/GO_TO_MARKET_RESEARCH.md`
-- [x] EGOS-038: Create capability-drift-checker (compares repo chatbots against CHATBOT_SSOT checklist)
+- [x] EGOS-038: Create capability-drift-checker agent (15 checks, kernel 100%, carteira-livre 93%)
 - [x] EGOS-039: egos-web — aligned public chat with shared ATRiAN/PII/memory modules; build OK and chatbot SSOT 100/100
 - [x] EGOS-040: br-acc — Python adapter/bridge added for CHATBOT_SSOT; py_compile OK and chatbot SSOT 100/100
+- [x] EGOS-065: Stop legacy `.windsurfrules` symlink mutation in `~/.egos/governance-symlink.sh` and classify the script as legacy cleanup only
+  > **Arquivos:** `~/.egos/governance-symlink.sh`, `docs/CAPABILITY_REGISTRY.md`
+- [x] EGOS-066: Remove remaining stale claims/docs that still present `governance-symlink.sh` as the primary sync path instead of the kernel sync plane
+  > **Arquivos:** `docs/diagnostics/SITE_AND_GOVERNANCE_DIAGNOSTIC_2026-03-13.md`, `.guarani/orchestration/DOMAIN_RULES.md`
+- [x] EGOS-067: Define the hybrid multi-tool control plane for `Claude Code` + `Codex` + Alibaba + Antigravity with user-scope secrets and repo-local onboarding
+  > **Arquivos:** `egos-lab/docs/plans/MULTI_TOOL_HUB.md`, `~/.claude.json`
 
 ### Backlog
 
@@ -89,6 +112,11 @@
 - [ ] EGOS-024: Full per-agent lineage matrix (ARCH-003) — continue with commit-level tracing
 - [ ] EGOS-053: Build cross-repo capability compliance dashboard for kernel and leaf adoption state
 - [x] EGOS-054: Make `/end` and `/disseminate` repo-role-aware — `egos.config.json` detection in Phase 1, conditional surface gating
+- [ ] EGOS-068: Enforce shared workflow inheritance across mapped repos — re-link exact-match copies, replace stale overrides with thin wrappers or shared workflows, and preserve only justified repo-local exceptions
+- [ ] EGOS-069: Bootstrap `santiago` into the EGOS governance mesh with `.egos`, repo-local SSOT files, and inherited core workflows
+- [ ] EGOS-070: Complete Mycelium truth repair — align kernel docs and reference graph with actual local surfaces and classify consumer dashboards/bridges as external or planned
+- [ ] EGOS-071: Formalize cheap-first multi-model orchestration for Windsurf/Codex/Claude/Alibaba/OpenRouter with one coordinator, sequential routing, and reviewer proof-of-work
+- [ ] EGOS-072: Design anti-injection and least-privilege hardening for external-input workflows (issues, PRs, web, imported docs) before any high-trust automation
 
 ## Roadmap — Progress Dashboard
 
@@ -98,8 +126,8 @@
 |---------|-------|------|------|----------|
 | **Foundation (P0/P1)** | 21 | 21 | 0 | **100%** |
 | **Replication (P2)** | 15 | 15 | 0 | **100%** |
-| **Backlog** | 8 | 3 | 5 | **38%** |
-| **TOTAL** | **44** | **42** | **2** | **95%** |
+| **Backlog** | 13 | 3 | 10 | **23%** |
+| **TOTAL** | **49** | **42** | **7** | **86%** |
 
 ---
 
@@ -112,6 +140,11 @@
 - [x] EGOS-039 — egos-web chat alignment with shared modules
 - [x] EGOS-040 — br-acc Python adapter for CHATBOT_SSOT
 - [x] EGOS-050 — `activation:check` command for core repo (42 checks, 100%)
+- [ ] EGOS-068 — Shared workflow inheritance rollout across mapped repos
+- [ ] EGOS-069 — `santiago` governance bootstrap into the shared mesh
+- [ ] EGOS-070 — Mycelium truth repair across kernel docs and topology references
+- [ ] EGOS-071 — Cheap-first multi-model orchestration policy and routing contract
+- [ ] EGOS-072 — Anti-injection / least-privilege hardening for external-input automation
 
 ### Medium Term (1-4 weeks) — Target: 85%
 
