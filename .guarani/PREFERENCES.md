@@ -47,3 +47,8 @@
 - Dark mode first. Framer Motion for animations.
 - Fitts's Law: minimum 40x40px hit areas.
 - No em-dashes in public copy.
+
+## Docker & Infrastructure
+
+- **NO INFINITE LOOPS:** Never use `restart: always` in local or development containers. Use `restart: on-failure:3` or `unless-stopped` to prevent zombie containers from draining CPU and Disk I/O during crash loops.
+- **MONITORING:** EGOS Guardian script should be used to detect and auto-kill anomalous containers.

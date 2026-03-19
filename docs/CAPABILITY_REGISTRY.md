@@ -31,7 +31,7 @@ Each capability has:
 | Chat Streaming (Vercel AI SDK) | `852/src/app/api/chat/route.ts` | A | 852, intelink | forja | `chatbot`, `streaming`, `api` |
 | Export (PDF/DOCX/MD/WhatsApp) | `852/src/components/chat/ExportMenu.tsx` | A | 852 | forja, intelink | `chatbot`, `export`, `pdf` |
 | Hot Topics / Trending | `852/src/app/api/hot-topics/route.ts` | A | 852 | — | `chatbot`, `community`, `engagement` |
-| Tool-Calling Chat (26 tools) | `br-acc/api/src/bracc/routers/chat.py` | A | br-acc | forja (adapted) | `chatbot`, `tools`, `python` |
+| Tool-Calling Chat (27 tools) | `br-acc/api/src/bracc/routers/chat.py` | A | br-acc | forja (adapted) | `chatbot`, `tools`, `python` |
 | Public Guard / LGPD Masking | `br-acc/api/src/bracc/services/public_guard.py` | A | br-acc | forja | `privacy`, `lgpd`, `masking` |
 
 ### Canonical Standard
@@ -70,8 +70,8 @@ Each capability has:
 
 | Capability | SSOT | Quality | Adopted By | Should Adopt | Tags |
 |-----------|------|---------|------------|-------------|------|
-| Governance Symlinks | `~/.egos/governance-symlink.sh` | A | ALL 6 repos | — | `governance`, `symlink`, `ssot` |
-| Governance Sync | `~/.egos/sync.sh` | A | 5 repos (auto) | — | `governance`, `sync`, `ssot` |
+| Governance Symlink Converter (legacy) | `~/.egos/governance-symlink.sh` | C | Manual cleanup only | — | `governance`, `symlink`, `legacy` |
+| Governance Sync Plane | `egos/scripts/governance-sync.sh` + `~/.egos/sync.sh` | A | Kernel + synced leaves | — | `governance`, `sync`, `ssot` |
 | Pre-commit Drift Detection | `.husky/pre-commit` | A | egos-lab, carteira-livre, forja | 852 | `governance`, `drift`, `hooks` |
 | Context Tracker | `egos/agents/agents/context-tracker.ts` | A | egos | ALL | `governance`, `context`, `observability` |
 | SSOT Drift Check | `egos-lab/scripts/ssot-drift-check.ts` | A | egos-lab | — | `governance`, `drift`, `api` |
@@ -171,7 +171,7 @@ Each capability has:
 | Telemetry | SSOT | HAS | BASIC | HAS | Python variant | BASIC |
 | Rate Limiting | SSOT | BASIC | BASIC | HAS | Python variant | BASIC |
 | Evolution API | -- | SSOT | -- | PLAN | -- | -- |
-| Tool-Calling (26) | -- | -- | -- | PLAN | SSOT | -- |
+| Tool-Calling (27) | -- | -- | -- | PLAN | SSOT | -- |
 | Supabase RLS | HAS | SSOT | -- | PLAN | -- | -- |
 | Export (PDF/DOCX) | SSOT | -- | -- | PLAN | -- | -- |
 

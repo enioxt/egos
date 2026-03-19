@@ -90,6 +90,8 @@ agents/registry/agents.json (structure, not content)
 - **Sync script:** `scripts/governance-sync.sh` (kernel → `~/.egos` → leaf repos)
 - **Shared home:** `~/.egos/` (guarani + workflows)
 - **Downstream sync:** `~/.egos/sync.sh`
+- **Legacy cleanup only:** `~/.egos/governance-symlink.sh` (manual remediation, not primary sync plane)
+- **Repo-local surfaces:** `.windsurfrules`, `.guarani/IDENTITY.md`, `.guarani/PREFERENCES.md`
 - **Governance check:** `bun run governance:check`
 
 ### Anti-Patterns
@@ -97,12 +99,16 @@ agents/registry/agents.json (structure, not content)
 - Editing governance files in leaf repos instead of the kernel
 - Forgetting to propagate after kernel edits
 - Creating leaf-specific overrides that shadow kernel rules
+- Using `governance-symlink.sh` as if it were the canonical propagation path
+- Moving tool secrets or Claude/Codex user auth into repo-tracked config
 
 ### Checklist
 
 - [ ] Change made in kernel `.guarani/` first
+- [ ] Repo-local rule surfaces (`.windsurfrules`, `IDENTITY.md`, `PREFERENCES.md`) kept local unless a repo-role decision explicitly changes that policy
 - [ ] `scripts/governance-sync.sh --exec` run after edits
 - [ ] `~/.egos/sync.sh` propagated to all leaves
+- [ ] User-scope tool secrets and MCP auth kept outside repo-tracked files
 - [ ] `bun run governance:check` passes with 0 drift
 - [ ] No hardcoded secrets or API keys
 

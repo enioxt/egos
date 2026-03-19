@@ -10,13 +10,15 @@
  *   bun scripts/activation-check.ts --exec   # same (read-only check)
  */
 
-import { existsSync } from 'fs';
+import { existsSync, lstatSync, readFileSync, readlinkSync } from 'fs';
 import { resolve } from 'path';
 import { detectRepoRole, roleDescription } from '../packages/shared/src/repo-role';
 
 const ROOT = resolve(import.meta.dir, '..');
 const mode = process.argv.includes('--exec') ? 'exec' : 'dry';
 const repoConfig = detectRepoRole(ROOT);
+const HOME = process.env.HOME ?? '';
+const SHARED_HOME = HOME ? resolve(HOME, '.egos') : '';
 
 // ═══════════════════════════════════════════════════════════
 // Required Files
@@ -123,6 +125,41 @@ for (const key of OPTIONAL_ENV) {
   } else {
     results.push({ category: 'env', item: key, status: 'warn', detail: 'optional, not set' });
   }
+}
+
+const SHARED_MIRRORS = [
+  { local: '.guarani/PREFERENCES.md', shared: 'guarani/PREFERENCES.md', item: 'Shared preferences mirror' },
+  { local: '.windsurf/workflows/start.md', shared: 'workflows/start.md', item: 'Shared /start mirror' },
+];
+
+for (const mirror of SHARED_MIRRORS) {
+  const localPath = resolve(ROOT, mirror.local);
+  const sharedPath = resolve(SHARED_HOME, mirror.shared);
+  if (!SHARED_HOME || !existsSync(sharedPath)) {
+    results.push({ category: 'shared', item: mirror.item, status: 'warn', detail: `${mirror.shared} missing in ~/.egos` });
+    continue;
+  }
+  const localContent = readFileSync(localPath, 'utf-8');
+  const sharedContent = readFileSync(sharedPath, 'utf-8');
+  results.push({
+    category: 'shared',
+    item: mirror.item,
+    status: localContent === sharedContent ? 'ok' : 'fail',
+    detail: localContent === sharedContent ? undefined : `${mirror.shared} drifted from kernel`,
+  });
+}
+
+const LEAF_RULE_REPOS = ['egos-lab', '852', 'carteira-livre', 'br-acc', 'forja', 'egos-self'];
+for (const repo of LEAF_RULE_REPOS) {
+  const rulePath = resolve(HOME, repo, '.windsurfrules');
+  if (!existsSync(rulePath)) continue;
+  const isSharedSymlink = lstatSync(rulePath).isSymbolicLink() && readlinkSync(rulePath) === `${SHARED_HOME}/.windsurfrules`;
+  results.push({
+    category: 'shared',
+    item: `${repo} .windsurfrules isolation`,
+    status: isSharedSymlink ? 'fail' : 'ok',
+    detail: isSharedSymlink ? 'repo-local rules are shadowed by ~/.egos/.windsurfrules' : undefined,
+  });
 }
 
 // ═══════════════════════════════════════════════════════════
