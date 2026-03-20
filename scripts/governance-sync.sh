@@ -35,6 +35,9 @@ if [ "${EGOS_AUTO_PROPAGATE:-0}" = "1" ]; then
 fi
 WORKFLOWS_SRC="$EGOS_KERNEL/.windsurf/workflows"
 WORKFLOWS_DST="$EGOS_HOME/workflows"
+DOCS_SRC="$EGOS_KERNEL/docs"
+DOCS_DST="$EGOS_HOME/docs"
+CANONICAL_DOCS="CAPABILITY_REGISTRY.md SSOT_REGISTRY.md modules/CHATBOT_SSOT.md"
 
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -65,6 +68,11 @@ fi
 if [ -d "$WORKFLOWS_SRC" ] && [ ! -d "$WORKFLOWS_DST" ]; then
   printf "${YELLOW}WARN:${NC} %s/workflows not found, creating...\n" "$EGOS_HOME"
   mkdir -p "$WORKFLOWS_DST"
+fi
+
+if [ -d "$DOCS_SRC" ] && [ ! -d "$DOCS_DST" ]; then
+  printf "${YELLOW}WARN:${NC} %s/docs not found, creating...\n" "$EGOS_HOME"
+  mkdir -p "$DOCS_DST/modules"
 fi
 
 # ── Compare each file in kernel .guarani/ with ~/.egos/guarani/ ──
@@ -120,6 +128,12 @@ if [ -d "$WORKFLOWS_SRC" ]; then
   rm -f "$TMPLIST"
 fi
 
+for rel in $CANONICAL_DOCS; do
+  if [ -f "$DOCS_SRC/$rel" ]; then
+    compare_file "$rel" "$DOCS_SRC" "$DOCS_DST" "doc"
+  fi
+done
+
 echo ""
 echo "---"
 printf "OK: %d | Drift: %d | Synced: %d\n" "$OK_COUNT" "$DRIFT_COUNT" "$SYNC_COUNT"
@@ -131,7 +145,7 @@ fi
 
 if [ "$MODE" = "--exec" ] && [ "$SYNC_COUNT" -gt 0 ]; then
   echo ""
-  printf "${GREEN}Synced %d files to ~/.egos/guarani/ and ~/.egos/workflows/${NC}\n" "$SYNC_COUNT"
+  printf "${GREEN}Synced %d files to ~/.egos/guarani/, ~/.egos/workflows/, and ~/.egos/docs/${NC}\n" "$SYNC_COUNT"
   echo ""
   if [ -x "$EGOS_HOME/sync.sh" ]; then
     case "$PROPAGATE_MODE" in

@@ -1,6 +1,6 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 1.0.0 | **UPDATED:** 2026-03-13
+> **VERSION:** 1.1.0 | **UPDATED:** 2026-03-20
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
 
 ## Activation Hardening
@@ -34,6 +34,13 @@
 - Remove interactive `read -p "y/n"` prompts from `governance-sync.sh`. Replace with `--auto` flag or `EGOS_AUTO_PROPAGATE=1` env var.
 - Pre-commit hook should block commits that change canonical governance files without a subsequent `governance:sync:exec` pass.
 - `.windsurfrules` MANDAMENTO 15: governance changes are not complete until `bun run governance:sync:exec` + `bun run governance:check` return 0 drift.
+
+## Cross-Repo SSOT Mesh
+
+- `docs/SSOT_REGISTRY.md` is now the canonical registry for workspace-wide SSOT ownership.
+- Kernel-owned SSOT docs must propagate through `scripts/governance-sync.sh` to `~/.egos/docs/`.
+- Leaf repos must keep local pointers in `TASKS.md`, `AGENTS.md`, and local system maps instead of inventing parallel global truth.
+- Canonical global SSOT changes are incomplete until both the kernel docs and leaf adoption tasks are updated.
 
 ## Workflow Inheritance
 

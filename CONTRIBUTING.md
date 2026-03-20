@@ -30,7 +30,8 @@ EGOS uses a **kernel + leaf** architecture:
 
 All governance changes flow **kernel → shared home → leaves**. Never edit
 governance files in a leaf repo.
-If you change `.guarani/`, `.windsurf/workflows/`, or kernel governance docs,
+`docs/SSOT_REGISTRY.md` is the canonical contract for what is globally owned by the kernel versus what stays repo-local.
+If you change `.guarani/`, `.windsurf/workflows/`, or kernel canonical SSOT docs (`docs/SSOT_REGISTRY.md`, `docs/CAPABILITY_REGISTRY.md`, `docs/modules/CHATBOT_SSOT.md`),
 you MUST propagate before finalizing:
 
 ```bash
@@ -85,6 +86,11 @@ bun agents/cli.ts lint-registry  # Registry consistency
 bun run governance:sync:exec     # propagate kernel governance changes
 bun run governance:check  # Governance drift = 0
 ```
+
+Also update:
+
+- `docs/SSOT_REGISTRY.md` when adding or changing canonical cross-repo SSOT surfaces
+- `docs/CAPABILITY_REGISTRY.md` when a reusable capability changes owner, status, or adoption
 
 ### 5. Commit
 

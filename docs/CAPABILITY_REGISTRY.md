@@ -1,6 +1,6 @@
 # EGOS Capability Registry
 
-> **VERSION:** 1.1.0 | **UPDATED:** 2026-03-13
+> **VERSION:** 1.2.0 | **UPDATED:** 2026-03-20
 > **PURPOSE:** Master index of all capabilities across the EGOS ecosystem
 > **SSOT STATUS:** This file IS the canonical capability map
 
@@ -72,6 +72,7 @@ Each capability has:
 |-----------|------|---------|------------|-------------|------|
 | Governance Symlink Converter (legacy) | `~/.egos/governance-symlink.sh` | C | Manual cleanup only | — | `governance`, `symlink`, `legacy` |
 | Governance Sync Plane | `egos/scripts/governance-sync.sh` + `~/.egos/sync.sh` | A | Kernel + synced leaves | — | `governance`, `sync`, `ssot` |
+| SSOT Registry | `egos/docs/SSOT_REGISTRY.md` | A | egos (canonical) | ALL | `governance`, `ssot`, `registry` |
 | Pre-commit Drift Detection | `.husky/pre-commit` | A | egos-lab, carteira-livre, forja | 852 | `governance`, `drift`, `hooks` |
 | Context Tracker | `egos/agents/agents/context-tracker.ts` | A | egos | ALL | `governance`, `context`, `observability` |
 | SSOT Drift Check | `egos-lab/scripts/ssot-drift-check.ts` | A | egos-lab | — | `governance`, `drift`, `api` |

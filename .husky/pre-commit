@@ -8,17 +8,17 @@ echo "🔒 EGOS Pre-Commit: Maximum enforcement active"
 
 # 1. Gitleaks — Secret scanning
 if command -v gitleaks > /dev/null 2>&1; then
-  echo "  [1/4] gitleaks: scanning for secrets..."
+  echo "  [1/5] gitleaks: scanning for secrets..."
   gitleaks protect --staged --no-banner || {
     echo "❌ BLOCKED: Secrets detected. Remove them before committing."
     exit 1
   }
 else
-  echo "  [1/4] gitleaks: NOT INSTALLED (install: brew install gitleaks)"
+  echo "  [1/5] gitleaks: NOT INSTALLED (install: brew install gitleaks)"
 fi
 
 # 2. TypeScript — Strict type check
-echo "  [2/4] tsc: running strict type check..."
+echo "  [2/5] tsc: running strict type check..."
 npx tsc --noEmit 2>/dev/null || bun run typecheck 2>/dev/null || {
   echo "❌ BLOCKED: TypeScript errors found. Fix before committing."
   exit 1
@@ -49,7 +49,7 @@ if [ "$FROZEN_VIOLATED" -eq 1 ]; then
 fi
 
 # 4. Governance propagation — canonical kernel files must be synced to ~/.egos
-if echo "$STAGED" | grep -Eq '^\.guarani/|^\.windsurf/workflows/'; then
+if echo "$STAGED" | grep -Eq '^\.guarani/|^\.windsurf/workflows/|^docs/SSOT_REGISTRY\.md$|^docs/CAPABILITY_REGISTRY\.md$|^docs/modules/CHATBOT_SSOT\.md$'; then
   echo "  [3/5] governance sync: checking kernel -> ~/.egos drift..."
   sh scripts/governance-sync.sh --check >/dev/null 2>&1 || {
     echo "❌ BLOCKED: Governance drift detected between kernel and ~/.egos."
@@ -77,6 +77,7 @@ check_lines "AGENTS.md" 200 || exit 1
 check_lines "TASKS.md" 500 || exit 1
 check_lines ".windsurfrules" 150 || exit 1
 check_lines ".guarani/PREFERENCES.md" 100 || exit 1
+check_lines "docs/SSOT_REGISTRY.md" 200 || exit 1
 
 echo "  [5/5] All checks passed."
 echo "✅ EGOS Pre-Commit: Commit approved."

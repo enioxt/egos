@@ -1,6 +1,6 @@
 # AGENTS.md — EGOS Framework Core
 
-> **VERSION:** 1.1.0 | **UPDATED:** 2026-03-19
+> **VERSION:** 1.2.0 | **UPDATED:** 2026-03-20
 > **TYPE:** Framework Core + Orchestration Kernel + Agent Runtime
 
 ---
@@ -16,6 +16,7 @@
 - **Read next:**
   - `.windsurfrules` — active governance rules
   - `TASKS.md` — current priorities
+  - `docs/SSOT_REGISTRY.md` — canonical cross-repo SSOT registry
   - `.guarani/PREFERENCES.md` — coding standards
 
 <!-- llmrefs:end -->
@@ -66,10 +67,16 @@ egos/
 │           ├── rate-limiter.ts  # API rate limiting
 │           ├── types.ts         # Core types
 │           └── index.ts
+├── scripts/                     # Kernel utilities + infra launchers
+│   └── oracle-instance-launcher/
 ├── .windsurfrules               # Active governance
 ├── frozen-zones.md              # Protected files list
 ├── AGENTS.md                    # THIS FILE
 ├── TASKS.md                     # Live roadmap
+├── docs/
+│   ├── SYSTEM_MAP.md            # Kernel activation map
+│   ├── CAPABILITY_REGISTRY.md   # Reusable capability SSOT
+│   └── SSOT_REGISTRY.md         # Cross-repo SSOT registry
 └── README.md
 ```
 
@@ -94,6 +101,7 @@ bun governance:sync         # Dry-run kernel -> ~/.egos governance propagation
 bun governance:sync:exec    # Sync kernel -> ~/.egos -> leaf repos
 bun governance:sync:local   # Sync kernel -> ~/.egos only (skip leaf repos)
 bun governance:check        # Verify kernel and ~/.egos have 0 drift
+bash ./scripts/oracle-instance-launcher/scripts/run.sh --dry-run  # Oracle OCI launcher check
 
 # Context Tracker (run anytime — mandatory before long multi-step tasks)
 bun agent:run context_tracker --dry   # CTX score 0-280 with zone emoji + /end advice
