@@ -21,5 +21,17 @@ export { createGraph, findNode, findEdgesFrom, findEdgesTo, nodesByType, nodesBy
 export type { ReferenceEntityType, ReferenceRelation, ReferenceEvidence, NodeStatus, ReferenceNode, ReferenceEdge, ReferenceGraph } from './mycelium/reference-graph';
 export { detectRepoRole, hasSurface, roleDescription } from './repo-role';
 export type { RepoRole, EgosConfig } from './repo-role';
-export { createTelemetryRecorder, getStats } from './telemetry';
-export type { TelemetryConfig, TelemetryEvent, TelemetryEventType, TelemetryRecorder, TelemetryStats } from './telemetry';
+export { createTelemetryRecorder } from './telemetry.js';
+export type { TelemetryRecorder, TelemetryEvent } from './telemetry.js';
+
+// Cross-Session Memory (Supabase-based)
+export {
+  summarizeConversation as summarizeConversationCrossSession,
+  saveConversationSummary as saveConversationSummaryCrossSession,
+  getConversationMemory as getConversationMemoryCrossSession,
+  shouldSummarizeConversation as shouldSummarizeConversationCrossSession,
+} from './cross-session-memory.js';
+export type {
+  ConversationSummaryOptions,
+  MemoryRetrievalOptions,
+} from './cross-session-memory.js';
