@@ -48,6 +48,10 @@ if [ "$FROZEN_VIOLATED" -eq 1 ]; then
   exit 1
 fi
 
+# 4. Doc Proliferation — Block timestamped docs
+echo "  [4/5] doc proliferation: checking for timestamped docs..."
+bash scripts/check-doc-proliferation.sh || exit 1
+
 # 4. Governance propagation — canonical kernel files must be synced to ~/.egos
 if echo "$STAGED" | grep -Eq '^\.guarani/|^\.windsurf/workflows/|^docs/SSOT_REGISTRY\.md$|^docs/CAPABILITY_REGISTRY\.md$|^docs/modules/CHATBOT_SSOT\.md$'; then
   echo "  [3/5] governance sync: checking kernel -> ~/.egos drift..."
