@@ -1,18 +1,18 @@
-# Handoff — 2026-03-19 (Session 2)
+# Handoff — 2026-03-19 (Session 2+3)
 
-> **Session:** Autonomous Task Execution + Repo Sync
-> **Signed by:** cascade-agent — 2026-03-19T23:40:00-03:00
+> **Session:** Autonomous Task Execution + Repo Sync + Supabase Integration
+> **Signed by:** cascade-agent — 2026-03-20T00:15:00-03:00
 
 ---
 
 ## Accomplished
 
-### Repo Synchronization (16 commits pushed)
+### Repo Synchronization (28+ commits pushed)
 
 | Repo | Commits | Key Changes |
 |------|---------|-------------|
 | **egos** | 5 | Telemetry module, /end v5.5, skills, SYSTEM_MAP v2.0 |
-| **forja** | 5 | SYSTEM_MAP v2.0, AGENTS v2.0, pre-commit, chat API, schema SQL |
+| **forja** | 17 | Supabase schema (7 tables + RLS), client lib, telemetry, AGENTS v2.1 |
 | **egos-lab** | 3 | ATRiAN, PII, conversation-memory in shared |
 | **carteira-livre** | 1 | Instructor search improvements |
 | **852** | 3 | LGPD, email login, legacy auth claim |
