@@ -74,6 +74,42 @@ type: "framework-core + orchestration-kernel + agent-runtime"
 | **Schema change** | Contract test + update types in `packages/shared/` |
 | **Governance / workflow change** | Run `bun run governance:sync:exec` + verify `bun run governance:check` = 0 drift before finalizing |
 
+## DOCUMENTATION DISCIPLINE (MANDATORY)
+
+### Anti-Proliferation Rules
+
+1. **NO TIMESTAMPED DOCS** — NEVER create files like `*_2026-03-*.md`, `*AUDIT_2026*.md`, `*REPORT_2026*.md`
+2. **UPDATE SSOT, DON'T CREATE** — Audits/diagnostics/reports MUST update `AGENTS.md`, `TASKS.md`, or `docs/SYSTEM_MAP.md`, not create new files
+3. **HANDOFFS ARE EPHEMERAL** — Consolidate learnings in `docs/knowledge/HARVEST.md` and archive handoffs >30 days to `docs/_archived_handoffs/YYYY-MM/`
+4. **ONE SSOT PER CONCERN** — `AGENTS.md` for capabilities, `TASKS.md` for backlog, `SYSTEM_MAP.md` for architecture
+5. **KERNEL CANONICAL ONLY** — `SSOT_REGISTRY.md`, `CAPABILITY_REGISTRY.md`, `CHATBOT_SSOT.md` live ONLY in this repo
+
+### Allowed Documentation Files (Kernel)
+
+- `AGENTS.md` ✅
+- `TASKS.md` ✅
+- `README.md` ✅
+- `CONTRIBUTING.md` ✅
+- `docs/SYSTEM_MAP.md` ✅
+- `docs/knowledge/HARVEST.md` ✅
+- `docs/SSOT_REGISTRY.md` ✅ (kernel canonical)
+- `docs/CAPABILITY_REGISTRY.md` ✅ (kernel canonical)
+- `docs/modules/CHATBOT_SSOT.md` ✅ (kernel canonical)
+- `docs/_archived_handoffs/YYYY-MM/*` ✅ (archived only)
+
+### Prohibited Patterns
+
+- ❌ `docs/*AUDIT*.md` (unless in `_archived/`)
+- ❌ `docs/*DIAGNOSTIC*.md`
+- ❌ `docs/*REPORT*.md` with date stamps
+- ❌ Daily reports (e.g., `gems-2026-03-XX.md`)
+
+### Pre-commit Enforcement
+
+Pre-commit hook MUST block:
+- Creation of `docs/*_2026-*.md` (except in `_archived/`)
+- Creation of `docs/*AUDIT*.md`, `docs/*DIAGNOSTIC*.md`, `docs/*REPORT*.md` (except in allowed folders)
+
 ## SECURITY
 
 - Pre-commit: gitleaks + tsc + frozen zones check + SSOT drift check

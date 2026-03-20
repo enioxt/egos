@@ -1,0 +1,15 @@
+[Unit]
+Description=Oracle Instance Launcher
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=__PROJECT_ROOT__
+ExecStart=/usr/bin/env bash __PROJECT_ROOT__/scripts/run.sh
+Restart=always
+RestartSec=30
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
