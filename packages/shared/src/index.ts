@@ -35,3 +35,7 @@ export type {
   ConversationSummaryOptions,
   MemoryRetrievalOptions,
 } from './cross-session-memory.js';
+
+// Metrics Tracker
+export { MetricsTracker, initMetricsTracker, getMetricsTracker, trackToolUsage, trackTask } from './metrics-tracker.js';
+export type { ToolUsageMetric, TaskMetric, SessionMetric } from './metrics-tracker.js';
