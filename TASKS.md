@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.2.0 | **Updated:** 2026-03-19
+> **Version:** 2.2.0 | **Updated:** 2026-03-20
 
 ---
 
@@ -40,6 +40,8 @@
 - [x] EGOS-005: Validate pre-commit hooks work (gitleaks + tsc + frozen)
 - [x] EGOS-006: Update `~/.egos/SYSTEM_MAP.md` to include `egos` root
 - [x] EGOS-007: Create `.egos` symlink to shared governance home
+- [x] EGOS-081: Create cross-session memory module in @egos/shared — ported from 852, generalized for ecosystem reuse
+- [x] EGOS-082: Create comprehensive metrics tracking system — tracks Codex, Alibaba, Claude Code, OpenRouter, Cascade usage with costs and performance
 - [x] EGOS-045: Refresh `.guarani/orchestration/DOMAIN_RULES.md` from `egos-lab` assumptions to kernel reality (`egos`, leaf repos, `llm-provider.ts`)
 - [x] EGOS-046: Validate Codex cloud + Alibaba live readiness for `egos` core and record evidence in workflows/handoff
 - [x] EGOS-047: Fix missing `docs/META_PROMPT_ECOSYSTEM_AUDIT.md` reference — created `meta/ecosystem-audit.md` + fixed stale refs in `PROMPT_SYSTEM.md`
@@ -104,6 +106,8 @@
 ### Backlog
 
 - [ ] EGOS-012: Publish `@egos/shared` to npm (when stable)
+- [x] EGOS-081: Create Oracle Cloud instance launcher utility (Python SDK) under `scripts/oracle-instance-launcher/` with API-key/instance-principal auth, AD retry, capacity-aware handling, and systemd-ready runner
+  > **Arquivos:** `scripts/oracle-instance-launcher/README.md`, `scripts/oracle-instance-launcher/.env.example`, `scripts/oracle-instance-launcher/src/*.py`, `scripts/oracle-instance-launcher/scripts/*.sh`, `scripts/oracle-instance-launcher/oracle-instance-launcher.service`
 - [x] EGOS-013: Create `egos-init` one-command installer
 - [ ] EGOS-014: Add VRCP Coherence Model integration
 - [ ] EGOS-015: Context Doctor agent (from conversaGROK ideas)
