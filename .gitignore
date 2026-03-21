@@ -28,3 +28,6 @@ Thumbs.db
 *.bak
 *.key
 *.pem
+
+# Cline IDE artifacts (prevent governance symlink breakage)
+.agent/
