@@ -1,6 +1,6 @@
 # CHATBOT_SSOT — Canonical Chatbot Standard
 
-> **VERSION:** 1.1.0 | **UPDATED:** 2026-03-13
+> **VERSION:** 1.2.0 | **UPDATED:** 2026-03-21
 > **REFERENCE IMPLEMENTATION:** `/home/enio/852` (852 Inteligência) + reusable core modules in `/home/enio/egos/packages/shared`
 > **STATUS:** Active — all new chatbots MUST follow this standard
 
@@ -281,7 +281,95 @@ For any new chatbot project, verify all modules:
 
 ---
 
-## 10. Live Replication Protocol
+## 10. MCP Tool Integration (NEW — 2026-03-21)
+
+**Status:** Architecture designed | **Reference Implementation:** Forja (`src/lib/tools/`)
+
+### When to Use MCP Tools
+
+Chatbots WITHOUT tool calling (852 today) work well for pure conversation. When a chatbot needs to **take action** (schedule, query, create, modify), it needs tools. MCP is the standard protocol for connecting tools.
+
+### Architecture Pattern
+
+```text
+User → Chat API → PII Scan → LLM (with tool schemas) → Tool Call?
+                                                          ├─ YES → MCP Server → Execute → Response
+                                                          └─ NO  → Stream text response
+```
+
+### Custom MCP Server Design Rules
+
+1. **Outcomes, not operations** — Expose `schedule_lesson(student, instructor, date)`, not `insert_into_table(sql)`
+2. **5-15 tools per server** — One server per domain. Split by persona if needed.
+3. **Guardrails baked in** — PII scanning and ATRiAN validation inside the MCP server, not delegated to the chatbot
+4. **Mycelium events** — Every tool call emits an event to the Mycelium bus for audit and cross-agent awareness
+5. **Graceful degradation** — If MCP server is unreachable, chatbot falls to tool-less conversational mode
+
+### Required MCP Server Interface
+
+```typescript
+// Each custom MCP server MUST expose:
+// 1. Health check tool (for auto-healing)
+// 2. Domain tools (outcome-oriented)
+// 3. Structured error responses with user-friendly messages
+
+// Tool naming: {domain}_{action}_{target}
+// Examples: marketplace_schedule_lesson, erp_create_quote, intel_search_company
+```
+
+### Planned EGOS MCP Servers
+
+| Server | Domain | Tools | Priority |
+|--------|--------|-------|----------|
+| `@egos/mcp-governance` | All repos | ssot_check_drift, task_list, deploy_gate | P1 |
+| `@egos/mcp-memory` | All chatbots | memory_store, memory_recall, memory_search | P1 |
+| `@egos/mcp-marketplace` | carteira-livre | lesson_schedule, instructor_match, payment_create | P2 |
+| `@egos/mcp-erp` | forja | quote_create, inventory_check, order_track | P2 |
+| `@egos/mcp-intelligence` | 852/policia | report_generate, ovm_process, correlation_search | P2 |
+| `@egos/mcp-osint` | br-acc | company_search, network_analyze, pattern_detect | P2 |
+
+### Existing MCPs (DO NOT REBUILD)
+
+filesystem, memory, supabase, exa, github, sequential-thinking — already available via IDE MCP config.
+
+### Implementation Checklist (per new MCP server)
+
+- [ ] `package.json` with `@modelcontextprotocol/sdk` dependency
+- [ ] Zod schemas for all tool inputs
+- [ ] Health check tool
+- [ ] ATRiAN validation on outputs containing user-facing text
+- [ ] PII scanning on inputs before processing
+- [ ] Mycelium event emission on tool execution
+- [ ] Rate limiting per-caller
+- [ ] Structured error responses (code + user message + suggestion)
+- [ ] JSONL audit log of all tool calls
+
+---
+
+## 11. Auto-Healing & Symbiotic Patterns (NEW — 2026-03-21)
+
+### Auto-Healing
+
+| Pattern | Implementation | Status |
+|---------|---------------|--------|
+| Circuit Breaker | `carteira-livre/lib/ai/guardrails.ts` (R$50/day cap) | A — needs kernel extraction |
+| Provider Fallback | `egos/packages/shared/src/model-router.ts` (3-tier) | A — LIVE |
+| Health Heartbeats | Mycelium `network.heartbeat` events | C — Planned |
+| Graceful Degradation | Tool-less mode when MCP servers down | C — Planned |
+| Cost Watchdog | Budget enforcement at orchestrator level | B — per-project |
+
+### Symbiotic Patterns (Mycelium-Inspired)
+
+| Pattern | Description | Mechanism |
+|---------|-------------|-----------|
+| Knowledge Harvesting | Conversations generate learnings | Chat → Mycelium bus → Memory MCP |
+| Cross-Pollination | Insights from one domain inform another | Event topics across repos |
+| Collective Intelligence | Aggregated metrics from all chatbots | Telemetry MCP → Dashboard |
+| Adaptive Prompts | Usage patterns feed prompt engineering | Ambient Disseminator agent |
+
+---
+
+## 12. Live Replication Protocol
 
 Every chatbot/module rollout MUST follow this order:
 

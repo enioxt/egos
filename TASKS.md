@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.2.0 | **Updated:** 2026-03-20
+> **Version:** 2.3.0 | **Updated:** 2026-03-21
 
 ---
 
@@ -124,6 +124,13 @@
 - [ ] EGOS-070: Complete Mycelium truth repair — align kernel docs and reference graph with actual local surfaces and classify consumer dashboards/bridges as external or planned
 - [ ] EGOS-071: Formalize cheap-first multi-model orchestration for Windsurf/Codex/Claude/Alibaba/OpenRouter with one coordinator, sequential routing, and reviewer proof-of-work
 - [ ] EGOS-072: Design anti-injection and least-privilege hardening for external-input workflows (issues, PRs, web, imported docs) before any high-trust automation
+- [ ] EGOS-086: Extract circuit breaker pattern from carteira-livre guardrails into `@egos/shared` as reusable module
+- [ ] EGOS-087: Build `@egos/mcp-governance` — custom MCP server for SSOT drift check, task listing, and deploy gates across all repos
+- [ ] EGOS-088: Build `@egos/mcp-memory` — custom MCP server for persistent conversation memory (Supabase/Redis backend, recall/store/search tools)
+- [ ] EGOS-089: Bridge Mycelium event bus to Redis Pub/Sub for cross-process agent communication (Phase 2 of MYCELIUM_NETWORK.md)
+- [ ] EGOS-090: Build first domain-specific MCP server (forja `@egos/mcp-erp` or carteira-livre `@egos/mcp-marketplace`) as proof-of-concept
+- [ ] EGOS-091: Add MCP server auto-discovery and health heartbeats to agent registry for plug-and-play tool management
+- [ ] EGOS-092: Ensure all leaf repos consume `@egos/shared` for ATRiAN/PII/memory instead of maintaining local copies
 
 ## Roadmap — Progress Dashboard
 
@@ -133,8 +140,8 @@
 |---------|-------|------|------|----------|
 | **Foundation (P0/P1)** | 21 | 21 | 0 | **100%** |
 | **Replication (P2)** | 15 | 15 | 0 | **100%** |
-| **Backlog** | 13 | 3 | 10 | **23%** |
-| **TOTAL** | **49** | **42** | **7** | **86%** |
+| **Backlog** | 20 | 3 | 17 | **15%** |
+| **TOTAL** | **56** | **42** | **14** | **75%** |
 
 ---
 

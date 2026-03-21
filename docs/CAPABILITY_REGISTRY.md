@@ -1,6 +1,6 @@
 # EGOS Capability Registry
 
-> **VERSION:** 1.2.0 | **UPDATED:** 2026-03-20
+> **VERSION:** 1.3.0 | **UPDATED:** 2026-03-21
 > **PURPOSE:** Master index of all capabilities across the EGOS ecosystem
 > **SSOT STATUS:** This file IS the canonical capability map
 
@@ -194,6 +194,62 @@ Each capability has:
 | `agent` | 5 capabilities |
 | `whatsapp` | 3 capabilities |
 | `gamification` | 3 capabilities |
+
+---
+
+## 12. MCP & UNIFIED AGENT ARCHITECTURE (Planned)
+
+> **Research completed:** 2026-03-21 | **Status:** Architecture designed, implementation pending
+
+### Custom MCP Servers (TO BUILD)
+
+| MCP Server | Purpose | Priority | Depends On |
+|-----------|---------|----------|------------|
+| `@egos/mcp-governance` | SSOT drift, task management, deployment gates | P1 | `@egos/shared` |
+| `@egos/mcp-memory` | Persistent conversation memory via Supabase/Redis | P1 | cross-session-memory.ts |
+| `@egos/mcp-intelligence` | Investigation tools, OVM, report gen (852/policia) | P2 | 852 domain logic |
+| `@egos/mcp-marketplace` | Lesson scheduling, instructor matching (carteira-livre) | P2 | carteira-livre domain |
+| `@egos/mcp-erp` | Quoting, inventory, production orders (forja) | P2 | forja tool contracts |
+| `@egos/mcp-osint` | Company network analysis, Neo4j graph queries (br-acc) | P2 | br-acc chat tools |
+
+### Existing MCPs Already Covering Needs (DO NOT REBUILD)
+
+| MCP | Coverage | Used By |
+|-----|---------|---------|
+| `filesystem` | File operations | All IDE agents |
+| `memory` | Knowledge graph | All IDE agents |
+| `supabase` | Raw DB access | carteira-livre, egos-lab |
+| `exa` | Web search | All IDE agents |
+| `github` | Repo operations | All IDE agents |
+| `sequential-thinking` | Reasoning | All IDE agents |
+
+### Architecture Layers
+
+```
+L1: @egos/shared (kernel)     — ATRiAN, PII, memory, model-router, telemetry
+L2: Chatbot Runtime (extract)  — Standardized chat loop from 852
+L3: Custom MCP Servers (build) — Domain-specific outcome-oriented tools
+L4: Mycelium Bus (extend)      — Redis Pub/Sub bridge for cross-process events
+L5: Agent Registry + Skills    — Auto-discovery, hot-reload, marketplace pattern
+```
+
+### Key Design Decisions
+
+1. **Outcomes over operations** — MCP tools expose domain goals, not raw API wrappers
+2. **5-15 tools per server** — Curated, not exhaustive
+3. **Guardrails at MCP layer** — PII/ATRiAN baked into servers, not per-chatbot
+4. **Mycelium events from MCP** — Tool calls auto-emit to event bus
+5. **Graceful degradation** — If MCP server down, chatbot falls back to tool-less mode
+
+### Framework Landscape (2026 Research)
+
+| Framework | Best For | Our Relevance |
+|-----------|----------|---------------|
+| LangGraph | Complex branching workflows | Reference for Mycelium Phase 2 |
+| CrewAI | Fast prototyping role-based agents | Inspiration for agent registry |
+| OpenClaw | MCP-native skills marketplace (13K+ skills) | Pattern for skills layer |
+| Vercel AI SDK | Chat streaming + tool calling | Already used in 852/forja |
+| Mastra | TypeScript-first graph workflows | Alternative if LangGraph too heavy |
 
 ---
 
