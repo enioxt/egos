@@ -319,3 +319,24 @@ USER MESSAGE arrives
 ## Mycelium
 
 - Mycelium references in the kernel must distinguish **present**, **partial**, and **planned** layers instead of implying all historical surfaces exist locally.
+
+## Leaf Governance Audit Pattern (2026-03-21, from carteira-livre)
+
+### Problem
+
+Leaf repos inherit kernel governance via symlinks but keep local IDENTITY.md and PREFERENCES.md. Over time these local files drift to contain kernel-generic content (e.g., referencing `agents/runtime/runner.ts` that doesn't exist in the leaf).
+
+### Rules Extracted
+
+1. **Leaf IDENTITY.md** must describe WHO this specific agent is (not "kernel orchestrator").
+2. **Leaf PREFERENCES.md** must reference leaf-specific paths, tools, and Supabase project refs.
+3. **Shared governance** (orchestration, philosophy, prompts, refinery) comes ONLY via symlinks to `~/.egos/guarani/`.
+4. **AGENTS.md** must have a **Domain Map** table classifying each domain as Frozen / Core / Supporting / Shared-candidate / Compliance with explicit owner (Leaf-exclusive vs @egos/shared).
+5. **Anti-proliferation** enforcement via pre-commit blocks timestamped audits, diagnostics, reports, and checklists outside `_archived/` or `_generated/`.
+
+### Carteira Livre Specifics
+
+- 14 domains classified, 4 shared-candidate modules identified (AI guardrails, telemetry, notifications, LGPD).
+- 28 anti-proliferation violations archived in one commit.
+- AGENTS.md condensed from 358→140 lines with domain map.
+- 8 reusable patterns documented in local HARVEST.md.
