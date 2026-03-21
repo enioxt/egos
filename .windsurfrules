@@ -55,6 +55,7 @@ type: "framework-core + orchestration-kernel + agent-runtime"
 16. **FOCUS** — Do NOT reinvent what exists (generic scanners, linters, dep auditors). EGOS's moat is governance-as-code, Brazilian compliance, and orchestration. Before creating any new agent, search existing marketplaces (OpenClaw, aregistry.ai, Composio, npm). If user proposes new scope, acknowledge it, log to TASKS.md backlog, but REMIND them of current mission focus.
 17. **REAL TESTS** — No capability is "validated" by string-matching grep. Every shared module MUST have `bun test` coverage with real data. A compliance score without behavioral tests is paperwork, not proof.
 18. **NO CIRCULAR VALIDATION** — Agents that check for their own outputs are not tests. Validation requires external confrontation: real PII, adversarial prompts, actual API calls, or user-verified results.
+19. **VERCEL CLI** — When access exists, Vercel CLI may be used to inspect deployments, manage env vars, and trigger redeploys, but only with explicit human approval for the concrete action.
 
 ## FROZEN ZONES
 
