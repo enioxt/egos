@@ -54,7 +54,11 @@
 - Sync: `scripts/governance-sync.sh`, `scripts/link-ssot-files.sh`
 - Utilities: `scripts/oracle-instance-launcher/` (Python OCI launcher with AD retry + capacity-aware handling)
 - Validation: `bun run typecheck`, `bun run agent:lint`, `bun run governance:check`
-- Agents: `dep_auditor`, `archaeology_digger`, `chatbot_compliance_checker`, `context_tracker`
+- Agents: 
+  - `dep_auditor`, `archaeology_digger`, `chatbot_compliance_checker`, `context_tracker`
+  - `ethik_agent`: x402 Tokenomics, GCP Dynamic Key Gateway, and Donation Engine
+  - `atrian_agent`: Ethical Compliance Gate
+  - `mycelium_agent`: Event Bus and Mesh Logging
 - Docs: `docs/concepts/mycelium/`, `docs/archaeology/`, `docs/modules/`
 
 ## Shared Modules (@egos/shared)
