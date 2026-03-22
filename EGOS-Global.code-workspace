@@ -1,0 +1,77 @@
+{
+  "folders": [
+    {
+      "path": "/home/enio/egos",
+      "name": "🧠 EGOS Kernel (SSOT)"
+    },
+    {
+      "path": "/home/enio/852",
+      "name": "🔥 852 (Leaf)"
+    },
+    {
+      "path": "/home/enio/INPI",
+      "name": "🔥 INPI (Leaf)"
+    },
+    {
+      "path": "/home/enio/br-acc",
+      "name": "🔥 br-acc (Leaf)"
+    },
+    {
+      "path": "/home/enio/carteira-livre",
+      "name": "🔥 carteira-livre (Leaf)"
+    },
+    {
+      "path": "/home/enio/egos-lab",
+      "name": "🔥 egos-lab (Leaf)"
+    },
+    {
+      "path": "/home/enio/egos-self",
+      "name": "🔥 egos-self (Leaf)"
+    },
+    {
+      "path": "/home/enio/forja",
+      "name": "🔥 forja (Leaf)"
+    },
+    {
+      "path": "/home/enio/policia",
+      "name": "🔥 policia (Leaf)"
+    },
+    {
+      "path": "/home/enio/santiago",
+      "name": "🔥 santiago (Leaf)"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.git": true,
+      "**/.DS_Store": true,
+      "**/node_modules": true,
+      "**/.next": true,
+      "**/.venv": true,
+      "**/venv": true,
+      "**/__pycache__": true,
+      "**/build": true,
+      "**/dist": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/.next": true,
+      "**/.venv": true,
+      "**/venv": true,
+      "**/__pycache__": true,
+      "**/build": true,
+      "**/dist": true
+    },
+    "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/node_modules/**": true,
+      "**/.next/**": true,
+      "**/.venv/**": true,
+      "**/venv/**": true,
+      "**/__pycache__/**": true,
+      "**/build/**": true,
+      "**/dist/**": true
+    }
+  }
+}
