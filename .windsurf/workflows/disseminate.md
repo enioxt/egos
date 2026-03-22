@@ -1,11 +1,10 @@
 ---
-description: "Saves new knowledge and patterns to Memory MCP, documentation, and social channels."
+description: disseminate workflow
 ---
-
-# /disseminate — Knowledge Dissemination
+# /disseminate — Knowledge Dissemination (v5.5 SecOps Edition)
 
 > **Works in:** ANY EGOS repo
-> **When to Use:** After implementing a feature, fixing a bug, making an architectural decision, or completing a milestone.
+> **When to Use:** After implementing a feature, fixing a bug, making an architectural decision, **mitigating a CVE**, or completing a milestone.
 > **Repo-role:** Check `egos.config.json` for `role` and `surfaces`. If absent, assume `leaf` and skip surfaces like gem-hunter, report-generator, session:guard, and activation:check.
 
 ---
@@ -19,15 +18,16 @@ What was created or changed?
 - **Architecture**: Design pattern, data flow, integration?
 - **Bug fix**: Root cause, prevention mechanism?
 - **Governance**: Security policy, workflow, meta-prompt?
+- **[NEW] SecOps**: Patched a CVE? What was the mitigation strategy?
 
 ## 2. Save to Cascade Memory
 
 ```ts
 create_memory({
   Title: "Session — [description]",
-  Content: "Detailed markdown with files, decisions, gotchas...",
+  Content: "Detailed markdown with files, decisions, gotchas. If SecOps related, list the CVE ID and the applied fix.",
   CorpusNames: ["enioxt/REPO_NAME"],
-  Tags: ["relevant", "tags"],
+  Tags: ["relevant", "tags", "secops", "cve"],
   Action: "create"
 })
 ```
@@ -43,18 +43,18 @@ Read .guarani/prompts/triggers.json
 
 ## 4. Update Documentation
 
-- `docs/knowledge/HARVEST.md` — Add patterns, gotchas, learnings
+- `docs/knowledge/HARVEST.md` — Add patterns, gotchas, learnings. **(Mandatory for CVE Mitigations)**
 - `TASKS.md` — Mark completed, add discovered tasks
 - `.guarani/` — If architecture decisions were made
 - Record Codex usage: availability, mode used (`review`, `read-only`, `cloud`), suggestions applied/rejected
 - Record Alibaba orchestration status and whether the repo's readiness surface (`session:guard` when present, otherwise local activation checks) was updated
 - If mesh, agents, workflows, or event-bus reality changed, include a `/mycelium` snapshot with maturity, connected systems, and drift notes
 
-## 5. Post on Social Channels (if milestone)
+## 5. Post on Social Channels (if milestone or CVE patched)
 
 Use `/postar` workflow for unified posting:
 
-- **Telegram** (@ethikin): Full markdown, up to 4096 chars
+- **Telegram** (@ethikin): Full markdown, up to 4096 chars (Alert Mycelium network if critical CVE patched)
 - **Discord**: Markdown, up to 2000 chars
 - **X.com** (@anoineim): 280 chars max + link
 
@@ -80,4 +80,4 @@ If a new capability was created, improved, or adopted:
 - [ ] TASKS.md updated
 - [ ] Documentation updated (HARVEST.md, .guarani/)
 - [ ] Capability Registry updated (if new capability created/adopted)
-- [ ] Social channels posted (if milestone)
+- [ ] Social channels posted (if milestone or CVE patched)

@@ -1,81 +1,7 @@
-# /start — Session Initialization (v5.4)
-
-## 1. Load Core Context
-
-Read these files in order (all paths relative to repo root):
-
-- `AGENTS.md` — Project config, stack, commands, SSOT files list
-- `TASKS.md` — Current priorities (P0 → P1 → P2)
-- `docs/CAPABILITY_REGISTRY.md` — Ecosystem capability map and current adoption truth
-- `.guarani/PREFERENCES.md` — Coding standards and rules
-- `.guarani/IDENTITY.md` — Agent identity and mission
-
-If `docs/CAPABILITY_REGISTRY.md` is missing in a leaf repo, load the canonical fallback at `/home/enio/egos/docs/CAPABILITY_REGISTRY.md` and flag the local absence as governance drift.
-
-## 2. Load Orchestration System
-
-Read the orchestration pipeline that governs ALL work:
-
-- `.guarani/orchestration/PIPELINE.md` — 7-phase protocol (INTAKE → CHALLENGE → PLAN → GATE → EXECUTE → VERIFY → LEARN)
-- `.guarani/orchestration/GATES.md` — 5-dimension quality scoring (score >= 75 to proceed)
-- `.guarani/orchestration/QUESTION_BANK.md` — 70+ maieutic questions by domain
-- `.guarani/orchestration/DOMAIN_RULES.md` — Project-specific checklists
-
-Acknowledge: "Orchestration Protocol loaded. Pipeline: 7 phases. Gate threshold: 75."
-
-## 3. Load Meta-Prompt System
-
-Scan `.guarani/prompts/triggers.json` for active trigger mappings:
-
-- `.guarani/prompts/PROMPT_SYSTEM.md` — Meta-prompt index (anatomy, triggers, catalog)
-- `.guarani/prompts/triggers.json` — Machine-readable keyword→prompt mappings
-- `.guarani/prompts/meta/universal-strategist.md` — Game Theory + Oriental philosophy
-- `.guarani/prompts/meta/brainet-collective.md` — Collective intelligence lens
-- `.guarani/prompts/meta/mycelium-orchestrator.md` — Recursive sync, mesh reality, self-improvement loop
-- `.guarani/philosophy/TSUN_CHA_PROTOCOL.md` — Dialectical debate protocol
-
-Acknowledge: "Meta-prompt system loaded. [N] prompts, [N] triggers active."
-
-If the task mentions `mycelium`, `mesh`, `sync`, `agents`, `auto melhorar`, or `teia`, load `.windsurf/workflows/mycelium.md` immediately after `/start`.
-If that workflow is absent in the current repo, load `docs/concepts/mycelium/MYCELIUM_OVERVIEW.md` instead and flag the missing workflow as drift.
-
-If the task mentions `chatbot`, `prompt`, `replication`, `shared modules`, `backfill`, or `compliance`, load `docs/modules/CHATBOT_SSOT.md` immediately after `/start`.
-If that file is absent in the current repo, load `/home/enio/egos/docs/modules/CHATBOT_SSOT.md` instead and flag the local absence as drift.
-
-## 4. Load Refinery (Intent Processing)
-
-For MODERATE+ tasks, the Refinery activates automatically:
-
-- `.guarani/refinery/classifier.md` — Intent classification (FEATURE/BUG/REFACTOR/KNOWLEDGE)
-- `.guarani/refinery/interrogators/` — 4 specialized interrogators by type
-- `.guarani/preprocessor.md` — Vague→explicit translation with persona simulation
-
-These are loaded ON-DEMAND when the pipeline activates. No need to read all at start.
-
-If the local repo does not ship these Refinery surfaces, load the shared fallback from `~/.egos/guarani/refinery/*` and `~/.egos/guarani/preprocessor.md`, then record the missing local surfaces as drift instead of silently claiming them loaded.
-
-If the task involves setup, auth, platform configuration, or multiple valid paths, prefer `ask_user_question` early to keep the human in the loop. Default to multiple-choice prompts unless the choice is strictly binary/exclusive.
-
-## 5. Rule Checksum Validation
-
-> **CRITICAL:** LLMs suffer from probabilistic rule drift over long contexts.
-
-Read `.windsurfrules` and confirm the active ruleset:
-
-- Print: "Rules v[X.X.X] loaded. Mandamentos: [count]. Frozen zones: [count]."
-- Verify `AGENTS.md` version matches `.windsurfrules` expectations.
-
-## 6. System Map & Handoff
-
-- Read `docs/SYSTEM_MAP.md` for the repo-local system overview
-- Use `~/.egos/SYSTEM_MAP.md` only when the task requires cross-repo topology beyond this kernel
-- Check latest handoff in `docs/_current_handoffs/` (most recent file)
-- Recent commits: `git log --oneline -5`
-
-## 7. Cost Monitor
-
-| Resource | Warning | Critical |
-|----------|---------|----------|
+---
+description: start workflow
+---
+----|---------|----------|
 | Vercel usage | > 50% | > 75% (STOP) |
 | Supabase DB | > 500 MB | > 2 GB (EMERGENCY) |
 
@@ -85,6 +11,7 @@ The agent MUST verify these before implementation work:
 
 | Tool | Check command | Required? | Default |
 |------|--------------|-----------|--------|
+| Gem Hunter SecOps | `ls -t docs/gem-hunter/secops-*.md 2>/dev/null \| xargs grep -l UNMITIGATED` | YES (BLOCKING) | Must mitigate CVEs first |
 | Codex | `codex --version` | MODERATE+ tasks | `codex review --uncommitted` |
 | Codex cloud | `codex cloud list` | If pending tasks exist | Inspect before new work |
 | Alibaba | `.env` has `ALIBABA_DASHSCOPE_API_KEY` | Yes | `alibaba:qwen-plus` |
@@ -94,6 +21,7 @@ The agent MUST verify these before implementation work:
 
 Rules:
 
+- **[NEW] SecOps Gate**: If a critical zero-day is found in `docs/gem-hunter/secops-*.md`, the agent MUST abort the start and instruct the user to mitigate the CVE immediately.
 - Codex runs in a **parallel terminal**, NEVER in main chat
 - Codex NEVER owns SSOT; it reviews under human/Cascade supervision
 - Alibaba is the preferred orchestrator when configured
@@ -104,6 +32,7 @@ Rules:
 
 Present to user:
 
+- **Security Status:** Critical active CVEs or Clean Network
 - **Rules:** Version + mandamento count + orchestration status
 - **Tasks:** P0 blockers → P1 sprint → P2 backlog (counts)
 - **Handoff:** Last session summary (1-2 lines)
@@ -126,4 +55,4 @@ Optional: `.guarani/philosophy/TSUN_CHA_PROTOCOL.md`, `.guarani/MCP_ORCHESTRATIO
 
 ---
 
-*v5.4 — Added capability registry to core load order, conditional CHATBOT_SSOT dispatch, and file-existence checks for capability-map-driven sessions.*
+*v5.5 — Added Capability Registry + SecOps CISA KEV Dependency scanning.*
