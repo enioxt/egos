@@ -9,11 +9,10 @@ Run, in order:
 1. `bun run activation:check`
 2. `bun run governance:check`
 3. If the current repo exposes `session:guard`, run `bun run session:guard --json`
-4. If the current repo exposes `start:audit`, run `bun run start:audit`
-5. Else, if `/home/enio/egos-lab` exists, run `bun run start:audit` in `/home/enio/egos-lab` as the mesh-wide audit lane
-6. For MODERATE+ tasks, run `codex --version` and `codex cloud list || true`
-7. If the active repo is dirty, run `codex review --uncommitted || true`
-8. Only with explicit approval for live/network verification, run `bun run session:guard --live` and `bun run start:audit:live`
+4. Run `bun run start:audit`
+5. For MODERATE+ tasks, run `codex --version` and `codex cloud list || true`
+6. If the active repo is dirty, run `codex review --uncommitted || true`
+7. Only with explicit approval for live/network verification, run `bun run session:guard --live` and `bun run start:audit:live`
 
 ## 2. Truth layers
 
@@ -46,10 +45,10 @@ The activation briefing must present:
 
 ## 5. Canonical commands
 
-- Fast mesh audit: `bun run start:audit` (or run it from `/home/enio/egos-lab` if absent locally)
+- Fast mesh audit: `bun run start:audit`
 - Live + AI audit: `bun run start:audit:live`
 - Security gate: `bun run session:guard --live`
 
 ---
 
-*v6.0 — Added mesh-wide truth audit, fallback to egos-lab startup audit, and explicit local/docs/github/runtime reconciliation contract.*
+*v6.1 — Kernel now owns the mesh-wide start audit directly, with explicit local/docs/github/runtime reconciliation contract.*

@@ -31,6 +31,8 @@
     "ssot:link:exec": "sh scripts/link-ssot-files.sh --exec",
     "test": "bun test packages/shared/src/__tests__/",
     "activation:check": "bun scripts/activation-check.ts",
+    "start:audit": "bun scripts/start-audit.ts",
+    "start:audit:live": "bun scripts/start-audit.ts --live --ai",
     "guard": "bun scripts/guard.ts",
     "guard:demo": "bun scripts/guard.ts demo",
     "guard:validate": "bun scripts/guard.ts validate",

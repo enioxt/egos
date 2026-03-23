@@ -21,7 +21,7 @@
 
 - [x] EGOS-093: Canonicalized kernel `.windsurf/workflows/start.md` to require mesh truth audit, Codex readiness, Alibaba readiness, and explicit local/docs/github/runtime separation.
 - [x] EGOS-094: Propagate the new kernel `/start` into `~/.egos/workflows` and downstream leaves via governance sync, then verify the shared `/start` matches kernel truth.
-- [ ] EGOS-095: Generalize startup audit beyond egos-lab so the kernel can own a first-class mesh-wide activation command without repo-local fallback.
+- [x] EGOS-095: Generalize startup audit beyond egos-lab so the kernel can own a first-class mesh-wide activation command without repo-local fallback.
 
 ### P0 (Blockers) — MIGRATION GAPS (egos-lab → egos)
 
