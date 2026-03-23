@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.4.0 | **Updated:** 2026-03-23
+> **Version:** 2.5.0 | **Updated:** 2026-03-23 | **Last Session:** Claude Code (Guard Brasil + Commons + migration gaps)
 
 ---
 
@@ -16,6 +16,22 @@
 - [ ] EGOS-074: Execute the kernel-first consolidation of SSOT/governance surfaces from `egos-lab` into `egos` and eliminate duplicated docs, maps, workflows, and stale claims with explicit archive references
 - [ ] EGOS-075: Canonicalize the System Map control plane — one orchestrator contract, one machine map, one human map, freshness rules, and one cross-repo update flow
 - [x] EGOS-076: Create the ecosystem classification registry for products/modules/ideas (`standalone`, `candidate`, `lab`, `internal_infra`, `archive`) and wire it into `TASKS.md`, `SYSTEM_MAP.md`, and `CAPABILITY_REGISTRY.md` — `docs/ECOSYSTEM_CLASSIFICATION_REGISTRY.md`
+
+### P0 (Blockers) — MIGRATION GAPS (egos-lab → egos)
+
+**Found during Guard Brasil + Commons implementation. CRITICAL for consolidation.**
+
+- [ ] EGOS-090_MIGR: Sincronizar `@egos/shared` — egos-lab mantém cópia local desatualizada. Migrar todos os imports para consumir do kernel.
+  > Arquivos: `egos-lab/packages/shared/src/`, referências em `package.json`
+  > Bloqueador: Guard Brasil SDK só está em kernel, egos-lab não tem acesso
+
+- [ ] EGOS-091_MIGR: Clonar egos-lab no ambiente de trabalho — Claude Code só tem kernel local. Para continuidade de desenvolvimento, egos-lab precisa estar sincronizado.
+  > Bloqueador: Agent-028 template, report_generator, gem-hunter estão lá, precisam estar acessíveis
+
+- [ ] EGOS-092_MIGR: Movimentar ou integrar `agent-028-template` — Atualmente em egos-lab, metadados no kernel. Ou move para kernel `/apps/` ou garante que egos-lab consome como submódulo.
+  > Recomendação: Mover para kernel, deploy via Vercel como sub-app
+  > Bloqueador: Vercel deploy requer acesso ao código-fonte
+
 - [ ] EGOS-077: Add the new-project gate for PRD, ICP, go-to-market, objective, success metric, and multi-model review mode with a recorded blocking-vs-advisory decision
 - [ ] EGOS-078: Define the `Agent Claim Contract` — formal taxonomy for `component`, `skill`, `agent_candidate`, `verified_agent`, and `online_agent`, with mandatory proof fields for runtime, triggers, evals, observability, and ownership
 - [ ] EGOS-079: Enforce the `Agent Claim Gate` in kernel governance — registry lint + pre-commit/pre-push + docs/tasks checks must block any surface claimed as agent without executable entrypoint, existing eval, valid run modes, and runtime evidence
@@ -105,6 +121,18 @@
   > **Arquivos:** `docs/diagnostics/SITE_AND_GOVERNANCE_DIAGNOSTIC_2026-03-13.md`, `.guarani/orchestration/DOMAIN_RULES.md`
 - [x] EGOS-067: Define the hybrid multi-tool control plane for `Claude Code` + `Codex` + Alibaba + Antigravity with user-scope secrets and repo-local onboarding
   > **Arquivos:** `egos-lab/docs/plans/MULTI_TOOL_HUB.md`, `~/.claude.json`
+
+### P1 (Critical) — MIGRATION & COMMONS INTEGRATION
+
+- [ ] EGOS-093_MIGR: Remover/arquivar docs duplicadas em egos-lab — SYSTEM_MAP.md, CAPABILITY_REGISTRY.md, etc. Kernel é SSOT.
+- [ ] EGOS-094_COMMONS: Criar Supabase schema para Commons — tables: `courses`, `enrollments`, `lesson_progress`, `lesson_feedback`, `quiz_attempts`, `certificates`
+- [ ] EGOS-095_COMMONS: Integrar database no Commons frontend — Supabase client, auth GoTrue, realtime subscriptions
+
+### P2 (Important) — INFRASTRUCTURE & DEPLOYMENT
+
+- [ ] EGOS-096_INFRA: Setup VPS Contabo — DNS para commons.egos.ia.br, SSL Let's Encrypt, nginx/reverse proxy
+- [ ] EGOS-097_API: Implementar Guard Brasil API hosted — rate limiting, telemetry, audit logs, SLA 99.5%
+- [ ] EGOS-098_COMMONS: Integrar pagamento Asaas em Commons — enrollment flow, webhook verification, email confirmação
 
 ### Backlog
 
