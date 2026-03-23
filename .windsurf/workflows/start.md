@@ -1,58 +1,55 @@
 ---
 description: start workflow
 ---
-----|---------|----------|
-| Vercel usage | > 50% | > 75% (STOP) |
-| Supabase DB | > 500 MB | > 2 GB (EMERGENCY) |
 
-## 8. Tooling Session Check (MANDATORY)
+## 1. Mandatory activation sequence
 
-The agent MUST verify these before implementation work:
+Run, in order:
 
-| Tool | Check command | Required? | Default |
-|------|--------------|-----------|--------|
-| Gem Hunter SecOps | `ls -t docs/gem-hunter/secops-*.md 2>/dev/null \| xargs grep -l UNMITIGATED` | YES (BLOCKING) | Must mitigate CVEs first |
-| Codex | `codex --version` | MODERATE+ tasks | `codex review --uncommitted` |
-| Codex cloud | `codex cloud list` | If pending tasks exist | Inspect before new work |
-| Alibaba | `.env` has `ALIBABA_DASHSCOPE_API_KEY` | Yes | `alibaba:qwen-plus` |
-| Session guard | `bun run session:guard` | Only if this repo exposes it | Else use `bun run governance:check` + `bun run agent:lint` |
-| Gem Hunter | `ls -t docs/gem-hunter/gems-*.md 2>/dev/null \| head -1` | Research sessions in repos that ship Gem Hunter | Suggest if > 7 days old |
-| Report Generator | `ls -t docs/reports/report-*.html 2>/dev/null \| head -1` | Research sessions in repos that ship report generation | `bun agent:run report-generator --exec` |
+1. `bun run activation:check`
+2. `bun run governance:check`
+3. If the current repo exposes `session:guard`, run `bun run session:guard --json`
+4. If the current repo exposes `start:audit`, run `bun run start:audit`
+5. Else, if `/home/enio/egos-lab` exists, run `bun run start:audit` in `/home/enio/egos-lab` as the mesh-wide audit lane
+6. For MODERATE+ tasks, run `codex --version` and `codex cloud list || true`
+7. If the active repo is dirty, run `codex review --uncommitted || true`
+8. Only with explicit approval for live/network verification, run `bun run session:guard --live` and `bun run start:audit:live`
 
-Rules:
+## 2. Truth layers
 
-- **[NEW] SecOps Gate**: If a critical zero-day is found in `docs/gem-hunter/secops-*.md`, the agent MUST abort the start and instruct the user to mitigate the CVE immediately.
-- Codex runs in a **parallel terminal**, NEVER in main chat
-- Codex NEVER owns SSOT; it reviews under human/Cascade supervision
-- Alibaba is the preferred orchestrator when configured
-- If Alibaba is not configured, the agent MUST say `unavailable` and MUST NOT claim `alibaba:qwen-plus` is active
-- Kernel repos may not expose `session:guard`, `docs/gem-hunter`, or `docs/reports`; treat them as optional surfaces, not activation blockers
+`/start` must separate and compare four truths:
 
-## 9. Output Briefing
+1. **Local truth** — current files and git state
+2. **Documentation truth** — `AGENTS.md`, `TASKS.md`, `.windsurfrules`, `docs/SYSTEM_MAP.md`
+3. **GitHub truth** — ahead/behind drift versus tracked remote
+4. **Runtime truth** — public health or VPS-facing checks when live mode is approved
 
-Present to user:
+## 3. Required output briefing
 
-- **Security Status:** Critical active CVEs or Clean Network
-- **Rules:** Version + mandamento count + orchestration status
-- **Tasks:** P0 blockers → P1 sprint → P2 backlog (counts)
-- **Handoff:** Last session summary (1-2 lines)
-- **Recent commits:** Last 5 commits
-- **Meta-prompts:** Count loaded + active triggers
-- **Codex:** Availability + pending cloud tasks + chosen mode (cloud vs local read-only)
-- **Alibaba:** Availability + chosen orchestrator provider/model
-- **Research:** Latest gem-hunter/report state or `N/A` for kernel repos without those surfaces
-- **Orchestration:** "Pipeline active. Refinery ready. Gate threshold: 75."
+The activation briefing must present:
 
----
+- Security/runtime status
+- Dirty repos, ahead/behind repos, and missing SSOT files
+- Latest handoff and recent commit posture
+- Codex availability + chosen lane
+- Alibaba availability + chosen model/provider
+- AI reconciliation summary when live mode runs
+- Recommended next actions in priority order
 
-## File Existence Check
+## 4. Rules
 
-Required (flag if missing): `AGENTS.md`, `TASKS.md`, `docs/CAPABILITY_REGISTRY.md`, `.windsurfrules`, `.guarani/PREFERENCES.md`, `.guarani/IDENTITY.md`, `.guarani/orchestration/PIPELINE.md`, `.guarani/orchestration/GATES.md`, `.guarani/orchestration/QUESTION_BANK.md`, `.guarani/orchestration/DOMAIN_RULES.md`, `.guarani/refinery/classifier.md`, `.guarani/refinery/interrogators/*.md`, `.guarani/preprocessor.md`, `.guarani/prompts/PROMPT_SYSTEM.md`, `.guarani/prompts/triggers.json`, `docs/SYSTEM_MAP.md`.
+- Codex runs in a parallel lane and never owns SSOT
+- Alibaba is the preferred reconciliation model when configured
+- If Alibaba is unavailable, the briefing must say `unavailable`
+- If a repo is dirty or ahead of remote, `/start` must flag it explicitly
+- If a required SSOT file is missing, `/start` must report drift explicitly
 
-For leaf repos, missing required files MUST produce both: (1) an explicit drift note in the `/start` briefing, and (2) a canonical fallback load when a verified upstream source exists.
+## 5. Canonical commands
 
-Optional: `.guarani/philosophy/TSUN_CHA_PROTOCOL.md`, `.guarani/MCP_ORCHESTRATION_GUIDE.md`, `.guarani/DESIGN_STANDARDS.md`.
+- Fast mesh audit: `bun run start:audit` (or run it from `/home/enio/egos-lab` if absent locally)
+- Live + AI audit: `bun run start:audit:live`
+- Security gate: `bun run session:guard --live`
 
 ---
 
-*v5.5 — Added Capability Registry + SecOps CISA KEV Dependency scanning.*
+*v6.0 — Added mesh-wide truth audit, fallback to egos-lab startup audit, and explicit local/docs/github/runtime reconciliation contract.*

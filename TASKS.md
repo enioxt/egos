@@ -17,6 +17,12 @@
 - [ ] EGOS-075: Canonicalize the System Map control plane — one orchestrator contract, one machine map, one human map, freshness rules, and one cross-repo update flow
 - [x] EGOS-076: Create the ecosystem classification registry for products/modules/ideas (`standalone`, `candidate`, `lab`, `internal_infra`, `archive`) and wire it into `TASKS.md`, `SYSTEM_MAP.md`, and `CAPABILITY_REGISTRY.md` — `docs/ECOSYSTEM_CLASSIFICATION_REGISTRY.md`
 
+### Session Sync — 2026-03-23 (/start mesh truth audit)
+
+- [x] EGOS-093: Canonicalized kernel `.windsurf/workflows/start.md` to require mesh truth audit, Codex readiness, Alibaba readiness, and explicit local/docs/github/runtime separation.
+- [ ] EGOS-094: Propagate the new kernel `/start` into `~/.egos/workflows` and downstream leaves via governance sync, then verify the shared `/start` matches kernel truth.
+- [ ] EGOS-095: Generalize startup audit beyond egos-lab so the kernel can own a first-class mesh-wide activation command without repo-local fallback.
+
 ### P0 (Blockers) — MIGRATION GAPS (egos-lab → egos)
 
 **Found during Guard Brasil + Commons implementation. CRITICAL for consolidation.**
