@@ -21,14 +21,14 @@
 
 **Found during Guard Brasil + Commons implementation. CRITICAL for consolidation.**
 
-- [ ] EGOS-090_MIGR: Sincronizar `@egos/shared` — egos-lab mantém cópia local desatualizada. Migrar todos os imports para consumir do kernel.
+- [x] EGOS-090_MIGR: Sincronizar `@egos/shared` — egos-lab mantém cópia local desatualizada. Migrar todos os imports para consumir do kernel.
   > Arquivos: `egos-lab/packages/shared/src/`, referências em `package.json`
   > Bloqueador: Guard Brasil SDK só está em kernel, egos-lab não tem acesso
 
-- [ ] EGOS-091_MIGR: Clonar egos-lab no ambiente de trabalho — Claude Code só tem kernel local. Para continuidade de desenvolvimento, egos-lab precisa estar sincronizado.
+- [x] EGOS-091_MIGR: Clonar egos-lab no ambiente de trabalho — Claude Code só tem kernel local. Para continuidade de desenvolvimento, egos-lab precisa estar sincronizado.
   > Bloqueador: Agent-028 template, report_generator, gem-hunter estão lá, precisam estar acessíveis
 
-- [ ] EGOS-092_MIGR: Movimentar ou integrar `agent-028-template` — Atualmente em egos-lab, metadados no kernel. Ou move para kernel `/apps/` ou garante que egos-lab consome como submódulo.
+- [x] EGOS-092_MIGR: Movimentar ou integrar `agent-028-template` — Atualmente em egos-lab, metadados no kernel. Ou move para kernel `/apps/` ou garante que egos-lab consome como submódulo.
   > Recomendação: Mover para kernel, deploy via Vercel como sub-app
   > Bloqueador: Vercel deploy requer acesso ao código-fonte
 
