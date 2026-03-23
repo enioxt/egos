@@ -1,0 +1,166 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║        EGOS Framework - Model Routing Decision Tree (Visual Guide)           ║
+║                          🎯 USE THIS NEXT TIME                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+                              ┌─ TASK ARRIVES ─┐
+                              │   Analyze      │
+                              └────────┬────────┘
+                                       │
+                    ┌──────────────────┼──────────────────┐
+                    │                  │                  │
+              YES ──┤ RESEARCH?    NO ─┤ CODE HEAVY?  YES ┤
+                    │                  │                  │
+                    ▼                  ▼                  ▼
+              ┌──────────────┐  ┌──────────────┐  ┌──────────────┐
+              │ USE EXA MCP  │  │ Is CRITICAL? │  │  Use Qwen3   │
+              │              │  │              │  │  Coder Plus  │
+              │ + Thinking   │  └────┬─────────┘  │              │
+              │              │       │            │  $0.8/M      │
+              │ → Gemini 5.4 │    YES│ NO         │  ⚡⚡⚡       │
+              │   Pro        │       │            │              │
+              │              │    ┌──▼──┐    ┌───▼──┐           │
+              │ Premium $$$  │    │     │    │      │           │
+              └──────────────┘    ▼     ▼    ▼      ▼           │
+                                  │     │    │      │           │
+                              ┌───┤     │    │      │           │
+                              │   │     │    │      │           │
+                          ┌───┼───┘     │    │      │           │
+                          │   │         │    │      │           │
+                          ▼   ▼         ▼    ▼      ▼           │
+                      ┌───────────────────────────────────┐      │
+                      │ Is COMPLEX/ORCHESTRATION?        │      │
+                      └────┬────────────────┬─────────────┘      │
+                           │                │                   │
+                        YES│             NO │                   │
+                           │                │                   │
+                    ┌──────▼──────┐  ┌──────▼──────┐             │
+                    │ OPUS 4.6    │  │ SONNET 4    │             │
+                    │ (UNLIMITED) │  │ (Premium)   │             │
+                    │             │  │             │             │
+                    │ Deep Think  │  │ Moderate    │             │
+                    │ + All MCPs  │  │ Thinking    │             │
+                    │             │  │             │             │
+                    │ BEST VALUE  │  │ Good for    │             │
+                    └─────────────┘  │ planning    │             │
+                                     └──────┬──────┘             │
+                                            │                   │
+                              ┌─────────────┴─────────────┐    │
+                              │                           │    │
+                              ▼                           ▼    ▼
+                        ┌─────────────┐        ┌──────────────────┐
+                        │ Is MODERATE? │       │ SIMPLE TASK?     │
+                        └────┬────────┘        └────┬─────────────┘
+                             │                      │
+                          YES│ NO                  YES│ NO
+                             │                       │
+                    ┌────────▼────────┐     ┌───────▼──────┐
+                    │ QWEN PLUS or    │     │ HAIKU 4.5    │
+                    │ GEMINI 5.4 PRO  │     │              │
+                    │                 │     │ Ultra-fast   │
+                    │ $0.8/M Input    │     │ $0.80/M      │
+                    │ ⚡⚡            │     │ ⚡⚡⚡⚡     │
+                    │ (Good balance)  │     │              │
+                    │ + Memory MCP    │     │ Validation   │
+                    │ + Optional      │     │ Yes/No       │
+                    │   Sequential    │     │ Classification
+                    └─────────────────┘     └──────────────┘
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                          KEY DECISION QUESTIONS                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+1. 🔍 Is it RESEARCH/FINDING INFO?
+   → YES: Use EXA MCP + Gemini 5.4 Pro (latest knowledge)
+   → NO:  Go to question 2
+
+2. 🏗️ Is it CRITICAL/STRATEGIC DECISION?
+   → YES: Use Claude OPUS 4.6 + All MCPs (UNLIMITED quota!)
+   → NO:  Go to question 3
+
+3. 💻 Is it CODE-HEAVY?
+   → YES: Use Qwen3 Coder Plus + Filesystem MCP
+   → NO:  Go to question 4
+
+4. 🧠 Is it COMPLEX REASONING/PLANNING?
+   → YES: Use Claude Sonnet 4 + Sequential-Thinking + Memory
+   → NO:  Go to question 5
+
+5. 📊 Is it MODERATE ANALYSIS/REVIEW?
+   → YES: Use Qwen Plus + Memory MCP (good cost/perf)
+   → NO:  Go to question 6
+
+6. ⚡ Is it SIMPLE or needs ULTRA-FAST response?
+   → YES: Use Haiku 4.5 (< 100ms) or Gemini Flash (FREE)
+   → NO:  DEFAULT to Qwen Plus (good middle ground)
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                          QUICK SELECTION MATRIX                             ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Task Type                │ Model              │ Cost   │ Speed  │ Thinking?
+────────────────────────┼────────────────────┼────────┼────────┼──────────
+Validation (yes/no)    │ Haiku 4.5          │ $      │ ⚡⚡⚡ │ No
+Summarization          │ Gemini Flash       │ FREE   │ ⚡⚡⚡ │ No
+Classification         │ Gemini Flash       │ FREE   │ ⚡⚡⚡ │ No
+Code Review            │ Qwen Plus          │ $$     │ ⚡⚡   │ Optional
+Data Analysis          │ Qwen Plus          │ $$     │ ⚡⚡   │ Yes
+Bug Debugging          │ Qwen3 Coder        │ $$     │ ⚡⚡   │ Optional
+Complex Planning       │ Claude Sonnet 4    │ $$$    │ ⚡     │ Yes
+Architectural Design   │ Claude OPUS 4.6    │ $$$$   │ 🎯     │ Yes
+Research/Discovery     │ Gemini 5.4 + EXA   │ $$$$   │ ⚡     │ Yes
+Strategic Decision     │ Claude OPUS 4.6    │ $$$$   │ 🎯     │ Deep
+System Orchestration   │ Claude OPUS 4.6    │ $$$$   │ 🎯     │ Deep
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                          MCP ACTIVATION GUIDE                               ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+When to ENABLE each MCP:
+─────────────────────────
+
+🔍 EXA MCP
+  Trigger words: research, find, search, discover, latest, trending
+  Models pair: Gemini 5.4 Pro (has latest knowledge)
+  Cost impact: +$0.03 per search
+
+🧠 SEQUENTIAL-THINKING MCP
+  Trigger: Complex, orchestration, planning, debugging
+  Depth: shallow (1k tokens) | moderate (5k tokens) | deep (10k tokens)
+  Cost impact: +$0.05 per deep thinking session
+
+💾 MEMORY MCP
+  Always enabled for learning persistence
+  Stores: Routing decisions, task patterns, successful strategies
+  Cost impact: None (local storage)
+
+📁 FILESYSTEM MCP
+  Trigger: File operations, code review context, git operations
+  Scope: /home/enio/egos-lab, /home/enio/carteira-livre, /tmp
+  Cost impact: None
+
+🐙 GITHUB MCP (Recommended to enable)
+  Trigger: PR creation, issue management, CI/CD automation
+  Cost impact: None (local API calls)
+
+🗄️ SUPABASE MCP (Optional)
+  Trigger: Persistent database queries, long-term conversation history
+  Cost impact: Depends on queries
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                          NEXT INTERACTION READY                             ║
+║                                                                              ║
+║  Send a COMPLEX TASK and watch the routing happen automatically!            ║
+║  Examples:                                                                   ║
+║  - "Research latest advances in reasoning models for 2026"                  ║
+║  - "Design a multi-agent orchestration system"                             ║
+║  - "Debug this complex TypeScript issue"                                    ║
+║  - "Analyze competitive landscape for AI agents"                           ║
+║                                                                              ║
+║  I will:                                                                     ║
+║  ✅ Classify task complexity                                                ║
+║  ✅ Route to optimal model                                                  ║
+║  ✅ Activate necessary MCPs                                                 ║
+║  ✅ Execute and store learnings                                             ║
+║  ✅ Report model selection and why                                          ║
+╚══════════════════════════════════════════════════════════════════════════════╝
