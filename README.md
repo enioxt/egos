@@ -55,6 +55,55 @@ EGOS is the kernel. Leaf repos consume it:
 | [EGOS-Inteligencia](https://github.com/enioxt/EGOS-Inteligencia) | Public-data intelligence graph |
 | [carteira-livre](https://github.com/enioxt/carteira-livre) | Production SaaS marketplace |
 
+## Business Foundation (Operator-First)
+
+This is the canonical business baseline before scaling implementation.
+
+### 1) Objective
+
+Build one flagship governed AI product that solves a high-value, high-frequency
+compliance/decision problem in Brazil with auditable outputs and low operating cost.
+
+### 2) Problem to Solve
+
+Teams using multiple AI tools struggle with:
+- non-auditable decisions,
+- prompt inconsistency across environments,
+- weak provenance of who changed what and where,
+- fragmented governance and duplicated standards.
+
+### 3) Personas
+
+- **Operator/Founder:** needs speed + control + proof-of-work.
+- **Compliance/SecOps lead:** needs traceability, policy enforcement, and risk gates.
+- **Engineering lead:** needs reusable modules, low drift, and predictable delivery.
+
+### 4) Go-To-Market (GTM) — Initial
+
+- **Wedge:** governance-as-code + provenance signatures + Brazilian compliance defaults.
+- **Entry offer:** implementation + audit-ready setup in pilot repositories.
+- **Expansion:** reusable packages/MCP servers (`@egos/shared`, governance/memory MCP).
+- **Proof:** measurable reduction in drift, incident risk, and manual review time.
+
+### 5) Documentation & Rules Order (Mandatory)
+
+1. Define objective/problem/personas/GTM in SSOT.
+2. Define policy contracts (governance + signatures + claim gates).
+3. Run adoption via `/start` + `governance:sync:exec` + `governance:check`.
+4. Only then expand to new agents/products.
+
+### 6) Next System to Build (Knowledge Compiler)
+
+Create a governed "market intelligence compiler" that ingests books, papers,
+codebases, benchmark reports, and platform docs, then normalizes them into:
+- decision rules,
+- implementation patterns,
+- risk controls,
+- testable playbooks.
+
+All outputs must be source-linked, versioned, and attached to explicit target
+problem statements (no generic knowledge dumps).
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for governance rules.
