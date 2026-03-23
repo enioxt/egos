@@ -1,4 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { supabase } from './lib/supabase'
+import { emitMyceliumEvent } from './lib/mycelium'
+import { processWithEthik } from './lib/agents'
 import {
   Bot, Sparkles, ShieldCheck, BookOpen, Code2, Zap,
   Star, Users, TrendingUp, ArrowRight, Play,
@@ -267,6 +270,16 @@ function ProductCard({ product }: { product: Product }) {
 
   const tc = tierColors[product.tier]
 
+  const handleAction = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    await emitMyceliumEvent('INTENT_ACQUIRE', { product_id: product.id, price: product.price });
+    if (product.price !== 'free' && product.price !== 'custom') {
+        const result = await processWithEthik({ product_id: product.id, amount: product.price });
+        console.log("ETHIK Gateway:", result);
+    }
+    alert('Intenção registrada no Mycelium Graph. Redirecionando para o Gateway Governado...');
+  }
+
   return (
     <div style={{
       background: 'rgba(18,18,26,0.8)',
@@ -351,7 +364,9 @@ function ProductCard({ product }: { product: Product }) {
             letterSpacing: '-0.5px',
           }}>{priceDisplay}</div>
         </div>
-        <button style={{
+        <button 
+          onClick={handleAction}
+          style={{
           padding: '9px 18px',
           background: product.price === 'free'
             ? 'rgba(16,185,129,0.15)'
@@ -399,12 +414,44 @@ function StatsBar() {
 function App() {
   const [activeCategory, setActiveCategory] = useState('all')
   const [menuOpen, setMenuOpen] = useState(false)
+  const [dynamicProducts, setDynamicProducts] = useState<Product[]>(products)
+
+  useEffect(() => {
+    async function loadCourses() {
+      // Fetch dynamic courses from Supabase
+      const { data, error } = await supabase.from('courses').select('*');
+      if (error) console.error('Erro ao buscar cursos no Supabase:', error);
+      if (data && data.length > 0) {
+        const mapped: Product[] = data.map(c => ({
+          id: c.slug || c.id,
+          title: c.title,
+          subtitle: 'Curso EGOS',
+          description: c.description || 'Domine ' + c.title,
+          icon: <BookOpen size={28} className="text-violet-400" />,
+          price: c.price > 0 ? c.price : 'free',
+          tier: c.price > 0 ? 'pro' : 'free',
+          category: 'course',
+          tags: ['curso'],
+          rating: 5.0,
+          students: 0,
+          badge: 'DB Fetch'
+        }))
+        // Prepend dynamic DB products to the catalog safely
+        setDynamicProducts(prev => {
+           const existingIds = new Set(prev.map(p => p.id));
+           const newProducts = mapped.filter(p => !existingIds.has(p.id));
+           return [...newProducts, ...prev];
+        });
+      }
+    }
+    loadCourses();
+  }, [])
 
   const filtered = activeCategory === 'all'
-    ? products
-    : products.filter(p => p.category === activeCategory)
+    ? dynamicProducts
+    : dynamicProducts.filter(p => p.category === activeCategory)
 
-  const featured = products.filter(p => p.featured)
+  const featured = dynamicProducts.filter(p => p.featured)
 
   return (
     <div style={{ minHeight: '100vh', background: '#0a0a0f' }}>
