@@ -13,7 +13,13 @@
 #   ./scripts/governance-sync.sh --exec --propagate  # sync + auto-propagate to leaf repos
 # ═══════════════════════════════════════════════════════════
 
-EGOS_KERNEL="${EGOS_KERNEL:-$HOME/egos}"
+if [ -d "${PWD}/.guarani" ]; then
+  DEFAULT_KERNEL="$PWD"
+else
+  DEFAULT_KERNEL="$HOME/egos"
+fi
+
+EGOS_KERNEL="${EGOS_KERNEL:-$DEFAULT_KERNEL}"
 EGOS_HOME="${EGOS_HOME:-$HOME/.egos}"
 MODE="--dry"
 PROPAGATE_MODE="prompt"
