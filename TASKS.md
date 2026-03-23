@@ -137,8 +137,8 @@
 ### P1 (Critical) — COMMONS MVP REAL (Split 95/5)
 
 - [x] EGOS-093_COMMONS: Fase 1 — Inventário Real de 6 produtos existentes com split de pagamentos ético (95/5).
-- [ ] EGOS-094_COMMONS: Fase 2 — Criar fichas com "Grátis (código)", "Implementação paga (split 95/5)", "Contribuir".
-- [ ] EGOS-095_COMMONS: Fase 3 — Página Única (Next.js config + Hero Honesto + Stats Reais).
+- [x] EGOS-094_COMMONS: Fase 2 — Criar fichas com "Grátis (código)", "Implementação paga (split 95/5)", "Contribuir".
+- [x] EGOS-095_COMMONS: Fase 3 — Página Única (Next.js config + Hero Honesto + Stats Reais).
 - [ ] EGOS-096_COMMONS: Fase 4 — Automação Mínima de inventário e RuleOps das fichas.
 - [ ] EGOS-097_COMMONS: Fase 5 — Validação (Roteiro de entrevistas reais VALIDATION-CHECKLIST.md).
 - [ ] EGOS-098_COMMONS: Fase 6 — PR branch `egos-commons-mvp-real`.

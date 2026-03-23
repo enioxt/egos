@@ -347,3 +347,6 @@ Leaf repos inherit kernel governance via symlinks but keep local IDENTITY.md and
 - 28 anti-proliferation violations archived in one commit.
 - AGENTS.md condensed from 358→140 lines with domain map.
 - 8 reusable patterns documented in local HARVEST.md.
+
+## 2026-03-23: Commons Honest MVP UI vs SSOT
+**Pattern:** Always prioritize explicit business SSOT (`inventory.md`) over leftover promotional mockup copy in frontend files (`App.tsx`). The EGOS ecosystem is strictly about the "Honest MVP" narrative (6 real products, split 95/5). The empty `/home/enio/commons` directory was ignored in favor of the monitored mono-repo structure in `egos/apps/commons`.

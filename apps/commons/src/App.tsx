@@ -9,9 +9,9 @@ import { ATRiANInspector } from './pages/ATRiANInspector'
 
 import {
   Bot, Sparkles, ShieldCheck, BookOpen, Code2, Zap,
-  Star, Users, TrendingUp, ArrowRight, Play,
-  CheckCircle, Lock, Globe, Menu, X,
-  Brain, Cpu, Layers, Award
+  Star, Users, ArrowRight, Play,
+  Lock, Globe, Menu, X,
+  Cpu, Layers, Award
 } from 'lucide-react'
 import './App.css'
 
@@ -24,12 +24,12 @@ interface Product {
   description: string
   icon: React.ReactNode
   price: number | 'free' | 'custom'
-  originalPrice?: number
+  splitDetails: string
+  githubUrl?: string
   tier: 'free' | 'pro' | 'enterprise'
-  category: 'course' | 'tool' | 'template' | 'agent'
+  category: string
   tags: string[]
   rating: number
-  students: number
   featured?: boolean
   badge?: string
 }
@@ -44,155 +44,122 @@ interface Category {
 // ─── Data ────────────────────────────────────────────────────────────────────
 
 const categories: Category[] = [
-  { id: 'all', label: 'Todos', icon: <Layers size={16} />, count: 18 },
-  { id: 'course', label: 'Cursos', icon: <BookOpen size={16} />, count: 5 },
-  { id: 'tool', label: 'Ferramentas', icon: <Cpu size={16} />, count: 6 },
-  { id: 'template', label: 'Templates', icon: <Code2 size={16} />, count: 4 },
-  { id: 'agent', label: 'Agentes IA', icon: <Bot size={16} />, count: 3 },
+  { id: 'all', label: 'Todos os Produtos', icon: <Layers size={16} />, count: 6 },
 ]
 
 const products: Product[] = [
   {
-    id: 'guard-brasil-sdk',
-    title: 'EGOS Guard Brasil SDK',
-    subtitle: 'Guardrails para IA em português',
-    description: 'ATRiAN + PII Scanner + LGPD masking + Evidence Chain. O stack completo para IA segura no Brasil.',
-    icon: <ShieldCheck size={28} className="text-violet-400" />,
-    price: 'free',
-    tier: 'free',
+    id: 'egos-kernel',
+    title: 'EGOS Kernel',
+    subtitle: 'Orchestration Engine',
+    description: 'O núcleo de governança, pipeline de prompts e runtime base para construir agentes baseados em TypeScript/Node.',
+    icon: <Cpu size={28} className="text-violet-400" />,
+    price: 2500,
+    splitDetails: 'R$ 2.375 (Implementador) / R$ 125 (Kernel)',
+    tier: 'pro',
     category: 'tool',
-    tags: ['LGPD', 'IA', 'segurança', 'compliance'],
-    rating: 4.9,
-    students: 312,
+    tags: ['kernel', 'governança', 'runtime'],
+    rating: 5.0,
     featured: true,
-    badge: 'Open Source',
+    badge: 'Produção'
   },
   {
-    id: 'ia-com-autonomia',
-    title: 'IA com Autonomia',
-    subtitle: 'Do prompt ao agente governado',
-    description: 'Do zero ao seu primeiro agente autônomo com governança real. Cascade, Codex, Claude Code — você escolhe o cockpit.',
-    icon: <Brain size={28} className="text-cyan-400" />,
-    price: 297,
-    originalPrice: 497,
+    id: 'carteira-livre',
+    title: 'Carteira Livre',
+    subtitle: 'SaaS Marketplace Base',
+    description: 'Plataforma Next.js 15 pronta com auth Supabase, pagamentos integrado (Asaas), onboarding e agendamento.',
+    icon: <Layers size={28} className="text-cyan-400" />,
+    price: 4900,
+    splitDetails: 'R$ 4.655 (Implementador) / R$ 245 (Kernel)',
     tier: 'pro',
-    category: 'course',
-    tags: ['agentes', 'autonomia', 'governança', 'IA'],
+    category: 'template',
+    tags: ['SaaS', 'Asaas', 'Next.js'],
     rating: 4.8,
-    students: 847,
     featured: true,
-    badge: 'Mais Vendido',
+    badge: 'Produção'
   },
   {
-    id: 'egos-init-template',
-    title: 'EGOS Init Template',
-    subtitle: 'Bootstrap de repo governado',
-    description: 'Estrutura completa com .guarani, hooks, SSOT, CI/CD e drift detection. Ative em < 2 minutos.',
-    icon: <Zap size={28} className="text-yellow-400" />,
-    price: 'free',
-    tier: 'free',
-    category: 'template',
-    tags: ['template', 'governança', 'CI/CD'],
-    rating: 4.7,
-    students: 1204,
-    badge: 'Grátis',
-  },
-  {
-    id: 'orquestracao-multi-agente',
-    title: 'Orquestração Multi-Agente',
-    subtitle: 'Sistemas que se governam',
-    description: 'Human in the loop onde importa. Pipelines com Cascade, Alibaba, Claude rodando em paralelo sem caos.',
-    icon: <Layers size={28} className="text-violet-400" />,
-    price: 497,
-    originalPrice: 797,
-    tier: 'pro',
-    category: 'course',
-    tags: ['multi-agente', 'orquestração', 'automação'],
-    rating: 4.9,
-    students: 423,
-    badge: 'Novo',
-  },
-  {
-    id: 'lgpd-ai-checklist',
-    title: 'LGPD para IA — Checklist',
-    subtitle: 'Compliance sem jurídico',
-    description: 'Template auditável para validar conformidade de sistemas de IA com a Lei 13.709/2018.',
-    icon: <CheckCircle size={28} className="text-green-400" />,
-    price: 97,
-    tier: 'pro',
-    category: 'template',
-    tags: ['LGPD', 'compliance', 'auditoria'],
-    rating: 4.6,
-    students: 678,
-  },
-  {
-    id: 'agent-028-dashbot',
-    title: 'Dashbot AIXBT — Agent-028',
-    subtitle: 'Dashboard de inteligência de repo',
-    description: 'Painel premium que mapeia seus repositórios em tempo real: LOC, APIs, saúde, commits e alertas.',
-    icon: <TrendingUp size={28} className="text-cyan-400" />,
-    price: 197,
+    id: '852-inteligencia',
+    title: '852 Inteligência',
+    subtitle: 'Chatbot Institucional Seguro',
+    description: 'Chatbot Next.js + Qwen/Gemini com detecção PII agressiva e ATRiAN level 1. Feito originalmente para a Polícia Civil.',
+    icon: <ShieldCheck size={28} className="text-green-400" />,
+    price: 3500,
+    splitDetails: 'R$ 3.325 (Implementador) / R$ 175 (Kernel)',
     tier: 'pro',
     category: 'agent',
-    tags: ['dashboard', 'métricas', 'repositório'],
-    rating: 4.8,
-    students: 156,
-    badge: 'Beta',
+    tags: ['chatbot', 'ATRiAN', 'segurança'],
+    rating: 4.9,
+    badge: 'Produção'
   },
   {
-    id: 'whatsapp-ia-flow',
-    title: 'WhatsApp + IA Flow',
-    subtitle: 'Chatbot com cérebro real',
-    description: 'Template de chatbot WhatsApp com ATRiAN, memória de sessão, roteamento de modelos e LGPD out-of-the-box.',
-    icon: <Bot size={28} className="text-green-400" />,
-    price: 197,
-    tier: 'pro',
-    category: 'template',
-    tags: ['WhatsApp', 'chatbot', 'IA'],
-    rating: 4.7,
-    students: 389,
-  },
-  {
-    id: 'guard-brasil-api',
-    title: 'Guard Brasil API',
-    subtitle: 'Hosted guardrails para seu produto',
-    description: 'REST API gerenciada com dashboard de compliance, audit logs, alertas de violação e SLA 99.5%.',
+    id: 'br-acc',
+    title: 'Inteligência de Dados Públicos',
+    subtitle: 'Base de Grafo BR/ACC',
+    description: 'Plataforma ETL (Python) + Neo4j para rastrear CPFs/CNPJs e relações a partir de dados públicos.',
     icon: <Globe size={28} className="text-violet-400" />,
-    price: 'custom',
+    price: 7900,
+    splitDetails: 'R$ 7.505 (Implementador) / R$ 395 (Kernel)',
     tier: 'enterprise',
     category: 'tool',
-    tags: ['API', 'hosted', 'enterprise', 'LGPD'],
-    rating: 5.0,
-    students: 42,
-    badge: 'Enterprise',
+    tags: ['ETL', 'Neo4j', 'OSINT'],
+    rating: 4.9,
+    badge: 'Infra Pesada'
   },
+  {
+    id: 'inpi-ratio',
+    title: 'Assistentes Guiados',
+    subtitle: 'Modelos INPI / Ratio Jurídico',
+    description: 'Aplicações web que guiam usuários por processos complexos burocráticos. Wizard + Chat com guardrails.',
+    icon: <Bot size={28} className="text-yellow-400" />,
+    price: 3000,
+    splitDetails: 'R$ 2.850 (Implementador) / R$ 150 (Kernel)',
+    tier: 'pro',
+    category: 'agent',
+    tags: ['wizard', 'legal', 'RAG'],
+    rating: 4.7
+  },
+  {
+    id: 'egos-lab',
+    title: 'Ferramentas EGOS-Lab',
+    subtitle: 'Micro-SaaS Utilitários',
+    description: 'Implementações rápidas de IA que agregam valor instantâneo: Calc Valor Real, Validador Contratos, CV Builder.',
+    icon: <Zap size={28} className="text-cyan-400" />,
+    price: 1500,
+    splitDetails: 'R$ 1.425 (Implementador) / R$ 75 (Kernel)',
+    tier: 'pro',
+    category: 'tool',
+    tags: ['micro-saas', 'utilitários', 'lab'],
+    rating: 4.6,
+    badge: 'POC Madura'
+  }
 ]
 
 const stats = [
-  { label: 'Produtos ativos', value: '18', icon: <Sparkles size={20} /> },
-  { label: 'Alunos & usuários', value: '4.200+', icon: <Users size={20} /> },
-  { label: 'Repos governados', value: '7', icon: <Code2 size={20} /> },
-  { label: 'Agentes em produção', value: '30+', icon: <Bot size={20} /> },
+  { label: 'Produtos em Produção', value: '6', icon: <Sparkles size={20} /> },
+  { label: 'Repositórios Governados', value: '7', icon: <Code2 size={20} /> },
+  { label: 'Taxa Open Source', value: '100%', icon: <Bot size={20} /> },
+  { label: 'Split Ético', value: '95/5', icon: <Users size={20} /> },
 ]
 
 const howItWorks = [
   {
     step: '01',
-    title: 'Escolha seu produto',
-    description: 'Cursos, ferramentas, templates ou agentes — tudo com curadoria real e evidência de uso em produção.',
-    icon: <BookOpen size={24} className="text-violet-400" />,
+    title: 'Grátis (Código Livre)',
+    description: 'Acesse o código-fonte livremente diretamente nos repositórios. Modifique, estude e rode você mesmo sem custo de licença.',
+    icon: <Code2 size={24} className="text-green-400" />,
   },
   {
     step: '02',
-    title: 'Agentes entregam',
-    description: 'Acesso instantâneo. Agentes orquestram onboarding, suporte e atualizações automaticamente.',
-    icon: <Bot size={24} className="text-cyan-400" />,
+    title: 'Implementação Paga',
+    description: 'Precisa que nossa rede instale e adapte pra você? Contrate a implementação e deixe as integrações difíceis por nossa conta.',
+    icon: <Zap size={24} className="text-violet-400" />,
   },
   {
     step: '03',
-    title: 'Human in the loop',
-    description: 'Onde importa, você decide. Governança real — não burocracia. Resultados, não promessas.',
-    icon: <Brain size={24} className="text-violet-400" />,
+    title: 'Split Ético (95/5)',
+    description: '95% do pagamento vai direto para o implementador/criador. 5% vai para manutenção do Kernel. Simples, justo e transparente no blockchain/gateway.',
+    icon: <ShieldCheck size={24} className="text-cyan-400" />,
   },
 ]
 
@@ -260,11 +227,8 @@ function HeroBadge({ text }: { text: string }) {
 }
 
 function ProductCard({ product }: { product: Product }) {
-  const priceDisplay = product.price === 'free'
-    ? 'Grátis'
-    : product.price === 'custom'
-    ? 'Sob consulta'
-    : `R$ ${product.price}`
+  const priceDisplay = typeof product.price === 'number' ? `R$ ${product.price.toLocaleString('pt-BR')}` : product.price === 'free' ? 'Grátis' : 'Sob consulta'
+  const splitText = product.splitDetails
 
   const tierColors = {
     free: { bg: 'rgba(16,185,129,0.15)', text: '#6ee7b7', border: 'rgba(16,185,129,0.3)' },
@@ -353,36 +317,32 @@ function ProductCard({ product }: { product: Product }) {
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
           <Users size={13} color="#64748b" />
-          <span style={{ fontSize: 13, color: '#64748b' }}>{product.students.toLocaleString()}</span>
+          <span style={{ fontSize: 13, color: '#64748b' }}>Produção</span>
         </div>
       </div>
 
       {/* Price + CTA */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: 12, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-        <div>
-          {product.originalPrice && (
-            <div style={{ fontSize: 12, color: '#475569', textDecoration: 'line-through', marginBottom: 2 }}>R$ {product.originalPrice}</div>
-          )}
-          <div style={{
-            fontSize: 20, fontWeight: 800, color: product.price === 'free' ? '#6ee7b7' : '#f1f5f9',
-            letterSpacing: '-0.5px',
-          }}>{priceDisplay}</div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 12, paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(16,185,129,0.05)', border: '1px solid rgba(16,185,129,0.2)', padding: '12px 16px', borderRadius: 10 }}>
+          <div>
+            <div style={{ fontSize: 13, fontWeight: 700, color: '#6ee7b7' }}>Grátis (Código Aberto)</div>
+            <div style={{ fontSize: 11, color: '#94a3b8' }}>Acesse e implemente você mesmo</div>
+          </div>
+          <button style={{ background: 'rgba(16,185,129,0.15)', border: 'none', borderRadius: 6, color: '#6ee7b7', padding: '6px 12px', fontSize: 12, fontWeight: 600, cursor: 'pointer' }}>
+            GitHub
+          </button>
         </div>
-        <button 
-          onClick={handleAction}
-          style={{
-          padding: '9px 18px',
-          background: product.price === 'free'
-            ? 'rgba(16,185,129,0.15)'
-            : 'linear-gradient(135deg, #7c3aed, #5b21b6)',
-          border: product.price === 'free' ? '1px solid rgba(16,185,129,0.4)' : 'none',
-          borderRadius: 9, color: product.price === 'free' ? '#6ee7b7' : 'white',
-          fontSize: 13, fontWeight: 600, cursor: 'pointer',
-          display: 'flex', alignItems: 'center', gap: 6, transition: 'all 0.2s',
-        }}>
-          {product.price === 'free' ? 'Baixar grátis' : product.price === 'custom' ? 'Falar com time' : 'Adquirir'}
-          <ArrowRight size={14} />
-        </button>
+
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(124,58,237,0.05)', border: '1px solid rgba(124,58,237,0.2)', padding: '12px 16px', borderRadius: 10 }}>
+          <div>
+            <div style={{ fontSize: 13, fontWeight: 700, color: '#a78bfa' }}>Implementação Paga</div>
+            <div style={{ fontSize: 18, fontWeight: 800, color: '#f1f5f9', letterSpacing: '-0.5px' }}>{priceDisplay}</div>
+            <div style={{ fontSize: 10, color: '#a78bfa', marginTop: 2 }}>{splitText}</div>
+          </div>
+          <button onClick={handleAction} style={{ background: 'linear-gradient(135deg, #7c3aed, #5b21b6)', border: 'none', borderRadius: 6, color: 'white', padding: '8px 16px', fontSize: 12, fontWeight: 600, cursor: 'pointer', boxShadow: '0 4px 12px rgba(124,58,237,0.3)' }}>
+            Adquirir
+          </button>
+        </div>
       </div>
     </div>
   )
@@ -436,8 +396,8 @@ function Home() {
           category: 'course',
           tags: ['curso'],
           rating: 5.0,
-          students: 0,
-          badge: 'DB Fetch'
+          badge: 'DB Fetch',
+          splitDetails: 'Split Automático (95/5)'
         }))
         // Prepend dynamic DB products to the catalog safely
         setDynamicProducts(prev => {
@@ -473,17 +433,17 @@ function Home() {
         }} />
 
         <div style={{ maxWidth: 800, margin: '0 auto', padding: '0 24px', position: 'relative' }}>
-          <HeroBadge text="Plataforma de produtos governados por IA" />
+          <HeroBadge text="Apenas software que roda. Soluções reais." />
 
           <h1 style={{
             fontSize: 'clamp(36px, 6vw, 68px)', fontWeight: 900, lineHeight: 1.08,
             letterSpacing: '-2px', color: '#f1f5f9', marginBottom: 24,
           }}>
-            O marketplace onde{' '}
+            A Plataforma com{' '}
             <span style={{
               background: 'linear-gradient(135deg, #a78bfa, #06b6d4)',
               WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
-            }}>agentes entregam</span>
+            }}>Split Ético de 95/5</span>
             <br />o que humanos precisam
           </h1>
 
