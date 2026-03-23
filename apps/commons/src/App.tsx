@@ -2,6 +2,11 @@ import { useState, useEffect } from 'react'
 import { supabase } from './lib/supabase'
 import { emitMyceliumEvent } from './lib/mycelium'
 import { processWithEthik } from './lib/agents'
+import { Routes, Route, Link } from 'react-router-dom'
+import { SandboxSplitTester } from './pages/SandboxSplitTester'
+import { AgentPlayground } from './pages/AgentPlayground'
+import { ATRiANInspector } from './pages/ATRiANInspector'
+
 import {
   Bot, Sparkles, ShieldCheck, BookOpen, Code2, Zap,
   Star, Users, TrendingUp, ArrowRight, Play,
@@ -219,11 +224,10 @@ function Navbar({ menuOpen, setMenuOpen }: { menuOpen: boolean; setMenuOpen: (v:
 
         {/* Desktop Nav */}
         <div style={{ display: 'flex', gap: 32, alignItems: 'center' }} className="desktop-nav">
-          {['Produtos', 'Cursos', 'Agentes', 'Sobre'].map(item => (
-            <a key={item} href="#" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: 14, fontWeight: 500, transition: 'color 0.2s' }}
-              onMouseEnter={e => (e.currentTarget.style.color = '#e2e8f0')}
-              onMouseLeave={e => (e.currentTarget.style.color = '#94a3b8')}>{item}</a>
-          ))}
+          <Link to="/" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: 14, fontWeight: 500 }}>Home</Link>
+          <Link to="/sandbox/split" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: 14, fontWeight: 500 }}>Sandbox Split</Link>
+          <Link to="/sandbox/agents" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: 14, fontWeight: 500 }}>Agent Playground</Link>
+          <Link to="/sandbox/atrian" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: 14, fontWeight: 500 }}>ATRiAN</Link>
         </div>
 
         <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
@@ -411,9 +415,8 @@ function StatsBar() {
 
 // ─── Main App ────────────────────────────────────────────────────────────────
 
-function App() {
+function Home() {
   const [activeCategory, setActiveCategory] = useState('all')
-  const [menuOpen, setMenuOpen] = useState(false)
   const [dynamicProducts, setDynamicProducts] = useState<Product[]>(products)
 
   useEffect(() => {
@@ -454,9 +457,7 @@ function App() {
   const featured = dynamicProducts.filter(p => p.featured)
 
   return (
-    <div style={{ minHeight: '100vh', background: '#0a0a0f' }}>
-      <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-
+    <>
       {/* ── Hero ── */}
       <section style={{
         paddingTop: 140, paddingBottom: 80, textAlign: 'center',
@@ -672,34 +673,55 @@ function App() {
       </section>
 
       {/* ── Footer ── */}
-      <footer style={{
-        borderTop: '1px solid rgba(255,255,255,0.06)',
-        padding: '48px 24px', textAlign: 'center',
-      }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, marginBottom: 24 }}>
-            <div style={{
-              width: 32, height: 32, borderRadius: 9,
-              background: 'linear-gradient(135deg, #7c3aed, #06b6d4)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-            }}>
-              <Sparkles size={15} color="white" />
-            </div>
-            <span style={{ fontWeight: 700, color: '#94a3b8', fontSize: 14 }}>commons.egos.ia.br</span>
+    </>
+  )
+}
+
+function Footer() {
+  return (
+    <footer style={{
+      borderTop: '1px solid rgba(255,255,255,0.06)',
+      padding: '48px 24px', textAlign: 'center',
+    }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, marginBottom: 24 }}>
+          <div style={{
+            width: 32, height: 32, borderRadius: 9,
+            background: 'linear-gradient(135deg, #7c3aed, #06b6d4)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+          }}>
+            <Sparkles size={15} color="white" />
           </div>
-          <p style={{ color: '#374151', fontSize: 13 }}>
-            © 2026 EGOS. Todos os direitos reservados.{' '}
-            <span style={{ color: '#4b5563' }}>Plataforma orquestrada por agentes de IA com governança real.</span>
-          </p>
-          <div style={{ display: 'flex', gap: 24, justifyContent: 'center', marginTop: 16 }}>
-            {['Termos de uso', 'Privacidade', 'LGPD', 'Contato'].map(item => (
-              <a key={item} href="#" style={{ color: '#374151', fontSize: 12, textDecoration: 'none', transition: 'color 0.2s' }}
-                onMouseEnter={e => (e.currentTarget.style.color = '#6b7280')}
-                onMouseLeave={e => (e.currentTarget.style.color = '#374151')}>{item}</a>
-            ))}
-          </div>
+          <span style={{ fontWeight: 700, color: '#94a3b8', fontSize: 14 }}>commons.egos.ia.br</span>
         </div>
-      </footer>
+        <p style={{ color: '#374151', fontSize: 13 }}>
+          © 2026 EGOS. Todos os direitos reservados.{' '}
+          <span style={{ color: '#4b5563' }}>Plataforma orquestrada por agentes de IA com governança real.</span>
+        </p>
+        <div style={{ display: 'flex', gap: 24, justifyContent: 'center', marginTop: 16 }}>
+          {['Termos de uso', 'Privacidade', 'LGPD', 'Contato'].map(item => (
+            <a key={item} href="#" style={{ color: '#374151', fontSize: 12, textDecoration: 'none', transition: 'color 0.2s' }}
+              onMouseEnter={e => (e.currentTarget.style.color = '#6b7280')}
+              onMouseLeave={e => (e.currentTarget.style.color = '#374151')}>{item}</a>
+          ))}
+        </div>
+      </div>
+    </footer>
+  )
+}
+
+function App() {
+  const [menuOpen, setMenuOpen] = useState(false)
+  return (
+    <div style={{ minHeight: '100vh', background: '#0a0a0f' }}>
+      <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/sandbox/split" element={<SandboxSplitTester />} />
+        <Route path="/sandbox/agents" element={<AgentPlayground />} />
+        <Route path="/sandbox/atrian" element={<ATRiANInspector />} />
+      </Routes>
+      <Footer />
     </div>
   )
 }
