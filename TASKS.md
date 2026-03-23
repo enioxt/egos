@@ -134,11 +134,14 @@
 - [x] EGOS-067: Define the hybrid multi-tool control plane for `Claude Code` + `Codex` + Alibaba + Antigravity with user-scope secrets and repo-local onboarding
   > **Arquivos:** `egos-lab/docs/plans/MULTI_TOOL_HUB.md`, `~/.claude.json`
 
-### P1 (Critical) — MIGRATION & COMMONS INTEGRATION
+### P1 (Critical) — COMMONS MVP REAL (Split 95/5)
 
-- [ ] EGOS-093_MIGR: Remover/arquivar docs duplicadas em egos-lab — SYSTEM_MAP.md, CAPABILITY_REGISTRY.md, etc. Kernel é SSOT.
-- [ ] EGOS-094_COMMONS: Criar Supabase schema para Commons — tables: `courses`, `enrollments`, `lesson_progress`, `lesson_feedback`, `quiz_attempts`, `certificates`
-- [ ] EGOS-095_COMMONS: Integrar database no Commons frontend — Supabase client, auth GoTrue, realtime subscriptions
+- [x] EGOS-093_COMMONS: Fase 1 — Inventário Real de 6 produtos existentes com split de pagamentos ético (95/5).
+- [ ] EGOS-094_COMMONS: Fase 2 — Criar fichas com "Grátis (código)", "Implementação paga (split 95/5)", "Contribuir".
+- [ ] EGOS-095_COMMONS: Fase 3 — Página Única (Next.js config + Hero Honesto + Stats Reais).
+- [ ] EGOS-096_COMMONS: Fase 4 — Automação Mínima de inventário e RuleOps das fichas.
+- [ ] EGOS-097_COMMONS: Fase 5 — Validação (Roteiro de entrevistas reais VALIDATION-CHECKLIST.md).
+- [ ] EGOS-098_COMMONS: Fase 6 — PR branch `egos-commons-mvp-real`.
 
 ### P2 (Important) — INFRASTRUCTURE & DEPLOYMENT
 
