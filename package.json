@@ -30,7 +30,12 @@
     "ssot:link": "sh scripts/link-ssot-files.sh --dry",
     "ssot:link:exec": "sh scripts/link-ssot-files.sh --exec",
     "test": "bun test packages/shared/src/__tests__/",
-    "activation:check": "bun scripts/activation-check.ts"
+    "activation:check": "bun scripts/activation-check.ts",
+    "guard": "bun scripts/guard.ts",
+    "guard:demo": "bun scripts/guard.ts demo",
+    "guard:validate": "bun scripts/guard.ts validate",
+    "guard:mask": "bun scripts/guard.ts mask",
+    "guard:check": "bun scripts/guard.ts check"
   },
   "devDependencies": {
     "@types/bun": "^1.2.0",
