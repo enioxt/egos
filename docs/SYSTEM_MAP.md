@@ -86,6 +86,9 @@
 
 | Workflow | File | Version |
 |----------|------|---------|
+| /start (canonical ops) | `.agents/workflows/start-workflow.md` | v1.0 |
+| /sync (canonical ops) | `.agents/workflows/sync.md` | v1.0 |
+| /pr (canonical ops) | `.agents/workflows/pr-prep.md` | v1.0 |
 | /start | `.windsurf/workflows/start.md` | v5.4 |
 | /end | `.windsurf/workflows/end.md` | v5.5 |
 | /pre | `.windsurf/workflows/pre.md` | v1.0 |
