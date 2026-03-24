@@ -385,6 +385,7 @@ function Home() {
 
   useEffect(() => {
     async function loadCourses() {
+      if (!supabase) return
       // Fetch dynamic courses from Supabase
       const { data, error } = await supabase.from('courses').select('*');
       if (error) console.error('Erro ao buscar cursos no Supabase:', error);
