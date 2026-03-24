@@ -6,6 +6,8 @@ import { Routes, Route, Link } from 'react-router-dom'
 import { SandboxSplitTester } from './pages/SandboxSplitTester'
 import { AgentPlayground } from './pages/AgentPlayground'
 import { ATRiANInspector } from './pages/ATRiANInspector'
+import { CommonsPlanPage } from './pages/CommonsPlanPage'
+import { PersonasSplitPage } from './pages/PersonasSplitPage'
 
 import {
   Bot, Sparkles, ShieldCheck, BookOpen, Code2, Zap,
@@ -192,6 +194,8 @@ function Navbar({ menuOpen, setMenuOpen }: { menuOpen: boolean; setMenuOpen: (v:
         {/* Desktop Nav */}
         <div style={{ display: 'flex', gap: 32, alignItems: 'center' }} className="desktop-nav">
           <Link to="/" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: 14, fontWeight: 500 }}>Home</Link>
+          <Link to="/commons/plano" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: 14, fontWeight: 500 }}>Plano</Link>
+          <Link to="/commons/personas-split" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: 14, fontWeight: 500 }}>Personas & Split</Link>
           <Link to="/sandbox/split" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: 14, fontWeight: 500 }}>Sandbox Split</Link>
           <Link to="/sandbox/agents" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: 14, fontWeight: 500 }}>Agent Playground</Link>
           <Link to="/sandbox/atrian" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: 14, fontWeight: 500 }}>ATRiAN</Link>
@@ -202,7 +206,7 @@ function Navbar({ menuOpen, setMenuOpen }: { menuOpen: boolean; setMenuOpen: (v:
             padding: '8px 20px', background: 'linear-gradient(135deg, #7c3aed, #5b21b6)',
             border: 'none', borderRadius: 8, color: 'white', fontSize: 14, fontWeight: 600,
             cursor: 'pointer', textDecoration: 'none', transition: 'all 0.2s',
-          }}>Começar grátis</a>
+          }}>Começar gratis</a>
           <button onClick={() => setMenuOpen(!menuOpen)} style={{ background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer', padding: 4 }} className="mobile-menu-btn">
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
@@ -588,6 +592,31 @@ function Home() {
         </div>
       </section>
 
+      <section style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px 80px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 24 }}>
+          <Link to="/commons/plano" style={{ textDecoration: 'none' }}>
+            <div style={{ background: 'rgba(18,18,26,0.8)', border: '1px solid rgba(124,58,237,0.25)', borderRadius: 16, padding: 28 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12, color: '#a78bfa', fontWeight: 700 }}>
+                <BookOpen size={18} /> Plano do Commons
+              </div>
+              <p style={{ color: '#94a3b8', fontSize: 14, lineHeight: 1.7 }}>
+                Estratégia consolidada do EGOS Commons: produtos reais, serviços pagos, governança RuleOps e MVP sem hype.
+              </p>
+            </div>
+          </Link>
+          <Link to="/commons/personas-split" style={{ textDecoration: 'none' }}>
+            <div style={{ background: 'rgba(18,18,26,0.8)', border: '1px solid rgba(6,182,212,0.25)', borderRadius: 16, padding: 28 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12, color: '#67e8f9', fontWeight: 700 }}>
+                <Users size={18} /> Personas & Split
+              </div>
+              <p style={{ color: '#94a3b8', fontSize: 14, lineHeight: 1.7 }}>
+                Buyer personas, operador ideal e casos reais de uso para split de pagamentos em plataformas multi-atores.
+              </p>
+            </div>
+          </Link>
+        </div>
+      </section>
+
       {/* ── CTA Banner ── */}
       <section style={{ padding: '0 24px 100px' }}>
         <div style={{
@@ -677,6 +706,8 @@ function App() {
       <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/commons/plano" element={<CommonsPlanPage />} />
+        <Route path="/commons/personas-split" element={<PersonasSplitPage />} />
         <Route path="/sandbox/split" element={<SandboxSplitTester />} />
         <Route path="/sandbox/agents" element={<AgentPlayground />} />
         <Route path="/sandbox/atrian" element={<ATRiANInspector />} />
