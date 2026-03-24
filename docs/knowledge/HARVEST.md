@@ -16,6 +16,10 @@
 - Warnings must explain the limitation (e.g., script expects `/root/egos` but workspace is `/workspace/egos`).
 - Include an explicit sign-off footer for traceability:
   - `Signed-off-by: EGOS Codex Agent <codex@egos.local>`
+- Mark mandatory manual IDE validation after PR prep:
+  - Windsurf local run
+  - Antigravity local run
+  - test rerun evidence after IDE edits
 
 ### 1. Rule Hierarchy (Priority Order)
 

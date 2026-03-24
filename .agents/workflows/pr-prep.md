@@ -33,6 +33,10 @@ bun run pr:pack --title "[AREA] resumo da mudança" --out /tmp/pr-pack.md
    - Risco operacional e como reverter rapidamente.
 7. **Sign-off**
    - `Signed-off-by: EGOS Codex Agent <codex@egos.local>`
+8. **Next Tasks**
+   - Listar próximos itens abertos do `TASKS.md` (checklist real).
+9. **Validação manual em IDE**
+   - Declarar validação obrigatória pós-PR no Windsurf e Antigravity.
 
 ## Regras
 - Nunca esconder falha de validação: registrar claramente warning/fail.

@@ -71,7 +71,23 @@ function loadTemplate(): string {
   if (!existsSync(templatePath)) {
     return '# Summary\n- [ ] Fill details\n\nSigned-off-by: EGOS Codex Agent <codex@egos.local>\n';
   }
-  return readFileSync(templatePath, 'utf-8');
+  const template = readFileSync(templatePath, 'utf-8');
+  if (template.includes('Signed-off-by:')) return template;
+  return `${template.trimEnd()}\n\nSigned-off-by: EGOS Codex Agent <codex@egos.local>\n`;
+}
+
+function nextTasks(limit = 5): string[] {
+  const tasksPath = resolve('TASKS.md');
+  if (!existsSync(tasksPath)) return [];
+
+  const content = readFileSync(tasksPath, 'utf-8');
+  const matches = content
+    .split('\n')
+    .filter((line) => line.startsWith('- [ ] EGOS-'))
+    .slice(0, limit)
+    .map((line) => line.replace('- [ ] ', '').trim());
+
+  return matches;
 }
 
 function render(options: Options): string {
@@ -80,9 +96,13 @@ function render(options: Options): string {
   const root = safeRun('git rev-parse --show-toplevel');
   const runtime = safeRun('bun --version');
   const changed = getChangedFiles();
+  const backlog = nextTasks(6);
   const list = changed.length > 0
     ? changed.map((file) => `- [ ] ${file}`).join('\n')
     : '- [ ] (no staged files detected)';
+  const nextTaskList = backlog.length > 0
+    ? backlog.map((task) => `- [ ] ${task}`).join('\n')
+    : '- [ ] (no open EGOS tasks found)';
 
   const template = loadTemplate();
 
@@ -100,6 +120,15 @@ function render(options: Options): string {
     '',
     `## Changed Files (staged)`,
     list,
+    '',
+    `## Next Tasks (from TASKS.md)`,
+    nextTaskList,
+    '',
+    `## Manual IDE Validation Required`,
+    `- [ ] Run full local validation in Windsurf IDE.`,
+    `- [ ] Run full local validation in Antigravity IDE.`,
+    `- [ ] Confirm command outputs and screenshots where applicable.`,
+    `- [ ] Re-run tests after any IDE-assisted edits.`,
     '',
     `## Template`,
     template,

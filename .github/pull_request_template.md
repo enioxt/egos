@@ -19,6 +19,15 @@
 - [ ] ⚠️ `command` (environment limitation)
 - [ ] ❌ `command` (action required)
 
+## Next Tasks (Checklist)
+- [ ] EGOS-XXX
+- [ ] EGOS-YYY
+
+## IDE Validation (Required after PR)
+- [ ] Windsurf: validate locally end-to-end
+- [ ] Antigravity: validate locally end-to-end
+- [ ] Re-run tests after IDE adjustments
+
 ## Risk & Rollback
 - Risk level:
 - Rollback command/plan:
