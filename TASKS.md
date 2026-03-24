@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.5.0 | **Updated:** 2026-03-23 | **Last Session:** Claude Code (Guard Brasil + Commons + migration gaps)
+> **Version:** 2.5.1 | **Updated:** 2026-03-24 | **Last Session:** Commons sync + handoff closure (plan/personas pages, runtime safety fix, redeploy)
 
 ---
 
@@ -139,7 +139,8 @@
 - [x] EGOS-093_COMMONS: Fase 1 — Inventário Real de 6 produtos existentes com split de pagamentos ético (95/5).
 - [x] EGOS-094_COMMONS: Fase 2 — Criar fichas com "Grátis (código)", "Implementação paga (split 95/5)", "Contribuir".
 - [x] EGOS-095_COMMONS: Fase 3 — Página Única (Next.js config + Hero Honesto + Stats Reais).
-- [ ] EGOS-096_COMMONS: Fase 4 — Automação Mínima de inventário e RuleOps das fichas.
+- [/] EGOS-096_COMMONS: Fase 4 — Automação Mínima de inventário e RuleOps das fichas.
+  > **Estado da sessão:** conteúdo do Commons sincronizado e runtime safety fix aplicado; automação RuleOps ainda pendente.
 - [ ] EGOS-097_COMMONS: Fase 5 — Validação (Roteiro de entrevistas reais VALIDATION-CHECKLIST.md).
 - [ ] EGOS-098_COMMONS: Fase 6 — PR branch `egos-commons-mvp-real`.
 
