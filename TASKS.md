@@ -354,3 +354,63 @@
 - [ ] GitHub-ACTIONS-002: Adicionar FORJA ao ecossistema CI/CD (webhook proveniência)
   > Webhook envia build events para Supabase `provenance_events`. Integra com Mission Control dashboard.
   > **Arquivos:** `.github/workflows/ci.yml` + `apps/gateway/github_webhook.py`
+
+---
+
+## Kernel Mission Control Architecture (2026-03-25)
+
+> **Vision:** Centralized observability + governance dashboard for entire EGOS ecosystem. Monitor commits, detect anomalies, enforce policies, and orchestrate automated governance actions across all leaf repositories.
+> **Reference:** `/home/enio/egos/docs/KERNEL_MISSION_CONTROL.md`
+
+### P1 (Critical — Sprint 2-3 Gates)
+
+- [ ] EGOS-110: Deploy Mission Control frontend (React + Vite) to kernel.egos.ia.br
+  > Build: React 19 + TypeScript, Vite fast dev, Tailwind CSS v4, Recharts for trends, jsPDF for exports
+  > Deploy: Vercel auto-deploy from GitHub, custom domain via Contabo reverse proxy
+  > Duration: 8 hours | Blocker: VPS DNS setup
+
+- [ ] EGOS-111: Build FastAPI gateway for webhook ingestion (GitHub, Codex, Claude Code, Alibaba)
+  > Endpoints: POST /api/webhooks/{github,codex,claude-code}, GET /api/governance/gate
+  > Validation: HMAC-SHA256 signature verification, idempotency tracking
+  > Deployment: Contabo VPS 217.216.95.126, systemd service, reverse proxy via Nginx
+  > Duration: 6 hours
+
+- [ ] EGOS-112: Create Supabase schema for event provenance tracking
+  > Tables: `provenance_events` (commits, source, severity, embedding), `governance_checks` (PR compliance), `anomaly_alerts` (triaged incidents)
+  > Indexes: repo_id + timestamp, anomaly detection filter
+  > RLS: Multi-tenant isolation by tenant_id
+  > Duration: 3 hours | Dependency: EGOS-110
+
+- [ ] EGOS-113: Implement OpenClaw executor — Git automation engine
+  > Capabilities: Clone repo, apply transformations, create PRs, assign reviewers, auto-label
+  > Example: Move code from egos-lab → egos kernel automatically
+  > Integration: Triggered by Mycelium event bus or Mission Control governance gate
+  > Duration: 5 hours | Tech: PyGithub + GitPython
+
+- [ ] EGOS-114: Add pgvector embeddings + semantic anomaly detection
+  > Setup: Enable pgvector extension in Supabase, generate 1536-dim embeddings via Alibaba Dashscope
+  > Use case: Cluster related commits, find similar anomalies, semantic search in incident timeline
+  > Duration: 4 hours | Dependency: EGOS-112
+
+- [ ] EGOS-115: Build real-time dashboard + Mycelium integration
+  > Frontend: Commit timeline, anomalies feed (color-coded by severity), governance gate status
+  > Realtime: WebSocket subscriptions via Supabase Realtime
+  > Events: Mycelium Pub/Sub for agent triggers, escalation workflows
+  > Duration: 10 hours | Dependency: EGOS-110, EGOS-112
+
+### P2 (Important — Sprint 4 Polish)
+
+- [ ] EGOS-116: Implement governance gate enforcement (SSOT drift detection)
+  > Scan: `docs/`, `packages/shared/`, `.guarani/` for changes without corresponding governance updates
+  > Integration: GitHub branch protection + pre-merge check
+  > Duration: 4 hours
+
+- [ ] EGOS-117: Add security scanning + vulnerability management
+  > Tools: gitleaks (secrets), Snyk (deps), custom PII scanner
+  > Integration: Block HIGH/CRITICAL findings, auto-create security issues
+  > Duration: 5 hours
+
+- [ ] EGOS-118: Create PDF export + email alert reports
+  > Weekly summary: Top anomalies, deployment frequency, test stability trends
+  > On-demand: Incident reports with root cause analysis (via Qwen-Plus)
+  > Duration: 6 hours | Dependency: EGOS-115
