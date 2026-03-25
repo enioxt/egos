@@ -28,6 +28,40 @@ bun governance:check
 bun agent:list
 ```
 
+## Operational Workflows & PR Discipline
+
+Canonical operational workflows live in `.agents/workflows/`:
+
+- `/start` → `.agents/workflows/start-workflow.md`
+- `/pr` → `.agents/workflows/pr-prep.md`
+- `/sync` → `.agents/workflows/sync.md`
+
+PR preparation and merge gate commands:
+
+```bash
+bun pr:pack --title "[AREA] summary" --out /tmp/pr-pack.md
+bun pr:gate --file /tmp/pr-pack.md
+```
+
+`pr:gate` enforces:
+- `Signed-off-by` footer
+- Windsurf validation evidence
+- Antigravity validation evidence
+- test rerun evidence after IDE-assisted changes
+
+## Configuring Instructions in Codex
+
+Use this baseline in Codex project instructions:
+
+1. Always load these files first: `AGENTS.md`, `TASKS.md`, `.windsurfrules`, `docs/SYSTEM_MAP.md`.
+2. Treat `.agents/workflows/` as canonical slash-command source (`/start`, `/pr`, `/disseminate`, `/sync`).
+3. For governance propagation in container environments, use:
+   - `EGOS_KERNEL=/workspace/egos bun run governance:sync:exec`
+   - `EGOS_KERNEL=/workspace/egos bun run governance:check`
+4. Require signed PR packs:
+   - `bun run pr:pack --title "[AREA] summary" --out /tmp/pr-pack.md`
+   - `bun run pr:gate --file /tmp/pr-pack.md`
+
 ## Architecture
 
 ```

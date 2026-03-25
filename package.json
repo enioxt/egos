@@ -27,6 +27,8 @@
     "governance:sync:exec": "sh scripts/governance-sync.sh --exec --propagate",
     "governance:sync:local": "sh scripts/governance-sync.sh --exec --no-propagate",
     "governance:check": "sh scripts/governance-sync.sh --check",
+    "pr:pack": "bun scripts/pr-pack.ts",
+    "pr:gate": "bun scripts/pr-gate.ts",
     "ssot:link": "sh scripts/link-ssot-files.sh --dry",
     "ssot:link:exec": "sh scripts/link-ssot-files.sh --exec",
     "test": "bun test packages/shared/src/__tests__/",

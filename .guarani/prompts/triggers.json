@@ -59,6 +59,14 @@
       "situations": ["Building a new AI prompt", "Improving existing prompt", "Creating agent instructions"],
       "priority": "medium",
       "apps": ["all"]
+    },
+    {
+      "id": "activation.egos-governance",
+      "file": "meta/egos-activation-governance.md",
+      "keywords": ["ativar egos", "/start", "diagnóstico do sistema", "meta prompt de ativação", "atrian"],
+      "situations": ["Activating EGOS in a new environment", "Need evidence-first health check", "Need ethical gate before recommendations"],
+      "priority": "high",
+      "apps": ["all"]
     }
   ]
 }
