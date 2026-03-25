@@ -9,6 +9,20 @@
 > **Why:** So any agent (Cline, Claude Code, Codex, future) or human can replicate this protocol.
 > **Philosophy:** "Saímos de casa para nos doar" — everything we learn, we share.
 
+### Environment Reality Contract (PR/Handoff Discipline)
+
+- Every PR/handoff must include explicit environment context (paths, runtime, tool availability).
+- Validation must be reported command-by-command with pass/warn/fail status.
+- Warnings must explain the limitation (e.g., script expects `/root/egos` but workspace is `/workspace/egos`).
+- Include an explicit sign-off footer for traceability:
+  - `Signed-off-by: EGOS Codex Agent <codex@egos.local>`
+- Mark mandatory manual IDE validation after PR prep:
+  - Windsurf local run
+  - Antigravity local run
+  - test rerun evidence after IDE edits
+- Enforce with gate command before merge:
+  - `bun run pr:gate --file /tmp/pr-pack.md`
+
 ### 1. Rule Hierarchy (Priority Order)
 
 Every decision passes through these layers, top wins:
