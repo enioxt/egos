@@ -115,3 +115,4 @@ bun agent:run context_tracker --dry   # CTX score 0-280 with zone emoji + /end a
 - `/start` activation workflow: `.agents/workflows/start-workflow.md`
 - Governance dissemination workflow: `.agents/workflows/sync.md`
 - PR preparation workflow: `.agents/workflows/pr-prep.md`
+- `/disseminate` propagation workflow: `.agents/workflows/disseminate.md`
