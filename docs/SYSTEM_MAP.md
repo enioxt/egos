@@ -1,6 +1,6 @@
 # SYSTEM_MAP.md — EGOS Framework Core
 
-> **VERSION:** 2.1.0 | **UPDATED:** 2026-03-20
+> **VERSION:** 2.2.0 | **UPDATED:** 2026-03-24
 > **ROLE:** repo-local map for `/start` in the canonical kernel
 
 <!-- llmrefs:start -->

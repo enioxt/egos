@@ -28,6 +28,27 @@ bun governance:check
 bun agent:list
 ```
 
+## Operational Workflows & PR Discipline
+
+Canonical operational workflows live in `.agents/workflows/`:
+
+- `/start` → `.agents/workflows/start-workflow.md`
+- `/pr` → `.agents/workflows/pr-prep.md`
+- `/sync` → `.agents/workflows/sync.md`
+
+PR preparation and merge gate commands:
+
+```bash
+bun pr:pack --title "[AREA] summary" --out /tmp/pr-pack.md
+bun pr:gate --file /tmp/pr-pack.md
+```
+
+`pr:gate` enforces:
+- `Signed-off-by` footer
+- Windsurf validation evidence
+- Antigravity validation evidence
+- test rerun evidence after IDE-assisted changes
+
 ## Architecture
 
 ```
