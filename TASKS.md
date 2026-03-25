@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.5.1 | **Updated:** 2026-03-24 | **Last Session:** Commons sync + handoff closure (plan/personas pages, runtime safety fix, redeploy)
+> **Version:** 2.6.0 | **Updated:** 2026-03-25 | **Last Session:** Phase 1 Hub Activation (Claude Code) + FORJA Visão module (PRD + Frontend Spec + React pages) + VPS agents map + Windsurf workflow sync
 
 ---
 
@@ -176,6 +176,19 @@
 - [ ] EGOS-091: Add MCP server auto-discovery and health heartbeats to agent registry for plug-and-play tool management
 - [ ] EGOS-092: Ensure all leaf repos consume `@egos/shared` for ATRiAN/PII/memory instead of maintaining local copies
 
+### P1 — Claude Code Hub + FORJA Visão (2026-03-25)
+
+- [x] EGOS-100: Phase 1 Hub Activation — Claude Code as primary EGOS orchestration interface
+  > `~/.claude/config/claude-code-hub.json`, `model-router.json`, `scripts/model-router.ts`, `scripts/claude-code-watch.sh`, `dashboards/egos-hub.md`
+- [x] EGOS-101: Create Claude Code slash commands — `/start`, `/end`, `/disseminate`, `/mycelium`, `/vps`
+  > `.claude/commands/*.md` — aligned with `.windsurf/workflows/` v5.5
+- [x] EGOS-102: Map VPS agents (Contabo 217.216.95.126) — 2 PM2 + 8 Docker services documented
+  > `.claude/commands/vps.md`, `docs/VPS_AGENTS_MAP.md` (pending)
+- [x] EGOS-103: Sync Windsurf workflows → Claude Code commands (v5.5 alignment)
+  > `/start` updated with governance check + tooling matrix
+- [ ] EGOS-104: Copy Claude Code commands to all leaf repos (forja done; remaining 10 repos)
+- [ ] EGOS-105: Create `docs/VPS_AGENTS_MAP.md` — canonical VPS architecture doc
+
 ### SSOT Core Infra (v2)
 - [ ] SSOT-v2-01: Monitor usage and stability of the PM2 daemon (`egos-ssot`) locally and propagate to Contabo VPS.
 - [ ] SSOT-v2-02: Activate `ssot_auditor` AST drift scanner in CI/CD pipeline (`egos-lab` GitHub Actions or VPS Webhook) to block structurally drifting PRs.
@@ -220,7 +233,26 @@
 - [x] EGOS-052 — Kernel-to-leaf migration matrix — `docs/strategy/MIGRATION_MATRIX.md`
 - [x] EGOS-016 — Workflow override audit: 1 legitimate (egos-lab mycelium), 9 stale (br-acc/forja/egos-self v5.0→v5.4) — `docs/reports/workflow-override-audit.md`
 
-### Long Term (1-3 months) — Target: 95%
+### Multi-Model Meta-Prompt Analysis — 2026-03-24
+
+**Source:** Comprehensive analysis of Gemini, Codex, Nemotron, Grok, ChatGPT, Claude Code responses
+
+- [x] EGOS-100: Analyze all AI model conversations (gemini.md) — extract insights, patterns, ATRiAN scoring
+- [x] EGOS-101: Create unified Mycelium workflow — hub-and-spoke architecture with DSL commands
+- [x] EGOS-102: Create repos/registry.yaml — SSOT for all 10 repositories in network
+- [x] EGOS-103: Create prompts/registry.yaml — SSOT for meta-prompts with drift detection
+- [x] EGOS-104: Update HARVEST.md with Multi-Model Analysis section
+- [ ] EGOS-105: Implement 5 meta-prompt generator improvements (auto-reflection, dynamic constraints, few-shot, drift detection, versioning)
+- [ ] EGOS-106: Materialize missing meta-prompt files (mycelium-orchestrator.md 404)
+- [ ] EGOS-107: Reconnect BLUEPRINT-EGOS to kernel (currently drifted)
+- [ ] EGOS-108: Merge egos-lab #26 (security fixes, ready now)
+- [ ] EGOS-109: Rebase egos-cortex #1 (stale since Feb 16)
+- [ ] EGOS-110: Create pr-classifier.ts script for automated PR classification
+- [ ] EGOS-111: Implement 5-phase Mycelium roadmap (Control → Observability → Meta-prompts → Dissemination → Distributed Execution)
+
+> **Key Insight:** "Código aberto sem malha vira arquivo espalhado. Código aberto com Mycelium vira sistema navegável." — ChatGPT
+
+---
 
 **Objective:** Public npm package, compliance dashboard, distributed verification, community adoption.
 

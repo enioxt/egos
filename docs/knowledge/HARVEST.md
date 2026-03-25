@@ -348,5 +348,107 @@ Leaf repos inherit kernel governance via symlinks but keep local IDENTITY.md and
 - AGENTS.md condensed from 358→140 lines with domain map.
 - 8 reusable patterns documented in local HARVEST.md.
 
-## 2026-03-23: Commons Honest MVP UI vs SSOT
+## Multi-Model Meta-Prompt Analysis (2026-03-24)
+
+### Context
+Comprehensive analysis of 5 AI model responses (Gemini, Codex, Nemotron, Grok, ChatGPT, Claude Code) regarding Mycelium architecture, meta-prompt generator improvements, and EGOS ecosystem evolution.
+
+### Key Insights
+
+**1. Universal Consensus — Hub-and-Spoke Mycelium**
+- Central control plane with reusable GitHub Actions workflows
+- Git submodules for knowledge propagation
+- Repository dispatch events for cross-repo synchronization
+- Registry pattern: `repos/registry.yaml` + `prompts/registry.yaml`
+
+**2. Meta-Prompt Generator — 5 Critical Improvements**
+| # | Improvement | Source | Priority |
+|---|-------------|--------|----------|
+| 1 | Auto-reflection module (environment audit) | Gemini | P0 |
+| 2 | Dynamic constraint injection (JSON/YAML blocks) | Gemini | P0 |
+| 3 | Few-shot prompting > extensive rules | Gemini | P1 |
+| 4 | Drift detection (SSOT vs projections) | ChatGPT | P0 |
+| 5 | Semantic versioning (major/minor/patch) | ChatGPT | P1 |
+
+**3. Operational Findings**
+- egos-lab #26: Active, mergeable, security fixes → MERGE NOW
+- egos-cortex #1: Stale (Feb 16), needs rebase → DO NOT MERGE
+- Drift detected: `.guarani/prompts/meta/mycelium-orchestrator.md` returns 404
+- BLUEPRINT-EGOS disconnected from kernel egos
+
+**4. DSL Definition — Named Workflows**
+| Command | Function |
+|---------|----------|
+| `/start` | Load registries, read repo state, update snapshot |
+| `/mycelium` | Resolve deps, sync taxonomies, detect drift |
+| `/disseminate` | Publish summary to output channels |
+| `/end` | Persist snapshot, stamp execution, update final report |
+
+**5. ATRiAN Ethics Assessment**
+| Criterion | Rating |
+|-----------|--------|
+| Accuracy | 9.2/10 |
+| Truth | 9.5/10 |
+| Reversibility | 8.8/10 |
+| Impact | 8.5/10 |
+| Accountability | 8.0/10 |
+| Neutrality | 9.0/10 |
+| **Overall** | **8.8/10** |
+
+**6. 5-Phase Implementation Roadmap**
+1. **Control** (3 days): Choose canonical repo, create registries
+2. **Observability** (1 week): PR classifiers, daily snapshots
+3. **Meta-prompts** (2 weeks): Materialize conceptual → actual
+4. **Dissemination** (2 weeks): Payload generation, webhooks
+5. **Distributed Execution** (1-2 months): Named workflows, GitHub Actions + CLI
+
+### Files Created/Updated
+- `.agents/workflows/mycelium-disseminate.md` — Unified workflow
+- `repos/registry.yaml` — Repository SSOT
+- `prompts/registry.yaml` — Prompt registry
+- `scripts/pr-classifier.ts` — PR classification
+- `mycelium-graph.json` — Dependency graph
+
+### Aphorism
+"Código aberto sem malha vira arquivo espalhado. Código aberto com Mycelium vira sistema navegável." — ChatGPT
+
+Open source without mesh becomes scattered files. Open source with Mycelium becomes a navigable system.
 **Pattern:** Always prioritize explicit business SSOT (`inventory.md`) over leftover promotional mockup copy in frontend files (`App.tsx`). The EGOS ecosystem is strictly about the "Honest MVP" narrative (6 real products, split 95/5). The empty `/home/enio/commons` directory was ignored in favor of the monitored mono-repo structure in `egos/apps/commons`.
+
+---
+
+## Session 2026-03-25 — Claude Code Hub + FORJA Visão
+
+### Claude Code as EGOS Hub (Phase 1)
+
+**Pattern:** Claude Code can function as a lightweight orchestration kernel using:
+- `~/.claude/config/` — JSON config for model routing + status line
+- `~/.claude/scripts/` — TypeScript/bash for routing logic + watch scripts
+- `.claude/commands/*.md` — Slash commands aligned with `.windsurf/workflows/`
+- `~/.claude/dashboards/` — Markdown dashboards for session status
+
+**Key insight:** Windsurf `.windsurf/workflows/*.md` and Claude Code `.claude/commands/*.md` are analogous interfaces — keep them synchronized for cross-IDE continuity.
+
+**VPS Discovery:** `ssh -p 22 root@217.216.95.126` (not 2244!) — 2 PM2 agents (egos-telegram, egos-discord) + 8 Docker services (852-app, waha-santiago, infra-api-1, infra-frontend-1, bracc-neo4j, infra-caddy-1, infra-redis-1, egos-media-web-1).
+
+### FORJA Visão — Camera Analytics Module
+
+**Architecture decision:** Frigate NVR (Docker) → MQTT event bus → FastAPI bridge → Supabase → FORJA frontend.
+
+**SVG Charts without deps:** Pure SVG box plots work well for cycle time distribution visualization without adding Recharts or D3. Key pattern: `scale = (v) => PAD + (v / maxVal) * (W - PAD * 2)`.
+
+**Gauge meters:** Semicircular arc gauges using SVG path with `A` (arc) commands. Use `toRad()` helper and define start/end degrees (-220° to +40° = 260° sweep).
+
+**Mock-first approach:** FORJA Visão built with realistic mock data matching production schema — same TypeScript interfaces as future Supabase queries. Sprint 2 replaces mocks with real queries without changing component interfaces.
+
+**Pattern — zone editor:** SVG canvas with `viewBox="0 0 200 112"` (16:9 aspect) for camera zone polygon drawing. Grid overlay with `patternUnits="userSpaceOnUse"` for alignment reference.
+
+**MQTT event schema fields:** `tenant_id`, `factory_id`, `family_id`, `order_id`, `camera_id`, `zone_id`, `event_type`, `piece_id`, `ts_in`, `ts_out`, `cycle_ms`, `confidence`.
+
+**Anomaly severity tiers:** `critical` (exceeded baseline >50% or skipped QA stage), `warning` (stopped >15min or out-of-sequence), `info` (below minimum historical — possible quality skip).
+
+### Windsurf ↔ Claude Code Workflow Sync
+
+**Rule:** Always keep `.windsurf/workflows/*.md` as the SSOT master and `.claude/commands/*.md` as synchronized mirrors. Windsurf workflows have richer SecOps gates (BLOCKING), Codex readiness checks, and Alibaba orchestration checks.
+
+**v5.5 additions:** Phase 4.1 Security Dependency Check (BLOCKING on UNMITIGATED CVE), explicit Codex cloud list, repo-role awareness via `egos.config.json`.

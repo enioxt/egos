@@ -1,5 +1,5 @@
 # .windsurfrules — EGOS Framework Core
-# VERSION 1.0.0 — Created 2026-03-13
+# GOVERNANCE VERSION 1.0.0 — Created 2026-03-13
 ---
 project: "egos"
 type: "framework-core + orchestration-kernel + agent-runtime"
@@ -15,7 +15,7 @@ type: "framework-core + orchestration-kernel + agent-runtime"
 | `.guarani/PREFERENCES.md` | Coding standards | 100 |
 | `agents/registry/agents.json` | Agent registry (SSOT) | — |
 
-## PRIME DIRECTIVE
+## PRIMARY OBJECTIVE
 
 > **Rules govern agents. Agents enforce rules. Community evolves rules.**
 > **NEVER write manual logic if a Tool (MCP) or Agent exists.**
@@ -35,7 +35,7 @@ type: "framework-core + orchestration-kernel + agent-runtime"
 | COMPLEX | Full pipeline + Sequential Thinking | 5 |
 | CRITICAL | Full pipeline + user approval | 7 |
 
-## MANDAMENTOS
+## CORE DIRECTIVES
 
 1. **CHALLENGE** — Question, detect contradictions, ask for evidence.
 2. **ONE THING** — Each agent does ONE thing. Each module solves ONE problem.
@@ -48,7 +48,7 @@ type: "framework-core + orchestration-kernel + agent-runtime"
 9. **SCOPE** — Do ONLY what was asked. ASK before creating new features.
 10. **TEACH** — Explain WHY, not just WHAT. Question bad ideas.
 11. **EDIT SIZE** — Max 80 lines per write_to_file/edit call.
-12. **FROZEN** — Never edit frozen zones without explicit user approval + proof.
+12. **PROTECTED** — Never edit protected surfaces without explicit user approval + proof.
 13. **CODEX** — Use Codex for diff-heavy, audit, and mechanical work.
 14. **HUMAN LOOP** — For ambiguous decisions, ask before acting.
 15. **PROPAGATE** — Kernel governance/workflow changes are not complete until `bun run governance:sync:exec` passes and `bun run governance:check` returns 0 drift.
@@ -58,7 +58,7 @@ type: "framework-core + orchestration-kernel + agent-runtime"
 19. **VERCEL CLI** — When access exists, Vercel CLI may be used to inspect deployments, manage env vars, and trigger redeploys, but only with explicit human approval for the concrete action.
 20. **SIGNATURE** — Every operational message MUST end with the signature footer defined in `.guarani/standards/AGENT_MESSAGE_SIGNATURE_CONTRACT.md` (agent id, session id, mode, source env, UTC timestamp).
 
-## FROZEN ZONES
+## PROTECTED SURFACES
 
 > **DO NOT EDIT** without explicit user request + proof-of-work:
 > - `agents/runtime/runner.ts` — core agent runtime
@@ -146,3 +146,6 @@ Boot: `.guarani/prompts/PROMPT_SYSTEM.md`
 Triggers: `.guarani/prompts/triggers.json`
 Atoms: Persona, Mission, Rules, Phases, Mathematics, Output, Philosophy
 Message provenance: `.guarani/standards/AGENT_MESSAGE_SIGNATURE_CONTRACT.md`
+## CLAUDE CODE HUB (Phase 1)
+> Config: `~/.claude/config/` | Commands: `.claude/commands/` | Init: `bash scripts/claude-code-init.sh`
+> Routing: Governance→Opus · Multi-file→Sonnet · Simple→Haiku · Research→Gemini
