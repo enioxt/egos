@@ -102,6 +102,7 @@ bun governance:sync:exec    # Sync kernel -> ~/.egos -> leaf repos
 bun governance:sync:local   # Sync kernel -> ~/.egos only (skip leaf repos)
 bun governance:check        # Verify kernel and ~/.egos have 0 drift
 bun pr:pack --title "<title>" --out /tmp/pr.md  # Generate signed PR message pack with env context
+bun pr:gate --file /tmp/pr.md  # Enforce sign-off + IDE validation checklist evidence
 bash ./scripts/oracle-instance-launcher/scripts/run.sh --dry-run  # Oracle OCI launcher check
 
 # Context Tracker (run anytime — mandatory before long multi-step tasks)

@@ -16,6 +16,7 @@ Gerar PRs consistentes, auditáveis e prontos para revisão humana, com contexto
 ## Execução recomendada
 ```bash
 bun run pr:pack --title "[AREA] resumo da mudança" --out /tmp/pr-pack.md
+bun run pr:gate --file /tmp/pr-pack.md
 ```
 
 ## Saída obrigatória (PR pack)

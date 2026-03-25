@@ -20,6 +20,8 @@
   - Windsurf local run
   - Antigravity local run
   - test rerun evidence after IDE edits
+- Enforce with gate command before merge:
+  - `bun run pr:gate --file /tmp/pr-pack.md`
 
 ### 1. Rule Hierarchy (Priority Order)
 
