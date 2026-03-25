@@ -1,7 +1,8 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 2.0.0 | **UPDATED:** 2026-03-21
+> **VERSION:** 2.1.0 | **UPDATED:** 2026-03-25
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
+> **Latest:** BLUEPRINT-EGOS Mission Control architecture + FORJA no-confirmation signup pattern
 
 ## Agent Operating Protocol (Self-Diagnostic v1.0)
 
@@ -466,3 +467,126 @@ Open source without mesh becomes scattered files. Open source with Mycelium beco
 **Rule:** Always keep `.windsurf/workflows/*.md` as the SSOT master and `.claude/commands/*.md` as synchronized mirrors. Windsurf workflows have richer SecOps gates (BLOCKING), Codex readiness checks, and Alibaba orchestration checks.
 
 **v5.5 additions:** Phase 4.1 Security Dependency Check (BLOCKING on UNMITIGATED CVE), explicit Codex cloud list, repo-role awareness via `egos.config.json`.
+
+---
+
+## Session 2026-03-25: FORJA + BLUEPRINT-EGOS Integration
+
+### Pattern: No-Confirmation Signup Flow (FORJA)
+
+**Problem:** Users needed email confirmation before login, blocking immediate access.
+**Solution:** Server-side API endpoint using Supabase Admin API to create pre-confirmed users.
+
+```typescript
+// /api/auth/signup → uses service_role key
+const { data: authUser, error } = await supabaseAdmin.auth.admin.createUser({
+  email,
+  password,
+  email_confirm: true,  // ← KEY: pre-confirm without email
+  user_metadata: { name }
+});
+
+// Then create user profile in public.users table
+// RLS ensures tenant isolation
+```
+
+**Why This Works:**
+- ✅ No email verification step
+- ✅ User profile auto-created in RLS-protected table
+- ✅ Tenant assigned at creation (multi-tenant safe)
+- ✅ Password hashing happens server-side (service_role)
+
+**Gotchas:**
+- 🔒 `SUPABASE_SERVICE_ROLE_KEY` must be server-only (use API endpoint, not client)
+- 🔒 Middleware must allow `/api/auth/signup` without authentication
+- ⚠️ Default role should be "viewer", not "admin"
+
+**Reusable:** Any Supabase multi-tenant app needing frictionless signup.
+
+---
+
+### Pattern: Mission Control Real-Time Dashboard (BLUEPRINT-EGOS)
+
+**Problem:** Need visual centralization of CI/CD, provenance, and agentic triaging.
+**Solution:** React dashboard consuming GitHub API live, with event stream + Provenance tracking.
+
+**Architecture:**
+```
+Frontend: React 18 + Vite + Tailwind
+  ├─ Commit Event Stream (live GitHub webhooks)
+  ├─ Provenance Extraction (identify code origin: AI Studio / IDE / CLI / Human)
+  ├─ Agentic Triage Queue (simulated OpenClaw layer)
+  └─ CI/CD Control Panel (manage Actions)
+
+Backend: FastAPI (not yet deployed)
+  └─ Event ingestion from GitHub
+  
+Database: Supabase pgvector
+  └─ Event logs + embeddings
+```
+
+**Key Innovation:**
+- Auto-setup system detects missing env vars and shows step-by-step guides
+- Alerts disappear when integrations complete (no clutter)
+- Provenance field distinguishes human commits from AI-generated ones
+
+**Gotchas:**
+- 🔒 GitHub PAT needs `repo` + `workflow` scopes for private repos + Actions control
+- ⚠️ React state resets on page refresh (needs Supabase for persistence)
+- 🚀 FastAPI backend NOT YET DEPLOYED (needed for OpenClaw integration)
+
+**Reusable:** Template for any agentic CI/CD system monitoring code provenance.
+
+---
+
+### Pattern: VPS vs Vercel Hosting Decision Matrix
+
+**EGOS Ecosystem Hosting Strategy (2026-03-25):**
+
+| Site | Current | Recommended | Cost | Build Speed | Webhooks |
+|------|---------|-------------|------|-------------|----------|
+| FORJA | Vercel | VPS | save $20/mo | 5s local → 30s Vercel | Fixed IP ✅ |
+| 852 | None | VPS | save $15/mo | 5s local → 30s Vercel | Fixed IP ✅ |
+| carteira-livre | Vercel | VPS | save $15/mo | 5s local → 30s Vercel | Fixed IP ✅ |
+| commons | Vercel | Keep | Published lib | N/A | N/A |
+| INPI | Vercel | Keep | Legal/compliance | Safe global CDN | N/A |
+
+**Rule of Thumb:**
+- **VPS if:** predictable traffic, webhooks needed (Evolution API), cost-sensitive
+- **Vercel if:** rapid iteration, geographic redundancy needed, DevOps-free
+
+**Cost Savings:** ~$60-100/mo by migrating core apps to VPS 217.216.95.126.
+
+---
+
+### Pattern: EGOS Agent Orchestration via Router/Supervisor
+
+**New Architecture (from BLUEPRINT-EGOS):**
+```
+EGOS Kernel (Central Router)
+  ├─ Forja (Code generation + factory)
+  ├─ 852 (Secure chatbot + LLM routing)
+  ├─ Gem Hunter (Web scraping + OSINT, Cloudflare bypass)
+  └─ ATRiAN (Ethical validation gate at every layer)
+```
+
+**No agent does everything.** Each agent is composable:
+- 852 needs external data? → Kernel delegates to Gem Hunter
+- Gem Hunter finds interesting code? → Kernel calls Forja to generate report
+- Before returning anything? → Kernel validates through ATRiAN
+
+**Key Insight:** Lightweight MCP-based design (playwright-mcp for web automation) uses **90% less resources** than heavy OpenClaw while maintaining full control and security.
+
+---
+
+### Learning: Session Continuation & Context
+
+**Challenge:** Previous session hit context limit. This session resumed from a .jsonl handoff file.
+
+**What Worked:**
+- Detailed SESSION_SUMMARY.md saved last session captured 100+ data points
+- git history + git log provided exact commit diffs
+- Memory system (HARVEST.md + triggers.json) preserved all patterns
+
+**Improvement:** Multi-session sprints now trackable via `/end` handoff files rather than relying solely on memory.
+

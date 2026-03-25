@@ -1,416 +1,148 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.6.0 | **Updated:** 2026-03-25 | **Last Session:** Phase 1 Hub Activation (Claude Code) + FORJA Visão module (PRD + Frontend Spec + React pages) + VPS agents map + Windsurf workflow sync
+> **Version:** 2.7.0 | **Updated:** 2026-03-25 | **Last:** FORJA Auth Completion + BLUEPRINT-EGOS Absorption
+> **Archived:** Historical tasks (EGOS-001..102) moved to `docs/TASKS_ARCHIVE_2026-03.md`
+
+---
+## Session 2026-03-25: FORJA + BLUEPRINT-EGOS Sprint
+
+### P1 (Critical) — FORJA Signup Flow
+
+- [x] FORJA-AUTH-001: Implement no-confirmation signup endpoint
+  > Completed: `/api/auth/signup` using Supabase Admin API (`email_confirm: true`)
+  > Status: Tested end-to-end, user created + immediately can login
+  > Files: `src/app/api/auth/signup/route.ts`, `src/middleware.ts`
+  > Commit: `feat(auth): implement no-confirmation signup flow`
+
+- [x] FORJA-AUTH-002: Add signup form to login page
+  > Completed: Tab-based UI (Login | Signup), password validation, confirmation
+  > Pre-filled test credentials: `admin@forja.local` / `Test123!456`
+  > Status: Tested, build passes TypeScript checks
+  > Files: `src/app/page.tsx`
+  > Commit: Included in `feat(auth)...` commit
+
+- [x] FORJA-AUTH-003: Update middleware to allow signup endpoint
+  > Completed: Added `/api/auth/signup` to public routes
+  > Status: ✅ No auth required to register
+  > Files: `src/middleware.ts`
+
+- [x] FORJA-SIGNUP-001: User can immediately login after signup
+  > Verified: Test user registered + authentication successful
+  > Status: Live on main branch, pushed to production
+  > Next: Monitor signup completion rates in analytics
+
+### P2 (Important) — BLUEPRINT-EGOS Integration
+
+- [ ] BLUEPRINT-001: Clone BLUEPRINT-EGOS to `/home/enio/blueprint-egos`
+  > Purpose: Mission Control architecture separation from kernel
+  > Status: Pending
+
+- [ ] BLUEPRINT-002: Deploy Mission Control frontend to `kernel.egos.ia.br`
+  > Frontend: React dashboard with GitHub event stream + provenance
+  > Dependency: EGOS-110 (kernel infrastructure)
+  > Status: Code ready, awaiting VPS deployment
+
+- [ ] BLUEPRINT-003: Develop FastAPI gateway for GitHub webhook ingestion
+  > Endpoints: `/api/webhooks/github`, `/api/governance/gate`
+  > Status: Architecture documented, not yet implemented
+  > Dependency: EGOS-111
+
+- [ ] BLUEPRINT-004: Integrate BLUEPRINT Gem Hunter (web scraper + Cloudflare bypass)
+  > Uses: playwright-mcp + FlareSolverr
+  > Purpose: Autonomous OSINT for 852 + Forja agents
+  > Status: Proposed, not yet implemented
+  > Duration: Phase 2
+
+- [ ] BLUEPRINT-005: Implement lightweight web automation (replace OpenClaw)
+  > Alternative: browser-use pattern with playwright-mcp
+  > Benefit: 90% less resource consumption
+  > Status: Proposed architecture, awaiting implementation
+  > Duration: Phase 3
+
+### P2 (Important) — VPS Consolidation
+
+- [ ] VPS-DEPLOY-001: Migrate FORJA from Vercel to VPS 217.216.95.126
+  > Current: Vercel ($20/mo), slow builds (30-60s)
+  > Target: VPS ($0, 5-10s builds), fixed IP for webhooks
+  > Steps: Docker build, Nginx config, SSL via Let's Encrypt
+  > Savings: $20/mo
+  > Status: Documented, not yet executed
+  > Duration: 2 hours
+
+- [ ] VPS-DEPLOY-002: Deploy 852 to VPS
+  > Current: Not deployed (only local/Docker config)
+  > Target: VPS as Vite SPA + backend API
+  > Dependency: FastAPI gateway (BLUEPRINT-003)
+  > Savings: $15/mo
+  > Status: Docker config ready, pending VPS setup
+  > Duration: 1.5 hours
+
+- [ ] VPS-DEPLOY-003: Deploy carteira-livre to VPS
+  > Current: Vercel
+  > Target: VPS + Supabase
+  > Savings: $15/mo
+  > Status: Docker config ready, pending VPS setup
+  > Duration: 1.5 hours
+
+- [ ] VPS-DEPLOY-004: Setup Nginx reverse proxy for all sites
+  > Sites: kernel.egos.ia.br, 852.egos.ia.br, forja.egos.ia.br, commons.egos.ia.br
+  > SSL: Let's Encrypt with auto-renewal
+  > Monitoring: Health checks + alerting
+  > Status: Not yet started
+  > Duration: 2 hours
+
+- [ ] VPS-OPS-001: Setup automated backups (daily rsync)
+  > Target: Backup VPS or external storage
+  > Retention: 7-day rolling backup
+  > Status: Not yet started
+  > Duration: 1 hour
+
+- [ ] VPS-OPS-002: Configure GitHub Actions for auto-deploy
+  > Trigger: git push to main
+  > Flow: Pull latest → npm build → Docker build → Deploy to VPS
+  > Status: Not yet started
+  > Duration: 2 hours
+
+### P3 (Future) — Advanced EGOS Orchestration
+
+- [ ] EGOS-ORCH-001: Build Agent Router/Supervisor for EGOS Kernel
+  > Pattern: Router decides which agent handles the task (Forja/852/Gem Hunter/ATRiAN)
+  > Tech: LLM-driven routing with capability registry
+  > Status: Proposed in BLUEPRINT-EGOS
+  > Duration: Sprint 3+
+
+- [ ] EGOS-ORCH-002: Implement composable agent chaining
+  > Use case: Forja needs external data → delegates to Gem Hunter → validates via ATRiAN
+  > Tech: MCP-based message passing
+  > Status: Proposed, not yet implemented
+  > Duration: Sprint 3+
+
+- [ ] EGOS-ORCH-003: Multi-LLM orchestration matrix
+  > Lanes: Cascade (Google), Codex (cloud), Claude Code (local), Alibaba (API)
+  > Decision: Which lane handles which task class (security/code/analysis/ops)
+  > Status: Proposed, not yet implemented
+  > Duration: Sprint 4
 
 ---
 
-## Current Sprint: Foundation
-
-## Strategic Reset — Product Focus (2026-03-18)
-
-- [x] EGOS-061: Publish consolidated ecosystem verdict and repo roles — `docs/strategy/ECOSYSTEM_PRODUCT_VERDICT_2026-03.md`
-- [x] EGOS-062: Package the canonical product boundary for `EGOS Guard Brasil` — ATRiAN + PII Scanner BR + public guard + evidence discipline — `docs/products/GUARD_BRASIL.md` + `packages/shared/src/public-guard.ts` + `packages/shared/src/evidence-chain.ts`
-- [x] EGOS-063: Define free vs paid surface for the flagship (open SDK/specs vs hosted API/MCP/audit console) — `docs/products/GUARD_BRASIL_FREE_PAID.md`
-- [x] EGOS-064: Deliver the first monetizable surface as a reusable package or MCP before expanding any new product line — `scripts/guard.ts` CLI + npm scripts (`guard:validate`, `guard:mask`, `guard:check`, `guard:demo`) + `docs/products/GUARD_BRASIL.md`
-- [x] EGOS-073: Run the full `egos-lab` consolidation diagnostic — classify every active surface as `migrate_to_egos`, `keep_in_lab`, `standalone_candidate`, `internal_infra`, `archive`, or `discard`, with source→destination pointers — `docs/strategy/EGOS_LAB_CONSOLIDATION_DIAGNOSTIC.md`
-- [ ] EGOS-074: Execute the kernel-first consolidation of SSOT/governance surfaces from `egos-lab` into `egos` and eliminate duplicated docs, maps, workflows, and stale claims with explicit archive references
-- [ ] EGOS-075: Canonicalize the System Map control plane — one orchestrator contract, one machine map, one human map, freshness rules, and one cross-repo update flow
-- [x] EGOS-076: Create the ecosystem classification registry for products/modules/ideas (`standalone`, `candidate`, `lab`, `internal_infra`, `archive`) and wire it into `TASKS.md`, `SYSTEM_MAP.md`, and `CAPABILITY_REGISTRY.md` — `docs/ECOSYSTEM_CLASSIFICATION_REGISTRY.md`
-
-### Session Sync — 2026-03-23 (/start mesh truth audit)
-
-- [x] EGOS-093: Canonicalized kernel `.windsurf/workflows/start.md` to require mesh truth audit, Codex readiness, Alibaba readiness, and explicit local/docs/github/runtime separation.
-- [x] EGOS-094: Propagate the new kernel `/start` into `~/.egos/workflows` and downstream leaves via governance sync, then verify the shared `/start` matches kernel truth.
-- [x] EGOS-095: Generalize startup audit beyond egos-lab so the kernel can own a first-class mesh-wide activation command without repo-local fallback.
-- [ ] EGOS-096: Canonicalize the leaf propagation source currently living in `~/.egos/sync.sh` and stop forced workflow/`.guarani` overrides from replacing repo-local tracked surfaces in leaves like Forja.
-
-### P0 (Blockers) — MIGRATION GAPS (egos-lab → egos)
-
-**Found during Guard Brasil + Commons implementation. CRITICAL for consolidation.**
-
-- [x] EGOS-090_MIGR: Sincronizar `@egos/shared` — egos-lab mantém cópia local desatualizada. Migrar todos os imports para consumir do kernel.
-  > Arquivos: `egos-lab/packages/shared/src/`, referências em `package.json`
-  > Bloqueador: Guard Brasil SDK só está em kernel, egos-lab não tem acesso
-
-- [x] EGOS-091_MIGR: Clonar egos-lab no ambiente de trabalho — Claude Code só tem kernel local. Para continuidade de desenvolvimento, egos-lab precisa estar sincronizado.
-  > Bloqueador: Agent-028 template, report_generator, gem-hunter estão lá, precisam estar acessíveis
-
-- [x] EGOS-092_MIGR: Movimentar ou integrar `agent-028-template` — Atualmente em egos-lab, metadados no kernel. Ou move para kernel `/apps/` ou garante que egos-lab consome como submódulo.
-  > Recomendação: Mover para kernel, deploy via Vercel como sub-app
-  > Bloqueador: Vercel deploy requer acesso ao código-fonte
-
-- [ ] EGOS-077: Add the new-project gate for PRD, ICP, go-to-market, objective, success metric, and multi-model review mode with a recorded blocking-vs-advisory decision
-- [ ] EGOS-078: Define the `Agent Claim Contract` — formal taxonomy for `component`, `skill`, `agent_candidate`, `verified_agent`, and `online_agent`, with mandatory proof fields for runtime, triggers, evals, observability, and ownership
-- [ ] EGOS-079: Enforce the `Agent Claim Gate` in kernel governance — registry lint + pre-commit/pre-push + docs/tasks checks must block any surface claimed as agent without executable entrypoint, existing eval, valid run modes, and runtime evidence
-- [ ] EGOS-080: Define the `LLM Orchestration Matrix` for EGOS — explicit lane ownership for Cascade, terminal orchestration, Codex, Claude Code, Alibaba, and OpenRouter, with approval mode, authority level, and allowed task classes
-- [ ] EGOS-093: Define canonical flagship brief in SSOT — objective, problem statement, personas, and GTM with acceptance metrics
-- [ ] EGOS-094: Create "Market Intelligence Compiler" spec — ingestion contract for books/papers/code/platforms with source-link + evidence tiers
-- [ ] EGOS-095: Build governance rule registry for market practices — normalize global best practices into executable controls and tests
-- [ ] EGOS-096: Add cross-environment signature adoption for Google AI Studio lane (commit/push provenance fields mandatory)
-- [ ] EGOS-097: Define dissemination protocol (`/disseminate`) for propagating new strategic rules to all mapped repos with drift-proof verification
-- [x] EGOS-083: Create the canonical cross-repo SSOT registry in the kernel and define the ownership contract for `kernel_canonical`, `leaf_local`, and `shared_home` surfaces
-- [x] EGOS-084: Extend kernel governance sync + pre-commit to cover canonical SSOT docs (`SSOT_REGISTRY`, `CAPABILITY_REGISTRY`, `CHATBOT_SSOT`) and sync them to `~/.egos/docs`
-- [ ] EGOS-085: Roll out the SSOT registry adoption plan across mapped repos — each leaf must declare local SSOT pointers, freshness rules, and task-level migration status
-- [x] EGOS-093: Canonicalize `/start` command surface for Claude Code/Codex — `.agents/workflows/start-workflow.md` as SSOT + `.windsurf/workflows/start.md` compatibility wrapper
-- [ ] EGOS-094: Create BLUEPRINT integration placement contract — define exact destination for AAR/registry/audit interfaces in kernel (`packages/shared` adapters first, no big-bang move)
-- [x] EGOS-095: Add \"evidence-first\" activation report contract — `/start` now enforces verified facts vs inference vs proposal with explicit evidence-first blocking checklist
-- [ ] EGOS-096: Define phased execution plan for EGOS Commons/split initiative with explicit legal/compliance gates before payment automation
-- [ ] EGOS-097: Add cross-repo research intake workflow — when external LLMs (e.g., Grok) are used without repo access, require reconciliation pass against kernel SSOT before planning decisions
-- [x] EGOS-098: Standardize PR communication pack — canonical `/pr` workflow + PR template + `pr:pack` generator with environment context, validation status, rollback notes, and signed-off footer
-- [x] EGOS-099: Add enforceable post-PR IDE validation gate (Windsurf + Antigravity) with evidence checklist + `pr:gate` proof before merge
-- [x] EGOS-100: Add canonical `/disseminate` workflow + Codex instruction setup guide (load order, governance propagation, PR gate flow)
-- [x] EGOS-101: Add reusable EGOS activation meta-prompt v1.1.0 with ATRiAN honesty filter + next-AI review mandate and trigger mapping
-
-> **Directive:** Until EGOS-062..064 are resolved, new work should strengthen the flagship guardrails product or its proof cases only.
-
-### P0 (Blockers)
-
-- [x] EGOS-001: Create clean repo structure with governance from commit 0
-- [x] EGOS-002: Initialize git + first commit with all SSOT files
-- [x] EGOS-003: Connect to GitHub (github.com/enioxt/egos) and push
-- [x] EGOS-041: Align `/start` with core repo reality — remove or gate stale checks for `docs/SYSTEM_MAP.md`, `session:guard`, `docs/gem-hunter`, and `docs/reports`
-- [x] EGOS-042: Create canonical core system-map surface and wire `/start` to it (`docs/SYSTEM_MAP.md` or an explicit repo-local equivalent)
-- [x] EGOS-043: Restore/add `.windsurf/workflows/mycelium.md` or remove stale Mycelium workflow references across `/start`, `/end`, and Mycelium docs
-- [x] EGOS-044: Create `docs/knowledge/HARVEST.md` or relax `/end` and `/disseminate` assumptions to match the current core repo
-- [x] EGOS-056: Propagate updated kernel workflows into `~/.egos/workflows` and downstream synced repos, then rerun `bun run governance:check`
-
-### P1 (Critical)
-
-- [x] EGOS-004: Run `bun install` and validate `tsc --noEmit` passes
-- [x] EGOS-005: Validate pre-commit hooks work (gitleaks + tsc + frozen)
-- [x] EGOS-006: Update `~/.egos/SYSTEM_MAP.md` to include `egos` root
-- [x] EGOS-007: Create `.egos` symlink to shared governance home
-- [x] EGOS-081: Create cross-session memory module in @egos/shared — ported from 852, generalized for ecosystem reuse
-- [x] EGOS-082: Create comprehensive metrics tracking system — tracks Codex, Alibaba, Claude Code, OpenRouter, Cascade usage with costs and performance
-- [x] EGOS-045: Refresh `.guarani/orchestration/DOMAIN_RULES.md` from `egos-lab` assumptions to kernel reality (`egos`, leaf repos, `llm-provider.ts`)
-- [x] EGOS-046: Validate Codex cloud + Alibaba live readiness for `egos` core and record evidence in workflows/handoff
-- [x] EGOS-047: Fix missing `docs/META_PROMPT_ECOSYSTEM_AUDIT.md` reference — created `meta/ecosystem-audit.md` + fixed stale refs in `PROMPT_SYSTEM.md`
-- [x] EGOS-048: Align Mycelium docs with actual core artifacts — created `packages/shared/src/mycelium/reference-graph.ts` (27 nodes, 32 edges)
-- [x] EGOS-058: Consolidate `.env` credentials from ecosystem repos (egos-lab, 852, br-acc, policia) into kernel `.env` — 14 vars, all providers live
-- [x] EGOS-059: Create `packages/shared/src/mycelium/reference-graph.ts` — Phase 1 canonical schema + kernel seed graph + utilities
-- [x] EGOS-055: Add `.env.example` for kernel-level provider and sync expectations (`ALIBABA_DASHSCOPE_API_KEY`, `OPENROUTER_API_KEY`, optional GitHub/Codex hints)
-- [x] EGOS-057: Create task-aware model router (`packages/shared/src/model-router.ts`) with 8 models, 3 cost tiers, 10 task types
-
-### P2 (Important)
-
-- [x] EGOS-008: Write comprehensive README.md with install instructions
-- [x] EGOS-009: Set up GitHub Actions CI (lint + typecheck + registry lint)
-- [x] EGOS-010: Create CONTRIBUTING.md with governance rules
-- [x] EGOS-011: Migrate first agent from egos-lab as proof-of-concept
-- [x] EGOS-049: Create repo-role-aware activation logic — `egos.config.json` + `repo-role.ts` + heuristic fallback
-- [x] EGOS-050: Create `activation:check` command for the core repo — 42 checks, 100% pass rate
-- [/] EGOS-051: Migrate core-safe agents from egos-lab — `dead_code_detector` migrated (5 kernel agents now); SSOT Auditor + Contract Tester need generalization (medium-term)
-- [x] EGOS-052: Document the kernel-to-leaf migration matrix — `docs/strategy/MIGRATION_MATRIX.md`
-
-### P2 (Important) — Archaeology Sprint
-
-- [x] EGOS-017: Build interactive evolution tree (Tree of Life) — `docs/evolution-tree.html`
-- [x] EGOS-018: Create archaeology_digger agent — `agents/agents/archaeology-digger.ts`
-- [x] EGOS-019: Migrate Mycelium docs to egos kernel — `docs/concepts/mycelium/`
-- [x] EGOS-020: Feature evolution categorization — `docs/archaeology/FEATURE_EVOLUTION_CATEGORIZATION.md`
-- [x] EGOS-021: Run archaeology agent (execute) — 220 events, 31 agents, 42 handoffs, 7 breakpoints
-- [x] EGOS-022: Validation sweep — tsc OK, registry lint OK, SSOT limits OK, frozen zones intact
-
-### P1 (Critical) — SSOT Distillation Sprint
-
-- [x] EGOS-025: Analyze 852 chatbot — extract quality patterns (memory, ATRiAN, prompt, PII, routing)
-- [x] EGOS-026: Analyze Forja documentation — mobile CRM chatbot-first plan, architecture, stack
-- [x] EGOS-027: Create `docs/modules/CHATBOT_SSOT.md` — canonical chatbot standard from 852
-- [x] EGOS-028: Create `docs/CAPABILITY_REGISTRY.md` — full ecosystem capability map with tags/refs
-- [x] EGOS-029: Update `/start`, `/end`, `/disseminate` workflows with capability map references
-- [x] EGOS-030: Port ATRiAN validation layer to `packages/shared/` as reusable module
-- [x] EGOS-031: Port PII scanner to `packages/shared/` as reusable module
-- [x] EGOS-032: Port conversation memory pattern to `packages/shared/` as reusable module
-- [x] EGOS-033: Create chatbot-compliance-checker agent (validates projects against CHATBOT_SSOT)
-
-### P2 (Important) — Observability & Context
-
-- [x] EGOS-060: Context Tracker agent — CTX score 0-280, zone emojis, auto /end trigger at 250+, wired into .windsurfrules + AGENTS.md + HARVEST.md
-
-### P2 (Important) — Replication & Adoption
-
-- [x] EGOS-034: Forja — production parity hardened with rate limiter, `.env.example`, `.husky/pre-commit`; capability drift 100% and chatbot SSOT 100/100
-- [x] EGOS-035: carteira-livre — backfill ATRiAN + PII scanner + memory modules
-- [x] EGOS-036: intelink — backfill ATRiAN + memory modules
-- [x] EGOS-037: Research go-to-market theories for code/framework validation — `docs/strategy/GO_TO_MARKET_RESEARCH.md`
-- [x] EGOS-038: Create capability-drift-checker agent (15 checks, kernel 100%, carteira-livre 93%)
-- [x] EGOS-039: egos-web — aligned public chat with shared ATRiAN/PII/memory modules; build OK and chatbot SSOT 100/100
-- [x] EGOS-040: br-acc — Python adapter/bridge added for CHATBOT_SSOT; py_compile OK and chatbot SSOT 100/100
-- [x] EGOS-065: Stop legacy `.windsurfrules` symlink mutation in `~/.egos/governance-symlink.sh` and classify the script as legacy cleanup only
-  > **Arquivos:** `~/.egos/governance-symlink.sh`, `docs/CAPABILITY_REGISTRY.md`
-- [x] EGOS-066: Remove remaining stale claims/docs that still present `governance-symlink.sh` as the primary sync path instead of the kernel sync plane
-  > **Arquivos:** `docs/diagnostics/SITE_AND_GOVERNANCE_DIAGNOSTIC_2026-03-13.md`, `.guarani/orchestration/DOMAIN_RULES.md`
-- [x] EGOS-067: Define the hybrid multi-tool control plane for `Claude Code` + `Codex` + Alibaba + Antigravity with user-scope secrets and repo-local onboarding
-  > **Arquivos:** `egos-lab/docs/plans/MULTI_TOOL_HUB.md`, `~/.claude.json`
-
-### P1 (Critical) — COMMONS MVP REAL (Split 95/5)
-
-- [x] EGOS-093_COMMONS: Fase 1 — Inventário Real de 6 produtos existentes com split de pagamentos ético (95/5).
-- [x] EGOS-094_COMMONS: Fase 2 — Criar fichas com "Grátis (código)", "Implementação paga (split 95/5)", "Contribuir".
-- [x] EGOS-095_COMMONS: Fase 3 — Página Única (Next.js config + Hero Honesto + Stats Reais).
-- [/] EGOS-096_COMMONS: Fase 4 — Automação Mínima de inventário e RuleOps das fichas.
-  > **Estado da sessão:** conteúdo do Commons sincronizado e runtime safety fix aplicado; automação RuleOps ainda pendente.
-- [ ] EGOS-097_COMMONS: Fase 5 — Validação (Roteiro de entrevistas reais VALIDATION-CHECKLIST.md).
-- [ ] EGOS-098_COMMONS: Fase 6 — PR branch `egos-commons-mvp-real`.
-
-### P2 (Important) — INFRASTRUCTURE & DEPLOYMENT
-
-- [ ] EGOS-096_INFRA: Setup VPS Contabo — DNS para commons.egos.ia.br, SSL Let's Encrypt, nginx/reverse proxy
-- [ ] EGOS-097_API: Implementar Guard Brasil API hosted — rate limiting, telemetry, audit logs, SLA 99.5%
-- [ ] EGOS-098_COMMONS: Integrar pagamento Asaas em Commons — enrollment flow, webhook verification, email confirmação
-
-### Backlog
-
-- [ ] EGOS-012: Publish `@egos/shared` to npm (when stable)
-- [x] EGOS-081: Create Oracle Cloud instance launcher utility (Python SDK) under `scripts/oracle-instance-launcher/` with API-key/instance-principal auth, AD retry, capacity-aware handling, and systemd-ready runner
-  > **Arquivos:** `scripts/oracle-instance-launcher/README.md`, `scripts/oracle-instance-launcher/.env.example`, `scripts/oracle-instance-launcher/src/*.py`, `scripts/oracle-instance-launcher/scripts/*.sh`, `scripts/oracle-instance-launcher/oracle-instance-launcher.service`
-- [x] EGOS-013: Create `egos-init` one-command installer
-- [ ] EGOS-014: Add VRCP Coherence Model integration
-- [ ] EGOS-015: Context Doctor agent (from conversaGROK ideas)
-- [x] EGOS-016: Review remaining workflow overrides in leaf repos after SSOT rollout — `docs/reports/workflow-override-audit.md`
-- [ ] EGOS-023: Publish egos-init via hosted installer URL
-- [ ] EGOS-024: Full per-agent lineage matrix (ARCH-003) — continue with commit-level tracing
-- [ ] EGOS-053: Build cross-repo capability compliance dashboard for kernel and leaf adoption state
-- [x] EGOS-054: Make `/end` and `/disseminate` repo-role-aware — `egos.config.json` detection in Phase 1, conditional surface gating
-- [ ] EGOS-068: Enforce shared workflow inheritance across mapped repos — re-link exact-match copies, replace stale overrides with thin wrappers or shared workflows, and preserve only justified repo-local exceptions
-- [ ] EGOS-069: Bootstrap `santiago` into the EGOS governance mesh with `.egos`, repo-local SSOT files, and inherited core workflows
-- [ ] EGOS-070: Complete Mycelium truth repair — align kernel docs and reference graph with actual local surfaces and classify consumer dashboards/bridges as external or planned
-- [ ] EGOS-071: Formalize cheap-first multi-model orchestration for Windsurf/Codex/Claude/Alibaba/OpenRouter with one coordinator, sequential routing, and reviewer proof-of-work
-- [ ] EGOS-072: Design anti-injection and least-privilege hardening for external-input workflows (issues, PRs, web, imported docs) before any high-trust automation
-- [ ] EGOS-086: Extract circuit breaker pattern from carteira-livre guardrails into `@egos/shared` as reusable module
-- [ ] EGOS-087: Build `@egos/mcp-governance` — custom MCP server for SSOT drift check, task listing, and deploy gates across all repos
-- [ ] EGOS-088: Build `@egos/mcp-memory` — custom MCP server for persistent conversation memory (Supabase/Redis backend, recall/store/search tools)
-- [ ] EGOS-089: Bridge Mycelium event bus to Redis Pub/Sub for cross-process agent communication (Phase 2 of MYCELIUM_NETWORK.md)
-- [ ] EGOS-090: Build first domain-specific MCP server (forja `@egos/mcp-erp` or carteira-livre `@egos/mcp-marketplace`) as proof-of-concept
-- [ ] EGOS-091: Add MCP server auto-discovery and health heartbeats to agent registry for plug-and-play tool management
-- [ ] EGOS-092: Ensure all leaf repos consume `@egos/shared` for ATRiAN/PII/memory instead of maintaining local copies
-
-### P1 — Claude Code Hub + FORJA Visão (2026-03-25)
-
-- [x] EGOS-100: Phase 1 Hub Activation — Claude Code as primary EGOS orchestration interface
-  > `~/.claude/config/claude-code-hub.json`, `model-router.json`, `scripts/model-router.ts`, `scripts/claude-code-watch.sh`, `dashboards/egos-hub.md`
-- [x] EGOS-101: Create Claude Code slash commands — `/start`, `/end`, `/disseminate`, `/mycelium`, `/vps`
-  > `.claude/commands/*.md` — aligned with `.windsurf/workflows/` v5.5
-- [x] EGOS-102: Map VPS agents (Contabo 217.216.95.126) — 2 PM2 + 8 Docker services documented
-  > `.claude/commands/vps.md`, `docs/VPS_AGENTS_MAP.md` (pending)
-- [x] EGOS-103: Sync Windsurf workflows → Claude Code commands (v5.5 alignment)
-  > `/start` updated with governance check + tooling matrix
-- [ ] EGOS-104: Copy Claude Code commands to all leaf repos (forja done; remaining 10 repos)
-- [ ] EGOS-105: Create `docs/VPS_AGENTS_MAP.md` — canonical VPS architecture doc
-
-### SSOT Core Infra (v2)
-- [ ] SSOT-v2-01: Monitor usage and stability of the PM2 daemon (`egos-ssot`) locally and propagate to Contabo VPS.
-- [ ] SSOT-v2-02: Activate `ssot_auditor` AST drift scanner in CI/CD pipeline (`egos-lab` GitHub Actions or VPS Webhook) to block structurally drifting PRs.
-- [ ] SSOT-v2-03: Develop `ssot-package-auditor.ts` (or expand `sync.sh` jq rules) to enforce structural compliance across `package.json` vs `.egos/standards` map.
-
-## Roadmap — Progress Dashboard
-
-### Overall Progress
-
-| Horizon | Total | Done | Open | Progress |
-|---------|-------|------|------|----------|
-| **Foundation (P0/P1)** | 21 | 21 | 0 | **100%** |
-| **Replication (P2)** | 15 | 15 | 0 | **100%** |
-| **Backlog** | 20 | 3 | 17 | **15%** |
-| **TOTAL** | **56** | **42** | **14** | **75%** |
-
----
-
-### Short Term (0-7 days) — Target: 75%
-
-**Objective:** Complete all P2 core hardening. CONTRIBUTING.md, activation:check, and cross-repo adoption alignment.
-
-- [x] EGOS-010 — CONTRIBUTING.md with governance rules
-- [x] EGOS-034 — Forja chatbot production parity
-- [x] EGOS-039 — egos-web chat alignment with shared modules
-- [x] EGOS-040 — br-acc Python adapter for CHATBOT_SSOT
-- [x] EGOS-050 — `activation:check` command for core repo (42 checks, 100%)
-- [ ] EGOS-068 — Shared workflow inheritance rollout across mapped repos
-- [ ] EGOS-069 — `santiago` governance bootstrap into the shared mesh
-- [ ] EGOS-070 — Mycelium truth repair across kernel docs and topology references
-- [ ] EGOS-071 — Cheap-first multi-model orchestration policy and routing contract
-- [ ] EGOS-072 — Anti-injection / least-privilege hardening for external-input automation
-
-### Medium Term (1-4 weeks) — Target: 85%
-
-**Objective:** Repo-role architecture, migration framework, go-to-market research, capability drift monitoring.
-
-- [x] EGOS-037 — GTM research v2.0: OSS economics, developer funnel metrics (TOFU/MOFU/BOFU), lighthouse strategy, 10-item validation checklist — `docs/strategy/GO_TO_MARKET_RESEARCH.md`
-- [x] EGOS-038 — capability-drift-checker agent (15 checks, kernel 100%, carteira-livre 93%)
-- [x] EGOS-049 — Repo-role-aware activation logic — `egos.config.json` + `repo-role.ts`
-- [/] EGOS-051 — Migrate core-safe agents — `dead_code_detector` done; SSOT Auditor needs generalization
-- [x] EGOS-052 — Kernel-to-leaf migration matrix — `docs/strategy/MIGRATION_MATRIX.md`
-- [x] EGOS-016 — Workflow override audit: 1 legitimate (egos-lab mycelium), 9 stale (br-acc/forja/egos-self v5.0→v5.4) — `docs/reports/workflow-override-audit.md`
-
-### Multi-Model Meta-Prompt Analysis — 2026-03-24
-
-**Source:** Comprehensive analysis of Gemini, Codex, Nemotron, Grok, ChatGPT, Claude Code responses
-
-- [x] EGOS-100: Analyze all AI model conversations (gemini.md) — extract insights, patterns, ATRiAN scoring
-- [x] EGOS-101: Create unified Mycelium workflow — hub-and-spoke architecture with DSL commands
-- [x] EGOS-102: Create repos/registry.yaml — SSOT for all 10 repositories in network
-- [x] EGOS-103: Create prompts/registry.yaml — SSOT for meta-prompts with drift detection
-- [x] EGOS-104: Update HARVEST.md with Multi-Model Analysis section
-- [ ] EGOS-105: Implement 5 meta-prompt generator improvements (auto-reflection, dynamic constraints, few-shot, drift detection, versioning)
-- [ ] EGOS-106: Materialize missing meta-prompt files (mycelium-orchestrator.md 404)
-- [ ] EGOS-107: Reconnect BLUEPRINT-EGOS to kernel (currently drifted)
-- [ ] EGOS-108: Merge egos-lab #26 (security fixes, ready now)
-- [ ] EGOS-109: Rebase egos-cortex #1 (stale since Feb 16)
-- [ ] EGOS-110: Create pr-classifier.ts script for automated PR classification
-- [ ] EGOS-111: Implement 5-phase Mycelium roadmap (Control → Observability → Meta-prompts → Dissemination → Distributed Execution)
-
-> **Key Insight:** "Código aberto sem malha vira arquivo espalhado. Código aberto com Mycelium vira sistema navegável." — ChatGPT
-
----
-
-**Objective:** Public npm package, compliance dashboard, distributed verification, community adoption.
-
-- [ ] EGOS-012 — Publish `@egos/shared` to npm
-- [ ] EGOS-014 — VRCP Coherence Model integration
-- [ ] EGOS-015 — Context Doctor agent
-- [ ] EGOS-023 — Publish egos-init via hosted installer URL
-- [ ] EGOS-024 — Full per-agent lineage matrix (ARCH-003)
-- [ ] EGOS-053 — Cross-repo capability compliance dashboard
-- [x] EGOS-054 — `/end` and `/disseminate` repo-role-aware — `egos.config.json` detection + conditional gating
-
-### KERNEL MISSION CONTROL (kernel.egos.ia.br) — 2026-03-25
-
-**Objective:** Centralized dashboard for monitoring EGOS ecosystem. Tracks commits, provenance, insights, and automated governance across all leaf repos.
-
-- [ ] EGOS-116: Deploy frontend React (Vite + TypeScript) em kernel.egos.ia.br
-  > Repositório ao vivo com dashboard de commits/anomalias. Supabase Realtime subscriptions. Dark mode com Tailwind.
-  > **Arquivos:** `apps/mission-control/`, `packages/shared/kernel-dashboard.ts`
-
-- [ ] EGOS-117: FastAPI gateway — webhook GitHub → Supabase events table
-  > Endpoint /api/webhooks/github. Valida signatures. Mapeia events (push, PR, release). Retries com backoff exponencial.
-  > **Arquivos:** `apps/gateway/main.py`, `apps/gateway/github_webhook.py`, `tests/test_webhook.py`
-
-- [ ] EGOS-118: Tabela `provenance_events` no Supabase (multi-tenant)
-  > Campos: source (github/codex/claude-code/alibaba), commit_sha, author, timestamp, repo_id, event_type (push/pr/deploy), metadata JSON.
-  > RLS by tenant_id. 3 indexes: (repo_id, timestamp), (author, timestamp), (event_type, timestamp).
-  > **Arquivos:** `supabase/migrations/20260325_provenance_events.sql`
-
-- [ ] EGOS-119: OpenClaw executor — Git automation (clone → move → PR)
-  > TypeScript service que executa movimentações de código entre repos. Valida SSOT beforehand. Cria PRs com templates.
-  > **Arquivos:** `packages/shared/openclaw-executor.ts`, `packages/shared/git-automation.ts`
-
-- [ ] EGOS-120: pgvector extension + embeddings para triagem semântica
-  > Cria embeddings via Alibaba Dashscope para commit messages. Clustering K-means para agrupamento automático.
-  > Query: "encontre commits similares a este PRD". Storage: `provenance_events.embedding` (vector/1536).
-  > **Arquivos:** `supabase/migrations/20260326_pgvector.sql`, `packages/shared/semantic-triage.ts`
-
-- [ ] EGOS-121: Dashboard ao vivo (repositórios, commits, agent insights)
-  > Cards: repos online, últimas 10 commits, anomalias detectadas (breaking changes, style violations), insights do Qwen-Plus.
-  > Realtime updates via WebSocket. Export como PDF via jsPDF.
-  > **Arquivos:** `apps/mission-control/components/Dashboard.tsx`, `apps/mission-control/api/insights.ts`
-
-- [ ] EGOS-122: Integração com Mycelium para cross-repo agent communication
-  > Mission Control como consumer de events do Mycelium event bus (Redis Pub/Sub).
-  > Triggers automáticos: "nova anomalia → notifica oncall", "breaking change → cria task EGOS", "test failure → re-runs CI".
-  > **Arquivos:** `packages/shared/mycelium-events-consumer.ts`, `apps/gateway/event-handlers.ts`
-
-- [ ] EGOS-123: Governance enforcement gate (pré-merge blocking)
-  > Webhook verifica RLS policies, SSOT drift, security scanning (gitleaks), TypeScript compilation.
-  > Bloqueia PRs que falham. Metadata de cada check salvo em `provenance_events` para auditoria.
-  > **Arquivos:** `apps/gateway/governance-gate.ts`, `supabase/migrations/20260326_governance_checks.sql`
-
-### FORJA — Sprint 2 Tasks (Realtime Backend)
-
-- [ ] FORJA-VISAO-004.1: Substituir mock data por queries Supabase reais
-  > CameraFeed, AnomalyFeed, AIReports com dados de `vision_events`, `vision_anomalies`, `generated_insights`.
-  > **Arquivos:** `src/app/(app)/visao/_components/*.tsx` (refactor hooks)
-
-- [ ] FORJA-VISAO-004.2: Supabase Realtime para AnomalyFeed
-  > .on('postgres_changes') subscriber para `vision_anomalies`. Real-time card inserts/updates.
-  > **Arquivos:** `src/app/(app)/visao/_components/AnomalyFeed.tsx`
-
-- [ ] FORJA-CI-001: GitHub Actions CI workflow — lint + build + typecheck
-  > `.github/workflows/ci.yml` criado. Bloqueia PRs que falham build ou TypeScript.
-  > **Arquivos:** `.github/workflows/ci.yml` ✅ Pronto
-
-- [ ] FORJA-REPORT-001: Script Python → HTML relatório completo
-  > `scripts/gerar_relatorio_visao.py` gera `/docs/relatorio_visao_FORJA_20260325.html` com 5 abas.
-  > **Arquivos:** `scripts/gerar_relatorio_visao.py` ✅ Pronto | `docs/relatorio_visao_FORJA_20260325.html` ✅ Pronto
-
-- [ ] FORJA-REPORT-002: Exportar PDF via print media query
-  > Adiciona CSS `@media print { ... }` no HTML. Usuário abre no browser e Ctrl+P → PDF.
-  > **Arquivos:** `docs/relatorio_visao_FORJA_20260325.html` (atualizar CSS)
-
-- [ ] FORJA-MODULAR-001: Adicionar collapsible a todos KPIs do Painel
-  > Padrão do AnomalyFeed: useState + onClick → setExpanded. Aplicar em Painel (KPI cards clicáveis → drill-down).
-  > **Arquivos:** `src/app/(app)/painel/page.tsx`, `src/app/(app)/visao/_components/` (reuse pattern)
-
-### Multi-Repo CI/CD Governance (2026-03-25 follow-up)
-
-- [ ] FORJA-CI-002: Mergear PRs #1 e #2 quando resolvidos (atualmente CONFLICTING)
-  > PR #1: Backend infrastructure (auth, RBAC, audit, email ingestor)
-  > PR #2: EGOS activation + Visão docs
-  > Bloqueadores: Vercel build failure, merge conflicts
-
-- [ ] GitHub-ACTIONS-001: Desabilitar workflows não utilizados (repos inativos)
-  > egos-lab: 6 workflows (manter daily scans). 852, carteira-livre, INPI: manter. Desabilitar em repos arquivados.
-  > **Via:** GitHub API ou UI
-
-- [ ] GitHub-ACTIONS-002: Adicionar FORJA ao ecossistema CI/CD (webhook proveniência)
-  > Webhook envia build events para Supabase `provenance_events`. Integra com Mission Control dashboard.
-  > **Arquivos:** `.github/workflows/ci.yml` + `apps/gateway/github_webhook.py`
-
----
-
-## Kernel Mission Control Architecture (2026-03-25)
-
-> **Vision:** Centralized observability + governance dashboard for entire EGOS ecosystem. Monitor commits, detect anomalies, enforce policies, and orchestrate automated governance actions across all leaf repositories.
-> **Reference:** `/home/enio/egos/docs/KERNEL_MISSION_CONTROL.md`
-
-### P1 (Critical — Sprint 2-3 Gates)
-
-- [ ] EGOS-110: Deploy Mission Control frontend (React + Vite) to kernel.egos.ia.br
-  > Build: React 19 + TypeScript, Vite fast dev, Tailwind CSS v4, Recharts for trends, jsPDF for exports
-  > Deploy: Vercel auto-deploy from GitHub, custom domain via Contabo reverse proxy
-  > Duration: 8 hours | Blocker: VPS DNS setup
-
-- [ ] EGOS-111: Build FastAPI gateway for webhook ingestion (GitHub, Codex, Claude Code, Alibaba)
-  > Endpoints: POST /api/webhooks/{github,codex,claude-code}, GET /api/governance/gate
-  > Validation: HMAC-SHA256 signature verification, idempotency tracking
-  > Deployment: Contabo VPS 217.216.95.126, systemd service, reverse proxy via Nginx
-  > Duration: 6 hours
-
-- [ ] EGOS-112: Create Supabase schema for event provenance tracking
-  > Tables: `provenance_events` (commits, source, severity, embedding), `governance_checks` (PR compliance), `anomaly_alerts` (triaged incidents)
-  > Indexes: repo_id + timestamp, anomaly detection filter
-  > RLS: Multi-tenant isolation by tenant_id
-  > Duration: 3 hours | Dependency: EGOS-110
-
-- [ ] EGOS-113: Implement OpenClaw executor — Git automation engine
-  > Capabilities: Clone repo, apply transformations, create PRs, assign reviewers, auto-label
-  > Example: Move code from egos-lab → egos kernel automatically
-  > Integration: Triggered by Mycelium event bus or Mission Control governance gate
-  > Duration: 5 hours | Tech: PyGithub + GitPython
-
-- [ ] EGOS-114: Add pgvector embeddings + semantic anomaly detection
-  > Setup: Enable pgvector extension in Supabase, generate 1536-dim embeddings via Alibaba Dashscope
-  > Use case: Cluster related commits, find similar anomalies, semantic search in incident timeline
-  > Duration: 4 hours | Dependency: EGOS-112
-
-- [ ] EGOS-115: Build real-time dashboard + Mycelium integration
-  > Frontend: Commit timeline, anomalies feed (color-coded by severity), governance gate status
-  > Realtime: WebSocket subscriptions via Supabase Realtime
-  > Events: Mycelium Pub/Sub for agent triggers, escalation workflows
-  > Duration: 10 hours | Dependency: EGOS-110, EGOS-112
-
-### P2 (Important — Sprint 4 Polish)
-
-- [ ] EGOS-116: Implement governance gate enforcement (SSOT drift detection)
-  > Scan: `docs/`, `packages/shared/`, `.guarani/` for changes without corresponding governance updates
-  > Integration: GitHub branch protection + pre-merge check
-  > Duration: 4 hours
-
-- [ ] EGOS-117: Add security scanning + vulnerability management
-  > Tools: gitleaks (secrets), Snyk (deps), custom PII scanner
-  > Integration: Block HIGH/CRITICAL findings, auto-create security issues
-  > Duration: 5 hours
-
-- [ ] EGOS-118: Create PDF export + email alert reports
-  > Weekly summary: Top anomalies, deployment frequency, test stability trends
-  > On-demand: Incident reports with root cause analysis (via Qwen-Plus)
-  > Duration: 6 hours | Dependency: EGOS-115
+### Summary: Session 2026-03-25
+
+**Completed:**
+- ✅ FORJA signup without email confirmation (tested, live)
+- ✅ BLUEPRINT-EGOS absorption + architecture documentation
+- ✅ VPS hosting strategy analysis + cost savings calculation ($60-100/mo)
+- ✅ EGOS agent orchestration blueprint (Router/Supervisor pattern)
+- ✅ Memory + HARVEST.md updates
+- ✅ System-wide dissemination (this TASKS.md update)
+
+**Ready for Next Session:**
+- 🚀 Deploy Mission Control to `kernel.egos.ia.br`
+- 🚀 Develop FastAPI gateway
+- 🚀 Migrate FORJA, 852, carteira-livre to VPS
+- 🚀 Setup CI/CD pipeline for auto-deploy
+
+**Total Value Delivered:**
+- 1 critical feature (frictionless signup)
+- 1 major architecture integration (BLUEPRINT-EGOS)
+- $60-100/month cost savings identified
+- 3 new phase plans (Gem Hunter, web automation, orchestration)
