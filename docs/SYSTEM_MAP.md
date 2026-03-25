@@ -1,6 +1,6 @@
 # SYSTEM_MAP.md — EGOS Framework Core
 
-> **VERSION:** 2.1.0 | **UPDATED:** 2026-03-20
+> **VERSION:** 2.2.0 | **UPDATED:** 2026-03-24
 > **ROLE:** repo-local map for `/start` in the canonical kernel
 
 <!-- llmrefs:start -->
@@ -86,6 +86,11 @@
 
 | Workflow | File | Version |
 |----------|------|---------|
+| /start (canonical ops) | `.agents/workflows/start-workflow.md` | v1.0 |
+| /sync (canonical ops) | `.agents/workflows/sync.md` | v1.0 |
+| /pr (canonical ops) | `.agents/workflows/pr-prep.md` | v1.0 |
+| /disseminate (canonical ops) | `.agents/workflows/disseminate.md` | v1.0 |
+| /mycelium (canonical ops) | `.agents/workflows/mycelium.md` | v1.0 |
 | /start | `.windsurf/workflows/start.md` | v5.4 |
 | /end | `.windsurf/workflows/end.md` | v5.5 |
 | /pre | `.windsurf/workflows/pre.md` | v1.0 |
