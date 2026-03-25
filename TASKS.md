@@ -272,3 +272,85 @@
 - [ ] EGOS-024 — Full per-agent lineage matrix (ARCH-003)
 - [ ] EGOS-053 — Cross-repo capability compliance dashboard
 - [x] EGOS-054 — `/end` and `/disseminate` repo-role-aware — `egos.config.json` detection + conditional gating
+
+### KERNEL MISSION CONTROL (kernel.egos.ia.br) — 2026-03-25
+
+**Objective:** Centralized dashboard for monitoring EGOS ecosystem. Tracks commits, provenance, insights, and automated governance across all leaf repos.
+
+- [ ] EGOS-116: Deploy frontend React (Vite + TypeScript) em kernel.egos.ia.br
+  > Repositório ao vivo com dashboard de commits/anomalias. Supabase Realtime subscriptions. Dark mode com Tailwind.
+  > **Arquivos:** `apps/mission-control/`, `packages/shared/kernel-dashboard.ts`
+
+- [ ] EGOS-117: FastAPI gateway — webhook GitHub → Supabase events table
+  > Endpoint /api/webhooks/github. Valida signatures. Mapeia events (push, PR, release). Retries com backoff exponencial.
+  > **Arquivos:** `apps/gateway/main.py`, `apps/gateway/github_webhook.py`, `tests/test_webhook.py`
+
+- [ ] EGOS-118: Tabela `provenance_events` no Supabase (multi-tenant)
+  > Campos: source (github/codex/claude-code/alibaba), commit_sha, author, timestamp, repo_id, event_type (push/pr/deploy), metadata JSON.
+  > RLS by tenant_id. 3 indexes: (repo_id, timestamp), (author, timestamp), (event_type, timestamp).
+  > **Arquivos:** `supabase/migrations/20260325_provenance_events.sql`
+
+- [ ] EGOS-119: OpenClaw executor — Git automation (clone → move → PR)
+  > TypeScript service que executa movimentações de código entre repos. Valida SSOT beforehand. Cria PRs com templates.
+  > **Arquivos:** `packages/shared/openclaw-executor.ts`, `packages/shared/git-automation.ts`
+
+- [ ] EGOS-120: pgvector extension + embeddings para triagem semântica
+  > Cria embeddings via Alibaba Dashscope para commit messages. Clustering K-means para agrupamento automático.
+  > Query: "encontre commits similares a este PRD". Storage: `provenance_events.embedding` (vector/1536).
+  > **Arquivos:** `supabase/migrations/20260326_pgvector.sql`, `packages/shared/semantic-triage.ts`
+
+- [ ] EGOS-121: Dashboard ao vivo (repositórios, commits, agent insights)
+  > Cards: repos online, últimas 10 commits, anomalias detectadas (breaking changes, style violations), insights do Qwen-Plus.
+  > Realtime updates via WebSocket. Export como PDF via jsPDF.
+  > **Arquivos:** `apps/mission-control/components/Dashboard.tsx`, `apps/mission-control/api/insights.ts`
+
+- [ ] EGOS-122: Integração com Mycelium para cross-repo agent communication
+  > Mission Control como consumer de events do Mycelium event bus (Redis Pub/Sub).
+  > Triggers automáticos: "nova anomalia → notifica oncall", "breaking change → cria task EGOS", "test failure → re-runs CI".
+  > **Arquivos:** `packages/shared/mycelium-events-consumer.ts`, `apps/gateway/event-handlers.ts`
+
+- [ ] EGOS-123: Governance enforcement gate (pré-merge blocking)
+  > Webhook verifica RLS policies, SSOT drift, security scanning (gitleaks), TypeScript compilation.
+  > Bloqueia PRs que falham. Metadata de cada check salvo em `provenance_events` para auditoria.
+  > **Arquivos:** `apps/gateway/governance-gate.ts`, `supabase/migrations/20260326_governance_checks.sql`
+
+### FORJA — Sprint 2 Tasks (Realtime Backend)
+
+- [ ] FORJA-VISAO-004.1: Substituir mock data por queries Supabase reais
+  > CameraFeed, AnomalyFeed, AIReports com dados de `vision_events`, `vision_anomalies`, `generated_insights`.
+  > **Arquivos:** `src/app/(app)/visao/_components/*.tsx` (refactor hooks)
+
+- [ ] FORJA-VISAO-004.2: Supabase Realtime para AnomalyFeed
+  > .on('postgres_changes') subscriber para `vision_anomalies`. Real-time card inserts/updates.
+  > **Arquivos:** `src/app/(app)/visao/_components/AnomalyFeed.tsx`
+
+- [ ] FORJA-CI-001: GitHub Actions CI workflow — lint + build + typecheck
+  > `.github/workflows/ci.yml` criado. Bloqueia PRs que falham build ou TypeScript.
+  > **Arquivos:** `.github/workflows/ci.yml` ✅ Pronto
+
+- [ ] FORJA-REPORT-001: Script Python → HTML relatório completo
+  > `scripts/gerar_relatorio_visao.py` gera `/docs/relatorio_visao_FORJA_20260325.html` com 5 abas.
+  > **Arquivos:** `scripts/gerar_relatorio_visao.py` ✅ Pronto | `docs/relatorio_visao_FORJA_20260325.html` ✅ Pronto
+
+- [ ] FORJA-REPORT-002: Exportar PDF via print media query
+  > Adiciona CSS `@media print { ... }` no HTML. Usuário abre no browser e Ctrl+P → PDF.
+  > **Arquivos:** `docs/relatorio_visao_FORJA_20260325.html` (atualizar CSS)
+
+- [ ] FORJA-MODULAR-001: Adicionar collapsible a todos KPIs do Painel
+  > Padrão do AnomalyFeed: useState + onClick → setExpanded. Aplicar em Painel (KPI cards clicáveis → drill-down).
+  > **Arquivos:** `src/app/(app)/painel/page.tsx`, `src/app/(app)/visao/_components/` (reuse pattern)
+
+### Multi-Repo CI/CD Governance (2026-03-25 follow-up)
+
+- [ ] FORJA-CI-002: Mergear PRs #1 e #2 quando resolvidos (atualmente CONFLICTING)
+  > PR #1: Backend infrastructure (auth, RBAC, audit, email ingestor)
+  > PR #2: EGOS activation + Visão docs
+  > Bloqueadores: Vercel build failure, merge conflicts
+
+- [ ] GitHub-ACTIONS-001: Desabilitar workflows não utilizados (repos inativos)
+  > egos-lab: 6 workflows (manter daily scans). 852, carteira-livre, INPI: manter. Desabilitar em repos arquivados.
+  > **Via:** GitHub API ou UI
+
+- [ ] GitHub-ACTIONS-002: Adicionar FORJA ao ecossistema CI/CD (webhook proveniência)
+  > Webhook envia build events para Supabase `provenance_events`. Integra com Mission Control dashboard.
+  > **Arquivos:** `.github/workflows/ci.yml` + `apps/gateway/github_webhook.py`
