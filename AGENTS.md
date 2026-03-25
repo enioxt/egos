@@ -116,3 +116,7 @@ bun agent:run context_tracker --dry   # CTX score 0-280 with zone emoji + /end a
 - Governance dissemination workflow: `.agents/workflows/sync.md`
 - PR preparation workflow: `.agents/workflows/pr-prep.md`
 - `/disseminate` propagation workflow: `.agents/workflows/disseminate.md`
+
+## Meta-Prompts (Operational)
+
+- `activation.egos-governance` → `.guarani/prompts/meta/egos-activation-governance.md` (used for `/start` and activation diagnostics)
