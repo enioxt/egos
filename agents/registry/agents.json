@@ -1,7 +1,7 @@
 {
   "$schema": "./schema.json",
   "version": "1.0.0",
-  "updated": "2026-03-13",
+  "updated": "2026-03-26",
   "description": "EGOS Agent Registry — Core framework starts clean. Agent implementations live in leaf repos (egos-lab, 852, br-acc, etc.).",
   "agents": [
     {
@@ -10,8 +10,13 @@
       "description": "Scans package.json files for version conflicts, misplaced dev deps, and unused dependencies",
       "area": "architecture",
       "entrypoint": "agents/agents/dep-auditor.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual"
+      ],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
@@ -23,8 +28,13 @@
       "description": "Recursively traverses git history, agent registries, governance files, and handoff documents to reconstruct the complete evolution lineage of the EGOS ecosystem",
       "area": "knowledge",
       "entrypoint": "agents/agents/archaeology-digger.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual"
+      ],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
@@ -36,8 +46,13 @@
       "description": "Scans a target repository for the required modules defined in CHATBOT_SSOT and reports missing chatbot capabilities",
       "area": "knowledge",
       "entrypoint": "agents/agents/chatbot-compliance-checker.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual"
+      ],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
@@ -49,8 +64,13 @@
       "description": "Finds dead exports, orphan files, and empty stubs across any TypeScript codebase using regex-based analysis (no external deps)",
       "area": "qa",
       "entrypoint": "agents/agents/dead-code-detector.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual"
+      ],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
@@ -62,8 +82,13 @@
       "description": "Scans any target repo against the EGOS kernel's shared capabilities, governance files, workflows, and security basics to detect missing adoptions",
       "area": "architecture",
       "entrypoint": "agents/agents/capability-drift-checker.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual"
+      ],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
@@ -75,8 +100,50 @@
       "description": "Estimates remaining usable context window (CTX 0-280) from uncommitted files, session commits, handoff size, and agent runs. Emits zone emoji + /end recommendation when CTX > 180.",
       "area": "observability",
       "entrypoint": "agents/agents/context-tracker.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual", "pre_end"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual",
+        "pre_end"
+      ],
+      "tools_allowed": [],
+      "risk_level": "T0",
+      "status": "active",
+      "migrated_from": "egos-native"
+    },
+    {
+      "id": "gtm_harvester",
+      "name": "GTM Harvester",
+      "description": "Scans public GitHub repositories for GTM/market strategy artifacts and highlights reusable patterns plus named-entity gaps",
+      "area": "knowledge",
+      "entrypoint": "agents/agents/gtm-harvester.ts",
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual"
+      ],
+      "tools_allowed": [],
+      "risk_level": "T0",
+      "status": "active",
+      "migrated_from": "egos-native"
+    },
+    {
+      "id": "aiox_gem_hunter",
+      "name": "AIOX Gem Hunter",
+      "description": "Scans SynkraAI/aiox-core and local NotebookLM export artifacts to extract high-signal orchestration gems with keep/drop diagnosis for EGOS",
+      "area": "knowledge",
+      "entrypoint": "agents/agents/aiox-gem-hunter.ts",
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual"
+      ],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
