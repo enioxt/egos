@@ -404,3 +404,30 @@ Leaf repos inherit kernel governance via symlinks but keep local IDENTITY.md and
 2. Extract only high-signal gems from Mastra/MASA via dedicated hunters (`mastra_gem_hunter`, `framework_benchmarker`).
 3. Build a Presentation System in SSOT (positioning + proof + demo flow) before adding more runtime complexity.
 4. Validate adoption via pilot metrics (drift, lead-time, compliance incidents) before ecosystem-wide rollout.
+
+## /end Handoff Package — 2026-03-26 (Codex lane)
+
+### Session Outcomes
+
+- Added and validated `mastra_gem_hunter` for targeted extraction of Mastra workflow/evals/observability/MCP/human-loop patterns.
+- Added and validated `framework_benchmarker` for cross-framework scan (MASA, LangGraph, AutoGen, Semantic Kernel, LlamaIndex).
+- Updated strategic backlog with presentation-system execution track (`EGOS-116..121`) to close packaging/narrative gap.
+
+### Strategic Diagnosis (carry-forward)
+
+- EGOS has governance/discipline advantage; bottleneck is presentation coherence and reproducible operator narrative.
+- Do not transplant full external frameworks into kernel.
+- Keep only portable high-signal patterns behind measurable pilot gates.
+
+### Immediate Next Steps for Next Agent
+
+1. Execute `EGOS-116` first: codify Presentation System SSOT (positioning, promise, evidence, differentiators).
+2. Execute `EGOS-117` next: produce operator narrative kit from existing SSOT (no parallel truth docs).
+3. Execute `EGOS-118`: reproducible live-demo lane script for client meetings.
+4. Run benchmark evidence checks with `framework_benchmarker` + `mastra_gem_hunter` before proposing new runtime changes.
+
+### Operational Constraints (Codex)
+
+- Terminal-first non-interactive lane.
+- Browser/UI validation depends on explicit browser tool availability.
+- Home sync state (`~/.egos`) may reset across runs; re-run sync/check when drift appears.
