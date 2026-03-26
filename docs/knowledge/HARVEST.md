@@ -332,6 +332,21 @@ USER MESSAGE arrives
 - Google AI Studio is an explicit source lane and follows the same footer contract as Codex/Windsurf/Antigravity.
 - Do not create operational status reports as standalone timestamped docs; consolidate durable learning into SSOT/HARVEST.
 
+## Pragmatic Multi-Agent Benchmark Distillation (2026-03-26)
+
+- Keep only execution primitives that improve reliability and delivery speed: worktree isolation, parallel lanes with ownership, QA loop, and file-first context.
+- Treat integrations with external orchestrators as optional adapters, not kernel identity.
+- Reject any layer that increases cognitive load without measurable reduction in risk, cost, or lead time.
+- Adopt "proof-at-gate": each parallel lane must emit evidence artifacts consumable by `pr:gate`.
+
+## GTM/Market Intelligence Harvest (Cross-Repo, 2026-03-26)
+
+- New kernel agent: `gtm_harvester` scans public repos for GTM/market signals and named strategic entities.
+- First scan result (owner `enioxt`): 9/14 repos with GTM/market signals; strongest strategic density in `egos`, `egos-lab`, `FORJA`, and `EGOS-Inteligencia`.
+- Direct named references not found in public repos for: `Siberia Institute`, `Vagner Campos` (requires explicit canonical encoding if strategically relevant).
+- Automation pattern: harvest -> distill -> codify in `TASKS.md` contracts -> enforce via gate workflows.
+- Intake policy: when insights come from external Grok threads, register tasks immediately in kernel queue with `target_repo` marker, then migrate after triage.
+
 ## External-Input Hardening
 
 - Treat issue titles, PR text, web pages, and imported documents as untrusted input until sanitized.
@@ -363,230 +378,71 @@ Leaf repos inherit kernel governance via symlinks but keep local IDENTITY.md and
 - AGENTS.md condensed from 358→140 lines with domain map.
 - 8 reusable patterns documented in local HARVEST.md.
 
-## Multi-Model Meta-Prompt Analysis (2026-03-24)
+## Stitch-First UI Rule Upgrade (2026-03-26)
 
-### Context
-Comprehensive analysis of 5 AI model responses (Gemini, Codex, Nemotron, Grok, ChatGPT, Claude Code) regarding Mycelium architecture, meta-prompt generator improvements, and EGOS ecosystem evolution.
+- Official Google positioning: Stitch converts prompts, wireframes, or images into UI + frontend code and supports export to HTML/CSS or Figma (Google I/O 2025 product update).
+- Kernel policy updated: all new screens must pass through `/stitch` before coding starts.
+- Operating split: EGOS lane writes `Stitch Prompt Pack` -> operator creates externally in Stitch -> operator returns `.zip` -> integration only begins after zip intake mapping.
+- Next automation step: create `stitch_intake_mapper` agent to parse zip payloads and open integration tasks automatically.
 
-### Key Insights
+## AIOX-Core Gem Diagnosis + NotebookLM Cross-Check (2026-03-26)
 
-**1. Universal Consensus — Hub-and-Spoke Mycelium**
-- Central control plane with reusable GitHub Actions workflows
-- Git submodules for knowledge propagation
-- Repository dispatch events for cross-repo synchronization
-- Registry pattern: `repos/registry.yaml` + `prompts/registry.yaml`
+- External benchmark analyzed: `SynkraAI/aiox-core` (repo metadata + README/docs signal scan) with objective to extract only execution primitives useful to EGOS.
+- Keep candidates validated as high signal for EGOS: squad pattern, worktree orchestration, spec pipeline flow (`analyst -> pm -> architect -> sm`), and doctor-style readiness checks.
+- Drop candidates for now: pro-lock or platform-coupled features, mandatory memory-layer coupling, and any dependency that dilutes kernel governance or increases complexity before flagship monetization.
+- Local evidence cross-check performed on `notebooklm_export_egos.md` to recover Commons-prep context and gem-hunter lineage references as migration input.
+- Operationalization path: new agent `aiox_gem_hunter` added to run repeatable diagnosis and emit keep/drop findings before contract implementation.
 
-**2. Meta-Prompt Generator — 5 Critical Improvements**
-| # | Improvement | Source | Priority |
-|---|-------------|--------|----------|
-| 1 | Auto-reflection module (environment audit) | Gemini | P0 |
-| 2 | Dynamic constraint injection (JSON/YAML blocks) | Gemini | P0 |
-| 3 | Few-shot prompting > extensive rules | Gemini | P1 |
-| 4 | Drift detection (SSOT vs projections) | ChatGPT | P0 |
-| 5 | Semantic versioning (major/minor/patch) | ChatGPT | P1 |
+## Codex Lane Operational Disclosure (2026-03-26)
 
-**3. Operational Findings**
-- egos-lab #26: Active, mergeable, security fixes → MERGE NOW
-- egos-cortex #1: Stale (Feb 16), needs rebase → DO NOT MERGE
-- Drift detected: `.guarani/prompts/meta/mycelium-orchestrator.md` returns 404
-- BLUEPRINT-EGOS disconnected from kernel egos
+- Added `bun run doctor:codex` (`scripts/codex-doctor.sh`) to make environment constraints explicit before long runs.
+- Mandatory disclosure in handoffs/start briefings now includes Codex constraints: non-interactive execution defaults, browser-tool dependency for visual checks, and potentially ephemeral `~/.egos` state.
+- Objective: avoid false assumptions about automation guarantees and keep operator expectations explicit across lanes.
 
-**4. DSL Definition — Named Workflows**
-| Command | Function |
-|---------|----------|
-| `/start` | Load registries, read repo state, update snapshot |
-| `/mycelium` | Resolve deps, sync taxonomies, detect drift |
-| `/disseminate` | Publish summary to output channels |
-| `/end` | Persist snapshot, stamp execution, update final report |
+## MASA Framework + Competitor Scan (2026-03-26)
 
-**5. ATRiAN Ethics Assessment**
-| Criterion | Rating |
-|-----------|--------|
-| Accuracy | 9.2/10 |
-| Truth | 9.5/10 |
-| Reversibility | 8.8/10 |
-| Impact | 8.5/10 |
-| Accountability | 8.0/10 |
-| Neutrality | 9.0/10 |
-| **Overall** | **8.8/10** |
+- MASA positioning validated: architecture-first framework focused on "cognizability" and static interpretability for AI agents, with SKILL.md-centric adoption model.
+- Practical execution test: repository downloaded via codeload zip and inspected locally; current main payload is mostly specification/docs/experiments assets (no turnkey runtime to execute like a platform service).
+- Environment limitation observed: direct `git clone`/`ls-remote` to GitHub returned HTTP 403 in this Codex lane; fallback via `codeload.github.com` succeeded.
+- Competitor baseline scanned from official sources: LangGraph, AutoGen, Semantic Kernel, LlamaIndex.
+- EGOS recommendation: test MASA as selective architectural skill in a controlled leaf-repo pilot, not as kernel-wide hard mandate yet.
 
-**6. 5-Phase Implementation Roadmap**
-1. **Control** (3 days): Choose canonical repo, create registries
-2. **Observability** (1 week): PR classifiers, daily snapshots
-3. **Meta-prompts** (2 weeks): Materialize conceptual → actual
-4. **Dissemination** (2 weeks): Payload generation, webhooks
-5. **Distributed Execution** (1-2 months): Named workflows, GitHub Actions + CLI
+## Why MASA/Mastra Looks "Cleaner" Than EGOS Today (2026-03-26)
 
-### Files Created/Updated
-- `.agents/workflows/mycelium-disseminate.md` — Unified workflow
-- `repos/registry.yaml` — Repository SSOT
-- `prompts/registry.yaml` — Prompt registry
-- `scripts/pr-classifier.ts` — PR classification
-- `mycelium-graph.json` — Dependency graph
+- They communicate one dominant story on the surface (single concise value proposition + polished onboarding path), while EGOS currently exposes many strategic threads at once.
+- EGOS has technical governance advantages, but presentation and operator narrative are still fragmented across many artifacts.
+- Gap is less about capability and more about packaging discipline: message hierarchy, demo reproducibility, and evidence-first storytelling.
 
-### Aphorism
-"Código aberto sem malha vira arquivo espalhado. Código aberto com Mycelium vira sistema navegável." — ChatGPT
+### Architecture Plan (Kernel-side, no bloat)
 
-Open source without mesh becomes scattered files. Open source with Mycelium becomes a navigable system.
-**Pattern:** Always prioritize explicit business SSOT (`inventory.md`) over leftover promotional mockup copy in frontend files (`App.tsx`). The EGOS ecosystem is strictly about the "Honest MVP" narrative (6 real products, split 95/5). The empty `/home/enio/commons` directory was ignored in favor of the monitored mono-repo structure in `egos/apps/commons`.
+1. Keep EGOS kernel minimal and governance-first (no full framework transplant).
+2. Extract only high-signal gems from Mastra/MASA via dedicated hunters (`mastra_gem_hunter`, `framework_benchmarker`).
+3. Build a Presentation System in SSOT (positioning + proof + demo flow) before adding more runtime complexity.
+4. Validate adoption via pilot metrics (drift, lead-time, compliance incidents) before ecosystem-wide rollout.
 
----
+## /end Handoff Package — 2026-03-26 (Codex lane)
 
-## Session 2026-03-25 — Claude Code Hub + FORJA Visão
+### Session Outcomes
 
-### Claude Code as EGOS Hub (Phase 1)
+- Added and validated `mastra_gem_hunter` for targeted extraction of Mastra workflow/evals/observability/MCP/human-loop patterns.
+- Added and validated `framework_benchmarker` for cross-framework scan (MASA, LangGraph, AutoGen, Semantic Kernel, LlamaIndex).
+- Updated strategic backlog with presentation-system execution track (`EGOS-116..121`) to close packaging/narrative gap.
 
-**Pattern:** Claude Code can function as a lightweight orchestration kernel using:
-- `~/.claude/config/` — JSON config for model routing + status line
-- `~/.claude/scripts/` — TypeScript/bash for routing logic + watch scripts
-- `.claude/commands/*.md` — Slash commands aligned with `.windsurf/workflows/`
-- `~/.claude/dashboards/` — Markdown dashboards for session status
+### Strategic Diagnosis (carry-forward)
 
-**Key insight:** Windsurf `.windsurf/workflows/*.md` and Claude Code `.claude/commands/*.md` are analogous interfaces — keep them synchronized for cross-IDE continuity.
+- EGOS has governance/discipline advantage; bottleneck is presentation coherence and reproducible operator narrative.
+- Do not transplant full external frameworks into kernel.
+- Keep only portable high-signal patterns behind measurable pilot gates.
 
-**VPS Discovery:** `ssh -p 22 root@217.216.95.126` (not 2244!) — 2 PM2 agents (egos-telegram, egos-discord) + 8 Docker services (852-app, waha-santiago, infra-api-1, infra-frontend-1, bracc-neo4j, infra-caddy-1, infra-redis-1, egos-media-web-1).
+### Immediate Next Steps for Next Agent
 
-### FORJA Visão — Camera Analytics Module
+1. Execute `EGOS-116` first: codify Presentation System SSOT (positioning, promise, evidence, differentiators).
+2. Execute `EGOS-117` next: produce operator narrative kit from existing SSOT (no parallel truth docs).
+3. Execute `EGOS-118`: reproducible live-demo lane script for client meetings.
+4. Run benchmark evidence checks with `framework_benchmarker` + `mastra_gem_hunter` before proposing new runtime changes.
 
-**Architecture decision:** Frigate NVR (Docker) → MQTT event bus → FastAPI bridge → Supabase → FORJA frontend.
+### Operational Constraints (Codex)
 
-**SVG Charts without deps:** Pure SVG box plots work well for cycle time distribution visualization without adding Recharts or D3. Key pattern: `scale = (v) => PAD + (v / maxVal) * (W - PAD * 2)`.
-
-**Gauge meters:** Semicircular arc gauges using SVG path with `A` (arc) commands. Use `toRad()` helper and define start/end degrees (-220° to +40° = 260° sweep).
-
-**Mock-first approach:** FORJA Visão built with realistic mock data matching production schema — same TypeScript interfaces as future Supabase queries. Sprint 2 replaces mocks with real queries without changing component interfaces.
-
-**Pattern — zone editor:** SVG canvas with `viewBox="0 0 200 112"` (16:9 aspect) for camera zone polygon drawing. Grid overlay with `patternUnits="userSpaceOnUse"` for alignment reference.
-
-**MQTT event schema fields:** `tenant_id`, `factory_id`, `family_id`, `order_id`, `camera_id`, `zone_id`, `event_type`, `piece_id`, `ts_in`, `ts_out`, `cycle_ms`, `confidence`.
-
-**Anomaly severity tiers:** `critical` (exceeded baseline >50% or skipped QA stage), `warning` (stopped >15min or out-of-sequence), `info` (below minimum historical — possible quality skip).
-
-### Windsurf ↔ Claude Code Workflow Sync
-
-**Rule:** Always keep `.windsurf/workflows/*.md` as the SSOT master and `.claude/commands/*.md` as synchronized mirrors. Windsurf workflows have richer SecOps gates (BLOCKING), Codex readiness checks, and Alibaba orchestration checks.
-
-**v5.5 additions:** Phase 4.1 Security Dependency Check (BLOCKING on UNMITIGATED CVE), explicit Codex cloud list, repo-role awareness via `egos.config.json`.
-
----
-
-## Session 2026-03-25: FORJA + BLUEPRINT-EGOS Integration
-
-### Pattern: No-Confirmation Signup Flow (FORJA)
-
-**Problem:** Users needed email confirmation before login, blocking immediate access.
-**Solution:** Server-side API endpoint using Supabase Admin API to create pre-confirmed users.
-
-```typescript
-// /api/auth/signup → uses service_role key
-const { data: authUser, error } = await supabaseAdmin.auth.admin.createUser({
-  email,
-  password,
-  email_confirm: true,  // ← KEY: pre-confirm without email
-  user_metadata: { name }
-});
-
-// Then create user profile in public.users table
-// RLS ensures tenant isolation
-```
-
-**Why This Works:**
-- ✅ No email verification step
-- ✅ User profile auto-created in RLS-protected table
-- ✅ Tenant assigned at creation (multi-tenant safe)
-- ✅ Password hashing happens server-side (service_role)
-
-**Gotchas:**
-- 🔒 `SUPABASE_SERVICE_ROLE_KEY` must be server-only (use API endpoint, not client)
-- 🔒 Middleware must allow `/api/auth/signup` without authentication
-- ⚠️ Default role should be "viewer", not "admin"
-
-**Reusable:** Any Supabase multi-tenant app needing frictionless signup.
-
----
-
-### Pattern: Mission Control Real-Time Dashboard (BLUEPRINT-EGOS)
-
-**Problem:** Need visual centralization of CI/CD, provenance, and agentic triaging.
-**Solution:** React dashboard consuming GitHub API live, with event stream + Provenance tracking.
-
-**Architecture:**
-```
-Frontend: React 18 + Vite + Tailwind
-  ├─ Commit Event Stream (live GitHub webhooks)
-  ├─ Provenance Extraction (identify code origin: AI Studio / IDE / CLI / Human)
-  ├─ Agentic Triage Queue (simulated OpenClaw layer)
-  └─ CI/CD Control Panel (manage Actions)
-
-Backend: FastAPI (not yet deployed)
-  └─ Event ingestion from GitHub
-  
-Database: Supabase pgvector
-  └─ Event logs + embeddings
-```
-
-**Key Innovation:**
-- Auto-setup system detects missing env vars and shows step-by-step guides
-- Alerts disappear when integrations complete (no clutter)
-- Provenance field distinguishes human commits from AI-generated ones
-
-**Gotchas:**
-- 🔒 GitHub PAT needs `repo` + `workflow` scopes for private repos + Actions control
-- ⚠️ React state resets on page refresh (needs Supabase for persistence)
-- 🚀 FastAPI backend NOT YET DEPLOYED (needed for OpenClaw integration)
-
-**Reusable:** Template for any agentic CI/CD system monitoring code provenance.
-
----
-
-### Pattern: VPS vs Vercel Hosting Decision Matrix
-
-**EGOS Ecosystem Hosting Strategy (2026-03-25):**
-
-| Site | Current | Recommended | Cost | Build Speed | Webhooks |
-|------|---------|-------------|------|-------------|----------|
-| FORJA | Vercel | VPS | save $20/mo | 5s local → 30s Vercel | Fixed IP ✅ |
-| 852 | None | VPS | save $15/mo | 5s local → 30s Vercel | Fixed IP ✅ |
-| carteira-livre | Vercel | VPS | save $15/mo | 5s local → 30s Vercel | Fixed IP ✅ |
-| commons | Vercel | Keep | Published lib | N/A | N/A |
-| INPI | Vercel | Keep | Legal/compliance | Safe global CDN | N/A |
-
-**Rule of Thumb:**
-- **VPS if:** predictable traffic, webhooks needed (Evolution API), cost-sensitive
-- **Vercel if:** rapid iteration, geographic redundancy needed, DevOps-free
-
-**Cost Savings:** ~$60-100/mo by migrating core apps to VPS 217.216.95.126.
-
----
-
-### Pattern: EGOS Agent Orchestration via Router/Supervisor
-
-**New Architecture (from BLUEPRINT-EGOS):**
-```
-EGOS Kernel (Central Router)
-  ├─ Forja (Code generation + factory)
-  ├─ 852 (Secure chatbot + LLM routing)
-  ├─ Gem Hunter (Web scraping + OSINT, Cloudflare bypass)
-  └─ ATRiAN (Ethical validation gate at every layer)
-```
-
-**No agent does everything.** Each agent is composable:
-- 852 needs external data? → Kernel delegates to Gem Hunter
-- Gem Hunter finds interesting code? → Kernel calls Forja to generate report
-- Before returning anything? → Kernel validates through ATRiAN
-
-**Key Insight:** Lightweight MCP-based design (playwright-mcp for web automation) uses **90% less resources** than heavy OpenClaw while maintaining full control and security.
-
----
-
-### Learning: Session Continuation & Context
-
-**Challenge:** Previous session hit context limit. This session resumed from a .jsonl handoff file.
-
-**What Worked:**
-- Detailed SESSION_SUMMARY.md saved last session captured 100+ data points
-- git history + git log provided exact commit diffs
-- Memory system (HARVEST.md + triggers.json) preserved all patterns
-
-**Improvement:** Multi-session sprints now trackable via `/end` handoff files rather than relying solely on memory.
-
+- Terminal-first non-interactive lane.
+- Browser/UI validation depends on explicit browser tool availability.
+- Home sync state (`~/.egos`) may reset across runs; re-run sync/check when drift appears.

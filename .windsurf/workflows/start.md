@@ -39,6 +39,7 @@ Present to user:
 - **Recent commits:** Last 5 commits
 - **Meta-prompts:** Count loaded + active triggers
 - **Codex:** Availability + pending cloud tasks + chosen mode (cloud vs local read-only)
+- **Codex Limitations:** explicitly disclose lane constraints (non-interactive defaults, browser-tool dependency, possible ephemeral `~/.egos` state)
 - **Alibaba:** Availability + chosen orchestrator provider/model
 - **Research:** Latest gem-hunter/report state or `N/A` for kernel repos without those surfaces
 - **Orchestration:** "Pipeline active. Refinery ready. Gate threshold: 75."

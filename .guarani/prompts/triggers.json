@@ -2,71 +2,184 @@
   "_version": "1.2.0",
   "_system": "EGOS Meta-Prompt Trigger System",
   "description": "Maps situations/keywords to the appropriate meta-prompt",
-  "updated": "2026-03-25",
+  "updated": "2026-03-26",
   "triggers": [
     {
       "id": "strategy.universal",
       "file": "meta/universal-strategist.md",
-      "keywords": ["decisão estratégica", "negociação", "conflito", "investimento", "game theory", "análise de cenário", "competição", "cooperação", "dilema"],
-      "situations": ["Facing a strategic decision with multiple players", "Negotiation with information asymmetry", "Investment/resource allocation under uncertainty"],
+      "keywords": [
+        "decisão estratégica",
+        "negociação",
+        "conflito",
+        "investimento",
+        "game theory",
+        "análise de cenário",
+        "competição",
+        "cooperação",
+        "dilema"
+      ],
+      "situations": [
+        "Facing a strategic decision with multiple players",
+        "Negotiation with information asymmetry",
+        "Investment/resource allocation under uncertainty"
+      ],
       "priority": "high",
-      "apps": ["all"]
+      "apps": [
+        "all"
+      ]
     },
     {
       "id": "intelligence.brainet",
       "file": "meta/brainet-collective.md",
-      "keywords": ["brainstorm", "inteligência coletiva", "rede", "multi-perspectiva", "dissolução de ego", "decisão em grupo", "emergência"],
-      "situations": ["Multiple stakeholders with different expertise", "Problem too complex for single perspective", "Need to synthesize contradictory viewpoints"],
+      "keywords": [
+        "brainstorm",
+        "inteligência coletiva",
+        "rede",
+        "multi-perspectiva",
+        "dissolução de ego",
+        "decisão em grupo",
+        "emergência"
+      ],
+      "situations": [
+        "Multiple stakeholders with different expertise",
+        "Problem too complex for single perspective",
+        "Need to synthesize contradictory viewpoints"
+      ],
       "priority": "medium",
-      "apps": ["all"]
+      "apps": [
+        "all"
+      ]
     },
     {
       "id": "systems.mycelium",
       "file": "meta/mycelium-orchestrator.md",
-      "keywords": ["mycelium", "micélio", "teia", "mesh", "sync", "sincronizar sistema", "auto melhorar", "auto-melhoria", "workflow periódico"],
-      "situations": ["Need to sync multiple system surfaces", "Need recursive architecture improvement", "Need to compare narrative vs live system reality"],
+      "keywords": [
+        "mycelium",
+        "micélio",
+        "teia",
+        "mesh",
+        "sync",
+        "sincronizar sistema",
+        "auto melhorar",
+        "auto-melhoria",
+        "workflow periódico"
+      ],
+      "situations": [
+        "Need to sync multiple system surfaces",
+        "Need recursive architecture improvement",
+        "Need to compare narrative vs live system reality"
+      ],
       "priority": "high",
-      "apps": ["all"]
+      "apps": [
+        "all"
+      ]
     },
     {
       "id": "audit.ecosystem",
       "file": "meta/ecosystem-audit.md",
-      "keywords": ["auditoria", "diagnóstico", "análise de repo", "reverse engineering", "code review"],
-      "situations": ["Onboarding to a new codebase", "Periodic health check", "Cross-repo analysis"],
+      "keywords": [
+        "auditoria",
+        "diagnóstico",
+        "análise de repo",
+        "reverse engineering",
+        "code review"
+      ],
+      "situations": [
+        "Onboarding to a new codebase",
+        "Periodic health check",
+        "Cross-repo analysis"
+      ],
       "priority": "medium",
-      "apps": ["all"]
+      "apps": [
+        "all"
+      ]
     },
     {
       "id": "debate.tsun-cha",
       "file": "../philosophy/TSUN_CHA_PROTOCOL.md",
-      "keywords": ["questionar", "verificar", "debate", "lógica", "falácia", "contradição", "pramana"],
-      "situations": ["AI assertion needs validation", "Hypothesis testing", "Logical inconsistency detected"],
+      "keywords": [
+        "questionar",
+        "verificar",
+        "debate",
+        "lógica",
+        "falácia",
+        "contradição",
+        "pramana"
+      ],
+      "situations": [
+        "AI assertion needs validation",
+        "Hypothesis testing",
+        "Logical inconsistency detected"
+      ],
       "priority": "high",
-      "apps": ["intelink", "agents", "all"]
+      "apps": [
+        "intelink",
+        "agents",
+        "all"
+      ]
     },
     {
       "id": "extraction.police",
       "file": "../../apps/intelink/lib/intelink/meta-prompts.ts",
-      "keywords": ["extrair", "BO", "ocorrência", "depoimento", "documento policial", "REDS"],
-      "situations": ["Police document uploaded", "Need to extract entities from text", "Forensic analysis of testimony"],
+      "keywords": [
+        "extrair",
+        "BO",
+        "ocorrência",
+        "depoimento",
+        "documento policial",
+        "REDS"
+      ],
+      "situations": [
+        "Police document uploaded",
+        "Need to extract entities from text",
+        "Forensic analysis of testimony"
+      ],
       "priority": "high",
-      "apps": ["intelink"]
+      "apps": [
+        "intelink"
+      ]
     },
     {
       "id": "engineering.prompt",
       "file": "../../.windsurf/workflows/prompt.md",
-      "keywords": ["criar prompt", "system prompt", "instrução AI", "meta-prompt", "prompt engineering"],
-      "situations": ["Building a new AI prompt", "Improving existing prompt", "Creating agent instructions"],
+      "keywords": [
+        "criar prompt",
+        "system prompt",
+        "instrução AI",
+        "meta-prompt",
+        "prompt engineering"
+      ],
+      "situations": [
+        "Building a new AI prompt",
+        "Improving existing prompt",
+        "Creating agent instructions"
+      ],
       "priority": "medium",
-      "apps": ["all"]
+      "apps": [
+        "all"
+      ]
     },
     {
-      "id": "activation.egos-governance",
-      "file": "meta/egos-activation-governance.md",
-      "keywords": ["ativar egos", "/start", "diagnóstico do sistema", "meta prompt de ativação", "atrian"],
-      "situations": ["Activating EGOS in a new environment", "Need evidence-first health check", "Need ethical gate before recommendations"],
+      "id": "design.stitch",
+      "file": "../../.windsurf/workflows/stitch.md",
+      "keywords": [
+        "google stitch",
+        "stitch",
+        "tela",
+        "ui",
+        "wireframe",
+        "figma",
+        "zip da tela"
+      ],
+      "situations": [
+        "Designing a new screen",
+        "Refining UX before coding",
+        "Importing externally generated Stitch zip"
+      ],
       "priority": "high",
-      "apps": ["all"]
+      "apps": [
+        "all"
+      ]
     }
   ]
 }

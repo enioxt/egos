@@ -16,6 +16,7 @@ that makes agents think like governed systems.
   with cost tracking and provider abstraction
 - **Frozen Zones** — Protected core files with pre-commit enforcement
 - **SSOT Enforcement** — File size limits, drift checks, and gitleaks
+- **Stitch-First UI Flow** — Screen ideation through Google Stitch with prompt-pack + `.zip` intake contract before coding
 
 ## Quick Start
 
