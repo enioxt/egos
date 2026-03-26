@@ -4,6 +4,13 @@
 
 ---
 
+### Summary: Session 2026-03-26 (CI Troubleshooting)
+
+**Completed:**
+- [x] EGOS-122: Fix CI error "frozen zones check exits 128" in `.github/workflows/ci.yml` — root cause: bash syntax error in GitHub Actions variable expansion; applied quickfix to line 50 (added error handling for git diff) + improved messaging
+
+---
+
 ### Summary: Session 2026-03-25
 
 **Completed:**
