@@ -1,0 +1,382 @@
+name: Spec-Pipeline Workflow
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled]
+  pull_request_review:
+    types: [submitted]
+  schedule:
+    # SLA tracking: Check every hour for SLA violations
+    - cron: '0 * * * *'
+
+jobs:
+  spec-pipeline-validate:
+    name: Spec-Pipeline Validation
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'spec-pipeline') || contains(github.event.label.name, 'spec-pipeline')
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Detect current stage
+        id: detect-stage
+        run: |
+          LABELS="${{ join(github.event.pull_request.labels.*.name, ' ') }}"
+
+          if echo "$LABELS" | grep -q "spec-stage:analyst"; then
+            echo "stage=analyst" >> $GITHUB_OUTPUT
+          elif echo "$LABELS" | grep -q "spec-stage:pm"; then
+            echo "stage=pm" >> $GITHUB_OUTPUT
+          elif echo "$LABELS" | grep -q "spec-stage:architect"; then
+            echo "stage=architect" >> $GITHUB_OUTPUT
+          elif echo "$LABELS" | grep -q "spec-stage:sm"; then
+            echo "stage=sm" >> $GITHUB_OUTPUT
+          else
+            echo "stage=analyst" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Initialize PR context for agent
+        id: pr-context
+        run: |
+          cat > /tmp/pr_context.json <<'EOF'
+          {
+            "pull_request": {
+              "number": ${{ github.event.pull_request.number }},
+              "title": "${{ github.event.pull_request.title }}",
+              "body": ${{ toJson(github.event.pull_request.body) }},
+              "labels": ${{ toJson(github.event.pull_request.labels.*.name) }},
+              "draft": ${{ github.event.pull_request.draft }},
+              "created_at": "${{ github.event.pull_request.created_at }}",
+              "updated_at": "${{ github.event.pull_request.updated_at }}"
+            }
+          }
+          EOF
+          echo "path=/tmp/pr_context.json" >> $GITHUB_OUTPUT
+
+      - name: Validate mandatory fields
+        id: validate
+        run: |
+          bun run agents/agents/spec-router.ts validate "${{ steps.pr-context.outputs.path }}" 2>&1 | tee /tmp/validation_output.txt
+          if grep -q "validation failed\|Missing evidence fields" /tmp/validation_output.txt; then
+            echo "valid=false" >> $GITHUB_OUTPUT
+          else
+            echo "valid=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Set validation check
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const stage = '${{ steps.detect-stage.outputs.stage }}';
+            const isValid = '${{ steps.validate.outputs.valid }}' === 'true';
+            const stageNames = {
+              analyst: 'Specification Review',
+              pm: 'Product Review',
+              architect: 'Architecture Review',
+              sm: 'Stakeholder Markup'
+            };
+
+            github.rest.checks.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              name: `Spec-Pipeline: ${stageNames[stage]}`,
+              head_sha: context.payload.pull_request.head.sha,
+              status: 'completed',
+              conclusion: isValid ? 'success' : 'failure',
+              output: {
+                title: isValid ? '✅ Mandatory fields validated' : '❌ Mandatory fields missing',
+                summary: `Stage: ${stage}\nAll required evidence fields present: ${isValid}`,
+                text: `See spec-router validation output for details.`
+              }
+            });
+
+  spec-pipeline-route:
+    name: Route to Next Stage
+    runs-on: ubuntu-latest
+    if: |
+      contains(github.event.pull_request.labels.*.name, 'spec-pipeline') &&
+      github.event.action == 'synchronize' ||
+      github.event_name == 'pull_request_review'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Get approval count for current stage
+        id: approvals
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const reviews = await github.rest.pulls.listReviews({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            });
+
+            const approvals = reviews.data.filter(r => r.state === 'APPROVED').length;
+            const changes = reviews.data.filter(r => r.state === 'CHANGES_REQUESTED').length;
+
+            core.setOutput('approval-count', approvals.toString());
+            core.setOutput('changes-requested', changes.toString());
+
+      - name: Check if stage complete
+        id: stage-complete
+        run: |
+          APPROVALS=${{ steps.approvals.outputs.approval-count }}
+          LABELS="${{ join(github.event.pull_request.labels.*.name, ' ') }}"
+
+          # Determine required approvals for current stage
+          if echo "$LABELS" | grep -q "spec-stage:sm"; then
+            REQUIRED=1
+          else
+            REQUIRED=2
+          fi
+
+          if [ "$APPROVALS" -ge "$REQUIRED" ]; then
+            echo "complete=true" >> $GITHUB_OUTPUT
+            echo "required=$REQUIRED" >> $GITHUB_OUTPUT
+          else
+            echo "complete=false" >> $GITHUB_OUTPUT
+            echo "required=$REQUIRED" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Transition to next stage
+        if: steps.stage-complete.outputs.complete == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const labels = context.payload.pull_request.labels.map(l => l.name);
+            const stageOrder = ['analyst', 'pm', 'architect', 'sm'];
+
+            let currentStage = null;
+            for (const stage of stageOrder) {
+              if (labels.includes(`spec-stage:${stage}`)) {
+                currentStage = stage;
+                break;
+              }
+            }
+
+            if (!currentStage) {
+              currentStage = 'analyst';
+            }
+
+            const currentIndex = stageOrder.indexOf(currentStage);
+
+            // Remove current stage label
+            await github.rest.issues.removeLabel({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              name: `spec-stage:${currentStage}`
+            });
+
+            // Add next stage label if not final
+            if (currentIndex < stageOrder.length - 1) {
+              const nextStage = stageOrder[currentIndex + 1];
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                labels: [`spec-stage:${nextStage}`]
+              });
+
+              // Post handoff comment
+              const handoffComments = {
+                analyst: 'Product review is ready. Assigning to @egos/pms for business impact assessment.',
+                pm: 'Architecture review ready. Assigning to @egos/architects for technical validation.',
+                architect: 'Scrum Master review ready. Assigning to @egos/scrum-masters for resource and timeline confirmation.',
+                sm: 'READY FOR IMPLEMENTATION ✅ This specification is approved.'
+              };
+
+              const stageNames = {
+                analyst: 'SPECIFICATION',
+                pm: 'PRODUCT REVIEW',
+                architect: 'ARCHITECTURE REVIEW',
+                sm: 'STAKEHOLDER MARKUP'
+              };
+
+              github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: `## [${stageNames[currentStage]}] HANDOFF — ${new Date().toISOString().split('T')[0]}\n\n✅ **Status:** ${stageNames[currentStage]} stage complete with required approvals.\n\n### Summary\n[Please fill in: Brief summary of what was reviewed and approved]\n\n### Evidence Links\n[Please fill in: Links to supporting evidence]\n\n### Next Stage Prepared\n${handoffComments[nextStage]}\n\n### Reviewer Attribution\n- Approved by: @[reviewer1], @[reviewer2]\n- Decision timestamp: ${new Date().toISOString()}`
+              });
+            } else {
+              // Final stage (SM) — mark as complete
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                labels: ['spec-complete', 'ready-to-merge']
+              });
+
+              github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: `## SPEC-PIPELINE COMPLETE ✅\n\n**Status:** All stages approved and completed\n**Ready for:** Implementation phase\n\n### Final Approvals\n- Analyst: ✅\n- Product Manager: ✅\n- Architect: ✅\n- Scrum Master: ✅\n\n### Next Steps\n1. Merge this specification PR\n2. Create implementation Epic with this spec as reference\n3. Decompose into implementation tasks\n4. Link implementation PR to this spec via "Closes #${context.issue.number}" reference`
+              });
+            }
+
+  spec-pipeline-sla-check:
+    name: Track SLA Status
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'spec-pipeline')
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Check SLA for current stage
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const SLA_HOURS = 24;
+            const pr = context.payload.pull_request;
+            const labels = pr.labels.map(l => l.name);
+
+            // Find current stage
+            const stageOrder = ['analyst', 'pm', 'architect', 'sm'];
+            let currentStage = null;
+            for (const stage of stageOrder) {
+              if (labels.includes(`spec-stage:${stage}`)) {
+                currentStage = stage;
+                break;
+              }
+            }
+
+            if (!currentStage) {
+              currentStage = 'analyst';
+            }
+
+            // Find when this stage started (look for last handoff comment)
+            const comments = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number
+            });
+
+            let stageStartTime = new Date(pr.created_at);
+            const currentStageIndex = stageOrder.indexOf(currentStage);
+
+            // Find the most recent handoff comment from previous stage
+            if (currentStageIndex > 0) {
+              const previousStage = stageOrder[currentStageIndex - 1];
+              for (let i = comments.data.length - 1; i >= 0; i--) {
+                if (comments.data[i].body.includes(`${previousStage.toUpperCase()} HANDOFF`)) {
+                  stageStartTime = new Date(comments.data[i].created_at);
+                  break;
+                }
+              }
+            }
+
+            const now = new Date();
+            const elapsedHours = (now - stageStartTime) / (1000 * 60 * 60);
+            const exceeded = elapsedHours > SLA_HOURS;
+            const remaining = Math.max(0, Math.ceil(SLA_HOURS - elapsedHours));
+
+            let slaStatus = `✅ SLA OK (${remaining}h remaining)`;
+            if (remaining <= 4) {
+              slaStatus = `⚠️ SLA WARNING (${remaining}h remaining)`;
+            }
+            if (exceeded) {
+              slaStatus = `⏱️ SLA EXCEEDED (${Math.ceil(elapsedHours)}h elapsed, limit: ${SLA_HOURS}h)`;
+            }
+
+            // Get approval counts
+            const reviews = await github.rest.pulls.listReviews({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            });
+
+            const approvals = reviews.data.filter(r => r.state === 'APPROVED').length;
+            const requiredApprovals = currentStage === 'sm' ? 1 : 2;
+
+            const statusBody = `## SLA Status Update — ${now.toISOString().split('T')[0]}\n\n` +
+              `| Item | Status |\n` +
+              `|------|--------|\n` +
+              `| **Current Stage** | ${currentStage} |\n` +
+              `| **Stage Started** | ${stageStartTime.toISOString()} |\n` +
+              `| **Elapsed Time** | ${Math.ceil(elapsedHours)}h |\n` +
+              `| **SLA Limit** | ${SLA_HOURS}h |\n` +
+              `| **SLA Status** | ${slaStatus} |\n` +
+              `| **Approvals** | ${approvals}/${requiredApprovals} |\n\n` +
+              `**No action required.** This is an automated SLA tracking update.`;
+
+            // Only post if SLA is violated (to avoid spam)
+            if (exceeded) {
+              github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: statusBody
+              });
+            }
+
+  spec-pipeline-merge-block:
+    name: Enforce Merge Requirements
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'spec-pipeline')
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const labels = context.payload.pull_request.labels.map(l => l.name);
+
+            // Block merge if:
+            // 1. Has spec-pipeline label but NOT spec-complete label
+            // 2. Has pending stage label
+
+            const hasSpecPipeline = labels.includes('spec-pipeline');
+            const isSpecComplete = labels.includes('spec-complete');
+            const hasPendingStage = ['analyst', 'pm', 'architect', 'sm'].some(
+              stage => labels.includes(`spec-stage:${stage}`)
+            );
+
+            if (hasSpecPipeline && !isSpecComplete && hasPendingStage) {
+              github.rest.checks.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                name: 'Spec-Pipeline Completion Gate',
+                head_sha: context.payload.pull_request.head.sha,
+                status: 'completed',
+                conclusion: 'failure',
+                output: {
+                  title: '🚫 Spec-Pipeline Incomplete',
+                  summary: 'All stages must be completed and approved before merge.',
+                  text: 'Add all mandatory evidence, obtain approvals, and complete all stages.'
+                }
+              });
+            } else if (isSpecComplete) {
+              github.rest.checks.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                name: 'Spec-Pipeline Completion Gate',
+                head_sha: context.payload.pull_request.head.sha,
+                status: 'completed',
+                conclusion: 'success',
+                output: {
+                  title: '✅ Spec-Pipeline Complete',
+                  summary: 'All stages approved. Ready to merge.',
+                  text: ''
+                }
+              });
+            }

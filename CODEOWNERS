@@ -1,0 +1,102 @@
+# CODEOWNERS: EGOS Project Role-Based Access Control
+#
+# This file defines team ownership for code review workflows.
+# Used by GitHub for automatic reviewer assignment.
+#
+# Spec-Pipeline Workflow Roles:
+# - @egos/analysts — Specification review (Stage 1)
+# - @egos/pms — Product/business review (Stage 2)
+# - @egos/architects — Technical architecture review (Stage 3)
+# - @egos/scrum-masters — Resource & timeline review (Stage 4)
+#
+# Note: These teams should be configured in your GitHub organization.
+# Example team creation:
+#   gh team create analysts --description "Specification reviewers"
+#   gh team create pms --description "Product managers"
+#   gh team create architects --description "Architects"
+#   gh team create scrum-masters --description "Scrum masters"
+
+# =============================================================================
+# SPEC-PIPELINE WORKFLOW ROLES
+# =============================================================================
+
+# Specification documents
+docs/spec*.md @egos/analysts
+.guarani/orchestration/SPEC_PIPELINE_CONTRACT.md @egos/architects
+
+# Product review documents
+docs/product*.md @egos/pms
+docs/roadmap*.md @egos/pms
+
+# Architecture documents
+docs/architecture/ @egos/architects
+docs/api/ @egos/architects
+
+# GitHub Actions for spec-pipeline
+.github/workflows/spec-pipeline.yml @egos/architects
+
+# Router agent
+agents/agents/spec-router.ts @egos/architects
+
+# =============================================================================
+# CORE GOVERNANCE & INFRASTRUCTURE
+# =============================================================================
+
+# Frozen zones: require architect approval
+agents/runtime/runner.ts @egos/architects
+agents/runtime/event-bus.ts @egos/architects
+.husky/pre-commit @egos/architects
+
+# Worktree contract: architect + SM approval
+.guarani/orchestration/WORKTREE_CONTRACT.md @egos/architects @egos/scrum-masters
+.guarani/worktrees.json @egos/scrum-masters
+
+# Standards and preferences
+.guarani/PREFERENCES.md @egos/architects
+.guarani/ENGINEERING_STANDARDS_2026.md @egos/architects
+.windsurfrules @egos/architects
+
+# Main configuration
+.github/ @egos/architects
+.gitignore @egos/architects
+
+# =============================================================================
+# PROJECT DOCUMENTATION
+# =============================================================================
+
+# High-level guides
+README.md @egos/architects @egos/pms
+CONTRIBUTING.md @egos/architects
+AGENTS.md @egos/architects
+
+# Blueprints and plans
+BLUEPRINT_EXECUTION_PLAN.md @egos/architects @egos/scrum-masters
+INTEGRATIONS_VISUAL_MAP.txt @egos/architects
+
+# =============================================================================
+# AGENTS & AUTOMATION
+# =============================================================================
+
+# All agent code
+agents/ @egos/architects
+
+# Workflows
+.agents/workflows/ @egos/architects
+.windsurf/workflows/ @egos/architects
+
+# Tests
+tests/ @egos/architects
+
+# =============================================================================
+# APPLICATION CODE
+# =============================================================================
+
+# Apps directory
+apps/ @egos/architects @egos/pms
+
+# =============================================================================
+# DEFAULT FALLBACK
+# =============================================================================
+
+# Catch-all: require architect review
+* @egos/architects

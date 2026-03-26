@@ -33,7 +33,10 @@
     "ssot:link": "sh scripts/link-ssot-files.sh --dry",
     "ssot:link:exec": "sh scripts/link-ssot-files.sh --exec",
     "test": "bun test packages/shared/src/__tests__/",
-    "activation:check": "bun scripts/activation-check.ts"
+    "activation:check": "bun scripts/activation-check.ts",
+    "doctor": "bun scripts/doctor.ts",
+    "doctor:codex": "sh scripts/codex-doctor.sh",
+    "doctor:fix": "bun scripts/doctor.ts --fix"
   },
   "devDependencies": {
     "@types/bun": "^1.2.0",

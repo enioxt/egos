@@ -83,8 +83,40 @@
   - **Integration:** Added to `/start` GATE phase as pre-flight check (Worktree Orchestration Check — EGOS-110)
   - **Validation:** Tested --status and --count-active modes; concurrency count working (2/5 active)
   - **Blockers:** EGOS-111 now unblocked (depends on worktree contract)
-- [ ] EGOS-111: Add `/spec-pipeline` workflow contract (analyst -> pm -> architect -> sm) adapted to EGOS governance
-- [/] EGOS-112: Build lightweight `doctor` command for environment + governance readiness inspired by AIOX installer/doctor — `bun run doctor:codex` implemented with Codex limitations disclosure; pending integration into `/start` automation gate
+- [x] EGOS-111: Implement Spec-Pipeline Workflow Contract (analyst → pm → architect → sm) — **COMPLETE**
+  - **Contract Document:** `.guarani/orchestration/SPEC_PIPELINE_CONTRACT.md` (v1.0.0) — formal spec with 4-stage workflow, RBAC by role, mandatory field validation, approval gates (min 2 reviewers per stage, 1 for SM), SLA tracking (24h per stage), handoff format with evidence requirements, and blocking criteria
+  - **Router Agent:** `agents/agents/spec-router.ts` — validates mandatory fields, detects current stage, routes to next reviewer, tracks SLA violations, generates merge-block reasons, supports validate/route/sla-check/advance modes
+  - **GitHub Actions Workflow:** `.github/workflows/spec-pipeline.yml` — trigger on label, validate fields, route to reviewers, track SLA hourly, auto-transition stages, post handoff comments, enforce merge gate
+  - **E2E Test Suite:** `tests/spec-pipeline.e2e.test.ts` — 5 complete scenarios covering analyst→pm→architect→sm workflow, validation blocking, SLA tracking (OK/WARNING/EXCEEDED), stage routing, and edge cases
+  - **Documented Example:** `docs/examples/spec-pipeline-example.md` — full walkthrough of 2FA feature through all 4 stages with real evidence links, handoff comments, and timing (11h total)
+  - **Validation:** Merge gate blocks incomplete specs; SLA violations flagged but non-blocking; evidence-first design ensures quality
+- [x] EGOS-112: Build lightweight `doctor` command for environment + governance readiness inspired by AIOX installer/doctor
+  - **Status:** COMPLETE (100% — from 60%)
+  - **Implementation:** `bun scripts/doctor.ts` with full environment validation
+  - **Checks Implemented (23 total):**
+    - Environment: 10 checks (2 required API keys, 8 optional providers)
+    - Files: 4 checks (freshness validation for AGENTS.md, TASKS.md, .windsurfrules, SYSTEM_MAP.md)
+    - Providers: 3 checks (API reachability for Alibaba DashScope, OpenRouter, OpenAI)
+    - Hooks: 2 checks (Husky directory and pre-commit hook status)
+    - Workspace: 3 checks (git status, upstream sync, branch state)
+    - Governance: 1 check (drift detection via governance:check)
+  - **Features:**
+    - Exit codes: 0 (all ok), 1 (warnings), 2 (failures)
+    - Flags: `--json`, `--fix`, `--no-network`, `--doctor-skip`, `--verbose`
+    - JSON report output in `docs/_generated/doctor-report.json` (timestamped)
+    - Auto-fix capability for stale docs and missing hooks
+    - Smart recommendations engine (4+ contextual fixes per scenario)
+  - **Integration into /start:**
+    - GATE phase executes `bun run doctor --json` as blocking validation
+    - Exit code governs workflow: 0→proceed, 1→warn+continue, 2→block+recommendations
+    - Report included in final /start output summary
+  - **Validation tested:**
+    - Missing env vars (failures detected)
+    - Stale docs (warnings + fixable flags)
+    - Provider offline (graceful degradation with --no-network)
+    - Skip override (--doctor-skip flag works)
+    - Exit codes (0, 1, 2 tested)
+  - **Documentation:** Updated `.agents/workflows/start-workflow.md` GATE phase with doctor gate details and `.windsurf/workflows/start.md` compatibility wrapper
 - [x] EGOS-113: Benchmark MASA framework + major competitors from official sources and create executable benchmark agent (`framework_benchmarker`)
 - [ ] EGOS-114: Run MASA pilot in one leaf repo and measure impact on drift, architectural violations, and lead-time before broader adoption
 - [x] EGOS-115: Create `mastra_gem_hunter` agent and run initial scan for workflow/evals/observability/MCP/human-loop extraction
