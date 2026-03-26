@@ -75,7 +75,14 @@
 - [x] EGOS-107: Define and activate Stitch-first UI contract (`/stitch`) — prompt generation in EGOS lane, external creation in Google Stitch, and `.zip` intake mapping before implementation
 - [ ] EGOS-108: Build `stitch_intake_mapper` agent to parse returned `.zip`, generate mapping table, and create integration tasks automatically
 - [x] EGOS-109: Run full AIOX (`SynkraAI/aiox-core`) gem diagnosis against EGOS + NotebookLM export and codify keep/drop recommendations
-- [ ] EGOS-110: Implement `Worktree Orchestration Contract` draft from AIOX/workflow benchmark and validate with `pr:gate` evidence
+- [x] EGOS-110: Implement `Worktree Orchestration Contract` from AIOX/workflow benchmark — **COMPLETE**
+  - **Contract Document:** `.guarani/orchestration/WORKTREE_CONTRACT.md` (v1.0.0) — formal spec with naming rules (regex), ownership model, lifecycle state machine, merge gates, concurrency limits (max 5), and JSON report schema
+  - **Validation Script:** `scripts/worktree-validator.ts` — enforces branch naming, ownership locks, frozen zone checks, lifecycle validation, and concurrency limits; supports --pre-commit, --ci, --status, --cleanup modes
+  - **Metadata Registry:** `.guarani/worktrees.json` — ownership tracking with created_at, last_commit, status, files_touched, issue_link per worktree
+  - **Functional Examples:** 4 active worktrees recorded (feature/worktree-validator, fix/ci-error-frozen-zones, docs/orchestration-guide, test/worktree-validation-examples)
+  - **Integration:** Added to `/start` GATE phase as pre-flight check (Worktree Orchestration Check — EGOS-110)
+  - **Validation:** Tested --status and --count-active modes; concurrency count working (2/5 active)
+  - **Blockers:** EGOS-111 now unblocked (depends on worktree contract)
 - [ ] EGOS-111: Add `/spec-pipeline` workflow contract (analyst -> pm -> architect -> sm) adapted to EGOS governance
 - [/] EGOS-112: Build lightweight `doctor` command for environment + governance readiness inspired by AIOX installer/doctor — `bun run doctor:codex` implemented with Codex limitations disclosure; pending integration into `/start` automation gate
 - [x] EGOS-113: Benchmark MASA framework + major competitors from official sources and create executable benchmark agent (`framework_benchmarker`)

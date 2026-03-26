@@ -1,0 +1,50 @@
+{
+  "worktrees": [
+    {
+      "branch": "feature/worktree-validator",
+      "owner": "architect@egos.local",
+      "created_at": "2026-03-26T14:30:00Z",
+      "last_commit": "2026-03-26T16:45:00Z",
+      "status": "active",
+      "files_touched": [
+        ".guarani/orchestration/WORKTREE_CONTRACT.md",
+        "scripts/worktree-validator.ts"
+      ],
+      "issue_link": "EGOS-110"
+    },
+    {
+      "branch": "fix/ci-error-frozen-zones",
+      "owner": "devops@egos.local",
+      "created_at": "2026-03-24T10:15:00Z",
+      "last_commit": "2026-03-26T09:30:00Z",
+      "status": "active",
+      "files_touched": [
+        ".github/workflows/ci.yml"
+      ],
+      "issue_link": "EGOS-122"
+    },
+    {
+      "branch": "docs/orchestration-guide",
+      "owner": "architect@egos.local",
+      "created_at": "2026-03-22T08:00:00Z",
+      "last_commit": "2026-03-25T14:20:00Z",
+      "status": "active",
+      "files_touched": [
+        "docs/KERNEL_MISSION_CONTROL.md",
+        "README.md"
+      ],
+      "issue_link": "EGOS-075"
+    },
+    {
+      "branch": "test/worktree-validation-examples",
+      "owner": "qa@egos.local",
+      "created_at": "2026-03-26T12:00:00Z",
+      "last_commit": "2026-03-26T15:30:00Z",
+      "status": "active",
+      "files_touched": [
+        "packages/shared/src/__tests__/worktree.test.ts"
+      ],
+      "issue_link": "EGOS-110"
+    }
+  ]
+}
