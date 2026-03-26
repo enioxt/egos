@@ -88,15 +88,29 @@ Frozen zones check failing with exit code 128 (Git repository error).
 ### Status
 - **State**: Open since 2026-03-24
 - **Base**: older (sha: 7a29f6d...)
-- **Files**: Similar to PR #4 but earlier iteration
+- **Files**: 12 files modified/added
 
-### Observation
-PR #2 and PR #4 appear to be **overlapping work** on the same workflows. PR #4 is more recent and comprehensive.
+### File Comparison: PR #2 vs PR #4
+| File | PR #2 | PR #4 | Status |
+|------|-------|-------|--------|
+| `.agents/workflows/start-workflow.md` | ✅ | ✅ | Both have it |
+| `.agents/workflows/pr-prep.md` | ✅ | ✅ | Both have it |
+| `.agents/workflows/disseminate.md` | ✅ | ✅ | Both have it |
+| `.agents/workflows/mycelium.md` | ❌ | ✅ | **PR #4 only** |
+| `.guarani/prompts/meta/egos-activation-governance.md` | ❌ | ✅ | **PR #4 only** |
+| `scripts/pr-ecosystem-audit.ts` | ❌ | ✅ | **PR #4 only** |
+| triggers.json v1.2.0 with activation trigger | ❌ | ✅ | **PR #4 only** |
+
+### Verdict
+**PR #2 is SUPERSEDED by PR #4**. PR #4 adds:
+1. `/mycelium` workflow for cross-repo mesh auditing
+2. EGOS activation meta-prompt with evidence-first contract
+3. PR ecosystem audit script for GitHub owner scanning
 
 ### Recommendation
-- Review if PR #2 is still needed or if PR #4 supersedes it
-- Consider closing PR #2 in favor of PR #4 (comment with explanation)
-- Or merge PR #2 first if it has complementary changes
+✅ **Close PR #2** with explanation that PR #4 is the canonical version and includes all changes plus additional governance improvements.
+
+**Close comment**: "This PR has been superseded by #4, which includes all changes from #2 plus additional governance automation (mycelium workflow, activation meta-prompt, and ecosystem audit tooling). Closing in favor of #4."
 
 ---
 
