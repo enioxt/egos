@@ -1,0 +1,806 @@
+{
+  "$schema": "./mcp-config.schema.json",
+  "version": "2.0.0",
+  "updated": "2026-03-26",
+  "description": "Centralized Model Context Protocol (MCP) server configuration for EGOS ecosystem",
+  "sacred_code": "000.111.369.963.1618",
+
+  "global": {
+    "maxConcurrentRequests": 20,
+    "defaultTimeout": 30000,
+    "retryPolicy": {
+      "maxAttempts": 3,
+      "backoffMultiplier": 2.0,
+      "initialDelayMs": 100
+    },
+    "monitoring": {
+      "enabled": true,
+      "metricsPath": "/tmp/egos-mcp-metrics.jsonl",
+      "healthCheckIntervalMs": 60000
+    }
+  },
+
+  "servers": [
+    {
+      "id": "supabase-db",
+      "name": "Supabase Database MCP",
+      "type": "database",
+      "description": "Query and manage Supabase PostgreSQL databases (FORJA, EGOS governance tables)",
+      "enabled": true,
+      "priority": 8,
+      "riskLevel": "T1",
+
+      "transport": {
+        "type": "http",
+        "url": "https://${SUPABASE_PROJECT}.supabase.co",
+        "headers": {
+          "Authorization": "Bearer env:SUPABASE_ANON_KEY",
+          "Content-Type": "application/json"
+        }
+      },
+
+      "auth": {
+        "type": "env",
+        "envVar": "SUPABASE_ANON_KEY",
+        "required": true
+      },
+
+      "tools": [
+        {
+          "name": "query_table",
+          "description": "Query rows from a table with optional filtering and limits",
+          "args": {
+            "table": "string",
+            "filter": "object?",
+            "limit": "number?",
+            "offset": "number?"
+          }
+        },
+        {
+          "name": "introspect_schema",
+          "description": "Get database schema information for a table",
+          "args": {
+            "table": "string?"
+          }
+        },
+        {
+          "name": "execute_migration",
+          "description": "Run a SQL migration file against the database",
+          "args": {
+            "sqlPath": "string",
+            "env": "string?"
+          }
+        },
+        {
+          "name": "subscribe_realtime",
+          "description": "Subscribe to real-time changes on a table",
+          "args": {
+            "table": "string",
+            "event": "INSERT|UPDATE|DELETE"
+          }
+        },
+        {
+          "name": "get_rls_policies",
+          "description": "Retrieve Row-Level Security policies for a table",
+          "args": {
+            "table": "string?"
+          }
+        }
+      ],
+
+      "governance": {
+        "allowedTables": [
+          "vision_events",
+          "vision_anomalies",
+          "baseline_sessions",
+          "cameras",
+          "tasks",
+          "agents",
+          "handoffs",
+          "sso_links",
+          "schema_information"
+        ],
+        "forbiddenOperations": [
+          "DROP TABLE",
+          "DELETE FROM",
+          "TRUNCATE"
+        ]
+      },
+
+      "performance": {
+        "maxConcurrentCalls": 5,
+        "timeout": 30000,
+        "cacheTtlSeconds": 300,
+        "batchLimit": 1000
+      },
+
+      "healthCheck": {
+        "enabled": true,
+        "tool": "introspect_schema",
+        "args": {
+          "table": "schema_information"
+        },
+        "expectedStatusCode": 200
+      },
+
+      "testCases": [
+        {
+          "name": "can_introspect_schema",
+          "tool": "introspect_schema",
+          "args": { "table": "tasks" },
+          "expectedMinFields": 3
+        },
+        {
+          "name": "can_query_with_limit",
+          "tool": "query_table",
+          "args": { "table": "tasks", "limit": 5 },
+          "expectedFields": ["rows", "count"]
+        }
+      ]
+    },
+
+    {
+      "id": "llm-router",
+      "name": "LLM Router MCP",
+      "type": "llm",
+      "description": "Multi-provider LLM orchestration with cost tracking and intelligent model selection",
+      "enabled": true,
+      "priority": 9,
+      "riskLevel": "T0",
+
+      "transport": {
+        "type": "stdio",
+        "command": "node services/llm-router-mcp/index.js"
+      },
+
+      "auth": {
+        "type": "env",
+        "envVar": "LLM_ROUTER_SECRET",
+        "required": false
+      },
+
+      "tools": [
+        {
+          "name": "estimate_cost",
+          "description": "Estimate token usage and cost for a prompt",
+          "args": {
+            "prompt": "string",
+            "model": "string?"
+          }
+        },
+        {
+          "name": "select_model",
+          "description": "Select optimal model for a task based on criteria",
+          "args": {
+            "task": "string",
+            "criteria": "speed|cost|quality|balanced",
+            "maxCostUsd": "number?"
+          }
+        },
+        {
+          "name": "track_usage",
+          "description": "Record API call usage for billing",
+          "args": {
+            "model": "string",
+            "tokens": "number",
+            "costUsd": "number"
+          }
+        },
+        {
+          "name": "get_cost_summary",
+          "description": "Get cost summary for a time period",
+          "args": {
+            "period": "day|week|month",
+            "endDate": "ISO8601?"
+          }
+        },
+        {
+          "name": "check_budget",
+          "description": "Check if budget is available for operation",
+          "args": {
+            "estimatedCostUsd": "number"
+          }
+        }
+      ],
+
+      "models": {
+        "default": "alibaba/qwen-plus",
+        "configured": [
+          {
+            "provider": "alibaba",
+            "model": "qwen-plus",
+            "costPer1mTokens": 0.0005,
+            "tier": "fast-cheap"
+          },
+          {
+            "provider": "openrouter",
+            "model": "anthropic/claude-opus",
+            "costPer1mTokens": 15.0,
+            "tier": "premium"
+          },
+          {
+            "provider": "openrouter",
+            "model": "meta-llama/llama-2-70b",
+            "costPer1mTokens": 0.80,
+            "tier": "balanced"
+          }
+        ]
+      },
+
+      "performance": {
+        "maxConcurrentCalls": 10,
+        "timeout": 5000,
+        "cacheTtlSeconds": 60
+      },
+
+      "governance": {
+        "monthlyBudgetUsd": 100,
+        "perTaskMaxUsd": 10,
+        "alertThresholdPercent": 80
+      },
+
+      "healthCheck": {
+        "enabled": true,
+        "tool": "estimate_cost",
+        "args": {
+          "prompt": "hello",
+          "model": "alibaba/qwen-plus"
+        }
+      },
+
+      "testCases": [
+        {
+          "name": "can_estimate_cost",
+          "tool": "estimate_cost",
+          "args": { "prompt": "What is 2+2?" },
+          "expectedFields": ["tokens", "cost_usd", "model"]
+        },
+        {
+          "name": "can_track_usage",
+          "tool": "track_usage",
+          "args": { "model": "alibaba/qwen-plus", "tokens": 100, "costUsd": 0.001 }
+        }
+      ]
+    },
+
+    {
+      "id": "git-advanced",
+      "name": "Git Advanced MCP",
+      "type": "git",
+      "description": "Deep git analysis: blame tracking, merge history, governance drift detection",
+      "enabled": true,
+      "priority": 7,
+      "riskLevel": "T0",
+
+      "transport": {
+        "type": "stdio",
+        "command": "node services/git-advanced-mcp/index.js"
+      },
+
+      "auth": null,
+
+      "tools": [
+        {
+          "name": "blame_file",
+          "description": "Get authorship and attribution for each line in a file",
+          "args": {
+            "filePath": "string",
+            "since": "ISO8601?"
+          }
+        },
+        {
+          "name": "analyze_branch",
+          "description": "Get statistics about a git branch",
+          "args": {
+            "branchName": "string"
+          }
+        },
+        {
+          "name": "get_merge_history",
+          "description": "Retrieve merge commits and conflict resolution history",
+          "args": {
+            "branchName": "string?",
+            "limit": "number?"
+          }
+        },
+        {
+          "name": "detect_governance_drift",
+          "description": "Check if frozen zones or governance files were modified",
+          "args": {
+            "since": "ISO8601?"
+          }
+        },
+        {
+          "name": "validate_commit_messages",
+          "description": "Validate commit messages against governance rules",
+          "args": {
+            "branchName": "string?",
+            "since": "ISO8601?"
+          }
+        }
+      ],
+
+      "governance": {
+        "frozenZonesFile": "frozen-zones.md",
+        "commitMessagePattern": "^(feat|fix|docs|style|refactor|test|chore)(\\(.*\\))?!?: .{1,100}",
+        "auditRequired": ["frozen-zones.md", ".guarani/*", ".husky/*"]
+      },
+
+      "performance": {
+        "maxConcurrentCalls": 3,
+        "timeout": 60000,
+        "cacheTtlSeconds": 600
+      },
+
+      "healthCheck": {
+        "enabled": true,
+        "tool": "analyze_branch",
+        "args": {
+          "branchName": "main"
+        }
+      },
+
+      "testCases": [
+        {
+          "name": "can_analyze_branch",
+          "tool": "analyze_branch",
+          "args": { "branchName": "main" },
+          "expectedFields": ["branch", "commits", "contributors"]
+        },
+        {
+          "name": "can_detect_drift",
+          "tool": "detect_governance_drift",
+          "expectedFields": ["driftDetected", "files"]
+        }
+      ]
+    },
+
+    {
+      "id": "fs-watch",
+      "name": "Filesystem Watch MCP",
+      "type": "filesystem",
+      "description": "Real-time file monitoring, sync validation, governance drift detection",
+      "enabled": true,
+      "priority": 6,
+      "riskLevel": "T0",
+
+      "transport": {
+        "type": "stdio",
+        "command": "node services/fs-watch-mcp/index.js"
+      },
+
+      "auth": null,
+
+      "tools": [
+        {
+          "name": "watch_directory",
+          "description": "Monitor a directory for file changes",
+          "args": {
+            "path": "string",
+            "pattern": "string?",
+            "debounceMs": "number?"
+          }
+        },
+        {
+          "name": "check_sync_status",
+          "description": "Verify if file changes are synced across repos",
+          "args": {
+            "filePath": "string",
+            "targetRepos": "string[]"
+          }
+        },
+        {
+          "name": "validate_frozen_zones",
+          "description": "Check if frozen zone files have been modified",
+          "args": {
+            "since": "ISO8601?"
+          }
+        },
+        {
+          "name": "detect_governance_drift",
+          "description": "Detect unexpected changes to governance files",
+          "args": {
+            "governanceRoot": "string?"
+          }
+        },
+        {
+          "name": "resolve_symlinks",
+          "description": "Resolve symlinks to actual file paths",
+          "args": {
+            "path": "string"
+          }
+        }
+      ],
+
+      "governance": {
+        "watchedPaths": [
+          "/home/user/egos/.guarani",
+          "/home/user/egos/frozen-zones.md",
+          "/home/user/egos/docs/"
+        ],
+        "protectedFiles": [
+          "frozen-zones.md",
+          "AGENTS.md",
+          ".guarani/orchestration/PIPELINE.md",
+          "agents/runtime/*"
+        ]
+      },
+
+      "performance": {
+        "maxConcurrentCalls": 2,
+        "timeout": 10000,
+        "debounceMs": 500
+      },
+
+      "healthCheck": {
+        "enabled": true,
+        "tool": "watch_directory",
+        "args": {
+          "path": "/home/user/egos"
+        }
+      },
+
+      "testCases": [
+        {
+          "name": "can_watch_directory",
+          "tool": "watch_directory",
+          "args": { "path": "/tmp" }
+        }
+      ]
+    },
+
+    {
+      "id": "calendar",
+      "name": "Calendar & Schedule MCP",
+      "type": "calendar",
+      "description": "SLA tracking, sprint planning, deadline management",
+      "enabled": true,
+      "priority": 5,
+      "riskLevel": "T0",
+
+      "transport": {
+        "type": "http",
+        "url": "https://calendar.egos.ia.br/api"
+      },
+
+      "auth": {
+        "type": "env",
+        "envVar": "CALENDAR_API_KEY",
+        "required": false
+      },
+
+      "tools": [
+        {
+          "name": "get_sla_deadline",
+          "description": "Calculate SLA deadline for a task stage",
+          "args": {
+            "taskId": "string",
+            "stage": "analyst|pm|architect|sm",
+            "startTime": "ISO8601?"
+          }
+        },
+        {
+          "name": "track_milestone",
+          "description": "Record and track a sprint/release milestone",
+          "args": {
+            "name": "string",
+            "targetDate": "ISO8601",
+            "sprintId": "string?"
+          }
+        },
+        {
+          "name": "set_deadline_alert",
+          "description": "Configure notification before deadline",
+          "args": {
+            "deadlineTime": "ISO8601",
+            "alertMinutesBefore": "number",
+            "notificationChannels": "string[]"
+          }
+        },
+        {
+          "name": "get_sprint_plan",
+          "description": "Retrieve current sprint structure",
+          "args": {
+            "sprintId": "string?"
+          }
+        },
+        {
+          "name": "check_capacity",
+          "description": "Check team availability for commitment",
+          "args": {
+            "teamId": "string?",
+            "requiredHours": "number?"
+          }
+        }
+      ],
+
+      "governance": {
+        "slaHours": {
+          "analyst": 24,
+          "pm": 24,
+          "architect": 24,
+          "sm": 24
+        },
+        "sprintLengthDays": 14
+      },
+
+      "performance": {
+        "maxConcurrentCalls": 5,
+        "timeout": 15000,
+        "cacheTtlSeconds": 300
+      },
+
+      "healthCheck": {
+        "enabled": true,
+        "tool": "get_sprint_plan",
+        "expectedStatusCode": 200
+      },
+
+      "testCases": [
+        {
+          "name": "can_get_sla_deadline",
+          "tool": "get_sla_deadline",
+          "args": { "taskId": "EGOS-111", "stage": "analyst" },
+          "expectedFields": ["deadline", "hoursRemaining"]
+        }
+      ]
+    },
+
+    {
+      "id": "sequential-thinking",
+      "name": "Sequential Thinking MCP",
+      "type": "thinking",
+      "description": "Complex multi-step reasoning for orchestration decisions",
+      "enabled": true,
+      "priority": 4,
+      "riskLevel": "T0",
+
+      "transport": {
+        "type": "stdio",
+        "command": "@modelcontextprotocol/server-sequential-thinking"
+      },
+
+      "auth": null,
+
+      "tools": [
+        {
+          "name": "start_thinking",
+          "description": "Start an extended thinking session",
+          "args": {
+            "prompt": "string",
+            "depth": "shallow|moderate|deep"
+          }
+        },
+        {
+          "name": "get_thinking_result",
+          "description": "Retrieve results from a thinking session",
+          "args": {
+            "sessionId": "string"
+          }
+        }
+      ],
+
+      "performance": {
+        "maxConcurrentCalls": 3,
+        "timeout": 120000,
+        "cacheTtlSeconds": 3600
+      },
+
+      "healthCheck": {
+        "enabled": true,
+        "tool": "start_thinking",
+        "args": {
+          "prompt": "Test thinking",
+          "depth": "shallow"
+        }
+      }
+    },
+
+    {
+      "id": "exa-research",
+      "name": "EXA Research MCP",
+      "type": "research",
+      "description": "Real-time web search, research paper discovery, semantic ranking",
+      "enabled": true,
+      "priority": 3,
+      "riskLevel": "T0",
+
+      "transport": {
+        "type": "http",
+        "url": "https://mcp.exa.ai/mcp"
+      },
+
+      "auth": {
+        "type": "env",
+        "envVar": "EXA_API_KEY",
+        "required": false
+      },
+
+      "tools": [
+        {
+          "name": "search",
+          "description": "Search the web with semantic ranking",
+          "args": {
+            "query": "string",
+            "type": "research|news|web",
+            "limit": "number?"
+          }
+        },
+        {
+          "name": "search_neural",
+          "description": "Neural semantic search across documents",
+          "args": {
+            "query": "string",
+            "limit": "number?"
+          }
+        },
+        {
+          "name": "find_similar",
+          "description": "Find similar content to a given URL",
+          "args": {
+            "url": "string"
+          }
+        },
+        {
+          "name": "get_latest",
+          "description": "Get latest content on a topic",
+          "args": {
+            "topic": "string",
+            "recency": "week|month|year"
+          }
+        }
+      ],
+
+      "performance": {
+        "maxConcurrentCalls": 5,
+        "timeout": 30000,
+        "cacheTtlSeconds": 3600
+      },
+
+      "healthCheck": {
+        "enabled": true,
+        "tool": "search",
+        "args": {
+          "query": "EGOS framework",
+          "type": "web",
+          "limit": 1
+        }
+      }
+    },
+
+    {
+      "id": "memory",
+      "name": "Memory MCP",
+      "type": "memory",
+      "description": "Persistent knowledge graph and pattern learning",
+      "enabled": true,
+      "priority": 2,
+      "riskLevel": "T0",
+
+      "transport": {
+        "type": "stdio",
+        "command": "@modelcontextprotocol/server-memory"
+      },
+
+      "auth": null,
+
+      "tools": [
+        {
+          "name": "create_entities",
+          "description": "Create knowledge graph entities",
+          "args": {
+            "entities": "object[]"
+          }
+        },
+        {
+          "name": "add_observations",
+          "description": "Add observations to existing entities",
+          "args": {
+            "entityId": "string",
+            "observations": "string[]"
+          }
+        },
+        {
+          "name": "search_nodes",
+          "description": "Search knowledge graph nodes",
+          "args": {
+            "query": "string",
+            "limit": "number?"
+          }
+        },
+        {
+          "name": "list_recent_sessions",
+          "description": "List recent conversation sessions",
+          "args": {
+            "days": "number?"
+          }
+        }
+      ],
+
+      "performance": {
+        "maxConcurrentCalls": 5,
+        "timeout": 10000,
+        "cacheTtlSeconds": 600
+      },
+
+      "healthCheck": {
+        "enabled": true,
+        "tool": "list_recent_sessions",
+        "args": { "days": 1 }
+      }
+    }
+  ],
+
+  "routing": {
+    "rules": [
+      {
+        "pattern": "/database|query|schema|sql|supabase/i",
+        "primaryServer": "supabase-db",
+        "fallbackServers": ["memory"],
+        "timeout": 30000
+      },
+      {
+        "pattern": "/cost|budget|model.*select|billing/i",
+        "primaryServer": "llm-router",
+        "fallbackServers": [],
+        "timeout": 5000
+      },
+      {
+        "pattern": "/blame|commit|merge|drift|governance|frozen/i",
+        "primaryServer": "git-advanced",
+        "fallbackServers": [],
+        "timeout": 60000
+      },
+      {
+        "pattern": "/watch|sync|filesystem|monitor|realtime/i",
+        "primaryServer": "fs-watch",
+        "fallbackServers": [],
+        "timeout": 10000
+      },
+      {
+        "pattern": "/sla|deadline|sprint|capacity|schedule/i",
+        "primaryServer": "calendar",
+        "fallbackServers": [],
+        "timeout": 15000
+      },
+      {
+        "pattern": "/search|research|paper|latest|web/i",
+        "primaryServer": "exa-research",
+        "fallbackServers": ["memory"],
+        "timeout": 30000
+      },
+      {
+        "pattern": "/think|reason|analyze|complex/i",
+        "primaryServer": "sequential-thinking",
+        "fallbackServers": [],
+        "timeout": 120000
+      },
+      {
+        "pattern": "/remember|pattern|knowledge|entity/i",
+        "primaryServer": "memory",
+        "fallbackServers": [],
+        "timeout": 10000
+      }
+    ]
+  },
+
+  "fallbackStrategy": {
+    "maxRetries": 3,
+    "backoffMultiplier": 2.0,
+    "initialDelayMs": 100,
+    "circuitBreaker": {
+      "failureThreshold": 5,
+      "resetTimeoutMs": 60000
+    }
+  },
+
+  "monitoring": {
+    "metricsCollectionEnabled": true,
+    "metricsPath": "/tmp/egos-mcp-metrics.jsonl",
+    "alertThresholds": {
+      "latencyMs": 5000,
+      "errorRatePercent": 10,
+      "timeoutCount": 5
+    }
+  }
+}

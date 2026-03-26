@@ -26,7 +26,7 @@
 
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { join } from 'path';
-import { runAgent, log, type RunContext, type Finding } from '../runtime/runner';
+import type { Finding } from '../runtime/runner';
 
 // --- Configuration ---
 
@@ -148,7 +148,7 @@ function parseGitHubEvent(eventStr: string): PRContext | null {
       isDraft: pr.draft || false,
     };
   } catch (e) {
-    log(`Failed to parse GitHub event: ${e}`);
+    console.error(`Failed to parse GitHub event: ${e}`);
     return null;
   }
 }
@@ -288,9 +288,8 @@ export async function runSpecRouter(
   if (!pr) {
     findings.push({
       severity: 'info',
+      category: 'spec-pipeline',
       message: 'No PR context or spec-pipeline label detected. Skipping.',
-      file: '',
-      line: 0,
     });
     return findings;
   }
@@ -299,9 +298,8 @@ export async function runSpecRouter(
   if (!pr.labels.includes(SPEC_PIPELINE_LABEL)) {
     findings.push({
       severity: 'info',
+      category: 'spec-pipeline',
       message: `PR #${pr.prNumber} does not have '${SPEC_PIPELINE_LABEL}' label. Skipping.`,
-      file: '',
-      line: 0,
     });
     return findings;
   }
@@ -313,42 +311,35 @@ export async function runSpecRouter(
   if (!stageConfig) {
     findings.push({
       severity: 'error',
+      category: 'spec-pipeline',
       message: `Unknown stage: ${currentStage}`,
-      file: '',
-      line: 0,
     });
     return findings;
   }
 
-  log(`Spec-Router: Processing PR #${pr.prNumber} (stage: ${currentStage})`);
+  console.log(`Spec-Router: Processing PR #${pr.prNumber} (stage: ${currentStage})`);
 
   // Mode: Validate mandatory fields
   if (mode === 'validate') {
     const validation = validateMandatoryFields(pr.body, stageConfig.mandatoryFields);
 
     if (!validation.valid) {
+      const blockReason = generateMergeBlockReason(validation.missingFields, currentStage);
       findings.push({
         severity: 'error',
+        category: 'spec-pipeline:validation',
         message: `Spec-Pipeline validation failed: missing fields: ${validation.missingFields.join(', ')}`,
         file: `PR #${pr.prNumber}`,
-        line: 0,
-        extraContext: {
-          stage: currentStage,
-          blockReason: generateMergeBlockReason(validation.missingFields, currentStage),
-        },
+        suggestion: blockReason,
       });
 
       // In real impl: Set GitHub check to "fail" and block merge
     } else {
       findings.push({
         severity: 'info',
+        category: 'spec-pipeline:validation',
         message: `✅ Spec-Pipeline validation passed for stage: ${currentStage}`,
         file: `PR #${pr.prNumber}`,
-        line: 0,
-        extraContext: {
-          stage: currentStage,
-          evidence: validation.evidence,
-        },
       });
     }
   }

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -eu
 
 printf "EGOS Codex Doctor\n"
 printf "=================\n"
