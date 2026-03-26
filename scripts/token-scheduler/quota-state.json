@@ -1,0 +1,9 @@
+{
+  "_comment": "Atualize quota_used_pct manualmente ao verificar em claude.ai/settings/usage",
+  "window_start_iso": "2026-03-25T23:52:38.075887",
+  "window_duration_hours": 5,
+  "quota_used_pct": 14.0,
+  "last_updated": "2026-03-25T23:52:38.121802",
+  "last_model_used": null,
+  "sessions_this_window": 0
+}

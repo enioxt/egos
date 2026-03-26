@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(claude --version)",
+      "Read(//dev/**)",
+      "Skill(schedule)",
+      "Skill(schedule:*)"
+    ],
+    "additionalDirectories": [
+      "/home/enio/egos/scripts"
+    ]
+  }
+}
