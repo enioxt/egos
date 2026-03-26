@@ -8,13 +8,6 @@
 # - @egos/pms — Product/business review (Stage 2)
 # - @egos/architects — Technical architecture review (Stage 3)
 # - @egos/scrum-masters — Resource & timeline review (Stage 4)
-#
-# Note: These teams should be configured in your GitHub organization.
-# Example team creation:
-#   gh team create analysts --description "Specification reviewers"
-#   gh team create pms --description "Product managers"
-#   gh team create architects --description "Architects"
-#   gh team create scrum-masters --description "Scrum masters"
 
 # =============================================================================
 # SPEC-PIPELINE WORKFLOW ROLES

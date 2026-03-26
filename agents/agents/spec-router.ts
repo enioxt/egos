@@ -353,27 +353,23 @@ export async function runSpecRouter(
     if (nextIndex >= stageOrder.length) {
       findings.push({
         severity: 'info',
+        category: 'spec-pipeline:route',
         message: `Spec-Pipeline complete. No further stages. PR ready for implementation.`,
         file: `PR #${pr.prNumber}`,
-        line: 0,
       });
       return findings;
     }
 
     const nextStage = stageOrder[nextIndex];
     const nextConfig = STAGES[nextStage];
+    const handoffTemplate = formatHandoffTemplate(currentStage, nextStage);
 
     findings.push({
       severity: 'info',
-      message: `Routing to next stage: ${nextConfig.name}`,
+      category: 'spec-pipeline:route',
+      message: `Routing to next stage: ${nextConfig.name} (assign to ${nextConfig.codeowner})`,
       file: `PR #${pr.prNumber}`,
-      line: 0,
-      extraContext: {
-        currentStage,
-        nextStage,
-        nextCodeowner: nextConfig.codeowner,
-        handoffTemplate: formatHandoffTemplate(currentStage, nextStage),
-      },
+      suggestion: `Handoff template:\n\n${handoffTemplate}`,
     });
 
     // In real impl: Remove current label, add next label, assign reviewers
@@ -389,21 +385,16 @@ export async function runSpecRouter(
     if (slaStatus.exceeded) {
       findings.push({
         severity: 'warning',
-        message: `SLA exceeded for stage: ${currentStage}`,
+        category: 'spec-pipeline:sla',
+        message: slaStatus.message,
         file: `PR #${pr.prNumber}`,
-        line: 0,
-        extraContext: {
-          stage: currentStage,
-          slaMessage: slaStatus.message,
-          remainingHours: slaStatus.remaining,
-        },
       });
     } else {
       findings.push({
         severity: 'info',
+        category: 'spec-pipeline:sla',
         message: slaStatus.message,
         file: `PR #${pr.prNumber}`,
-        line: 0,
       });
     }
 
@@ -439,8 +430,8 @@ async function main() {
           : '✅';
     console.log(`${prefix} [${finding.severity.toUpperCase()}] ${finding.message}`);
 
-    if (finding.extraContext) {
-      console.log(JSON.stringify(finding.extraContext, null, 2));
+    if (finding.suggestion) {
+      console.log(`\nSuggestion:\n${finding.suggestion}`);
     }
   }
 

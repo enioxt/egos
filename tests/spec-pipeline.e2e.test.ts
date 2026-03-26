@@ -7,9 +7,8 @@
  * 3. SLA tracking works correctly
  */
 
-import { describe, it, expect, beforeEach } from 'bun:test';
+import { describe, it, expect } from 'bun:test';
 import runSpecRouter from '../agents/agents/spec-router';
-import type { Finding } from '../agents/runtime/runner';
 
 describe('Spec-Pipeline Contract', () => {
   // ============ Test 1: Complete E2E Workflow ============
@@ -219,12 +218,10 @@ User story text
       );
       expect(errorFinding?.message).toContain('problem-statement');
 
-      // Check that merge block reason is generated
-      if (errorFinding?.extraContext) {
-        const blockReason =
-          errorFinding.extraContext.blockReason as string;
-        expect(blockReason).toContain('Missing mandatory evidence fields');
-        expect(blockReason).toContain('problem-statement');
+      // Check that merge block reason is generated in suggestion
+      if (errorFinding?.suggestion) {
+        expect(errorFinding.suggestion).toContain('Missing mandatory evidence fields');
+        expect(errorFinding.suggestion).toContain('problem-statement');
       }
     });
 
@@ -365,11 +362,8 @@ Test user story
       expect(slaFinding).toBeDefined();
 
       // Should be OK status (not warning or exceeded)
-      if (slaFinding?.extraContext) {
-        const slaMessage =
-          slaFinding.extraContext.slaMessage as string;
-        expect(slaMessage).toContain('✅ SLA OK');
-      }
+      // SLA message is in the main message field
+      expect(slaFinding?.message).toContain('✅ SLA OK');
     });
 
     it('sla-check: stage exceeding 24 hours returns EXCEEDED status', async () => {
@@ -408,12 +402,9 @@ Story
       expect(slaFinding).toBeDefined();
       expect(slaFinding?.message).toContain('exceeded');
 
-      if (slaFinding?.extraContext) {
-        const slaMessage =
-          slaFinding.extraContext.slaMessage as string;
-        expect(slaMessage).toContain('SLA EXCEEDED');
-        expect(slaMessage).toContain('28h');
-      }
+      // SLA message is in the main message field
+      expect(slaFinding?.message).toContain('SLA EXCEEDED');
+      expect(slaFinding?.message).toContain('28h');
     });
 
     it('sla-check: approaching 24h limit returns WARNING status', async () => {
@@ -451,12 +442,9 @@ Story
       );
       expect(slaFinding).toBeDefined();
 
-      if (slaFinding?.extraContext) {
-        const slaMessage =
-          slaFinding.extraContext.slaMessage as string;
-        expect(slaMessage).toContain('⚠️ SLA WARNING');
-        expect(slaMessage).toContain('2h remaining');
-      }
+      // SLA message is in the main message field
+      expect(slaFinding?.message).toContain('⚠️ SLA WARNING');
+      expect(slaFinding?.message).toContain('2h remaining');
     });
   });
 
@@ -486,12 +474,9 @@ Story
       );
       expect(routeFinding).toBeDefined();
 
-      if (routeFinding?.extraContext) {
-        expect(routeFinding.extraContext.nextStage).toBe('pm');
-        expect(routeFinding.extraContext.nextCodeowner).toContain(
-          '@egos/pms'
-        );
-      }
+      // Check that next stage is mentioned in message
+      expect(routeFinding?.message).toContain('pm');
+      expect(routeFinding?.message).toContain('@egos/pms');
     });
 
     it('route: final stage (SM) indicates spec is complete', async () => {
