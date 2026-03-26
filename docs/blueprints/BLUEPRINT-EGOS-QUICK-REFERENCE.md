@@ -1,0 +1,3 @@
+# BLUEPRINT-EGOS: Quick Reference (1-Pager)
+
+... (Extracted Content) ...

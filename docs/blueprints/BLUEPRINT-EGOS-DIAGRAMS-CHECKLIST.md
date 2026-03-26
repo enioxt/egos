@@ -1,0 +1,3 @@
+# BLUEPRINT-EGOS: Diagramas de Arquitetura e Checklist Prático
+
+... (Extracted Content) ...

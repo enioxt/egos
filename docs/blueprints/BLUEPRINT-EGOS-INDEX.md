@@ -1,0 +1,3 @@
+# BLUEPRINT-EGOS: Documentation Index
+
+... (Extracted Content) ...
