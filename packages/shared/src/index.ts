@@ -39,3 +39,15 @@ export type {
 // Metrics Tracker
 export { MetricsTracker, initMetricsTracker, getMetricsTracker, trackToolUsage, trackTask } from './metrics-tracker.js';
 export type { ToolUsageMetric, TaskMetric, SessionMetric } from './metrics-tracker.js';
+
+// ═══════════════════════════════════════════════════════════
+// EGOS Guard Brasil — Brazilian AI Safety Layer
+// ═══════════════════════════════════════════════════════════
+
+// Public Guard — LGPD-compliant PII masking
+export { maskPublicOutput, isPublicSafe, buildLGPDDisclosure } from './public-guard.js';
+export type { PublicGuardConfig, MaskingResult, MaskingAction, GuardAction, SensitivityLevel } from './public-guard.js';
+
+// Evidence Chain — traceable response discipline
+export { createEvidenceChain, EvidenceChainBuilder, formatEvidenceBlock, validateChain } from './evidence-chain.js';
+export type { EvidenceChain, EvidenceItem, ClaimWithEvidence, EvidenceType, ConfidenceLevel, EvidenceChainOptions } from './evidence-chain.js';

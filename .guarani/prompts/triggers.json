@@ -2,6 +2,7 @@
   "_version": "1.2.0",
   "_system": "EGOS Meta-Prompt Trigger System",
   "description": "Maps situations/keywords to the appropriate meta-prompt",
+<<<<<<< HEAD
   "updated": "2026-03-26",
   "triggers": [
     {
@@ -155,9 +156,7 @@
         "Creating agent instructions"
       ],
       "priority": "medium",
-      "apps": [
-        "all"
-      ]
+      "apps": ["all"]
     },
     {
       "id": "design.stitch",
@@ -177,9 +176,15 @@
         "Importing externally generated Stitch zip"
       ],
       "priority": "high",
-      "apps": [
-        "all"
-      ]
+      "apps": ["all"]
+    },
+    {
+      "id": "activation.egos-governance",
+      "file": "meta/egos-activation-governance.md",
+      "keywords": ["ativar egos", "/start", "diagnóstico do sistema", "meta prompt de ativação", "atrian"],
+      "situations": ["Activating EGOS in a new environment", "Need evidence-first health check", "Need ethical gate before recommendations"],
+      "priority": "high",
+      "apps": ["all"]
     }
   ]
 }

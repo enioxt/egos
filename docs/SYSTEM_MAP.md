@@ -1,6 +1,6 @@
 # SYSTEM_MAP.md — EGOS Framework Core
 
-> **VERSION:** 2.1.0 | **UPDATED:** 2026-03-20
+> **VERSION:** 2.2.0 | **UPDATED:** 2026-03-24
 > **ROLE:** repo-local map for `/start` in the canonical kernel
 
 <!-- llmrefs:start -->
@@ -67,6 +67,7 @@
 |--------|------|--------|-------------|
 | LLM Provider | `llm-provider.ts` | ✅ Active | Multi-provider chat (Alibaba/OpenRouter) |
 | Model Router | `model-router.ts` | ✅ Active | Task-based model selection (8 models, 10 tasks) |
+| MCP Wrapper | `mcp-wrapper.ts` | ✅ Active | Unified MCP interfaces (EXA, Sequential-Thinking, Memory) |
 | ATRiAN | `atrian.ts` | ✅ Active | Ethical validation (7 axioms) |
 | PII Scanner | `pii-scanner.ts` | ✅ Active | Brazilian PII detection (CPF, CNPJ, etc.) |
 | Conversation Memory | `conversation-memory.ts` | ✅ Active | Session memory + summarization |
@@ -82,10 +83,32 @@
 | System Map | `.windsurf/skills/system-map.md` | SYSTEM_MAP.md structure and triggers |
 | Capability Import | `.windsurf/skills/capability-import.md` | Cross-repo feature import process |
 
+## Diagnostic & Testing Tools
+
+| Tool | File | Purpose | Status |
+|------|------|---------|--------|
+| Quota Diagnostic | `scripts/diagnose-quotas.js` | Test each model to discover real quotas/limits | ✅ New |
+| Model Specializations | `docs/MODEL_SPECIALIZATIONS.md` | Routing matrix: what each model does BEST | ✅ New |
+| Quota Guide | `docs/RUN_QUOTA_DIAGNOSTIC.md` | How to run diagnostic + interpret results | ✅ New |
+
+## Orchestration & MCP Configuration
+
+| Component | Location | Status | Notes |
+|-----------|----------|--------|-------|
+| MCP Strategy | `docs/MCP_ORCHESTRATION_STRATEGY.md` | ✅ Active | 7-tier routing, 12+ models, 5 MCPs |
+| Activation Guide | `docs/ACTIVATION_GUIDE.md` | ✅ Active | MCP setup + cost optimization |
+| Decision Tree | `docs/ROUTING_DECISION_TREE.txt` | ✅ Active | Visual ASCII guide for routing |
+| OpenCode Setup | `docs/OPENCODE_FREE_MODELS_SETUP.md` | ✅ Active | Free models integration |
+| Free Models Strategy | `~/.opencode/FREE_MODELS_STRATEGY.md` | ✅ Active | 80% free / 15% promo / 5% premium |
+
 ## Workflows
 
 | Workflow | File | Version |
 |----------|------|---------|
+| /start (canonical ops) | `.agents/workflows/start-workflow.md` | v1.0 |
+| /sync (canonical ops) | `.agents/workflows/sync.md` | v1.0 |
+| /pr (canonical ops) | `.agents/workflows/pr-prep.md` | v1.0 |
+| /disseminate (canonical ops) | `.agents/workflows/disseminate.md` | v1.0 |
 | /start | `.windsurf/workflows/start.md` | v5.4 |
 | /end | `.windsurf/workflows/end.md` | v5.5 |
 | /pre | `.windsurf/workflows/pre.md` | v1.0 |

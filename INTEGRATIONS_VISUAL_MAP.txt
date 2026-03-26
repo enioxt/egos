@@ -1,0 +1,290 @@
+╔════════════════════════════════════════════════════════════════════════════════╗
+║                                                                                ║
+║                  🗺️  CLAUDE CODE INTEGRATIONS MAP (2026-03-25)                ║
+║                                                                                ║
+║                    Complete Capabilities in Windsurf IDE                       ║
+║                                                                                ║
+╚════════════════════════════════════════════════════════════════════════════════╝
+
+
+                                 CLAUDE CODE
+                            ┌─────────────────────┐
+                            │   HAIKU 4.5         │
+                            │  (Your AI Engine)   │
+                            └──────────┬──────────┘
+                                       │
+        ┌──────────────────────────────┼──────────────────────────────┐
+        │                              │                              │
+        ▼                              ▼                              ▼
+    ┌─────────┐               ┌──────────────┐               ┌──────────────┐
+    │WINDSURF │               │  CORE TOOLS  │               │  SPECIALIZED │
+    │   IDE   │               │              │               │   AGENTS     │
+    └────┬────┘               └──────┬───────┘               └──────┬───────┘
+         │                           │                              │
+         │ • File Explorer           │ ✅ Read                     │
+         │ • Terminal                │ ✅ Write                    │ • General
+         │ • Keyboard Shortcuts      │ ✅ Edit                     │ • Explore
+         │ • Command Palette         │ ✅ Glob                     │ • Plan
+         │ • Git Integration         │ ✅ Grep                     │ • Guide
+         │ • Git Diff Viewer         │ ✅ Bash (Shell)             │
+         │                           │ ✅ Agent                    │
+         │                           │ ✅ Skill                    │
+         │                           │ ✅ Cron (Scheduling)        │
+         │                           │ ✅ Task Management           │
+         │                           │                             │
+         │                           │ Decision Tools:             │
+         │                           │ ✅ AskUserQuestion          │
+         │                           │ ✅ EnterPlanMode            │
+         │                           │ ✅ TodoWrite                │
+         │                           │ ✅ Sequential Thinking      │
+         │                           │                             │
+         └───────────┬───────────────┴─────────────┬────────────────┘
+                     │                             │
+                     │                             │
+                ┌────▼─────────────────────────────▼────────────────┐
+                │                                                   │
+                │      🌐 EXTERNAL INTEGRATIONS (MCP Servers)      │
+                │                                                   │
+                └────────────────────────┬────────────────────────┘
+                                         │
+         ┌───────────────────────────────┼──────────────────────────────────┐
+         │                               │                                  │
+    ┌────▼─────────┐  ┌────────────────▼──────┐  ┌─────────────────────────▼───┐
+    │   GITHUB      │  │   NOTION (Docs)      │  │   SUPABASE (Database)       │
+    │               │  │                      │  │                             │
+    │ ✅ Repos      │  │ ✅ Pages             │  │ ✅ SQL Queries              │
+    │ ✅ PRs        │  │ ✅ Databases         │  │ ✅ Migrations               │
+    │ ✅ Issues     │  │ ✅ Views             │  │ ✅ Edge Functions           │
+    │ ✅ Deployments│  │ ✅ Search            │  │ ✅ Type Generation          │
+    │ ✅ Comments   │  │ ✅ Comments          │  │ ✅ Branches                 │
+    │ ✅ Blame/Log  │  │ ✅ Duplicate         │  │ ✅ Logs/Advisors            │
+    └──────────────┘  └─────────────────────┘  └─────────────────────────────┘
+         │                    │                           │
+         │                    │                           │
+    ┌────▼──────┐    ┌────────▼───────┐    ┌─────────────▼───────────┐
+    │  VERCEL   │    │     GMAIL      │    │   EXA (Web Search)      │
+    │           │    │                │    │                         │
+    │ ✅ Deploy │    │ ✅ Profile     │    │ ✅ Web Search           │
+    │ ✅ Logs   │    │ ✅ Search      │    │ ✅ Code Context         │
+    │ ✅ Team   │    │ ✅ Read        │    │ ✅ Crawl URLs           │
+    │ ✅ Tooling│    │ ✅ Drafts      │    │ ✅ Filter by Domain     │
+    │ ✅ Domains│    │ ✅ Labels      │    │                         │
+    └───────────┘    └────────────────┘    └─────────────────────────┘
+
+
+                            🔄 YOUR WORKFLOWS
+                            ═══════════════════════════════════
+
+    GIT WORKFLOW:
+    ┌─────────────────────────────────────────────────────────────┐
+    │ git status → git add → git commit → github PR → Vercel Deploy
+    │ ↑                                                   ↓
+    │ Bash tool           Edit tool              Vercel integration
+    └─────────────────────────────────────────────────────────────┘
+
+    GOVERNANCE WORKFLOW:
+    ┌─────────────────────────────────────────────────────────────┐
+    │ Notion (docs) → .md files (Edit) → Git Push → GitHub checks
+    │ ↑                                          ↓
+    │ Notion Integration              GitHub Integration
+    └─────────────────────────────────────────────────────────────┘
+
+    DATABASE WORKFLOW:
+    ┌─────────────────────────────────────────────────────────────┐
+    │ SQL Query → Supabase → TypeScript Types → Code Generation
+    │ ↑                                              ↓
+    │ Bash (psql)           Supabase CLI      Generated files
+    └─────────────────────────────────────────────────────────────┘
+
+    MULTI-REPO SYNC WORKFLOW:
+    ┌─────────────────────────────────────────────────────────────┐
+    │ GitHub (kernel) → Bash (scripts) → 11 Leaf Repos → Verify
+    │ ↑                                                   ↓
+    │ GitHub Integration                          Grep/Verification
+    └─────────────────────────────────────────────────────────────┘
+
+
+                         🎯 YOUR EGOS ECOSYSTEM
+                         ════════════════════════════════════
+
+    KERNEL (egos)
+    ├─ .guarani/ (SSOT) ────────────────┬──► Notion (public docs)
+    ├─ .windsurf/workflows/ ────────────┤──► GitHub (version control)
+    ├─ docs/ (specs) ───────────────────┤──► Exa (searchable)
+    └─ scripts/ (automation) ───────────┴──► Bash (executable)
+           │
+           ├─────────────────────┬─────────────────────────────┐
+           ▼                     ▼                             ▼
+        ~/.egos/           LEAF REPOS (11)           PLATFORMS
+        (synced            ├─ forja                 ├─ Vercel (deploy)
+         copy)             ├─ 852                   ├─ Supabase (db)
+                           ├─ br-acc                ├─ Gmail (comms)
+                           ├─ carteira-livre        ├─ Telegram (bot)
+                           ├─ commons               ├─ WhatsApp (api)
+                           ├─ egos-lab              └─ OpenCloud (mobile)
+                           ├─ egos-self
+                           ├─ policia
+                           ├─ santiago
+                           ├─ smartbuscas
+                           └─ INPI
+
+
+                      📊 CAPABILITY MATRIX
+                      ═════════════════════════════════════
+
+    Integration         │ Read │ Write│Execute│Webhook│Schedule│
+    ────────────────────┼──────┼──────┼───────┼────────┼─────────┤
+    GitHub              │  ✅  │  ✅  │  ✅  │  ✅   │  ✅    │
+    Notion              │  ✅  │  ✅  │  ❌  │  ❌   │  ❌    │
+    Supabase            │  ✅  │  ✅  │  ✅  │  ✅   │  ✅    │
+    Vercel              │  ✅  │  ❌  │  ✅  │  ✅   │  ✅    │
+    Gmail               │  ✅  │  ✅  │  ❌  │  ✅   │  ❌    │
+    Exa                 │  ✅  │  ❌  │  ✅  │  ❌   │  ❌    │
+    Bash/CLI            │  ✅  │  ✅  │  ✅  │  ✅   │  ✅    │
+    Custom MCP (future) │  ✅  │  ✅  │  ✅  │  ✅   │  ✅    │
+
+
+                      🚀 AVAILABLE SKILLS (Commands)
+                      ═════════════════════════════════════
+
+    /commit              → Create git commits
+    /review-pr           → Analyze pull requests
+    /pdf                 → Work with PDFs
+    /schedule            → Create cron jobs
+    /update-config       → Modify settings.json
+    /keybindings-help    → Customize shortcuts
+    /simplify            → Code quality review
+    /loop                → Recurring execution
+    /claude-api          → SDK integration
+
+
+                      🔮 COMING SOON (Ready to Implement)
+                      ════════════════════════════════════
+
+    TIER 1 (Next 2 weeks):
+    ├─ Forja MCP Server
+    │  ├─ Quote creation tool
+    │  ├─ Inventory checker
+    │  ├─ Production scheduler
+    │  └─ Document exporter
+    ├─ Telegram Bot MCP
+    │  ├─ Admin commands
+    │  ├─ Approvals
+    │  └─ Alerts
+    └─ WhatsApp Workflow MCP
+       ├─ Quote requests
+       ├─ Status checks
+       └─ Escalations
+
+    TIER 2 (Next month):
+    ├─ Linear/Jira sync
+    ├─ Slack notifications
+    ├─ OpenCloud connector
+    └─ Discord integration
+
+    TIER 3 (Future):
+    ├─ Voice input (Whisper)
+    ├─ Real-time streaming
+    ├─ Kubernetes management
+    └─ Advanced ML training
+
+
+                    💡 POWER COMBINATIONS
+                    ════════════════════════════════════
+
+    1️⃣  GitHub + Bash + Vercel
+        → Auto-deploy on git push
+        → Real-time deployment status
+        → Rollback on failure
+
+    2️⃣  Supabase + Notion + Exa
+        → Database schema in Notion
+        → Query docs searchable on web
+        → Auto-generate TypeScript types
+
+    3️⃣  Notion + GitHub + Bash
+        → Keep docs in sync with code
+        → Auto-update README from Notion
+        → Governance as single source of truth
+
+    4️⃣  Multi-repo sync via Bash + GitHub
+        → bash sync-all-leaf-repos.sh --exec
+        → Verify with github checks
+        → Log results in Notion
+
+    5️⃣  Email + Scheduling (Gmail + Cron)
+        → Daily reports sent automatically
+        → Monitor governance via email
+        → Alerts on drift detection
+
+    6️⃣  Custom MCP + Bash + Scheduling
+        → Deploy tools once
+        → Use everywhere (Claude Code, ChatGPT, Codex)
+        → Schedule recurring executions
+
+
+                    🎓 YOUR POWER LEVEL
+                    ════════════════════════════════════
+
+    FILE OPERATIONS:        ████████████████████ 10/10  ✨
+    CODE EXECUTION:         ███████████████████░  9/10  ✨
+    PLATFORM INTEGRATION:   █████████████░░░░░░░  7/10  🚀 (building tier 1)
+    AUTOMATION:             ███████████░░░░░░░░░  6/10  📈 (via MCP)
+    CUSTOM TOOLS:           ████████░░░░░░░░░░░░  4/10  🔨 (ready to build)
+
+    OVERALL:                ████████████████░░░░  8/10  🔥 STRONG
+
+
+                    ⚡ QUICK START COMMANDS
+                    ════════════════════════════════════
+
+    Check governance drift globally:
+    $ bash /home/enio/egos/scripts/sync-all-leaf-repos.sh --check
+
+    Deploy changes across 11 repos:
+    $ bash /home/enio/egos/scripts/sync-all-leaf-repos.sh --exec
+
+    Schedule daily governance check:
+    /schedule "0 9 * * *" "bash /home/enio/egos/scripts/sync-all-leaf-repos.sh --check"
+
+    Monitor forja deployments (live):
+    /loop 5m "cd /home/enio/forja && bun run governance:check"
+
+    Create and commit in one go:
+    /commit -m "feat: your feature" && git push
+
+    Search all your repos:
+    Grep("pattern", path="/home/enio")
+
+    Find files by pattern:
+    Glob("**/*.ts", path="/home/enio/forja")
+
+
+                    📞 WHERE TO FIND THINGS
+                    ════════════════════════════════════
+
+    Integration Map:        /home/enio/egos/CLAUDE_CODE_INTEGRATIONS_MAP.md
+    Forja Setup:            /home/enio/forja/EGOS_BLUEPRINT_INTEGRATION_PLAN.md
+    MCP Server Spec:        /home/enio/forja/docs/MCP_ACTIVATION_GUIDE.md
+    Telegram Spec:          /home/enio/forja/docs/TELEGRAM_COCKPIT.md
+    WhatsApp Spec:          /home/enio/forja/docs/WHATSAPP_WORKFLOW.md
+    Learnings:              /home/enio/forja/docs/knowledge/HARVEST.md
+    Sync Scripts:           /home/enio/egos/scripts/
+
+
+                        🏁 STATUS
+                    ════════════════════════════════════
+
+    Platform Integrations:      ✅ 8 active
+    Built-in Tools:             ✅ 15+ available
+    Specialized Agents:         ✅ 5 types
+    Custom MCP Servers:         🚀 3 designed (ready to build)
+    Multi-repo Orchestration:   ✅ Operational
+    Automation Frameworks:      ✅ Full (Bash + Cron + Hooks)
+
+    POWER LEVEL:                🔥 8/10 (tier 1 MCP will bring to 10/10)
+
+
+════════════════════════════════════════════════════════════════════════════════
+Generated by: Claude Code (Haiku 4.5) | For: Enio Rocha | Date: 2026-03-25
+════════════════════════════════════════════════════════════════════════════════

@@ -102,12 +102,13 @@ bun governance:sync:exec    # Sync kernel -> ~/.egos -> leaf repos
 bun governance:sync:local   # Sync kernel -> ~/.egos only (skip leaf repos)
 bun governance:check        # Verify kernel and ~/.egos have 0 drift
 bun doctor:codex           # Codex lane environment + limitations disclosure + baseline checks
+bun pr:pack --title "<title>" --out /tmp/pr.md  # Generate signed PR message pack with env context
+bun pr:gate --file /tmp/pr.md  # Enforce sign-off + IDE validation checklist evidence
 bash ./scripts/oracle-instance-launcher/scripts/run.sh --dry-run  # Oracle OCI launcher check
 
 # Context Tracker (run anytime — mandatory before long multi-step tasks)
 bun agent:run context_tracker --dry   # CTX score 0-280 with zone emoji + /end advice
 ```
-
 
 ## Codex Lane Constraints
 
@@ -115,3 +116,15 @@ bun agent:run context_tracker --dry   # CTX score 0-280 with zone emoji + /end a
 - Browser/visual validation depends on explicit browser tool availability in session.
 - `~/.egos` state can be ephemeral in cloud/sandbox contexts; rerun sync/check when needed.
 - Always disclose these constraints in operational handoffs so expectations are explicit.
+
+## Slash Workflows (Operational)
+
+- Canonical command workflows live in `.agents/workflows/`
+- `/start` activation workflow: `.agents/workflows/start-workflow.md`
+- Governance dissemination workflow: `.agents/workflows/sync.md`
+- PR preparation workflow: `.agents/workflows/pr-prep.md`
+- `/disseminate` propagation workflow: `.agents/workflows/disseminate.md`
+
+## Meta-Prompts (Operational)
+
+- `activation.egos-governance` → `.guarani/prompts/meta/egos-activation-governance.md` (used for `/start` and activation diagnostics)

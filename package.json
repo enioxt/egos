@@ -27,11 +27,20 @@
     "governance:sync:exec": "sh scripts/governance-sync.sh --exec --propagate",
     "governance:sync:local": "sh scripts/governance-sync.sh --exec --no-propagate",
     "governance:check": "sh scripts/governance-sync.sh --check",
+    "pr:pack": "bun scripts/pr-pack.ts",
+    "pr:gate": "bun scripts/pr-gate.ts",
     "ssot:link": "sh scripts/link-ssot-files.sh --dry",
     "ssot:link:exec": "sh scripts/link-ssot-files.sh --exec",
     "test": "bun test packages/shared/src/__tests__/",
     "activation:check": "bun scripts/activation-check.ts",
-    "doctor:codex": "bash scripts/codex-doctor.sh"
+    "doctor:codex": "bash scripts/codex-doctor.sh",
+    "start:audit": "bun scripts/start-audit.ts",
+    "start:audit:live": "bun scripts/start-audit.ts --live --ai",
+    "guard": "bun scripts/guard.ts",
+    "guard:demo": "bun scripts/guard.ts demo",
+    "guard:validate": "bun scripts/guard.ts validate",
+    "guard:mask": "bun scripts/guard.ts mask",
+    "guard:check": "bun scripts/guard.ts check"
   },
   "devDependencies": {
     "@types/bun": "^1.2.0",

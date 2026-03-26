@@ -32,7 +32,15 @@ Each capability has:
 | Export (PDF/DOCX/MD/WhatsApp) | `852/src/components/chat/ExportMenu.tsx` | A | 852 | forja, intelink | `chatbot`, `export`, `pdf` |
 | Hot Topics / Trending | `852/src/app/api/hot-topics/route.ts` | A | 852 | — | `chatbot`, `community`, `engagement` |
 | Tool-Calling Chat (27 tools) | `br-acc/api/src/bracc/routers/chat.py` | A | br-acc | forja (adapted) | `chatbot`, `tools`, `python` |
-| Public Guard / LGPD Masking | `br-acc/api/src/bracc/services/public_guard.py` | A | br-acc | forja | `privacy`, `lgpd`, `masking` |
+| Public Guard / LGPD Masking (Python) | `br-acc/api/src/bracc/services/public_guard.py` | A | br-acc | forja | `privacy`, `lgpd`, `masking` |
+| **Public Guard BR (TypeScript)** | `egos/packages/shared/src/public-guard.ts` | A | egos | carteira-livre, forja, egos-web | `privacy`, `lgpd`, `masking`, `guard-brasil` |
+| **Evidence Chain** | `egos/packages/shared/src/evidence-chain.ts` | A | egos | 852, forja, br-acc | `evidence`, `traceability`, `audit`, `guard-brasil` |
+
+### Guard Brasil Stack
+
+> **EGOS Guard Brasil** — ATRiAN + PII Scanner + Public Guard + Evidence Chain.
+> Full product definition: `docs/products/GUARD_BRASIL.md`
+> CLI: `bun scripts/guard.ts` or `npm run guard:demo`
 
 ### Canonical Standard
 

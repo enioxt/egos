@@ -9,6 +9,7 @@
     "mycelium_graph": true,
     "model_router": true,
     "activation_check": true,
+    "start_audit": true,
     "session_guard": false,
     "gem_hunter": false,
     "report_generator": false,

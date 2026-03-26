@@ -1,0 +1,180 @@
+{
+  "generatedAt": "2026-03-23T14:40:47.418Z",
+  "criticalRepos": [
+    "egos",
+    "br-acc",
+    "carteira-livre",
+    "policia"
+  ],
+  "cleanRepos": [
+    "egos-lab",
+    "852",
+    "forja"
+  ],
+  "states": [
+    {
+      "name": "egos",
+      "branch": "claude/continue-handoff-ihya5",
+      "head": "1ee819c",
+      "upstream": "origin/claude/continue-handoff-ihya5",
+      "modified": 3,
+      "untracked": 1,
+      "ahead": 0,
+      "behind": 0,
+      "modifiedFiles": [
+        ".windsurf/workflows/start.md",
+        "egos.config.json",
+        "package.json",
+        "scripts/start-audit.ts"
+      ],
+      "docVersions": [
+        "AGENTS.md: # AGENTS.md — EGOS Framework Core > **VERSION:** 1.2.0 | **UPDATED:** 2026-03-20 > **TYPE:** Framework Core + Orchestration Kernel + Agent Runtime",
+        "TASKS.md: # TASKS.md — EGOS Framework Core (SSOT) > **Version:** 2.5.0 | **Updated:** 2026-03-23 | **Last Session:** Claude Code (Guard Brasil + Commons + migration gaps) ",
+        ".windsurfrules: # .windsurfrules — EGOS Framework Core # VERSION 1.0.0 — Created 2026-03-13 --- project: \"egos\"",
+        "docs/SYSTEM_MAP.md: # SYSTEM_MAP.md — EGOS Framework Core > **VERSION:** 2.1.0 | **UPDATED:** 2026-03-20 > **ROLE:** repo-local map for `/start` in the canonical kernel"
+      ],
+      "missingDocs": [],
+      "handoff": "handoff_2026-03-22.md",
+      "health": "skipped"
+    },
+    {
+      "name": "egos-lab",
+      "branch": "main",
+      "head": "f0c71ae",
+      "upstream": "origin/main",
+      "modified": 0,
+      "untracked": 0,
+      "ahead": 0,
+      "behind": 0,
+      "modifiedFiles": [],
+      "docVersions": [
+        "AGENTS.md: # AGENTS.md — egos-lab > **VERSION:** 3.6.0 | **UPDATED:** 2026-03-19 > **TYPE:** Lab + Demo + Distribution Layer (NOT flagship product)",
+        "TASKS.md: # TASKS.md — egos-lab > **VERSION:** 12.3.0 | **UPDATED:** 2026-03-19 > **LAST SESSION:** Egos-lab consolidation backlog sync + archive/migration diagnostic framing + product-focus",
+        ".windsurfrules: # .windsurfrules — egos-lab Monorepo # VERSION 5.2.1 — Updated 2026-03-12 # Governance Hash: sha256(.windsurfrules + AGENTS.md + .guarani/orchestration/) — verify with `bun governa",
+        "docs/SYSTEM_MAP.md: # EGOS Lab System Map > **Generated:** 2026-02-22 > **Scope:** `apps/`, `packages/`, `agents/`, `scripts/` > **Purpose:** Single Source of Truth for Humans and AIs to understand th"
+      ],
+      "missingDocs": [],
+      "handoff": "handoff_2026-03-13.md",
+      "health": "skipped"
+    },
+    {
+      "name": "852",
+      "branch": "main",
+      "head": "1955909",
+      "upstream": "origin/main",
+      "modified": 0,
+      "untracked": 0,
+      "ahead": 0,
+      "behind": 0,
+      "modifiedFiles": [],
+      "docVersions": [
+        "AGENTS.md: # AGENTS.md — 852 Inteligência > **VERSION:** 3.0.0 | **UPDATED:** 2026-03-13 > **TYPE:** Next.js production chatbot + report sharing + EGOS-governed public repo",
+        "TASKS.md: # TASKS — Tira-Voz (852) ## 🚨 P0 - Go Live ",
+        ".windsurfrules: # .windsurfrules — EGOSv3 Production Workspace # VERSION 5.4.0 # MAX_LINES: 150 (HARD LIMIT) ",
+        "docs/SYSTEM_MAP.md: # SYSTEM_MAP — 852 Inteligência > **Version:** 1.0.0 | **Updated:** 2026-03-20 > **Purpose:** local activation map for `/start` and day-to-day work in this repo"
+      ],
+      "missingDocs": [],
+      "handoff": "handoff_2026-03-21_Antigravity.md",
+      "health": "skipped"
+    },
+    {
+      "name": "br-acc",
+      "branch": "main",
+      "head": "5b29670",
+      "upstream": "origin/main",
+      "modified": 16,
+      "untracked": 15,
+      "ahead": 0,
+      "behind": 0,
+      "modifiedFiles": [
+        ".agent/skills/stitch-design",
+        "AGENTS.md",
+        "README.md",
+        "TASKS.md",
+        "api/src/bracc/config.py",
+        "api/src/bracc/main.py",
+        "api/src/bracc/routers/chat.py",
+        "api/src/bracc/routers/meta.py",
+        "api/src/bracc/services/transparency_tools.py",
+        "api/tests/unit/test_entity_timeline.py",
+        "api/tests/unit/test_health.py",
+        "api/uv.lock"
+      ],
+      "docVersions": [
+        "AGENTS.md: # AGENTS.md — EGOS Inteligência (BR/ACC) > **VERSION:** 1.1.1 | **UPDATED:** 2026-03-21 > **TYPE:** Intelligence Platform",
+        "TASKS.md: # TASKS.md — EGOS Inteligência (SSOT) > **Updated:** 2026-03-21 | **Patterns:** 10 | **Nodes:** 77.0M | **Rels:** 25.1M | **Tools:** 27 | **Tasks:** 103/141 ✅ | **GitHub Issues:** ",
+        ".windsurfrules: # .windsurfrules — EGOS Inteligência (BR/ACC) # VERSION 2.0.0 — Updated 2026-03-04 # Sacred Code: 000.111.369.963.1618 ",
+        "docs/SYSTEM_MAP.md: # SYSTEM MAP — EGOS Inteligência > **Version:** 1.2.0 | **Updated:** 2026-03-21 > **Purpose:** Complete inventory of API routes, frontend pages, containers, and middleware."
+      ],
+      "missingDocs": [],
+      "handoff": "handoff_2026-03-12_health_integration_852_chatbot.md",
+      "health": "skipped"
+    },
+    {
+      "name": "carteira-livre",
+      "branch": "main",
+      "head": "a82292ca",
+      "upstream": "origin/main",
+      "modified": 3,
+      "untracked": 0,
+      "ahead": 1,
+      "behind": 0,
+      "modifiedFiles": [
+        "app/(public)/sandbox/page.tsx",
+        "docs/SANDBOX_API.md",
+        "lib/partner/instructor-partner-splits.ts"
+      ],
+      "docVersions": [
+        "AGENTS.md: # AGENTS.md — Carteira Livre > **VERSION:** 5.0.0 | **UPDATED:** 2026-03-21 > **TYPE:** Standalone App + Marketplace | **Valuation:** R$ 7.020.000",
+        "TASKS.md: # 🚗 Carteira Livre - Tasks > **Versão:** 58.0 | **Atualizado:** 2026-03-20 (Session 65) | **Status:** Pré-Produção > **Valuation:** R$ 7.020.000 (Floor) | **LOC:** 139.400 | **API",
+        ".windsurfrules: --- project: \"carteira-livre\" type: \"standalone-app + marketplace + leaf-repo\" ---",
+        "docs/SYSTEM_MAP.md: # 🗺️ Carteira Livre - System Map > **Updated:** 2026-03-20 | **Version:** 3.5.0 > Mapa canônico de páginas, APIs, rotas e endpoints do sistema"
+      ],
+      "missingDocs": [],
+      "handoff": "handoff_2026-03-18.md",
+      "health": "skipped"
+    },
+    {
+      "name": "forja",
+      "branch": "main",
+      "head": "b1a6325",
+      "upstream": "origin/main",
+      "modified": 0,
+      "untracked": 0,
+      "ahead": 0,
+      "behind": 0,
+      "modifiedFiles": [],
+      "docVersions": [
+        "AGENTS.md: # AGENTS.md — Forja > **VERSION:** 2.3.0 | **UPDATED:** 2026-03-21 > **TYPE:** Private SaaS | **Codename:** Forja",
+        "TASKS.md: # TASKS.md — Forja (SSOT) > **Updated:** 2026-03-20 | **Status:** MVP Build Phase ",
+        ".windsurfrules: # .windsurfrules — Forja (Private) # VERSION 2.0.0 — 2026-03-05 # Sacred Code: 000.111.369.963.1618 ",
+        "docs/SYSTEM_MAP.md: # FORJA — System Map & Arquitetura Completa > **Versão:** 2.1.0 | **Data:** 2026-03-20 > **Escopo:** ERP Industrial \"Chat-First\" focado no setor Metalúrgico (SINDMETAL)"
+      ],
+      "missingDocs": [],
+      "handoff": "handoff_2026-03-20.md",
+      "health": "skipped"
+    },
+    {
+      "name": "policia",
+      "branch": "main",
+      "head": "a4a23b1",
+      "upstream": "origin/main",
+      "modified": 0,
+      "untracked": 1,
+      "ahead": 0,
+      "behind": 0,
+      "modifiedFiles": [
+        "policia-EGOS.code-workspace"
+      ],
+      "docVersions": [
+        "AGENTS.md: # AGENTS.md — Polícia Civil MG > **VERSION:** 3.0.0 | **UPDATED:** 2026-03-16 > **TYPE:** Investigative Workspace | **SCOPE:** OVM, REDS, OS, CS, Relatório Final",
+        "TASKS.md: # TASKS.md — Polícia Civil MG ## 🚨 P0 - Governança e Segurança ",
+        ".windsurfrules: --- project: \"carteira-livre\" type: \"standalone-app + marketplace + leaf-repo\" ---",
+        "docs/SYSTEM_MAP.md: # SYSTEM_MAP.md — Polícia Civil MG > VERSION 2.0.0 — 2026-03-16 "
+      ],
+      "missingDocs": [],
+      "handoff": "handoff_governance_activation_2026-03-11.md",
+      "health": "skipped"
+    }
+  ]
+}
