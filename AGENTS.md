@@ -91,7 +91,7 @@ egos/
 ## Commands
 
 ```bash
-bun agent:list              # List all registered agents (10 total)
+bun agent:list              # List all registered agents (6 total)
 bun agent:run <id> --dry    # Run agent in dry-run mode
 bun agent:run <id> --exec   # Run agent in execute mode
 bun agent:lint              # Validate agent registry
@@ -101,17 +101,24 @@ bun governance:sync         # Dry-run kernel -> ~/.egos governance propagation
 bun governance:sync:exec    # Sync kernel -> ~/.egos -> leaf repos
 bun governance:sync:local   # Sync kernel -> ~/.egos only (skip leaf repos)
 bun governance:check        # Verify kernel and ~/.egos have 0 drift
-bun doctor:codex           # Codex lane environment + limitations disclosure + baseline checks
+bun pr:pack --title "<title>" --out /tmp/pr.md  # Generate signed PR message pack with env context
+bun pr:gate --file /tmp/pr.md  # Enforce sign-off + IDE validation checklist evidence
+bun pr:audit --owner enioxt --days 15  # Cross-repo PR status audit (active/inactive/recent closed)
 bash ./scripts/oracle-instance-launcher/scripts/run.sh --dry-run  # Oracle OCI launcher check
 
 # Context Tracker (run anytime — mandatory before long multi-step tasks)
 bun agent:run context_tracker --dry   # CTX score 0-280 with zone emoji + /end advice
 ```
 
+## Slash Workflows (Operational)
 
-## Codex Lane Constraints
+- Canonical command workflows live in `.agents/workflows/`
+- `/start` activation workflow: `.agents/workflows/start-workflow.md`
+- Governance dissemination workflow: `.agents/workflows/sync.md`
+- PR preparation workflow: `.agents/workflows/pr-prep.md`
+- `/disseminate` propagation workflow: `.agents/workflows/disseminate.md`
+- `/mycelium` mesh audit workflow: `.agents/workflows/mycelium.md`
 
-- EGOS may run inside Codex terminal lane with non-interactive execution defaults.
-- Browser/visual validation depends on explicit browser tool availability in session.
-- `~/.egos` state can be ephemeral in cloud/sandbox contexts; rerun sync/check when needed.
-- Always disclose these constraints in operational handoffs so expectations are explicit.
+## Meta-Prompts (Operational)
+
+- `activation.egos-governance` → `.guarani/prompts/meta/egos-activation-governance.md` (used for `/start` and activation diagnostics)
