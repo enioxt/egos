@@ -56,6 +56,9 @@ type: "framework-core + orchestration-kernel + agent-runtime"
 17. **REAL TESTS** — No capability is "validated" by string-matching grep. Every shared module MUST have `bun test` coverage with real data. A compliance score without behavioral tests is paperwork, not proof.
 18. **NO CIRCULAR VALIDATION** — Agents that check for their own outputs are not tests. Validation requires external confrontation: real PII, adversarial prompts, actual API calls, or user-verified results.
 19. **VERCEL CLI** — When access exists, Vercel CLI may be used to inspect deployments, manage env vars, and trigger redeploys, but only with explicit human approval for the concrete action.
+20. **SIGNATURE** — Every operational message MUST end with the signature footer defined in `.guarani/standards/AGENT_MESSAGE_SIGNATURE_CONTRACT.md` (agent id, session id, mode, source env, UTC timestamp).
+21. **STITCH-FIRST UI** — Any new UI screen MUST pass through `/stitch` (`.windsurf/workflows/stitch.md`) before implementation. Agent generates Stitch prompt pack; operator returns external `.zip`; only then integration starts.
+22. **CODEX DISCLOSURE** — Operational updates MUST explicitly state Codex lane limitations when relevant (non-interactive defaults, browser-tool availability, and ephemeral `~/.egos` sync state).
 
 ## FROZEN ZONES
 
@@ -144,3 +147,4 @@ Pre-commit hook MUST block:
 Boot: `.guarani/prompts/PROMPT_SYSTEM.md`
 Triggers: `.guarani/prompts/triggers.json`
 Atoms: Persona, Mission, Rules, Phases, Mathematics, Output, Philosophy
+Message provenance: `.guarani/standards/AGENT_MESSAGE_SIGNATURE_CONTRACT.md`

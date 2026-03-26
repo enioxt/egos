@@ -39,9 +39,12 @@ Present to user:
 - **Recent commits:** Last 5 commits
 - **Meta-prompts:** Count loaded + active triggers
 - **Codex:** Availability + pending cloud tasks + chosen mode (cloud vs local read-only)
+- **Codex Limitations:** explicitly disclose lane constraints (non-interactive defaults, browser-tool dependency, possible ephemeral `~/.egos` state)
 - **Alibaba:** Availability + chosen orchestrator provider/model
 - **Research:** Latest gem-hunter/report state or `N/A` for kernel repos without those surfaces
 - **Orchestration:** "Pipeline active. Refinery ready. Gate threshold: 75."
+- **Agent Signature:** confirm signature contract loaded and enforced on every operational message
+- **Git Provenance:** confirm signature footer includes repo/branch/commit/push-remote fields for Codex, Antigravity, and Google AI Studio lanes
 
 ---
 
@@ -52,6 +55,20 @@ Required (flag if missing): `AGENTS.md`, `TASKS.md`, `docs/CAPABILITY_REGISTRY.m
 For leaf repos, missing required files MUST produce both: (1) an explicit drift note in the `/start` briefing, and (2) a canonical fallback load when a verified upstream source exists.
 
 Optional: `.guarani/philosophy/TSUN_CHA_PROTOCOL.md`, `.guarani/MCP_ORCHESTRATION_GUIDE.md`, `.guarani/DESIGN_STANDARDS.md`.
+
+---
+
+## 10. Agent Signature Activation (MANDATORY)
+
+Load and enforce:
+- `.guarani/standards/AGENT_MESSAGE_SIGNATURE_CONTRACT.md`
+
+Propagation step (kernel governance change):
+1. `bun run governance:sync:exec`
+2. `bun run governance:check`
+
+Delegation instruction to other agents/environments:
+- "Activate `AGENT_MESSAGE_SIGNATURE_CONTRACT.md` locally and enforce signature footer on every operational reply."
 
 ---
 

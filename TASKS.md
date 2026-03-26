@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.3.0 | **Updated:** 2026-03-21
+> **Version:** 2.8.0 | **Updated:** 2026-03-26
 
 ---
 
@@ -20,11 +20,67 @@
 - [ ] EGOS-078: Define the `Agent Claim Contract` — formal taxonomy for `component`, `skill`, `agent_candidate`, `verified_agent`, and `online_agent`, with mandatory proof fields for runtime, triggers, evals, observability, and ownership
 - [ ] EGOS-079: Enforce the `Agent Claim Gate` in kernel governance — registry lint + pre-commit/pre-push + docs/tasks checks must block any surface claimed as agent without executable entrypoint, existing eval, valid run modes, and runtime evidence
 - [ ] EGOS-080: Define the `LLM Orchestration Matrix` for EGOS — explicit lane ownership for Cascade, terminal orchestration, Codex, Claude Code, Alibaba, and OpenRouter, with approval mode, authority level, and allowed task classes
+- [ ] EGOS-093: Define canonical flagship brief in SSOT — objective, problem statement, personas, and GTM with acceptance metrics
+- [ ] EGOS-094: Create "Market Intelligence Compiler" spec — ingestion contract for books/papers/code/platforms with source-link + evidence tiers
+- [ ] EGOS-095: Build governance rule registry for market practices — normalize global best practices into executable controls and tests
+- [ ] EGOS-096: Add cross-environment signature adoption for Google AI Studio lane (commit/push provenance fields mandatory)
+- [ ] EGOS-097: Define dissemination protocol (`/disseminate`) for propagating new strategic rules to all mapped repos with drift-proof verification
+- [/] EGOS-098: Ingest and operationalize pragmatic multi-agent benchmark patterns (worktree isolation, parallel ticket lanes, QA loop, file-first context) into kernel governance with explicit keep/drop decisions — keep/drop contract drafted + GTM harvester agent added; pending contract enforcement and workflow wiring
+- [ ] EGOS-099: Define `Worktree Orchestration Contract` for EGOS (branch naming, ownership locks, lifecycle, cleanup, merge gates, max concurrency)
+- [ ] EGOS-100: Define `Linear/Issue Sync Contract` (`/linear-sync`) with task decomposition schema, priority classes, and required evidence at PR gate
+- [ ] EGOS-101: Define `QA Loop Contract` (`/qa-loop`) using browser/devtools verification + test rerun policy + stop conditions
+- [ ] EGOS-102: Build executable 10-second operator map (replace text-heavy integration map with founder-grade control plane view)
+- [x] EGOS-107: Define and activate Stitch-first UI contract (`/stitch`) — prompt generation in EGOS lane, external creation in Google Stitch, and `.zip` intake mapping before implementation
+- [ ] EGOS-108: Build `stitch_intake_mapper` agent to parse returned `.zip`, generate mapping table, and create integration tasks automatically
+- [x] EGOS-109: Run full AIOX (`SynkraAI/aiox-core`) gem diagnosis against EGOS + NotebookLM export and codify keep/drop recommendations
+- [ ] EGOS-110: Implement `Worktree Orchestration Contract` draft from AIOX/workflow benchmark and validate with `pr:gate` evidence
+- [ ] EGOS-111: Add `/spec-pipeline` workflow contract (analyst -> pm -> architect -> sm) adapted to EGOS governance
+- [/] EGOS-112: Build lightweight `doctor` command for environment + governance readiness inspired by AIOX installer/doctor — `bun run doctor:codex` implemented with Codex limitations disclosure; pending integration into `/start` automation gate
+- [x] EGOS-113: Benchmark MASA framework + major competitors from official sources and create executable benchmark agent (`framework_benchmarker`)
+- [ ] EGOS-114: Run MASA pilot in one leaf repo and measure impact on drift, architectural violations, and lead-time before broader adoption
+- [x] EGOS-115: Create `mastra_gem_hunter` agent and run initial scan for workflow/evals/observability/MCP/human-loop extraction
+- [ ] EGOS-116: Define "Presentation System" SSOT for EGOS (positioning, promise, evidence, differentiators, anti-bloat thesis) in canonical surfaces
+- [ ] EGOS-117: Build operator-facing narrative kit (1-page pitch + architecture map + proof checklist) from existing SSOT without creating parallel truths
+- [ ] EGOS-118: Create reproducible demo lane for meetings (live build script + guardrails checklist + fallback offline path)
+- [ ] EGOS-119: Add benchmark scorecard command comparing EGOS vs MASA/Mastra/LangGraph/CrewAI on governance, speed, and compliance
+- [ ] EGOS-120: Define visual identity/application rules for docs and generated artifacts (consistency pack)
+- [ ] EGOS-121: Add monthly "clarity review" gate to prune complexity and keep kernel message/simple architecture coherent
 - [x] EGOS-083: Create the canonical cross-repo SSOT registry in the kernel and define the ownership contract for `kernel_canonical`, `leaf_local`, and `shared_home` surfaces
 - [x] EGOS-084: Extend kernel governance sync + pre-commit to cover canonical SSOT docs (`SSOT_REGISTRY`, `CAPABILITY_REGISTRY`, `CHATBOT_SSOT`) and sync them to `~/.egos/docs`
 - [ ] EGOS-085: Roll out the SSOT registry adoption plan across mapped repos — each leaf must declare local SSOT pointers, freshness rules, and task-level migration status
 
 > **Directive:** Until EGOS-062..064 are resolved, new work should strengthen the flagship guardrails product or its proof cases only.
+
+## Benchmark Alignment Plan (2026-03-26)
+
+**Goal:** absorb only what is useful from external multi-agent workflows and discard ornamental complexity.
+
+### Keep (Implement)
+- Worktree-isolated parallel execution.
+- File-first context persistence (not opaque memory dependence).
+- QA loop as a first-class gate (browser + tests + evidence).
+- Clear operator control plane with low cognitive load.
+
+### Drop (Do Not Implement)
+- Platform lock-in orchestration dependencies as core runtime requirement.
+- Non-executable philosophical layers mixed into production policy gates.
+- Expensive infrastructure dependencies before first flagship monetization proof.
+
+### Execution Order
+1. EGOS-098 (keep/drop codification)
+2. EGOS-099 (worktree contract)
+3. EGOS-100 (ticket sync contract)
+4. EGOS-101 (qa loop contract)
+5. EGOS-102 (10-second operator map)
+
+## Grok Intake Queue (Temporary Kernel Inbox)
+
+> Use this queue to capture tasks extracted from external Grok conversations immediately, even before target-repo routing is finalized.
+
+- [ ] EGOS-103: Define `GROK_TASK_INTAKE` template (source link, quote/snippet, intended repo, impact, effort, confidence, owner) for deterministic ingestion.
+- [ ] EGOS-104: Build cross-repo task router policy (`target_repo` tag + migration rule) so kernel can hold temporary tasks and later move them to the correct repository.
+- [ ] EGOS-105: Ingest latest Grok conversation backlog into temporary kernel queue with deduplication against existing EGOS/FORJA/egos-lab tasks.
+- [ ] EGOS-106: Execute migration pass from temporary kernel queue to destination repos (`egos`, `egos-lab`, `FORJA`, `EGOS-Inteligencia`) with status sync proof.
 
 ### P0 (Blockers)
 

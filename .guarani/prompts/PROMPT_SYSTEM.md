@@ -37,6 +37,7 @@ Domínio-específico (Intelink): `apps/intelink/lib/prompts/` — mantém regist
 | `debate.tsun-cha` | Tsun-Cha Protocol | `philosophy/TSUN_CHA_PROTOCOL.md` | Questionar hipótese, verificar lógica, confronto dialético | Intelink, Agents |
 | `extraction.police` | Document Extractor | *(leaf: intelink)* `lib/intelink/meta-prompts.ts` | Extração de BO, depoimento, CS | Intelink |
 | `engineering.prompt` | Prompt Pipeline | `.windsurf/workflows/prompt.md` | Criando novos prompts | Todos |
+| `design.stitch` | Stitch UI Pipeline | `.windsurf/workflows/stitch.md` | Criar telas via Google Stitch + intake de `.zip` | Todos |
 
 ---
 
@@ -67,6 +68,7 @@ Triggers automáticos ativam o prompt certo no contexto certo:
 | "questionar", "verificar", "debate", "lógica" | `debate.tsun-cha` | Afirmação + Evidência |
 | "extrair", "BO", "ocorrência", "depoimento" | `extraction.police` | Documento anexado |
 | "criar prompt", "system prompt", "instrução AI" | `engineering.prompt` | Architect phase |
+| "google stitch", "stitch", "tela", "wireframe", "figma" | `design.stitch` | Prompt pack aprovado + zip intake |
 
 ---
 
@@ -86,6 +88,7 @@ Triggers automáticos ativam o prompt certo no contexto certo:
 - **Ecosystem Audit:** `.guarani/prompts/meta/ecosystem-audit.md`
 - **Tsun-Cha Protocol:** `.guarani/philosophy/TSUN_CHA_PROTOCOL.md`
 - **Prompt Workflow:** `.windsurf/workflows/prompt.md`
+- **Stitch Workflow:** `.windsurf/workflows/stitch.md`
 - **Intelink Prompt Registry:** *(leaf: intelink)* `lib/prompts/registry.ts`
 
 ---
