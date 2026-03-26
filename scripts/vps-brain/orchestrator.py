@@ -49,7 +49,7 @@ LOGS_DIR = BASE_DIR / "logs"
 
 PROVIDERS: dict[str, Any] = {
     "alibaba": {
-        "name": "Alibaba DashScope",
+        "name": "Alibaba DashScope — 1M free tokens/90 days (Singapore region)",
         "api_key_env": "ALIBABA_DASHSCOPE_API_KEY",
         "base_url": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1",
         "models": {
@@ -59,7 +59,7 @@ PROVIDERS: dict[str, Any] = {
             "long":   "qwen-long",            # Contexto 10M tokens
             "code":   "qwen-coder-plus",      # Especialista em código
             "vision": "qwen-vl-max",          # Visão + texto
-            "math":   "qwen-max-latest",       # Qwen-Max latest (melhor Alibaba 2026)
+            "math":   "qwen-max-latest",      # Qwen-Max latest (melhor Alibaba 2026)
         },
         "image_models": {
             "fast":    "wanx-v2",             # Geração rápida
@@ -67,37 +67,38 @@ PROVIDERS: dict[str, Any] = {
             "edit":    "wanx-sketch-to-image-lite",  # Edição
         },
         "free_daily_tokens": 1_000_000,
-        "cost": "free new-user quota / cheap after"
+        "cost": "Grátis: 1M tokens/90 dias | Pago: $0.27-$3/M tokens"
     },
     "openrouter_free": {
-        "name": "OpenRouter (Free Tier) — Verified Mar 2026",
+        "name": "OpenRouter Free Tier — 27 modelos, 20 req/min, 200 req/dia",
         "api_key_env": "OPENROUTER_API_KEY",
         "base_url": "https://openrouter.ai/api/v1",
         "models": {
-            # Verificados funcionando em 2026-03-26
+            # ⭐ Top free models Mar 2026 (verificados)
             "nano":   "liquid/lfm-2.5-1.2b-instruct:free",          # Menor, sempre disponível
             "fast":   "google/gemma-3-4b-it:free",                  # Gemma 4B ✅ rápido
-            "medium": "google/gemma-3-12b-it:free",                  # Gemma 12B ✅ ★ melhor free
-            "smart":  "meta-llama/llama-3.3-70b-instruct:free",      # Llama 70B (rate-limit ~)
-            "code":   "google/gemma-3-12b-it:free",                  # Fallback até Qwen3-coder estabilizar
-            "reason": "meta-llama/llama-3.3-70b-instruct:free",      # Melhor raciocínio free disponível
-            "vision": "nvidia/nemotron-nano-12b-v2-vl:free",         # Vision (Nemotron VL)
-            "long":   "google/gemma-3-12b-it:free",                  # Long context fallback
+            "medium": "google/gemma-3-12b-it:free",                 # Gemma 12B ✅ melhor base
+            "smart":  "meta-llama/llama-3.3-70b-instruct:free",     # Llama 70B ✅ melhor raciocínio
+            "code":   "qwen/qwen3-coder:free",                      # Qwen3 Coder 480B ⭐ MELHOR CODE FREE
+            "reason": "nvidia/nemotron-3-super-120b-a12b:free",     # Nemotron Super 262K context
+            "vision": "nvidia/nemotron-nano-12b-v2-vl:free",        # Vision (Nemotron VL)
+            "long":   "qwen/qwen3-next-80b-a3b-instruct:free",      # Qwen3-Next 262K context
         },
-        "cost": "free (rate-limited por modelo)"
+        "cost": "Grátis: 20 req/min, 200 req/dia | Sem credit card"
     },
     "openrouter_paid": {
-        "name": "OpenRouter (Paid — Premium)",
+        "name": "OpenRouter Paid — Budget models (0.3¢-3¢/K tokens)",
         "api_key_env": "OPENROUTER_API_KEY",
         "base_url": "https://openrouter.ai/api/v1",
         "models": {
-            "fast":   "google/gemini-2.5-flash",                      # Melhor custo/perf pago
-            "medium": "deepseek/deepseek-v3",                         # DeepSeek V3 (baratíssimo)
-            "code":   "qwen/qwen3-coder-480b-a35b-instruct",          # QWen3 Coder pago
-            "smart":  "anthropic/claude-sonnet-4-6",                  # Claude Sonnet via OR
-            "genius": "anthropic/claude-opus-4-6",                    # Opus para arquitetura
+            "ultra_cheap": "google/gemini-2.0-flash-lite",            # $0.075/M input ⭐ MAIS BARATO
+            "fast":        "google/gemini-2.5-flash",                 # $0.30/M input, rápido
+            "medium":      "deepseek/deepseek-v3.2",                  # $0.28/M input, melhor value
+            "code":        "qwen/qwen3-coder-480b-a35b-instruct",     # QWen3 Coder (pode ser free)
+            "smart":       "anthropic/claude-sonnet-4-6",             # Claude Sonnet via OR
+            "genius":      "anthropic/claude-opus-4-6",               # Opus para arquitetura
         },
-        "cost": "pay-per-token (muito barato: DeepSeek ~$0.001/1K)"
+        "cost": "Pay-as-you-go: $0.075/M (Gemini Flash-Lite) até $5/M (Opus)"
     },
     "groq": {
         "name": "Groq (Transcription-only — local/residential IPs)",
