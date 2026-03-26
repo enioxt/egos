@@ -1,0 +1,80 @@
+[
+  {
+    "label": "Groq / Llama-3.3-70B",
+    "ok": false,
+    "elapsed": 3.743171691894531e-05,
+    "model": ""
+  },
+  {
+    "label": "Groq / DeepSeek-R1-distil",
+    "ok": false,
+    "elapsed": 3.337860107421875e-06,
+    "model": ""
+  },
+  {
+    "label": "Alibaba / Qwen-Plus",
+    "ok": false,
+    "elapsed": 3.337860107421875e-06,
+    "model": ""
+  },
+  {
+    "label": "Alibaba / Qwen-Max",
+    "ok": false,
+    "elapsed": 2.1457672119140625e-06,
+    "model": ""
+  },
+  {
+    "label": "Alibaba / Qwen-Max-latest (melhor)",
+    "ok": false,
+    "elapsed": 1.430511474609375e-06,
+    "model": ""
+  },
+  {
+    "label": "OpenRouter / Gemma-3-4B (fast free)",
+    "ok": false,
+    "elapsed": 2.1457672119140625e-06,
+    "model": ""
+  },
+  {
+    "label": "OpenRouter / Gemma-3-12B (mid free)",
+    "ok": false,
+    "elapsed": 1.6689300537109375e-06,
+    "model": ""
+  },
+  {
+    "label": "OpenRouter / Gemma-3-12B (code)",
+    "ok": false,
+    "elapsed": 2.384185791015625e-06,
+    "model": ""
+  },
+  {
+    "label": "OpenRouter / Llama-3.3-70B (reason)",
+    "ok": false,
+    "elapsed": 1.430511474609375e-06,
+    "model": ""
+  },
+  {
+    "label": "OpenRouter / Llama-3.3-70B (smart)",
+    "ok": false,
+    "elapsed": 1.430511474609375e-06,
+    "model": ""
+  },
+  {
+    "label": "OpenRouter / Nemotron-VL (vision)",
+    "ok": false,
+    "elapsed": 1.430511474609375e-06,
+    "model": ""
+  },
+  {
+    "label": "OpenRouter / Gemma-3-12B (long ctx)",
+    "ok": false,
+    "elapsed": 1.9073486328125e-06,
+    "model": ""
+  },
+  {
+    "label": "Claude CLI / Haiku-4.5 (Pro)",
+    "ok": true,
+    "elapsed": 8.111931324005127,
+    "model": "claude-haiku-4-5-20251001"
+  }
+]

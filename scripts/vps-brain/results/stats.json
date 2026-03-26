@@ -1,0 +1,109 @@
+{
+  "timestamp": "2026-03-26T10:12:29.964625",
+  "summary": {
+    "total_calls": 12,
+    "total_cost": 0.0,
+    "total_errors": 8,
+    "uptime_hours": 258.33333333333337
+  },
+  "by_provider": {
+    "alibaba": {
+      "calls": 2,
+      "success_rate": "100.0%",
+      "avg_latency": "2.69s",
+      "p95_latency": "2.95s",
+      "cost": "$0.0000"
+    },
+    "openrouter_free": {
+      "calls": 6,
+      "success_rate": "0.0%",
+      "avg_latency": "0.21s",
+      "p95_latency": "0.59s",
+      "cost": "$0.0000"
+    },
+    "groq": {
+      "calls": 2,
+      "success_rate": "0.0%",
+      "avg_latency": "0.15s",
+      "p95_latency": "0.16s",
+      "cost": "$0.0000"
+    },
+    "claude_cli": {
+      "calls": 2,
+      "success_rate": "100.0%",
+      "avg_latency": "13.86s",
+      "p95_latency": "16.42s",
+      "cost": "$0.0000"
+    }
+  },
+  "recent_errors": [
+    [
+      "openrouter_free",
+      "nano",
+      "HTTP Error 401: Unauthorized",
+      "2026-03-26T10:11:49.812238"
+    ],
+    [
+      "openrouter_free",
+      "nano",
+      "HTTP Error 401: Unauthorized",
+      "2026-03-26T10:11:51.946729"
+    ],
+    [
+      "openrouter_free",
+      "fast",
+      "HTTP Error 401: Unauthorized",
+      "2026-03-26T10:11:53.091853"
+    ],
+    [
+      "openrouter_free",
+      "fast",
+      "HTTP Error 401: Unauthorized",
+      "2026-03-26T10:11:55.223282"
+    ],
+    [
+      "openrouter_free",
+      "medium",
+      "HTTP Error 401: Unauthorized",
+      "2026-03-26T10:11:56.358866"
+    ],
+    [
+      "openrouter_free",
+      "medium",
+      "HTTP Error 401: Unauthorized",
+      "2026-03-26T10:11:58.948584"
+    ],
+    [
+      "groq",
+      "whisper",
+      "HTTP Error 403: Forbidden",
+      "2026-03-26T10:12:00.097135"
+    ],
+    [
+      "groq",
+      "whisper",
+      "HTTP Error 403: Forbidden",
+      "2026-03-26T10:12:02.253070"
+    ]
+  ],
+  "cost_breakdown": {
+    "alibaba": 0.0,
+    "openrouter_free": 0.0,
+    "groq": 0.0,
+    "claude_cli": 0.0
+  },
+  "performance": {
+    "alibaba": {
+      "throughput_tokens_per_sec": 433902.4632206146
+    },
+    "openrouter_free": {
+      "throughput_tokens_per_sec": 412306.10377527063
+    },
+    "groq": {
+      "throughput_tokens_per_sec": 198.0757635723329
+    },
+    "claude_cli": {
+      "throughput_tokens_per_sec": 3.1469022791953347
+    }
+  }
+}

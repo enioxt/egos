@@ -29,5 +29,12 @@ Thumbs.db
 *.key
 *.pem
 
+# Scraper & Audit Noise
+.playwright/
+data/
+all_open_issues.json
+logs/
+*.log
+
 # Cline IDE artifacts (prevent governance symlink breakage)
 .agent/
