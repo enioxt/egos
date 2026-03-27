@@ -1,0 +1,124 @@
+{
+  "description": "Skill auto-suggestion and auto-execution rules. Enables intelligent skill discovery and chaining.",
+  "version": "1.0.0",
+  "enabled": true,
+
+  "auto_suggest": [
+    {
+      "trigger": "file_count > 5 modified",
+      "suggest": "/review-pr",
+      "message": "Large changeset detected. Should I audit impact with PR review?",
+      "context": "Large changes need cross-repo impact analysis"
+    },
+    {
+      "trigger": "contains(['TODO', 'FIXME', 'XXX', 'HACK'])",
+      "suggest": "/help",
+      "message": "Found code comments suggesting documentation. Need help?",
+      "context": "Comments indicate unclear implementation"
+    },
+    {
+      "trigger": "test_failure detected",
+      "suggest": "switch_model_to_sonnet",
+      "message": "Test failed. Switch to Sonnet for better debugging?",
+      "context": "Sonnet excels at complex test failure analysis"
+    },
+    {
+      "trigger": "security_vulnerability found",
+      "suggest": "/disseminate",
+      "message": "Security issue detected. Disseminate governance rules?",
+      "context": "Security fixes must propagate to leaf repos"
+    },
+    {
+      "trigger": "cross_repo_impact detected",
+      "suggest": "/disseminate",
+      "message": "Changes affect multiple repos. Sync governance?",
+      "context": "API or shared config changes need dissemination"
+    },
+    {
+      "trigger": "etl_progress_stale",
+      "suggest": "check_service_health",
+      "message": "ETL progress stale (>1h). Check service status?",
+      "context": "Predictive governance rule: detect stuck services early"
+    },
+    {
+      "trigger": "rho_score_drops > 15",
+      "suggest": "create_investigation_ticket",
+      "message": "Rho health dropped >15pts. Investigate?",
+      "context": "Health score anomalies indicate drift"
+    },
+    {
+      "trigger": "api_key_exposed_in_code",
+      "suggest": "/commit --security-review",
+      "message": "Credentials detected! Security review needed!",
+      "context": "Credentials policy: never commit secrets"
+    }
+  ],
+
+  "auto_execute": [
+    {
+      "trigger": "on_pre_commit",
+      "execute": [
+        "gitleaks scan",
+        "tsc --noEmit --strict",
+        "prettier --check"
+      ],
+      "block_on": "error",
+      "timeout_ms": 30000,
+      "reason": "Pre-commit validation (security + quality)"
+    },
+    {
+      "trigger": "on_session_end",
+      "execute": ["/end"],
+      "reason": "Auto-handoff for session continuity",
+      "async": true
+    },
+    {
+      "trigger": "on_critical_alert",
+      "execute": [
+        "create_emergency_ticket",
+        "send_telegram_alert",
+        "/disseminate"
+      ],
+      "reason": "Critical alerts need immediate propagation"
+    }
+  ],
+
+  "skill_preferences": {
+    "model_selection": {
+      "coding": "claude-sonnet-4-6",
+      "research": "claude-haiku-4-5",
+      "complex_analysis": "claude-opus-4-6",
+      "quick_tasks": "claude-haiku-4-5"
+    },
+    "tools": {
+      "testing": ["vitest", "jest", "testing-library"],
+      "linting": ["eslint", "prettier"],
+      "security": ["gitleaks", "dependabot"],
+      "monitoring": ["rho-calculator", "etl-watcher"],
+      "deployment": ["vercel", "github-actions"]
+    }
+  },
+
+  "discovery": {
+    "marketplace_check_interval_days": 7,
+    "auto_install_trending": false,
+    "sources": [
+      "github-marketplace",
+      "npm-registry",
+      "claude-plugin-store",
+      "polyskill-ai"
+    ]
+  },
+
+  "logging": {
+    "track_skill_usage": true,
+    "log_location": "~/.egos/skill-usage.log",
+    "include": ["execution_time", "success_rate", "user_approval", "impact"]
+  },
+
+  "governance": {
+    "require_approval_for": ["auto_execute", "credentials_access"],
+    "audit_trail": "~/.egos/skill-audit.log",
+    "monthly_review": true
+  }
+}
