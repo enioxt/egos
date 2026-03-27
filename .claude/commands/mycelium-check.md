@@ -1,0 +1,1 @@
+../../.guarani/prompts/meta/mycelium-orchestrator.md

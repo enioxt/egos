@@ -1,0 +1,1 @@
+../../.guarani/prompts/meta/universal-strategist.md

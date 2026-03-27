@@ -1,0 +1,1 @@
+../../.guarani/prompts/meta/egos-activation-governance.md

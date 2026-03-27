@@ -1,0 +1,1 @@
+../../.guarani/prompts/meta/brainet-collective.md
