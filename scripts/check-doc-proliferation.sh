@@ -24,6 +24,9 @@ while IFS= read -r file; do
   if [[ "$file" =~ ^docs/_archived_handoffs/ ]]; then
     continue
   fi
+  if [[ "$file" =~ ^docs/_current_handoffs/ ]]; then
+    continue
+  fi
   
   # Check for date stamps
   if [[ "$file" =~ _20[0-9]{2}-[0-9]{2} ]]; then

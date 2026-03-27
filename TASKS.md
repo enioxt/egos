@@ -140,8 +140,77 @@
 - 🚀 Develop FastAPI gateway
 - 🚀 Migrate FORJA, 852, carteira-livre to VPS
 - 🚀 Setup CI/CD pipeline for auto-deploy
+- 🚀 **Agent Swarm 24/7** — Full autonomous agent orchestration
 
-**Total Value Delivered:**
+---
+
+## 🆕 NEW: Agent Swarm 24/7 — EGOS-103..110
+
+> **Created:** 2026-03-26 | **Scope:** Autonomous agent orchestration
+> **Blueprint:** `docs/AGENT_SWARM_24_7_BLUEPRINT.md`
+
+### P0 (Critical) — Foundation
+
+- [x] **EGOS-103**: Implementar Agent Scheduler (node-cron)
+  > ✅ Completado: 2026-03-26 (scheduler.ts) + ETL Orchestrator Agent 2026-03-27
+  > `egos-lab/agents/worker/scheduler.ts` — Redis-backed, hourly/daily/weekly/monthly triggers
+  > `egos-lab/agents/agents/etl-orchestrator.ts` — AGENT-031, monitoramento br-acc 24/7
+  > `egos-lab/agents/registry/agents.json` — etl_orchestrator registrado (hourly, active)
+  > `egos-lab/agents/worker/start-all.sh` — Start Worker + Scheduler para Railway
+
+- [ ] **EGOS-104**: Criar agente `uptime_monitor` (24/7)
+  > Monitora saúde: Supabase (4 projetos), Vercel (2), VPS (Contabo), Railway
+  > Ping endpoints a cada 5 minutos
+  > Alerta via WhatsApp/Email quando serviço down
+  > **Estimativa:** 4 horas | **Dependências:** EGOS-103
+
+- [ ] **EGOS-105**: Criar agente `quota_guardian` (24/7)
+  > Monitora quotas: Alibaba (Qwen), OpenRouter, Groq
+  > Alerta quando quota >80% ou erro 429 detectado
+  > Sugere fallback automático
+  > **Estimativa:** 4 horas | **Dependências:** EGOS-103
+
+### P1 (Important) — Autonomous Agents
+
+- [ ] **EGOS-106**: Criar agente `drift_sentinel` (24/7)
+  > Detecta drift entre SSOT (AGENTS.md, TASKS.md) e código real
+  > Compara registry com implementação atual
+  > Alerta quando divergência encontrada
+  > **Estimativa:** 6 horas | **Dependências:** EGOS-103
+
+- [ ] **EGOS-107**: Criar agente `cost_optimizer` (daily)
+  > Analisa custos de LLM calls diariamente
+  > Identifica oportunidades de otimização (modelo mais barato, caching)
+  > Report: quais agentes gastam mais, como reduzir
+  > **Estimativa:** 6 horas | **Dependências:** EGOS-103
+
+- [ ] **EGOS-108**: Criar agente `pr_curator` (every 2h)
+  > Monitora PRs abertos em todos os repos (9 repos)
+  > Identifica: stale PRs (>7 dias), PRs prontos para merge, conflitos
+  > Sugere ações: merge, rebase, close
+  > **Estimativa:** 6 horas | **Dependências:** EGOS-103, GitHub MCP
+
+### P2 (Strategic) — SDK + API
+
+- [ ] **EGOS-109**: Criar NPM Package `@egos/agents`
+  > SDK para desenvolvedores usarem agentes EGOS
+  > Exporta: AgentOrchestrator, Scheduler, Registry, MCPToolKit
+  > CLI: `npx @egos/agents run <id>`, `npx @egos/agents schedule --list`
+  > **Estimativa:** 8 horas | **Dependências:** EGOS-103..105
+
+- [ ] **EGOS-110**: Criar REST API Gateway
+  > Endpoints: POST /api/agent/:id/run, GET /api/agent/:id/status
+  > WebSocket: /ws/agent/:id/stream (real-time execution)
+  > Deploy no Railway
+  > **Estimativa:** 8 horas | **Dependências:** EGOS-103..105
+
+---
+
+**Total Value to Deliver:**
+- 15 agentes rodando 24/7 (vs 0 hoje)
+- 100% coverage de infraestrutura monitorada
+- SDK + API para integração externa
+- Custo: ~$25-65/mês para swarm completo
 - 1 critical feature (frictionless signup)
 - 1 major architecture integration (BLUEPRINT-EGOS)
 - $60-100/month cost savings identified
