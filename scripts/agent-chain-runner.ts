@@ -132,8 +132,22 @@ function findSharedEvents(
   return Array.from(shared);
 }
 
-function generateAnalysis(): object {
-  const analysis = {
+interface AnalysisResult {
+  executionDate: string;
+  mode: string;
+  summary: {
+    totalSteps: number;
+    totalFindings: number;
+    totalDuration: number;
+    eventTypes: number;
+  };
+  steps: ChainEvent[];
+  eventCorrelations: any[];
+  insights: any;
+}
+
+function generateAnalysis(): AnalysisResult {
+  const analysis: AnalysisResult = {
     executionDate: new Date().toISOString(),
     mode,
     summary: {
@@ -226,7 +240,7 @@ async function main() {
   }
 
   // Generate analysis
-  const analysis = generateAnalysis();
+  const analysis = generateAnalysis() as AnalysisResult;
 
   // Write results
   appendFileSync(chainLogFile, JSON.stringify(analysis, null, 2));
