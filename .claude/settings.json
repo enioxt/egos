@@ -2,7 +2,19 @@
   "permissions": {
     "allow": [
       "mcp__context7__resolve-library-id",
-      "Bash(__NEW_LINE_bacdba27ef91f06a__ chmod:*)"
+      "Bash(__NEW_LINE_bacdba27ef91f06a__ chmod:*)",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Read(//home/enio/egos-lab/**)",
+      "Bash(done)",
+      "Skill(update-config)",
+      "Skill(update-config:*)",
+      "Bash(tee /tmp/agent-test-1.log)",
+      "Bash(tee /tmp/agent-test-2.log)",
+      "Bash(tee /tmp/agent-test-3.log)",
+      "Bash(tee /tmp/agent-test-4.log)",
+      "Bash(tee /tmp/agent-test-5.log)",
+      "Bash(tee /tmp/agent-test-6.log)"
     ]
   }
 }

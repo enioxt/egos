@@ -1,0 +1,109 @@
+{
+  "executionDate": "2026-03-27T18:54:43.327Z",
+  "mode": "--dry",
+  "summary": {
+    "totalSteps": 6,
+    "totalFindings": 86,
+    "totalDuration": 10026,
+    "eventTypes": 0
+  },
+  "steps": [
+    {
+      "step": 1,
+      "agent": "dep_auditor",
+      "timestamp": "2026-03-27T18:54:33.228Z",
+      "correlation": "9332167a",
+      "findings": 12,
+      "duration": 255,
+      "events": [],
+      "sharedEvents": []
+    },
+    {
+      "step": 2,
+      "agent": "archaeology_digger",
+      "timestamp": "2026-03-27T18:54:34.441Z",
+      "correlation": "42bce028",
+      "findings": 19,
+      "duration": 1156,
+      "events": [],
+      "sharedEvents": []
+    },
+    {
+      "step": 3,
+      "agent": "chatbot_compliance_checker",
+      "timestamp": "2026-03-27T18:54:42.790Z",
+      "correlation": "f0356243",
+      "findings": 1,
+      "duration": 8248,
+      "events": [],
+      "sharedEvents": []
+    },
+    {
+      "step": 4,
+      "agent": "dead_code_detector",
+      "timestamp": "2026-03-27T18:54:43.165Z",
+      "correlation": "16cee4ce",
+      "findings": 52,
+      "duration": 315,
+      "events": [],
+      "sharedEvents": []
+    },
+    {
+      "step": 5,
+      "agent": "capability_drift_checker",
+      "timestamp": "2026-03-27T18:54:43.259Z",
+      "correlation": "a2d6adbf",
+      "findings": 1,
+      "duration": 40,
+      "events": [],
+      "sharedEvents": []
+    },
+    {
+      "step": 6,
+      "agent": "context_tracker",
+      "timestamp": "2026-03-27T18:54:43.327Z",
+      "correlation": "08b40545",
+      "findings": 1,
+      "duration": 12,
+      "events": [],
+      "sharedEvents": []
+    }
+  ],
+  "eventCorrelations": [
+    {
+      "correlation": "9332167a",
+      "eventCount": 0,
+      "events": []
+    },
+    {
+      "correlation": "42bce028",
+      "eventCount": 0,
+      "events": []
+    },
+    {
+      "correlation": "f0356243",
+      "eventCount": 0,
+      "events": []
+    },
+    {
+      "correlation": "16cee4ce",
+      "eventCount": 0,
+      "events": []
+    },
+    {
+      "correlation": "a2d6adbf",
+      "eventCount": 0,
+      "events": []
+    },
+    {
+      "correlation": "08b40545",
+      "eventCount": 0,
+      "events": []
+    }
+  ],
+  "insights": {
+    "mostCommonEvents": {},
+    "agentInteractions": {},
+    "sequentialPattern": "12 → 19 → 1 → 52 → 1 → 1 (stable/decreasing)"
+  }
+}

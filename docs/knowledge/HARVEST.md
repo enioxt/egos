@@ -579,14 +579,260 @@ EGOS Kernel (Central Router)
 
 ---
 
-### Learning: Session Continuation & Context
+### Pattern: Multi-Model AI Orchestration Matrix (2026-03-27)
 
-**Challenge:** Previous session hit context limit. This session resumed from a .jsonl handoff file.
+**Status:** Active | **Cost:** ~$60-80/mês (otimizado: $20)
 
-**What Worked:**
-- Detailed SESSION_SUMMARY.md saved last session captured 100+ data points
-- git history + git log provided exact commit diffs
-- Memory system (HARVEST.md + triggers.json) preserved all patterns
+**Provedores Integrados:**
 
-**Improvement:** Multi-session sprints now trackable via `/end` handoff files rather than relying solely on memory.
+| Provider | Modelo | Cota | Custo | Uso Principal |
+|----------|--------|------|-------|-------------|
+| **Alibaba** | qwen-plus | 1M tokens | ~$0-5/mês | 90% das tarefas (volume) |
+| **Claude Code** | Sonnet 4.5 | Ilimitado* | $20/mês | Agentes, governança, decisões |
+| **Gemini CLI Pro** | gemini-3-pro | 1,500/day | $20/mês | Validação cruzada, fallback |
+| **Codex** | gpt-4o | Ilimitado* | $20/mês | Diff-heavy, audit, mecânico |
+| **OpenRouter** | gemini-flash | Variável | Pay-as-you-go | Fallback universal |
 
+*Ilimitado = fair use da assinatura
+
+**Aliases Bash (~/.egos_aliases):**
+
+```bash
+# Navegação
+alias egos='cd /home/enio/egos'
+alias egos-852='cd /home/enio/852'
+alias egos-forja='cd /home/enio/forja'
+
+# Claude Code Workflows
+alias egos-start='cd /home/enio/egos && claude'
+alias egos-disseminate='cd /home/enio/egos && echo "/disseminate" | claude'
+alias egos-audit='cd /home/enio/egos && echo "/audit" | claude'
+
+# Agentes EGOS
+alias egos-agent-list='bun agent:list'
+alias egos-dep-check='bun agent:run dep_auditor --dry'
+alias egos-dead-code='bun agent:run dead_code_detector --dry'
+alias egos-context='bun agent:run context_tracker --dry'
+
+# Gemini CLI (todos repos)
+alias gemini-egos='cd /home/enio/egos && gemini'
+alias gemini-lab='cd /home/enio/egos-lab && gemini'
+alias gemini-852='cd /home/enio/852 && gemini'
+alias gemini-forja='cd /home/enio/forja && gemini'
+alias gemini-quick='gemini -p "Analise e sugira melhorias" -y'
+alias gemini-code='gemini -m gemini-2.5-pro -p "Refatore para performance" -y'
+
+# Codex
+alias codex-review='codex review'
+alias codex-cloud='codex cloud list'
+alias codex-uncommitted='codex review --uncommitted'
+
+# Governança
+alias egos-gov-check='bun run governance:check'
+alias egos-gov-sync='bun run governance:sync:exec'
+alias egos-typecheck='bun run typecheck'
+alias egos-lint='bun run lint'
+
+# Status
+alias egos-status='git status && bun agent:run context_tracker --dry'
+alias egos-git-all='for repo in egos egos-lab 852 forja carteira-livre br-acc smartbuscas; do echo "=== $repo ===" && cd /home/enio/$repo && git status --short; done'
+```
+
+**Matriz de Decisão:**
+
+| Tarefa | Ferramenta | Fallback |
+|--------|-----------|----------|
+| Análise dependências | Claude Code agent | Gemini CLI |
+| Código morto | Claude Code agent | — |
+| Refatoração multi-arquivo | Codex | Claude Code |
+| Debug complexo | Claude Code | Gemini 3 Pro |
+| Geração rápida | Gemini CLI flash | Alibaba |
+| Orquestração runtime | Alibaba qwen-plus | OpenRouter |
+| Video/ASR/TTS | Alibaba (exclusivo) | — |
+
+**Workflow por Sessão:**
+
+```bash
+# 1. Início
+source ~/.egos_aliases
+egos-pre  # hook pre-session
+
+# 2. Durante
+egos-start        # ou: gemini-quick, codex-review
+egos-dep-check    # validar dependências
+egos-typecheck    # TypeScript
+
+# 3. Fim
+egos-context       # CTX < 180?
+egos-post          # hook post-session
+```
+
+**Instalação:**
+```bash
+# 1. Aliases
+cp ~/.egos_aliases ~/ && echo 'source ~/.egos_aliases' >> ~/.bashrc
+
+# 2. Gemini CLI (já instalado global)
+gemini --version  # 0.35.2
+
+# 3. Testar em todos repos
+for repo in egos egos-lab 852 forja carteira-livre br-acc smartbuscas; do
+  cd /home/enio/$repo && gemini --version && echo "✅ $repo"
+done
+```
+
+**Regra de Ouro:**
+> "Cada ferramenta para seu propósito. Alibaba para volume, Claude para decisão, Gemini para validação, Codex para diffs."
+
+**Reusable:** Qualquer ecossistema multi-repo que precise orquestrar múltiplos provedores de IA com fallback automático.
+
+---
+
+### Pattern: Cross-Repo Change Detection Mesh (CRCDM) — 2026-03-27
+
+**Problem:** Changes happen across 9+ EGOS repositories simultaneously. No unified visibility of what changed where, when, and impact.
+
+**Solution:** DAG-based change tracking system with:
+- Pre/post-commit hooks for automatic detection
+- Merkle-style hash chain for immutable audit trail
+- Cross-repo dependency mapping
+- Integration with /start, /end, /disseminate workflows
+
+**Architecture:**
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    CRCDM (Change Detection Mesh)               │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐        │
+│  │ Pre-Commit  │───▶│  Post-Commit│───▶│  Pre-Push   │        │
+│  │   Hook      │    │    Hook     │    │    Hook     │        │
+│  └─────────────┘    └─────────────┘    └─────────────┘        │
+│         │                 │                  │                │
+│         ▼                 ▼                  ▼                │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │              DAG (Directed Acyclic Graph)              │   │
+│  │  • Nodes: Change events (commits, pushes, merges)      │   │
+│  │  • Edges: Dependencies between changes                 │   │
+│  │  • Impact: Critical/High/Medium/Low classification     │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│         │                                                       │
+│         ▼                                                       │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │          Immutable Hash Chain (Blockchain-style)       │   │
+│  │  SHA-256(commit + author + timestamp + files + parent)  │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│         │                                                       │
+│         ▼                                                       │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  Cross-Repo Sync        Workflow Integration            │   │
+│  │  • Detect dependencies  • /start: Initialize          │   │
+│  │  • Notify dependents    • /end: Record completion       │   │
+│  │  • Sync state           • /disseminate: Prepare report│   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Components:**
+
+| Component | File | Purpose |
+|-----------|------|---------|
+| Core Engine | `~/.egos/crcdm/crcdm.sh` | DAG operations, hashing |
+| CLI Tool | `~/.egos/crcdm/crcdm-cli.sh` | User interface |
+| Pre-Commit | `~/.egos/crcdm/hooks/pre-commit` | Detect staged changes |
+| Post-Commit | `~/.egos/crcdm/hooks/post-commit` | Record committed changes |
+| Pre-Push | `~/.egos/crcdm/hooks/pre-push` | Analyze push impact |
+| Post-Push | `~/.egos/crcdm/hooks/post-push` | Complete push tracking |
+| Workflow | `~/.egos/crcdm/crcdm-workflow-integration.sh` | /start, /end, /disseminate |
+| Installer | `~/.egos/crcdm/crcdm-install-hooks.sh` | Install to all repos |
+
+**Commands:**
+
+```bash
+# Status and visualization
+crcdm status              # Show all repos status
+crcdm log [n]             # Recent changes (default 20)
+crcdm dag [n]             # Visualize DAG nodes
+crcdm mesh                # Full mesh view
+
+# Operations
+crcdm sync                # Force sync all repos
+crcdm deps                # Show cross-repo dependencies
+crcdm install             # Install hooks to all EGOS repos
+
+# Workflow integration
+crcdm workflow start      # /start integration
+crcdm workflow end        # /end integration
+crcdm workflow disseminate # /disseminate integration
+
+# Aliases (add to .bashrc)
+alias egos-mesh='crcdm mesh'
+alias egos-changes='crcdm log'
+alias egos-status-all='crcdm status'
+alias egos-install-hooks='crcdm install'
+```
+
+**Impact Classification:**
+
+| Level | Files | Emoji | Action |
+|-------|-------|-------|--------|
+| Critical | runtime, auth, security, middleware, .env | 🔴 | Block + notify dependents |
+| High | api/, db/, config/, migrations/ | 🟠 | Warn + track dependencies |
+| Medium | components/, features/, hooks/ | 🟡 | Log + monitor |
+| Low | docs, tests, styles | ⚪ | Log only |
+
+**Installation:**
+
+```bash
+# 1. Initialize CRCDM
+crcdm init
+
+# 2. Install hooks to all EGOS repos
+crcdm install
+# Or: bash ~/.egos/crcdm/crcdm-install-hooks.sh
+
+# 3. Add aliases to .bashrc
+echo 'source ~/.egos_aliases' >> ~/.bashrc
+source ~/.bashrc
+
+# 4. Test
+egos-mesh
+```
+
+**Data Storage:**
+- DAG: `~/.egos/crcdm/dag/dag.json`
+- Logs: `~/.egos/crcdm/logs/*.log`
+- State: `~/.egos/crcdm/state/*.json`
+- Notifications: `~/.egos/crcdm/notifications/*.json`
+
+**Integration Points:**
+
+| Hook | Workflow Integration | Purpose |
+|------|---------------------|---------|
+| Pre-Commit | — | Detect staged changes |
+| Post-Commit | — | Record commit in DAG |
+| Pre-Push | — | Warn about impact |
+| Post-Push | `/disseminate` | Trigger cross-repo sync |
+| — | `/start` | Initialize session context |
+| — | `/end` | Record session summary |
+
+**Hash Chain (Blockchain-style):**
+```
+Change 1: SHA256(repo + commit + timestamp + files)
+   │
+   ▼
+Change 2: SHA256(Change1_hash + repo + commit + timestamp + files)
+   │
+   ▼
+Change 3: SHA256(Change2_hash + repo + commit + timestamp + files)
+```
+
+**Cross-Repo Dependencies Detected:**
+- `.egos` symlink → governance dependency
+- `@egos/shared` in package.json → package dependency
+- `from '@egos/shared'` in code → code dependency
+
+**Reusable:** Any multi-repo ecosystem needing unified change visibility and impact tracking.
+
+---

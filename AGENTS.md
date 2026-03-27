@@ -1,8 +1,8 @@
 # AGENTS.md — EGOS Framework Core
 
-> **VERSION:** 1.2.1 | **UPDATED:** 2026-03-27
+> **VERSION:** 1.3.0 | **UPDATED:** 2026-03-27
 > **TYPE:** Framework Core + Orchestration Kernel + Agent Runtime
-> **NOTE:** Governance audit completed 2026-03-27 → 2 duplicates removed, 6 broken MCPs disabled, 3 non-critical agents dormant. See `docs/AGENT_DEPRECATION_LOG.md`
+> **NOTE:** Governance audit completed 2026-03-27 → Registry normalized (agents/tools separation), all agent files verified, 6 utility scripts reclassified. See `docs/AGENT_AUDIT_2026-03-27.md`
 
 ---
 
@@ -89,32 +89,34 @@ egos/
 > - `.husky/pre-commit`
 > - `.guarani/orchestration/PIPELINE.md`
 
-## Agent Status Summary (2026-03-27 Audit & Consolidation)
+## Agent Status Summary (2026-03-27 Registry Audit)
 
-**Active Agents:** 34 (across kernel + lab)
-- **Kernel:** 9 core + critical agents (T0-T3)
-  - 6 base governance agents (T0)
-  - 3 consolidated critical agents: orchestrator, security_scanner_v2, report_generator
-- **Lab:** 25 operational agents (T0-T3)
+**VERIFIED AGENT COUNT:**
+- **Kernel agents:** 6 active (all implemented ✅)
+  - dep_auditor, archaeology_digger, chatbot_compliance_checker, dead_code_detector, capability_drift_checker, context_tracker
+- **Lab agents:** 18 real agents (all implemented ✅)
+- **Utilities/Scripts:** 6 reclassified from "agents" → "tools" array
+  - security_scanner, idea_scanner, rho_calculator, code_reviewer, disseminator, ambient_disseminator
+- **Total working agents:** 24 (kernel 6 + lab 18)
+- **Total tools/scripts:** 6
 
-**Dormant Agents:** 3 (awaiting implementation or scheduling)
-- `e2e_smoke` — E2E test suite (blocked on Playwright, pending)
-- `social_media_agent` — Multi-channel automation (blocked on content strategy, pending)
-- `ghost_hunter` — Discovery protocol agent (intentional placeholder, awaiting first 3 discoverers)
+**Dormant/Non-Agents Handled:**
+- ✅ `e2e_smoke` — Now has stub implementation (agents/agents/e2e-smoke.ts) in agents registry
+- ✅ `social_media_agent` — Implemented stub in lab registry
+- ❌ `ghost_hunter` — **REMOVED** (was markdown: docs/protocols/rho-calibration.md, not an agent)
 
-**Broken Dependencies:** 6 MCPs disabled (files never created)
-- See `docs/AGENT_DEPRECATION_LOG.md` for detailed audit trail
-- See `docs/MCP_REMEDIATION_PLAN.md` for implementation plan
-- Affected agents: contract_tester, integration_tester, code_reviewer, ssot_fixer, etl_orchestrator
-- **Status:** Phase 1 complete (disabled), Phase 2 pending (remediation)
+**MCP Remediation Blocking:** 6 agents in egos-lab require Supabase/Morph MCPs
+- Affected: contract_tester, integration_tester, etl_orchestrator (+ 3 in extended list)
+- **Status:** Phase 1 complete (identified), Phase 2 pending (MCP implementation)
+- Tracked in `docs/MCP_REMEDIATION_PLAN.md`
 
 ## Commands
 
 ```bash
-bun agent:list              # List all registered agents (9 kernel + 25 lab = 34 total; 3 dormant)
+bun agent:list              # List all registered agents (6 kernel + 18 lab = 24 agents; 6 tools)
 bun agent:run <id> --dry    # Run agent in dry-run mode
 bun agent:run <id> --exec   # Run agent in execute mode
-bun agent:lint              # Validate agent registry
+bun agent:lint              # Validate agent registry (must have corresponding .ts files)
 bun typecheck               # TypeScript strict check
 bun lint                    # ESLint
 bun governance:sync         # Dry-run kernel -> ~/.egos governance propagation
