@@ -117,11 +117,15 @@ Filter by: Company, date range, sentiment, news type (acquisition, IPO, lawsuit,
 ### OAuth 1.1 Signature Validation
 Every webhook request from X.com includes HMAC-SHA1 signature. **MUST validate** before processing.
 
+Credentials stored in: `~/.egos/secrets.env` (never commit)
+
 ```typescript
 // Pseudo-code
 function validateXTwitterSignature(req: Request): boolean {
     const signature = req.headers['x-twitter-webhooks-signature'];
     const body = req.rawBody; // Must be raw, not parsed JSON
+    const consumerSecret = process.env.TWITTER_CONSUMER_SECRET;
+    const tokenSecret = process.env.TWITTER_TOKEN_SECRET;
     const hash = hmacSha1(body, consumerSecret + '&' + tokenSecret);
     return hash === signature;
 }
@@ -163,11 +167,15 @@ If `rho_score` drops below 60 → Alert (integration drift detected).
 
 ### Env variables to disseminate:
 ```bash
-TWITTER_CONSUMER_KEY=As8lWiECgOIyLVjNLerpVfhTE
-TWITTER_CONSUMER_SECRET=ZZUiv0DNlsHtDlJUymH0JFDTQFl7THaMCl8DLBZ3cLh3h0EdCH
-TWITTER_BEARER_TOKEN=AAAAAAAAAAAAAAAAAAAAAC5d8gEAAAAAv1XB5Y9%2FHflzqSY0HGS0IH42Ksk%3DbroUQ3MmIlfLPCp6mLZ764PsfX9Xkic186XdCb1XXuBwxJ2bBg
+# Store in ~/.egos/secrets.env and .env.local files (never commit)
+TWITTER_CONSUMER_KEY=<regenerate_from_dashboard>
+TWITTER_CONSUMER_SECRET=<regenerate_from_dashboard>
+TWITTER_BEARER_TOKEN=<regenerate_from_dashboard>
+TWITTER_TOKEN_SECRET=<regenerate_from_dashboard>
 TWITTER_WEBHOOK_URL=https://inteligencia.egos.ia.br/api/v1/twitter/ingest
 ```
+
+**CRITICAL:** Previous credentials were exposed in git. Revoke immediately from https://developer.x.com/en/account/settings and generate new tokens.
 
 ---
 
