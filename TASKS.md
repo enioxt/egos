@@ -1,9 +1,62 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.7.0 | **Updated:** 2026-03-25 | **Last:** FORJA Auth Completion + BLUEPRINT-EGOS Absorption
+> **Version:** 2.8.0 | **Updated:** 2026-03-27 | **Last:** Governance Audit Phase 1 Complete
 > **Archived:** Historical tasks (EGOS-001..102) moved to `docs/TASKS_ARCHIVE_2026-03.md`
+> **New:** Agent Deprecation + MCP Remediation plan added
 
 ---
+
+## Session 2026-03-27: Governance Audit Phase 1 + MCP Remediation
+
+### P0 (Critical) — MCP Remediation (Blocking 6 Agents)
+
+- [ ] MCP-001: Implement Supabase MCP (HIGHEST PRIORITY)
+  > Location: ~/.claude/mcp/supabase-server.js
+  > Affects: contract_tester, integration_tester, report_generator, etl_orchestrator
+  > Alternative: Use psql CLI wrapper + Bash
+  > Effort: 2-3 hours
+  > Status: Design phase
+
+- [ ] MCP-002: Implement Morph MCP (or replace with Edit tool)
+  > Location: ~/.claude/mcp/morph-server.js
+  > Affects: code_reviewer, ssot_fixer
+  > Alternative: Use native Edit tool for code transformations
+  > Effort: 1-2 hours
+  > Status: Design phase
+
+- [ ] MCP-003: Validate native MCP replacements
+  > sequential-thinking → Claude native feature ✓
+  > memory → mcp__memory__ functions ✓
+  > filesystem → Read/Write/Edit tools ✓
+  > github → mcp__ functions ✓
+  > Status: Validated
+
+### P1 (Important) — Agent Consolidation
+
+- [x] AGENT-AUDIT-001: Remove duplicate agents (2 duplicates removed)
+  > Removed: dep_auditor, dead_code_detector from egos-lab
+  > Status: ✅ Complete (2026-03-27)
+  > Files: egos-lab/agents/registry/agents.json
+
+- [x] AGENT-AUDIT-002: Mark non-functional agents as dormant (3 agents)
+  > Marked: e2e_smoke, social_media_agent (from pending → dormant)
+  > Status: ✅ Complete (2026-03-27)
+  > Unchanged: ghost_hunter (already dormant)
+  > Files: egos-lab/agents/registry/agents.json
+
+- [ ] AGENT-AUDIT-003: Move critical agents to kernel (optional consolidation)
+  > Candidates: orchestrator, security_scanner_v2, report_generator
+  > Benefit: Guaranteed availability in all sessions
+  > Effort: 1 hour
+  > Status: Pending (Phase 2)
+
+- [x] AGENT-AUDIT-004: Create AGENT_DEPRECATION_LOG.md
+  > Status: ✅ Complete (2026-03-27)
+  > Files: docs/AGENT_DEPRECATION_LOG.md
+  > Contains: Removed agents, dormant agents, broken MCP dependencies
+
+---
+
 ## Session 2026-03-25: FORJA + BLUEPRINT-EGOS Sprint
 
 ### P1 (Critical) — FORJA Signup Flow

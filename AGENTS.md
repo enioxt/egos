@@ -1,7 +1,8 @@
 # AGENTS.md — EGOS Framework Core
 
-> **VERSION:** 1.2.0 | **UPDATED:** 2026-03-20
+> **VERSION:** 1.2.1 | **UPDATED:** 2026-03-27
 > **TYPE:** Framework Core + Orchestration Kernel + Agent Runtime
+> **NOTE:** Governance audit completed 2026-03-27 → 2 duplicates removed, 6 broken MCPs disabled, 3 non-critical agents dormant. See `docs/AGENT_DEPRECATION_LOG.md`
 
 ---
 
@@ -88,10 +89,29 @@ egos/
 > - `.husky/pre-commit`
 > - `.guarani/orchestration/PIPELINE.md`
 
+## Agent Status Summary (2026-03-27 Audit & Consolidation)
+
+**Active Agents:** 34 (across kernel + lab)
+- **Kernel:** 9 core + critical agents (T0-T3)
+  - 6 base governance agents (T0)
+  - 3 consolidated critical agents: orchestrator, security_scanner_v2, report_generator
+- **Lab:** 25 operational agents (T0-T3)
+
+**Dormant Agents:** 3 (awaiting implementation or scheduling)
+- `e2e_smoke` — E2E test suite (blocked on Playwright, pending)
+- `social_media_agent` — Multi-channel automation (blocked on content strategy, pending)
+- `ghost_hunter` — Discovery protocol agent (intentional placeholder, awaiting first 3 discoverers)
+
+**Broken Dependencies:** 6 MCPs disabled (files never created)
+- See `docs/AGENT_DEPRECATION_LOG.md` for detailed audit trail
+- See `docs/MCP_REMEDIATION_PLAN.md` for implementation plan
+- Affected agents: contract_tester, integration_tester, code_reviewer, ssot_fixer, etl_orchestrator
+- **Status:** Phase 1 complete (disabled), Phase 2 pending (remediation)
+
 ## Commands
 
 ```bash
-bun agent:list              # List all registered agents (6 total)
+bun agent:list              # List all registered agents (9 kernel + 25 lab = 34 total; 3 dormant)
 bun agent:run <id> --dry    # Run agent in dry-run mode
 bun agent:run <id> --exec   # Run agent in execute mode
 bun agent:lint              # Validate agent registry

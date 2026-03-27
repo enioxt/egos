@@ -10,8 +10,13 @@
       "description": "Scans package.json files for version conflicts, misplaced dev deps, and unused dependencies",
       "area": "architecture",
       "entrypoint": "agents/agents/dep-auditor.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual"
+      ],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
@@ -23,8 +28,13 @@
       "description": "Recursively traverses git history, agent registries, governance files, and handoff documents to reconstruct the complete evolution lineage of the EGOS ecosystem",
       "area": "knowledge",
       "entrypoint": "agents/agents/archaeology-digger.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual"
+      ],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
@@ -36,8 +46,13 @@
       "description": "Scans a target repository for the required modules defined in CHATBOT_SSOT and reports missing chatbot capabilities",
       "area": "knowledge",
       "entrypoint": "agents/agents/chatbot-compliance-checker.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual"
+      ],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
@@ -49,8 +64,13 @@
       "description": "Finds dead exports, orphan files, and empty stubs across any TypeScript codebase using regex-based analysis (no external deps)",
       "area": "qa",
       "entrypoint": "agents/agents/dead-code-detector.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual"
+      ],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
@@ -62,8 +82,13 @@
       "description": "Scans any target repo against the EGOS kernel's shared capabilities, governance files, workflows, and security basics to detect missing adoptions",
       "area": "architecture",
       "entrypoint": "agents/agents/capability-drift-checker.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual"
+      ],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
@@ -75,12 +100,110 @@
       "description": "Estimates remaining usable context window (CTX 0-280) from uncommitted files, session commits, handoff size, and agent runs. Emits zone emoji + /end recommendation when CTX > 180.",
       "area": "observability",
       "entrypoint": "agents/agents/context-tracker.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual", "pre_end"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual",
+        "pre_end"
+      ],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
       "migrated_from": "egos-native"
+    },
+    {
+      "id": "orchestrator",
+      "name": "Agent Orchestrator",
+      "area": "orchestration",
+      "description": "Runs ALL registered agents sequentially, collects timing and findings, generates combined health report",
+      "owner": "enioxt",
+      "risk_level": "T3",
+      "entrypoint": "agents/agents/orchestrator.ts",
+      "tools_allowed": [
+        "filesystem:read",
+        "filesystem:write",
+        "process:spawn"
+      ],
+      "data_access": {
+        "pii": false,
+        "secrets_scan": false
+      },
+      "triggers": [
+        "manual"
+      ],
+      "memory_mode": "session",
+      "eval_suite": [
+        "evals/orchestrator.json"
+      ],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "status": "active",
+      "migrated_from": "egos-lab"
+    },
+    {
+      "id": "security_scanner_v2",
+      "name": "Security Scanner v2",
+      "area": "security",
+      "description": "Open Source Readiness: Security layer. Wraps Gitleaks + .gitignore audit + PII detection + internal infra leak scanner",
+      "owner": "enioxt",
+      "risk_level": "T1",
+      "entrypoint": "agents/agents/security-scanner.ts",
+      "tools_allowed": [
+        "filesystem:read",
+        "process:spawn"
+      ],
+      "data_access": {
+        "pii": true,
+        "secrets_scan": true
+      },
+      "triggers": [
+        "manual",
+        "pre-push"
+      ],
+      "memory_mode": "none",
+      "eval_suite": [
+        "evals/security_scanner_v2.json"
+      ],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "status": "active",
+      "migrated_from": "egos-lab"
+    },
+    {
+      "id": "report_generator",
+      "name": "Report Generator (AGENT-028)",
+      "area": "observability",
+      "description": "Collects real data from EGOS repos and generates report.json for the AIXBT dashboard template",
+      "owner": "enioxt",
+      "risk_level": "T0",
+      "entrypoint": "agents/agents/report_generator.ts",
+      "tools_allowed": [
+        "filesystem:read",
+        "filesystem:write",
+        "shell:exec"
+      ],
+      "data_access": {
+        "pii": false,
+        "secrets_scan": false
+      },
+      "triggers": [
+        "manual",
+        "scheduled"
+      ],
+      "memory_mode": "none",
+      "eval_suite": [],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "status": "active",
+      "migrated_from": "egos-lab"
     }
   ]
 }
