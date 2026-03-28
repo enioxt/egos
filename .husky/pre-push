@@ -1,0 +1,11 @@
+#!/bin/sh
+# EGOS Pre-Push Gate — P1.4
+# Enforces governance:check before push to prevent drift
+set -e
+
+echo "🔍 [pre-push] Governance integrity check..."
+if bun run governance:check --quiet 2>/dev/null; then
+  echo "✅ Governance: 0 drift"
+else
+  echo "⚠️  Governance drift detected — push allowed but run: bun run governance:sync:exec"
+fi

@@ -172,10 +172,10 @@
 
 ### 4-Phase Scaling Roadmap
 
-**Phase 1 (Week 1, Free):** 8-10 hours
-- [ ] 852: News summarization (qwen-turbo)
-- [ ] santiago: Message classification (qwen-turbo)
-- [ ] egos-lab: Anomaly detection (qwen-turbo)
+**Phase 1 (Week 1, Free):** ✅ COMPLETE 2026-03-28
+- [x] 852: News summarization (qwen-turbo) → `/api/admin/summarize-news` (commit 247ccd3)
+- [x] santiago: Message classification (qwen-turbo) → `ai.classifyMessage()` + webhook (commit fc727f4)
+- [x] egos-lab: Anomaly detection (qwen-turbo) → `scripts/anomaly-detector.ts` (commit 5322290)
 - Token cost: +60-100K/month
 - User cost: $0
 
