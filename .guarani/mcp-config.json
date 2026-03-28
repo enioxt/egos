@@ -34,16 +34,26 @@
         "type": "http",
         "url": "https://${SUPABASE_PROJECT}.supabase.co",
         "headers": {
-          "Authorization": "Bearer env:SUPABASE_ANON_KEY",
+          "Authorization": "Bearer ${SUPABASE_ANON_KEY}",
           "Content-Type": "application/json"
         }
       },
 
       "auth": {
         "type": "env",
-        "envVar": "SUPABASE_ANON_KEY",
+        "envVars": ["SUPABASE_ANON_KEY", "SUPABASE_PROJECT"],
         "required": true
       },
+
+      "scopes": [
+        "database:read:schema",
+        "database:query:vision_events",
+        "database:query:vision_anomalies",
+        "database:query:cameras",
+        "database:query:tasks",
+        "database:subscribe:realtime",
+        "database:read:rls"
+      ],
 
       "tools": [
         {
@@ -155,9 +165,15 @@
 
       "auth": {
         "type": "env",
-        "envVar": "LLM_ROUTER_SECRET",
-        "required": false
+        "envVars": ["OPENAI_API_KEY", "DASHSCOPE_API_KEY", "OPENROUTER_API_KEY"],
+        "required": true
       },
+
+      "scopes": [
+        "api:chat",
+        "api:embed",
+        "billing:track"
+      ],
 
       "tools": [
         {
@@ -277,7 +293,18 @@
         "command": "node services/git-advanced-mcp/index.js"
       },
 
-      "auth": null,
+      "auth": {
+        "type": "env",
+        "envVars": ["GITHUB_TOKEN"],
+        "required": false
+      },
+
+      "scopes": [
+        "git:read:blame",
+        "git:read:history",
+        "git:read:governance",
+        "git:validate:messages"
+      ],
 
       "tools": [
         {
@@ -370,6 +397,12 @@
       },
 
       "auth": null,
+
+      "scopes": [
+        "fs:watch:directory",
+        "fs:read:governance",
+        "fs:validate:frozen"
+      ],
 
       "tools": [
         {
@@ -465,9 +498,16 @@
 
       "auth": {
         "type": "env",
-        "envVar": "CALENDAR_API_KEY",
+        "envVars": ["CALENDAR_API_KEY"],
         "required": false
       },
+
+      "scopes": [
+        "schedule:read:sla",
+        "schedule:read:sprint",
+        "schedule:write:milestone",
+        "schedule:read:capacity"
+      ],
 
       "tools": [
         {
@@ -562,6 +602,8 @@
 
       "auth": null,
 
+      "scopes": ["reasoning:execute"],
+
       "tools": [
         {
           "name": "start_thinking",
@@ -612,9 +654,16 @@
 
       "auth": {
         "type": "env",
-        "envVar": "EXA_API_KEY",
+        "envVars": ["EXA_API_KEY"],
         "required": false
       },
+
+      "scopes": [
+        "search:web",
+        "search:research",
+        "search:news",
+        "search:similar"
+      ],
 
       "tools": [
         {
@@ -683,6 +732,13 @@
       },
 
       "auth": null,
+
+      "scopes": [
+        "knowledge:create:entity",
+        "knowledge:add:observation",
+        "knowledge:read:entities",
+        "knowledge:read:sessions"
+      ],
 
       "tools": [
         {
