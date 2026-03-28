@@ -1,0 +1,24 @@
+{
+  "name": "@egos/atomizer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.ts"
+    },
+    "./default": {
+      "import": "./src/default-atomizer.ts",
+      "types": "./src/default-atomizer.ts"
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@egos/types": "workspace:*"
+  }
+}

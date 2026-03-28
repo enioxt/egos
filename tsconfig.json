@@ -13,7 +13,19 @@
     "resolveJsonModule": true,
     "paths": {
       "@egos/shared": ["./packages/shared/src"],
-      "@egos/shared/*": ["./packages/shared/src/*"]
+      "@egos/shared/*": ["./packages/shared/src/*"],
+      "@egos/search-engine": ["./packages/search-engine/src"],
+      "@egos/search-engine/*": ["./packages/search-engine/src/*"],
+      "@egos/atomizer": ["./packages/atomizer/src"],
+      "@egos/atomizer/*": ["./packages/atomizer/src/*"],
+      "@egos/types": ["./packages/types/src"],
+      "@egos/types/*": ["./packages/types/src/*"],
+      "@egos/core": ["./packages/core/src"],
+      "@egos/core/*": ["./packages/core/src/*"],
+      "@egos/audit": ["./packages/audit/src"],
+      "@egos/audit/*": ["./packages/audit/src/*"],
+      "@egos/registry": ["./packages/registry/src"],
+      "@egos/registry/*": ["./packages/registry/src/*"]
     }
   },
   "include": [

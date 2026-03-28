@@ -1,0 +1,25 @@
+{
+  "name": "@egos/search-engine",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.ts"
+    },
+    "./memory": {
+      "import": "./src/in-memory-search.ts",
+      "types": "./src/in-memory-search.ts"
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@egos/types": "workspace:*",
+    "@egos/core": "workspace:*"
+  }
+}

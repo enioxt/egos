@@ -1,6 +1,6 @@
 # AGENTS.md — EGOS Framework Core
 
-> **VERSION:** 1.2.0 | **UPDATED:** 2026-03-20
+> **VERSION:** 1.4.0 | **UPDATED:** 2026-03-28
 > **TYPE:** Framework Core + Orchestration Kernel + Agent Runtime
 
 ---
@@ -61,12 +61,47 @@ egos/
 │   │   └── schema.json
 │   └── cli.ts                   # Agent CLI
 ├── packages/
-│   └── shared/
+│   ├── shared/                  # Core shared utilities
+│   │   └── src/
+│   │       ├── llm-provider.ts  # Multi-LLM routing
+│   │       ├── rate-limiter.ts  # API rate limiting
+│   │       ├── types.ts         # Core types
+│   │       └── index.ts
+│   ├── search-engine/           # Adaptive Atomic Retrieval (AAR) engine
+│   │   └── src/
+│   │       ├── in-memory-search.ts  # In-memory search with scoring
+│   │       └── index.ts
+│   ├── atomizer/                # Semantic content atomization
+│   │   └── src/
+│   │       ├── default-atomizer.ts  # Sentence-level atom generation
+│   │       └── index.ts
+│   ├── types/                   # Shared type definitions
+│   │   └── src/
+│   │       ├── atom.ts          # Atom structure + metadata
+│   │       └── index.ts
+│   ├── core/                    # Core framework contracts
+│   │   └── src/
+│   │       ├── contracts.ts     # Search, module, integration contracts
+│   │       ├── module.ts        # Module manifest
+│   │       └── integration.ts
+│   ├── audit/                   # Versioned record audit trail
+│   │   └── src/
+│   │       ├── versioned-record.ts  # Change tracking + history
+│   │       └── index.ts
+│   └── registry/                # Module registry + discovery
 │       └── src/
-│           ├── llm-provider.ts  # Multi-LLM routing
-│           ├── rate-limiter.ts  # API rate limiting
-│           ├── types.ts         # Core types
+│           ├── module-registry.ts  # Runtime module lookup
 │           └── index.ts
+├── integrations/                # Integration adapters framework
+│   ├── _contracts/              # Standardized adapter interfaces
+│   │   ├── slack.ts             # Slack messaging adapter
+│   │   ├── discord.ts           # Discord adapter
+│   │   ├── telegram.ts          # Telegram Bot API adapter
+│   │   ├── whatsapp.ts          # WhatsApp Business API adapter
+│   │   ├── webhook.ts           # Generic HTTP webhook adapter
+│   │   ├── github.ts            # GitHub API adapter
+│   │   └── index.ts
+│   └── README.md                # Integration pattern guide
 ├── scripts/                     # Kernel utilities + infra launchers
 │   └── oracle-instance-launcher/
 ├── .windsurfrules               # Active governance
@@ -87,6 +122,12 @@ egos/
 > - `agents/runtime/event-bus.ts`
 > - `.husky/pre-commit`
 > - `.guarani/orchestration/PIPELINE.md`
+
+## Framework Capabilities (EGOS-001 — Merged from BLUEPRINT-EGOS)
+
+**Adaptive Atomic Retrieval (AAR):** `@egos/search-engine` + `@egos/atomizer` packages provide semantic content atomization (sentence-level) + in-memory full-text search with scoring. See `packages/search-engine/README.md`.
+
+**Integration Adapters:** `integrations/_contracts` defines standardized interfaces for Slack, Discord, Telegram, WhatsApp, Webhooks, GitHub. Each has `XyzAdapter` contract + `XyzAdapterImpl` stub. Security: env-var credentials, audit-logged. See `integrations/README.md`.
 
 ## Commands
 
