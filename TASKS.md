@@ -101,14 +101,10 @@
 
 ### P1 — AGENTS SSOT + Dashboard Sync
 
-- [ ] **AGENTS-SSOT-001**: Establish single source of truth for agent definitions
-  > **Status:** In Progress | **Priority:** P1 | **Effort:** 3h
-  > **File:** docs/AGENTS_SSOT.md
-  > **Gaps:** bracc API /api/agents (unknown), 852 dashboard (unknown), @egos_bot (unknown)
-  > **Phase 1:** Auto-generate agents-registry.ts from agents.json in CI
-  > **Phase 2:** Verify bracc exposes /api/agents
-  > **Phase 3:** Verify 852 dashboard consumes bracc API
-  > **Phase 4:** Weekly SSOT auditor drift detection
+- [x] **AGENTS-SSOT-001** (partial): bracc /api/agents endpoint created
+  > **Completed:** 2026-03-28
+  > **What:** GET /api/agents + GET /api/agents/{id} — commit ac6e799 in br-acc
+  > **Remaining:** 852 dashboard consumption (@egos_bot TBD), Phase 1 CI auto-gen
 
 ### P1/P2 — Security + Latency
 
@@ -182,7 +178,7 @@
 **Phase 2 (Week 2, +$10):** 12-16 hours
 - [ ] Create AI Gateway (packages/shared)
 - [ ] carteira-livre: Portfolio analysis (qwen-plus)
-- [ ] forja: Pitch scoring analysis (qwen-plus) — Revenue feature
+- [x] forja: Pitch scoring analysis (qwen-plus) — Revenue feature → `/api/tools/pitch-score` (commit 66c8f43)
 - [ ] 852: Credibility scoring (qwen-turbo)
 - Token cost: +300K/month
 - User cost: +$10/month
