@@ -326,3 +326,74 @@
 - 1 major architecture integration (BLUEPRINT-EGOS)
 - $60-100/month cost savings identified
 - 3 new phase plans (Gem Hunter, web automation, orchestration)
+
+---
+
+## Session 2026-03-28 (Part 2): Hetzner Migration + Environment Kit
+
+### P0 (Critical) — Hetzner Migration
+
+**Goal:** Move all services from Contabo (217.216.95.126) to Hetzner (204.168.217.125)
+
+#### Inventory (Contabo → Hetzner)
+| Service | Image | Status | Data |
+|---------|-------|--------|------|
+| bracc-neo4j | neo4j:5-community | ⏳ Restoring | 47GB volume, 12GB backup |
+| infra-api | infra-api (FastAPI/Python) | ✅ Running on Hetzner | Code transferred |
+| infra-frontend | infra-frontend (React/Vite) | ✅ Running on Hetzner | Code transferred |
+| infra-caddy | caddy:2-alpine | ✅ Running on Hetzner | SSL via ACME |
+| infra-redis | redis:7-alpine | ✅ Running on Hetzner | Fresh (session cache) |
+| 852-app | 852-app (Next.js) | ✅ Running on Hetzner | Code transferred |
+| waha-santiago | devlikeapro/waha | ✅ Running on Hetzner | Sessions dir transferred |
+| egos-media | nginx:alpine | ✅ Running on Hetzner | Public dir transferred |
+
+#### Migration Steps
+- [x] **Phase 1:** Docker + UFW firewall installed on Hetzner
+- [x] **Phase 2:** All code transferred (bracc, 852, santiago, egos-media, .env files)
+- [x] **Phase 3:** All Docker images built on Hetzner (infra-api, infra-frontend, 852-app)
+- [x] **Phase 4:** All services started (except Neo4j pending restore)
+- [⏳] **Phase 5:** Neo4j backup transfer in progress (Contabo → Hetzner)
+  - Auto-restore cron set up: will restore when file arrives
+  - File: `/opt/backups/neo4j-data-20260327.tar.gz` (12GB)
+- [ ] **Phase 6:** DNS cutover (domains → 204.168.217.125)
+  - inteligencia.egos.ia.br (br-acc)
+  - 852.egos.ia.br
+  - waha.egos.ia.br
+  - santiago.egos.ia.br
+  - media.egos.ia.br
+- [ ] **Phase 7:** Verify all services on Hetzner domain
+- [ ] **Phase 8:** Shutdown Contabo services + cancel account
+
+#### DNS Records to Update (Hetzner IP: 204.168.217.125)
+```
+inteligencia.egos.ia.br  A  204.168.217.125
+852.egos.ia.br           A  204.168.217.125  
+waha.egos.ia.br          A  204.168.217.125
+santiago.egos.ia.br      A  204.168.217.125
+media.egos.ia.br         A  204.168.217.125
+```
+
+#### Hetzner VPS Details
+- IP: 204.168.217.125
+- IPv6: 2a01:4f9:c012:9195::/64
+- OS: Ubuntu 24.04.4 LTS
+- Disk: 301GB (1.2GB used)
+- RAM: 16GB
+
+### P1 (Important) — Environment Configurability Kit
+
+**Goal:** One-command EGOS setup in any IDE/environment
+
+Environments to support:
+- [x] Claude Code (this) — already configured via CLAUDE.md
+- [ ] Windsurf IDE — `.windsurf/workflows/`, `.windsurfrules`
+- [ ] Antigravity — custom rules format needed
+- [ ] Gemini CLI — `.gemini/` config format
+- [ ] Codex — `.openai/` or ENV-based config
+- [ ] Universal kit — `install-egos-kit.sh` script
+
+**Implementation:**
+1. `scripts/install-egos-kit.sh` — detect IDE, create symlinks to `~/.egos`
+2. GitHub README with one-liner: `curl -fsSL https://egos.ia.br/install | sh`
+3. Sync all public repos with kit references
+
