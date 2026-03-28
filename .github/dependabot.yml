@@ -1,0 +1,15 @@
+# EGOS v5.3 - Dependabot Configuration
+# Automated dependency updates for security vulnerabilities
+
+version: 2
+updates:
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "ci"
+      - "dependencies"
+    commit-message:
+      prefix: "chore(ci)"
