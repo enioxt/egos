@@ -2,10 +2,10 @@
   "$schema": "./schema.json",
   "version": "1.0.0",
   "updated": "2026-03-13",
-  "description": "EGOS Agent Registry — Core framework starts clean. Agent implementations live in leaf repos (egos-lab, 852, br-acc, etc.).",
+  "description": "EGOS Agent Registry \u2014 Core framework starts clean. Agent implementations live in leaf repos (egos-lab, 852, br-acc, etc.).",
   "agents": [
     {
-      "id": "dep_auditor",
+      "id": "dep-auditor",
       "name": "Dependency Auditor",
       "description": "Scans package.json files for version conflicts, misplaced dev deps, and unused dependencies",
       "area": "architecture",
@@ -23,7 +23,7 @@
       "migrated_from": "egos-lab"
     },
     {
-      "id": "archaeology_digger",
+      "id": "archaeology-digger",
       "name": "Archaeology Digger",
       "description": "Recursively traverses git history, agent registries, governance files, and handoff documents to reconstruct the complete evolution lineage of the EGOS ecosystem",
       "area": "knowledge",
@@ -41,7 +41,7 @@
       "migrated_from": "egos-native"
     },
     {
-      "id": "chatbot_compliance_checker",
+      "id": "chatbot-compliance-checker",
       "name": "Chatbot Compliance Checker",
       "description": "Scans a target repository for the required modules defined in CHATBOT_SSOT and reports missing chatbot capabilities",
       "area": "knowledge",
@@ -59,7 +59,7 @@
       "migrated_from": "egos-native"
     },
     {
-      "id": "dead_code_detector",
+      "id": "dead-code-detector",
       "name": "Dead Code Detector",
       "description": "Finds dead exports, orphan files, and empty stubs across any TypeScript codebase using regex-based analysis (no external deps)",
       "area": "qa",
@@ -77,7 +77,7 @@
       "migrated_from": "egos-lab"
     },
     {
-      "id": "capability_drift_checker",
+      "id": "capability-drift-checker",
       "name": "Capability Drift Checker",
       "description": "Scans any target repo against the EGOS kernel's shared capabilities, governance files, workflows, and security basics to detect missing adoptions",
       "area": "architecture",
@@ -95,7 +95,7 @@
       "migrated_from": "egos-native"
     },
     {
-      "id": "context_tracker",
+      "id": "context-tracker",
       "name": "Context Tracker",
       "description": "Estimates remaining usable context window (CTX 0-280) from uncommitted files, session commits, handoff size, and agent runs. Emits zone emoji + /end recommendation when CTX > 180.",
       "area": "observability",
