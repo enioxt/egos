@@ -135,3 +135,76 @@
 ---
 
 > **See:** `docs/TASKS_ARCHIVE_2026-03.md` for historical tasks (Sessions 2026-03-25, 2026-03-27, Hetzner migration steps)
+
+---
+
+## AI Integration Audit & Scaling (2026-03-28)
+
+### Current AI Coverage
+
+**Global Stats:**
+- Total TS/JS files: 7,722
+- Files with AI: 289 (3% coverage)
+- **Opportunity:** Scale to 10% without cost increase
+
+**Breakdown by tier:**
+1. High integration (10%+): egos (18%), INPI (5%)
+2. Medium (2-5%): egos-lab (4%), carteira-livre (4%), smartbuscas (3%)
+3. Low/None (0-1%): 852, br-acc, santiago, forja, commons, policia
+
+### Budget Status
+
+- Monthly spend: ~$20 (Alibaba DashScope)
+- Current usage: ~2M tokens (15% of quota)
+- **Safe remaining:** 11.5M tokens/month
+- **Recommendation:** Safe to scale 10x (to $50/month) without performance impact
+
+### 4-Phase Scaling Roadmap
+
+**Phase 1 (Week 1, Free):** 8-10 hours
+- [ ] 852: News summarization (qwen-turbo)
+- [ ] santiago: Message classification (qwen-turbo)
+- [ ] egos-lab: Anomaly detection (qwen-turbo)
+- Token cost: +60-100K/month
+- User cost: $0
+
+**Phase 2 (Week 2, +$10):** 12-16 hours
+- [ ] Create AI Gateway (packages/shared)
+- [ ] carteira-livre: Portfolio analysis (qwen-plus)
+- [ ] forja: Pitch scoring analysis (qwen-plus) — Revenue feature
+- [ ] 852: Credibility scoring (qwen-turbo)
+- Token cost: +300K/month
+- User cost: +$10/month
+
+**Phase 3 (Week 3, +$20):** 10-12 hours
+- [ ] Code review agent (claude-3-haiku via OpenRouter)
+- [ ] forja: Investor matching (claude-3-haiku) — Revenue feature
+- [ ] 852: News deduplication (claude-3-haiku)
+- Token cost: +130K/month (expensive)
+- User cost: +$20/month
+
+**Phase 4 (Week 4, Optimize):** 20-24 hours
+- [ ] Deploy gateway to all 10 repos
+- [ ] Monitoring + alerts dashboard
+- [ ] Cost optimization rules
+- Token cost: 0 (routing optimized)
+- User cost: -$5-10/month (efficiency gain)
+
+### Expected Outcomes
+
+| Metric | Current | Target |
+|--------|---------|--------|
+| AI coverage | 3% | 10% |
+| Files with AI | 289 | 770+ |
+| Monthly spend | $20 | $40-45 |
+| Token utilization | 15% | 30% |
+| Revenue features | 0 | 2 (pitch, investor matching) |
+
+### Pending User Action
+
+- [ ] Approve 4-phase roadmap
+- [ ] Provide egosin_bot Telegram token for OpenClaw
+- [ ] Confirm OpenRouter integration readiness
+- [ ] Prioritize repos (suggest: 852 → forja → carteira-livre)
+
+**Next:** Phase 1 implementation after approval
