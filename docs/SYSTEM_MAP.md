@@ -32,15 +32,22 @@
 
 ## Activation Chain
 
-1. Read `AGENTS.md`
-2. Read `TASKS.md`
-3. Read `.windsurfrules`
-4. Read `.guarani/PREFERENCES.md` and `.guarani/IDENTITY.md`
-5. Read `docs/SSOT_REGISTRY.md`
-6. Read `docs/CAPABILITY_REGISTRY.md`
-7. Read `docs/modules/CHATBOT_SSOT.md` when chatbot/compliance work is in scope
-8. Read `docs/MIGRATION_PLAN.md` when scope touches kernel vs lab boundaries
-9. Read latest file in `docs/_current_handoffs/`
+1. **`/start` Workflow** — See `~/.egos/workflows/start.md` (v5.5, unified via symlinks across 9 repos)
+   - SSOT Loading Rules → Unified Orchestration → Boot Sequence → IDE Integration
+   - Capability Registry → Governance Sync → Orchestration Check → Tooling Check
+   - Output Briefing → Agent Signature Activation
+   - Symlinks: egos-lab, 852, br-acc, carteira-libre, forja, egos-self, egos
+   - Custom: INPI (PT), policia (sensitive data)
+
+2. Read `AGENTS.md`
+3. Read `TASKS.md`
+4. Read `.windsurfrules`
+5. Read `.guarani/PREFERENCES.md` and `.guarani/IDENTITY.md`
+6. Read `docs/SSOT_REGISTRY.md`
+7. Read `docs/CAPABILITY_REGISTRY.md`
+8. Read `docs/modules/CHATBOT_SSOT.md` when chatbot/compliance work is in scope
+9. Read `docs/MIGRATION_PLAN.md` when scope touches kernel vs lab boundaries
+10. Read latest file in `docs/_current_handoffs/`
 
 ## Cross-Repo Context
 
