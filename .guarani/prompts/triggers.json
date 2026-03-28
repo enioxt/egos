@@ -1,39 +1,26 @@
 {
-  "_version": "1.2.0",
+  "_version": "2.0.0",
   "_system": "EGOS Meta-Prompt Trigger System",
-  "description": "Maps situations/keywords to the appropriate meta-prompt",
-  "updated": "2026-03-25",
+  "_note": "Consolidado em 2026-03-27. Um único meta-prompt: /start. Ver meta/egos-activation-governance.md",
+  "updated": "2026-03-27",
+  "primary": {
+    "id": "activation.egos-governance",
+    "file": "meta/egos-activation-governance.md",
+    "command": "/start",
+    "modes": ["ATIVAÇÃO", "ESTRATÉGIA", "RACIOCÍNIO COLETIVO", "SYNC", "AUDITORIA"]
+  },
   "triggers": [
     {
-      "id": "strategy.universal",
-      "file": "meta/universal-strategist.md",
-      "keywords": ["decisão estratégica", "negociação", "conflito", "investimento", "game theory", "análise de cenário", "competição", "cooperação", "dilema"],
-      "situations": ["Facing a strategic decision with multiple players", "Negotiation with information asymmetry", "Investment/resource allocation under uncertainty"],
+      "id": "activation.egos-governance",
+      "file": "meta/egos-activation-governance.md",
+      "keywords": [
+        "/start", "ativar egos", "diagnóstico do sistema", "governance check", "kernel activation",
+        "decisão estratégica", "negociação", "conflito", "investimento", "game theory",
+        "brainstorm", "inteligência coletiva", "multi-perspectiva",
+        "mycelium", "micélio", "teia", "mesh", "sync", "sincronizar sistema",
+        "auditoria", "diagnóstico", "análise de repo", "reverse engineering", "code review"
+      ],
       "priority": "high",
-      "apps": ["all"]
-    },
-    {
-      "id": "intelligence.brainet",
-      "file": "meta/brainet-collective.md",
-      "keywords": ["brainstorm", "inteligência coletiva", "rede", "multi-perspectiva", "dissolução de ego", "decisão em grupo", "emergência"],
-      "situations": ["Multiple stakeholders with different expertise", "Problem too complex for single perspective", "Need to synthesize contradictory viewpoints"],
-      "priority": "medium",
-      "apps": ["all"]
-    },
-    {
-      "id": "systems.mycelium",
-      "file": "meta/mycelium-orchestrator.md",
-      "keywords": ["mycelium", "micélio", "teia", "mesh", "sync", "sincronizar sistema", "auto melhorar", "auto-melhoria", "workflow periódico"],
-      "situations": ["Need to sync multiple system surfaces", "Need recursive architecture improvement", "Need to compare narrative vs live system reality"],
-      "priority": "high",
-      "apps": ["all"]
-    },
-    {
-      "id": "audit.ecosystem",
-      "file": "meta/ecosystem-audit.md",
-      "keywords": ["auditoria", "diagnóstico", "análise de repo", "reverse engineering", "code review"],
-      "situations": ["Onboarding to a new codebase", "Periodic health check", "Cross-repo analysis"],
-      "priority": "medium",
       "apps": ["all"]
     },
     {
@@ -48,25 +35,17 @@
       "id": "extraction.police",
       "file": "../../apps/intelink/lib/intelink/meta-prompts.ts",
       "keywords": ["extrair", "BO", "ocorrência", "depoimento", "documento policial", "REDS"],
-      "situations": ["Police document uploaded", "Need to extract entities from text", "Forensic analysis of testimony"],
+      "situations": ["Police document uploaded", "Need to extract entities from text"],
       "priority": "high",
       "apps": ["intelink"]
-    },
-    {
-      "id": "engineering.prompt",
-      "file": "../../.windsurf/workflows/prompt.md",
-      "keywords": ["criar prompt", "system prompt", "instrução AI", "meta-prompt", "prompt engineering"],
-      "situations": ["Building a new AI prompt", "Improving existing prompt", "Creating agent instructions"],
-      "priority": "medium",
-      "apps": ["all"]
-    },
-    {
-      "id": "activation.egos-governance",
-      "file": "meta/egos-activation-governance.md",
-      "keywords": ["ativar egos", "/start", "diagnóstico do sistema", "meta prompt de ativação", "atrian"],
-      "situations": ["Activating EGOS in a new environment", "Need evidence-first health check", "Need ethical gate before recommendations"],
-      "priority": "high",
-      "apps": ["all"]
     }
+  ],
+  "deprecated": [
+    "activation (use /start)",
+    "strategy.universal (absorbed into /start MODO: ESTRATÉGIA)",
+    "intelligence.brainet (absorbed into /start MODO: RACIOCÍNIO COLETIVO)",
+    "systems.mycelium (absorbed into /start MODO: SYNC)",
+    "audit.ecosystem (absorbed into /start MODO: AUDITORIA)",
+    "engineering.prompt (use /start MODO: AUDITORIA + documentar a criação do prompt)"
   ]
 }

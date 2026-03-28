@@ -1,8 +1,16 @@
-# EGOS Meta-Prompt System v1.0
+# EGOS Meta-Prompt System v2.0
 
 > **Centralizado em:** `.guarani/prompts/`
-> **Filosofia:** Prompts são organismos vivos — evoluem com o projeto.
-> **Atualizado:** 2026-03-07
+> **Filosofia:** Um único ponto de ativação. Zero duplicação. Zero confusão.
+> **Atualizado:** 2026-03-27
+
+---
+
+## Regra Fundamental
+
+**Use apenas `/start`.** Não existe `/activation`, `/strategy`, `/brainstorm`, `/mycelium` ou `/audit` separados.
+
+O `/start` detecta o contexto e ativa o modo correto automaticamente.
 
 ---
 
@@ -10,84 +18,51 @@
 
 ```text
 .guarani/prompts/
-├── PROMPT_SYSTEM.md        # Este arquivo (índice + filosofia)
-├── triggers.json           # Mapeamento máquina: situação → prompt
-├── atoms/                  # Componentes atômicos reutilizáveis
-│   └── personas.md         # Personas reutilizáveis
-├── meta/                   # Meta-prompts completos (compostos de átomos)
-│   ├── universal-strategist.md
-│   ├── brainet-collective.md
-│   ├── mycelium-orchestrator.md
-│   └── ecosystem-audit.md
-└── (philosophy/)           # Referência: ../.guarani/philosophy/
+├── PROMPT_SYSTEM.md             # Este arquivo
+├── triggers.json                # Mapeamento: keyword → meta-prompt
+└── meta/
+    ├── egos-activation-governance.md  # ← ÚNICO META-PROMPT ATIVO (/start)
+    ├── universal-strategist.md        # LEGADO (absorvido pelo /start)
+    ├── brainet-collective.md          # LEGADO (absorvido pelo /start)
+    ├── mycelium-orchestrator.md       # LEGADO (absorvido pelo /start)
+    └── ecosystem-audit.md             # LEGADO (absorvido pelo /start)
 ```
 
-Domínio-específico (Intelink): `apps/intelink/lib/prompts/` — mantém registry.ts próprio.
+---
+
+## Como Usar
+
+| Situação | Comando |
+|----------|---------|
+| Novo ambiente, health check | `/start` |
+| Decisão estratégica | `/start` → MODO: ESTRATÉGIA |
+| Brainstorm / multi-perspectiva | `/start` → MODO: RACIOCÍNIO COLETIVO |
+| Sync de governance | `/start` → MODO: SYNC |
+| Auditoria de repo | `/start` → MODO: AUDITORIA |
+| Validação lógica / debate | Tsun-Cha Protocol |
+| Extração de documentos policiais | Intelink meta-prompts |
 
 ---
 
-## Catálogo de Meta-Prompts
+## Modos do /start
 
-| ID | Nome | Arquivo | Triggers | Apps |
-|----|------|---------|----------|------|
-| `strategy.universal` | Universal Strategist v4 | `meta/universal-strategist.md` | Decisão estratégica, negociação, conflito, investimento | Todos |
-| `intelligence.brainet` | Brainet Collective | `meta/brainet-collective.md` | Brainstorm coletivo, dissolução de ego, inteligência de rede | Todos |
-| `systems.mycelium` | Mycelium Orchestrator | `meta/mycelium-orchestrator.md` | Sync sistêmico, mesh, auto-melhoria, teia, automação recursiva | Todos |
-| `audit.ecosystem` | Ecosystem Audit | `meta/ecosystem-audit.md` | Auditoria de repo, onboarding, análise cross-repo | Todos |
-| `debate.tsun-cha` | Tsun-Cha Protocol | `philosophy/TSUN_CHA_PROTOCOL.md` | Questionar hipótese, verificar lógica, confronto dialético | Intelink, Agents |
-| `extraction.police` | Document Extractor | *(leaf: intelink)* `lib/intelink/meta-prompts.ts` | Extração de BO, depoimento, CS | Intelink |
-| `engineering.prompt` | Prompt Pipeline | `.windsurf/workflows/prompt.md` | Criando novos prompts | Todos |
+O `/start` detecta automaticamente pelo contexto:
+
+- **ATIVAÇÃO** — diagnóstico do sistema, pipeline 7-phase
+- **ESTRATÉGIA** — decisão, negociação, game theory
+- **RACIOCÍNIO COLETIVO** — brainstorm, multi-perspectiva (4 personas)
+- **SYNC** — mycelium, mesh, reality table vs narrative
+- **AUDITORIA** — análise de repo, code review, onboarding
 
 ---
 
-## Anatomia de um Meta-Prompt (Padrão Atômico)
+## Prompts Especializados (não substituídos)
 
-Todo meta-prompt EGOS é composto de 7 átomos:
-
-1. **Persona** — Quem o AI é (backstory + credibilidade)
-2. **Missão** — O que faz em 1 frase
-3. **Regras** — Restrições absolutas (nunca quebre)
-4. **Fases** — Estrutura interativa (cada fase com: objetivo + ações + critério de sucesso + gate)
-5. **Matemática** — Fórmulas/frameworks quando aplicável (KaTeX, matrizes, etc.)
-6. **Output** — Formato exato de saída
-7. **Filosofia** — Lente filosófica (Oriental + Ocidental, sempre universal)
+| ID | Arquivo | Quando usar |
+|----|---------|-------------|
+| `debate.tsun-cha` | `../philosophy/TSUN_CHA_PROTOCOL.md` | Validar hipótese, lógica, contradição |
+| `extraction.police` | `apps/intelink/lib/intelink/meta-prompts.ts` | Extrair BO, depoimento, doc policial |
 
 ---
 
-## Sistema de Triggers
-
-Triggers automáticos ativam o prompt certo no contexto certo:
-
-| Situação | Prompt Ativado | Gate |
-|----------|----------------|------|
-| "decisão estratégica", "negociação", "conflito" | `strategy.universal` | Perguntas Fase 1 |
-| "brainstorm", "inteligência coletiva", "rede" | `intelligence.brainet` | Mapeamento de nós |
-| "mycelium", "teia", "sync", "auto melhorar", "mesh" | `systems.mycelium` | Reality table + maturity math |
-| "auditoria", "análise de repo", "diagnóstico" | `audit.ecosystem` | System Map |
-| "questionar", "verificar", "debate", "lógica" | `debate.tsun-cha` | Afirmação + Evidência |
-| "extrair", "BO", "ocorrência", "depoimento" | `extraction.police` | Documento anexado |
-| "criar prompt", "system prompt", "instrução AI" | `engineering.prompt` | Architect phase |
-
----
-
-## Princípios de Evolução
-
-1. **Prompts evoluem com projetos** — a cada milestone, revise os prompts afetados
-2. **Versione sempre** — YAML frontmatter com version semântica
-3. **Átomos > Monólitos** — componentes pequenos compostos em prompts maiores
-4. **Universal > Local** — priorize neutralidade cultural (Leste + Oeste)
-5. **Teste antes de promover** — rode com adversarial input antes de marcar como stable
-6. **Documente o porquê** — cada regra deve ter justificativa
-
----
-
-## Referências Cruzadas
-
-- **Ecosystem Audit:** `.guarani/prompts/meta/ecosystem-audit.md`
-- **Tsun-Cha Protocol:** `.guarani/philosophy/TSUN_CHA_PROTOCOL.md`
-- **Prompt Workflow:** `.windsurf/workflows/prompt.md`
-- **Intelink Prompt Registry:** *(leaf: intelink)* `lib/prompts/registry.ts`
-
----
-
-*"Prompts are the DNA of AI agents. Evolve them deliberately."*
+*"Menos prompts. Mais inteligência. Zero caixa preta."*
