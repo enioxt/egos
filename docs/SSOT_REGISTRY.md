@@ -43,6 +43,7 @@
 | Agent Claim Contract | `kernel_canonical` | `egos/docs/contracts/AGENT_CLAIM_CONTRACT.md` | — | `agent:lint` | agents.json |
 | Ecosystem Classification | `kernel_canonical` | `egos/docs/ECOSYSTEM_CLASSIFICATION_REGISTRY.md` | — | Manual review | CAPABILITY_REGISTRY |
 | Migration Matrix | `kernel_canonical` | `egos/docs/strategy/MIGRATION_MATRIX.md` | — | Manual review | SSOT Registry |
+| Presentation System | `kernel_canonical` | `egos/docs/PRESENTATION_*.md` (5 files) | — | Quarterly review | CAPABILITY_REGISTRY |
 
 ## Shared Module SSOTs (@egos/shared)
 

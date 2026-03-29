@@ -61,36 +61,65 @@ switch (command) {
   case 'lint-registry': {
     const agents = listAgents();
     let errors = 0;
-    console.log('\n🔍 Linting agent registry...\n');
+    let warnings = 0;
+    console.log('\n🔍 Linting agent registry (with Agent Claim Contract)...\n');
+
+    const seenIds = new Set<string>();
 
     for (const a of agents) {
-      // Check required fields
+      // === L2 Required Fields (Agent Claim Contract) ===
       if (!a.id || !a.name || !a.area || !a.entrypoint) {
-        console.error(`  ❌ Agent missing required fields: ${JSON.stringify(a)}`);
+        console.error(`  ❌ [L2] Agent missing required fields: ${JSON.stringify(a)}`);
         errors++;
       }
-      // Check risk level
       if (!['T0', 'T1', 'T2', 'T3'].includes(a.risk_level)) {
-        console.error(`  ❌ Agent "${a.id}" has invalid risk_level: ${a.risk_level}`);
+        console.error(`  ❌ [L2] Agent "${a.id}" has invalid risk_level: ${a.risk_level}`);
         errors++;
       }
-      // Check run modes
       if (!a.run_modes || a.run_modes.length === 0) {
-        console.error(`  ❌ Agent "${a.id}" has no run_modes defined`);
+        console.error(`  ❌ [L2] Agent "${a.id}" has no run_modes defined`);
         errors++;
       }
-      // Check for duplicate IDs
-      const dupes = agents.filter(x => x.id === a.id);
-      if (dupes.length > 1) {
+      if (!a.status || !['active', 'placeholder', 'pending', 'disabled'].includes(a.status)) {
+        console.error(`  ❌ [L2] Agent "${a.id}" has invalid status: ${a.status}`);
+        errors++;
+      }
+
+      // Duplicate ID check
+      if (seenIds.has(a.id)) {
         console.error(`  ❌ Duplicate agent ID: "${a.id}"`);
+        errors++;
+      }
+      seenIds.add(a.id);
+
+      // === L3 Checks (Verified Agent — advisory) ===
+      if (a.eval_suite && a.eval_suite.length > 0) {
+        // If claiming L3, verify eval files exist
+        for (const evalPath of a.eval_suite) {
+          const { existsSync } = await import('fs');
+          if (!existsSync(resolve(repoRoot, evalPath))) {
+            console.error(`  ❌ [L3] Agent "${a.id}" declares eval_suite "${evalPath}" but file not found`);
+            errors++;
+          }
+        }
+      } else if (a.run_modes?.includes('execute')) {
+        console.warn(`  ⚠️  [L3] Agent "${a.id}" supports execute mode but has no eval_suite — consider adding for L3 promotion`);
+        warnings++;
+      }
+
+      // === Entrypoint existence check ===
+      const { existsSync } = await import('fs');
+      if (a.entrypoint && !existsSync(resolve(repoRoot, a.entrypoint))) {
+        console.error(`  ❌ Agent "${a.id}" entrypoint not found: ${a.entrypoint}`);
         errors++;
       }
     }
 
+    console.log('');
     if (errors === 0) {
-      console.log(`  ✅ Registry valid. ${agents.length} agents, 0 errors.\n`);
+      console.log(`  ✅ Registry valid. ${agents.length} agents, 0 errors, ${warnings} warnings.\n`);
     } else {
-      console.error(`  ❌ ${errors} error(s) found.\n`);
+      console.error(`  ❌ ${errors} error(s), ${warnings} warning(s) found.\n`);
       process.exit(1);
     }
     break;

@@ -74,7 +74,7 @@
 - [x] EGOS-076: Create ecosystem classification registry — `docs/ECOSYSTEM_CLASSIFICATION_REGISTRY.md` (v1.1.0); wired into TASKS.md, SYSTEM_MAP v3.0.0, CAPABILITY_REGISTRY v1.4.0
 - [ ] EGOS-077: Add the new-project gate for PRD, ICP, go-to-market, objective, success metric, and multi-model review mode with a recorded blocking-vs-advisory decision
 - [x] EGOS-078: Define Agent Claim Contract — `docs/contracts/AGENT_CLAIM_CONTRACT.md` (v1.0.0); L0-L4 taxonomy with proof fields, all 10 agents classified as L2, promotion protocol defined
-- [ ] EGOS-079: Enforce the `Agent Claim Gate` in kernel governance — registry lint + pre-commit/pre-push + docs/tasks checks must block any surface claimed as agent without executable entrypoint, existing eval, valid run modes, and runtime evidence
+- [x] EGOS-079: Enforce Agent Claim Gate — enhanced `agent:lint` with L2/L3 validation, entrypoint existence check, eval_suite file verification; 10 agents pass L2, all warned for L3 promotion
 - [ ] EGOS-080: Define the `LLM Orchestration Matrix` for EGOS — explicit lane ownership for Cascade, terminal orchestration, Codex, Claude Code, Alibaba, and OpenRouter, with approval mode, authority level, and allowed task classes
 - [ ] EGOS-093: Define canonical flagship brief in SSOT — objective, problem statement, personas, and GTM with acceptance metrics
 - [ ] EGOS-094: Create "Market Intelligence Compiler" spec — ingestion contract for books/papers/code/platforms with source-link + evidence tiers
@@ -134,7 +134,7 @@
 - [x] EGOS-113: Benchmark MASA framework + major competitors from official sources and create executable benchmark agent (`framework_benchmarker`)
 - [ ] EGOS-114: Run MASA pilot in one leaf repo and measure impact on drift, architectural violations, and lead-time before broader adoption
 - [x] EGOS-115: Create `mastra_gem_hunter` agent and run initial scan for workflow/evals/observability/MCP/human-loop extraction
-- [ ] EGOS-116: Define "Presentation System" SSOT for EGOS (positioning, promise, evidence, differentiators, anti-bloat thesis) in canonical surfaces
+- [x] EGOS-116: Presentation System SSOT — 5 docs exist (PRESENTATION_IDENTITY, VALUES, VISUAL_IDENTITY, COMPETITIVE_ANALYSIS, INDEX) totaling 1,898 lines; needs SSOT Registry entry
 - [ ] EGOS-117: Build operator-facing narrative kit (1-page pitch + architecture map + proof checklist) from existing SSOT without creating parallel truths
 - [ ] EGOS-118: Create reproducible demo lane for meetings (live build script + guardrails checklist + fallback offline path)
 - [ ] EGOS-119: Add benchmark scorecard command comparing EGOS vs MASA/Mastra/LangGraph/CrewAI on governance, speed, and compliance
