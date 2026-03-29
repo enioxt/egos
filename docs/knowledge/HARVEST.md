@@ -446,3 +446,49 @@ Leaf repos inherit kernel governance via symlinks but keep local IDENTITY.md and
 - Terminal-first non-interactive lane.
 - Browser/UI validation depends on explicit browser tool availability.
 - Home sync state (`~/.egos`) may reset across runs; re-run sync/check when drift appears.
+
+---
+
+## Session Harvest — 2026-03-29 (Security + Governance + Observability)
+
+### Pattern: CRCDM Hook as Universal Governance Layer
+
+**What:** Merged 6-check canonical spec into the single CRCDM universal pre-commit hook (`~/.egos/hooks/pre-commit`). All leaf repos with symlink get full governance automatically.
+**Checks:** gitleaks (blocking), regex secret fallback (blocking), doc proliferation (blocking), SSOT size limits (warning), handoff freshness (warning), CRCDM DAG logging.
+**Why this matters:** Previously there were two competing hook specs (CRCDM observability-only + .husky canonical). The dual-hook caused ambiguity and missed checks (e.g., doc proliferation not enforced in 852).
+**Rule:** Single hook source `scripts/hooks/crcdm-pre-commit.sh` → deployed to `~/.egos/hooks/pre-commit` → symlinked from leaf repos.
+
+### Gotcha: `if pipeline | head -5; then` Always True in POSIX sh
+
+**What:** `head -5` exits 0 even on empty stdin. So `if cmd | head -5; then` is ALWAYS true regardless of whether `cmd` produces output.
+**Fix:** Capture output first: `MATCH=$(cmd | head -5); if [ -n "$MATCH" ]; then`
+**Where found:** carteira-livre `.husky/pre-commit` — secret scan fired on every commit as a false positive.
+
+### Gotcha: Husky v9 Runs Hooks via `sh -e`, Ignoring Shebang
+
+**What:** Husky v9 uses `sh -e "$hookfile"` internally, so `#!/bin/bash` in `.husky/pre-commit` is ignored. All husky hooks must use POSIX sh syntax.
+**Bash constructs to avoid:** `[[ ]]`, `<<<`, `${var:0:n}`, `${var^^}`, `(( ))`.
+**Fix:** Use POSIX alternatives: `echo "$var" | grep -qE 'pattern'` instead of `[[ "$var" =~ pattern ]]`.
+
+### Pattern: Cross-Repo Health Dashboard Before Installer Scripts
+
+**What:** `scripts/egos-repo-health.sh` — run before any `install-*.sh` script to verify all repos are committed.
+**Why:** Installers copy files from kernel to leaf repos. If kernel changes are uncommitted, stale code propagates.
+**Usage:** `bash scripts/egos-repo-health.sh` (exits 1 if any repo is dirty).
+
+### Pattern: Fibonacci Context Persistence
+
+**What:** Snapshots at Fibonacci intervals (1,1,2,3,5,8,13...) via `scripts/context-manager.ts`. Auto-triggered by post-commit hook on feat/fix/refactor commits.
+**Files:** `docs/_context_snapshots/*.md` (human-readable) + `*.json` (machine).
+**Why Fibonacci:** Progressively less frequent as context grows — balances granularity vs noise.
+**Integration:** `/snapshot` slash command + `/start` workflow recovery.
+
+### Pattern: Secret Leak Response Protocol
+
+**What:** When a secret (e.g., Supabase PAT `sbp_...`) is found committed:
+1. Sanitize: replace with placeholder in the file, commit with "security: sanitize"
+2. Rotate: revoke token immediately in provider dashboard
+3. Harden: add detection rule to `.gitleaks.toml` + universal hook
+4. Verify: re-run gitleaks on all repos to confirm clean
+**Supabase PAT pattern:** `sbp_[0-9a-f]{40}` — added to `.gitleaks.toml`.
+
