@@ -40,6 +40,9 @@
 | Pre-Commit Hooks | `kernel_canonical` | `egos/.husky/pre-commit` | — | FROZEN ZONE | — |
 | Orchestration Pipeline | `kernel_canonical` | `egos/.guarani/orchestration/PIPELINE.md` | `~/.egos/guarani/orchestration/` | FROZEN ZONE | GATES.md |
 | Quality Gates | `kernel_canonical` | `egos/.guarani/orchestration/GATES.md` | `~/.egos/guarani/orchestration/` | FROZEN ZONE | PIPELINE.md |
+| Agent Claim Contract | `kernel_canonical` | `egos/docs/contracts/AGENT_CLAIM_CONTRACT.md` | — | `agent:lint` | agents.json |
+| Ecosystem Classification | `kernel_canonical` | `egos/docs/ECOSYSTEM_CLASSIFICATION_REGISTRY.md` | — | Manual review | CAPABILITY_REGISTRY |
+| Migration Matrix | `kernel_canonical` | `egos/docs/strategy/MIGRATION_MATRIX.md` | — | Manual review | SSOT Registry |
 
 ## Shared Module SSOTs (@egos/shared)
 

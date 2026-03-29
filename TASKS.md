@@ -69,11 +69,11 @@
 - [x] EGOS-063: Define free vs paid surface for the flagship — `docs/strategy/GUARD_BRASIL_PRODUCT_BOUNDARY.md` (SDK free/MIT, API/MCP/SLA paid)
 - [/] EGOS-064: Deliver the first monetizable surface as a reusable package — `@egos/shared` package.json updated (private:false, metadata, exports); npm publish pending build step + README
 - [x] EGOS-073: Run the full `egos-lab` consolidation diagnostic — `docs/strategy/EGOS_LAB_CONSOLIDATION_DIAGNOSTIC.md` (v1.0.0); all surfaces classified; P0 migration actions pending execution in egos-lab repo
-- [ ] EGOS-074: Execute the kernel-first consolidation of SSOT/governance surfaces from `egos-lab` into `egos` and eliminate duplicated docs, maps, workflows, and stale claims with explicit archive references
+- [/] EGOS-074: Execute the kernel-first consolidation — P0 actions documented (remove lab @egos/shared duplicate, merge SYSTEM_MAP, remove stale governance-sync copy); execution requires egos-lab repo access
 - [x] EGOS-075: Canonicalize the System Map control plane — `docs/SYSTEM_MAP.md` v3.0.0 rewritten (removed duplicates, stale agents, added Guard Brasil, unified workflow table, 96L clean)
-- [ ] EGOS-076: Create the ecosystem classification registry for products/modules/ideas (`standalone`, `candidate`, `lab`, `internal_infra`, `archive`) and wire it into `TASKS.md`, `SYSTEM_MAP.md`, and `CAPABILITY_REGISTRY.md`
+- [x] EGOS-076: Create ecosystem classification registry — `docs/ECOSYSTEM_CLASSIFICATION_REGISTRY.md` (v1.1.0); wired into TASKS.md, SYSTEM_MAP v3.0.0, CAPABILITY_REGISTRY v1.4.0
 - [ ] EGOS-077: Add the new-project gate for PRD, ICP, go-to-market, objective, success metric, and multi-model review mode with a recorded blocking-vs-advisory decision
-- [ ] EGOS-078: Define the `Agent Claim Contract` — formal taxonomy for `component`, `skill`, `agent_candidate`, `verified_agent`, and `online_agent`, with mandatory proof fields for runtime, triggers, evals, observability, and ownership
+- [x] EGOS-078: Define Agent Claim Contract — `docs/contracts/AGENT_CLAIM_CONTRACT.md` (v1.0.0); L0-L4 taxonomy with proof fields, all 10 agents classified as L2, promotion protocol defined
 - [ ] EGOS-079: Enforce the `Agent Claim Gate` in kernel governance — registry lint + pre-commit/pre-push + docs/tasks checks must block any surface claimed as agent without executable entrypoint, existing eval, valid run modes, and runtime evidence
 - [ ] EGOS-080: Define the `LLM Orchestration Matrix` for EGOS — explicit lane ownership for Cascade, terminal orchestration, Codex, Claude Code, Alibaba, and OpenRouter, with approval mode, authority level, and allowed task classes
 - [ ] EGOS-093: Define canonical flagship brief in SSOT — objective, problem statement, personas, and GTM with acceptance metrics

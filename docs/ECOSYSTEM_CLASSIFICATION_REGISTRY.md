@@ -1,6 +1,6 @@
 # EGOS Ecosystem Classification Registry
 
-> **VERSION:** 1.0.0 | **CREATED:** 2026-03-23 | **STATUS:** Active
+> **VERSION:** 1.1.0 | **CREATED:** 2026-03-23 | **UPDATED:** 2026-03-29 | **STATUS:** Active
 > **TASK:** EGOS-076
 > **SSOT STATUS:** This file IS the canonical product/module classification map
 
@@ -95,9 +95,10 @@
 
 | Surface | TASKS.md | SYSTEM_MAP.md | CAPABILITY_REGISTRY.md |
 |---------|----------|---------------|----------------------|
-| Guard Brasil | ✅ EGOS-062..064 | ⏳ needs update | ⏳ needs update |
-| Ecosystem Classification Registry (this file) | ✅ EGOS-076 | ⏳ needs update | — |
-| egos-lab Consolidation Diagnostic | ✅ EGOS-073 | — | — |
+| Guard Brasil | ✅ EGOS-062..064 | ✅ v3.0.0 | ✅ v1.4.0 |
+| Ecosystem Classification Registry (this file) | ✅ EGOS-076 | ✅ v3.0.0 | — |
+| egos-lab Consolidation Diagnostic | ✅ EGOS-073 | ✅ | — |
+| SSOT Registry | ✅ | ✅ v3.0.0 | ✅ v2.0.0 |
 
 ---
 
