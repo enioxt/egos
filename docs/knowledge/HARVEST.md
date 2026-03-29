@@ -435,6 +435,31 @@ Leaf repos inherit kernel governance via symlinks but keep local IDENTITY.md and
 
 **Actionable insight:** Our event-bus already captures structured spans. Adding a `reward` field to event payloads would enable future RL integration without architectural changes. Low effort, high optionality.
 
+### Parallel-Code (johannesjo) — Analysis
+
+**What it is:** Electron desktop app for running multiple AI coding agents (Claude Code, Codex, Gemini) in parallel, each in isolated git worktrees. MIT license.
+
+**Keep/Drop for EGOS:**
+- **KEEP (already have):** Worktree isolation pattern — our WORKTREE_CONTRACT.md (EGOS-110) covers this with naming, ownership, concurrency limits (max 5), lifecycle states. We have the governance layer they lack.
+- **KEEP (pattern):** Tiled panel UX for multi-agent monitoring — useful reference if we build a dashboard.
+- **KEEP (pattern):** Task-scoped shell terminals — each agent gets its own terminal context.
+- **DROP:** Electron desktop app — we're CLI/web-first, not desktop.
+- **DROP:** Manual branch merging via sidebar — we have spec-pipeline with automated stage routing.
+- **DROP:** Agent spawning logic — we have our own runner.ts with registry-based discovery.
+
+**SSOT Merge evaluation:** Parallel-code's worktree pattern overlaps 80% with our WORKTREE_CONTRACT.md. No merge needed — our contract is MORE comprehensive (governance gates, frozen zones, SLA tracking). They have UX; we have enforcement.
+
+**Actionable insight:** Their "direct mode" (work on main without isolation) maps to our TRIVIAL complexity bypass in PIPELINE.md. Confirmed: our model is correct.
+
+### EGOS-073 Lab Consolidation — Status Update
+
+**Finding:** Diagnostic already complete at `docs/strategy/EGOS_LAB_CONSOLIDATION_DIAGNOSTIC.md` (v1.0.0, 2026-03-23). All surfaces classified. P0 actions pending:
+1. Remove duplicate `@egos/shared` from egos-lab (SSOT violation)
+2. Merge lab SYSTEM_MAP into kernel SYSTEM_MAP
+3. Remove stale governance-sync.sh copy from lab
+
+**SSOT Merge evaluation:** egos-lab has copies of atrian, pii-scanner, llm-provider that should import from kernel. This is the #1 SSOT violation in the ecosystem.
+
 ### Governance Self-Audit Findings
 
 1. **Pre-commit was BROKEN for months.** `tsc --noEmit` failed with 230 errors because `tsconfig.json` lacked `"types": ["bun"]`. This means NO COMMIT in this repo was type-checked by the hook.

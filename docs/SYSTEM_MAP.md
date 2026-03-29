@@ -1,22 +1,22 @@
 # SYSTEM_MAP.md — EGOS Framework Core
 
-> **VERSION:** 2.2.0 | **UPDATED:** 2026-03-24
-> **ROLE:** repo-local map for `/start` in the canonical kernel
+> **VERSION:** 3.0.0 | **UPDATED:** 2026-03-29
+> **ROLE:** Repo-local activation map for `/start` in the canonical kernel
 
 <!-- llmrefs:start -->
 
 ## LLM Reference Signature
 
-- **Role:** activation map for the `egos` kernel
-- **Summary:** points to the local SSOTs that define governance, runtime, shared modules, migration status, and chatbot/mycelium standards
+- **Role:** Activation map for the `egos` kernel
+- **Summary:** Points to local SSOTs that define governance, runtime, shared modules, and standards
 - **Read next:**
   - `AGENTS.md` — repo identity, architecture, command surface
-  - `TASKS.md` — current sprint and roadmap horizons
+  - `TASKS.md` — current sprint and roadmap
   - `.windsurfrules` — active governance and frozen zones
-  - `docs/MIGRATION_PLAN.md` — kernel vs lab separation and sync direction
+  - `docs/SSOT_REGISTRY.md` — canonical cross-repo SSOT registry (v2.0.0)
   - `docs/CAPABILITY_REGISTRY.md` — reusable capability SSOT
-  - `docs/SSOT_REGISTRY.md` — canonical cross-repo SSOT registry
   - `docs/modules/CHATBOT_SSOT.md` — canonical chatbot standard
+  - `docs/strategy/GUARD_BRASIL_PRODUCT_BOUNDARY.md` — flagship product definition
 
 <!-- llmrefs:end -->
 
@@ -24,11 +24,11 @@
 
 - `AGENTS.md` — what this repo is
 - `TASKS.md` — what is next
-- `.windsurfrules` — what is allowed
+- `.windsurfrules` — what is allowed (23 rules, max 150L)
 - `docs/SSOT_REGISTRY.md` — what is globally canonical vs locally owned
 - `.guarani/` — how reasoning and governance work
 - `agents/runtime/` — frozen execution kernel
-- `packages/shared/src/` — reusable core modules
+- `packages/shared/src/` — reusable core modules (14 modules, 162 tests)
 
 ## Activation Chain
 
@@ -39,70 +39,58 @@
 5. Read `docs/SSOT_REGISTRY.md`
 6. Read `docs/CAPABILITY_REGISTRY.md`
 7. Read `docs/modules/CHATBOT_SSOT.md` when chatbot/compliance work is in scope
-8. Read `docs/MIGRATION_PLAN.md` when scope touches kernel vs lab boundaries
-9. Read latest file in `docs/_current_handoffs/`
+8. Read latest file in `docs/_current_handoffs/`
 
 ## Cross-Repo Context
 
-- Global topology lives in `~/.egos/SYSTEM_MAP.md`
-- `egos` is the canonical kernel
-- `egos-lab` is the incubator and operations surface
-- Leaf repos consume governance and shared modules but keep domain truth local
+- Global topology: `~/.egos/SYSTEM_MAP.md`
+- `egos` = canonical kernel (governance, shared modules, agent runtime)
+- `egos-lab` = incubator (apps, lab agents, worker infra)
+- Leaf repos (852, forja, carteira-livre, br-acc) consume governance + shared modules
 
-## Current Kernel-Specific Surfaces
+## Current Kernel Surfaces
 
-- Sync: `scripts/governance-sync.sh`, `scripts/link-ssot-files.sh`
-- Utilities: `scripts/oracle-instance-launcher/` (Python OCI launcher with AD retry + capacity-aware handling)
-- Validation: `bun run typecheck`, `bun run agent:lint`, `bun run governance:check`
-- Agents: 
-  - `dep_auditor`, `archaeology_digger`, `chatbot_compliance_checker`, `context_tracker`
-  - `ethik_agent`: x402 Tokenomics, GCP Dynamic Key Gateway, and Donation Engine
-  - `atrian_agent`: Ethical Compliance Gate
-  - `mycelium_agent`: Event Bus and Mesh Logging
-- Docs: `docs/concepts/mycelium/`, `docs/archaeology/`, `docs/modules/`
+### Scripts & Validation
+- `scripts/governance-sync.sh` — kernel → ~/.egos → leaf propagation
+- `scripts/doctor.ts` — 23-check environment validator
+- `scripts/worktree-validator.ts` — branch naming + ownership enforcer
+- `scripts/check-doc-proliferation.sh` — anti-proliferation gate
+- `bun run typecheck` / `bun run agent:lint` / `bun run governance:check`
 
-## Shared Modules (@egos/shared)
+### Agents (10 registered in `agents/registry/agents.json`)
+- `dep_auditor`, `archaeology_digger`, `chatbot_compliance_checker`, `dead_code_detector`
+- `capability_drift_checker`, `context_tracker`, `gtm_harvester`
+- `aiox_gem_hunter`, `framework_benchmarker`, `mastra_gem_hunter`
 
-| Module | File | Status | Description |
-|--------|------|--------|-------------|
-| LLM Provider | `llm-provider.ts` | ✅ Active | Multi-provider chat (Alibaba/OpenRouter) |
-| Model Router | `model-router.ts` | ✅ Active | Task-based model selection (8 models, 10 tasks) |
-| ATRiAN | `atrian.ts` | ✅ Active | Ethical validation (7 axioms) — 16 tests |
-| PII Scanner | `pii-scanner.ts` | ✅ Active | Brazilian PII detection (CPF, CNPJ, etc.) — 14 tests |
-| Public Guard | `public-guard.ts` | ✅ Active | LGPD-compliant output masking — 16 tests |
-| Evidence Chain | `evidence-chain.ts` | ✅ Active | Traceable response provenance — 17 tests |
-| **Guard Brasil** | `guard-brasil.ts` | ✅ **NEW** | Unified safety layer (ATRiAN+PII+Guard+Evidence) — 9 tests |
-| Conversation Memory | `conversation-memory.ts` | ✅ Active | Session memory + summarization — 13 tests |
-| Cross-Session Memory | `cross-session-memory.ts` | ✅ Active | Supabase-backed persistence — 17 tests |
-| LLM Provider | `llm-provider.ts` | ✅ Active | Multi-provider API + cost estimation — 6 tests |
-| Model Router | `model-router.ts` | ✅ Active | Task-aware model selection — 13 tests |
-| Rate Limiter | `rate-limiter.ts` | ✅ Active | Token bucket rate limiting — 8 tests |
-| Telemetry | `telemetry.ts` | ✅ Active | Dual output (Supabase + JSON logs) — 11 tests |
-| Metrics Tracker | `metrics-tracker.ts` | ✅ Active | Session-level tool/task metrics — 13 tests |
-| Mycelium Graph | `mycelium/reference-graph.ts` | ✅ Active | Reference graph (27 nodes, 32 edges) |
-| Repo Role | `repo-role.ts` | ✅ Active | Repo classification heuristics — 6 tests |
+### Pre-Commit (5 gates, FROZEN)
+- gitleaks (secret scan), tsc (type check), frozen zones, doc proliferation, SSOT drift
 
-## Skills
+## Shared Modules (@egos/shared) — 14 modules, 162 tests
 
-| Skill | File | Purpose |
-|-------|------|---------|
-| System Map | `.windsurf/skills/system-map.md` | SYSTEM_MAP.md structure and triggers |
-| Capability Import | `.windsurf/skills/capability-import.md` | Cross-repo feature import process |
+| Module | File | Tests | Purpose |
+|--------|------|-------|---------|
+| **Guard Brasil** | `guard-brasil.ts` | 9 | Unified safety (ATRiAN+PII+Guard+Evidence) |
+| ATRiAN | `atrian.ts` | 16 | Ethical validation (7 axioms) |
+| PII Scanner | `pii-scanner.ts` | 14 | Brazilian PII detection |
+| Public Guard | `public-guard.ts` | 16 | LGPD-compliant masking |
+| Evidence Chain | `evidence-chain.ts` | 17 | Traceable provenance |
+| Conversation Memory | `conversation-memory.ts` | 13 | Session memory |
+| Cross-Session Memory | `cross-session-memory.ts` | 17 | Supabase persistence |
+| LLM Provider | `llm-provider.ts` | 6 | Multi-provider + cost estimation |
+| Model Router | `model-router.ts` | 13 | Task-aware model selection |
+| Rate Limiter | `rate-limiter.ts` | 8 | Token bucket throttling |
+| Telemetry | `telemetry.ts` | 11 | Dual output (Supabase+JSON) |
+| Metrics Tracker | `metrics-tracker.ts` | 13 | Session-level tracking |
+| Mycelium Graph | `mycelium/reference-graph.ts` | — | Reference graph (27 nodes) |
+| Repo Role | `repo-role.ts` | 6 | Repository classification |
 
 ## Workflows
 
-| Workflow | File | Version |
-|----------|------|---------|
-| /start (canonical ops) | `.agents/workflows/start-workflow.md` | v1.0 |
-| /sync (canonical ops) | `.agents/workflows/sync.md` | v1.0 |
-| /pr (canonical ops) | `.agents/workflows/pr-prep.md` | v1.0 |
-| /disseminate (canonical ops) | `.agents/workflows/disseminate.md` | v1.0 |
-| /mycelium (canonical ops) | `.agents/workflows/mycelium.md` | v1.0 |
-| /start | `.windsurf/workflows/start.md` | v5.4 |
-| /end | `.windsurf/workflows/end.md` | v5.5 |
-| /pre | `.windsurf/workflows/pre.md` | v1.0 |
-| /prompt | `.windsurf/workflows/prompt.md` | v1.0 |
-| /research | `.windsurf/workflows/research.md` | v1.0 |
-| /disseminate | `.windsurf/workflows/disseminate.md` | v1.0 |
-| /mycelium | `.windsurf/workflows/mycelium.md` | v1.0 |
-| /regras | `.windsurf/workflows/regras.md` | v1.0 |
+| Workflow | Canonical | Compat | Purpose |
+|----------|-----------|--------|---------|
+| /start | `.agents/workflows/start-workflow.md` | `.windsurf/workflows/start.md` | Session init |
+| /end | — | `.windsurf/workflows/end.md` | Session finalization |
+| /pr | `.agents/workflows/pr-prep.md` | — | PR preparation |
+| /sync | `.agents/workflows/sync.md` | — | Governance sync |
+| /disseminate | `.agents/workflows/disseminate.md` | `.windsurf/workflows/disseminate.md` | Knowledge propagation |
+| /mycelium | `.agents/workflows/mycelium.md` | `.windsurf/workflows/mycelium.md` | Mesh audit |

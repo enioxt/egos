@@ -68,9 +68,9 @@
 - [/] EGOS-062: Package the canonical product boundary for `EGOS Guard Brasil` — ATRiAN + PII Scanner BR + public guard + evidence discipline — `guard-brasil.ts` created with unified `createGuardBrasil()` API; npm publish pending
 - [x] EGOS-063: Define free vs paid surface for the flagship — `docs/strategy/GUARD_BRASIL_PRODUCT_BOUNDARY.md` (SDK free/MIT, API/MCP/SLA paid)
 - [/] EGOS-064: Deliver the first monetizable surface as a reusable package — `@egos/shared` package.json updated (private:false, metadata, exports); npm publish pending build step + README
-- [ ] EGOS-073: Run the full `egos-lab` consolidation diagnostic — classify every active surface as `migrate_to_egos`, `keep_in_lab`, `standalone_candidate`, `internal_infra`, `archive`, or `discard`, with source→destination pointers
+- [x] EGOS-073: Run the full `egos-lab` consolidation diagnostic — `docs/strategy/EGOS_LAB_CONSOLIDATION_DIAGNOSTIC.md` (v1.0.0); all surfaces classified; P0 migration actions pending execution in egos-lab repo
 - [ ] EGOS-074: Execute the kernel-first consolidation of SSOT/governance surfaces from `egos-lab` into `egos` and eliminate duplicated docs, maps, workflows, and stale claims with explicit archive references
-- [ ] EGOS-075: Canonicalize the System Map control plane — one orchestrator contract, one machine map, one human map, freshness rules, and one cross-repo update flow
+- [x] EGOS-075: Canonicalize the System Map control plane — `docs/SYSTEM_MAP.md` v3.0.0 rewritten (removed duplicates, stale agents, added Guard Brasil, unified workflow table, 96L clean)
 - [ ] EGOS-076: Create the ecosystem classification registry for products/modules/ideas (`standalone`, `candidate`, `lab`, `internal_infra`, `archive`) and wire it into `TASKS.md`, `SYSTEM_MAP.md`, and `CAPABILITY_REGISTRY.md`
 - [ ] EGOS-077: Add the new-project gate for PRD, ICP, go-to-market, objective, success metric, and multi-model review mode with a recorded blocking-vs-advisory decision
 - [ ] EGOS-078: Define the `Agent Claim Contract` — formal taxonomy for `component`, `skill`, `agent_candidate`, `verified_agent`, and `online_agent`, with mandatory proof fields for runtime, triggers, evals, observability, and ownership
