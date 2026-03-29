@@ -1,8 +1,15 @@
 # EGOS Capability Registry
 
-> **VERSION:** 1.4.0 | **UPDATED:** 2026-03-29
+> **VERSION:** 1.5.0 | **UPDATED:** 2026-03-29
 > **PURPOSE:** Master index of all capabilities across the EGOS ecosystem
 > **SSOT STATUS:** This file IS the canonical capability map
+
+---
+
+## Ecosystem Classification
+
+> Each capability belongs to a surface. For full surface classification (flagship_product / kernel_core / standalone_candidate / etc.) see:
+> **`docs/strategy/ECOSYSTEM_CLASSIFICATION_REGISTRY.md`**
 
 ---
 

@@ -75,8 +75,16 @@
   - **Key findings:** 3 agents → kernel (ssot-auditor, ssot-fixer, drift-sentinel), nexus+nexus-market consolidation needed, shared symlink broken
 - [ ] EGOS-074: Execute the kernel-first consolidation of SSOT/governance surfaces from `egos-lab` into `egos` and eliminate duplicated docs, maps, workflows, and stale claims with explicit archive references
 - [ ] EGOS-075: Canonicalize the System Map control plane — one orchestrator contract, one machine map, one human map, freshness rules, and one cross-repo update flow
-- [ ] EGOS-076: Create the ecosystem classification registry for products/modules/ideas (`standalone`, `candidate`, `lab`, `internal_infra`, `archive`) and wire it into `TASKS.md`, `SYSTEM_MAP.md`, and `CAPABILITY_REGISTRY.md`
-- [ ] EGOS-077: Add the new-project gate for PRD, ICP, go-to-market, objective, success metric, and multi-model review mode with a recorded blocking-vs-advisory decision
+- [x] EGOS-076: Create the ecosystem classification registry for products/modules/ideas (`standalone`, `candidate`, `lab`, `internal_infra`, `archive`) and wire it into `TASKS.md`, `SYSTEM_MAP.md`, and `CAPABILITY_REGISTRY.md`
+  - **Status:** COMPLETE (2026-03-29)
+  - **Document:** `docs/strategy/ECOSYSTEM_CLASSIFICATION_REGISTRY.md` — full taxonomy + per-surface classification for all repos, packages, products, ideas, and docs
+  - **Classes:** `flagship_product`, `kernel_core`, `standalone_candidate`, `proof_case`, `leaf_consumer`, `incubator`, `internal_infra`, `archive`, `discard`
+  - **Key verdict:** Guard Brasil = `flagship_product` | atomizer/search-engine = `standalone_candidate` (evaluate post-revenue) | MCP/API/Dashboard = `incubator` (blocked until Guard Brasil has users)
+- [x] EGOS-077: Add the new-project gate for PRD, ICP, go-to-market, objective, success metric, and multi-model review mode with a recorded blocking-vs-advisory decision
+  - **Status:** COMPLETE (2026-03-29)
+  - **Document:** `docs/governance/NEW_PROJECT_GATE.md` — blocking gate with PRD + ICP + GTM + metrics + kernel health prerequisite + multi-model review + copy-paste template
+  - **Gate decisions:** `APPROVED` / `BLOCKED — prerequisites` / `BLOCKED — incomplete PRD` / `ADVISORY`
+  - **Prerequisite:** No new product until Guard Brasil is on npm OR has ≥1 external user
 - [ ] EGOS-078: Define the `Agent Claim Contract` — formal taxonomy for `component`, `skill`, `agent_candidate`, `verified_agent`, and `online_agent`, with mandatory proof fields for runtime, triggers, evals, observability, and ownership
 - [ ] EGOS-079: Enforce the `Agent Claim Gate` in kernel governance — registry lint + pre-commit/pre-push + docs/tasks checks must block any surface claimed as agent without executable entrypoint, existing eval, valid run modes, and runtime evidence
 - [ ] EGOS-080: Define the `LLM Orchestration Matrix` for EGOS — explicit lane ownership for Cascade, terminal orchestration, Codex, Claude Code, Alibaba, and OpenRouter, with approval mode, authority level, and allowed task classes

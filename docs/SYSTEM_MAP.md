@@ -1,6 +1,6 @@
 # SYSTEM_MAP.md — EGOS Framework Core
 
-> **VERSION:** 2.2.0 | **UPDATED:** 2026-03-24
+> **VERSION:** 2.3.0 | **UPDATED:** 2026-03-29
 > **ROLE:** repo-local map for `/start` in the canonical kernel
 
 <!-- llmrefs:start -->
@@ -17,6 +17,8 @@
   - `docs/CAPABILITY_REGISTRY.md` — reusable capability SSOT
   - `docs/SSOT_REGISTRY.md` — canonical cross-repo SSOT registry
   - `docs/modules/CHATBOT_SSOT.md` — canonical chatbot standard
+  - `docs/strategy/ECOSYSTEM_CLASSIFICATION_REGISTRY.md` — per-surface classification (`flagship_product`, `kernel_core`, `standalone_candidate`, etc.)
+  - `docs/governance/NEW_PROJECT_GATE.md` — blocking gate for new products/packages/repos
 
 <!-- llmrefs:end -->
 
@@ -26,6 +28,8 @@
 - `TASKS.md` — what is next
 - `.windsurfrules` — what is allowed
 - `docs/SSOT_REGISTRY.md` — what is globally canonical vs locally owned
+- `docs/strategy/ECOSYSTEM_CLASSIFICATION_REGISTRY.md` — what is the flagship, what is kernel, what is incubator
+- `docs/governance/NEW_PROJECT_GATE.md` — gate that blocks premature new products
 - `.guarani/` — how reasoning and governance work
 - `agents/runtime/` — frozen execution kernel
 - `packages/shared/src/` — reusable core modules
