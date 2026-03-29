@@ -367,7 +367,7 @@
 **Discovered during battle test (2026-03-29):**
 - [x] INFRA-018 — Node.js + PM2 instalados no Hetzner. Telegram bot funcional via PM2 startup. Discord bot pendente (sem Discord app separado).
 - [x] INFRA-019 — Uptime-monitor health check path corrigido: `gem-hunter` (hifens), rota `/api/v1/meta/etl-progress`, etl-orchestrator fallback URL → Hetzner
-- [ ] INFRA-020 — Investigar openclaw-sandbox container (572MB RAM) — serviço desconhecido rodando no Hetzner
+- [x] INFRA-020 — openclaw-sandbox identificado: AI gateway/CLI runtime (`alpine/openclaw:latest`, Node.js 24, porta 18789/18791, egos.service label). Serviço legítimo EGOS. 572MB RAM = Node.js esperado.
 
 **Security + Observability (2026-03-29):**
 - [x] INFRA-021 — Leaked Supabase PAT (`sbp_d827...`) sanitized in 852 handoff files. Token needs rotation by user in Supabase dashboard.
