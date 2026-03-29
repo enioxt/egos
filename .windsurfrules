@@ -139,8 +139,8 @@ Pre-commit hook MUST block:
 ## TESTING (MANDATORY)
 
 - `bun test` MUST pass before any commit that changes `packages/shared/`
-- Test files live in `packages/shared/src/__tests__/`
-- Current: 43 tests (pii-scanner: 14, atrian: 16, conversation-memory: 13)
+- Test files live in `packages/shared/src/__tests__/` + `tests/`
+- Current: 162 tests, 12/14 modules, 0 failures
 
 ## META-PROMPT SYSTEM
 

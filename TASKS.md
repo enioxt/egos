@@ -66,7 +66,7 @@
 
 - [x] EGOS-061: Publish consolidated ecosystem verdict and repo roles — `docs/strategy/ECOSYSTEM_PRODUCT_VERDICT_2026-03.md`
 - [/] EGOS-062: Package the canonical product boundary for `EGOS Guard Brasil` — ATRiAN + PII Scanner BR + public guard + evidence discipline — `guard-brasil.ts` created with unified `createGuardBrasil()` API; npm publish pending
-- [ ] EGOS-063: Define free vs paid surface for the flagship (open SDK/specs vs hosted API/MCP/audit console)
+- [x] EGOS-063: Define free vs paid surface for the flagship — `docs/strategy/GUARD_BRASIL_PRODUCT_BOUNDARY.md` (SDK free/MIT, API/MCP/SLA paid)
 - [ ] EGOS-064: Deliver the first monetizable surface as a reusable package or MCP before expanding any new product line
 - [ ] EGOS-073: Run the full `egos-lab` consolidation diagnostic — classify every active surface as `migrate_to_egos`, `keep_in_lab`, `standalone_candidate`, `internal_infra`, `archive`, or `discard`, with source→destination pointers
 - [ ] EGOS-074: Execute the kernel-first consolidation of SSOT/governance surfaces from `egos-lab` into `egos` and eliminate duplicated docs, maps, workflows, and stale claims with explicit archive references

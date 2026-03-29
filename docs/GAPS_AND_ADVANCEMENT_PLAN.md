@@ -75,10 +75,42 @@ Root causes fixed: label format (string[] → {name}[]), SLA `stagedAt` not popu
 
 ### What the pre-commit does NOT enforce (gaps)
 1. ❌ Tests must pass (only in CI)
-2. ❌ Secret scanning (gitleaks not installed)
+2. ❌ Secret scanning (gitleaks not installed in this environment)
 3. ❌ Separation Policy (no commit message scanning)
 4. ❌ Agent registry integrity (only in CI via `agent:lint`)
 5. ❌ Evidence chain on claims (human-governed)
+
+## 2b. Cross-Repo Pre-Commit & SSOT Compliance Audit
+
+### Pre-Commit Hook Status per Repository
+
+| Repository | Pre-Commit | Gates | tsc | gitleaks | Frozen Zones | SSOT Limits |
+|-----------|------------|-------|-----|----------|-------------|-------------|
+| **egos** (kernel) | ✅ 5 gates | Full | ✅ Fixed (types:bun) | ⚠️ Not installed | ✅ | ✅ |
+| **egos-lab** | ✅ Has hooks | Partial | ❓ Unknown | ❓ | ❓ | ❓ |
+| **carteira-livre** | ✅ Has hooks | Partial | ❓ Unknown | ❓ | ❓ | ❓ |
+| **forja** | ✅ Has hooks | Partial | ❓ Unknown | ❓ | ❓ | ❓ |
+| **852** | ❌ **MISSING** | None | N/A | N/A | N/A | N/A |
+| **br-acc** | ❌ **MISSING** | None (Python) | N/A | N/A | N/A | N/A |
+| **intelink** | ❓ Unknown | ❓ | ❓ | ❓ | ❓ | ❓ |
+| **egos-self** | ❓ Unknown | ❓ | ❓ | ❓ | ❓ | ❓ |
+
+### SSOT Files per Repository
+
+| Repository | AGENTS.md | TASKS.md | .windsurfrules | .guarani/ | SYSTEM_MAP |
+|-----------|-----------|----------|---------------|-----------|------------|
+| **egos** (kernel) | ✅ 124L | ✅ 351L | ✅ 150L | ✅ Full | ✅ |
+| **egos-lab** | ✅ | ✅ | ✅ | ✅ Inherited | ✅ |
+| **carteira-livre** | ✅ | ✅ | ✅ | ✅ Inherited | ❓ |
+| **forja** | ✅ | ✅ | ✅ | ✅ Inherited | ❓ |
+| **852** | ❓ | ❓ | ❓ | ❓ | ❓ |
+| **br-acc** | ❓ | ❓ | ❓ | ❓ | ❓ |
+
+### Critical Findings
+1. **852 is production-critical but has NO pre-commit hooks** — security and governance gaps
+2. **br-acc needs Python-adapted pre-commit** (ruff/mypy instead of tsc)
+3. **Leaf propagation is DESIGNED but unverified** — `sync-all-leaf-repos.sh` exists but unclear if `~/.egos/sync.sh` is deployed on all machines
+4. **tsc gate was broken in kernel** — fixed with `types:bun` but leaf repos may have same issue
 
 ---
 
