@@ -67,13 +67,20 @@
 |--------|------|--------|-------------|
 | LLM Provider | `llm-provider.ts` | ✅ Active | Multi-provider chat (Alibaba/OpenRouter) |
 | Model Router | `model-router.ts` | ✅ Active | Task-based model selection (8 models, 10 tasks) |
-| ATRiAN | `atrian.ts` | ✅ Active | Ethical validation (7 axioms) |
-| PII Scanner | `pii-scanner.ts` | ✅ Active | Brazilian PII detection (CPF, CNPJ, etc.) |
-| Conversation Memory | `conversation-memory.ts` | ✅ Active | Session memory + summarization |
-| Rate Limiter | `rate-limiter.ts` | ✅ Active | Token bucket rate limiting |
-| Telemetry | `telemetry.ts` | ✅ Active | Dual output (Supabase + JSON logs) |
+| ATRiAN | `atrian.ts` | ✅ Active | Ethical validation (7 axioms) — 16 tests |
+| PII Scanner | `pii-scanner.ts` | ✅ Active | Brazilian PII detection (CPF, CNPJ, etc.) — 14 tests |
+| Public Guard | `public-guard.ts` | ✅ Active | LGPD-compliant output masking — 16 tests |
+| Evidence Chain | `evidence-chain.ts` | ✅ Active | Traceable response provenance — 17 tests |
+| **Guard Brasil** | `guard-brasil.ts` | ✅ **NEW** | Unified safety layer (ATRiAN+PII+Guard+Evidence) — 9 tests |
+| Conversation Memory | `conversation-memory.ts` | ✅ Active | Session memory + summarization — 13 tests |
+| Cross-Session Memory | `cross-session-memory.ts` | ✅ Active | Supabase-backed persistence — 17 tests |
+| LLM Provider | `llm-provider.ts` | ✅ Active | Multi-provider API + cost estimation — 6 tests |
+| Model Router | `model-router.ts` | ✅ Active | Task-aware model selection — 13 tests |
+| Rate Limiter | `rate-limiter.ts` | ✅ Active | Token bucket rate limiting — 8 tests |
+| Telemetry | `telemetry.ts` | ✅ Active | Dual output (Supabase + JSON logs) — 11 tests |
+| Metrics Tracker | `metrics-tracker.ts` | ✅ Active | Session-level tool/task metrics — 13 tests |
 | Mycelium Graph | `mycelium/reference-graph.ts` | ✅ Active | Reference graph (27 nodes, 32 edges) |
-| Repo Role | `repo-role.ts` | ✅ Active | Repo classification heuristics |
+| Repo Role | `repo-role.ts` | ✅ Active | Repo classification heuristics — 6 tests |
 
 ## Skills
 

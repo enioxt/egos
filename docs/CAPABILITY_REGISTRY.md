@@ -1,6 +1,6 @@
 # EGOS Capability Registry
 
-> **VERSION:** 1.3.0 | **UPDATED:** 2026-03-21
+> **VERSION:** 1.4.0 | **UPDATED:** 2026-03-29
 > **PURPOSE:** Master index of all capabilities across the EGOS ecosystem
 > **SSOT STATUS:** This file IS the canonical capability map
 
@@ -24,6 +24,9 @@ Each capability has:
 | Modular Prompt Architecture | `egos/docs/modules/CHATBOT_SSOT.md` | A | 852, intelink, forja, egos-web | carteira-livre, br-acc | `chatbot`, `prompt`, `composable`, `ssot` |
 | ATRiAN Ethical Validation | `egos/packages/shared/src/atrian.ts` | A | 852 (origin), egos, intelink, carteira-livre, forja, egos-web, br-acc | — | `chatbot`, `ethics`, `validation`, `atrian` |
 | PII Scanner (Brazilian) | `egos/packages/shared/src/pii-scanner.ts` | A | 852 (origin), egos, intelink, carteira-livre, forja, egos-web, br-acc | — | `chatbot`, `privacy`, `lgpd`, `pii` |
+| **Guard Brasil** (Unified Safety) | `egos/packages/shared/src/guard-brasil.ts` | **A** | egos | 852, forja, intelink, carteira-livre, br-acc | `guard`, `safety`, `atrian`, `pii`, `lgpd`, `evidence` |
+| Public Guard (LGPD Masking) | `egos/packages/shared/src/public-guard.ts` | A | egos, 852, br-acc | forja, intelink, carteira-livre | `guard`, `lgpd`, `masking`, `privacy` |
+| Evidence Chain (Traceability) | `egos/packages/shared/src/evidence-chain.ts` | A | egos | 852, forja, br-acc | `evidence`, `traceability`, `audit` |
 | Conversation Memory | `egos/packages/shared/src/conversation-memory.ts` | A | 852 (origin), egos, intelink, carteira-livre, forja, egos-web, br-acc | — | `chatbot`, `memory`, `context` |
 | Task-Based Model Routing | `852/src/lib/ai-provider.ts` | A | 852, intelink, carteira-livre, forja, egos-web (basic) | br-acc | `chatbot`, `ai`, `routing`, `cost` |
 | AI Conversation Review | `852/src/app/api/review/route.ts` | A | 852 | forja | `chatbot`, `review`, `quality` |

@@ -420,6 +420,34 @@ Leaf repos inherit kernel governance via symlinks but keep local IDENTITY.md and
 3. Build a Presentation System in SSOT (positioning + proof + demo flow) before adding more runtime complexity.
 4. Validate adoption via pilot metrics (drift, lead-time, compliance incidents) before ecosystem-wide rollout.
 
+## Session 2026-03-29 — Test Coverage Sprint + Guard Brasil
+
+### Key Learnings
+
+1. **Test-first reveals real bugs.** Writing tests for `llm-provider.ts` exposed that `cost_usd` always returned 0 — a silent bug in production. Adding `MODEL_COSTS` map + `estimateCost()` fixed it.
+2. **E2E test drift is a governance signal.** The spec-pipeline E2E had 13/16 failures because labels format changed (string[] vs {name}[]). Tests that don't run in CI will drift — always include E2E in CI.
+3. **Guard Brasil as product boundary.** Creating `guard-brasil.ts` as a unified `createGuardBrasil()` API proves the product can be packaged. Single function validates ATRiAN + PII + LGPD masking in one call.
+4. **Mock Supabase pattern is reusable.** The mock client pattern in `telemetry.test.ts` and `cross-session-memory.test.ts` can be extracted as `@egos/test-utils` for all leaf repos.
+5. **Spec-router bug: `stagedAt` never populated.** The `parseGitHubEvent()` function didn't map `created_at` → `stagedAt`, making all SLA checks return OK. Fix: one line.
+
+### Patterns Added
+
+- **Guard Brasil Unified API:** `createGuardBrasil({ atrian, publicGuard, minAtrianScore })` → `{ safe, atrianScore, piiCount, maskedText, lgpdDisclosure }`
+- **Test Coverage Strategy:** Test high-risk modules first (safety > routing > persistence > telemetry). Mock external deps (Supabase, LLM). Test behavior, not implementation.
+- **CI Test Gate:** Added `bun test` step to `ci.yml` before typecheck — tests fail faster than type errors.
+
+### Numbers
+
+| Metric | Before | After |
+|--------|--------|-------|
+| Tests | 43 | 162 |
+| Assertions | 77 | 372 |
+| Modules covered | 3/14 | 12/14 |
+| E2E passing | 3/16 | 16/16 |
+| Bugs found/fixed | 0 | 3 |
+
+---
+
 ## /end Handoff Package — 2026-03-26 (Codex lane)
 
 ### Session Outcomes
