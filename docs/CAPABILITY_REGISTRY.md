@@ -99,7 +99,7 @@ Each capability has:
 |-----------|------|---------|------------|-------------|------|
 | Agent Runner | `egos/agents/runtime/runner.ts` | A | egos (FROZEN) | — | `agent`, `runtime`, `frozen` |
 | Event Bus | `egos/agents/runtime/event-bus.ts` | A | egos (FROZEN) | — | `agent`, `events`, `frozen` |
-| Agent Registry | `egos-lab/agents/registry/agents.json` | A | egos-lab (29) | egos (2) | `agent`, `registry`, `ssot` |
+| Agent Registry | `egos-lab/agents/registry/agents.json` | A | egos-lab (24: 22 active, 2 dormant) | egos (10) | `agent`, `registry`, `ssot` |
 | Agent CLI | `egos-lab/agents/cli.ts` | A | egos-lab | egos | `agent`, `cli` |
 | Worker Infrastructure | `egos-lab/agents/worker/` | B | egos-lab (Railway) | — | `agent`, `worker`, `infra` |
 

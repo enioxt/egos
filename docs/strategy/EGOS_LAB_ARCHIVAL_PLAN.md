@@ -1,8 +1,9 @@
 # EGOS-Lab → Clean Kernel Consumer Plan
 
-> **VERSION:** 2.0.0 | **DATE:** 2026-03-29
+> **VERSION:** 2.1.0 | **DATE:** 2026-03-29
 > **PURPOSE:** Transform egos-lab from duplicate-carrying monorepo into clean kernel consumer
 > **DEPENDS ON:** EGOS-073 (diagnostic), EGOS-074 (consolidation), EGOS-092 (leaf adoption)
+> **LAST SYNC:** 2026-03-29 — Cleanup branch `fix/kernel-consumer-cleanup` delivered (2 commits)
 
 ## Context
 
@@ -93,9 +94,27 @@ Before declaring egos-lab a clean consumer, confirm ALL of:
 - [ ] Phase 4: Update mycelium graph (egos-lab → archived)
 - [ ] Phase 5: Decision on egos-web extraction
 
+## Execution Log
+
+### 2026-03-29 — Branch `fix/kernel-consumer-cleanup` (egos-lab)
+
+**Commits:** `8f1c68e`, `f7a73f5`
+
+**Corrected assumptions:**
+- egos-lab has **24 agents** (not 29) — 22 active, 2 dormant
+- `social-media` → dormant | `domain-explorer` entrypoint fixed (snake→kebab)
+- `dep_auditor`, `dead_code_detector` dormant in web consumer (migrated to kernel)
+- `agent:lint` passes: 0 errors, 24 agents
+
+**PR ready for merge to main in egos-lab.**
+
+**Remaining P0 (next session with lab access):**
+- [ ] Mark shared module copies as deprecated
+- [ ] Mark governance-sync.sh copy as deprecated
+- [ ] Mark CAPABILITY_REGISTRY/SYSTEM_MAP copies as deprecated
+- [ ] Update egos-lab AGENTS.md with kernel dependency header
+
 ## Notes
 
-- All Phase 2 actions require access to the egos-lab repo
-- Phase 4 requires GitHub admin access
-- This plan aligns with EGOS-073 (diagnostic) and EGOS-074 (consolidation)
+- Phase 2 partially started (registry cleanup done, module deprecation pending)
 - SSOT Merge Rule (#23) applies: no parallel truths between kernel and lab
