@@ -365,6 +365,15 @@
 - [x] INFRA-017 — Contabo cancelado pelo usuário. Hetzner estável 31h+, 9 containers healthy, SSL OK, disk IO 238MB/s
 
 **Discovered during battle test (2026-03-29):**
-- [ ] INFRA-018 — **P0**: Instalar Node.js + PM2 no Hetzner e migrar bots (Telegram egos-telegram, Discord egos-discord) — estavam no Contabo via PM2, não migraram
-- [ ] INFRA-019 — Corrigir uptime-monitor health check path: `/api/v1/health` → `/api/v1/meta/etl-progress` (br-acc API não tem /health)
+- [x] INFRA-018 — Node.js + PM2 instalados no Hetzner. Telegram bot funcional via PM2 startup. Discord bot pendente (sem Discord app separado).
+- [x] INFRA-019 — Uptime-monitor health check path corrigido: `gem-hunter` (hifens), rota `/api/v1/meta/etl-progress`, etl-orchestrator fallback URL → Hetzner
 - [ ] INFRA-020 — Investigar openclaw-sandbox container (572MB RAM) — serviço desconhecido rodando no Hetzner
+
+**Security + Observability (2026-03-29):**
+- [x] INFRA-021 — Leaked Supabase PAT (`sbp_d827...`) sanitized in 852 handoff files. Token needs rotation by user in Supabase dashboard.
+- [x] INFRA-022 — Gitleaks hardened: added `sbp_[40hex]` rule to `.gitleaks.toml`. Universal hook (`~/.egos/hooks/pre-commit`) now scans secrets on ALL repos.
+- [x] INFRA-023 — `governance-sync.sh` updated to propagate `.egos/hooks/` and `sync.sh` on `--exec`.
+- [x] INFRA-024 — CRCDM pre-push/post-commit hooks fixed: `#!/bin/sh` → `#!/bin/bash` (bash-specific substring expansion `${var:0:8}`).
+- [x] INFRA-025 — carteira-livre `.husky/pre-commit` converted to POSIX sh (fixes `[[ ]]`, `<<<` bash constructs + `head -5` always-true false-positive bug in secrets scan).
+- [x] INFRA-026 — `scripts/egos-repo-health.sh` created: cross-repo uncommitted change dashboard. Run before any installer scripts to prevent stale file propagation.
+- [x] INFRA-027 — Context Persistence (Fibonacci snapshots) disseminated to kernel + 9 leaf repos via `scripts/install-context-persistence.sh`. All repos committed + pushed.
