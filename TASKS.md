@@ -1,6 +1,20 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.8.1 | **Updated:** 2026-03-26
+> **Version:** 2.9.0 | **Updated:** 2026-03-29
+
+---
+
+### Summary: Session 2026-03-29 (Test Coverage Sprint + Guard Brasil + Fixes)
+
+**Completed:**
+- [x] Test coverage: 43 → 162 tests (12 of 14 shared modules), 372 assertions, 0 failures
+- [x] Spec-pipeline E2E: Fixed 13/16 failing tests (label format + SLA stagedAt) → 16/16 passing
+- [x] llm-provider: Fixed cost_usd always returning 0 → added MODEL_COSTS map + estimateCost()
+- [x] EGOS-062 (partial): Created `guard-brasil.ts` — unified Guard Brasil entry point (ATRiAN + PII + PublicGuard + EvidenceChain)
+- [x] CI: Added `bun test` step to GitHub Actions workflow
+- [x] package.json: Updated test command to include E2E tests
+- [x] Gap analysis: `docs/GAPS_AND_ADVANCEMENT_PLAN.md` — full gap map with advancement plan
+- [x] New test files: public-guard, evidence-chain, model-router, rate-limiter, repo-role, llm-provider, metrics-tracker, telemetry, cross-session-memory, guard-brasil
 
 ---
 
@@ -51,7 +65,7 @@
 - ✅ System-wide dissemination (this TASKS.md update)
 
 - [x] EGOS-061: Publish consolidated ecosystem verdict and repo roles — `docs/strategy/ECOSYSTEM_PRODUCT_VERDICT_2026-03.md`
-- [ ] EGOS-062: Package the canonical product boundary for `EGOS Guard Brasil` — ATRiAN + PII Scanner BR + public guard + evidence discipline
+- [/] EGOS-062: Package the canonical product boundary for `EGOS Guard Brasil` — ATRiAN + PII Scanner BR + public guard + evidence discipline — `guard-brasil.ts` created with unified `createGuardBrasil()` API; npm publish pending
 - [ ] EGOS-063: Define free vs paid surface for the flagship (open SDK/specs vs hosted API/MCP/audit console)
 - [ ] EGOS-064: Deliver the first monetizable surface as a reusable package or MCP before expanding any new product line
 - [ ] EGOS-073: Run the full `egos-lab` consolidation diagnostic — classify every active surface as `migrate_to_egos`, `keep_in_lab`, `standalone_candidate`, `internal_infra`, `archive`, or `discard`, with source→destination pointers
@@ -293,7 +307,8 @@
 | **Foundation (P0/P1)** | 21 | 21 | 0 | **100%** |
 | **Replication (P2)** | 15 | 15 | 0 | **100%** |
 | **Backlog** | 20 | 3 | 17 | **15%** |
-| **TOTAL** | **56** | **42** | **14** | **75%** |
+| **Test Sprint** | 5 | 5 | 0 | **100%** |
+| **TOTAL** | **61** | **47** | **14** | **77%** |
 
 ---
 

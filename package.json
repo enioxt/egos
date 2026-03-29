@@ -32,7 +32,7 @@
     "pr:audit": "bun scripts/pr-ecosystem-audit.ts",
     "ssot:link": "sh scripts/link-ssot-files.sh --dry",
     "ssot:link:exec": "sh scripts/link-ssot-files.sh --exec",
-    "test": "bun test packages/shared/src/__tests__/",
+    "test": "bun test packages/shared/src/__tests__/ tests/",
     "activation:check": "bun scripts/activation-check.ts",
     "doctor": "bun scripts/doctor.ts",
     "doctor:codex": "sh scripts/codex-doctor.sh",

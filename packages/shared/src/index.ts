@@ -44,6 +44,10 @@ export type { ToolUsageMetric, TaskMetric, SessionMetric } from './metrics-track
 // EGOS Guard Brasil — Brazilian AI Safety Layer
 // ═══════════════════════════════════════════════════════════
 
+// Guard Brasil — unified safety validator (ATRiAN + PII + PublicGuard + EvidenceChain)
+export { createGuardBrasil } from './guard-brasil.js';
+export type { GuardBrasilResult, GuardBrasilConfig } from './guard-brasil.js';
+
 // Public Guard — LGPD-compliant PII masking
 export { maskPublicOutput, isPublicSafe, buildLGPDDisclosure } from './public-guard.js';
 export type { PublicGuardConfig, MaskingResult, MaskingAction, GuardAction, SensitivityLevel } from './public-guard.js';
