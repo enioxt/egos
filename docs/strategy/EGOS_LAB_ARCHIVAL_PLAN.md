@@ -1,14 +1,18 @@
-# EGOS-Lab → Kernel Migration & Archival Plan
+# EGOS-Lab → Clean Kernel Consumer Plan
 
-> **VERSION:** 1.0.0 | **DATE:** 2026-03-29
-> **PURPOSE:** Complete migration checklist before archiving egos-lab
+> **VERSION:** 2.0.0 | **DATE:** 2026-03-29
+> **PURPOSE:** Transform egos-lab from duplicate-carrying monorepo into clean kernel consumer
 > **DEPENDS ON:** EGOS-073 (diagnostic), EGOS-074 (consolidation), EGOS-092 (leaf adoption)
 
 ## Context
 
 egos-lab was the original development monorepo. The kernel (`egos`) was extracted from it.
 Now that the kernel is mature (14 modules, 166 tests, governance enforced), egos-lab
-should become an archive. This plan ensures nothing is lost.
+must become a **clean consumer** — importing from `@egos/shared`, not maintaining local copies.
+
+**IMPORTANT:** egos-lab is NOT being archived. It has 7+ production apps, 29 agents,
+and active infrastructure (Railway, Redis, Vercel). The goal is to eliminate SSOT
+violations (duplicate packages) while keeping production surfaces healthy.
 
 ## Phase 1: Already Migrated to Kernel ✅
 
@@ -58,26 +62,22 @@ These surfaces are app-specific and should stay in the egos-lab archive:
 | Redis/queue configs | Infrastructure-specific |
 | Docker configs | Lab-specific infrastructure |
 
-## Phase 4: Archival Steps
+## Phase 4: Verify Clean Consumer State
 
-1. **Verify all P0 items migrated** (Phase 2 complete)
-2. **Update egos-lab README** to say: "⚠️ ARCHIVED — Kernel is at github.com/enioxt/egos"
-3. **Add `[ARCHIVED]` to repo description** on GitHub
-4. **Set egos-lab topics**: `archived`, `egos-legacy`
-5. **Keep repo PUBLIC** (reference for archaeology_digger agent)
-6. **Do NOT delete** — preserve git history for provenance
-7. **Disable GitHub Actions** in egos-lab (save CI minutes)
-8. **Update mycelium reference-graph** to mark egos-lab as `status: 'archived'`
+Before declaring egos-lab a clean consumer, confirm ALL of:
+- [ ] egos-lab package.json imports `@egos/shared` from kernel (not local copy)
+- [ ] No local copies of atrian, llm-provider, rate-limiter in lab packages/
+- [ ] governance-sync.sh removed from lab (or pointing to kernel)
+- [ ] Lab SYSTEM_MAP and CAPABILITY_REGISTRY marked deprecated
+- [ ] Boundary contract documented in lab AGENTS.md
+- [ ] All production apps still building and deploying (smoke test)
 
-## Phase 5: Post-Archival
+## Phase 5: Future Decisions (not blocking)
 
-After archival, the egos-lab apps that are still in production (egos-web, commons)
-need to be either:
-- **Option A:** Extracted as standalone repos (e.g., `enioxt/egos-web`)
-- **Option B:** Left in archived egos-lab with deploy hooks still active
-- **Option C:** Moved to the kernel as `apps/` directory
-
-**Recommendation:** Option A for egos-web (it's the main site), Option B for the rest.
+- **SSOT Auditor / Contract Tester:** Generalize and migrate to kernel if reuse proven
+- **ai-client.ts:** Merge into kernel llm-provider.ts or keep as lab-specific
+- **egos-web extraction:** Consider standalone repo if it outgrows lab context
+- **Agent registry:** Lab keeps its 29-agent registry; kernel keeps 10-agent registry
 
 ## Execution Checklist
 
