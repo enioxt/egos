@@ -46,6 +46,7 @@
 | Presentation System | `kernel_canonical` | `egos/docs/PRESENTATION_*.md` (5 files) | — | Quarterly review | CAPABILITY_REGISTRY |
 | LLM Orchestration Matrix | `kernel_canonical` | `egos/docs/contracts/LLM_ORCHESTRATION_MATRIX.md` | — | `model-router.ts` | llm-provider.ts |
 | Operator Narrative Kit | `product_boundary` | `egos/docs/strategy/OPERATOR_NARRATIVE_KIT.md` | — | Manual review | Presentation System |
+| Lab Archival Plan | `kernel_canonical` | `egos/docs/strategy/EGOS_LAB_ARCHIVAL_PLAN.md` | — | Migration execution | MIGRATION_MATRIX |
 
 ## Shared Module SSOTs (@egos/shared)
 

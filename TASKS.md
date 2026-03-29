@@ -82,7 +82,7 @@
 - [ ] EGOS-096: Add cross-environment signature adoption for Google AI Studio lane (commit/push provenance fields mandatory)
 - [ ] EGOS-097: Define dissemination protocol (`/disseminate`) for propagating new strategic rules to all mapped repos with drift-proof verification
 - [/] EGOS-098: Ingest and operationalize pragmatic multi-agent benchmark patterns (worktree isolation, parallel ticket lanes, QA loop, file-first context) into kernel governance with explicit keep/drop decisions — keep/drop contract drafted + GTM harvester agent added; pending contract enforcement and workflow wiring
-- [ ] EGOS-099: Define `Worktree Orchestration Contract` for EGOS (branch naming, ownership locks, lifecycle, cleanup, merge gates, max concurrency)
+- [x] EGOS-099: Worktree Orchestration Contract — superseded by EGOS-110 (`.guarani/orchestration/WORKTREE_CONTRACT.md`)
 - [ ] EGOS-100: Define `Linear/Issue Sync Contract` (`/linear-sync`) with task decomposition schema, priority classes, and required evidence at PR gate
 - [ ] EGOS-101: Define `QA Loop Contract` (`/qa-loop`) using browser/devtools verification + test rerun policy + stop conditions
 - [ ] EGOS-102: Build executable 10-second operator map (replace text-heavy integration map with founder-grade control plane view)
@@ -312,40 +312,8 @@
 
 ---
 
-### Short Term (0-7 days) — Target: 75%
+### Active Roadmap (see tasks above for full status — no duplicates)
 
-**Objective:** Complete all P2 core hardening. CONTRIBUTING.md, activation:check, and cross-repo adoption alignment.
-
-- [x] EGOS-010 — CONTRIBUTING.md with governance rules
-- [x] EGOS-034 — Forja chatbot production parity
-- [x] EGOS-039 — egos-web chat alignment with shared modules
-- [x] EGOS-040 — br-acc Python adapter for CHATBOT_SSOT
-- [x] EGOS-050 — `activation:check` command for core repo (42 checks, 100%)
-- [ ] EGOS-068 — Shared workflow inheritance rollout across mapped repos
-- [ ] EGOS-069 — `santiago` governance bootstrap into the shared mesh
-- [ ] EGOS-070 — Mycelium truth repair across kernel docs and topology references
-- [ ] EGOS-071 — Cheap-first multi-model orchestration policy and routing contract
-- [ ] EGOS-072 — Anti-injection / least-privilege hardening for external-input automation
-
-### Medium Term (1-4 weeks) — Target: 85%
-
-**Objective:** Repo-role architecture, migration framework, go-to-market research, capability drift monitoring.
-
-- [x] EGOS-037 — GTM research v2.0: OSS economics, developer funnel metrics (TOFU/MOFU/BOFU), lighthouse strategy, 10-item validation checklist — `docs/strategy/GO_TO_MARKET_RESEARCH.md`
-- [x] EGOS-038 — capability-drift-checker agent (15 checks, kernel 100%, carteira-livre 93%)
-- [x] EGOS-049 — Repo-role-aware activation logic — `egos.config.json` + `repo-role.ts`
-- [/] EGOS-051 — Migrate core-safe agents — `dead_code_detector` done; SSOT Auditor needs generalization
-- [x] EGOS-052 — Kernel-to-leaf migration matrix — `docs/strategy/MIGRATION_MATRIX.md`
-- [x] EGOS-016 — Workflow override audit: 1 legitimate (egos-lab mycelium), 9 stale (br-acc/forja/egos-self v5.0→v5.4) — `docs/reports/workflow-override-audit.md`
-
-### Long Term (1-3 months) — Target: 95%
-
-**Objective:** Public npm package, compliance dashboard, distributed verification, community adoption.
-
-- [ ] EGOS-012 — Publish `@egos/shared` to npm
-- [ ] EGOS-014 — VRCP Coherence Model integration
-- [ ] EGOS-015 — Context Doctor agent
-- [ ] EGOS-023 — Publish egos-init via hosted installer URL
-- [ ] EGOS-024 — Full per-agent lineage matrix (ARCH-003)
-- [ ] EGOS-053 — Cross-repo capability compliance dashboard
-- [x] EGOS-054 — `/end` and `/disseminate` repo-role-aware — `egos.config.json` detection + conditional gating
+**Short Term:** EGOS-064 (npm publish), EGOS-068 (workflow inheritance), EGOS-072 (anti-injection)
+**Medium Term:** EGOS-087/088 (MCP servers), EGOS-053 (compliance dashboard), EGOS-092 (leaf @egos/shared adoption)
+**Long Term:** EGOS-012 (npm @egos/shared), EGOS-089 (Mycelium Redis), EGOS-014 (VRCP), community adoption
