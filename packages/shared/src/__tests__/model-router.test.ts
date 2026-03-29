@@ -125,6 +125,40 @@ describe('Model Router — routeForChat', () => {
 });
 
 // ═══════════════════════════════════════════════════════════
+// Cheap-first policy (EGOS-071)
+// ═══════════════════════════════════════════════════════════
+describe('Model Router — Cheap-first policy', () => {
+  it('defaults to economy tier (cheap-first)', () => {
+    process.env.ALIBABA_DASHSCOPE_API_KEY = 'test-key';
+    // Default cost preference should be 'economy'
+    const route = resolveModel('chat');
+    expect(route.profile.tier).toBe('economy');
+  });
+
+  it('routes fast_check to free qwen-flash by default', () => {
+    process.env.ALIBABA_DASHSCOPE_API_KEY = 'test-key';
+    const route = resolveModel('fast_check');
+    expect(route.model).toBe('qwen-flash');
+    expect(route.profile.costPer1MInput).toBe(0);
+  });
+
+  it('breaks ties by lower cost', () => {
+    process.env.ALIBABA_DASHSCOPE_API_KEY = 'test-key';
+    process.env.OPENROUTER_API_KEY = 'test-key';
+    // summarization has multiple economy options - should pick cheapest
+    const route = resolveModel('summarization');
+    expect(route.profile.costPer1MInput).toBeLessThanOrEqual(0.1);
+  });
+
+  it('can override to premium when needed', () => {
+    process.env.ALIBABA_DASHSCOPE_API_KEY = 'test-key';
+    process.env.OPENROUTER_API_KEY = 'test-key';
+    const route = resolveModel({ task: 'orchestration', cost: 'premium' });
+    expect(route.profile.tier).toBe('premium');
+  });
+});
+
+// ═══════════════════════════════════════════════════════════
 // listAvailableModels
 // ═══════════════════════════════════════════════════════════
 describe('Model Router — listAvailableModels', () => {

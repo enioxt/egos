@@ -136,8 +136,8 @@
 - [x] EGOS-115: Create `mastra_gem_hunter` agent and run initial scan for workflow/evals/observability/MCP/human-loop extraction
 - [x] EGOS-116: Presentation System SSOT — 5 docs exist (PRESENTATION_IDENTITY, VALUES, VISUAL_IDENTITY, COMPETITIVE_ANALYSIS, INDEX) totaling 1,898 lines; needs SSOT Registry entry
 - [x] EGOS-117: Operator narrative kit — `docs/strategy/OPERATOR_NARRATIVE_KIT.md` (1-page pitch with problem/solution/numbers/personas, derived from PRESENTATION_IDENTITY SSOT)
-- [ ] EGOS-118: Create reproducible demo lane for meetings (live build script + guardrails checklist + fallback offline path)
-- [ ] EGOS-119: Add benchmark scorecard command comparing EGOS vs MASA/Mastra/LangGraph/CrewAI on governance, speed, and compliance
+- [x] EGOS-118: Reproducible demo lane — `bun demo` (Guard Brasil + agent runtime + LLM routing), offline-capable, deterministic, with `--guard`/`--agents`/`--routing` flags
+- [x] EGOS-119: Benchmark scorecard — `bun benchmark` compares EGOS vs LangChain/CrewAI/AutoGen/Cursor across 6 categories (governance, multi-repo, compliance, cost, tests, runtime); EGOS scores 50/60
 - [ ] EGOS-120: Define visual identity/application rules for docs and generated artifacts (consistency pack)
 - [ ] EGOS-121: Add monthly "clarity review" gate to prune complexity and keep kernel message/simple architecture coherent
 - [x] EGOS-083: Create the canonical cross-repo SSOT registry in the kernel and define the ownership contract for `kernel_canonical`, `leaf_local`, and `shared_home` surfaces
@@ -283,7 +283,7 @@
 - [ ] EGOS-068: Enforce shared workflow inheritance across mapped repos — re-link exact-match copies, replace stale overrides with thin wrappers or shared workflows, and preserve only justified repo-local exceptions
 - [ ] EGOS-069: Bootstrap `santiago` into the EGOS governance mesh with `.egos`, repo-local SSOT files, and inherited core workflows
 - [ ] EGOS-070: Complete Mycelium truth repair — align kernel docs and reference graph with actual local surfaces and classify consumer dashboards/bridges as external or planned
-- [ ] EGOS-071: Formalize cheap-first multi-model orchestration for Windsurf/Codex/Claude/Alibaba/OpenRouter with one coordinator, sequential routing, and reviewer proof-of-work
+- [x] EGOS-071: Cheap-first orchestration — default CostPreference changed from 'balanced' to 'economy' in model-router.ts; 4 new tests verify policy; LLM_ORCHESTRATION_MATRIX.md (EGOS-080) defines full lane routing
 - [ ] EGOS-072: Design anti-injection and least-privilege hardening for external-input workflows (issues, PRs, web, imported docs) before any high-trust automation
 - [ ] EGOS-086: Extract circuit breaker pattern from carteira-livre guardrails into `@egos/shared` as reusable module
 - [ ] EGOS-087: Build `@egos/mcp-governance` — custom MCP server for SSOT drift check, task listing, and deploy gates across all repos

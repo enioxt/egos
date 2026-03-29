@@ -181,7 +181,7 @@ export function resolveModel(taskOrOpts: TaskType | RouteOptions): ResolvedRoute
     ? { task: taskOrOpts }
     : taskOrOpts;
 
-  const { task, cost = 'balanced', preferProvider, minContext } = opts;
+  const { task, cost = 'economy', preferProvider, minContext } = opts;
   const tierMap = TIER_SCORE[cost] ?? TIER_SCORE.balanced;
 
   const candidates = MODEL_CATALOG
