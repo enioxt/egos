@@ -361,5 +361,10 @@
 - [x] INFRA-015 — `egos-lab`: memory_db/memory.jsonl (EGOS_VPS_CONTABO → EGOS_VPS_HETZNER) → commit `0101bf2`
 - [x] INFRA-016 — `egos-lab`: SECURITY_AND_DECENTRALIZATION_PLAN.md + postar.md → commit `0101bf2`
 
-**Pendente:**
-- [ ] INFRA-017 — Verificar Contabo Phase 8 (desativação) — confirmar 48h de estabilidade no Hetzner e cancelar plano Contabo
+**Completed (2026-03-29):**
+- [x] INFRA-017 — Contabo cancelado pelo usuário. Hetzner estável 31h+, 9 containers healthy, SSL OK, disk IO 238MB/s
+
+**Discovered during battle test (2026-03-29):**
+- [ ] INFRA-018 — **P0**: Instalar Node.js + PM2 no Hetzner e migrar bots (Telegram egos-telegram, Discord egos-discord) — estavam no Contabo via PM2, não migraram
+- [ ] INFRA-019 — Corrigir uptime-monitor health check path: `/api/v1/health` → `/api/v1/meta/etl-progress` (br-acc API não tem /health)
+- [ ] INFRA-020 — Investigar openclaw-sandbox container (572MB RAM) — serviço desconhecido rodando no Hetzner
