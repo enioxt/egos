@@ -75,7 +75,7 @@
 - [ ] EGOS-077: Add the new-project gate for PRD, ICP, go-to-market, objective, success metric, and multi-model review mode with a recorded blocking-vs-advisory decision
 - [x] EGOS-078: Define Agent Claim Contract — `docs/contracts/AGENT_CLAIM_CONTRACT.md` (v1.0.0); L0-L4 taxonomy with proof fields, all 10 agents classified as L2, promotion protocol defined
 - [x] EGOS-079: Enforce Agent Claim Gate — enhanced `agent:lint` with L2/L3 validation, entrypoint existence check, eval_suite file verification; 10 agents pass L2, all warned for L3 promotion
-- [ ] EGOS-080: Define the `LLM Orchestration Matrix` for EGOS — explicit lane ownership for Cascade, terminal orchestration, Codex, Claude Code, Alibaba, and OpenRouter, with approval mode, authority level, and allowed task classes
+- [x] EGOS-080: LLM Orchestration Matrix — `docs/contracts/LLM_ORCHESTRATION_MATRIX.md` (6 lanes, task routing, cost ceilings, cheap-first policy); deprecated `llm-orchestrator.ts` → `model-router.ts` SSOT merge
 - [ ] EGOS-093: Define canonical flagship brief in SSOT — objective, problem statement, personas, and GTM with acceptance metrics
 - [ ] EGOS-094: Create "Market Intelligence Compiler" spec — ingestion contract for books/papers/code/platforms with source-link + evidence tiers
 - [ ] EGOS-095: Build governance rule registry for market practices — normalize global best practices into executable controls and tests
@@ -135,7 +135,7 @@
 - [ ] EGOS-114: Run MASA pilot in one leaf repo and measure impact on drift, architectural violations, and lead-time before broader adoption
 - [x] EGOS-115: Create `mastra_gem_hunter` agent and run initial scan for workflow/evals/observability/MCP/human-loop extraction
 - [x] EGOS-116: Presentation System SSOT — 5 docs exist (PRESENTATION_IDENTITY, VALUES, VISUAL_IDENTITY, COMPETITIVE_ANALYSIS, INDEX) totaling 1,898 lines; needs SSOT Registry entry
-- [ ] EGOS-117: Build operator-facing narrative kit (1-page pitch + architecture map + proof checklist) from existing SSOT without creating parallel truths
+- [x] EGOS-117: Operator narrative kit — `docs/strategy/OPERATOR_NARRATIVE_KIT.md` (1-page pitch with problem/solution/numbers/personas, derived from PRESENTATION_IDENTITY SSOT)
 - [ ] EGOS-118: Create reproducible demo lane for meetings (live build script + guardrails checklist + fallback offline path)
 - [ ] EGOS-119: Add benchmark scorecard command comparing EGOS vs MASA/Mastra/LangGraph/CrewAI on governance, speed, and compliance
 - [ ] EGOS-120: Define visual identity/application rules for docs and generated artifacts (consistency pack)

@@ -1,8 +1,12 @@
 /**
- * LLM Orchestrator — Multi-Model Economic Routing
- * 
- * Orquestra chamadas LLM priorizando modelos mais baratos quando possível.
- * Usa qwen-plus apenas para tasks complexas que justificam o custo.
+ * @deprecated Use `model-router.ts` instead — it has the canonical MODEL_CATALOG
+ * with 8 models, 10 task types, and 3 cost tiers. This file is kept for
+ * backward compatibility but should not be used for new code.
+ *
+ * SSOT Merge Rule applied 2026-03-29: model-router.ts is the canonical
+ * LLM routing SSOT. See docs/SSOT_REGISTRY.md.
+ *
+ * LLM Orchestrator — Multi-Model Economic Routing (DEPRECATED)
  */
 
 export type TaskComplexity = 'simple' | 'moderate' | 'complex';

@@ -435,6 +435,14 @@ Leaf repos inherit kernel governance via symlinks but keep local IDENTITY.md and
 
 **Actionable insight:** Our event-bus already captures structured spans. Adding a `reward` field to event payloads would enable future RL integration without architectural changes. Low effort, high optionality.
 
+### SSOT Merge Applied: llm-orchestrator.ts → model-router.ts
+
+Found two parallel LLM routing registries covering the same concept. Applied Rule #23:
+- `llm-orchestrator.ts` had 4 stale models (qwen-turbo, gemini-flash)
+- `model-router.ts` had 8 current models with proper scoring
+- **Action:** Deprecated llm-orchestrator.ts, model-router.ts is canonical
+- **Lesson:** Always check for parallel registries when working on LLM routing
+
 ### Parallel-Code (johannesjo) — Analysis
 
 **What it is:** Electron desktop app for running multiple AI coding agents (Claude Code, Codex, Gemini) in parallel, each in isolated git worktrees. MIT license.

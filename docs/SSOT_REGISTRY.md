@@ -44,6 +44,8 @@
 | Ecosystem Classification | `kernel_canonical` | `egos/docs/ECOSYSTEM_CLASSIFICATION_REGISTRY.md` | — | Manual review | CAPABILITY_REGISTRY |
 | Migration Matrix | `kernel_canonical` | `egos/docs/strategy/MIGRATION_MATRIX.md` | — | Manual review | SSOT Registry |
 | Presentation System | `kernel_canonical` | `egos/docs/PRESENTATION_*.md` (5 files) | — | Quarterly review | CAPABILITY_REGISTRY |
+| LLM Orchestration Matrix | `kernel_canonical` | `egos/docs/contracts/LLM_ORCHESTRATION_MATRIX.md` | — | `model-router.ts` | llm-provider.ts |
+| Operator Narrative Kit | `product_boundary` | `egos/docs/strategy/OPERATOR_NARRATIVE_KIT.md` | — | Manual review | Presentation System |
 
 ## Shared Module SSOTs (@egos/shared)
 
