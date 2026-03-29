@@ -422,6 +422,26 @@ Leaf repos inherit kernel governance via symlinks but keep local IDENTITY.md and
 
 ## Session 2026-03-29 — Test Coverage Sprint + Guard Brasil
 
+### Agent-Lightning (Microsoft Research) — Analysis
+
+**What it is:** RL-based training framework for AI agents. Zero-friction integration — agents emit `agl.emit_xxx()` spans, algorithms learn patterns, refined resources posted back.
+
+**Keep/Drop for EGOS:**
+- **KEEP:** Structured span collection for auditability (similar to our event-bus JSONL but with learning loop)
+- **KEEP:** Selective per-agent optimization (aligns with our registry-based agent architecture)
+- **KEEP:** LightningStore hub pattern (similar to our Mycelium bus but with centralized sync)
+- **DROP:** RL training loop (we don't fine-tune models — we govern pre-trained ones)
+- **DROP:** Framework-agnostic training (we're governance-first, not training-first)
+
+**Actionable insight:** Our event-bus already captures structured spans. Adding a `reward` field to event payloads would enable future RL integration without architectural changes. Low effort, high optionality.
+
+### Governance Self-Audit Findings
+
+1. **Pre-commit was BROKEN for months.** `tsc --noEmit` failed with 230 errors because `tsconfig.json` lacked `"types": ["bun"]`. This means NO COMMIT in this repo was type-checked by the hook.
+2. **The hook failure was SILENT.** The `2>/dev/null` in `npx tsc --noEmit 2>/dev/null || bun run typecheck 2>/dev/null` swallowed errors AND fell through to the next fallback which also failed silently.
+3. **gitleaks is NOT installed.** Secret scanning is documented as Gate 1 but runs as a no-op.
+4. **Tests are NOT in pre-commit.** They run in CI only. This is intentional for speed but means broken tests can be committed.
+
 ### Key Learnings
 
 1. **Test-first reveals real bugs.** Writing tests for `llm-provider.ts` exposed that `cost_usd` always returned 0 — a silent bug in production. Adding `MODEL_COSTS` map + `estimateCost()` fixed it.

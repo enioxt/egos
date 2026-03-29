@@ -52,7 +52,37 @@ Root causes fixed: label format (string[] → {name}[]), SLA `stagedAt` not popu
 
 ---
 
-## 2. Spec-Pipeline E2E — FIXED ✅
+## 2. Governance Gaps Self-Audit (2026-03-29)
+
+### What I skipped and why the system allowed it
+
+| Gap | What happened | Root cause | Fix applied |
+|-----|--------------|------------|-------------|
+| **Pre-commit tsc broken** | 230 TS errors → hook ALWAYS failed → `tsc` gate was dead code | tsconfig.json missing `"types": ["bun"]` | ✅ Fixed — 0 errors now |
+| **gitleaks not installed** | Secret scanning gate skipped silently | `command -v gitleaks` returns false, hook continues | ⚠️ Documented — non-blocking by design |
+| **No test gate in pre-commit** | Tests not run before commit | Pre-commit runs tsc but NOT `bun test` | ⚠️ Tests run in CI, not pre-commit (intentional for speed) |
+| **TASKS.md not auto-validated** | I updated TASKS.md but didn't check line limit | Pre-commit checks limits but doesn't validate content quality | ℹ️ By design — content is human-governed |
+| **.windsurfrules at 150/150** | File at exact max — one more line blocks commits | Limit too tight for growing governance rules | ⚠️ Monitor — may need limit increase |
+| **No spec-pipeline label enforcement** | Spec-pipeline E2E existed but wasn't in CI | E2E test was in separate `tests/` dir, not included in `bun test` command | ✅ Fixed — now included |
+| **Agent-lightning patterns not evaluated** | External research not integrated into governance | No trigger/gate for "compare with new frameworks" | ℹ️ Added to HARVEST |
+
+### What the pre-commit DOES enforce (now working)
+1. ✅ TypeScript strict check (0 errors required)
+2. ✅ Frozen zone protection (runner.ts, event-bus.ts, PIPELINE.md, GATES.md)
+3. ✅ Doc proliferation blocking (timestamped files rejected)
+4. ✅ Governance sync drift (kernel ↔ ~/.egos)
+5. ✅ SSOT file size limits (AGENTS.md≤200, TASKS.md≤500, .windsurfrules≤150)
+
+### What the pre-commit does NOT enforce (gaps)
+1. ❌ Tests must pass (only in CI)
+2. ❌ Secret scanning (gitleaks not installed)
+3. ❌ Separation Policy (no commit message scanning)
+4. ❌ Agent registry integrity (only in CI via `agent:lint`)
+5. ❌ Evidence chain on claims (human-governed)
+
+---
+
+## 3. Spec-Pipeline E2E — FIXED ✅
 
 **File:** `tests/spec-pipeline.e2e.test.ts` (577 lines, 16 tests)
 **Result:** 16 pass / 0 fail
