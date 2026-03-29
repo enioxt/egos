@@ -40,8 +40,13 @@
   },
   "devDependencies": {
     "@types/bun": "^1.2.0",
+    "@types/node": "^22.0.0",
     "eslint": "^9.0.0",
     "husky": "^9.0.0",
     "typescript": "^5.7.0"
+  },
+  "overrides": {
+    "brace-expansion": ">=1.1.13",
+    "flatted": ">=3.4.2"
   }
 }

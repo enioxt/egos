@@ -1,0 +1,25 @@
+{
+  "name": "@egos/core",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.ts"
+    },
+    "./contracts": {
+      "import": "./src/contracts.ts",
+      "types": "./src/contracts.ts"
+    },
+    "./module": {
+      "import": "./src/module.ts",
+      "types": "./src/module.ts"
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  }
+}

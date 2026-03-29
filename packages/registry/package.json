@@ -1,0 +1,20 @@
+{
+  "name": "@egos/registry",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/module-registry.ts",
+  "types": "src/module-registry.ts",
+  "exports": {
+    ".": {
+      "import": "./src/module-registry.ts",
+      "types": "./src/module-registry.ts"
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@egos/core": "workspace:*"
+  }
+}

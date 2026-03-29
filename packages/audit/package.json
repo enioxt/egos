@@ -1,0 +1,21 @@
+{
+  "name": "@egos/audit",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/activation-audit.ts",
+  "types": "src/activation-audit.ts",
+  "exports": {
+    ".": {
+      "import": "./src/activation-audit.ts",
+      "types": "./src/activation-audit.ts"
+    },
+    "./versioned-record": {
+      "import": "./src/versioned-record.ts",
+      "types": "./src/versioned-record.ts"
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  }
+}

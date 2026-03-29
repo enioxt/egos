@@ -1,0 +1,21 @@
+{
+  "name": "@egos/types",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/atom.ts",
+  "types": "src/atom.ts",
+  "exports": {
+    ".": {
+      "import": "./src/atom.ts",
+      "types": "./src/atom.ts"
+    },
+    "./atom": {
+      "import": "./src/atom.ts",
+      "types": "./src/atom.ts"
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  }
+}
