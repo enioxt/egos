@@ -31,3 +31,5 @@ Thumbs.db
 
 # Cline IDE artifacts (prevent governance symlink breakage)
 .agent/
+# Generated reports
+docs/_generated/
