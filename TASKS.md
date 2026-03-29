@@ -105,7 +105,9 @@
 - [ ] EGOS-094: Create "Market Intelligence Compiler" spec — ingestion contract for books/papers/code/platforms with source-link + evidence tiers
 - [ ] EGOS-095: Build governance rule registry for market practices — normalize global best practices into executable controls and tests
 - [ ] EGOS-096: Add cross-environment signature adoption for Google AI Studio lane (commit/push provenance fields mandatory)
-- [ ] EGOS-097: Define dissemination protocol (`/disseminate`) for propagating new strategic rules to all mapped repos with drift-proof verification
+- [x] EGOS-097: Define dissemination protocol (`/disseminate`) for propagating new strategic rules to all mapped repos with drift-proof verification
+  - **Status:** COMPLETE (2026-03-29)
+  - **Document:** `docs/governance/DISSEMINATION_PROTOCOL.md` — when to disseminate, 6-step protocol, propagation map, drift prevention checklist
 - [/] EGOS-098: Ingest and operationalize pragmatic multi-agent benchmark patterns (worktree isolation, parallel ticket lanes, QA loop, file-first context) into kernel governance with explicit keep/drop decisions — keep/drop contract drafted + GTM harvester agent added; pending contract enforcement and workflow wiring
 - [x] EGOS-099: Define `Worktree Orchestration Contract` for EGOS (branch naming, ownership locks, lifecycle, cleanup, merge gates, max concurrency)
   - **Status:** COMPLETE (2026-03-29)
@@ -120,7 +122,10 @@
   - **Status:** COMPLETE (2026-03-29)
   - **Document:** `docs/OPERATOR_MAP.md` — architecture one-liner, live surfaces, control plane commands, decision log, blocked items, governance docs index
 - [x] EGOS-107: Define and activate Stitch-first UI contract (`/stitch`) — prompt generation in EGOS lane, external creation in Google Stitch, and `.zip` intake mapping before implementation
-- [ ] EGOS-108: Build `stitch_intake_mapper` agent to parse returned `.zip`, generate mapping table, and create integration tasks automatically
+- [x] EGOS-108: Build `stitch_intake_mapper` agent to parse returned `.zip`, generate mapping table, and create integration tasks automatically
+  - **Status:** COMPLETE (2026-03-29)
+  - **Agent:** `agents/agents/stitch-intake-mapper.ts` — registered in agents.json v1.3.0 (14 agents)
+  - **Usage:** `STITCH_ZIP=/path/to/file.zip bun agents/cli.ts run stitch_intake_mapper dry_run`
 - [x] EGOS-109: Run full AIOX (`SynkraAI/aiox-core`) gem diagnosis against EGOS + NotebookLM export and codify keep/drop recommendations
 - [x] EGOS-110: Implement `Worktree Orchestration Contract` from AIOX/workflow benchmark — **COMPLETE**
   - **Contract Document:** `.guarani/orchestration/WORKTREE_CONTRACT.md` (v1.0.0) — formal spec with naming rules (regex), ownership model, lifecycle state machine, merge gates, concurrency limits (max 5), and JSON report schema
@@ -167,12 +172,25 @@
 - [x] EGOS-113: Benchmark MASA framework + major competitors from official sources and create executable benchmark agent (`framework_benchmarker`)
 - [ ] EGOS-114: Run MASA pilot in one leaf repo and measure impact on drift, architectural violations, and lead-time before broader adoption
 - [x] EGOS-115: Create `mastra_gem_hunter` agent and run initial scan for workflow/evals/observability/MCP/human-loop extraction
-- [ ] EGOS-116: Define "Presentation System" SSOT for EGOS (positioning, promise, evidence, differentiators, anti-bloat thesis) in canonical surfaces
-- [ ] EGOS-117: Build operator-facing narrative kit (1-page pitch + architecture map + proof checklist) from existing SSOT without creating parallel truths
-- [ ] EGOS-118: Create reproducible demo lane for meetings (live build script + guardrails checklist + fallback offline path)
-- [ ] EGOS-119: Add benchmark scorecard command comparing EGOS vs MASA/Mastra/LangGraph/CrewAI on governance, speed, and compliance
+- [x] EGOS-116: Define "Presentation System" SSOT for EGOS (positioning, promise, evidence, differentiators, anti-bloat thesis) in canonical surfaces
+  - **Status:** COMPLETE (2026-03-29)
+  - **Document:** `docs/PRESENTATION_SYSTEM.md` — VP, tagline, anti-bloat thesis, evidence table, differentiators, anti-patterns, target surfaces, visual identity rules
+- [x] EGOS-117: Build operator-facing narrative kit (1-page pitch + architecture map + proof checklist) from existing SSOT without creating parallel truths
+  - **Status:** COMPLETE (2026-03-29)
+  - **Document:** `docs/NARRATIVE_KIT.md` — 60-second pitch, architecture map, proof checklist, FAQ, competitive landscape, contact
+- [x] EGOS-118: Create reproducible demo lane for meetings (live build script + guardrails checklist + fallback offline path)
+  - **Status:** COMPLETE (2026-03-29)
+  - **Script:** `scripts/demo-lane.sh` — 5/5 pre-flight checks (typecheck, tests, agent:lint, package, demo file) + live demo + talking points + offline fallback
+  - **Commands:** `bun run demo` (full) | `bun run demo:check` (pre-meeting check only)
+- [x] EGOS-119: Add benchmark scorecard command comparing EGOS vs MASA/Mastra/LangGraph/CrewAI on governance, speed, and compliance
+  - **Status:** COMPLETE (2026-03-29)
+  - **Script:** `scripts/benchmark-scorecard.ts` — scores 5 frameworks (governance/compliance/brazil-first 0–10) + live EGOS metrics
+  - **Command:** `bun run benchmark` | `bun run benchmark --json`
 - [ ] EGOS-120: Define visual identity/application rules for docs and generated artifacts (consistency pack)
-- [ ] EGOS-121: Add monthly "clarity review" gate to prune complexity and keep kernel message/simple architecture coherent
+  - **Note:** Partial — `docs/PRESENTATION_SYSTEM.md` has visual identity rules. Full consistency pack (fonts, colors, templates) → needs design tooling (Enio)
+- [x] EGOS-121: Add monthly "clarity review" gate to prune complexity and keep kernel message/simple architecture coherent
+  - **Status:** COMPLETE (2026-03-29)
+  - **Document:** `docs/governance/CLARITY_REVIEW_GATE.md` — 6 checks, green/yellow/red thresholds, 15-minute protocol, output template
 - [x] EGOS-083: Create the canonical cross-repo SSOT registry in the kernel and define the ownership contract for `kernel_canonical`, `leaf_local`, and `shared_home` surfaces
 - [x] EGOS-084: Extend kernel governance sync + pre-commit to cover canonical SSOT docs (`SSOT_REGISTRY`, `CAPABILITY_REGISTRY`, `CHATBOT_SSOT`) and sync them to `~/.egos/docs`
 - [ ] EGOS-085: Roll out the SSOT registry adoption plan across mapped repos — each leaf must declare local SSOT pointers, freshness rules, and task-level migration status
@@ -215,8 +233,11 @@
 
 > Use this queue to capture tasks extracted from external Grok conversations immediately, even before target-repo routing is finalized.
 
-- [ ] EGOS-103: Define `GROK_TASK_INTAKE` template (source link, quote/snippet, intended repo, impact, effort, confidence, owner) for deterministic ingestion.
-- [ ] EGOS-104: Build cross-repo task router policy (`target_repo` tag + migration rule) so kernel can hold temporary tasks and later move them to the correct repository.
+- [x] EGOS-103: Define `GROK_TASK_INTAKE` template (source link, quote/snippet, intended repo, impact, effort, confidence, owner) for deterministic ingestion.
+  - **Status:** COMPLETE (2026-03-29)
+  - **Document:** `docs/governance/GROK_INTAKE_CONTRACT.md` — full intake template + router policy + dedup rules + queue hygiene (max 10 items)
+- [x] EGOS-104: Build cross-repo task router policy (`target_repo` tag + migration rule) so kernel can hold temporary tasks and later move them to the correct repository.
+  - **Status:** COMPLETE (2026-03-29) — included in `docs/governance/GROK_INTAKE_CONTRACT.md`
 - [ ] EGOS-105: Ingest latest Grok conversation backlog into temporary kernel queue with deduplication against existing EGOS/FORJA/egos-lab tasks.
 - [ ] EGOS-106: Execute migration pass from temporary kernel queue to destination repos (`egos`, `egos-lab`, `FORJA`, `EGOS-Inteligencia`) with status sync proof.
 
@@ -317,7 +338,9 @@
 - [ ] EGOS-069: Bootstrap `santiago` into the EGOS governance mesh with `.egos`, repo-local SSOT files, and inherited core workflows
 - [ ] EGOS-070: Complete Mycelium truth repair — align kernel docs and reference graph with actual local surfaces and classify consumer dashboards/bridges as external or planned
 - [ ] EGOS-071: Formalize cheap-first multi-model orchestration for Windsurf/Codex/Claude/Alibaba/OpenRouter with one coordinator, sequential routing, and reviewer proof-of-work
-- [ ] EGOS-072: Design anti-injection and least-privilege hardening for external-input workflows (issues, PRs, web, imported docs) before any high-trust automation
+- [x] EGOS-072: Design anti-injection and least-privilege hardening for external-input workflows (issues, PRs, web, imported docs) before any high-trust automation
+  - **Status:** COMPLETE (2026-03-29)
+  - **Document:** `docs/governance/ANTI_INJECTION_HARDENING.md` — threat model (6 sources), 6 security rules, least-privilege table, implementation checklist
 - [ ] EGOS-086: Extract circuit breaker pattern from carteira-livre guardrails into `@egos/shared` as reusable module
 - [ ] EGOS-087: Build `@egos/mcp-governance` — custom MCP server for SSOT drift check, task listing, and deploy gates across all repos
 - [ ] EGOS-088: Build `@egos/mcp-memory` — custom MCP server for persistent conversation memory (Supabase/Redis backend, recall/store/search tools)
@@ -329,7 +352,10 @@
 ### SSOT Core Infra (v2)
 - [ ] SSOT-v2-01: Monitor usage and stability of the PM2 daemon (`egos-ssot`) locally and propagate to Contabo VPS.
 - [ ] SSOT-v2-02: Activate `ssot_auditor` AST drift scanner in CI/CD pipeline (`egos-lab` GitHub Actions or VPS Webhook) to block structurally drifting PRs.
-- [ ] SSOT-v2-03: Develop `ssot-package-auditor.ts` (or expand `sync.sh` jq rules) to enforce structural compliance across `package.json` vs `.egos/standards` map.
+- [x] SSOT-v2-03: Develop `ssot-package-auditor.ts` (or expand `sync.sh` jq rules) to enforce structural compliance across `package.json` vs `.egos/standards` map.
+  - **Status:** COMPLETE (2026-03-29)
+  - **Script:** `scripts/ssot-package-auditor.ts` — checks naming, type:module, required fields, dev-deps-in-prod, publishable completeness, private flag
+  - **Command:** `bun run ssot:audit` | `bun run ssot:audit --strict` (exit 1 on errors)
 
 ## Roadmap — Progress Dashboard
 

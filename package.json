@@ -36,7 +36,11 @@
     "activation:check": "bun scripts/activation-check.ts",
     "doctor": "bun scripts/doctor.ts",
     "doctor:codex": "sh scripts/codex-doctor.sh",
-    "doctor:fix": "bun scripts/doctor.ts --fix"
+    "doctor:fix": "bun scripts/doctor.ts --fix",
+    "demo": "sh scripts/demo-lane.sh",
+    "demo:check": "sh scripts/demo-lane.sh --check",
+    "benchmark": "bun scripts/benchmark-scorecard.ts",
+    "ssot:audit": "bun scripts/ssot-package-auditor.ts"
   },
   "devDependencies": {
     "@types/bun": "^1.2.0",

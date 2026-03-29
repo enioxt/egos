@@ -1,6 +1,6 @@
 {
   "$schema": "./schema.json",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "updated": "2026-03-29",
   "description": "EGOS Agent Registry — Core framework starts clean. Agent implementations live in leaf repos (egos-lab, 852, br-acc, etc.).",
   "agents": [
@@ -195,6 +195,21 @@
       "observability": "console",
       "ownership": "egos-kernel",
       "migrated_from": "egos-lab"
+    },
+    {
+      "id": "stitch_intake_mapper",
+      "name": "Stitch Intake Mapper",
+      "description": "Parses a returned .zip file from Google Stitch (or any UI generation tool), generates a file→destination mapping table, and creates TASKS.md integration tasks automatically",
+      "area": "architecture",
+      "entrypoint": "agents/agents/stitch-intake-mapper.ts",
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual"],
+      "tools_allowed": [],
+      "risk_level": "T0",
+      "status": "active",
+      "evals": "manual — dry_run with a sample .zip should produce mapping table with no errors",
+      "observability": "console",
+      "ownership": "egos-kernel"
     },
     {
       "id": "drift_sentinel",
