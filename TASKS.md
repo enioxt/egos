@@ -57,8 +57,18 @@
   - **Files:** `src/index.ts`, `src/guard.ts` (GuardBrasil facade), `src/demo.ts`, `src/guard.test.ts`, `README.md`
   - **Tests:** 15/15 pass (bun test) — clean output, PII detection, ATRiAN validation, evidence chain, combined scenarios
   - **Capabilities:** CPF/RG/MASP/REDS/placa/processo masking, ATRiAN score 0–100, LGPD disclosure, evidence audit hash
-- [ ] EGOS-063: Define free vs paid surface for the flagship (open SDK/specs vs hosted API/MCP/audit console)
-- [ ] EGOS-064: Deliver the first monetizable surface as a reusable package or MCP before expanding any new product line
+- [x] EGOS-063: Define free vs paid surface for the flagship (open SDK/specs vs hosted API/MCP/audit console)
+  - **Status:** COMPLETE (2026-03-29)
+  - **Document:** `docs/strategy/FREE_VS_PAID_SURFACE.md`
+  - **Tiers:** Free (npm SDK) → Starter API R$99/mo → Pro R$499/mo → Enterprise custom
+  - **Policy Packs:** Segurança Pública, Saúde, Judiciário, Financeiro (R$2.990/ano each)
+  - **Revenue path:** npm→API→Dashboard→Policy Packs over 12 months
+- [x] EGOS-064: Deliver the first monetizable surface as a reusable package or MCP before expanding any new product line
+  - **Status:** COMPLETE (2026-03-29) — npm-ready, pending `npm publish`
+  - **Build:** `tsc -p tsconfig.build.json` → `dist/` (7 JS + 7 .d.ts + source maps)
+  - **Standalone:** Inlined modules from @egos/shared → zero workspace dependencies
+  - **Known acronyms:** 24 Brazilian govt acronyms pre-loaded (CPF, RG, MASP, REDS, etc.)
+  - **Next:** `cd packages/guard-brasil && npm publish --access public` (requires npm login)
 - [x] EGOS-073: Run the full `egos-lab` consolidation diagnostic — classify every active surface as `migrate_to_egos`, `keep_in_lab`, `standalone_candidate`, `internal_infra`, `archive`, or `discard`, with source→destination pointers
   - **Status:** COMPLETE (2026-03-29)
   - **Diagnostic:** `docs/strategy/EGOS_LAB_CONSOLIDATION_DIAGNOSTIC.md`

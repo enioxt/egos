@@ -25,7 +25,9 @@
       "@egos/audit": ["./packages/audit/src"],
       "@egos/audit/*": ["./packages/audit/src/*"],
       "@egos/registry": ["./packages/registry/src"],
-      "@egos/registry/*": ["./packages/registry/src/*"]
+      "@egos/registry/*": ["./packages/registry/src/*"],
+      "@egos/guard-brasil": ["./packages/guard-brasil/src"],
+      "@egos/guard-brasil/*": ["./packages/guard-brasil/src/*"]
     }
   },
   "include": [

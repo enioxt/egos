@@ -132,6 +132,7 @@ A Brazil-first guardrails SDK/API for AI assistants and public-facing AI systems
 ## Related Documents
 
 - [Product Verdict 2026-03](./ECOSYSTEM_PRODUCT_VERDICT_2026-03.md) — strategic context and repo roles
+- [Free vs Paid Surface](./FREE_VS_PAID_SURFACE.md) — monetization boundary definition (EGOS-063)
 - [Capability Registry](../CAPABILITY_REGISTRY.md) — Guard Brasil capabilities registered
 - [TASKS.md](../../TASKS.md) — EGOS-062, 063, 064, 093
 - [packages/guard-brasil/README.md](../../packages/guard-brasil/README.md) — technical documentation

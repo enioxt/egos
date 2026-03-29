@@ -26,14 +26,14 @@ export { GuardBrasil, createGuardBrasil } from './guard.js';
 export type { GuardBrasilConfig, GuardBrasilResult, InspectOptions } from './guard.js';
 
 // Re-export individual modules for fine-grained usage
-export { createAtrianValidator } from '@egos/shared';
-export type { AtrianConfig, AtrianResult, AtrianViolation, ViolationLevel } from '@egos/shared';
+export { createAtrianValidator } from './lib/index.js';
+export type { AtrianConfig, AtrianResult, AtrianViolation, ViolationLevel } from './lib/index.js';
 
-export { scanForPII, sanitizeText, getPIISummary } from '@egos/shared';
-export type { PIICategory, PIIFinding, PIIPatternDefinition } from '@egos/shared';
+export { scanForPII, sanitizeText, getPIISummary } from './lib/index.js';
+export type { PIICategory, PIIFinding, PIIPatternDefinition } from './lib/index.js';
 
-export { maskPublicOutput, isPublicSafe, buildLGPDDisclosure } from '@egos/shared';
-export type { PublicGuardConfig, MaskingResult, MaskingAction, GuardAction, SensitivityLevel } from '@egos/shared';
+export { maskPublicOutput, isPublicSafe, buildLGPDDisclosure } from './lib/index.js';
+export type { PublicGuardConfig, MaskingResult, MaskingAction, GuardAction, SensitivityLevel } from './lib/index.js';
 
-export { createEvidenceChain, EvidenceChainBuilder, formatEvidenceBlock, validateChain } from '@egos/shared';
-export type { EvidenceChain, EvidenceItem, ClaimWithEvidence, EvidenceType, ConfidenceLevel, EvidenceChainOptions } from '@egos/shared';
+export { createEvidenceChain, EvidenceChainBuilder, formatEvidenceBlock, validateChain } from './lib/index.js';
+export type { EvidenceChain, EvidenceItem, ClaimWithEvidence, EvidenceType, ConfidenceLevel, EvidenceChainOptions } from './lib/index.js';

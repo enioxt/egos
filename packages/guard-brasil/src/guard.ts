@@ -17,7 +17,7 @@ import {
   type EvidenceChain,
   type EvidenceChainOptions,
   type ConfidenceLevel,
-} from '@egos/shared';
+} from './lib/index.js';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -67,6 +67,13 @@ export interface GuardBrasilResult {
   summary: string;
 }
 
+// Brazilian government acronyms that should never be flagged as invented
+const BRAZILIAN_KNOWN_ACRONYMS = [
+  'CPF', 'RG', 'MASP', 'REDS', 'BO', 'SINESP', 'LGPD', 'ANPD',
+  'OAB', 'CNJ', 'CRM', 'PIX', 'INSS', 'SUS', 'STF', 'STJ',
+  'PCMG', 'PMMG', 'TJMG', 'MPMG', 'CGU', 'TCU', 'AGU',
+];
+
 // ─── GuardBrasil class ────────────────────────────────────────────────────────
 
 export class GuardBrasil {
@@ -74,8 +81,14 @@ export class GuardBrasil {
   private readonly config: Required<GuardBrasilConfig>;
 
   private constructor(config: GuardBrasilConfig) {
+    // Merge user-provided knownAcronyms with Brazilian defaults
+    const mergedAcronyms = [
+      ...BRAZILIAN_KNOWN_ACRONYMS,
+      ...(config.atrian?.knownAcronyms ?? []),
+    ];
+
     this.config = {
-      atrian: config.atrian ?? {},
+      atrian: { ...config.atrian, knownAcronyms: mergedAcronyms },
       blockOnCriticalPII: config.blockOnCriticalPII ?? false,
       lgpdDisclosure: config.lgpdDisclosure ?? true,
       defaultConfidence: config.defaultConfidence ?? 'medium',
