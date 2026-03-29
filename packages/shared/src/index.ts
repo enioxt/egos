@@ -5,7 +5,7 @@
  * Domain-specific utilities (OSINT, social, etc.) live in leaf repos.
  */
 
-export { chatWithLLM, ALIBABA_TEST_MODELS } from './llm-provider';
+export { chatWithLLM, chatWithLLM as analyzeWithAI, ALIBABA_TEST_MODELS } from './llm-provider';
 export type { SharedLLMProvider } from './llm-provider';
 export { resolveModel, routeForChat, listAvailableModels, MODEL_CATALOG } from './model-router';
 export type { TaskType, CostPreference, RouteOptions, ResolvedRoute, ModelProfile } from './model-router';
