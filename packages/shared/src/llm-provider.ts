@@ -10,6 +10,25 @@ export const ALIBABA_TEST_MODELS = [
   'qwen3.5-plus',
 ] as const;
 
+/** Cost per 1M tokens (input, output) — USD */
+const MODEL_COSTS: Record<string, [number, number]> = {
+  'qwen-max': [1.6, 6.4],
+  'qwen-plus': [0.8, 2.0],
+  'qwen3-coder-plus': [0.8, 2.0],
+  'qwen3.5-plus': [0.8, 2.0],
+  'qwen-flash': [0, 0],
+  'google/gemini-2.0-flash-001': [0.1, 0.4],
+  'openai/gpt-4o-mini': [0.15, 0.6],
+  'anthropic/claude-sonnet-4-20250514': [3.0, 15.0],
+  'deepseek/deepseek-chat-v3-0324': [0.27, 1.1],
+};
+
+function estimateCost(model: string, tokensIn: number, tokensOut: number): number {
+  const costs = MODEL_COSTS[model];
+  if (!costs) return 0;
+  return (tokensIn * costs[0] + tokensOut * costs[1]) / 1_000_000;
+}
+
 export async function chatWithLLM(params: {
   systemPrompt: string;
   userPrompt: string;
@@ -59,10 +78,12 @@ export async function chatWithLLM(params: {
   }
 
   const data = await response.json() as { model?: string; usage?: AIAnalysisResult['usage']; choices?: Array<{ message?: { content?: string } }> };
+  const usage = data.usage ?? { prompt_tokens: 0, completion_tokens: 0, total_tokens: 0 };
+  const costUsd = estimateCost(model, usage.prompt_tokens, usage.completion_tokens);
   return {
     content: data.choices?.[0]?.message?.content ?? '',
     model: data.model ?? model,
-    usage: data.usage ?? { prompt_tokens: 0, completion_tokens: 0, total_tokens: 0 },
-    cost_usd: 0,
+    usage,
+    cost_usd: costUsd,
   };
 }

@@ -178,9 +178,9 @@ export class MetricsTracker {
   }
 
   saveToFile(filepath: string): void {
-    const fs = require('fs');
+    const { writeFileSync } = require('fs') as typeof import('fs');
     const metrics = this.exportMetrics();
-    fs.writeFileSync(filepath, JSON.stringify(metrics, null, 2));
+    writeFileSync(filepath, JSON.stringify(metrics, null, 2));
   }
 
   printSummary(): string {

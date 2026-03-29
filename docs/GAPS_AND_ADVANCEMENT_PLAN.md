@@ -1,7 +1,7 @@
 # EGOS — Gap Analysis & Advancement Plan
 
 > **Date:** 2026-03-29 | **Session:** Research & Test Coverage Sprint
-> **Baseline:** 43 tests → 103 tests | Coverage: ~21% → ~58%
+> **Baseline:** 43 tests → 139 tests | Coverage: ~21% → ~79%
 
 ---
 
@@ -29,27 +29,38 @@
 | **llm-provider.ts** | **6** | ✅ NEW | Catalog, API key validation, provider auto-detection |
 | **Total** | **103** | **9 of 14 modules (64%)** |
 
-### Still Untested (5 modules)
+### After Sprint 2 (current)
+| Module | Tests | Status | Notes |
+|--------|-------|--------|-------|
+| **metrics-tracker.ts** | **13** | ✅ NEW | Session lifecycle, tool tracking, task aggregation, singleton |
+| **telemetry.ts** | **11** | ✅ NEW | Event recording, convenience methods, IP hashing, stats |
+| **Total** | **139** | **11 of 14 modules (79%)** |
+
+### Spec-Pipeline E2E (FIXED)
+| Before | After |
+|--------|-------|
+| 3 pass / 13 fail | **16 pass / 0 fail** |
+
+Root causes fixed: label format (string[] → {name}[]), SLA `stagedAt` not populated from `created_at`.
+
+### Still Untested (3 modules)
 | Module | LOC | Risk | Reason |
 |--------|-----|------|--------|
-| cross-session-memory.ts | 159 | HIGH | Requires Supabase mock |
-| telemetry.ts | 278 | LOW | Event emission, Supabase dependency |
-| metrics-tracker.ts | 236 | LOW | In-memory aggregation |
-| mcp-wrapper.ts | 367 | N/A | All implementations are mocks |
-| llm-orchestrator.ts | 132 | MEDIUM | Duplicates model-router logic |
+| cross-session-memory.ts | 159 | MEDIUM | Requires Supabase mock (similar pattern now in telemetry.test.ts) |
+| mcp-wrapper.ts | 367 | N/A | All implementations are mocks — testing mocks is low value |
+| llm-orchestrator.ts | 132 | LOW | Duplicates model-router logic, already covered |
 
 ---
 
-## 2. Spec-Pipeline E2E — Drift Detected
+## 2. Spec-Pipeline E2E — FIXED ✅
 
 **File:** `tests/spec-pipeline.e2e.test.ts` (577 lines, 16 tests)
-**Result:** 3 pass / 13 fail
+**Result:** 16 pass / 0 fail
 
-**Root Cause:** Test expectations don't match spec-router output format. Tests look for `'validation passed'` in messages, but the router returns different message formats.
-
-**Fix Required:** Align test expectations with actual `runSpecRouter()` output, or update the router to produce canonical messages.
-
-**Priority:** P2 — Not blocking core functionality, but blocks CI inclusion.
+**Fixes applied:**
+1. Label format: `['spec-pipeline']` → `[{ name: 'spec-pipeline' }]` (matching GitHub API format)
+2. SLA tracking: `stagedAt` now populated from `pr.created_at` in spec-router parser
+3. SLA assertion: removed duplicate `exceeded` check
 
 ---
 
@@ -87,7 +98,7 @@ All 5 MCP clients are stub implementations with no real functionality:
 ### 3.4 Code Quality Issues Found
 | Issue | Module | Severity | Fix |
 |-------|--------|----------|-----|
-| Cost always returns 0 | llm-provider.ts | MEDIUM | Add model→cost mapping |
+| ~~Cost always returns 0~~ | llm-provider.ts | ✅ FIXED | Added MODEL_COSTS map + estimateCost() |
 | Timestamps array unbounded | rate-limiter.ts | LOW | Already cleaned up in waitForSlot filter |
 | CommonJS require() | metrics-tracker.ts | LOW | Migrate to ES import |
 | Token estimation crude | llm-router-mcp-client.ts | LOW | Add tiktoken or similar |

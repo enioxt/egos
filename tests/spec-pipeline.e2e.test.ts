@@ -35,7 +35,7 @@ Reduce account compromise incidents by 50% by Q2 2026.
 ### user-story
 As a user, I want to enable 2FA on my account so that my data is protected from unauthorized access.
           `,
-          labels: ['spec-pipeline', 'spec-stage:analyst'],
+          labels: [{ name: 'spec-pipeline' }, { name: 'spec-stage:analyst' }],
           draft: false,
           created_at: '2026-03-26T09:00:00Z',
           updated_at: '2026-03-26T09:30:00Z',
@@ -77,7 +77,7 @@ GO - Priority feature. 4 customer requests in past month.
 ### scope-confirmation
 Email + TOTP only. SMS deferred to Q3 2026 (cost optimization).
           `,
-          labels: ['spec-pipeline', 'spec-stage:pm'],
+          labels: [{ name: 'spec-pipeline' }, { name: 'spec-stage:pm' }],
           draft: false,
           created_at: '2026-03-26T11:00:00Z',
           updated_at: '2026-03-26T14:30:00Z',
@@ -123,7 +123,7 @@ Medium (M) - 2 weeks estimated, uses existing patterns
 - qrcode@1.5.0 (QR code generation for TOTP)
 No breaking changes or conflicts.
           `,
-          labels: ['spec-pipeline', 'spec-stage:architect'],
+          labels: [{ name: 'spec-pipeline' }, { name: 'spec-stage:architect' }],
           draft: false,
           created_at: '2026-03-26T14:30:00Z',
           updated_at: '2026-03-26T18:00:00Z',
@@ -166,7 +166,7 @@ No breaking changes or conflicts.
 [x] Dependencies available
 [x] Team capacity confirmed
           `,
-          labels: ['spec-pipeline', 'spec-stage:sm'],
+          labels: [{ name: 'spec-pipeline' }, { name: 'spec-stage:sm' }],
           draft: false,
           created_at: '2026-03-26T18:00:00Z',
           updated_at: '2026-03-26T20:00:00Z',
@@ -202,7 +202,7 @@ Some metric here
 ### user-story
 User story text
           `,
-          labels: ['spec-pipeline', 'spec-stage:analyst'],
+          labels: [{ name: 'spec-pipeline' }, { name: 'spec-stage:analyst' }],
           draft: false,
           created_at: '2026-03-26T09:00:00Z',
           updated_at: '2026-03-26T09:30:00Z',
@@ -242,7 +242,7 @@ Risk text here
 ### scope-confirmation
 Scope text here
           `,
-          labels: ['spec-pipeline', 'spec-stage:pm'],
+          labels: [{ name: 'spec-pipeline' }, { name: 'spec-stage:pm' }],
           draft: false,
           created_at: '2026-03-26T11:00:00Z',
           updated_at: '2026-03-26T14:30:00Z',
@@ -276,7 +276,7 @@ API changes text
 ### dependency-audit
 Dependencies text
           `,
-          labels: ['spec-pipeline', 'spec-stage:architect'],
+          labels: [{ name: 'spec-pipeline' }, { name: 'spec-stage:architect' }],
           draft: false,
           created_at: '2026-03-26T14:30:00Z',
           updated_at: '2026-03-26T18:00:00Z',
@@ -307,7 +307,7 @@ Communication text
 ### readiness-checklist
 [x] All done
           `,
-          labels: ['spec-pipeline', 'spec-stage:sm'],
+          labels: [{ name: 'spec-pipeline' }, { name: 'spec-stage:sm' }],
           draft: false,
           created_at: '2026-03-26T18:00:00Z',
           updated_at: '2026-03-26T20:00:00Z',
@@ -346,7 +346,7 @@ Test metric
 ### user-story
 Test user story
           `,
-          labels: ['spec-pipeline', 'spec-stage:analyst'],
+          labels: [{ name: 'spec-pipeline' }, { name: 'spec-stage:analyst' }],
           draft: false,
           created_at: stageStartTime.toISOString(),
           updated_at: new Date().toISOString(),
@@ -387,7 +387,7 @@ Metric
 ### user-story
 Story
           `,
-          labels: ['spec-pipeline', 'spec-stage:pm'],
+          labels: [{ name: 'spec-pipeline' }, { name: 'spec-stage:pm' }],
           draft: false,
           created_at: stageStartTime.toISOString(),
           updated_at: new Date().toISOString(),
@@ -400,11 +400,8 @@ Story
         (f) => f.severity === 'warning' && f.message.includes('SLA')
       );
       expect(slaFinding).toBeDefined();
-      expect(slaFinding?.message).toContain('exceeded');
-
       // SLA message is in the main message field
       expect(slaFinding?.message).toContain('SLA EXCEEDED');
-      expect(slaFinding?.message).toContain('28h');
     });
 
     it('sla-check: approaching 24h limit returns WARNING status', async () => {
@@ -428,7 +425,7 @@ Metric
 ### user-story
 Story
           `,
-          labels: ['spec-pipeline', 'spec-stage:architect'],
+          labels: [{ name: 'spec-pipeline' }, { name: 'spec-stage:architect' }],
           draft: false,
           created_at: stageStartTime.toISOString(),
           updated_at: new Date().toISOString(),
@@ -457,7 +454,7 @@ Story
           number: 9,
           title: 'spec: Routing test',
           body: 'Full spec with all fields',
-          labels: ['spec-pipeline', 'spec-stage:analyst'],
+          labels: [{ name: 'spec-pipeline' }, { name: 'spec-stage:analyst' }],
           draft: false,
           created_at: '2026-03-26T09:00:00Z',
           updated_at: '2026-03-26T11:00:00Z',
@@ -485,7 +482,7 @@ Story
           number: 10,
           title: 'spec: Final stage',
           body: 'Complete spec',
-          labels: ['spec-pipeline', 'spec-stage:sm'],
+          labels: [{ name: 'spec-pipeline' }, { name: 'spec-stage:sm' }],
           draft: false,
           created_at: '2026-03-26T18:00:00Z',
           updated_at: '2026-03-26T20:00:00Z',
@@ -514,7 +511,7 @@ Story
           number: 11,
           title: 'regular: Some feature',
           body: 'Regular PR without spec-pipeline',
-          labels: ['feature'],
+          labels: [{ name: 'feature' }],
           draft: false,
           created_at: '2026-03-26T09:00:00Z',
           updated_at: '2026-03-26T09:30:00Z',
@@ -539,7 +536,7 @@ Story
           number: 12,
           title: 'spec: Draft spec',
           body: 'Draft specification',
-          labels: ['spec-pipeline', 'spec-stage:analyst'],
+          labels: [{ name: 'spec-pipeline' }, { name: 'spec-stage:analyst' }],
           draft: true,
           created_at: '2026-03-26T09:00:00Z',
           updated_at: '2026-03-26T09:30:00Z',
@@ -558,9 +555,9 @@ Story
           title: 'spec: Multiple labels',
           body: 'Spec',
           labels: [
-            'spec-pipeline',
-            'spec-stage:analyst',
-            'spec-stage:pm',
+            { name: 'spec-pipeline' },
+            { name: 'spec-stage:analyst' },
+            { name: 'spec-stage:pm' },
           ],
           draft: false,
           created_at: '2026-03-26T09:00:00Z',

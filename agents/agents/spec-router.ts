@@ -145,6 +145,7 @@ function parseGitHubEvent(eventStr: string): PRContext | null {
       labels,
       approvals: new Map(),
       currentStage: detectCurrentStage(labels),
+      stagedAt: pr.created_at || undefined,
       isDraft: pr.draft || false,
     };
   } catch (e) {
