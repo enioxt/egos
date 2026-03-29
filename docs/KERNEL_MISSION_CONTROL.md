@@ -109,7 +109,7 @@ Think of it as:
 
 ### 2. **FastAPI Gateway** (Python)
 
-**Deploy Target:** Contabo VPS (217.216.95.126)
+**Deploy Target:** Hetzner VPS (204.168.217.125) — migrado de Contabo em 2026-03-28
 
 #### Endpoints:
 
@@ -366,7 +366,7 @@ Severity: CRITICAL
 |-----------|----------|------|------|
 | Frontend (Vercel) | Vercel | Pro | ~$20 |
 | Database (Supabase) | Supabase | Pro | ~$25 |
-| Gateway (VPS) | Contabo | 48GB | ~$25 |
+| Gateway (VPS) | Hetzner | 24GB | ~$24 |
 | Embeddings API (Alibaba) | Alibaba Dashscope | 10M tokens | ~$50 |
 | Qwen-Plus API | Alibaba Dashscope | On-demand | ~$30 |
 | Redis (Mycelium) | Upstash | Starter | ~$0 (free tier) |

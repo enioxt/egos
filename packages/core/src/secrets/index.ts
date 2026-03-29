@@ -3,8 +3,8 @@
  * Central export point for all secret store implementations
  */
 
+export type { SecretStore } from './vault';
 export {
-  SecretStore,
   EnvSecretStore,
   VaultSecretStore,
   createSecretStore,

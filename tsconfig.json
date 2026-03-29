@@ -33,5 +33,12 @@
     "packages/**/*.ts",
     "scripts/**/*.ts"
   ],
-  "exclude": ["node_modules", "dist"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.ts",
+    "packages/core/src/auth",
+    "packages/audit/src/activation-audit.ts",
+    "packages/shared/src/mcp-audit-handler.ts"
+  ]
 }

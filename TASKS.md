@@ -334,3 +334,30 @@
 - [ ] EGOS-024 — Full per-agent lineage matrix (ARCH-003)
 - [ ] EGOS-053 — Cross-repo capability compliance dashboard
 - [x] EGOS-054 — `/end` and `/disseminate` repo-role-aware — `egos.config.json` detection + conditional gating
+
+---
+
+### Infrastructure Migration: Contabo → Hetzner (2026-03-28 COMPLETE)
+
+> VPS migrado. IP novo: 204.168.217.125. Backup validado em /home/enio/vps-backup-hetzner/
+
+**Completed (2026-03-29):**
+- [x] INFRA-001 — Atualizar /vps command (`egos/.claude/commands/vps.md`) → Hetzner IP + nova SSH key
+- [x] INFRA-002 — Atualizar `docs/KERNEL_MISSION_CONTROL.md` — Deploy Target e tabela de custos
+- [x] INFRA-003 — Atualizar `docs/MARKET_READY_FEATURES.md` — referência de deploy do 852
+- [x] INFRA-004 — Atualizar `docs/knowledge/HARVEST.md` — tabela de repos (852, br-acc, santiago)
+- [x] INFRA-005 — Atualizar `egos-lab/.env` — BRACC_API_URL → 204.168.217.125, comentar CONTABO
+- [x] INFRA-006 — Atualizar `egos-lab/agents/agents/etl-orchestrator.ts` — fallback URL
+- [x] INFRA-007 — Atualizar `egos-lab/agents/agents/uptime-monitor.ts` — fallback URL + comentário
+- [x] INFRA-008 — Atualizar `egos-lab/apps/telegram-bot/src/index.ts` — descrição de infraestrutura
+
+**Pendente — outros repos (leaf repo owners):**
+- [ ] INFRA-009 — `br-acc`: atualizar AGENTS.md, README.md, ROADMAP.md, docs/SYSTEM_MAP.md, docs/pt-BR/DOWNLOAD_DADOS.md, scripts/download-all-datasets.sh → IP 204.168.217.125
+- [ ] INFRA-010 — `br-acc`: atualizar badge de API Status no README (ainda aponta para 217.216.95.126)
+- [ ] INFRA-011 — `santiago`: atualizar .env.local (WAHA_API_URL), docs/SETUP_GUIDE.md, DNS A records documentados
+- [ ] INFRA-012 — `852`: atualizar scripts/release_contabo.sh → renomear para release_hetzner.sh + atualizar REMOTE_HOST
+- [ ] INFRA-013 — `852`: atualizar CLAUDE.md (ssh root@217.216.95.126 → ssh root@hetzner), README.md
+- [ ] INFRA-014 — `forja`: atualizar TASKS.md (task de instalar Coolify no Contabo → Hetzner), handoffs
+- [ ] INFRA-015 — `egos-lab`: atualizar egos-lab/memory_db/memory.jsonl (entidade EGOS_VPS_CONTABO)
+- [ ] INFRA-016 — `egos-lab`: atualizar docs/plans/SECURITY_AND_DECENTRALIZATION_PLAN.md + .windsurf/workflows/postar.md
+- [ ] INFRA-017 — Verificar Contabo Phase 8 (deativação) — confirmar 48h de estabilidade no Hetzner e cancelar plano Contabo

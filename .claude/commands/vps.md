@@ -1,17 +1,23 @@
-# /vps — Connect & Manage Contabo VPS
+# /vps — Connect & Manage Hetzner VPS
 
 Connect to VPS and inspect/manage agents.
 
+> **IMPORTANTE:** Migração Contabo → Hetzner concluída em 2026-03-28.
+> Novo IP: 204.168.217.125 | SSH key: ~/.ssh/hetzner_ed25519
+> Contabo (217.216.95.126) — DESATIVADO
+
 ## Quick Connect
 ```bash
-ssh -p 22 root@217.216.95.126 -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no
+ssh root@hetzner -i ~/.ssh/hetzner_ed25519
+# ou direto:
+ssh root@204.168.217.125 -i ~/.ssh/hetzner_ed25519
 ```
 
 ## Agents Overview
 
 ### PM2 Agents (via egos-lab)
 ```bash
-ssh -p 22 root@217.216.95.126 -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no "pm2 list"
+ssh root@hetzner "pm2 list"
 ```
 
 | Agent | Path | Status | Purpose |
@@ -21,8 +27,7 @@ ssh -p 22 root@217.216.95.126 -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no "
 
 ### Docker Services
 ```bash
-ssh -p 22 root@217.216.95.126 -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
-  "docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'"
+ssh root@hetzner "docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'"
 ```
 
 | Service | Port | Purpose |
@@ -40,30 +45,36 @@ ssh -p 22 root@217.216.95.126 -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
 
 ### Restart PM2 agent
 ```bash
-ssh -p 22 root@217.216.95.126 -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no "pm2 restart egos-telegram"
+ssh root@hetzner "pm2 restart egos-telegram"
 ```
 
 ### Check logs
 ```bash
-ssh -p 22 root@217.216.95.126 -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
-  "pm2 logs egos-telegram --lines 20 --nostream"
+ssh root@hetzner "pm2 logs egos-telegram --lines 20 --nostream"
 ```
 
 ### Docker service logs
 ```bash
-ssh -p 22 root@217.216.95.126 -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
-  "docker logs 852-app --tail 20"
+ssh root@hetzner "docker logs 852-app --tail 20"
 ```
 
 ### Disk/RAM check
 ```bash
-ssh -p 22 root@217.216.95.126 -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
-  "df -h / && free -h"
+ssh root@hetzner "df -h / && free -h"
 ```
 
 ## VPS Specs
-- **IP:** 217.216.95.126
-- **RAM:** 48 GB
-- **Disk:** 484 GB (157 GB used, 33%)
-- **OS:** Ubuntu 24.04 LTS (kernel 6.8)
+- **IP:** 204.168.217.125
+- **Provider:** Hetzner (migrado de Contabo em 2026-03-28)
+- **RAM:** 24 GB
+- **Disk:** 484 GB
+- **OS:** Ubuntu 24.04 LTS
 - **Node:** v20.20.1
+- **SSH Key:** ~/.ssh/hetzner_ed25519
+
+## Backup
+Backups locais em: `/home/enio/vps-backup-hetzner/`
+- `neo4j-data-20260327.tar.gz` (~1GB) — Neo4j dump
+- `caddy-data.tar.gz` — SSL certs
+- `852.env`, `bracc.env` — credenciais de prod
+- `Caddyfile`, `docker-compose-*.yml`

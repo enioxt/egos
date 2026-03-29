@@ -88,7 +88,7 @@
 - **Reports Sharing** — cross-device via Supabase
 - **Issues Board** — GitHub-style voting
 - **Admin Dashboard** — telemetria, violations, activity feed
-- **Deploy** — Contabo VPS + Docker + Caddy (852.egos.ia.br)
+- **Deploy** — Hetzner VPS (204.168.217.125) + Docker + Caddy (852.egos.ia.br)
 
 ### 🚧 Pendente
 - [ ] Piloto ativo com PCMG

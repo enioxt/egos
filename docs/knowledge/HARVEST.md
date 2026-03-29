@@ -264,12 +264,12 @@ USER MESSAGE arrives
 |------|------|------|--------|
 | **egos** | Kernel | `/home/enio/egos` | N/A (governance only) |
 | **egos-lab** | Lab/Demo | `/home/enio/egos-lab` | Vercel (auto) + Railway |
-| **852** | Product (chatbot) | `/home/enio/852` | Contabo VPS + Docker |
+| **852** | Product (chatbot) | `/home/enio/852` | Hetzner VPS (204.168.217.125) + Docker |
 | **carteira-livre** | Product (marketplace) | `/home/enio/carteira-livre` | Vercel (auto) |
 | **forja** | Product (ERP) | `/home/enio/forja` | Vercel |
-| **br-acc** | Intelligence platform | `/home/enio/br-acc` | Contabo VPS + Docker |
+| **br-acc** | Intelligence platform | `/home/enio/br-acc` | Hetzner VPS (204.168.217.125) + Docker |
 | **policia** | Investigation workspace | `/home/enio/policia` | Local only |
-| **santiago** | WhatsApp SaaS | `/home/enio/santiago` | Vercel + Contabo |
+| **santiago** | WhatsApp SaaS | `/home/enio/santiago` | Vercel + Hetzner VPS |
 
 **I see ALL 8 workspaces simultaneously.** Their `.windsurfrules` are loaded as user_rules. I can switch context between repos in a single session. But I NEVER mix their code.
 
