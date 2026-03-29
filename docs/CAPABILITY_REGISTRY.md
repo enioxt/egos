@@ -1,6 +1,6 @@
 # EGOS Capability Registry
 
-> **VERSION:** 1.3.0 | **UPDATED:** 2026-03-21
+> **VERSION:** 1.4.0 | **UPDATED:** 2026-03-29
 > **PURPOSE:** Master index of all capabilities across the EGOS ecosystem
 > **SSOT STATUS:** This file IS the canonical capability map
 
@@ -36,11 +36,14 @@ Each capability has:
 | **Public Guard BR (TypeScript)** | `egos/packages/shared/src/public-guard.ts` | A | egos | carteira-livre, forja, egos-web | `privacy`, `lgpd`, `masking`, `guard-brasil` |
 | **Evidence Chain** | `egos/packages/shared/src/evidence-chain.ts` | A | egos | 852, forja, br-acc | `evidence`, `traceability`, `audit`, `guard-brasil` |
 
+| **GuardBrasil Facade** | `egos/packages/guard-brasil/src/guard.ts` | A | egos | 852, forja, br-acc | `guard-brasil`, `facade`, `lgpd`, `sdk` |
+
 ### Guard Brasil Stack
 
-> **EGOS Guard Brasil** — ATRiAN + PII Scanner + Public Guard + Evidence Chain.
-> Full product definition: `docs/products/GUARD_BRASIL.md`
-> CLI: `bun scripts/guard.ts` or `npm run guard:demo`
+> **EGOS Guard Brasil** (`@egos/guard-brasil` v0.1.0) — ATRiAN + PII Scanner + Public Guard + Evidence Chain.
+> Package: `packages/guard-brasil/` | Product brief: `docs/strategy/FLAGSHIP_BRIEF.md`
+> Demo: `bun run packages/guard-brasil/src/demo.ts`
+> Tests: 15/15 pass (`bun test packages/guard-brasil/src/guard.test.ts`)
 
 ### Canonical Standard
 

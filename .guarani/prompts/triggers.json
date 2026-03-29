@@ -2,7 +2,7 @@
   "_version": "1.2.0",
   "_system": "EGOS Meta-Prompt Trigger System",
   "description": "Maps situations/keywords to the appropriate meta-prompt",
-  "updated": "2026-03-25",
+  "updated": "2026-03-29",
   "triggers": [
     {
       "id": "strategy.universal",
@@ -65,6 +65,14 @@
       "file": "meta/egos-activation-governance.md",
       "keywords": ["ativar egos", "/start", "diagnóstico do sistema", "meta prompt de ativação", "atrian"],
       "situations": ["Activating EGOS in a new environment", "Need evidence-first health check", "Need ethical gate before recommendations"],
+      "priority": "high",
+      "apps": ["all"]
+    },
+    {
+      "id": "product.guard-brasil",
+      "file": "../../docs/strategy/FLAGSHIP_BRIEF.md",
+      "keywords": ["lgpd", "pii", "guard brasil", "mascarar dados", "compliance", "cpf", "dado sensível", "guardrails", "segurança ai", "empacotar", "sdk", "atrian", "evidence chain"],
+      "situations": ["Building or extending Guard Brasil features", "LGPD compliance question", "Packaging AI safety SDK", "Integrating guardrails into a new app"],
       "priority": "high",
       "apps": ["all"]
     }

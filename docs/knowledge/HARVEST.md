@@ -492,3 +492,42 @@ Leaf repos inherit kernel governance via symlinks but keep local IDENTITY.md and
 4. Verify: re-run gitleaks on all repos to confirm clean
 **Supabase PAT pattern:** `sbp_[0-9a-f]{40}` — added to `.gitleaks.toml`.
 
+---
+
+## Session Harvest — 2026-03-29 (Guard Brasil Packaging + Flagship Brief)
+
+### Pattern: SDK Packaging from Monorepo Shared Modules
+
+**What:** Extract domain modules from `@egos/shared` into a standalone, npm-publishable package (`@egos/guard-brasil`).
+**How:**
+1. Create `packages/<product>/package.json` with `"license": "MIT"` (not `"private": true`)
+2. `src/index.ts` re-exports from `@egos/shared` for granular usage
+3. `src/guard.ts` composes a facade class (`GuardBrasil`) that calls all layers in sequence
+4. `src/demo.ts` shows a realistic scenario (not toy examples)
+5. `src/guard.test.ts` tests each layer independently + combined scenario
+**Test runner for ESM TypeScript in this monorepo:** `bun test`, NOT jest (which fails on import syntax)
+**Why:** Individual modules already exist; packaging adds the product narrative, composability, and distribution boundary.
+
+### Pattern: Facade Composition for Safety Stacks
+
+**What:** When building a multi-layer safety SDK (ATRiAN + PII + Evidence), create a unified `inspect(text, options)` method that:
+1. Runs all checks sequentially (ATRiAN → PII scan → masking → evidence chain)
+2. Returns a typed result object with all intermediate results + a `safe` boolean + human-readable `summary`
+3. Is stateless — the validator instances are created at `GuardBrasil.create()` time, not per-call
+**Why:** Callers shouldn't need to know the order of operations or which module to call. One method, one result.
+**LGPD disclosure pattern:** Only add LGPD footer when findings exist (`if result.safe return ''`).
+
+### Pattern: Flagship Brief as SSOT for Product Decisions
+
+**What:** `docs/strategy/FLAGSHIP_BRIEF.md` — a single canonical document that answers:
+- One-sentence value proposition (repeatable commercial sentence)
+- Problem statement (what fails without this)
+- Core modules table (what each layer does, succinctly)
+- Target personas with "job to be done" framing
+- Differentiation matrix (vs specific named competitors)
+- Monetization model (what's free vs paid)
+- Success metrics with targets and timeframes
+- What we are NOT building (explicit scope guard)
+**Why:** Prevents scope creep and "another interesting idea" drift by making the product focus a git-tracked, reviewable artifact.
+**Rule:** Before accepting any new product feature or expansion, check it against FLAGSHIP_BRIEF.md "What we are NOT building" section.
+
