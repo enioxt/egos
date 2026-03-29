@@ -1,0 +1,33 @@
+{
+  "name": "@egos/guard-brasil",
+  "version": "0.1.0",
+  "description": "Brazilian AI safety layer — LGPD-compliant PII masking, ATRiAN ethical validation, and traceable evidence discipline for AI assistants",
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.ts"
+    }
+  },
+  "keywords": [
+    "lgpd",
+    "pii",
+    "brazil",
+    "ai-safety",
+    "guardrails",
+    "compliance",
+    "evidence-chain",
+    "atrian"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "node --experimental-vm-modules ../../node_modules/.bin/jest --testPathPattern='packages/guard-brasil'",
+    "demo": "npx ts-node --esm src/demo.ts"
+  },
+  "dependencies": {
+    "@egos/shared": "workspace:*"
+  }
+}

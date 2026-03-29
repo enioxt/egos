@@ -1,0 +1,173 @@
+/**
+ * GuardBrasil — Unified facade for the Brazilian AI safety layer.
+ *
+ * Composes ATRiAN + PII Scanner + Public Guard + Evidence Chain
+ * into a single call that validates, masks, and audits any LLM output.
+ */
+
+import {
+  createAtrianValidator,
+  maskPublicOutput,
+  buildLGPDDisclosure,
+  createEvidenceChain,
+  formatEvidenceBlock,
+  type AtrianConfig,
+  type AtrianResult,
+  type MaskingResult,
+  type EvidenceChain,
+  type EvidenceChainOptions,
+  type ConfidenceLevel,
+} from '@egos/shared';
+
+// ─── Types ────────────────────────────────────────────────────────────────────
+
+export interface GuardBrasilConfig {
+  /** ATRiAN configuration — ethical validation */
+  atrian?: AtrianConfig;
+  /** Block output entirely if critical PII found (default: false — masks instead) */
+  blockOnCriticalPII?: boolean;
+  /** Add LGPD disclosure footer to masked outputs (default: true) */
+  lgpdDisclosure?: boolean;
+  /** Default confidence level for unattributed claims (default: 'medium') */
+  defaultConfidence?: ConfidenceLevel;
+}
+
+export interface InspectOptions {
+  /** Optional session ID for evidence chain tracing */
+  sessionId?: string;
+  /** Claims to attach to the evidence chain (human-readable) */
+  claims?: Array<{
+    claim: string;
+    source: string;
+    excerpt?: string;
+    confidence?: ConfidenceLevel;
+  }>;
+}
+
+export interface GuardBrasilResult {
+  /** Original (untouched) text */
+  original: string;
+  /** Processed text — masked or blocked */
+  output: string;
+  /** Whether output is safe to publish as-is */
+  safe: boolean;
+  /** Whether output was blocked entirely (not just masked) */
+  blocked: boolean;
+  /** ATRiAN ethical validation result */
+  atrian: AtrianResult;
+  /** PII masking result */
+  masking: MaskingResult;
+  /** Evidence chain (if claims were provided) */
+  evidenceChain?: EvidenceChain;
+  /** Evidence block formatted for inclusion in response */
+  evidenceBlock?: string;
+  /** LGPD disclosure note (empty if no PII found) */
+  lgpdDisclosure: string;
+  /** Human-readable summary of all issues found */
+  summary: string;
+}
+
+// ─── GuardBrasil class ────────────────────────────────────────────────────────
+
+export class GuardBrasil {
+  private readonly atrian: ReturnType<typeof createAtrianValidator>;
+  private readonly config: Required<GuardBrasilConfig>;
+
+  private constructor(config: GuardBrasilConfig) {
+    this.config = {
+      atrian: config.atrian ?? {},
+      blockOnCriticalPII: config.blockOnCriticalPII ?? false,
+      lgpdDisclosure: config.lgpdDisclosure ?? true,
+      defaultConfidence: config.defaultConfidence ?? 'medium',
+    };
+    this.atrian = createAtrianValidator(this.config.atrian);
+  }
+
+  /**
+   * Creates a new GuardBrasil instance with the given configuration.
+   */
+  static create(config: GuardBrasilConfig = {}): GuardBrasil {
+    return new GuardBrasil(config);
+  }
+
+  /**
+   * Inspects a text through all guard layers.
+   *
+   * 1. ATRiAN — validates for absolute claims, false promises, fabricated data
+   * 2. PII Scanner — detects Brazilian personal identifiers
+   * 3. Public Guard — masks or blocks sensitive content
+   * 4. Evidence Chain — builds audit trail for provided claims
+   *
+   * @param text — LLM output or any text to inspect
+   * @param options — optional session ID and claims for evidence chain
+   */
+  inspect(text: string, options: InspectOptions = {}): GuardBrasilResult {
+    // Step 1 — Ethical validation (ATRiAN)
+    const atrianResult = this.atrian.validateAndReport(text);
+
+    // Step 2 — PII masking (Public Guard)
+    const maskingResult = maskPublicOutput(text, {
+      criticalPiiAction: this.config.blockOnCriticalPII ? 'block' : 'redact',
+    });
+
+    const blocked = maskingResult.masked.startsWith('[CONTEÚDO BLOQUEADO');
+
+    // Step 3 — Apply ATRiAN filter on top of masked output
+    const filteredOutput = blocked
+      ? maskingResult.masked
+      : this.atrian.filterChunk(maskingResult.masked);
+
+    // Step 4 — Evidence chain (optional)
+    let evidenceChain: EvidenceChain | undefined;
+    let evidenceBlock: string | undefined;
+
+    if (options.claims && options.claims.length > 0) {
+      const builder = createEvidenceChain({ sessionId: options.sessionId });
+      for (const { claim, source, excerpt, confidence } of options.claims) {
+        builder.addDocumentClaim(claim, source, excerpt ?? claim, confidence ?? this.config.defaultConfidence);
+      }
+      evidenceChain = builder.build();
+      evidenceBlock = formatEvidenceBlock(evidenceChain);
+    }
+
+    // Step 5 — LGPD disclosure
+    const lgpdDisclosure = this.config.lgpdDisclosure
+      ? buildLGPDDisclosure(maskingResult)
+      : '';
+
+    // Step 6 — Summary
+    const issues: string[] = [];
+    if (!atrianResult.passed) {
+      const errors = atrianResult.violations.filter(v => v.level === 'error' || v.level === 'critical');
+      if (errors.length > 0) issues.push(`ATRiAN: ${errors.length} violation(s) (${errors.map(v => v.category).join(', ')})`);
+    }
+    if (!maskingResult.safe) {
+      issues.push(`PII: ${maskingResult.findings.length} finding(s) (${maskingResult.sensitivityLevel})`);
+    }
+
+    const safe = maskingResult.safe && atrianResult.passed;
+    const summary = issues.length === 0
+      ? 'Output is clean — no violations found.'
+      : `Issues found: ${issues.join(' | ')}`;
+
+    return {
+      original: text,
+      output: filteredOutput,
+      safe,
+      blocked,
+      atrian: atrianResult,
+      masking: maskingResult,
+      evidenceChain,
+      evidenceBlock,
+      lgpdDisclosure,
+      summary,
+    };
+  }
+}
+
+/**
+ * Convenience factory — same as `GuardBrasil.create(config)`.
+ */
+export function createGuardBrasil(config: GuardBrasilConfig = {}): GuardBrasil {
+  return GuardBrasil.create(config);
+}
