@@ -42,7 +42,8 @@
     "demo:agents": "bun scripts/demo.ts --agents",
     "demo:routing": "bun scripts/demo.ts --routing",
     "benchmark": "bun scripts/benchmark-scorecard.ts",
-    "benchmark:json": "bun scripts/benchmark-scorecard.ts --json"
+    "benchmark:json": "bun scripts/benchmark-scorecard.ts --json",
+    "map": "bun scripts/operator-map.ts"
   },
   "devDependencies": {
     "@types/bun": "^1.2.0",

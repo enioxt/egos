@@ -47,6 +47,8 @@
 | LLM Orchestration Matrix | `kernel_canonical` | `egos/docs/contracts/LLM_ORCHESTRATION_MATRIX.md` | — | `model-router.ts` | llm-provider.ts |
 | Operator Narrative Kit | `product_boundary` | `egos/docs/strategy/OPERATOR_NARRATIVE_KIT.md` | — | Manual review | Presentation System |
 | Lab Archival Plan | `kernel_canonical` | `egos/docs/strategy/EGOS_LAB_ARCHIVAL_PLAN.md` | — | Migration execution | MIGRATION_MATRIX |
+| Flagship Brief | `product_boundary` | `egos/docs/strategy/FLAGSHIP_BRIEF.md` | — | GTM review | Guard Brasil Boundary |
+| New Project Gate | `kernel_canonical` | `egos/docs/contracts/NEW_PROJECT_GATE.md` | — | PR review | ECOSYSTEM_CLASSIFICATION |
 
 ## Shared Module SSOTs (@egos/shared)
 

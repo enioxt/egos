@@ -72,11 +72,11 @@
 - [/] EGOS-074: Execute the kernel-first consolidation — P0 actions documented (remove lab @egos/shared duplicate, merge SYSTEM_MAP, remove stale governance-sync copy); execution requires egos-lab repo access
 - [x] EGOS-075: Canonicalize the System Map control plane — `docs/SYSTEM_MAP.md` v3.0.0 rewritten (removed duplicates, stale agents, added Guard Brasil, unified workflow table, 96L clean)
 - [x] EGOS-076: Create ecosystem classification registry — `docs/ECOSYSTEM_CLASSIFICATION_REGISTRY.md` (v1.1.0); wired into TASKS.md, SYSTEM_MAP v3.0.0, CAPABILITY_REGISTRY v1.4.0
-- [ ] EGOS-077: Add the new-project gate for PRD, ICP, go-to-market, objective, success metric, and multi-model review mode with a recorded blocking-vs-advisory decision
+- [x] EGOS-077: New-project gate — `docs/contracts/NEW_PROJECT_GATE.md` (10 mandatory fields, PROCEED/DEFER/REJECT decisions, focus directive enforcement)
 - [x] EGOS-078: Define Agent Claim Contract — `docs/contracts/AGENT_CLAIM_CONTRACT.md` (v1.0.0); L0-L4 taxonomy with proof fields, all 10 agents classified as L2, promotion protocol defined
 - [x] EGOS-079: Enforce Agent Claim Gate — enhanced `agent:lint` with L2/L3 validation, entrypoint existence check, eval_suite file verification; 10 agents pass L2, all warned for L3 promotion
 - [x] EGOS-080: LLM Orchestration Matrix — `docs/contracts/LLM_ORCHESTRATION_MATRIX.md` (6 lanes, task routing, cost ceilings, cheap-first policy); deprecated `llm-orchestrator.ts` → `model-router.ts` SSOT merge
-- [ ] EGOS-093: Define canonical flagship brief in SSOT — objective, problem statement, personas, and GTM with acceptance metrics
+- [x] EGOS-093: Canonical flagship brief — `docs/strategy/FLAGSHIP_BRIEF.md` (problem, solution, personas, GTM phases, success metrics, anti-claims)
 - [ ] EGOS-094: Create "Market Intelligence Compiler" spec — ingestion contract for books/papers/code/platforms with source-link + evidence tiers
 - [ ] EGOS-095: Build governance rule registry for market practices — normalize global best practices into executable controls and tests
 - [ ] EGOS-096: Add cross-environment signature adoption for Google AI Studio lane (commit/push provenance fields mandatory)
@@ -85,7 +85,7 @@
 - [x] EGOS-099: Worktree Orchestration Contract — superseded by EGOS-110 (`.guarani/orchestration/WORKTREE_CONTRACT.md`)
 - [ ] EGOS-100: Define `Linear/Issue Sync Contract` (`/linear-sync`) with task decomposition schema, priority classes, and required evidence at PR gate
 - [ ] EGOS-101: Define `QA Loop Contract` (`/qa-loop`) using browser/devtools verification + test rerun policy + stop conditions
-- [ ] EGOS-102: Build executable 10-second operator map (replace text-heavy integration map with founder-grade control plane view)
+- [x] EGOS-102: Operator map — `bun scripts/operator-map.ts` (kernel status, SSOT limits, ecosystem state, commands, deployments in one glance)
 - [x] EGOS-107: Define and activate Stitch-first UI contract (`/stitch`) — prompt generation in EGOS lane, external creation in Google Stitch, and `.zip` intake mapping before implementation
 - [ ] EGOS-108: Build `stitch_intake_mapper` agent to parse returned `.zip`, generate mapping table, and create integration tasks automatically
 - [x] EGOS-109: Run full AIOX (`SynkraAI/aiox-core`) gem diagnosis against EGOS + NotebookLM export and codify keep/drop recommendations
