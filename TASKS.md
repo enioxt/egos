@@ -351,13 +351,15 @@
 - [x] INFRA-007 — Atualizar `egos-lab/agents/agents/uptime-monitor.ts` — fallback URL + comentário
 - [x] INFRA-008 — Atualizar `egos-lab/apps/telegram-bot/src/index.ts` — descrição de infraestrutura
 
-**Pendente — outros repos (leaf repo owners):**
-- [ ] INFRA-009 — `br-acc`: atualizar AGENTS.md, README.md, ROADMAP.md, docs/SYSTEM_MAP.md, docs/pt-BR/DOWNLOAD_DADOS.md, scripts/download-all-datasets.sh → IP 204.168.217.125
-- [ ] INFRA-010 — `br-acc`: atualizar badge de API Status no README (ainda aponta para 217.216.95.126)
-- [ ] INFRA-011 — `santiago`: atualizar .env.local (WAHA_API_URL), docs/SETUP_GUIDE.md, DNS A records documentados
-- [ ] INFRA-012 — `852`: atualizar scripts/release_contabo.sh → renomear para release_hetzner.sh + atualizar REMOTE_HOST
-- [ ] INFRA-013 — `852`: atualizar CLAUDE.md (ssh root@217.216.95.126 → ssh root@hetzner), README.md
-- [ ] INFRA-014 — `forja`: atualizar TASKS.md (task de instalar Coolify no Contabo → Hetzner), handoffs
-- [ ] INFRA-015 — `egos-lab`: atualizar egos-lab/memory_db/memory.jsonl (entidade EGOS_VPS_CONTABO)
-- [ ] INFRA-016 — `egos-lab`: atualizar docs/plans/SECURITY_AND_DECENTRALIZATION_PLAN.md + .windsurf/workflows/postar.md
-- [ ] INFRA-017 — Verificar Contabo Phase 8 (deativação) — confirmar 48h de estabilidade no Hetzner e cancelar plano Contabo
+**Completed (2026-03-29 — leaf repos):**
+- [x] INFRA-009 — `br-acc`: AGENTS.md, README.md, ROADMAP.md, docs/SYSTEM_MAP.md, docs/pt-BR/DOWNLOAD_DADOS.md, scripts/download-all-datasets.sh → commit `5c2b8d1`
+- [x] INFRA-010 — `br-acc`: badge de API Status no README atualizado
+- [x] INFRA-011 — `santiago`: .env.local, docs/SETUP_GUIDE.md, SYSTEM_DIAGNOSTIC.md, handoff → commit `d7deaf3`
+- [x] INFRA-012 — `852`: scripts/release_contabo.sh → release_hetzner.sh → commit `0b22a15`
+- [x] INFRA-013 — `852`: CLAUDE.md, README.md, AGENTS.md, package.json → commit `0b22a15`
+- [x] INFRA-014 — `forja`: TASKS.md, TelemetryDashboard.tsx, ARCHITECTURE.md, ORCHESTRATION.md, scripts → commit `50a9629`
+- [x] INFRA-015 — `egos-lab`: memory_db/memory.jsonl (EGOS_VPS_CONTABO → EGOS_VPS_HETZNER) → commit `0101bf2`
+- [x] INFRA-016 — `egos-lab`: SECURITY_AND_DECENTRALIZATION_PLAN.md + postar.md → commit `0101bf2`
+
+**Pendente:**
+- [ ] INFRA-017 — Verificar Contabo Phase 8 (desativação) — confirmar 48h de estabilidade no Hetzner e cancelar plano Contabo
