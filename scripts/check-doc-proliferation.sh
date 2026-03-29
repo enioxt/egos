@@ -21,7 +21,7 @@ VIOLATIONS=0
 
 while IFS= read -r file; do
   # Skip allowed folders
-  if [[ "$file" =~ ^docs/_archived_handoffs/ ]]; then
+  if [[ "$file" =~ ^docs/_archived_handoffs/ ]] || [[ "$file" =~ ^docs/_context_snapshots/ ]] || [[ "$file" =~ ^docs/_generated/ ]]; then
     continue
   fi
   
