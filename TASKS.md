@@ -74,7 +74,9 @@
   - **Diagnostic:** `docs/strategy/EGOS_LAB_CONSOLIDATION_DIAGNOSTIC.md`
   - **Key findings:** 3 agents → kernel (ssot-auditor, ssot-fixer, drift-sentinel), nexus+nexus-market consolidation needed, shared symlink broken
 - [ ] EGOS-074: Execute the kernel-first consolidation of SSOT/governance surfaces from `egos-lab` into `egos` and eliminate duplicated docs, maps, workflows, and stale claims with explicit archive references
-- [ ] EGOS-075: Canonicalize the System Map control plane — one orchestrator contract, one machine map, one human map, freshness rules, and one cross-repo update flow
+- [x] EGOS-075: Canonicalize the System Map control plane — one orchestrator contract, one machine map, one human map, freshness rules, and one cross-repo update flow
+  - **Status:** COMPLETE (2026-03-29)
+  - **Document:** `docs/governance/SYSTEM_MAP_CONTROL_PLANE.md` — machine map vs human map ownership, one update flow, freshness signals, current ecosystem map, anti-patterns
 - [x] EGOS-076: Create the ecosystem classification registry for products/modules/ideas (`standalone`, `candidate`, `lab`, `internal_infra`, `archive`) and wire it into `TASKS.md`, `SYSTEM_MAP.md`, and `CAPABILITY_REGISTRY.md`
   - **Status:** COMPLETE (2026-03-29)
   - **Document:** `docs/strategy/ECOSYSTEM_CLASSIFICATION_REGISTRY.md` — full taxonomy + per-surface classification for all repos, packages, products, ideas, and docs
@@ -85,9 +87,18 @@
   - **Document:** `docs/governance/NEW_PROJECT_GATE.md` — blocking gate with PRD + ICP + GTM + metrics + kernel health prerequisite + multi-model review + copy-paste template
   - **Gate decisions:** `APPROVED` / `BLOCKED — prerequisites` / `BLOCKED — incomplete PRD` / `ADVISORY`
   - **Prerequisite:** No new product until Guard Brasil is on npm OR has ≥1 external user
-- [ ] EGOS-078: Define the `Agent Claim Contract` — formal taxonomy for `component`, `skill`, `agent_candidate`, `verified_agent`, and `online_agent`, with mandatory proof fields for runtime, triggers, evals, observability, and ownership
-- [ ] EGOS-079: Enforce the `Agent Claim Gate` in kernel governance — registry lint + pre-commit/pre-push + docs/tasks checks must block any surface claimed as agent without executable entrypoint, existing eval, valid run modes, and runtime evidence
-- [ ] EGOS-080: Define the `LLM Orchestration Matrix` for EGOS — explicit lane ownership for Cascade, terminal orchestration, Codex, Claude Code, Alibaba, and OpenRouter, with approval mode, authority level, and allowed task classes
+- [x] EGOS-078: Define the `Agent Claim Contract` — formal taxonomy for `component`, `skill`, `agent_candidate`, `verified_agent`, and `online_agent`, with mandatory proof fields for runtime, triggers, evals, observability, and ownership
+  - **Status:** COMPLETE (2026-03-29)
+  - **Document:** `docs/governance/AGENT_CLAIM_CONTRACT.md` — 5-tier taxonomy with required fields per tier + current registry audit (13 agents classified)
+  - **Registry updated:** `agents/registry/agents.json` v1.2.0 — all 13 agents now have `evals`, `observability`, `ownership` fields
+- [x] EGOS-079: Enforce the `Agent Claim Gate` in kernel governance — registry lint + pre-commit/pre-push + docs/tasks checks must block any surface claimed as agent without executable entrypoint, existing eval, valid run modes, and runtime evidence
+  - **Status:** COMPLETE (2026-03-29)
+  - **Script:** `scripts/agent-claim-lint.sh` — validates all contract fields, entrypoint existence, status/risk_level values, online agent SLA requirement
+  - **Wire:** `bun run agent:lint` → calls lint script (13/13 pass)
+  - **Pending:** Pre-commit wire blocked — `.husky/pre-commit` is frozen zone; requires explicit user approval to add
+- [x] EGOS-080: Define the `LLM Orchestration Matrix` for EGOS — explicit lane ownership for Cascade, terminal orchestration, Codex, Claude Code, Alibaba, and OpenRouter, with approval mode, authority level, and allowed task classes
+  - **Status:** COMPLETE (2026-03-29)
+  - **Document:** `docs/governance/LLM_ORCHESTRATION_MATRIX.md` — 6 lanes (Alibaba Qwen, Claude Code, Windsurf, AI Studio, Codex, OpenRouter) with authority levels, task classes, forbidden actions, conflict rules, cost budgets
 - [x] EGOS-093: Define canonical flagship brief in SSOT — objective, problem statement, personas, and GTM with acceptance metrics
   - **Status:** COMPLETE (2026-03-29)
   - **Document:** `docs/strategy/FLAGSHIP_BRIEF.md` — one-sentence VP, problem statement, personas, differentiation matrix, monetization model, success metrics
@@ -96,10 +107,18 @@
 - [ ] EGOS-096: Add cross-environment signature adoption for Google AI Studio lane (commit/push provenance fields mandatory)
 - [ ] EGOS-097: Define dissemination protocol (`/disseminate`) for propagating new strategic rules to all mapped repos with drift-proof verification
 - [/] EGOS-098: Ingest and operationalize pragmatic multi-agent benchmark patterns (worktree isolation, parallel ticket lanes, QA loop, file-first context) into kernel governance with explicit keep/drop decisions — keep/drop contract drafted + GTM harvester agent added; pending contract enforcement and workflow wiring
-- [ ] EGOS-099: Define `Worktree Orchestration Contract` for EGOS (branch naming, ownership locks, lifecycle, cleanup, merge gates, max concurrency)
-- [ ] EGOS-100: Define `Linear/Issue Sync Contract` (`/linear-sync`) with task decomposition schema, priority classes, and required evidence at PR gate
-- [ ] EGOS-101: Define `QA Loop Contract` (`/qa-loop`) using browser/devtools verification + test rerun policy + stop conditions
-- [ ] EGOS-102: Build executable 10-second operator map (replace text-heavy integration map with founder-grade control plane view)
+- [x] EGOS-099: Define `Worktree Orchestration Contract` for EGOS (branch naming, ownership locks, lifecycle, cleanup, merge gates, max concurrency)
+  - **Status:** COMPLETE (2026-03-29)
+  - **Document:** `docs/governance/WORKTREE_CONTRACT.md` — naming patterns, ownership model, lifecycle stages, cleanup rules, merge gates, max 10 branches total / 3 per dev
+- [x] EGOS-100: Define `Linear/Issue Sync Contract` (`/linear-sync`) with task decomposition schema, priority classes, and required evidence at PR gate
+  - **Status:** COMPLETE (2026-03-29)
+  - **Document:** `docs/governance/LINEAR_SYNC_CONTRACT.md` — TASKS.md as canonical SSOT, P0-P3 classes, PR gate requirements, sync flow, stale task policy
+- [x] EGOS-101: Define `QA Loop Contract` (`/qa-loop`) using browser/devtools verification + test rerun policy + stop conditions
+  - **Status:** COMPLETE (2026-03-29)
+  - **Document:** `docs/governance/QA_LOOP_CONTRACT.md` — 5-step loop (typecheck → tests → agent:lint → governance:check → smoke), rerun policy, stop conditions
+- [x] EGOS-102: Build executable 10-second operator map (replace text-heavy integration map with founder-grade control plane view)
+  - **Status:** COMPLETE (2026-03-29)
+  - **Document:** `docs/OPERATOR_MAP.md` — architecture one-liner, live surfaces, control plane commands, decision log, blocked items, governance docs index
 - [x] EGOS-107: Define and activate Stitch-first UI contract (`/stitch`) — prompt generation in EGOS lane, external creation in Google Stitch, and `.zip` intake mapping before implementation
 - [ ] EGOS-108: Build `stitch_intake_mapper` agent to parse returned `.zip`, generate mapping table, and create integration tasks automatically
 - [x] EGOS-109: Run full AIOX (`SynkraAI/aiox-core`) gem diagnosis against EGOS + NotebookLM export and codify keep/drop recommendations

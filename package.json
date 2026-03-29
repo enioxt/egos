@@ -18,7 +18,7 @@
     "egos:init": "sh scripts/egos-init.sh",
     "agent:list": "bun agents/cli.ts list",
     "agent:run": "bun agents/cli.ts run",
-    "agent:lint": "bun agents/cli.ts lint-registry",
+    "agent:lint": "sh scripts/agent-claim-lint.sh",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "prepare": "husky",

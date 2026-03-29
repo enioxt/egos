@@ -19,6 +19,7 @@
   - `docs/modules/CHATBOT_SSOT.md` — canonical chatbot standard
   - `docs/strategy/ECOSYSTEM_CLASSIFICATION_REGISTRY.md` — per-surface classification (`flagship_product`, `kernel_core`, `standalone_candidate`, etc.)
   - `docs/governance/NEW_PROJECT_GATE.md` — blocking gate for new products/packages/repos
+  - `docs/governance/SYSTEM_MAP_CONTROL_PLANE.md` — orchestrator contract for this map (freshness rules, update flow)
 
 <!-- llmrefs:end -->
 

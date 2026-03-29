@@ -1,6 +1,6 @@
 {
   "$schema": "./schema.json",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "updated": "2026-03-29",
   "description": "EGOS Agent Registry — Core framework starts clean. Agent implementations live in leaf repos (egos-lab, 852, br-acc, etc.).",
   "agents": [
@@ -10,16 +10,14 @@
       "description": "Scans package.json files for version conflicts, misplaced dev deps, and unused dependencies",
       "area": "architecture",
       "entrypoint": "agents/agents/dep-auditor.ts",
-      "run_modes": [
-        "dry_run",
-        "execute"
-      ],
-      "triggers": [
-        "manual"
-      ],
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual"],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
+      "evals": "manual — run dry_run and verify output matches expected format",
+      "observability": "console",
+      "ownership": "egos-kernel",
       "migrated_from": "egos-lab"
     },
     {
@@ -28,16 +26,14 @@
       "description": "Recursively traverses git history, agent registries, governance files, and handoff documents to reconstruct the complete evolution lineage of the EGOS ecosystem",
       "area": "knowledge",
       "entrypoint": "agents/agents/archaeology-digger.ts",
-      "run_modes": [
-        "dry_run",
-        "execute"
-      ],
-      "triggers": [
-        "manual"
-      ],
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual"],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
+      "evals": "manual — dry_run produces lineage report with >0 entries",
+      "observability": "console",
+      "ownership": "egos-kernel",
       "migrated_from": "egos-native"
     },
     {
@@ -46,34 +42,30 @@
       "description": "Scans a target repository for the required modules defined in CHATBOT_SSOT and reports missing chatbot capabilities",
       "area": "knowledge",
       "entrypoint": "agents/agents/chatbot-compliance-checker.ts",
-      "run_modes": [
-        "dry_run",
-        "execute"
-      ],
-      "triggers": [
-        "manual"
-      ],
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual"],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
+      "evals": "manual — dry_run on egos repo should show 0 missing capabilities",
+      "observability": "console",
+      "ownership": "egos-kernel",
       "migrated_from": "egos-native"
     },
     {
       "id": "dead_code_detector",
       "name": "Dead Code Detector",
       "description": "Finds dead exports, orphan files, and empty stubs across any TypeScript codebase using regex-based analysis (no external deps)",
-      "area": "qa",
+      "area": "architecture",
       "entrypoint": "agents/agents/dead-code-detector.ts",
-      "run_modes": [
-        "dry_run",
-        "execute"
-      ],
-      "triggers": [
-        "manual"
-      ],
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual"],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
+      "evals": "manual — run on packages/shared and verify output lists dead exports",
+      "observability": "console",
+      "ownership": "egos-kernel",
       "migrated_from": "egos-lab"
     },
     {
@@ -82,16 +74,14 @@
       "description": "Scans any target repo against the EGOS kernel's shared capabilities, governance files, workflows, and security basics to detect missing adoptions",
       "area": "architecture",
       "entrypoint": "agents/agents/capability-drift-checker.ts",
-      "run_modes": [
-        "dry_run",
-        "execute"
-      ],
-      "triggers": [
-        "manual"
-      ],
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual"],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
+      "evals": "manual — dry_run on egos repo should produce clean or near-clean report",
+      "observability": "console",
+      "ownership": "egos-kernel",
       "migrated_from": "egos-native"
     },
     {
@@ -100,17 +90,14 @@
       "description": "Estimates remaining usable context window (CTX 0-280) from uncommitted files, session commits, handoff size, and agent runs. Emits zone emoji + /end recommendation when CTX > 180.",
       "area": "observability",
       "entrypoint": "agents/agents/context-tracker.ts",
-      "run_modes": [
-        "dry_run",
-        "execute"
-      ],
-      "triggers": [
-        "manual",
-        "pre_end"
-      ],
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual", "pre_end"],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
+      "evals": "manual — run and verify CTX estimate is in 0-280 range with zone classification",
+      "observability": "console",
+      "ownership": "egos-kernel",
       "migrated_from": "egos-native"
     },
     {
@@ -119,16 +106,14 @@
       "description": "Scans public GitHub repositories for GTM/market strategy artifacts and highlights reusable patterns plus named-entity gaps",
       "area": "knowledge",
       "entrypoint": "agents/agents/gtm-harvester.ts",
-      "run_modes": [
-        "dry_run",
-        "execute"
-      ],
-      "triggers": [
-        "manual"
-      ],
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual"],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
+      "evals": "manual — dry_run against a known repo should return >0 GTM patterns",
+      "observability": "console",
+      "ownership": "egos-kernel",
       "migrated_from": "egos-native"
     },
     {
@@ -137,16 +122,14 @@
       "description": "Scans SynkraAI/aiox-core and local NotebookLM export artifacts to extract high-signal orchestration gems with keep/drop diagnosis for EGOS",
       "area": "knowledge",
       "entrypoint": "agents/agents/aiox-gem-hunter.ts",
-      "run_modes": [
-        "dry_run",
-        "execute"
-      ],
-      "triggers": [
-        "manual"
-      ],
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual"],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
+      "evals": "manual — dry_run should produce gems list with keep/drop classification",
+      "observability": "console",
+      "ownership": "egos-kernel",
       "migrated_from": "egos-native"
     },
     {
@@ -155,16 +138,14 @@
       "description": "Benchmarks MASA and competing agent/orchestration frameworks from official docs to produce keep/drop adoption guidance for EGOS",
       "area": "knowledge",
       "entrypoint": "agents/agents/framework-benchmarker.ts",
-      "run_modes": [
-        "dry_run",
-        "execute"
-      ],
-      "triggers": [
-        "manual"
-      ],
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual"],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
+      "evals": "manual — dry_run should produce benchmark report with ≥2 frameworks compared",
+      "observability": "console",
+      "ownership": "egos-kernel",
       "migrated_from": "egos-native"
     },
     {
@@ -173,16 +154,14 @@
       "description": "Scans mastra-ai/mastra for high-signal workflow/eval/observability/MCP patterns and emits keep/drop adoption guidance",
       "area": "knowledge",
       "entrypoint": "agents/agents/mastra-gem-hunter.ts",
-      "run_modes": [
-        "dry_run",
-        "execute"
-      ],
-      "triggers": [
-        "manual"
-      ],
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual"],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
+      "evals": "manual — dry_run should return Mastra gem list with keep/drop for EGOS",
+      "observability": "console",
+      "ownership": "egos-kernel",
       "migrated_from": "egos-native"
     },
     {
@@ -196,6 +175,9 @@
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
+      "evals": "manual — dry_run on packages/shared should detect 0 or known drift items",
+      "observability": "console",
+      "ownership": "egos-kernel",
       "migrated_from": "egos-lab"
     },
     {
@@ -209,6 +191,9 @@
       "tools_allowed": [],
       "risk_level": "T1",
       "status": "active",
+      "evals": "manual — always run dry_run before execute; verify no unintended changes",
+      "observability": "console",
+      "ownership": "egos-kernel",
       "migrated_from": "egos-lab"
     },
     {
@@ -222,6 +207,9 @@
       "tools_allowed": [],
       "risk_level": "T1",
       "status": "active",
+      "evals": "manual — dry_run should detect any staged drift and report it clearly",
+      "observability": "console",
+      "ownership": "egos-kernel",
       "migrated_from": "egos-lab"
     }
   ]
