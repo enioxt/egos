@@ -43,6 +43,10 @@ WORKFLOWS_SRC="$EGOS_KERNEL/.windsurf/workflows"
 WORKFLOWS_DST="$EGOS_HOME/workflows"
 DOCS_SRC="$EGOS_KERNEL/docs"
 DOCS_DST="$EGOS_HOME/docs"
+HOOKS_SRC="$EGOS_KERNEL/.egos/hooks"
+HOOKS_DST="$EGOS_HOME/hooks"
+HOME_SYNC_SRC="$EGOS_KERNEL/.egos/sync.sh"
+HOME_SYNC_DST="$EGOS_HOME/sync.sh"
 CANONICAL_DOCS="CAPABILITY_REGISTRY.md SSOT_REGISTRY.md modules/CHATBOT_SSOT.md"
 
 GREEN='\033[0;32m'
@@ -74,6 +78,11 @@ fi
 if [ -d "$WORKFLOWS_SRC" ] && [ ! -d "$WORKFLOWS_DST" ]; then
   printf "${YELLOW}WARN:${NC} %s/workflows not found, creating...\n" "$EGOS_HOME"
   mkdir -p "$WORKFLOWS_DST"
+fi
+
+if [ -d "$HOOKS_SRC" ] && [ ! -d "$HOOKS_DST" ]; then
+  printf "${YELLOW}WARN:${NC} %s/hooks not found, creating...\n" "$EGOS_HOME"
+  mkdir -p "$HOOKS_DST"
 fi
 
 if [ -d "$DOCS_SRC" ] && [ ! -d "$DOCS_DST" ]; then
@@ -134,6 +143,21 @@ if [ -d "$WORKFLOWS_SRC" ]; then
   rm -f "$TMPLIST"
 fi
 
+if [ -d "$HOOKS_SRC" ]; then
+  TMPLIST=$(mktemp)
+  find "$HOOKS_SRC" -type f | sort > "$TMPLIST"
+
+  while read -r filepath; do
+    rel=$(echo "$filepath" | sed "s|$HOOKS_SRC/||")
+    compare_file "$rel" "$HOOKS_SRC" "$HOOKS_DST" "hook"
+  done < "$TMPLIST"
+  rm -f "$TMPLIST"
+fi
+
+if [ -f "$HOME_SYNC_SRC" ]; then
+  compare_file "sync.sh" "$EGOS_KERNEL/.egos" "$EGOS_HOME" "home"
+fi
+
 for rel in $CANONICAL_DOCS; do
   if [ -f "$DOCS_SRC/$rel" ]; then
     compare_file "$rel" "$DOCS_SRC" "$DOCS_DST" "doc"
@@ -152,6 +176,10 @@ fi
 if [ "$MODE" = "--exec" ] && [ "$SYNC_COUNT" -gt 0 ]; then
   echo ""
   printf "${GREEN}Synced %d files to ~/.egos/guarani/, ~/.egos/workflows/, and ~/.egos/docs/${NC}\n" "$SYNC_COUNT"
+  chmod +x "$HOME_SYNC_DST" 2>/dev/null || true
+  if [ -d "$HOOKS_DST" ]; then
+    find "$HOOKS_DST" -type f -exec chmod +x {} \; 2>/dev/null || true
+  fi
   echo ""
   if [ -x "$EGOS_HOME/sync.sh" ]; then
     case "$PROPAGATE_MODE" in

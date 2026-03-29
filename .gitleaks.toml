@@ -1,5 +1,11 @@
 title = "EGOS Gitleaks Config"
 
+[[rules]]
+id = "supabase-personal-access-token"
+description = "Supabase Personal Access Token"
+regex = '''sbp_[0-9a-f]{40}'''
+keywords = ["sbp_"]
+
 [allowlist]
 description = "Global allowlist"
 paths = [

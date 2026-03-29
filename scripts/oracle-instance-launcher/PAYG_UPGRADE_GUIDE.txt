@@ -1,0 +1,113 @@
+#!/bin/bash
+# Guia passo-a-passo para upgrade Oracle Free Tier → PAYG
+# Este guia deve ser executado pelo usuário na console Oracle
+
+cat << 'GUIDE'
+
+╔══════════════════════════════════════════════════════════════════╗
+║  ORACLE CLOUD: UPGRADE FREE TIER → PAY AS YOU GO (PAYG)         ║
+╚══════════════════════════════════════════════════════════════════╝
+
+⚠️  IMPORTANTE: Este upgrade requer acesso à console Oracle e cartão de crédito.
+    Não posso fazer automaticamente - você precisa executar na console.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 PASSO 1: Acessar Console Oracle
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Acesse: https://cloud.oracle.com
+2. Faça login com suas credenciais Oracle
+3. Vá em: ☰ Menu → Billing → Upgrade to Pay As You Go
+   (ou acesse direto: https://cloud.oracle.com/billing)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💳 PASSO 2: Adicionar Cartão de Crédito
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Clique em "Upgrade to Pay As You Go"
+2. Adicione seu cartão de crédito internacional
+3. Oracle fará um teste de $100 USD (será reembolsado em 1-3 dias)
+4. Confirme o upgrade
+
+⚠️  DICA: Use um cartão com limite suficiente para o teste de $100
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔔 PASSO 3: Configurar Billing Alerts (ESSENCIAL!)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Na console Oracle:
+1. Vá em: ☰ Menu → Billing → Budgets & Alerts
+2. Crie 3 budgets:
+
+   Budget 1: Safety
+   - Amount: $1 USD
+   - Alert at: 100%
+   - Email: seu-email@gmail.com
+
+   Budget 2: Warning  
+   - Amount: $5 USD
+   - Alert at: 100%
+   - Email: seu-email@gmail.com
+
+   Budget 3: Critical
+   - Amount: $10 USD  
+   - Alert at: 100%
+   - Email: seu-email@gmail.com
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔒 PASSO 4: Configurar Quotas (Após upgrade)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+No VPS, execute:
+   ssh root@217.216.95.126
+   bash /opt/scripts/oracle-instance-launcher/scripts/setup-payg-protections.sh
+
+Ou eu posso executar para você após confirmar o upgrade.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🚀 PASSO 5: Criar Instância A1.Flex
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Com PAYG ativo:
+1. Vá em: ☰ Menu → Compute → Instances
+2. Clique "Create Instance"
+3. Configure:
+   - Name: egos-a1-flex
+   - Shape: VM.Standard.A1.Flex
+   - OCPUs: 4
+   - Memory: 24 GB
+   - Boot Volume: 200 GB
+   - Image: Canonical Ubuntu 24.04 (ARM)
+   - SSH Key: cole sua chave pública
+   - VCN: selecione sua VCN existente
+4. Clique "Create"
+
+⏱️  Com PAYG, a criação é imediata (sem "out of capacity")
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ VERIFICAÇÃO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Após criar:
+1. Verifique o IP público na console
+2. Teste SSH: ssh ubuntu@<IP_PUBLICO>
+3. Verifique no VPS se success.json foi criado
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔒 GARANTIAS DE SEGURANÇA CONFIGURADAS:
+   ✅ Quota: máximo 4 OCPUs
+   ✅ Billing alerts: $1, $5, $10
+   ✅ Script: stop_on_success=true
+   ✅ Backup do .env criado
+
+📊 CUSTO ESPERADO: $0/mês (se dentro dos limites Always Free)
+
+Quer prosseguir? Me avise quando:
+- [ ] Fez login na console Oracle
+- [ ] Encontrou a página de upgrade
+- [ ] Completou o upgrade
+
+Aí configuro as proteções automaticamente no VPS.
+
+GUIDE
