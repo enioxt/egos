@@ -1,7 +1,7 @@
 # EGOS Commons — Inventário Real (MVP Honesto)
 
-> **VERSION:** 1.0.0 | **UPDATED:** 2026-03-23
-> **Foco:** Produtos reais que JÁ EXISTEM nos repositórios. Sem hype, sem promessas futuras de orquestração mágica. Foco total em entregar código + split ético 95/5.
+> **VERSION:** 2.0.0 | **UPDATED:** 2026-03-29
+> **Foco:** Produtos reais que JÁ EXISTEM nos repositórios. Sem hype. Dois modelos de receita: (A) Implementação 95/5 para deploys customizados, (B) Guard Brasil SaaS para dev teams.
 
 ---
 
@@ -57,5 +57,34 @@ Nossa proposta de valor primária não é "agentes mágicos que fazem tudo". É 
 - **Preço Sugerido:** R$ 1.500
 - **Split (95/5):** R$ 1.425 (Implementador) / R$ 75 (Kernel/ETC)
 
+### 7. Forja (CRM Chatbot Mobile-First)
+- **Descrição Real:** CRM mobile-first com chatbot AI integrado (Evolution API + WhatsApp), multi-tenant, focado em profissionais autônomos e pequenas empresas.
+- **Estado:** Produção parcial (Next.js + Supabase + Vercel). Deploy: forja-orpin.vercel.app
+- **O que entregamos:** Setup multi-tenant, integração WhatsApp, chatbot com ATRiAN/PII, personalização de fluxos.
+- **Preço Sugerido:** R$ 4.500 (Setup + WhatsApp Integration)
+- **Split (95/5):** R$ 4.275 (Implementador) / R$ 225 (Kernel/ETC)
+
 ---
-*Este é o inventário real. Sem hypes inalcançáveis, apenas software que roda, resolve um problema, e recompensa quem implementa de forma ética.*
+
+## Modelo B: Guard Brasil SaaS (Dev Teams)
+
+Além da implementação, o Guard Brasil é oferecido como serviço self-service:
+
+| Superfície | Preço | Tipo |
+|-----------|-------|------|
+| SDK TypeScript (npm) | Grátis (MIT) | Open-source |
+| API Hosted (REST) | R$ 500/mês | SaaS |
+| MCP Server (IDE) | R$ 1.000/mês | SaaS |
+| Enterprise SLA | R$ 2.000/mês | SaaS |
+| Audit Console | R$ 3.000/mês | SaaS |
+| Policy Packs Custom | R$ 5.000 setup | Serviço |
+
+**Target:** Dev teams que constroem produtos com AI e precisam de compliance LGPD.
+**Status:** SDK pronto (166 testes). API/MCP planejados.
+
+> **Reconciliação:** Modelo A (95/5) atende clientes que precisam de deploy completo.
+> Modelo B (SaaS) atende dev teams que integram safety no próprio produto.
+> Ambos coexistem. Ver `docs/strategy/REVENUE_MODEL_RECONCILIATION.md`.
+
+---
+*Inventário real. Software que roda, resolve problemas, recompensa quem implementa.*
