@@ -82,35 +82,24 @@ Root causes fixed: label format (string[] → {name}[]), SLA `stagedAt` not popu
 
 ## 2b. Cross-Repo Pre-Commit & SSOT Compliance Audit
 
-### Pre-Commit Hook Status per Repository
+### Pre-Commit Hook Status per Repository (VERIFIED via GitHub)
 
-| Repository | Pre-Commit | Gates | tsc | gitleaks | Frozen Zones | SSOT Limits |
-|-----------|------------|-------|-----|----------|-------------|-------------|
-| **egos** (kernel) | ✅ 5 gates | Full | ✅ Fixed (types:bun) | ⚠️ Not installed | ✅ | ✅ |
-| **egos-lab** | ✅ Has hooks | Partial | ❓ Unknown | ❓ | ❓ | ❓ |
-| **carteira-livre** | ✅ Has hooks | Partial | ❓ Unknown | ❓ | ❓ | ❓ |
-| **forja** | ✅ Has hooks | Partial | ❓ Unknown | ❓ | ❓ | ❓ |
-| **852** | ❌ **MISSING** | None | N/A | N/A | N/A | N/A |
-| **br-acc** | ❌ **MISSING** | None (Python) | N/A | N/A | N/A | N/A |
-| **intelink** | ❓ Unknown | ❓ | ❓ | ❓ | ❓ | ❓ |
-| **egos-self** | ❓ Unknown | ❓ | ❓ | ❓ | ❓ | ❓ |
+| Repository | Pre-Commit | SHA Match | Gates | Key Differences from Kernel |
+|-----------|------------|-----------|-------|---------------------------|
+| **egos** (kernel) | ✅ 5 gates | Canonical | tsc, frozen, doc-prolif, gov-sync, SSOT limits | — (this is the SSOT) |
+| **852** | ✅ 6 checks | `03302b3` | typecheck, secrets (native), doc-prolif, SSOT size, handoff freshness, gov-sync hint | Has native secret pattern matching (no gitleaks needed), handoff freshness check, SSOT as WARNING not BLOCK |
+| **FORJA** | ✅ 6 checks | `03302b3` | Same as 852 | Identical SHA — exact copy of 852 hooks |
+| **egos-lab** | ✅ 9 checks | Different | session:guard, gem-hunter:freshness, codex review, security_scan, ssot_governance, disseminate, ui_sync, sync-check.sh, egos-gov | Most comprehensive — includes session guard, gem-hunter freshness, UI sync |
+| **br-acc** | ❓ Unverified | — | Python project | Needs ruff/mypy adapted hooks |
+| **intelink** | ❓ Unverified | — | — | — |
+| **egos-self** | ❓ Unverified | — | Kotlin | Needs Kotlin-adapted hooks |
 
-### SSOT Files per Repository
-
-| Repository | AGENTS.md | TASKS.md | .windsurfrules | .guarani/ | SYSTEM_MAP |
-|-----------|-----------|----------|---------------|-----------|------------|
-| **egos** (kernel) | ✅ 124L | ✅ 351L | ✅ 150L | ✅ Full | ✅ |
-| **egos-lab** | ✅ | ✅ | ✅ | ✅ Inherited | ✅ |
-| **carteira-livre** | ✅ | ✅ | ✅ | ✅ Inherited | ❓ |
-| **forja** | ✅ | ✅ | ✅ | ✅ Inherited | ❓ |
-| **852** | ❓ | ❓ | ❓ | ❓ | ❓ |
-| **br-acc** | ❓ | ❓ | ❓ | ❓ | ❓ |
-
-### Critical Findings
-1. **852 is production-critical but has NO pre-commit hooks** — security and governance gaps
-2. **br-acc needs Python-adapted pre-commit** (ruff/mypy instead of tsc)
-3. **Leaf propagation is DESIGNED but unverified** — `sync-all-leaf-repos.sh` exists but unclear if `~/.egos/sync.sh` is deployed on all machines
-4. **tsc gate was broken in kernel** — fixed with `types:bun` but leaf repos may have same issue
+### Key Findings (Corrected)
+1. **852 DOES have pre-commit hooks** (corrected from earlier audit) — same as FORJA
+2. **egos-lab has the MOST comprehensive hooks** (9 checks including security scan and UI sync)
+3. **Kernel ↔ Leaf hook divergence**: Kernel has frozen zones + strict SSOT blocking; leaves have warnings + handoff freshness
+4. **852/FORJA share identical hooks** (SHA `03302b3`) — suggests they were copied, not inherited via governance sync
+5. **tsc gate issue likely affects ALL repos** — if kernel needed `types:bun`, leaves probably do too
 
 ---
 

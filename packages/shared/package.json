@@ -1,8 +1,18 @@
 {
     "name": "@egos/shared",
     "version": "1.0.0",
-    "private": true,
+    "private": false,
     "type": "module",
+    "description": "EGOS shared modules — Brazilian AI safety (Guard Brasil), LLM orchestration, governance utilities",
+    "keywords": ["ai-safety", "guardrails", "lgpd", "pii", "brazilian", "atrian", "guard-brasil", "llm", "governance", "egos"],
+    "license": "MIT",
+    "author": "Enio Rocha <enio@egos.ia.br>",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/enioxt/egos.git",
+        "directory": "packages/shared"
+    },
+    "homepage": "https://egos.ia.br",
     "main": "src/index.ts",
     "types": "src/index.ts",
     "exports": {
@@ -16,7 +26,8 @@
         }
     },
     "scripts": {
-        "typecheck": "tsc --noEmit -p tsconfig.json"
+        "typecheck": "tsc --noEmit -p tsconfig.json",
+        "test": "bun test src/__tests__/"
     },
     "dependencies": {
         "zod": "3.22.4"
