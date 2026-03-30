@@ -1,0 +1,22 @@
+{
+  "name": "@egos/mcp-governance",
+  "version": "0.1.0",
+  "description": "EGOS governance MCP server — SSOT drift check, task listing, agent status, repo health",
+  "type": "module",
+  "private": true,
+  "main": "src/index.ts",
+  "bin": {
+    "mcp-governance": "./src/index.ts"
+  },
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.4.0"
+  }
+}

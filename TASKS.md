@@ -60,10 +60,9 @@
   - `egos/docs/PRESENTATION_VISUAL_IDENTITY.md` (Navy/Blue, Inter)
   - Need: single canonical guide, delete the other — Gabriel Cambraia as creative director
   - Prioridade: P2
-- [ ] **EGOS-133** Eagle Eye: consolidate duplicate EagleEye.tsx in br-acc
-  - br-acc has standalone copy (different API, NOT synced with egos-lab)
-  - Decision: delete br-acc copy or extract as independent micro-product
-  - Prioridade: P2
+- [x] **EGOS-133** Eagle Eye: consolidate duplicate EagleEye.tsx in br-acc — **COMPLETE (2026-03-30)**
+  - Decision: INDEPENDENT — br-acc/Querido Diário direct API vs egos-lab/pre-processed backend; both canonical
+  - Action: SSOT-VISIT header added to br-acc/frontend/src/pages/EagleEye.tsx
 - [ ] **EGOS-073** BRACC Operacional: blueprint para módulo policial PCMG
   - Spec completa em ChatGPT export (7 camadas, 20 módulos, break-glass access)
   - Guard Brasil como motor de validação MASP/PII
@@ -124,8 +123,8 @@
   - **Diagnostic:** `docs/strategy/EGOS_LAB_CONSOLIDATION_DIAGNOSTIC.md`
   - **Key findings:** 3 agents → kernel (ssot-auditor, ssot-fixer, drift-sentinel), nexus+nexus-market consolidation needed, shared symlink broken
 - [ ] EGOS-074: Execute the kernel-first consolidation of SSOT/governance surfaces from `egos-lab` into `egos` and eliminate duplicated docs, maps, workflows, and stale claims with explicit archive references
-- [ ] EGOS-075: Canonicalize the System Map control plane — one orchestrator contract, one machine map, one human map, freshness rules, and one cross-repo update flow
-- [ ] EGOS-076: Create the ecosystem classification registry for products/modules/ideas (`standalone`, `candidate`, `lab`, `internal_infra`, `archive`) and wire it into `TASKS.md`, `SYSTEM_MAP.md`, and `CAPABILITY_REGISTRY.md`
+- [x] EGOS-075: Canonicalize System Map — **COMPLETE (2026-03-30)** — `SYSTEM_MAP.md` v2.4.0: Freshness Rules (7 sections), Cross-Repo Update Flow (8 rules), Machine Map pointer
+- [x] EGOS-076: Ecosystem Classification Registry — **COMPLETE (2026-03-30)** — `ECOSYSTEM_CLASSIFICATION_REGISTRY.md` v2.0.0: 7 classes, 50+ surfaces (filesystem-verified), promotion gates
 - [ ] EGOS-077: Add the new-project gate for PRD, ICP, go-to-market, objective, success metric, and multi-model review mode with a recorded blocking-vs-advisory decision
 - [x] EGOS-078: Agent Claim Contract — `.guarani/orchestration/AGENT_CLAIM_CONTRACT.md` — 6-level taxonomy (component|tool|workflow|agent_candidate|verified_agent|online_agent) + proof matrix
 - [x] EGOS-079: Agent Claim Gate — `scripts/agent-claim-lint.ts` — lint agents.json, exit 1 on verified/online without proof, passes on current registry
@@ -140,8 +139,10 @@
 - [/] EGOS-098: Ingest and operationalize pragmatic multi-agent benchmark patterns (worktree isolation, parallel ticket lanes, QA loop, file-first context) into kernel governance with explicit keep/drop decisions — keep/drop contract drafted + GTM harvester agent added; pending contract enforcement and workflow wiring
 - [x] EGOS-099: Worktree Orchestration Contract — `.guarani/orchestration/WORKTREE_CONTRACT.md` — branch naming, 72h max, 24h abandonment, merge gates, EnterWorktree/ExitWorktree
 - [ ] EGOS-100: Define `Linear/Issue Sync Contract` (`/linear-sync`) with task decomposition schema, priority classes, and required evidence at PR gate
-- [ ] EGOS-101: Define `QA Loop Contract` (`/qa-loop`) using browser/devtools verification + test rerun policy + stop conditions
-- [ ] EGOS-102: Build executable 10-second operator map (replace text-heavy integration map with founder-grade control plane view)
+- [x] EGOS-101: Define `QA Loop Contract` (`/qa-loop`) using browser/devtools verification + test rerun policy + stop conditions — **COMPLETE (2026-03-30)**
+  - Contract: `.guarani/orchestration/QA_LOOP_CONTRACT.md` — L0-L3 levels, stop conditions, evidence format, rerun policy
+- [x] EGOS-102: Build executable 10-second operator map (replace text-heavy integration map with founder-grade control plane view) — **COMPLETE (2026-03-30)**
+  - Document: `docs/OPERATOR_MAP.md` — ASCII tables, live services, revenue path, active agents, open blockers, quick commands
 - [x] EGOS-131: Define `Integration Release Contract` for EGOS — **COMPLETE (2026-03-30)**
   - **Contract:** `.guarani/orchestration/INTEGRATION_RELEASE_CONTRACT.md`
   - **Executable Gate:** `scripts/integration-release-check.ts` + `bun run integration:check`
@@ -387,7 +388,9 @@
 - [ ] EGOS-071: Formalize cheap-first multi-model orchestration for Windsurf/Codex/Claude/Alibaba/OpenRouter with one coordinator, sequential routing, and reviewer proof-of-work
 - [ ] EGOS-072: Design anti-injection and least-privilege hardening for external-input workflows (issues, PRs, web, imported docs) before any high-trust automation
 - [ ] EGOS-086: Extract circuit breaker pattern from carteira-livre guardrails into `@egos/shared` as reusable module
-- [ ] EGOS-087: Build `@egos/mcp-governance` — custom MCP server for SSOT drift check, task listing, and deploy gates across all repos
+- [x] EGOS-087: Build `@egos/mcp-governance` — custom MCP server for SSOT drift check, task listing, and deploy gates across all repos
+  > **Arquivos:** `packages/mcp-governance/package.json`, `packages/mcp-governance/src/index.ts`, `packages/mcp-governance/README.md`
+  > - [x] SSOT-VISIT 2026-03-30: egos/packages/ → created mcp-governance → independent
 - [ ] EGOS-088: Build `@egos/mcp-memory` — custom MCP server for persistent conversation memory (Supabase/Redis backend, recall/store/search tools)
 - [ ] EGOS-089: Bridge Mycelium event bus to Redis Pub/Sub for cross-process agent communication (Phase 2 of MYCELIUM_NETWORK.md)
 - [ ] EGOS-090: Build first domain-specific MCP server (forja `@egos/mcp-erp` or carteira-livre `@egos/mcp-marketplace`) as proof-of-concept

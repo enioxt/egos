@@ -1,6 +1,6 @@
 # SYSTEM_MAP.md — EGOS Framework Core
 
-> **VERSION:** 2.3.0 | **UPDATED:** 2026-03-30
+> **VERSION:** 2.4.0 | **UPDATED:** 2026-03-30
 > **ROLE:** repo-local map for `/start` in the canonical kernel
 
 <!-- llmrefs:start -->
@@ -48,6 +48,36 @@
 - `egos` is the canonical kernel
 - `egos-lab` is the incubator and operations surface
 - Leaf repos consume governance and shared modules but keep domain truth local
+- **Machine Map (classification):** `docs/ECOSYSTEM_CLASSIFICATION_REGISTRY.md` — canonical classification for every surface (kernel/standalone/candidate/lab/internal_infra/archive/discard)
+
+## Freshness Rules
+
+| Section | Owner | Max Staleness | Trigger to Update |
+|---------|-------|--------------|-------------------|
+| API Map (Guard Brasil REST/MCP) | EGOS kernel | 7 days | Any deploy to Hetzner, port change, or new route |
+| Shared Modules table | EGOS kernel | 14 days | New package added to `packages/shared/src/` |
+| WhatsApp Runtime Architecture | EGOS kernel | 14 days | New Evolution API instance, new product integration |
+| Workflows table | EGOS kernel | 30 days | New `/slash` command or workflow version bump |
+| Cross-Repo Context | EGOS kernel | 30 days | New leaf repo added or classification changes |
+| Ecosystem Classification Registry | EGOS kernel | 30 days | Any new surface added or classification changed |
+| Guard Brasil GTM section | EGOS kernel | 7 days | Any milestone completed or blocker resolved |
+
+Staleness is measured from the `UPDATED` header date. If any section exceeds its max staleness, the `/doctor` command will emit a warning.
+
+## Cross-Repo Update Flow
+
+When a kernel change is made, the following leaf repos require notification (via `bun run governance:sync` or manual SSOT visit):
+
+| Kernel Change | Notify These Repos | Method |
+|--------------|-------------------|--------|
+| New `packages/shared/` module | 852, carteira-livre, intelink, forja, egos-lab | `governance:sync` + PR in leaf |
+| `.guarani/orchestration/` update | ALL leaf repos | `governance:sync:exec` |
+| `SSOT_REGISTRY.md` change | ALL leaf repos | `governance:sync:exec` |
+| `CAPABILITY_REGISTRY.md` change | egos-lab, 852, br-acc | Manual SSOT visit note |
+| New Integration adapter (`integrations/_contracts/`) | forja, 852, carteira-livre | `integration:check` + distribution bundle |
+| New Guard Brasil API route | Guard Brasil Web, egos-web | `docs/SYSTEM_MAP.md` update + API changelog |
+| CRCDM hook update | ALL repos (via `~/.egos/hooks/`) | `governance:sync:exec` |
+| Frozen zone added | ALL repos | `.windsurfrules` sync + AGENTS.md note |
 
 ## Current Kernel-Specific Surfaces
 
