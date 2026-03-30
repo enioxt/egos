@@ -1,8 +1,33 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 2.1.0 | **UPDATED:** 2026-03-25
+> **VERSION:** 2.2.0 | **UPDATED:** 2026-03-30
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
-> **Latest:** BLUEPRINT-EGOS Mission Control architecture + FORJA no-confirmation signup pattern
+> **Latest:** Guard Brasil API live at guard.egos.ia.br (4ms, CPF/RG/MASP/REDS) + br-acc rename script
+
+## Guard Brasil GTM Patterns (2026-03-30)
+
+### Docker Deploy from Monorepo
+- Dockerfile in `apps/api/Dockerfile` copies from both `packages/` and `apps/api/src/` — build context MUST be repo root
+- `rsync` with `--exclude` for `.git/__pycache__/data/` is the right tool for syncing code to VPS
+- `--env-file /absolute/path/.env` not `--env-file .env` when running docker compose from non-standard dir
+- Health check with `bun -e "fetch(...)"` works inside bun containers without installing curl
+
+### Caddy Dynamic Config Update
+- `docker exec infra-caddy-1 caddy reload --config /etc/caddy/Caddyfile` reloads without downtime
+- Append-to-Caddyfile via `cat >>` + `caddy reload` is safe for adding new virtual hosts
+- Use `grep -q 'domain'` before appending to prevent duplicate entries
+
+### Intelligent Rename Script Pattern
+- `sed -i` with `-e 's/specific/replacement/g'` chained from most specific → most broad prevents partial double-substitution
+- `diff -q file1 file2` returns 1 if different, 0 if same — use to skip unchanged files efficiently
+- Use `file "$path" | grep -qE "binary|ELF"` to skip binary files before text processing
+- `should_skip()` function with `case` statement is cleaner than nested if/fi for path exclusions
+- Skip the rename script itself (`[[ "$file" == *"rename-script.sh" ]] && continue`)
+
+### Guard Brasil API Key Management
+- `/proc/sys/kernel/random/uuid` generates UUID v4 on Linux without Python/uuidgen
+- Store in `.env` in deploy dir, reference via `--env-file /absolute/path/.env`
+- API key check: `if [ ! -f ".env" ]; then generate; else keep existing`
 
 ## Agent Operating Protocol (Self-Diagnostic v1.0)
 
