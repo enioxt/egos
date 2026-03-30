@@ -1,149 +1,180 @@
-# EGOS — Orchestration Kernel for Governed AI Agents
+# EGOS — Kernel de Orquestração para Agentes de IA Governados
 
+> **"Saímos de casa para nos doar."**
 > Rules govern agents. Agents enforce rules. Community evolves rules.
 
-EGOS is an open-source framework that provides governance, orchestration, and
-runtime infrastructure for AI-powered code agents. It is the invisible layer
-that makes agents think like governed systems.
+EGOS é o kernel open-source que fornece governança, orquestração e infraestrutura de runtime para sistemas de IA. É a camada invisível que faz agentes pensarem como sistemas governados — com rastreabilidade, conformidade LGPD e prova de trabalho em cada decisão.
 
-## What EGOS Provides
+---
 
-- **Governance DNA** (`.guarani/`) — Identity, preferences, orchestration
-  protocol, quality gates, and meta-prompt system
-- **Agent Runtime** — Registry-based discovery, dry-run/execute modes,
-  correlation IDs, JSONL structured logging, event bus
-- **Multi-LLM Routing** — Alibaba Qwen (primary), OpenRouter/Gemini (fallback),
-  with cost tracking and provider abstraction
-- **Frozen Zones** — Protected core files with pre-commit enforcement
-- **SSOT Enforcement** — File size limits, drift checks, and gitleaks
-- **Stitch-First UI Flow** — Screen ideation through Google Stitch with prompt-pack + `.zip` intake contract before coding
+## Produto Principal: Guard Brasil
+
+**Guard Brasil** (`@egos/guard-brasil`) é o produto comercial construído sobre o kernel EGOS.
+Protege sistemas de IA contra vazamento de dados pessoais brasileiros em tempo real.
+
+```bash
+# SDK (open source, MIT)
+npm install @egos/guard-brasil
+
+# REST API (hosted, R$99/mês)
+curl -X POST https://guard.egos.ia.br/v1/inspect \
+  -H "Authorization: Bearer SEU_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"text": "CPF do suspeito: 123.456.789-00"}'
+# → {"safe":false,"output":"CPF do suspeito: [CPF REMOVIDO]","meta":{"durationMs":4}}
+```
+
+**Detecta e mascara:** CPF, RG, MASP, REDS, número de processo, placa, telefone, e-mail e mais 8 categorias de PII brasileiro.
+
+**Documentação comercial:**
+- [1-pager PT-BR](docs/strategy/GUARD_BRASIL_1PAGER.md)
+- [Demo script 30min](docs/strategy/GUARD_BRASIL_DEMO_SCRIPT.md)
+- [Tiers e preços](docs/strategy/FREE_VS_PAID_SURFACE.md)
+
+---
+
+## O que o Kernel Provê
+
+| Módulo | Descrição |
+|--------|-----------|
+| **Governance DNA** (`.guarani/`) | Identidade, protocolo de orquestração, quality gates, meta-prompts |
+| **Agent Runtime** | Registry-based discovery, dry-run/execute, correlation IDs, event bus |
+| **Guard Brasil Stack** | ATRiAN ético + PII Scanner BR + LGPD masking + Evidence Chain |
+| **Multi-LLM Routing** | Alibaba Qwen (primário), OpenRouter/Gemini (fallback), cost tracking |
+| **Frozen Zones** | Arquivos protegidos com pré-commit enforcement |
+| **SSOT Enforcement** | Limites de arquivo, drift checks, gitleaks |
+| **MANUAL_ACTIONS** | Rastreio de bloqueios manuais, lido obrigatoriamente no `/start` |
+
+---
 
 ## Quick Start
 
 ```bash
 git clone https://github.com/enioxt/egos.git
 cd egos
-bash setup.sh
-bun typecheck
-bun governance:check
-bun agent:list
+bun install
+bun run doctor              # valida ambiente (23 checks)
+bun run governance:check    # verifica drift
+bun run agent:list          # lista agentes registrados
 ```
 
-## Operational Workflows & PR Discipline
+**Testar Guard Brasil localmente:**
+```bash
+bun run packages/guard-brasil/src/demo.ts
+bun test packages/guard-brasil/src/guard.test.ts   # 15/15 pass
+```
 
-Canonical operational workflows live in `.agents/workflows/`:
+---
 
-- `/start` → `.agents/workflows/start-workflow.md`
-- `/pr` → `.agents/workflows/pr-prep.md`
-- `/sync` → `.agents/workflows/sync.md`
+## Workflows Operacionais
 
-PR preparation and merge gate commands:
+Workflows canônicos em `.agents/workflows/`:
+
+| Comando | Arquivo | Descrição |
+|---------|---------|-----------|
+| `/start` | `.agents/workflows/start-workflow.md` | Ativação + MANUAL_ACTIONS check |
+| `/end` | `/disseminate` | Handoff + docs + commit |
+| `/diag` | `.windsurf/workflows/diag.md` | Diagnóstico completo do ecossistema |
+| `/pr` | `.agents/workflows/pr-prep.md` | Preparação de PR com evidence |
 
 ```bash
-bun pr:pack --title "[AREA] summary" --out /tmp/pr-pack.md
-bun pr:gate --file /tmp/pr-pack.md
+bun run pr:pack --title "[AREA] summary" --out /tmp/pr-pack.md
+bun run pr:gate --file /tmp/pr-pack.md
 ```
 
-`pr:gate` enforces:
-- `Signed-off-by` footer
-- Windsurf validation evidence
-- Antigravity validation evidence
-- test rerun evidence after IDE-assisted changes
+---
 
-## Configuring Instructions in Codex
-
-Use this baseline in Codex project instructions:
-
-1. Always load these files first: `AGENTS.md`, `TASKS.md`, `.windsurfrules`, `docs/SYSTEM_MAP.md`.
-2. Treat `.agents/workflows/` as canonical slash-command source (`/start`, `/pr`, `/disseminate`, `/sync`).
-3. For governance propagation in container environments, use:
-   - `EGOS_KERNEL=/workspace/egos bun run governance:sync:exec`
-   - `EGOS_KERNEL=/workspace/egos bun run governance:check`
-4. Require signed PR packs:
-   - `bun run pr:pack --title "[AREA] summary" --out /tmp/pr-pack.md`
-   - `bun run pr:gate --file /tmp/pr-pack.md`
-
-## Architecture
+## Arquitetura
 
 ```
 egos/
-├── .guarani/           # Governance DNA
+├── .guarani/               # Governance DNA (identity, orchestration, prompts)
 ├── agents/
-│   ├── runtime/        # Runner + Event Bus (FROZEN)
-│   ├── registry/       # Agent definitions (SSOT)
-│   └── cli.ts          # Agent CLI
-├── packages/shared/    # Core utilities (LLM, rate limiter)
-├── .windsurfrules      # Active governance
-├── frozen-zones.md     # Protected files
-├── AGENTS.md           # System map
-└── TASKS.md            # Live roadmap
+│   ├── runtime/            # Runner + Event Bus (FROZEN)
+│   ├── registry/           # Agent definitions SSOT (13 agents)
+│   └── agents/             # Implementations (ssot-auditor, drift-sentinel...)
+├── packages/
+│   ├── guard-brasil/       # @egos/guard-brasil v0.1.0 — produto comercial
+│   └── shared/             # ATRiAN, PII Scanner, Evidence Chain, LLM router
+├── apps/
+│   └── api/                # Guard Brasil REST API (Bun, porta 3099)
+│       ├── src/server.ts   # POST /v1/inspect, Bearer auth, rate limiting
+│       ├── src/mcp-server.ts # MCP stdio (guard_inspect, guard_scan_pii...)
+│       └── deploy.sh       # Deploy 1-comando para Hetzner
+├── scripts/                # doctor.ts, governance-sync.sh, egos-repo-health.sh
+├── MANUAL_ACTIONS.md       # ⚠️ Bloqueios que só o humano resolve — ler primeiro
+├── TASKS.md                # Roadmap vivo (EGOS-001 → EGOS-130)
+└── AGENTS.md               # Mapa do sistema
 ```
 
-## Ecosystem
+---
 
-EGOS is the kernel. Leaf repos consume it:
+## Ecossistema (Repos Folha)
 
-| Repo | Purpose |
-|------|---------|
-| [egos-lab](https://github.com/enioxt/egos-lab) | Lab + incubator (29 agents, apps, experiments) |
-| [852](https://github.com/enioxt/852) | Institutional intelligence chatbot |
-| [EGOS-Inteligencia](https://github.com/enioxt/EGOS-Inteligencia) | Public-data intelligence graph |
-| [carteira-livre](https://github.com/enioxt/carteira-livre) | Production SaaS marketplace |
+| Repo | Propósito | Status |
+|------|-----------|--------|
+| [egos-lab](https://github.com/enioxt/egos-lab) | Lab + incubadora (29 agentes) | Ativo |
+| [852](https://github.com/enioxt/852) | Chatbot institucional segurança pública | Produção |
+| [EGOS-Inteligencia](https://github.com/enioxt/EGOS-Inteligencia) | Grafo de inteligência de dados públicos BR | Renomeando |
+| [carteira-livre](https://github.com/enioxt/carteira-livre) | Marketplace SaaS | Produção |
+| [FORJA](https://github.com/enioxt/forja) | ERP Chat-First para pequenos negócios | MVP |
 
-## Business Foundation (Operator-First)
+---
 
-This is the canonical business baseline before scaling implementation.
+## Infraestrutura de Produção
 
-### 1) Objective
+**VPS:** Hetzner 204.168.217.125 — 12 containers Docker ativos
 
-Build one flagship governed AI product that solves a high-value, high-frequency
-compliance/decision problem in Brazil with auditable outputs and low operating cost.
+| Serviço | Endpoint | Status |
+|---------|----------|--------|
+| guard-brasil-api | guard.egos.ia.br/v1/inspect *(DNS pendente)* | ✅ Healthy |
+| 852-app | 852.egos.ia.br | ✅ Healthy |
+| bracc-neo4j | 127.0.0.1:7474 | ✅ Healthy |
+| infra-caddy | TLS automático | ✅ Up |
 
-### 2) Problem to Solve
+**Deploy Guard Brasil API:**
+```bash
+bash apps/api/deploy.sh          # deploy completo
+bash apps/api/deploy.sh --logs   # deploy + tail logs
+```
 
-Teams using multiple AI tools struggle with:
-- non-auditable decisions,
-- prompt inconsistency across environments,
-- weak provenance of who changed what and where,
-- fragmented governance and duplicated standards.
+---
 
-### 3) Personas
+## Monetização Guard Brasil
 
-- **Operator/Founder:** needs speed + control + proof-of-work.
-- **Compliance/SecOps lead:** needs traceability, policy enforcement, and risk gates.
-- **Engineering lead:** needs reusable modules, low drift, and predictable delivery.
+| Tier | Preço | Limite |
+|------|-------|--------|
+| Open Source SDK | Gratuito | `npm install @egos/guard-brasil` |
+| Starter API | R$99/mês | 100 req/min |
+| Pro + Dashboard | R$499/mês | Sem limite + auditoria |
+| Enterprise | Sob consulta | SLA 99.9%, on-premise |
+| Policy Packs | R$2.990/ano | Segurança Pública, Judiciário, Saúde, Financeiro |
 
-### 4) Go-To-Market (GTM) — Initial
+---
 
-- **Wedge:** governance-as-code + provenance signatures + Brazilian compliance defaults.
-- **Entry offer:** implementation + audit-ready setup in pilot repositories.
-- **Expansion:** reusable packages/MCP servers (`@egos/shared`, governance/memory MCP).
-- **Proof:** measurable reduction in drift, incident risk, and manual review time.
+## Bloqueios Manuais Ativos
 
-### 5) Documentation & Rules Order (Mandatory)
+Arquivo: [`MANUAL_ACTIONS.md`](MANUAL_ACTIONS.md) — atualizado automaticamente.
 
-1. Define objective/problem/personas/GTM in SSOT.
-2. Define policy contracts (governance + signatures + claim gates).
-3. Run adoption via `/start` + `governance:sync:exec` + `governance:check`.
-4. Only then expand to new agents/products.
+| ID | Ação | Tempo | Prioridade |
+|----|------|-------|-----------|
+| M-001 | `npm login` + `npm publish` em `packages/guard-brasil/` | 5 min | 🔴 |
+| M-002 | DNS A `guard → 204.168.217.125` em `egos.ia.br` | 2 min | 🔴 |
+| M-003 | `bash scripts/rename-to-egos-inteligencia.sh --execute` | 15 min | 🟡 |
+| M-005 | `docker network rename infra_bracc infra_egos_inteligencia` | 5 min | 🟡 |
+| M-006 | `NPM_TOKEN` no GitHub Secrets | 5 min | 🟢 |
+| M-007 | 20 emails outreach CTOs govtech BR | 2h | 🟢 |
 
-### 6) Next System to Build (Knowledge Compiler)
+---
 
-Create a governed "market intelligence compiler" that ingests books, papers,
-codebases, benchmark reports, and platform docs, then normalizes them into:
-- decision rules,
-- implementation patterns,
-- risk controls,
-- testable playbooks.
+## Contribuindo
 
-All outputs must be source-linked, versioned, and attached to explicit target
-problem statements (no generic knowledge dumps).
+Ver [CONTRIBUTING.md](CONTRIBUTING.md). Todos os commits passam por:
+- `gitleaks` — detecção de segredos
+- `tsc --noEmit` — typecheck estrito
+- frozen zones check — proteção de arquivos canônicos
+- governance drift check — `~/.egos/` sync
 
-## Contributing
+## Licença
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for governance rules.
-All contributions must pass pre-commit hooks (gitleaks + tsc + frozen zones + SSOT drift).
-
-## License
-
-MIT
+MIT — [`@egos/guard-brasil`](packages/guard-brasil/) também MIT.
