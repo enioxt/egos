@@ -9,80 +9,56 @@
 **Status:** ARCHITECTURE COMPLETE | CRITICAL: M-007 OUTREACH
 
 **Completed:**
-- [x] GTM Pivot: REJECTED R$99/mo → TRANSPARÊNCIA RADICAL (pay-per-use + real-time IA insights via Qwen)
-  - R$0.02/call base, Revenue: R$495/mo → R$7.980/mo Month 3
-  - Document: `docs/strategy/GUARD_BRASIL_TRANSPARENCIA_RADICAL.md`
-- [x] Architecture Stack: 4-layer (Client SDK/API/Dashboard → Core HTTP/MCP/Telemetry → Data Supabase → Analytics WebSocket)
-  - Document: `GUARD_BRASIL_ARCHITECTURE_STACK.md`
-- [x] 3-Week Roadmap: Week 1 (M-007 + Dashboard MVP), Week 2 (demos + IA reports), Week 3 (5 pilots + production)
-  - Document: `ROADMAP_3WEEKS_GUARD_BRASIL_GTM.md`
-- [x] Sales Kit: 1-pager, demo script, outreach templates (20 CTOs)
-- [x] M-001 ✅ npm publish, M-002 ✅ DNS, M-004 ✅ GitHub rename
+- [x] GTM Pivot: TRANSPARÊNCIA RADICAL pay-per-use model
+- [x] Architecture Stack: 4-layer (Client → Core → Data → Analytics)
+- [x] 3-Week Roadmap + Sales Kit + M-001/M-002/M-004
+- [x] Pricing v2.0: Data-driven from 8 competitors (Grepture, Cloak, Protecto, etc.)
+  - Corrected R$0.02 → R$0.0049/call (was 7x overpriced). Tiers: Free/49/199/499
+  - Document: `docs/strategy/GUARD_BRASIL_PRICING_RESEARCH.md`
+- [x] X.com automation plan: API research, 5 drafts, pipeline spec
+  - Document: `docs/strategy/XCOM_SOCIAL_AUTOMATION_PLAN.md`
+- [x] 3 dashboard versions (code, not docs): Giant/Lean/Radical
+  - Code: `apps/guard-brasil-web/components/DashboardV{1,2,3}*.tsx`
+- [x] Landing page with 6 interactive examples + pricing section
+  - Code: `apps/guard-brasil-web/app/page.tsx`
+- [x] TELEMETRY_SSOT.md: Canonical schema + 5 repo extensions
+- [x] 5 ChatGPT chats analyzed: PRI, Agent SSOT, House, Multi-LLM, BRACC
 
 **Critical Blocker:**
-- [ ] **M-007** Send 5+ emails TODAY (only action blocking revenue)
+- [ ] **M-007** Send 5+ outreach emails (only action blocking revenue)
+
+**New Tasks (from ChatGPT analysis):**
+- [ ] **EGOS-070** Implement PRI (Protocolo de Recuo por Ignorância) as safety gate
+  - Artefatos: `protocols/pri.md`, `guards/pri.ts`, `policies/pri.rego`
+  - Conexão: Safety gate para Guard Brasil API (BLOCK/DEFER/ESCALATE)
+  - Prioridade: P1 (alto impacto, baixo custo)
+- [ ] **EGOS-071** Resolver SSOT de agentes: reclassificar "29 agentes" com schema 22 campos
+  - Adicionar `kind` field: verified_agent/agent_candidate/workflow/tool/dormant
+  - Adicionar: runtime_proof, telemetry_source, cost_source, last_duration_ms
+  - Prioridade: P1
+- [ ] **EGOS-072** Implementar fórmula de roteamento multi-LLM U(m,t)
+  - Formula: `U = wc*Capability + wr*Reliability - ck*Cost - cq*QuotaRisk`
+  - Lanes: Planner (GPT), Executor (Claude), Cheap (nano/Flash), Soberano (Qwen)
+  - Primeiro consumer: Guard Brasil API
+  - Prioridade: P2
+- [ ] **EGOS-073** BRACC Operacional: blueprint para módulo policial PCMG
+  - Spec completa em ChatGPT export (7 camadas, 20 módulos, break-glass access)
+  - Guard Brasil como motor de validação MASP/PII
+  - Prioridade: P2 (aguarda contexto institucional)
 
 **Handoff:** `docs/_current_handoffs/handoff_guardbrasil_gtm.md`
 
 ---
 
-### Summary: Session 2026-03-30 (Secret Scanning Alert Investigation + Remediation - COMPLETE)
-
-**Completed:**
-- [x] Investigate GitHub secret scanning alert in `enioxt/852` repository
-  - **Alert:** Supabase personal access token exposed
-  - **Confirmed leak:** Token `sbp_d827250c882cf4b8be7f86fd9812bfe71c1d60bf` found in:
-    - `docs/_current_handoffs/852_CORE_001_MIGRATION_STATUS_2026-03-28.md`
-    - `TASK_852_CORE_001_STATUS.txt`
-  - **Status:** SANITIZED
-  - **Action:** Replaced with placeholder `YOUR_SUPABASE_ACCESS_TOKEN`
-  
-- [x] EGOS-XXX: Systemic hardening — prevent future secret leaks across EGOS mesh
-  - **Root cause:** Universal pre-commit hook lacked secret scanning (only CRCDM logging)
-  - **Fix:** Enhanced `~/.egos/hooks/pre-commit` with:
-    - `gitleaks protect --staged` with config fallback
-    - Regex fallback for `sbp_`, `github_pat_`, `sk_live/test`, `AIza`, private keys
-  - **Updated files:**
-    - `.egos/hooks/pre-commit` — security gate added
-    - `.egos/sync.sh` — automatic hook installation in leaf repos
-    - `.gitleaks.toml` — Supabase token detection rule
-    - `scripts/governance-sync.sh` — hooks propagation
-  - **Dissemination:** Ran `bash /home/enio/.egos/sync.sh`
-  - **Repos synchronized:** 852, egos-lab, carteira-livre, br-acc, forja, smartbuscas
-  - **Status:** ACTIVE — all repos now use hardened pre-commit
-
-**Manual actions required:**
-- [ ] Revoke/rotate exposed Supabase token in dashboard (P0 — user action)
-- [ ] Close GitHub security alert (P0 — user action)
-- [ ] Commit/push hardening changes to remote (P1)
-
-**Handoff:** `docs/_current_handoffs/handoff_2026-03-30.md`
+### Summary: Session 2026-03-30 (Secret Scanning + Hardening - COMPLETE)
+- [x] Secret leak sanitized (Supabase token in 852 handoff docs)
+- [x] Hardened pre-commit: gitleaks + regex fallback across all repos
+- [ ] Revoke/rotate exposed Supabase token (user action)
 
 ---
 
----
-
-### Summary: Session 2026-03-26 (Autonomous Merge + Governance Sync - COMPLETE)
-
-**Completed:**
-- [x] PR #4 Merge: Create and organize master plan for EGOS — autonomous merge with conflict resolution
-  - **Status:** MERGED & VALIDATED
-  - **Commit:** 3932067 (Merge PR #4)
-  - **Conflicts Resolved:** 5 files (.guarani/prompts/triggers.json, .windsurf/workflows/start.md, AGENTS.md, docs/SYSTEM_MAP.md, package.json)
-  - **Resolution Strategy:** Accepted incoming version (--theirs) for all conflicts — latest PR branch state aligned with governance standards
-  - **Validations Passed:**
-    - TypeScript type check: ✅ PASSED
-    - Test suite: 43 pass, 0 fail ✅ PASSED
-    - Governance sync: 2 files synced, 0 drift ✅ PASSED
-    - Pre-commit hooks: All 5 checks ✅ PASSED
-  - **Governance Status:** Zero drift detected post-merge; synchronized to ~/.egos/ with 45 base files verified
-  - **Features Merged:**
-    - Cross-repository PR audit script (pr:audit)
-    - Canonical mycelium workflow for autonomous governance
-    - Global workspace configuration infrastructure
-    - Session handoff + environment registry
-    - Leaf Governance Audit Pattern from carteira-livre deep audit
-  - **Report:** MERGE_REPORT_PR4.md
+### Summary: Session 2026-03-26 (PR #4 Merge + Governance Sync - COMPLETE)
+- [x] PR #4 merged (commit 3932067), 5 conflicts resolved, all validations passed
 
 ---
 
