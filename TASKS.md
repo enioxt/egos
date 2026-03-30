@@ -269,9 +269,10 @@
 
 **Phase 1 (Weeks 1-4): Foundation — Persistence + Vision Pipeline + 3D Generation**
 
-- [ ] ARCH-001: Fix critical API key exposure (move to `.env`)
-  - Effort: 15min | Owner: any
-  - Files: `server.ts` line 13 → use `process.env.OPENROUTER_API_KEY`
+- [x] ARCH-001: Fix critical API key exposure (move to `.env`) — **COMPLETE (2026-03-30)**
+  - Moved to `process.env.OPENROUTER_API_KEY` in server.ts
+  - Deployed to Hetzner VPS: port 3098, container `egos-arch`, health check passing
+  - Caddy configured: `arch.egos.ia.br` → 127.0.0.1:3098
 
 - [ ] ARCH-002: Setup Supabase database schema (persistence foundation)
   - Effort: 3h | Owner: full-stack
@@ -394,10 +395,11 @@
 | Sketch quality highly variable | HIGH | Add feedback loop: user can refine sketch if geometry bad |
 
 **Immediate Actions This Week (2026-03-30):**
-- [ ] Move OpenRouter API key to `.env` (15min) — **CRITICAL**
+- [x] Move OpenRouter API key to `.env` — **COMPLETE (2026-03-30)**
+- [x] Deploy ARCH to Hetzner VPS (Docker + Caddy) — **COMPLETE (2026-03-30)**
+- [ ] Add DNS A record for `arch.egos.ia.br` → 204.168.217.125 (**MANUAL**)
 - [ ] Initialize Supabase project and create migrations (3h)
 - [ ] Create GitHub project board + link ARCH-001 through ARCH-006 issues
-- [ ] Schedule team kickoff (clarify stack choice: Three.js vs Babylon for 3D rendering)
 
 ---
 
