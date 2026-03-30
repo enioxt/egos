@@ -4,6 +4,44 @@
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
 > **Latest:** WhatsApp SSOT integration from forja; Integration Memory pattern; Multi-channel architecture canonical
 
+## TRANSPARÊNCIA RADICAL Pricing Pattern (2026-03-30)
+
+### What is TRANSPARÊNCIA RADICAL?
+Pay-per-use pricing model (vs fixed subscription) that shows customers **every API call, every cost, every decision** in real-time via dashboard + IA explanations. Goal: maximize trust via radical transparency.
+
+### Why it works better than subscriptions
+- **Govtech budgets unpredictable:** Monthly spend varies; fixed R$99 sounds cheap but commits budget
+- **Removes price uncertainty:** Pay-per-use means "I only pay for what I use" — powerful signal
+- **Builds trust:** Opaque competitors (Twilio, Stripe) hide costs in aggregated invoices; we show everything
+- **IA explanation layer:** Qwen daily reports that explain *why* costs changed ("you scanned 500 extra CPFs, added 2 new policy packs")
+- **Viral differentiator:** Customers brag about transparency; becomes competitive advantage
+
+### Revenue math (R$0.02/call base rate)
+- 5,000 calls/month/customer = R$100/mo (Starter)
+- 50,000 calls/month = R$1,000/mo (approach Enterprise)
+- Dashboard/IA insights = R$299/mo Pro tier
+- Month 1: 5 Starter customers = R$500/mo → break-even Month 2 (infrastructure ~R$650/mo)
+- Month 3: 35+ customers → R$7,980/mo (compound growth from referrals)
+
+### Technical foundation
+- **Telemetry layer:** TelemetryRecorder.recordEvent() in Guard Brasil API → Supabase guard_events table
+- **Schema:** api_key_hash (PII), event_type (enum: api_call, pii_scan, atrian_check), cost_usd, duration_ms, metadata (JSONB)
+- **Real-time:** Supabase Realtime WebSocket pushes events to dashboard as they happen
+- **IA reports:** Qwen-plus via MCP generates daily summaries (pattern analysis, cost trend, recommendations)
+- **Compliance:** All customer data hashed (api_key_hash not API key itself); 1-year retention in Supabase
+
+### Key files
+- `docs/strategy/GUARD_BRASIL_TRANSPARENCIA_RADICAL.md` — complete pricing spec + revenue projections
+- `GUARD_BRASIL_ARCHITECTURE_STACK.md` — 4-layer technical blueprint (Client → Core → Data → Analytics)
+
+### Gotchas
+- Dashboard WebSocket auth: embed JWT in connection string or use RLS policies on guard_events
+- Cost calculation: must track duration_ms + token_count to compute accurate cost (not just call count)
+- Qwen report generation: batch daily (not real-time) to avoid API quota burn; schedule via Edge Function
+- Customer data isolation: use api_key_hash as partition key; never expose raw API keys in logs/dashboard
+
+---
+
 ## Guard Brasil GTM Patterns (2026-03-30)
 
 ### Docker Deploy from Monorepo

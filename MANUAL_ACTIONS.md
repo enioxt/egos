@@ -89,12 +89,23 @@
 
 ---
 
-## 🟢 AGORA BLOQUEIO APENAS M-007 (Outreach)
+## 🔴 CRÍTICO: APENAS M-007 BLOQUEIA RECEITA (Outreach)
+
+**Status:** PRONTO PARA EXECUTAR HOJE (2026-03-30)
 
 Próximas 5 emails de outreach para CTOs de govtech:
 - Templates prontos em `docs/strategy/OUTREACH_EMAILS.md`
 - Cada email: 1-pager + DEMO_SCRIPT + convite para demo
 - Target: 20 CTOs, começar com 5
+
+**Caminho crítico para receita:**
+1. M-007 (5 emails) → HOJE
+2. Respostas positivas (48h esperadas) → 3-5 respostas
+3. Chamadas de demo (3-5 dias) → booking calls usando DEMO_SCRIPT
+4. LOIs (1-2 semanas) → assinatura + pilots
+5. Receita (M1) → R$500+/mo
+
+**Dependências:** NENHUMA — pode executar imediatamente
 
 ## Histórico de Ações Concluídas
 

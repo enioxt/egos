@@ -54,12 +54,18 @@
 - Sync: `scripts/governance-sync.sh`, `scripts/link-ssot-files.sh`
 - Utilities: `scripts/oracle-instance-launcher/` (Python OCI launcher with AD retry + capacity-aware handling)
 - Validation: `bun run typecheck`, `bun run agent:lint`, `bun run governance:check`
-- Agents: 
+- Agents:
   - `dep_auditor`, `archaeology_digger`, `chatbot_compliance_checker`, `context_tracker`
   - `ethik_agent`: x402 Tokenomics, GCP Dynamic Key Gateway, and Donation Engine
   - `atrian_agent`: Ethical Compliance Gate
   - `mycelium_agent`: Event Bus and Mesh Logging
 - Docs: `docs/concepts/mycelium/`, `docs/archaeology/`, `docs/modules/`
+- **Guard Brasil GTM (2026-03-30):**
+  - `docs/SESSION_GUARDBRASIL_DIAGNOSTIC.md` — session diagnostic summary
+  - `docs/_current_handoffs/handoff_guardbrasil_gtm.md` — complete GTM handoff (architecture, revenue math, critical blocker M-007)
+  - `docs/strategy/GUARD_BRASIL_TRANSPARENCIA_RADICAL.md` — pricing model spec (pay-per-use + IA reports)
+  - `docs/_current_handoffs/GUARD_BRASIL_ARCHITECTURE_STACK.md` — 4-layer technical blueprint
+  - `docs/_current_handoffs/ROADMAP_3WEEKS_GUARD_BRASIL_GTM.md` — week-by-week execution plan
 
 ## Shared Modules (@egos/shared)
 
