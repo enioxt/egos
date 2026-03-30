@@ -1,8 +1,102 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 2.4.0 | **UPDATED:** 2026-03-30
+> **VERSION:** 2.5.0 | **UPDATED:** 2026-03-30
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
-> **Latest:** WhatsApp SSOT integration from forja; Integration Memory pattern; Multi-channel architecture canonical
+> **Latest:** Governance sprint — SSOT Visit Protocol, Agent Claim Contract, 5 MCP tools, Circuit Breaker, 16 tasks closed
+
+## SSOT Visit Protocol Pattern (2026-03-30)
+
+### Problem
+Large repos accumulate "lost gems" — files created in one session, never referenced again, invisible to future LLM context windows. Cross-repo work generates silent duplicates with no disposal record.
+
+### Solution
+Every contextually distant file read triggers a mandatory log entry:
+```
+- [x] SSOT-VISIT [date]: [path] → [what extracted] → [disposition]
+```
+Disposition tags: `archived` | `merged` | `kept-as-ref` | `superseded` | `independent` | `gem-found` | `stale-confirmed`
+
+### Triggers (intra-repo)
+- File in `archive/`, `docs/`, `legacy/`, `old/`
+- File >2 directory levels from CWD
+- File found via grep/search (not direct navigation)
+- File not committed in >30 days
+
+### Enforcement surfaces
+- `/start`: SSOT Gem Scan (30s advisory)
+- `/end`: Phase 4.2 SSOT Visit Audit (BLOCKING)
+- `/disseminate`: Step 0 before propagation
+- Pre-commit: warn on cross-repo path refs without visit log
+
+### Key insight
+"If you read it, you touched it. If you touched it, log it." — the log IS the disposal record.
+SSOT: `.guarani/orchestration/DOMAIN_RULES.md §7`
+
+---
+
+## Parallel Agent Kernel Execution Pattern (2026-03-30)
+
+### What
+5 independent agents run in parallel on different governance domains. Each agent: reads its domain, writes deliverables, commits, does NOT push. Main agent coordinates push.
+
+### Why it works
+- Pre-commit hooks prevent broken commits — each agent validates before committing
+- Agents that touch overlapping files (same TASKS.md) resolve via git's line-level merge
+- Push coordination eliminates remote conflicts — only one push gate
+
+### Observed: concurrent commit hash collision
+Two agents reported the same commit hash (`acaf52a`) — one wrote the 075/076 docs, another the mcp-governance package. Git merged both changes into one commit because they ran on the same branch at the same time. The commit message reflects only one agent's task, but both sets of files are in the commit (verify with `git show <hash> --stat`).
+
+**Mitigation:** Use worktrees (one per agent) for true isolation when commit messages matter. For pure-doc agents, concurrent commits are acceptable.
+
+### Template
+```
+Agent 1: domain A (docs only)
+Agent 2: domain B (docs only)
+Agent 3: domain C (code — needs isolated worktree)
+Main: read results, push, verify
+```
+
+---
+
+## Agent Claim Taxonomy Pattern (2026-03-30)
+
+### The 6 levels (in order of evidence required)
+```
+component      → no registration, no exec, internal helper
+tool           → registered, has entrypoint, no loop
+workflow       → registered, multi-step, no loop
+agent_candidate → has entrypoint + dry mode, no eval yet
+verified_agent  → entrypoint + eval + telemetry + runtime_proof
+online_agent    → verified + persistent loop + monitoring
+```
+
+### Key law
+**0 verified_agents in the EGOS kernel is correct and honest.** The kernel has tools. Honesty about capability level prevents "agent theater" — marketing claims not backed by runtime evidence.
+
+### Anti-pattern to avoid
+Calling anything that wraps an LLM call an "agent." An LLM call is a tool. An agent has: loop mechanism + trigger + eval + observability + runtime proof.
+
+SSOT: `.guarani/orchestration/AGENT_CLAIM_CONTRACT.md`
+
+---
+
+## Eagle Eye Surgery Pattern (2026-03-30)
+
+### Problem
+Product with identity crisis: 4 different ICPs, 4 different GTMs, mixed into one repo. Aspirational docs (SEO_STRATEGY, GAMIFICATION_REPORT, TOURISM_MODULE) made the product look unfocused to any technical evaluator.
+
+### Surgery checklist
+1. Define ONE ICP (one sentence)
+2. Kill all docs serving other ICPs → `archive/killed-docs/`
+3. Fix hardcoded mock data with inflated numbers (28 → 15 territories)
+4. Rewrite README with honest one-liner + real metrics
+5. Update TASKS.md with what was killed and why
+
+### Result
+5 doc files killed, README → honest, dashboard mock corrected, ICP locked: "early-warning procurement intelligence for BR gov suppliers."
+
+---
 
 ## TRANSPARÊNCIA RADICAL Pricing Pattern (2026-03-30)
 

@@ -1,9 +1,9 @@
 # EGOS Capability Registry
 
-> **VERSION:** 1.6.0 | **UPDATED:** 2026-03-30
+> **VERSION:** 1.7.0 | **UPDATED:** 2026-03-30
 > **PURPOSE:** Master index of all capabilities across the EGOS ecosystem
 > **SSOT STATUS:** This file IS the canonical capability map
-> **LATEST:** WhatsApp Integration SSOT integrated from forja; Multi-channel runtime architecture canonical
+> **LATEST:** Kernel governance sprint — Agent Claim Contract, MCP servers, Circuit Breaker, SSOT Visit Protocol v2
 
 ---
 
@@ -97,6 +97,21 @@ Each capability has:
 | API Registry Check | `egos-lab/scripts/ssot-api-registry-check.ts` | A | egos-lab | — | `governance`, `api`, `drift` |
 | Orchestration Pipeline (7-phase) | `.guarani/orchestration/PIPELINE.md` | A | ALL | — | `governance`, `pipeline`, `frozen` |
 | Frozen Zones | `egos/.windsurfrules` | A | ALL | — | `governance`, `frozen`, `security` |
+| **SSOT Visit Protocol v2** | `.guarani/orchestration/DOMAIN_RULES.md §7` | A | egos (kernel law) | ALL | `governance`, `ssot`, `cross-repo`, `intra-repo` |
+| **Agent Claim Contract** | `.guarani/orchestration/AGENT_CLAIM_CONTRACT.md` | A | egos | ALL | `governance`, `agent`, `taxonomy`, `proof` |
+| **Agent Claim Linter** | `scripts/agent-claim-lint.ts` | A | egos | egos-lab | `governance`, `agent`, `lint`, `ci` |
+| **Ecosystem Classification Registry** | `docs/ECOSYSTEM_CLASSIFICATION_REGISTRY.md` | A | egos | ALL | `governance`, `classification`, `ssot` |
+| **Workflow Inheritance Report** | `docs/WORKFLOW_INHERITANCE_REPORT.md` | B | egos | — | `governance`, `workflow`, `inheritance` |
+| **Workflow Sync Check** | `scripts/workflow-sync-check.sh` | B | egos | ALL | `governance`, `workflow`, `drift` |
+| **Clarity Review Gate** | `.guarani/orchestration/CLARITY_REVIEW.md` | A | egos | ALL | `governance`, `review`, `monthly` |
+| **Mycelium Truth Report** | `docs/MYCELIUM_TRUTH_REPORT.md` | A | egos | — | `governance`, `mycelium`, `audit` |
+| **LLM Orchestration Matrix** | `.guarani/orchestration/LLM_ORCHESTRATION_MATRIX.md` | A | egos | ALL | `ai`, `orchestration`, `routing` |
+| **Benchmark Enforcement** | `.guarani/orchestration/BENCHMARK_ENFORCEMENT.md` | A | egos | ALL | `governance`, `multi-agent`, `enforcement` |
+| **QA Loop Contract** | `.guarani/orchestration/QA_LOOP_CONTRACT.md` | A | egos | ALL | `governance`, `qa`, `contract` |
+| **Operator Map** | `docs/OPERATOR_MAP.md` | A | egos | — | `governance`, `control-plane`, `founder` |
+| **Kernel Consolidation Plan** | `docs/KERNEL_CONSOLIDATION_PLAN.md` | A | egos | — | `governance`, `consolidation`, `migration` |
+| **SSOT Registry v2** | `docs/SSOT_REGISTRY.md` | A | egos | ALL | `governance`, `ssot`, `30-domains` |
+| **Injection Hardening Contract** | `.guarani/security/INJECTION_HARDENING.md` | B | egos | ALL | `security`, `injection`, `hardening` |
 
 ---
 
@@ -109,6 +124,15 @@ Each capability has:
 | Agent Registry | `egos-lab/agents/registry/agents.json` | A | egos-lab (29) | egos (2) | `agent`, `registry`, `ssot` |
 | Agent CLI | `egos-lab/agents/cli.ts` | A | egos-lab | egos | `agent`, `cli` |
 | Worker Infrastructure | `egos-lab/agents/worker/` | B | egos-lab (Railway) | — | `agent`, `worker`, `infra` |
+| **Circuit Breaker** | `egos/packages/shared/src/circuit-breaker.ts` | A | egos | ALL | `resilience`, `circuit-breaker`, `shared` |
+| **Mycelium Redis Bridge** | `egos/packages/shared/src/mycelium/redis-bridge.ts` | B | egos (scaffold) | egos-lab | `mycelium`, `redis`, `pubsub`, `bridge` |
+
+## 5b. MCP SERVERS
+
+| Capability | SSOT | Quality | Adopted By | Should Adopt | Tags |
+|-----------|------|---------|------------|-------------|------|
+| **MCP Governance** | `egos/packages/mcp-governance/src/index.ts` | B | egos | ALL | `mcp`, `governance`, `ssot`, `drift` |
+| **MCP Memory** | `egos/packages/mcp-memory/src/index.ts` | B | egos | ALL | `mcp`, `memory`, `recall`, `store` |
 
 ---
 
