@@ -135,34 +135,76 @@ export interface TelemetryEvent852 extends TelemetryEventBase {
 
 ```typescript
 export type CarteiraTelemetryEventType =
-  | 'auth_attempt'
-  | 'payment_initiated' | 'payment_completed' | 'payment_failed'
-  | 'booking_created'
-  | 'instructor_action'
-  | 'student_action'
-  | 'database_query'
-  | 'telegram_notification';
+  // Auth events
+  | 'auth_attempt' | 'auth_success' | 'auth_failure' | 'session_expired'
+  // Payment events
+  | 'payment_initiated' | 'payment_completed' | 'payment_failed' | 'payment_refunded'
+  | 'pix_generated' | 'asaas_webhook_received'
+  // Booking/Lesson events
+  | 'booking_created' | 'booking_confirmed' | 'booking_cancelled'
+  | 'lesson_started' | 'lesson_completed' | 'lesson_expired'
+  // User events
+  | 'instructor_registered' | 'instructor_kyc_submitted' | 'instructor_approved' | 'instructor_rejected'
+  | 'student_registered' | 'student_profile_updated'
+  | 'partner_action'
+  // System events
+  | 'database_query' | 'database_error'
+  | 'api_error' | 'api_timeout' | 'rate_limit_hit'
+  | 'telegram_notification' | 'whatsapp_sent' | 'email_sent'
+  | 'cron_executed' | 'webhook_received';
 
 export interface TelemetryCarte extends TelemetryEventBase {
   event_type: CarteiraTelemetryEventType;
 
   // Carteira-specific (extended logging)
   level: 'error' | 'warn' | 'info' | 'debug';
-  category: string;  // auth, payment, booking, etc.
+  category: 'auth' | 'payment' | 'booking' | 'instructor' | 'student' | 'partner' | 'api' | 'database' | 'telegram' | 'whatsapp' | 'system' | 'vercel' | 'supabase';
 
   stack_trace?: string;        // Only for errors
   request_path?: string;
   request_method?: string;
   user_agent?: string;
+  ip_address_hash?: string;    // Hashed IP for privacy
 
   telegram_notified?: boolean;
 
+  // Business IDs (for tracing)
+  lesson_id?: string;
+  instructor_id?: string;
+  student_id?: string;
+  payment_id?: string;
+
   metadata: {
+    // Payment
     payment_method?: 'pix' | 'card' | 'boleto';
-    amount?: number;
+    amount_brl?: number;
     currency?: string;
+
+    // Error context
+    probable_cause?: string;
+    impact?: string;
+    recommended_action?: string;
+    where_to_attack?: string[];
+    how_to_fix?: string[];
+    evidence?: string[];
+    next_steps?: string[];
+
+    // Deployment context
+    deployment_id?: string;
+    region?: string;
+
+    // Additional context
+    [key: string]: unknown;
   };
 }
+
+// Carteira Livre specific recorder factory
+export const carteiraLivreTelemetry = createTelemetryRecorder<TelemetryCarte>({
+  logPrefix: 'carteira-livre',
+  tableName: 'carteira_livre_events',
+  supabaseClient: supabase, // From env
+  dualOutput: true, // Console JSON + Supabase
+});
 ```
 
 ### 🌐 Intelink Extension (client-side perf)
