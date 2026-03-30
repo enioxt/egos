@@ -462,39 +462,11 @@
 
 > VPS migrado. Public IP omitted from public docs. Backup validated in the Hetzner backup location.
 
-**Completed (2026-03-29):**
-- [x] INFRA-001 — Atualizar /vps command (`egos/.claude/commands/vps.md`) → Hetzner IP + nova SSH key
-- [x] INFRA-002 — Atualizar `docs/KERNEL_MISSION_CONTROL.md` — Deploy Target e tabela de custos
-- [x] INFRA-003 — Atualizar `docs/MARKET_READY_FEATURES.md` — referência de deploy do 852
-- [x] INFRA-004 — Atualizar `docs/knowledge/HARVEST.md` — tabela de repos (852, br-acc, santiago)
-- [x] INFRA-005 — Atualizar `egos-lab/.env` — BRACC_API_URL updated to the current Hetzner runtime, comment old Contabo reference
-- [x] INFRA-006 — Atualizar `egos-lab/agents/agents/etl-orchestrator.ts` — fallback URL
-- [x] INFRA-007 — Atualizar `egos-lab/agents/agents/uptime-monitor.ts` — fallback URL + comentário
-- [x] INFRA-008 — Atualizar `egos-lab/apps/telegram-bot/src/index.ts` — descrição de infraestrutura
-
-**Completed (2026-03-29 — leaf repos):**
-- [x] INFRA-009 — `br-acc`: AGENTS.md, README.md, ROADMAP.md, docs/SYSTEM_MAP.md, docs/pt-BR/DOWNLOAD_DADOS.md, scripts/download-all-datasets.sh → commit `5c2b8d1`
-- [x] INFRA-010 — `br-acc`: badge de API Status no README atualizado
-- [x] INFRA-011 — `santiago`: .env.local, docs/SETUP_GUIDE.md, SYSTEM_DIAGNOSTIC.md, handoff → commit `d7deaf3`
-- [x] INFRA-012 — `852`: scripts/release_contabo.sh → release_hetzner.sh → commit `0b22a15`
-- [x] INFRA-013 — `852`: CLAUDE.md, README.md, AGENTS.md, package.json → commit `0b22a15`
-- [x] INFRA-014 — `forja`: TASKS.md, TelemetryDashboard.tsx, ARCHITECTURE.md, ORCHESTRATION.md, scripts → commit `50a9629`
-- [x] INFRA-015 — `egos-lab`: memory_db/memory.jsonl (EGOS_VPS_CONTABO → EGOS_VPS_HETZNER) → commit `0101bf2`
-- [x] INFRA-016 — `egos-lab`: SECURITY_AND_DECENTRALIZATION_PLAN.md + postar.md → commit `0101bf2`
-
-**Completed (2026-03-29):**
-- [x] INFRA-017 — Contabo cancelado pelo usuário. Hetzner estável 31h+, 9 containers healthy, SSL OK, disk IO 238MB/s
-
-**Discovered during battle test (2026-03-29):**
-- [x] INFRA-018 — Node.js + PM2 instalados no Hetzner. Telegram bot funcional via PM2 startup. Discord bot pendente (sem Discord app separado).
-- [x] INFRA-019 — Uptime-monitor health check path corrigido: `gem-hunter` (hifens), rota `/api/v1/meta/etl-progress`, etl-orchestrator fallback URL → Hetzner
-- [x] INFRA-020 — openclaw-sandbox identificado: AI gateway/CLI runtime (`alpine/openclaw:latest`, Node.js 24, porta 18789/18791, egos.service label). Serviço legítimo EGOS. 572MB RAM = Node.js esperado.
-
-**Security + Observability (2026-03-29):**
-- [x] INFRA-021 — Leaked Supabase PAT (`sbp_d827...`) sanitized in 852 handoff files. Token needs rotation by user in Supabase dashboard.
-- [x] INFRA-022 — Gitleaks hardened: added `sbp_[40hex]` rule to `.gitleaks.toml`. Universal hook (`~/.egos/hooks/pre-commit`) now scans secrets on ALL repos.
-- [x] INFRA-023 — `governance-sync.sh` updated to propagate `.egos/hooks/` and `sync.sh` on `--exec`.
-- [x] INFRA-024 — CRCDM pre-push/post-commit hooks fixed: `#!/bin/sh` → `#!/bin/bash` (bash-specific substring expansion `${var:0:8}`).
-- [x] INFRA-025 — carteira-livre `.husky/pre-commit` converted to POSIX sh (fixes `[[ ]]`, `<<<` bash constructs + `head -5` always-true false-positive bug in secrets scan).
-- [x] INFRA-026 — `scripts/egos-repo-health.sh` created: cross-repo uncommitted change dashboard. Run before any installer scripts to prevent stale file propagation.
-- [x] INFRA-027 — Context Persistence (Fibonacci snapshots) disseminated to kernel + 9 leaf repos via `scripts/install-context-persistence.sh`. All repos committed + pushed.
+**Completed (2026-03-29 — all INFRA items):**
+- [x] INFRA-001..008 — Kernel + egos-lab updated to Hetzner: /vps cmd, MISSION_CONTROL, MARKET_READY, HARVEST, .env, etl-orchestrator, uptime-monitor, telegram-bot
+- [x] INFRA-009..016 — Leaf repos updated: br-acc (5c2b8d1), santiago (d7deaf3), 852 (0b22a15), forja (50a9629), egos-lab (0101bf2)
+- [x] INFRA-017 — Contabo cancelado. Hetzner stable: 9 containers healthy, SSL OK
+- [x] INFRA-018..020 — PM2/Node.js no Hetzner; uptime-monitor paths fixed; openclaw-sandbox = legítimo
+- [x] INFRA-021..025 — Supabase PAT sanitized; gitleaks hardened; hooks propagated; POSIX sh fixes
+- [x] INFRA-026 — `scripts/egos-repo-health.sh`: cross-repo uncommitted change dashboard
+- [x] INFRA-027 — Context Persistence (Fibonacci) disseminated: kernel + 9 leaf repos
