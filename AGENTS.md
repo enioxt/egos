@@ -1,6 +1,6 @@
 # AGENTS.md — EGOS Framework Core
 
-> **VERSION:** 1.4.0 | **UPDATED:** 2026-03-28
+> **VERSION:** 1.5.0 | **UPDATED:** 2026-03-30
 > **TYPE:** Framework Core + Orchestration Kernel + Agent Runtime
 
 ---
@@ -132,7 +132,7 @@ egos/
 ## Commands
 
 ```bash
-bun agent:list              # List all registered agents (6 total)
+bun agent:list              # List all registered tools + routers (15 total)
 bun agent:run <id> --dry    # Run agent in dry-run mode
 bun agent:run <id> --exec   # Run agent in execute mode
 bun agent:lint              # Validate agent registry

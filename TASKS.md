@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.9.0 | **Updated:** 2026-03-29
+> **Version:** 2.10.0 | **Updated:** 2026-03-30 | **LAST SESSION:** 2026-03-30 — Secret Scan Remediation + System Hardening
 
 ---
 
