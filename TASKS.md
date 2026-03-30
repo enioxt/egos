@@ -249,6 +249,158 @@
   - 1-pager: `docs/strategy/GUARD_BRASIL_1PAGER.md`
   - Demo script 30min: `docs/strategy/GUARD_BRASIL_DEMO_SCRIPT.md` (com FAQ)
 
+## ARCH Project Revival (2026-03-30)
+
+**Status:** Deep dive complete — brutal honesty assessment + 12-week execution roadmap created.
+
+**Current State (Honest Assessment):**
+- ✅ UI 80% complete: Chat interface, 9-view navigation, export utilities working
+- ❌ Backend 80% missing: No persistence, no vision pipeline, no parametric engine, no 3D generation, no video integration, no Python workers
+- 🔴 **CRITICAL SECURITY ISSUE:** Hardcoded OpenRouter API key in `server.ts` line 13
+
+**Completed (2026-03-30):**
+- [x] Read ChatGPT conversation exports (2 files) that originated ARCH concept
+- [x] Clone and analyze GitHub repo structure + all 9 React components
+- [x] Review backend architecture, telemetry framework, state management
+- [x] Identify honest truth: 20% complete, 80% backend missing
+- [x] Create 12-week phased implementation plan with realistic effort estimates
+- [x] Document staffing recommendations (1 full-stack + 1 frontend for Phase 1)
+- [x] Establish success metrics and decision gates (weeks 4, 8, 12)
+
+**Phase 1 (Weeks 1-4): Foundation — Persistence + Vision Pipeline + 3D Generation**
+
+- [ ] ARCH-001: Fix critical API key exposure (move to `.env`)
+  - Effort: 15min | Owner: any
+  - Files: `server.ts` line 13 → use `process.env.OPENROUTER_API_KEY`
+
+- [ ] ARCH-002: Setup Supabase database schema (persistence foundation)
+  - Effort: 3h | Owner: full-stack
+  - Schema: projects table (id, user_id, briefing_json, floor_plan_json, created_at, updated_at)
+  - Auth: Row-level security for multi-tenant
+  - Dependencies: Supabase CLI, migration runner
+
+- [ ] ARCH-003: Implement authentication gate
+  - Effort: 2h | Owner: full-stack
+  - Require Supabase session before saving projects
+  - Store user context in Zustand + session provider
+  - Validation: Login flow blocks unsaved state loss
+
+- [ ] ARCH-004: Wire Sketch → Geometry Vision Pipeline
+  - Effort: 4h | Owner: full-stack + AI expert
+  - Replace 2.5s fake delay in pipeline.ts with actual Gemini 3.1 Pro vision call
+  - Input: uploaded sketch image
+  - Output: JSON geometry spec (walls, openings, dimensions, roof pitch)
+  - Prompt: architect-agent.ts already written; use it verbatim
+  - Validation: produce valid JSON, not hardcoded "hexagon"
+
+- [ ] ARCH-005: Implement 3D Model Generation (Trimesh)
+  - Effort: 5h | Owner: Python specialist
+  - Python worker endpoint: `POST /generate-3d` accepts geometry JSON
+  - Output: glTF 2.0 model
+  - Library: Trimesh + pyassimp
+  - Integration: Send model to frontend for Three.js visualization
+
+- [ ] ARCH-006: Test end-to-end: sketch → JSON → 3D → visual proof
+  - Effort: 1h | Owner: full-stack
+  - E2E test: upload hex sketch, verify 3D model renders
+  - Store result in Supabase
+  - Screenshot for handoff proof
+
+**Phase 2 (Weeks 5-8): Usability — Briefing Robustness + Auto Planta + Images**
+
+- [ ] ARCH-007: Robustify briefing interpreter (ATRiAN honesty gates)
+  - Effort: 3h | Owner: AI expert
+  - Add fact-checking for claims (e.g., "I have R$500k budget" → validate against material costs)
+  - Add evidence linking (reference constraints from uploaded docs)
+  - Prevent hallucinations in room suggestions
+
+- [ ] ARCH-008: Implement 2D Floor Plan Auto-Generation
+  - Effort: 4h | Owner: Python + geometry
+  - Input: 3D model from ARCH-005
+  - Output: 2D floor plan (SVG or PDF)
+  - Algorithm: orthogonal projection + dimension extraction
+  - Integration: Display in PlantaView component
+
+- [ ] ARCH-009: Wire AI Image Generation (Gemini 3 Pro Image)
+  - Effort: 3h | Owner: full-stack
+  - Integration: `POST /generate-render` with camera params + model
+  - Output: photorealistic render image (1024x1024)
+  - Validation: store in Supabase, display in RendersView
+
+- [ ] ARCH-010: Build render variation panel (multiple angles + lighting)
+  - Effort: 2h | Owner: frontend
+  - Generate 4 renders: front, back, left, right + one sunset lighting
+  - Batch API calls with quota management
+  - Cache results in Supabase
+
+**Phase 3 (Weeks 9-12): Polish — Performance + Error Handling + Docs + Video**
+
+- [ ] ARCH-011: Implement video walkthrough generation (Veo 3.1)
+  - Effort: 6h | Owner: video + Python
+  - Input: 3D model + camera path + audio (optional)
+  - Output: 30-60 second MP4 walkthrough
+  - Integration: VideoView component + Supabase storage
+
+- [ ] ARCH-012: Performance optimization + caching
+  - Effort: 3h | Owner: full-stack
+  - Cache generated models, renders, videos in Supabase blob storage
+  - Implement request deduplication (same sketch → same result)
+  - Add loading states + progress bars to all views
+
+- [ ] ARCH-013: Error handling + graceful degradation
+  - Effort: 2h | Owner: full-stack
+  - Try/catch all API calls with user-friendly error messages
+  - Fallback: if vision fails, prompt user to redraw or describe
+  - Fallback: if 3D fails, show 2D floor plan only
+  - Telemetry: log all failures for monitoring
+
+- [ ] ARCH-014: Complete integration tests + E2E validation
+  - Effort: 3h | Owner: full-stack + QA
+  - Test flow: upload sketch → briefing → 3D → 2D plan → renders → video
+  - Test error cases: bad image, invalid geometry, API timeouts
+  - Test persistence: reload project and verify state
+
+- [ ] ARCH-015: Documentation + README updates
+  - Effort: 2h | Owner: technical writer
+  - API docs for each backend endpoint
+  - User guide for each view (Briefing, Croqui, Planta, Massa3D, Renders, Video, Export)
+  - Architecture diagram: data flow from sketch to video
+
+**Success Metrics & Decision Gates:**
+
+| Gate | Week | Decision | Evidence |
+|------|------|----------|----------|
+| **Week 4 Gate** | 4 | Can we persist projects + upload sketches + generate basic 3D? | ARCH-001 through ARCH-006 all passing |
+| **Week 8 Gate** | 8 | Can we generate 2D plans + renders automatically? | ARCH-007 through ARCH-010 all passing |
+| **Week 12 Gate** | 12 | Can we generate walkthrough videos + handle errors gracefully? | ARCH-011 through ARCH-015 all passing |
+
+**Effort Summary:**
+- Phase 1: 25 hours (1.5 weeks for 2-person team)
+- Phase 2: 12 hours (1 week for 2-person team)
+- Phase 3: 10 hours (1 week for 2-person team)
+- **Total: 47 hours ≈ 6-7 weeks with 2 full-time contributors**
+
+**Staffing Recommendation:**
+- **Full-stack developer** (TypeScript + Python + DevOps): Owns end-to-end integration, database, auth, performance
+- **Python specialist** (geometry + ML): Owns 3D generation, 2D extraction, video generation
+- **Part-time AI expert** (1-2 sprints): Prompt engineering for vision + briefing robustness
+
+**Risk Mitigation:**
+| Risk | Impact | Mitigation |
+|------|--------|-----------|
+| Vision API quota exhaustion | HIGH | Implement request deduplication + caching early (Week 1) |
+| 3D model generation slow | MEDIUM | Profile Trimesh early (Week 2); consider simplification algorithm |
+| Video generation cost explosion | MEDIUM | Implement short-form default (30s); add user-controlled length setting |
+| Sketch quality highly variable | HIGH | Add feedback loop: user can refine sketch if geometry bad |
+
+**Immediate Actions This Week (2026-03-30):**
+- [ ] Move OpenRouter API key to `.env` (15min) — **CRITICAL**
+- [ ] Initialize Supabase project and create migrations (3h)
+- [ ] Create GitHub project board + link ARCH-001 through ARCH-006 issues
+- [ ] Schedule team kickoff (clarify stack choice: Three.js vs Babylon for 3D rendering)
+
+---
+
 ## br-acc → egos-inteligencia Rename (2026-03-30)
 
 - [x] EGOS-127: Execute rename Phase 1 (docs) — **COMPLETE (2026-03-30)**
@@ -265,216 +417,15 @@
   - Dep: EGOS-128 + API DNS ativa (M-002)
   - Criar `etl/src/egos_inteligencia_etl/guard.py` — wrapper HTTP para `POST guard.egos.ia.br/v1/inspect`
 
-## Benchmark Alignment Plan (2026-03-26)
+> **Archived sections moved to `docs/knowledge/TASKS_ARCHIVE_2026.md`:**
+> - Benchmark Alignment Plan (2026-03-26)
+> - Grok Intake Queue (2026-03-30)
+> - P0 (Blockers) — 9/9 complete
+> - P1 (Critical) — 13/13 complete
+> - P2 (Important) — 37/37 complete
 
-**Goal:** absorb only what is useful from external multi-agent workflows and discard ornamental complexity.
-
-### Keep (Implement)
-- Worktree-isolated parallel execution.
-- File-first context persistence (not opaque memory dependence).
-- QA loop as a first-class gate (browser + tests + evidence).
-- Clear operator control plane with low cognitive load.
-
-### Drop (Do Not Implement)
-- Platform lock-in orchestration dependencies as core runtime requirement.
-- Non-executable philosophical layers mixed into production policy gates.
-- Expensive infrastructure dependencies before first flagship monetization proof.
-
-### Execution Order
-1. EGOS-098 (keep/drop codification)
-2. EGOS-099 (worktree contract)
-3. EGOS-100 (ticket sync contract)
-4. EGOS-101 (qa loop contract)
-5. EGOS-102 (10-second operator map)
-
-## Grok Intake Queue (Temporary Kernel Inbox)
-
-> Use this queue to capture tasks extracted from external Grok conversations immediately, even before target-repo routing is finalized.
-
-- [ ] EGOS-103: Define `GROK_TASK_INTAKE` template (source link, quote/snippet, intended repo, impact, effort, confidence, owner) for deterministic ingestion.
-- [ ] EGOS-104: Build cross-repo task router policy (`target_repo` tag + migration rule) so kernel can hold temporary tasks and later move them to the correct repository.
-- [ ] EGOS-105: Ingest latest Grok conversation backlog into temporary kernel queue with deduplication against existing EGOS/FORJA/egos-lab tasks.
-- [ ] EGOS-106: Execute migration pass from temporary kernel queue to destination repos (`egos`, `egos-lab`, `FORJA`, `EGOS-Inteligencia`) with status sync proof.
-
-### P0 (Blockers)
-
-- [x] EGOS-001: Create clean repo structure with governance from commit 0
-- [x] EGOS-002: Initialize git + first commit with all SSOT files
-- [x] EGOS-003: Connect to GitHub (github.com/enioxt/egos) and push
-- [x] EGOS-041: Align `/start` with core repo reality — remove or gate stale checks for `docs/SYSTEM_MAP.md`, `session:guard`, `docs/gem-hunter`, and `docs/reports`
-- [x] EGOS-042: Create canonical core system-map surface and wire `/start` to it (`docs/SYSTEM_MAP.md` or an explicit repo-local equivalent)
-- [x] EGOS-043: Restore/add `.windsurf/workflows/mycelium.md` or remove stale Mycelium workflow references across `/start`, `/end`, and Mycelium docs
-- [x] EGOS-044: Create `docs/knowledge/HARVEST.md` or relax `/end` and `/disseminate` assumptions to match the current core repo
-- [x] EGOS-056: Propagate updated kernel workflows into `~/.egos/workflows` and downstream synced repos, then rerun `bun run governance:check`
-
-### P1 (Critical)
-
-- [x] EGOS-004: Run `bun install` and validate `tsc --noEmit` passes
-- [x] EGOS-005: Validate pre-commit hooks work (gitleaks + tsc + frozen)
-- [x] EGOS-006: Update `~/.egos/SYSTEM_MAP.md` to include `egos` root
-- [x] EGOS-007: Create `.egos` symlink to shared governance home
-- [x] EGOS-081: Create cross-session memory module in @egos/shared — ported from 852, generalized for ecosystem reuse
-- [x] EGOS-082: Create comprehensive metrics tracking system — tracks Codex, Alibaba, Claude Code, OpenRouter, Cascade usage with costs and performance
-- [x] EGOS-045: Refresh `.guarani/orchestration/DOMAIN_RULES.md` from `egos-lab` assumptions to kernel reality (`egos`, leaf repos, `llm-provider.ts`)
-- [x] EGOS-046: Validate Codex cloud + Alibaba live readiness for `egos` core and record evidence in workflows/handoff
-- [x] EGOS-047: Fix missing `docs/META_PROMPT_ECOSYSTEM_AUDIT.md` reference — created `meta/ecosystem-audit.md` + fixed stale refs in `PROMPT_SYSTEM.md`
-- [x] EGOS-048: Align Mycelium docs with actual core artifacts — created `packages/shared/src/mycelium/reference-graph.ts` (27 nodes, 32 edges)
-- [x] EGOS-058: Consolidate `.env` credentials from ecosystem repos (egos-lab, 852, br-acc, policia) into kernel `.env` — 14 vars, all providers live
-- [x] EGOS-059: Create `packages/shared/src/mycelium/reference-graph.ts` — Phase 1 canonical schema + kernel seed graph + utilities
-- [x] EGOS-055: Add `.env.example` for kernel-level provider and sync expectations (`ALIBABA_DASHSCOPE_API_KEY`, `OPENROUTER_API_KEY`, optional GitHub/Codex hints)
-- [x] EGOS-057: Create task-aware model router (`packages/shared/src/model-router.ts`) with 8 models, 3 cost tiers, 10 task types
-
-### P2 (Important)
-
-- [x] EGOS-008: Write comprehensive README.md with install instructions
-- [x] EGOS-009: Set up GitHub Actions CI (lint + typecheck + registry lint)
-- [x] EGOS-010: Create CONTRIBUTING.md with governance rules
-- [x] EGOS-011: Migrate first agent from egos-lab as proof-of-concept
-- [x] EGOS-049: Create repo-role-aware activation logic — `egos.config.json` + `repo-role.ts` + heuristic fallback
-- [x] EGOS-050: Create `activation:check` command for the core repo — 42 checks, 100% pass rate
-- [/] EGOS-051: Migrate core-safe agents from egos-lab — `dead_code_detector` migrated (5 kernel agents now); SSOT Auditor + Contract Tester need generalization (medium-term)
-- [x] EGOS-052: Document the kernel-to-leaf migration matrix — `docs/strategy/MIGRATION_MATRIX.md`
-
-### P2 (Important) — Archaeology Sprint
-
-- [x] EGOS-017: Build interactive evolution tree (Tree of Life) — `docs/evolution-tree.html`
-- [x] EGOS-018: Create archaeology_digger agent — `agents/agents/archaeology-digger.ts`
-- [x] EGOS-019: Migrate Mycelium docs to egos kernel — `docs/concepts/mycelium/`
-- [x] EGOS-020: Feature evolution categorization — `docs/archaeology/FEATURE_EVOLUTION_CATEGORIZATION.md`
-- [x] EGOS-021: Run archaeology agent (execute) — 220 events, 31 agents, 42 handoffs, 7 breakpoints
-- [x] EGOS-022: Validation sweep — tsc OK, registry lint OK, SSOT limits OK, frozen zones intact
-
-### P1 (Critical) — SSOT Distillation Sprint
-
-- [x] EGOS-025: Analyze 852 chatbot — extract quality patterns (memory, ATRiAN, prompt, PII, routing)
-- [x] EGOS-026: Analyze Forja documentation — mobile CRM chatbot-first plan, architecture, stack
-- [x] EGOS-027: Create `docs/modules/CHATBOT_SSOT.md` — canonical chatbot standard from 852
-- [x] EGOS-028: Create `docs/CAPABILITY_REGISTRY.md` — full ecosystem capability map with tags/refs
-- [x] EGOS-029: Update `/start`, `/end`, `/disseminate` workflows with capability map references
-- [x] EGOS-030: Port ATRiAN validation layer to `packages/shared/` as reusable module
-- [x] EGOS-031: Port PII scanner to `packages/shared/` as reusable module
-- [x] EGOS-032: Port conversation memory pattern to `packages/shared/` as reusable module
-- [x] EGOS-033: Create chatbot-compliance-checker agent (validates projects against CHATBOT_SSOT)
-
-### P2 (Important) — Observability & Context
-
-- [x] EGOS-060: Context Tracker agent — CTX score 0-280, zone emojis, auto /end trigger at 250+, wired into .windsurfrules + AGENTS.md + HARVEST.md
-
-### P2 (Important) — Replication & Adoption
-
-- [x] EGOS-034: Forja — production parity hardened with rate limiter, `.env.example`, `.husky/pre-commit`; capability drift 100% and chatbot SSOT 100/100
-- [x] EGOS-035: carteira-livre — backfill ATRiAN + PII scanner + memory modules
-- [x] EGOS-036: intelink — backfill ATRiAN + memory modules
-- [x] EGOS-037: Research go-to-market theories for code/framework validation — `docs/strategy/GO_TO_MARKET_RESEARCH.md`
-- [x] EGOS-038: Create capability-drift-checker agent (15 checks, kernel 100%, carteira-livre 93%)
-- [x] EGOS-039: egos-web — aligned public chat with shared ATRiAN/PII/memory modules; build OK and chatbot SSOT 100/100
-- [x] EGOS-040: br-acc — Python adapter/bridge added for CHATBOT_SSOT; py_compile OK and chatbot SSOT 100/100
-- [x] EGOS-065: Stop legacy `.windsurfrules` symlink mutation in `~/.egos/governance-symlink.sh` and classify the script as legacy cleanup only
-  > **Arquivos:** `~/.egos/governance-symlink.sh`, `docs/CAPABILITY_REGISTRY.md`
-- [x] EGOS-066: Remove remaining stale claims/docs that still present `governance-symlink.sh` as the primary sync path instead of the kernel sync plane
-  > **Arquivos:** `docs/diagnostics/SITE_AND_GOVERNANCE_DIAGNOSTIC_2026-03-13.md`, `.guarani/orchestration/DOMAIN_RULES.md`
-- [x] EGOS-067: Define the hybrid multi-tool control plane for `Claude Code` + `Codex` + Alibaba + Antigravity with user-scope secrets and repo-local onboarding
-  > **Arquivos:** `egos-lab/docs/plans/MULTI_TOOL_HUB.md`, `~/.claude.json`
-
-### Backlog
-
-- [ ] EGOS-012: Publish `@egos/shared` to npm (when stable)
-- [x] EGOS-081: Create Oracle Cloud instance launcher utility (Python SDK) under `scripts/oracle-instance-launcher/` with API-key/instance-principal auth, AD retry, capacity-aware handling, and systemd-ready runner
-  > **Arquivos:** `scripts/oracle-instance-launcher/README.md`, `scripts/oracle-instance-launcher/.env.example`, `scripts/oracle-instance-launcher/src/*.py`, `scripts/oracle-instance-launcher/scripts/*.sh`, `scripts/oracle-instance-launcher/oracle-instance-launcher.service`
-- [x] EGOS-013: Create `egos-init` one-command installer
-- [ ] EGOS-014: Add VRCP Coherence Model integration
-- [ ] EGOS-015: Context Doctor agent (from conversaGROK ideas)
-- [x] EGOS-016: Review remaining workflow overrides in leaf repos after SSOT rollout — `docs/reports/workflow-override-audit.md`
-- [ ] EGOS-023: Publish egos-init via hosted installer URL
-- [ ] EGOS-024: Full per-agent lineage matrix (ARCH-003) — continue with commit-level tracing
-- [ ] EGOS-053: Build cross-repo capability compliance dashboard for kernel and leaf adoption state
-- [x] EGOS-054: Make `/end` and `/disseminate` repo-role-aware — `egos.config.json` detection in Phase 1, conditional surface gating
-- [x] EGOS-068: Enforce shared workflow inheritance across mapped repos — re-link exact-match copies, replace stale overrides with thin wrappers or shared workflows, and preserve only justified repo-local exceptions
-  > SSOT-VISIT 2026-03-30: all 7 leaf repos audited → `docs/WORKFLOW_INHERITANCE_REPORT.md` | 4 clean (852, carteira-livre, br-acc, forja), 3 missing (santiago, commons, INPI) | `scripts/workflow-sync-check.sh` created (exit 0/1 drift detector)
-- [x] EGOS-069: Bootstrap `santiago` into the EGOS governance mesh with `.egos`, repo-local SSOT files, and inherited core workflows
-  > SSOT-VISIT 2026-03-30: `/home/enio/santiago/` → CLAUDE.md + TASKS.md already existed, created `.guarani/PREFERENCES.md` + `AGENTS.md`, added to `~/.egos/sync.sh` REPOS array → `independent`
-- [x] EGOS-070: Complete Mycelium truth repair — align kernel docs and reference graph with actual local surfaces and classify consumer dashboards/bridges as external or planned — **COMPLETE (2026-03-30)**
-  - Report: `docs/MYCELIUM_TRUTH_REPORT.md` — audited 8 docs, marked 4 with PLANNED callouts, corrected Neo4j/Mycelium conflation in vps.md and mycelium.md commands, confirmed only `reference-graph.ts` is real
-- [ ] EGOS-071: Formalize cheap-first multi-model orchestration for Windsurf/Codex/Claude/Alibaba/OpenRouter with one coordinator, sequential routing, and reviewer proof-of-work
-- [ ] EGOS-072: Design anti-injection and least-privilege hardening for external-input workflows (issues, PRs, web, imported docs) before any high-trust automation
-- [x] EGOS-086: Extract circuit breaker pattern from carteira-livre guardrails into `@egos/shared` as reusable module
-  > SSOT-VISIT 2026-03-30: carteira-livre/lib/ai/guardrails.ts → extracted → `packages/shared/src/circuit-breaker.ts` | CLOSED/OPEN/HALF_OPEN, zero deps
-- [x] EGOS-087: Build `@egos/mcp-governance` — custom MCP server for SSOT drift check, task listing, and deploy gates across all repos
-  > SSOT-VISIT 2026-03-30: egos/packages/ → created mcp-governance → independent | `packages/mcp-governance/`
-- [x] EGOS-088: Build `@egos/mcp-memory` — custom MCP server for persistent conversation memory (Supabase/Redis backend, recall/store/search tools)
-  > SSOT-VISIT 2026-03-30: egos/packages/ → created mcp-memory → 4 tools (store/recall/list/delete) | file-based, zero deps | registered in .mcp.json
-- [ ] EGOS-089: Bridge Mycelium event bus to Redis Pub/Sub for cross-process agent communication (Phase 2 of MYCELIUM_NETWORK.md)
-- [ ] EGOS-090: Build first domain-specific MCP server (forja `@egos/mcp-erp` or carteira-livre `@egos/mcp-marketplace`) as proof-of-concept
-- [ ] EGOS-091: Add MCP server auto-discovery and health heartbeats to agent registry for plug-and-play tool management
-- [ ] EGOS-092: Ensure all leaf repos consume `@egos/shared` for ATRiAN/PII/memory instead of maintaining local copies
-
-### SSOT Core Infra (v2)
-- [ ] SSOT-v2-01: Monitor usage and stability of the PM2 daemon (`egos-ssot`) locally and propagate to Contabo VPS.
-- [ ] SSOT-v2-02: Activate `ssot_auditor` AST drift scanner in CI/CD pipeline (`egos-lab` GitHub Actions or VPS Webhook) to block structurally drifting PRs.
-- [ ] SSOT-v2-03: Develop `ssot-package-auditor.ts` (or expand `sync.sh` jq rules) to enforce structural compliance across `package.json` vs `.egos/standards` map.
-
-## Roadmap — Progress Dashboard
-
-### Overall Progress
-
-| Horizon | Total | Done | Open | Progress |
-|---------|-------|------|------|----------|
-| **Foundation (P0/P1)** | 21 | 21 | 0 | **100%** |
-| **Replication (P2)** | 15 | 15 | 0 | **100%** |
-| **Backlog** | 20 | 3 | 17 | **15%** |
-| **TOTAL** | **56** | **42** | **14** | **75%** |
-
----
-
-### Short Term (0-7 days) — Target: 75%
-
-**Objective:** Complete all P2 core hardening. CONTRIBUTING.md, activation:check, and cross-repo adoption alignment.
-
-- [x] EGOS-010 — CONTRIBUTING.md with governance rules
-- [x] EGOS-034 — Forja chatbot production parity
-- [x] EGOS-039 — egos-web chat alignment with shared modules
-- [x] EGOS-040 — br-acc Python adapter for CHATBOT_SSOT
-- [x] EGOS-050 — `activation:check` command for core repo (42 checks, 100%)
-- [x] EGOS-068 — Shared workflow inheritance rollout across mapped repos
-- [x] EGOS-069 — `santiago` governance bootstrap into the shared mesh
-- [x] EGOS-070 — Mycelium truth repair across kernel docs and topology references
-- [ ] EGOS-071 — Cheap-first multi-model orchestration policy and routing contract
-- [ ] EGOS-072 — Anti-injection / least-privilege hardening for external-input automation
-
-### Medium Term (1-4 weeks) — Target: 85%
-
-**Objective:** Repo-role architecture, migration framework, go-to-market research, capability drift monitoring.
-
-- [x] EGOS-037 — GTM research v2.0: OSS economics, developer funnel metrics (TOFU/MOFU/BOFU), lighthouse strategy, 10-item validation checklist — `docs/strategy/GO_TO_MARKET_RESEARCH.md`
-- [x] EGOS-038 — capability-drift-checker agent (15 checks, kernel 100%, carteira-livre 93%)
-- [x] EGOS-049 — Repo-role-aware activation logic — `egos.config.json` + `repo-role.ts`
-- [/] EGOS-051 — Migrate core-safe agents — `dead_code_detector` done; SSOT Auditor needs generalization
-- [x] EGOS-052 — Kernel-to-leaf migration matrix — `docs/strategy/MIGRATION_MATRIX.md`
-- [x] EGOS-016 — Workflow override audit: 1 legitimate (egos-lab mycelium), 9 stale (br-acc/forja/egos-self v5.0→v5.4) — `docs/reports/workflow-override-audit.md`
-
-### Long Term (1-3 months) — Target: 95%
-
-**Objective:** Public npm package, compliance dashboard, distributed verification, community adoption.
-
-- [ ] EGOS-012 — Publish `@egos/shared` to npm
-- [ ] EGOS-014 — VRCP Coherence Model integration
-- [ ] EGOS-015 — Context Doctor agent
-- [ ] EGOS-023 — Publish egos-init via hosted installer URL
-- [ ] EGOS-024 — Full per-agent lineage matrix (ARCH-003)
-- [ ] EGOS-053 — Cross-repo capability compliance dashboard
-- [x] EGOS-054 — `/end` and `/disseminate` repo-role-aware — `egos.config.json` detection + conditional gating
-
----
-
-### Infrastructure Migration: Contabo → Hetzner (2026-03-28 COMPLETE)
-
-> VPS migrado. Public IP omitted from public docs. Backup validated in the Hetzner backup location.
-
-**Completed (2026-03-29 — all INFRA items):**
-- [x] INFRA-001..008 — Kernel + egos-lab updated to Hetzner: /vps cmd, MISSION_CONTROL, MARKET_READY, HARVEST, .env, etl-orchestrator, uptime-monitor, telegram-bot
-- [x] INFRA-009..016 — Leaf repos updated: br-acc (5c2b8d1), santiago (d7deaf3), 852 (0b22a15), forja (50a9629), egos-lab (0101bf2)
-- [x] INFRA-017 — Contabo cancelado. Hetzner stable: 9 containers healthy, SSL OK
-- [x] INFRA-018..020 — PM2/Node.js no Hetzner; uptime-monitor paths fixed; openclaw-sandbox = legítimo
-- [x] INFRA-021..025 — Supabase PAT sanitized; gitleaks hardened; hooks propagated; POSIX sh fixes
-- [x] INFRA-026 — `scripts/egos-repo-health.sh`: cross-repo uncommitted change dashboard
-- [x] INFRA-027 — Context Persistence (Fibonacci) disseminated: kernel + 9 leaf repos
+> **Backlog and historical items archived in `docs/knowledge/TASKS_ARCHIVE_2026.md`:**
+> - Backlog (20 deferred items: EGOS-012, 014, 015, 023, 024, 053, 071, 072, 089, 090, 091, 092)
+> - SSOT Core Infra v2 (3 items)
+> - Roadmap Progress Dashboard (P0 100%, P1 100%, P2 100%)
+> - Infrastructure Migration (INFRA-001..027 COMPLETE, Contabo→Hetzner 2026-03-28)
