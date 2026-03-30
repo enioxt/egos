@@ -191,6 +191,28 @@
 - [x] EGOS-121: Add monthly "clarity review" gate to prune complexity and keep kernel message/simple architecture coherent
   - **Status:** COMPLETE (2026-03-29)
   - **Document:** `docs/governance/CLARITY_REVIEW_GATE.md` — 6 checks, green/yellow/red thresholds, 15-minute protocol, output template
+
+### Eagle Eye Sprint (egos-lab leaf product — kernel foundation first)
+
+> **Standalone verdict:** Keep in egos-lab until first paying customer or ≥100 active free users.
+> **Kernel role:** OSINT type primitives in `@egos/shared/osint/` + `eagle_eye_auditor` compliance agent.
+
+- [x] EGOS-123: Eagle Eye PRD — product vision, full module inventory, standalone verdict, roadmap
+  - **Status:** COMPLETE (2026-03-30)
+  - **Document:** `docs/strategy/EAGLE_EYE_PRD.md` — inventory of 40+ files, 4-wave roadmap, standalone vs egos-lab decision
+- [x] EGOS-124: Create `packages/shared/src/osint/` — gazette types, territory types, opportunity records, viability score schema
+  - **Status:** COMPLETE (2026-03-30)
+  - **Files:** `gazette-types.ts`, `territory-types.ts`, `index.ts` — exported from `@egos/shared`
+- [x] EGOS-125: Create `eagle_eye_auditor` kernel agent — audits Eagle Eye deployments for LGPD compliance, module health, Guard Brasil integration, @egos/shared adoption, test coverage
+  - **Status:** COMPLETE (2026-03-30)
+  - **Agent:** `agents/agents/eagle-eye-auditor.ts` — registered in agents.json v1.4.0 (15 agents)
+  - **Usage:** `EAGLE_EYE_PATH=/path/to/egos-lab/apps/eagle-eye bun agents/cli.ts run eagle_eye_auditor dry_run`
+- [ ] EGOS-126: Wire `@egos/guard-brasil` into Eagle Eye `citizen-logger.ts` — LGPD masking + ATRiAN scoring on all citizen data collection (requires egos-lab access)
+- [ ] EGOS-127: Migrate Eagle Eye to consume `@egos/shared` for ATRiAN + PII scanner + model-router instead of local copies (requires egos-lab access)
+- [ ] EGOS-128: Add evidence chain (`@egos/shared/evidence-chain`) to all Eagle Eye opportunity records — audit hash, source URL, timestamp (requires egos-lab access)
+- [ ] EGOS-129: Add proper bun test suite to Eagle Eye covering analyze_viability + analyze_gazette + fetch_gazettes (requires egos-lab access)
+- [ ] EGOS-130: Build Eagle Eye REST API (`/api/scan`, `/api/opportunities`, `/api/report`) — gated on Guard Brasil npm-published first
+
 - [x] EGOS-083: Create the canonical cross-repo SSOT registry in the kernel and define the ownership contract for `kernel_canonical`, `leaf_local`, and `shared_home` surfaces
 - [x] EGOS-084: Extend kernel governance sync + pre-commit to cover canonical SSOT docs (`SSOT_REGISTRY`, `CAPABILITY_REGISTRY`, `CHATBOT_SSOT`) and sync them to `~/.egos/docs`
 - [ ] EGOS-085: Roll out the SSOT registry adoption plan across mapped repos — each leaf must declare local SSOT pointers, freshness rules, and task-level migration status

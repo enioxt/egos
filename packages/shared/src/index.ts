@@ -1,8 +1,9 @@
 /**
  * @egos/shared — Core EGOS framework utilities
- * 
+ *
  * Exports only framework-level infrastructure.
- * Domain-specific utilities (OSINT, social, etc.) live in leaf repos.
+ * OSINT primitives (gazette types, territory types) are re-exported
+ * for use by Eagle Eye and any OSINT consumer in the ecosystem.
  */
 
 export { chatWithLLM, chatWithLLM as analyzeWithAI, ALIBABA_TEST_MODELS } from './llm-provider';
@@ -51,3 +52,19 @@ export type { PublicGuardConfig, MaskingResult, MaskingAction, GuardAction, Sens
 // Evidence Chain — traceable response discipline
 export { createEvidenceChain, EvidenceChainBuilder, formatEvidenceBlock, validateChain } from './evidence-chain.js';
 export type { EvidenceChain, EvidenceItem, ClaimWithEvidence, EvidenceType, ConfidenceLevel, EvidenceChainOptions } from './evidence-chain.js';
+
+// ═══════════════════════════════════════════════════════════
+// OSINT Primitives — Brazilian public data intelligence
+// Primary consumer: egos-lab/apps/eagle-eye
+// ═══════════════════════════════════════════════════════════
+export type {
+  GazetteScope, GazetteSection, GazetteSource,
+  GazetteRecord,
+  OpportunityCategory, OpportunityStatus, OpportunityRecord,
+  ViabilityScore,
+  ScanRequest, ScanResult,
+} from './osint/gazette-types.js';
+export type {
+  BrazilRegion, BrazilStateAbbr, BrazilState,
+  BrazilMunicipality, TerritoryFilter,
+} from './osint/territory-types.js';
