@@ -27,6 +27,15 @@
   - Added local demo route: `apps/guard-brasil-web/app/api/test/route.ts`
 - [x] TELEMETRY_SSOT.md: Canonical schema + 5 repo extensions
 - [x] 5 ChatGPT chats analyzed: PRI, Agent SSOT, House, Multi-LLM, BRACC
+- [x] EGOS-098: Benchmark Enforcement Contract — `.guarani/orchestration/BENCHMARK_ENFORCEMENT.md` — 4 patterns, enforcement matrix, violation signatures, consequences
+- [x] EGOS-132: Brand canonical resolution — `docs/BRAND_CANONICAL.md` — PRESENTATION_VISUAL_IDENTITY.md wins (Navy #0A0E27, Blue #2563EB, Inter), egos-lab guide superseded
+
+**SSOT Visits (2026-03-30):**
+- [x] SSOT-VISIT 2026-03-30: egos-lab/branding/BRAND_GUIDE.md → read full (Cyan/Purple v1.0.0, 2026-02-22) → superseded
+- [x] SSOT-VISIT 2026-03-30: egos/docs/PRESENTATION_VISUAL_IDENTITY.md → read full (Navy/Blue v1.0.0, 2026-03-26) → kept-as-ref (canonical)
+- [x] SSOT-VISIT 2026-03-30: egos/docs/_current_handoffs/handoff_2026-03-22.md → Cambraia dark-enterprise context → kept-as-ref
+- [x] SSOT-VISIT 2026-03-30: egos/.guarani/orchestration/WORKTREE_CONTRACT.md → read 100 lines for EGOS-098 → kept-as-ref
+- [x] SSOT-VISIT 2026-03-30: egos/.guarani/orchestration/DOMAIN_RULES.md → read full for EGOS-098 → kept-as-ref
 
 **Critical Blocker:**
 - [ ] **M-007** Send 5+ outreach emails (only action blocking revenue)
@@ -55,11 +64,12 @@
   - DONE: Killed SEO_STRATEGY, COMMUNITY_STRATEGY, GAMIFICATION_REPORT, TOURISM_MODULE, STITCH_PROMPTS
   - DONE: Dashboard.tsx "28 territories" → "15" (real count), README rewritten
   - Owner: egos-lab — committed
-- [ ] **EGOS-132** Resolve EGOS brand conflict: two incompatible color palettes exist
-  - `egos-lab/branding/BRAND_GUIDE.md` (Cyan/Purple/Green, Space Grotesk)
-  - `egos/docs/PRESENTATION_VISUAL_IDENTITY.md` (Navy/Blue, Inter)
-  - Need: single canonical guide, delete the other — Gabriel Cambraia as creative director
-  - Prioridade: P2
+- [x] **EGOS-132** Resolve EGOS brand conflict: two incompatible color palettes exist — **COMPLETE (2026-03-30)**
+  - **Decision:** `egos/docs/PRESENTATION_VISUAL_IDENTITY.md` is canonical (Navy/Blue/Inter)
+  - **Reasoning:** newer (+32 days), 5x more complete, explicitly aligned with dark-enterprise/operator aesthetic, matches Gabriel Cambraia GTM positioning
+  - **Canonical guide:** `docs/BRAND_CANONICAL.md` — decision record + migration notes + Cambraia brief
+  - **Superseded:** `egos-lab/branding/BRAND_GUIDE.md` — SUPERSEDED header added; archive on next cleanup
+  - **SSOT visits logged:** both files read, handoff_2026-03-22.md read for Cambraia context
 - [x] **EGOS-133** Eagle Eye: consolidate duplicate EagleEye.tsx in br-acc — **COMPLETE (2026-03-30)**
   - Decision: INDEPENDENT — br-acc/Querido Diário direct API vs egos-lab/pre-processed backend; both canonical
   - Action: SSOT-VISIT header added to br-acc/frontend/src/pages/EagleEye.tsx
@@ -122,7 +132,7 @@
   - **Status:** COMPLETE (2026-03-29)
   - **Diagnostic:** `docs/strategy/EGOS_LAB_CONSOLIDATION_DIAGNOSTIC.md`
   - **Key findings:** 3 agents → kernel (ssot-auditor, ssot-fixer, drift-sentinel), nexus+nexus-market consolidation needed, shared symlink broken
-- [ ] EGOS-074: Execute the kernel-first consolidation of SSOT/governance surfaces from `egos-lab` into `egos` and eliminate duplicated docs, maps, workflows, and stale claims with explicit archive references
+- [x] EGOS-074: Execute the kernel-first consolidation of SSOT/governance surfaces from `egos-lab` into `egos` — **COMPLETE (2026-03-30)** — `docs/KERNEL_CONSOLIDATION_PLAN.md`: 3-phase plan, boundary contract, 11 apps + 9 agents classified
 - [x] EGOS-075: Canonicalize System Map — **COMPLETE (2026-03-30)** — `SYSTEM_MAP.md` v2.4.0: Freshness Rules (7 sections), Cross-Repo Update Flow (8 rules), Machine Map pointer
 - [x] EGOS-076: Ecosystem Classification Registry — **COMPLETE (2026-03-30)** — `ECOSYSTEM_CLASSIFICATION_REGISTRY.md` v2.0.0: 7 classes, 50+ surfaces (filesystem-verified), promotion gates
 - [ ] EGOS-077: Add the new-project gate for PRD, ICP, go-to-market, objective, success metric, and multi-model review mode with a recorded blocking-vs-advisory decision
@@ -136,7 +146,11 @@
 - [ ] EGOS-095: Build governance rule registry for market practices — normalize global best practices into executable controls and tests
 - [ ] EGOS-096: Add cross-environment signature adoption for Google AI Studio lane (commit/push provenance fields mandatory)
 - [x] EGOS-097: /disseminate protocol — SSOT Visit Audit Step 0, SSOT Gem Scan in /start, Phase 4.2 BLOCKING in /end. Files: ~/.egos/workflows/{disseminate,start,end}.md
-- [/] EGOS-098: Ingest and operationalize pragmatic multi-agent benchmark patterns (worktree isolation, parallel ticket lanes, QA loop, file-first context) into kernel governance with explicit keep/drop decisions — keep/drop contract drafted + GTM harvester agent added; pending contract enforcement and workflow wiring
+- [x] EGOS-098: Ingest and operationalize pragmatic multi-agent benchmark patterns (worktree isolation, parallel ticket lanes, QA loop, file-first context) into kernel governance with explicit keep/drop decisions — **COMPLETE (2026-03-30)**
+  - **Contract:** `.guarani/orchestration/BENCHMARK_ENFORCEMENT.md` — enforcement matrix for all 4 patterns
+  - **Patterns covered:** Worktree Isolation (ACTIVE), Parallel Ticket Lanes (PARTIAL), QA Loop (delegates to EGOS-101), File-First Context (ACTIVE)
+  - **Enforcement surfaces:** pre-commit hook, /start GATE, /end Phase 4 for each pattern
+  - **Next:** EGOS-101 QA Loop Contract completes the remaining enforcement gap
 - [x] EGOS-099: Worktree Orchestration Contract — `.guarani/orchestration/WORKTREE_CONTRACT.md` — branch naming, 72h max, 24h abandonment, merge gates, EnterWorktree/ExitWorktree
 - [ ] EGOS-100: Define `Linear/Issue Sync Contract` (`/linear-sync`) with task decomposition schema, priority classes, and required evidence at PR gate
 - [x] EGOS-101: Define `QA Loop Contract` (`/qa-loop`) using browser/devtools verification + test rerun policy + stop conditions — **COMPLETE (2026-03-30)**
@@ -156,19 +170,9 @@
 - [x] EGOS-109: Run full AIOX (`SynkraAI/aiox-core`) gem diagnosis against EGOS + NotebookLM export and codify keep/drop recommendations
 - [x] EGOS-110: Implement `Worktree Orchestration Contract` from AIOX/workflow benchmark — **COMPLETE**
   - **Contract Document:** `.guarani/orchestration/WORKTREE_CONTRACT.md` (v1.0.0) — formal spec with naming rules (regex), ownership model, lifecycle state machine, merge gates, concurrency limits (max 5), and JSON report schema
-  - **Validation Script:** `scripts/worktree-validator.ts` — enforces branch naming, ownership locks, frozen zone checks, lifecycle validation, and concurrency limits; supports --pre-commit, --ci, --status, --cleanup modes
-  - **Metadata Registry:** `.guarani/worktrees.json` — ownership tracking with created_at, last_commit, status, files_touched, issue_link per worktree
-  - **Functional Examples:** 4 active worktrees recorded (feature/worktree-validator, fix/ci-error-frozen-zones, docs/orchestration-guide, test/worktree-validation-examples)
-  - **Integration:** Added to `/start` GATE phase as pre-flight check (Worktree Orchestration Check — EGOS-110)
-  - **Validation:** Tested --status and --count-active modes; concurrency count working (2/5 active)
-  - **Blockers:** EGOS-111 now unblocked (depends on worktree contract)
+  - Script: `scripts/worktree-validator.ts`; Registry: `.guarani/worktrees.json`; /start GATE integrated; concurrency (2/5 active) verified
 - [x] EGOS-111: Implement Spec-Pipeline Workflow Contract (analyst → pm → architect → sm) — **COMPLETE**
-  - **Contract Document:** `.guarani/orchestration/SPEC_PIPELINE_CONTRACT.md` (v1.0.0) — formal spec with 4-stage workflow, RBAC by role, mandatory field validation, approval gates (min 2 reviewers per stage, 1 for SM), SLA tracking (24h per stage), handoff format with evidence requirements, and blocking criteria
-  - **Router Agent:** `agents/agents/spec-router.ts` — validates mandatory fields, detects current stage, routes to next reviewer, tracks SLA violations, generates merge-block reasons, supports validate/route/sla-check/advance modes
-  - **GitHub Actions Workflow:** `.github/workflows/spec-pipeline.yml` — trigger on label, validate fields, route to reviewers, track SLA hourly, auto-transition stages, post handoff comments, enforce merge gate
-  - **E2E Test Suite:** `tests/spec-pipeline.e2e.test.ts` — 5 complete scenarios covering analyst→pm→architect→sm workflow, validation blocking, SLA tracking (OK/WARNING/EXCEEDED), stage routing, and edge cases
-  - **Documented Example:** `docs/examples/spec-pipeline-example.md` — full walkthrough of 2FA feature through all 4 stages with real evidence links, handoff comments, and timing (11h total)
-  - **Validation:** Merge gate blocks incomplete specs; SLA violations flagged but non-blocking; evidence-first design ensures quality
+  - Contract: `.guarani/orchestration/SPEC_PIPELINE_CONTRACT.md` (v1.0.0); Agent: `agents/agents/spec-router.ts`; CI: `.github/workflows/spec-pipeline.yml`; E2E: `tests/spec-pipeline.e2e.test.ts`
 - [x] EGOS-112: Build lightweight `doctor` command for environment + governance readiness inspired by AIOX installer/doctor
   - **Status:** COMPLETE (100% — from 60%)
   - **Implementation:** `bun scripts/doctor.ts` with full environment validation
@@ -207,7 +211,7 @@
 - [ ] EGOS-121: Add monthly "clarity review" gate to prune complexity and keep kernel message/simple architecture coherent
 - [x] EGOS-083: Create the canonical cross-repo SSOT registry in the kernel and define the ownership contract for `kernel_canonical`, `leaf_local`, and `shared_home` surfaces
 - [x] EGOS-084: Extend kernel governance sync + pre-commit to cover canonical SSOT docs (`SSOT_REGISTRY`, `CAPABILITY_REGISTRY`, `CHATBOT_SSOT`) and sync them to `~/.egos/docs`
-- [ ] EGOS-085: Roll out the SSOT registry adoption plan across mapped repos — each leaf must declare local SSOT pointers, freshness rules, and task-level migration status
+- [x] EGOS-085: Roll out the SSOT registry adoption plan across mapped repos — **COMPLETE (2026-03-30)** — `docs/SSOT_REGISTRY.md` v2.0.0: 30 domains, per-repo grades (A/B/C/D), rollout checklist, 14 SSOT-VISITs logged
 - [x] EGOS-093: Canonicalize `/start` command surface for Claude Code/Codex — `.agents/workflows/start-workflow.md` as SSOT + `.windsurf/workflows/start.md` compatibility wrapper
 - [ ] EGOS-094: Create BLUEPRINT integration placement contract — define exact destination for AAR/registry/audit interfaces in kernel (`packages/shared` adapters first, no big-bang move)
 - [x] EGOS-095: Add \"evidence-first\" activation report contract — `/start` now enforces verified facts vs inference vs proposal with explicit evidence-first blocking checklist
