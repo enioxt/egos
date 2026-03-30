@@ -1,8 +1,8 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 2.3.0 | **UPDATED:** 2026-03-30
+> **VERSION:** 2.4.0 | **UPDATED:** 2026-03-30
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
-> **Latest:** MANUAL_ACTIONS.md system wired into /start; Guard Brasil API LIVE; rename Phase 1 done (47 docs)
+> **Latest:** WhatsApp SSOT integration from forja; Integration Memory pattern; Multi-channel architecture canonical
 
 ## Guard Brasil GTM Patterns (2026-03-30)
 
@@ -573,4 +573,401 @@ Leaf repos inherit kernel governance via symlinks but keep local IDENTITY.md and
 - What we are NOT building (explicit scope guard)
 **Why:** Prevents scope creep and "another interesting idea" drift by making the product focus a git-tracked, reviewable artifact.
 **Rule:** Before accepting any new product feature or expansion, check it against FLAGSHIP_BRIEF.md "What we are NOT building" section.
+
+---
+
+## Session Harvest — 2026-03-30 (Forja WhatsApp Integration + Multi-Channel SSOT)
+
+### Pattern: Integration Memory as SSOT
+
+**Problem:** Documentation drift across sessions — references to Railway when runtime is actually Hetzner, stale API URLs, confusion about service locations.
+
+**Solution:** `docs/INTEGRATIONS_MEMORY.md` as canonical reference for:
+- Infrastructure (VPS IP, SSH keys, ports, Docker services)
+- Databases (Supabase project ID, connection strings, RLS status)
+- External APIs (Evolution API location, WhatsApp instances, webhook URLs)
+- AI/LLM providers (Alibaba Qwen config, OpenRouter fallback, API keys location)
+- Security (secrets management strategy, rotation schedule, storage surfaces)
+- Quick reference commands for health checks, deploys, debugging
+
+**Why:** Single source of truth prevents "which environment?" confusion. MCP memory sync makes it AI-persistent across sessions.
+
+**Implementation (forja):**
+```markdown
+## Infrastructure
+
+### Hetzner VPS
+- **IP:** 204.168.217.125
+- **SSH:** `ssh root@hetzner` (key: ~/.ssh/hetzner_ed25519)
+- **Docker Services:**
+  - evolution-api (port 8080)
+  - postgres (Evolution API DB)
+  - Caddy (reverse proxy)
+
+### Evolution API (WhatsApp Runtime)
+- **Mode:** Self-hosted on Hetzner (NOT Railway)
+- **URL:** http://204.168.217.125:8080
+- **Instance:** forja-notifications
+- **State:** open (validated 2026-03-30)
+```
+
+**MCP Sync Pattern:**
+```typescript
+// Create entities for infrastructure
+mcp__memory__create_entities({
+  entities: [
+    { name: "Hetzner VPS", entityType: "infrastructure",
+      observations: ["IP: 204.168.217.125", "Hosts Evolution API"] },
+    { name: "Evolution API", entityType: "service",
+      observations: ["Self-hosted on Hetzner", "NOT on Railway", "Port 8080"] }
+  ]
+});
+
+// Create relations
+mcp__memory__create_relations({
+  relations: [
+    { from: "Evolution API", to: "Hetzner VPS", relationType: "is_hosted_on" },
+    { from: "Forja", to: "Evolution API", relationType: "uses_for_whatsapp" }
+  ]
+});
+```
+
+**Reusable pattern:** All EGOS repos should have `docs/INTEGRATIONS_MEMORY.md` updated after infrastructure changes and synced to MCP memory.
+
+---
+
+### Pattern: WhatsApp Runtime SSOT Architecture
+
+**Philosophy:** WhatsApp is a workflow surface (status, alerts, confirmations), not an open-chat platform. Meta restricts "general AI" on WhatsApp as of 2026-01.
+
+**Canonical Architecture:**
+```
+Hetzner VPS (SSOT Runtime)
+  └─ Evolution API (Single Deployment)
+      ├─ forja-notifications (instance)
+      ├─ 852-customer-service (future)
+      └─ carteira-x-transactions (future)
+
+Vercel App
+  ├─ Webhook handlers (/api/notifications/whatsapp)
+  ├─ Notification service layer
+  └─ Admin dashboard (future Control Tower)
+
+Supabase DB
+  ├─ Audit logs (all webhook events)
+  ├─ Instance registry (future)
+  └─ Message history
+
+Redis (Future P1)
+  ├─ Message queue
+  ├─ Retry/dead-letter
+  └─ Rate limiting
+```
+
+**Key Decisions:**
+| Decision | Rationale | Trade-off |
+|----------|-----------|-----------|
+| Hetzner as runtime SSOT | Single source of truth | VPS maintenance burden |
+| One Evolution API | Simpler ops, shared config | Single point of failure |
+| One instance per channel | Isolation, independent lifecycle | More API surface |
+| Baileys for dev/low-volume | No Meta approval needed | 14-day timeout, QR re-pairing |
+| Cloud API for prod/critical | Official, stable, higher limits | Meta Business approval required |
+
+**Validated in:** forja-notifications (2026-03-30, state: open)
+
+---
+
+### Pattern: QR Drift Recovery Protocol
+
+**Problem:** Evolution API QR code generation fails — modal opens empty, `/instance/connect/{instance}` returns `{ "count": 0 }`.
+
+**Root Cause:** Baileys session version drift between Evolution API image and WhatsApp production runtime.
+
+**Recovery Protocol:**
+```
+1. Validate instance exists
+   GET /instance/fetchInstances
+   Confirm instance name
+
+2. Test connect endpoint
+   GET /instance/connect/{instance}
+   If { "count": 0 }, proceed to step 3
+
+3. Inspect runtime logs
+   docker logs evolution-api
+   Look for session/version errors
+
+4. Apply session version fix
+   Add to docker-compose.yml:
+     CONFIG_SESSION_PHONE_VERSION=2.3000.1033994345
+   Recreate: docker compose up -d --force-recreate evolution-api
+
+5. Validate QR generation
+   docker logs evolution-api | grep qrcodeCount
+   Should show "qrcodeCount": 1
+
+6. Retry pairing in Manager UI
+   Only after runtime validation passes
+```
+
+**Validated Fix (forja 2026-03-30):**
+```bash
+# In /opt/evolution-api/docker-compose.yml
+environment:
+  - CONFIG_SESSION_PHONE_VERSION=2.3000.1033994345
+
+docker compose up -d --force-recreate evolution-api
+# Result: forja-notifications connected, state: open
+```
+
+**Evidence:** forja/docs/_current_handoffs/handoff_2026-03-30.md
+
+**Reusable pattern:** This fix should be part of the canonical Evolution API deployment template for all products.
+
+---
+
+### Pattern: Evolution API Deployment Lessons
+
+**Gotcha 1: Database Provider Invalid Error**
+
+**Symptom:** `DATABASE_ENABLED=false` → Error: "Database provider invalid"
+
+**Root Cause:** Evolution API requires real database even in "disabled" mode.
+
+**Fix:** Deploy PostgreSQL container alongside Evolution API.
+
+```yaml
+services:
+  postgres:
+    image: postgres:15-alpine
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U evolution"]
+    environment:
+      - POSTGRES_USER=evolution
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=evolution
+
+  evolution-api:
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      - DATABASE_ENABLED=true  # MUST be true
+      - DATABASE_PROVIDER=postgresql  # MUST be postgresql
+      - DATABASE_CONNECTION_URI=postgresql://evolution:${DB_PASSWORD}@postgres:5432/evolution
+```
+
+**Gotcha 2: Docker Compose Version Field Obsolete**
+
+`version: '3.8'` is obsolete in modern Docker Compose. Remove it.
+
+**Gotcha 3: Use Docker Compose Plugin, Not Standalone**
+
+Use `docker compose` (plugin), not `docker-compose` (standalone binary).
+
+---
+
+### Pattern: Instance Naming Convention
+
+```
+{product}-{purpose}
+
+Examples:
+- forja-notifications
+- 852-customer-service
+- carteira-x-transactions
+- egos-admin-alerts
+```
+
+**Purpose categories:**
+- `notifications` — system alerts, status updates
+- `customer-service` — support, inquiries
+- `transactions` — payment confirmations, order tracking
+- `admin-alerts` — internal operations monitoring
+
+---
+
+### Pattern: Multi-Channel Control Tower (Future)
+
+**Problem:** Evolution Manager UI insufficient for managing 10+ WhatsApp channels across products.
+
+**Solution:** Build internal admin dashboard with:
+
+| Feature | Purpose | Priority |
+|---------|---------|----------|
+| Instance Registry | Canonical list of all channels | P0 |
+| Health Dashboard | Real-time connection status | P0 |
+| Test Send | Manual message dispatch per channel | P0 |
+| Webhook Monitor | Event log viewer | P1 |
+| Message Queue | Redis-backed queue/retry | P1 |
+| Multi-Agent Routing | AI policy per channel purpose | P1 |
+| Analytics | Volume, latency, success rate | P2 |
+
+**Schema (Supabase):**
+```sql
+CREATE TABLE whatsapp_instances (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  instance_name VARCHAR(100) UNIQUE NOT NULL,
+  product VARCHAR(50) NOT NULL,
+  purpose VARCHAR(100),
+  phone_number VARCHAR(20),
+  connection_state VARCHAR(20),
+  last_health_check_at TIMESTAMPTZ,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE whatsapp_messages (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  instance_name VARCHAR(100) REFERENCES whatsapp_instances(instance_name),
+  direction VARCHAR(10),  -- 'inbound', 'outbound'
+  phone_number VARCHAR(20),
+  message_text TEXT,
+  status VARCHAR(20),  -- 'sent', 'delivered', 'read', 'failed'
+  metadata JSONB
+);
+```
+
+---
+
+### Pattern: Notification Service Layer (TypeScript)
+
+**Structure:**
+```typescript
+// src/lib/whatsapp/notifications.ts
+export async function sendNotification(params: {
+  type: 'production_alert' | 'stock_alert' | 'quote_update';
+  recipient: string;  // E.164 format
+  data: Record<string, any>;
+}) {
+  const provider = new EvolutionProvider({ ... });
+  const template = getTemplate(params.type);
+  const message = template(params.data);
+  return provider.sendMessage({ number: params.recipient, text: message });
+}
+```
+
+**Template Pattern:**
+```typescript
+const templates = {
+  production_alert: (data) => `
+🏭 PRODUÇÃO - Ordem #${data.orderId}
+
+Status: ${data.status}
+Etapa: ${data.stage} (${data.progress}%)
+Responsável: ${data.assignee}
+
+🔗 Ver ordem: ${data.orderUrl}
+  `.trim(),
+
+  stock_alert: (data) => `
+📦 ESTOQUE BAIXO - ${data.productName}
+
+Atual: ${data.currentStock} ${data.unit}
+Mínimo: ${data.minStock} ${data.unit}
+
+⚠️ Solicitar reposição
+  `.trim()
+};
+```
+
+---
+
+### Pattern: Webhook Handler (Next.js)
+
+```typescript
+// src/app/api/notifications/whatsapp/route.ts
+export async function POST(req: NextRequest) {
+  const body = await req.json();
+  const supabase = createClient();
+
+  // Audit ALL events
+  await supabase.from('audit_log').insert({
+    action: 'whatsapp_webhook_received',
+    metadata: body,
+    created_at: new Date().toISOString()
+  });
+
+  // Handle specific events
+  if (body.event === 'MESSAGES_UPSERT') {
+    // Process incoming message
+  }
+
+  return NextResponse.json({ status: 'ok' });
+}
+
+export async function GET() {
+  // Health check
+  const provider = new EvolutionProvider({ ... });
+  const state = await provider.getConnectionState();
+
+  return NextResponse.json({
+    status: 'ok',
+    connected: state.state === 'open',
+    instance: process.env.EVOLUTION_INSTANCE_NAME
+  });
+}
+```
+
+---
+
+### Pattern: Secrets Management for WhatsApp
+
+**Storage Surfaces:**
+
+| Surface | What | Where | Rotation |
+|---------|------|-------|----------|
+| Hetzner .env | Evolution API key, DB password | `/opt/evolution-api/.env` | Manual (90 days) |
+| Vercel Env | API URL/key, instance name | Vercel dashboard | Manual (90 days) |
+| Local .env.local | Dev credentials | `.gitignore`d | Per developer |
+| Supabase | Audit logs only (never secrets) | RLS-protected | N/A |
+
+**Security Checklist:**
+- [ ] Never commit `.env` or `.env.local`
+- [ ] Separate API keys for dev/staging/prod
+- [ ] Rotate Evolution API key every 90 days
+- [ ] Mask phone numbers in logs (`557****8888`)
+- [ ] Log all webhook events to Supabase
+- [ ] Rate limit webhook endpoint
+- [ ] Verify webhook signature if secret set
+- [ ] LGPD/GDPR compliance for phone storage
+
+---
+
+### Dissemination Checklist (New Repo Adopting WhatsApp)
+
+- [ ] Copy Evolution API docker-compose template
+- [ ] Generate unique API key: `openssl rand -hex 32`
+- [ ] Create instance: `{product}-{purpose}`
+- [ ] Configure webhook to app URL
+- [ ] Scan QR code (Baileys) or configure Cloud API
+- [ ] Add Vercel env vars: `EVOLUTION_API_URL`, `EVOLUTION_API_KEY`, `EVOLUTION_INSTANCE_NAME`
+- [ ] Implement notification service layer
+- [ ] Implement webhook handler
+- [ ] Create audit log table in Supabase
+- [ ] Test all notification types
+- [ ] Document in `docs/WHATSAPP_SETUP_GUIDE.md`
+- [ ] Update `docs/INTEGRATIONS_MEMORY.md`
+- [ ] Sync to MCP memory
+
+---
+
+### Task IDs
+
+| Task | Status | Evidence |
+|------|--------|----------|
+| EGOS-WHATSAPP-001 | ✅ Complete | WhatsApp SSOT created (`docs/knowledge/WHATSAPP_SSOT.md`) |
+| FORJA-WHATSAPP-008 | 🟡 70% | Runtime + QR done, notification tests pending |
+| FORJA-WHATSAPP-010 | 📋 Planned | Control Tower MVP |
+| FORJA-WHATSAPP-011 | 📋 Planned | Redis queue/retry |
+| FORJA-WHATSAPP-012 | 📋 Planned | Multi-agent routing |
+
+---
+
+### References
+
+- **WhatsApp SSOT:** `egos/docs/knowledge/WHATSAPP_SSOT.md` (canonical)
+- **Forja Handoff:** `forja/docs/_current_handoffs/handoff_2026-03-30.md`
+- **Forja Integration Memory:** `forja/docs/INTEGRATIONS_MEMORY.md`
+- **Forja WhatsApp Setup:** `forja/docs/WHATSAPP_SETUP_GUIDE.md`
+- **Forja Harvest Patterns:** `forja/docs/knowledge/HARVEST.md` (Pattern #11, #12, #13, #14)
 
