@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { GuardBrasil } from '../../../../../packages/guard-brasil/src/index.js';
+import { GuardBrasil } from '@egosbr/guard-brasil';
 
 const guard = GuardBrasil.create();
 
@@ -19,7 +19,7 @@ export async function POST(req: Request) {
   const start = Date.now();
   const result = guard.inspect(body.text);
   const durationMs = Date.now() - start;
-  const piiFound = Array.from(new Set(result.masking.findings.map((finding) => finding.category)));
+  const piiFound = Array.from(new Set(result.masking.findings.map((finding: { category: string }) => finding.category)));
 
   return NextResponse.json({
     safe: result.safe,

@@ -5,6 +5,7 @@
     "": {
       "name": "guard-brasil-web",
       "dependencies": {
+        "@egosbr/guard-brasil": "^0.1.0",
         "next": "^15.3.0",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
@@ -21,6 +22,8 @@
   },
   "packages": {
     "@alloc/quick-lru": ["@alloc/quick-lru@5.2.0", "", {}, "sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw=="],
+
+    "@egosbr/guard-brasil": ["@egosbr/guard-brasil@0.1.0", "", {}, "sha512-aXijrHdRbpkhBUZcPnWTxGD6+DSAQgqN5gegr5N4KfRex7kYfv4Od/3P0pzygZdb3E8ts3nZEBQXWSPdFGZT+w=="],
 
     "@emnapi/runtime": ["@emnapi/runtime@1.9.1", "", { "dependencies": { "tslib": "^2.4.0" } }, "sha512-VYi5+ZVLhpgK4hQ0TAjiQiZ6ol0oe4mBx7mVv7IflsiEp0OWoVsp/+f9Vc1hOhE0TtkORVrI1GvzyreqpgWtkA=="],
 
