@@ -1,8 +1,8 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 2.2.0 | **UPDATED:** 2026-03-30
+> **VERSION:** 2.3.0 | **UPDATED:** 2026-03-30
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
-> **Latest:** Guard Brasil API live at guard.egos.ia.br (4ms, CPF/RG/MASP/REDS) + br-acc rename script
+> **Latest:** MANUAL_ACTIONS.md system wired into /start; Guard Brasil API LIVE; rename Phase 1 done (47 docs)
 
 ## Guard Brasil GTM Patterns (2026-03-30)
 
@@ -28,6 +28,24 @@
 - `/proc/sys/kernel/random/uuid` generates UUID v4 on Linux without Python/uuidgen
 - Store in `.env` in deploy dir, reference via `--env-file /absolute/path/.env`
 - API key check: `if [ ! -f ".env" ]; then generate; else keep existing`
+
+## MANUAL_ACTIONS Pattern (2026-03-30)
+
+### O que é
+`MANUAL_ACTIONS.md` na raiz do repo — arquivo canônico de bloqueios que só o humano pode resolver.
+Wired no `/start` INTAKE como leitura obrigatória antes de qualquer planejamento técnico.
+
+### Regras do padrão
+- Cada item tem: ID (M-NNN), impacto em receita, tempo estimado, comandos exatos, e como validar
+- Prioridades: 🔴 URGENTE (bloqueia receita), 🟡 IMPORTANTE (desbloqueia produto), 🟢 BAIXO
+- Itens concluídos vão para o Histórico com data — nunca deletar
+- Agente atualiza autonomamente (novos itens, status, deps) — humano só executa
+
+### Gotchas
+- `--env-file .env` em docker compose: DEVE ser caminho absoluto quando executado de dir não-padrão
+- Docker network rename: funciona com containers attached — sem downtime
+- npm publish requer npm login interativo — não pode ser automatizado sem NPM_TOKEN no CI
+- GitHub Actions publish-npm.yml: trigger é `push.tags: guard-brasil/v*`, não merge em main
 
 ## Agent Operating Protocol (Self-Diagnostic v1.0)
 

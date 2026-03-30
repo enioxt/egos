@@ -1,6 +1,6 @@
 # EGOS Capability Registry
 
-> **VERSION:** 1.4.0 | **UPDATED:** 2026-03-29
+> **VERSION:** 1.5.0 | **UPDATED:** 2026-03-30
 > **PURPOSE:** Master index of all capabilities across the EGOS ecosystem
 > **SSOT STATUS:** This file IS the canonical capability map
 
@@ -87,6 +87,7 @@ Each capability has:
 | Pre-commit Drift Detection | `.husky/pre-commit` | A | carteira-livre, forja | — | `governance`, `drift`, `hooks` |
 | CRCDM Universal Hook | `scripts/hooks/crcdm-pre-commit.sh` → `~/.egos/hooks/pre-commit` | A | ALL (symlink) | — | `governance`, `security`, `crcdm`, `hooks` |
 | Cross-Repo Health Dashboard | `egos/scripts/egos-repo-health.sh` | A | egos (run before installers) | — | `observability`, `governance`, `git` |
+| **MANUAL_ACTIONS Tracker** | `egos/MANUAL_ACTIONS.md` | A | egos (wired into /start INTAKE) | ALL | `governance`, `manual`, `blocker`, `gtm` |
 | Context Persistence (Fibonacci) | `scripts/context-manager.ts` + `/snapshot` command | A | ALL (9 repos) | — | `context`, `session`, `persistence` |
 | Secret Leak Detection | `.gitleaks.toml` + CRCDM hook regex | A | ALL | — | `security`, `secrets`, `compliance` |
 | Context Tracker | `egos/agents/agents/context-tracker.ts` | A | egos | ALL | `governance`, `context`, `observability` |
@@ -114,6 +115,8 @@ Each capability has:
 | Capability | SSOT | Quality | Adopted By | Should Adopt | Tags |
 |-----------|------|---------|------------|-------------|------|
 | Docker + Caddy + VPS | `852/docker-compose.yml` | A | 852, br-acc | forja | `deploy`, `docker`, `vps` |
+| **Guard Brasil REST API** | `egos/apps/api/src/server.ts` + `apps/api/deploy.sh` | A | egos (LIVE: guard.egos.ia.br) | — | `deploy`, `docker`, `guard-brasil`, `api` |
+| **Guard Brasil MCP Server** | `egos/apps/api/src/mcp-server.ts` | A | egos (stdio JSON-RPC 2.0) | — | `deploy`, `mcp`, `guard-brasil` |
 | One-Command Release | `852: npm run release:prod` | A | 852 | forja | `deploy`, `release`, `automation` |
 | Vercel Auto-Deploy | `egos-lab/apps/egos-web` | A | egos-lab | — | `deploy`, `vercel` |
 | Brand Import (Stitch) | `852: npm run brand:import` | B | 852 | — | `deploy`, `assets`, `stitch` |
