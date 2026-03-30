@@ -287,6 +287,11 @@
 - [x] EGOS-126: Build EGOS-116/117 sales kit — **COMPLETE (2026-03-30)**
   - 1-pager: `docs/strategy/GUARD_BRASIL_1PAGER.md`
   - Demo script 30min: `docs/strategy/GUARD_BRASIL_DEMO_SCRIPT.md` (com FAQ)
+- [x] EGOS-G002: Consolidate PII patterns to shared config — **COMPLETE (2026-03-30)**
+  - Created `packages/guard-brasil/src/pii-patterns.ts`: 12 Brazilian PII patterns
+  - Exported `detectPII(text)` → PIIMatch[] and `maskPII(text)` → masked string
+  - Refactored pii-scanner.ts to import centralized patterns (backward compatible)
+  - Re-exported all from index.ts
 
 ## ARCH Project Revival (2026-03-30)
 
@@ -310,8 +315,9 @@
 
 - [x] ARCH-001: Fix critical API key exposure (move to `.env`) — **COMPLETE (2026-03-30)**
   - Moved to `process.env.OPENROUTER_API_KEY` in server.ts
-  - Deployed to Hetzner VPS: port 3098, container `egos-arch`, health check passing
-  - Caddy configured: `arch.egos.ia.br` → 127.0.0.1:3098
+  - Deployed to Hetzner VPS: port 3098, container `egos-arch`
+  - Caddy configured: `arch.egos.ia.br` → egos-arch:3000 (Docker network)
+  - **LIVE:** https://arch.egos.ia.br — TLS auto-provisioned, chat + briefing APIs working
 
 - [ ] ARCH-002: Setup Supabase database schema (persistence foundation)
   - Effort: 3h | Owner: full-stack
