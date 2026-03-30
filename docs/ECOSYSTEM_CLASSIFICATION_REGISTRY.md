@@ -11,12 +11,10 @@
 | Class | Definition | Examples |
 |-------|-----------|---------|
 | `product` | Actively sold or marketed, has clear ICP and pricing | Guard Brasil, egos.ia.br |
-| `standalone_candidate` | Could be its own package/repo — strong enough standalone | `@egos/guard-brasil`, `egos-guard` CLI |
+| `standalone_candidate` | Could be its own package/repo — strong enough standalone | `@egosbr/guard-brasil`, `egos-guard` CLI |
 | `candidate` | Good idea, needs PRD + ICP before becoming product | Agent-028 as SaaS, Commons courses |
 | `lab` | Active experiment or acquisition surface — not a product yet | egos-lab, gem-hunter |
 | `internal_infra` | Dev tooling, CI, governance — powers other things | governance-sync, metrics-tracker |
-| `archive` | No longer active — preserved for reference | Old chatbot experiments |
-| `discard` | Dead code — no users, no plans | Abandoned scaffolds |
 
 ---
 
@@ -34,11 +32,10 @@
 
 | Name | Class | Rationale | Next Step |
 |------|-------|-----------|-----------|
-| `@egos/guard-brasil` | `standalone_candidate` | ATRiAN + PII + Public Guard + Evidence Chain bundled — high reuse potential | Publish to npm |
+| `@egosbr/guard-brasil` | `standalone_candidate` | ATRiAN + PII + Public Guard + Evidence Chain bundled — high reuse potential | Expand adoption and distribution |
 | `egos-guard` CLI | `standalone_candidate` | Terminal tool for Guard Brasil — devtools adoption surface | Add to README install instructions |
 | `@egos/shared` | `standalone_candidate` | Core framework utilities — used by 3+ repos already | Already published in workspace; add to npm |
 | Cross-session memory | `standalone_candidate` | Supabase-based cross-session AI memory — generic enough | Extract as `@egos/memory` |
-| Mycelium reference graph | `standalone_candidate` | Knowledge graph for repo relationships — open-source tool | Extract as `@egos/mycelium` |
 
 ---
 

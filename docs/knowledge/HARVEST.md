@@ -82,7 +82,7 @@ Wired no `/start` INTAKE como leitura obrigatória antes de qualquer planejament
 ### Gotchas
 - `--env-file .env` em docker compose: DEVE ser caminho absoluto quando executado de dir não-padrão
 - Docker network rename: funciona com containers attached — sem downtime
-- npm publish requer npm login interativo — não pode ser automatizado sem NPM_TOKEN no CI
+- npm publish com CI exige credenciais em secret store segura, não documentadas em superfícies públicas
 - GitHub Actions publish-npm.yml: trigger é `push.tags: guard-brasil/v*`, não merge em main
 
 ## Agent Operating Protocol (Self-Diagnostic v1.0)
@@ -288,7 +288,7 @@ USER MESSAGE arrives
 
 ```text
 /start
-  → Load AGENTS.md, TASKS.md, .windsurfrules
+  → Load AGENTS.md, TASKS.md, .windsurfrrules
   → Load orchestration pipeline
   → Load meta-prompts + triggers
   → Verify rules checksum
@@ -345,10 +345,10 @@ USER MESSAGE arrives
 |------|------|------|--------|
 | **egos** | Kernel | `/home/enio/egos` | N/A (governance only) |
 | **egos-lab** | Lab/Demo | `/home/enio/egos-lab` | Vercel (auto) + Railway |
-| **852** | Product (chatbot) | `/home/enio/852` | Hetzner VPS (204.168.217.125) + Docker |
+| **852** | Product (chatbot) | `/home/enio/852` | Hetzner VPS + Docker |
 | **carteira-livre** | Product (marketplace) | `/home/enio/carteira-livre` | Vercel (auto) |
 | **forja** | Product (ERP) | `/home/enio/forja` | Vercel |
-| **br-acc** | Intelligence platform | `/home/enio/br-acc` | Hetzner VPS (204.168.217.125) + Docker |
+| **br-acc** | Intelligence platform | `/home/enio/br-acc` | Hetzner VPS + Docker |
 | **policia** | Investigation workspace | `/home/enio/policia` | Local only |
 | **santiago** | WhatsApp SaaS | `/home/enio/santiago` | Vercel + Hetzner VPS |
 
@@ -384,7 +384,7 @@ USER MESSAGE arrives
 
 - Remove interactive `read -p "y/n"` prompts from `governance-sync.sh`. Replace with `--auto` flag or `EGOS_AUTO_PROPAGATE=1` env var.
 - Pre-commit hook should block commits that change canonical governance files without a subsequent `governance:sync:exec` pass.
-- `.windsurfrules` MANDAMENTO 15: governance changes are not complete until `bun run governance:sync:exec` + `bun run governance:check` return 0 drift.
+- `.windsurfrrules` MANDAMENTO 15: governance changes are not complete until `bun run governance:sync:exec` + `bun run governance:check` return 0 drift.
 
 ## Cross-Repo SSOT Mesh
 
@@ -579,7 +579,7 @@ Leaf repos inherit kernel governance via symlinks but keep local IDENTITY.md and
 
 ### Pattern: SDK Packaging from Monorepo Shared Modules
 
-**What:** Extract domain modules from `@egos/shared` into a standalone, npm-publishable package (`@egos/guard-brasil`).
+**What:** Extract domain modules from `@egos/shared` into a standalone, npm-publishable package (`@egosbr/guard-brasil`).
 **How:**
 1. Create `packages/<product>/package.json` with `"license": "MIT"` (not `"private": true`)
 2. `src/index.ts` re-exports from `@egos/shared` for granular usage
@@ -635,8 +635,8 @@ Leaf repos inherit kernel governance via symlinks but keep local IDENTITY.md and
 ## Infrastructure
 
 ### Hetzner VPS
-- **IP:** 204.168.217.125
-- **SSH:** `ssh root@hetzner` (key: ~/.ssh/hetzner_ed25519)
+- **Address:** redacted in public-facing docs
+- **Access:** operator-managed only
 - **Docker Services:**
   - evolution-api (port 8080)
   - postgres (Evolution API DB)
@@ -644,7 +644,7 @@ Leaf repos inherit kernel governance via symlinks but keep local IDENTITY.md and
 
 ### Evolution API (WhatsApp Runtime)
 - **Mode:** Self-hosted on Hetzner (NOT Railway)
-- **URL:** http://204.168.217.125:8080
+- **URL:** internal-only runtime surface
 - **Instance:** forja-notifications
 - **State:** open (validated 2026-03-30)
 ```
@@ -655,7 +655,7 @@ Leaf repos inherit kernel governance via symlinks but keep local IDENTITY.md and
 mcp__memory__create_entities({
   entities: [
     { name: "Hetzner VPS", entityType: "infrastructure",
-      observations: ["IP: 204.168.217.125", "Hosts Evolution API"] },
+      observations: ["Address redacted in public docs", "Hosts Evolution API"] },
     { name: "Evolution API", entityType: "service",
       observations: ["Self-hosted on Hetzner", "NOT on Railway", "Port 8080"] }
   ]
@@ -669,96 +669,6 @@ mcp__memory__create_relations({
   ]
 });
 ```
-
-**Reusable pattern:** All EGOS repos should have `docs/INTEGRATIONS_MEMORY.md` updated after infrastructure changes and synced to MCP memory.
-
----
-
-### Pattern: WhatsApp Runtime SSOT Architecture
-
-**Philosophy:** WhatsApp is a workflow surface (status, alerts, confirmations), not an open-chat platform. Meta restricts "general AI" on WhatsApp as of 2026-01.
-
-**Canonical Architecture:**
-```
-Hetzner VPS (SSOT Runtime)
-  └─ Evolution API (Single Deployment)
-      ├─ forja-notifications (instance)
-      ├─ 852-customer-service (future)
-      └─ carteira-x-transactions (future)
-
-Vercel App
-  ├─ Webhook handlers (/api/notifications/whatsapp)
-  ├─ Notification service layer
-  └─ Admin dashboard (future Control Tower)
-
-Supabase DB
-  ├─ Audit logs (all webhook events)
-  ├─ Instance registry (future)
-  └─ Message history
-
-Redis (Future P1)
-  ├─ Message queue
-  ├─ Retry/dead-letter
-  └─ Rate limiting
-```
-
-**Key Decisions:**
-| Decision | Rationale | Trade-off |
-|----------|-----------|-----------|
-| Hetzner as runtime SSOT | Single source of truth | VPS maintenance burden |
-| One Evolution API | Simpler ops, shared config | Single point of failure |
-| One instance per channel | Isolation, independent lifecycle | More API surface |
-| Baileys for dev/low-volume | No Meta approval needed | 14-day timeout, QR re-pairing |
-| Cloud API for prod/critical | Official, stable, higher limits | Meta Business approval required |
-
-**Validated in:** forja-notifications (2026-03-30, state: open)
-
----
-
-### Pattern: QR Drift Recovery Protocol
-
-**Problem:** Evolution API QR code generation fails — modal opens empty, `/instance/connect/{instance}` returns `{ "count": 0 }`.
-
-**Root Cause:** Baileys session version drift between Evolution API image and WhatsApp production runtime.
-
-**Recovery Protocol:**
-```
-1. Validate instance exists
-   GET /instance/fetchInstances
-   Confirm instance name
-
-2. Test connect endpoint
-   GET /instance/connect/{instance}
-   If { "count": 0 }, proceed to step 3
-
-3. Inspect runtime logs
-   docker logs evolution-api
-   Look for session/version errors
-
-4. Apply session version fix
-   Add to docker-compose.yml:
-     CONFIG_SESSION_PHONE_VERSION=2.3000.1033994345
-   Recreate: docker compose up -d --force-recreate evolution-api
-
-5. Validate QR generation
-   docker logs evolution-api | grep qrcodeCount
-   Should show "qrcodeCount": 1
-
-6. Retry pairing in Manager UI
-   Only after runtime validation passes
-```
-
-**Validated Fix (forja 2026-03-30):**
-```bash
-# In /opt/evolution-api/docker-compose.yml
-environment:
-  - CONFIG_SESSION_PHONE_VERSION=2.3000.1033994345
-
-docker compose up -d --force-recreate evolution-api
-# Result: forja-notifications connected, state: open
-```
-
-**Evidence:** forja/docs/_current_handoffs/handoff_2026-03-30.md
 
 **Reusable pattern:** This fix should be part of the canonical Evolution API deployment template for all products.
 

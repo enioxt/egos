@@ -1,30 +1,30 @@
-# EGOS — Kernel de Orquestração para Agentes de IA Governados
+# EGOS — Governance Kernel for Auditable AI Systems
 
-> **"Saímos de casa para nos doar."**
-> Rules govern agents. Agents enforce rules. Community evolves rules.
+> Governance-first runtime, policy enforcement, and reusable safety modules for production AI systems.
 
-EGOS é o kernel open-source que fornece governança, orquestração e infraestrutura de runtime para sistemas de IA. É a camada invisível que faz agentes pensarem como sistemas governados — com rastreabilidade, conformidade LGPD e prova de trabalho em cada decisão.
+EGOS é o kernel open-source que fornece governança, orquestração, validação e superfícies reutilizáveis para sistemas de IA que precisam de rastreabilidade, conformidade e disciplina operacional.
 
 ---
 
 ## Produto Principal: Guard Brasil
 
-**Guard Brasil** (`@egos/guard-brasil`) é o produto comercial construído sobre o kernel EGOS.
-Protege sistemas de IA contra vazamento de dados pessoais brasileiros em tempo real.
+**Guard Brasil** (`@egosbr/guard-brasil`) é o primeiro produto público construído sobre o kernel EGOS.
+Ele adiciona proteção LGPD, validação ética, trilha de evidências e políticas de saída para assistentes e fluxos de IA operando no contexto brasileiro.
 
 ```bash
 # SDK (open source, MIT)
-npm install @egos/guard-brasil
+npm install @egosbr/guard-brasil
 
-# REST API (hosted, R$99/mês)
+# REST API hospedada
 curl -X POST https://guard.egos.ia.br/v1/inspect \
   -H "Authorization: Bearer SEU_TOKEN" \
   -H "Content-Type: application/json" \
-  -d '{"text": "CPF do suspeito: 123.456.789-00"}'
-# → {"safe":false,"output":"CPF do suspeito: [CPF REMOVIDO]","meta":{"durationMs":4}}
+  -d '{"text": "CPF do cliente: 123.456.789-00"}'
 ```
 
-**Detecta e mascara:** CPF, RG, MASP, REDS, número de processo, placa, telefone, e-mail e mais 8 categorias de PII brasileiro.
+**Detecta e trata:** CPF, RG, MASP, REDS, número de processo, placa, telefone, e-mail, nomes e outros identificadores relevantes para cenários brasileiros.
+
+**Nota de naming público:** o kernel continua sendo `EGOS`; os pacotes npm públicos usam o escopo `@egosbr/*`.
 
 **Documentação comercial:**
 - [1-pager PT-BR](docs/strategy/GUARD_BRASIL_1PAGER.md)
@@ -39,11 +39,10 @@ curl -X POST https://guard.egos.ia.br/v1/inspect \
 |--------|-----------|
 | **Governance DNA** (`.guarani/`) | Identidade, protocolo de orquestração, quality gates, meta-prompts |
 | **Agent Runtime** | Registry-based discovery, dry-run/execute, correlation IDs, event bus |
-| **Guard Brasil Stack** | ATRiAN ético + PII Scanner BR + LGPD masking + Evidence Chain |
+| **Guard Brasil Stack** | ATRiAN + PII Scanner BR + LGPD masking + PRI + Evidence Chain |
 | **Multi-LLM Routing** | Alibaba Qwen (primário), OpenRouter/Gemini (fallback), cost tracking |
-| **Frozen Zones** | Arquivos protegidos com pré-commit enforcement |
+| **Protected Surfaces** | Arquivos protegidos com enforcement via pre-commit e governança |
 | **SSOT Enforcement** | Limites de arquivo, drift checks, gitleaks |
-| **MANUAL_ACTIONS** | Rastreio de bloqueios manuais, lido obrigatoriamente no `/start` |
 
 ---
 
@@ -90,20 +89,17 @@ bun run pr:gate --file /tmp/pr-pack.md
 egos/
 ├── .guarani/               # Governance DNA (identity, orchestration, prompts)
 ├── agents/
-│   ├── runtime/            # Runner + Event Bus (FROZEN)
-│   ├── registry/           # Agent definitions SSOT (13 agents)
-│   └── agents/             # Implementations (ssot-auditor, drift-sentinel...)
+│   ├── runtime/            # Runner + Event Bus (protected surfaces)
+│   ├── registry/           # Agent definitions SSOT
+│   └── agents/             # Implementations
 ├── packages/
-│   ├── guard-brasil/       # @egos/guard-brasil v0.1.0 — produto comercial
+│   ├── guard-brasil/       # @egosbr/guard-brasil v0.1.0 — public package
 │   └── shared/             # ATRiAN, PII Scanner, Evidence Chain, LLM router
 ├── apps/
-│   └── api/                # Guard Brasil REST API (Bun, porta 3099)
-│       ├── src/server.ts   # POST /v1/inspect, Bearer auth, rate limiting
-│       ├── src/mcp-server.ts # MCP stdio (guard_inspect, guard_scan_pii...)
-│       └── deploy.sh       # Deploy 1-comando para Hetzner
-├── scripts/                # doctor.ts, governance-sync.sh, egos-repo-health.sh
-├── MANUAL_ACTIONS.md       # ⚠️ Bloqueios que só o humano resolve — ler primeiro
-├── TASKS.md                # Roadmap vivo (EGOS-001 → EGOS-130)
+│   ├── api/                # Guard Brasil REST + MCP reference server
+│   └── guard-brasil-web/   # Public landing + dashboard explorations
+├── scripts/                # doctor.ts, governance-sync.sh, kernel utilities
+├── TASKS.md                # Roadmap vivo
 └── AGENTS.md               # Mapa do sistema
 ```
 
@@ -121,49 +117,35 @@ egos/
 
 ---
 
-## Infraestrutura de Produção
+## Superfície Pública e Postura de Segurança
 
-**VPS:** Hetzner 204.168.217.125 — 12 containers Docker ativos
+Este README público mostra apenas o que um prospect, operador ou contribuidor precisa para avaliar o produto.
 
-| Serviço | Endpoint | Status |
-|---------|----------|--------|
-| guard-brasil-api | guard.egos.ia.br/v1/inspect *(DNS pendente)* | ✅ Healthy |
-| 852-app | 852.egos.ia.br | ✅ Healthy |
-| bracc-neo4j | 127.0.0.1:7474 | ✅ Healthy |
-| infra-caddy | TLS automático | ✅ Up |
+**Público e verificável:**
+- pacote npm `@egosbr/guard-brasil`
+- endpoint `https://guard.egos.ia.br/v1/inspect`
+- health check `https://guard.egos.ia.br/health`
+- documentação técnica e comercial em `docs/strategy/`
 
-**Deploy Guard Brasil API:**
-```bash
-bash apps/api/deploy.sh          # deploy completo
-bash apps/api/deploy.sh --logs   # deploy + tail logs
-```
+**Intencionalmente omitido daqui:**
+- IPs de VPS, SSH e topologia detalhada de runtime
+- localizações de segredos, tokens e rotinas de rotação
+- comandos operacionais manuais e checklists internos
+- chaves de demonstração e credenciais temporárias
 
 ---
 
-## Monetização Guard Brasil
+## Superfície Comercial Atual
 
-| Tier | Preço | Limite |
+| Oferta | Preço | Uso típico |
 |------|-------|--------|
-| Open Source SDK | Gratuito | `npm install @egos/guard-brasil` |
-| Starter API | R$99/mês | 100 req/min |
-| Pro + Dashboard | R$499/mês | Sem limite + auditoria |
-| Enterprise | Sob consulta | SLA 99.9%, on-premise |
-| Policy Packs | R$2.990/ano | Segurança Pública, Judiciário, Saúde, Financeiro |
+| Open Source SDK | Gratuito | uso local, PoC, ferramentas internas |
+| Starter API | a partir de R$ 49/mês | pilotos e integrações leves |
+| Pro | R$ 199/mês | times com volume recorrente |
+| Business | R$ 499/mês | ambientes com auditoria, dashboards e SLA ampliado |
+| Enterprise | Sob consulta | on-premise, policy packs e suporte dedicado |
 
----
-
-## Bloqueios Manuais Ativos
-
-Arquivo: [`MANUAL_ACTIONS.md`](MANUAL_ACTIONS.md) — atualizado automaticamente.
-
-| ID | Ação | Tempo | Prioridade |
-|----|------|-------|-----------|
-| M-001 | `npm login` + `npm publish` em `packages/guard-brasil/` | 5 min | 🔴 |
-| M-002 | DNS A `guard → 204.168.217.125` em `egos.ia.br` | 2 min | 🔴 |
-| M-003 | `bash scripts/rename-to-egos-inteligencia.sh --execute` | 15 min | 🟡 |
-| M-005 | `docker network rename infra_bracc infra_egos_inteligencia` | 5 min | 🟡 |
-| M-006 | `NPM_TOKEN` no GitHub Secrets | 5 min | 🟢 |
-| M-007 | 20 emails outreach CTOs govtech BR | 2h | 🟢 |
+**Pricing SSOT:** `docs/strategy/GUARD_BRASIL_PRICING_RESEARCH.md`
 
 ---
 
@@ -177,4 +159,4 @@ Ver [CONTRIBUTING.md](CONTRIBUTING.md). Todos os commits passam por:
 
 ## Licença
 
-MIT — [`@egos/guard-brasil`](packages/guard-brasil/) também MIT.
+MIT — [`@egosbr/guard-brasil`](packages/guard-brasil/) também MIT.

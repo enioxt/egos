@@ -9,11 +9,13 @@
 
 **EGOS Guard Brasil** is a Brazil-first guardrails layer for AI assistants and public-facing AI systems.
 
-It is an SDK/API/MCP that ensures AI-generated output is:
+It is available today as an SDK/API/MCP surface and ensures AI-generated output is:
 - **LGPD-compliant** — no personal data leaks through responses
 - **Ethically validated** — no absolute claims, false promises, or fabricated data
 - **Evidence-anchored** — every claim is traceable to a source or tool call
 - **Governance-ready** — policy enforcement with full audit trail
+
+**Public package:** `@egosbr/guard-brasil`
 
 ---
 
@@ -154,14 +156,15 @@ async function guardedResponse(rawLLMOutput: string, sessionId: string) {
 - [x] Public Guard (LGPD masking)
 - [x] Evidence Chain (traceable responses)
 
-### Phase 2 (MCP)
-- [ ] MCP server exposing Guard Brasil as tools
-- [ ] `guard://validate` — ATRiAN check
-- [ ] `guard://mask` — PII masking
-- [ ] `guard://evidence` — evidence chain builder
+### Phase 2 (Current — MCP)
+- [x] MCP server exposing Guard Brasil as tools
+- [x] `guard_inspect` — full inspection surface
+- [x] `guard_scan_pii` — PII scan surface
+- [x] `guard_check_safe` — safety verdict surface
 
-### Phase 3 (Hosted API)
-- [ ] REST API with key auth
+### Phase 3 (Current — Hosted API)
+- [x] REST API with key auth
+- [x] PRI-aware `POST /v1/inspect`
 - [ ] Dashboard: compliance reports per tenant
 - [ ] Webhook: real-time violation alerts
 - [ ] Audit console: full evidence trail viewer

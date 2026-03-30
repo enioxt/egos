@@ -1,24 +1,24 @@
 # Guard Brasil — TRANSPARÊNCIA RADICAL (Pricing + Observabilidade)
 
-> **Versão:** 1.0.0 | **Data:** 2026-03-30 | **Modelo:** Pay-Per-Use + Dashboard + Relatórios IA
+> **Versão:** 1.0.0 | **Data:** 2026-03-30 | **Modelo:** Tiers mensais + visibilidade operacional + relatórios IA
 > **Baseado em:** telemetry.ts, egos-repo-health.sh, code-health-monitor.ts, doctor.ts
 
 ---
 
 ## 🎯 CONCEITO: TRANSPARÊNCIA RADICAL
 
-**Não é assinatura fixa.** Cada cliente VEMTUDO que está pagando em tempo real:
+**Não é opacidade operacional.** Cada cliente vê o que está acontecendo no uso contratado, sem precisar expor detalhes sensíveis de infraestrutura:
 
 ```
 Cliente entra no Dashboard
   ↓
-Vê cada chamada API registrada (timestamp, modelo, tokens, custo)
+Vê cada chamada API registrada (timestamp, categoria, custo, decisão)
   ↓
-Vê breakdown de custos (CPF scanning, RG masking, ATRiAN score, evidence chain)
+Vê breakdown de custos e eventos (masking, ATRiAN, evidence, policy)
   ↓
-Vê relatório automático gerado por IA (correlações, trends, recomendações)
+Vê relatórios automáticos gerados por IA (correlações, trends, recomendações)
   ↓
-Paga EXATAMENTE o que usou (sem surpresas, sem mínimos)
+Entende claramente o que está pagando e o que está sendo protegido
 ```
 
 ### Diferencial vs Stripe/Twilio/OpenAI
@@ -33,41 +33,42 @@ Paga EXATAMENTE o que usou (sem surpresas, sem mínimos)
 
 ---
 
-## 💰 ESTRUTURA DE PREÇOS (PAY-PER-USE)
+## 💰 ESTRUTURA DE PREÇOS
 
 ### Tier 1: Free (npm SDK)
 - `npm install @egosbr/guard-brasil`
-- Uso local, sem telemetria
-- PII Scanner BR + ATRiAN core
-- Sem limite de chamadas (local-only)
+- Uso local, sem telemetria hospedada
+- PII Scanner BR + ATRiAN core + masking + evidence chain
+- Sem limite local de chamadas
 - **Preço:** R$0
 
-### Tier 2: Starter API (Pay-Per-Call)
+### Tier 2: Starter API
 - `POST guard.egos.ia.br/v1/inspect`
 - Autenticação via Bearer Token
-- Telemetria automática (cada chamada)
-- Dashboard básico (últimos 30 dias)
-- **Preço:** R$0,02 por chamada (mínimo R$0)
-  - 1 chamada = ~R$0,02
-  - 100 chamadas/dia = ~R$1,40/dia = ~R$42/mês
-  - 10.000 chamadas/mês = ~R$200/mês
+- Telemetria automática
+- Dashboard básico
+- **Preço:** R$49/mês até 10k inspeções
 
-### Tier 3: Pro (Dashboard + IA Reports)
+### Tier 3: Pro
 - Tudo de Starter +
-- Dashboard avançado (histórico completo)
-- Relatórios automáticos com IA (diários/semanais)
-- Alertas customizados (CPFs detectados, scores baixos)
-- Integração com Slack/Teams/Email
-- **Preço:** R$299/mês (inclui até 50k chamadas)
-  - Cada chamada adicional: R$0,01 (50% desconto)
+- Dashboard avançado
+- Relatórios automáticos com IA
+- Alertas customizados
+- **Preço:** R$199/mês até 100k inspeções
 
-### Tier 4: Enterprise (Custom)
+### Tier 4: Business
 - Tudo de Pro +
-- SLA 99.9% uptime
-- Modelo de cobrança customizado (flat fee, volume commits, etc.)
-- Suporte dedicado (Slack)
-- Relatórios forenses (compliance audits)
-- **Preço:** Sob consulta (mínimo R$2.990/mês)
+- SLA ampliado
+- Operação multi-time
+- Suporte dedicado
+- **Preço:** R$499/mês até 500k inspeções
+
+### Tier 5: Enterprise
+- Tudo de Business +
+- On-premise ou deployment dedicado
+- Modelo de cobrança customizado
+- Relatórios forenses
+- **Preço:** Sob consulta
 
 ---
 
@@ -135,21 +136,11 @@ Rate limiting:
 ```typescript
 import { GuardBrasil } from '@egosbr/guard-brasil';
 
-const guard = new GuardBrasil({
-  apiKey: 'sk_live_xyz123...',
-  // Telemetria automática ativada
-  telemetryUrl: 'https://guard.egos.ia.br/telemetry'
-});
+const guard = GuardBrasil.create();
+const result = guard.inspect('CPF do usuário: 123.456.789-00');
 
-const result = await guard.inspect('CPF do usuário: 123.456.789-00');
-// Resultado + evento de telemetria enviado automaticamente
-
-// Todo uso é rastreado:
-// - Tipo: 'cpf_masking'
-// - Custo: R$0.02
-// - Token auth: hash do API key
-// - Timestamp: ISO 8601
-// - Modelo usado: Qwen-plus
+console.log(result.output);
+console.log(result.summary);
 ```
 
 ### MCP Tool
@@ -157,25 +148,6 @@ const result = await guard.inspect('CPF do usuário: 123.456.789-00');
 mcp call guard_inspect \
   --text "Paciente: João Silva, CPF 123.456.789-00" \
   --options '{"verbose": true, "audit": true}'
-
-# Resposta:
-{
-  "safe": true,
-  "blocked": ["123.456.789-00"],
-  "output": "Paciente: João Silva, CPF [CPF REMOVIDO]",
-  "atrian": {
-    "score": 92,
-    "reasoning": "Disclosure de PII em contexto clínico"
-  },
-  "evidenceChain": "hash:abc123...",
-  "telemetry": {
-    "event_id": "evt_789xyz",
-    "cost_usd": 0.004,  // ~R$0.02
-    "provider": "qwen",
-    "tokens_in": 35,
-    "tokens_out": 8
-  }
-}
 ```
 
 ### Dashboard + Relatórios
@@ -193,31 +165,31 @@ mcp call guard_inspect \
 
 ```
 Mês 1:
-  5 clientes × R$99/mês (Starter, ~500 chamadas cada) = R$495
-  2 clientes × R$0,50/dia (Free users curiosos) ≈ R$30
-  Total: R$525
+  3 clientes Starter = R$147
+  1 cliente Pro = R$199
+  Total: R$346
 
 Mês 2:
-  10 clientes Starter = R$990
-  3 clientes Pro = R$897
-  Total: R$1.887
+  6 clientes Starter = R$294
+  2 clientes Pro = R$398
+  Total: R$692
 
 Mês 3:
-  15 clientes Starter = R$1.485
-  5 clientes Pro = R$1.495
-  1 cliente Enterprise (estimado R$5k) = R$5.000
-  Total: R$7.980
+  10 clientes Starter = R$490
+  3 clientes Pro = R$597
+  1 cliente Business = R$499
+  Total: R$1.586
 
-Trimestral: R$10.392
-Annual run-rate: R$41.568
+Trimestral: R$2.624
+Annual run-rate após M3: R$19.032
 ```
 
 ### Break-Even Analysis
-- **Burn Rate:** R$1.500/mês (Hetzner + Vercel)
-- **Mês 1 Revenue:** R$525
-- **Mês 2 Revenue:** R$1.887 (cobre 125% do burn)
-- **Mês 3 Revenue:** R$7.980 (5.3x do burn)
-- **Break-even:** Mês 2
+- **Burn Rate:** R$1.500/mês (VPS + SaaS + APIs)
+- **Mês 1 Revenue:** R$346
+- **Mês 2 Revenue:** R$692
+- **Mês 3 Revenue:** R$1.586 (cobre o burn)
+- **Break-even:** Mês 3
 
 ---
 

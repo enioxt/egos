@@ -38,10 +38,11 @@ Each capability has:
 | **Evidence Chain** | `egos/packages/shared/src/evidence-chain.ts` | A | egos | 852, forja, br-acc | `evidence`, `traceability`, `audit`, `guard-brasil` |
 
 | **GuardBrasil Facade** | `egos/packages/guard-brasil/src/guard.ts` | A | egos | 852, forja, br-acc | `guard-brasil`, `facade`, `lgpd`, `sdk` |
+| **PRI Safety Gate (Guard Brasil REST/MCP)** | `egos/packages/core/src/guards/pri.ts` + `egos/apps/api/src/server.ts` | B | egos | 852, forja, br-acc | `guard-brasil`, `pri`, `safety`, `privacy` |
 
 ### Guard Brasil Stack
 
-> **EGOS Guard Brasil** (`@egos/guard-brasil` v0.1.0) — ATRiAN + PII Scanner + Public Guard + Evidence Chain.
+> **EGOS Guard Brasil** (`@egosbr/guard-brasil` v0.1.0) — ATRiAN + PII Scanner + Public Guard + Evidence Chain.
 > Package: `packages/guard-brasil/` | Product brief: `docs/strategy/FLAGSHIP_BRIEF.md`
 > Demo: `bun run packages/guard-brasil/src/demo.ts`
 > Tests: 15/15 pass (`bun test packages/guard-brasil/src/guard.test.ts`)
@@ -155,6 +156,7 @@ Each capability has:
 | **Multi-Channel Runtime Pattern** | `egos/docs/knowledge/WHATSAPP_SSOT.md` | A | forja | ALL | `whatsapp`, `multi-channel`, `runtime` |
 | **Evolution API Deployment** | `egos/docs/knowledge/WHATSAPP_SSOT.md` | A | forja | ALL | `whatsapp`, `evolution`, `docker` |
 | **QR Drift Recovery Protocol** | `egos/docs/knowledge/WHATSAPP_SSOT.md` | A | forja | ALL | `whatsapp`, `recovery`, `qr` |
+| **WhatsApp Runtime Distribution Bundle** | `egos/integrations/distribution/whatsapp-runtime/` | A | egos | forja, 852, carteira-livre | `whatsapp`, `distribution`, `bundle` |
 | **Integration Memory Pattern** | `forja/docs/INTEGRATIONS_MEMORY.md` | A | forja | ALL | `infrastructure`, `memory`, `ssot` |
 | Evolution API Client | `carteira-livre/services/whatsapp/evolution-api.ts` | B | carteira-livre | — | `whatsapp`, `client`, `legacy` |
 | WhatsApp Notification Service | `forja/src/lib/whatsapp/notifications.ts` | A | forja | 852, carteira-livre | `whatsapp`, `notifications`, `templates` |
@@ -190,6 +192,7 @@ Each capability has:
 
 | Capability | SSOT | Quality | Adopted By | Should Adopt | Tags |
 |-----------|------|---------|------------|-------------|------|
+| Integration Release Contract | `egos/.guarani/orchestration/INTEGRATION_RELEASE_CONTRACT.md` | A | egos | ALL | `integrations`, `governance`, `release-gate` |
 | Chatbot Production Playbook | `852/docs/CHATBOT_PRODUCTION_REVERSE_ENGINEERING.md` | A | 852 | ALL new chatbots | `docs`, `playbook`, `deploy` |
 | Archaeology Digger Agent | `egos/agents/agents/archaeology-digger.ts` | A | egos | egos-lab | `docs`, `archaeology`, `agent` |
 | Evolution Tree (interactive) | `egos/docs/evolution-tree.html` | A | egos | — | `docs`, `visualization`, `history` |

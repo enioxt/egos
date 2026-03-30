@@ -10,13 +10,13 @@
  * Policies can be overridden via configuration.
  */
 
-import { v4 as uuidv4 } from 'uuid';
+import { randomUUID } from 'node:crypto';
 import type { Identity, ActivationRequest, ActivationResponse } from './contracts.ts';
 
 /**
  * PolicyRule — Definition of what a source is allowed to do
  */
-interface PolicyRule {
+export interface PolicyRule {
   source: string;
   action?: 'read' | 'execute' | 'write' | 'deploy';
   resource?: string;
@@ -122,7 +122,7 @@ export class DefaultPolicyEvaluator {
    * Returns whether the request is authorized and what scope is granted
    */
   async evaluate(request: ActivationRequest): Promise<ActivationResponse> {
-    const auditId = uuidv4();
+    const auditId = randomUUID();
 
     try {
       // Check if request is expired
@@ -265,8 +265,3 @@ export class DefaultPolicyEvaluator {
     return [...this.policies];
   }
 }
-
-/**
- * Type exports
- */
-export type { PolicyRule, PolicyConfig };

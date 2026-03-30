@@ -1,127 +1,111 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "EGOS Agent Registry",
+  "title": "EGOS Agent Registry v2.0",
+  "description": "22-field schema with kind-based classification. Replaces 'everything is an agent' with honest taxonomy.",
   "type": "object",
-  "required": [
-    "version",
-    "agents"
-  ],
+  "required": ["version", "agents"],
   "properties": {
-    "version": {
-      "type": "string"
-    },
+    "version": { "type": "string" },
+    "updated": { "type": "string" },
+    "description": { "type": "string" },
     "agents": {
       "type": "array",
       "items": {
         "type": "object",
         "required": [
-          "id",
-          "name",
-          "area",
-          "description",
-          "risk_level",
-          "entrypoint",
-          "run_modes",
-          "status"
+          "id", "name", "kind", "area", "description",
+          "risk_level", "entrypoint", "run_modes", "status"
         ],
         "properties": {
           "id": {
             "type": "string",
             "pattern": "^[a-z][a-z0-9_]*$"
           },
-          "name": {
-            "type": "string"
+          "name": { "type": "string" },
+          "kind": {
+            "type": "string",
+            "description": "Honest classification: verified_agent (continuous loop + side effects), agent_candidate (has potential but not verified), workflow (multi-step orchestration), tool (single-purpose CLI), dormant (exists but broken/stub)",
+            "enum": ["verified_agent", "agent_candidate", "workflow", "tool", "dormant"]
           },
           "area": {
             "type": "string",
             "enum": [
-              "security",
-              "knowledge",
-              "observability",
-              "qa",
-              "architecture",
-              "design",
-              "auth",
-              "orchestration"
+              "security", "knowledge", "observability", "qa",
+              "architecture", "design", "auth", "orchestration",
+              "governance", "infrastructure", "product"
             ]
           },
-          "description": {
-            "type": "string"
-          },
+          "description": { "type": "string" },
           "owner": {
-            "type": "string"
+            "type": "string",
+            "description": "GitHub handle or team responsible"
           },
           "risk_level": {
             "type": "string",
-            "description": "Risk tier: T0=read-only, T1=user-scoped write, T2=system mutation/AI, T3=destructive/external",
-            "enum": [
-              "T0",
-              "T1",
-              "T2",
-              "T3"
-            ]
+            "description": "T0=read-only, T1=user-scoped write, T2=system mutation/AI, T3=destructive/external",
+            "enum": ["T0", "T1", "T2", "T3"]
           },
-          "entrypoint": {
-            "type": "string"
-          },
+          "entrypoint": { "type": "string" },
           "tools_allowed": {
             "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "items": { "type": "string" }
           },
           "data_access": {
             "type": "object",
             "properties": {
-              "pii": {
-                "type": "boolean"
-              },
-              "secrets_scan": {
-                "type": "boolean"
-              }
+              "pii": { "type": "boolean" },
+              "secrets_scan": { "type": "boolean" }
             }
           },
           "triggers": {
             "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "items": { "type": "string" }
           },
           "memory_mode": {
             "type": "string",
-            "enum": [
-              "none",
-              "session",
-              "persistent"
-            ]
+            "enum": ["none", "session", "persistent"]
           },
           "eval_suite": {
             "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "items": { "type": "string" }
           },
           "run_modes": {
             "type": "array",
             "items": {
               "type": "string",
-              "enum": [
-                "dry_run",
-                "execute"
-              ]
+              "enum": ["dry_run", "execute"]
             }
           },
           "status": {
             "type": "string",
-            "enum": [
-              "active",
-              "placeholder",
-              "pending",
-              "disabled"
-            ]
+            "enum": ["active", "placeholder", "pending", "disabled", "broken"]
           },
-          "migrated_from": {
-            "type": "string"
+          "migrated_from": { "type": "string" },
+          "runtime_proof": {
+            "type": "string",
+            "description": "How to verify this runs: test command, health endpoint, or log path"
+          },
+          "telemetry_source": {
+            "type": "string",
+            "description": "Where telemetry data is emitted: stdout, jsonl file, supabase table, etc."
+          },
+          "cost_source": {
+            "type": "string",
+            "description": "What generates cost: 'none' for regex-only, 'openrouter' for LLM, etc."
+          },
+          "last_duration_ms": {
+            "type": "number",
+            "description": "Last measured execution duration in milliseconds (-1 if never run)"
+          },
+          "loop_mechanism": {
+            "type": "string",
+            "description": "For verified_agent: setInterval, cron, while-loop, event-driven. For tools: 'none'",
+            "enum": ["none", "setInterval", "cron", "while_loop", "event_driven"]
+          },
+          "side_effects": {
+            "type": "array",
+            "description": "What external state this modifies: fs_write, api_call, db_write, notification, etc.",
+            "items": { "type": "string" }
           }
         }
       }

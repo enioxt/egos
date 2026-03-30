@@ -9,6 +9,7 @@
  */
 
 import { GuardBrasil } from '../../../packages/guard-brasil/src/index.js';
+import { evaluatePRI, requiresManualReview, shouldBlockOnPRI } from './pri.js';
 
 const guard = GuardBrasil.create();
 const PORT = Number(process.env.GUARD_API_PORT ?? 3099);
@@ -83,7 +84,18 @@ const server = Bun.serve({
       }
 
       // Parse body
-      let body: { text: string; sessionId?: string; claims?: Array<{ claim: string; source: string; excerpt?: string; confidence?: string }> };
+      let body: {
+        text: string;
+        sessionId?: string;
+        claims?: Array<{ claim: string; source: string; excerpt?: string; confidence?: string }>;
+        pii_types?: string[];
+        pri_strategy?: 'paranoid' | 'balanced' | 'permissive';
+        pri_context?: {
+          impacts_fundamental_rights?: boolean;
+          is_admin_action?: boolean;
+          user_id?: string;
+        };
+      };
       try {
         body = await req.json();
       } catch {
@@ -100,7 +112,36 @@ const server = Bun.serve({
         sessionId: body.sessionId,
         claims: body.claims as any,
       });
+      const priDecision = await evaluatePRI(
+        body.text,
+        {
+          piiTypes: body.pii_types,
+          strategy: body.pri_strategy,
+          context: body.pri_context,
+        },
+        result.masking.findings,
+      );
+      const manualReviewRequired = requiresManualReview(priDecision);
       const durationMs = Math.round(performance.now() - startMs);
+
+      if (shouldBlockOnPRI(priDecision, body.pii_types)) {
+        return Response.json({
+          error: 'PRI blocked request.',
+          pri: priDecision,
+          meta: {
+            durationMs,
+            timestamp: new Date().toISOString(),
+            version: '0.1.0',
+          },
+        }, {
+          status: 422,
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'X-Guard-Duration-Ms': String(durationMs),
+          },
+        });
+      }
 
       return Response.json({
         safe: result.safe,
@@ -129,12 +170,22 @@ const server = Bun.serve({
           auditHash: result.evidenceChain.auditHash,
           claimCount: result.evidenceChain.claims.length,
         } : null,
+        pri: priDecision ? {
+          output: priDecision.output,
+          confidence: priDecision.confidence,
+          reasoning: priDecision.reasoning,
+          missingSignals: priDecision.missing_signals,
+          classifiersConsulted: priDecision.classifiers_consulted,
+          auditHash: priDecision.audit_hash,
+        } : null,
         meta: {
           durationMs,
+          manualReviewRequired,
           timestamp: new Date().toISOString(),
           version: '0.1.0',
         },
       }, {
+        status: manualReviewRequired ? 202 : 200,
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*',

@@ -15,6 +15,7 @@
  */
 
 import { GuardBrasil, scanForPII, isPublicSafe, getPIISummary } from '../../../packages/guard-brasil/src/index.js';
+import { evaluatePRI, requiresManualReview, shouldBlockOnPRI } from './pri.js';
 
 const guard = GuardBrasil.create();
 
@@ -57,6 +58,9 @@ const TOOLS = [
       properties: {
         text: { type: 'string', description: 'Text to inspect (LLM output, user message, document content)' },
         session_id: { type: 'string', description: 'Optional session ID for evidence chain tracing' },
+        pii_types: { type: 'array', items: { type: 'string' }, description: 'Optional explicit PII categories for PRI preflight' },
+        pri_strategy: { type: 'string', enum: ['paranoid', 'balanced', 'permissive'], description: 'Optional PRI strategy' },
+        impacts_fundamental_rights: { type: 'boolean', description: 'Optional PRI context flag for rights-sensitive decisions' },
       },
       required: ['text'],
     },
@@ -87,7 +91,7 @@ const TOOLS = [
 
 // ─── Handle requests ──────────────────────────────────────────────────────────
 
-function handleRequest(req: JsonRpcRequest): void {
+async function handleRequest(req: JsonRpcRequest): Promise<void> {
   switch (req.method) {
     case 'initialize':
       respond(req.id, {
@@ -109,16 +113,35 @@ function handleRequest(req: JsonRpcRequest): void {
       break;
 
     case 'tools/call': {
-      const params = req.params as { name: string; arguments: Record<string, string> };
+      const params = req.params as { name: string; arguments: Record<string, unknown> };
+      const text = typeof params.arguments.text === 'string' ? params.arguments.text : '';
+
+      if ((params.name === 'guard_inspect' || params.name === 'guard_scan_pii' || params.name === 'guard_check_safe') && !text) {
+        respondError(req.id, -32602, 'Missing required argument: text');
+        break;
+      }
 
       if (params.name === 'guard_inspect') {
-        const result = guard.inspect(params.arguments.text, {
-          sessionId: params.arguments.session_id,
+        const result = guard.inspect(text, {
+          sessionId: typeof params.arguments.session_id === 'string' ? params.arguments.session_id : undefined,
         });
+        const explicitPiiTypes = Array.isArray(params.arguments.pii_types)
+          ? params.arguments.pii_types.map(String)
+          : undefined;
+        const priDecision = await evaluatePRI(text, {
+          piiTypes: explicitPiiTypes,
+          strategy: params.arguments.pri_strategy as 'paranoid' | 'balanced' | 'permissive' | undefined,
+          context: {
+            impacts_fundamental_rights: params.arguments.impacts_fundamental_rights === true,
+          },
+        }, result.masking.findings);
+        const manualReviewRequired = requiresManualReview(priDecision);
+        const priBlocked = shouldBlockOnPRI(priDecision, explicitPiiTypes);
         respond(req.id, {
           content: [{
             type: 'text',
             text: JSON.stringify({
+              status: priBlocked ? 'blocked' : manualReviewRequired ? 'manual_review_required' : 'ok',
               safe: result.safe,
               blocked: result.blocked,
               output: result.output,
@@ -133,11 +156,13 @@ function handleRequest(req: JsonRpcRequest): void {
               })),
               sensitivityLevel: result.masking.sensitivityLevel,
               evidenceHash: result.evidenceChain?.auditHash,
+              priDecision,
+              manualReviewRequired,
             }, null, 2),
           }],
         });
       } else if (params.name === 'guard_scan_pii') {
-        const findings = scanForPII(params.arguments.text);
+        const findings = scanForPII(text);
         const summary = getPIISummary(findings);
         respond(req.id, {
           content: [{
@@ -155,7 +180,7 @@ function handleRequest(req: JsonRpcRequest): void {
           }],
         });
       } else if (params.name === 'guard_check_safe') {
-        const safe = isPublicSafe(params.arguments.text);
+        const safe = isPublicSafe(text);
         respond(req.id, {
           content: [{
             type: 'text',
@@ -201,7 +226,7 @@ process.stdin.on('data', (chunk: string) => {
 
     try {
       const req = JSON.parse(body) as JsonRpcRequest;
-      handleRequest(req);
+      void handleRequest(req);
     } catch (e) {
       // Skip malformed messages
     }

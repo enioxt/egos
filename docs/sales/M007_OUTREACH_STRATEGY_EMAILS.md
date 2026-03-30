@@ -11,22 +11,22 @@
 
 ### Segment: Brazilian Govtech CTOs
 - **Who:** Technical leaders in municipalities, state courts (TCEs), Public Ministries (MPs), federal agencies
-- **Problem:** LGPD compliance risk, PII exposure in citizen data, compliance violations costing R$100k+/year
-- **Why us:** Guard Brasil is the ONLY solution purpose-built for Brazilian PII (CPF, RG, MASP, placa) at scale + ethical validation (ATRiAN)
-- **Competitors:** None in this niche (Grepture/Protecto are international, not LGPD-native)
+- **Problem:** LGPD compliance risk, PII exposure in citizen data, and low auditability in AI-assisted workflows
+- **Why us:** Guard Brasil is a Brazil-first layer for CPF, RG, MASP, placa, processo and auditable AI output review
+- **Competitors:** International privacy/security tools exist, but usually are not LGPD-native or Brazilian-ID-first
 
 ### Differentiation
 1. **Brazilian-specific PII** (CPF/RG/MASP/processo/REDS) — not just email/SSN
-2. **Real-time masking** (4ms latency) — no batch processing
-3. **ATRiAN ethical validation** — catches bias/fairness issues in AI decisions
-4. **Transparência Radical** — 100% cost visibility, no hidden fees
-5. **Pay-per-use pricing** — R$0 free tier + R$0.0049/call (vs competitors' R$0.02+)
+2. **Low-latency masking** — built for inline use, not only batch review
+3. **ATRiAN ethical validation** — flags risky claims, false promises and unsupported assertions
+4. **Audit visibility** — evidence, masking and policy decisions can be logged and reviewed
+5. **Accessible entry point** — free local SDK + hosted plans starting at R$49/mês
 
 ### Value Metrics (for emails)
-- Compliance risk reduction: R$100k-500k/year (LGPD fines)
-- Latency: 4ms detection (vs batch processing 24h+)
-- Cost efficiency: R$0/mo for up to 150 calls/month free tier
-- Ethical AI: ATRiAN score 0-100, catches discriminatory decisions before they escalate
+- Compliance risk reduction: lower chance of exposing Brazilian identifiers in AI outputs
+- Latency: low-overhead inspection suitable for real-time flows
+- Cost efficiency: free local evaluation + hosted API tiers from R$49/mês
+- Ethical AI: ATRiAN score 0-100 for review workflows in sensitive contexts
 
 ---
 
@@ -38,25 +38,24 @@
 
 Oi [CTO_NAME],
 
-Quick context: we discovered that most Brazilian gov agencies expose **citizen PII unintentionally** in logs, reports, and API responses. Average exposure: CPF, RG, MASP, placa in **3-5 places per system**.
+Quick context: many Brazilian AI workflows still let citizen PII reach logs, reports and model prompts without a dedicated masking layer.
 
-LGPD fines start at R$2 million for first violations.
+LGPD raises the bar for accountability when personal data is processed in these systems.
 
 We built **Guard Brasil** specifically for this. It:
-- Detects all 8 types of Brazilian PII in **4ms real-time** (not batch)
-- Masks CPF, RG, MASP, placa, processo, reds, email, phone on the fly
-- Validates that your AI decisions are **ethically safe** (no racial/gender bias via ATRiAN score)
-- Shows you **exactly what data flows through your systems** — Transparência Radical
+- Detects Brazilian PII in real time (CPF, RG, MASP, placa, processo, REDS, email, phone)
+- Masks sensitive identifiers before output leaves the app
+- Adds ethical review signals through ATRiAN for high-stakes text
+- Preserves an auditable trail for inspection and compliance review
 
-**3-minute test:**
-1. Go to https://guardbrasil.dev
-2. Paste text with CPF/RG → see masking live
-3. Copy your API key from dashboard
-4. Call `/api/inspect` with your own data
+**Fast validation path:**
+1. Share a sample text flow you already process
+2. We run a guided inspection live or send a curl example
+3. You validate output, latency and masking policy with your team
 
-Free tier: R$ 0/month, 150 calls max (1 week of real usage). Paid: R$ 49-499/month depending on scale.
+Free local SDK for evaluation. Hosted API plans start at R$49/mês.
 
-**Next step:** 15-min demo call where we show your actual compliance gaps + roadmap. No pitch, just data.
+**Next step:** 15-min demo call where we test on a real sample from your environment.
 
 Available for a quick call this week?
 
@@ -77,23 +76,23 @@ Founder, Guard Brasil
 
 Oi [DECISION_MAKER_NAME],
 
-Your institution recently made [automated decision type — e.g., "loan approval", "resource allocation"]. Did you validate that it treats all citizens fairly?
+Your institution recently made [automated decision type — e.g., "loan approval", "resource allocation"]. Did you validate that the reasoning and output are reviewable before they reach citizens or operators?
 
-Most AI systems have **hidden bias**:
-- CPF patterns that correlate with race → African Brazilian rejected 3x more
-- Address patterns → poor zip codes rated as "higher risk"
-- Name analysis → certain surnames flagged as "suspicious"
+Common risk factors in AI-assisted decisions include:
+- Proxy variables hidden in names, addresses, geography or socioeconomic markers
+- Outputs that sound certain without sufficient evidence
+- No audit trail showing what was masked, flagged or escalated
 
-**Guard Brasil + ATRiAN catches this in real-time.** Every decision gets a fairness score (0-100). Score drops? Our system alerts you before the decision executes.
+**Guard Brasil + ATRiAN helps review this before production.** Every output can be scored, flagged and routed for human review.
 
 For [ORGAO], this means:
-- ✅ Defensible decisions (audit trail + ATRiAN reasoning)
-- ✅ Legal protection (LGPD Article 9 compliance on automated decisions)
-- ✅ Citizen trust (no hidden algorithmic harm)
+- ✅ Defensible decisions (audit trail + ATRiAN review signals)
+- ✅ Better review posture for high-risk automated flows
+- ✅ Clearer documentation for compliance and governance teams
 
-**The test:** Send us 100 rows of your decision data (anonymized). We'll run ATRiAN analysis. See if we find bias you didn't know about.
+**The test:** Send us anonymized sample outputs or rules. We'll run ATRiAN analysis and show where review gates should exist.
 
-Want a free bias audit of your system?
+Want a free bias and governance review of your flow?
 
 ---
 
@@ -118,19 +117,19 @@ Compliance tools are expensive. Most LGPD solutions:
 - **Open source:** Free but requires 2-3 engineers for 6 months (cost: R$ 300k+)
 
 **Guard Brasil** flips the model:
-- **Free tier:** R$ 0/month, 150 API calls (good for 1 week of pilot)
-- **Starter:** R$ 49/month (10k calls, ~2 hours of data processing per day)
-- **Pro:** R$ 199/month (100k calls, production-grade)
-- **Enterprise:** R$ 499/month (500k calls, custom policies)
+- **Free SDK:** R$ 0/month for local evaluation
+- **Starter:** R$ 49/month (10k calls)
+- **Pro:** R$ 199/month (100k calls)
+- **Business:** R$ 499/month (500k calls, expanded support)
 
-**Why:** 60% of detection is regex (free), 30% is Qwen (R$ 0.00007/call), 10% fallback. Average cost per call: R$ 0.000175.
+**Why:** a large portion of detection is deterministic and low-cost, which makes the hosted layers commercially viable without enterprise-only pricing.
 
-**For [ORGAO]:**
-- Pilot cost: R$ 0 (free tier, 1 week test)
-- Prod cost: Probably R$ 49-199/month depending on scale
-- Savings vs competitors: R$ 1-5k/month
+For [ORGAO]:
+- Pilot cost: local evaluation or a small hosted pilot
+- Prod cost: probably R$49-199/mês depending on scale
+- Savings vs enterprise-only vendors: significant for early rollout
 
-Want to run a free pilot this week?
+Want to run a pilot this week?
 
 ---
 
@@ -157,20 +156,17 @@ Common case: Developer logs a citizen's CPF for debugging → log aggregator sto
 
 1. **Inline (low latency):** Add 1 line to your code
    ```typescript
-   const masked = await guard.inspect(userData);
+   const result = guard.inspect(userData);
    ```
-   Latency hit: 4ms (negligible in most contexts)
+   Latency hit: low enough for interactive flows
 
-2. **Async log processor:** Background job reads logs → strips PII → stores clean version
-   Latency hit: 0ms for your live systems
+2. **Hosted inspection API:** Send text to a managed endpoint when you want auth, rate limits and shared usage
 
 **For [ORGAO]:**
-- Drop-in npm package: `npm install @egos/guard-brasil`
-- REST API: POST to `https://api.guardbrasil.dev/v1/inspect`
-- Docker: Pre-built image with webhook support
-- Terraform: IAC for managed deployment
-
-**CI/CD integration spec:** https://guardbrasil.dev/docs/devops
+- Drop-in npm package: `npm install @egosbr/guard-brasil`
+- REST API: POST to `https://guard.egos.ia.br/v1/inspect`
+- Reference server: Bun/TypeScript, self-hostable
+- MCP surface: `guard_inspect`, `guard_scan_pii`, `guard_check_safe`
 
 Want a 30-min integration walkthrough?
 
@@ -228,14 +224,13 @@ Founder, Guard Brasil
 
 **Fastest path to test Guard Brasil:**
 
-### Option A: Web Demo (5 minutes)
-1. Visit https://guardbrasil.dev
-2. Paste CPF/RG/MASP
-3. See masking live
-4. Get free API key
+### Option A: Local SDK evaluation (5 minutes)
+1. Install `@egosbr/guard-brasil`
+2. Run local inspection against sample text
+3. Review masked output and ATRiAN score
 
 ### Option B: API Testing (30 minutes)
-1. Get free tier key
+1. Get a test key
 2. Call endpoint:
    ```bash
    curl -X POST https://guard.egos.ia.br/v1/inspect \
@@ -246,18 +241,29 @@ Founder, Guard Brasil
 3. Response:
    ```json
    {
-     "masked": "CPF ███.███.███-██ foi aprovado",
-     "pii_found": ["cpf"],
-     "atrian_score": 92,
-     "cost_usd": 0.00001
+     "safe": false,
+     "blocked": false,
+     "output": "[CONTEÚDO PROTEGIDO]",
+     "atrian": {
+       "passed": true,
+       "score": 100,
+       "violationCount": 0
+     },
+     "masking": {
+       "sensitivityLevel": "critical",
+       "findingCount": 1
+     },
+     "meta": {
+       "durationMs": 4
+     }
    }
    ```
 
 ### Option C: Production Deployment (2-4 days)
-1. npm package or Docker container
-2. Terraform IaC provided
-3. Webhook API for async processing
-4. Custom policy packs (PCMG, Saúde, Judiciário, Financeiro)
+1. SDK local or hosted API
+2. Policy review by your team
+3. Logging / evidence retention definition
+4. Optional sector-specific policy packs
 
 ---
 

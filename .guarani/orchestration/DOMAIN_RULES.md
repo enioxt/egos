@@ -165,6 +165,34 @@ agents/registry/agents.json (structure, not content)
 
 ---
 
+## 6. INTEGRATIONS & CHANNELS
+
+### SSOT
+
+- **Release contract:** `.guarani/orchestration/INTEGRATION_RELEASE_CONTRACT.md`
+- **Contracts:** `integrations/_contracts/`
+- **Manifests:** `integrations/manifests/`
+- **Bundles:** `integrations/distribution/`
+- **Gate:** `bun run integration:check`
+
+### Anti-Patterns
+
+- Calling an integration `validated` based only on a stub in `_contracts/`
+- Documenting setup without a compact distribution artifact
+- Shipping a bundle without `.env.example` when secrets are required
+- Claiming runtime readiness without proof (`log`, `endpoint`, `runbook`, or equivalent)
+
+### Checklist
+
+- [ ] Manifest exists and is semver-valid
+- [ ] SSOT, setup, and runbook refs are present
+- [ ] Runtime proof is recorded
+- [ ] Bundle exists in `integrations/distribution/<id>/`
+- [ ] `validation.smokeCommand` passes
+- [ ] `bun run integration:check` passes before merge/dissemination
+
+---
+
 ## Domain Detection Heuristic
 
 | Task Keywords | Domains to Load |
@@ -174,3 +202,4 @@ agents/registry/agents.json (structure, not content)
 | governance, sync, guarani, workflow, propagate | Governance & Sync |
 | security, PII, RLS, secret, scan, frozen | Security |
 | shared, llm-provider, packages, types, atrian | Shared Packages |
+| integration, adapter, webhook, whatsapp, telegram, slack, bundle, manifest, package | Integrations & Channels |

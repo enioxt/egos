@@ -1,0 +1,48 @@
+{
+  "id": "whatsapp-runtime",
+  "channel": "whatsapp",
+  "name": "Centralized WhatsApp Runtime",
+  "version": "1.0.0",
+  "owner": "egos-kernel",
+  "status": "validated",
+  "authType": "api-key",
+  "events": [
+    "MESSAGES_UPSERT",
+    "MESSAGES_UPDATE",
+    "CONNECTION_UPDATE",
+    "SEND_MESSAGE"
+  ],
+  "actions": [
+    "create_instance",
+    "configure_webhook",
+    "send_message",
+    "check_connection_state"
+  ],
+  "documentation": {
+    "ssot": "docs/knowledge/WHATSAPP_SSOT.md",
+    "setup": "docs/knowledge/WHATSAPP_SSOT.md#pattern-1-evolution-api-deployment",
+    "runbook": "docs/knowledge/WHATSAPP_SSOT.md#pattern-2-qr-drift-recovery"
+  },
+  "runtimeProof": [
+    {
+      "kind": "log",
+      "ref": "docs/knowledge/WHATSAPP_SSOT.md#validated-fix-2026-03-30",
+      "verifiedAt": "2026-03-30",
+      "verifier": "forja"
+    }
+  ],
+  "distribution": {
+    "kind": "docker-compose",
+    "artifactRef": "integrations/distribution/whatsapp-runtime/docker-compose.yml",
+    "installCommand": "cp integrations/distribution/whatsapp-runtime/.env.example integrations/distribution/whatsapp-runtime/.env && docker compose -f integrations/distribution/whatsapp-runtime/docker-compose.yml up -d",
+    "envExampleRef": "integrations/distribution/whatsapp-runtime/.env.example"
+  },
+  "validation": {
+    "smokeCommand": "test -f integrations/distribution/whatsapp-runtime/docker-compose.yml && test -f integrations/distribution/whatsapp-runtime/.env.example",
+    "evidenceRefs": [
+      "docs/knowledge/WHATSAPP_SSOT.md",
+      "docs/CAPABILITY_REGISTRY.md"
+    ]
+  },
+  "configSchemaRef": "docs/knowledge/WHATSAPP_SSOT.md#critical-environment-variables"
+}

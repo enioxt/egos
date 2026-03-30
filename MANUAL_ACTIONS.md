@@ -13,13 +13,13 @@
 
 ## 🔴 URGENTE — Bloqueia Receita
 
-### ~~[M-001] npm login + npm publish @egos/guard-brasil~~ ✅ FEITO
+### ~~[M-001] npm login + npm publish @egosbr/guard-brasil~~ ✅ FEITO
 - **Impacto:** npm package publicado → `npm install @egosbr/guard-brasil` funciona
 - **Status:** Publicado em 2026-03-30 10:45 UTC
 - **Validação:** `npm info @egosbr/guard-brasil` retorna versão 0.1.0 ✓
 - **Próximo:** M-002 (DNS A record)
 
-### ~~[M-002] DNS: criar registro A para guard.egos.ia.br → 204.168.217.125~~ ✅ FEITO
+### ~~[M-002] DNS: criar registro A para guard.egos.ia.br~~ ✅ FEITO
 - **Status:** Criado e validado em 2026-03-30 13:57 UTC
 - **Validação:** `curl https://guard.egos.ia.br/health` → `{"status":"healthy"}` ✓
 - **Próximo:** M-007 (outreach emails)
@@ -59,7 +59,7 @@
 - **Dep:** M-003 e M-004 executados primeiro
 - **Comandos (no Hetzner):**
   ```bash
-  ssh -i ~/.ssh/hetzner_ed25519 root@204.168.217.125
+  ssh -i ~/.ssh/hetzner_ed25519 root@<redacted>
   docker network rename infra_bracc infra_egos_inteligencia
   # Recriar containers que usam essa rede:
   cd /opt/bracc && docker compose down && docker compose up -d
@@ -69,16 +69,16 @@
 
 ## 🟢 BAIXA PRIORIDADE — Melhoria
 
-### [M-006] Adicionar NPM_TOKEN ao GitHub Actions (elimina bloqueio de npm login nas próximas versões)
-- **Impacto:** Próximas versões do @egos/guard-brasil precisarão de npm login manual novamente
+### [M-006] Adicionar credenciais de publicação ao pipeline de CI (elimina bloqueio manual nas próximas versões)
+- **Impacto:** Próximas versões do `@egosbr/guard-brasil` precisarão de publicação manual novamente
 - **Tempo:** 5 minutos
-- **Dep:** M-001 primeiro (precisa ter conta npm ativa e token)
+- **Dep:** M-001 primeiro (precisa ter publicação ativa)
 - **Passos:**
   1. Após `npm login`, execute: `npm token create --type=publish`
   2. Copie o token gerado
-  3. Acesse: https://github.com/enioxt/egos/settings/secrets/actions → New secret
-  4. Nome: `NPM_TOKEN`, Valor: token copiado
-- **Valida:** Push de tag `guard-brasil/v0.2.0` dispara o workflow `.github/workflows/publish-npm.yml` automaticamente
+  3. Armazene em cofre/secret store do CI
+  4. Valide o workflow de publish com tag
+- **Valida:** Push de tag `guard-brasil/v0.2.0` dispara o workflow automaticamente
 
 ### [M-007] Outreach: enviar emails para CTOs govtech BR
 - **Impacto:** 0 clientes pagantes sem prospecção ativa
@@ -112,7 +112,7 @@ Próximas 5 emails de outreach para CTOs de govtech:
 | ID | Ação | Concluída em |
 |---|---|---|
 | M-001 | npm publish @egosbr/guard-brasil@0.1.0 | 2026-03-30 10:45 UTC |
-| M-002 | DNS A record guard → 204.168.217.125 | 2026-03-30 13:57 UTC |
+| M-002 | DNS A record guard.egos.ia.br | 2026-03-30 13:57 UTC |
 
 ---
 

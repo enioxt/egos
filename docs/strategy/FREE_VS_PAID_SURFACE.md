@@ -13,7 +13,7 @@ Open-source the engine. Charge for the infrastructure, policy, and accountabilit
 
 ---
 
-## Free Tier: `@egos/guard-brasil` (npm, MIT)
+## Free Tier: `@egosbr/guard-brasil` (npm, MIT)
 
 Everything a solo developer or small team needs to add LGPD-compliant guardrails to their AI app.
 
@@ -37,51 +37,52 @@ Everything a solo developer or small team needs to add LGPD-compliant guardrails
 
 ### Distribution
 
-- **npm:** `@egos/guard-brasil`
+- **npm:** `@egosbr/guard-brasil`
 - **License:** MIT
 - **Runtime:** TypeScript/ESM, zero external dependencies
-- **Install:** `npm install @egos/guard-brasil`
+- **Install:** `npm install @egosbr/guard-brasil`
 
 ---
 
 ## Paid Tier 1: Guard Brasil API (SaaS)
 
 > **Target:** Teams that want guardrails without running infrastructure.
-> **Pricing model:** Usage-based (per-inspection) + monthly base
+> **Pricing model:** tiered monthly plans with clear volume limits
 
 ### What's included
 
 | Feature | Description |
 |---|---|
-| **Hosted REST API** | `POST /v1/inspect` — same as local `guard.inspect()` but hosted, load-balanced, monitored |
+| **Hosted REST API** | `POST /v1/inspect` — same as local `guard.inspect()` but hosted, monitored, and ready for shared use |
 | **MCP Server** | Claude/Windsurf/Cursor integration via Model Context Protocol |
-| **Persistence** | Evidence chains stored in managed Supabase — query by session, date, category |
+| **Persistence** | Evidence chains stored in managed infrastructure — query by session, date, category |
 | **Webhook alerts** | Notify on critical PII detection, ATRiAN score < threshold, blocked outputs |
 | **Rate limiting** | Managed rate limits with burst capacity |
-| **99.5% SLA** | Uptime guarantee for production workloads |
+| **Support** | Faster support lanes for paid customers |
 
-### Pricing (proposed)
+### Pricing (current public tiers)
 
 | Plan | Inspections/month | Price | Notes |
 |---|---|---|---|
-| Starter | 5,000 | R$ 99/mo | Solo devs, small apps |
-| Pro | 50,000 | R$ 499/mo | Teams, multi-app |
-| Enterprise | Unlimited | Custom | Dedicated instance, custom SLA |
+| Starter | 10,000 | R$ 49/mo | Pilots, smaller apps |
+| Pro | 100,000 | R$ 199/mo | Production teams |
+| Business | 500,000 | R$ 499/mo | Higher-volume environments + SLA lane |
+| Enterprise | Custom | Custom | Dedicated instance, custom controls, custom SLA |
 
 ### Tech stack
 
-- **Runtime:** Hetzner VPS (204.168.217.125) + Docker
-- **API:** Node.js/Bun + Express or Hono
-- **Storage:** Supabase (evidence chains, audit logs, usage metrics)
+- **Runtime:** managed VPS + Docker
+- **API:** Bun/TypeScript reference server
+- **Storage:** managed audit/event persistence
 - **Auth:** API key per customer
-- **Monitoring:** Telemetry system (`telemetry.ts`) → Supabase dashboard
+- **Monitoring:** telemetry + usage dashboard
 
 ---
 
 ## Paid Tier 2: Audit Dashboard (SaaS add-on)
 
 > **Target:** DPOs, compliance teams, managers who need visibility.
-> **Pricing model:** Included in Pro+, standalone for Starter
+> **Pricing model:** included in Pro+; optional for lower tiers
 
 ### What's included
 
@@ -96,8 +97,8 @@ Everything a solo developer or small team needs to add LGPD-compliant guardrails
 
 ### Pricing
 
-- Included in Pro and Enterprise plans
-- Standalone for Starter: R$ 149/mo add-on
+- Included in Pro, Business, and Enterprise plans
+- Optional add-on for Starter customers
 
 ---
 
@@ -139,9 +140,9 @@ Everything a solo developer or small team needs to add LGPD-compliant guardrails
 ## Revenue Path
 
 ```
-Month 1-3:  npm publish (free) → github stars → developer adoption
-Month 3-6:  Launch API (Tier 1 Starter) → first paid customers
-Month 6-9:  Audit Dashboard (Tier 2) → DPO/compliance buyers
+Month 1-3:  npm package adoption + pilots + first integrations
+Month 3-6:  API Starter/Pro → first paid customers
+Month 6-9:  Audit Dashboard → DPO/compliance buyers
 Month 9-12: First Policy Pack (Segurança Pública) → sector expansion
 ```
 
@@ -159,11 +160,11 @@ Month 9-12: First Policy Pack (Segurança Pública) → sector expansion
 
 ## Implementation Priority
 
-1. **Now:** Publish `@egos/guard-brasil` to npm (free tier — EGOS-064)
-2. **Next:** Build `apps/api/` — minimal REST API wrapping GuardBrasil (Tier 1 MVP)
-3. **Then:** Wire Supabase persistence for evidence chains (Tier 1 + Tier 2 foundation)
-4. **Later:** Audit Dashboard React app (Tier 2)
-5. **Future:** First policy pack (Tier 3 — Segurança Pública, leveraging br-acc domain knowledge)
+1. **Now:** increase adoption of `@egosbr/guard-brasil` with clearer install and integration docs
+2. **Next:** expand `apps/api/` as the minimal hosted Guard Brasil surface
+3. **Then:** wire evidence persistence for dashboard and reporting
+4. **Later:** ship the dashboard as the main buyer-facing visibility layer
+5. **Future:** release the first policy pack for a regulated sector
 
 ---
 

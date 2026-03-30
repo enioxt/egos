@@ -219,8 +219,8 @@ Preciso de decisões suas para avançar:
 ### 7.2 Conta npm
 **Você tem conta no npmjs.com?** Se não, precisa criar em https://www.npmjs.com/signup
 - Username escolhido?
-- Preciso de um scope: publicar como `@egos/guard-brasil` requer ter a org `egos` no npm
-- Se `egos` já estiver tomado, alternativa: `@egosai/guard-brasil`
+- O pacote público atual usa o scope `@egosbr/guard-brasil`
+- Se novos pacotes públicos seguirem esse padrão, manter o namespace `@egosbr/*`
 
 ### 7.3 Mastra — confirmação
 **Confirma que quer adotar Mastra como substrate de orquestração (Fase 1 apenas)?**

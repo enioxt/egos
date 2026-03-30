@@ -1,4 +1,4 @@
-# @egos/guard-brasil
+# @egosbr/guard-brasil
 
 **Brazilian AI Safety Layer** — LGPD-compliant PII masking, ATRiAN ethical validation, and traceable evidence discipline for AI assistants operating in Brazil.
 
@@ -13,7 +13,7 @@ AI assistants deployed in Brazilian public-sector and enterprise contexts face t
 1. **Privacy exposure** — CPF, MASP, REDS, RG, phone, and process numbers leak into responses, violating Lei 13.709/2018 (LGPD).
 2. **Hallucination and epistemic violations** — models make absolute claims, invent data sources, and issue false promises — especially in sensitive contexts like police, health, or legal systems.
 
-`@egos/guard-brasil` intercepts both at the output layer, before any text reaches the user.
+`@egosbr/guard-brasil` intercepts both at the output layer, before any text reaches the user.
 
 ---
 
@@ -32,10 +32,10 @@ AI assistants deployed in Brazilian public-sector and enterprise contexts face t
 
 ```bash
 # From monorepo (workspace)
-bun add @egos/guard-brasil
+bun add @egosbr/guard-brasil
 
-# Standalone (coming soon on npm)
-npm install @egos/guard-brasil
+# From npm
+npm install @egosbr/guard-brasil
 ```
 
 ---
@@ -43,7 +43,7 @@ npm install @egos/guard-brasil
 ## Quick start
 
 ```ts
-import { GuardBrasil } from '@egos/guard-brasil';
+import { GuardBrasil } from '@egosbr/guard-brasil';
 
 const guard = GuardBrasil.create();
 
@@ -164,4 +164,4 @@ LGPD compliance disclaimer: This library assists in masking personal data but do
 
 ## License
 
-MIT — part of the [EGOS](https://github.com/ethikin/egos) framework.
+MIT — part of the [EGOS](https://github.com/enioxt/egos) framework.

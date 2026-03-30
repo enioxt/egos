@@ -105,23 +105,23 @@ export default function LandingPage() {
       {/* Hero */}
       <header className="border-b border-slate-800 bg-gradient-to-b from-slate-900 to-slate-950">
         <div className="max-w-5xl mx-auto px-6 py-16 text-center">
-          <p className="text-emerald-400 text-sm font-mono mb-4">LGPD-compliant PII masking + ATRiAN ethical validation</p>
+          <p className="text-emerald-400 text-sm font-mono mb-4">Brazil-first AI safety for public and regulated workflows</p>
           <h1 className="text-5xl font-bold mb-4">Guard Brasil</h1>
           <p className="text-xl text-slate-300 mb-2">
-            Proteja dados sensíveis brasileiros em tempo real
+            Proteja dados sensíveis brasileiros antes que eles saiam da sua aplicação
           </p>
           <p className="text-sm text-slate-400">
-            CPF, RG, MASP, REDS, placa, processo judicial — masking em 4ms
+            CPF, RG, MASP, REDS, placa, processo judicial e validação ética em uma única camada
           </p>
           <div className="flex items-center justify-center gap-6 mt-8">
             <div className="text-center">
               <p className="text-2xl font-bold text-emerald-400">4ms</p>
-              <p className="text-xs text-slate-500">latência média</p>
+              <p className="text-xs text-slate-500">latência de referência</p>
             </div>
             <div className="w-px h-10 bg-slate-700" />
             <div className="text-center">
               <p className="text-2xl font-bold text-emerald-400">150</p>
-              <p className="text-xs text-slate-500">testes grátis/mês</p>
+              <p className="text-xs text-slate-500">testes de demo</p>
             </div>
             <div className="w-px h-10 bg-slate-700" />
             <div className="text-center">
@@ -155,14 +155,14 @@ export default function LandingPage() {
         <section className="mb-12">
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-bold">Teste com seus dados</h2>
-              <span className="text-xs text-slate-500">{testsUsed}/150 testes usados</span>
+              <h2 className="text-lg font-bold">Teste com texto real</h2>
+              <span className="text-xs text-slate-500">{testsUsed}/150 testes usados nesta sessão</span>
             </div>
 
             <textarea
               value={input}
               onChange={(e) => { setInput(e.target.value); setResult(null); }}
-              placeholder="Cole qualquer texto com dados sensíveis: CPFs, RGs, placas, dados médicos, nomes..."
+              placeholder="Cole um texto com CPF, RG, placa, dados médicos, processo ou linguagem sensível para validar a proteção"
               className="w-full h-28 bg-slate-800 border border-slate-700 rounded-xl p-4 text-sm font-mono text-slate-200 placeholder-slate-500 focus:border-emerald-600 focus:outline-none resize-none"
             />
 
@@ -171,7 +171,7 @@ export default function LandingPage() {
               disabled={!input.trim() || loading}
               className="mt-4 w-full bg-emerald-600 hover:bg-emerald-700 disabled:bg-slate-700 disabled:text-slate-500 text-white font-bold py-3 rounded-xl transition text-sm"
             >
-              {loading ? 'Analisando...' : 'Inspecionar'}
+              {loading ? 'Inspecionando...' : 'Inspecionar'}
             </button>
 
             {error && (
@@ -189,7 +189,7 @@ export default function LandingPage() {
                 <div className="flex items-center gap-4">
                   <span className="text-xs text-blue-400 font-mono">{result.duration_ms}ms</span>
                   <span className="text-xs text-amber-400 font-mono">
-                    {result.cost_usd > 0 ? `$${result.cost_usd.toFixed(5)}` : 'FREE'}
+                    {result.cost_usd > 0 ? `$${result.cost_usd.toFixed(5)}` : 'LOCAL'}
                   </span>
                   <span className="text-xs text-slate-500 font-mono">{result.model_used}</span>
                 </div>
@@ -205,9 +205,9 @@ export default function LandingPage() {
                   <span className="text-2xl">{result.blocked ? '🚫' : result.safe ? '✅' : '⚠️'}</span>
                   <div>
                     <p className="font-bold text-sm">
-                      {result.blocked ? 'BLOCKED — ATRiAN violation' :
-                       result.safe ? 'SAFE — PII masked successfully' :
-                       'WARNING — Review recommended'}
+                      {result.blocked ? 'BLOQUEADO — revisão necessária' :
+                       result.safe ? 'SEGURO — saída mascarada com sucesso' :
+                       'ATENÇÃO — revisão recomendada'}
                     </p>
                     <p className="text-xs text-slate-400 mt-1">ATRiAN Score: {result.atrian.score}/100</p>
                   </div>
@@ -216,7 +216,7 @@ export default function LandingPage() {
 
               {/* Output */}
               <div className="mb-4">
-                <p className="text-xs text-slate-500 mb-2">Output (masked):</p>
+                <p className="text-xs text-slate-500 mb-2">Saída protegida:</p>
                 <pre className="bg-slate-800 rounded-xl p-4 text-sm font-mono text-emerald-300 whitespace-pre-wrap">
                   {result.output}
                 </pre>
@@ -225,7 +225,7 @@ export default function LandingPage() {
               {/* PII Found */}
               {result.pii_found.length > 0 && (
                 <div className="mb-4">
-                  <p className="text-xs text-slate-500 mb-2">PII Detected:</p>
+                  <p className="text-xs text-slate-500 mb-2">PII detectado:</p>
                   <div className="flex gap-2 flex-wrap">
                     {result.pii_found.map((pii) => (
                       <span key={pii} className="text-xs bg-blue-900/50 text-blue-300 px-3 py-1 rounded-lg">{pii}</span>
@@ -236,14 +236,14 @@ export default function LandingPage() {
 
               {/* ATRiAN Reasoning */}
               <div>
-                <p className="text-xs text-slate-500 mb-2">ATRiAN Reasoning:</p>
+                <p className="text-xs text-slate-500 mb-2">Resumo da inspeção:</p>
                 <p className="text-sm text-slate-300 bg-slate-800 rounded-xl p-4">{result.atrian.reasoning}</p>
               </div>
 
               {/* Transparency footer */}
               <div className="mt-4 pt-4 border-t border-slate-800">
                 <p className="text-[10px] text-slate-500 text-center">
-                  Transparência Radical: model={result.model_used} | cost=${result.cost_usd.toFixed(5)} |
+                  Audit trace: model={result.model_used} | cost=${result.cost_usd.toFixed(5)} |
                   latency={result.duration_ms}ms | pii={result.pii_found.join(',')} | score={result.atrian.score}
                 </p>
               </div>
@@ -256,16 +256,16 @@ export default function LandingPage() {
           <h2 className="text-2xl font-bold text-center mb-8">Pricing</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { tier: 'Free', price: 'R$ 0', calls: '150/mês', features: ['API + SDK', '6 PII types', 'Basic dashboard'] },
-              { tier: 'Starter', price: 'R$ 49', calls: '10k/mês', features: ['Everything in Free', 'Dashboard completo', 'Email reports'] },
-              { tier: 'Pro', price: 'R$ 199', calls: '100k/mês', features: ['Everything in Starter', 'IA daily insights', 'Priority support'], popular: true },
-              { tier: 'Business', price: 'R$ 499', calls: '500k/mês', features: ['Everything in Pro', 'SLA 99.9%', 'Dedicated support'] },
+              { tier: 'Free', price: 'R$ 0', calls: 'SDK local', features: ['Uso local ilimitado', 'PII Scanner BR', 'ATRiAN core'] },
+              { tier: 'Starter', price: 'R$ 49', calls: '10k/mês', features: ['API hospedada', 'Dashboard básico', 'Suporte por email'] },
+              { tier: 'Pro', price: 'R$ 199', calls: '100k/mês', features: ['Dashboard + alertas', 'IA insights', 'Priority support'], popular: true },
+              { tier: 'Business', price: 'R$ 499', calls: '500k/mês', features: ['SLA ampliado', 'Operação multi-time', 'Suporte dedicado'] },
             ].map((plan) => (
               <div key={plan.tier} className={`bg-slate-900 border rounded-2xl p-6 ${plan.popular ? 'border-emerald-600 ring-1 ring-emerald-600/20' : 'border-slate-800'}`}>
                 {plan.popular && <p className="text-[10px] text-emerald-400 font-bold uppercase tracking-wider mb-2">Most Popular</p>}
                 <p className="text-sm text-slate-400">{plan.tier}</p>
                 <p className="text-2xl font-bold mt-1">{plan.price}<span className="text-sm text-slate-500">/mês</span></p>
-                <p className="text-xs text-slate-500 mt-1">{plan.calls} chamadas</p>
+                <p className="text-xs text-slate-500 mt-1">{plan.calls}</p>
                 <ul className="mt-4 space-y-2">
                   {plan.features.map((f) => (
                     <li key={f} className="text-xs text-slate-400 flex items-center gap-2">
@@ -287,12 +287,12 @@ export default function LandingPage() {
               <p className="text-emerald-400">npm install @egosbr/guard-brasil</p>
               <p className="text-slate-500 mt-3"># Use</p>
               <p className="text-blue-300">{'import { GuardBrasil } from \'@egosbr/guard-brasil\''}</p>
-              <p className="text-slate-300 mt-1">{'const result = await GuardBrasil.inspect(text)'}</p>
+              <p className="text-slate-300 mt-1">{'const result = GuardBrasil.create().inspect(text)'}</p>
             </div>
             <div className="flex justify-center gap-4 mt-6">
               <a href="https://github.com/enioxt/egos" className="text-xs text-slate-400 hover:text-white transition">GitHub</a>
               <a href="https://www.npmjs.com/package/@egosbr/guard-brasil" className="text-xs text-slate-400 hover:text-white transition">npm</a>
-              <a href="/dashboard" className="text-xs text-emerald-400 hover:text-emerald-300 transition">Dashboard</a>
+              <a href="/dashboard-v2" className="text-xs text-emerald-400 hover:text-emerald-300 transition">Dashboard preview</a>
             </div>
           </div>
         </section>
@@ -301,10 +301,10 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="border-t border-slate-800 py-8 text-center">
         <p className="text-xs text-slate-500">
-          Guard Brasil by EGOS | Open Source | MIT License
+          Guard Brasil | pacote público @egosbr/guard-brasil | MIT License
         </p>
         <p className="text-[10px] text-slate-600 mt-2">
-          Transparência Radical: every call logged, every cost visible, every decision auditable
+          Every inspection is auditable. Every cost is visible. No sensitive operational details in public surfaces.
         </p>
       </footer>
     </div>

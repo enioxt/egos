@@ -101,6 +101,8 @@ egos/
 │   │   ├── webhook.ts           # Generic HTTP webhook adapter
 │   │   ├── github.ts            # GitHub API adapter
 │   │   └── index.ts
+│   ├── manifests/              # Release manifests for integration readiness
+│   ├── distribution/           # Compact bundles for sharing/install
 │   └── README.md                # Integration pattern guide
 ├── scripts/                     # Kernel utilities + infra launchers
 │   └── oracle-instance-launcher/
@@ -129,6 +131,8 @@ egos/
 
 **Integration Adapters:** `integrations/_contracts` defines standardized interfaces for Slack, Discord, Telegram, WhatsApp, Webhooks, GitHub. Each has `XyzAdapter` contract + `XyzAdapterImpl` stub. Security: env-var credentials, audit-logged. See `integrations/README.md`.
 
+**Integration Release Gate:** integrations are only `validated/shareable` when backed by manifest + SSOT/setup/runbook refs + runtime proof + compact distribution bundle + `bun run integration:check`.
+
 ## Commands
 
 ```bash
@@ -138,6 +142,7 @@ bun agent:run <id> --exec   # Run agent in execute mode
 bun agent:lint              # Validate agent registry
 bun typecheck               # TypeScript strict check
 bun lint                    # ESLint
+bun integration:check      # Validate integration manifests + bundles + smoke commands
 bun governance:sync         # Dry-run kernel -> ~/.egos governance propagation
 bun governance:sync:exec    # Sync kernel -> ~/.egos -> leaf repos
 bun governance:sync:local   # Sync kernel -> ~/.egos only (skip leaf repos)

@@ -1,79 +1,51 @@
 # EGOS Integrations
 
-Standardized adapters and contracts for integrating EGOS agents with external platforms and services.
+Standardized contracts, manifests, and compact distribution bundles for EGOS integrations.
 
-## Available Integrations
+## Surfaces
 
-### Messaging Platforms
-- **Slack** — Enterprise messaging, threads, channels
-- **Discord** — Community messaging, webhooks, embeds
-- **Telegram** — Bot API, polling/webhooks
-- **WhatsApp** — Business API, media support
+- `_contracts/` — interface-first contracts and stubs
+- `manifests/` — release manifests used by the integration gate
+- `distribution/` — compact artifacts ready to copy/share
 
-### Generic
-- **Webhook** — Generic HTTP endpoint sender/listener
-- **GitHub** — Issue creation, webhook events
+## Release Contract
 
-## Contract Pattern
+No integration can be called **validated** or **shareable** unless it has:
 
-Each integration follows a standardized interface:
+1. Contract/stub or implementation surface
+2. Canonical SSOT reference
+3. Setup + operations runbook refs
+4. Runtime proof
+5. Compact distribution artifact
+6. Executable smoke check
 
-```typescript
-export interface SomeAdapter {
-  name: 'some-platform';
-  authenticate(credentials: unknown): Promise<void>;
-  send(payload: SomePayload): Promise<{ ok: boolean; [key: string]: unknown }>;
-  listen(callback: (msg: SomePayload) => Promise<void>): Promise<() => void>;
-  disconnect(): Promise<void>;
-}
+Run:
+
+```bash
+bun run integration:check
+bun run governance:check
 ```
+
+## Current Kernel State
+
+- `slack`, `discord`, `telegram`, `webhook`, `github` → `contract_only`
+- `whatsapp-runtime` → `validated` pattern with manifest + distribution bundle
 
 ## Creating a New Integration
 
-1. Create `egos/integrations/_contracts/my-platform.ts`
-2. Define interfaces (Message, Adapter)
-3. Implement stub class with `// TODO:` comments
-4. Export from `_contracts/index.ts`
-5. Add documentation to this README
-
-Example:
-
-```typescript
-// _contracts/my-platform.ts
-export interface MyPlatformMessage {
-  destination: string;
-  content: string;
-}
-
-export interface MyPlatformAdapter {
-  name: 'my-platform';
-  authenticate(token: string): Promise<void>;
-  send(message: MyPlatformMessage): Promise<{ id: string; ok: boolean }>;
-  listen(callback: (msg: MyPlatformMessage) => Promise<void>): Promise<void>;
-  disconnect(): Promise<void>;
-}
-
-export class MyPlatformAdapterImpl implements MyPlatformAdapter {
-  name = 'my-platform' as const;
-  // implement methods...
-}
-```
-
-## Implementation Status
-
-- [x] Contracts defined (all 6 platforms)
-- [ ] Slack implementation
-- [ ] Discord implementation
-- [ ] Telegram implementation
-- [ ] WhatsApp implementation
-- [ ] Webhook implementation
-- [ ] GitHub implementation
+1. Add or update `integrations/_contracts/<channel>.ts`
+2. Create `integrations/manifests/<id>.json`
+3. Point manifest docs to canonical SSOT/setup/runbook refs
+4. Add runtime proof (`log`, `endpoint`, `runbook`, or equivalent evidence)
+5. Create `integrations/distribution/<id>/` with artifact + `.env.example` when applicable
+6. Add a real `validation.smokeCommand`
+7. Pass `bun run integration:check`
 
 ## Security
 
 All integrations must:
 - Read credentials from environment variables, never hardcode
-- Validate tokens on authenticate()
+- Provide `.env.example` when secrets/config are required
 - Log access via EGOS audit system
-- Support graceful disconnect/cleanup
-- Handle rate limits with exponential backoff
+- Handle rate limits with retry/backoff
+- Declare runtime proof before being marked validated

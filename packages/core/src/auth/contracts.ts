@@ -6,18 +6,42 @@
  * under controlled identity with audit trails.
  */
 
-import { z } from 'zod';
+const SOURCES = ['chatgpt', 'codex', 'claude-code', 'local-ide', 'github-actions', 'api', 'custom'] as const;
+const ACTIONS = ['read', 'execute', 'write', 'deploy'] as const;
 
-/**
- * Identity — Represents the requester and their capabilities
- * 
- * @field userId - Unique identifier for the user/entity making the request
- * @field source - Where the request originates from (tool, platform)
- * @field scopes - Array of capabilities granted to this identity
- * @field token - Optional authentication token (JWT, OAuth, etc.)
- * @field expiresAt - Optional expiration time for the identity session
- * @field metadata - Optional context-specific metadata
- */
+function asRecord(input: unknown, label: string): Record<string, unknown> {
+  if (!input || typeof input !== 'object' || Array.isArray(input)) throw new Error(`${label} must be an object`);
+  return input as Record<string, unknown>;
+}
+
+function asString(input: unknown, label: string): string {
+  if (typeof input !== 'string' || input.trim().length === 0) throw new Error(`${label} is required`);
+  return input;
+}
+
+function asEnum<T extends readonly string[]>(input: unknown, values: T, label: string): T[number] {
+  if (typeof input !== 'string' || !values.includes(input as T[number])) throw new Error(`${label} is invalid`);
+  return input as T[number];
+}
+
+function asStringArray(input: unknown): string[] {
+  if (input === undefined) return [];
+  if (!Array.isArray(input) || input.some((item) => typeof item !== 'string')) throw new Error('scopes must be a string array');
+  return input;
+}
+
+function asOptionalDate(input: unknown): Date | undefined {
+  if (input === undefined) return undefined;
+  const date = input instanceof Date ? input : new Date(String(input));
+  if (Number.isNaN(date.valueOf())) throw new Error('expiresAt is invalid');
+  return date;
+}
+
+function asOptionalObject(input: unknown, label: string): Record<string, unknown> | undefined {
+  if (input === undefined) return undefined;
+  return asRecord(input, label);
+}
+
 export interface Identity {
   userId: string;
   source: 'chatgpt' | 'codex' | 'claude-code' | 'local-ide' | 'github-actions' | 'api' | 'custom';
@@ -27,27 +51,20 @@ export interface Identity {
   metadata?: Record<string, unknown>;
 }
 
-/**
- * Zod schema for Identity validation
- * Ensures runtime type safety when parsing untrusted input
- */
-export const IdentitySchema = z.object({
-  userId: z.string().min(1, 'userId is required'),
-  source: z.enum(['chatgpt', 'codex', 'claude-code', 'local-ide', 'github-actions', 'api', 'custom']),
-  scopes: z.array(z.string()).default([]),
-  token: z.string().optional(),
-  expiresAt: z.date().optional(),
-  metadata: z.record(z.unknown()).optional(),
-});
+export const IdentitySchema = {
+  parse(input: unknown): Identity {
+    const data = asRecord(input, 'identity');
+    return {
+      userId: asString(data.userId, 'userId'),
+      source: asEnum(data.source, SOURCES, 'source'),
+      scopes: asStringArray(data.scopes),
+      token: data.token === undefined ? undefined : asString(data.token, 'token'),
+      expiresAt: asOptionalDate(data.expiresAt),
+      metadata: asOptionalObject(data.metadata, 'metadata'),
+    };
+  },
+};
 
-/**
- * ActivationRequest — Request to perform an action on a resource
- * 
- * @field identity - The identity making the request
- * @field action - What operation is being requested (read, execute, write, deploy)
- * @field resource - What is being accessed (e.g., "egos:rules", "project:852")
- * @field context - Optional contextual information about the request
- */
 export interface ActivationRequest {
   identity: Identity;
   action: 'read' | 'execute' | 'write' | 'deploy';
@@ -55,25 +72,18 @@ export interface ActivationRequest {
   context?: Record<string, unknown>;
 }
 
-/**
- * Zod schema for ActivationRequest validation
- */
-export const ActivationRequestSchema = z.object({
-  identity: IdentitySchema,
-  action: z.enum(['read', 'execute', 'write', 'deploy']),
-  resource: z.string().min(1, 'resource is required'),
-  context: z.record(z.unknown()).optional(),
-});
+export const ActivationRequestSchema = {
+  parse(input: unknown): ActivationRequest {
+    const data = asRecord(input, 'activationRequest');
+    return {
+      identity: IdentitySchema.parse(data.identity),
+      action: asEnum(data.action, ACTIONS, 'action'),
+      resource: asString(data.resource, 'resource'),
+      context: asOptionalObject(data.context, 'context'),
+    };
+  },
+};
 
-/**
- * ActivationResponse — Result of activation decision
- * 
- * @field authorized - Whether the action was allowed
- * @field reasoning - Human-readable explanation of the decision
- * @field scope - The actual scope granted (may be subset of requested)
- * @field auditId - Unique ID for audit trail lookup
- * @field context - Response context (userId, expiresAt, etc.)
- */
 export interface ActivationResponse {
   authorized: boolean;
   reasoning: string;
@@ -82,18 +92,16 @@ export interface ActivationResponse {
   context: Record<string, unknown>;
 }
 
-/**
- * Zod schema for ActivationResponse validation
- */
-export const ActivationResponseSchema = z.object({
-  authorized: z.boolean(),
-  reasoning: z.string(),
-  scope: z.string(),
-  auditId: z.string().uuid('auditId must be a valid UUID'),
-  context: z.record(z.unknown()),
-});
-
-/**
- * Type exports for use in other packages
- */
-export type { Identity, ActivationRequest, ActivationResponse };
+export const ActivationResponseSchema = {
+  parse(input: unknown): ActivationResponse {
+    const data = asRecord(input, 'activationResponse');
+    if (typeof data.authorized !== 'boolean') throw new Error('authorized must be a boolean');
+    return {
+      authorized: data.authorized,
+      reasoning: asString(data.reasoning, 'reasoning'),
+      scope: asString(data.scope, 'scope'),
+      auditId: asString(data.auditId, 'auditId'),
+      context: asRecord(data.context, 'context'),
+    };
+  },
+};

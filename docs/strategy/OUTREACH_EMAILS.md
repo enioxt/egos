@@ -51,7 +51,7 @@ O **Guard Brasil** resolve isso na camada de infraestrutura:
 - Gera disclosure LGPD automático e hash de auditoria por resposta
 - Funciona com qualquer LLM — não troca o fornecedor, só adiciona proteção
 
-Para [ÓRGÃO], o piloto de 30 dias custa R$ 99. Se não resolver o problema, cancela sem burocracia.
+Para [ÓRGÃO], o piloto de 30 dias pode começar com avaliação local gratuita ou com plano Starter a partir de R$ 49/mês.
 
 Disponível para conversa de 20 minutos?
 
@@ -83,7 +83,7 @@ safe_text = result["output"]  # CPF/RG já mascarados
 
 Resultado: seu produto passa a oferecer conformidade LGPD nativa como diferencial competitivo.
 
-SDK gratuito para uso local. API hospedada a partir de R$ 99/mês se quiser SLA e suporte.
+SDK gratuito para uso local. API hospedada a partir de R$ 49/mês se quiser SLA e suporte.
 
 Quer ver o código? É tudo open source: github.com/enioxt/egos
 

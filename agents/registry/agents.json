@@ -1,193 +1,13 @@
 {
   "$schema": "./schema.json",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "updated": "2026-03-30",
-  "description": "EGOS Kernel Registry — 15 CLI tools + 2 routers. True agents (monitors) live in leaf repos. Kernel is SSOT for governance tools.",
+  "description": "EGOS Kernel Registry v2 — honest classification with 22-field schema. 0 verified agents in kernel (monitors live in leaf repos). 15 CLI tools + 2 routers.",
   "agents": [
-    {
-      "id": "dep_auditor",
-      "name": "Dependency Auditor",
-      "description": "Scans package.json files for version conflicts, misplaced dev deps, and unused dependencies",
-      "area": "architecture",
-      "entrypoint": "agents/agents/dep-auditor.ts",
-      "run_modes": [
-        "dry_run",
-        "execute"
-      ],
-      "triggers": [
-        "manual"
-      ],
-      "tools_allowed": [],
-      "risk_level": "T0",
-      "status": "active",
-      "migrated_from": "egos-lab"
-    },
-    {
-      "id": "archaeology_digger",
-      "name": "Archaeology Digger",
-      "description": "Recursively traverses git history, agent registries, governance files, and handoff documents to reconstruct the complete evolution lineage of the EGOS ecosystem",
-      "area": "knowledge",
-      "entrypoint": "agents/agents/archaeology-digger.ts",
-      "run_modes": [
-        "dry_run",
-        "execute"
-      ],
-      "triggers": [
-        "manual"
-      ],
-      "tools_allowed": [],
-      "risk_level": "T0",
-      "status": "active",
-      "migrated_from": "egos-native"
-    },
-    {
-      "id": "chatbot_compliance_checker",
-      "name": "Chatbot Compliance Checker",
-      "description": "Scans a target repository for the required modules defined in CHATBOT_SSOT and reports missing chatbot capabilities",
-      "area": "knowledge",
-      "entrypoint": "agents/agents/chatbot-compliance-checker.ts",
-      "run_modes": [
-        "dry_run",
-        "execute"
-      ],
-      "triggers": [
-        "manual"
-      ],
-      "tools_allowed": [],
-      "risk_level": "T0",
-      "status": "active",
-      "migrated_from": "egos-native"
-    },
-    {
-      "id": "dead_code_detector",
-      "name": "Dead Code Detector",
-      "description": "Finds dead exports, orphan files, and empty stubs across any TypeScript codebase using regex-based analysis (no external deps)",
-      "area": "qa",
-      "entrypoint": "agents/agents/dead-code-detector.ts",
-      "run_modes": [
-        "dry_run",
-        "execute"
-      ],
-      "triggers": [
-        "manual"
-      ],
-      "tools_allowed": [],
-      "risk_level": "T0",
-      "status": "active",
-      "migrated_from": "egos-lab"
-    },
-    {
-      "id": "capability_drift_checker",
-      "name": "Capability Drift Checker",
-      "description": "Scans any target repo against the EGOS kernel's shared capabilities, governance files, workflows, and security basics to detect missing adoptions",
-      "area": "architecture",
-      "entrypoint": "agents/agents/capability-drift-checker.ts",
-      "run_modes": [
-        "dry_run",
-        "execute"
-      ],
-      "triggers": [
-        "manual"
-      ],
-      "tools_allowed": [],
-      "risk_level": "T0",
-      "status": "active",
-      "migrated_from": "egos-native"
-    },
-    {
-      "id": "context_tracker",
-      "name": "Context Tracker",
-      "description": "Estimates remaining usable context window (CTX 0-280) from uncommitted files, session commits, handoff size, and agent runs. Emits zone emoji + /end recommendation when CTX > 180.",
-      "area": "observability",
-      "entrypoint": "agents/agents/context-tracker.ts",
-      "run_modes": [
-        "dry_run",
-        "execute"
-      ],
-      "triggers": [
-        "manual",
-        "pre_end"
-      ],
-      "tools_allowed": [],
-      "risk_level": "T0",
-      "status": "active",
-      "migrated_from": "egos-native"
-    },
-    {
-      "id": "gtm_harvester",
-      "name": "GTM Harvester",
-      "description": "Scans public GitHub repositories for GTM/market strategy artifacts and highlights reusable patterns plus named-entity gaps",
-      "area": "knowledge",
-      "entrypoint": "agents/agents/gtm-harvester.ts",
-      "run_modes": [
-        "dry_run",
-        "execute"
-      ],
-      "triggers": [
-        "manual"
-      ],
-      "tools_allowed": [],
-      "risk_level": "T0",
-      "status": "active",
-      "migrated_from": "egos-native"
-    },
-    {
-      "id": "aiox_gem_hunter",
-      "name": "AIOX Gem Hunter",
-      "description": "Scans SynkraAI/aiox-core and local NotebookLM export artifacts to extract high-signal orchestration gems with keep/drop diagnosis for EGOS",
-      "area": "knowledge",
-      "entrypoint": "agents/agents/aiox-gem-hunter.ts",
-      "run_modes": [
-        "dry_run",
-        "execute"
-      ],
-      "triggers": [
-        "manual"
-      ],
-      "tools_allowed": [],
-      "risk_level": "T0",
-      "status": "active",
-      "migrated_from": "egos-native"
-    },
-    {
-      "id": "framework_benchmarker",
-      "name": "Framework Benchmarker",
-      "description": "Benchmarks MASA and competing agent/orchestration frameworks from official docs to produce keep/drop adoption guidance for EGOS",
-      "area": "knowledge",
-      "entrypoint": "agents/agents/framework-benchmarker.ts",
-      "run_modes": [
-        "dry_run",
-        "execute"
-      ],
-      "triggers": [
-        "manual"
-      ],
-      "tools_allowed": [],
-      "risk_level": "T0",
-      "status": "active",
-      "migrated_from": "egos-native"
-    },
-    {
-      "id": "mastra_gem_hunter",
-      "name": "Mastra Gem Hunter",
-      "description": "Scans mastra-ai/mastra for high-signal workflow/eval/observability/MCP patterns and emits keep/drop adoption guidance",
-      "area": "knowledge",
-      "entrypoint": "agents/agents/mastra-gem-hunter.ts",
-      "run_modes": [
-        "dry_run",
-        "execute"
-      ],
-      "triggers": [
-        "manual"
-      ],
-      "tools_allowed": [],
-      "risk_level": "T0",
-      "status": "active",
-      "migrated_from": "egos-native"
-    },
     {
       "id": "ssot_auditor",
       "name": "SSOT Auditor",
+      "kind": "tool",
       "description": "Structural Triage Engine — scans TypeScript/Python codebases via AST, detects type drift (duplicate definitions with different shapes), produces prioritized reports with codemod plans",
       "area": "architecture",
       "entrypoint": "agents/agents/ssot-auditor.ts",
@@ -196,11 +16,19 @@
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
-      "migrated_from": "egos-lab"
+      "migrated_from": "egos-lab",
+      "owner": "enioxt",
+      "runtime_proof": "bun agents/agents/ssot-auditor.ts --dry-run --target .",
+      "telemetry_source": "stdout",
+      "cost_source": "none",
+      "last_duration_ms": 4200,
+      "loop_mechanism": "none",
+      "side_effects": ["fs_write"]
     },
     {
       "id": "ssot_fixer",
       "name": "SSOT Fixer",
+      "kind": "tool",
       "description": "Consumes ssot-auditor output and applies safe, low-risk codemod plans automatically (EXACT or RELAXED drift only)",
       "area": "architecture",
       "entrypoint": "agents/agents/ssot-fixer.ts",
@@ -209,12 +37,20 @@
       "tools_allowed": [],
       "risk_level": "T1",
       "status": "active",
-      "migrated_from": "egos-lab"
+      "migrated_from": "egos-lab",
+      "owner": "enioxt",
+      "runtime_proof": "bun agents/agents/ssot-fixer.ts --dry-run",
+      "telemetry_source": "stdout",
+      "cost_source": "none",
+      "last_duration_ms": 1800,
+      "loop_mechanism": "none",
+      "side_effects": ["fs_write"]
     },
     {
       "id": "drift_sentinel",
       "name": "Drift Sentinel",
-      "description": "24/7 configuration drift detection — compares narrative (docs) vs live system state, monitors TASKS.md priorities vs git activity, agents.json vs agents/ directory",
+      "kind": "tool",
+      "description": "Configuration drift detection — compares narrative (docs) vs live system state, monitors TASKS.md priorities vs git activity, agents.json vs agents/ directory",
       "area": "governance",
       "entrypoint": "agents/agents/drift-sentinel.ts",
       "run_modes": ["dry_run", "execute"],
@@ -222,11 +58,229 @@
       "tools_allowed": [],
       "risk_level": "T1",
       "status": "active",
-      "migrated_from": "egos-lab"
+      "migrated_from": "egos-lab",
+      "owner": "enioxt",
+      "runtime_proof": "bun agents/agents/drift-sentinel.ts --dry-run",
+      "telemetry_source": "stdout",
+      "cost_source": "none",
+      "last_duration_ms": 3100,
+      "loop_mechanism": "none",
+      "side_effects": ["fs_write"]
+    },
+    {
+      "id": "dep_auditor",
+      "name": "Dependency Auditor",
+      "kind": "tool",
+      "description": "Scans package.json files for version conflicts, misplaced dev deps, and unused dependencies",
+      "area": "architecture",
+      "entrypoint": "agents/agents/dep-auditor.ts",
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual"],
+      "tools_allowed": [],
+      "risk_level": "T0",
+      "status": "active",
+      "migrated_from": "egos-lab",
+      "owner": "enioxt",
+      "runtime_proof": "bun agents/agents/dep-auditor.ts --dry-run --target .",
+      "telemetry_source": "stdout",
+      "cost_source": "none",
+      "last_duration_ms": 800,
+      "loop_mechanism": "none",
+      "side_effects": []
+    },
+    {
+      "id": "archaeology_digger",
+      "name": "Archaeology Digger",
+      "kind": "tool",
+      "description": "Recursively traverses git history, agent registries, governance files, and handoff documents to reconstruct the complete evolution lineage of the EGOS ecosystem",
+      "area": "knowledge",
+      "entrypoint": "agents/agents/archaeology-digger.ts",
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual"],
+      "tools_allowed": [],
+      "risk_level": "T0",
+      "status": "active",
+      "migrated_from": "egos-native",
+      "owner": "enioxt",
+      "runtime_proof": "bun agents/agents/archaeology-digger.ts --dry-run",
+      "telemetry_source": "stdout",
+      "cost_source": "none",
+      "last_duration_ms": 12000,
+      "loop_mechanism": "none",
+      "side_effects": ["fs_write"]
+    },
+    {
+      "id": "chatbot_compliance_checker",
+      "name": "Chatbot Compliance Checker",
+      "kind": "tool",
+      "description": "Scans a target repository for the required modules defined in CHATBOT_SSOT and reports missing chatbot capabilities",
+      "area": "qa",
+      "entrypoint": "agents/agents/chatbot-compliance-checker.ts",
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual"],
+      "tools_allowed": [],
+      "risk_level": "T0",
+      "status": "active",
+      "migrated_from": "egos-native",
+      "owner": "enioxt",
+      "runtime_proof": "bun agents/agents/chatbot-compliance-checker.ts --target ../852",
+      "telemetry_source": "stdout",
+      "cost_source": "none",
+      "last_duration_ms": 500,
+      "loop_mechanism": "none",
+      "side_effects": []
+    },
+    {
+      "id": "dead_code_detector",
+      "name": "Dead Code Detector",
+      "kind": "tool",
+      "description": "Finds dead exports, orphan files, and empty stubs across any TypeScript codebase using regex-based analysis (no external deps)",
+      "area": "qa",
+      "entrypoint": "agents/agents/dead-code-detector.ts",
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual"],
+      "tools_allowed": [],
+      "risk_level": "T0",
+      "status": "active",
+      "migrated_from": "egos-lab",
+      "owner": "enioxt",
+      "runtime_proof": "bun agents/agents/dead-code-detector.ts --dry-run --target .",
+      "telemetry_source": "stdout",
+      "cost_source": "none",
+      "last_duration_ms": 2100,
+      "loop_mechanism": "none",
+      "side_effects": []
+    },
+    {
+      "id": "capability_drift_checker",
+      "name": "Capability Drift Checker",
+      "kind": "tool",
+      "description": "Scans any target repo against the EGOS kernel's shared capabilities, governance files, workflows, and security basics to detect missing adoptions",
+      "area": "governance",
+      "entrypoint": "agents/agents/capability-drift-checker.ts",
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual"],
+      "tools_allowed": [],
+      "risk_level": "T0",
+      "status": "active",
+      "migrated_from": "egos-native",
+      "owner": "enioxt",
+      "runtime_proof": "bun agents/agents/capability-drift-checker.ts --target ../852",
+      "telemetry_source": "stdout",
+      "cost_source": "none",
+      "last_duration_ms": 1500,
+      "loop_mechanism": "none",
+      "side_effects": []
+    },
+    {
+      "id": "context_tracker",
+      "name": "Context Tracker",
+      "kind": "tool",
+      "description": "Estimates remaining usable context window (CTX 0-280) from uncommitted files, session commits, handoff size, and agent runs. Emits zone emoji + /end recommendation when CTX > 180.",
+      "area": "observability",
+      "entrypoint": "agents/agents/context-tracker.ts",
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual", "pre_end"],
+      "tools_allowed": [],
+      "risk_level": "T0",
+      "status": "active",
+      "migrated_from": "egos-native",
+      "owner": "enioxt",
+      "runtime_proof": "bun agents/agents/context-tracker.ts",
+      "telemetry_source": "stdout",
+      "cost_source": "none",
+      "last_duration_ms": 200,
+      "loop_mechanism": "none",
+      "side_effects": []
+    },
+    {
+      "id": "gtm_harvester",
+      "name": "GTM Harvester",
+      "kind": "tool",
+      "description": "Scans public GitHub repositories for GTM/market strategy artifacts and highlights reusable patterns plus named-entity gaps",
+      "area": "knowledge",
+      "entrypoint": "agents/agents/gtm-harvester.ts",
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual"],
+      "tools_allowed": [],
+      "risk_level": "T0",
+      "status": "active",
+      "migrated_from": "egos-native",
+      "owner": "enioxt",
+      "runtime_proof": "bun agents/agents/gtm-harvester.ts --dry-run",
+      "telemetry_source": "stdout",
+      "cost_source": "openrouter",
+      "last_duration_ms": 8000,
+      "loop_mechanism": "none",
+      "side_effects": ["api_call"]
+    },
+    {
+      "id": "aiox_gem_hunter",
+      "name": "AIOX Gem Hunter",
+      "kind": "tool",
+      "description": "Scans SynkraAI/aiox-core and local NotebookLM export artifacts to extract high-signal orchestration gems with keep/drop diagnosis for EGOS",
+      "area": "knowledge",
+      "entrypoint": "agents/agents/aiox-gem-hunter.ts",
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual"],
+      "tools_allowed": [],
+      "risk_level": "T0",
+      "status": "active",
+      "migrated_from": "egos-native",
+      "owner": "enioxt",
+      "runtime_proof": "bun agents/agents/aiox-gem-hunter.ts --dry-run",
+      "telemetry_source": "stdout",
+      "cost_source": "openrouter",
+      "last_duration_ms": 6000,
+      "loop_mechanism": "none",
+      "side_effects": ["api_call", "fs_write"]
+    },
+    {
+      "id": "framework_benchmarker",
+      "name": "Framework Benchmarker",
+      "kind": "tool",
+      "description": "Benchmarks MASA and competing agent/orchestration frameworks from official docs to produce keep/drop adoption guidance for EGOS",
+      "area": "knowledge",
+      "entrypoint": "agents/agents/framework-benchmarker.ts",
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual"],
+      "tools_allowed": [],
+      "risk_level": "T0",
+      "status": "active",
+      "migrated_from": "egos-native",
+      "owner": "enioxt",
+      "runtime_proof": "bun agents/agents/framework-benchmarker.ts --dry-run",
+      "telemetry_source": "stdout",
+      "cost_source": "openrouter",
+      "last_duration_ms": 5000,
+      "loop_mechanism": "none",
+      "side_effects": ["api_call"]
+    },
+    {
+      "id": "mastra_gem_hunter",
+      "name": "Mastra Gem Hunter",
+      "kind": "tool",
+      "description": "Scans mastra-ai/mastra for high-signal workflow/eval/observability/MCP patterns and emits keep/drop adoption guidance",
+      "area": "knowledge",
+      "entrypoint": "agents/agents/mastra-gem-hunter.ts",
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual"],
+      "tools_allowed": [],
+      "risk_level": "T0",
+      "status": "active",
+      "migrated_from": "egos-native",
+      "owner": "enioxt",
+      "runtime_proof": "bun agents/agents/mastra-gem-hunter.ts --dry-run",
+      "telemetry_source": "stdout",
+      "cost_source": "openrouter",
+      "last_duration_ms": 4500,
+      "loop_mechanism": "none",
+      "side_effects": ["api_call"]
     },
     {
       "id": "mcp_router",
       "name": "MCP Router",
+      "kind": "tool",
       "description": "Routes incoming MCP server discovery requests to the correct handler based on capability matching and server health status",
       "area": "infrastructure",
       "entrypoint": "agents/agents/mcp-router.ts",
@@ -235,11 +289,19 @@
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
-      "migrated_from": "egos-native"
+      "migrated_from": "egos-native",
+      "owner": "enioxt",
+      "runtime_proof": "bun agents/agents/mcp-router.ts --dry-run",
+      "telemetry_source": "stdout",
+      "cost_source": "none",
+      "last_duration_ms": 300,
+      "loop_mechanism": "none",
+      "side_effects": []
     },
     {
       "id": "spec_router",
       "name": "Spec Pipeline Router",
+      "kind": "workflow",
       "description": "Validates spec pipeline stage fields, detects current stage, routes to next reviewer, tracks SLA violations, and generates merge-block reasons",
       "area": "governance",
       "entrypoint": "agents/agents/spec-router.ts",
@@ -248,7 +310,14 @@
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
-      "migrated_from": "egos-native"
+      "migrated_from": "egos-native",
+      "owner": "enioxt",
+      "runtime_proof": "bun agents/agents/spec-router.ts --mode validate --spec docs/examples/spec-pipeline-example.md",
+      "telemetry_source": "stdout",
+      "cost_source": "none",
+      "last_duration_ms": 400,
+      "loop_mechanism": "none",
+      "side_effects": []
     }
   ]
 }

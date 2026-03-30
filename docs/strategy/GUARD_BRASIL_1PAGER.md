@@ -58,7 +58,7 @@ curl -X POST https://guard.egos.ia.br/v1/inspect \
 
 **Opção 2 — SDK npm (Node.js / TypeScript):**
 ```bash
-npm install @egos/guard-brasil
+npm install @egosbr/guard-brasil
 ```
 
 **Opção 3 — MCP Server (Claude Code / Cursor / Windsurf):**
@@ -73,9 +73,10 @@ claude mcp add guard-brasil -- bun run mcp-server.ts
 | Plano | Preço | Limite | Suporte |
 |---|---|---|---|
 | **Open Source** | Gratuito | SDK local, sem limites | Comunidade |
-| **Starter API** | R$ 99/mês | 100 req/min | Email |
-| **Pro** | R$ 499/mês | Sem limite + Dashboard de Auditoria | Prioritário |
-| **Enterprise / Órgão Público** | Sob consulta | SLA 99.9%, on-premise, relatórios LGPD | Dedicado |
+| **Starter API** | R$ 49/mês | 10k inspeções/mês | Email |
+| **Pro** | R$ 199/mês | 100k inspeções/mês + dashboard | Prioritário |
+| **Business** | R$ 499/mês | 500k inspeções/mês + SLA | Ampliado |
+| **Enterprise / Órgão Público** | Sob consulta | on-premise, policy packs, relatórios LGPD | Dedicado |
 
 **Policy Packs setoriais** (R$ 2.990/ano):
 - Segurança Pública (MASP, REDS, BO, RDO)

@@ -39,9 +39,9 @@ A Brazil-first guardrails SDK/API for AI assistants and public-facing AI systems
 
 ### Package
 
-- **npm:** `@egos/guard-brasil` (OSS, MIT)
+- **npm:** `@egosbr/guard-brasil` (OSS, MIT)
 - **Source:** `egos/packages/guard-brasil/`
-- **Runtime:** TypeScript/ESM, zero mandatory dependencies beyond `@egos/shared`
+- **Runtime:** TypeScript/ESM, published as a standalone public package
 - **Tests:** 15 unit tests, 100% pass rate
 
 ---
@@ -81,7 +81,7 @@ A Brazil-first guardrails SDK/API for AI assistants and public-facing AI systems
 ## Monetization
 
 ### Open Source (free)
-- Core SDK: `@egos/guard-brasil` on npm
+- Core SDK: `@egosbr/guard-brasil` on npm
 - Reference implementation and documentation
 - ATRiAN rules and PII patterns
 
@@ -121,11 +121,11 @@ A Brazil-first guardrails SDK/API for AI assistants and public-facing AI systems
 
 ## Immediate Next Steps
 
-1. **Publish `@egos/guard-brasil` to npm** — extract from monorepo or publish from workspace
-2. **Wire into br-acc** — validate in production on EGOS-Inteligência data
-3. **Write integration guide** — "Add LGPD guardrails to your FastAPI + LLM app in 30 minutes"
-4. **Ship audit dashboard prototype** — even a basic Supabase-backed log view
-5. **Define EGOS-063** — free vs paid surface, pricing model
+1. **Expand adoption docs for `@egosbr/guard-brasil`** — installation, integration, and migration guides
+2. **Wire into br-acc / EGOS-Inteligência** — validate in production on real Brazilian public data
+3. **Ship audit dashboard prototype** — even a basic log view with evidence and masking visibility
+4. **Convert outreach into pilots** — 1-pager, demo script, and email motion
+5. **Define policy pack rollout** — health, police, judiciary, banking
 
 ---
 

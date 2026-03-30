@@ -109,7 +109,7 @@ Think of it as:
 
 ### 2. **FastAPI Gateway** (Python)
 
-**Deploy Target:** Hetzner VPS (204.168.217.125) — migrado de Contabo em 2026-03-28
+**Deploy Target:** Hetzner VPS (public IP omitted) — migrado de Contabo em 2026-03-28
 
 #### Endpoints:
 

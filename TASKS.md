@@ -21,6 +21,10 @@
   - Code: `apps/guard-brasil-web/components/DashboardV{1,2,3}*.tsx`
 - [x] Landing page with 6 interactive examples + pricing section
   - Code: `apps/guard-brasil-web/app/page.tsx`
+- [x] Public docs hardening + branding alignment
+  - Removed public IPs, demo API key, and secret-location hints from active public docs
+  - Aligned package naming to `@egosbr/guard-brasil` and current public tiers (Free/49/199/499)
+  - Added local demo route: `apps/guard-brasil-web/app/api/test/route.ts`
 - [x] TELEMETRY_SSOT.md: Canonical schema + 5 repo extensions
 - [x] 5 ChatGPT chats analyzed: PRI, Agent SSOT, House, Multi-LLM, BRACC
 
@@ -28,9 +32,11 @@
 - [ ] **M-007** Send 5+ outreach emails (only action blocking revenue)
 
 **New Tasks (from ChatGPT analysis):**
-- [ ] **EGOS-070** Implement PRI (Protocolo de Recuo por Ignorância) as safety gate
+- [x] **EGOS-070** Implement PRI (Protocolo de Recuo por Ignorância) as safety gate
   - Artefatos: `protocols/pri.md`, `guards/pri.ts`, `policies/pri.rego`
   - Conexão: Safety gate para Guard Brasil API (BLOCK/DEFER/ESCALATE)
+  - Entregue: `packages/core/src/guards/pri.ts`, `packages/core/src/guards/pri.test.ts`, `packages/core/src/auth/contracts.ts`, `packages/core/src/index.ts`, `apps/api/src/pri.ts`, `apps/api/src/server.ts`, `apps/api/src/mcp-server.ts`, `policies/pri.rego`
+  - Evidência: `bun test packages/core/src/guards/pri.test.ts`, `bun test packages/guard-brasil/src/guard.test.ts`, smoke real em `POST /v1/inspect` (200 ALLOW + 202 DEFER)
   - Prioridade: P1 (alto impacto, baixo custo)
 - [ ] **EGOS-071** Resolver SSOT de agentes: reclassificar "29 agentes" com schema 22 campos
   - Adicionar `kind` field: verified_agent/agent_candidate/workflow/tool/dormant
@@ -87,14 +93,14 @@
 - [x] EGOS-061: Publish consolidated ecosystem verdict and repo roles — `docs/strategy/ECOSYSTEM_PRODUCT_VERDICT_2026-03.md`
 - [x] EGOS-062: Package the canonical product boundary for `EGOS Guard Brasil` — ATRiAN + PII Scanner BR + public guard + evidence discipline
   - **Status:** COMPLETE (2026-03-29)
-  - **Package:** `packages/guard-brasil/` — `@egos/guard-brasil` v0.1.0
+  - **Package:** `packages/guard-brasil/` — `@egosbr/guard-brasil` v0.1.0
   - **Files:** `src/index.ts`, `src/guard.ts` (GuardBrasil facade), `src/demo.ts`, `src/guard.test.ts`, `README.md`
   - **Tests:** 15/15 pass (bun test) — clean output, PII detection, ATRiAN validation, evidence chain, combined scenarios
   - **Capabilities:** CPF/RG/MASP/REDS/placa/processo masking, ATRiAN score 0–100, LGPD disclosure, evidence audit hash
 - [x] EGOS-063: Define free vs paid surface for the flagship (open SDK/specs vs hosted API/MCP/audit console)
   - **Status:** COMPLETE (2026-03-29)
   - **Document:** `docs/strategy/FREE_VS_PAID_SURFACE.md`
-  - **Tiers:** Free (npm SDK) → Starter API R$99/mo → Pro R$499/mo → Enterprise custom
+  - **Tiers:** Free (npm SDK) → Starter API R$49/mo → Pro R$199/mo → Business R$499/mo → Enterprise custom
   - **Policy Packs:** Segurança Pública, Saúde, Judiciário, Financeiro (R$2.990/ano each)
   - **Revenue path:** npm→API→Dashboard→Policy Packs over 12 months
 - [x] EGOS-064: Deliver the first monetizable surface as a reusable package or MCP before expanding any new product line
@@ -126,6 +132,14 @@
 - [ ] EGOS-100: Define `Linear/Issue Sync Contract` (`/linear-sync`) with task decomposition schema, priority classes, and required evidence at PR gate
 - [ ] EGOS-101: Define `QA Loop Contract` (`/qa-loop`) using browser/devtools verification + test rerun policy + stop conditions
 - [ ] EGOS-102: Build executable 10-second operator map (replace text-heavy integration map with founder-grade control plane view)
+- [x] EGOS-131: Define `Integration Release Contract` for EGOS — **COMPLETE (2026-03-30)**
+  - **Contract:** `.guarani/orchestration/INTEGRATION_RELEASE_CONTRACT.md`
+  - **Executable Gate:** `scripts/integration-release-check.ts` + `bun run integration:check`
+  - **Typed Manifest Contract:** `packages/core/src/integration.ts`
+  - **First Canonical Bundle:** `integrations/manifests/whatsapp-runtime.json` + `integrations/distribution/whatsapp-runtime/`
+  - **SSOT Updates:** `AGENTS.md`, `docs/SYSTEM_MAP.md`, `docs/CAPABILITY_REGISTRY.md`, `docs/knowledge/WHATSAPP_SSOT.md`, `integrations/README.md`, `.guarani/orchestration/DOMAIN_RULES.md`
+  - **Validation:** `bun run integration:check` ✅, `bun run typecheck` ✅
+  - **Pending:** `bun run governance:sync:exec` required before `bun run governance:check` returns 0 drift
 - [x] EGOS-107: Define and activate Stitch-first UI contract (`/stitch`) — prompt generation in EGOS lane, external creation in Google Stitch, and `.zip` intake mapping before implementation
 - [ ] EGOS-108: Build `stitch_intake_mapper` agent to parse returned `.zip`, generate mapping table, and create integration tasks automatically
 - [x] EGOS-109: Run full AIOX (`SynkraAI/aiox-core`) gem diagnosis against EGOS + NotebookLM export and codify keep/drop recommendations
@@ -200,15 +214,15 @@
 
 ## Guard Brasil GTM — P0 Chain (2026-03-30)
 
-- [ ] EGOS-123: `npm publish --access public` for @egos/guard-brasil v0.1.0 (**MANUAL — M-001** em MANUAL_ACTIONS.md)
+- [ ] EGOS-123: `npm publish --access public` for @egosbr/guard-brasil v0.1.0 (**MANUAL — M-001** em MANUAL_ACTIONS.md)
   - Pre-req: `cd packages/guard-brasil && npm login && npm publish --access public`
-  - After first publish: `npm token create --type=publish` → add to GitHub Secrets as NPM_TOKEN (M-006)
+  - After first publish: create publish credentials in CI secret store (M-006)
 - [x] EGOS-124: Deploy Guard Brasil REST API on Hetzner — **COMPLETE (2026-03-30)**
   - Container: `guard-brasil-api` healthy, port 3099, restart: unless-stopped
   - Caddy: `guard.egos.ia.br` entry added (TLS auto)
-  - **⚠️ BLOCKED**: DNS A record `guard → 204.168.217.125` não criado (MANUAL M-002)
+  - **⚠️ BLOCKED**: DNS A record `guard.egos.ia.br` requires final validation in DNS provider (MANUAL M-002)
   - Health cron: `*/5 * * * *` no Hetzner monitorando e auto-restart
-  - API key: `/opt/apps/guard-brasil/.env` no servidor
+  - API key: secret store on the server (path intentionally omitted)
   - Deploy script: `bash apps/api/deploy.sh`
 - [ ] EGOS-125: Cold outreach — 20 CTOs govtech BR (**MANUAL — M-007**)
   - Templates prontos: `docs/strategy/OUTREACH_EMAILS.md` (3 templates + lista de 20 targets)
@@ -430,14 +444,14 @@
 
 ### Infrastructure Migration: Contabo → Hetzner (2026-03-28 COMPLETE)
 
-> VPS migrado. IP novo: 204.168.217.125. Backup validado em /home/enio/vps-backup-hetzner/
+> VPS migrado. Public IP omitted from public docs. Backup validated in the Hetzner backup location.
 
 **Completed (2026-03-29):**
 - [x] INFRA-001 — Atualizar /vps command (`egos/.claude/commands/vps.md`) → Hetzner IP + nova SSH key
 - [x] INFRA-002 — Atualizar `docs/KERNEL_MISSION_CONTROL.md` — Deploy Target e tabela de custos
 - [x] INFRA-003 — Atualizar `docs/MARKET_READY_FEATURES.md` — referência de deploy do 852
 - [x] INFRA-004 — Atualizar `docs/knowledge/HARVEST.md` — tabela de repos (852, br-acc, santiago)
-- [x] INFRA-005 — Atualizar `egos-lab/.env` — BRACC_API_URL → 204.168.217.125, comentar CONTABO
+- [x] INFRA-005 — Atualizar `egos-lab/.env` — BRACC_API_URL updated to the current Hetzner runtime, comment old Contabo reference
 - [x] INFRA-006 — Atualizar `egos-lab/agents/agents/etl-orchestrator.ts` — fallback URL
 - [x] INFRA-007 — Atualizar `egos-lab/agents/agents/uptime-monitor.ts` — fallback URL + comentário
 - [x] INFRA-008 — Atualizar `egos-lab/apps/telegram-bot/src/index.ts` — descrição de infraestrutura

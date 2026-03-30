@@ -35,7 +35,7 @@ curl -X POST https://api.openai.com/v1/chat/completions \
 
 ```bash
 # Com Guard Brasil — dados protegidos automaticamente
-API_KEY="9e573724-8f4f-45bb-a946-af7d4d2c324f"
+API_KEY="<demo-key-issued-separately>"
 
 curl -X POST https://guard.egos.ia.br/v1/inspect \
   -H "Content-Type: application/json" \
@@ -87,7 +87,7 @@ curl -X POST https://guard.egos.ia.br/v1/inspect \
 import httpx
 
 GUARD_API = "https://guard.egos.ia.br/v1/inspect"
-API_KEY = "9e573724-8f4f-45bb-a946-af7d4d2c324f"
+API_KEY = "<demo-key-issued-separately>"
 
 def safe_ai_call(text: str) -> str:
     # 1. Guard Brasil inspeciona
@@ -134,7 +134,7 @@ print(safe_ai_call("CPF do autuado: 111.222.333-44"))
 
 **Proposta concreta:**
 
-> "Vou propor um piloto de 30 dias. Vocês colocam Guard Brasil na frente de um fluxo — pode ser o menor que tiver. Medimos: (1) quantos dados sensíveis foram interceptados, (2) qual seria o risco LGPD sem proteção. Custo: R$ 99/mês no Starter. Se não funcionar, cancela."
+> "Vou propor um piloto de 30 dias. Vocês colocam Guard Brasil na frente de um fluxo — pode ser o menor que tiver. Medimos: (1) quantos dados sensíveis foram interceptados, (2) qual seria o risco LGPD sem proteção. Custo: a partir de R$ 49/mês no Starter. Se não funcionar, cancela."
 
 **Próximos passos:**
 1. Compartilha um exemplo de texto que vocês processam hoje
@@ -155,5 +155,6 @@ Tivemos a demo hoje. Gostaríamos de avançar com o piloto de 30 dias.
 
 ---
 
-> API Key para demos: `9e573724-8f4f-45bb-a946-af7d4d2c324f` (100 req/min)
+> Use uma chave temporária emitida para demo ou uma chave do ambiente do operador.
+> Nunca exponha chaves ativas em documentação pública, screenshots ou gravações.
 > Endpoint: `https://guard.egos.ia.br/v1/inspect`

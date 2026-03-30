@@ -54,6 +54,7 @@
 - Sync: `scripts/governance-sync.sh`, `scripts/link-ssot-files.sh`
 - Utilities: `scripts/oracle-instance-launcher/` (Python OCI launcher with AD retry + capacity-aware handling)
 - Validation: `bun run typecheck`, `bun run agent:lint`, `bun run governance:check`
+- Integration release gate: `.guarani/orchestration/INTEGRATION_RELEASE_CONTRACT.md`, `integrations/manifests/`, `integrations/distribution/`, `bun run integration:check`
 - Agents:
   - `dep_auditor`, `archaeology_digger`, `chatbot_compliance_checker`, `context_tracker`
   - `ethik_agent`: x402 Tokenomics, GCP Dynamic Key Gateway, and Donation Engine
@@ -117,7 +118,7 @@
 ### Runtime SSOT
 
 ```
-Hetzner VPS (204.168.217.125)
+Hetzner VPS (public IP omitted)
   └─ Evolution API (Single Deployment, port 8080)
       ├─ forja-notifications (ACTIVE)
       ├─ 852-customer-service (future)

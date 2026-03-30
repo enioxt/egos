@@ -70,6 +70,8 @@ Meta's current policies (as of 2026-01) restrict "general AI assistants" on What
 
 ## Pattern #1: Evolution API Deployment
 
+**Canonical bundle:** `integrations/manifests/whatsapp-runtime.json` + `integrations/distribution/whatsapp-runtime/`
+
 ### Docker Compose Template
 
 ```yaml
@@ -583,6 +585,8 @@ wait
 
 ### For Each New Repo Adopting WhatsApp
 
+- [ ] Start from `egos/integrations/distribution/whatsapp-runtime/`
+- [ ] Validate manifest with `bun run integration:check`
 - [ ] Copy Evolution API docker-compose template
 - [ ] Generate unique API key for this product
 - [ ] Create instance: `{product}-{purpose}`

@@ -19,7 +19,7 @@ Everything needed to self-host and evaluate:
 
 | Surface | Description | License |
 |---------|-------------|---------|
-| `@egos/shared` SDK | ATRiAN, PII Scanner, Public Guard, Evidence Chain | MIT |
+| `@egosbr/guard-brasil` SDK | ATRiAN, PII Scanner, Public Guard, Evidence Chain | MIT |
 | CLI tool (`egos-guard`) | Validate files/text from terminal | MIT |
 | Spec & docs | Protocol specs, integration guides | MIT |
 | Reference implementation | br-acc as working example | MIT |
@@ -30,33 +30,32 @@ Everything needed to self-host and evaluate:
 
 ### Paid (Hosted / Enterprise)
 
-| Tier | Target | Price (est.) | Surface |
-|------|--------|-------------|---------|
-| **API Starter** | Indie devs / startups | R$199/mo | Hosted REST API, 50K req/mo, basic dashboard |
-| **API Pro** | SMBs | R$799/mo | 500K req/mo, audit logs, email alerts, SLA 99.5% |
-| **Enterprise** | Gov / large corps | Custom | Custom SLA, on-prem deploy, RBAC, evidence archival |
-| **MCP Addon** | AI agent builders | R$299/mo | Guard Brasil as MCP tools for Claude/OpenAI agents |
+| Tier | Target | Price | Surface |
+|------|--------|-------|---------|
+| **API Starter** | Indie devs / startups | R$49/mo | Hosted REST API, 10k inspeções/mês, dashboard básico |
+| **API Pro** | SMBs / production teams | R$199/mo | 100k inspeções/mês, audit visibility, alertas, prioridade |
+| **Business** | Times regulados | R$499/mo | 500k inspeções/mês, SLA, operação multi-time |
+| **Enterprise** | Gov / large corps | Custom | Custom SLA, on-prem deploy, policy packs, evidence archival |
 
 ---
 
 ## Feature Breakdown
 
-| Feature | Free SDK | API Starter | API Pro | Enterprise |
-|---------|----------|-------------|---------|-----------|
-| ATRiAN validation | ✅ | ✅ | ✅ | ✅ |
-| PII Scanner BR | ✅ | ✅ | ✅ | ✅ |
-| Public Guard masking | ✅ | ✅ | ✅ | ✅ |
-| Evidence Chain | ✅ | ✅ | ✅ | ✅ |
-| REST API endpoint | ❌ | ✅ | ✅ | ✅ |
-| API key management | ❌ | ✅ | ✅ | ✅ |
-| Compliance dashboard | ❌ | Basic | Full | Custom |
-| Audit log (30 days) | ❌ | ❌ | ✅ | Unlimited |
-| Violation alerts | ❌ | Email | Email + Slack | Custom webhooks |
-| SLA | ❌ | Best-effort | 99.5% | 99.9% |
-| Custom policies | ❌ | ❌ | ❌ | ✅ |
-| On-premise deploy | ❌ | ❌ | ❌ | ✅ |
-| MCP server | ❌ | Add-on | Add-on | ✅ |
-| Priority support | ❌ | ❌ | ✅ | Dedicated |
+| Feature | Free SDK | API Starter | API Pro | Business | Enterprise |
+|---------|----------|-------------|---------|----------|-----------|
+| ATRiAN validation | ✅ | ✅ | ✅ | ✅ | ✅ |
+| PII Scanner BR | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Public Guard masking | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Evidence Chain | ✅ | ✅ | ✅ | ✅ | ✅ |
+| REST API endpoint | ❌ | ✅ | ✅ | ✅ | ✅ |
+| API key management | ❌ | ✅ | ✅ | ✅ | ✅ |
+| Compliance dashboard | ❌ | Basic | Full | Full + SLA views | Custom |
+| Audit log retention | ❌ | Basic | Extended | Extended | Custom |
+| Violation alerts | ❌ | Email | Email + webhook | Multi-channel | Custom |
+| SLA | ❌ | Best-effort | Standard | Expanded | 99.9% |
+| Custom policies | ❌ | ❌ | ❌ | Optional | ✅ |
+| On-premise deploy | ❌ | ❌ | ❌ | ❌ | ✅ |
+| Priority support | ❌ | ❌ | ✅ | ✅ | Dedicated |
 
 ---
 
@@ -64,10 +63,10 @@ Everything needed to self-host and evaluate:
 
 ### Why this works
 
-1. **Self-serve funnel:** `npm install @egos/shared` → `egos-guard validate` → hits rate limits or needs dashboard → upgrades
+1. **Self-serve funnel:** `npm install @egosbr/guard-brasil` → evaluate locally → needs hosted API/dashboard → upgrades
 2. **B2B expansion:** Enterprise buys for compliance mandate (LGPD enforcement). One contract = 12+ months ARR.
-3. **MCP add-on:** Unique positioning as AI agent guardrails-as-a-service. No competitor has a Brazil-first MCP guardrail.
-4. **Evidence archival:** Legal teams need evidence trails. Charged by retention period.
+3. **Brazil-first wedge:** Guard Brasil combines Brazilian identifiers, masking, ethics, and evidence in one layer.
+4. **Evidence archival:** Legal teams need evidence trails. Charged by retention period and support level.
 
 ### Revenue targets
 
@@ -82,7 +81,7 @@ Everything needed to self-host and evaluate:
 ## What Stays Free Forever
 
 To protect ecosystem trust and adoption:
-- Core SDK (`@egos/shared` modules)
+- Core SDK (`@egosbr/guard-brasil`)
 - ATRiAN spec and patterns
 - PII scanner patterns and logic
 - Evidence chain protocol
@@ -94,10 +93,10 @@ To protect ecosystem trust and adoption:
 
 ## Next Steps (EGOS-064)
 
-1. **Publish `@egos/guard-brasil` to npm** — standalone package from shared modules
+1. **Expand `@egosbr/guard-brasil` adoption** — SDK docs, examples, and migration guides
 2. **Build CLI `egos-guard`** — `egos-guard validate <file>` + `egos-guard mask <text>`
-3. **Create landing page** — `egos.ia.br/guard` with live demo
-4. **First paid customer target** — carteira-livre or br-acc as internal reference + 1 external prospect
+3. **Stabilize landing page** — public demo + pricing + dashboard preview
+4. **Convert first paid pilots** — internal references + 1 external prospect
 
 ---
 
