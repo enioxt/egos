@@ -1,11 +1,82 @@
-# Worktree Orchestration Contract — EGOS-110
+# Worktree Orchestration Contract — EGOS-099 / EGOS-110
 
-**Version:** 1.0.0
-**Date:** 2026-03-26
-**Status:** ACTIVE
+**Version:** 1.1.0 | **Updated:** 2026-03-30 | **EGOS-099 addendum added**
+**Original:** EGOS-110 (2026-03-26) | **Status:** ACTIVE
 **Source:** AIOX workflow benchmark analysis + EGOS governance integration
 
 > This contract formalizes the orchestration rules for isolated worktree-based development in EGOS repositories. It ensures predictable team coordination, prevents merge conflicts, and maintains governance integrity across parallel development lanes.
+
+---
+
+## EGOS-099 Quick Reference (Practical Rules)
+
+> Read this section first. The detailed spec follows in sections 1-14.
+
+### Branch Naming (short form)
+
+```
+feat/EGOS-NNN-short-description     # new capability
+fix/EGOS-NNN-short-description      # bug fix
+refactor/EGOS-NNN-short-description # restructure, no behavior change
+chore/EGOS-NNN-short-description    # tooling, deps, CI, docs
+```
+
+Always include task ID. No ID = no worktree. Max 60 chars.
+
+### Ownership Lock
+
+One worktree = one task = one agent at a time.
+Check `.guarani/worktrees.json` before starting. If claimed: stop and wait.
+First committed entry wins. Challenger logs conflict in TASKS.md.
+
+### Lifecycle (max 72h)
+
+```
+create → work → test → merge → cleanup
+```
+
+- Max open: **3 active worktrees** (guideline; 4+ signals planning failure)
+- Max age: **72 hours** per worktree before it must be merged or closed
+- Abandonment: **no commit in 24h** → status = `abandoned` → delete branch + remove from worktrees.json + reset task to `[ ]`
+
+### Merge Gates
+
+```
+[ ] bun run typecheck        — zero TS errors
+[ ] bun test                 — zero failing tests
+[ ] bun run lint             — zero lint errors
+[ ] bun run governance:check — zero SSOT drift
+[ ] TASKS.md task marked [x] with evidence
+[ ] worktrees.json entry present and updated
+[ ] No frozen zone edits without human confirm in PR body
+```
+
+### Using Claude Code EnterWorktree / ExitWorktree
+
+```
+# Start
+EnterWorktree(branch=feat/EGOS-NNN-desc, baseBranch=main)
+
+# Do work, commit
+
+# End
+ExitWorktree  ← do NOT exit without committing
+```
+
+If two Claude Code sessions attempt EnterWorktree on the same branch: second call fails. Resolve via worktrees.json inspection first.
+
+Example workflow:
+```
+1. EnterWorktree(feat/EGOS-080-llm-matrix)
+2. Write files
+3. Update TASKS.md [x]
+4. git commit -m "feat(egos-080): LLM orchestration matrix"
+5. ExitWorktree
+6. Open PR → run merge gates
+7. After merge: remove worktree + clean worktrees.json
+```
+
+---
 
 ---
 

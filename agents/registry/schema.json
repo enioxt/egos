@@ -25,7 +25,7 @@
           "kind": {
             "type": "string",
             "description": "Honest classification: verified_agent (continuous loop + side effects), agent_candidate (has potential but not verified), workflow (multi-step orchestration), tool (single-purpose CLI), dormant (exists but broken/stub)",
-            "enum": ["verified_agent", "agent_candidate", "workflow", "tool", "dormant"]
+            "enum": ["verified_agent", "online_agent", "agent_candidate", "workflow", "tool", "dormant"]
           },
           "area": {
             "type": "string",
