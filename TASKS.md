@@ -51,6 +51,19 @@
   - Quota tracking: `reportUsage()` + `resetQuotas()` per-minute
   - Arquivos: `packages/shared/src/llm-router.ts`, `packages/shared/src/llm-router.test.ts`
   - Tests: 11/11 pass
+- [x] **EGOS-131** Eagle Eye surgery v3.0: strip to procurement core (2026-03-30)
+  - DONE: Killed SEO_STRATEGY, COMMUNITY_STRATEGY, GAMIFICATION_REPORT, TOURISM_MODULE, STITCH_PROMPTS
+  - DONE: Dashboard.tsx "28 territories" → "15" (real count), README rewritten
+  - Owner: egos-lab — committed
+- [ ] **EGOS-132** Resolve EGOS brand conflict: two incompatible color palettes exist
+  - `egos-lab/branding/BRAND_GUIDE.md` (Cyan/Purple/Green, Space Grotesk)
+  - `egos/docs/PRESENTATION_VISUAL_IDENTITY.md` (Navy/Blue, Inter)
+  - Need: single canonical guide, delete the other — Gabriel Cambraia as creative director
+  - Prioridade: P2
+- [ ] **EGOS-133** Eagle Eye: consolidate duplicate EagleEye.tsx in br-acc
+  - br-acc has standalone copy (different API, NOT synced with egos-lab)
+  - Decision: delete br-acc copy or extract as independent micro-product
+  - Prioridade: P2
 - [ ] **EGOS-073** BRACC Operacional: blueprint para módulo policial PCMG
   - Spec completa em ChatGPT export (7 camadas, 20 módulos, break-glass access)
   - Guard Brasil como motor de validação MASP/PII
@@ -73,14 +86,7 @@
 ---
 
 ### Summary: Session 2026-03-26 (CI Troubleshooting - COMPLETE)
-
-**Completed:**
-- [x] EGOS-122: Fix CI error "frozen zones check exits 128" in `.github/workflows/ci.yml` — root cause: bash syntax error in GitHub Actions variable expansion; applied quickfix to line 50 (added error handling for git diff) + improved messaging
-  - **Status:** VALIDATED & LIVE
-  - **Commit:** cab3083 (fix(ci): frozen zones check bash syntax error in GitHub Actions)
-  - **Changes:** Added error handling to `git diff` command (2>/dev/null || echo "") + improved success messages
-  - **Publication:** Pushed to origin/main; PR #5 auto-closed via "Fixes #5" reference
-  - **Validation:** CI workflow now handles both PR and push contexts without bash syntax errors
+- [x] EGOS-122: Fix CI frozen zones bash syntax error — commit cab3083, PR #5 auto-closed
 
 ---
 

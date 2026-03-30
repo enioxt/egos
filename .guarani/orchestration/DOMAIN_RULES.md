@@ -193,6 +193,38 @@ agents/registry/agents.json (structure, not content)
 
 ---
 
+## 7. CROSS-REPO SSOT VISIT PROTOCOL
+
+**Rule:** Whenever you visit a file, directory, or repo that is NOT the current working repo to extract information or migrate content, you MUST mark the visit immediately. This applies in /start, /end, /disseminate, pre-commit, and any cross-repo search task.
+
+### Protocol Steps
+
+1. **MARK the source** — Add a `<!-- SSOT-VISITED: YYYY-MM-DD by claude, extracted to [target] -->` comment or a markdown note at the top of the source file if it's a doc.
+2. **LOG the visit** in the current repo's `docs/_current_handoffs/` or `TASKS.md` with format:
+   `- [x] SSOT-VISIT [date]: [source-repo/path] → extracted [what] → [disposition: archived|merged|kept-as-ref]`
+3. **MARK duplicates** — If you find a duplicate of canonical content, mark the copy with `<!-- DUPLICATE: canonical at [path], keep as [ref|delete|merge] -->` and create a task to resolve.
+4. **ARCHIVE after extraction** — If the source was purely aspirational/wrong, move it to `archive/` in the same repo and add an entry in the nearest TASKS.md.
+5. **NEVER leave a cross-repo visit unlogged.** Missing the log is a governance violation.
+
+### Applies to
+- `/start` skill: scan visited repos → log all SSOT gaps found
+- `/end` skill: verify all cross-repo visits are logged before closing session
+- `/disseminate` skill: log which files were propagated to which repos
+- Pre-commit hooks: if staged files contain cross-repo path references, warn if visit log is missing
+- Any Agent or Explore task that reads from multiple repos
+
+### Disposition Tags
+
+| Tag | Meaning |
+|----|---------|
+| `archived` | Moved to `archive/` in source repo |
+| `merged` | Content absorbed into target, source deleted or noted |
+| `kept-as-ref` | Source kept but not canonical — target is SSOT |
+| `superseded` | Source was wrong/outdated — replaced by target |
+| `independent` | Both are canonical for different purposes |
+
+---
+
 ## Domain Detection Heuristic
 
 | Task Keywords | Domains to Load |
@@ -203,3 +235,4 @@ agents/registry/agents.json (structure, not content)
 | security, PII, RLS, secret, scan, frozen | Security |
 | shared, llm-provider, packages, types, atrian | Shared Packages |
 | integration, adapter, webhook, whatsapp, telegram, slack, bundle, manifest, package | Integrations & Channels |
+| cross-repo, ssot, duplicate, visit, archive, extract, eagle-eye, br-acc | Cross-Repo SSOT Visit Protocol |
