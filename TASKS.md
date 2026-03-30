@@ -160,7 +160,7 @@
 - [x] EGOS-101: Add reusable EGOS activation meta-prompt v1.1.0 with ATRiAN honesty filter + next-AI review mandate and trigger mapping
 - [x] EGOS-102: Add ecosystem PR audit automation (`pr:audit`) + canonical `/mycelium` workflow for active/inactive PR mesh classification
 
-> **Directive:** Until EGOS-062..064 are resolved, new work should strengthen the flagship guardrails product or its proof cases only.
+> **Directive (2026-03-29):** EGOS-062/063/064 COMPLETE. New directive: execute Guard Brasil go-to-market (npm publish → API deploy → first customer) and close FORJA Rocha pilot. Santiago = P3 (Goomer/Anota AI competition makes platform play unviable; deploy for Café Faria Soares only).
 
 ## Benchmark Alignment Plan (2026-03-26)
 
