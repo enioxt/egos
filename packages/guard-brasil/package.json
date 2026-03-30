@@ -1,5 +1,5 @@
 {
-  "name": "@egos/guard-brasil",
+  "name": "@egosbr/guard-brasil",
   "version": "0.1.0",
   "description": "Brazilian AI safety layer — LGPD-compliant PII masking, ATRiAN ethical validation, and traceable evidence discipline for AI assistants",
   "type": "module",
