@@ -1,8 +1,9 @@
 # EGOS Capability Registry
 
-> **VERSION:** 1.5.0 | **UPDATED:** 2026-03-30
+> **VERSION:** 1.6.0 | **UPDATED:** 2026-03-30
 > **PURPOSE:** Master index of all capabilities across the EGOS ecosystem
 > **SSOT STATUS:** This file IS the canonical capability map
+> **LATEST:** WhatsApp Integration SSOT integrated from forja; Multi-channel runtime architecture canonical
 
 ---
 
@@ -150,10 +151,27 @@ Each capability has:
 
 | Capability | SSOT | Quality | Adopted By | Should Adopt | Tags |
 |-----------|------|---------|------------|-------------|------|
-| Evolution API Client | `carteira-livre/services/whatsapp/evolution-api.ts` | A | carteira-livre | forja | `whatsapp`, `messaging`, `evolution` |
+| **WhatsApp Integration Architecture** | `egos/docs/knowledge/WHATSAPP_SSOT.md` | A | forja | 852, carteira-livre | `whatsapp`, `architecture`, `ssot` |
+| **Multi-Channel Runtime Pattern** | `egos/docs/knowledge/WHATSAPP_SSOT.md` | A | forja | ALL | `whatsapp`, `multi-channel`, `runtime` |
+| **Evolution API Deployment** | `egos/docs/knowledge/WHATSAPP_SSOT.md` | A | forja | ALL | `whatsapp`, `evolution`, `docker` |
+| **QR Drift Recovery Protocol** | `egos/docs/knowledge/WHATSAPP_SSOT.md` | A | forja | ALL | `whatsapp`, `recovery`, `qr` |
+| **Integration Memory Pattern** | `forja/docs/INTEGRATIONS_MEMORY.md` | A | forja | ALL | `infrastructure`, `memory`, `ssot` |
+| Evolution API Client | `carteira-livre/services/whatsapp/evolution-api.ts` | B | carteira-livre | — | `whatsapp`, `client`, `legacy` |
+| WhatsApp Notification Service | `forja/src/lib/whatsapp/notifications.ts` | A | forja | 852, carteira-livre | `whatsapp`, `notifications`, `templates` |
+| WhatsApp Webhook Handler | `forja/src/app/api/notifications/whatsapp/route.ts` | A | forja | 852, carteira-livre | `whatsapp`, `webhook`, `api` |
 | WhatsApp Sharing | `852/src/components/chat/ExportMenu.tsx` | A | 852 | — | `whatsapp`, `sharing` |
 | Telegram Bot | `egos-lab/apps/telegram-bot/` | B | egos-lab | — | `telegram`, `bot` |
 | Notifications (webhook/Telegram) | `852/src/lib/notifications.ts` | B | 852 | forja | `notifications`, `webhook` |
+
+### WhatsApp Integration Stack (2026-03-30)
+
+> **Canonical Architecture:** Hetzner VPS as runtime SSOT → Evolution API (single deployment) → One instance per product/channel → Vercel app for webhooks → Supabase for audit → Redis for queue (future).
+>
+> **Philosophy:** WhatsApp as workflow surface (alerts, confirmations, status), NOT open-chat platform.
+>
+> **Validated:** forja-notifications (state: open, 2026-03-30)
+>
+> **Complete Guide:** `egos/docs/knowledge/WHATSAPP_SSOT.md`
 
 ---
 

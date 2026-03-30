@@ -1,6 +1,6 @@
 # SYSTEM_MAP.md — EGOS Framework Core
 
-> **VERSION:** 2.2.0 | **UPDATED:** 2026-03-24
+> **VERSION:** 2.3.0 | **UPDATED:** 2026-03-30
 > **ROLE:** repo-local map for `/start` in the canonical kernel
 
 <!-- llmrefs:start -->
@@ -99,3 +99,73 @@
 | /disseminate | `.windsurf/workflows/disseminate.md` | v1.0 |
 | /mycelium | `.windsurf/workflows/mycelium.md` | v1.0 |
 | /regras | `.windsurf/workflows/regras.md` | v1.0 |
+
+---
+
+## WhatsApp Runtime Architecture (Multi-Channel Pattern)
+
+> **SSOT:** `docs/knowledge/WHATSAPP_SSOT.md` (canonical integration guide)
+> **Philosophy:** WhatsApp as workflow surface (alerts, confirmations, status), NOT open-chat platform
+> **Validated:** forja-notifications (2026-03-30, state: open)
+
+### Runtime SSOT
+
+```
+Hetzner VPS (204.168.217.125)
+  └─ Evolution API (Single Deployment, port 8080)
+      ├─ forja-notifications (ACTIVE)
+      ├─ 852-customer-service (future)
+      └─ carteira-x-transactions (future)
+
+Vercel Apps
+  ├─ Webhook handlers (/api/notifications/whatsapp)
+  ├─ Notification service layer
+  └─ Admin dashboard (future Control Tower)
+
+Supabase
+  ├─ Audit logs (all webhook events)
+  ├─ Instance registry (future)
+  └─ Message history
+
+Redis (Future P1)
+  ├─ Message queue
+  ├─ Retry/dead-letter
+  └─ Rate limiting
+```
+
+### Key Patterns
+
+| Pattern | Location | Status |
+|---------|----------|--------|
+| **WhatsApp Integration Architecture** | `docs/knowledge/WHATSAPP_SSOT.md` | ✅ Canonical |
+| **Evolution API Deployment** | `docs/knowledge/WHATSAPP_SSOT.md` | ✅ Canonical |
+| **QR Drift Recovery Protocol** | `docs/knowledge/WHATSAPP_SSOT.md` | ✅ Validated (forja) |
+| **Integration Memory SSOT** | `forja/docs/INTEGRATIONS_MEMORY.md` | ✅ Pattern (disseminate) |
+| **Multi-Channel Control Tower** | Planned | 📋 P1 |
+
+### Instance Naming Convention
+
+```
+{product}-{purpose}
+
+Examples:
+- forja-notifications
+- 852-customer-service
+- carteira-x-transactions
+```
+
+### Dissemination Status
+
+| Repo | Status | Instance Name | Notes |
+|------|--------|---------------|-------|
+| **forja** | ✅ LIVE | forja-notifications | State: open, validated 2026-03-30 |
+| **852** | 📋 Planned | 852-customer-service | Future |
+| **carteira-livre** | 📋 Planned | carteira-x-transactions | Future |
+
+### Related Documents
+
+- `docs/knowledge/WHATSAPP_SSOT.md` — Canonical integration guide
+- `docs/knowledge/HARVEST.md` — Session patterns (Pattern #11, #12, #13, #14)
+- `docs/CAPABILITY_REGISTRY.md` — Section 9 (WhatsApp & Messaging)
+- `forja/docs/WHATSAPP_SETUP_GUIDE.md` — Step-by-step implementation
+- `forja/docs/INTEGRATIONS_MEMORY.md` — Infrastructure SSOT pattern
