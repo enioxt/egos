@@ -75,6 +75,14 @@
       "situations": ["Building or extending Guard Brasil features", "LGPD compliance question", "Packaging AI safety SDK", "Integrating guardrails into a new app"],
       "priority": "high",
       "apps": ["all"]
+    },
+    {
+      "id": "governance.clarity-review",
+      "file": ".guarani/orchestration/CLARITY_REVIEW.md",
+      "keywords": ["/clarity-review", "clarity review", "revisão mensal", "pruning", "podar tarefas", "limpar tasks", "kernel drift", "zombie tasks", "simplificar sistema"],
+      "situations": ["Running the monthly clarity review ritual", "TASKS.md exceeds 500 lines", "Kernel feels drifted from its one-sentence description", "Need to identify and archive stale tasks"],
+      "priority": "high",
+      "apps": ["all"]
     }
   ]
 }

@@ -1,5 +1,10 @@
 # /mycelium — Kernel Reality Check (EGOS)
 
+> [!WARNING]
+> **EGOS-070 AUDIT (2026-03-30):** Step 3 below queries `bracc-neo4j` — this is the br-acc OSINT graph database (77M entities).
+> It is NOT a Mycelium database. The Mycelium layer has no Neo4j backend.
+> The query is useful for VPS health but should NOT be labeled as a Mycelium check.
+
 Validate Mycelium mesh reality, references, and maturity.
 
 ## Steps:

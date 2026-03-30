@@ -37,7 +37,7 @@ ssh root@hetzner "docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'
 | waha-santiago | :3002 | WhatsApp API |
 | infra-api-1 | :8000 (internal) | Main API |
 | infra-frontend-1 | :3000 (internal) | Frontend |
-| bracc-neo4j | :7474/:7687 (internal) | Neo4j/Mycelium |
+| bracc-neo4j | :7474/:7687 (internal) | Neo4j/br-acc (OSINT graph — NOT part of Mycelium layer) |
 | infra-caddy-1 | :80/:443 | Reverse proxy |
 | infra-redis-1 | :6379 (internal) | Redis cache |
 

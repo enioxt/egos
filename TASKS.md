@@ -153,7 +153,8 @@
   - **Enforcement surfaces:** pre-commit hook, /start GATE, /end Phase 4 for each pattern
   - **Next:** EGOS-101 QA Loop Contract completes the remaining enforcement gap
 - [x] EGOS-099: Worktree Orchestration Contract — `.guarani/orchestration/WORKTREE_CONTRACT.md` — branch naming, 72h max, 24h abandonment, merge gates, EnterWorktree/ExitWorktree
-- [ ] EGOS-100: Define `Linear/Issue Sync Contract` (`/linear-sync`) with task decomposition schema, priority classes, and required evidence at PR gate
+- [x] EGOS-100: Define `Linear/Issue Sync Contract` (`/linear-sync`) with task decomposition schema, priority classes, and required evidence at PR gate — **COMPLETE (2026-03-30)**
+  - Contract: `.guarani/orchestration/LINEAR_SYNC_CONTRACT.md` — adoption trigger (>50 tasks + multi-contributor), decomposition schema, P0-P3 classes, PR gate evidence, sync direction (TASKS.md SSOT), `/linear-sync` skill spec
 - [x] EGOS-101: Define `QA Loop Contract` (`/qa-loop`) using browser/devtools verification + test rerun policy + stop conditions — **COMPLETE (2026-03-30)**
   - Contract: `.guarani/orchestration/QA_LOOP_CONTRACT.md` — L0-L3 levels, stop conditions, evidence format, rerun policy
 - [x] EGOS-102: Build executable 10-second operator map (replace text-heavy integration map with founder-grade control plane view) — **COMPLETE (2026-03-30)**
@@ -209,7 +210,8 @@
 - [ ] EGOS-118: Create reproducible demo lane for meetings (live build script + guardrails checklist + fallback offline path)
 - [ ] EGOS-119: Add benchmark scorecard command comparing EGOS vs MASA/Mastra/LangGraph/CrewAI on governance, speed, and compliance
 - [ ] EGOS-120: Define visual identity/application rules for docs and generated artifacts (consistency pack)
-- [ ] EGOS-121: Add monthly "clarity review" gate to prune complexity and keep kernel message/simple architecture coherent
+- [x] EGOS-121: Add monthly "clarity review" gate to prune complexity and keep kernel message/simple architecture coherent — **COMPLETE (2026-03-30)**
+  - Contract: `.guarani/orchestration/CLARITY_REVIEW.md` — 5 clarity questions, inputs, outputs, 500-line gate, archive protocol, `/clarity-review` trigger registered in `~/.egos/guarani/prompts/triggers.json`
 - [x] EGOS-083: Create the canonical cross-repo SSOT registry in the kernel and define the ownership contract for `kernel_canonical`, `leaf_local`, and `shared_home` surfaces
 - [x] EGOS-084: Extend kernel governance sync + pre-commit to cover canonical SSOT docs (`SSOT_REGISTRY`, `CAPABILITY_REGISTRY`, `CHATBOT_SSOT`) and sync them to `~/.egos/docs`
 - [x] EGOS-085: Roll out the SSOT registry adoption plan across mapped repos — **COMPLETE (2026-03-30)** — `docs/SSOT_REGISTRY.md` v2.0.0: 30 domains, per-repo grades (A/B/C/D), rollout checklist, 14 SSOT-VISITs logged
@@ -391,7 +393,8 @@
   > SSOT-VISIT 2026-03-30: all 7 leaf repos audited → `docs/WORKFLOW_INHERITANCE_REPORT.md` | 4 clean (852, carteira-livre, br-acc, forja), 3 missing (santiago, commons, INPI) | `scripts/workflow-sync-check.sh` created (exit 0/1 drift detector)
 - [x] EGOS-069: Bootstrap `santiago` into the EGOS governance mesh with `.egos`, repo-local SSOT files, and inherited core workflows
   > SSOT-VISIT 2026-03-30: `/home/enio/santiago/` → CLAUDE.md + TASKS.md already existed, created `.guarani/PREFERENCES.md` + `AGENTS.md`, added to `~/.egos/sync.sh` REPOS array → `independent`
-- [ ] EGOS-070: Complete Mycelium truth repair — align kernel docs and reference graph with actual local surfaces and classify consumer dashboards/bridges as external or planned
+- [x] EGOS-070: Complete Mycelium truth repair — align kernel docs and reference graph with actual local surfaces and classify consumer dashboards/bridges as external or planned — **COMPLETE (2026-03-30)**
+  - Report: `docs/MYCELIUM_TRUTH_REPORT.md` — audited 8 docs, marked 4 with PLANNED callouts, corrected Neo4j/Mycelium conflation in vps.md and mycelium.md commands, confirmed only `reference-graph.ts` is real
 - [ ] EGOS-071: Formalize cheap-first multi-model orchestration for Windsurf/Codex/Claude/Alibaba/OpenRouter with one coordinator, sequential routing, and reviewer proof-of-work
 - [ ] EGOS-072: Design anti-injection and least-privilege hardening for external-input workflows (issues, PRs, web, imported docs) before any high-trust automation
 - [x] EGOS-086: Extract circuit breaker pattern from carteira-livre guardrails into `@egos/shared` as reusable module
@@ -434,7 +437,7 @@
 - [x] EGOS-050 — `activation:check` command for core repo (42 checks, 100%)
 - [x] EGOS-068 — Shared workflow inheritance rollout across mapped repos
 - [x] EGOS-069 — `santiago` governance bootstrap into the shared mesh
-- [ ] EGOS-070 — Mycelium truth repair across kernel docs and topology references
+- [x] EGOS-070 — Mycelium truth repair across kernel docs and topology references
 - [ ] EGOS-071 — Cheap-first multi-model orchestration policy and routing contract
 - [ ] EGOS-072 — Anti-injection / least-privilege hardening for external-input automation
 
