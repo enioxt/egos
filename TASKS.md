@@ -389,8 +389,7 @@
 - [ ] EGOS-072: Design anti-injection and least-privilege hardening for external-input workflows (issues, PRs, web, imported docs) before any high-trust automation
 - [ ] EGOS-086: Extract circuit breaker pattern from carteira-livre guardrails into `@egos/shared` as reusable module
 - [x] EGOS-087: Build `@egos/mcp-governance` — custom MCP server for SSOT drift check, task listing, and deploy gates across all repos
-  > **Arquivos:** `packages/mcp-governance/package.json`, `packages/mcp-governance/src/index.ts`, `packages/mcp-governance/README.md`
-  > - [x] SSOT-VISIT 2026-03-30: egos/packages/ → created mcp-governance → independent
+  > SSOT-VISIT 2026-03-30: egos/packages/ → created mcp-governance → independent | `packages/mcp-governance/`
 - [ ] EGOS-088: Build `@egos/mcp-memory` — custom MCP server for persistent conversation memory (Supabase/Redis backend, recall/store/search tools)
 - [ ] EGOS-089: Bridge Mycelium event bus to Redis Pub/Sub for cross-process agent communication (Phase 2 of MYCELIUM_NETWORK.md)
 - [ ] EGOS-090: Build first domain-specific MCP server (forja `@egos/mcp-erp` or carteira-livre `@egos/mcp-marketplace`) as proof-of-concept
