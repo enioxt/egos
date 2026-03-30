@@ -1,18 +1,53 @@
-export type PIICategory = 'cpf' | 'rg' | 'masp' | 'phone' | 'email' | 'reds' | 'process_number' | 'name' | 'address' | 'plate' | 'date_of_birth';
+import {
+  ALL_PII_PATTERNS,
+  type PIIPatternConfig,
+} from '../pii-patterns.js';
+
+export type PIICategory = 'cpf' | 'rg' | 'masp' | 'phone' | 'email' | 'reds' | 'process_number' | 'name' | 'address' | 'plate' | 'date_of_birth' | 'cnpj' | 'cnh' | 'cep';
 export interface PIIFinding { category: PIICategory; label: string; matched: string; start: number; end: number; suggestion: string; }
 export interface PIIPatternDefinition { category: PIICategory; label: string; pattern: RegExp; suggestion: string; }
 
-export const DEFAULT_PII_PATTERNS: PIIPatternDefinition[] = [
-  { category: 'cpf', label: 'CPF', pattern: /\b\d{3}[.\s-]?\d{3}[.\s-]?\d{3}[.\s/-]?\d{2}\b/g, suggestion: '[CPF REMOVIDO]' },
-  { category: 'rg', label: 'RG', pattern: /\b(?:RG|rg|Rg)[:\s]*\d{1,2}[.\s]?\d{3}[.\s]?\d{3}[.\s-]?\d?\b/gi, suggestion: '[RG REMOVIDO]' },
-  { category: 'masp', label: 'MASP', pattern: /\b(?:MASP|masp|Masp)[:\s]*\d{4,8}[.\s-]?\d{0,2}\b/gi, suggestion: '[MASP REMOVIDO]' },
-  { category: 'phone', label: 'Telefone', pattern: /\b(?:\+55\s?)?(?:\(?\d{2}\)?\s?)?\d{4,5}[-.\s]?\d{4}\b/g, suggestion: '[TELEFONE REMOVIDO]' },
-  { category: 'email', label: 'Email', pattern: /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/g, suggestion: '[EMAIL REMOVIDO]' },
-  { category: 'reds', label: 'REDS', pattern: /\b(?:REDS|reds|Reds)[:\s]*\d{4,}[-./]?\d{0,}\b/gi, suggestion: '[REDS REMOVIDO]' },
-  { category: 'process_number', label: 'Processo', pattern: /\b\d{7}[-.]?\d{2}[.]?\d{4}[.]?\d[.]?\d{2}[.]?\d{4}\b/g, suggestion: '[PROCESSO REMOVIDO]' },
-  { category: 'plate', label: 'Placa', pattern: /\b[A-Z]{3}[-\s]?\d[A-Z0-9]\d{2}\b/gi, suggestion: '[PLACA REMOVIDA]' },
-  { category: 'date_of_birth', label: 'Data de Nascimento', pattern: /\b(?:nascido|nascimento|nasc\.?|DN|dn)[:\s]*\d{1,2}[\/.-]\d{1,2}[\/.-]\d{2,4}\b/gi, suggestion: '[DATA REMOVIDA]' },
-];
+/**
+ * Bridge from centralized PIIPatternConfig to legacy PIIPatternDefinition format.
+ * Maps pii-patterns.ts IDs to the PIICategory values used by existing consumers.
+ */
+const PATTERN_ID_TO_CATEGORY: Record<string, PIICategory> = {
+  cpf: 'cpf',
+  cnpj: 'cnpj',
+  rg: 'rg',
+  cnh: 'cnh',
+  masp: 'masp',
+  reds: 'reds',
+  processo: 'process_number',
+  placa_antiga: 'plate',
+  placa_mercosul: 'plate',
+  telefone: 'phone',
+  email: 'email',
+  cep: 'cep',
+};
+
+function toPIIPatternDefinition(config: PIIPatternConfig): PIIPatternDefinition {
+  return {
+    category: PATTERN_ID_TO_CATEGORY[config.id] ?? (config.id as PIICategory),
+    label: config.label,
+    pattern: config.regex,
+    suggestion: config.maskFormat,
+  };
+}
+
+/** Default PII patterns derived from the centralized pii-patterns.ts registry */
+export const DEFAULT_PII_PATTERNS: PIIPatternDefinition[] = ALL_PII_PATTERNS.map(toPIIPatternDefinition);
+
+/** Legacy date-of-birth pattern (kept for backward compatibility) */
+const DATE_OF_BIRTH_PATTERN: PIIPatternDefinition = {
+  category: 'date_of_birth',
+  label: 'Data de Nascimento',
+  pattern: /\b(?:nascido|nascimento|nasc\.?|DN|dn)[:\s]*\d{1,2}[\/.-]\d{1,2}[\/.-]\d{2,4}\b/gi,
+  suggestion: '[DATA REMOVIDA]',
+};
+
+// Append date-of-birth (not yet in centralized patterns — context-dependent)
+DEFAULT_PII_PATTERNS.push(DATE_OF_BIRTH_PATTERN);
 
 const DEFAULT_NAME_PATTERN = /\b(?:delegad[oa]|chefe|colega|servidor|investigador|escriv[aã]o?|comissário|perito|agente)\s+([A-ZÁÉÍÓÚÃÕÂÊÎÔÛ][a-záéíóúãõâêîôû]+(?:\s+[A-ZÁÉÍÓÚÃÕÂÊÎÔÛ][a-záéíóúãõâêîôû]+){1,4})\b/g;
 const clonePattern = (pattern: RegExp) => new RegExp(pattern.source, pattern.flags.includes('g') ? pattern.flags : `${pattern.flags}g`);

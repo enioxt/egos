@@ -37,3 +37,13 @@ export type { PublicGuardConfig, MaskingResult, MaskingAction, GuardAction, Sens
 
 export { createEvidenceChain, EvidenceChainBuilder, formatEvidenceBlock, validateChain } from './lib/index.js';
 export type { EvidenceChain, EvidenceItem, ClaimWithEvidence, EvidenceType, ConfidenceLevel, EvidenceChainOptions } from './lib/index.js';
+
+// Centralized PII patterns — shared constants + detect/mask API
+export { detectPII, maskPII, getPatternById, ALL_PII_PATTERNS } from './pii-patterns.js';
+export {
+  CPF_PATTERN, CNPJ_PATTERN, RG_PATTERN, CNH_PATTERN,
+  MASP_PATTERN, REDS_PATTERN, PROCESSO_PATTERN,
+  PLACA_ANTIGA_PATTERN, PLACA_MERCOSUL_PATTERN,
+  TELEFONE_PATTERN, EMAIL_PATTERN, CEP_PATTERN,
+} from './pii-patterns.js';
+export type { PIIPatternId, PatternConfidence, PIIPatternConfig, PIIMatch } from './pii-patterns.js';
