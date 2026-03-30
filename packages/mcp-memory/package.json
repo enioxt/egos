@@ -1,0 +1,22 @@
+{
+  "name": "@egos/mcp-memory",
+  "version": "0.1.0",
+  "description": "EGOS MCP server for persistent conversation memory — store, recall, list, delete",
+  "type": "module",
+  "private": true,
+  "main": "src/index.ts",
+  "bin": {
+    "mcp-memory": "./src/index.ts"
+  },
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.4.0"
+  }
+}

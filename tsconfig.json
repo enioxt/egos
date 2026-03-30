@@ -41,6 +41,7 @@
     "**/*.test.ts",
     "packages/core/src/auth",
     "packages/audit/src/activation-audit.ts",
-    "packages/shared/src/mcp-audit-handler.ts"
+    "packages/shared/src/mcp-audit-handler.ts",
+    "packages/mcp-memory"
   ]
 }

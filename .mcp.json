@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "egos-memory": {
+      "command": "bun",
+      "args": ["/home/enio/egos/packages/mcp-memory/src/index.ts"],
+      "description": "EGOS-088: Persistent conversation memory — store/recall/list/delete"
+    },
+    "egos-governance": {
+      "command": "bun",
+      "args": ["/home/enio/egos/packages/mcp-governance/src/index.ts"],
+      "description": "EGOS-087: SSOT drift check, task listing, agent status, repo health"
+    }
+  }
+}

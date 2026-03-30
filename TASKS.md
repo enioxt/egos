@@ -36,6 +36,7 @@
 - [x] SSOT-VISIT 2026-03-30: egos/docs/_current_handoffs/handoff_2026-03-22.md → Cambraia dark-enterprise context → kept-as-ref
 - [x] SSOT-VISIT 2026-03-30: egos/.guarani/orchestration/WORKTREE_CONTRACT.md → read 100 lines for EGOS-098 → kept-as-ref
 - [x] SSOT-VISIT 2026-03-30: egos/.guarani/orchestration/DOMAIN_RULES.md → read full for EGOS-098 → kept-as-ref
+- [x] SSOT-VISIT 2026-03-30: carteira-livre/supabase/migrations/20260330_create_carteira_livre_events.sql → reviewed telemetry schema alignment → kept-as-ref (TELEMETRY_SSOT.md canonical)
 
 **Critical Blocker:**
 - [ ] **M-007** Send 5+ outreach emails (only action blocking revenue)
@@ -386,15 +387,19 @@
 - [ ] EGOS-024: Full per-agent lineage matrix (ARCH-003) — continue with commit-level tracing
 - [ ] EGOS-053: Build cross-repo capability compliance dashboard for kernel and leaf adoption state
 - [x] EGOS-054: Make `/end` and `/disseminate` repo-role-aware — `egos.config.json` detection in Phase 1, conditional surface gating
-- [ ] EGOS-068: Enforce shared workflow inheritance across mapped repos — re-link exact-match copies, replace stale overrides with thin wrappers or shared workflows, and preserve only justified repo-local exceptions
-- [ ] EGOS-069: Bootstrap `santiago` into the EGOS governance mesh with `.egos`, repo-local SSOT files, and inherited core workflows
+- [x] EGOS-068: Enforce shared workflow inheritance across mapped repos — re-link exact-match copies, replace stale overrides with thin wrappers or shared workflows, and preserve only justified repo-local exceptions
+  > SSOT-VISIT 2026-03-30: all 7 leaf repos audited → `docs/WORKFLOW_INHERITANCE_REPORT.md` | 4 clean (852, carteira-livre, br-acc, forja), 3 missing (santiago, commons, INPI) | `scripts/workflow-sync-check.sh` created (exit 0/1 drift detector)
+- [x] EGOS-069: Bootstrap `santiago` into the EGOS governance mesh with `.egos`, repo-local SSOT files, and inherited core workflows
+  > SSOT-VISIT 2026-03-30: `/home/enio/santiago/` → CLAUDE.md + TASKS.md already existed, created `.guarani/PREFERENCES.md` + `AGENTS.md`, added to `~/.egos/sync.sh` REPOS array → `independent`
 - [ ] EGOS-070: Complete Mycelium truth repair — align kernel docs and reference graph with actual local surfaces and classify consumer dashboards/bridges as external or planned
 - [ ] EGOS-071: Formalize cheap-first multi-model orchestration for Windsurf/Codex/Claude/Alibaba/OpenRouter with one coordinator, sequential routing, and reviewer proof-of-work
 - [ ] EGOS-072: Design anti-injection and least-privilege hardening for external-input workflows (issues, PRs, web, imported docs) before any high-trust automation
-- [ ] EGOS-086: Extract circuit breaker pattern from carteira-livre guardrails into `@egos/shared` as reusable module
+- [x] EGOS-086: Extract circuit breaker pattern from carteira-livre guardrails into `@egos/shared` as reusable module
+  > SSOT-VISIT 2026-03-30: carteira-livre/lib/ai/guardrails.ts → extracted → `packages/shared/src/circuit-breaker.ts` | CLOSED/OPEN/HALF_OPEN, zero deps
 - [x] EGOS-087: Build `@egos/mcp-governance` — custom MCP server for SSOT drift check, task listing, and deploy gates across all repos
   > SSOT-VISIT 2026-03-30: egos/packages/ → created mcp-governance → independent | `packages/mcp-governance/`
-- [ ] EGOS-088: Build `@egos/mcp-memory` — custom MCP server for persistent conversation memory (Supabase/Redis backend, recall/store/search tools)
+- [x] EGOS-088: Build `@egos/mcp-memory` — custom MCP server for persistent conversation memory (Supabase/Redis backend, recall/store/search tools)
+  > SSOT-VISIT 2026-03-30: egos/packages/ → created mcp-memory → 4 tools (store/recall/list/delete) | file-based, zero deps | registered in .mcp.json
 - [ ] EGOS-089: Bridge Mycelium event bus to Redis Pub/Sub for cross-process agent communication (Phase 2 of MYCELIUM_NETWORK.md)
 - [ ] EGOS-090: Build first domain-specific MCP server (forja `@egos/mcp-erp` or carteira-livre `@egos/mcp-marketplace`) as proof-of-concept
 - [ ] EGOS-091: Add MCP server auto-discovery and health heartbeats to agent registry for plug-and-play tool management
@@ -427,8 +432,8 @@
 - [x] EGOS-039 — egos-web chat alignment with shared modules
 - [x] EGOS-040 — br-acc Python adapter for CHATBOT_SSOT
 - [x] EGOS-050 — `activation:check` command for core repo (42 checks, 100%)
-- [ ] EGOS-068 — Shared workflow inheritance rollout across mapped repos
-- [ ] EGOS-069 — `santiago` governance bootstrap into the shared mesh
+- [x] EGOS-068 — Shared workflow inheritance rollout across mapped repos
+- [x] EGOS-069 — `santiago` governance bootstrap into the shared mesh
 - [ ] EGOS-070 — Mycelium truth repair across kernel docs and topology references
 - [ ] EGOS-071 — Cheap-first multi-model orchestration policy and routing contract
 - [ ] EGOS-072 — Anti-injection / least-privilege hardening for external-input automation
