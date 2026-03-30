@@ -19,19 +19,10 @@
 - **Validação:** `npm info @egosbr/guard-brasil` retorna versão 0.1.0 ✓
 - **Próximo:** M-002 (DNS A record)
 
-### [M-002] DNS: criar registro A para guard.egos.ia.br → 204.168.217.125
-- **Impacto:** API Guard Brasil não acessível publicamente → demos falham, clientes não conseguem testar
-- **Tempo:** 2 minutos
-- **Onde:** Painel DNS do domínio egos.ia.br (provavelmente Cloudflare ou Registro.br)
-- **Registro:**
-  ```
-  Tipo: A
-  Nome: guard
-  Valor: 204.168.217.125
-  TTL: 300
-  ```
-- **Valida:** `curl https://guard.egos.ia.br/health` retorna `{"status":"healthy"}`
-- **Obs:** Caddy já está configurado e vai emitir certificado TLS automaticamente
+### ~~[M-002] DNS: criar registro A para guard.egos.ia.br → 204.168.217.125~~ ✅ FEITO
+- **Status:** Criado e validado em 2026-03-30 13:57 UTC
+- **Validação:** `curl https://guard.egos.ia.br/health` → `{"status":"healthy"}` ✓
+- **Próximo:** M-007 (outreach emails)
 
 ---
 
@@ -98,11 +89,19 @@
 
 ---
 
+## 🟢 AGORA BLOQUEIO APENAS M-007 (Outreach)
+
+Próximas 5 emails de outreach para CTOs de govtech:
+- Templates prontos em `docs/strategy/OUTREACH_EMAILS.md`
+- Cada email: 1-pager + DEMO_SCRIPT + convite para demo
+- Target: 20 CTOs, começar com 5
+
 ## Histórico de Ações Concluídas
 
 | ID | Ação | Concluída em |
 |---|---|---|
 | M-001 | npm publish @egosbr/guard-brasil@0.1.0 | 2026-03-30 10:45 UTC |
+| M-002 | DNS A record guard → 204.168.217.125 | 2026-03-30 13:57 UTC |
 
 ---
 

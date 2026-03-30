@@ -4,6 +4,42 @@
 
 ---
 
+### Summary: Session 2026-03-30 (Secret Scanning Alert Investigation + Remediation - COMPLETE)
+
+**Completed:**
+- [x] Investigate GitHub secret scanning alert in `enioxt/852` repository
+  - **Alert:** Supabase personal access token exposed
+  - **Confirmed leak:** Token `sbp_d827250c882cf4b8be7f86fd9812bfe71c1d60bf` found in:
+    - `docs/_current_handoffs/852_CORE_001_MIGRATION_STATUS_2026-03-28.md`
+    - `TASK_852_CORE_001_STATUS.txt`
+  - **Status:** SANITIZED
+  - **Action:** Replaced with placeholder `YOUR_SUPABASE_ACCESS_TOKEN`
+  
+- [x] EGOS-XXX: Systemic hardening — prevent future secret leaks across EGOS mesh
+  - **Root cause:** Universal pre-commit hook lacked secret scanning (only CRCDM logging)
+  - **Fix:** Enhanced `~/.egos/hooks/pre-commit` with:
+    - `gitleaks protect --staged` with config fallback
+    - Regex fallback for `sbp_`, `github_pat_`, `sk_live/test`, `AIza`, private keys
+  - **Updated files:**
+    - `.egos/hooks/pre-commit` — security gate added
+    - `.egos/sync.sh` — automatic hook installation in leaf repos
+    - `.gitleaks.toml` — Supabase token detection rule
+    - `scripts/governance-sync.sh` — hooks propagation
+  - **Dissemination:** Ran `bash /home/enio/.egos/sync.sh`
+  - **Repos synchronized:** 852, egos-lab, carteira-livre, br-acc, forja, smartbuscas
+  - **Status:** ACTIVE — all repos now use hardened pre-commit
+
+**Manual actions required:**
+- [ ] Revoke/rotate exposed Supabase token in dashboard (P0 — user action)
+- [ ] Close GitHub security alert (P0 — user action)
+- [ ] Commit/push hardening changes to remote (P1)
+
+**Handoff:** `docs/_current_handoffs/handoff_2026-03-30.md`
+
+---
+
+---
+
 ### Summary: Session 2026-03-26 (Autonomous Merge + Governance Sync - COMPLETE)
 
 **Completed:**
