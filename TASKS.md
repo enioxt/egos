@@ -1,6 +1,45 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.11.0 | **Updated:** 2026-03-30 | **LAST SESSION:** 2026-03-30 — Guard Brasil GTM TRANSPARÊNCIA RADICAL Sprint
+> **Version:** 2.12.0 | **Updated:** 2026-03-30 | **LAST SESSION:** 2026-03-30 — ARCH Deploy + Report SSOT + Grok Insights
+
+---
+
+### Summary: Session 2026-03-30 (ARCH Deploy + Report SSOT + Grok Insights)
+
+**Status:** ARCH LIVE ON HETZNER | REPORT SSOT CREATED | HINDSIGHT/AIDER/NLAH EVALUATED
+
+**Completed This Session:**
+- [x] ARCH-001: Fixed hardcoded API key, deployed to Hetzner (egos-arch container, port 3098)
+- [x] Caddy configured for arch.egos.ia.br
+- [x] Chat API + Briefing Analysis API verified (Gemini responding in PT-BR)
+- [x] Dev banner "EM DESENVOLVIMENTO" added to ARCH frontend
+- [x] Docker + docker-compose created and pushed to GitHub
+- [x] REPORT_SSOT v2.0.0 created: consolidated from br-acc + 852 + egos-lab + ARCH (4 repos, 33+ files, 11 report types)
+- [x] TASKS archive created (docs/knowledge/TASKS_ARCHIVE_2026.md) — governance line limit compliance
+- [x] Hindsight repo analyzed: biomimetic memory, MIT, 91.4% LongMemEval, @vectorize-io/hindsight-client npm
+- [x] Grok conversation insights extracted: Aider alignment, NLAH paper (Tsinghua), activation patterns
+
+**Pending This Session:**
+- [ ] DNS A record `arch.egos.ia.br → 204.168.217.125` (**registered in registro.br, awaiting propagation**)
+
+**New Tasks from Grok Insights:**
+- [ ] EGOS-134: Hindsight memory integration — `@vectorize-io/hindsight-client` as persistent agent memory
+  - SDK: npm package available, MIT license, 91.4% LongMemEval accuracy
+  - Architecture: Retain/Recall/Reflect ops, Supabase PostgreSQL compatible
+  - Effort: 4h adapter + 2h Zustand integration
+  - Priority: P1 (enables cross-session agent memory without custom build)
+- [ ] EGOS-135: Aider execution backend — CLI code editing + Git native for non-IDE environments
+  - Repo: github.com/Aider-AI/aider (42.6k stars, Apache-2.0)
+  - Integration: subprocess wrapper in agents, auto-commit + auto-fix
+  - Solves: EGOS activation outside IDEs (terminal, Grok, servers)
+  - Effort: 3h wrapper + 2h governance integration
+  - Priority: P2 (nice-to-have, Claude Code already covers most cases)
+- [ ] EGOS-136: NLAH (Natural-Language Agent Harnesses) evaluation
+  - Paper: arXiv 2603.25723 (Tsinghua) — +4.8% SWE-bench via dynamic SOPs
+  - Concept: Let agents generate their own orchestration SOPs in natural language
+  - EGOS alignment: Governance rules as human-locked invariants, agents generate dynamic SOPs within constraints
+  - Effort: 8h research + prototype
+  - Priority: P2 (innovative but not blocking revenue)
 
 ---
 
