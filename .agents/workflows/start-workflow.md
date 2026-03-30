@@ -11,6 +11,9 @@ Ativar o kernel EGOS com checagem de governança, carregar contexto SSOT e prepa
 
 1. **INTAKE**
    - Ler: `AGENTS.md`, `TASKS.md`, `.windsurfrules`, `docs/SYSTEM_MAP.md`.
+   - **⚠️ OBRIGATÓRIO:** Ler `MANUAL_ACTIONS.md` e reportar ao usuário TODOS os itens 🔴 pendentes antes de qualquer outra coisa.
+     - Se houver itens 🔴 URGENTE: exibir com destaque, tempo estimado e comando exato.
+     - Regra: não iniciar planejamento técnico sem primeiro expor o estado de MANUAL_ACTIONS.md.
    - Confirmar data da sessão e registrar no resumo.
 
 2. **CHALLENGE**

@@ -1,0 +1,50 @@
+name: Publish @egos/guard-brasil to npm
+
+on:
+  push:
+    tags:
+      - 'guard-brasil/v*'   # Trigger: git tag guard-brasil/v0.1.0
+
+jobs:
+  publish:
+    name: Build and publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write   # For npm provenance
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Run tests
+        run: bun test packages/guard-brasil/src/guard.test.ts
+
+      - name: Build
+        run: cd packages/guard-brasil && bun run build
+
+      - name: Setup Node.js for npm publish
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Publish to npm
+        run: |
+          cd packages/guard-brasil
+          npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Summary
+        run: |
+          VERSION=$(node -p "require('./packages/guard-brasil/package.json').version")
+          echo "## Published @egos/guard-brasil@$VERSION" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Install: \`npm install @egos/guard-brasil\`" >> $GITHUB_STEP_SUMMARY
