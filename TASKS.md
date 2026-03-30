@@ -166,37 +166,38 @@
 
 ## Guard Brasil GTM — P0 Chain (2026-03-30)
 
-- [ ] EGOS-123: `npm publish --access public` for @egos/guard-brasil v0.1.0 (**MANUAL**: requires `npm login` first)
-  - Pre-req: `cd packages/guard-brasil && npm run build && npm publish --access public`
-- [ ] EGOS-124: Deploy Guard Brasil REST API on Hetzner
-  - Dockerfile ready at `apps/api/Dockerfile`
-  - Add to Hetzner docker-compose or standalone container on port 3099
-  - Wire Caddy reverse proxy: `api.guardbrasil.com → localhost:3099`
-  - Set `GUARD_API_KEYS` env var (generate UUID v4)
-- [ ] EGOS-125: Cold outreach — 20 CTOs govtech BR with Guard Brasil pitch
-  - Use `docs/strategy/FLAGSHIP_BRIEF.md` as source
-  - Target: Tribunal de Contas, Prefeituras, Ministério da Justiça vendors
-- [ ] EGOS-126: Build EGOS-116/117 sales kit — 1-pager + demo script
-  - 1-pager: problem → solution → tiers → CTA in PT-BR
-  - Demo script: `guard_inspect` on real CPF/RG text → show masking + ATRiAN score
+- [ ] EGOS-123: `npm publish --access public` for @egos/guard-brasil v0.1.0 (**MANUAL — M-001** em MANUAL_ACTIONS.md)
+  - Pre-req: `cd packages/guard-brasil && npm login && npm publish --access public`
+  - After first publish: `npm token create --type=publish` → add to GitHub Secrets as NPM_TOKEN (M-006)
+- [x] EGOS-124: Deploy Guard Brasil REST API on Hetzner — **COMPLETE (2026-03-30)**
+  - Container: `guard-brasil-api` healthy, port 3099, restart: unless-stopped
+  - Caddy: `guard.egos.ia.br` entry added (TLS auto)
+  - **⚠️ BLOCKED**: DNS A record `guard → 204.168.217.125` não criado (MANUAL M-002)
+  - Health cron: `*/5 * * * *` no Hetzner monitorando e auto-restart
+  - API key: `/opt/apps/guard-brasil/.env` no servidor
+  - Deploy script: `bash apps/api/deploy.sh`
+- [ ] EGOS-125: Cold outreach — 20 CTOs govtech BR (**MANUAL — M-007**)
+  - Templates prontos: `docs/strategy/OUTREACH_EMAILS.md` (3 templates + lista de 20 targets)
+  - Dep: DNS guard.egos.ia.br ativo (M-002) para demos funcionarem
+- [x] EGOS-126: Build EGOS-116/117 sales kit — **COMPLETE (2026-03-30)**
+  - 1-pager: `docs/strategy/GUARD_BRASIL_1PAGER.md`
+  - Demo script 30min: `docs/strategy/GUARD_BRASIL_DEMO_SCRIPT.md` (com FAQ)
 
 ## br-acc → egos-inteligencia Rename (2026-03-30)
 
-- [ ] EGOS-127: Execute rename script Phase 1 (docs only — zero production risk)
-  - Script: `bash /home/enio/br-acc/scripts/rename-to-egos-inteligencia.sh --execute` (Phase 1 already isolated in the script)
-  - Expected: ~48 .md/.html files updated
-  - Validate: `git diff --stat` to confirm scope
-- [ ] EGOS-128: Execute rename script Phase 2+3 (Python imports + Docker configs)
-  - Dep: EGOS-127 merged and validated
-  - After: `git mv etl/src/bracc_etl etl/src/egos_inteligencia_etl`
-  - Validate: `python -c "from egos_inteligencia_etl.runner import main"` works
-- [ ] EGOS-129: Execute rename Phase 4+5 (shell scripts + JSON/TS configs) + Docker redeploy
-  - Dep: EGOS-128 merged
-  - After: `ssh hetzner 'docker network rename infra_bracc infra_egos_inteligencia && docker compose up -d'`
-  - Manual: Rename GitHub repo Settings → `egos-inteligencia`
-- [ ] EGOS-130: Wire Guard Brasil middleware in egos-inteligencia (Python)
-  - Add `guard-brasil` HTTP client wrapper for Python: `etl/src/egos_inteligencia_etl/guard.py`
-  - Call `POST api.guardbrasil.com/v1/inspect` before any ETL output touching PII fields
+- [x] EGOS-127: Execute rename Phase 1 (docs) — **COMPLETE (2026-03-30)**
+  - 47 arquivos .md/.html atualizados, commitado e pushado para EGOS-Inteligencia
+  - Confirmado: GitHub repo já se chama `enioxt/EGOS-Inteligencia`
+- [ ] EGOS-128: Execute rename Phase 2+3 (Python imports + Docker configs) — **MANUAL M-003**
+  - `bash /home/enio/br-acc/scripts/rename-to-egos-inteligencia.sh --execute` (fases 2-5)
+  - Após: `git mv etl/src/bracc_etl etl/src/egos_inteligencia_etl`
+  - Valida: `python -c "from egos_inteligencia_etl.runner import main"`
+- [ ] EGOS-129: Docker network rename + redeploy Hetzner — **MANUAL M-005**
+  - Dep: EGOS-128 completo
+  - `ssh hetzner 'docker network rename infra_bracc infra_egos_inteligencia'`
+- [ ] EGOS-130: Wire Guard Brasil middleware em egos-inteligencia (Python)
+  - Dep: EGOS-128 + API DNS ativa (M-002)
+  - Criar `etl/src/egos_inteligencia_etl/guard.py` — wrapper HTTP para `POST guard.egos.ia.br/v1/inspect`
 
 ## Benchmark Alignment Plan (2026-03-26)
 
