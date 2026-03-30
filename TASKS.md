@@ -160,7 +160,43 @@
 - [x] EGOS-101: Add reusable EGOS activation meta-prompt v1.1.0 with ATRiAN honesty filter + next-AI review mandate and trigger mapping
 - [x] EGOS-102: Add ecosystem PR audit automation (`pr:audit`) + canonical `/mycelium` workflow for active/inactive PR mesh classification
 
-> **Directive (2026-03-29):** EGOS-062/063/064 COMPLETE. New directive: execute Guard Brasil go-to-market (npm publish → API deploy → first customer) and close FORJA Rocha pilot. Santiago = P3 (Goomer/Anota AI competition makes platform play unviable; deploy for Café Faria Soares only).
+> **Directive (2026-03-30):** Guard Brasil go-to-market is P0 chain: npm publish → API deploy on Hetzner → cold outreach 20 CTOs govtech → first customer. br-acc rename to egos-inteligencia is P1 (script ready, needs --execute). FORJA and Santiago = frozen (no work this session).
+
+---
+
+## Guard Brasil GTM — P0 Chain (2026-03-30)
+
+- [ ] EGOS-123: `npm publish --access public` for @egos/guard-brasil v0.1.0 (**MANUAL**: requires `npm login` first)
+  - Pre-req: `cd packages/guard-brasil && npm run build && npm publish --access public`
+- [ ] EGOS-124: Deploy Guard Brasil REST API on Hetzner
+  - Dockerfile ready at `apps/api/Dockerfile`
+  - Add to Hetzner docker-compose or standalone container on port 3099
+  - Wire Caddy reverse proxy: `api.guardbrasil.com → localhost:3099`
+  - Set `GUARD_API_KEYS` env var (generate UUID v4)
+- [ ] EGOS-125: Cold outreach — 20 CTOs govtech BR with Guard Brasil pitch
+  - Use `docs/strategy/FLAGSHIP_BRIEF.md` as source
+  - Target: Tribunal de Contas, Prefeituras, Ministério da Justiça vendors
+- [ ] EGOS-126: Build EGOS-116/117 sales kit — 1-pager + demo script
+  - 1-pager: problem → solution → tiers → CTA in PT-BR
+  - Demo script: `guard_inspect` on real CPF/RG text → show masking + ATRiAN score
+
+## br-acc → egos-inteligencia Rename (2026-03-30)
+
+- [ ] EGOS-127: Execute rename script Phase 1 (docs only — zero production risk)
+  - Script: `bash /home/enio/br-acc/scripts/rename-to-egos-inteligencia.sh --execute` (Phase 1 already isolated in the script)
+  - Expected: ~48 .md/.html files updated
+  - Validate: `git diff --stat` to confirm scope
+- [ ] EGOS-128: Execute rename script Phase 2+3 (Python imports + Docker configs)
+  - Dep: EGOS-127 merged and validated
+  - After: `git mv etl/src/bracc_etl etl/src/egos_inteligencia_etl`
+  - Validate: `python -c "from egos_inteligencia_etl.runner import main"` works
+- [ ] EGOS-129: Execute rename Phase 4+5 (shell scripts + JSON/TS configs) + Docker redeploy
+  - Dep: EGOS-128 merged
+  - After: `ssh hetzner 'docker network rename infra_bracc infra_egos_inteligencia && docker compose up -d'`
+  - Manual: Rename GitHub repo Settings → `egos-inteligencia`
+- [ ] EGOS-130: Wire Guard Brasil middleware in egos-inteligencia (Python)
+  - Add `guard-brasil` HTTP client wrapper for Python: `etl/src/egos_inteligencia_etl/guard.py`
+  - Call `POST api.guardbrasil.com/v1/inspect` before any ETL output touching PII fields
 
 ## Benchmark Alignment Plan (2026-03-26)
 
