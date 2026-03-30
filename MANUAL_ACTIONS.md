@@ -13,17 +13,11 @@
 
 ## 🔴 URGENTE — Bloqueia Receita
 
-### [M-001] npm login + npm publish @egos/guard-brasil
-- **Impacto:** npm package não publicado → desenvolvedores não conseguem `npm install @egos/guard-brasil`
-- **Tempo:** 5 minutos
-- **Comando:**
-  ```bash
-  cd /home/enio/egos/packages/guard-brasil
-  npm login          # abre browser para autenticação
-  npm publish --access public
-  ```
-- **Valida:** `npm info @egos/guard-brasil` retorna versão 0.1.0
-- **Desbloqueado por:** EGOS-064, EGOS-123
+### ~~[M-001] npm login + npm publish @egos/guard-brasil~~ ✅ FEITO
+- **Impacto:** npm package publicado → `npm install @egosbr/guard-brasil` funciona
+- **Status:** Publicado em 2026-03-30 10:45 UTC
+- **Validação:** `npm info @egosbr/guard-brasil` retorna versão 0.1.0 ✓
+- **Próximo:** M-002 (DNS A record)
 
 ### [M-002] DNS: criar registro A para guard.egos.ia.br → 204.168.217.125
 - **Impacto:** API Guard Brasil não acessível publicamente → demos falham, clientes não conseguem testar
@@ -108,7 +102,7 @@
 
 | ID | Ação | Concluída em |
 |---|---|---|
-| — | — | — |
+| M-001 | npm publish @egosbr/guard-brasil@0.1.0 | 2026-03-30 10:45 UTC |
 
 ---
 
