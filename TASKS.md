@@ -38,15 +38,19 @@
   - Entregue: `packages/core/src/guards/pri.ts`, `packages/core/src/guards/pri.test.ts`, `packages/core/src/auth/contracts.ts`, `packages/core/src/index.ts`, `apps/api/src/pri.ts`, `apps/api/src/server.ts`, `apps/api/src/mcp-server.ts`, `policies/pri.rego`
   - Evidência: `bun test packages/core/src/guards/pri.test.ts`, `bun test packages/guard-brasil/src/guard.test.ts`, smoke real em `POST /v1/inspect` (200 ALLOW + 202 DEFER)
   - Prioridade: P1 (alto impacto, baixo custo)
-- [ ] **EGOS-071** Resolver SSOT de agentes: reclassificar "29 agentes" com schema 22 campos
-  - Adicionar `kind` field: verified_agent/agent_candidate/workflow/tool/dormant
-  - Adicionar: runtime_proof, telemetry_source, cost_source, last_duration_ms
-  - Prioridade: P1
-- [ ] **EGOS-072** Implementar fórmula de roteamento multi-LLM U(m,t)
-  - Formula: `U = wc*Capability + wr*Reliability - ck*Cost - cq*QuotaRisk`
-  - Lanes: Planner (GPT), Executor (Claude), Cheap (nano/Flash), Soberano (Qwen)
-  - Primeiro consumer: Guard Brasil API
-  - Prioridade: P2
+- [x] **EGOS-071** Resolver SSOT de agentes: reclassificar com schema 22 campos — **COMPLETE (2026-03-30)**
+  - Schema v2: 22 campos com `kind` field (verified_agent/agent_candidate/workflow/tool/dormant)
+  - Novos campos: runtime_proof, telemetry_source, cost_source, last_duration_ms, loop_mechanism, side_effects
+  - Resultado: 0 verified_agents no kernel, 14 tools, 1 workflow (spec_router)
+  - Arquivos: `agents/registry/schema.json` v2.0, `agents/registry/agents.json` v2.0
+- [x] **EGOS-072** Implementar fórmula de roteamento multi-LLM U(m,t) — **COMPLETE (2026-03-30)**
+  - Formula: `U = wc*Capability + wr*Reliability - ck*CostNorm - cq*QuotaRisk`
+  - 5 modelos: qwen-plus, qwen-turbo, gemini-flash, claude-sonnet, gpt-5.4
+  - 4 lanes: planner, executor, cheap, sovereign
+  - Guard Brasil shortcuts: `routeGuardBrasil('pii_detection')` → cheap, `bias_analysis` → sovereign
+  - Quota tracking: `reportUsage()` + `resetQuotas()` per-minute
+  - Arquivos: `packages/shared/src/llm-router.ts`, `packages/shared/src/llm-router.test.ts`
+  - Tests: 11/11 pass
 - [ ] **EGOS-073** BRACC Operacional: blueprint para módulo policial PCMG
   - Spec completa em ChatGPT export (7 camadas, 20 módulos, break-glass access)
   - Guard Brasil como motor de validação MASP/PII

@@ -183,10 +183,10 @@
 ---
 
 ## 🔐 Secrets & Credentials Status
-- **npm token (rotated)** — npm 7-day token (used for M-001, expires ~Apr 6)
+- **npm token** — 7-day publish token (used for M-001, rotated/expired)
 - **GitHub Secrets:** NPM_TOKEN → TODO (M-006)
-- **Supabase:** Guard events table API key embedded in env (Hetzner)
-- **Hetzner:** SSH key stored as ~/.ssh/hetzner_ed25519 (validated)
+- **Supabase:** Guard events table credentials in server env
+- **Hetzner:** SSH key configured on server
 
 ---
 
