@@ -1,6 +1,39 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.12.0 | **Updated:** 2026-03-30 | **LAST SESSION:** 2026-03-30 — ARCH Deploy + Report SSOT + Grok Insights
+> **Version:** 2.13.0 | **Updated:** 2026-03-31 | **LAST SESSION:** 2026-03-31 — ARCH Generation Engine + Meta-Prompt Generator + Pipeline
+
+---
+
+### Summary: Session 2026-03-31 (ARCH Full Generation Pipeline)
+
+**Status:** ARCH GENERATION ENGINE LIVE | META-PROMPT GENERATOR | PIPELINE DELIVERABLES
+
+**Completed This Session:**
+- [x] ARCH-003: Generation Engine — fal.ai + Together AI + Google GenAI integration
+  - 12 models registered (8 image + 4 video), unified /api/generate endpoint
+  - fal.ai async queue pattern (submit→poll→result), Together sync, Google GenAI SDK
+  - Cost tracking per generation, model selector with tier badges
+- [x] ARCH-005: Meta-Prompt Generator — ArchViz-grade prompt generation from briefing
+  - prompt-generator.ts: 21 view types, professional photography rules
+  - Camera/lighting/materials/composition codified from CGArchitect standards
+  - POST /api/prompts/generate, GET /api/prompts/deliverables, POST /api/prompts/enhance
+- [x] ARCH-006: Project Pipeline — visual deliverables checklist with progress tracking
+  - ProjectPipeline.tsx: 8 categories, 21 deliverables, cost per priority tier
+  - Expandable prompts with copy-to-clipboard, completion tracking
+- [x] ARCH-007: RendersView — real generation UI with 6 preset prompts, model selector, gallery
+- [x] ARCH-008: VideoView — real generation UI with 4 preset scenes, duration selector
+- [x] ARCH-009: AI Co-Pilot endpoint — /api/copilot/suggest for project iteration
+- [x] ARCH-010: Prompt Pack V2 — 15 new prompts (rustico, escada, cozinha+churrasqueira+lareira)
+- [x] ARCH-011: Gallery with real renders — 4 images + 1 video on apresentacao.html
+- [x] ARCH-012: @fal-ai/client installed, fal.ai queue pattern implemented
+- [x] Deployed 4 times to Hetzner (all verified: /api/health 200, /api/models, /api/prompts/deliverables)
+
+**Pending ARCH (next session):**
+- [ ] ARCH-002: Supabase persistence (projects, generations, costs)
+- [ ] ARCH-004: Vision pipeline (sketch → geometry extraction)
+- [ ] ARCH-013: Add API keys to VPS .env (FAL_KEY, TOGETHER_API_KEY, GOOGLE_AI_API_KEY)
+- [ ] ARCH-014: Test real generation end-to-end with API keys configured
+- [ ] ARCH-015: Floor plan generation (CAD-style 2D via AI)
 
 ---
 
@@ -81,25 +114,9 @@
 - [ ] **M-007** Send 5+ outreach emails (only action blocking revenue)
 
 **New Tasks (from ChatGPT analysis):**
-- [x] **EGOS-070** Implement PRI (Protocolo de Recuo por Ignorância) as safety gate
-  - Artefatos: `protocols/pri.md`, `guards/pri.ts`, `policies/pri.rego`
-  - Conexão: Safety gate para Guard Brasil API (BLOCK/DEFER/ESCALATE)
-  - Entregue: `packages/core/src/guards/pri.ts`, `packages/core/src/guards/pri.test.ts`, `packages/core/src/auth/contracts.ts`, `packages/core/src/index.ts`, `apps/api/src/pri.ts`, `apps/api/src/server.ts`, `apps/api/src/mcp-server.ts`, `policies/pri.rego`
-  - Evidência: `bun test packages/core/src/guards/pri.test.ts`, `bun test packages/guard-brasil/src/guard.test.ts`, smoke real em `POST /v1/inspect` (200 ALLOW + 202 DEFER)
-  - Prioridade: P1 (alto impacto, baixo custo)
-- [x] **EGOS-071** Resolver SSOT de agentes: reclassificar com schema 22 campos — **COMPLETE (2026-03-30)**
-  - Schema v2: 22 campos com `kind` field (verified_agent/agent_candidate/workflow/tool/dormant)
-  - Novos campos: runtime_proof, telemetry_source, cost_source, last_duration_ms, loop_mechanism, side_effects
-  - Resultado: 0 verified_agents no kernel, 14 tools, 1 workflow (spec_router)
-  - Arquivos: `agents/registry/schema.json` v2.0, `agents/registry/agents.json` v2.0
-- [x] **EGOS-072** Implementar fórmula de roteamento multi-LLM U(m,t) — **COMPLETE (2026-03-30)**
-  - Formula: `U = wc*Capability + wr*Reliability - ck*CostNorm - cq*QuotaRisk`
-  - 5 modelos: qwen-plus, qwen-turbo, gemini-flash, claude-sonnet, gpt-5.4
-  - 4 lanes: planner, executor, cheap, sovereign
-  - Guard Brasil shortcuts: `routeGuardBrasil('pii_detection')` → cheap, `bias_analysis` → sovereign
-  - Quota tracking: `reportUsage()` + `resetQuotas()` per-minute
-  - Arquivos: `packages/shared/src/llm-router.ts`, `packages/shared/src/llm-router.test.ts`
-  - Tests: 11/11 pass
+- [x] **EGOS-070** PRI safety gate — `guards/pri.ts`, BLOCK/DEFER/ESCALATE, tests pass
+- [x] **EGOS-071** Agent SSOT v2 — 22-field schema, `kind` field, 0 verified agents, 14 tools
+- [x] **EGOS-072** Multi-LLM router U(m,t) — 5 models, 4 lanes, 11/11 tests pass
 - [x] **EGOS-131** Eagle Eye surgery v3.0: strip to procurement core (2026-03-30)
   - DONE: Killed SEO_STRATEGY, COMMUNITY_STRATEGY, GAMIFICATION_REPORT, TOURISM_MODULE, STITCH_PROMPTS
   - DONE: Dashboard.tsx "28 territories" → "15" (real count), README rewritten

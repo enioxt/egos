@@ -1,8 +1,76 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 2.6.0 | **UPDATED:** 2026-03-30
+> **VERSION:** 2.7.0 | **UPDATED:** 2026-03-31
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
-> **Latest:** ARCH deploy + Multi-model router + Transparencia Radical propagation + API aggregator research
+> **Latest:** ARCH Meta-Prompt Generator + Generation Engine + fal.ai Queue Pattern + Pipeline Deliverables
+
+## Meta-Prompt Generator Pattern (2026-03-31)
+
+### Problem
+Users write generic prompts, get generic results. Professional ArchViz requires precise language for cameras, lighting, materials, composition.
+
+### Solution
+`prompt-generator.ts` — takes structured `ProjectBriefing` JSON and generates 21 optimized prompts covering every required architectural view.
+
+### ArchViz Rules Codified
+- **Camera:** specific lens (24mm exterior, 16mm interior, 50mm aerial), aperture, height
+- **Lighting:** golden hour 5500K, night amber, overcast diffused — named precisely
+- **Materials:** not "stone wall" but "rough-cut quartzite, irregular blocks, organic texture, weathered patina"
+- **Composition:** rule of thirds, leading lines, foreground interest, architectural framing
+- **Negative prompts:** "blurry, CGI look, plastic, oversaturated, HDR look" — critical for realism
+
+### 21 Deliverables per Project
+8 categories: Exteriores (4), Aereas (2), Secao (1), Interiores (4), Circulacao+Rooftop (2), Area Externa (2), Video (3), Plantas Baixas (3)
+Priority: essential (must-have for client presentation), recommended, optional
+
+### Reusable Across EGOS
+Any product needing AI-generated visuals can reuse prompt-generator. The `generateProjectPrompts()` function accepts any building type, not just hexagonal houses.
+
+---
+
+## fal.ai Async Queue Pattern (2026-03-31)
+
+### Problem
+fal.ai's synchronous `fal.run` endpoint times out on video generation (30s+). Need reliable async pattern.
+
+### Solution
+3-step queue pattern:
+1. `POST queue.fal.run/{model}` → returns `{ request_id, response_url }`
+2. Poll `queue.fal.run/{model}/requests/{id}/status` until `COMPLETED` or `FAILED`
+3. `GET response_url` → returns final result with image/video URLs
+
+### Key Details
+- Auth: `Authorization: Key $FAL_KEY` (not Bearer)
+- Images returned as temporary public URLs (not base64)
+- Videos: set `duration` as string ("5", "10"), `aspect_ratio` as "16:9"
+- Max poll: 5 minutes with 2s interval is safe for most models
+- Together AI is synchronous (no queue needed)
+- Google GenAI returns base64 (needs data URI conversion)
+
+---
+
+## Generation Engine Architecture (2026-03-31)
+
+### Problem
+ARCH needs to call 3 different providers with different auth, endpoints, and response formats.
+
+### Solution
+`generation-engine.ts` — unified `generate(request, apiKeys)` function that auto-routes by `modelId`:
+- Lookup `MODEL_CONFIGS[modelId]` → get provider + endpoint
+- Switch on provider → call provider-specific function
+- Return normalized `GenerationResult` (url, cost, duration, model info)
+
+### 12 Models Registered
+| Provider | Models | Auth |
+|----------|--------|------|
+| fal.ai | Flux Schnell/Dev/Pro, Seedream, Wan 2.5, Kling, Veo 3.1 | Key header |
+| Together AI | SDXL, Flux Schnell FREE | Bearer token |
+| Google GenAI | Imagen 4 Fast, Imagen 4 Ultra | SDK + API key |
+
+### Cost Per Complete Project
+Economy: $0.52 (R$2.85) | Standard: $1.16 (R$6.38) | Premium: $3.17 (R$17.44)
+
+---
 
 ## Multi-Model AI Router Pattern (2026-03-30)
 
