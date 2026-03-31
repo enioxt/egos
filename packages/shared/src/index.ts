@@ -52,6 +52,10 @@ export type { ToolUsageMetric, TaskMetric, SessionMetric } from './metrics-track
 export { maskPublicOutput, isPublicSafe, buildLGPDDisclosure } from './public-guard.js';
 export type { PublicGuardConfig, MaskingResult, MaskingAction, GuardAction, SensitivityLevel } from './public-guard.js';
 
+// Event Bus — agent coordination via Supabase Realtime
+export { emit, subscribe, subscribeOnce, getRecentEvents, cleanup } from './event-bus.js';
+export type { AgentEvent, Severity } from './event-bus.js';
+
 // Evidence Chain — traceable response discipline
 export { createEvidenceChain, EvidenceChainBuilder, formatEvidenceBlock, validateChain } from './evidence-chain.js';
 export type { EvidenceChain, EvidenceItem, ClaimWithEvidence, EvidenceType, ConfidenceLevel, EvidenceChainOptions } from './evidence-chain.js';
