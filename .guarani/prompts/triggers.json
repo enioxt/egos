@@ -2,7 +2,7 @@
   "_version": "1.2.0",
   "_system": "EGOS Meta-Prompt Trigger System",
   "description": "Maps situations/keywords to the appropriate meta-prompt",
-  "updated": "2026-03-29",
+  "updated": "2026-03-31",
   "triggers": [
     {
       "id": "strategy.universal",
@@ -46,7 +46,8 @@
     },
     {
       "id": "extraction.police",
-      "file": "../../apps/intelink/lib/intelink/meta-prompts.ts",
+      "file": "/home/enio/egos-lab/apps/intelink/lib/intelink/meta-prompts.ts",
+      "note": "External ref to egos-lab — verify before loading",
       "keywords": ["extrair", "BO", "ocorrência", "depoimento", "documento policial", "REDS"],
       "situations": ["Police document uploaded", "Need to extract entities from text", "Forensic analysis of testimony"],
       "priority": "high",
@@ -54,7 +55,7 @@
     },
     {
       "id": "engineering.prompt",
-      "file": "../../.windsurf/workflows/prompt.md",
+      "file": "/home/enio/egos/.windsurf/workflows/prompt.md",
       "keywords": ["criar prompt", "system prompt", "instrução AI", "meta-prompt", "prompt engineering"],
       "situations": ["Building a new AI prompt", "Improving existing prompt", "Creating agent instructions"],
       "priority": "medium",
