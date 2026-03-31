@@ -1,22 +1,32 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.16.0 | **Updated:** 2026-03-31 | **LAST SESSION:** 2026-03-31 — Full Stack Sprint (Roadmap + Guard Web + CLAUDE.md + Supabase)
+> **Version:** 2.17.0 | **Updated:** 2026-03-31 | **LAST SESSION:** 2026-03-31 — Full Diagnostic + Telemetry + Leak Integration
 
 ---
 
-### Summary: Session 2026-03-31 (Full Stack Sprint — Roadmap Complete)
+### Summary: Session 2026-03-31 (Full Diagnostic + P0-P2 Execution)
 
-**Status:** ROADMAP 4/4 COMPLETE | GUARD WEB LIVE | CLAUDE.MD GLOBAL | SUPABASE MIGRATION
+**Status:** DIAGNOSTIC COMPLETE | TELEMETRY WIRED | 6 AGENTS KILLED | CLAUDE.MD v2.0
 
-**Completed (this continuation):**
-- [x] EGOS-145: Naming chaos fixed (15 snake_case → kebab-case in kernel registry)
-- [x] EGOS-146: Qwen integration (intelink ai-router respects EGOS_ORCHESTRATOR_MODEL, auto-switches DashScope)
-- [x] EGOS-147: Event bus MVP (packages/shared/src/event-bus.ts — Supabase Realtime + local fallback)
-- [x] EGOS-148: MasterOrchestrator v0.1 (reads agents.json, schedule, quota routing, health check)
-- [x] EGOS-149: agent_events Supabase migration applied (table + indexes + RLS + Realtime)
-- [x] Guard Brasil web: Caddy split routing — guard.egos.ia.br serves Vercel frontend + API backend
-- [x] Employee-grade ~/.claude/CLAUDE.md: verification gates, context management, edit safety, sub-agent swarm
-- [x] /disseminate: HARVEST.md v2.8, CAPABILITY_REGISTRY v1.8
+**P0 Completed:**
+- [x] Telemetry: event-bus emit wired into 4 VPS agents (uptime-monitor, quota-guardian, drift-sentinel, etl-orchestrator)
+- [x] DOMAIN_RULES v2.1: updated providers (DashScope/OpenRouter/Groq/HF), date corrected
+- [x] Full ecosystem diagnostic: 38 agents audited, telemetry 5-10% integrated, 60% theater identified
+
+**P1 Completed:**
+- [x] social-media agent KILLED (missing x-client module, never operational)
+- [x] chatbot-compliance-checker KILLED (no implementation file)
+- [x] Gem Hunter: Supabase persistence (dual-write SQLite + gem_hunter_gems/runs tables)
+- [x] Guard Brasil dashboard-v1 set as default page (Vercel deployed)
+
+**P2 Completed:**
+- [x] CLAUDE.md v2.0: employee-grade overrides from leak analysis (forced verification, pre-work rule, useful repos)
+- [x] Claude Code leak repos researched: best hooks/skills/settings patterns extracted
+
+**Previously completed (same session):**
+- [x] EGOS-145..149: naming, Qwen, event bus, orchestrator, Supabase migration
+- [x] Guard Brasil web: Caddy split routing (guard.egos.ia.br = Vercel + API)
+- [x] Killed 3 duplicate agents (-3,660 lines) + /start v2.0
 
 **Completed (earlier this session):**
 - [x] Killed 3 duplicate agents from egos-lab (-3,660 lines): drift-sentinel, ssot-auditor, ssot-fixer
@@ -69,36 +79,9 @@
 
 ---
 
-### Summary: Session 2026-03-31 (ARCH Full Generation Pipeline)
-
-**Status:** ARCH GENERATION ENGINE LIVE | META-PROMPT GENERATOR | PIPELINE DELIVERABLES
-
-**Completed This Session:**
-- [x] ARCH-003: Generation Engine — fal.ai + Together AI + Google GenAI integration
-  - 12 models registered (8 image + 4 video), unified /api/generate endpoint
-  - fal.ai async queue pattern (submit→poll→result), Together sync, Google GenAI SDK
-  - Cost tracking per generation, model selector with tier badges
-- [x] ARCH-005: Meta-Prompt Generator — ArchViz-grade prompt generation from briefing
-  - prompt-generator.ts: 21 view types, professional photography rules
-  - Camera/lighting/materials/composition codified from CGArchitect standards
-  - POST /api/prompts/generate, GET /api/prompts/deliverables, POST /api/prompts/enhance
-- [x] ARCH-006: Project Pipeline — visual deliverables checklist with progress tracking
-  - ProjectPipeline.tsx: 8 categories, 21 deliverables, cost per priority tier
-  - Expandable prompts with copy-to-clipboard, completion tracking
-- [x] ARCH-007: RendersView — real generation UI with 6 preset prompts, model selector, gallery
-- [x] ARCH-008: VideoView — real generation UI with 4 preset scenes, duration selector
-- [x] ARCH-009: AI Co-Pilot endpoint — /api/copilot/suggest for project iteration
-- [x] ARCH-010: Prompt Pack V2 — 15 new prompts (rustico, escada, cozinha+churrasqueira+lareira)
-- [x] ARCH-011: Gallery with real renders — 4 images + 1 video on apresentacao.html
-- [x] ARCH-012: @fal-ai/client installed, fal.ai queue pattern implemented
-- [x] Deployed 4 times to Hetzner (all verified: /api/health 200, /api/models, /api/prompts/deliverables)
-
-**Pending ARCH (next session):**
-- [ ] ARCH-002: Supabase persistence (projects, generations, costs)
-- [ ] ARCH-004: Vision pipeline (sketch → geometry extraction)
-- [ ] ARCH-013: Add API keys to VPS .env (FAL_KEY, TOGETHER_API_KEY, GOOGLE_AI_API_KEY)
-- [ ] ARCH-014: Test real generation end-to-end with API keys configured
-- [ ] ARCH-015: Floor plan generation (CAD-style 2D via AI)
+### ARCH (paused — separate session)
+- [x] ARCH-003..012 complete (generation engine, meta-prompts, pipeline, gallery)
+- [ ] ARCH-002/004/013-015: Supabase persistence, vision pipeline, API keys, floor plans
 
 ---
 
