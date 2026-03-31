@@ -99,7 +99,7 @@ async function handleRequest(req: JsonRpcRequest): Promise<void> {
         capabilities: { tools: {} },
         serverInfo: {
           name: 'guard-brasil',
-          version: '0.1.0',
+          version: '0.2.0',
         },
       });
       break;
@@ -233,4 +233,4 @@ process.stdin.on('data', (chunk: string) => {
   }
 });
 
-process.stderr.write('🛡️  Guard Brasil MCP Server v0.1.0 ready\n');
+process.stderr.write('🛡️  Guard Brasil MCP Server v0.2.0 ready\n');

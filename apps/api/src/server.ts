@@ -64,7 +64,7 @@ const server = Bun.serve({
     if (url.pathname === '/health' || url.pathname === '/') {
       return Response.json({
         service: 'egos-guard-brasil-api',
-        version: '0.1.0',
+        version: '0.2.0',
         status: 'healthy',
         timestamp: new Date().toISOString(),
       });
@@ -131,7 +131,7 @@ const server = Bun.serve({
           meta: {
             durationMs,
             timestamp: new Date().toISOString(),
-            version: '0.1.0',
+            version: '0.2.0',
           },
         }, {
           status: 422,
@@ -182,7 +182,7 @@ const server = Bun.serve({
           durationMs,
           manualReviewRequired,
           timestamp: new Date().toISOString(),
-          version: '0.1.0',
+          version: '0.2.0',
         },
       }, {
         status: manualReviewRequired ? 202 : 200,
@@ -201,7 +201,7 @@ const server = Bun.serve({
   },
 });
 
-console.log(`🛡️  EGOS Guard Brasil API v0.1.0`);
+console.log(`🛡️  EGOS Guard Brasil API v0.2.0`);
 console.log(`   Endpoint: http://localhost:${PORT}/v1/inspect`);
 console.log(`   Health:   http://localhost:${PORT}/health`);
 console.log(`   Auth:     ${API_KEYS.size > 0 ? `${API_KEYS.size} API key(s) configured` : 'OPEN (dev mode)'}`);
