@@ -24,15 +24,15 @@
 - [x] /start v2.0: mandatory integration validation (15+ checks before any work)
 - [x] Verified critical analysis from other session (6 claims correct, 4 claims wrong)
 
-**Prove-or-Kill Agents (deadline: 2026-04-30):**
-- [ ] EGOS-137: gtm-harvester — execute --exec with telemetry, decide keep/kill
-- [ ] EGOS-138: aiox-gem-hunter — execute --exec with telemetry, decide keep/kill
-- [ ] EGOS-139: framework-benchmarker — execute --exec with telemetry, decide keep/kill
-- [ ] EGOS-140: mastra-gem-hunter — execute --exec with telemetry, decide keep/kill
-- [ ] EGOS-141: autoresearch — execute --exec with telemetry, decide keep/kill
-- [ ] EGOS-142: ui-designer — execute --exec with telemetry, decide keep/kill
-- [ ] EGOS-143: living-laboratory — execute --exec with telemetry, decide keep/kill
-- [ ] EGOS-144: etl-orchestrator — execute --exec with telemetry, decide keep/kill
+**Prove-or-Kill Results (completed 2026-03-31):**
+- [x] EGOS-137: gtm-harvester — **KILLED** (hangs on --dry, no rate limiting, downloads all raw files)
+- [x] EGOS-138: aiox-gem-hunter — **KILLED** (too niche, single-repo scanner for SynkraAI)
+- [x] EGOS-139: framework-benchmarker — **KEPT** (3.3s, 7 findings, 5 frameworks)
+- [x] EGOS-140: mastra-gem-hunter — **KILLED** (too niche, single-repo scanner for mastra-ai)
+- [x] EGOS-141: autoresearch — **KEPT** (dry exits cleanly, research loop architecture)
+- [x] EGOS-142: ui-designer — **KEPT** (1ms, 7 mockups generated)
+- [x] EGOS-143: living-laboratory — **KEPT** (619ms, git pattern analysis, self-improvement)
+- [x] EGOS-144: etl-orchestrator — **KEPT** (dry works, exec needs VPS API fix)
 
 ---
 

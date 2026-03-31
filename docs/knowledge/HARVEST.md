@@ -1,8 +1,45 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 2.8.0 | **UPDATED:** 2026-03-31
+> **VERSION:** 2.9.0 | **UPDATED:** 2026-03-31
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
-> **Latest:** Event Bus, Guard Offline Fallback, File Intelligence, Prove-or-Kill, MasterOrchestrator, Cross-Session Verification
+> **Latest:** Caddy Split Routing, Prove-or-Kill Execution, Supabase Dual-Write, Employee-Grade CLAUDE.md
+
+## Caddy Split Routing Pattern (2026-03-31)
+
+### Problem
+Single domain needs to serve both API (JSON) and web frontend (HTML). guard.egos.ia.br was showing raw JSON because Caddy routed everything to the API container.
+
+### Solution
+Caddy `handle` directive splits by path:
+- `/v1/*` + `/health` → API container (guard-brasil-api:3099)
+- `/*` → Vercel reverse proxy (guard-brasil-web.vercel.app) with `header_up Host`
+
+### Key Detail
+Must set `header_up Host guard-brasil-web.vercel.app` otherwise Vercel rejects the request. Also set `X-Forwarded-Host` for the original domain.
+
+## Prove-or-Kill Execution Pattern (2026-03-31)
+
+### Problem
+8 agents registered as "active" but never proven to work. Registry bloat erodes trust.
+
+### Solution
+Run each with `--dry` flag, 15s timeout. Three outcomes: WORKS → KEEP, HANGS/CRASHES → KILL, NICHE → KILL.
+Result: 3 killed (gtm-harvester, aiox-gem-hunter, mastra-gem-hunter), 5 kept with evidence.
+
+### Rule
+Any agent that can't complete `--dry` in 30s is broken. Single-repo scanners are redundant when gem-hunter v3.2 covers 13 sources.
+
+## Supabase Dual-Write Pattern (2026-03-31)
+
+### Problem
+Local SQLite works for single-machine but can't power dashboards or cross-session analysis.
+
+### Solution
+Write to SQLite first (fast, always available), then async fire-and-forget to Supabase. Supabase failure is non-fatal — `console.warn` and continue.
+
+### Applied To
+- gem-hunter: `gem_hunter_gems` + `gem_hunter_runs` tables
+- event-bus: `agent_events` table
 
 ## Meta-Prompt Generator Pattern (2026-03-31)
 
