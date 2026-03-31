@@ -123,3 +123,35 @@ Items for Phase 2+ deployment:
 3. **br-acc → egos-inteligencia** — Multi-phase rename + Guard Brasil integration
 4. **Backlog Innovation** — MCP servers, cheap-first orchestration, anti-injection hardening
 
+---
+
+## Session 2026-03-30 (Secret Scanning + Hardening) — ARCHIVED 2026-03-31
+
+- [x] Secret leak sanitized (Supabase token in 852 handoff docs)
+- [x] Hardened pre-commit: gitleaks + regex fallback across all repos
+- [ ] Revoke/rotate exposed Supabase token (user action — pending)
+
+---
+
+## Session 2026-03-26 (PR #4 Merge + CI) — ARCHIVED 2026-03-31
+
+- [x] PR #4 merged (commit 3932067), 5 conflicts resolved, all validations passed
+- [x] EGOS-122: Fix CI frozen zones bash syntax error — commit cab3083, PR #5 auto-closed
+
+---
+
+## Session 2026-03-25 — ARCHIVED 2026-03-31
+
+- [x] FORJA signup without email confirmation (tested, live)
+- [x] BLUEPRINT-EGOS absorption + architecture documentation
+- [x] VPS hosting strategy analysis + cost savings
+- [x] EGOS agent orchestration blueprint (Router/Supervisor pattern)
+- [x] EGOS-061: Ecosystem verdict + repo roles
+- [x] EGOS-062: Guard Brasil package v0.1.0 (15/15 tests pass)
+- [x] EGOS-063: Free vs paid surface (npm→API→Dashboard→Policy Packs)
+- [x] EGOS-064: First monetizable surface as reusable package
+- [x] EGOS-073: egos-lab consolidation diagnostic (3 agents → kernel)
+- [x] EGOS-074: Kernel-first consolidation plan (3-phase, 11 apps + 9 agents)
+- [x] EGOS-075: System Map v2.4.0 (Freshness Rules, Cross-Repo Update Flow)
+- [x] EGOS-076: Ecosystem Classification Registry v2.0.0 (7 classes, 50+ surfaces)
+

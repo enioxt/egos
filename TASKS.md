@@ -139,59 +139,11 @@
 
 ---
 
-### Summary: Session 2026-03-30 (Secret Scanning + Hardening - COMPLETE)
-- [x] Secret leak sanitized (Supabase token in 852 handoff docs)
-- [x] Hardened pre-commit: gitleaks + regex fallback across all repos
-- [ ] Revoke/rotate exposed Supabase token (user action)
-
----
-
-### Summary: Session 2026-03-26 (PR #4 Merge + Governance Sync - COMPLETE)
-- [x] PR #4 merged (commit 3932067), 5 conflicts resolved, all validations passed
-
----
-
-### Summary: Session 2026-03-26 (CI Troubleshooting - COMPLETE)
-- [x] EGOS-122: Fix CI frozen zones bash syntax error — commit cab3083, PR #5 auto-closed
-
----
-
-### Summary: Session 2026-03-25
-
-**Completed:**
-- ✅ FORJA signup without email confirmation (tested, live)
-- ✅ BLUEPRINT-EGOS absorption + architecture documentation
-- ✅ VPS hosting strategy analysis + cost savings calculation ($60-100/mo)
-- ✅ EGOS agent orchestration blueprint (Router/Supervisor pattern)
-- ✅ Memory + HARVEST.md updates
-- ✅ System-wide dissemination (this TASKS.md update)
-
-- [x] EGOS-061: Publish consolidated ecosystem verdict and repo roles — `docs/strategy/ECOSYSTEM_PRODUCT_VERDICT_2026-03.md`
-- [x] EGOS-062: Package the canonical product boundary for `EGOS Guard Brasil` — ATRiAN + PII Scanner BR + public guard + evidence discipline
-  - **Status:** COMPLETE (2026-03-29)
-  - **Package:** `packages/guard-brasil/` — `@egosbr/guard-brasil` v0.1.0
-  - **Files:** `src/index.ts`, `src/guard.ts` (GuardBrasil facade), `src/demo.ts`, `src/guard.test.ts`, `README.md`
-  - **Tests:** 15/15 pass (bun test) — clean output, PII detection, ATRiAN validation, evidence chain, combined scenarios
-  - **Capabilities:** CPF/RG/MASP/REDS/placa/processo masking, ATRiAN score 0–100, LGPD disclosure, evidence audit hash
-- [x] EGOS-063: Define free vs paid surface for the flagship (open SDK/specs vs hosted API/MCP/audit console)
-  - **Status:** COMPLETE (2026-03-29)
-  - **Document:** `docs/strategy/FREE_VS_PAID_SURFACE.md`
-  - **Tiers:** Free (npm SDK) → Starter API R$49/mo → Pro R$199/mo → Business R$499/mo → Enterprise custom
-  - **Policy Packs:** Segurança Pública, Saúde, Judiciário, Financeiro (R$2.990/ano each)
-  - **Revenue path:** npm→API→Dashboard→Policy Packs over 12 months
-- [x] EGOS-064: Deliver the first monetizable surface as a reusable package or MCP before expanding any new product line
-  - **Status:** COMPLETE (2026-03-29) — npm-ready, pending `npm publish`
-  - **Build:** `tsc -p tsconfig.build.json` → `dist/` (7 JS + 7 .d.ts + source maps)
-  - **Standalone:** Inlined modules from @egos/shared → zero workspace dependencies
-  - **Known acronyms:** 24 Brazilian govt acronyms pre-loaded (CPF, RG, MASP, REDS, etc.)
-  - **Next:** `cd packages/guard-brasil && npm publish --access public` (requires npm login)
-- [x] EGOS-073: Run the full `egos-lab` consolidation diagnostic — classify every active surface as `migrate_to_egos`, `keep_in_lab`, `standalone_candidate`, `internal_infra`, `archive`, or `discard`, with source→destination pointers
-  - **Status:** COMPLETE (2026-03-29)
-  - **Diagnostic:** `docs/strategy/EGOS_LAB_CONSOLIDATION_DIAGNOSTIC.md`
-  - **Key findings:** 3 agents → kernel (ssot-auditor, ssot-fixer, drift-sentinel), nexus+nexus-market consolidation needed, shared symlink broken
-- [x] EGOS-074: Execute the kernel-first consolidation of SSOT/governance surfaces from `egos-lab` into `egos` — **COMPLETE (2026-03-30)** — `docs/KERNEL_CONSOLIDATION_PLAN.md`: 3-phase plan, boundary contract, 11 apps + 9 agents classified
-- [x] EGOS-075: Canonicalize System Map — **COMPLETE (2026-03-30)** — `SYSTEM_MAP.md` v2.4.0: Freshness Rules (7 sections), Cross-Repo Update Flow (8 rules), Machine Map pointer
-- [x] EGOS-076: Ecosystem Classification Registry — **COMPLETE (2026-03-30)** — `ECOSYSTEM_CLASSIFICATION_REGISTRY.md` v2.0.0: 7 classes, 50+ surfaces (filesystem-verified), promotion gates
+> **Archived to `docs/knowledge/TASKS_ARCHIVE_2026.md` (2026-03-31):**
+> - Session 2026-03-30 (Secret Scanning) — 3 items complete + 1 manual
+> - Sessions 2026-03-26 (PR #4 + CI) — 2 items complete
+> - Session 2026-03-25 — 14 items complete (EGOS-061..076, FORJA, BLUEPRINT)
+> - Guard Brasil package (EGOS-062..064) — all complete, npm published
 - [ ] EGOS-077: Add the new-project gate for PRD, ICP, go-to-market, objective, success metric, and multi-model review mode with a recorded blocking-vs-advisory decision
 - [x] EGOS-078: Agent Claim Contract — `.guarani/orchestration/AGENT_CLAIM_CONTRACT.md` — 6-level taxonomy (component|tool|workflow|agent_candidate|verified_agent|online_agent) + proof matrix
 - [x] EGOS-079: Agent Claim Gate — `scripts/agent-claim-lint.ts` — lint agents.json, exit 1 on verified/online without proof, passes on current registry
@@ -288,9 +240,8 @@
 
 ## Guard Brasil GTM — P0 Chain (2026-03-30)
 
-- [ ] EGOS-123: `npm publish --access public` for @egosbr/guard-brasil v0.1.0 (**MANUAL — M-001** em MANUAL_ACTIONS.md)
-  - Pre-req: `cd packages/guard-brasil && npm login && npm publish --access public`
-  - After first publish: create publish credentials in CI secret store (M-006)
+- [x] EGOS-123: `npm publish --access public` for @egosbr/guard-brasil v0.1.0 — **COMPLETE (2026-03-30)**
+  - Published as `@egosbr/guard-brasil` on npm (commit 0cb570c confirms)
 - [x] EGOS-124: Deploy Guard Brasil REST API on Hetzner — **COMPLETE (2026-03-30)**
   - Container: `guard-brasil-api` healthy, port 3099, restart: unless-stopped
   - Caddy: `guard.egos.ia.br` entry added (TLS auto)
