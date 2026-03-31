@@ -8,6 +8,7 @@ import { AgentPlayground } from './pages/AgentPlayground'
 import { ATRiANInspector } from './pages/ATRiANInspector'
 import { CommonsPlanPage } from './pages/CommonsPlanPage'
 import { PersonasSplitPage } from './pages/PersonasSplitPage'
+import { ProductDetailPage } from './pages/ProductDetailPage'
 
 import {
   Bot, Sparkles, ShieldCheck, BookOpen, Code2, Zap,
@@ -242,6 +243,10 @@ function ProductCard({ product }: { product: Product }) {
 
   const tc = tierColors[product.tier]
 
+  const handleCardClick = () => {
+    window.location.href = `/produto/${product.id}`
+  }
+
   const handleAction = async (e: React.MouseEvent) => {
     e.stopPropagation();
     await emitMyceliumEvent('INTENT_ACQUIRE', { product_id: product.id, price: product.price });
@@ -253,7 +258,7 @@ function ProductCard({ product }: { product: Product }) {
   }
 
   return (
-    <div style={{
+    <div onClick={handleCardClick} style={{
       background: 'rgba(18,18,26,0.8)',
       border: `1px solid ${product.featured ? 'rgba(124,58,237,0.4)' : 'rgba(255,255,255,0.07)'}`,
       borderRadius: 16,
@@ -381,9 +386,58 @@ function StatsBar() {
 
 function Home() {
   const [activeCategory, setActiveCategory] = useState('all')
+  const [activeView, setActiveView] = useState<'all' | 'free' | 'paid' | 'contribute'>('all')
   const [dynamicProducts, setDynamicProducts] = useState<Product[]>(products)
 
+  // Icon mapper for products.json (since JSON can't store React components)
+  const getIconForProduct = (id: string) => {
+    const iconMap: Record<string, React.ReactNode> = {
+      'egos-kernel': <Cpu size={28} className="text-violet-400" />,
+      'carteira-livre': <Layers size={28} className="text-cyan-400" />,
+      '852-inteligencia': <ShieldCheck size={28} className="text-green-400" />,
+      'br-acc': <Globe size={28} className="text-violet-400" />,
+      'inteligncia-de-dados-pblicos': <Globe size={28} className="text-violet-400" />,
+      'inpi-ratio': <Bot size={28} className="text-yellow-400" />,
+      'assistentes-guiados': <Bot size={28} className="text-yellow-400" />,
+      'egos-lab': <Zap size={28} className="text-cyan-400" />,
+      'ferramentas-egos-lab': <Zap size={28} className="text-cyan-400" />,
+    }
+    return iconMap[id] || <Code2 size={28} className="text-violet-400" />
+  }
+
   useEffect(() => {
+    async function loadProducts() {
+      try {
+        // Fetch products from public/products.json
+        const response = await fetch('/products.json')
+        if (response.ok) {
+          const data = await response.json()
+          if (Array.isArray(data) && data.length > 0) {
+            // Map JSON data to Product type with icons
+            const mappedProducts: Product[] = data.map((p: any) => ({
+              ...p,
+              icon: getIconForProduct(p.id),
+              price: p.price || 'free',
+              tier: p.tier || 'pro',
+              category: p.category || 'tool',
+              tags: p.tags || [],
+              rating: p.rating || 5.0,
+              featured: p.featured || false,
+              badge: p.badge || 'Produção',
+              splitDetails: p.splitDetails || 'Split Automático (95/5)'
+            }))
+            setDynamicProducts(mappedProducts)
+            console.log('✅ Produtos carregados de products.json:', mappedProducts.length)
+          }
+        } else {
+          console.warn('⚠️ Falha ao carregar products.json, usando fallback hardcoded')
+        }
+      } catch (error) {
+        console.error('❌ Erro ao carregar products.json:', error)
+        console.log('🔄 Usando produtos hardcoded como fallback')
+      }
+    }
+
     async function loadCourses() {
       if (!supabase) return
       // Fetch dynamic courses from Supabase
@@ -412,12 +466,19 @@ function Home() {
         });
       }
     }
-    loadCourses();
+
+    loadProducts().then(() => loadCourses());
   }, [])
 
-  const filtered = activeCategory === 'all'
+  // Filter by category first
+  let filtered = activeCategory === 'all'
     ? dynamicProducts
     : dynamicProducts.filter(p => p.category === activeCategory)
+
+  // Then filter by view (all/free/paid)
+  if (activeView === 'paid') {
+    filtered = filtered.filter(p => typeof p.price === 'number')
+  }
 
   const featured = dynamicProducts.filter(p => p.featured)
 
@@ -554,43 +615,147 @@ function Home() {
 
       {/* ── All Products ── */}
       <section style={{ maxWidth: 1200, margin: '0 auto', padding: '80px 24px' }}>
-        <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 32, flexWrap: 'wrap', gap: 16 }}>
-          <div>
-            <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 800, color: '#f1f5f9', letterSpacing: '-0.8px', marginBottom: 8 }}>
-              Todos os produtos
+        {/* View Tabs (Grátis / Pago / Contribuir) */}
+        <div style={{ display: 'flex', gap: 12, marginBottom: 40, borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: 16 }}>
+          {[
+            { id: 'all', label: 'Todos os Produtos', icon: '📦' },
+            { id: 'free', label: 'Grátis (GitHub)', icon: '🎁' },
+            { id: 'paid', label: 'Implementação Paga', icon: '💼' },
+            { id: 'contribute', label: 'Como Contribuir', icon: '🤝' }
+          ].map(tab => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveView(tab.id as any)}
+              style={{
+                padding: '12px 24px',
+                background: activeView === tab.id ? 'rgba(124,58,237,0.2)' : 'transparent',
+                border: activeView === tab.id ? '2px solid rgba(124,58,237,0.5)' : '2px solid transparent',
+                borderRadius: 12,
+                color: activeView === tab.id ? '#a78bfa' : '#64748b',
+                fontSize: 15,
+                fontWeight: 600,
+                cursor: 'pointer',
+                transition: 'all 0.2s',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 8
+              }}
+            >
+              <span style={{ fontSize: 18 }}>{tab.icon}</span>
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        {activeView === 'contribute' ? (
+          // Contribute View
+          <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
+            <h2 style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 800, color: '#f1f5f9', marginBottom: 24 }}>
+              Torne-se um Implementador Certificado
             </h2>
-            <p style={{ color: '#64748b', fontSize: 14 }}>{filtered.length} produtos disponíveis</p>
-          </div>
+            <p style={{ fontSize: 18, color: '#94a3b8', lineHeight: 1.7, marginBottom: 40 }}>
+              Ganhe 75% de cada implementação que você realizar. Junte-se à rede de implementadores EGOS Commons e monetize seu conhecimento técnico.
+            </p>
 
-          {/* Category filters */}
-          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-            {categories.map(cat => (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                style={{
-                  padding: '8px 16px',
-                  background: activeCategory === cat.id ? 'rgba(124,58,237,0.2)' : 'rgba(255,255,255,0.04)',
-                  border: activeCategory === cat.id ? '1px solid rgba(124,58,237,0.5)' : '1px solid rgba(255,255,255,0.08)',
-                  borderRadius: 100, color: activeCategory === cat.id ? '#a78bfa' : '#64748b',
-                  fontSize: 13, fontWeight: 500, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6,
-                  transition: 'all 0.2s',
-                }}
-              >
-                {cat.icon} {cat.label}
-                <span style={{
-                  padding: '1px 6px', borderRadius: 100, fontSize: 11,
-                  background: activeCategory === cat.id ? 'rgba(124,58,237,0.3)' : 'rgba(255,255,255,0.08)',
-                  color: activeCategory === cat.id ? '#c4b5fd' : '#475569',
-                }}>{cat.count}</span>
-              </button>
-            ))}
-          </div>
-        </div>
+            <div style={{ display: 'grid', gap: 24, marginBottom: 48, textAlign: 'left' }}>
+              <div style={{ background: 'rgba(124,58,237,0.1)', border: '1px solid rgba(124,58,237,0.3)', borderRadius: 16, padding: 24 }}>
+                <h3 style={{ fontSize: 20, fontWeight: 700, color: '#a78bfa', marginBottom: 12 }}>1. Estude os Produtos</h3>
+                <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
+                  Clone os repositórios, rode localmente, entenda a arquitetura. Todos os produtos são open-source — você tem acesso total ao código.
+                </p>
+              </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 24 }}>
-          {filtered.map(product => <ProductCard key={product.id} product={product} />)}
-        </div>
+              <div style={{ background: 'rgba(6,182,212,0.1)', border: '1px solid rgba(6,182,212,0.3)', borderRadius: 16, padding: 24 }}>
+                <h3 style={{ fontSize: 20, fontWeight: 700, color: '#67e8f9', marginBottom: 12 }}>2. Faça uma Implementação Piloto</h3>
+                <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
+                  Implemente um dos produtos (de preferência EGOS Kernel ou Carteira-Livre) para um cliente real ou projeto próprio. Documente o processo.
+                </p>
+              </div>
+
+              <div style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.3)', borderRadius: 16, padding: 24 }}>
+                <h3 style={{ fontSize: 20, fontWeight: 700, color: '#6ee7b7', marginBottom: 12 }}>3. Entre na Rede</h3>
+                <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
+                  Envie seu case de implementação para certificação. Aprovado, você entra na rede oficial de implementadores e recebe leads qualificados.
+                </p>
+              </div>
+            </div>
+
+            <div style={{ background: 'rgba(124,58,237,0.05)', border: '1px solid rgba(124,58,237,0.2)', borderRadius: 16, padding: 32, marginBottom: 32 }}>
+              <h4 style={{ fontSize: 18, fontWeight: 700, color: '#f1f5f9', marginBottom: 16 }}>💰 Modelo de Compensação</h4>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, fontSize: 14 }}>
+                <div>
+                  <div style={{ fontSize: 32, fontWeight: 800, color: '#a78bfa' }}>75%</div>
+                  <div style={{ color: '#94a3b8' }}>Para você (Implementador)</div>
+                </div>
+                <div>
+                  <div style={{ fontSize: 32, fontWeight: 800, color: '#67e8f9' }}>20%</div>
+                  <div style={{ color: '#94a3b8' }}>Para quem vendeu (Parceiro)</div>
+                </div>
+                <div>
+                  <div style={{ fontSize: 32, fontWeight: 800, color: '#6ee7b7' }}>5%</div>
+                  <div style={{ color: '#94a3b8' }}>Para o Kernel (Ecossistema)</div>
+                </div>
+              </div>
+            </div>
+
+            <button style={{
+              padding: '16px 40px',
+              background: 'linear-gradient(135deg, #7c3aed, #5b21b6)',
+              border: 'none',
+              borderRadius: 12,
+              color: 'white',
+              fontSize: 16,
+              fontWeight: 700,
+              cursor: 'pointer',
+              boxShadow: '0 8px 32px rgba(124,58,237,0.4)'
+            }}>
+              Candidatar-se como Implementador
+            </button>
+          </div>
+        ) : (
+          // Products View (All / Free / Paid)
+          <>
+            <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 32, flexWrap: 'wrap', gap: 16 }}>
+              <div>
+                <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 800, color: '#f1f5f9', letterSpacing: '-0.8px', marginBottom: 8 }}>
+                  {activeView === 'free' && 'Acesso Grátis (GitHub)'}
+                  {activeView === 'paid' && 'Implementação Profissional'}
+                  {activeView === 'all' && 'Todos os produtos'}
+                </h2>
+                <p style={{ color: '#64748b', fontSize: 14 }}>{filtered.length} produtos disponíveis</p>
+              </div>
+
+              {/* Category filters */}
+              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                {categories.map(cat => (
+                  <button
+                    key={cat.id}
+                    onClick={() => setActiveCategory(cat.id)}
+                    style={{
+                      padding: '8px 16px',
+                      background: activeCategory === cat.id ? 'rgba(124,58,237,0.2)' : 'rgba(255,255,255,0.04)',
+                      border: activeCategory === cat.id ? '1px solid rgba(124,58,237,0.5)' : '1px solid rgba(255,255,255,0.08)',
+                      borderRadius: 100, color: activeCategory === cat.id ? '#a78bfa' : '#64748b',
+                      fontSize: 13, fontWeight: 500, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6,
+                      transition: 'all 0.2s',
+                    }}
+                  >
+                    {cat.icon} {cat.label}
+                    <span style={{
+                      padding: '1px 6px', borderRadius: 100, fontSize: 11,
+                      background: activeCategory === cat.id ? 'rgba(124,58,237,0.3)' : 'rgba(255,255,255,0.08)',
+                      color: activeCategory === cat.id ? '#c4b5fd' : '#475569',
+                    }}>{cat.count}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 24 }}>
+              {filtered.map(product => <ProductCard key={product.id} product={product} />)}
+            </div>
+          </>
+        )}
       </section>
 
       <section style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px 80px' }}>
@@ -707,6 +872,7 @@ function App() {
       <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/produto/:id" element={<ProductDetailPage />} />
         <Route path="/commons/plano" element={<CommonsPlanPage />} />
         <Route path="/commons/personas-split" element={<PersonasSplitPage />} />
         <Route path="/sandbox/split" element={<SandboxSplitTester />} />
