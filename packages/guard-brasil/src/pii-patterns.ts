@@ -15,6 +15,9 @@ export type PIIPatternId =
   | 'cnpj'
   | 'rg'
   | 'cnh'
+  | 'sus'
+  | 'titulo_eleitor'
+  | 'nis_pis'
   | 'masp'
   | 'reds'
   | 'processo'
@@ -173,6 +176,36 @@ export const EMAIL_PATTERN: PIIPatternConfig = {
   description: 'Endereço de email',
 };
 
+/** Cartão SUS — Cartão Nacional de Saúde (15 digits) */
+export const SUS_PATTERN: PIIPatternConfig = {
+  id: 'sus',
+  label: 'Cartão SUS',
+  regex: /\b[1-9]\d{2}\s?\d{4}\s?\d{4}\s?\d{4}\b/g,
+  maskFormat: '[SUS REMOVIDO]',
+  confidence: 'medium',
+  description: 'Cartão Nacional de Saúde — 15 dígitos (xxx xxxx xxxx xxxx)',
+};
+
+/** Título de Eleitor — 12 digits with state/sequence check */
+export const TITULO_ELEITOR_PATTERN: PIIPatternConfig = {
+  id: 'titulo_eleitor',
+  label: 'Título de Eleitor',
+  regex: /\b\d{4}\s?\d{4}\s?\d{4}\b/g,
+  maskFormat: '[TÍTULO REMOVIDO]',
+  confidence: 'low',
+  description: 'Título de Eleitor — 12 dígitos (xxxx xxxx xxxx)',
+};
+
+/** NIS/PIS — Número de Identificação Social (11 digits, starts with specific ranges) */
+export const NIS_PIS_PATTERN: PIIPatternConfig = {
+  id: 'nis_pis',
+  label: 'NIS/PIS',
+  regex: /\b[12]\d{2}\.?\d{5}\.?\d{2}-?\d\b/g,
+  maskFormat: '[NIS REMOVIDO]',
+  confidence: 'medium',
+  description: 'NIS/PIS/PASEP — 11 dígitos (xxx.xxxxx.xx-x)',
+};
+
 /** CEP — Código de Endereçamento Postal (8 digits) */
 export const CEP_PATTERN: PIIPatternConfig = {
   id: 'cep',
@@ -196,12 +229,15 @@ export const ALL_PII_PATTERNS: readonly PIIPatternConfig[] = [
   CPF_PATTERN,
   RG_PATTERN,
   CNH_PATTERN,
+  SUS_PATTERN,
+  NIS_PIS_PATTERN,
   MASP_PATTERN,
   REDS_PATTERN,
   PLACA_MERCOSUL_PATTERN,
   PLACA_ANTIGA_PATTERN,
   EMAIL_PATTERN,
   TELEFONE_PATTERN,
+  TITULO_ELEITOR_PATTERN,
   CEP_PATTERN,
 ] as const;
 
