@@ -1,11 +1,11 @@
 {
   "$schema": "./schema.json",
-  "version": "2.0.0",
-  "updated": "2026-03-30",
-  "description": "EGOS Kernel Registry v2 — honest classification with 22-field schema. 0 verified agents in kernel (monitors live in leaf repos). 15 CLI tools + 2 routers.",
+  "version": "2.1.0",
+  "updated": "2026-03-31",
+  "description": "EGOS Kernel Registry v2.1 — kebab-case IDs aligned with filenames and egos-lab convention. 15 CLI tools + 2 routers.",
   "agents": [
     {
-      "id": "ssot_auditor",
+      "id": "ssot-auditor",
       "name": "SSOT Auditor",
       "kind": "tool",
       "description": "Structural Triage Engine — scans TypeScript/Python codebases via AST, detects type drift (duplicate definitions with different shapes), produces prioritized reports with codemod plans",
@@ -26,7 +26,7 @@
       "side_effects": ["fs_write"]
     },
     {
-      "id": "ssot_fixer",
+      "id": "ssot-fixer",
       "name": "SSOT Fixer",
       "kind": "tool",
       "description": "Consumes ssot-auditor output and applies safe, low-risk codemod plans automatically (EXACT or RELAXED drift only)",
@@ -47,7 +47,7 @@
       "side_effects": ["fs_write"]
     },
     {
-      "id": "drift_sentinel",
+      "id": "drift-sentinel",
       "name": "Drift Sentinel",
       "kind": "tool",
       "description": "Configuration drift detection — compares narrative (docs) vs live system state, monitors TASKS.md priorities vs git activity, agents.json vs agents/ directory",
@@ -68,7 +68,7 @@
       "side_effects": ["fs_write"]
     },
     {
-      "id": "dep_auditor",
+      "id": "dep-auditor",
       "name": "Dependency Auditor",
       "kind": "tool",
       "description": "Scans package.json files for version conflicts, misplaced dev deps, and unused dependencies",
@@ -89,7 +89,7 @@
       "side_effects": []
     },
     {
-      "id": "archaeology_digger",
+      "id": "archaeology-digger",
       "name": "Archaeology Digger",
       "kind": "tool",
       "description": "Recursively traverses git history, agent registries, governance files, and handoff documents to reconstruct the complete evolution lineage of the EGOS ecosystem",
@@ -110,7 +110,7 @@
       "side_effects": ["fs_write"]
     },
     {
-      "id": "chatbot_compliance_checker",
+      "id": "chatbot-compliance-checker",
       "name": "Chatbot Compliance Checker",
       "kind": "tool",
       "description": "Scans a target repository for the required modules defined in CHATBOT_SSOT and reports missing chatbot capabilities",
@@ -131,7 +131,7 @@
       "side_effects": []
     },
     {
-      "id": "dead_code_detector",
+      "id": "dead-code-detector",
       "name": "Dead Code Detector",
       "kind": "tool",
       "description": "Finds dead exports, orphan files, and empty stubs across any TypeScript codebase using regex-based analysis (no external deps)",
@@ -152,7 +152,7 @@
       "side_effects": []
     },
     {
-      "id": "capability_drift_checker",
+      "id": "capability-drift-checker",
       "name": "Capability Drift Checker",
       "kind": "tool",
       "description": "Scans any target repo against the EGOS kernel's shared capabilities, governance files, workflows, and security basics to detect missing adoptions",
@@ -173,7 +173,7 @@
       "side_effects": []
     },
     {
-      "id": "context_tracker",
+      "id": "context-tracker",
       "name": "Context Tracker",
       "kind": "tool",
       "description": "Estimates remaining usable context window (CTX 0-280) from uncommitted files, session commits, handoff size, and agent runs. Emits zone emoji + /end recommendation when CTX > 180.",
@@ -194,7 +194,7 @@
       "side_effects": []
     },
     {
-      "id": "gtm_harvester",
+      "id": "gtm-harvester",
       "name": "GTM Harvester",
       "kind": "tool",
       "description": "Scans public GitHub repositories for GTM/market strategy artifacts and highlights reusable patterns plus named-entity gaps",
@@ -215,7 +215,7 @@
       "side_effects": ["api_call"]
     },
     {
-      "id": "aiox_gem_hunter",
+      "id": "aiox-gem-hunter",
       "name": "AIOX Gem Hunter",
       "kind": "tool",
       "description": "Scans SynkraAI/aiox-core and local NotebookLM export artifacts to extract high-signal orchestration gems with keep/drop diagnosis for EGOS",
@@ -236,7 +236,7 @@
       "side_effects": ["api_call", "fs_write"]
     },
     {
-      "id": "framework_benchmarker",
+      "id": "framework-benchmarker",
       "name": "Framework Benchmarker",
       "kind": "tool",
       "description": "Benchmarks MASA and competing agent/orchestration frameworks from official docs to produce keep/drop adoption guidance for EGOS",
@@ -257,7 +257,7 @@
       "side_effects": ["api_call"]
     },
     {
-      "id": "mastra_gem_hunter",
+      "id": "mastra-gem-hunter",
       "name": "Mastra Gem Hunter",
       "kind": "tool",
       "description": "Scans mastra-ai/mastra for high-signal workflow/eval/observability/MCP patterns and emits keep/drop adoption guidance",
@@ -278,7 +278,7 @@
       "side_effects": ["api_call"]
     },
     {
-      "id": "mcp_router",
+      "id": "mcp-router",
       "name": "MCP Router",
       "kind": "tool",
       "description": "Routes incoming MCP server discovery requests to the correct handler based on capability matching and server health status",
@@ -299,7 +299,7 @@
       "side_effects": []
     },
     {
-      "id": "spec_router",
+      "id": "spec-router",
       "name": "Spec Pipeline Router",
       "kind": "workflow",
       "description": "Validates spec pipeline stage fields, detects current stage, routes to next reviewer, tracks SLA violations, and generates merge-block reasons",
