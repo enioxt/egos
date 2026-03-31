@@ -83,5 +83,13 @@ check_lines ".windsurfrules" 150 || exit 1
 check_lines ".guarani/PREFERENCES.md" 100 || exit 1
 check_lines "docs/SSOT_REGISTRY.md" 200 || exit 1
 
-echo "  [5/5] All checks passed."
+# 6. File Intelligence — Classification + Compliance + PII scan
+echo "  [5/5] file intelligence: classifying and checking staged files..."
+bash scripts/file-intelligence.sh 2>/dev/null || {
+  echo "❌ BLOCKED: File intelligence found critical violations."
+  echo "   Run: bash scripts/file-intelligence.sh for details"
+  exit 1
+}
+
+echo "  [6/6] All checks passed."
 echo "✅ EGOS Pre-Commit: Commit approved."
