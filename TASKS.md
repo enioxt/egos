@@ -1,6 +1,36 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.17.0 | **Updated:** 2026-03-31 | **LAST SESSION:** 2026-03-31 — Full Diagnostic + Telemetry + Leak Integration
+> **Version:** 2.18.0 | **Updated:** 2026-03-31 | **LAST SESSION:** 2026-03-31 — Guard Brasil v0.2 + Market Research + VPS Orchestrator
+
+---
+
+### Guard Brasil Monetization Roadmap (NEW — from market research)
+
+**Market insight:** No Brazilian-native PII detection API exists. CPF detected at only 45% by English tools. ANPD enforcement shifting to AI systems 2026-27.
+
+**Completed:**
+- [x] EGOS-151: Guard Brasil v0.2.0 — add SUS, Titulo de Eleitor, NIS/PIS (15 patterns total)
+- [x] EGOS-152: MCP Server exists and works (guard_inspect, guard_scan_pii, guard_check_safe)
+- [x] EGOS-153: Market report with 5 competitors analyzed + 3 monetization paths
+- [x] EGOS-154: MasterOrchestrator deployed on VPS (cron every 30min, events in Supabase)
+- [x] EGOS-155: /disseminate upgraded (7 phases, leaf repo propagation)
+- [x] EGOS-156: /diag workflow created (full ecosystem diagnostic)
+- [x] EGOS-157: VPS cron paths fixed (/home/enio → /opt/egos-lab)
+
+**P0 — Revenue blocking:**
+- [ ] EGOS-158: npm publish v0.2.0 (requires `npm adduser` — MANUAL)
+- [ ] EGOS-159: Guard Brasil REST API — wire npm package into Hono server on VPS (currently hardcoded patterns)
+- [ ] EGOS-160: Reversible redaction — tokenized mask+restore (Grepture's killer feature)
+
+**P1 — Competitive features:**
+- [ ] EGOS-161: Register MCP server in Claude Code (`claude mcp add guard-brasil`)
+- [ ] EGOS-162: Accuracy benchmark — publish CPF/RG/CNPJ detection rates vs Presidio/anonym.legal
+- [ ] EGOS-163: Pix billing integration (no competitor accepts R$ via Pix)
+- [ ] EGOS-164: Guard Brasil dashboard — real data from guard_brasil_events Supabase table
+
+**P2 — Growth:**
+- [ ] EGOS-165: White-label licensing outreach to Privacy Tools / Confidata
+- [ ] EGOS-166: REST API gateway mode (HTTP proxy between apps and LLM providers)
 
 ---
 
@@ -68,35 +98,15 @@
   - Single entry point for ALL rules with lookup table + enforcement matrix
 - [x] agents.json updated for gem-hunter v3.2
 
-**Pending (Next Session):**
-- [ ] EGOS-125: M-007 outreach emails (MANUAL — user testing first)
-- [ ] EGOS-128: br-acc rename Phase 2+3 (MANUAL M-003)
-- [ ] ARCH paused until user activates
-- [ ] Gem Hunter: Supabase persistence for trend analysis
-- [ ] Debate pattern for governance decisions
-- [ ] Multi-LLM quota orchestration (Claude + Codex + Gemini)
-- [ ] codex-plugin-cc investigation
+**Backlog:**
+- [ ] EGOS-125: M-007 outreach emails (MANUAL)
+- [ ] EGOS-128: br-acc rename Phase 2+3 (MANUAL)
+- [x] Gem Hunter: Supabase persistence (DONE — dual-write SQLite + Supabase)
+- [ ] ARCH paused (separate session) — ARCH-002/004/013-015 pending
 
 ---
 
-### ARCH (paused — separate session)
-- [x] ARCH-003..012 complete (generation engine, meta-prompts, pipeline, gallery)
-- [ ] ARCH-002/004/013-015: Supabase persistence, vision pipeline, API keys, floor plans
-
----
-
-### Summary: Session 2026-03-30 (ARCH Deploy + Report SSOT + Grok Insights)
-
-**Status:** ARCH LIVE ON HETZNER | REPORT SSOT CREATED | HINDSIGHT/AIDER/NLAH EVALUATED
-
-**Completed This Session:**
-- [x] ARCH-001: Fixed hardcoded API key, deployed to Hetzner (egos-arch container, port 3098)
-- [x] Caddy configured for arch.egos.ia.br
-- [x] Chat API + Briefing Analysis API verified (Gemini responding in PT-BR)
-- [x] Dev banner "EM DESENVOLVIMENTO" added to ARCH frontend
-- [x] Docker + docker-compose created and pushed to GitHub
-- [x] REPORT_SSOT v2.0.0 created: consolidated from br-acc + 852 + egos-lab + ARCH (4 repos, 33+ files, 11 report types)
-- [x] TASKS archive created (docs/knowledge/TASKS_ARCHIVE_2026.md) — governance line limit compliance
+> **Archived sessions (2026-03-30 and earlier) → `docs/knowledge/TASKS_ARCHIVE_2026.md`**
 - [x] Hindsight repo analyzed: biomimetic memory, MIT, 91.4% LongMemEval, @vectorize-io/hindsight-client npm
 - [x] Grok conversation insights extracted: Aider alignment, NLAH paper (Tsinghua), activation patterns
 
