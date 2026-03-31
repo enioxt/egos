@@ -1,6 +1,6 @@
 # DOMAIN RULES — EGOS Kernel
 
-> **Version:** 2.0.0 | **Updated:** 2026-03-13
+> **Version:** 2.1.0 | **Updated:** 2026-03-31
 > **Project:** egos (orchestration-kernel + agent-runtime)
 
 ---
@@ -62,7 +62,8 @@ agents/registry/agents.json (structure, not content)
 - **LLM client:** `packages/shared/src/llm-provider.ts`
 - **Model router:** `packages/shared/src/model-router.ts`
 - **Rate limiter:** `packages/shared/src/rate-limiter.ts`
-- **Env vars:** `ALIBABA_DASHSCOPE_API_KEY`, `OPENROUTER_API_KEY`, `OPENAI_API_KEY`, `GROQ_API_KEY`
+- **Env vars:** `ALIBABA_DASHSCOPE_API_KEY`, `OPENROUTER_API_KEY`, `GROQ_API_KEY`, `HUGGINGFACE_API_KEY`
+- **Active providers:** DashScope (Alibaba Qwen), OpenRouter, Groq, HuggingFace
 - **Reference:** `.env.example` for all expected keys
 
 ### Anti-Patterns
@@ -257,7 +258,7 @@ agents/registry/agents.json (structure, not content)
 | Task Keywords | Domains to Load |
 |---------------|----------------|
 | agent, registry, runner, orchestrator, dry-run | Agentic Platform |
-| llm, model, qwen, openrouter, alibaba, router, cost | LLM Provider & Model Router |
+| llm, model, qwen, openrouter, alibaba, groq, huggingface, router, cost | LLM Provider & Model Router |
 | governance, sync, guarani, workflow, propagate | Governance & Sync |
 | security, PII, RLS, secret, scan, frozen | Security |
 | shared, llm-provider, packages, types, atrian | Shared Packages |

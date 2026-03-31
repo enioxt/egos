@@ -24,6 +24,7 @@
 import { writeFileSync, readFileSync, existsSync, mkdirSync } from "fs";
 import { join } from "path";
 import { execSync } from "child_process";
+import { emit } from "../../packages/shared/src/event-bus";
 
 const ROOT = join(import.meta.dir, "../..");
 const REPORTS_DIR = join(ROOT, "docs/drift-sentinel");
@@ -347,12 +348,25 @@ async function runDriftSentinel(mode: "dry" | "exec"): Promise<DriftReport> {
 const args = process.argv.slice(2);
 const mode: "dry" | "exec" = args.includes("--exec") ? "exec" : "dry";
 
+const _start = Date.now();
 runDriftSentinel(mode)
-  .then((report) => {
+  .then(async (report) => {
     const hasCritical = report.summary.critical > 0;
+    await emit("agent.completed.drift-sentinel", "drift-sentinel", {
+      critical: report.summary.critical, high: report.summary.high, mode,
+      duration_ms: Date.now() - _start,
+    }, hasCritical ? "warn" : "info").catch(() => {});
+    if (hasCritical) {
+      await emit("alert.drift-sentinel", "drift-sentinel", {
+        critical: report.summary.critical,
+      }, "critical").catch(() => {});
+    }
     process.exit(hasCritical ? 1 : 0);
   })
-  .catch((err) => {
+  .catch(async (err) => {
+    await emit("agent.completed.drift-sentinel", "drift-sentinel", {
+      error: err?.message, mode, duration_ms: Date.now() - _start,
+    }, "error").catch(() => {});
     console.error("Fatal error:", err);
     process.exit(2);
   });

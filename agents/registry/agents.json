@@ -120,15 +120,10 @@
       "triggers": ["manual"],
       "tools_allowed": [],
       "risk_level": "T0",
-      "status": "active",
+      "status": "dead",
+      "dead_reason": "prove-or-kill: registered but no implementation file exists (chatbot-compliance-checker.ts missing)",
       "migrated_from": "egos-native",
-      "owner": "enioxt",
-      "runtime_proof": "bun agents/agents/chatbot-compliance-checker.ts --target ../852",
-      "telemetry_source": "stdout",
-      "cost_source": "none",
-      "last_duration_ms": 500,
-      "loop_mechanism": "none",
-      "side_effects": []
+      "owner": "enioxt"
     },
     {
       "id": "dead-code-detector",
