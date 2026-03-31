@@ -40,7 +40,18 @@
       "Skill",
       "mcp__*"
     ],
-    "deny": [],
+    "deny": [
+      "Bash(rm -rf /:*)",
+      "Bash(rm -rf ~:*)",
+      "Bash(git push --force origin main:*)",
+      "Bash(git push --force origin master:*)",
+      "Bash(git push -f origin main:*)",
+      "Bash(git push -f origin master:*)",
+      "Bash(dd if=:*)",
+      "Bash(mkfs:*)",
+      "Bash(chmod -R 777:*)",
+      "Bash(eval:*)"
+    ],
     "defaultMode": "bypassPermissions"
   }
 }
