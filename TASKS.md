@@ -1,6 +1,34 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.14.0 | **Updated:** 2026-03-31 | **LAST SESSION:** 2026-03-31 — Gem Hunter v3.2 + Guard Brasil + Pre-Commit Intelligence
+> **Version:** 2.15.0 | **Updated:** 2026-03-31 | **LAST SESSION:** 2026-03-31 — Ecosystem Cleanup + /start v2.0
+
+---
+
+### Summary: Session 2026-03-31 (Ecosystem Cleanup + Critical Analysis)
+
+**Status:** 3 DUPLICATES KILLED | REGISTRY v2.1 | /START v2.0 | PROVE-OR-KILL ACTIVE
+
+**Completed:**
+- [x] Killed 3 duplicate agents from egos-lab (-3,660 lines): drift-sentinel, ssot-auditor, ssot-fixer
+- [x] Registry v2.1.0: fixed domain-explorer naming, social-media dead_reason, prompt as tool
+- [x] /start v2.0: mandatory integration validation (15+ checks before any work)
+- [x] Verified critical analysis from other session (6 claims correct, 4 claims wrong)
+
+**Prove-or-Kill Agents (deadline: 2026-04-30):**
+- [ ] EGOS-137: gtm-harvester — execute --exec with telemetry, decide keep/kill
+- [ ] EGOS-138: aiox-gem-hunter — execute --exec with telemetry, decide keep/kill
+- [ ] EGOS-139: framework-benchmarker — execute --exec with telemetry, decide keep/kill
+- [ ] EGOS-140: mastra-gem-hunter — execute --exec with telemetry, decide keep/kill
+- [ ] EGOS-141: autoresearch — execute --exec with telemetry, decide keep/kill
+- [ ] EGOS-142: ui-designer — execute --exec with telemetry, decide keep/kill
+- [ ] EGOS-143: living-laboratory — execute --exec with telemetry, decide keep/kill
+- [ ] EGOS-144: etl-orchestrator — execute --exec with telemetry, decide keep/kill
+
+**Ecosystem Roadmap (from verified analysis):**
+- [ ] EGOS-145: Semana 1 — fix naming chaos (egos kernel: snake_case IDs → kebab-case)
+- [ ] EGOS-146: Semana 2 — Alibaba Qwen integration in 5+ agents (usage 43%→60%)
+- [ ] EGOS-147: Semana 3 — Event bus MVP (Supabase Realtime for agent coordination)
+- [ ] EGOS-148: Semana 4 — MasterOrchestrator v0.1 (auto-scheduling, quota routing)
 
 ---
 
@@ -427,25 +455,7 @@
 - Phase 3: 10 hours (1 week for 2-person team)
 - **Total: 47 hours ≈ 6-7 weeks with 2 full-time contributors**
 
-**Staffing Recommendation:**
-- **Full-stack developer** (TypeScript + Python + DevOps): Owns end-to-end integration, database, auth, performance
-- **Python specialist** (geometry + ML): Owns 3D generation, 2D extraction, video generation
-- **Part-time AI expert** (1-2 sprints): Prompt engineering for vision + briefing robustness
-
-**Risk Mitigation:**
-| Risk | Impact | Mitigation |
-|------|--------|-----------|
-| Vision API quota exhaustion | HIGH | Implement request deduplication + caching early (Week 1) |
-| 3D model generation slow | MEDIUM | Profile Trimesh early (Week 2); consider simplification algorithm |
-| Video generation cost explosion | MEDIUM | Implement short-form default (30s); add user-controlled length setting |
-| Sketch quality highly variable | HIGH | Add feedback loop: user can refine sketch if geometry bad |
-
-**Immediate Actions This Week (2026-03-30):**
-- [x] Move OpenRouter API key to `.env` — **COMPLETE (2026-03-30)**
-- [x] Deploy ARCH to Hetzner VPS (Docker + Caddy) — **COMPLETE (2026-03-30)**
-- [ ] Add DNS A record for `arch.egos.ia.br` → 204.168.217.125 (**MANUAL**)
-- [ ] Initialize Supabase project and create migrations (3h)
-- [ ] Create GitHub project board + link ARCH-001 through ARCH-006 issues
+**ARCH PAUSED** — user decision. Pending: DNS A record, Supabase setup, real API keys on VPS.
 
 ---
 
@@ -461,9 +471,10 @@
 - [ ] EGOS-129: Docker network rename + redeploy Hetzner — **MANUAL M-005**
   - Dep: EGOS-128 completo
   - `ssh hetzner 'docker network rename infra_bracc infra_egos_inteligencia'`
-- [ ] EGOS-130: Wire Guard Brasil middleware em egos-inteligencia (Python)
-  - Dep: EGOS-128 + API DNS ativa (M-002)
-  - Criar `etl/src/egos_inteligencia_etl/guard.py` — wrapper HTTP para `POST guard.egos.ia.br/v1/inspect`
+- [x] EGOS-130: Wire Guard Brasil middleware em egos-inteligencia — **COMPLETE (2026-03-31)**
+  - `etl/src/bracc_etl/guard.py`: GuardBrasilClient + offline fallback + guard_dataframe()
+  - Pipeline.run() → _guard_check() entre transform() e load()
+  - Commit: `03f1981` em br-acc
 
 > **Archived sections moved to `docs/knowledge/TASKS_ARCHIVE_2026.md`:**
 > - Benchmark Alignment Plan (2026-03-26)
