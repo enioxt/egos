@@ -1,6 +1,39 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.13.0 | **Updated:** 2026-03-31 | **LAST SESSION:** 2026-03-31 — ARCH Generation Engine + Meta-Prompt Generator + Pipeline
+> **Version:** 2.14.0 | **Updated:** 2026-03-31 | **LAST SESSION:** 2026-03-31 — Gem Hunter v3.2 + Guard Brasil + Pre-Commit Intelligence
+
+---
+
+### Summary: Session 2026-03-31 (Gem Hunter + Guard Brasil + Pre-Commit Intelligence)
+
+**Status:** GEM HUNTER v3.2 (13 SOURCES) | GUARD BRASIL WIRED IN ETL | PRE-COMMIT INTELLIGENCE LAYER
+
+**Completed This Session:**
+- [x] Gem Hunter v3.2: +Reddit, +StackOverflow, +ProductHunt sources (13 total)
+- [x] Gem Hunter: SQLite historical tracking (history.db, --history flag)
+- [x] AgentShield deny list: 10 dangerous operations blocked in settings.json
+- [x] EGOS-130: Guard Brasil Python middleware in egos-inteligencia/ETL
+  - GuardBrasilClient: HTTP wrapper for guard.egos.ia.br/v1/inspect
+  - Offline fallback: 7 regex patterns (CPF, CNPJ, RG, MASP, REDS, email, telefone)
+  - Pipeline.run() → _guard_check() between transform() and load()
+  - guard_dataframe() for bulk PII scan on pandas DataFrames
+- [x] Pre-commit intelligence layer (scripts/file-intelligence.sh)
+  - File classification by type (report, doc, config, code, data, test)
+  - Report compliance: REPORT_SSOT mandatory sections, confidence markers, citations
+  - PII scan: unmasked CPF detection in docs, points to Guard Brasil
+  - Config hygiene: .env blocked, docker restart:always warned
+- [x] Rules discovery index (.guarani/RULES_INDEX.md)
+  - Single entry point for ALL rules with lookup table + enforcement matrix
+- [x] agents.json updated for gem-hunter v3.2
+
+**Pending (Next Session):**
+- [ ] EGOS-125: M-007 outreach emails (MANUAL — user testing first)
+- [ ] EGOS-128: br-acc rename Phase 2+3 (MANUAL M-003)
+- [ ] ARCH paused until user activates
+- [ ] Gem Hunter: Supabase persistence for trend analysis
+- [ ] Debate pattern for governance decisions
+- [ ] Multi-LLM quota orchestration (Claude + Codex + Gemini)
+- [ ] codex-plugin-cc investigation
 
 ---
 
