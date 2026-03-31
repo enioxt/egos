@@ -1186,3 +1186,73 @@ export async function GET() {
 - **Forja WhatsApp Setup:** `forja/docs/WHATSAPP_SETUP_GUIDE.md`
 - **Forja Harvest Patterns:** `forja/docs/knowledge/HARVEST.md` (Pattern #11, #12, #13, #14)
 
+---
+
+## Guard Brasil v0.2.0 PII Pattern Extension (2026-03-31)
+
+### What
+Added 3 new Brazilian PII patterns to `packages/guard-brasil/src/pii-patterns.ts`, bringing total to 15 patterns.
+
+### New patterns
+| ID | Label | Confidence | Key detail |
+|----|-------|------------|------------|
+| `sus` | Cartão SUS | medium | 15 digits, starts with 1-9, groups of 3+4+4+4 |
+| `titulo_eleitor` | Título de Eleitor | low | 12 digits (3 groups of 4) — high false-positive risk |
+| `nis_pis` | NIS/PIS | medium | 11 digits, starts with [12], format `xxx.xxxxx.xx-x` |
+
+### Insertion order matters
+`ALL_PII_PATTERNS` registry order = specificity priority. `SUS` and `NIS_PIS` inserted between `CNH` and `MASP` (after more-specific CNPJ/CPF/RG). `TITULO_ELEITOR` before CEP (low confidence).
+
+### Why `titulo_eleitor` is `low` confidence
+Regex `\b\d{4}\s?\d{4}\s?\d{4}\b` matches too many 12-digit sequences. Deploy only in contexts where voter registration data is expected.
+
+### Build + test cycle
+```bash
+cd packages/guard-brasil && bun run build && bun test src/guard.test.ts
+```
+
+---
+
+## VPS vs Local Governance Gap (2026-03-31)
+
+### Problem
+`.guarani/` symlinks in kernel point to `~/.egos/guarani/`. On VPS (`/opt/egos-lab`), broken — `/home/enio/` doesn't exist.
+
+### Fix
+```bash
+cd /opt/egos-lab && git checkout HEAD -- .guarani/
+```
+Replaces broken symlinks with actual committed files. VPS gets static copies (not live-sync). Acceptable for read-only governance.
+
+### event-bus.ts missing on VPS
+`egos-lab/packages/shared/src/event-bus.ts` is a symlink locally. On VPS, symlink target absent. Fix: `scp` the actual file.
+
+### VPS cron path fix
+All agents were pointing to `/home/enio/egos-lab` (dev path). VPS actual: `/opt/egos-lab`. Fix: edit crontab replacing all instances. Validate: `crontab -l | grep egos-lab`.
+
+---
+
+## MasterOrchestrator Telemetry Validation Pattern (2026-03-31)
+
+### Validation steps (before claiming "integrated")
+1. Trigger agent: `bun /opt/egos-lab/agents/agents/master-orchestrator.ts`
+2. Check Supabase `agent_events` table for new rows with matching `agent_id`
+3. Verify `event_type`, `timestamp`, `metadata` populated
+4. Only after step 3 claim "telemetry integrated"
+
+### 4 agents confirmed with telemetry (2026-03-31)
+`uptime-monitor`, `quota-guardian`, `drift-sentinel`, `etl-orchestrator`, `master-orchestrator` — all emit to `agent_events` via event-bus.
+
+---
+
+## npm publish Blocked = MANUAL_ACTIONS Item (2026-03-31)
+
+### Pattern
+When `npm publish` requires interactive auth (`npm adduser`) with no browser/stdin, don't attempt. Instead: add to `MANUAL_ACTIONS.md` + `TASKS.md` with MANUAL tag, continue other work.
+
+### npm publish workflow (when unblocked)
+```bash
+npm adduser    # interactive: username, password, OTP
+cd packages/guard-brasil && bun run build && npm publish --access public
+```
+
