@@ -1,8 +1,32 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 2.5.0 | **UPDATED:** 2026-03-30
+> **VERSION:** 2.6.0 | **UPDATED:** 2026-03-30
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
-> **Latest:** Governance sprint — SSOT Visit Protocol, Agent Claim Contract, 5 MCP tools, Circuit Breaker, 16 tasks closed
+> **Latest:** ARCH deploy + Multi-model router + Transparencia Radical propagation + API aggregator research
+
+## Multi-Model AI Router Pattern (2026-03-30)
+
+### Problem
+Products need access to multiple AI models (image, video, 3D) across providers at different cost tiers. Users want model choice + cost visibility.
+
+### Solution
+Router pattern with 3 layers:
+1. `ai-providers.ts` — Registry of providers + models with real pricing
+2. `cost-calculator.ts` — Singleton tracker recording every API call cost (USD + BRL)
+3. `ModelSelector.tsx` — UI component showing tiers (economy/standard/premium/ultra)
+
+### Key Decision: API vs Prompt Generator
+- **Via API** (fal.ai/Together): 1-click automatic generation, cost per use
+- **Via Prompt** (ChatGPT/Gemini): Zero API cost, user pastes in external tool
+- **Hybrid** (recommended): Dashboard shows both options with cost comparison
+
+### Top Aggregators (8 researched, 3 selected)
+1. fal.ai — 1000+ models, cheapest GPU ($0.99/hr A100), image+video+3D
+2. Together AI — $100 free credits, SDXL at $0.002/img, Imagen 4
+3. Replicate — Largest community catalog, Vercel AI SDK integration
+
+### Reusable Across EGOS
+Any product needing AI generation can reuse this pattern. Cost per complete project: $1.60 (economy) to $3.66 (premium).
 
 ## SSOT Visit Protocol Pattern (2026-03-30)
 
