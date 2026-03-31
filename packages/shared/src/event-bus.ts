@@ -3,9 +3,6 @@
  * Broadcasts events to Realtime channel AND persists to `agent_events` table.
  * @module event-bus
  */
-// @ts-ignore — @supabase/supabase-js available in egos-lab (symlinked), may not be in kernel directly
-import { createClient, type SupabaseClient, type RealtimeChannel } from '@supabase/supabase-js';
-
 export type Severity = 'info' | 'warn' | 'error' | 'critical';
 
 export interface AgentEvent {
@@ -22,9 +19,31 @@ interface Subscription { pattern: string; callback: EventCallback; once: boolean
 
 const CHANNEL_NAME = 'egos-events';
 const TABLE_NAME = 'agent_events';
-let supabase: SupabaseClient;
-let channel: RealtimeChannel;
+let supabase: any;
+let channel: any;
 const subscriptions: Subscription[] = [];
+let _supabaseAvailable: boolean | null = null;
+
+function loadSupabase(): boolean {
+  if (_supabaseAvailable !== null) return _supabaseAvailable;
+  try {
+    const mod = require('@supabase/supabase-js');
+    const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+    if (!url || !key) {
+      console.warn('[event-bus] SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY not set — running in local-only mode');
+      _supabaseAvailable = false;
+      return false;
+    }
+    supabase = mod.createClient(url, key);
+    _supabaseAvailable = true;
+    return true;
+  } catch {
+    console.warn('[event-bus] @supabase/supabase-js not installed — running in local-only mode');
+    _supabaseAvailable = false;
+    return false;
+  }
+}
 
 function matchPattern(pattern: string, type: string): boolean {
   if (pattern === '*') return true;
@@ -32,19 +51,15 @@ function matchPattern(pattern: string, type: string): boolean {
   return pattern === type;
 }
 
-function getClient(): SupabaseClient {
-  if (!supabase) {
-    const url = process.env.SUPABASE_URL;
-    const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-    if (!url || !key) throw new Error('Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY');
-    supabase = createClient(url, key);
-  }
+function getClient(): any | null {
+  if (!loadSupabase()) return null;
   return supabase;
 }
 
-function getChannel(): RealtimeChannel {
+function getChannel(): any | null {
+  if (!loadSupabase()) return null;
   if (!channel) {
-    channel = getClient().channel(CHANNEL_NAME);
+    channel = supabase.channel(CHANNEL_NAME);
     channel.on('broadcast', { event: 'event' }, ({ payload }: { payload: AgentEvent }) => {
       const toRemove: number[] = [];
       subscriptions.forEach((sub, i) => {
@@ -75,28 +90,42 @@ export async function emit(
     severity,
   };
 
-  await getChannel().send({ type: 'broadcast', event: 'event', payload: event });
+  // Broadcast via Supabase Realtime (if available)
+  const ch = getChannel();
+  if (ch) {
+    await ch.send({ type: 'broadcast', event: 'event', payload: event });
+  }
 
-  // Persist fire-and-forget
-  getClient()
-    .from(TABLE_NAME)
-    .insert({
-      id: event.id,
-      type: event.type,
-      source: event.source,
-      payload: event.payload,
-      severity: event.severity,
-      created_at: event.timestamp,
-    })
-    .then(({ error }: { error: { message: string } | null }) => {
-      if (error) console.error('[event-bus] insert failed:', error.message);
-    });
+  // Persist fire-and-forget (if Supabase available)
+  const client = getClient();
+  if (client) {
+    client
+      .from(TABLE_NAME)
+      .insert({
+        id: event.id,
+        type: event.type,
+        source: event.source,
+        payload: event.payload,
+        severity: event.severity,
+        created_at: event.timestamp,
+      })
+      .then(({ error }: { error: { message: string } | null }) => {
+        if (error) console.error('[event-bus] insert failed:', error.message);
+      });
+  }
+
+  // Always notify local subscribers
+  subscriptions.forEach((sub, i) => {
+    if (matchPattern(sub.pattern, event.type)) {
+      sub.callback(event);
+    }
+  });
 
   return event;
 }
 
 export function subscribe(pattern: string, callback: EventCallback): () => void {
-  getChannel();
+  getChannel(); // init Realtime listener if available
   const sub: Subscription = { pattern, callback, once: false };
   subscriptions.push(sub);
   return () => {
@@ -106,7 +135,7 @@ export function subscribe(pattern: string, callback: EventCallback): () => void 
 }
 
 export function subscribeOnce(type: string, callback: EventCallback): () => void {
-  getChannel();
+  getChannel(); // init Realtime listener if available
   const sub: Subscription = { pattern: type, callback, once: true };
   subscriptions.push(sub);
   return () => {
@@ -116,7 +145,10 @@ export function subscribeOnce(type: string, callback: EventCallback): () => void
 }
 
 export async function getRecentEvents(limit = 50, type?: string): Promise<AgentEvent[]> {
-  let query = getClient()
+  const client = getClient();
+  if (!client) return []; // No Supabase — return empty
+
+  let query = client
     .from(TABLE_NAME)
     .select('id, type, source, payload, severity, created_at')
     .order('created_at', { ascending: false })
@@ -139,7 +171,8 @@ export async function getRecentEvents(limit = 50, type?: string): Promise<AgentE
 export function cleanup(): void {
   subscriptions.length = 0;
   if (channel) {
-    getClient().removeChannel(channel);
+    const client = getClient();
+    if (client) client.removeChannel(channel);
     channel = undefined as any;
   }
 }

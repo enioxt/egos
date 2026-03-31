@@ -1,6 +1,6 @@
 # EGOS Capability Registry
 
-> **VERSION:** 1.7.0 | **UPDATED:** 2026-03-30
+> **VERSION:** 1.8.0 | **UPDATED:** 2026-03-31
 > **PURPOSE:** Master index of all capabilities across the EGOS ecosystem
 > **SSOT STATUS:** This file IS the canonical capability map
 > **LATEST:** Kernel governance sprint — Agent Claim Contract, MCP servers, Circuit Breaker, SSOT Visit Protocol v2
@@ -35,6 +35,7 @@ Each capability has:
 | Tool-Calling Chat (27 tools) | `br-acc/api/src/bracc/routers/chat.py` | A | br-acc | forja (adapted) | `chatbot`, `tools`, `python` |
 | Public Guard / LGPD Masking (Python) | `br-acc/api/src/bracc/services/public_guard.py` | A | br-acc | forja | `privacy`, `lgpd`, `masking` |
 | **Public Guard BR (TypeScript)** | `egos/packages/shared/src/public-guard.ts` | A | egos | carteira-livre, forja, egos-web | `privacy`, `lgpd`, `masking`, `guard-brasil` |
+| **Guard Brasil Python SDK** | `br-acc/etl/src/bracc_etl/guard.py` | B | br-acc | — | `privacy`, `lgpd`, `pii`, `python`, `etl`, `guard-brasil` |
 | **Evidence Chain** | `egos/packages/shared/src/evidence-chain.ts` | A | egos | 852, forja, br-acc | `evidence`, `traceability`, `audit`, `guard-brasil` |
 
 | **GuardBrasil Facade** | `egos/packages/guard-brasil/src/guard.ts` | A | egos | 852, forja, br-acc | `guard-brasil`, `facade`, `lgpd`, `sdk` |
@@ -112,6 +113,8 @@ Each capability has:
 | **Kernel Consolidation Plan** | `docs/KERNEL_CONSOLIDATION_PLAN.md` | A | egos | — | `governance`, `consolidation`, `migration` |
 | **SSOT Registry v2** | `docs/SSOT_REGISTRY.md` | A | egos | ALL | `governance`, `ssot`, `30-domains` |
 | **Injection Hardening Contract** | `.guarani/security/INJECTION_HARDENING.md` | B | egos | ALL | `security`, `injection`, `hardening` |
+| **File Intelligence** | `scripts/file-intelligence.sh` | B | egos | ALL | `governance`, `compliance`, `pre-commit`, `classification` |
+| **Rules Index** | `.guarani/RULES_INDEX.md` | A | egos | ALL | `governance`, `rules`, `discovery`, `ssot` |
 
 ---
 
@@ -126,6 +129,8 @@ Each capability has:
 | Worker Infrastructure | `egos-lab/agents/worker/` | B | egos-lab (Railway) | — | `agent`, `worker`, `infra` |
 | **Circuit Breaker** | `egos/packages/shared/src/circuit-breaker.ts` | A | egos | ALL | `resilience`, `circuit-breaker`, `shared` |
 | **Mycelium Redis Bridge** | `egos/packages/shared/src/mycelium/redis-bridge.ts` | B | egos (scaffold) | egos-lab | `mycelium`, `redis`, `pubsub`, `bridge` |
+| **Event Bus (Supabase Realtime)** | `egos/packages/shared/src/event-bus.ts` | B | egos | egos-lab, 852 | `agent`, `events`, `supabase`, `coordination` |
+| **MasterOrchestrator** | `egos-lab/agents/agents/master-orchestrator.ts` | B | egos-lab | egos | `agent`, `orchestrator`, `scheduling`, `quota` |
 
 ## 5b. MCP SERVERS
 

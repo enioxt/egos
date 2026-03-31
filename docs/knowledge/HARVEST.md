@@ -1,8 +1,8 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 2.7.0 | **UPDATED:** 2026-03-31
+> **VERSION:** 2.8.0 | **UPDATED:** 2026-03-31
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
-> **Latest:** ARCH Meta-Prompt Generator + Generation Engine + fal.ai Queue Pattern + Pipeline Deliverables
+> **Latest:** Event Bus, Guard Offline Fallback, File Intelligence, Prove-or-Kill, MasterOrchestrator, Cross-Session Verification
 
 ## Meta-Prompt Generator Pattern (2026-03-31)
 
@@ -583,6 +583,50 @@ USER MESSAGE arrives
 
 - Shared workflows such as `/start`, `/end`, and `/disseminate` should live in the kernel and propagate through `~/.egos/workflows`.
 - Leaf repos should either use a symlink/exact inherited copy or a thin local wrapper only when repo-specific precedence is truly required.
+
+---
+
+## Event Bus for Agent Coordination (2026-03-31)
+
+- Supabase Realtime channel `egos-events` + `agent_events` table for persistence
+- `emit/subscribe/subscribeOnce` with glob pattern matching (`agent.*`, `alert.*`)
+- Fire-and-forget persistence: don't block the emit on DB write — emit returns immediately, DB insert is async
+- File: `packages/shared/src/event-bus.ts`
+
+## Guard Brasil Offline Fallback (2026-03-31)
+
+- Python middleware calls `guard.egos.ia.br/v1/inspect` with 5s timeout
+- Falls back to 7 regex patterns (CPF, CNPJ, RG, MASP, REDS, email, telefone) when API is unreachable
+- ETL pipeline wires guard between `transform()` and `load()` via `_guard_check()`
+- File: `br-acc/etl/src/bracc_etl/guard.py`
+
+## Pre-Commit File Intelligence (2026-03-31)
+
+- Classifies all staged files by type (report, doc, config, code, data, test)
+- Checks reports against REPORT_SSOT (mandatory sections, confidence markers, citations)
+- PII scan in markdown files, `.env` blocking, file size enforcement
+- File: `scripts/file-intelligence.sh`
+
+## Prove-or-Kill Agent Lifecycle (2026-03-31)
+
+- Set 30-day deadline, run `--dry` then `--exec`, collect telemetry
+- 4 agents killed (never existed as files), 2 kept (working), 2 fixed (timeout/dry issues)
+- Lesson: always verify file existence before planning work on agents
+
+## MasterOrchestrator Scheduling (2026-03-31)
+
+- Reads `agents.json`, builds schedule from trigger configs (`every_5min`, `daily`, `manual`)
+- Detects overdue agents via event history queries
+- Quota routing: checks env vars for DashScope/OpenRouter/Groq/HuggingFace
+- File: `egos-lab/agents/agents/master-orchestrator.ts`
+
+## [Gotcha] Other-AI-Session Claims Must Be Verified (2026-03-31)
+
+- Critical analysis from another Claude session had 4 wrong claims out of 10
+- ".guarani are copies" was WRONG (they're symlinks)
+- "20% use LLM" was WRONG (43.6%)
+- "domain-explorer missing" was WRONG (naming mismatch only)
+- **Rule:** always verify with `diff`/`ls`/`grep` before acting on cross-session claims
 - Exact-match local copies are drift magnets and should be re-linked to the shared source instead of being maintained by hand.
 - Repo-local overrides are legitimate only when they protect local truth or sensitivity constraints, such as mapped-only or sigiloso workspaces.
 
