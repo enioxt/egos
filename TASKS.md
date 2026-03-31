@@ -1,14 +1,24 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.15.0 | **Updated:** 2026-03-31 | **LAST SESSION:** 2026-03-31 — Ecosystem Cleanup + /start v2.0
+> **Version:** 2.16.0 | **Updated:** 2026-03-31 | **LAST SESSION:** 2026-03-31 — Full Stack Sprint (Roadmap + Guard Web + CLAUDE.md + Supabase)
 
 ---
 
-### Summary: Session 2026-03-31 (Ecosystem Cleanup + Critical Analysis)
+### Summary: Session 2026-03-31 (Full Stack Sprint — Roadmap Complete)
 
-**Status:** 3 DUPLICATES KILLED | REGISTRY v2.1 | /START v2.0 | PROVE-OR-KILL ACTIVE
+**Status:** ROADMAP 4/4 COMPLETE | GUARD WEB LIVE | CLAUDE.MD GLOBAL | SUPABASE MIGRATION
 
-**Completed:**
+**Completed (this continuation):**
+- [x] EGOS-145: Naming chaos fixed (15 snake_case → kebab-case in kernel registry)
+- [x] EGOS-146: Qwen integration (intelink ai-router respects EGOS_ORCHESTRATOR_MODEL, auto-switches DashScope)
+- [x] EGOS-147: Event bus MVP (packages/shared/src/event-bus.ts — Supabase Realtime + local fallback)
+- [x] EGOS-148: MasterOrchestrator v0.1 (reads agents.json, schedule, quota routing, health check)
+- [x] EGOS-149: agent_events Supabase migration applied (table + indexes + RLS + Realtime)
+- [x] Guard Brasil web: Caddy split routing — guard.egos.ia.br serves Vercel frontend + API backend
+- [x] Employee-grade ~/.claude/CLAUDE.md: verification gates, context management, edit safety, sub-agent swarm
+- [x] /disseminate: HARVEST.md v2.8, CAPABILITY_REGISTRY v1.8
+
+**Completed (earlier this session):**
 - [x] Killed 3 duplicate agents from egos-lab (-3,660 lines): drift-sentinel, ssot-auditor, ssot-fixer
 - [x] Registry v2.1.0: fixed domain-explorer naming, social-media dead_reason, prompt as tool
 - [x] /start v2.0: mandatory integration validation (15+ checks before any work)
@@ -23,12 +33,6 @@
 - [ ] EGOS-142: ui-designer — execute --exec with telemetry, decide keep/kill
 - [ ] EGOS-143: living-laboratory — execute --exec with telemetry, decide keep/kill
 - [ ] EGOS-144: etl-orchestrator — execute --exec with telemetry, decide keep/kill
-
-**Ecosystem Roadmap (from verified analysis):**
-- [ ] EGOS-145: Semana 1 — fix naming chaos (egos kernel: snake_case IDs → kebab-case)
-- [ ] EGOS-146: Semana 2 — Alibaba Qwen integration in 5+ agents (usage 43%→60%)
-- [ ] EGOS-147: Semana 3 — Event bus MVP (Supabase Realtime for agent coordination)
-- [ ] EGOS-148: Semana 4 — MasterOrchestrator v0.1 (auto-scheduling, quota routing)
 
 ---
 
