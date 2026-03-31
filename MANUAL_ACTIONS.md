@@ -13,16 +13,24 @@
 
 ## 🔴 URGENTE — Bloqueia Receita
 
-### ~~[M-001] npm login + npm publish @egosbr/guard-brasil~~ ✅ FEITO
+### [M-001] npm login + npm publish @egosbr/guard-brasil
 - **Impacto:** npm package publicado → `npm install @egosbr/guard-brasil` funciona
-- **Status:** Publicado em 2026-03-30 10:45 UTC
-- **Validação:** `npm info @egosbr/guard-brasil` retorna versão 0.1.0 ✓
-- **Próximo:** M-002 (DNS A record)
+- **Status:** ⚠️ AGUARDANDO LOGIN MANUAL
+- **Package:** 100% pronto (tests 15/15, build OK, dist/ gerado)
+- **Comandos:**
+  ```bash
+  cd /home/enio/egos/packages/guard-brasil
+  npm login
+  npm publish --access public
+  ```
+- **Validação:** `npm info @egosbr/guard-brasil` retorna versão 0.1.0
+- **Tempo:** 3 minutos
 
-### ~~[M-002] DNS: criar registro A para guard.egos.ia.br~~ ✅ FEITO
-- **Status:** Criado e validado em 2026-03-30 13:57 UTC
-- **Validação:** `curl https://guard.egos.ia.br/health` → `{"status":"healthy"}` ✓
-- **Próximo:** M-007 (outreach emails)
+### ~~[M-002] DNS: criar registro A para guard.egos.ia.br~~ ✅ FEITO (2026-03-31)
+- **Status:** DNS resolvido + API funcional
+- **Fix:** Container conectado à rede Caddy (infra_bracc), 502 → 200 ✅
+- **Validação:** `curl https://guard.egos.ia.br/health` → `{"service":"egos-guard-brasil-api","status":"healthy"}` ✓
+- **Próximo:** M-001 (npm publish) + M-007 (outreach emails)
 
 ---
 
