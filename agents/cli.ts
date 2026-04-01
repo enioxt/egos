@@ -51,10 +51,32 @@ switch (command) {
     const entrypoint = resolve(repoRoot, agent.entrypoint);
     console.log(`\n🚀 Delegating to: bun ${entrypoint} ${forwardedArgs.join(' ')}\n`);
     const { spawnSync } = await import('child_process');
+    const startedAt = Date.now();
     const result = spawnSync('bun', [entrypoint, ...forwardedArgs], {
       cwd: process.cwd(),
       stdio: 'inherit',
     });
+    const durationMs = Date.now() - startedAt;
+    const mode = forwardedArgs.includes('--exec') ? 'execute' : 'dry_run';
+
+    try {
+      const { createTelemetryRecorder } = await import('../packages/shared/src/telemetry');
+      const telemetry = createTelemetryRecorder({
+        logPrefix: 'agents-cli',
+        tableName: process.env.TELEMETRY_TABLE || 'agent_runtime_events',
+      });
+      await telemetry.recordAgentSession({
+        sessionId: `${agentId}-${startedAt}`,
+        agentId,
+        mode,
+        durationMs,
+        success: (result.status ?? 1) === 0,
+      });
+    } catch (error) {
+      // Telemetry should never block agent execution.
+      console.warn('[agents-cli] telemetry skipped:', (error as Error).message);
+    }
+
     process.exit(result.status ?? 1);
   }
 

@@ -231,6 +231,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
   - Store: `agent_sessions` (Supabase)
   - Output: custo por agente/dia + p95 duração
   - [x] EGOS-TELEM-001A: `@egos/shared` scaffold — `recordAgentSession()` + stats `byAgent` + tests iniciais ✅ 2026-04-01
+  - [x] EGOS-TELEM-001B: `agents/cli.ts` integrado para emitir `recordAgentSession()` ao final de `run` ✅ 2026-04-01
 
 - [ ] EGOS-TELEM-002: Tool call attribution + cost tracking — 2d
   - Track: `tool_name`, `duration_ms`, `agent_id`, `task_id`, `tokens`, `cost_usd`
