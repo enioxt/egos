@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.19.0 | **Updated:** 2026-04-01 | **LAST SESSION:** 2026-04-01 — Neural Mesh composed, npm published, 3 CCR jobs, Eagle Eye planned
+> **Version:** 2.20.0 | **Updated:** 2026-04-01 | **LAST SESSION:** 2026-04-01 — Neural Mesh, npm, CCR jobs, Eagle Eye, br-acc mining, registry audit
 
 ---
 
@@ -68,11 +68,15 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] React frontend (Dashboard, Reports, Analytics) — renders with mock data
 - [x] Detection patterns: 26 across 3 tiers (licitações, LGPD, INPI, fiscal, etc.)
 
-**P0 — MVP (blocks demo):**
+**P0 — Standalone extraction (egos-lab being deactivated):**
+- [ ] EAGLE-000: Extract Eagle Eye from egos-lab → standalone repo or egos/apps/eagle-eye
+  - Copy RateLimiter, chatWithLLM, AIAnalysisResult from @egos-lab/shared (~200 LOC)
+  - Update imports to local copies
+  - Remove @egos-lab/shared dependency from package.json
 - [ ] EAGLE-001: Implement 4 API endpoints in server.ts (GET /api/opportunities, territories, scans, POST /api/scan/trigger)
-- [ ] EAGLE-002: Wire frontend → API (replace mock data with fetch() calls in Dashboard.tsx, Reports.tsx, Analytics.tsx)
-- [ ] EAGLE-003: Deploy to VPS — Dockerfile build, docker-compose, Caddy route for eagleeye.egos.ia.br
-- [ ] EAGLE-004: Run first real scan and verify data flows end-to-end
+- [ ] EAGLE-002: Wire frontend → API (replace mock data with fetch() calls)
+- [ ] EAGLE-003: Deploy to VPS — Dockerfile, docker-compose, Caddy route for eagleeye.egos.ia.br
+- [ ] EAGLE-004: Run first real scan end-to-end
 
 **P1 — Production:**
 - [ ] EAGLE-005: Email/Telegram alert service (SendGrid + Telegram Bot API)
@@ -87,10 +91,35 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 
 ---
 
-### Other Active
+### br-acc (EGOS Inteligência) — Valuable Code Mining (2026-04-01)
 
-**br-acc rename:**
-- [ ] EGOS-128: Phase 2+3 (Python imports + Docker) — `bash rename-to-egos-inteligencia.sh --execute`
+**6 reusable modules identified (~3000 LOC total):**
+- `provenance.py` (63 LOC) — **Proof-of-research hash system**: SHA-256 non-repudiation for data rows + source fingerprinting. Score: 9/10.
+- `guard.py` (293 LOC) — Guard Brasil client + offline PII fallback. Score: 8/10.
+- `base.py` (177 LOC) — Universal ETL pipeline base class + IngestionRun tracking. Score: 9/10.
+- `cache.py` (122 LOC) — Redis cache-aside with graceful degradation. Score: 9/10.
+- `neo4j_service.py` (90 LOC) + 47 .cypher files — Neo4j query abstraction. Score: 8/10.
+- `transparency_tools.py` (1372 LOC) — 21 Brazilian gov API clients with circuit breaker. Score: 7/10.
+
+**Tasks:**
+- [ ] BRACC-001: Extract provenance.py → packages/shared/src/provenance.ts (reusable across ecosystem)
+- [ ] BRACC-002: Extract cache.py pattern → packages/shared/src/cache.ts
+- [ ] BRACC-003: Extract ETL base class → packages/shared/src/pipeline-base.ts
+- [ ] EGOS-128: Phase 2+3 (Python imports + Docker rename)
 - [ ] EGOS-129: Docker network rename + redeploy Hetzner
 
-> **Archived:** All session summaries, ARCH project, benchmark plans, Grok intake, P0-P2 historical completion → `docs/knowledge/TASKS_ARCHIVE_2026.md`
+---
+
+### Governance Registry Health (2026-04-01)
+
+**Triple registry system found (working at ~60%):**
+- `docs/CAPABILITY_REGISTRY.md` v1.8.0 — 130+ capabilities, 12 domains. **Working.**
+- `docs/SSOT_REGISTRY.md` v2.0.0 — 30+ domain SSOTs. **Working.**
+- `docs/ECOSYSTEM_CLASSIFICATION_REGISTRY.md` v2.0.0 — repo governance classes. **NOT synced to leaves.**
+
+**Tasks:**
+- [ ] GOV-001: Add ECOSYSTEM_CLASSIFICATION_REGISTRY.md to governance-sync.sh CANONICAL_DOCS
+- [ ] GOV-002: Verify leaf repo registry copies are fresh (carteira-livre has 90 lines, should be 325+)
+- [ ] GOV-003: Create daily governance-sync cron on VPS (0 9 * * *)
+
+> **Archived:** All session summaries, ARCH project, benchmark plans, Grok intake → `docs/knowledge/TASKS_ARCHIVE_2026.md`
