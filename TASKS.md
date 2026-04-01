@@ -37,6 +37,7 @@
 - [x] CLAUDE.md v2.1 — codebase-memory-mcp rules + scheduled jobs reference
 
 **Remaining:**
+- [x] GH-040: SSOT consistency gate (validate-ssot.ts) ✅ 2026-04-01. Validates drift between agents.json, TASKS.md, HARVEST.md, CAPABILITY_REGISTRY. Integrated into CI (.github/workflows/ci.yml) and available as `npm run ssot:check`. Aligns with Codex QA report (PR #16) P0 recommendations.
 - [ ] EGOS-168: llmrefs blocks on 10 more governance docs (manual, 1h)
 - [ ] EGOS-169: @aiready/pattern-detect pre-commit (duplicate detection)
 - [ ] EGOS-173: CRCDM hooks: llmrefs staleness + auto-heal rename

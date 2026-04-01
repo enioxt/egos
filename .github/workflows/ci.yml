@@ -26,7 +26,10 @@ jobs:
       - name: Agent registry lint
         run: bun run agent:lint
 
-      - name: SSOT drift check
+      - name: SSOT consistency validation (GH-040)
+        run: bun run ssot:check
+
+      - name: SSOT drift check (legacy)
         run: |
           check_lines() {
             file="$1"; max="$2"
