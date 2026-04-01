@@ -145,4 +145,7 @@ if [ -n "$STAGED_MD" ]; then
   echo "  [7/7] vocab guard: no phantom architecture terms in staged docs"
 fi
 
+# 8. Legacy Code Detector — warns on debug logs, TODOs, dead code
+bash scripts/check-legacy-code.sh 2>/dev/null || true  # non-blocking
+
 echo "✅ EGOS Pre-Commit: Commit approved."

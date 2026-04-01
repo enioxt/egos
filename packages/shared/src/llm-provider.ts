@@ -37,6 +37,7 @@ const MODEL_CHAIN: ModelEntry[] = [
   { provider: 'alibaba',    model: 'qwen-plus',                        tier: 'default' },
   { provider: 'alibaba',    model: 'qwen3.5-plus',                     tier: 'default' },
   { provider: 'openrouter', model: 'google/gemini-2.0-flash-001',      tier: 'default' },
+  { provider: 'openrouter', model: 'nousresearch/hermes-3-llama-3.1-70b', tier: 'default' }, // structured output + BRAID executor (NousResearch)
 
   // Deep tier — 600 RPM, 1M TPM (reasoning/planning)
   { provider: 'alibaba',    model: 'qwen3-max',                        tier: 'deep' },

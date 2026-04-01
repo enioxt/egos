@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.26.0 | **Updated:** 2026-04-01 | **LAST SESSION:** 2026-04-01 P5/P6 — BRAID analysis, claude.ai projects setup, /diag confirmed, X.com strategy
+> **Version:** 2.27.0 | **Updated:** 2026-04-01 | **LAST SESSION:** 2026-04-01 P6/P7 — X reply bot VPS, Hermes-3, rapid-response, legacy code detector, BRAID GH-037
 
 ---
 
@@ -279,3 +279,33 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 | disler/claude-code-hooks-multi-agent-observability | observability_evals | Ref |
 | rohitg00/awesome-claude-code-toolkit | protocol_tooling | Ref |
 | nblintao/awesome-claude-code-postleak-insights | protocol_tooling | Ref |
+
+---
+
+### X.com Presence & Rapid Response (2026-04-01)
+
+**Context:** Speed-to-thread matters. When a trending topic matches our capabilities, we must respond in hours, not days.
+
+**Done:**
+- [x] X-001: `scripts/x-reply-bot.ts` — 40 replies/day budget, 8 topic monitors, OAuth 1.0a, hourly cron VPS ✅ 2026-04-01
+- [x] X-002: `scripts/rapid-response.ts` — 4 capability profiles, X thread generator, showcase README ✅ 2026-04-01
+- [x] X-003: VPS cron deployed `0 * * * *` using `/opt/egos-lab/.env` keys ✅ 2026-04-01
+- [x] X-004: Hermes-3 (nousresearch/hermes-3-llama-3.1-70b) added to llm-provider default tier ✅ 2026-04-01
+- [x] X-005: `scripts/check-legacy-code.sh` + wired in pre-commit (check 8, non-blocking) ✅ 2026-04-01
+
+**P1 — Expand:**
+- [ ] X-006: Grow capability profiles in rapid-response.ts (add br-acc, 852, BRAID executor)
+- [ ] X-007: `--post-thread` flag in rapid-response.ts — auto-post first tweet of thread
+- [ ] X-008: Daily X report to Telegram (how many replies sent, top threads engaged)
+- [ ] X-009: Trending topic scanner — check X API hourly for rising keywords vs our capabilities
+- [ ] X-010: "Clean showcase" branch auto-creator — when topic detected, create `showcase/<topic>` with only clean files
+
+**P2 — Upgrade:**
+- [ ] X-011: Upgrade to Basic tier ($100/mo) when bot proves value — 3,000 writes/month vs 1,500
+- [ ] X-012: Build thread scheduler — post multi-tweet threads with 2-min gaps
+- [ ] X-013: Analytics dashboard — track which replies got most engagement
+
+**X API Rate Limits (Free tier):**
+- Write: 50/day hard limit → bot uses 40 (10 buffer)
+- Search: 10 req/15min → 1 search per topic per run
+- Run schedule: hourly, max 3 replies per run
