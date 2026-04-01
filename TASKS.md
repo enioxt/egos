@@ -69,13 +69,10 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] Detection patterns: 26 across 3 tiers (licitações, LGPD, INPI, fiscal, etc.)
 
 **P0 — Standalone extraction (egos-lab being deactivated):**
-- [ ] EAGLE-000: Extract Eagle Eye from egos-lab → standalone repo or egos/apps/eagle-eye
-  - Copy RateLimiter, chatWithLLM, AIAnalysisResult from @egos-lab/shared (~200 LOC)
-  - Update imports to local copies
-  - Remove @egos-lab/shared dependency from package.json
-- [ ] EAGLE-001: Implement 4 API endpoints in server.ts (GET /api/opportunities, territories, scans, POST /api/scan/trigger)
-- [ ] EAGLE-002: Wire frontend → API (replace mock data with fetch() calls)
-- [ ] EAGLE-003: Deploy to VPS — Dockerfile, docker-compose, Caddy route for eagleeye.egos.ia.br
+- [x] EAGLE-000: @egos-lab/shared removed, lib/shared.ts inlined, 5 imports updated ✅ 2026-04-01
+- [x] EAGLE-001: 4 API endpoints confirmed in ui/server.ts (opportunities/territories/scans/scan-now) ✅ 2026-04-01
+- [x] EAGLE-002: Frontend already uses fetch() to all 4 endpoints ✅ 2026-04-01
+- [x] EAGLE-003: Dockerfile.standalone, docker-compose.prod.yml, Caddy route eagleeye.egos.ia.br ✅ 2026-04-01
 - [ ] EAGLE-004: Run first real scan end-to-end
 
 **P1 — Production:**
