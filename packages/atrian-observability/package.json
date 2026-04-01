@@ -1,0 +1,21 @@
+{
+  "name": "@egos/atrian-observability",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "description": "ATRiAN Observability — OTel-compatible telemetry for EGOS agents. Collects behavior metadata, not payload.",
+  "dependencies": {
+    "zod": "3.22.4"
+  }
+}

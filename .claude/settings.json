@@ -58,7 +58,8 @@
       "/home/enio/egos/.claude",
       "/home/enio/egos/.claude/commands",
       "/home/enio/.claude/hooks",
-      "/home/enio/.claude"
+      "/home/enio/.claude",
+      "/home/enio/egos-lab/apps/eagle-eye/src"
     ]
   }
 }

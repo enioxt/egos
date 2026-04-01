@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.22.0 | **Updated:** 2026-04-01 | **LAST SESSION:** 2026-04-01 — Vocab guard in pre-commit, Gem Hunter CCR extended with pair analysis, BRACC-001..003 extracted to shared, GOV-001..003 complete, LEAK-001 hook wired
+> **Version:** 2.23.0 | **Updated:** 2026-04-01 | **LAST SESSION:** 2026-04-01 P3 — eagleeye+commons live, LEAK-002/004/009 done, OBS-001..004 skeleton, EGOS-162 benchmark (85.3% F1)
 
 ---
 
@@ -17,7 +17,7 @@
 - [x] EGOS-160: Reversible redaction — tokenize()/restore() in packages/guard-brasil/src/lib/tokenizer.ts ✅ 2026-04-01
 
 **P1 — Competitive:**
-- [ ] EGOS-162: Accuracy benchmark vs Presidio/anonym.legal
+- [x] EGOS-162: Accuracy benchmark vs Presidio/anonym.legal — 85.3% F1, benchmark.ts in guard-brasil/src ✅ 2026-04-01
 - [ ] EGOS-163: Pix billing integration
 - [ ] EGOS-164: Dashboard — real data from guard_brasil_events
 
@@ -179,16 +179,16 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 
 **P1 — Claude Code Hardening:**
 - [x] LEAK-001: Frustration-detection hook wired (UserPromptSubmit → ~/.claude/hooks/frustration-detector) ✅ 2026-04-01
-- [ ] LEAK-002: autoDream-inspired memory consolidation — scheduled CCR job to prune/consolidate MEMORY.md (24h trigger)
+- [x] LEAK-002: Memory consolidation — embedded as Part 2 in Governance Drift CCR (daily 3:17 BRT) ✅ 2026-04-01
 - [ ] LEAK-003: Coordinator Mode skill — `/coordinator` to launch multi-agent orchestration (Research→Synthesis→Implementation→Verification)
-- [ ] LEAK-004: Expand hook coverage — add PostToolUse hooks for format/lint after Write/Edit
+- [x] LEAK-004: PostToolUse hook — post-write-typecheck fires after Write/Edit on .ts/.tsx ✅ 2026-04-01
 - [ ] LEAK-005: Anti-compaction guard — re-read critical files after 10+ turns (hook or skill reminder)
 
 **P1 — Architecture Insights (from zainhas blog analysis):**
 - [x] LEAK-006: Tool result budgeting — note added to /end Phase 1 ✅ 2026-04-01
 - [x] LEAK-007: Structured session memory — fixed sections + 2K cap added to /end Phase 7 ✅ 2026-04-01
 - [ ] LEAK-008: Read-parallel/Write-sequential — enforce in EGOS sub-agent swarm patterns
-- [ ] LEAK-009: Audit settings.json deny rules — add wildcard patterns for sensitive files (*.env, credentials.*)
+- [x] LEAK-009: settings.json deny rules — 13 wildcard patterns for .env/credentials/keys ✅ 2026-04-01
 
 **P2 — Awareness (no action needed yet):**
 - [ ] LEAK-010: Monitor `Piebald-AI/claude-code-system-prompts` for per-release prompt changes
@@ -203,10 +203,10 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 **Principle:** Collect metadata, not payload. Telemetry mínima de conteúdo, máxima de comportamento.
 
 **P1 — Foundation:**
-- [ ] OBS-001: Create `packages/atrian-observability/` module skeleton (instrumentation/, collector/, analytics/, policies/)
-- [ ] OBS-002: Define telemetry policy: what can/cannot be logged, retention, opt-out
-- [ ] OBS-003: Define 12 trace spans (session.start → session.close) with OTel-compatible format
-- [ ] OBS-004: Define 10 core metrics (latency, tokens, failure rate, override rate, stuck loops)
+- [x] OBS-001: `packages/atrian-observability/` skeleton — SpanCollector, 4 subdirs ✅ 2026-04-01
+- [x] OBS-002: Telemetry policy — allowedFields, blockedPatterns, retention, opt-out (ATRIAN_TELEMETRY=off) ✅ 2026-04-01
+- [x] OBS-003: 12 trace spans (session.start → hook.result) OTel-compatible ✅ 2026-04-01
+- [x] OBS-004: 10 core metrics with alert thresholds (latency p95, tokens, override rate, stuck loops) ✅ 2026-04-01
 
 **P2 — Integration:**
 - [ ] OBS-010: Wire hooks → OTel spans (PreToolUse/PostToolUse emit span events)
