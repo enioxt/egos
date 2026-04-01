@@ -248,6 +248,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [ ] EGOS-TELEM-004: Real-time cost dashboard — 1d
   - View: custo por agente/ferramenta/sessão
   - Refresh: 30s (modo operacional)
+  - [x] EGOS-TELEM-004A: dashboard operacional inicial via logs (`scripts/qa/telemetry_dashboard.py`) ✅ 2026-04-01
 
 - [ ] EGOS-TELEM-005: Historical cost analysis + forecasting — 3d
   - Analyze: tendência 7/30 dias

@@ -43,3 +43,9 @@ python -m unittest discover -s tests/qa -p 'test_*.py'
 ```bash
 bun test packages/shared/src/__tests__/telemetry.test.ts
 ```
+
+## Dashboard de telemetria por logs
+
+```bash
+python scripts/qa/telemetry_dashboard.py --input /tmp/agents-telemetry.log --output docs/qa/_generated/telemetry_dashboard.md
+```
