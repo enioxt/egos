@@ -41,6 +41,14 @@
 - [x] EGOS-168: llmrefs blocks added to 10 governance docs ✅ 2026-04-01. AI navigation blocks added to: CAPABILITY_REGISTRY, ECOSYSTEM_CLASSIFICATION_REGISTRY, ENVIRONMENT_REGISTRY, AI_COVERAGE_MAP, ACTIVATION_FLOW, ACTIVATION_GUIDE, BLUEPRINT_TASKS_MATRIX, DOCTOR_COMMAND_SPEC, SSOT_REGISTRY, MIGRATION_PLAN. Each includes role, summary, read-next pointers.
 - [x] GH-041: API smoke tests (5 contracts) ✅ 2026-04-01. Validates POST /v1/inspect schema, PII detection, Atrian response, rate limiting. Integrated into CI after ssot:check. Available as `npm run smoke:api`.
 - [x] GH-042: Version lock checker ✅ 2026-04-01. Validates version sync across package.json (root), apps/guard-brasil-web, apps/api/src/server.ts, packages/guard-brasil. Detects drift and recommends highest semver. Integrated into CI. Available as `npm run version:lock`.
+
+**Telemetry & Observability (P1 — Critical Gap):**
+- [x] EGOS-TELEM-001: Guard Brasil API telemetry (recordApiCall) — ✅ 2026-04-01. Integrated: telemetry.ts + recordApiCall() exported, API server calls recordApiCall() post-inspect, guard_brasil_events table schema ready (20 columns). Fire-and-forget pattern (non-fatal if Supabase down). Dashboard ready to display events. Pending: API deployment + test calls to populate table.
+- [ ] EGOS-TELEM-002: Tool call attribution + cost tracking — 2d. Every tool call → tool_name, duration, tokens, cost. Attribute to which agent. Analysis: cost/tool ranking.
+- [ ] EGOS-TELEM-003: Gargalo detection (latency heatmap) — 2d. Identify slowest operations (Supabase, I/O, LLM). Alert if > 5s.
+- [ ] EGOS-TELEM-004: Real-time cost dashboard — 1d. Display: cost breakdown (API calls, tokens, tool calls) per-agent/per-tool. Update every 30s.
+- [ ] EGOS-TELEM-005: Historical cost analysis + forecasting — 3d. 100-commit analysis, monthly burn forecast, alerts if > budget.
+
 - [ ] EGOS-169: @aiready/pattern-detect pre-commit (duplicate detection)
 - [ ] EGOS-173: CRCDM hooks: llmrefs staleness + auto-heal rename
 - [x] EGOS-175: llmrefs blocks added to 5 leaf AGENTS.md (forja, carteira-livre, smartbuscas, br-acc, santiago) ✅ 2026-04-01
