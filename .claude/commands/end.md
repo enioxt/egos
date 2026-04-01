@@ -26,6 +26,11 @@ Create `docs/_current_handoffs/handoff_YYYY-MM-DD.md` with:
 - Mark in-progress `[/]`
 - Add newly discovered tasks
 
+```bash
+bun /home/enio/egos/scripts/task-reconciliation.ts --summary 2>/dev/null
+# If drift > 0: run --fix to auto-mark committed tasks as done
+```
+
 ## Phase 4: Documentation Check (BLOCKING)
 Cannot finalize if:
 - Code changed in `src/` AND `SYSTEM_MAP.md` not updated

@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.27.0 | **Updated:** 2026-04-01 | **LAST SESSION:** 2026-04-01 P6/P7 — X reply bot VPS, Hermes-3, rapid-response, legacy code detector, BRAID GH-037
+> **Version:** 2.28.0 | **Updated:** 2026-04-01 | **LAST SESSION:** 2026-04-01 P8 — task reconciliation, Commons/Santiago section, GH-039 done, EGOS-170 added
 
 ---
 
@@ -90,6 +90,21 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [ ] EAGLE-009: Stripe/Pix payment for Pro tier (R$497/mo, 50+ territories)
 - [ ] EAGLE-010: Customer onboarding flow + dashboard customization
 - [ ] EAGLE-011: E2E tests (Playwright)
+- [ ] EGOS-170: Guard Brasil Next.js web dashboard — Vercel deploy, real data from guard_brasil_events, usage charts
+
+---
+
+### Commons & Santiago — Shared Infrastructure (2026-04-01)
+
+**Commons** (`/home/enio/commons`): Shared Docker + services layer deployed on Hetzner (commit 3dec9e0)
+**Santiago** (`/home/enio/santiago`): WhatsApp SaaS (Vercel + Hetzner). Waiting on business partner.
+
+**Done:**
+- [x] COMM-001: commons Dockerfile + docker-compose for shared services deployment ✅ 2026-04-01 (commit 3dec9e0)
+
+**Pending:**
+- [ ] COMM-002: Document commons services in ECOSYSTEM_REGISTRY.md
+- [ ] SANT-001: Santiago partner onboarding — MVP ready, waiting on business partner confirmation
 
 ---
 
@@ -154,7 +169,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] GH-028: Gem Hunter Adaptive CCR extended with Mission 2 (pair analysis Phase 6) ✅ 2026-04-01
 
 **P1 — Reference Repo Study Queue (priority order):**
-- [ ] GH-010: EGOS ↔ Continue (`continuedev/continue`) — repo-native governance, checks, config-driven agents
+- [x] GH-010: EGOS ↔ Continue — score 71/100 (done — see P0 section above)
 - [x] GH-011: EGOS ↔ Aider — score 74/100, 4 transplants (dry-run, dirty-commit, SWE-Bench eval, weak model) ✅ 2026-04-01
 - [ ] GH-012: EGOS ↔ Cline (`cline/cline`) — IDE agent autonomy, human-in-the-loop UX
 - [ ] GH-013: EGOS ↔ OpenHands (`OpenHands/OpenHands`) — full software agent SDK/CLI/GUI
@@ -172,8 +187,8 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [ ] GH-035: Telegram notification when gem-hunter score > 80 (post to EGOS channel)
 - [ ] GH-036: OpenHarness adapter in packages/shared/harness/ — evaluate skill/coordinator compat
 - [ ] GH-037: **BRAID Mode** — upgrade `/coordinator` skill to emit Mermaid GRD before Implementation phase. GRD = Guided Reasoning Diagram (nodes+edges+terminal states). Cheap models execute strictly. See: arXiv 2512.15959 (OpenServ BRAID), 74–122× cheaper in execution. Aligns with EGOS frozen zones pattern.
-- [ ] GH-038: Gem Hunter keyword update — add BRAID/SERV Reasoning/bounded-reasoning/OpenServ/Guided-Reasoning-Diagram to X.com search tracks
-- [ ] GH-039: **X.com Reply Bot** — `scripts/x-reply-bot.ts` using existing X API keys + Qwen Flash. Rules: threads >50 engagement, topics: AI agents/open-source/multi-agent/GovTech/Claude Code. Reply-OS inspired but self-hosted. See `docs/strategy/XCOM_SOCIAL_AUTOMATION_PLAN.md`
+- [x] GH-038: Gem Hunter keyword update — BRAID/SERV/bounded-reasoning/OpenServ search tracks added to x-reply-bot.ts ✅ 2026-04-01
+- [x] GH-039: **X.com Reply Bot** — `scripts/x-reply-bot.ts` deployed to VPS cron `0 * * * *`, 8 topic monitors, OAuth 1.0a ✅ 2026-04-01
 
 **P2 — Advanced Studies:**
 - [ ] GH-020: EGOS ↔ Mem0 — persistent agent memory layer

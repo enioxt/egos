@@ -74,6 +74,15 @@ ls -t docs/gem-hunter/*.md 2>/dev/null | head -1 | xargs head -5 2>/dev/null
 | codebase-memory-mcp | `which codebase-memory-mcp 2>/dev/null` | YES — knowledge graph |
 | SecOps Gate | `ls docs/gem-hunter/secops-*.md 2>/dev/null` | BLOCKING if UNMITIGATED |
 
+## Phase 7.5: Task Reconciliation
+
+```bash
+bun /home/enio/egos/scripts/task-reconciliation.ts --summary 2>/dev/null
+```
+
+Include the one-liner output in the Phase 8 briefing under **Tasks**.
+If drift > 0: recommend `bun scripts/task-reconciliation.ts --fix`
+
 ## Phase 8: Output Briefing
 
 Present to user:
