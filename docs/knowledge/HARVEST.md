@@ -9039,3 +9039,83 @@ Baked into AI system prompt as classification rules → Gemini Flash classifies 
 4. Mark egos-lab copy as `[MIGRATED]` — don't delete until repo fully archived
 
 **gem-hunter specific:** Added `early-warning` track for monitoring day-0 AI releases (e.g., HKUDS/OpenHarness by @huang_chao4969). Track type union extended: `"early-warning"` added to `SearchTrack`.
+
+---
+
+### X.com OAuth 1.0a Write — Bun/Web Crypto Implementation (P7)
+
+**Problem:** X.com Bearer Token is READ-ONLY. Writing tweets/replies requires OAuth 1.0a with HMAC-SHA1, no npm packages.
+
+**Solution using Web Crypto API (Bun-native):**
+```typescript
+const cryptoKey = await crypto.subtle.importKey("raw", encoder.encode(signingKey),
+  { name: "HMAC", hash: "SHA-1" }, false, ["sign"]);
+const signature = await crypto.subtle.sign("HMAC", cryptoKey, encoder.encode(signatureBase));
+const signatureB64 = btoa(String.fromCharCode(...new Uint8Array(signature)));
+```
+- Signature base: `METHOD&url_encoded_endpoint&url_encoded_oauth_params_sorted`
+- Signing key: `url_encoded_consumer_secret&url_encoded_access_token_secret`
+- Auth header: `OAuth oauth_consumer_key="...", oauth_nonce="...", oauth_signature="...", ...`
+
+**Rate limits (Free tier):** 50 writes/day hard limit, 10 searches/15min.
+**Budget pattern:** `MAX_DAILY_REPLIES = 40` (10 buffer), `MAX_PER_RUN = 3` (hourly cron).
+**State persistence:** `/tmp/x-reply-bot-state.json` with daily date reset.
+
+---
+
+### Rapid Response System Pattern — Matching Topics to Capabilities (P7)
+
+**Problem:** When a trending topic matches our work, we lose hours manually writing threads. Repos are messy. Linking the wrong files is embarrassing.
+
+**Solution:** `scripts/rapid-response.ts` with `EGOSCapability` profiles:
+```typescript
+interface EGOSCapability {
+  id: string;
+  keywords: string[];          // scored — multi-word keywords score higher
+  pitch: string;               // ≤240 chars for X
+  thread: string[];            // full thread, each ≤280 chars
+  repos: { name, url, desc }[];
+  clean_files: string[];       // ONLY share these — not the whole dirty repo
+}
+```
+- `scoreMatch()`: each keyword match += word count (multi-word = more specific = higher score)
+- `generateShowcaseREADME()`: writes `/tmp/egos-rapid-response-{ts}.md` — clean, linkable
+
+**Key insight:** `clean_files` per capability = curated showcase without exposing repo drift.
+
+---
+
+### Task Reconciliation Auto-Detection Pattern (P8)
+
+**Problem:** TASKS.md drifts. Tasks completed in commits get mentioned in commit bodies as "new tasks" and a naive pattern match falsely marks them as done.
+
+**Solution (two-pass detection in `scripts/task-reconciliation.ts`):**
+1. **Subject-line match** → reliable: commit subject `feat: GH-034 OpenHarness` = GH-034 done
+2. **Body completion markers** → ID paired with `✅`, `[x] ID`, or `marked done` = confirmed
+
+**False positive trap:** Commit body saying `"New tasks: GH-032, GH-035"` matches a naive `/\bGH-\d+\b/` pattern but these tasks are NOT done.
+
+**Pattern:**
+```typescript
+// Subject-line IDs are reliable done signals
+const subjectPattern = /\b([A-Z]+-\d+)\b/g;
+// Body: only count with completion markers
+const completionPattern = /\b([A-Z]+-\d+)[^✅\n]*✅/g;
+const checkedPattern = /\[x\]\s+([A-Z]+-\d+)/g;
+```
+
+**Wire-in:** `--summary` in `/start` Phase 7.5 and `/end` Phase 3. Shows drift count + health %.
+
+---
+
+### Legacy Code Detector — Non-Blocking Pre-Commit Check (P7)
+
+**Pattern:** Detect smell without blocking — exit 0 always (use `--strict` to block).
+```bash
+# check-legacy-code.sh pattern:
+TODO_COUNT=$(git diff --cached -- "*.ts" "*.tsx" | grep '^+' | grep -c 'TODO\|FIXME' || true)
+[ "$TODO_COUNT" -gt 3 ] && echo "⚠️  Adding $TODO_COUNT TODOs"
+```
+**What to detect:** >3 TODO/FIXME additions, >2 console.log/debug, >5 commented-out lines, hardcoded localhost URLs, possible unused TS imports.
+**Why non-blocking:** These are code quality smells, not security violations. Blocking → devs add `--no-verify`. Non-blocking → devs see the feedback and often self-correct.
+

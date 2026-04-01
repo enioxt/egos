@@ -328,3 +328,18 @@ L5: Agent Registry + Skills    — Auto-discovery, hot-reload, marketplace patte
 ---
 
 *"Tudo que temos, onde vive, o que é melhor." — EGOS SSOT Discipline*
+## 13. X.COM & RAPID RESPONSE (2026-04-01)
+
+| Capability | SSOT | Quality | Adopted By | Tags |
+|-----------|------|---------|------------|------|
+| X Reply Bot | `egos/scripts/x-reply-bot.ts` | A | egos | `x.com`, `automation`, `social`, `oauth` |
+| Rapid Response System | `egos/scripts/rapid-response.ts` | A | egos | `x.com`, `showcase`, `threads`, `rapid` |
+| Task Reconciliation | `egos/scripts/task-reconciliation.ts` | A | egos | `governance`, `tasks`, `automation` |
+| Legacy Code Detector | `egos/scripts/check-legacy-code.sh` | A | egos | `pre-commit`, `quality`, `non-blocking` |
+| Hermes-3 Executor | `egos/packages/shared/src/llm-provider.ts` | A | egos | `llm`, `braid`, `structured-output`, `openrouter` |
+| BRAID Capability Profile | `egos/scripts/rapid-response.ts#braid_serv` | B | egos | `braid`, `grd`, `multi-agent`, `showcase` |
+
+**X.com Rate Limits (Free tier):** 50 writes/day, 10 searches/15min. Bot: 40 replies/day, 3/run, hourly cron on Hetzner.
+
+**VPS deploy path:** `/opt/egos-lab/.env` has X API keys. Cron: `0 * * * * bun /home/enio/egos/scripts/x-reply-bot.ts`
+

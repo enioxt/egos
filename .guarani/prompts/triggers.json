@@ -84,6 +84,15 @@
       "situations": ["Running the monthly clarity review ritual", "TASKS.md exceeds 500 lines", "Kernel feels drifted from its one-sentence description", "Need to identify and archive stale tasks"],
       "priority": "high",
       "apps": ["all"]
+    },
+    {
+      "id": "social.rapid-response",
+      "file": "../../scripts/rapid-response.ts",
+      "note": "Run: bun scripts/rapid-response.ts --topic '<topic>' to generate thread + showcase README",
+      "keywords": ["trending topic", "x.com thread", "viral", "resposta rápida", "showcase", "hype", "BRAID", "lançamento open-source", "multi-agent novo", "gem hunter alerta"],
+      "situations": ["Trending topic matches our capabilities", "Gem Hunter flagged a new relevant release", "Need to post quickly on X.com", "Want to showcase EGOS for a specific topic"],
+      "priority": "high",
+      "apps": ["all"]
     }
   ]
 }
