@@ -222,6 +222,33 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 
 ---
 
+### Telemetria & Observabilidade (P1 — Operacional, 2026-04-01)
+
+> **Deduplicação:** `rg -n "EGOS-TELEM|telemetry|agent.*cost" TASKS.md` executado em 2026-04-01 sem entradas `EGOS-TELEM-*`.
+
+- [ ] EGOS-TELEM-001: Agent execution telemetry (MCP + event-bus) — 3d
+  - Track: `agent_id`, `session_id`, `started_at`, `duration_ms`, `tokens_in`, `tokens_out`, `cost_usd`
+  - Store: `agent_sessions` (Supabase)
+  - Output: custo por agente/dia + p95 duração
+
+- [ ] EGOS-TELEM-002: Tool call attribution + cost tracking — 2d
+  - Track: `tool_name`, `duration_ms`, `agent_id`, `task_id`, `tokens`, `cost_usd`
+  - Output: ranking custo/latência por ferramenta
+
+- [ ] EGOS-TELEM-003: Gargalo detection (latency heatmap) — 2d
+  - Identify: componentes mais lentos (LLM, Supabase, file I/O, integrações)
+  - Alert: operação > 5s (threshold inicial)
+
+- [ ] EGOS-TELEM-004: Real-time cost dashboard — 1d
+  - View: custo por agente/ferramenta/sessão
+  - Refresh: 30s (modo operacional)
+
+- [ ] EGOS-TELEM-005: Historical cost analysis + forecasting — 3d
+  - Analyze: tendência 7/30 dias
+  - Forecast: burn rate mensal e alerta de orçamento
+
+---
+
 ### Reference Repos — Awareness Registry (2026-04-01)
 
 **Repos identified for study (from ChatGPT analysis + Gem Hunter + leak threads):**

@@ -2,6 +2,10 @@
 
 Este diretório concentra artefatos de revisão QA.
 
+Relatórios:
+- `ANALISE_QA_ULTIMOS_100_COMMITS.md`
+- `CODEX_PREFERENCES_VALIDATION_2026-04-01.md`
+
 ## Gerar auditoria rápida dos últimos commits
 
 ```bash
