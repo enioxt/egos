@@ -1,6 +1,16 @@
-# /start — Session Initialization (EGOS v5.6)
+# /start — Session Initialization (EGOS v5.7)
 
 > **Works in:** ANY EGOS repo
+
+## Phase 0: World Model Snapshot
+
+```bash
+bun /home/enio/egos/packages/shared/src/world-model.ts --save 2>/dev/null
+```
+
+Presents: health%, P0 blockers, top P1 sprint, critical signals.
+Use this as the "current state of the system" before any other phase.
+If world-model errors: skip and continue — non-blocking.
 
 ## Phase 1: Collect Session Data
 

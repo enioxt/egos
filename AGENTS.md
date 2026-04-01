@@ -165,6 +165,35 @@ bun agent:run context_tracker --dry   # CTX score 0-280 with zone emoji + /end a
 - `/disseminate` propagation workflow: `.agents/workflows/disseminate.md`
 - `/mycelium` mesh audit workflow: `.agents/workflows/mycelium.md`
 
+## EGOS as Intelligence — Block Model Mapping
+
+> **Source:** Jack Dorsey / Block "From Hierarchy to Intelligence" (2026-04-01)
+> Hierarchy = routing protocol for information. Replace with: World Model + Intelligence Layer + Atomic Capabilities.
+
+### Agent Role Taxonomy (IC / DRI / Player-Coach)
+
+| Agent ID | Role | Rationale |
+|---|---|---|
+| `ssot-auditor` | **DRI** | Cross-cutting ownership of structural correctness |
+| `drift-sentinel` | **DRI** | Temporary owner when drift detected |
+| `capability-drift-checker` | **DRI** | Temporary owner when capability gap found |
+| `dep-auditor` | **DRI** | Temporary owner on dependency violations |
+| `ssot-fixer` | **IC** | Executes plan from ssot-auditor (node executor) |
+| `dead-code-detector` | **IC** | Executes targeted cleanup tasks |
+| `archaeology-digger` | **IC** | Executes historical analysis tasks |
+| `chatbot-compliance-checker` | **IC** | Executes compliance checks per spec |
+| `context-tracker` | **IC** | Executes single measurement task |
+| `mcp-router` | **IC** | Routes and executes MCP discovery |
+| `spec-router` | **IC** | Executes spec validation pipeline |
+| `framework-benchmarker` | **Player-Coach** | Self-improves by studying peer frameworks |
+
+### Four Pillars (Block → EGOS)
+
+1. **World Model** → `packages/shared/src/world-model.ts` (tasks + agents + caps + signals) — auto-snapshot on /start
+2. **Intelligence Layer** → `/coordinator` skill + GH-037 BRAID GRD (generates plan once, ICs execute strictly)
+3. **Atomic Capabilities** → `docs/CAPABILITY_REGISTRY.md` (160 capabilities, 13 domains)
+4. **Signal Layer** → Gem Hunter CCR (seg+qui 2h37 BRT) → feeds world model signals
+
 ## Meta-Prompts (Operational)
 
 - `activation.egos-governance` → `.guarani/prompts/meta/egos-activation-governance.md` (used for `/start` and activation diagnostics)

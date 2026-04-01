@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.28.0 | **Updated:** 2026-04-01 | **LAST SESSION:** 2026-04-01 P8 — task reconciliation, Commons/Santiago section, GH-039 done, EGOS-170 added
+> **Version:** 2.29.0 | **Updated:** 2026-04-01 | **LAST SESSION:** 2026-04-01 P9 — Block Intelligence Model, INTEL-001..010, world-model.ts, AGENTS.md IC/DRI/Coach taxonomy
 
 ---
 
@@ -324,3 +324,37 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - Write: 50/day hard limit → bot uses 40 (10 buffer)
 - Search: 10 req/15min → 1 search per topic per run
 - Run schedule: hourly, max 3 replies per run
+
+---
+
+### Block Intelligence Model — EGOS as Mini-AGI (2026-04-01)
+
+**Source:** Jack Dorsey / Block essay "From Hierarchy to Intelligence" (block.xyz/inside/from-hierarchy-to-intelligence)
+**Insight:** Hierarchy = routing protocol for information. Block replacing it with world model + intelligence layer + atomic capabilities. EGOS already has 70% of this. Fill the gaps.
+
+| Block Concept | EGOS Status | Gap |
+|---|---|---|
+| World Model | codebase-memory-mcp + TASKS.md | No unified snapshot generator |
+| Intelligence Layer | Kernel + BRAID (GH-037) | GRD not yet in /coordinator |
+| Atomic Capabilities | CAPABILITY_REGISTRY.md | Not dynamically composed |
+| Signal Layer | Gem Hunter (CCR) | Doesn't feed world model |
+| Edge Roles (IC/DRI/Coach) | agents.json | No role taxonomy |
+
+**Done:**
+- [x] INTEL-001: `packages/shared/src/world-model.ts` — unified snapshot: tasks/agents/caps/signals/health% ✅ 2026-04-01
+
+**P0 — Foundation:**
+- [ ] INTEL-002: Wire world-model.ts into /start Phase 0 (runs before everything, saves snapshot)
+- [ ] INTEL-003: AGENTS.md update — map each agent to IC/DRI/Player-Coach taxonomy
+- [ ] INTEL-004: GH-037 BRAID Mode — /coordinator emits Mermaid GRD before Implementation (this IS the intelligence layer)
+
+**P1 — Signal Layer:**
+- [ ] INTEL-005: Signal ingestion — Gem Hunter scores > 80 → auto-append to world model signals
+- [ ] INTEL-006: Proactive blocker detection — world model scans P0 list → creates TASKS entries if blocker stale > 7 days
+- [ ] INTEL-007: `--mermaid` output from world-model.ts → embed in /start briefing as ASCII architecture snapshot
+
+**P2 — Full Intelligence:**
+- [ ] INTEL-008: DRI auto-assignment — when P0 task has no commit activity for 3 days, auto-flag + Telegram alert
+- [ ] INTEL-009: Capability composition map — intelligence layer dynamically suggests which agents to invoke for a given task
+- [ ] INTEL-010: World model diff — compare snapshots to detect regression (tasks going from [x] back to [ ])
+
