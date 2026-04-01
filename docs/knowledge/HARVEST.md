@@ -9119,3 +9119,89 @@ TODO_COUNT=$(git diff --cached -- "*.ts" "*.tsx" | grep '^+' | grep -c 'TODO\|FI
 **What to detect:** >3 TODO/FIXME additions, >2 console.log/debug, >5 commented-out lines, hardcoded localhost URLs, possible unused TS imports.
 **Why non-blocking:** These are code quality smells, not security violations. Blocking → devs add `--no-verify`. Non-blocking → devs see the feedback and often self-correct.
 
+---
+
+## Real Data Pipeline + Government Bid Strategy (2026-04-01)
+
+### Problem
+Mock data limits credibility. Government sales require proof-of-concept with real data from official sources. Software licitações landscape unknown.
+
+### Solution — Eagle Eye Real Data Pipeline
+**File:** `/home/enio/egos-lab/apps/eagle-eye/scripts/analyze-real-gazettes-v2.ts`
+
+1. **Fetch real gazettes** from Querido Diário API (9,697 available)
+   - Filter by territory + keywords (licitação, pregão, software, desenvolvimento)
+   - Extract gazette text + metadata
+   
+2. **Analyze with Gemini Flash** (~$0.01/gazette)
+   - Prompt includes 26 detection patterns (PII, fiscal, LGPD, etc.)
+   - Returns segmento (TI, Consultoria, etc.), modalidade, porte, value, confidence
+   
+3. **Validate enums** — Critical bug found: market_potential enum accepts Portuguese only
+   - Mapping: urgent→muito_alto, high→alto, medium→medio, low→baixo
+   - Fire-and-forget insert to Supabase (non-fatal if down)
+
+4. **Results (March 2026):**
+   - 36 opportunities found, R$ 10.5M value
+   - 14 software/TI (38.9%), avg confidence 85%
+   - Geographic: São Paulo 6, Rio 4, BH 2, others 2
+
+### Government Bid Waterfall (Tier 1/2/3)
+
+**Tier 1 — High Win Probability (60-75%):** Pursue immediately
+- Sistema de Gestão de Licitações: R$ 250k, 28 days to deadline
+- Plataforma de Análise Dados Gov: R$ 180k, 36 days
+- Auditoria e Compliance: R$ 120k, 51 days
+- Total opportunity: R$ 550k
+
+**Tier 2 — Medium (40-50%):** Add if bandwidth allows
+- Dashboard Transparência: R$ 95k
+- API de Integração: R$ 140k
+
+**Tier 3 — Low (<30%):** Pass
+- Commoditized dev work (too much competition, margin too low)
+
+### Integrador Partnership Model (Recommended Path)
+
+**Why integrador first (not direct bid):**
+- Risk transfer: if EGOS misses, integrador absorbs (EGOS is subcontractor)
+- Trust multiplier: public sector trusts established integrador
+- Revenue bundling: integrador upsells consulting + training, pays EGOS per milestone
+- Scale: integrador has sales team to find 5-10 projects/year
+
+**Share:** 70% integrador, 30% EGOS (industry standard for subcontractors)
+
+**Pitch:**
+> "EGOS provides Eagle Eye (gazette monitor) + Guard Brasil (compliance validation) + software delivery. You handle client, compliance signoff, training. Revenue share 70/30."
+
+### Seasonal Pattern Discovery
+
+**Finding:** March = IT-heavy (12 TI ops vs 2 Saúde, 0 Educação)
+- **Root cause:** Brazilian fiscal year ramp-up + digital agenda priority
+- **Implication:** Full-year analysis (12 months) needed for accurate category balance
+- **Action:** Backfill 6 months historical data, scale to 47 territories
+
+### Deploy Daily Cron for 5 Tier-1 Territories
+
+**File:** `/home/enio/egos-lab/apps/eagle-eye/scripts/daily-analysis-cron.ts`
+**Schedule:** 0 9 * * * (9:00 AM BRT)
+**Territory scope:** SP, RJ, BH, Curitiba, Porto Alegre (highest volume)
+**Processing:** Top 10 gazettes/day, ~15min execution, inserts to Supabase
+
+**Rate limit handling:** PNCP returns 403 after ~50 calls. Solution: SQLite cache + exponential backoff.
+
+### Codex QA Summary (GH-040/041/042)
+
+All 3 PRs production-quality, no blockers:
+- **GH-040 (SSOT validator):** ⭐⭐⭐⭐⭐ Validates drift between agents.json, TASKS.md, HARVEST.md
+- **GH-041 (API smoke tests):** ⭐⭐⭐⭐ Tests 5 Guard Brasil contracts (inspect, PII, Atrian, rate limit)
+- **GH-042 (Version lock):** ⭐⭐⭐⭐⭐ Ensures package.json sync. Note: current versions correct by design (1.0.0 root, 0.1.0 web, 0.2.0 package, N/A api)
+
+### Reusable Patterns
+
+1. **Enum Validation in AI Output** — Always validate enum fields from LLM before Supabase insert
+2. **Gazettes as Unstructured Data** — Text extraction + parsing + AI analysis beats manual PNCP API calls
+3. **Fire-and-Forget Async** — Non-fatal Supabase failures = better UX than blocking on network
+4. **Daily Cron for Market Scanning** — 9 AM BRT ensures fresh data for morning decision-making
+5. **Proposal as Code** — Template proposal (PROPOSAL_250K_LICITACOES_SYSTEM.md) with real metrics = 10x faster response to RFPs
+
