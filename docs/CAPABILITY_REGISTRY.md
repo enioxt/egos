@@ -59,12 +59,17 @@ Each capability has:
 
 | Capability | SSOT | Quality | Adopted By | Should Adopt | Tags |
 |-----------|------|---------|------------|-------------|------|
-| Multi-LLM Provider (TS) | `egos/packages/shared/src/llm-provider.ts` | B | egos, egos-lab | 852 (has own) | `ai`, `provider`, `shared` |
+| Multi-LLM Provider (TS) | `egos/packages/shared/src/llm-provider.ts` | A | egos, egos-lab | 852 (has own) | `ai`, `provider`, `shared` |
+| DashScope Fallback Chain | `egos/packages/shared/src/llm-provider.ts` | A | egos, egos-lab | 852, forja | `ai`, `dashscope`, `fallback` |
+| qwq-plus Reasoning Tier | `egos/packages/shared/src/llm-provider.ts` | A | egos | ALL (deep tasks) | `ai`, `reasoning`, `qwq` |
+| AI Coverage Map | `egos/docs/AI_COVERAGE_MAP.md` | A | egos | — | `ai`, `coverage`, `telemetry` |
+| AI Coverage Scanner | `egos/scripts/ai-coverage-scan.ts` | A | egos | — | `ai`, `scan`, `pre-commit` |
 | AI Client (OpenRouter) | `egos-lab/packages/shared/src/ai-client.ts` | A | egos-lab, telegram-bot | forja | `ai`, `client`, `openrouter` |
 | Rate Limiter (shared) | `egos-lab/packages/shared/src/rate-limiter.ts` | A | egos-lab | forja | `ai`, `rate-limit`, `shared` |
 | Cost Tracking (per-request) | `852/src/lib/ai-provider.ts` | A | 852 | ALL | `ai`, `cost`, `budget` |
 | Budget Mode (conservative/balanced) | `852/src/lib/ai-provider.ts` | A | 852 | forja | `ai`, `cost`, `config` |
 | Prompt System (meta-prompts) | `.guarani/prompts/PROMPT_SYSTEM.md` | B | egos | egos-lab | `ai`, `prompt`, `meta` |
+| Licitação Taxonomy | `egos-lab/eagle-eye/src/types.ts` | A | eagle-eye | — | `ai`, `procurement`, `taxonomy` |
 
 ---
 

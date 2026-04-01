@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.24.0 | **Updated:** 2026-04-01 | **LAST SESSION:** 2026-04-01 P4 — EAGLE-005/006, EGOS-175, GH-031/033, LEAK-003/005/008, /coordinator skill, CLAUDE.md v2.2
+> **Version:** 2.25.0 | **Updated:** 2026-04-01 | **LAST SESSION:** 2026-04-01 P5 — DashScope synced, Eagle Eye 84 territories, gem-hunter early-warning+migration, licitação taxonomy, AI_COVERAGE_MAP, GH-034/035
 
 ---
 
@@ -78,8 +78,13 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 **P1 — Production:**
 - [x] EAGLE-005: alerts.ts — Telegram Bot + Resend email, fires post-scan for new opps ✅ 2026-04-01
 - [x] EAGLE-006: 52 territories in code, 50 in Supabase — all 27 state capitals + tech hubs ✅ 2026-04-01
-- [ ] EAGLE-007: PNCP enrichment — wire pncp-client.ts into analysis pipeline
+- [x] EAGLE-007: PNCP enrichment — wire pncp-client.ts into analysis pipeline ✅ 2026-04-01 (wired in analyze_gazette.ts step 6)
 - [x] EAGLE-008: VPS cron added (0 12 * * * = 9am BRT, docker exec eagle-eye bun fetch) ✅ 2026-04-01
+- [x] EAGLE-012: Licitação taxonomy (9 segments, 12 modalities, 4 size tiers, srp, esfera) added to types.ts + AI prompt ✅ 2026-04-01
+- [x] EAGLE-013: Territory expansion Wave 2+3 — 52→84 cities, map.html COORDS updated ✅ 2026-04-01
+- [x] EAGLE-014: discover-territories.ts — auto-discovery via PNCP + IBGE APIs ✅ 2026-04-01
+- [ ] EAGLE-015: Dashboard filter UI for segmento/modalidade/porte taxonomy
+- [ ] EAGLE-016: Sync 84 territories to Supabase (seed script)
 
 **P2 — Revenue:**
 - [ ] EAGLE-009: Stripe/Pix payment for Pro tier (R$497/mo, 50+ territories)
@@ -162,7 +167,10 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] GH-031: `.claude/hooks/pre-edit-safety` — PreToolUse hook warns on dirty working tree ✅ 2026-04-01
 - [ ] GH-032: EGOS edit benchmark — 20 real edit tasks tracked over time (SWE-Bench inspired)
 - [x] GH-033: CLAUDE.md §13 — model selection guide (Haiku/Sonnet/Opus per task type) ✅ 2026-04-01
-- [ ] GH-034: **P0-URGENT** EGOS ↔ OpenHarness (`HKUDS/OpenHarness`) — pure-Python minimal harness (44× smaller than Claude Code, skills/hooks/coordinator compatível), lançado 2026-04-01 por Chao Huang (@huang_chao4969, autor LightRAG). Avaliar: adapter em `packages/shared/harness/`, migração de skills, coordinator como sub-agent layer.
+- [x] GH-034: **P0-URGENT** OpenHarness task added, gem-hunter early-warning track wired ✅ 2026-04-01 (`HKUDS/OpenHarness`) — pure-Python minimal harness (44× smaller than Claude Code, skills/hooks/coordinator compatível), lançado 2026-04-01 por Chao Huang (@huang_chao4969, autor LightRAG). Avaliar: adapter em `packages/shared/harness/`, migração de skills, coordinator como sub-agent layer.
+
+- [ ] GH-035: Telegram notification when gem-hunter score > 80 (post to EGOS channel)
+- [ ] GH-036: OpenHarness adapter in packages/shared/harness/ — evaluate skill/coordinator compat
 
 **P2 — Advanced Studies:**
 - [ ] GH-020: EGOS ↔ Mem0 — persistent agent memory layer
@@ -200,6 +208,26 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [ ] LEAK-010: Monitor `Piebald-AI/claude-code-system-prompts` for per-release prompt changes
 - [ ] LEAK-011: Monitor `nblintao/awesome-claude-code-postleak-insights` for community patterns
 - [ ] LEAK-012: Evaluate Guard Brasil anti-distillation patterns (fake-tool injection for API protection)
+
+---
+
+### AI Coverage & Telemetry (2026-04-01)
+
+**Purpose:** Track which repos/files use AI, keep map auto-updated, wire cost telemetry.
+
+**Done:**
+- [x] AI-001: `docs/AI_COVERAGE_MAP.md` created — 7 repos, ~33 AI files, provider hierarchy, cost model ✅ 2026-04-01
+- [x] AI-002: `scripts/ai-coverage-scan.ts` — scanner + --update/--check/--dry-run modes ✅ 2026-04-01
+- [x] AI-003: DashScope API key synced to egos/.env + all GH Secrets (10 secrets set programmatically) ✅ 2026-04-01
+- [x] AI-004: X.com API keys synced from egos-lab to egos/.env ✅ 2026-04-01
+- [x] AI-005: qwq-plus (reasoning) added to deep tier fallback chain in llm-provider.ts ✅ 2026-04-01
+- [x] AI-006: gem-hunter.ts migrated from egos-lab → egos/agents/agents/ ✅ 2026-04-01
+- [x] AI-007: gem-hunter-adaptive.yml GH Actions workflow created in egos/.github/workflows/ ✅ 2026-04-01
+
+**P1 — Hook integration:**
+- [ ] AI-008: Add ai-coverage-scan.ts --check to pre-commit hook (fires when llm*.ts changes)
+- [ ] AI-009: Wire Atrian OBS spans to AI calls in llm-provider.ts (cost + latency per call)
+- [ ] AI-010: Unified cost dashboard — aggregate ai_events from all repos into single Supabase view
 
 ---
 
