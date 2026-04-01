@@ -9,7 +9,7 @@
  */
 
 import { GuardBrasil } from '../../../packages/guard-brasil/src/index.js';
-import { recordApiCall, recordApiError } from '../../../packages/guard-brasil/src/telemetry.ts';
+import { recordApiCall } from '../../../packages/guard-brasil/src/telemetry.ts';
 import { evaluatePRI, requiresManualReview, shouldBlockOnPRI } from './pri.js';
 
 const guard = GuardBrasil.create();
