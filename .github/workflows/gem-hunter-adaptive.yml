@@ -1,0 +1,60 @@
+name: Gem Hunter Adaptive
+
+on:
+  schedule:
+    # Seg + Qui 2h37 BRT (5h37 UTC)
+    - cron: '37 5 * * 1,4'
+  workflow_dispatch:
+    inputs:
+      tracks:
+        description: 'Tracks to run (comma-separated)'
+        required: false
+        default: 'x-signals-public,early-warning,governance-plugplay'
+      x_limit:
+        description: 'Max X API results per keyword'
+        required: false
+        default: '15'
+
+jobs:
+  gem-hunter:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Run Gem Hunter
+        env:
+          EXA_API_KEY: ${{ secrets.EXA_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          ALIBABA_DASHSCOPE_API_KEY: ${{ secrets.ALIBABA_DASHSCOPE_API_KEY }}
+          X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        run: |
+          TRACKS="${{ github.event.inputs.tracks || 'x-signals-public,early-warning,governance-plugplay' }}"
+          XLIMIT="${{ github.event.inputs.x_limit || '15' }}"
+          bun run agents/agents/gem-hunter.ts --exec --track=${TRACKS} --x-limit=${XLIMIT} --analyze
+
+      - name: Commit updated discovery artifacts
+        run: |
+          git config --global user.name "Gem Hunter Bot"
+          git config --global user.email "bot@egos.dev"
+          if [[ -n $(git status -s) ]]; then
+            git add docs/gem-hunter/
+            git commit -m "chore(gem-hunter): adaptive run [$(date +'%Y-%m-%d')]"
+            git push
+          fi
