@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  commons:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: egos-commons
+    ports:
+      - "3099:80"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    networks:
+      - egos-network
+
+networks:
+  egos-network:
+    name: egos-network
+    driver: bridge
