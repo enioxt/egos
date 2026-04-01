@@ -29,6 +29,21 @@ jobs:
       - name: SSOT consistency validation (GH-040)
         run: bun run ssot:check
 
+      - name: API smoke tests (GH-041)
+        run: |
+          echo "Starting API server (background)..."
+          bun run apps/api/src/server.ts &
+          API_PID=$!
+          sleep 2
+          echo "Running smoke tests..."
+          bun run smoke:api
+          TEST_RESULT=$?
+          kill $API_PID 2>/dev/null || true
+          exit $TEST_RESULT
+        env:
+          GUARD_API_PORT: 3099
+          GUARD_API_KEYS: "test-key"
+
       - name: SSOT drift check (legacy)
         run: |
           check_lines() {
