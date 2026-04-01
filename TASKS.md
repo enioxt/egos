@@ -253,6 +253,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [ ] EGOS-TELEM-005: Historical cost analysis + forecasting — 3d
   - Analyze: tendência 7/30 dias
   - Forecast: burn rate mensal e alerta de orçamento
+  - [x] EGOS-TELEM-005A: forecast inicial em dashboard por logs (run-rate diário/mensal) ✅ 2026-04-01
 
 ---
 

@@ -49,3 +49,9 @@ bun test packages/shared/src/__tests__/telemetry.test.ts
 ```bash
 python scripts/qa/telemetry_dashboard.py --input /tmp/agents-telemetry.log --output docs/qa/_generated/telemetry_dashboard.md
 ```
+
+Saída inclui:
+- volume por evento/agente/ferramenta
+- custo por agente
+- eventos lentos (>5s)
+- forecast de custo (run-rate diário/mensal) quando timestamps estiverem presentes

@@ -19,11 +19,12 @@ class TelemetryDashboardTests(TestCase):
 
     def test_build_dashboard_contains_sections(self):
         events = [
-            {'ev': 'tool_call', 'ms': 6400, 'cost': 0.01, 'meta': {'agentId': 'mcp-router', 'toolName': 'web.search'}},
-            {'ev': 'agent_session', 'ms': 1200, 'cost': 0.00, 'meta': {'agentId': 'context-tracker'}},
+            {'ev': 'tool_call', 'ms': 6400, 'cost': 0.01, 't': '2026-04-01T00:00:00Z', 'meta': {'agentId': 'mcp-router', 'toolName': 'web.search'}},
+            {'ev': 'agent_session', 'ms': 1200, 'cost': 0.00, 't': '2026-04-01T01:00:00Z', 'meta': {'agentId': 'context-tracker'}},
         ]
         md = module.build_dashboard(events)
         self.assertIn('# Telemetry Dashboard (Log-derived)', md)
         self.assertIn('## Event volume', md)
         self.assertIn('## Cost by agent (USD)', md)
         self.assertIn('## Slow events (>5s)', md)
+        self.assertIn('## Cost forecast (run-rate)', md)

@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import json
 from collections import Counter, defaultdict
+from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -34,6 +35,7 @@ def build_dashboard(events: list[dict]):
 
     cost_by_agent = defaultdict(float)
     slow_over_5s = Counter()
+    timestamps = []
     for event in events:
         meta = event.get('meta') or {}
         agent_id = meta.get('agentId', 'unknown')
@@ -42,6 +44,12 @@ def build_dashboard(events: list[dict]):
         cost_by_agent[agent_id] += float(cost)
         if isinstance(ms, (int, float)) and ms > 5000:
             slow_over_5s[event.get('ev', 'unknown')] += 1
+        t = event.get('t')
+        if isinstance(t, str):
+            try:
+                timestamps.append(datetime.fromisoformat(t.replace('Z', '+00:00')))
+            except ValueError:
+                pass
 
     lines = [
         '# Telemetry Dashboard (Log-derived)',
@@ -75,6 +83,20 @@ def build_dashboard(events: list[dict]):
             lines.append(f'- `{key}`: {amount}')
     else:
         lines.append('- none')
+
+    total_cost = sum(cost_by_agent.values())
+    if len(timestamps) >= 2 and total_cost > 0:
+        lines.append('')
+        lines.append('## Cost forecast (run-rate)')
+        first = min(timestamps)
+        last = max(timestamps)
+        span_hours = max((last - first).total_seconds() / 3600, 1 / 60)  # minimum 1 minute
+        cost_per_hour = total_cost / span_hours
+        cost_per_day = cost_per_hour * 24
+        cost_per_month = cost_per_day * 30
+        lines.append(f'- Observed window: `{first.astimezone(timezone.utc).isoformat()}` -> `{last.astimezone(timezone.utc).isoformat()}`')
+        lines.append(f'- Estimated daily cost: `${cost_per_day:.4f}`')
+        lines.append(f'- Estimated monthly cost (30d): `${cost_per_month:.2f}`')
 
     lines.append('')
     return '\n'.join(lines)
