@@ -1,8 +1,9 @@
 # Arquitetura de Crescimento Fractal (Fractal Growth Protocol)
 
-> **Versão:** 1.0.0
+> **STATUS: PLANNED — conceptual framework, no code implements this protocol**
+> **Versao:** 1.0.0
 > **Data:** 2026-03-22
-> **Contexto:** Definindo as camadas biológicas de emancipação do software
+> **Contexto:** Definindo as camadas biologicas de emancipacao do software
 
 ## 1. Visão Geral
 A Arquitetura Fractal do EGOS dita como o sistema escala não apenas em tráfego (Load Balancing), mas em **Governança de Organismo**. Quando adicionamos uma feature (Semente), estamos apenas testando sua capacidade de gerar um Domínio. Se gerar um Domínio, ela sofre Hard Fork.

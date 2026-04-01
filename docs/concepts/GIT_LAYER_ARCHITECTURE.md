@@ -1,6 +1,6 @@
 # Git Layer Architecture — Reference
 
-> **Origin:** EGOS Self (Mar 2026) | **Status:** Phase 1 implementing
+> **Origin:** EGOS Self (Mar 2026) | **Status:** PAUSED — egos-self repo under security review, no active development
 > **Full spec:** `/home/enio/egos-self/docs/GIT_LAYER_ARCHITECTURE.md`
 
 ## Evolution Path
