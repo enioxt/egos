@@ -52,6 +52,13 @@
       "Bash(chmod -R 777:*)",
       "Bash(eval:*)"
     ],
-    "defaultMode": "bypassPermissions"
+    "defaultMode": "bypassPermissions",
+    "additionalDirectories": [
+      "/home/enio/.egos/.claude/commands",
+      "/home/enio/egos/.claude",
+      "/home/enio/egos/.claude/commands",
+      "/home/enio/.claude/hooks",
+      "/home/enio/.claude"
+    ]
   }
 }
