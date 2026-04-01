@@ -230,10 +230,12 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
   - Track: `agent_id`, `session_id`, `started_at`, `duration_ms`, `tokens_in`, `tokens_out`, `cost_usd`
   - Store: `agent_sessions` (Supabase)
   - Output: custo por agente/dia + p95 duração
+  - [x] EGOS-TELEM-001A: `@egos/shared` scaffold — `recordAgentSession()` + stats `byAgent` + tests iniciais ✅ 2026-04-01
 
 - [ ] EGOS-TELEM-002: Tool call attribution + cost tracking — 2d
   - Track: `tool_name`, `duration_ms`, `agent_id`, `task_id`, `tokens`, `cost_usd`
   - Output: ranking custo/latência por ferramenta
+  - [x] EGOS-TELEM-002A: `@egos/shared` scaffold — `recordToolCall()` + stats `byTool` + persistência metadata ✅ 2026-04-01
 
 - [ ] EGOS-TELEM-003: Gargalo detection (latency heatmap) — 2d
   - Identify: componentes mais lentos (LLM, Supabase, file I/O, integrações)

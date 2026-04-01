@@ -21,6 +21,8 @@ export type TelemetryEventType =
   | 'user_action'
   | 'api_call'
   | 'agent_run'
+  | 'agent_session'
+  | 'tool_call'
   | 'custom';
 
 export interface TelemetryEvent {
@@ -90,6 +92,27 @@ export interface TelemetryRecorder {
     durationMs: number;
     success: boolean;
     findings?: number;
+  }) => Promise<void>;
+  recordAgentSession: (opts: {
+    sessionId: string;
+    agentId: string;
+    mode: 'dry_run' | 'execute';
+    durationMs: number;
+    success: boolean;
+    tokensIn?: number;
+    tokensOut?: number;
+    costUsd?: number;
+  }) => Promise<void>;
+  recordToolCall: (opts: {
+    sessionId?: string;
+    agentId?: string;
+    toolName: string;
+    durationMs: number;
+    success: boolean;
+    costUsd?: number;
+    tokensIn?: number;
+    tokensOut?: number;
+    metadata?: Record<string, unknown>;
   }) => Promise<void>;
 }
 
@@ -200,12 +223,66 @@ export function createTelemetryRecorder(config: TelemetryConfig): TelemetryRecor
     });
   }
 
+  async function recordAgentSession(opts: {
+    sessionId: string;
+    agentId: string;
+    mode: 'dry_run' | 'execute';
+    durationMs: number;
+    success: boolean;
+    tokensIn?: number;
+    tokensOut?: number;
+    costUsd?: number;
+  }) {
+    return recordEvent({
+      event_type: 'agent_session',
+      duration_ms: opts.durationMs,
+      status_code: opts.success ? 200 : 500,
+      tokens_in: opts.tokensIn,
+      tokens_out: opts.tokensOut,
+      cost_usd: opts.costUsd,
+      metadata: {
+        sessionId: opts.sessionId,
+        agentId: opts.agentId,
+        mode: opts.mode,
+      },
+    });
+  }
+
+  async function recordToolCall(opts: {
+    sessionId?: string;
+    agentId?: string;
+    toolName: string;
+    durationMs: number;
+    success: boolean;
+    costUsd?: number;
+    tokensIn?: number;
+    tokensOut?: number;
+    metadata?: Record<string, unknown>;
+  }) {
+    return recordEvent({
+      event_type: 'tool_call',
+      duration_ms: opts.durationMs,
+      status_code: opts.success ? 200 : 500,
+      cost_usd: opts.costUsd,
+      tokens_in: opts.tokensIn,
+      tokens_out: opts.tokensOut,
+      metadata: {
+        ...opts.metadata,
+        toolName: opts.toolName,
+        sessionId: opts.sessionId,
+        agentId: opts.agentId,
+      },
+    });
+  }
+
   return {
     recordEvent,
     recordChatCompletion,
     recordRateLimitHit,
     recordChatError,
     recordAgentRun,
+    recordAgentSession,
+    recordToolCall,
   };
 }
 
@@ -221,6 +298,8 @@ export interface TelemetryStats {
   errors: number;
   byModel: Record<string, number>;
   byProvider: Record<string, number>;
+  byAgent: Record<string, number>;
+  byTool: Record<string, number>;
   recentEvents: Array<Record<string, unknown>>;
 }
 
@@ -253,6 +332,8 @@ export async function getStats(
       errors: 0,
       byModel: {},
       byProvider: {},
+      byAgent: {},
+      byTool: {},
       recentEvents: events.slice(0, 20),
     };
 
@@ -269,6 +350,18 @@ export async function getStats(
       }
       if (e.event_type === 'rate_limit_hit') stats.rateLimitHits++;
       if (e.event_type === 'chat_error' || e.event_type === 'report_error') stats.errors++;
+
+      if (e.event_type === 'agent_run' || e.event_type === 'agent_session') {
+        const metadata = (e.metadata || {}) as Record<string, unknown>;
+        const agentId = metadata.agentId as string | undefined;
+        if (agentId) stats.byAgent[agentId] = (stats.byAgent[agentId] || 0) + 1;
+      }
+
+      if (e.event_type === 'tool_call') {
+        const metadata = (e.metadata || {}) as Record<string, unknown>;
+        const toolName = metadata.toolName as string | undefined;
+        if (toolName) stats.byTool[toolName] = (stats.byTool[toolName] || 0) + 1;
+      }
     }
 
     return stats;
