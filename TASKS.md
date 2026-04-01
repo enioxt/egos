@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.23.0 | **Updated:** 2026-04-01 | **LAST SESSION:** 2026-04-01 P3 — eagleeye+commons live, LEAK-002/004/009 done, OBS-001..004 skeleton, EGOS-162 benchmark (85.3% F1)
+> **Version:** 2.24.0 | **Updated:** 2026-04-01 | **LAST SESSION:** 2026-04-01 P4 — EAGLE-005/006, EGOS-175, GH-031/033, LEAK-003/005/008, /coordinator skill, CLAUDE.md v2.2
 
 ---
 
@@ -40,7 +40,7 @@
 - [ ] EGOS-168: llmrefs blocks on 10 more governance docs (manual, 1h)
 - [ ] EGOS-169: @aiready/pattern-detect pre-commit (duplicate detection)
 - [ ] EGOS-173: CRCDM hooks: llmrefs staleness + auto-heal rename
-- [ ] EGOS-175: Kernel llmrefs pointers in 7 leaf AGENTS.md files
+- [x] EGOS-175: llmrefs blocks added to 5 leaf AGENTS.md (forja, carteira-livre, smartbuscas, br-acc, santiago) ✅ 2026-04-01
 
 ---
 
@@ -76,8 +76,8 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] EAGLE-004: VPS running — eagleeye.egos.ia.br, 15 territories seeded, Caddy reloaded ✅ 2026-04-01
 
 **P1 — Production:**
-- [ ] EAGLE-005: Email/Telegram alert service (SendGrid + Telegram Bot API)
-- [ ] EAGLE-006: Expand to 50+ territories (add all state capitals + TI hubs)
+- [x] EAGLE-005: alerts.ts — Telegram Bot + Resend email, fires post-scan for new opps ✅ 2026-04-01
+- [x] EAGLE-006: 52 territories in code, 50 in Supabase — all 27 state capitals + tech hubs ✅ 2026-04-01
 - [ ] EAGLE-007: PNCP enrichment — wire pncp-client.ts into analysis pipeline
 - [x] EAGLE-008: VPS cron added (0 12 * * * = 9am BRT, docker exec eagle-eye bun fetch) ✅ 2026-04-01
 
@@ -159,9 +159,9 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [ ] GH-017: EGOS ↔ Langfuse (`langfuse/langfuse`) — observability, prompt versioning, evals
 
 **New tasks from Aider study:**
-- [ ] GH-031: `.claude/hooks/pre-edit-safety` — warn on dirty working tree before Edit (dry-run pattern)
+- [x] GH-031: `.claude/hooks/pre-edit-safety` — PreToolUse hook warns on dirty working tree ✅ 2026-04-01
 - [ ] GH-032: EGOS edit benchmark — 20 real edit tasks tracked over time (SWE-Bench inspired)
-- [ ] GH-033: Weak/editor model separation — document when to use Haiku vs Sonnet in CLAUDE.md
+- [x] GH-033: CLAUDE.md §13 — model selection guide (Haiku/Sonnet/Opus per task type) ✅ 2026-04-01
 
 **P2 — Advanced Studies:**
 - [ ] GH-020: EGOS ↔ Mem0 — persistent agent memory layer
@@ -185,14 +185,14 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 **P1 — Claude Code Hardening:**
 - [x] LEAK-001: Frustration-detection hook wired (UserPromptSubmit → ~/.claude/hooks/frustration-detector) ✅ 2026-04-01
 - [x] LEAK-002: Memory consolidation — embedded as Part 2 in Governance Drift CCR (daily 3:17 BRT) ✅ 2026-04-01
-- [ ] LEAK-003: Coordinator Mode skill — `/coordinator` to launch multi-agent orchestration (Research→Synthesis→Implementation→Verification)
+- [x] LEAK-003: `/coordinator` skill — 4-phase orchestration (Research→Synthesis→Implementation→Verification) ✅ 2026-04-01
 - [x] LEAK-004: PostToolUse hook — post-write-typecheck fires after Write/Edit on .ts/.tsx ✅ 2026-04-01
-- [ ] LEAK-005: Anti-compaction guard — re-read critical files after 10+ turns (hook or skill reminder)
+- [x] LEAK-005: Anti-compaction guard — UserPromptSubmit hook, turn counter, reminder every 10 turns ✅ 2026-04-01
 
 **P1 — Architecture Insights (from zainhas blog analysis):**
 - [x] LEAK-006: Tool result budgeting — note added to /end Phase 1 ✅ 2026-04-01
 - [x] LEAK-007: Structured session memory — fixed sections + 2K cap added to /end Phase 7 ✅ 2026-04-01
-- [ ] LEAK-008: Read-parallel/Write-sequential — enforce in EGOS sub-agent swarm patterns
+- [x] LEAK-008: Read-parallel/Write-sequential — documented in CLAUDE.md §14, enforced in /coordinator ✅ 2026-04-01
 - [x] LEAK-009: settings.json deny rules — 13 wildcard patterns for .env/credentials/keys ✅ 2026-04-01
 
 **P2 — Awareness (no action needed yet):**
