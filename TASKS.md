@@ -18,12 +18,17 @@
 - [x] EGOS-157: VPS cron paths fixed (/home/enio → /opt/egos-lab)
 
 **P0 — Revenue blocking:**
-- [ ] EGOS-158: npm publish v0.2.0 (requires `npm adduser` — MANUAL)
+- [x] Consumer apps PII sync (2026-03-31): 852/forja/carteira-livre updated to v0.2.0 parity (3→15 patterns)
+  - 852 pii-scanner.ts: 9→15 patterns
+  - forja safety.ts: 4→15 patterns (reordered by specificity)
+  - carteira-livre tutor-runtime.ts: 3→15 patterns
+  - All have TODO (EGOS-158) comments awaiting npm publish
+- [ ] EGOS-158: npm publish v0.2.0 (requires `npm adduser` — MANUAL) — **BLOCKED on user auth choice**
 - [ ] EGOS-159: Guard Brasil REST API — wire npm package into Hono server on VPS (currently hardcoded patterns)
 - [ ] EGOS-160: Reversible redaction — tokenized mask+restore (Grepture's killer feature)
 
 **P1 — Competitive features:**
-- [ ] EGOS-161: Register MCP server in Claude Code (`claude mcp add guard-brasil`)
+- [x] EGOS-161: Register MCP server in Claude Code (registered in .claude.json, verified v0.2.0 handshake)
 - [ ] EGOS-162: Accuracy benchmark — publish CPF/RG/CNPJ detection rates vs Presidio/anonym.legal
 - [ ] EGOS-163: Pix billing integration (no competitor accepts R$ via Pix)
 - [ ] EGOS-164: Guard Brasil dashboard — real data from guard_brasil_events Supabase table
@@ -97,6 +102,9 @@
 - [x] Rules discovery index (.guarani/RULES_INDEX.md)
   - Single entry point for ALL rules with lookup table + enforcement matrix
 - [x] agents.json updated for gem-hunter v3.2
+
+**Governance (2026-03-31):**
+- [x] egos-lab TASKS.md compressed: 1033→140 lines, added identity directive ("lab in archival mode"), surface inventory created
 
 **Backlog:**
 - [ ] EGOS-125: M-007 outreach emails (MANUAL)
