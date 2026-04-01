@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.25.0 | **Updated:** 2026-04-01 | **LAST SESSION:** 2026-04-01 P5 — DashScope synced, Eagle Eye 84 territories, gem-hunter early-warning+migration, licitação taxonomy, AI_COVERAGE_MAP, GH-034/035
+> **Version:** 2.26.0 | **Updated:** 2026-04-01 | **LAST SESSION:** 2026-04-01 P5/P6 — BRAID analysis, claude.ai projects setup, /diag confirmed, X.com strategy
 
 ---
 
@@ -171,6 +171,9 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 
 - [ ] GH-035: Telegram notification when gem-hunter score > 80 (post to EGOS channel)
 - [ ] GH-036: OpenHarness adapter in packages/shared/harness/ — evaluate skill/coordinator compat
+- [ ] GH-037: **BRAID Mode** — upgrade `/coordinator` skill to emit Mermaid GRD before Implementation phase. GRD = Guided Reasoning Diagram (nodes+edges+terminal states). Cheap models execute strictly. See: arXiv 2512.15959 (OpenServ BRAID), 74–122× cheaper in execution. Aligns with EGOS frozen zones pattern.
+- [ ] GH-038: Gem Hunter keyword update — add BRAID/SERV Reasoning/bounded-reasoning/OpenServ/Guided-Reasoning-Diagram to X.com search tracks
+- [ ] GH-039: **X.com Reply Bot** — `scripts/x-reply-bot.ts` using existing X API keys + Qwen Flash. Rules: threads >50 engagement, topics: AI agents/open-source/multi-agent/GovTech/Claude Code. Reply-OS inspired but self-hosted. See `docs/strategy/XCOM_SOCIAL_AUTOMATION_PLAN.md`
 
 **P2 — Advanced Studies:**
 - [ ] GH-020: EGOS ↔ Mem0 — persistent agent memory layer

@@ -11,6 +11,28 @@
 
 ---
 
+## 🔴 URGENTE — Bloqueia Receita (Atualizado 2026-04-01 P6)
+
+### [M-NEW-1] Renovar npm token ANTES de 2026-04-07
+- **Impacto:** npm token expira. Próxima publicação do @egosbr/guard-brasil vai falhar silenciosamente
+- **Tempo:** 5 minutos
+- **Comandos:**
+  ```bash
+  npm token create --type=publish   # gera novo token
+  # Atualizar em: egos/.github/workflows/ (GH Secret NPM_TOKEN)
+  # Atualizar em: ~/.npmrc
+  ```
+- **Prazo:** antes de 2026-04-07 (6 dias)
+
+### [M-NEW-2] Organizar claude.ai Projects (6 projetos)
+- **Impacto:** Conversas misturadas, instruções genéricas, contexto se perde
+- **Tempo:** 20 minutos
+- **Guia completo:** `docs/strategy/CLAUDE_AI_PROJECTS_SETUP.md`
+- **Projetos a criar:** EGOS Framework | Guard Brasil | Eagle Eye | Forja+CartLivre | 852+br-acc | Pessoal/Policia
+- **Instruções prontas** para colar em cada projeto no arquivo acima
+
+---
+
 ## 🔴 URGENTE — Bloqueia Receita
 
 ### ~~[M-001] npm login + npm publish @egosbr/guard-brasil~~ ✅ FEITO (2026-03-30)
