@@ -186,7 +186,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 
 - [ ] GH-035: Telegram notification when gem-hunter score > 80 (post to EGOS channel)
 - [ ] GH-036: OpenHarness adapter in packages/shared/harness/ — evaluate skill/coordinator compat
-- [ ] GH-037: **BRAID Mode** — upgrade `/coordinator` skill to emit Mermaid GRD before Implementation phase. GRD = Guided Reasoning Diagram (nodes+edges+terminal states). Cheap models execute strictly. See: arXiv 2512.15959 (OpenServ BRAID), 74–122× cheaper in execution. Aligns with EGOS frozen zones pattern.
+- [x] GH-037: **BRAID Mode** — upgrade `/coordinator` skill to emit Mermaid GRD before Implementation phase ✅ 2026-04-01. GRD = Guided Reasoning Diagram (nodes+edges+terminal states). Phase 2 now emits Mermaid graph TD with frozen-zone guard, parallel reads, sequential edits, verification gates. Cheap models execute strictly per graph. arXiv 2512.15959 (OpenServ BRAID), 74–122× cheaper. Frozen zones pattern aligned.
 - [x] GH-038: Gem Hunter keyword update — BRAID/SERV/bounded-reasoning/OpenServ search tracks added to x-reply-bot.ts ✅ 2026-04-01
 - [x] GH-039: **X.com Reply Bot** — `scripts/x-reply-bot.ts` deployed to VPS cron `0 * * * *`, 8 topic monitors, OAuth 1.0a ✅ 2026-04-01
 
@@ -344,9 +344,9 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] INTEL-001: `packages/shared/src/world-model.ts` — unified snapshot: tasks/agents/caps/signals/health% ✅ 2026-04-01
 
 **P0 — Foundation:**
-- [ ] INTEL-002: Wire world-model.ts into /start Phase 0 (runs before everything, saves snapshot)
-- [ ] INTEL-003: AGENTS.md update — map each agent to IC/DRI/Player-Coach taxonomy
-- [ ] INTEL-004: GH-037 BRAID Mode — /coordinator emits Mermaid GRD before Implementation (this IS the intelligence layer)
+- [x] INTEL-002: Wire world-model.ts into /start Phase 0 (runs before everything, saves snapshot) ✅ 2026-04-01 (already in .claude/commands/start.md Phase 0)
+- [x] INTEL-003: AGENTS.md update — map each agent to IC/DRI/Player-Coach taxonomy ✅ 2026-04-01 (IC/DRI/Coach table in AGENTS.md § Agent Role Taxonomy)
+- [x] INTEL-004: GH-037 BRAID Mode — /coordinator emits Mermaid GRD before Implementation ✅ 2026-04-01. Phase 2 synthesis now outputs template GRD (frozen-zone guard, phase groupings, terminal states). Execution contract for cheap models.
 
 **P1 — Signal Layer:**
 - [ ] INTEL-005: Signal ingestion — Gem Hunter scores > 80 → auto-append to world model signals

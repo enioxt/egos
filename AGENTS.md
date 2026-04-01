@@ -189,8 +189,8 @@ bun agent:run context_tracker --dry   # CTX score 0-280 with zone emoji + /end a
 
 ### Four Pillars (Block → EGOS)
 
-1. **World Model** → `packages/shared/src/world-model.ts` (tasks + agents + caps + signals) — auto-snapshot on /start
-2. **Intelligence Layer** → `/coordinator` skill + GH-037 BRAID GRD (generates plan once, ICs execute strictly)
+1. **World Model** → `packages/shared/src/world-model.ts` (tasks + agents + caps + signals) — auto-snapshot on /start ✅
+2. **Intelligence Layer** → `/coordinator` skill + GH-037 BRAID GRD ✅ (Phase 2 emits Mermaid graph TD with frozen-zone guard, parallel reads, sequential edits, verification gates — generates plan once, ICs/cheap models execute strictly)
 3. **Atomic Capabilities** → `docs/CAPABILITY_REGISTRY.md` (160 capabilities, 13 domains)
 4. **Signal Layer** → Gem Hunter CCR (seg+qui 2h37 BRT) → feeds world model signals
 
