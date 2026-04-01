@@ -40,6 +40,7 @@
 - [x] GH-040: SSOT consistency gate (validate-ssot.ts) ✅ 2026-04-01. Validates drift between agents.json, TASKS.md, HARVEST.md, CAPABILITY_REGISTRY. Integrated into CI (.github/workflows/ci.yml) and available as `npm run ssot:check`. Aligns with Codex QA report (PR #16) P0 recommendations.
 - [x] EGOS-168: llmrefs blocks added to 10 governance docs ✅ 2026-04-01. AI navigation blocks added to: CAPABILITY_REGISTRY, ECOSYSTEM_CLASSIFICATION_REGISTRY, ENVIRONMENT_REGISTRY, AI_COVERAGE_MAP, ACTIVATION_FLOW, ACTIVATION_GUIDE, BLUEPRINT_TASKS_MATRIX, DOCTOR_COMMAND_SPEC, SSOT_REGISTRY, MIGRATION_PLAN. Each includes role, summary, read-next pointers.
 - [x] GH-041: API smoke tests (5 contracts) ✅ 2026-04-01. Validates POST /v1/inspect schema, PII detection, Atrian response, rate limiting. Integrated into CI after ssot:check. Available as `npm run smoke:api`.
+- [x] GH-042: Version lock checker ✅ 2026-04-01. Validates version sync across package.json (root), apps/guard-brasil-web, apps/api/src/server.ts, packages/guard-brasil. Detects drift and recommends highest semver. Integrated into CI. Available as `npm run version:lock`.
 - [ ] EGOS-169: @aiready/pattern-detect pre-commit (duplicate detection)
 - [ ] EGOS-173: CRCDM hooks: llmrefs staleness + auto-heal rename
 - [x] EGOS-175: llmrefs blocks added to 5 leaf AGENTS.md (forja, carteira-livre, smartbuscas, br-acc, santiago) ✅ 2026-04-01

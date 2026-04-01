@@ -44,6 +44,9 @@ jobs:
           GUARD_API_PORT: 3099
           GUARD_API_KEYS: "test-key"
 
+      - name: Version lock check (GH-042)
+        run: bun run version:lock
+
       - name: SSOT drift check (legacy)
         run: |
           check_lines() {
