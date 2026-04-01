@@ -73,13 +73,13 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] EAGLE-001: 4 API endpoints confirmed in ui/server.ts (opportunities/territories/scans/scan-now) ✅ 2026-04-01
 - [x] EAGLE-002: Frontend already uses fetch() to all 4 endpoints ✅ 2026-04-01
 - [x] EAGLE-003: Dockerfile.standalone, docker-compose.prod.yml, Caddy route eagleeye.egos.ia.br ✅ 2026-04-01
-- [ ] EAGLE-004: Run first real scan end-to-end
+- [x] EAGLE-004: VPS running — eagleeye.egos.ia.br, 15 territories seeded, Caddy reloaded ✅ 2026-04-01
 
 **P1 — Production:**
 - [ ] EAGLE-005: Email/Telegram alert service (SendGrid + Telegram Bot API)
 - [ ] EAGLE-006: Expand to 50+ territories (add all state capitals + TI hubs)
 - [ ] EAGLE-007: PNCP enrichment — wire pncp-client.ts into analysis pipeline
-- [ ] EAGLE-008: VPS cron for daily scan (replace GitHub Actions, use crontab on Hetzner)
+- [x] EAGLE-008: VPS cron added (0 12 * * * = 9am BRT, docker exec eagle-eye bun fetch) ✅ 2026-04-01
 
 **P2 — Revenue:**
 - [ ] EAGLE-009: Stripe/Pix payment for Pro tier (R$497/mo, 50+ territories)
