@@ -19,7 +19,7 @@
 **P1 — Competitive:**
 - [x] EGOS-162: Accuracy benchmark vs Presidio/anonym.legal — 85.3% F1, benchmark.ts in guard-brasil/src ✅ 2026-04-01
 - [ ] EGOS-163: Pix billing integration
-- [ ] EGOS-164: Dashboard — real data from guard_brasil_events
+- [x] EGOS-164: Dashboard — real data from guard_brasil_events ✅ 2026-04-01. Telemetry wired: API recordApiCall() → guard_brasil_events → /api/events → DashboardV2Lean polling 5s. Requires: SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY in .env files.
 
 **P2 — Growth:**
 - [ ] EGOS-165: White-label outreach
