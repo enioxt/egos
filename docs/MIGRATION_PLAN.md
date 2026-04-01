@@ -3,6 +3,19 @@
 > **Version:** 1.0.0 | **Created:** 2026-03-13
 > **Status:** Active — Phase 1 complete, Phase 2 in progress
 
+<!-- llmrefs:start -->
+
+## LLM Reference Signature
+
+- **Role:** Governance separation between kernel and incubator
+- **Summary:** Defines what lives in `egos/` (canonical kernel) vs `egos-lab/` (incubator). Governs symlinks, syncing rules, and SSOT ownership. Phase 2 in progress.
+- **Read next:**
+  - `SYSTEM_MAP.md` — topology of egos/egos-lab/leaf repos
+  - `ECOSYSTEM_CLASSIFICATION_REGISTRY.md` — repo classification rules
+  - `.guarani/` — enforcement of kernel vs lab separation
+
+<!-- llmrefs:end -->
+
 ## Architecture Decision
 
 ```

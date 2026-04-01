@@ -4,6 +4,19 @@
 > **Purpose:** Single source of truth for AI/LLM usage across all EGOS repos.
 > **Auto-update:** `bun scripts/ai-coverage-scan.ts --update` (or fires on pre-commit via hook)
 
+<!-- llmrefs:start -->
+
+## LLM Reference Signature
+
+- **Role:** Inventory of all AI/LLM dependencies and costs across ecosystem
+- **Summary:** Maps which models (Claude, Qwen, Gemini) are used in each repo/file. Tracks estimated costs and active status. Auto-synced via `ai-coverage-scan.ts`.
+- **Read next:**
+  - `CAPABILITY_REGISTRY.md` — AI-related capabilities and their status
+  - `docs/modules/CHATBOT_SSOT.md` — model selection rules
+  - `ENVIRONMENT_REGISTRY.md` — approved providers and hosts
+
+<!-- llmrefs:end -->
+
 ---
 
 ## Coverage Summary

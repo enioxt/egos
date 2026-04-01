@@ -1,0 +1,551 @@
+{
+  "generated_at": "2026-04-01T21:54:25.833Z",
+  "git_sha": "291e86f",
+  "git_branch": "main",
+  "last_commit": "291e86f docs: mark EGOS-164 complete (Dashboard real data)",
+  "tasks": {
+    "total": 127,
+    "done": 70,
+    "p0_blockers": [],
+    "p1_sprint": [
+      {
+        "id": "EGOS-163",
+        "done": false,
+        "text": "- [ ] EGOS-163: Pix billing integration",
+        "section": "P1 — Competitive",
+        "priority": "P1"
+      },
+      {
+        "id": "EGOS-168",
+        "done": false,
+        "text": "- [ ] EGOS-168: llmrefs blocks on 10 more governance docs (manual, 1h)",
+        "section": "Remaining",
+        "priority": "P1"
+      },
+      {
+        "id": "EGOS-169",
+        "done": false,
+        "text": "- [ ] EGOS-169: @aiready/pattern-detect pre-commit (duplicate detection)",
+        "section": "Remaining",
+        "priority": "P1"
+      },
+      {
+        "id": "EGOS-173",
+        "done": false,
+        "text": "- [ ] EGOS-173: CRCDM hooks: llmrefs staleness + auto-heal rename",
+        "section": "Remaining",
+        "priority": "P1"
+      },
+      {
+        "id": "EAGLE-015",
+        "done": false,
+        "text": "- [ ] EAGLE-015: Dashboard filter UI for segmento/modalidade/porte taxonomy",
+        "section": "P1 — Production",
+        "priority": "P1"
+      },
+      {
+        "id": "EAGLE-016",
+        "done": false,
+        "text": "- [ ] EAGLE-016: Sync 84 territories to Supabase (seed script)",
+        "section": "P1 — Production",
+        "priority": "P1"
+      },
+      {
+        "id": "COMM-002",
+        "done": false,
+        "text": "- [ ] COMM-002: Document commons services in ECOSYSTEM_REGISTRY.md",
+        "section": "Pending",
+        "priority": "P1"
+      },
+      {
+        "id": "SANT-001",
+        "done": false,
+        "text": "- [ ] SANT-001: Santiago partner onboarding — MVP ready, waiting on business partner confirmation",
+        "section": "Pending",
+        "priority": "P1"
+      },
+      {
+        "id": "EGOS-128",
+        "done": false,
+        "text": "- [ ] EGOS-128: Phase 2+3 (Python imports + Docker rename)",
+        "section": "Tasks",
+        "priority": "P1"
+      },
+      {
+        "id": "EGOS-129",
+        "done": false,
+        "text": "- [ ] EGOS-129: Docker network rename + redeploy Hetzner",
+        "section": "Tasks",
+        "priority": "P1"
+      },
+      {
+        "id": "GH-025",
+        "done": false,
+        "text": "- [ ] GH-025: `/pr` workflow + GitHub App — pre-merge gate invoking ssot-auditor + code-intel on branch diffs",
+        "section": "New tasks from Continue study",
+        "priority": "P1"
+      },
+      {
+        "id": "GH-026",
+        "done": false,
+        "text": "- [ ] GH-026: Upgrade codebase-memory-mcp to HTTP/SSE transport (enables SaaS deployments)",
+        "section": "New tasks from Continue study",
+        "priority": "P1"
+      },
+      {
+        "id": "GH-027",
+        "done": false,
+        "text": "- [ ] GH-027: `.guarani/checks/` layer — markdown-as-config for non-technical rule authoring",
+        "section": "New tasks from Continue study",
+        "priority": "P1"
+      },
+      {
+        "id": "GH-012",
+        "done": false,
+        "text": "- [ ] GH-012: EGOS ↔ Cline (`cline/cline`) — IDE agent autonomy, human-in-the-loop UX",
+        "section": "P1 — Reference Repo Study Queue (priority order)",
+        "priority": "P1"
+      },
+      {
+        "id": "GH-013",
+        "done": false,
+        "text": "- [ ] GH-013: EGOS ↔ OpenHands (`OpenHands/OpenHands`) — full software agent SDK/CLI/GUI",
+        "section": "P1 — Reference Repo Study Queue (priority order)",
+        "priority": "P1"
+      },
+      {
+        "id": "GH-014",
+        "done": false,
+        "text": "- [ ] GH-014: EGOS ↔ LangGraph (`langchain-ai/langgraph`) — stateful long-running agents, durable execution",
+        "section": "P1 — Reference Repo Study Queue (priority order)",
+        "priority": "P1"
+      },
+      {
+        "id": "GH-015",
+        "done": false,
+        "text": "- [ ] GH-015: EGOS ↔ OpenAI Agents SDK (`openai/openai-agents-python`) — handoffs, guardrails, tracing",
+        "section": "P1 — Reference Repo Study Queue (priority order)",
+        "priority": "P1"
+      },
+      {
+        "id": "GH-016",
+        "done": false,
+        "text": "- [ ] GH-016: EGOS ↔ LiteLLM (`BerriAI/litellm`) — multi-model proxy, cost tracking, routing",
+        "section": "P1 — Reference Repo Study Queue (priority order)",
+        "priority": "P1"
+      },
+      {
+        "id": "GH-017",
+        "done": false,
+        "text": "- [ ] GH-017: EGOS ↔ Langfuse (`langfuse/langfuse`) — observability, prompt versioning, evals",
+        "section": "P1 — Reference Repo Study Queue (priority order)",
+        "priority": "P1"
+      },
+      {
+        "id": "GH-032",
+        "done": false,
+        "text": "- [ ] GH-032: EGOS edit benchmark — 20 real edit tasks tracked over time (SWE-Bench inspired)",
+        "section": "New tasks from Aider study",
+        "priority": "P1"
+      },
+      {
+        "id": "GH-035",
+        "done": false,
+        "text": "- [ ] GH-035: Telegram notification when gem-hunter score > 80 (post to EGOS channel)",
+        "section": "New tasks from Aider study",
+        "priority": "P1"
+      },
+      {
+        "id": "GH-036",
+        "done": false,
+        "text": "- [ ] GH-036: OpenHarness adapter in packages/shared/harness/ — evaluate skill/coordinator compat",
+        "section": "New tasks from Aider study",
+        "priority": "P1"
+      },
+      {
+        "id": "AI-008",
+        "done": false,
+        "text": "- [ ] AI-008: Add ai-coverage-scan.ts --check to pre-commit hook (fires when llm*.ts changes)",
+        "section": "P1 — Hook integration",
+        "priority": "P1"
+      },
+      {
+        "id": "AI-009",
+        "done": false,
+        "text": "- [ ] AI-009: Wire Atrian OBS spans to AI calls in llm-provider.ts (cost + latency per call)",
+        "section": "P1 — Hook integration",
+        "priority": "P1"
+      },
+      {
+        "id": "AI-010",
+        "done": false,
+        "text": "- [ ] AI-010: Unified cost dashboard — aggregate ai_events from all repos into single Supabase view",
+        "section": "P1 — Hook integration",
+        "priority": "P1"
+      },
+      {
+        "id": "X-006",
+        "done": false,
+        "text": "- [ ] X-006: Grow capability profiles in rapid-response.ts (add br-acc, 852, BRAID executor)",
+        "section": "P1 — Expand",
+        "priority": "P1"
+      },
+      {
+        "id": "X-007",
+        "done": false,
+        "text": "- [ ] X-007: `--post-thread` flag in rapid-response.ts — auto-post first tweet of thread",
+        "section": "P1 — Expand",
+        "priority": "P1"
+      },
+      {
+        "id": "X-008",
+        "done": false,
+        "text": "- [ ] X-008: Daily X report to Telegram (how many replies sent, top threads engaged)",
+        "section": "P1 — Expand",
+        "priority": "P1"
+      },
+      {
+        "id": "X-009",
+        "done": false,
+        "text": "- [ ] X-009: Trending topic scanner — check X API hourly for rising keywords vs our capabilities",
+        "section": "P1 — Expand",
+        "priority": "P1"
+      },
+      {
+        "id": "X-010",
+        "done": false,
+        "text": "- [ ] X-010: \"Clean showcase\" branch auto-creator — when topic detected, create `showcase/<topic>` with only clean files",
+        "section": "P1 — Expand",
+        "priority": "P1"
+      },
+      {
+        "id": "INTEL-005",
+        "done": false,
+        "text": "- [ ] INTEL-005: Signal ingestion — Gem Hunter scores > 80 → auto-append to world model signals",
+        "section": "P1 — Signal Layer",
+        "priority": "P1"
+      },
+      {
+        "id": "INTEL-006",
+        "done": false,
+        "text": "- [ ] INTEL-006: Proactive blocker detection — world model scans P0 list → creates TASKS entries if blocker stale > 7 da",
+        "section": "P1 — Signal Layer",
+        "priority": "P1"
+      },
+      {
+        "id": "INTEL-007",
+        "done": false,
+        "text": "- [ ] INTEL-007: `--mermaid` output from world-model.ts → embed in /start briefing as ASCII architecture snapshot",
+        "section": "P1 — Signal Layer",
+        "priority": "P1"
+      }
+    ],
+    "p2_backlog": [
+      {
+        "id": "EGOS-165",
+        "done": false,
+        "text": "- [ ] EGOS-165: White-label outreach",
+        "section": "P2 — Growth",
+        "priority": "P2"
+      },
+      {
+        "id": "EGOS-166",
+        "done": false,
+        "text": "- [ ] EGOS-166: REST API gateway mode",
+        "section": "P2 — Growth",
+        "priority": "P2"
+      },
+      {
+        "id": "EAGLE-009",
+        "done": false,
+        "text": "- [ ] EAGLE-009: Stripe/Pix payment for Pro tier (R$497/mo, 50+ territories)",
+        "section": "P2 — Revenue",
+        "priority": "P2"
+      },
+      {
+        "id": "EAGLE-010",
+        "done": false,
+        "text": "- [ ] EAGLE-010: Customer onboarding flow + dashboard customization",
+        "section": "P2 — Revenue",
+        "priority": "P2"
+      },
+      {
+        "id": "EAGLE-011",
+        "done": false,
+        "text": "- [ ] EAGLE-011: E2E tests (Playwright)",
+        "section": "P2 — Revenue",
+        "priority": "P2"
+      },
+      {
+        "id": "EGOS-170",
+        "done": false,
+        "text": "- [ ] EGOS-170: Guard Brasil Next.js web dashboard — Vercel deploy, real data from guard_brasil_events, usage charts",
+        "section": "P2 — Revenue",
+        "priority": "P2"
+      },
+      {
+        "id": "GH-020",
+        "done": false,
+        "text": "- [ ] GH-020: EGOS ↔ Mem0 — persistent agent memory layer",
+        "section": "P2 — Advanced Studies",
+        "priority": "P2"
+      },
+      {
+        "id": "GH-021",
+        "done": false,
+        "text": "- [ ] GH-021: EGOS ↔ Temporal TS SDK — durable workflow engine",
+        "section": "P2 — Advanced Studies",
+        "priority": "P2"
+      },
+      {
+        "id": "GH-022",
+        "done": false,
+        "text": "- [ ] GH-022: EGOS ↔ Haystack — RAG/retrieval/context engineering",
+        "section": "P2 — Advanced Studies",
+        "priority": "P2"
+      },
+      {
+        "id": "GH-023",
+        "done": false,
+        "text": "- [ ] GH-023: EGOS ↔ DSPy — programmatic prompt optimization",
+        "section": "P2 — Advanced Studies",
+        "priority": "P2"
+      },
+      {
+        "id": "GH-024",
+        "done": false,
+        "text": "- [ ] GH-024: Lego Assembler agent — consumes `.md` SSOT blocks from discovery engine",
+        "section": "P2 — Advanced Studies",
+        "priority": "P2"
+      },
+      {
+        "id": "LEAK-010",
+        "done": false,
+        "text": "- [ ] LEAK-010: Monitor `Piebald-AI/claude-code-system-prompts` for per-release prompt changes",
+        "section": "P2 — Awareness (no action needed yet)",
+        "priority": "P2"
+      },
+      {
+        "id": "LEAK-011",
+        "done": false,
+        "text": "- [ ] LEAK-011: Monitor `nblintao/awesome-claude-code-postleak-insights` for community patterns",
+        "section": "P2 — Awareness (no action needed yet)",
+        "priority": "P2"
+      },
+      {
+        "id": "LEAK-012",
+        "done": false,
+        "text": "- [ ] LEAK-012: Evaluate Guard Brasil anti-distillation patterns (fake-tool injection for API protection)",
+        "section": "P2 — Awareness (no action needed yet)",
+        "priority": "P2"
+      },
+      {
+        "id": "OBS-010",
+        "done": false,
+        "text": "- [ ] OBS-010: Wire hooks → OTel spans (PreToolUse/PostToolUse emit span events)",
+        "section": "P2 — Integration",
+        "priority": "P2"
+      },
+      {
+        "id": "OBS-011",
+        "done": false,
+        "text": "- [ ] OBS-011: Gem Hunter session telemetry (pair analysis duration, transplant acceptance rate)",
+        "section": "P2 — Integration",
+        "priority": "P2"
+      },
+      {
+        "id": "OBS-012",
+        "done": false,
+        "text": "- [ ] OBS-012: Runtime dashboard vs Product analytics dashboard — separate concerns",
+        "section": "P2 — Integration",
+        "priority": "P2"
+      },
+      {
+        "id": "OBS-013",
+        "done": false,
+        "text": "- [ ] OBS-013: Privacy-preserving structured logs (no raw code, masked secrets, redacted paths)",
+        "section": "P2 — Integration",
+        "priority": "P2"
+      },
+      {
+        "id": "X-011",
+        "done": false,
+        "text": "- [ ] X-011: Upgrade to Basic tier ($100/mo) when bot proves value — 3,000 writes/month vs 1,500",
+        "section": "P2 — Upgrade",
+        "priority": "P2"
+      },
+      {
+        "id": "X-012",
+        "done": false,
+        "text": "- [ ] X-012: Build thread scheduler — post multi-tweet threads with 2-min gaps",
+        "section": "P2 — Upgrade",
+        "priority": "P2"
+      },
+      {
+        "id": "X-013",
+        "done": false,
+        "text": "- [ ] X-013: Analytics dashboard — track which replies got most engagement",
+        "section": "P2 — Upgrade",
+        "priority": "P2"
+      },
+      {
+        "id": "INTEL-008",
+        "done": false,
+        "text": "- [ ] INTEL-008: DRI auto-assignment — when P0 task has no commit activity for 3 days, auto-flag + Telegram alert",
+        "section": "P2 — Full Intelligence",
+        "priority": "P2"
+      },
+      {
+        "id": "INTEL-009",
+        "done": false,
+        "text": "- [ ] INTEL-009: Capability composition map — intelligence layer dynamically suggests which agents to invoke for a given",
+        "section": "P2 — Full Intelligence",
+        "priority": "P2"
+      },
+      {
+        "id": "INTEL-010",
+        "done": false,
+        "text": "- [ ] INTEL-010: World model diff — compare snapshots to detect regression (tasks going from [x] back to [ ])",
+        "section": "P2 — Full Intelligence",
+        "priority": "P2"
+      }
+    ]
+  },
+  "agents": {
+    "total": 12,
+    "active": [
+      {
+        "id": "ssot-auditor",
+        "role": "DRI",
+        "description": "Structural Triage Engine — scans TypeScript/Python codebases via AST, detects ty"
+      },
+      {
+        "id": "ssot-fixer",
+        "role": "IC",
+        "description": "Consumes ssot-auditor output and applies safe, low-risk codemod plans automatica"
+      },
+      {
+        "id": "drift-sentinel",
+        "role": "DRI",
+        "description": "Configuration drift detection — compares narrative (docs) vs live system state, "
+      },
+      {
+        "id": "dep-auditor",
+        "role": "DRI",
+        "description": "Scans package.json files for version conflicts, misplaced dev deps, and unused d"
+      },
+      {
+        "id": "archaeology-digger",
+        "role": "IC",
+        "description": "Recursively traverses git history, agent registries, governance files, and hando"
+      },
+      {
+        "id": "chatbot-compliance-checker",
+        "role": "DRI",
+        "description": "Scans a target repository for the required modules defined in CHATBOT_SSOT and r"
+      },
+      {
+        "id": "dead-code-detector",
+        "role": "IC",
+        "description": "Finds dead exports, orphan files, and empty stubs across any TypeScript codebase"
+      },
+      {
+        "id": "capability-drift-checker",
+        "role": "DRI",
+        "description": "Scans any target repo against the EGOS kernel's shared capabilities, governance "
+      },
+      {
+        "id": "context-tracker",
+        "role": "IC",
+        "description": "Estimates remaining usable context window (CTX 0-280) from uncommitted files, se"
+      },
+      {
+        "id": "framework-benchmarker",
+        "role": "IC",
+        "description": "Benchmarks MASA and competing agent/orchestration frameworks from official docs "
+      },
+      {
+        "id": "mcp-router",
+        "role": "IC",
+        "description": "Routes incoming MCP server discovery requests to the correct handler based on ca"
+      },
+      {
+        "id": "spec-router",
+        "role": "IC",
+        "description": "Validates spec pipeline stage fields, detects current stage, routes to next revi"
+      }
+    ],
+    "killed": [
+      "gtm-harvester",
+      "aiox-gem-hunter",
+      "mastra-gem-hunter"
+    ]
+  },
+  "capabilities": {
+    "total": 160,
+    "domains": [
+      {
+        "domain": "CHATBOT & CONVERSATION",
+        "count": 17
+      },
+      {
+        "domain": "AI & LLM INFRASTRUCTURE",
+        "count": 11
+      },
+      {
+        "domain": "AUTHENTICATION & IDENTITY",
+        "count": 6
+      },
+      {
+        "domain": "GOVERNANCE & SSOT",
+        "count": 31
+      },
+      {
+        "domain": "AGENT RUNTIME",
+        "count": 12
+      },
+      {
+        "domain": "DEPLOYMENT & INFRA",
+        "count": 7
+      },
+      {
+        "domain": "TELEMETRY & OBSERVABILITY",
+        "count": 5
+      },
+      {
+        "domain": "GAMIFICATION & ENGAGEMENT",
+        "count": 3
+      },
+      {
+        "domain": "WHATSAPP & MESSAGING",
+        "count": 12
+      },
+      {
+        "domain": "DATA & SEARCH",
+        "count": 4
+      },
+      {
+        "domain": "DOCUMENTATION & KNOWLEDGE",
+        "count": 27
+      },
+      {
+        "domain": "MCP & UNIFIED AGENT ARCHITECTURE (Planned)",
+        "count": 19
+      },
+      {
+        "domain": "X.COM & RAPID RESPONSE (2026-04-01)",
+        "count": 6
+      }
+    ]
+  },
+  "signals": [
+    {
+      "source": "governance-drift",
+      "date": "2026-04-01",
+      "headline": "**Date:** 2026-04-01  ",
+      "severity": "UNKNOWN"
+    }
+  ],
+  "blockers": [],
+  "health_pct": 55
+}

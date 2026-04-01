@@ -5,6 +5,19 @@
 **Date:** 2026-03-26
 **Purpose:** One-page reference for task scheduling and dependency tracking
 
+<!-- llmrefs:start -->
+
+## LLM Reference Signature
+
+- **Role:** Quick-ref matrix for blueprint tasks and sprints
+- **Summary:** Status, dependencies, and execution order for EGOS-110..123 batch work. One-pager for task scheduling.
+- **Read next:**
+  - `TASKS.md` — current active sprint and P0/P1/P2 priority
+  - `SYSTEM_MAP.md` — architecture context for blueprint features
+  - `.guarani/` — governance rules for blueprint execution
+
+<!-- llmrefs:end -->
+
 ---
 
 ## Status at a Glance

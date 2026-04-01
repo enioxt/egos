@@ -4,6 +4,19 @@
 > **SSOT STATUS:** This file IS the canonical product/module classification map
 > **Updated by:** EGOS Ecosystem Auditor (evidence-first, filesystem-verified)
 
+<!-- llmrefs:start -->
+
+## LLM Reference Signature
+
+- **Role:** Canonical taxonomy for all repos/products in EGOS ecosystem
+- **Summary:** Maps every active repo to a classification (kernel, standalone, lab, internal_infra, candidate, archive, discard). Governs promotion rules and governance appliance.
+- **Read next:**
+  - `SYSTEM_MAP.md` — repo topology and activation flow
+  - `TASKS.md` — ongoing classification audits and disputes
+  - `docs/SSOT_REGISTRY.md` — which governance rules apply to each class
+
+<!-- llmrefs:end -->
+
 ---
 
 ## Classification Schema

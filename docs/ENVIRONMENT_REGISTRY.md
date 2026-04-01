@@ -2,6 +2,19 @@
 > **VERSION:** 1.0.0 | **UPDATED:** 2026-03-21
 > **TYPE:** AGNÓSTICO - Central de Mapeamento de Ferramentas, MCPs e Ambientes de IA do Ecossistema EGOS.
 
+<!-- llmrefs:start -->
+
+## LLM Reference Signature
+
+- **Role:** Mapeamento agnóstico de ambientes de IA, ferramentas MCP e hosts operacionais
+- **Summary:** Define quais IDEs, hosts e provedores de LLM podem executar EGOS; abstraí capacidades por agente. Não prescreve ferramentas específicas (ex: "use Windsurf"). Mapeia MCP servers disponíveis.
+- **Read next:**
+  - `SYSTEM_MAP.md` — topologia geral do ecossistema
+  - `docs/modules/CHATBOT_SSOT.md` — especificação de modelos e roteamento
+  - `.guarani/` — governança por ambiente
+
+<!-- llmrefs:end -->
+
 ---
 
 ## Filosofia Agnóstica

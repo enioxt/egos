@@ -5,6 +5,20 @@
 > **SSOT STATUS:** This file IS the canonical capability map
 > **LATEST:** Kernel governance sprint — Agent Claim Contract, MCP servers, Circuit Breaker, SSOT Visit Protocol v2
 
+<!-- llmrefs:start -->
+
+## LLM Reference Signature
+
+- **Role:** Master capability inventory for EGOS ecosystem
+- **Summary:** Cross-repo SSOT for all reusable capabilities (chatbot, security, integration, AI). Quality-rated and adoption-mapped.
+- **Read next:**
+  - `SSOT_REGISTRY.md` — which capabilities are canonical vs local
+  - `docs/modules/CHATBOT_SSOT.md` — chatbot-specific standards
+  - `TASKS.md` — what capabilities are in-flight or blocked
+  - `/start` activation flow — how to use this registry during onboarding
+
+<!-- llmrefs:end -->
+
 ---
 
 ## How to Read This Registry

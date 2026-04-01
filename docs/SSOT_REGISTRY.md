@@ -4,6 +4,19 @@
 > **PURPOSE:** canonical registry for all SSOT surfaces across the EGOS workspace.
 > **TASK:** EGOS-083 (created), EGOS-085 (expanded)
 
+<!-- llmrefs:start -->
+
+## LLM Reference Signature
+
+- **Role:** Master index of all SSOTs across kernel + leaf repos
+- **Summary:** Maps which SSOT lives where (kernel_canonical vs leaf_local vs shared_home). Declares owner, enforcement point, freshness rule for each.
+- **Read next:**
+  - `CAPABILITY_REGISTRY.md` — capability-specific SSOTs
+  - `ECOSYSTEM_CLASSIFICATION_REGISTRY.md` — repo classification SSOT
+  - `.guarani/RULES_INDEX.md` — governance SSOT enforcement
+
+<!-- llmrefs:end -->
+
 ## Registry Contract
 
 - `kernel_canonical` — source lives in `egos`; propagates outward via `governance:sync`.

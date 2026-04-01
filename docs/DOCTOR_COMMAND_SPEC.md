@@ -4,6 +4,19 @@
 **Date:** 2026-03-26  
 **Phase:** 3/3 Phases Implemented
 
+<!-- llmrefs:start -->
+
+## LLM Reference Signature
+
+- **Role:** Specification for the `doctor` health-check command
+- **Summary:** 23 validation checks (env, files, providers, hooks, workspace, governance) that gate `/start` workflow. Comprehensive environment readiness validator.
+- **Read next:**
+  - `ACTIVATION_GUIDE.md` — how `doctor` fits in activation flow
+  - `SYSTEM_MAP.md` — what `doctor` validates
+  - `ENVIRONMENT_REGISTRY.md` — approved providers that `doctor` checks
+
+<!-- llmrefs:end -->
+
 ---
 
 ## Executive Summary
