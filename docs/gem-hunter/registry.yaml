@@ -1,0 +1,218 @@
+# Gem Hunter — Repository Registry v1.0.0
+# SSOT for all repos analyzed or queued for analysis
+# Updated: 2026-04-01
+
+# Status values: discovered | triaged | queued | studying | completed | skipped
+# Priority: P1 (study next) | P2 (backlog) | Ref (reference only)
+
+repos:
+
+  # === P1 — Study Queue (priority order) ===
+
+  - id: continue
+    name: Continue
+    url: https://github.com/continuedev/continue
+    categories: [coding_surface, governance_safety, product_surface, protocol_tooling]
+    priority: P1
+    status: completed
+    scored: 71
+    license: Apache-2.0
+    language: typescript
+    notes: "Repo-native AI checks, config-driven agents, CI enforcement"
+    studied_date: 2026-04-01
+    key_transplants: [markdown-checks, pr-native-agents, mcp-http-transport, secret-injection]
+    pair_report: "docs/gem-hunter/pairs/egos__continue/"
+
+  - id: aider
+    name: Aider
+    url: https://github.com/Aider-AI/aider
+    categories: [coding_surface, agent_runtime]
+    priority: P1
+    status: queued
+    license: Apache-2.0
+    language: python
+    notes: "Safe edit/diff/git loop, audit trail, codebase mapping"
+
+  - id: cline
+    name: Cline
+    url: https://github.com/cline/cline
+    categories: [coding_surface, agent_runtime]
+    priority: P1
+    status: queued
+    license: Apache-2.0
+    language: typescript
+    notes: "IDE agent autonomy, human-in-the-loop UX, tool permission flow"
+
+  - id: openhands
+    name: OpenHands
+    url: https://github.com/OpenHands/OpenHands
+    categories: [agent_runtime, product_surface]
+    priority: P1
+    status: queued
+    license: MIT
+    language: python
+    notes: "Full software agent SDK/CLI/GUI, container runtime, skills"
+
+  - id: langgraph
+    name: LangGraph
+    url: https://github.com/langchain-ai/langgraph
+    categories: [agent_runtime, durable_workflow]
+    priority: P1
+    status: queued
+    license: MIT
+    language: python
+    notes: "Stateful long-running agents, durable execution, HITL"
+
+  - id: openai-agents
+    name: OpenAI Agents SDK
+    url: https://github.com/openai/openai-agents-python
+    categories: [agent_runtime, governance_safety]
+    priority: P1
+    status: queued
+    license: MIT
+    language: python
+    notes: "Handoffs, guardrails, tracing, sessions"
+
+  - id: litellm
+    name: LiteLLM
+    url: https://github.com/BerriAI/litellm
+    categories: [model_gateway]
+    priority: P1
+    status: queued
+    license: MIT
+    language: python
+    notes: "Multi-model proxy, cost tracking, routing, guardrails"
+
+  - id: langfuse
+    name: Langfuse
+    url: https://github.com/langfuse/langfuse
+    categories: [observability_evals]
+    priority: P1
+    status: queued
+    license: MIT
+    language: typescript
+    notes: "Observability, prompt versioning, evals, datasets"
+
+  # === P2 — Backlog ===
+
+  - id: pydantic-ai
+    name: PydanticAI
+    url: https://github.com/pydantic/pydantic-ai
+    categories: [agent_runtime]
+    priority: P2
+    status: discovered
+    license: MIT
+    language: python
+
+  - id: mem0
+    name: Mem0
+    url: https://github.com/mem0ai/mem0
+    categories: [memory_context]
+    priority: P2
+    status: discovered
+    license: Apache-2.0
+    language: python
+
+  - id: phoenix
+    name: Phoenix
+    url: https://github.com/Arize-ai/phoenix
+    categories: [observability_evals]
+    priority: P2
+    status: discovered
+    license: Apache-2.0
+    language: python
+
+  - id: vercel-ai
+    name: Vercel AI SDK
+    url: https://github.com/vercel/ai
+    categories: [product_surface]
+    priority: P2
+    status: discovered
+    license: Apache-2.0
+    language: typescript
+
+  - id: temporal-ts
+    name: Temporal TypeScript SDK
+    url: https://github.com/temporalio/sdk-typescript
+    categories: [durable_workflow]
+    priority: P2
+    status: discovered
+    license: MIT
+    language: typescript
+
+  - id: haystack
+    name: Haystack
+    url: https://github.com/deepset-ai/haystack
+    categories: [retrieval_context]
+    priority: P2
+    status: discovered
+    license: Apache-2.0
+    language: python
+
+  - id: dspy
+    name: DSPy
+    url: https://github.com/stanfordnlp/dspy
+    categories: [agent_runtime]
+    priority: P2
+    status: discovered
+    license: MIT
+    language: python
+
+  - id: mcp-servers
+    name: MCP Reference Servers
+    url: https://github.com/modelcontextprotocol/servers
+    categories: [protocol_tooling]
+    priority: P2
+    status: discovered
+    license: MIT
+    language: typescript
+
+  # === Skipped ===
+
+  - id: codedb
+    name: codedb
+    url: https://github.com/justrach/codedb
+    categories: [protocol_tooling]
+    priority: skip
+    status: skipped
+    license: none
+    language: zig
+    notes: "Zig code intelligence MCP. Sub-ms queries but narrower than codebase-memory-mcp. No license, alpha, Linux crash bug. Re-evaluate in 3-6 months."
+    skipped_date: 2026-04-01
+
+  # === Reference (monitoring only) ===
+
+  - id: awesome-claude-code
+    name: Awesome Claude Code
+    url: https://github.com/hesreallyhim/awesome-claude-code
+    categories: [protocol_tooling]
+    priority: ref
+    status: discovered
+
+  - id: claude-code-hooks-observability
+    name: Claude Code Hooks Multi-Agent Observability
+    url: https://github.com/disler/claude-code-hooks-multi-agent-observability
+    categories: [observability_evals]
+    priority: ref
+    status: discovered
+
+  - id: awesome-claude-code-toolkit
+    name: Awesome Claude Code Toolkit
+    url: https://github.com/rohitg00/awesome-claude-code-toolkit
+    categories: [protocol_tooling]
+    priority: ref
+    status: discovered
+
+  - id: postleak-insights
+    name: Awesome Claude Code Post-Leak Insights
+    url: https://github.com/nblintao/awesome-claude-code-postleak-insights
+    categories: [protocol_tooling]
+    priority: ref
+    status: discovered
+
+  - id: claude-code-system-prompts
+    name: Claude Code System Prompts (per release)
+    url: https://github.com/Piebald-AI/claude-code-system-prompts
+    categories: [protocol_tooling]
+    priority: ref
+    status: discovered

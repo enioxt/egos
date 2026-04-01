@@ -91,5 +91,32 @@ bash scripts/file-intelligence.sh 2>/dev/null || {
   exit 1
 }
 
-echo "  [6/6] All checks passed."
+# 7. Vocab Guard — Block phantom architecture terms in docs
+STAGED_MD=$(git diff --cached --name-only 2>/dev/null | grep '\.md$' || true)
+if [ -n "$STAGED_MD" ]; then
+  PHANTOM_FOUND=0
+  for md_file in $STAGED_MD; do
+    if [ -f "$md_file" ]; then
+      MATCHES=$(git diff --cached -- "$md_file" 2>/dev/null | grep '^+' | grep -v '^+++' | \
+        grep -iE '\b(NATS transport|NATS broker|NATS server|ZKP|zero.knowledge proof|shadow node|QuantumSearch|quantum search|DAG engine|DAG workflow|DAG.based pipeline)\b' || true)
+      if [ -n "$MATCHES" ]; then
+        echo "  VOCAB GUARD: $md_file adds phantom architecture terms:"
+        echo "$MATCHES" | head -5 | sed 's/^/    /'
+        PHANTOM_FOUND=1
+      fi
+    fi
+  done
+  if [ "$PHANTOM_FOUND" -eq 1 ]; then
+    echo ""
+    echo "❌ BLOCKED: Documentation references unimplemented architecture."
+    echo "   Terms blocked: NATS transport/broker, ZKP, shadow nodes, QuantumSearch, DAG engine/workflow"
+    echo "   These are planned-only — no code exists. To proceed:"
+    echo "   Option A: Add code first, then document it."
+    echo "   Option B: Mark planned terms with: <!-- vocab-guard: planned -->"
+    echo "   Option C: git commit --no-verify (requires justification in commit message)"
+    exit 1
+  fi
+  echo "  [7/7] vocab guard: no phantom architecture terms in staged docs"
+fi
+
 echo "✅ EGOS Pre-Commit: Commit approved."

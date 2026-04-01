@@ -47,3 +47,7 @@ export {
   TELEFONE_PATTERN, EMAIL_PATTERN, CEP_PATTERN,
 } from './pii-patterns.js';
 export type { PIIPatternId, PatternConfidence, PIIPatternConfig, PIIMatch } from './pii-patterns.js';
+
+// Reversible tokenized redaction (EGOS-160)
+export { tokenize, restore, hasTokens } from './lib/tokenizer.js';
+export type { TokenVault, TokenizedResult } from './lib/tokenizer.js';

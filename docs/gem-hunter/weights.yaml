@@ -1,0 +1,38 @@
+# Gem Hunter — Scoring Weights v1.0.0
+# Used by /study and /study-end skills to calculate repo relevance scores
+# Updated: 2026-04-01
+
+weights:
+  egos_relevance: 0.24          # Does it solve a real EGOS problem?
+  transplantability: 0.18       # Can we reuse patterns (not just admire)?
+  architectural_complementarity: 0.14  # Does it fill a gap we have?
+  novelty: 0.12                 # Does it teach something we don't know?
+  maintenance_signal: 0.10      # Is it actively maintained?
+  doc_quality: 0.08             # Is documentation good enough to learn from?
+  license_clarity: 0.06         # Is the license clear and compatible?
+  operational_fit: 0.04         # Does it match our stack (TS, Bun, Claude Code)?
+  observability_maturity: 0.04  # Does it have good tracing/evals?
+
+# Each subscore ranges 0-100
+# Final score = sum(weight * subscore)
+# Threshold for deep study: >= 60
+# Threshold for transplant proposal: >= 70
+
+categories:
+  - coding_surface        # IDE, agent UX, repo instructions, diff/edit loop
+  - agent_runtime         # Orchestration, handoffs, tools, planning, state
+  - memory_context        # Long-term memory, repo memory, user/session memory
+  - model_gateway         # Multi-model routing, proxy, guardrails, costs
+  - observability_evals   # Traces, experiments, benchmarks, prompt versioning
+  - retrieval_context     # RAG, pipelines, ranking, citations
+  - durable_workflow      # Retries, resumability, workflow engine
+  - protocol_tooling      # MCP, plugins, extensions, external tools
+  - product_surface       # Chat UI, streaming UI, developer portal
+  - governance_safety     # Rules, policies, approval boundaries, audit trail
+
+transplant_levels:
+  - adopt_directly        # Use as-is with attribution
+  - adapt_lightly         # Minor modifications needed
+  - adapt_heavily         # Significant rework but core idea valid
+  - reimplement_from_idea # Concept only, clean-room implementation
+  - avoid                 # Anti-pattern or incompatible

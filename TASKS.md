@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.20.0 | **Updated:** 2026-04-01 | **LAST SESSION:** 2026-04-01 — Neural Mesh, npm, CCR jobs, Eagle Eye, br-acc mining, registry audit
+> **Version:** 2.22.0 | **Updated:** 2026-04-01 | **LAST SESSION:** 2026-04-01 — Vocab guard in pre-commit, Gem Hunter CCR extended with pair analysis, BRACC-001..003 extracted to shared, GOV-001..003 complete, LEAK-001 hook wired
 
 ---
 
@@ -13,8 +13,8 @@
 - [x] Consumer apps PII sync: 852/forja/carteira-livre → 15 patterns each
 
 **P0 — Revenue blocking:**
-- [ ] EGOS-159: Wire npm package into Hono server on VPS (currently hardcoded patterns)
-- [ ] EGOS-160: Reversible redaction — tokenized mask+restore
+- [x] EGOS-159: @egosbr/guard-brasil@0.2.0 wired into VPS Docker API — CPF/PII live ✅ 2026-04-01
+- [x] EGOS-160: Reversible redaction — tokenize()/restore() in packages/guard-brasil/src/lib/tokenizer.ts ✅ 2026-04-01
 
 **P1 — Competitive:**
 - [ ] EGOS-162: Accuracy benchmark vs Presidio/anonym.legal
@@ -102,9 +102,9 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - `transparency_tools.py` (1372 LOC) — 21 Brazilian gov API clients with circuit breaker. Score: 7/10.
 
 **Tasks:**
-- [ ] BRACC-001: Extract provenance.py → packages/shared/src/provenance.ts (reusable across ecosystem)
-- [ ] BRACC-002: Extract cache.py pattern → packages/shared/src/cache.ts
-- [ ] BRACC-003: Extract ETL base class → packages/shared/src/pipeline-base.ts
+- [x] BRACC-001: Extract provenance.py → packages/shared/src/provenance.ts ✅ 2026-04-01
+- [x] BRACC-002: Extract cache.py pattern → packages/shared/src/cache.ts ✅ 2026-04-01
+- [x] BRACC-003: Extract ETL base class → packages/shared/src/pipeline-base.ts ✅ 2026-04-01
 - [ ] EGOS-128: Phase 2+3 (Python imports + Docker rename)
 - [ ] EGOS-129: Docker network rename + redeploy Hetzner
 
@@ -118,8 +118,130 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - `docs/ECOSYSTEM_CLASSIFICATION_REGISTRY.md` v2.0.0 — repo governance classes. **NOT synced to leaves.**
 
 **Tasks:**
-- [ ] GOV-001: Add ECOSYSTEM_CLASSIFICATION_REGISTRY.md to governance-sync.sh CANONICAL_DOCS
-- [ ] GOV-002: Verify leaf repo registry copies are fresh (carteira-livre has 90 lines, should be 325+)
-- [ ] GOV-003: Create daily governance-sync cron on VPS (0 9 * * *)
+- [x] GOV-001: Add ECOSYSTEM_CLASSIFICATION_REGISTRY.md to governance-sync.sh CANONICAL_DOCS ✅ 2026-04-01
+- [x] GOV-002: Sync leaf repos (carteira-livre/forja/852/smartbuscas) — all 3 registries fresh ✅ 2026-04-01
+- [x] GOV-003: Daily governance-sync cron added (0 12 * * * = 9am BRT) ✅ 2026-04-01
 
 > **Archived:** All session summaries, ARCH project, benchmark plans, Grok intake → `docs/knowledge/TASKS_ARCHIVE_2026.md`
+
+---
+
+### Gem Hunter v2 — Pair Analysis Engine (2026-04-01)
+
+**Source:** ChatGPT conversation analysis + egos-lab Gem Hunter v5.0 handoff
+**Architecture:** 6-layer pipeline (Discovery→Triage→Pair Diagnosis→Decision Intelligence→SSOT→Continuous Operation)
+
+**Done:**
+- [x] Gem Hunter v5.0 Atomic Discovery Engine (anti-poisoning ≥40, -15 non-code, CJK block)
+- [x] CCR scheduled job: Gem Hunter Adaptive Intelligence (seg+qui 2h37 BRT)
+- [x] Report: 24 gems found 2026-04-01 (top: gptme ACP agent.py, 89pts)
+
+**P0 — Pair Analysis Core:**
+- [x] GH-001: Create `/study` skill — pair-analysis session for EGOS ↔ 1 reference repo
+- [x] GH-002: Create `/study-end` skill — mandatory closure (9 sections: scorecard, transplants, blind spots, next recs)
+- [x] GH-003: SSOT structure: `docs/gem-hunter/registry.yaml`, `pairs/`, `weights.yaml`, `SSOT.md`
+- [x] GH-004: Weighted scoring config: `docs/gem-hunter/weights.yaml` (9-factor rubric)
+- [x] GH-010: EGOS ↔ Continue — score 71/100, 5 transplants identified, 3 anti-patterns
+
+**New tasks from Continue study:**
+- [ ] GH-025: `/pr` workflow + GitHub App — pre-merge gate invoking ssot-auditor + code-intel on branch diffs
+- [ ] GH-026: Upgrade codebase-memory-mcp to HTTP/SSE transport (enables SaaS deployments)
+- [ ] GH-027: `.guarani/checks/` layer — markdown-as-config for non-technical rule authoring
+
+**Gem Hunter CCR:**
+- [x] GH-028: Gem Hunter Adaptive CCR extended with Mission 2 (pair analysis Phase 6) ✅ 2026-04-01
+
+**P1 — Reference Repo Study Queue (priority order):**
+- [ ] GH-010: EGOS ↔ Continue (`continuedev/continue`) — repo-native governance, checks, config-driven agents
+- [ ] GH-011: EGOS ↔ Aider (`Aider-AI/aider`) — safe edit/diff/git loop, audit trail
+- [ ] GH-012: EGOS ↔ Cline (`cline/cline`) — IDE agent autonomy, human-in-the-loop UX
+- [ ] GH-013: EGOS ↔ OpenHands (`OpenHands/OpenHands`) — full software agent SDK/CLI/GUI
+- [ ] GH-014: EGOS ↔ LangGraph (`langchain-ai/langgraph`) — stateful long-running agents, durable execution
+- [ ] GH-015: EGOS ↔ OpenAI Agents SDK (`openai/openai-agents-python`) — handoffs, guardrails, tracing
+- [ ] GH-016: EGOS ↔ LiteLLM (`BerriAI/litellm`) — multi-model proxy, cost tracking, routing
+- [ ] GH-017: EGOS ↔ Langfuse (`langfuse/langfuse`) — observability, prompt versioning, evals
+
+**P2 — Advanced Studies:**
+- [ ] GH-020: EGOS ↔ Mem0 — persistent agent memory layer
+- [ ] GH-021: EGOS ↔ Temporal TS SDK — durable workflow engine
+- [ ] GH-022: EGOS ↔ Haystack — RAG/retrieval/context engineering
+- [ ] GH-023: EGOS ↔ DSPy — programmatic prompt optimization
+- [ ] GH-024: Lego Assembler agent — consumes `.md` SSOT blocks from discovery engine
+
+---
+
+### Claude Code Leak Intelligence (2026-04-01)
+
+**Source:** X threads analysis (2038965567269249484, 2038894956459290963), clean-room approach
+**Principle:** Learn from public patterns, never use leaked code. Evidence-based only.
+
+**Done:**
+- [x] CLAUDE.md v2.1 employee-grade overrides (verification gates, context management, edit safety)
+- [x] settings.json: permissions + hooks configured
+- [x] Awareness: 44 feature flags, KAIROS, BUDDY, Coordinator Mode, anti-distillation patterns
+
+**P1 — Claude Code Hardening:**
+- [x] LEAK-001: Frustration-detection hook wired (UserPromptSubmit → ~/.claude/hooks/frustration-detector) ✅ 2026-04-01
+- [ ] LEAK-002: autoDream-inspired memory consolidation — scheduled CCR job to prune/consolidate MEMORY.md (24h trigger)
+- [ ] LEAK-003: Coordinator Mode skill — `/coordinator` to launch multi-agent orchestration (Research→Synthesis→Implementation→Verification)
+- [ ] LEAK-004: Expand hook coverage — add PostToolUse hooks for format/lint after Write/Edit
+- [ ] LEAK-005: Anti-compaction guard — re-read critical files after 10+ turns (hook or skill reminder)
+
+**P1 — Architecture Insights (from zainhas blog analysis):**
+- [x] LEAK-006: Tool result budgeting — note added to /end Phase 1 ✅ 2026-04-01
+- [x] LEAK-007: Structured session memory — fixed sections + 2K cap added to /end Phase 7 ✅ 2026-04-01
+- [ ] LEAK-008: Read-parallel/Write-sequential — enforce in EGOS sub-agent swarm patterns
+- [ ] LEAK-009: Audit settings.json deny rules — add wildcard patterns for sensitive files (*.env, credentials.*)
+
+**P2 — Awareness (no action needed yet):**
+- [ ] LEAK-010: Monitor `Piebald-AI/claude-code-system-prompts` for per-release prompt changes
+- [ ] LEAK-011: Monitor `nblintao/awesome-claude-code-postleak-insights` for community patterns
+- [ ] LEAK-012: Evaluate Guard Brasil anti-distillation patterns (fake-tool injection for API protection)
+
+---
+
+### Atrian Observability Module (2026-04-01)
+
+**Source:** ChatGPT architecture + OTel public patterns + Claude Code hook system
+**Principle:** Collect metadata, not payload. Telemetry mínima de conteúdo, máxima de comportamento.
+
+**P1 — Foundation:**
+- [ ] OBS-001: Create `packages/atrian-observability/` module skeleton (instrumentation/, collector/, analytics/, policies/)
+- [ ] OBS-002: Define telemetry policy: what can/cannot be logged, retention, opt-out
+- [ ] OBS-003: Define 12 trace spans (session.start → session.close) with OTel-compatible format
+- [ ] OBS-004: Define 10 core metrics (latency, tokens, failure rate, override rate, stuck loops)
+
+**P2 — Integration:**
+- [ ] OBS-010: Wire hooks → OTel spans (PreToolUse/PostToolUse emit span events)
+- [ ] OBS-011: Gem Hunter session telemetry (pair analysis duration, transplant acceptance rate)
+- [ ] OBS-012: Runtime dashboard vs Product analytics dashboard — separate concerns
+- [ ] OBS-013: Privacy-preserving structured logs (no raw code, masked secrets, redacted paths)
+
+---
+
+### Reference Repos — Awareness Registry (2026-04-01)
+
+**Repos identified for study (from ChatGPT analysis + Gem Hunter + leak threads):**
+
+| ID | Repo | Category | Priority |
+|----|------|----------|----------|
+| continuedev/continue | coding_surface, governance | P1 |
+| Aider-AI/aider | coding_surface, agent_runtime | P1 |
+| cline/cline | coding_surface, agent_runtime | P1 |
+| OpenHands/OpenHands | agent_runtime, product_surface | P1 |
+| langchain-ai/langgraph | agent_runtime, durable_workflow | P1 |
+| openai/openai-agents-python | agent_runtime, governance_safety | P1 |
+| BerriAI/litellm | model_gateway | P1 |
+| langfuse/langfuse | observability_evals | P1 |
+| pydantic/pydantic-ai | agent_runtime | P2 |
+| mem0ai/mem0 | memory_context | P2 |
+| Arize-ai/phoenix | observability_evals | P2 |
+| vercel/ai | product_surface | P2 |
+| temporalio/sdk-typescript | durable_workflow | P2 |
+| deepset-ai/haystack | retrieval_context | P2 |
+| stanfordnlp/dspy | agent_runtime | P2 |
+| modelcontextprotocol/servers | protocol_tooling | P2 |
+| hesreallyhim/awesome-claude-code | protocol_tooling | Ref |
+| disler/claude-code-hooks-multi-agent-observability | observability_evals | Ref |
+| rohitg00/awesome-claude-code-toolkit | protocol_tooling | Ref |
+| nblintao/awesome-claude-code-postleak-insights | protocol_tooling | Ref |
