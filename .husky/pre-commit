@@ -48,6 +48,32 @@ if [ "$FROZEN_VIOLATED" -eq 1 ]; then
   exit 1
 fi
 
+# 4.5. Modification Size Guard — Alert on excessive changes
+STAGED_DIFF_STAT=$(git diff --cached --stat --numstat 2>/dev/null || true)
+if [ -n "$STAGED_DIFF_STAT" ]; then
+  TOTAL_ADDS=$(echo "$STAGED_DIFF_STAT" | awk '{sum+=$1} END {print sum}')
+  TOTAL_DELS=$(echo "$STAGED_DIFF_STAT" | awk '{sum+=$2} END {print sum}')
+  TOTAL_LINES=$((TOTAL_ADDS + TOTAL_DELS))
+  TOTAL_FILES=$(echo "$STAGED_DIFF_STAT" | wc -l)
+  
+  # Alert if more than 500 lines changed
+  if [ "$TOTAL_LINES" -gt 500 ]; then
+    echo ""
+    echo "⚠️  WARNING: Large commit detected ($TOTAL_LINES lines changed across $TOTAL_FILES files)"
+    echo "   This makes reviews harder and increases rollback risk."
+    echo "   Consider: git reset HEAD and split into smaller commits."
+    echo ""
+    echo "   Files with most changes:"
+    echo "$STAGED_DIFF_STAT" | sort -k1 -k2 -n -r | head -5 | awk '{print "   - " $3 " (" $1 "+ / " $2 "-)"}'
+    echo ""
+    read -p "Continue anyway? [y/N] " -n 1 -r < /dev/tty
+    echo
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+      exit 1
+    fi
+  fi
+fi
+
 # 4. Doc Proliferation — Block timestamped docs
 echo "  [4/5] doc proliferation: checking for timestamped docs..."
 bash scripts/check-doc-proliferation.sh || exit 1

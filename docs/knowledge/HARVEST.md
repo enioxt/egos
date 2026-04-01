@@ -421,7 +421,7 @@ USER MESSAGE arrives
 | Agent | Lane | Authority |
 |-------|------|-----------|
 | **Cascade** (me) | SSOT, runtime truth, deploy, audits, governance | Primary orchestrator |
-| **Cline** | Exploratory UI, product edits | MUST NOT touch .guarani/, .windsurf/, .egos/ |
+| **Cline** | Exploratory UI, product edits | MUST NOT touch `.guarani/`, `.windsurf/workflows/`, `.egos/` |
 | **Codex CLI** | Diff-heavy, audit, mechanical, cleanup | Second opinion, never SSOT owner |
 | **Claude Code** | Repo-local tasks via CLAUDE.md | Secrets in user scope (~/.claude) |
 | **Alibaba qwen-plus** | Runtime LLM in products | Primary provider for 852, forja |
@@ -1255,4 +1255,33 @@ When `npm publish` requires interactive auth (`npm adduser`) with no browser/std
 npm adduser    # interactive: username, password, OTP
 cd packages/guard-brasil && bun run build && npm publish --access public
 ```
+
+## Modification Size Guard Pattern (2026-04-01)
+
+### Problem
+Commits com 500+ linhas alteradas de uma vez dificultam code review e aumentam risco de rollback. O caso dos "800 arquivos modificados" no EGOS kernel revelou necessidade de alerta proativo.
+
+### Solution
+Hook de pre-commit verifica `git diff --cached --stat`:
+- Se >500 linhas alteradas → warning com lista dos 5 arquivos mais modificados
+- Pergunta interativa: "Continue anyway? [y/N]"
+- Sugestão: dividir em commits menores
+
+### Implementation
+```bash
+# .husky/pre-commit
+STAGED_DIFF_STAT=$(git diff --cached --stat --numstat 2>/dev/null || true)
+TOTAL_ADDS=$(echo "$STAGED_DIFF_STAT" | awk '{sum+=$1} END {print sum}')
+TOTAL_DELS=$(echo "$STAGED_DIFF_STAT" | awk '{sum+=$2} END {print sum}')
+TOTAL_LINES=$((TOTAL_ADDS + TOTAL_DELS))
+
+if [ "$TOTAL_LINES" -gt 500 ]; then
+  echo "⚠️  WARNING: Large commit detected ($TOTAL_LINES lines)"
+  read -p "Continue anyway? [y/N] " -n 1 -r < /dev/tty
+  [[ ! $REPLY =~ ^[Yy]$ ]] && exit 1
+fi
+```
+
+### Rule
+Commits grandes (>500 linhas) requerem justificativa explícita ou divisão.
 
