@@ -54,21 +54,26 @@ export default function DashboardV2Lean() {
   const [events, setEvents] = useState<Event[]>(SAMPLE_EVENTS);
   const [quota] = useState<QuotaInfo>(SAMPLE_QUOTA);
 
-  // Simula real-time (em prod: Supabase Realtime)
+  // Fetch real events from /api/events (polling every 5s)
   useEffect(() => {
-    const interval = setInterval(() => {
-      const newEvent: Event = {
-        id: Math.random().toString(36).slice(2),
-        event_type: 'pii_inspection',
-        timestamp: new Date().toISOString(),
-        cost_usd: Math.random() > 0.6 ? 0.00007 : 0,
-        duration_ms: Math.random() > 0.6 ? Math.floor(Math.random() * 200) + 100 : Math.floor(Math.random() * 5) + 1,
-        model_id: Math.random() > 0.6 ? 'qwen-plus' : 'regex',
-        pii_types: [['cpf'], ['rg'], ['masp'], ['placa']][Math.floor(Math.random() * 4)],
-        status_code: 200,
-      };
-      setEvents((prev) => [newEvent, ...prev].slice(0, 50));
-    }, 8000);
+    const fetchEvents = async () => {
+      try {
+        const res = await fetch('/api/events?limit=50');
+        if (res.ok) {
+          const data = await res.json();
+          setEvents(data.events || []);
+        }
+      } catch (e) {
+        console.warn('[DashboardV2] Failed to fetch events:', e);
+        // Keep existing events on error
+      }
+    };
+
+    // Initial fetch
+    fetchEvents();
+
+    // Poll every 5 seconds
+    const interval = setInterval(fetchEvents, 5000);
     return () => clearInterval(interval);
   }, []);
 

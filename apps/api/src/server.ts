@@ -9,6 +9,7 @@
  */
 
 import { GuardBrasil } from '../../../packages/guard-brasil/src/index.js';
+import { recordApiCall, recordApiError } from '../../../packages/guard-brasil/src/telemetry.ts';
 import { evaluatePRI, requiresManualReview, shouldBlockOnPRI } from './pri.js';
 
 const guard = GuardBrasil.create();
@@ -123,6 +124,13 @@ const server = Bun.serve({
       );
       const manualReviewRequired = requiresManualReview(priDecision);
       const durationMs = Math.round(performance.now() - startMs);
+
+      // Record telemetry (fire-and-forget)
+      recordApiCall(result, {
+        duration_ms: durationMs,
+        session_id: body.sessionId,
+        api_version: '0.2.0',
+      }).catch(err => console.warn('[api] Telemetry error:', err));
 
       if (shouldBlockOnPRI(priDecision, body.pii_types)) {
         return Response.json({

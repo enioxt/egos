@@ -6,47 +6,7 @@
     },
     {
       "path": "/home/enio/852",
-      "name": "🔥 852 (Leaf)"
-    },
-    {
-      "path": "/home/enio/INPI",
-      "name": "🔥 INPI (Leaf)"
-    },
-    {
-      "path": "/home/enio/br-acc",
-      "name": "🔥 br-acc (Leaf)"
-    },
-    {
-      "path": "/home/enio/carteira-livre",
-      "name": "🔥 carteira-livre (Leaf)"
-    },
-    {
-      "path": "/home/enio/egos-lab",
-      "name": "🔥 egos-lab (Leaf)"
-    },
-    {
-      "path": "/home/enio/egos-self",
-      "name": "🔥 egos-self (Leaf)"
-    },
-    {
-      "path": "/home/enio/forja",
-      "name": "🔥 forja (Leaf)"
-    },
-    {
-      "path": "/home/enio/policia",
-      "name": "🔥 policia (Leaf)"
-    },
-    {
-      "path": "/home/enio/santiago",
-      "name": "🔥 santiago (Leaf)"
-    },
-    {
-      "path": "/home/enio/smartbuscas",
-      "name": "🔥 smartbuscas (Leaf)"
-    },
-    {
-      "path": "/home/enio/commons",
-      "name": "🔥 commons (Leaf)"
+      "name": "🔥 852 (Active)"
     }
   ],
   "settings": {
@@ -59,7 +19,13 @@
       "**/venv": true,
       "**/__pycache__": true,
       "**/build": true,
-      "**/dist": true
+      "**/dist": true,
+      "**/.bun": true,
+      "**/.gradle": true,
+      "**/.m2": true,
+      "**/.idea": true,
+      "**/target": true,
+      "**/contrib/IPED/**": true
     },
     "search.exclude": {
       "**/node_modules": true,
@@ -68,7 +34,13 @@
       "**/venv": true,
       "**/__pycache__": true,
       "**/build": true,
-      "**/dist": true
+      "**/dist": true,
+      "**/.bun": true,
+      "**/.gradle": true,
+      "**/.m2": true,
+      "**/.idea": true,
+      "**/target": true,
+      "**/contrib/IPED/**": true
     },
     "files.watcherExclude": {
       "**/.git/objects/**": true,
@@ -79,7 +51,41 @@
       "**/venv/**": true,
       "**/__pycache__/**": true,
       "**/build/**": true,
-      "**/dist/**": true
-    }
+      "**/dist/**": true,
+      "**/.bun/**": true,
+      "**/.gradle/**": true,
+      "**/.m2/**": true,
+      "**/.idea/**": true,
+      "**/target/**": true,
+      "**/contrib/IPED/**": true
+    },
+    "java.import.exclusions": [
+      "**/node_modules/**",
+      "**/.bun/**",
+      "**/.gradle/**",
+      "**/.m2/**",
+      "**/target/**",
+      "**/build/**",
+      "**/contrib/IPED/**",
+      "**/egos-lab/**",
+      "**/forja/**",
+      "**/smartbuscas/**",
+      "**/policia/**"
+    ],
+    "python.analysis.autoImportCompletions": false,
+    "python.analysis.autoSearchPaths": false,
+    "python.analysis.diagnosticMode": "openFilesOnly",
+    "python.languageServer": "None",
+    "java.configuration.updateBuildConfiguration": "disabled",
+    "java.autobuild.enabled": false,
+    "java.import.maven.enabled": false,
+    "java.import.gradle.enabled": false,
+    "java.server.launchMode": "LightWeight",
+    "gradle.nestedProjects": false,
+    "gradle.autoDetect": false,
+    "typescript.surveys.enabled": false,
+    "workbench.startupEditor": "none",
+    "extensions.autoCheckUpdates": false,
+    "extensions.autoUpdate": false
   }
 }
