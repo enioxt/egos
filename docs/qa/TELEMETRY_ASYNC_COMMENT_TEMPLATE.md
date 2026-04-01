@@ -33,5 +33,5 @@ Use este template em comentários de PR/Issue para coordenação assíncrona ent
 ## Current baseline (2026-04-01)
 
 - Shared telemetry now has scaffolds for `recordAgentSession()` and `recordToolCall()`.
-- `agents/cli.ts run` now emits `recordAgentSession()` on execution end (success/failure + duration).
-- Next focus: wire tool-level events and build Supabase schema/query layer.
+- `agents/cli.ts run` now emits `recordAgentSession()` and `recordToolCall()` (`bun.spawn`) on execution end.
+- Next focus: expand tool-level events beyond CLI wrapper and build Supabase schema/query layer.

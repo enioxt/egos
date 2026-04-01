@@ -65,6 +65,17 @@ switch (command) {
         logPrefix: 'agents-cli',
         tableName: process.env.TELEMETRY_TABLE || 'agent_runtime_events',
       });
+      await telemetry.recordToolCall({
+        sessionId: `${agentId}-${startedAt}`,
+        agentId,
+        toolName: 'bun.spawn',
+        durationMs,
+        success: (result.status ?? 1) === 0,
+        metadata: {
+          command: entrypoint,
+          args: forwardedArgs,
+        },
+      });
       await telemetry.recordAgentSession({
         sessionId: `${agentId}-${startedAt}`,
         agentId,

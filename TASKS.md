@@ -237,6 +237,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
   - Track: `tool_name`, `duration_ms`, `agent_id`, `task_id`, `tokens`, `cost_usd`
   - Output: ranking custo/latência por ferramenta
   - [x] EGOS-TELEM-002A: `@egos/shared` scaffold — `recordToolCall()` + stats `byTool` + persistência metadata ✅ 2026-04-01
+  - [x] EGOS-TELEM-002B: `agents/cli.ts` emite `recordToolCall()` para execução de entrypoint (`bun.spawn`) ✅ 2026-04-01
 
 - [ ] EGOS-TELEM-003: Gargalo detection (latency heatmap) — 2d
   - Identify: componentes mais lentos (LLM, Supabase, file I/O, integrações)
