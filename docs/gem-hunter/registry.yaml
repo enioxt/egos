@@ -28,10 +28,14 @@ repos:
     url: https://github.com/Aider-AI/aider
     categories: [coding_surface, agent_runtime]
     priority: P1
-    status: queued
+    status: completed
+    scored: 74
     license: Apache-2.0
     language: python
-    notes: "Safe edit/diff/git loop, audit trail, codebase mapping"
+    notes: "Dry-run edit safety, dirty-commit safeguard, PageRank repomap, SWE-Bench benchmark harness"
+    studied_date: 2026-04-01
+    key_transplants: [dry-run-edit-validation, dirty-commit-safeguard, swe-bench-eval-harness, weak-editor-model-separation]
+    pair_report: "docs/gem-hunter/pairs/egos__aider/"
 
   - id: cline
     name: Cline

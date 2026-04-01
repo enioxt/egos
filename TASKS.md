@@ -150,13 +150,18 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 
 **P1 — Reference Repo Study Queue (priority order):**
 - [ ] GH-010: EGOS ↔ Continue (`continuedev/continue`) — repo-native governance, checks, config-driven agents
-- [ ] GH-011: EGOS ↔ Aider (`Aider-AI/aider`) — safe edit/diff/git loop, audit trail
+- [x] GH-011: EGOS ↔ Aider — score 74/100, 4 transplants (dry-run, dirty-commit, SWE-Bench eval, weak model) ✅ 2026-04-01
 - [ ] GH-012: EGOS ↔ Cline (`cline/cline`) — IDE agent autonomy, human-in-the-loop UX
 - [ ] GH-013: EGOS ↔ OpenHands (`OpenHands/OpenHands`) — full software agent SDK/CLI/GUI
 - [ ] GH-014: EGOS ↔ LangGraph (`langchain-ai/langgraph`) — stateful long-running agents, durable execution
 - [ ] GH-015: EGOS ↔ OpenAI Agents SDK (`openai/openai-agents-python`) — handoffs, guardrails, tracing
 - [ ] GH-016: EGOS ↔ LiteLLM (`BerriAI/litellm`) — multi-model proxy, cost tracking, routing
 - [ ] GH-017: EGOS ↔ Langfuse (`langfuse/langfuse`) — observability, prompt versioning, evals
+
+**New tasks from Aider study:**
+- [ ] GH-031: `.claude/hooks/pre-edit-safety` — warn on dirty working tree before Edit (dry-run pattern)
+- [ ] GH-032: EGOS edit benchmark — 20 real edit tasks tracked over time (SWE-Bench inspired)
+- [ ] GH-033: Weak/editor model separation — document when to use Haiku vs Sonnet in CLAUDE.md
 
 **P2 — Advanced Studies:**
 - [ ] GH-020: EGOS ↔ Mem0 — persistent agent memory layer
