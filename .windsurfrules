@@ -147,8 +147,4 @@ Pre-commit hook MUST block:
 - Current: 43 tests (pii-scanner: 14, atrian: 16, conversation-memory: 13)
 
 ## META-PROMPT SYSTEM
-
-Boot: `.guarani/prompts/PROMPT_SYSTEM.md`
-Triggers: `.guarani/prompts/triggers.json`
-Atoms: Persona, Mission, Rules, Phases, Mathematics, Output, Philosophy
-Message provenance: `.guarani/standards/AGENT_MESSAGE_SIGNATURE_CONTRACT.md`
+Boot: `.guarani/prompts/PROMPT_SYSTEM.md` | Triggers: `.guarani/prompts/triggers.json` | Provenance: `.guarani/standards/AGENT_MESSAGE_SIGNATURE_CONTRACT.md`

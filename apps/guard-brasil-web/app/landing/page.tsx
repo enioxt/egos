@@ -67,6 +67,41 @@ export default function LandingPage() {
   const [error, setError] = useState('');
   const [testsUsed, setTestsUsed] = useState(0);
 
+  // API key generation
+  const [keyName, setKeyName] = useState('');
+  const [keyEmail, setKeyEmail] = useState('');
+  const [keyLoading, setKeyLoading] = useState(false);
+  const [generatedKey, setGeneratedKey] = useState('');
+  const [keyError, setKeyError] = useState('');
+  const [keyCopied, setKeyCopied] = useState(false);
+
+  async function handleGetKey() {
+    if (!keyName.trim() || !keyEmail.trim()) return;
+    setKeyLoading(true);
+    setKeyError('');
+    setGeneratedKey('');
+    try {
+      const res = await fetch('https://guard.egos.ia.br/v1/keys', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: keyName.trim(), email: keyEmail.trim() }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Erro ao gerar chave');
+      setGeneratedKey(data.key);
+    } catch (err: unknown) {
+      setKeyError(err instanceof Error ? err.message : 'Erro desconhecido');
+    } finally {
+      setKeyLoading(false);
+    }
+  }
+
+  async function copyKey() {
+    await navigator.clipboard.writeText(generatedKey);
+    setKeyCopied(true);
+    setTimeout(() => setKeyCopied(false), 2000);
+  }
+
   async function handleTest() {
     if (!input.trim()) return;
     setLoading(true);
@@ -275,6 +310,56 @@ export default function LandingPage() {
                 </ul>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Get API Key */}
+        <section id="get-key" className="mb-12">
+          <h2 className="text-2xl font-bold text-center mb-2">Obtenha sua chave de API</h2>
+          <p className="text-sm text-slate-400 text-center mb-8">Grátis. Sem cartão de crédito. 150 chamadas/mês.</p>
+          <div className="max-w-md mx-auto bg-slate-900 border border-slate-800 rounded-2xl p-6">
+            {!generatedKey ? (
+              <>
+                <input
+                  type="text"
+                  value={keyName}
+                  onChange={(e) => setKeyName(e.target.value)}
+                  placeholder="Seu nome ou empresa"
+                  className="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 text-sm text-slate-200 placeholder-slate-500 focus:border-emerald-600 focus:outline-none mb-3"
+                />
+                <input
+                  type="email"
+                  value={keyEmail}
+                  onChange={(e) => setKeyEmail(e.target.value)}
+                  placeholder="seu@email.com"
+                  className="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 text-sm text-slate-200 placeholder-slate-500 focus:border-emerald-600 focus:outline-none mb-3"
+                />
+                <button
+                  onClick={handleGetKey}
+                  disabled={!keyName.trim() || !keyEmail.trim() || keyLoading}
+                  className="w-full bg-emerald-600 hover:bg-emerald-700 disabled:bg-slate-700 disabled:text-slate-500 text-white font-bold py-3 rounded-xl transition text-sm"
+                >
+                  {keyLoading ? 'Gerando...' : 'Gerar chave gratuita'}
+                </button>
+                {keyError && <p className="mt-3 text-sm text-red-400">{keyError}</p>}
+              </>
+            ) : (
+              <>
+                <p className="text-xs text-amber-400 font-bold mb-3">Salve esta chave — não será exibida novamente</p>
+                <div className="bg-slate-800 rounded-xl p-4 font-mono text-xs text-emerald-300 break-all mb-3">
+                  {generatedKey}
+                </div>
+                <button
+                  onClick={copyKey}
+                  className="w-full bg-slate-700 hover:bg-slate-600 text-white font-bold py-2 rounded-xl transition text-sm"
+                >
+                  {keyCopied ? 'Copiado!' : 'Copiar chave'}
+                </button>
+                <p className="mt-3 text-xs text-slate-500 text-center">
+                  Use com: <span className="text-slate-300">Authorization: Bearer &lt;chave&gt;</span>
+                </p>
+              </>
+            )}
           </div>
         </section>
 

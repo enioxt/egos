@@ -13,6 +13,8 @@ services:
       GUARD_API_PORT: "3099"
       GUARD_RATE_LIMIT: "100"
       GUARD_API_KEYS: "${GUARD_API_KEYS}"
+      SUPABASE_URL: "${SUPABASE_URL}"
+      SUPABASE_SERVICE_ROLE_KEY: "${SUPABASE_SERVICE_ROLE_KEY}"
     healthcheck:
       test: ["CMD", "bun", "-e", "fetch('http://localhost:3099/health').then(r=>r.ok?process.exit(0):process.exit(1)).catch(()=>process.exit(1))"]
       interval: 30s
