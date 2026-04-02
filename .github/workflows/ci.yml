@@ -17,6 +17,10 @@ jobs:
         with:
           bun-version: latest
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
@@ -44,6 +48,24 @@ jobs:
           check_lines ".windsurfrules" 150
           check_lines ".guarani/PREFERENCES.md" 100
 
+      - name: SSOT diagnostic check
+        id: ssot_diagnostic
+        run: bun run ssot:diagnostic
+
+      - name: SSOT diagnostic summary
+        if: always()
+        run: |
+          {
+            echo "## SSOT Diagnostic"
+            echo
+            if [ -f /tmp/qa-ssot-check.md ]; then
+              cat /tmp/qa-ssot-check.md
+            /tmp/qa-envelope.json
+            else
+              echo "- ❌ Missing artifact: /tmp/qa-ssot-check.md"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Frozen zones check
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ]; then
@@ -59,3 +81,52 @@ jobs:
           else
             echo "✅ Push to main — frozen zone check skipped (enforced by pre-commit)"
           fi
+
+      - name: QA observability suite
+        id: qa_observability
+        continue-on-error: true
+        run: bun run qa:observability
+
+      - name: QA gate summary (friendly annotation)
+        if: always()
+        run: |
+          {
+            echo "## QA Observability Gate"
+            echo
+            if [ -f /tmp/qa-evidence.md ]; then
+              cat /tmp/qa-evidence.md
+            else
+              echo "- ❌ Missing artifact: /tmp/qa-evidence.md"
+            fi
+            echo
+            echo "### Hint de correção"
+            echo "- Rode localmente: \`bun run qa:observability\`"
+            echo "- Gate estrito isolado: \`bun run qa:evidence:gate\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "${{ steps.qa_observability.outcome }}" != "success" ]; then
+            echo "::error::QA observability suite failed. See 'QA Observability Gate' in job summary and uploaded artifacts."
+          fi
+
+      - name: Enforce QA observability gate
+        if: always()
+        run: |
+          if [ "${{ steps.qa_observability.outcome }}" != "success" ]; then
+            exit 1
+          fi
+
+      - name: Upload QA artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-observability-artifacts
+          path: |
+            /tmp/qa-commit-audit.md
+            /tmp/qa-telemetry-dashboard.md
+            /tmp/qa-telemetry-forecast.md
+            /tmp/qa-pending-tasks.md
+            /tmp/qa-stalled-tasks.md
+            /tmp/qa-guardrail.txt
+            /tmp/qa-evidence.md
+            /tmp/qa-ssot-check.md
+            /tmp/qa-envelope.json

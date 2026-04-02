@@ -1,0 +1,13 @@
+{
+  "versioned_artifacts": [
+    "/tmp/qa-commit-audit.md",
+    "/tmp/qa-telemetry-dashboard.md",
+    "/tmp/qa-telemetry-forecast.md",
+    "/tmp/qa-pending-tasks.md",
+    "/tmp/qa-stalled-tasks.md",
+    "/tmp/qa-guardrail.txt",
+    "/tmp/qa-evidence.md",
+    "/tmp/qa-ssot-check.md",
+    "/tmp/qa-envelope.json"
+  ]
+}
