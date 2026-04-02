@@ -114,8 +114,8 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [ ] EAGLE-019: Integrador partnership outreach — target DeLoit/Thoughtworks/regional partners, pitch EGOS as subcontractor for software bids. CRM + call scheduling.
 - [ ] EAGLE-020: R$250k proposal submission (Sistema de Gestão de Licitações) — deadline 2026-04-29. Proposal drafted (PROPOSAL_250K_LICITACOES_SYSTEM.md). Timeline: 120d (4 sprints), stack: React + Next.js + Bun/TypeScript + PostgreSQL, margin 35%.
 - [x] EAGLE-021: Daily analysis cron deployed ✅ 2026-04-02 (0 12 UTC = 9am BRT, full pipeline: fetch+AI+Supabase store, JSON parse fix for truncated responses)
-- [ ] EAGLE-022: Scale to 47 territories (full Brazil) + 6-month backfill. Expected: 200+ opportunities/month, 50-60 software/TI monthly.
-- [ ] EAGLE-023: Integrador channel revenue share (70/30) + SLA documentation. First partnership target: Week 2 (2026-04-08).
+- [x] EAGLE-022: Scale to 80 territories (full Brazil) + batch-query daily cron ✅ 2026-04-02. 4 API batches × 20 territories, 22 gazettes/day found in dry-run. --backfill=N flag for historical runs.
+- [x] EAGLE-023: Integrador channel revenue share (70/30) + SLA documentation ✅ 2026-04-02. Doc: docs/eagle-eye/INTEGRADOR_CHANNEL.md — model, SLA, contract template, outreach script, API revenda, revenue projections.
 
 ---
 
