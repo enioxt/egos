@@ -5,13 +5,42 @@ import { useState } from 'react';
 const BASE_URL = 'https://guard.egos.ia.br';
 const EAGLE_URL = 'https://eagleeye.egos.ia.br';
 
+async function startCheckout(tier: 'pro' | 'enterprise', email: string) {
+  const res = await fetch(`${BASE_URL}/v1/stripe/checkout`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ tier, email }),
+  });
+  if (!res.ok) throw new Error('Checkout failed');
+  const { url } = await res.json();
+  window.location.href = url;
+}
+
 export default function DocsPage() {
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [checkoutEmail, setCheckoutEmail] = useState('');
+  const [checkoutLoading, setCheckoutLoading] = useState<string | null>(null);
+  const [checkoutError, setCheckoutError] = useState('');
 
   function copy(text: string, id: string) {
     navigator.clipboard.writeText(text);
     setCopiedId(id);
     setTimeout(() => setCopiedId(null), 1500);
+  }
+
+  async function handleUpgrade(tier: 'pro' | 'enterprise') {
+    if (!checkoutEmail.includes('@')) {
+      setCheckoutError('Informe seu email para continuar.');
+      return;
+    }
+    setCheckoutLoading(tier);
+    setCheckoutError('');
+    try {
+      await startCheckout(tier, checkoutEmail);
+    } catch {
+      setCheckoutError('Erro ao iniciar checkout. Tente novamente ou escreva para enio@egos.ia.br');
+      setCheckoutLoading(null);
+    }
   }
 
   return (
@@ -256,71 +285,92 @@ software.forEach(o => {
         {/* Pricing */}
         <section className="mb-12">
           <h2 className="text-xl font-bold text-white mb-4">Planos</h2>
+
+          {/* Email input for checkout */}
+          <div className="border border-gray-700 rounded-xl p-4 bg-gray-900/40 mb-6 flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+            <div className="flex-1">
+              <label className="text-xs text-gray-400 mb-1 block">Seu email para ativar o plano</label>
+              <input
+                type="email"
+                value={checkoutEmail}
+                onChange={e => setCheckoutEmail(e.target.value)}
+                placeholder="voce@empresa.com.br"
+                className="w-full bg-black/40 border border-gray-700 rounded px-3 py-2 text-sm text-white placeholder-gray-600 focus:border-amber-500 outline-none"
+              />
+            </div>
+            {checkoutError && (
+              <p className="text-xs text-red-400 sm:self-end sm:mb-2">{checkoutError}</p>
+            )}
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {[
-              {
-                name: 'Free',
-                price: 'R$ 0',
-                period: '/mês',
-                features: ['150 chamadas/mês', 'Guard Brasil + Eagle Eye', 'Sem cartão de crédito', 'Suporte comunidade'],
-                cta: 'Criar conta grátis',
-                href: '/landing',
-                highlight: false,
-              },
-              {
-                name: 'Pro',
-                price: 'R$ 497',
-                period: '/mês',
-                features: ['10.000 chamadas/mês', 'Guard Brasil + Eagle Eye', 'Alertas por email/Telegram', 'Suporte prioritário'],
-                cta: 'Assinar Pro',
-                href: 'mailto:enio@egos.ia.br?subject=Eagle Eye Pro',
-                highlight: true,
-              },
-              {
-                name: 'Enterprise',
-                price: 'R$ 1.497',
-                period: '/mês',
-                features: ['Chamadas ilimitadas', 'SLA 99.9%', 'IP whitelist', 'Suporte dedicado + SLAs'],
-                cta: 'Falar com vendas',
-                href: 'mailto:enio@egos.ia.br?subject=Eagle Eye Enterprise',
-                highlight: false,
-              },
-            ].map(plan => (
-              <div
-                key={plan.name}
-                className={`rounded-xl p-6 border ${plan.highlight
-                  ? 'border-amber-500 bg-amber-950/20'
-                  : 'border-gray-700 bg-gray-900/40'
-                }`}
-              >
-                {plan.highlight && (
-                  <div className="text-xs font-bold text-amber-400 bg-amber-400/10 border border-amber-400/30 rounded-full px-3 py-1 w-fit mb-3">
-                    MAIS POPULAR
-                  </div>
-                )}
-                <div className="font-bold text-white text-lg mb-1">{plan.name}</div>
-                <div className="mb-4">
-                  <span className="text-2xl font-bold text-white">{plan.price}</span>
-                  <span className="text-gray-400 text-sm">{plan.period}</span>
-                </div>
-                <ul className="space-y-2 mb-6">
-                  {plan.features.map(f => (
-                    <li key={f} className="text-sm text-gray-300 flex items-center gap-2">
-                      <span className="text-green-400">✓</span> {f}
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={plan.href}
-                  className={`block text-center py-2 rounded-lg text-sm font-medium transition ${plan.highlight
-                    ? 'bg-amber-500 text-black hover:bg-amber-400'
-                    : 'border border-gray-600 text-gray-300 hover:bg-gray-800'
-                  }`}
-                >
-                  {plan.cta}
-                </a>
+            {/* Free */}
+            <div className="rounded-xl p-6 border border-gray-700 bg-gray-900/40">
+              <div className="font-bold text-white text-lg mb-1">Free</div>
+              <div className="mb-4">
+                <span className="text-2xl font-bold text-white">R$ 0</span>
+                <span className="text-gray-400 text-sm">/mês</span>
               </div>
-            ))}
+              <ul className="space-y-2 mb-6">
+                {['150 chamadas/mês', 'Guard Brasil + Eagle Eye', 'Sem cartão de crédito', 'Suporte comunidade'].map(f => (
+                  <li key={f} className="text-sm text-gray-300 flex items-center gap-2">
+                    <span className="text-green-400">✓</span> {f}
+                  </li>
+                ))}
+              </ul>
+              <a href="/landing" className="block text-center py-2 rounded-lg text-sm font-medium border border-gray-600 text-gray-300 hover:bg-gray-800 transition">
+                Criar conta grátis
+              </a>
+            </div>
+
+            {/* Pro */}
+            <div className="rounded-xl p-6 border border-amber-500 bg-amber-950/20">
+              <div className="text-xs font-bold text-amber-400 bg-amber-400/10 border border-amber-400/30 rounded-full px-3 py-1 w-fit mb-3">
+                MAIS POPULAR
+              </div>
+              <div className="font-bold text-white text-lg mb-1">Pro</div>
+              <div className="mb-4">
+                <span className="text-2xl font-bold text-white">R$ 497</span>
+                <span className="text-gray-400 text-sm">/mês</span>
+              </div>
+              <ul className="space-y-2 mb-6">
+                {['10.000 chamadas/mês', 'Guard Brasil + Eagle Eye', 'Alertas por email/Telegram', 'Suporte prioritário'].map(f => (
+                  <li key={f} className="text-sm text-gray-300 flex items-center gap-2">
+                    <span className="text-green-400">✓</span> {f}
+                  </li>
+                ))}
+              </ul>
+              <button
+                onClick={() => handleUpgrade('pro')}
+                disabled={checkoutLoading === 'pro'}
+                className="w-full py-2 rounded-lg text-sm font-medium bg-amber-500 text-black hover:bg-amber-400 disabled:opacity-60 disabled:cursor-wait transition"
+              >
+                {checkoutLoading === 'pro' ? 'Redirecionando...' : 'Assinar Pro — R$497/mês'}
+              </button>
+            </div>
+
+            {/* Enterprise */}
+            <div className="rounded-xl p-6 border border-gray-700 bg-gray-900/40">
+              <div className="font-bold text-white text-lg mb-1">Enterprise</div>
+              <div className="mb-4">
+                <span className="text-2xl font-bold text-white">R$ 1.497</span>
+                <span className="text-gray-400 text-sm">/mês</span>
+              </div>
+              <ul className="space-y-2 mb-6">
+                {['Chamadas ilimitadas', 'SLA 99.9%', 'IP whitelist', 'Suporte dedicado + SLAs'].map(f => (
+                  <li key={f} className="text-sm text-gray-300 flex items-center gap-2">
+                    <span className="text-green-400">✓</span> {f}
+                  </li>
+                ))}
+              </ul>
+              <button
+                onClick={() => handleUpgrade('enterprise')}
+                disabled={checkoutLoading === 'enterprise'}
+                className="w-full py-2 rounded-lg text-sm font-medium border border-gray-600 text-gray-300 hover:bg-gray-800 disabled:opacity-60 disabled:cursor-wait transition"
+              >
+                {checkoutLoading === 'enterprise' ? 'Redirecionando...' : 'Assinar Enterprise'}
+              </button>
+            </div>
           </div>
         </section>
 

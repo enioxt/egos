@@ -288,26 +288,46 @@ export default function LandingPage() {
 
         {/* Pricing */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-center mb-8">Pricing</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <h2 className="text-2xl font-bold text-center mb-2">Planos</h2>
+          <p className="text-sm text-slate-400 text-center mb-8">Guard Brasil PII + Eagle Eye licitações — uma chave, dois produtos.</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
             {[
-              { tier: 'Free', price: 'R$ 0', calls: 'SDK local', features: ['Uso local ilimitado', 'PII Scanner BR', 'ATRiAN core'] },
-              { tier: 'Starter', price: 'R$ 49', calls: '10k/mês', features: ['API hospedada', 'Dashboard básico', 'Suporte por email'] },
-              { tier: 'Pro', price: 'R$ 199', calls: '100k/mês', features: ['Dashboard + alertas', 'IA insights', 'Priority support'], popular: true },
-              { tier: 'Business', price: 'R$ 499', calls: '500k/mês', features: ['SLA ampliado', 'Operação multi-time', 'Suporte dedicado'] },
+              { tier: 'Free', price: 'R$ 0', calls: '150 chamadas/mês', features: ['Guard Brasil + Eagle Eye', 'Sem cartão de crédito', 'Dashboard básico', 'Suporte comunidade'], cta: 'Criar conta grátis', ctaHref: '#get-key', popular: false, stripeKey: null },
+              { tier: 'Pro', price: 'R$ 497', calls: '10.000 chamadas/mês', features: ['Guard Brasil + Eagle Eye', 'Alertas por email/Telegram', 'Dashboard completo', 'Suporte prioritário'], cta: 'Assinar Pro', popular: true, stripeKey: 'pro' as const },
+              { tier: 'Enterprise', price: 'R$ 1.497', calls: 'Ilimitado', features: ['Chamadas ilimitadas', 'SLA 99.9%', 'IP whitelist', 'Suporte dedicado'], cta: 'Falar com vendas', ctaHref: 'mailto:enio@egos.ia.br?subject=Enterprise', popular: false, stripeKey: null },
             ].map((plan) => (
               <div key={plan.tier} className={`bg-slate-900 border rounded-2xl p-6 ${plan.popular ? 'border-emerald-600 ring-1 ring-emerald-600/20' : 'border-slate-800'}`}>
-                {plan.popular && <p className="text-[10px] text-emerald-400 font-bold uppercase tracking-wider mb-2">Most Popular</p>}
+                {plan.popular && <p className="text-[10px] text-emerald-400 font-bold uppercase tracking-wider mb-2">MAIS POPULAR</p>}
                 <p className="text-sm text-slate-400">{plan.tier}</p>
                 <p className="text-2xl font-bold mt-1">{plan.price}<span className="text-sm text-slate-500">/mês</span></p>
                 <p className="text-xs text-slate-500 mt-1">{plan.calls}</p>
-                <ul className="mt-4 space-y-2">
+                <ul className="mt-4 space-y-2 mb-6">
                   {plan.features.map((f) => (
                     <li key={f} className="text-xs text-slate-400 flex items-center gap-2">
-                      <span className="text-emerald-400">+</span> {f}
+                      <span className="text-emerald-400">✓</span> {f}
                     </li>
                   ))}
                 </ul>
+                {plan.stripeKey ? (
+                  <button
+                    onClick={() => {
+                      const email = (document.getElementById('key-email') as HTMLInputElement)?.value;
+                      if (!email?.includes('@')) { alert('Informe seu email no formulário abaixo primeiro.'); return; }
+                      fetch('https://guard.egos.ia.br/v1/stripe/checkout', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ tier: plan.stripeKey, email }),
+                      }).then(r => r.json()).then(d => { if (d.url) window.location.href = d.url; });
+                    }}
+                    className={`w-full py-2 rounded-xl text-sm font-medium transition ${plan.popular ? 'bg-emerald-600 hover:bg-emerald-500 text-white' : 'border border-slate-700 text-slate-300 hover:bg-slate-800'}`}
+                  >
+                    {plan.cta}
+                  </button>
+                ) : (
+                  <a href={plan.ctaHref} className={`block text-center py-2 rounded-xl text-sm font-medium transition ${plan.popular ? 'bg-emerald-600 hover:bg-emerald-500 text-white' : 'border border-slate-700 text-slate-300 hover:bg-slate-800'}`}>
+                    {plan.cta}
+                  </a>
+                )}
               </div>
             ))}
           </div>
