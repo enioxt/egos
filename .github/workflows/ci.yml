@@ -24,6 +24,18 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
+      - name: Session health check (/start v6.0)
+        run: |
+          HEALTH=$(bun scripts/start-v6.ts --json)
+          echo "$HEALTH" | jq '.'
+          GATES_PASS=$(echo "$HEALTH" | jq -r '.validation.gates_pass')
+          if [ "$GATES_PASS" != "true" ]; then
+            echo "❌ Health gates failed:"
+            echo "$HEALTH" | jq '.blockers'
+            exit 1
+          fi
+          echo "✅ System health validated"
+
       - name: TypeScript check
         run: bun run typecheck
 
