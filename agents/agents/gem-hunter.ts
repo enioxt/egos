@@ -59,7 +59,7 @@ const X_BEARER_TOKEN = process.env.X_BEARER_TOKEN || "";
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || "";
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_ADMIN_CHAT_ID || "";
 const ARXIV_MAX_RESULTS = 10;
-const GEM_HUNTER_VERSION = "6.0";
+const GEM_HUNTER_VERSION = "6.1"; // GH-048: Camada 1 + GitLab + CoinGecko + DeFiLlama + cross-validation
 
 // ── Content Quality Guards ──────────────────────────────────────────────
 
@@ -84,7 +84,7 @@ function isContentRelevant(gem: GemResult, queryKeywords: string[]): boolean {
   return meaningfulTerms.some(term => text.includes(term));
 }
 
-type GemSource = "github" | "github-code" | "huggingface" | "huggingface-space" | "exa" | "arxiv" | "hackernews" | "npm" | "zenodo" | "x-public" | "x-api" | "reddit" | "stackoverflow" | "producthunt" | "papers-with-code" | "papers-without-code";
+type GemSource = "github" | "github-code" | "huggingface" | "huggingface-space" | "exa" | "arxiv" | "hackernews" | "npm" | "zenodo" | "x-public" | "x-api" | "reddit" | "stackoverflow" | "producthunt" | "papers-with-code" | "papers-without-code" | "gitlab" | "coingecko" | "defillama";
 type SearchTrack = "core" | "web-extraction" | "x-signals-public" | "governance-plugplay" | "community-signals" | "early-warning" | "papers-without-code";
 
 interface GemResult {
@@ -102,8 +102,9 @@ interface GemResult {
   rawUrl?: string; // Optional raw URL for fetching exact content
   ssotAssetPath?: string; // Local path to the extracted Lego block markdown
   legoBlockType?: string; // Assigned block type
-  structureBonus?: number; // GH-060: validated structure score bonus (0-25)
-  abstractScore?: number;  // GH-056: LLM abstract triage score (0-100)
+  structureBonus?: number;    // GH-060/GH-048: validated structure score bonus (0-35)
+  abstractScore?: number;     // GH-056: LLM abstract triage score (0-100)
+  crossSourceBonus?: number;  // Day-0: appears in 2+ high-value sources (PWC+arXiv etc.)
 }
 
 interface GemPreferences {
@@ -438,6 +439,28 @@ const DEFAULT_QUERIES: SearchQuery[] = [
     ],
     sources: ["github", "papers-with-code"],
     category: "research-gems",
+  },
+  // GitLab — day-0 open-source repos before GitHub Trending (Grok expansion)
+  {
+    topic: "GitLab Open-Source AI Agents",
+    keywords: [
+      "multi-agent AI framework",
+      "autonomous agent typescript python",
+      "LLM orchestration open source",
+    ],
+    sources: ["gitlab"],
+    category: "gitlab-gems",
+  },
+  // Crypto Gems — Market signals via CoinGecko + DeFi TVL via DeFiLlama (SIGNAL_MESH)
+  {
+    topic: "Crypto Gems — Market Signals",
+    keywords: [
+      "AI agent token",
+      "DeFi protocol autonomous",
+      "on-chain AI infrastructure",
+    ],
+    sources: ["coingecko", "defillama", "github", "exa"],
+    category: "crypto-gems",
   },
   // Papers Without Code — Ideas that haven't been implemented yet (v6.0 / GH-051)
   {
@@ -938,6 +961,107 @@ async function searchProductHunt(query: string, maxResults = 5): Promise<GemResu
     .map((r) => ({ ...r, source: "producthunt" as const }));
 }
 
+// ── GitLab Search (Grok expansion — day-0 capture before GitHub Trending) ──────
+async function searchGitLab(query: string, maxResults = 5): Promise<GemResult[]> {
+  try {
+    const params = new URLSearchParams({
+      search: query,
+      scope: "projects",
+      order_by: "last_activity_at",
+      sort: "desc",
+      per_page: String(maxResults * 2),
+    });
+    const headers: Record<string, string> = { "User-Agent": "egos-gem-hunter/6.0" };
+    const GITLAB_TOKEN = process.env.GITLAB_TOKEN;
+    if (GITLAB_TOKEN) headers["PRIVATE-TOKEN"] = GITLAB_TOKEN;
+    const res = await fetch(`https://gitlab.com/api/v4/projects?${params}`, { headers });
+    if (!res.ok) return [];
+    const data = (await res.json()) as Array<{
+      id: number;
+      name: string;
+      description: string | null;
+      web_url: string;
+      star_count: number;
+      last_activity_at: string;
+      license?: { key: string };
+    }>;
+    return data.slice(0, maxResults).map((p) => ({
+      name: p.name,
+      source: "gitlab" as const,
+      url: p.web_url,
+      description: p.description ?? "",
+      stars: p.star_count,
+      relevance: "medium" as const,
+      category: "gitlab",
+      lastUpdated: p.last_activity_at,
+      license: p.license?.key,
+    }));
+  } catch { return []; }
+}
+
+// ── CoinGecko — Crypto Token Signals (SIGNAL_MESH: crypto-gems topic) ──────────
+async function searchCoinGecko(query: string, maxResults = 5): Promise<GemResult[]> {
+  try {
+    // Search for coins/projects matching query terms
+    const params = new URLSearchParams({ query, locale: "en" });
+    const res = await fetch(`https://api.coingecko.com/api/v3/search?${params}`, {
+      headers: { "User-Agent": "egos-gem-hunter/6.0", Accept: "application/json" },
+    });
+    if (!res.ok) return [];
+    const data = (await res.json()) as {
+      coins?: Array<{ id: string; name: string; symbol: string; thumb: string; market_cap_rank?: number }>;
+    };
+    if (!data.coins?.length) return [];
+    // Only include tokens with at least some market traction (rank exists)
+    return data.coins
+      .filter((c) => c.market_cap_rank && c.market_cap_rank <= 500)
+      .slice(0, maxResults)
+      .map((c) => ({
+        name: `${c.name} (${c.symbol.toUpperCase()})`,
+        source: "coingecko" as const,
+        url: `https://www.coingecko.com/en/coins/${c.id}`,
+        description: `CoinGecko rank #${c.market_cap_rank} — ${c.symbol.toUpperCase()} token signal matching "${query}"`,
+        relevance: "medium" as const,
+        category: "crypto-gems",
+      }));
+  } catch { return []; }
+}
+
+// ── DeFiLlama — DeFi Protocol Signals ───────────────────────────────────────
+async function searchDeFiLlama(query: string, maxResults = 5): Promise<GemResult[]> {
+  try {
+    // DeFiLlama /protocols endpoint — filter by query keyword match in name/category
+    const res = await fetch("https://api.llama.fi/protocols", {
+      headers: { "User-Agent": "egos-gem-hunter/6.0", Accept: "application/json" },
+    });
+    if (!res.ok) return [];
+    const protocols = (await res.json()) as Array<{
+      name: string;
+      slug: string;
+      category: string;
+      tvl: number;
+      change_7d?: number;
+      url?: string;
+    }>;
+    const q = query.toLowerCase();
+    const matches = protocols
+      .filter((p) =>
+        (p.name.toLowerCase().includes(q) || p.category?.toLowerCase().includes(q)) &&
+        p.tvl > 100_000 // Min $100k TVL to avoid noise
+      )
+      .sort((a, b) => (b.change_7d ?? 0) - (a.change_7d ?? 0)) // Sort by 7d growth
+      .slice(0, maxResults);
+    return matches.map((p) => ({
+      name: p.name,
+      source: "defillama" as const,
+      url: p.url ?? `https://defillama.com/protocol/${p.slug}`,
+      description: `DeFi protocol | Category: ${p.category} | TVL: $${(p.tvl / 1e6).toFixed(1)}M | 7d change: ${(p.change_7d ?? 0).toFixed(1)}%`,
+      relevance: "medium" as const,
+      category: "crypto-gems",
+    }));
+  } catch { return []; }
+}
+
 // ── SQLite Historical Tracking ────────────────────────────────────────────
 
 const DB_PATH = join(REPORTS_DIR, "history.db");
@@ -1267,6 +1391,18 @@ async function main() {
         results.push(...pwoc);
         if (pwoc.length) await new Promise((r) => setTimeout(r, 3000)); // arXiv rate limit
       }
+      if (q.sources.includes("gitlab")) {
+        const gl = await searchGitLab(keyword, maxPerKeyword);
+        results.push(...gl);
+      }
+      if (q.sources.includes("coingecko")) {
+        const cg = await searchCoinGecko(keyword, maxPerKeyword);
+        results.push(...cg);
+      }
+      if (q.sources.includes("defillama")) {
+        const dl = await searchDeFiLlama(keyword, maxPerKeyword);
+        results.push(...dl);
+      }
 
       for (const r of results) r.category = q.category;
       // Content relevance guard: filter irrelevant GitHub results
@@ -1274,6 +1410,30 @@ async function main() {
       const filtered = results.length - relevant.length;
       allResults.push(...relevant);
       console.log(`   "${keyword}" → ${relevant.length} results${filtered ? ` (${filtered} irrelevant filtered)` : ""}`);
+    }
+  }
+
+  // ── Cross-Validation Boost (Grok Day-0 Capture) ──────────────────────────────
+  // Gems appearing in multiple sources before GitHub Trending = highest priority
+  // Logic: group by normalized name/URL, count unique sources, apply boost to first occurrence
+  const nameToSources = new Map<string, Set<string>>();
+  for (const r of allResults) {
+    const key = r.url.replace(/\/$/, "").toLowerCase();
+    if (!nameToSources.has(key)) nameToSources.set(key, new Set());
+    nameToSources.get(key)!.add(r.source);
+  }
+  // Apply crossSourceBonus to gems seen in 2+ high-value sources
+  const HIGH_VALUE_SOURCES = new Set(["arxiv", "papers-with-code", "papers-without-code", "huggingface", "zenodo", "gitlab"]);
+  for (const r of allResults) {
+    const key = r.url.replace(/\/$/, "").toLowerCase();
+    const sources = nameToSources.get(key) ?? new Set();
+    const highValueHits = [...sources].filter((s) => HIGH_VALUE_SOURCES.has(s)).length;
+    if (highValueHits >= 2) {
+      // PWC + arXiv = max priority: +25 (Grok recommendation)
+      (r as GemResult & { crossSourceBonus?: number }).crossSourceBonus = 25;
+    } else if (highValueHits === 1 && sources.size >= 2) {
+      // 1 academic + 1 other = moderate boost: +12
+      (r as GemResult & { crossSourceBonus?: number }).crossSourceBonus = 12;
     }
   }
 
@@ -1509,11 +1669,15 @@ function scoreGem(gem: GemResult): number {
     score += 20;
   }
 
-  // GH-060: Structure validation bonus (set by validateGemStructure enrichment pass)
+  // GH-060/GH-048: Structure validation bonus (set by validateGemStructure enrichment pass)
   if (gem.structureBonus) score += gem.structureBonus;
 
   // GH-056: Abstract triage score bonus (set by runPaperPipeline LLM pass)
   if (gem.abstractScore && gem.abstractScore >= 70) score += Math.round((gem.abstractScore - 69) / 3);
+
+  // Day-0 Cross-Source Validation (Grok recommendation): PWC + arXiv = max priority
+  // These gems appear before GitHub Trending — highest signal quality
+  if (gem.crossSourceBonus) score += gem.crossSourceBonus;
 
   return Math.max(0, Math.round(score));
 }
@@ -1841,8 +2005,31 @@ function saveEvolutionState(results: GemResult[]): void {
 
 // ── GH-060: Structural validation ──────────────────────────────────────────
 /** Checks GitHub repo file tree for quality signals: README, tests, benchmarks, docs */
+// GH-048 / GH-060: Structural Validation — Camada 1 (tree patterns + content signals)
 async function validateGemStructure(gem: GemResult): Promise<void> {
-  if (!["github", "github-code"].includes(gem.source)) return;
+  if (!["github", "github-code", "gitlab"].includes(gem.source)) return;
+
+  // GitLab repos: use GitLab API
+  const glMatch = gem.url.match(/gitlab\.com\/([^/]+\/[^/]+)/);
+  if (glMatch) {
+    try {
+      const encoded = encodeURIComponent(glMatch[1]);
+      const res = await fetch(`https://gitlab.com/api/v4/projects/${encoded}/repository/tree`, {
+        headers: { "User-Agent": "egos-gem-hunter/6.0" },
+      });
+      if (!res.ok) return;
+      const files = (await res.json()) as Array<{ name: string; type: string }>;
+      const names = files.map((f) => f.name.toLowerCase());
+      let bonus = 0;
+      if (names.some((n) => n.startsWith("readme"))) bonus += 5;
+      if (names.some((n) => ["test", "tests", "__tests__", "spec", "specs"].includes(n))) bonus += 8;
+      if (names.some((n) => ["benchmark", "benchmarks", "bench"].includes(n))) bonus += 7;
+      if (names.some((n) => ["docs", "doc", "documentation"].includes(n))) bonus += 5;
+      gem.structureBonus = bonus;
+    } catch { /* silent */ }
+    return;
+  }
+
   const match = gem.url.match(/github\.com\/([^/]+\/[^/]+)/);
   if (!match) return;
   const repo = match[1];
@@ -1852,13 +2039,43 @@ async function validateGemStructure(gem: GemResult): Promise<void> {
     const res = await fetch(`https://api.github.com/repos/${repo}/contents/`, { headers });
     if (!res.ok) return;
     const files = (await res.json()) as Array<{ name: string; type: string }>;
-    const names = files.map(f => f.name.toLowerCase());
+    const names = files.map((f) => f.name.toLowerCase());
+
     let bonus = 0;
-    if (names.some(n => n.startsWith("readme"))) bonus += 5;
-    if (names.some(n => ["test", "tests", "__tests__", "spec", "specs"].includes(n))) bonus += 8;
-    if (names.some(n => ["benchmark", "benchmarks", "bench"].includes(n))) bonus += 7;
-    if (names.some(n => ["docs", "doc", "documentation"].includes(n))) bonus += 5;
-    gem.structureBonus = bonus;
+    // Tier 1: Basic presence checks
+    if (names.some((n) => n.startsWith("readme"))) bonus += 5;
+    if (names.some((n) => ["test", "tests", "__tests__", "spec", "specs"].includes(n))) bonus += 8;
+    if (names.some((n) => ["benchmark", "benchmarks", "bench"].includes(n))) bonus += 7;
+    if (names.some((n) => ["docs", "doc", "documentation"].includes(n))) bonus += 5;
+
+    // GH-048 Tier 2: ArchitectureSelector-like patterns (empirical research repos)
+    // Check for: evals/, results/, experiments/, figures/, scripts/, data/
+    if (names.some((n) => ["evals", "eval", "evaluation", "evaluations"].includes(n))) bonus += 6;
+    if (names.some((n) => ["results", "experiments", "experiment"].includes(n))) bonus += 4;
+    if (names.some((n) => ["figures", "figs", "plots", "charts"].includes(n))) bonus += 3;
+    if (names.some((n) => ["scripts", "tools", "utils"].includes(n))) bonus += 2;
+    // Paper-linked repos: arxiv.md or paper.md or PAPER.md at root
+    if (names.some((n) => ["arxiv.md", "paper.md", "paper.pdf", "preprint.pdf", "citation.bib", "cite.bib"].includes(n))) bonus += 8;
+
+    // GH-048 Tier 3: README content — arXiv citation + empirical accuracy claims
+    // Fetch README to check for arXiv link and benchmark numbers
+    const readmeFile = files.find((f) => f.name.toLowerCase().startsWith("readme"));
+    if (readmeFile) {
+      try {
+        const readmeRes = await fetch(`https://api.github.com/repos/${repo}/contents/${readmeFile.name}`, { headers });
+        if (readmeRes.ok) {
+          const readmeData = (await readmeRes.json()) as { content?: string };
+          if (readmeData.content) {
+            const readmeText = Buffer.from(readmeData.content, "base64").toString("utf-8");
+            if (/arxiv\.org\/abs\/\d{4}\.\d{4,5}/.test(readmeText)) bonus += 10;
+            if (/accuracy[:\s]+[89]\d\.?\d*%|f1[:\s]+0\.[89]\d|auc[:\s]+0\.[89]\d|accuracy[:\s]+0\.[89]\d/i.test(readmeText)) bonus += 6;
+            if (/\d{2,3}x\s+(?:faster|cheaper|smaller)|(?:error|loss)\s+reduction\s+[89]\d%|17\.2×|4\.4×/.test(readmeText)) bonus += 5;
+          }
+        }
+      } catch { /* silent */ }
+    }
+
+    gem.structureBonus = Math.min(bonus, 35); // Cap at 35 (up from 25)
   } catch { /* silent — best-effort */ }
 }
 
@@ -1986,6 +2203,7 @@ interface AutoQueueEntry {
   score: number;
   category: string;
   structureBonus: number;
+  crossSourceBonus?: number; // Day-0: appeared in 2+ high-value sources
   discoveredAt: string;
   status: "queued" | "reviewed" | "adopted" | "rejected";
   branchSuggestion: string;
@@ -2013,6 +2231,7 @@ async function queueForAutoIntegration(
       score,
       category: gem.category,
       structureBonus: gem.structureBonus ?? 0,
+      crossSourceBonus: gem.crossSourceBonus,
       discoveredAt: new Date().toISOString(),
       status: "queued",
       branchSuggestion: `gem/adopt-${slug}-${date}`,
