@@ -103,6 +103,8 @@ python scripts/qa/telemetry_forecast.py --input tests/qa/fixtures/sample_telemet
 bun run qa:observability
 ```
 
+> A suíte também gera diagnóstico SSOT em `/tmp/qa-ssot-check.md` via `ssot_check_diagnostic.py`.
+
 ## Inventário rápido de pendências
 
 ```bash
@@ -132,6 +134,8 @@ Thresholds por ambiente (opcional):
 ```bash
 QA_MAX_MONTHLY_USD=50 QA_MAX_OVER5S=5 bun run qa:observability
 ```
+
+> A suíte também gera diagnóstico SSOT em `/tmp/qa-ssot-check.md` via `ssot_check_diagnostic.py`.
 
 ## Evidence summary (telemetry gate)
 
