@@ -81,8 +81,8 @@ function isContentRelevant(gem: GemResult, queryKeywords: string[]): boolean {
   return meaningfulTerms.some(term => text.includes(term));
 }
 
-type GemSource = "github" | "github-code" | "huggingface" | "huggingface-space" | "exa" | "arxiv" | "hackernews" | "npm" | "zenodo" | "x-public" | "x-api" | "reddit" | "stackoverflow" | "producthunt" | "papers-with-code";
-type SearchTrack = "core" | "web-extraction" | "x-signals-public" | "governance-plugplay" | "community-signals" | "early-warning";
+type GemSource = "github" | "github-code" | "huggingface" | "huggingface-space" | "exa" | "arxiv" | "hackernews" | "npm" | "zenodo" | "x-public" | "x-api" | "reddit" | "stackoverflow" | "producthunt" | "papers-with-code" | "papers-without-code";
+type SearchTrack = "core" | "web-extraction" | "x-signals-public" | "governance-plugplay" | "community-signals" | "early-warning" | "papers-without-code";
 
 interface GemResult {
   name: string;
@@ -434,6 +434,42 @@ const DEFAULT_QUERIES: SearchQuery[] = [
     sources: ["github", "papers-with-code"],
     category: "research-gems",
   },
+  // Papers Without Code — Ideas that haven't been implemented yet (v6.0 / GH-051)
+  {
+    topic: "Papers Without Code — Multi-Agent Coordination",
+    keywords: ["multi-agent coordination framework"],
+    sources: ["papers-without-code"],
+    category: "papers-without-code",
+    track: "papers-without-code",
+  },
+  {
+    topic: "Papers Without Code — Agent Governance",
+    keywords: ["agent governance architecture"],
+    sources: ["papers-without-code"],
+    category: "papers-without-code",
+    track: "papers-without-code",
+  },
+  {
+    topic: "Papers Without Code — LLM Tool Use",
+    keywords: ["LLM tool use orchestration"],
+    sources: ["papers-without-code"],
+    category: "papers-without-code",
+    track: "papers-without-code",
+  },
+  {
+    topic: "Papers Without Code — Code Intelligence",
+    keywords: ["code intelligence knowledge graph"],
+    sources: ["papers-without-code"],
+    category: "papers-without-code",
+    track: "papers-without-code",
+  },
+  {
+    topic: "Papers Without Code — Autonomous SWE Agent",
+    keywords: ["autonomous software engineering agent"],
+    sources: ["papers-without-code"],
+    category: "papers-without-code",
+    track: "papers-without-code",
+  },
 ];
 
 // ── API Callers ──────────────────────────────────────────────────────────
@@ -459,6 +495,90 @@ async function searchPapersWithCode(query: string, maxResults = 5): Promise<GemR
   } catch {
     return [];
   }
+}
+
+// ── Papers WITHOUT Code (v6.0 / GH-051) ─────────────────────────────────
+// Strategy: Query arXiv for recent CS papers, then check PWC to confirm
+// they have NO implementations. These are ideas nobody has coded yet —
+// the highest-value discoveries for the EGOS ecosystem.
+async function searchPapersWithoutCode(query: string, maxResults = 10): Promise<GemResult[]> {
+  const results: GemResult[] = [];
+
+  try {
+    // Step 1: Search arXiv for recent CS papers (AI, Multi-Agent, SE, CL, ML)
+    const categories = ['cs.AI', 'cs.MA', 'cs.SE', 'cs.CL', 'cs.LG'];
+    const catFilter = categories.map(c => `cat:${c}`).join('+OR+');
+    const params = new URLSearchParams({
+      search_query: `(${catFilter})+AND+all:${encodeURIComponent(query)}`,
+      start: '0',
+      max_results: String(maxResults * 2), // Over-fetch to filter
+      sortBy: 'submittedDate',
+      sortOrder: 'descending',
+    });
+
+    const res = await fetch(`http://export.arxiv.org/api/query?${params}`);
+    if (!res.ok) return [];
+    const xml = await res.text();
+
+    const entryBlocks = xml.split('<entry>').slice(1);
+
+    for (const block of entryBlocks) {
+      const title = block.match(/<title>([^<]+)<\/title>/)?.[1]?.trim().replace(/\n/g, ' ') || '';
+      const id = block.match(/<id>([^<]+)<\/id>/)?.[1] || '';
+      const summary = block.match(/<summary>([\s\S]*?)<\/summary>/)?.[1]?.trim().replace(/\n/g, ' ').slice(0, 300) || '';
+      const published = block.match(/<published>([^<]+)<\/published>/)?.[1]?.split('T')[0] || '';
+      const arxivId = id.match(/abs\/(.+)/)?.[1] || '';
+
+      // Filter: Skip if description mentions github.com (likely has code)
+      const hasGithubLink = block.toLowerCase().includes('github.com') ||
+                           block.toLowerCase().includes('github:') ||
+                           summary.toLowerCase().includes('our code is available') ||
+                           summary.toLowerCase().includes('code available at') ||
+                           summary.toLowerCase().includes('implementation available');
+
+      if (hasGithubLink) continue;
+
+      // Step 2: Check PWC for this paper — if it has 0 implementations, it's a gem
+      let pwcImplementations = -1; // -1 = not checked
+      if (arxivId) {
+        try {
+          await new Promise(r => setTimeout(r, 500)); // Rate limit PWC
+          const pwcRes = await fetch(`https://paperswithcode.com/api/v1/papers/${arxivId}/`);
+          if (pwcRes.ok) {
+            // Check if paper has implementations
+            const repoRes = await fetch(`https://paperswithcode.com/api/v1/papers/${arxivId}/repositories/`);
+            if (repoRes.ok) {
+              const repoData = await repoRes.json() as any;
+              pwcImplementations = (repoData.results || repoData || []).length;
+            }
+          }
+        } catch {
+          // PWC check failed, still include paper
+        }
+      }
+
+      // Only include papers with 0 implementations (or PWC check failed)
+      if (pwcImplementations > 0) continue;
+
+      if (title && id) {
+        results.push({
+          name: `[NO CODE] ${title.slice(0, 90)}`,
+          source: 'papers-without-code' as GemSource,
+          url: id,
+          description: `${summary} [arxiv:${arxivId}] [implementations:${pwcImplementations === -1 ? 'unknown' : pwcImplementations}]`,
+          relevance: 'high' as const,
+          category: 'papers-without-code',
+          lastUpdated: published,
+        });
+      }
+
+      if (results.length >= maxResults) break;
+    }
+  } catch {
+    // Silently fail — this is a best-effort search
+  }
+
+  return results;
 }
 
 async function searchZenodo(query: string, maxResults = 5): Promise<GemResult[]> {
@@ -1102,6 +1222,11 @@ async function main() {
         const pwc = await searchPapersWithCode(keyword, maxPerKeyword);
         results.push(...pwc);
       }
+      if (q.sources.includes("papers-without-code")) {
+        const pwoc = await searchPapersWithoutCode(keyword, isQuick ? 3 : 5);
+        results.push(...pwoc);
+        if (pwoc.length) await new Promise((r) => setTimeout(r, 3000)); // arXiv rate limit
+      }
 
       for (const r of results) r.category = q.category;
       // Content relevance guard: filter irrelevant GitHub results
@@ -1290,6 +1415,12 @@ function scoreGem(gem: GemResult): number {
   }
   // Agent-scaling and research-gems categories get base boost
   if (["agent-scaling", "research-gems"].includes(gem.category)) score += 8;
+
+  // Papers Without Code bonus (v6.0 / GH-051)
+  // High value: ideas nobody has implemented yet
+  if (gem.category === 'papers-without-code' || gem.name.startsWith('[NO CODE]')) {
+    score += 20;
+  }
 
   return Math.max(0, Math.round(score));
 }
