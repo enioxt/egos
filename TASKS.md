@@ -20,6 +20,7 @@
 - [x] EGOS-162: Accuracy benchmark vs Presidio/anonym.legal — 85.3% F1, benchmark.ts in guard-brasil/src ✅ 2026-04-01
 - [ ] EGOS-163: Pix billing integration
 - [ ] EGOS-164: Dashboard — real data from guard_brasil_events
+  - [x] EGOS-164A: Guard API metadata endpoint (`GET /v1/meta`) + dynamic endpoint registry/404 contract ✅ 2026-04-02
 
 **P2 — Growth:**
 - [ ] EGOS-165: White-label outreach
@@ -38,6 +39,8 @@
 
 **Remaining:**
 - [ ] EGOS-168: llmrefs blocks on 10 more governance docs (manual, 1h)
+  - [x] EGOS-168A: llmrefs blocks added to `CAPABILITY_REGISTRY`, `SSOT_REGISTRY`, `ECOSYSTEM_CLASSIFICATION_REGISTRY` ✅ 2026-04-02
+  - [x] EGOS-168B: llmrefs blocks added to `OPERATOR_MAP`, `KERNEL_CONSOLIDATION_PLAN`, `MYCELIUM_TRUTH_REPORT`, `TELEMETRY_SSOT` ✅ 2026-04-02
 - [ ] EGOS-169: @aiready/pattern-detect pre-commit (duplicate detection)
 - [ ] EGOS-173: CRCDM hooks: llmrefs staleness + auto-heal rename
 - [x] EGOS-175: llmrefs blocks added to 5 leaf AGENTS.md (forja, carteira-livre, smartbuscas, br-acc, santiago) ✅ 2026-04-01
@@ -118,6 +121,14 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] GOV-001: Add ECOSYSTEM_CLASSIFICATION_REGISTRY.md to governance-sync.sh CANONICAL_DOCS ✅ 2026-04-01
 - [x] GOV-002: Sync leaf repos (carteira-livre/forja/852/smartbuscas) — all 3 registries fresh ✅ 2026-04-01
 - [x] GOV-003: Daily governance-sync cron added (0 12 * * * = 9am BRT) ✅ 2026-04-01
+- [x] GOV-004: Codex global preferences v2 drafted with explicit DoD + config locations (`docs/qa/CODEX_GLOBAL_PREFERENCES_V2.md`) ✅ 2026-04-02
+- [x] GOV-005: Codex global preferences v3 operacional (checks mandatórios + escalation triggers + DoD) ✅ 2026-04-02
+- [x] GOV-006: Pending tasks inventory automation (`scripts/qa/list_pending_tasks.py` + `/tmp/qa-pending-tasks.md`) ✅ 2026-04-02
+- [x] GOV-007: Commit audit hardening — frozen zone touch detection no `analyze_commits.py` ✅ 2026-04-02
+- [x] GOV-008: Panorama sistêmico + plano curto/médio/longo documentado (`docs/qa/SYSTEM_PANORAMA_2026-04-02.md`) ✅ 2026-04-02
+- [x] GOV-009: Stalled fronts report (`scripts/qa/stalled_tasks_report.py` + `/tmp/qa-stalled-tasks.md`) ✅ 2026-04-02
+- [x] GOV-010: Commit auditor resilience — fallback seguro quando `git` falha/indisponível ✅ 2026-04-02
+- [x] GOV-011: QA README alinhado com suite/artifacts atuais (`qa:pending`, `qa:stalled`, guardrail artifacts) ✅ 2026-04-02
 
 > **Archived:** All session summaries, ARCH project, benchmark plans, Grok intake → `docs/knowledge/TASKS_ARCHIVE_2026.md`
 
@@ -219,6 +230,55 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [ ] OBS-011: Gem Hunter session telemetry (pair analysis duration, transplant acceptance rate)
 - [ ] OBS-012: Runtime dashboard vs Product analytics dashboard — separate concerns
 - [ ] OBS-013: Privacy-preserving structured logs (no raw code, masked secrets, redacted paths)
+
+---
+
+### Telemetria & Observabilidade (P1 — Operacional, 2026-04-01)
+
+> **Deduplicação:** `rg -n "EGOS-TELEM|telemetry|agent.*cost" TASKS.md` executado em 2026-04-01 sem entradas `EGOS-TELEM-*`.
+
+- [ ] EGOS-TELEM-001: Agent execution telemetry (MCP + event-bus) — 3d
+  - Track: `agent_id`, `session_id`, `started_at`, `duration_ms`, `tokens_in`, `tokens_out`, `cost_usd`
+  - Store: `agent_sessions` (Supabase)
+  - Output: custo por agente/dia + p95 duração
+  - [x] EGOS-TELEM-001A: `@egos/shared` scaffold — `recordAgentSession()` + stats `byAgent` + tests iniciais ✅ 2026-04-01
+  - [x] EGOS-TELEM-001B: `agents/cli.ts` integrado para emitir `recordAgentSession()` ao final de `run` ✅ 2026-04-01
+
+- [ ] EGOS-TELEM-002: Tool call attribution + cost tracking — 2d
+  - Track: `tool_name`, `duration_ms`, `agent_id`, `task_id`, `tokens`, `cost_usd`
+  - Output: ranking custo/latência por ferramenta
+  - [x] EGOS-TELEM-002A: `@egos/shared` scaffold — `recordToolCall()` + stats `byTool` + persistência metadata ✅ 2026-04-01
+  - [x] EGOS-TELEM-002B: `agents/cli.ts` emite `recordToolCall()` para execução de entrypoint (`bun.spawn`) ✅ 2026-04-01
+
+- [ ] EGOS-TELEM-003: Gargalo detection (latency heatmap) — 2d
+  - Identify: componentes mais lentos (LLM, Supabase, file I/O, integrações)
+  - Alert: operação > 5s (threshold inicial)
+  - [x] EGOS-TELEM-003A: `@egos/shared` função `getLatencyHeatmap()` + bucket `over5sCount` + testes ✅ 2026-04-01
+  - [x] EGOS-TELEM-003B: CI executa `bun test packages/shared/src/__tests__/telemetry.test.ts` em todo PR ✅ 2026-04-01
+  - [x] EGOS-TELEM-003C: guardrail automatizado para slow events/custo (`telemetry_guardrail.py`) ✅ 2026-04-02
+  - [x] EGOS-TELEM-003D: thresholds de guardrail parametrizáveis por ENV (`QA_MAX_OVER5S`) ✅ 2026-04-02
+
+- [ ] EGOS-TELEM-004: Real-time cost dashboard — 1d
+  - View: custo por agente/ferramenta/sessão
+  - Refresh: 30s (modo operacional)
+  - [x] EGOS-TELEM-004A: dashboard operacional inicial via logs (`scripts/qa/telemetry_dashboard.py`) ✅ 2026-04-01
+  - [x] EGOS-TELEM-004B: smoke de dashboard adicionado ao CI com fixture (`tests/qa/fixtures/sample_telemetry.txt`) ✅ 2026-04-01
+  - [x] EGOS-TELEM-004C: artefatos QA publicados no CI (`qa-observability-artifacts`) ✅ 2026-04-01
+  - [x] EGOS-TELEM-004D: suite unificada `qa:observability` para execução local/CI ✅ 2026-04-02
+  - [x] EGOS-TELEM-004E: parser aceita JSON cru além de prefixado (`[agents-cli-telemetry]`) para maior compatibilidade ✅ 2026-04-02
+
+- [ ] EGOS-TELEM-005: Historical cost analysis + forecasting — 3d
+  - Analyze: tendência 7/30 dias
+  - Forecast: burn rate mensal e alerta de orçamento
+  - [x] EGOS-TELEM-005A: forecast inicial em dashboard por logs (run-rate diário/mensal) ✅ 2026-04-01
+  - [x] EGOS-TELEM-005B: análise histórica por série diária + forecast 7d/30d (`scripts/qa/telemetry_forecast.py`) ✅ 2026-04-01
+  - [x] EGOS-TELEM-005C: smoke de forecast adicionado ao CI com fixture ✅ 2026-04-01
+  - [x] EGOS-TELEM-005D: forecast e dashboard salvos como artifact de pipeline para análise assíncrona ✅ 2026-04-01
+  - [x] EGOS-TELEM-005E: guardrail de run-rate mensal integrado na suite `qa:observability` ✅ 2026-04-02
+  - [x] EGOS-TELEM-005F: thresholds de custo parametrizáveis por ENV (`QA_MAX_MONTHLY_USD`) + artifact `/tmp/qa-guardrail.txt` ✅ 2026-04-02
+  - [x] EGOS-TELEM-005H: guardrail falha quando não há eventos com timestamp (evita falso-OK sem forecast) ✅ 2026-04-02
+  - [x] EGOS-TELEM-005G: guardrail hardening — parse estruturado via `compute_metrics()` (remove parsing frágil de markdown) ✅ 2026-04-02
+  - [x] EGOS-TELEM-005I: forecast parser aceita JSON cru além de prefixado para ingestão heterogênea de logs ✅ 2026-04-02
 
 ---
 
