@@ -247,7 +247,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [ ] GH-047: ArchitectureSelector adapter — transplant to packages/shared/intelligence/architecture-selector.ts. Wire to BRAID GRD: decide centralized/decentralized/hybrid before spawning agents
 - [ ] GH-048: Gem Hunter structural validation (Camada 1) — check tree for README+arXiv, benchmarks/, tests/, ArchitectureSelector-like patterns. Score boost for repos with empirical test suites
 - [ ] GH-049: Gem Hunter auto-integration decision (Camada 3) — if score > 85 and passes structural validation, auto-create branch + adapter + PR title. Save to Hindsight as "contracted gem"
-- [ ] GH-050: Gem Hunter → world-model signal ingestion — gems scoring > 80 auto-append to world-model.ts signals array (synergy with INTEL-005)
+- [x] GH-050: Gem Hunter → world-model signal ingestion — gem-signals.ts (appendGemSignal/getGemSignals), signals.json (max 50, LIFO), world-model.ts parseSignals() reads signals.json, score > 90 = CRITICAL ✅ 2026-04-02
 
 **Gem Hunter v6.0 — Papers Without Code + Standalone Product (2026-04-02):**
 **Master Plan:** `docs/gem-hunter/GEM_HUNTER_v6_MASTER_PLAN.md`
@@ -255,7 +255,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 **Decisions:** B (scaffold output), B (full auto trends), D (API→Bot→Dashboard→NPM), % pricing
 
 *Week 1 — Foundation:*
-- [ ] GH-051: Papers Without Code pipeline — arXiv `no_code` filter + PWC `no_implementations` + abstract scoring via free LLM
+- [x] GH-051: Papers Without Code pipeline — searchPapersWithoutCode() queries arXiv CS papers, cross-refs PWC for 0 implementations, +20 scoring bonus, 5 new queries, wired into dispatch ✅ 2026-04-02
 - [ ] GH-052: KOL list curada — 50+ X.com accounts for trend monitoring (needs user input)
 - [ ] GH-053: Evolution Engine auto-integrate — trending keywords auto-update DEFAULT_QUERIES next run
 - [ ] GH-054: Multi-LLM fallback chain — Qwen(free) → OpenRouter(free) → Gemini Flash($) → Claude($$)
