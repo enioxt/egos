@@ -182,3 +182,9 @@ Envelope único (interconexão para automações):
 ```bash
 bun run qa:compose
 ```
+
+Validação do envelope (schema mínimo + campos de gate):
+
+```bash
+bun run qa:compose:validate
+```
