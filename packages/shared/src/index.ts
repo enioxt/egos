@@ -59,3 +59,7 @@ export type { AgentEvent, Severity } from './event-bus.js';
 // Evidence Chain — traceable response discipline
 export { createEvidenceChain, EvidenceChainBuilder, formatEvidenceBlock, validateChain } from './evidence-chain.js';
 export type { EvidenceChain, EvidenceItem, ClaimWithEvidence, EvidenceType, ConfidenceLevel, EvidenceChainOptions } from './evidence-chain.js';
+
+// Intelligence Layer — Architecture Selector (GH-046/047, arXiv 2512.08296)
+export { selectArchitecture, classifyFromDescription, formatForBraid } from './intelligence/architecture-selector.js';
+export type { ArchitectureType, ArchitectureProfile, SelectionInput, SelectionResult } from './intelligence/architecture-selector.js';
