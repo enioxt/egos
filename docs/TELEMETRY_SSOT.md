@@ -1,5 +1,16 @@
 # TELEMETRY SSOT — Single Source of Truth
 
+<!-- llmrefs:start -->
+## LLM Reference Signature
+
+- **Role:** canonical telemetry schema contract across EGOS repos
+- **Summary:** Defines base event fields, privacy requirements, and inheritance model for repo-specific telemetry extensions.
+- **Read next:**
+  - `packages/shared/src/telemetry.ts` — runtime implementation
+  - `docs/SSOT_REGISTRY.md` — SSOT ownership/freshness
+  - `TASKS.md` — telemetry execution backlog
+<!-- llmrefs:end -->
+
 > **VERSION:** 1.0.0 | **STATUS:** Canonical | **Updated:** 2026-03-30
 > **Purpose:** Unified telemetry schema across all EGOS repos. Every repo can extend, but all must inherit base.
 

@@ -1,5 +1,16 @@
 # KERNEL_CONSOLIDATION_PLAN.md — EGOS-074
 
+<!-- llmrefs:start -->
+## LLM Reference Signature
+
+- **Role:** migration plan for canonical surfaces from `egos-lab` into `egos` kernel
+- **Summary:** Phased consolidation strategy grounded in EGOS-073 diagnostic evidence to reduce duplicate/stale surfaces.
+- **Read next:**
+  - `docs/SSOT_REGISTRY.md` — ownership of canonical surfaces
+  - `docs/SYSTEM_MAP.md` — placement of migrated components
+  - `TASKS.md` — active execution state for consolidation tasks
+<!-- llmrefs:end -->
+
 > **VERSION:** 1.0.0 | **CREATED:** 2026-03-30 | **TASK:** EGOS-074
 > **SSOT-VISITED:** 2026-03-30, disposition: gem-found
 
