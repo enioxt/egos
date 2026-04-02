@@ -16,6 +16,6 @@
   },
   "description": "ATRiAN Observability — OTel-compatible telemetry for EGOS agents. Collects behavior metadata, not payload.",
   "dependencies": {
-    "zod": "3.22.4"
+    "zod": "4.3.6"
   }
 }
