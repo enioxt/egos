@@ -51,8 +51,8 @@
 - [x] EGOS-TELEM-001: Guard Brasil API telemetry (recordApiCall) — ✅ 2026-04-01. Integrated: telemetry.ts + recordApiCall() exported, API server calls recordApiCall() post-inspect, guard_brasil_events table schema ready (20 columns). Fire-and-forget pattern (non-fatal if Supabase down). Dashboard ready to display events. Pending: API deployment + test calls to populate table.
 - [x] EGOS-TELEM-002: Tool call attribution + cost tracking ✅ 2026-04-02. recordToolCall() + recordAgentSession() in packages/shared/src/telemetry.ts (from Codex PR #23). Tool calls tracked with duration, tokens, cost. Cost/tool ranking via telemetry_dashboard.py.
 - [x] EGOS-TELEM-003: Gargalo detection (latency heatmap) ✅ 2026-04-02. getLatencyHeatmap() in telemetry.ts returns latency buckets (p50/p95/p99). QA script: scripts/qa/telemetry_dashboard.py shows slow operations. Alert threshold configurable via telemetry_guardrail.py.
-- [ ] EGOS-TELEM-004: Real-time cost dashboard — 1d. Display: cost breakdown (API calls, tokens, tool calls) per-agent/per-tool. Update every 30s.
-- [ ] EGOS-TELEM-005: Historical cost analysis + forecasting — 3d. 100-commit analysis, monthly burn forecast, alerts if > budget.
+- [x] EGOS-TELEM-004: Real-time cost dashboard ✅ 2026-04-02. GET /api/admin/cost-dashboard endpoint (admin-only): 24h cost breakdown by agent+tool, hourly breakdown.
+- [x] EGOS-TELEM-005: Historical cost analysis + forecasting ✅ 2026-04-02. scripts/telemetry_forecast.py: 30-day projection, linear trend fit, budget alerts, CSV export.
 
 - [ ] EGOS-169: @aiready/pattern-detect pre-commit (duplicate detection)
 - [ ] EGOS-173: CRCDM hooks: llmrefs staleness + auto-heal rename
