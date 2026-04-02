@@ -66,17 +66,26 @@ Quality score 1–5 for each topic/source pairing. Empty = not relevant.
 ## 4. KOL Networks
 
 ### 4.1 X Following (@anoineim)
-- **Owner:** kol-discovery agent
-- **Policy:** Pull timeline 2×/day; extract accounts with ≥ 2 signal mentions/week into `kol-list.json`
-- **Amplification lists:** 🔲 `LIST_ID_CRYPTO_GEMS` (populate from @anoineim owned lists)
-- **Seed KOL categories:** researchers, protocol devs, on-chain analysts, early-stage VCs
+- **Owner:** kol-discovery agent (`scripts/kol-discovery.ts`)
+- **Discovery:** AUTOMATIC — uses `X_BEARER_TOKEN` to fetch full following list via X API v2
+  - `GET /2/users/by/username/anoineim` → user ID
+  - `GET /2/users/:id/following` (paginated, up to 1000 accounts)
+  - Classifies by bio: crypto / ai-ml / dev-tooling / governance / markets
+  - Run: `bun scripts/kol-discovery.ts` → `docs/gem-hunter/kol-list.json`
+- **Policy:** Pull 2×/week (Mon + Thu); update kol-list.json automatically
+- **Note:** No manual list maintenance needed — always reflects current following
 
 ### 4.2 Telegram Channels
-| Channel | Topic | ID | Status |
-|---------|-------|----|--------|
-| 🔲 Internal alpha | Crypto gems | `TELEGRAM_ADMIN_CHAT_ID` | Active (admin) |
-| 🔲 Channel 2 | AI agents | _(add ID)_ | Pending |
-| 🔲 Channel 3 | Markets | _(add ID)_ | Pending |
+| Channel | Topic | Bot | Env Var | Status |
+|---------|-------|-----|---------|--------|
+| Admin | Crypto gems / alerts | `TELEGRAM_ADMIN_CHAT_ID` | `TELEGRAM_BOT_TOKEN` | ✅ Active |
+| AI Agents | AI tools, LLM, agents | `egosaiagents_bot` | `TELEGRAM_BOT_TOKEN_AI_AGENTS` | ✅ Configured |
+| Markets | Crypto, macro, DeFi | `egosmarkets_bot` | `TELEGRAM_BOT_TOKEN_MARKETS` | ✅ Configured |
+
+**Routing rules:**
+- Gems category=`agents` / `ai-ml` → egosaiagents_bot
+- Gems category=`crypto` / `markets` / `defi` → egosmarkets_bot
+- Score ≥ 80 (any category) → TELEGRAM_BOT_TOKEN (admin)
 
 **Bot policy:** Read-only listener. Never post to alpha channels from automated bots.
 
