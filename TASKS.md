@@ -106,14 +106,14 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [ ] EAGLE-009: Stripe/Pix payment for Pro tier (R$497/mo, 50+ territories)
 - [ ] EAGLE-010: Customer onboarding flow + dashboard customization
 - [ ] EAGLE-011: E2E tests (Playwright)
-- [ ] EGOS-170: Guard Brasil Next.js web dashboard — Vercel deploy, real data from guard_brasil_events, usage charts
+- [x] EGOS-170: Guard Brasil dashboard wired to real Supabase data ✅ 2026-04-02 (/api/tenants + /api/stats routes, DashboardV1Giant fetches real customers + MRR on mount with 30s refresh)
 
 **P4 — Government Licitações (DEPRIORITIZED 2026-04-02 — too slow, focus on API-first):**
 - [x] EAGLE-017: Real data pipeline (Querido Diário API) — 36 opportunities found, R$ 10.5M value, 14 software/TI (38.9%) ✅ 2026-04-01. Script: `analyze-real-gazettes-v2.ts`. Cache + error handling robust. Enum validation fixed (Portuguese market_potential).
 - [x] EAGLE-018: Software opportunities analysis + Tier 1/2/3 mapping ✅ 2026-04-01. Tier 1: Sistema de Gestão (R$ 250k, 28d), Plataforma Análise (R$ 180k, 36d), Auditoria (R$ 120k, 51d). Total opportunity: R$ 550k. Geographic: SP, RJ, BH. Success probability: 60-75%.
 - [ ] EAGLE-019: Integrador partnership outreach — target DeLoit/Thoughtworks/regional partners, pitch EGOS as subcontractor for software bids. CRM + call scheduling.
 - [ ] EAGLE-020: R$250k proposal submission (Sistema de Gestão de Licitações) — deadline 2026-04-29. Proposal drafted (PROPOSAL_250K_LICITACOES_SYSTEM.md). Timeline: 120d (4 sprints), stack: React + Next.js + Bun/TypeScript + PostgreSQL, margin 35%.
-- [ ] EAGLE-021: Daily analysis cron deployment (0 9 * * *) — analyze 5 Tier-1 territories, top 10 gazettes/day, ~15min execution. Status: ready to deploy.
+- [x] EAGLE-021: Daily analysis cron deployed ✅ 2026-04-02 (0 12 UTC = 9am BRT, full pipeline: fetch+AI+Supabase store, JSON parse fix for truncated responses)
 - [ ] EAGLE-022: Scale to 47 territories (full Brazil) + 6-month backfill. Expected: 200+ opportunities/month, 50-60 software/TI monthly.
 - [ ] EAGLE-023: Integrador channel revenue share (70/30) + SLA documentation. First partnership target: Week 2 (2026-04-08).
 
