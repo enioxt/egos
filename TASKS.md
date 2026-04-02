@@ -479,22 +479,21 @@ Modern monetization: usage-based API + MCP tool + chatbot. Stripe-unified (card 
 - [ ] EAGLE-022: Compliance checklist — auto-check habilitação requirements against company docs
 - [ ] EAGLE-023: Submit EAGLE-020 proposal by 2026-04-29 (R$250k opportunity deadline)
 
----
-
 ### P19 Diagnostic Actions (2026-04-02)
 
 **P0 — Theater Cleanup + Security:**
-- [ ] THEATER-001: Deploy x-reply-bot for real — set X_BEARER_TOKEN on VPS + crontab, or remove from "done" permanently
-- [x] SECURITY-001: Carteira Livre auth audit — CLOSED. All /admin/* (incl. campaigns) is middleware-protected. /calculadora-parceiro is intentionally public. "14 unprotected pages" was theater — 0 real gaps found. ✅ 2026-04-02
-- [ ] CTX-001: Auto-context recovery — add context-loader hook to /start (load latest handoff + MEMORY.md summary)
+- [ ] THEATER-001: Deploy x-reply-bot (X_BEARER_TOKEN + crontab) or remove from done
+- [x] SECURITY-001: Auth audit CLOSED — 0 gaps found ✅ 2026-04-02
+- [ ] CTX-001: Context recovery hook to /start (load handoff + MEMORY.md)
 - [x] TEST-001: Integration test suite — 21 tests (Guard Brasil PII/API, Eagle Eye opportunities, Gem Hunter scoring+CLI) ✅ 2026-04-02
+- [x] EAGLE-EYE-UX-001: Dashboard UX (pagination 15/page, territory name resolution, classifications badges, value filter, segmento/porte display) ✅ 2026-04-02
 
 **P1 — Architecture / Agents:**
-- [ ] HERMES-001: Wire Hermes-3 (NousResearch/Hermes-3-Llama-3.1-70B via OpenRouter, free tier) as BRAID GRD executor for mechanical nodes — set `OPENROUTER_API_KEY` in VPS .env, add `hermes-3` case to `llm-provider.ts` router, test with gem-hunter summarization node. Estimate: 2h. Expected: 30-40% cost reduction on mechanical tasks.
-- [ ] OPENCLAW-001: Register Guard Brasil as first OpenClaw MCP skill — precondition: Guard Brasil MCP interface built (EGOS-175+), 1 paying customer. Phase 2-3 only — do NOT implement before Guard Brasil MCP is live.
+- [ ] HERMES-001: Wire Hermes-3 as BRAID mechanical executor (OpenRouter free tier, 2h, 30-40% cost savings)
+- [ ] OPENCLAW-001: Register Guard Brasil as OpenClaw MCP skill (precondition: MCP interface + 1 paying customer, Phase 2-3)
 
 **P1 — Infrastructure:**
 - [ ] DASH-001: Mission Control Dashboard — React + Supabase Realtime (SSOTs, agents, tasks, revenue tracker)
 - [ ] CTX-002: Auto-index codebase-memory-mcp on /start (graph is cold, needs warm-up)
 - [ ] REWARDS-001: Unified rewards engine — merge ETHIK + 852 gamification + credit system into @egos/rewards
-- [ ] MOAT-001: Data flywheel module — every interaction → Retain, power-user patterns → playbooks (Head of Product strategy)
+- [ ] MOAT-001: Data flywheels (moats ≠ features) — Eagle Eye: bid outcomes→scoring, Gem Hunter: gem adoption→scores, Guard Brasil: mask patterns→improve (2-3w total)
