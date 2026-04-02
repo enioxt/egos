@@ -16,6 +16,7 @@ import { evaluatePRI, requiresManualReview, shouldBlockOnPRI } from './pri.js';
 
 const guard = GuardBrasil.create();
 const PORT = Number(process.env.GUARD_API_PORT ?? 3099);
+const API_VERSION = '0.2.0';
 // Internal/CI keys loaded from env (bypass Supabase quota)
 const API_KEYS = new Set((process.env.GUARD_API_KEYS ?? '').split(',').filter(Boolean));
 
@@ -84,6 +85,25 @@ Bun.serve({
         status: 'healthy',
         timestamp: new Date().toISOString(),
       });
+    }
+
+    // GET /v1/meta — API contract + runtime settings
+    if (url.pathname === '/v1/meta' && req.method === 'GET') {
+      return Response.json({
+        service: 'egos-guard-brasil-api',
+        version: API_VERSION,
+        endpoints: [
+          { method: 'GET',  path: '/health',                description: 'Service health' },
+          { method: 'GET',  path: '/v1/meta',               description: 'API contract + runtime limits' },
+          { method: 'POST', path: '/v1/keys',               description: 'Create free API key' },
+          { method: 'POST', path: '/v1/inspect',            description: 'Guard Brasil PII inspection' },
+          { method: 'POST', path: '/v1/stripe/checkout',    description: 'Create Stripe Checkout Session' },
+          { method: 'POST', path: '/v1/stripe/webhook',     description: 'Stripe billing webhook' },
+        ],
+        tiers: { free: 150, pro: 10000, enterprise: 999999 },
+        pricing: { pro_brl: 497, enterprise_brl: 1497 },
+        timestamp: new Date().toISOString(),
+      }, { headers: CORS });
     }
 
     // POST /v1/keys — self-service free-tier key generation
