@@ -1386,6 +1386,15 @@ async function main() {
   if (hotGems.length > 0) {
     console.log(`\n🔥 ${hotGems.length} hot gem(s) scored ≥80 this run`);
     await sendGemTelegramAlert(hotGems);
+    await sendGemDiscordAlert(hotGems); // GH-064
+  }
+
+  // GH-049: Auto-integration queue for elite gems (score ≥85 + validated structure)
+  const autoQueueCandidates = hotGems.filter(({ gem, score }) =>
+    score >= 85 && (gem.structureBonus ?? 0) >= 5
+  );
+  if (autoQueueCandidates.length > 0) {
+    await queueForAutoIntegration(autoQueueCandidates, timestamp);
   }
 
   saveGemsToHistory(unique, timestamp);
@@ -1939,6 +1948,83 @@ async function sendGemTelegramAlert(hotGems: { gem: GemResult; score: number }[]
   } catch (err) {
     console.error("[GemAlert] Failed to send Telegram alert:", err);
   }
+}
+
+// ── GH-064: Discord webhook alert ──────────────────────────────────────────
+const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL ?? "";
+
+async function sendGemDiscordAlert(hotGems: { gem: GemResult; score: number }[]): Promise<void> {
+  if (!DISCORD_WEBHOOK_URL) return;
+  const embeds = hotGems.slice(0, 5).map(({ gem, score }) => ({
+    title: gem.name.slice(0, 256),
+    url: gem.url,
+    description: gem.description.slice(0, 200),
+    color: score >= 90 ? 0xFF4500 : 0xFFA500, // red-orange for ≥90, orange for ≥80
+    fields: [
+      { name: "Score", value: `${score}/100`, inline: true },
+      { name: "Source", value: gem.source, inline: true },
+      { name: "Category", value: gem.category, inline: true },
+    ],
+    footer: { text: `Gem Hunter v${GEM_HUNTER_VERSION}` },
+  }));
+  try {
+    await fetch(DISCORD_WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username: "Gem Hunter", content: `🔥 **${hotGems.length} Hot Gem(s) discovered**`, embeds }),
+    });
+    console.log(`[GemAlert] Discord alert sent for ${hotGems.length} gem(s)`);
+  } catch (err) {
+    console.error("[GemAlert] Failed to send Discord alert:", err);
+  }
+}
+
+// ── GH-049: Auto-integration queue ─────────────────────────────────────────
+interface AutoQueueEntry {
+  name: string;
+  url: string;
+  score: number;
+  category: string;
+  structureBonus: number;
+  discoveredAt: string;
+  status: "queued" | "reviewed" | "adopted" | "rejected";
+  branchSuggestion: string;
+}
+
+async function queueForAutoIntegration(
+  candidates: { gem: GemResult; score: number }[],
+  date: string
+): Promise<void> {
+  const queuePath = join(REPORTS_DIR, "auto-queue.json");
+  let existing: { version: string; queue: AutoQueueEntry[] } = { version: "1.0.0", queue: [] };
+  try {
+    if (existsSync(queuePath)) existing = JSON.parse(readFileSync(queuePath, "utf-8"));
+  } catch {}
+
+  const existingUrls = new Set(existing.queue.map(e => e.url));
+  let added = 0;
+
+  for (const { gem, score } of candidates) {
+    if (existingUrls.has(gem.url)) continue;
+    const slug = gem.name.replace(/\[NO CODE\]\s*/i, "").replace(/[^a-z0-9]/gi, "-").toLowerCase().slice(0, 40);
+    const entry: AutoQueueEntry = {
+      name: gem.name.slice(0, 100),
+      url: gem.url,
+      score,
+      category: gem.category,
+      structureBonus: gem.structureBonus ?? 0,
+      discoveredAt: new Date().toISOString(),
+      status: "queued",
+      branchSuggestion: `gem/adopt-${slug}-${date}`,
+    };
+    existing.queue.unshift(entry);
+    added++;
+  }
+
+  // Keep last 30 queued/reviewed entries
+  existing.queue = existing.queue.slice(0, 30);
+  writeFileSync(queuePath, JSON.stringify(existing, null, 2));
+  if (added > 0) console.log(`\n🤖 GH-049: ${added} gem(s) queued for auto-integration → auto-queue.json`);
 }
 
 main().catch(console.error);
