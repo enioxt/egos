@@ -42,7 +42,7 @@
 
 | Domain | SSOT Location | Owner | Freshness Rule | Last Verified |
 |--------|--------------|-------|----------------|---------------|
-| Agent definitions (kernel) | `egos/agents/registry/agents.json` v2.0.0 | enioxt | Update when agent added/changed; `bun run agent:lint` on commit | 2026-03-30 |
+| Agent definitions (kernel) | `egos/agents/registry/agents.json` v2.1.0 (18 agents) | enioxt | Update when agent added/changed; `bun run agent:lint` on commit | 2026-04-02 |
 | Agent definitions (lab) | `egos-lab/agents/registry/agents.json` v1.0.0 | enioxt | Lab-local; NOT canonical for kernel — parallel registry | 2026-03-30 |
 | Agent runtime (kernel) | `egos/agents/runtime/runner.ts` + `event-bus.ts` | enioxt | FROZEN — no change without explicit approval | 2026-03-30 |
 | Agent runtime (lab) | `egos-lab/agents/runtime/runner.ts` | enioxt | Lab-local; must not diverge from kernel contract | 2026-03-30 |

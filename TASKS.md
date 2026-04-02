@@ -394,12 +394,12 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 
 **Context:** Speed-to-thread matters. When a trending topic matches our capabilities, we must respond in hours, not days.
 
-**Done:**
-- [x] X-001: `scripts/x-reply-bot.ts` — 40 replies/day budget, 8 topic monitors, OAuth 1.0a, hourly cron VPS ✅ 2026-04-01
-- [x] X-002: `scripts/rapid-response.ts` — 4 capability profiles, X thread generator, showcase README ✅ 2026-04-01
-- [x] X-003: VPS cron deployed `0 * * * *` using `/opt/egos-lab/.env` keys ✅ 2026-04-01
-- [x] X-004: Hermes-3 (nousresearch/hermes-3-llama-3.1-70b) added to llm-provider default tier ✅ 2026-04-01
-- [x] X-005: `scripts/check-legacy-code.sh` + wired in pre-commit (check 8, non-blocking) ✅ 2026-04-01
+**Code Written (not deployed):**
+- [x] X-001: `scripts/x-reply-bot.ts` CODE ONLY (348 LOC) — NOT deployed on VPS, no cron, needs X_BEARER_TOKEN ⚠️
+- [x] X-002: `scripts/rapid-response.ts` CODE ONLY (217 LOC) — manual utility, not automated ⚠️
+- [ ] X-003: VPS cron deploy — REVERTED: was marked done but cron never set up. Needs: X_BEARER_TOKEN + crontab on 204.168.217.125
+- [x] X-004: Hermes-3 added to llm-provider (model config only, no active usage) ✅ 2026-04-01
+- [x] X-005: `scripts/check-legacy-code.sh` in pre-commit ✅ 2026-04-01
 
 **P1 — Expand:**
 - [ ] X-006: Grow capability profiles in rapid-response.ts (add br-acc, 852, BRAID executor)
@@ -422,24 +422,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 
 ### Block Intelligence Model — EGOS as Mini-AGI (2026-04-01)
 
-**Source:** Jack Dorsey / Block essay "From Hierarchy to Intelligence" (block.xyz/inside/from-hierarchy-to-intelligence)
-**Insight:** Hierarchy = routing protocol for information. Block replacing it with world model + intelligence layer + atomic capabilities. EGOS already has 70% of this. Fill the gaps.
-
-| Block Concept | EGOS Status | Gap |
-|---|---|---|
-| World Model | codebase-memory-mcp + TASKS.md | No unified snapshot generator |
-| Intelligence Layer | Kernel + BRAID (GH-037) | GRD not yet in /coordinator |
-| Atomic Capabilities | CAPABILITY_REGISTRY.md | Not dynamically composed |
-| Signal Layer | Gem Hunter (CCR) | Doesn't feed world model |
-| Edge Roles (IC/DRI/Coach) | agents.json | No role taxonomy |
-
-**Done:**
-- [x] INTEL-001: `packages/shared/src/world-model.ts` — unified snapshot: tasks/agents/caps/signals/health% ✅ 2026-04-01
-
-**P0 — Foundation:**
-- [x] INTEL-002: Wire world-model.ts into /start Phase 0 (runs before everything, saves snapshot) ✅ 2026-04-01 (already in .claude/commands/start.md Phase 0)
-- [x] INTEL-003: AGENTS.md update — map each agent to IC/DRI/Player-Coach taxonomy ✅ 2026-04-01 (IC/DRI/Coach table in AGENTS.md § Agent Role Taxonomy)
-- [x] INTEL-004: GH-037 BRAID Mode — /coordinator emits Mermaid GRD before Implementation ✅ 2026-04-01. Phase 2 synthesis now outputs template GRD (frozen-zone guard, phase groupings, terminal states). Execution contract for cheap models.
+**Done (4/4 P0):** INTEL-001..004 ✅ (world-model.ts, /start Phase 0, AGENTS.md IC/DRI/Coach, BRAID GRD)
 
 **P1 — Signal Layer:**
 - [ ] INTEL-005: Signal ingestion — Gem Hunter scores > 80 → auto-append to world model signals (= GH-050)
@@ -495,3 +478,19 @@ Modern monetization: usage-based API + MCP tool + chatbot. Stripe-unified (card 
 - [ ] EAGLE-021: Proposal generator — auto-draft proposta técnica from edital + company profile
 - [ ] EAGLE-022: Compliance checklist — auto-check habilitação requirements against company docs
 - [ ] EAGLE-023: Submit EAGLE-020 proposal by 2026-04-29 (R$250k opportunity deadline)
+
+---
+
+### P19 Diagnostic Actions (2026-04-02)
+
+**P0 — Theater Cleanup + Security:**
+- [ ] THEATER-001: Deploy x-reply-bot for real — set X_BEARER_TOKEN on VPS + crontab, or remove from "done" permanently
+- [ ] SECURITY-001: Carteira Livre — add auth to 14 unprotected admin pages (CRITICAL)
+- [ ] CTX-001: Auto-context recovery — add context-loader hook to /start (load latest handoff + MEMORY.md summary)
+- [ ] TEST-001: Integration test suite — Guard Brasil + Eagle Eye + Gem Hunter API (simulate real user actions)
+
+**P1 — Infrastructure:**
+- [ ] DASH-001: Mission Control Dashboard — React + Supabase Realtime (SSOTs, agents, tasks, revenue tracker)
+- [ ] CTX-002: Auto-index codebase-memory-mcp on /start (graph is cold, needs warm-up)
+- [ ] REWARDS-001: Unified rewards engine — merge ETHIK + 852 gamification + credit system into @egos/rewards
+- [ ] MOAT-001: Data flywheel module — every interaction → Retain, power-user patterns → playbooks (Head of Product strategy)
