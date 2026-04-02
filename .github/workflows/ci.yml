@@ -17,6 +17,10 @@ jobs:
         with:
           bun-version: latest
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
@@ -59,3 +63,17 @@ jobs:
           else
             echo "✅ Push to main — frozen zone check skipped (enforced by pre-commit)"
           fi
+
+      - name: QA observability suite
+        run: bun run qa:observability
+
+      - name: Upload QA artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-observability-artifacts
+          path: |
+            /tmp/qa-commit-audit.md
+            /tmp/qa-telemetry-dashboard.md
+            /tmp/qa-telemetry-forecast.md
+            /tmp/qa-guardrail.txt

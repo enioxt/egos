@@ -25,8 +25,8 @@ export { createRedisBridge, publishEvent, subscribeToEvents, buildEvent } from '
 export type { RedisBridgeConfig, MyceliumEvent, RedisBridge } from './mycelium/redis-bridge';
 export { detectRepoRole, hasSurface, roleDescription } from './repo-role';
 export type { RepoRole, EgosConfig } from './repo-role';
-export { createTelemetryRecorder } from './telemetry.js';
-export type { TelemetryRecorder, TelemetryEvent } from './telemetry.js';
+export { createTelemetryRecorder, getStats as getTelemetryStats, getLatencyHeatmap } from './telemetry.js';
+export type { TelemetryRecorder, TelemetryEvent, TelemetryStats, LatencyBucket } from './telemetry.js';
 
 // Cross-Session Memory (Supabase-based)
 export {
