@@ -11,7 +11,7 @@
 | Product | Free Tier | Starter | Growth | Enterprise | Model |
 |---------|-----------|---------|--------|------------|-------|
 | **Guard Brasil** | 150 calls/mo | R$49/mo (5K calls) | R$199/mo (50K calls) | R$499/mo (unlimited) | Fixed tiers |
-| **Eagle Eye** | 3 territories | R$99/mo (10 territories) | R$249/mo (50 territories) | R$499/mo (unlimited) | B2B SaaS |
+| **Eagle Eye** | 50 analyses/mo | 500 analyses/mo (R$49) | 5K analyses/mo (R$149) | Unlimited API + MCP (R$499) | Usage-based |
 | **Gem Hunter** | 10 findings/day | R$19.90/mo base | R$49/mo + LLM% | API: % of LLM cost | Percentage |
 
 ### Pricing Philosophy per Product
@@ -21,11 +21,14 @@
 - Cost floor: R$0.000175/call → 2000% margin at starter tier
 - Validated model: SaaS compliance tooling (TOTVS, Sankhya benchmarks)
 
-**Eagle Eye** — B2B SaaS seats per territory coverage
-- Target: Procurement officers, city governments, small municipalities
-- Pain: Manual bidding discovery takes 2h/day → Eagle Eye = 5 min
-- Pricing anchor: Licitações consultancies charge R$800-1200/mo → we're 4-8x cheaper
-- ⚠️ Eagle Eye pricing is PROPOSED (not yet launched). Validate before going live.
+**Eagle Eye** — Usage-based decision intelligence (chatbot / API / MCP)
+- Model: pay-per-analysis (licitação scoring, opportunity alerts, document parsing)
+- Channels: REST API (B2B integrations), MCP tool (Claude Code / AI assistants), Chatbot UI
+- Free: 50 analyses/mo — enough for a team to discover 1 real opportunity
+- Starter R$49: 500 analyses (~10 opportunities/day fully scored)
+- Growth R$149: 5K analyses; Enterprise R$499: unlimited + SLA + white-label
+- Pricing anchor: Licitações consultancies charge R$800-1200/mo → Eagle Eye API = 10x cheaper
+- ⚠️ Eagle Eye pricing is PROPOSED (v2 — GenHunter spec). Validate BIZ-D1 with 3 pilots.
 
 **Gem Hunter** — Percentage-based (aligns incentives with LLM usage)
 - User decision 2026-04-02: Option D + % pricing (x402/Pix/Stripe)
@@ -53,10 +56,13 @@
 
 | Method | Products | Status | Provider |
 |--------|----------|--------|----------|
-| Stripe (card/link) | Guard Brasil, Gem Hunter | ✅ Live (pk_live configured) | Stripe |
-| Pix | Guard Brasil, Eagle Eye | 🔲 Roadmap | MercadoPago or Juno |
+| Stripe (card/link) | All products | ✅ Live (pk_live configured) | Stripe |
+| Pix (via Stripe) | All products | 🔲 BIZ-D2 — enable Stripe Pix (Brazil) | Stripe (native Pix support) |
 | x402 (M2M) | Gem Hunter API | 🔲 GH-063 roadmap | x402 protocol |
 | Bitcoin Lightning | Gem Hunter | 🔲 future experiment | LNBits or Alby |
+
+**Stripe-unified strategy:** Stripe supports Pix natively in Brazil (PM type `pix`). No second provider needed.
+Implement once in `packages/shared/src/billing/` — covers card + Pix + Apple/Google Pay.
 
 **Single payment SSOT:** Use `packages/shared/src/billing/` for all payment logic.
 Never implement payment code outside this package.
@@ -96,7 +102,7 @@ Never implement payment code outside this package.
 | Product | Primary ICP | Secondary ICP | ACV Target |
 |---------|-------------|--------------|------------|
 | Guard Brasil | DPO at mid-corp (50-500 employees) | Fintechs, healthtechs with LGPD compliance obligations | R$2.400/yr |
-| Eagle Eye | Procurement manager at small municipality (10K-100K pop) | Construction companies bidding regularly | R$3.000/yr |
+| Eagle Eye | Head of procurement / compliance at SME bidding regularly | AI builders who want licitações as MCP tool in Claude | R$1.800/yr |
 | Gem Hunter | Staff engineer at AI startup | Independent researcher / crypto investor | R$600/yr |
 
 **Combined ICP Overlap:** CTO at Brazilian tech startup (buys Guard Brasil + Gem Hunter together).
@@ -118,8 +124,8 @@ Never implement payment code outside this package.
 
 | # | Decision | Owner | Deadline |
 |---|----------|-------|----------|
-| BIZ-D1 | Eagle Eye pricing — validate R$99-499 range with 3 pilot customers | enioxt | 2026-05-01 |
-| BIZ-D2 | Pix provider — MercadoPago vs Juno vs PagSeguro | enioxt | 2026-04-30 |
+| BIZ-D1 | Eagle Eye pricing — validate usage-based R$49/149/499 with 3 pilot customers | enioxt | 2026-05-01 |
+| BIZ-D2 | Enable Stripe Pix (native Brazil PM) — test checkout flow end-to-end | enioxt | 2026-04-20 |
 | BIZ-D3 | Gem Hunter free-tier LLM analysis — include or gate behind paid? | enioxt | 2026-04-15 |
 | BIZ-D4 | x402 rollout — Gem Hunter only or all products in Phase 1? | enioxt | 2026-05-15 |
 

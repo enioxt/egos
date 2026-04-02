@@ -451,3 +451,47 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [ ] INTEL-009: Capability composition map — intelligence layer dynamically suggests which agents to invoke for a given task
 - [ ] INTEL-010: World model diff — compare snapshots to detect regression (tasks going from [x] back to [ ])
 
+
+---
+
+### Eagle Eye v2 — Decision Intelligence Engine (GenHunter Spec 2026-04-02)
+
+**Source:** ChatGPT GenHunter Sistema Decisório spec — 7-layer pipeline, 5-axis scoring, 26 API endpoints
+**Insight:** Eagle Eye evolves from territory-scanner to full licitações DECISION INTELLIGENCE system.
+Modern monetization: usage-based API + MCP tool + chatbot. Stripe-unified (card + Pix).
+
+**Architecture (microservices):**
+- `collector-service` → `document-parser` → `classification-service` → `extraction-service`
+- `scoring-service` → `insight-generator` → `dashboard-api` → `notification-service` → `feedback-learning`
+
+**5-Axis Scoring:** aderência técnica / viabilidade econômica / capacidade técnica / risco operacional / compliance jurídica
+
+**Done:**
+- [x] EAGLE-020: Read and analyzed GenHunter spec (7-layer pipeline, 5-axis scoring, 26 endpoints) ✅ 2026-04-02
+- [x] BIZ-001: MONETIZATION_SSOT.md updated with Eagle Eye usage-based pricing (R$49/149/499) ✅ 2026-04-02
+
+**P0 — Core Pipeline:**
+- [ ] EAGLE-GH-001: `scoring-service.ts` — 5-axis scorer (aderência/econômica/técnica/operacional/jurídica) with sector presets (software/TIC, hardware, infra, serviços, consultoria)
+- [ ] EAGLE-GH-002: `document-parser.ts` — extract structured data from edital PDFs (objeto, valor, prazo, requisitos técnicos, habilitação)
+- [ ] EAGLE-GH-003: `classification-service.ts` — auto-classify licitação by category + assign sector preset
+- [ ] EAGLE-GH-004: `extraction-service.ts` — pull deadline, CNAE, required docs, financial requirements from raw text
+
+**P1 — Intelligence Layer:**
+- [ ] EAGLE-GH-005: `insight-generator.ts` — LLM-based recommendation: "bid / skip / investigate" with justification
+- [ ] EAGLE-GH-006: `profile-service.ts` — company capability profile (past wins, CNAE, financial capacity) → fed into scoring
+- [ ] EAGLE-GH-007: `feedback-learning.ts` — track bid outcomes (won/lost/skipped) → adjust scoring weights per sector
+
+**P1 — API & MCP:**
+- [ ] EAGLE-GH-008: REST API v2 — POST /v2/analyze (score single licitação), GET /v2/opportunities (filtered feed), GET /v2/insights/:id
+- [ ] EAGLE-GH-009: MCP server `eagle-eye-mcp` — tools: `analyze_licitacao`, `search_opportunities`, `get_profile` → usable from Claude Code
+- [ ] EAGLE-GH-010: Stripe Pix integration — enable `pix` payment method in Stripe Checkout for all Eagle Eye plans
+
+**P2 — Dashboard & Notifications:**
+- [ ] EAGLE-GH-011: Dashboard v2 redesign — opportunity feed with 5-axis radar chart, bid pipeline Kanban
+- [ ] EAGLE-GH-012: Telegram alert routing — score ≥75 → `egosmarkets_bot`; score ≥90 AND deadline ≤7d → admin bot
+- [ ] EAGLE-GH-013: Chatbot interface — natural language query: "find software opportunities in SP above R$500k"
+
+**P2 — Proposal Tools (R$250k opportunity):**
+- [ ] EAGLE-021: Proposal generator — auto-draft proposta técnica from edital + company profile
+- [ ] EAGLE-022: Compliance checklist — auto-check habilitação requirements against company docs
+- [ ] EAGLE-023: Submit EAGLE-020 proposal by 2026-04-29 (R$250k opportunity deadline)
