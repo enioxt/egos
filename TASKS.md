@@ -20,7 +20,7 @@
 - [x] EGOS-162: Accuracy benchmark vs Presidio/anonym.legal — 85.3% F1, benchmark.ts in guard-brasil/src ✅ 2026-04-01
 - [x] MONETIZE-001: Self-service API key generation (POST /v1/keys) + Supabase-backed auth + quota enforcement + landing page form ✅ 2026-04-02
 - [x] MONETIZE-002: Deploy updated Guard Brasil API to VPS ✅ 2026-04-02 (packages/core synced, Supabase keys in .env, /v1/keys live on guard.egos.ia.br)
-- [x] MONETIZE-003: Vercel guard-brasil-web deploy triggered ✅ 2026-04-02 (git push → auto-deploy, new "Get API Key" section live)
+- [x] MONETIZE-003: Vercel guard-brasil-web deployed ✅ 2026-04-02 (vercel deploy --prod, build OK 19s, "Obtenha sua chave de API" section live at guard-brasil-ilxbkmbak-enio-rochas-projects.vercel.app)
 - [x] MONETIZE-004: Eagle Eye API auth middleware ✅ 2026-04-02 (authenticateApiKey() on /api/territories + /api/opportunities + /api/scans/history; shared guard_brasil_tenants key system)
 - [ ] MONETIZE-005: Stripe webhook for paid tier upgrades (update tier + quota_limit on checkout.session.completed)
 - [ ] EGOS-163: Pix billing integration
