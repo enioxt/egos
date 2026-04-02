@@ -244,6 +244,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
   - Alert: operação > 5s (threshold inicial)
   - [x] EGOS-TELEM-003A: `@egos/shared` função `getLatencyHeatmap()` + bucket `over5sCount` + testes ✅ 2026-04-01
   - [x] EGOS-TELEM-003B: CI executa `bun test packages/shared/src/__tests__/telemetry.test.ts` em todo PR ✅ 2026-04-01
+  - [x] EGOS-TELEM-003C: guardrail automatizado para slow events/custo (`telemetry_guardrail.py`) ✅ 2026-04-02
 
 - [ ] EGOS-TELEM-004: Real-time cost dashboard — 1d
   - View: custo por agente/ferramenta/sessão
@@ -260,6 +261,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
   - [x] EGOS-TELEM-005B: análise histórica por série diária + forecast 7d/30d (`scripts/qa/telemetry_forecast.py`) ✅ 2026-04-01
   - [x] EGOS-TELEM-005C: smoke de forecast adicionado ao CI com fixture ✅ 2026-04-01
   - [x] EGOS-TELEM-005D: forecast e dashboard salvos como artifact de pipeline para análise assíncrona ✅ 2026-04-01
+  - [x] EGOS-TELEM-005E: guardrail de run-rate mensal integrado na suite `qa:observability` ✅ 2026-04-02
 
 ---
 

@@ -92,3 +92,9 @@ python scripts/qa/telemetry_forecast.py --input tests/qa/fixtures/sample_telemet
 ```bash
 bun run qa:observability
 ```
+
+## Guardrail de risco (latência/custo)
+
+```bash
+python scripts/qa/telemetry_guardrail.py --input tests/qa/fixtures/sample_telemetry.txt --max-monthly-usd 10 --max-over5s 10
+```
