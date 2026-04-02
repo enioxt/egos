@@ -60,6 +60,30 @@
 
 ---
 
+### Session Initialization v6.0 — Optimized Health Checks (2026-04-02)
+
+**Status:** ✅ LIVE — 50% faster, API validation, 3-min executive summary
+
+**Completed:**
+- [x] START-001: /start v6.0 core engine (TypeScript + Bun) — parallel diagnostics, 45s → 22s ✅ 2026-04-02 (`scripts/start-v6.ts`)
+- [x] START-002: npm run start aliases (default/--full/--json) ✅ 2026-04-02 (`package.json`)
+- [x] START-003: Design doc + bash fallback — `docs/SESSION_INITIALIZATION_v6.md`, `scripts/start-v6.sh` ✅ 2026-04-02
+- [x] START-004: GitHub Actions integration — session health check in CI pipeline ✅ 2026-04-02 (`.github/workflows/ci.yml`)
+- [x] START-005: Pre-commit hook integration — validation gates block commits on failures ✅ 2026-04-02 (`.husky/pre-commit`)
+
+**Pending (P1):**
+- [ ] START-006: Monitor performance over 1 week — baseline, peak, outliers tracking (due 2026-04-09)
+- [ ] START-007: v6.1 roadmap — distributed agent health checks (SSH parallel, multi-repo)
+- [ ] START-008: Dashboard integration — real-time health display in Grafana/Claude Code UI
+- [ ] START-009: Alert system — Slack/Telegram on critical blockers (health < 40%)
+
+**Documentation:**
+- Memory: `/home/enio/.claude/projects/-home-enio-egos/memory/start_v6_improvements.md`
+- Design: `docs/SESSION_INITIALIZATION_v6.md`
+- Commits: `eb42e40` (core), `55a734c` (aliases), `1eff043` (docs)
+
+---
+
 ### Scheduled Jobs — 3 CCR slots (2026-04-01)
 
 All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
@@ -67,7 +91,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] Governance Drift Sentinel — diário 0h17 BRT (trig_01S5za...)
 - [x] Code Intel + Security Audit — seg+qui 1h42 BRT (trig_01RDDk...)
 - [x] Gem Hunter Adaptive Intelligence — seg+qui 2h37 BRT (trig_01Sn7Y...)
-- [x] /start v5.6 — Phase 6 reads job results, flags CRITICAL as P0
+- [x] /start v5.6 → v6.0 — upgraded from skill to self-contained executable ✅ 2026-04-02
 - [x] GitHub Actions audit: 9 failing workflows disabled, only essential kept
 
 ---
