@@ -47,6 +47,7 @@
 import { writeFileSync, readFileSync, existsSync, mkdirSync } from "fs";
 import { join } from "path";
 import { callAI } from "../../packages/shared/src/social/ai-engine";
+import { appendGemSignal } from "../../packages/shared/src/gem-signals";
 
 const ROOT = join(import.meta.dir, "../..");
 const REPORTS_DIR = join(ROOT, "docs/gem-hunter");
@@ -55,8 +56,10 @@ const EXA_API_KEY = process.env.EXA_API_KEY || "";
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY || "";
 const X_BEARER_TOKEN = process.env.X_BEARER_TOKEN || "";
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || "";
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_ADMIN_CHAT_ID || "";
 const ARXIV_MAX_RESULTS = 10;
-const GEM_HUNTER_VERSION = "5.0";
+const GEM_HUNTER_VERSION = "6.0";
 
 // ── Content Quality Guards ──────────────────────────────────────────────
 
@@ -1110,7 +1113,29 @@ async function main() {
   if (doAnalyze) console.log(`   AI Analysis: ✅ enabled (OpenRouter)`);
   if (doDeepAtomize) console.log(`   Atomization (Lego Blocks): ✅ enabled for top gems`);
 
-  const queries = DEFAULT_QUERIES.filter((q) => {
+  // GH-053: Load evolution queries from previous run and inject into query pool
+  const evolutionQueriesPath = join(REPORTS_DIR, "next-queries.json");
+  const dynamicQueries: SearchQuery[] = [];
+  if (existsSync(evolutionQueriesPath)) {
+    try {
+      const evo = JSON.parse(readFileSync(evolutionQueriesPath, "utf-8"));
+      for (const sq of (evo.suggestedQueries || [])) {
+        dynamicQueries.push({
+          topic: sq.topic,
+          keywords: sq.keywords,
+          sources: ["github", "arxiv", "exa"],
+          category: "evolution-auto",
+          track: "core",
+        });
+      }
+      if (dynamicQueries.length > 0) {
+        console.log(`\n🧬 Evolution: Injected ${dynamicQueries.length} auto-generated queries from previous run`);
+      }
+    } catch {}
+  }
+  const ALL_QUERIES = [...DEFAULT_QUERIES, ...dynamicQueries];
+
+  const queries = ALL_QUERIES.filter((q) => {
     const topicMatch = queryFilter ? q.category === queryFilter : true;
     const track = q.track || "core";
     const trackMatch = cliTracks?.length ? cliTracks.includes(track) : true;
@@ -1310,6 +1335,28 @@ async function main() {
   console.log(`📝 Report saved: ${reportPath}`);
 
   saveEvolutionState(unique);
+
+  // GH-055: Persist hot gems to signals.json + fire Telegram alert
+  const hotGems = unique
+    .map(g => ({ gem: g, score: scoreGem(g) }))
+    .filter(({ score }) => score >= 80)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 5);
+  for (const { gem, score } of hotGems) {
+    appendGemSignal({
+      name: gem.name,
+      url: gem.url,
+      score,
+      category: gem.category,
+      date: new Date().toISOString(),
+      headline: gem.description.slice(0, 120),
+    });
+  }
+  if (hotGems.length > 0) {
+    console.log(`\n🔥 ${hotGems.length} hot gem(s) scored ≥80 this run`);
+    await sendGemTelegramAlert(hotGems);
+  }
+
   saveGemsToHistory(unique, timestamp);
   syncGemsToSupabase(unique, timestamp).catch(() => {});
   saveLatestRun({
@@ -1744,6 +1791,28 @@ function saveEvolutionState(results: GemResult[]): void {
   }
   writeFileSync(evolutionPath, JSON.stringify(state, null, 2));
   console.log(`\n🧬 Evolution state saved: ${evolutionPath}`);
+}
+
+// ── GH-055: Telegram alert for hot gems ────────────────────────────────────
+async function sendGemTelegramAlert(hotGems: { gem: GemResult; score: number }[]): Promise<void> {
+  if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
+    console.log("[GemAlert] Telegram skipped — TELEGRAM_BOT_TOKEN / TELEGRAM_ADMIN_CHAT_ID not set");
+    return;
+  }
+  const lines = hotGems.map(({ gem, score }) =>
+    `• *${gem.name}* (${score}/100)\n  ${gem.description.slice(0, 80)}…\n  ${gem.url}`
+  );
+  const message = `🔥 *Gem Hunter v${GEM_HUNTER_VERSION} — ${hotGems.length} Hot Gem(s)*\n\n${lines.join("\n\n")}`;
+  try {
+    await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: "Markdown" }),
+    });
+    console.log(`[GemAlert] Telegram alert sent for ${hotGems.length} gem(s)`);
+  } catch (err) {
+    console.error("[GemAlert] Failed to send Telegram alert:", err);
+  }
 }
 
 main().catch(console.error);
