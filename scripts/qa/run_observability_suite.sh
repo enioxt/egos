@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+python -m unittest discover -s tests/qa -p 'test_*.py'
+python scripts/qa/analyze_commits.py --count 25 --format markdown --output /tmp/qa-commit-audit.md
+python scripts/qa/telemetry_dashboard.py --input tests/qa/fixtures/sample_telemetry.txt --output /tmp/qa-telemetry-dashboard.md
+python scripts/qa/telemetry_forecast.py --input tests/qa/fixtures/sample_telemetry.txt --output /tmp/qa-telemetry-forecast.md
+python scripts/qa/telemetry_guardrail.py --input tests/qa/fixtures/sample_telemetry.txt --output /tmp/qa-guardrail.txt
+bun test packages/shared/src/__tests__/telemetry.test.ts
