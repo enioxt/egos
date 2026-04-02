@@ -222,6 +222,47 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 
 ---
 
+### Telemetria & Observabilidade (P1 — Operacional, 2026-04-01)
+
+> **Deduplicação:** `rg -n "EGOS-TELEM|telemetry|agent.*cost" TASKS.md` executado em 2026-04-01 sem entradas `EGOS-TELEM-*`.
+
+- [ ] EGOS-TELEM-001: Agent execution telemetry (MCP + event-bus) — 3d
+  - Track: `agent_id`, `session_id`, `started_at`, `duration_ms`, `tokens_in`, `tokens_out`, `cost_usd`
+  - Store: `agent_sessions` (Supabase)
+  - Output: custo por agente/dia + p95 duração
+  - [x] EGOS-TELEM-001A: `@egos/shared` scaffold — `recordAgentSession()` + stats `byAgent` + tests iniciais ✅ 2026-04-01
+  - [x] EGOS-TELEM-001B: `agents/cli.ts` integrado para emitir `recordAgentSession()` ao final de `run` ✅ 2026-04-01
+
+- [ ] EGOS-TELEM-002: Tool call attribution + cost tracking — 2d
+  - Track: `tool_name`, `duration_ms`, `agent_id`, `task_id`, `tokens`, `cost_usd`
+  - Output: ranking custo/latência por ferramenta
+  - [x] EGOS-TELEM-002A: `@egos/shared` scaffold — `recordToolCall()` + stats `byTool` + persistência metadata ✅ 2026-04-01
+  - [x] EGOS-TELEM-002B: `agents/cli.ts` emite `recordToolCall()` para execução de entrypoint (`bun.spawn`) ✅ 2026-04-01
+
+- [ ] EGOS-TELEM-003: Gargalo detection (latency heatmap) — 2d
+  - Identify: componentes mais lentos (LLM, Supabase, file I/O, integrações)
+  - Alert: operação > 5s (threshold inicial)
+  - [x] EGOS-TELEM-003A: `@egos/shared` função `getLatencyHeatmap()` + bucket `over5sCount` + testes ✅ 2026-04-01
+  - [x] EGOS-TELEM-003B: CI executa `bun test packages/shared/src/__tests__/telemetry.test.ts` em todo PR ✅ 2026-04-01
+
+- [ ] EGOS-TELEM-004: Real-time cost dashboard — 1d
+  - View: custo por agente/ferramenta/sessão
+  - Refresh: 30s (modo operacional)
+  - [x] EGOS-TELEM-004A: dashboard operacional inicial via logs (`scripts/qa/telemetry_dashboard.py`) ✅ 2026-04-01
+  - [x] EGOS-TELEM-004B: smoke de dashboard adicionado ao CI com fixture (`tests/qa/fixtures/sample_telemetry.txt`) ✅ 2026-04-01
+  - [x] EGOS-TELEM-004C: artefatos QA publicados no CI (`qa-observability-artifacts`) ✅ 2026-04-01
+  - [x] EGOS-TELEM-004D: suite unificada `qa:observability` para execução local/CI ✅ 2026-04-02
+
+- [ ] EGOS-TELEM-005: Historical cost analysis + forecasting — 3d
+  - Analyze: tendência 7/30 dias
+  - Forecast: burn rate mensal e alerta de orçamento
+  - [x] EGOS-TELEM-005A: forecast inicial em dashboard por logs (run-rate diário/mensal) ✅ 2026-04-01
+  - [x] EGOS-TELEM-005B: análise histórica por série diária + forecast 7d/30d (`scripts/qa/telemetry_forecast.py`) ✅ 2026-04-01
+  - [x] EGOS-TELEM-005C: smoke de forecast adicionado ao CI com fixture ✅ 2026-04-01
+  - [x] EGOS-TELEM-005D: forecast e dashboard salvos como artifact de pipeline para análise assíncrona ✅ 2026-04-01
+
+---
+
 ### Reference Repos — Awareness Registry (2026-04-01)
 
 **Repos identified for study (from ChatGPT analysis + Gem Hunter + leak threads):**
