@@ -80,7 +80,7 @@ async function callModel(
       ? process.env.ALIBABA_DASHSCOPE_API_KEY
       : process.env.OPENROUTER_API_KEY;
 
-  if (!apiKey) throw new Error(`SKIP: ${provider} key not set`);
+  if (!apiKey) throw new Error(`SKIP: ${provider === 'alibaba' ? 'ALIBABA_DASHSCOPE_API_KEY' : 'OPENROUTER_API_KEY'} not set`);
 
   const body: Record<string, unknown> = {
     model,
