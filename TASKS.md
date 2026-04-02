@@ -485,9 +485,9 @@ Modern monetization: usage-based API + MCP tool + chatbot. Stripe-unified (card 
 
 **P0 — Theater Cleanup + Security:**
 - [ ] THEATER-001: Deploy x-reply-bot for real — set X_BEARER_TOKEN on VPS + crontab, or remove from "done" permanently
-- [ ] SECURITY-001: Carteira Livre — add auth to 14 unprotected admin pages (CRITICAL)
+- [x] SECURITY-001: Carteira Livre auth audit — CLOSED. All /admin/* (incl. campaigns) is middleware-protected. /calculadora-parceiro is intentionally public. "14 unprotected pages" was theater — 0 real gaps found. ✅ 2026-04-02
 - [ ] CTX-001: Auto-context recovery — add context-loader hook to /start (load latest handoff + MEMORY.md summary)
-- [ ] TEST-001: Integration test suite — Guard Brasil + Eagle Eye + Gem Hunter API (simulate real user actions)
+- [x] TEST-001: Integration test suite — 21 tests (Guard Brasil PII/API, Eagle Eye opportunities, Gem Hunter scoring+CLI) ✅ 2026-04-02
 
 **P1 — Architecture / Agents:**
 - [ ] HERMES-001: Wire Hermes-3 (NousResearch/Hermes-3-Llama-3.1-70B via OpenRouter, free tier) as BRAID GRD executor for mechanical nodes — set `OPENROUTER_API_KEY` in VPS .env, add `hermes-3` case to `llm-provider.ts` router, test with gem-hunter summarization node. Estimate: 2h. Expected: 30-40% cost reduction on mechanical tasks.
