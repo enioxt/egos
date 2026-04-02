@@ -58,8 +58,10 @@ function countMatches(path: string, pattern: RegExp): number {
 // MAIN DIAGNOSTIC
 // ============================================================
 async function diagnose() {
-  console.log(`🎯 EGOS /start v6.0 — ${REPO_NAME}@${BRANCH} | ${TIMESTAMP}\n`);
-  console.log("📊 Running parallel diagnostics...\n");
+  if (!JSON_OUTPUT) {
+    console.log(`🎯 EGOS /start v6.0 — ${REPO_NAME}@${BRANCH} | ${TIMESTAMP}\n`);
+    console.log("📊 Running parallel diagnostics...\n");
+  }
 
   // Quick parallel checks
   const guardStatus = run("curl -s https://guard.egos.ia.br/health 2>&1 | jq -r '.status' 2>/dev/null || echo 'unreachable'");
