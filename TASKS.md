@@ -454,7 +454,7 @@ Modern monetization: usage-based API + MCP tool + chatbot. Stripe-unified (card 
 - [x] BIZ-001: MONETIZATION_SSOT.md updated with Eagle Eye usage-based pricing (R$49/149/499) ✅ 2026-04-02
 
 **P0 — Core Pipeline:**
-- [ ] EAGLE-GH-001: `scoring-service.ts` — 5-axis scorer (aderência/econômica/técnica/operacional/jurídica) with sector presets (software/TIC, hardware, infra, serviços, consultoria)
+- [x] EAGLE-GH-001: `scoring-service.ts` — 5-axis scorer live in egos-lab/apps/eagle-eye/src/modules/licitacoes/ (10 sector presets, BID/INVESTIGATE/SKIP thresholds, CLI demo) ✅ 2026-04-02
 - [ ] EAGLE-GH-002: `document-parser.ts` — extract structured data from edital PDFs (objeto, valor, prazo, requisitos técnicos, habilitação)
 - [ ] EAGLE-GH-003: `classification-service.ts` — auto-classify licitação by category + assign sector preset
 - [ ] EAGLE-GH-004: `extraction-service.ts` — pull deadline, CNAE, required docs, financial requirements from raw text
