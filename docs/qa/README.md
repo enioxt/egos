@@ -95,6 +95,7 @@ python scripts/qa/telemetry_forecast.py --input tests/qa/fixtures/sample_telemet
   - `/tmp/qa-stalled-tasks.md`
   - `/tmp/qa-guardrail.txt`
   - `/tmp/qa-evidence.md`
+  - `/tmp/qa-ssot-check.md`
 
 ## Suite única (local/CI)
 
@@ -152,3 +153,9 @@ Quando `qa:observability` falha no CI, o workflow publica no **Job Summary**:
 - hint de correção com comandos locais (`qa:observability` e `qa:evidence:gate`)
 
 Isso facilita revisão assíncrona sem abrir artifacts manualmente em todo caso.
+
+## SSOT diagnostic (env drift vs repo drift)
+
+```bash
+bun run ssot:diagnostic
+```

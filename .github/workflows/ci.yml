@@ -48,6 +48,23 @@ jobs:
           check_lines ".windsurfrules" 150
           check_lines ".guarani/PREFERENCES.md" 100
 
+      - name: SSOT diagnostic check
+        id: ssot_diagnostic
+        run: bun run ssot:diagnostic
+
+      - name: SSOT diagnostic summary
+        if: always()
+        run: |
+          {
+            echo "## SSOT Diagnostic"
+            echo
+            if [ -f /tmp/qa-ssot-check.md ]; then
+              cat /tmp/qa-ssot-check.md
+            else
+              echo "- ❌ Missing artifact: /tmp/qa-ssot-check.md"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Frozen zones check
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ]; then
@@ -110,3 +127,4 @@ jobs:
             /tmp/qa-stalled-tasks.md
             /tmp/qa-guardrail.txt
             /tmp/qa-evidence.md
+            /tmp/qa-ssot-check.md

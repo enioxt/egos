@@ -28,6 +28,7 @@
     "governance:sync:local": "sh scripts/governance-sync.sh --exec --no-propagate",
     "governance:check": "sh scripts/governance-sync.sh --check",
     "ssot:check": "sh scripts/governance-sync.sh --check",
+    "ssot:diagnostic": "python scripts/qa/ssot_check_diagnostic.py --command 'sh scripts/governance-sync.sh --check' --output /tmp/qa-ssot-check.md",
     "integration:check": "bun scripts/integration-release-check.ts",
     "pr:pack": "bun scripts/pr-pack.ts",
     "pr:gate": "bun scripts/pr-gate.ts",
