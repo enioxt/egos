@@ -7,4 +7,5 @@ python scripts/qa/telemetry_dashboard.py --input tests/qa/fixtures/sample_teleme
 python scripts/qa/telemetry_forecast.py --input tests/qa/fixtures/sample_telemetry.txt --output /tmp/qa-telemetry-forecast.md
 python scripts/qa/telemetry_guardrail.py --input tests/qa/fixtures/sample_telemetry.txt --output /tmp/qa-guardrail.txt
 python scripts/qa/list_pending_tasks.py --input TASKS.md --output /tmp/qa-pending-tasks.md
+python scripts/qa/stalled_tasks_report.py --input TASKS.md --output /tmp/qa-stalled-tasks.md
 bun test packages/shared/src/__tests__/telemetry.test.ts

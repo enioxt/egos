@@ -124,6 +124,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] GOV-006: Pending tasks inventory automation (`scripts/qa/list_pending_tasks.py` + `/tmp/qa-pending-tasks.md`) ✅ 2026-04-02
 - [x] GOV-007: Commit audit hardening — frozen zone touch detection no `analyze_commits.py` ✅ 2026-04-02
 - [x] GOV-008: Panorama sistêmico + plano curto/médio/longo documentado (`docs/qa/SYSTEM_PANORAMA_2026-04-02.md`) ✅ 2026-04-02
+- [x] GOV-009: Stalled fronts report (`scripts/qa/stalled_tasks_report.py` + `/tmp/qa-stalled-tasks.md`) ✅ 2026-04-02
 
 > **Archived:** All session summaries, ARCH project, benchmark plans, Grok intake → `docs/knowledge/TASKS_ARCHIVE_2026.md`
 
