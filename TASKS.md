@@ -142,6 +142,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] GOV-022: SSOT diagnostic com saída JSON + plano Caldex de ondas (stabilize→prevent→interconnect) ✅ 2026-04-02
 - [x] GOV-023: Composer de artifacts QA (`qa-envelope.json`) para interconexão entre guardrail/ssot/evidence ✅ 2026-04-02
 - [x] GOV-024: Validador do `qa-envelope.json` (schema mínimo + gate fields) integrado ao suite ✅ 2026-04-02
+- [x] GOV-025: Envelope validator com controle de frescor (`--max-age-minutes`) para evitar artifacts stale ✅ 2026-04-02
 
 > **Archived:** All session summaries, ARCH project, benchmark plans, Grok intake → `docs/knowledge/TASKS_ARCHIVE_2026.md`
 

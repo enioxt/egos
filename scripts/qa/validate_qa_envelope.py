@@ -5,14 +5,14 @@ from __future__ import annotations
 
 import argparse
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 REQUIRED_TOP = {'generated_at_utc', 'sources', 'gate_signals', 'artifacts'}
 REQUIRED_GATES = {'guardrail_status', 'guardrail_monthly_usd', 'guardrail_slow_events', 'ssot_classification_hint', 'telemetry_gate_pass'}
 
 
-def validate_payload(payload: dict) -> list[str]:
+def validate_payload(payload: dict, max_age_minutes: int | None = None) -> list[str]:
     errors: list[str] = []
 
     missing_top = sorted(REQUIRED_TOP - set(payload.keys()))
@@ -28,13 +28,21 @@ def validate_payload(payload: dict) -> list[str]:
             errors.append(f'missing gate_signals keys: {", ".join(missing_gates)}')
 
     ts = payload.get('generated_at_utc')
+    parsed_ts: datetime | None = None
     if isinstance(ts, str):
         try:
-            datetime.fromisoformat(ts.replace('Z', '+00:00'))
+            parsed_ts = datetime.fromisoformat(ts.replace('Z', '+00:00'))
         except ValueError:
             errors.append('generated_at_utc is not a valid ISO datetime')
     else:
         errors.append('generated_at_utc must be a string')
+
+    if parsed_ts and max_age_minutes is not None:
+        now = datetime.now(timezone.utc)
+        ts_utc = parsed_ts.astimezone(timezone.utc)
+        age_minutes = (now - ts_utc).total_seconds() / 60
+        if age_minutes > max_age_minutes:
+            errors.append(f'generated_at_utc is stale: {age_minutes:.1f}m > {max_age_minutes}m')
 
     return errors
 
@@ -42,10 +50,11 @@ def validate_payload(payload: dict) -> list[str]:
 def main() -> int:
     parser = argparse.ArgumentParser(description='Validate /tmp/qa-envelope.json structure')
     parser.add_argument('--input', default='/tmp/qa-envelope.json')
+    parser.add_argument('--max-age-minutes', type=int, default=120, help='Maximum allowed age for generated_at_utc')
     args = parser.parse_args()
 
     data = json.loads(Path(args.input).read_text())
-    errors = validate_payload(data)
+    errors = validate_payload(data, max_age_minutes=args.max_age_minutes)
     if errors:
         print('QA_ENVELOPE_FAIL')
         for err in errors:

@@ -188,3 +188,9 @@ Validação do envelope (schema mínimo + campos de gate):
 ```bash
 bun run qa:compose:validate
 ```
+
+Exemplo de validação com frescor estrito:
+
+```bash
+python scripts/qa/validate_qa_envelope.py --input /tmp/qa-envelope.json --max-age-minutes 30
+```
