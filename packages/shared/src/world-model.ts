@@ -201,7 +201,7 @@ function parseSignals(): SignalSnapshot[] {
     }
   } catch {}
 
-  // Gem Hunter latest
+  // Gem Hunter latest markdown report
   try {
     const gemFile = execSync(`ls -t ${ROOT}/docs/gem-hunter/*.md 2>/dev/null | grep -v SSOT | head -1`, { encoding: "utf8" }).trim();
     if (gemFile && existsSync(gemFile)) {
@@ -214,6 +214,22 @@ function parseSignals(): SignalSnapshot[] {
         headline: `Latest gem scan: ${topGem}`,
         severity: "CLEAN",
       });
+    }
+  } catch {}
+
+  // Gem Hunter high-value signals from signals.json (GH-050)
+  try {
+    const signalsPath = join(ROOT, 'docs/gem-hunter/signals.json');
+    if (existsSync(signalsPath)) {
+      const data = JSON.parse(readFileSync(signalsPath, 'utf-8'));
+      for (const sig of (data.signals ?? [])) {
+        signals.push({
+          source: 'gem-hunter',
+          date: sig.date ?? 'unknown',
+          headline: (sig.headline ?? `${sig.name} (score: ${sig.score})`).slice(0, 100),
+          severity: sig.score > 90 ? 'CRITICAL' : 'CLEAN',
+        });
+      }
     }
   } catch {}
 
