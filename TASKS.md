@@ -75,8 +75,8 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 ### Eagle Eye — OSINT Licitações (2026-04-01)
 
 **Code:** `/home/enio/egos-lab/apps/eagle-eye/`
-**Domain:** `eagleeye.egos.ia.br` (DNS configured, Caddy pending)
-**Supabase:** `lhscgsqhiooyatkebose` — 6 tables created, 15 territories seeded
+**Domain:** `eagleeye.egos.ia.br` ✅ LIVE (Caddy route port 3090, Docker container)
+**Supabase:** `lhscgsqhiooyatkebose` — 6 tables, 80 territories seeded, 121 opportunities (30-day backfill done 2026-04-02)
 
 **Done:**
 - [x] Backend pipeline: Querido Diário API → AI analysis (Gemini Flash ~$0.01/gazette) → 26 patterns
