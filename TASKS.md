@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.29.0 | **Updated:** 2026-04-01 | **LAST SESSION:** 2026-04-01 P9 — Block Intelligence Model, INTEL-001..010, world-model.ts, AGENTS.md IC/DRI/Coach taxonomy
+> **Version:** 2.30.0 | **Updated:** 2026-04-02 | **LAST SESSION:** 2026-04-02 P16 — API monetization pivot (government → API-first), self-service keys, Supabase billing layer, Eagle Eye API auth
 
 ---
 
@@ -18,6 +18,11 @@
 
 **P1 — Competitive:**
 - [x] EGOS-162: Accuracy benchmark vs Presidio/anonym.legal — 85.3% F1, benchmark.ts in guard-brasil/src ✅ 2026-04-01
+- [x] MONETIZE-001: Self-service API key generation (POST /v1/keys) + Supabase-backed auth + quota enforcement + landing page form ✅ 2026-04-02
+- [ ] MONETIZE-002: Deploy updated Guard Brasil API to VPS (add SUPABASE_URL + SERVICE_ROLE_KEY to /opt/apps/guard-brasil/.env, redeploy Docker)
+- [ ] MONETIZE-003: Vercel deploy guard-brasil-web with new "Get API Key" landing page section
+- [ ] MONETIZE-004: Eagle Eye API auth middleware (Bearer key → guard_brasil_tenants lookup, rate limit, X-RateLimit-Remaining header)
+- [ ] MONETIZE-005: Stripe webhook for paid tier upgrades (update tier + quota_limit on checkout.session.completed)
 - [ ] EGOS-163: Pix billing integration
 - [x] EGOS-164: Dashboard — real data from guard_brasil_events ✅ 2026-04-01. Telemetry wired: API recordApiCall() → guard_brasil_events → /api/events → DashboardV2Lean polling 5s. Requires: SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY in .env files.
 
@@ -94,8 +99,8 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] EAGLE-012: Licitação taxonomy (9 segments, 12 modalities, 4 size tiers, srp, esfera) added to types.ts + AI prompt ✅ 2026-04-01
 - [x] EAGLE-013: Territory expansion Wave 2+3 — 52→84 cities, map.html COORDS updated ✅ 2026-04-01
 - [x] EAGLE-014: discover-territories.ts — auto-discovery via PNCP + IBGE APIs ✅ 2026-04-01
-- [ ] EAGLE-015: Dashboard filter UI for segmento/modalidade/porte taxonomy
-- [ ] EAGLE-016: Sync 84 territories to Supabase (seed script)
+- [x] EAGLE-015: Dashboard filter UI for segmento/modalidade/porte taxonomy ✅ 2026-04-02 (3 select dropdowns, setSegmento/setModalidade/setPorte wired to JS filter)
+- [x] EAGLE-016: Sync 84 territories to Supabase (seed script) ✅ 2026-04-02 (sync-territories.ts, 79 territories seeded with upsert)
 
 **P2 — Revenue:**
 - [ ] EAGLE-009: Stripe/Pix payment for Pro tier (R$497/mo, 50+ territories)
@@ -103,7 +108,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [ ] EAGLE-011: E2E tests (Playwright)
 - [ ] EGOS-170: Guard Brasil Next.js web dashboard — Vercel deploy, real data from guard_brasil_events, usage charts
 
-**P3 — Software Opportunities & Revenue Path (2026-04-01):**
+**P4 — Government Licitações (DEPRIORITIZED 2026-04-02 — too slow, focus on API-first):**
 - [x] EAGLE-017: Real data pipeline (Querido Diário API) — 36 opportunities found, R$ 10.5M value, 14 software/TI (38.9%) ✅ 2026-04-01. Script: `analyze-real-gazettes-v2.ts`. Cache + error handling robust. Enum validation fixed (Portuguese market_potential).
 - [x] EAGLE-018: Software opportunities analysis + Tier 1/2/3 mapping ✅ 2026-04-01. Tier 1: Sistema de Gestão (R$ 250k, 28d), Plataforma Análise (R$ 180k, 36d), Auditoria (R$ 120k, 51d). Total opportunity: R$ 550k. Geographic: SP, RJ, BH. Success probability: 60-75%.
 - [ ] EAGLE-019: Integrador partnership outreach — target DeLoit/Thoughtworks/regional partners, pitch EGOS as subcontractor for software bids. CRM + call scheduling.
