@@ -22,7 +22,7 @@
 - [x] MONETIZE-002: Deploy updated Guard Brasil API to VPS ✅ 2026-04-02 (packages/core synced, Supabase keys in .env, /v1/keys live on guard.egos.ia.br)
 - [x] MONETIZE-003: Vercel guard-brasil-web deployed ✅ 2026-04-02 (vercel deploy --prod, build OK 19s, "Obtenha sua chave de API" section live at guard-brasil-ilxbkmbak-enio-rochas-projects.vercel.app)
 - [x] MONETIZE-004: Eagle Eye API auth middleware ✅ 2026-04-02 (authenticateApiKey() on /api/territories + /api/opportunities + /api/scans/history; shared guard_brasil_tenants key system)
-- [ ] MONETIZE-005: Stripe webhook for paid tier upgrades (update tier + quota_limit on checkout.session.completed)
+- [x] MONETIZE-005: Stripe webhook for paid tier upgrades ✅ 2026-04-02. POST /v1/stripe/checkout creates Stripe Checkout Session; POST /v1/stripe/webhook handles checkout.session.completed → PATCH guard_brasil_tenants (tier, quota_limit, mrr_brl, stripe_customer_id). Webhook registered: we_1THj4pHdOnphplrg47z9I8nn. Live test: cs_live_b1MHUCgk confirmed.
 - [ ] EGOS-163: Pix billing integration
 - [x] EGOS-164: Dashboard — real data from guard_brasil_events ✅ 2026-04-01. Telemetry wired: API recordApiCall() → guard_brasil_events → /api/events → DashboardV2Lean polling 5s. Requires: SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY in .env files.
 
@@ -49,8 +49,8 @@
 
 **Telemetry & Observability (P1 — Critical Gap):**
 - [x] EGOS-TELEM-001: Guard Brasil API telemetry (recordApiCall) — ✅ 2026-04-01. Integrated: telemetry.ts + recordApiCall() exported, API server calls recordApiCall() post-inspect, guard_brasil_events table schema ready (20 columns). Fire-and-forget pattern (non-fatal if Supabase down). Dashboard ready to display events. Pending: API deployment + test calls to populate table.
-- [ ] EGOS-TELEM-002: Tool call attribution + cost tracking — 2d. Every tool call → tool_name, duration, tokens, cost. Attribute to which agent. Analysis: cost/tool ranking.
-- [ ] EGOS-TELEM-003: Gargalo detection (latency heatmap) — 2d. Identify slowest operations (Supabase, I/O, LLM). Alert if > 5s.
+- [x] EGOS-TELEM-002: Tool call attribution + cost tracking ✅ 2026-04-02. recordToolCall() + recordAgentSession() in packages/shared/src/telemetry.ts (from Codex PR #23). Tool calls tracked with duration, tokens, cost. Cost/tool ranking via telemetry_dashboard.py.
+- [x] EGOS-TELEM-003: Gargalo detection (latency heatmap) ✅ 2026-04-02. getLatencyHeatmap() in telemetry.ts returns latency buckets (p50/p95/p99). QA script: scripts/qa/telemetry_dashboard.py shows slow operations. Alert threshold configurable via telemetry_guardrail.py.
 - [ ] EGOS-TELEM-004: Real-time cost dashboard — 1d. Display: cost breakdown (API calls, tokens, tool calls) per-agent/per-tool. Update every 30s.
 - [ ] EGOS-TELEM-005: Historical cost analysis + forecasting — 3d. 100-commit analysis, monthly burn forecast, alerts if > budget.
 
