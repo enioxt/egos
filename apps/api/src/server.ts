@@ -2,9 +2,11 @@
  * EGOS Guard Brasil API — REST Server
  *
  * Endpoints:
- *   GET  /health       — service health
- *   POST /v1/keys      — self-service free-tier API key generation
- *   POST /v1/inspect   — PII inspection (requires Bearer API key)
+ *   GET  /health                   — service health
+ *   POST /v1/keys                  — self-service free-tier API key generation
+ *   POST /v1/inspect               — PII inspection (requires Bearer API key)
+ *   POST /v1/stripe/checkout       — create Stripe Checkout Session
+ *   POST /v1/stripe/webhook        — Stripe webhook (checkout.session.completed → upgrade tier)
  */
 
 import { GuardBrasil } from '../../../packages/guard-brasil/src/index.js';
@@ -231,12 +233,158 @@ Bun.serve({
       }, { status: manualReviewRequired ? 202 : 200, headers: responseHeaders });
     }
 
+    // POST /v1/stripe/checkout — create Stripe Checkout Session
+    if (url.pathname === '/v1/stripe/checkout' && req.method === 'POST') {
+      try {
+        const { tier, email, tenant_id } = await req.json() as { tier: string; email: string; tenant_id?: string };
+        const stripeKey = process.env.STRIPE_SECRET_KEY;
+        if (!stripeKey) return Response.json({ error: 'Stripe not configured' }, { status: 503, headers: CORS });
+
+        const priceId = tier === 'enterprise'
+          ? process.env.STRIPE_ENTERPRISE_PRICE_ID
+          : process.env.STRIPE_PRO_PRICE_ID;
+
+        if (!priceId) return Response.json({ error: 'Invalid tier' }, { status: 400, headers: CORS });
+
+        const origin = req.headers.get('origin') || 'https://guard.egos.ia.br';
+        const body = new URLSearchParams({
+          'mode': 'subscription',
+          'line_items[0][price]': priceId,
+          'line_items[0][quantity]': '1',
+          'customer_email': email,
+          'success_url': `${origin}/landing?upgrade=success&tier=${tier}`,
+          'cancel_url': `${origin}/landing?upgrade=cancel`,
+          'metadata[tier]': tier,
+          'metadata[tenant_id]': tenant_id ?? '',
+          'allow_promotion_codes': 'true',
+          'billing_address_collection': 'auto',
+        });
+
+        const sessionRes = await fetch('https://api.stripe.com/v1/checkout/sessions', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${stripeKey}`,
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: body.toString(),
+        });
+        const session = await sessionRes.json() as any;
+        if (session.error) return Response.json({ error: session.error.message }, { status: 400, headers: CORS });
+
+        return Response.json({ url: session.url, session_id: session.id }, { headers: CORS });
+      } catch (e: any) {
+        return Response.json({ error: e.message }, { status: 500, headers: CORS });
+      }
+    }
+
+    // POST /v1/stripe/webhook — upgrade tenant tier on payment
+    if (url.pathname === '/v1/stripe/webhook' && req.method === 'POST') {
+      const stripeKey = process.env.STRIPE_SECRET_KEY;
+      const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+      if (!stripeKey) return Response.json({ error: 'Stripe not configured' }, { status: 503 });
+
+      const rawBody = await req.text();
+
+      // Verify Stripe signature if webhook secret is configured
+      if (webhookSecret) {
+        const sig = req.headers.get('stripe-signature') ?? '';
+        if (!verifyStripeSignature(rawBody, sig, webhookSecret)) {
+          return Response.json({ error: 'Invalid signature' }, { status: 400 });
+        }
+      }
+
+      const event = JSON.parse(rawBody) as any;
+      console.log(`🔔 Stripe webhook: ${event.type}`);
+
+      if (event.type === 'checkout.session.completed') {
+        const session = event.data.object;
+        const tier = session.metadata?.tier;
+        const tenantId = session.metadata?.tenant_id;
+        const customerEmail = session.customer_details?.email || session.customer_email;
+        const customerId = session.customer;
+        const subscriptionId = session.subscription;
+
+        if (tier && (tenantId || customerEmail)) {
+          const quotaLimit = tier === 'enterprise' ? 999999 : 10000;
+          const mrrBrl = tier === 'enterprise' ? 1497 : 497;
+
+          const supabaseUrl = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+          const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
+
+          // Update tenant tier via Supabase REST
+          const filter = tenantId ? `id=eq.${tenantId}` : `email=eq.${encodeURIComponent(customerEmail)}`;
+          const updateRes = await fetch(`${supabaseUrl}/rest/v1/guard_brasil_tenants?${filter}`, {
+            method: 'PATCH',
+            headers: {
+              apikey: supabaseKey,
+              Authorization: `Bearer ${supabaseKey}`,
+              'Content-Type': 'application/json',
+              Prefer: 'return=representation',
+            },
+            body: JSON.stringify({
+              tier,
+              quota_limit: quotaLimit,
+              mrr_brl: mrrBrl,
+              stripe_customer_id: customerId,
+              stripe_subscription_id: subscriptionId,
+              status: 'active',
+              updated_at: new Date().toISOString(),
+            }),
+          });
+
+          const updated = await updateRes.json() as any[];
+          console.log(`✅ Upgraded tenant to ${tier}: ${tenantId || customerEmail} (${updated?.length ?? 0} rows updated)`);
+        }
+      }
+
+      if (event.type === 'customer.subscription.deleted') {
+        const sub = event.data.object;
+        const customerId = sub.customer;
+        const supabaseUrl = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+        const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
+
+        // Downgrade to free on cancellation
+        await fetch(`${supabaseUrl}/rest/v1/guard_brasil_tenants?stripe_customer_id=eq.${customerId}`, {
+          method: 'PATCH',
+          headers: {
+            apikey: supabaseKey,
+            Authorization: `Bearer ${supabaseKey}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ tier: 'free', quota_limit: 150, mrr_brl: 0, updated_at: new Date().toISOString() }),
+        });
+        console.log(`⬇️  Downgraded tenant ${customerId} to free (subscription cancelled)`);
+      }
+
+      return Response.json({ received: true });
+    }
+
     return Response.json({
       error: 'Not found.',
-      endpoints: { health: 'GET /health', keys: 'POST /v1/keys', inspect: 'POST /v1/inspect' },
+      endpoints: { health: 'GET /health', keys: 'POST /v1/keys', inspect: 'POST /v1/inspect', checkout: 'POST /v1/stripe/checkout', webhook: 'POST /v1/stripe/webhook' },
     }, { status: 404, headers: CORS });
   },
 });
+
+// ─── Stripe signature verification ─────────────────────────────────────────
+function verifyStripeSignature(payload: string, sig: string, secret: string): boolean {
+  try {
+    const parts = Object.fromEntries(sig.split(',').map(p => p.split('=')));
+    const timestamp = parts['t'];
+    const expectedSig = parts['v1'];
+    if (!timestamp || !expectedSig) return false;
+
+    const signedPayload = `${timestamp}.${payload}`;
+    const { createHmac } = require('crypto');
+    const computed = createHmac('sha256', secret).update(signedPayload).digest('hex');
+
+    // Timing-safe comparison
+    if (computed.length !== expectedSig.length) return false;
+    let diff = 0;
+    for (let i = 0; i < computed.length; i++) diff |= computed.charCodeAt(i) ^ expectedSig.charCodeAt(i);
+    return diff === 0;
+  } catch { return false; }
+}
 
 console.log(`🛡️  EGOS Guard Brasil API v0.2.0`);
 console.log(`   Inspect: http://localhost:${PORT}/v1/inspect`);
