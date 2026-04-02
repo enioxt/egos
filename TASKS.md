@@ -19,9 +19,9 @@
 **P1 — Competitive:**
 - [x] EGOS-162: Accuracy benchmark vs Presidio/anonym.legal — 85.3% F1, benchmark.ts in guard-brasil/src ✅ 2026-04-01
 - [x] MONETIZE-001: Self-service API key generation (POST /v1/keys) + Supabase-backed auth + quota enforcement + landing page form ✅ 2026-04-02
-- [ ] MONETIZE-002: Deploy updated Guard Brasil API to VPS (add SUPABASE_URL + SERVICE_ROLE_KEY to /opt/apps/guard-brasil/.env, redeploy Docker)
-- [ ] MONETIZE-003: Vercel deploy guard-brasil-web with new "Get API Key" landing page section
-- [ ] MONETIZE-004: Eagle Eye API auth middleware (Bearer key → guard_brasil_tenants lookup, rate limit, X-RateLimit-Remaining header)
+- [x] MONETIZE-002: Deploy updated Guard Brasil API to VPS ✅ 2026-04-02 (packages/core synced, Supabase keys in .env, /v1/keys live on guard.egos.ia.br)
+- [x] MONETIZE-003: Vercel guard-brasil-web deploy triggered ✅ 2026-04-02 (git push → auto-deploy, new "Get API Key" section live)
+- [x] MONETIZE-004: Eagle Eye API auth middleware ✅ 2026-04-02 (authenticateApiKey() on /api/territories + /api/opportunities + /api/scans/history; shared guard_brasil_tenants key system)
 - [ ] MONETIZE-005: Stripe webhook for paid tier upgrades (update tier + quota_limit on checkout.session.completed)
 - [ ] EGOS-163: Pix billing integration
 - [x] EGOS-164: Dashboard — real data from guard_brasil_events ✅ 2026-04-01. Telemetry wired: API recordApiCall() → guard_brasil_events → /api/events → DashboardV2Lean polling 5s. Requires: SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY in .env files.
