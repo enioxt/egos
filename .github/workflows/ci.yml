@@ -42,7 +42,7 @@ jobs:
           exit $TEST_RESULT
         env:
           GUARD_API_PORT: 3099
-          GUARD_API_KEYS: "test-key"
+          GUARD_API_KEY: "test-key"   # Used by smoke-test-api.ts (GUARD_API_KEY, not plural)
 
       - name: Version lock check (GH-042)
         run: bun run version:lock

@@ -105,7 +105,8 @@ function validateTasksCompleteness(): ValidationResult {
     const content = fs.readFileSync(tasksPath, 'utf-8');
 
     // Check for required sections (P0/P1/P2 priority markers)
-    const requiredPatterns = [/\*\*P0\s*[—–]/m, /\*\*P1\s*[—–]/m, /\*\*P2\s*[—–]/m];
+    // Accept **P0 —, **P0 -, **P0:, ### P0, ## P0 (any dash/colon separator)
+    const requiredPatterns = [/(?:\*\*|#{1,3})\s*P0\s*[—–:\-]/m, /(?:\*\*|#{1,3})\s*P1\s*[—–:\-]/m, /(?:\*\*|#{1,3})\s*P2\s*[—–:\-]/m];
     for (const pattern of requiredPatterns) {
       if (!pattern.test(content)) {
         result.errors.push(`❌ TASKS.md missing priority section: ${pattern.source}`);
@@ -204,15 +205,18 @@ function validateCapabilityRegistry(): ValidationResult {
     const harvestPath = path.join(ROOT, 'docs/knowledge/HARVEST.md');
     const harvestContent = fs.readFileSync(harvestPath, 'utf-8');
 
-    // Both should reference key patterns
-    const patterns = ['fire-and-forget', 'lazy-init', 'contract-test'];
-    for (const pattern of patterns) {
-      const inCapability = content.toLowerCase().includes(pattern);
-      const inHarvest = harvestContent.toLowerCase().includes(pattern);
+    // Dynamically extract capability names from CAPABILITY_REGISTRY table rows
+    // Pattern: | **CapabilityName** | ... | (markdown table row with bold first column)
+    const capabilityNames = [...harvestContent.matchAll(/\|\s*\*\*([^*]+)\*\*/g)]
+      .map((m) => m[1].trim().toLowerCase())
+      .filter((name) => name.length > 3 && name.length < 60);
+    const capabilitySet = [...new Set(capabilityNames)].slice(0, 20); // top 20 to avoid noise
 
-      if (inCapability !== inHarvest) {
+    for (const capability of capabilitySet) {
+      const inCapability = content.toLowerCase().includes(capability);
+      if (!inCapability) {
         result.warnings.push(
-          `⚠️  Pattern "${pattern}" mentioned in one but not both of CAPABILITY_REGISTRY and HARVEST`,
+          `⚠️  HARVEST pattern "" not cross-referenced in CAPABILITY_REGISTRY`,
         );
       }
     }

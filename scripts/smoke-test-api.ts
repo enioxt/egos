@@ -236,30 +236,44 @@ const tests: Array<{
     fn: async () => {
       const start = performance.now();
       try {
-        // Send 3 rapid requests to same key
-        const promises = [];
-        for (let i = 0; i < 3; i++) {
-          promises.push(
-            fetch(`${API_URL}/v1/inspect`, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${API_KEY}-ratelimit-test`,
-              },
-              body: JSON.stringify({ text: `Request ${i}` }),
-            }),
-          );
-        }
+        // Send 5 rapid requests using the SAME real API key.
+        // Bug fix (GH-041): previous version used a fake key suffix,
+        // making all requests fail silently. This version uses API_KEY
+        // and validates that rate-limit headers are present.
+        const promises = Array.from({ length: 5 }, (_, i) =>
+          fetch(`${API_URL}/v1/inspect`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${API_KEY}`,
+            },
+            body: JSON.stringify({ text: `Rate limit probe ${i}` }),
+          }),
+        );
 
         const results = await Promise.all(promises);
-        // At least one should succeed
         const hasSuccess = results.some((r) => r.status === 200 || r.status === 202);
 
         if (!hasSuccess) {
           return {
             name: 'Inspect — Rate Limiting',
             passed: false,
-            error: 'All requests failed',
+            error: 'All 5 requests failed — API may be down or key invalid',
+          };
+        }
+
+        // Verify rate-limit headers are present (proves middleware is active)
+        const successResp = results.find((r) => r.status === 200 || r.status === 202);
+        const hasRateLimitHeader =
+          successResp?.headers.has('x-ratelimit-limit') ||
+          successResp?.headers.has('ratelimit-limit') ||
+          successResp?.headers.has('x-rate-limit');
+
+        if (!hasRateLimitHeader) {
+          return {
+            name: 'Inspect — Rate Limiting',
+            passed: false,
+            error: 'Rate-limit middleware missing: no X-RateLimit-Limit header on response',
           };
         }
 

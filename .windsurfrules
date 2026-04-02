@@ -49,7 +49,10 @@ type: "framework-core + orchestration-kernel + agent-runtime"
 10. **TEACH** — Explain WHY, not just WHAT. Question bad ideas.
 11. **EDIT SIZE** — Max 80 lines per write_to_file/edit call.
 12. **PROTECTED** — Never edit protected surfaces without explicit user approval + proof.
-13. **CODEX** — Use Codex for diff-heavy, audit, and mechanical work.
+13. **CODEX** — Use Codex for diff-heavy, audit, and mechanical work. Codex task taxonomy:
+    - ✅ USE: refactors, renames, dead-code removal, boilerplate additions, read-only audits, gate checks
+    - ❌ SKIP: architecture decisions, multi-file cross-context reasoning, DB migrations, multi-repo changes
+    - Codex PRs need explicit validator scripts (ssot:check, smoke:api, version:lock) — never "I eyeballed it"
 14. **HUMAN LOOP** — For ambiguous decisions, ask before acting.
 15. **PROPAGATE** — Kernel governance/workflow changes are not complete until `bun run governance:sync:exec` passes and `bun run governance:check` returns 0 drift.
 16. **FOCUS** — Do NOT reinvent what exists (generic scanners, linters, dep auditors). EGOS's moat is governance-as-code, Brazilian compliance, and orchestration. Before creating any new agent, search existing marketplaces (OpenClaw, aregistry.ai, Composio, npm). If user proposes new scope, acknowledge it, log to TASKS.md backlog, but REMIND them of current mission focus.
@@ -59,6 +62,7 @@ type: "framework-core + orchestration-kernel + agent-runtime"
 20. **SIGNATURE** — Every operational message MUST end with the signature footer defined in `.guarani/standards/AGENT_MESSAGE_SIGNATURE_CONTRACT.md` (agent id, session id, mode, source env, UTC timestamp).
 21. **STITCH-FIRST UI** — Any new UI screen MUST pass through `/stitch` (`.windsurf/workflows/stitch.md`) before implementation. Agent generates Stitch prompt pack; operator returns external `.zip`; only then integration starts.
 22. **CODEX DISCLOSURE** — Operational updates MUST explicitly state Codex lane limitations when relevant (non-interactive defaults, browser-tool availability, and ephemeral `~/.egos` sync state).
+23. **GRAPH-FIRST DISCOVERY** — Before any Read/Grep on TypeScript code, use `codebase-memory-mcp` tools: `search_graph(name_pattern)` → `get_code_snippet(qualified_name)`. Fall back to Read only for docs, configs, markdown, or when graph has no match. Project names: `home-enio-egos`, `home-enio-egos-lab`, `home-enio-egos-lab-apps-eagle-eye` (and others).
 
 ## PROTECTED SURFACES
 
