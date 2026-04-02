@@ -4,6 +4,7 @@ WORKDIR /app
 # Copy package files
 COPY packages/guard-brasil/package.json packages/guard-brasil/package.json
 COPY packages/guard-brasil/src/ packages/guard-brasil/src/
+COPY packages/core/src/ packages/core/src/
 COPY apps/api/src/ apps/api/src/
 
 EXPOSE 3099

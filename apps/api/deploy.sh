@@ -44,6 +44,13 @@ if ! $RESTART_ONLY; then
     "$HETZNER:$REMOTE_DIR/packages/guard-brasil/"
 
   rsync -az --delete \
+    --exclude '.git' \
+    --exclude 'node_modules' \
+    -e "ssh -i $SSH_KEY" \
+    "$LOCAL_ROOT/packages/core/" \
+    "$HETZNER:$REMOTE_DIR/packages/core/"
+
+  rsync -az --delete \
     --exclude 'node_modules' \
     -e "ssh -i $SSH_KEY" \
     "$LOCAL_ROOT/apps/api/" \
