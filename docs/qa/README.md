@@ -143,3 +143,12 @@ Gate estrito (falha se telemetry minimum gate não passar):
 ```bash
 bun run qa:evidence:gate
 ```
+
+## CI anotação amigável de falha
+
+Quando `qa:observability` falha no CI, o workflow publica no **Job Summary**:
+
+- conteúdo de `/tmp/qa-evidence.md` (quando disponível)
+- hint de correção com comandos locais (`qa:observability` e `qa:evidence:gate`)
+
+Isso facilita revisão assíncrona sem abrir artifacts manualmente em todo caso.

@@ -133,6 +133,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] GOV-013: Pending tasks CLI resilient a pipe truncation (`BrokenPipeError`) para uso com `head`/`tail` ✅ 2026-04-02
 - [x] GOV-014: QA evidence summary (`observability_evidence.py` + `/tmp/qa-evidence.md`) com telemetry minimum gate ✅ 2026-04-02
 - [x] GOV-015: Enforce do telemetry minimum gate no suite (`--enforce` + `qa:evidence:gate`) ✅ 2026-04-02
+- [x] GOV-016: CI summary amigável para falhas do QA gate + upload completo de artifacts (`qa-evidence`, pending/stalled) ✅ 2026-04-02
 
 > **Archived:** All session summaries, ARCH project, benchmark plans, Grok intake → `docs/knowledge/TASKS_ARCHIVE_2026.md`
 

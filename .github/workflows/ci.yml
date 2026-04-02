@@ -65,7 +65,37 @@ jobs:
           fi
 
       - name: QA observability suite
+        id: qa_observability
+        continue-on-error: true
         run: bun run qa:observability
+
+      - name: QA gate summary (friendly annotation)
+        if: always()
+        run: |
+          {
+            echo "## QA Observability Gate"
+            echo
+            if [ -f /tmp/qa-evidence.md ]; then
+              cat /tmp/qa-evidence.md
+            else
+              echo "- ❌ Missing artifact: /tmp/qa-evidence.md"
+            fi
+            echo
+            echo "### Hint de correção"
+            echo "- Rode localmente: \`bun run qa:observability\`"
+            echo "- Gate estrito isolado: \`bun run qa:evidence:gate\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "${{ steps.qa_observability.outcome }}" != "success" ]; then
+            echo "::error::QA observability suite failed. See 'QA Observability Gate' in job summary and uploaded artifacts."
+          fi
+
+      - name: Enforce QA observability gate
+        if: always()
+        run: |
+          if [ "${{ steps.qa_observability.outcome }}" != "success" ]; then
+            exit 1
+          fi
 
       - name: Upload QA artifacts
         if: always()
@@ -76,4 +106,7 @@ jobs:
             /tmp/qa-commit-audit.md
             /tmp/qa-telemetry-dashboard.md
             /tmp/qa-telemetry-forecast.md
+            /tmp/qa-pending-tasks.md
+            /tmp/qa-stalled-tasks.md
             /tmp/qa-guardrail.txt
+            /tmp/qa-evidence.md
