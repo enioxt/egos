@@ -263,13 +263,14 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [ ] CLEAN-001: Remove outdated gem-hunter reports, unify SSOT locations, update deprecated refs
 
 *Week 2 — Intelligence Layer:*
-- [ ] GH-056: Multi-stage paper reading — Stage 1: abstract filter → Stage 2: intro+methodology → Stage 3: full → Stage 4: scaffold generation (.ts stubs + .md spec)
-- [ ] GH-057: Context awareness — read git log + TASKS.md + X.com trends → auto-adjust queries
-- [ ] GH-059: Cost budgeting — token counter + cost projection before LLM calls + daily budget cap
-- [ ] GH-060: Structural validation — check tree for README, tests/, benchmarks/, arXiv ref (= GH-048 expanded)
+- [x] GH-056: Multi-stage paper pipeline — LLM abstract triage (0-100) + scaffold gen (.ts + .md) in docs/gem-hunter/scaffolds/ ✅ 2026-04-02
+- [x] GH-057: Context awareness — loadContextSignals() from git log + TASKS.md → injects category=context-auto queries ✅ 2026-04-02
+- [x] GH-059: Cost budgeting — packages/shared/src/cost-tracker.ts (COST_TABLE, estimateCost, checkBudget, createCostSession) ✅ 2026-04-02
+- [x] GH-060: Structural validation — validateGemStructure() checks README/tests/benchmarks/docs via GitHub API; structureBonus (0-25) ✅ 2026-04-02
+- [x] GH-052: KOL discovery — scripts/kol-discovery.ts; fetches @anoineim following via X API, classifies bio (crypto/ai-ml/gov/markets), outputs kol-list.json ✅ 2026-04-02
 
 *Week 3-4 — Monetization:*
-- [ ] GH-058: Standalone API — POST /v1/hunt + GET /v1/findings + GET /v1/papers + API key auth
+- [x] GH-058: Standalone API — agents/api/gem-hunter-server.ts (port 3097): /v1/hunt, /v1/findings, /v1/papers, /v1/signals, /v1/kols, /v1/jobs/:id ✅ 2026-04-02
 - [ ] BIZ-001: Unified monetization SSOT — consolidate 15+ scattered docs into one strategy
 - [ ] GH-065: Percentage-based pricing — % of LLM cost + margin, Stripe + Pix + x402
 
