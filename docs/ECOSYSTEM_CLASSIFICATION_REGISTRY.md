@@ -1,5 +1,16 @@
 # EGOS Ecosystem Classification Registry
 
+<!-- llmrefs:start -->
+## LLM Reference Signature
+
+- **Role:** product/surface classification policy map for the EGOS ecosystem
+- **Summary:** Canonical classification of kernel, standalone, candidate, lab, archive, and discard surfaces with governance rules.
+- **Read next:**
+  - `docs/SSOT_REGISTRY.md` — ownership contracts for each domain
+  - `docs/CAPABILITY_REGISTRY.md` — reusable capability map
+  - `TASKS.md` — active rollout/consolidation tasks
+<!-- llmrefs:end -->
+
 > **VERSION:** 2.0.0 | **UPDATED:** 2026-03-30 | **TASK:** EGOS-076
 > **SSOT STATUS:** This file IS the canonical product/module classification map
 > **Updated by:** EGOS Ecosystem Auditor (evidence-first, filesystem-verified)
