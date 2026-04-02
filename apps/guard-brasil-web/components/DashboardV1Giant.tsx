@@ -129,6 +129,29 @@ function generatePacket(): DataPacket {
 export default function DashboardV1Giant() {
   const [activeTab, setActiveTab] = useState<string>('overview');
 
+  // ── Real data from Supabase ────────────────────────────────────────────────
+  const [realCustomers, setRealCustomers] = useState<Customer[]>([]);
+  const [realStats, setRealStats] = useState<{
+    total_events: number; total_mrr_brl: number; active_customers: number;
+    total_calls_this_month: number; block_rate: number; avg_latency_ms: number;
+  } | null>(null);
+
+  useEffect(() => {
+    async function loadRealData() {
+      try {
+        const [tenantsRes, statsRes] = await Promise.all([
+          fetch('/api/tenants').then(r => r.ok ? r.json() : null),
+          fetch('/api/stats').then(r => r.ok ? r.json() : null),
+        ]);
+        if (tenantsRes?.tenants?.length > 0) setRealCustomers(tenantsRes.tenants);
+        if (statsRes) setRealStats(statsRes);
+      } catch { /* silently fall back to placeholder data */ }
+    }
+    loadRealData();
+    const interval = setInterval(loadRealData, 30_000);
+    return () => clearInterval(interval);
+  }, []);
+
   const tabs = [
     { id: 'overview',      label: 'Overview',        icon: '📊' },
     { id: 'scanner',       label: 'Live Scanner',     icon: '🔬' },
@@ -144,7 +167,7 @@ export default function DashboardV1Giant() {
   ];
 
   // Tabs with real/live data (no PLACEHOLDER badge in sidebar)
-  const liveTabs = new Set(['scanner']);
+  const liveTabs = new Set(['scanner', 'customers']);
 
   return (
     <div className="min-h-screen bg-slate-950 text-white flex">
@@ -175,9 +198,13 @@ export default function DashboardV1Giant() {
         </nav>
         <div className="p-4 border-t border-slate-800">
           <div className="bg-slate-800 rounded-lg p-3">
-            <p className="text-xs text-slate-400 flex items-center">MRR Total <PH tooltip="Conectar Supabase → tabela billing" /></p>
-            <p className="text-2xl font-bold text-emerald-400">R$ 5.747</p>
-            <p className="text-xs text-slate-500 mt-1">5 customers active</p>
+            <p className="text-xs text-slate-400">MRR Total</p>
+            <p className="text-2xl font-bold text-emerald-400">
+              {realStats ? `R$ ${realStats.total_mrr_brl.toFixed(0)}` : 'R$ —'}
+            </p>
+            <p className="text-xs text-slate-500 mt-1">
+              {realStats ? `${realStats.active_customers} customer${realStats.active_customers !== 1 ? 's' : ''} active` : '—'}
+            </p>
           </div>
         </div>
       </aside>
@@ -187,7 +214,7 @@ export default function DashboardV1Giant() {
         {activeTab === 'overview'     && <OverviewTab />}
         {activeTab === 'scanner'      && <ScannerTab />}
         {activeTab === 'activity'     && <ActivityTab events={PLACEHOLDER_EVENTS} />}
-        {activeTab === 'customers'    && <CustomersTab customers={PLACEHOLDER_CUSTOMERS} />}
+        {activeTab === 'customers'    && <CustomersTab customers={realCustomers.length > 0 ? realCustomers : PLACEHOLDER_CUSTOMERS} />}
         {activeTab === 'costs'        && <CostsTab events={PLACEHOLDER_EVENTS} />}
         {activeTab === 'atrian'       && <AtrianTab />}
         {activeTab === 'social'       && <SocialTab />}
