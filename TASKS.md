@@ -104,7 +104,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 
 **P2 — Revenue:**
 - [ ] EAGLE-009: Stripe/Pix payment for Pro tier (R$497/mo, 50+ territories)
-- [ ] EAGLE-010: Customer onboarding flow + dashboard customization
+- [x] EAGLE-010: Customer onboarding flow ✅ 2026-04-02. /docs page: API reference with cURL/JS/Python examples, params table, pricing tiers. Docs link added to landing footer. Vercel deploy triggered.
 - [ ] EAGLE-011: E2E tests (Playwright)
 - [x] EGOS-170: Guard Brasil dashboard wired to real Supabase data ✅ 2026-04-02 (/api/tenants + /api/stats routes, DashboardV1Giant fetches real customers + MRR on mount with 30s refresh)
 
