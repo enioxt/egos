@@ -1,5 +1,16 @@
 # EGOS Capability Registry
 
+<!-- llmrefs:start -->
+## LLM Reference Signature
+
+- **Role:** capability map + adoption matrix for reusable EGOS surfaces
+- **Summary:** Canonical registry of capabilities by domain, with SSOT source, quality, adoption, and rollout targets.
+- **Read next:**
+  - `TASKS.md` — execution priorities and gaps
+  - `docs/SSOT_REGISTRY.md` — ownership/freshness contracts
+  - `docs/SYSTEM_MAP.md` — architecture placement of capabilities
+<!-- llmrefs:end -->
+
 > **VERSION:** 1.8.0 | **UPDATED:** 2026-03-31
 > **PURPOSE:** Master index of all capabilities across the EGOS ecosystem
 > **SSOT STATUS:** This file IS the canonical capability map
