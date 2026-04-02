@@ -257,9 +257,9 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 *Week 1 — Foundation:*
 - [x] GH-051: Papers Without Code pipeline — searchPapersWithoutCode() queries arXiv CS papers, cross-refs PWC for 0 implementations, +20 scoring bonus, 5 new queries, wired into dispatch ✅ 2026-04-02
 - [ ] GH-052: KOL list curada — 50+ X.com accounts for trend monitoring (needs user input)
-- [ ] GH-053: Evolution Engine auto-integrate — trending keywords auto-update DEFAULT_QUERIES next run
-- [ ] GH-054: Multi-LLM fallback chain — Qwen(free) → OpenRouter(free) → Gemini Flash($) → Claude($$)
-- [ ] GH-055: Telegram alerts — gems score > 80 → real-time notification to EGOS channel (= GH-035)
+- [x] GH-053: Evolution Engine auto-integrate — loads next-queries.json, injects suggestedQueries as category=evolution-auto each run ✅ 2026-04-02
+- [x] GH-054: Multi-LLM fallback chain — MODEL_CHAIN already in llm-provider.ts; gem-hunter uses chatWithLLM() via callAI() ✅ 2026-04-02
+- [x] GH-055: Telegram alerts — sendGemTelegramAlert() fired for top 5 gems ≥80; appendGemSignal() wired; uses TELEGRAM_ADMIN_CHAT_ID ✅ 2026-04-02
 - [ ] CLEAN-001: Remove outdated gem-hunter reports, unify SSOT locations, update deprecated refs
 
 *Week 2 — Intelligence Layer:*
