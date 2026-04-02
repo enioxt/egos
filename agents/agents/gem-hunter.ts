@@ -81,7 +81,7 @@ function isContentRelevant(gem: GemResult, queryKeywords: string[]): boolean {
   return meaningfulTerms.some(term => text.includes(term));
 }
 
-type GemSource = "github" | "github-code" | "huggingface" | "huggingface-space" | "exa" | "arxiv" | "hackernews" | "npm" | "zenodo" | "x-public" | "x-api" | "reddit" | "stackoverflow" | "producthunt";
+type GemSource = "github" | "github-code" | "huggingface" | "huggingface-space" | "exa" | "arxiv" | "hackernews" | "npm" | "zenodo" | "x-public" | "x-api" | "reddit" | "stackoverflow" | "producthunt" | "papers-with-code";
 type SearchTrack = "core" | "web-extraction" | "x-signals-public" | "governance-plugplay" | "community-signals" | "early-warning";
 
 interface GemResult {
@@ -412,9 +412,54 @@ const DEFAULT_QUERIES: SearchQuery[] = [
     category: "producthunt-tools",
     track: "community-signals",
   },
+  {
+    topic: "Agent Scaling Laws / Coordination Architectures",
+    keywords: [
+      "agent scaling laws coordination architectures centralized decentralized hybrid",
+      "error amplification multi-agent overhead redundancy capability saturation",
+      "architecture selector agent systems predictive model task characteristics",
+      "Towards a Science of Scaling Agent Systems arXiv 2512.08296",
+      "multi-agent scaling empirical benchmark diminishing returns tool-heavy",
+    ],
+    sources: ["github", "arxiv", "papers-with-code", "exa"],
+    category: "agent-scaling",
+  },
+  {
+    topic: "Low-Star Research-Backed Implementations",
+    keywords: [
+      "arXiv implementation clean-room stars:<20 agent coordination",
+      "research paper code implementation multi-agent framework minimal",
+      "empirical validation agent architecture benchmark reproducible MIT",
+    ],
+    sources: ["github", "papers-with-code"],
+    category: "research-gems",
+  },
 ];
 
 // ── API Callers ──────────────────────────────────────────────────────────
+
+async function searchPapersWithCode(query: string, maxResults = 5): Promise<GemResult[]> {
+  try {
+    const url = `https://paperswithcode.com/api/v1/search/?q=${encodeURIComponent(query)}&page=1&items_per_page=${maxResults}`;
+    const res = await fetch(url, { headers: { Accept: "application/json" } });
+    if (!res.ok) return [];
+    const data = (await res.json()) as any;
+    return (data.results || [])
+      .filter((r: any) => r.paper?.url_abs || r.repository?.url)
+      .map((r: any) => ({
+        name: r.paper?.title || r.repository?.name || "Untitled",
+        source: "papers-with-code" as GemSource,
+        url: r.repository?.url || r.paper?.url_abs || "",
+        description: `${r.paper?.abstract?.slice(0, 180) || ""} [PWC: ${r.paper?.arxiv_id || "no-arxiv"}]`,
+        relevance: (r.repository?.stars ?? 0) > 100 ? "high" as const : "medium" as const,
+        category: "",
+        stars: r.repository?.stars,
+        lastUpdated: r.paper?.published,
+      }));
+  } catch {
+    return [];
+  }
+}
 
 async function searchZenodo(query: string, maxResults = 5): Promise<GemResult[]> {
   try {
@@ -1053,6 +1098,10 @@ async function main() {
         const ph = await searchProductHunt(keyword, maxPerKeyword);
         results.push(...ph);
       }
+      if (q.sources.includes("papers-with-code")) {
+        const pwc = await searchPapersWithCode(keyword, maxPerKeyword);
+        results.push(...pwc);
+      }
 
       for (const r of results) r.category = q.category;
       // Content relevance guard: filter irrelevant GitHub results
@@ -1203,6 +1252,24 @@ function scoreGem(gem: GemResult): number {
   if (hasMajorityCJK(gem.description) || hasMajorityCJK(gem.name)) {
     score -= 30;
   }
+
+  // ── Research-backed bonus (low-star/high-value detection) ─────────────
+  // Repos that cite arXiv papers or come from Papers With Code get a major bonus
+  // This counteracts the star-bias that would otherwise bury 3-star gems
+  const text = `${gem.name} ${gem.description}`.toLowerCase();
+  const hasArxivCitation = /arxiv[:\s]*\d{4}\.\d{4,5}|arxiv\.org\/abs\//.test(text);
+  const hasPaperBackedSignals = /empirical|benchmark|accuracy\s*[≥>]\s*\d{2}%|error\s+amplification|scaling\s+law|validated|f1\s*[=:]\s*\d/.test(text);
+  const hasResearchStructure = /architecture\s*selector|coordination\s*metric|predictive\s*model|leave-one.*cross.?validation/.test(text);
+  if (hasArxivCitation) score += 18;
+  if (hasPaperBackedSignals) score += 12;
+  if (hasResearchStructure) score += 10;
+  // Low-star + research signals = hidden gem (inverted star bonus)
+  if ((gem.stars ?? 0) < 20 && (hasArxivCitation || hasPaperBackedSignals)) {
+    score += 15; // "low-star gem" bonus — these are the ones we want to find early
+  }
+  // Papers With Code source bonus
+  if (gem.source === "papers-with-code") score += 12;
+
   // Source-type scoring: reward code sources, penalize non-code
   if (["github", "github-code", "npm"].includes(gem.source)) score += 5;
   if (/youtube\.com|medium\.com|linkedin\.com|superteams\.ai/.test(gem.url)) score -= 15;
@@ -1221,6 +1288,9 @@ function scoreGem(gem: GemResult): number {
     if (gem.source === "hackernews") score -= 6;
     if (gem.source === "exa" && !isOfficialStrategicSource(gem)) score -= 4;
   }
+  // Agent-scaling and research-gems categories get base boost
+  if (["agent-scaling", "research-gems"].includes(gem.category)) score += 8;
+
   return Math.max(0, Math.round(score));
 }
 
