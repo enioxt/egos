@@ -130,6 +130,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] GOV-010: Commit auditor resilience — fallback seguro quando `git` falha/indisponível ✅ 2026-04-02
 - [x] GOV-011: QA README alinhado com suite/artifacts atuais (`qa:pending`, `qa:stalled`, guardrail artifacts) ✅ 2026-04-02
 - [x] GOV-012: Pending tasks report com saída JSON (`qa:pending:json`) para integrações automáticas ✅ 2026-04-02
+- [x] GOV-013: Pending tasks CLI resilient a pipe truncation (`BrokenPipeError`) para uso com `head`/`tail` ✅ 2026-04-02
 
 > **Archived:** All session summaries, ARCH project, benchmark plans, Grok intake → `docs/knowledge/TASKS_ARCHIVE_2026.md`
 

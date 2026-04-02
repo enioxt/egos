@@ -12,6 +12,14 @@ sys.modules[spec.name] = module
 spec.loader.exec_module(module)
 
 
+class _BrokenPipeWriter:
+    def write(self, _):
+        raise BrokenPipeError()
+
+    def flush(self):
+        return None
+
+
 class ListPendingTasksTests(TestCase):
     def test_parse_pending_tasks_extracts_only_unchecked(self):
         text = '\n'.join([
@@ -49,3 +57,9 @@ class ListPendingTasksTests(TestCase):
         self.assertEqual(payload['pending_total'], 1)
         self.assertEqual(payload['pending_by_section']['Section A'], 1)
         self.assertEqual(payload['items'][0]['task_id'], 'A-002')
+
+    def test_write_report_handles_broken_pipe(self):
+        writer = _BrokenPipeWriter()
+        ok = module.write_report('payload', writer)
+        self.assertFalse(ok)
+

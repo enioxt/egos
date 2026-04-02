@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 from collections import defaultdict
 from pathlib import Path
 
@@ -83,6 +84,15 @@ def build_json_report(items: list[dict], source_file: str) -> str:
     return json.dumps(payload, ensure_ascii=False, indent=2) + '\n'
 
 
+def write_report(report: str, stream) -> bool:
+    try:
+        stream.write(report)
+        stream.flush()
+        return True
+    except BrokenPipeError:
+        return False
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description='List all pending tasks from TASKS.md')
     parser.add_argument('--input', default='TASKS.md', help='Input TASKS markdown file')
@@ -103,7 +113,7 @@ def main() -> int:
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(report)
     else:
-        print(report)
+        write_report(report, sys.stdout)
 
     return 0
 
