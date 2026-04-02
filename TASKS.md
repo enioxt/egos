@@ -137,6 +137,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] GOV-017: SSOT diagnostic no CI com classificação explícita (`env_drift` vs `repo_drift`) + summary artifact ✅ 2026-04-02
 - [x] GOV-018: `qa:observability` passa a gerar `/tmp/qa-ssot-check.md` também em execução local (paridade CI/local) ✅ 2026-04-02
 - [x] GOV-019: `qa-ssot-check.md` com seção automática de ação recomendada por classificação (triagem acelerada) ✅ 2026-04-02
+- [x] GOV-020: Ações recomendadas com prioridade/owner/comando no SSOT diagnostic (playbook executável) ✅ 2026-04-02
 
 > **Archived:** All session summaries, ARCH project, benchmark plans, Grok intake → `docs/knowledge/TASKS_ARCHIVE_2026.md`
 

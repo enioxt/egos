@@ -65,23 +65,48 @@ def classify_output(output: str, exit_code: int) -> dict[str, object]:
     }
 
 
-def recommended_actions(classification: str) -> list[str]:
+def recommended_actions(classification: str) -> list[dict[str, str]]:
     if classification == 'env_drift':
         return [
-            'Run `bun run governance:sync:local` in the environment and re-run `bun run ssot:check`.',
-            'If CI/home is ephemeral, keep diagnostic as warning and rely on repo-local checks.',
+            {
+                'priority': 'P1',
+                'owner': 'infra',
+                'action': 'Sync local governance home before rerunning SSOT check.',
+                'command': 'bun run governance:sync:local && bun run ssot:check',
+            },
+            {
+                'priority': 'P2',
+                'owner': 'qa',
+                'action': 'If environment is ephemeral, keep as warning and rely on repo-local checks.',
+                'command': 'bun run ssot:diagnostic',
+            },
         ]
     if classification == 'repo_drift':
         return [
-            'Inspect modified/deleted SSOT files in git diff and reconcile canonical source before merge.',
-            'Run `bun run governance:check` and `bun run ssot:check` after reconciliation.',
+            {
+                'priority': 'P0',
+                'owner': 'repo-owner',
+                'action': 'Reconcile modified/deleted canonical SSOT files before merge.',
+                'command': 'git diff --name-only && bun run governance:check && bun run ssot:check',
+            },
         ]
     if classification == 'unknown_fail':
         return [
-            'Inspect raw output excerpt and command stderr for parser/runner issues.',
-            'Re-run with verbose shell tracing in CI and open an incident if pattern recurs.',
+            {
+                'priority': 'P0',
+                'owner': 'qa',
+                'action': 'Investigate parser/runner issue and escalate with logs if recurring.',
+                'command': 'bun run ssot:diagnostic',
+            },
         ]
-    return ['No action required.']
+    return [
+        {
+            'priority': 'P3',
+            'owner': 'none',
+            'action': 'No action required.',
+            'command': 'true',
+        },
+    ]
 
 
 def build_report(command: str, result: dict[str, object], output: str) -> str:
@@ -95,7 +120,8 @@ def build_report(command: str, result: dict[str, object], output: str) -> str:
         f"- hint: {result['hint']}",
         '',
         '## Ação recomendada',
-        *[f'- {item}' for item in recommended_actions(str(result['classification']))],
+        *[f"- [{item['priority']}] ({item['owner']}) {item['action']}" for item in recommended_actions(str(result['classification']))],
+        *[f"  - comando: `{item['command']}`" for item in recommended_actions(str(result['classification']))],
         '',
         '## Raw excerpt',
         '```text',

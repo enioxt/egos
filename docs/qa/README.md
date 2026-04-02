@@ -165,3 +165,5 @@ bun run ssot:diagnostic
 ```
 
 `/tmp/qa-ssot-check.md` agora inclui seção **Ação recomendada** automática por classificação (`env_drift`, `repo_drift`, `unknown_fail`).
+
+As ações recomendadas no SSOT diagnostic agora vêm com **prioridade, owner sugerido e comando copiável**.

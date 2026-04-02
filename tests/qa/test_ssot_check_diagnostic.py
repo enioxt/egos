@@ -34,5 +34,5 @@ class SsotCheckDiagnosticTests(TestCase):
         env_actions = module.recommended_actions('env_drift')
         repo_actions = module.recommended_actions('repo_drift')
 
-        self.assertTrue(any('governance:sync:local' in item for item in env_actions))
-        self.assertTrue(any('governance:check' in item for item in repo_actions))
+        self.assertTrue(any('governance:sync:local' in item['command'] for item in env_actions))
+        self.assertTrue(any(item['priority'] == 'P0' for item in repo_actions))
