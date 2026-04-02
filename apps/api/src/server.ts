@@ -99,6 +99,7 @@ Bun.serve({
           { method: 'POST', path: '/v1/inspect',            description: 'Guard Brasil PII inspection' },
           { method: 'POST', path: '/v1/stripe/checkout',    description: 'Create Stripe Checkout Session' },
           { method: 'POST', path: '/v1/stripe/webhook',     description: 'Stripe billing webhook' },
+          { method: 'GET',  path: '/api/admin/cost-dashboard', description: 'Real-time cost tracking (admin only)' },
         ],
         tiers: { free: 150, pro: 10000, enterprise: 999999 },
         pricing: { pro_brl: 497, enterprise_brl: 1497 },
@@ -379,9 +380,84 @@ Bun.serve({
       return Response.json({ received: true });
     }
 
+    // GET /api/admin/cost-dashboard — real-time cost tracking (admin only)
+    if (url.pathname === '/api/admin/cost-dashboard' && req.method === 'GET') {
+      const auth = req.headers.get('authorization');
+      const isAdmin = auth?.startsWith('Bearer ') && API_KEYS.has(auth.slice(7));
+      if (!isAdmin) return Response.json({ error: 'Unauthorized' }, { status: 403, headers: CORS });
+
+      const supabaseUrl = process.env.SUPABASE_URL;
+      const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+      if (!supabaseUrl || !supabaseKey) {
+        return Response.json({ error: 'Supabase not configured' }, { status: 503, headers: CORS });
+      }
+
+      try {
+        // Query last 24 hours of events
+        const since = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
+        const eventsRes = await fetch(
+          `${supabaseUrl}/rest/v1/guard_brasil_events?timestamp=gte.${encodeURIComponent(since)}&select=*`,
+          {
+            headers: {
+              apikey: supabaseKey,
+              Authorization: `Bearer ${supabaseKey}`,
+            },
+          }
+        );
+
+        if (!eventsRes.ok) throw new Error(`Supabase error: ${eventsRes.status}`);
+        const events = (await eventsRes.json()) as Array<{
+          cost_usd?: number;
+          metadata?: Record<string, any>;
+          timestamp?: string;
+        }>;
+
+        // Group by agent_id and tool_name
+        const byAgent = new Map<string, number>();
+        const byTool = new Map<string, number>();
+        let totalCost = 0;
+        const hourly = new Map<string, number>();
+
+        for (const evt of events) {
+          const cost = evt.cost_usd || 0;
+          totalCost += cost;
+
+          const agent = evt.metadata?.agentId || 'unknown';
+          byAgent.set(agent, (byAgent.get(agent) || 0) + cost);
+
+          const tool = evt.metadata?.toolName || 'api_call';
+          byTool.set(tool, (byTool.get(tool) || 0) + cost);
+
+          // Hourly breakdown
+          if (evt.timestamp) {
+            const hour = new Date(evt.timestamp).toISOString().slice(0, 13) + ':00:00Z';
+            hourly.set(hour, (hourly.get(hour) || 0) + cost);
+          }
+        }
+
+        return Response.json(
+          {
+            period: '24h',
+            total_cost_usd: Number(totalCost.toFixed(8)),
+            events_count: events.length,
+            by_agent: Object.fromEntries(byAgent),
+            by_tool: Object.fromEntries(byTool),
+            hourly_breakdown: Object.fromEntries(hourly),
+          },
+          { headers: CORS }
+        );
+      } catch (err: any) {
+        console.error('Cost dashboard error:', err);
+        return Response.json(
+          { error: 'Failed to fetch cost data', detail: err.message },
+          { status: 500, headers: CORS }
+        );
+      }
+    }
+
     return Response.json({
       error: 'Not found.',
-      endpoints: { health: 'GET /health', keys: 'POST /v1/keys', inspect: 'POST /v1/inspect', checkout: 'POST /v1/stripe/checkout', webhook: 'POST /v1/stripe/webhook' },
+      endpoints: { health: 'GET /health', keys: 'POST /v1/keys', inspect: 'POST /v1/inspect', checkout: 'POST /v1/stripe/checkout', webhook: 'POST /v1/stripe/webhook', 'cost-dashboard': 'GET /api/admin/cost-dashboard' },
     }, { status: 404, headers: CORS });
   },
 });
