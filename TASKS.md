@@ -249,6 +249,37 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [ ] GH-049: Gem Hunter auto-integration decision (Camada 3) — if score > 85 and passes structural validation, auto-create branch + adapter + PR title. Save to Hindsight as "contracted gem"
 - [ ] GH-050: Gem Hunter → world-model signal ingestion — gems scoring > 80 auto-append to world-model.ts signals array (synergy with INTEL-005)
 
+**Gem Hunter v6.0 — Papers Without Code + Standalone Product (2026-04-02):**
+**Master Plan:** `docs/gem-hunter/GEM_HUNTER_v6_MASTER_PLAN.md`
+**Budget:** ~$15/month (free tiers + Gemini Flash)
+**Decisions:** B (scaffold output), B (full auto trends), D (API→Bot→Dashboard→NPM), % pricing
+
+*Week 1 — Foundation:*
+- [ ] GH-051: Papers Without Code pipeline — arXiv `no_code` filter + PWC `no_implementations` + abstract scoring via free LLM
+- [ ] GH-052: KOL list curada — 50+ X.com accounts for trend monitoring (needs user input)
+- [ ] GH-053: Evolution Engine auto-integrate — trending keywords auto-update DEFAULT_QUERIES next run
+- [ ] GH-054: Multi-LLM fallback chain — Qwen(free) → OpenRouter(free) → Gemini Flash($) → Claude($$)
+- [ ] GH-055: Telegram alerts — gems score > 80 → real-time notification to EGOS channel (= GH-035)
+- [ ] CLEAN-001: Remove outdated gem-hunter reports, unify SSOT locations, update deprecated refs
+
+*Week 2 — Intelligence Layer:*
+- [ ] GH-056: Multi-stage paper reading — Stage 1: abstract filter → Stage 2: intro+methodology → Stage 3: full → Stage 4: scaffold generation (.ts stubs + .md spec)
+- [ ] GH-057: Context awareness — read git log + TASKS.md + X.com trends → auto-adjust queries
+- [ ] GH-059: Cost budgeting — token counter + cost projection before LLM calls + daily budget cap
+- [ ] GH-060: Structural validation — check tree for README, tests/, benchmarks/, arXiv ref (= GH-048 expanded)
+
+*Week 3-4 — Monetization:*
+- [ ] GH-058: Standalone API — POST /v1/hunt + GET /v1/findings + GET /v1/papers + API key auth
+- [ ] BIZ-001: Unified monetization SSOT — consolidate 15+ scattered docs into one strategy
+- [ ] GH-065: Percentage-based pricing — % of LLM cost + margin, Stripe + Pix + x402
+
+*Month 2-3 — Product Scale:*
+- [ ] GH-061: Dashboard web — gemhunter.egos.ia.br (findings feed, paper browser, trends, alerts config)
+- [ ] GH-062: NPM package — @egosbr/gem-hunter CLI standalone
+- [ ] GH-063: x402 pay-per-call — M2M agent payments via x402 protocol
+- [ ] GH-064: Multi-channel distribution — WhatsApp (Evolution API) + Discord bot + X.com auto-threads
+- [ ] GH-066: Paper → Code generator — LLM reads full paper, generates complete scaffold implementation
+
 **P2 — Advanced Studies:**
 - [ ] GH-020: EGOS ↔ Mem0 — persistent agent memory layer
 - [ ] GH-021: EGOS ↔ Temporal TS SDK — durable workflow engine
