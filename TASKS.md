@@ -489,6 +489,10 @@ Modern monetization: usage-based API + MCP tool + chatbot. Stripe-unified (card 
 - [ ] CTX-001: Auto-context recovery — add context-loader hook to /start (load latest handoff + MEMORY.md summary)
 - [ ] TEST-001: Integration test suite — Guard Brasil + Eagle Eye + Gem Hunter API (simulate real user actions)
 
+**P1 — Architecture / Agents:**
+- [ ] HERMES-001: Wire Hermes-3 (NousResearch/Hermes-3-Llama-3.1-70B via OpenRouter, free tier) as BRAID GRD executor for mechanical nodes — set `OPENROUTER_API_KEY` in VPS .env, add `hermes-3` case to `llm-provider.ts` router, test with gem-hunter summarization node. Estimate: 2h. Expected: 30-40% cost reduction on mechanical tasks.
+- [ ] OPENCLAW-001: Register Guard Brasil as first OpenClaw MCP skill — precondition: Guard Brasil MCP interface built (EGOS-175+), 1 paying customer. Phase 2-3 only — do NOT implement before Guard Brasil MCP is live.
+
 **P1 — Infrastructure:**
 - [ ] DASH-001: Mission Control Dashboard — React + Supabase Realtime (SSOTs, agents, tasks, revenue tracker)
 - [ ] CTX-002: Auto-index codebase-memory-mcp on /start (graph is cold, needs warm-up)
