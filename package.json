@@ -47,6 +47,9 @@
     "qa:compose": "python scripts/qa/compose_qa_envelope.py --guardrail /tmp/qa-guardrail.txt --ssot /tmp/qa-ssot-check.md --evidence /tmp/qa-evidence.md --output /tmp/qa-envelope.json",
     "test": "bun test packages/shared/src/__tests__/",
     "activation:check": "bun scripts/activation-check.ts",
+    "start": "bun scripts/start-v6.ts",
+    "start:full": "bun scripts/start-v6.ts --full",
+    "start:json": "bun scripts/start-v6.ts --json",
     "doctor": "bun scripts/doctor.ts",
     "doctor:codex": "sh scripts/codex-doctor.sh",
     "doctor:fix": "bun scripts/doctor.ts --fix"
