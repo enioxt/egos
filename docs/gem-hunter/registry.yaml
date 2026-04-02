@@ -42,10 +42,15 @@ repos:
     url: https://github.com/cline/cline
     categories: [coding_surface, agent_runtime]
     priority: P1
-    status: queued
+    status: completed
+    scored: 72.8
     license: Apache-2.0
     language: typescript
     notes: "IDE agent autonomy, human-in-the-loop UX, tool permission flow"
+    studied_date: 2026-04-02
+    key_transplants: [permission-flow-ux, model-gateway-abstraction, ast-aware-context, checkpoint-rollback, error-recovery]
+    pair_report: "docs/gem-hunter/pairs/egos__cline/"
+    recommendation: "Tier 2 — transplant permission flow UX + model gateway for Q2"
 
   - id: openhands
     name: OpenHands
