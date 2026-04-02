@@ -65,6 +65,25 @@ def classify_output(output: str, exit_code: int) -> dict[str, object]:
     }
 
 
+def recommended_actions(classification: str) -> list[str]:
+    if classification == 'env_drift':
+        return [
+            'Run `bun run governance:sync:local` in the environment and re-run `bun run ssot:check`.',
+            'If CI/home is ephemeral, keep diagnostic as warning and rely on repo-local checks.',
+        ]
+    if classification == 'repo_drift':
+        return [
+            'Inspect modified/deleted SSOT files in git diff and reconcile canonical source before merge.',
+            'Run `bun run governance:check` and `bun run ssot:check` after reconciliation.',
+        ]
+    if classification == 'unknown_fail':
+        return [
+            'Inspect raw output excerpt and command stderr for parser/runner issues.',
+            'Re-run with verbose shell tracing in CI and open an incident if pattern recurs.',
+        ]
+    return ['No action required.']
+
+
 def build_report(command: str, result: dict[str, object], output: str) -> str:
     lines = [
         '# SSOT Check Diagnostic',
@@ -74,6 +93,9 @@ def build_report(command: str, result: dict[str, object], output: str) -> str:
         f"- status: {result['status']}",
         f"- counters: NEW={result['new']} MOD={result['mod']} DEL={result['del']}",
         f"- hint: {result['hint']}",
+        '',
+        '## Ação recomendada',
+        *[f'- {item}' for item in recommended_actions(str(result['classification']))],
         '',
         '## Raw excerpt',
         '```text',

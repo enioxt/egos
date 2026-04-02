@@ -163,3 +163,5 @@ Isso facilita revisão assíncrona sem abrir artifacts manualmente em todo caso.
 ```bash
 bun run ssot:diagnostic
 ```
+
+`/tmp/qa-ssot-check.md` agora inclui seção **Ação recomendada** automática por classificação (`env_drift`, `repo_drift`, `unknown_fail`).

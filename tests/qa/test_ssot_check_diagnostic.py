@@ -28,3 +28,11 @@ class SsotCheckDiagnosticTests(TestCase):
         data = module.classify_output(output, 1)
         self.assertEqual(data['classification'], 'repo_drift')
         self.assertEqual(data['exit_code'], 6)
+
+
+    def test_recommended_actions_by_classification(self):
+        env_actions = module.recommended_actions('env_drift')
+        repo_actions = module.recommended_actions('repo_drift')
+
+        self.assertTrue(any('governance:sync:local' in item for item in env_actions))
+        self.assertTrue(any('governance:check' in item for item in repo_actions))
