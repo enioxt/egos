@@ -1,5 +1,16 @@
 # SSOT_REGISTRY.md — EGOS Cross-Repo Registry
 
+<!-- llmrefs:start -->
+## LLM Reference Signature
+
+- **Role:** cross-repo SSOT ownership and freshness contract index
+- **Summary:** Defines canonical surfaces (`kernel_canonical`, `leaf_local`, `shared_home`, `conflicted`) and who owns each truth source.
+- **Read next:**
+  - `TASKS.md` — open resolution tasks
+  - `docs/CAPABILITY_REGISTRY.md` — capability adoption matrix
+  - `.agents/workflows/start-workflow.md` — activation and governance flow
+<!-- llmrefs:end -->
+
 > **VERSION:** 2.0.0 | **UPDATED:** 2026-03-30
 > **PURPOSE:** canonical registry for all SSOT surfaces across the EGOS workspace.
 > **TASK:** EGOS-083 (created), EGOS-085 (expanded)

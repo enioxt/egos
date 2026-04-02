@@ -11,10 +11,10 @@ from pathlib import Path
 
 
 def parse_event(line: str):
-    if '] ' not in line:
-        return None
-    _, payload = line.split('] ', 1)
-    payload = payload.strip()
+    payload = line.strip()
+    if '] ' in line:
+        _, payload = line.split('] ', 1)
+        payload = payload.strip()
     if not payload.startswith('{'):
         return None
     try:

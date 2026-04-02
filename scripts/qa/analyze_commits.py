@@ -34,7 +34,10 @@ class QaStats:
 
 
 def _run_git(*args: str) -> str:
-    return subprocess.check_output(["git", *args], text=True)
+    try:
+        return subprocess.check_output(["git", *args], text=True)
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return ""
 
 
 def _commit_type(subject: str) -> str:

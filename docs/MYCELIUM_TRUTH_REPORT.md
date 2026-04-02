@@ -1,5 +1,16 @@
 # MYCELIUM_TRUTH_REPORT.md — EGOS-070
 
+<!-- llmrefs:start -->
+## LLM Reference Signature
+
+- **Role:** evidence-first truth audit for Mycelium capability claims
+- **Summary:** Distinguishes implemented vs planned Mycelium surfaces and documents claim repair actions.
+- **Read next:**
+  - `docs/concepts/mycelium/MYCELIUM_OVERVIEW.md` — conceptual model
+  - `docs/SSOT_REGISTRY.md` — canonical ownership contracts
+  - `TASKS.md` — follow-up execution items
+<!-- llmrefs:end -->
+
 > **Auditor:** EGOS Systems Auditor
 > **Date:** 2026-03-30
 > **EGOS Task:** EGOS-070 — Mycelium truth repair

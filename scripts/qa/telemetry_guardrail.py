@@ -27,16 +27,42 @@ def main() -> int:
     parser.add_argument('--output', default='', help='Optional output summary file')
     args = parser.parse_args()
 
+    def write_summary(status: str, monthly: float, over5s: int, details: str = '') -> None:
+        if not args.output:
+            return
+        out = Path(args.output)
+        out.parent.mkdir(parents=True, exist_ok=True)
+        payload = [
+            f'status={status}',
+            f'monthly_usd={monthly:.2f}',
+            f'slow_events={over5s}',
+            f'max_monthly_usd={args.max_monthly_usd:.2f}',
+            f'max_over5s={args.max_over5s}',
+        ]
+        if details:
+            payload.append(f'details={details}')
+        out.write_text('\n'.join(payload) + '\n')
+
     dashboard = load_module('scripts/qa/telemetry_dashboard.py', 'telemetry_dashboard_mod')
     forecast = load_module('scripts/qa/telemetry_forecast.py', 'telemetry_forecast_mod')
 
     raw = Path(args.input).read_text().splitlines()
     events = [e for e in (dashboard.parse_line(line) for line in raw) if e is not None]
     if not events:
-        print('GUARDRAIL_FAIL: no telemetry events parsed')
+        status = 'GUARDRAIL_FAIL'
+        details = 'no telemetry events parsed'
+        print(f'{status}: {details}')
+        write_summary(status, 0.0, 0, details)
         return 2
 
     forecast_events = [e for e in (forecast.parse_event(line) for line in raw) if e is not None]
+    if not forecast_events:
+        status = 'GUARDRAIL_FAIL'
+        details = 'no forecastable telemetry events parsed (missing timestamps)'
+        print(f'{status}: {details}')
+        write_summary(status, 0.0, 0, details)
+        return 2
+
     forecast_metrics = forecast.compute_metrics(forecast_events)
 
     over5s = sum(
@@ -61,19 +87,7 @@ def main() -> int:
 
     line = f'{status}: {message}'
     print(line)
-
-    if args.output:
-        out = Path(args.output)
-        out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(
-            '\n'.join([
-                f'status={status}',
-                f'monthly_usd={monthly:.2f}',
-                f'slow_events={over5s}',
-                f'max_monthly_usd={args.max_monthly_usd:.2f}',
-                f'max_over5s={args.max_over5s}',
-            ]) + '\n'
-        )
+    write_summary(status, monthly, over5s, message)
 
     return code
 

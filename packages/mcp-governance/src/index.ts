@@ -147,7 +147,7 @@ server.registerTool(
         .describe("Filter agents by kind (tool | monitor | router | daemon)"),
     }),
   },
-  async ({ filter_kind }) => {
+  async ({ filter_kind }: { filter_kind?: string }) => {
     const raw = readFileSafe(AGENTS_JSON);
     if (!raw) {
       return {
