@@ -146,6 +146,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] GOV-026: Envelope validator com checagem de coerência (`--strict-coherence`) entre guardrail e telemetry gate ✅ 2026-04-02
 - [x] GOV-027: Envelope validator com `coherence-mode` (`off|warn|fail`) para rollout progressivo sem ruído excessivo ✅ 2026-04-02
 - [x] GOV-028: Allowlist de artifacts versionados (`artifact_manifest.json`) aplicada no validator para conter proliferação de arquivos ✅ 2026-04-02
+- [x] GOV-029: CI upload de artifacts guiado por manifest (single source) para evitar divergência de paths ✅ 2026-04-02
 
 > **Archived:** All session summaries, ARCH project, benchmark plans, Grok intake → `docs/knowledge/TASKS_ARCHIVE_2026.md`
 

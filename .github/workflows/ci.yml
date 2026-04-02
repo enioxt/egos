@@ -115,18 +115,28 @@ jobs:
             exit 1
           fi
 
+      - name: Build QA artifact list from manifest
+        if: always()
+        id: qa_artifacts
+        run: |
+          python - <<'PY2'
+          import json
+          from pathlib import Path
+
+          manifest = json.loads(Path('scripts/qa/artifact_manifest.json').read_text())
+          items = [str(x) for x in manifest.get('versioned_artifacts', [])]
+          with open('/tmp/qa-artifact-paths.txt', 'w', encoding='utf-8') as f:
+              f.write('\n'.join(items) + '\n')
+          PY2
+          {
+            echo 'paths<<EOF'
+            cat /tmp/qa-artifact-paths.txt
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+
       - name: Upload QA artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: qa-observability-artifacts
-          path: |
-            /tmp/qa-commit-audit.md
-            /tmp/qa-telemetry-dashboard.md
-            /tmp/qa-telemetry-forecast.md
-            /tmp/qa-pending-tasks.md
-            /tmp/qa-stalled-tasks.md
-            /tmp/qa-guardrail.txt
-            /tmp/qa-evidence.md
-            /tmp/qa-ssot-check.md
-            /tmp/qa-envelope.json
+          path: ${{ steps.qa_artifacts.outputs.paths }}

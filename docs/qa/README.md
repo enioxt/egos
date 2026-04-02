@@ -208,3 +208,5 @@ python scripts/qa/validate_qa_envelope.py --input /tmp/qa-envelope.json --cohere
 ```
 
 Lista restrita de artifacts versionados: `scripts/qa/artifact_manifest.json` (envelope inválido se `sources` apontar para paths fora da allowlist).
+
+No CI, o upload de artifacts agora usa a lista do manifest (`artifact_manifest.json`) para manter conjunto restrito e evitar drift de paths no workflow.
