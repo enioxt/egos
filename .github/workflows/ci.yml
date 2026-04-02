@@ -78,3 +78,13 @@ jobs:
 
       - name: Telemetry unit tests (Bun)
         run: bun test packages/shared/src/__tests__/telemetry.test.ts
+
+      - name: Upload QA artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-observability-artifacts
+          path: |
+            /tmp/qa-commit-audit.md
+            /tmp/qa-telemetry-dashboard.md
+            /tmp/qa-telemetry-forecast.md

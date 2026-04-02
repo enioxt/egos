@@ -250,6 +250,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
   - Refresh: 30s (modo operacional)
   - [x] EGOS-TELEM-004A: dashboard operacional inicial via logs (`scripts/qa/telemetry_dashboard.py`) ✅ 2026-04-01
   - [x] EGOS-TELEM-004B: smoke de dashboard adicionado ao CI com fixture (`tests/qa/fixtures/sample_telemetry.txt`) ✅ 2026-04-01
+  - [x] EGOS-TELEM-004C: artefatos QA publicados no CI (`qa-observability-artifacts`) ✅ 2026-04-01
 
 - [ ] EGOS-TELEM-005: Historical cost analysis + forecasting — 3d
   - Analyze: tendência 7/30 dias
@@ -257,6 +258,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
   - [x] EGOS-TELEM-005A: forecast inicial em dashboard por logs (run-rate diário/mensal) ✅ 2026-04-01
   - [x] EGOS-TELEM-005B: análise histórica por série diária + forecast 7d/30d (`scripts/qa/telemetry_forecast.py`) ✅ 2026-04-01
   - [x] EGOS-TELEM-005C: smoke de forecast adicionado ao CI com fixture ✅ 2026-04-01
+  - [x] EGOS-TELEM-005D: forecast e dashboard salvos como artifact de pipeline para análise assíncrona ✅ 2026-04-01
 
 ---
 

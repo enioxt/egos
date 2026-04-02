@@ -79,3 +79,10 @@ Smoke fixture (CI/local):
 ```bash
 python scripts/qa/telemetry_forecast.py --input tests/qa/fixtures/sample_telemetry.txt --output /tmp/qa-telemetry-forecast.md
 ```
+
+## Artefatos de CI
+
+- Workflow publica `qa-observability-artifacts` com:
+  - `/tmp/qa-commit-audit.md`
+  - `/tmp/qa-telemetry-dashboard.md`
+  - `/tmp/qa-telemetry-forecast.md`
