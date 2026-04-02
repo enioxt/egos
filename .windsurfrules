@@ -18,9 +18,8 @@ type: "framework-core + orchestration-kernel + agent-runtime"
 ## PRIMARY OBJECTIVE
 
 > **Rules govern agents. Agents enforce rules. Community evolves rules.**
-> **NEVER write manual logic if a Tool (MCP) or Agent exists.**
-> **CHALLENGE before EXECUTE. Process before code.**
-> **DRY-RUN FIRST. Always.**
+> **CHALLENGE before EXECUTE. Process before code. DRY-RUN FIRST.**
+> **P0: DIALECTIC QUESTIONING — MODERATE+ tasks: present Options A/B/C with tradeoffs, ask 3+ questions, get user alignment BEFORE executing.**
 
 ## ORCHESTRATION PROTOCOL (MANDATORY)
 

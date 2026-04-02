@@ -40,6 +40,7 @@
 - Atomize criteria into explicit, testable bullets.
 - Never call something live without runtime evidence.
 - Never call something missing before searching for it.
+- **P0 CONSTITUTIONAL:** Present dialectic questions (Options A/B/C with tradeoffs) before executing MODERATE+ tasks. Minimum 3 questions. User alignment required.
 
 ## Design & UI
 
