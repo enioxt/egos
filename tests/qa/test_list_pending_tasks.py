@@ -1,4 +1,5 @@
 import importlib.util
+import json
 import sys
 from pathlib import Path
 from unittest import TestCase
@@ -37,3 +38,14 @@ class ListPendingTasksTests(TestCase):
         self.assertIn('Total pending tasks: **2**', report)
         self.assertIn('| # | Section | Task ID | Task | Line |', report)
         self.assertIn('| 1 | Section A | A-002 | A-002: pending | 3 |', report)
+
+    def test_build_json_report_contains_totals_and_items(self):
+        items = [
+            {'section': 'Section A', 'line': 3, 'task_id': 'A-002', 'task': 'A-002: pending'},
+        ]
+        raw = module.build_json_report(items, 'TASKS.md')
+        payload = json.loads(raw)
+        self.assertEqual(payload['source'], 'TASKS.md')
+        self.assertEqual(payload['pending_total'], 1)
+        self.assertEqual(payload['pending_by_section']['Section A'], 1)
+        self.assertEqual(payload['items'][0]['task_id'], 'A-002')

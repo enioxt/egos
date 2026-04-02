@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import re
 from collections import defaultdict
 from pathlib import Path
@@ -68,16 +69,34 @@ def build_markdown_report(items: list[dict], source_file: str) -> str:
     return '\n'.join(lines)
 
 
+def build_json_report(items: list[dict], source_file: str) -> str:
+    by_section = defaultdict(int)
+    for item in items:
+        by_section[item['section']] += 1
+
+    payload = {
+        'source': source_file,
+        'pending_total': len(items),
+        'pending_by_section': dict(sorted(by_section.items(), key=lambda pair: (-pair[1], pair[0]))),
+        'items': items,
+    }
+    return json.dumps(payload, ensure_ascii=False, indent=2) + '\n'
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description='List all pending tasks from TASKS.md')
     parser.add_argument('--input', default='TASKS.md', help='Input TASKS markdown file')
     parser.add_argument('--output', default='', help='Optional output markdown file path')
+    parser.add_argument('--format', choices=['markdown', 'json'], default='markdown', help='Output format')
     args = parser.parse_args()
 
     source = Path(args.input)
     text = source.read_text()
     pending_items = parse_pending_tasks(text)
-    report = build_markdown_report(pending_items, str(source))
+    if args.format == 'json':
+        report = build_json_report(pending_items, str(source))
+    else:
+        report = build_markdown_report(pending_items, str(source))
 
     if args.output:
         out = Path(args.output)

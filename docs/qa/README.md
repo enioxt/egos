@@ -107,6 +107,12 @@ bun run qa:observability
 bun run qa:pending
 ```
 
+Formato JSON (integrações):
+
+```bash
+bun run qa:pending:json
+```
+
 ## Relatório de frentes paradas
 
 ```bash

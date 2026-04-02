@@ -36,6 +36,7 @@
     "ssot:link:exec": "sh scripts/link-ssot-files.sh --exec",
     "qa:observability": "bash scripts/qa/run_observability_suite.sh",
     "qa:pending": "python scripts/qa/list_pending_tasks.py --input TASKS.md",
+    "qa:pending:json": "python scripts/qa/list_pending_tasks.py --input TASKS.md --format json",
     "qa:stalled": "python scripts/qa/stalled_tasks_report.py --input TASKS.md",
     "test": "bun test packages/shared/src/__tests__/",
     "activation:check": "bun scripts/activation-check.ts",
