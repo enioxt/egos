@@ -27,12 +27,15 @@
     "governance:sync:exec": "sh scripts/governance-sync.sh --exec --propagate",
     "governance:sync:local": "sh scripts/governance-sync.sh --exec --no-propagate",
     "governance:check": "sh scripts/governance-sync.sh --check",
+    "ssot:check": "sh scripts/governance-sync.sh --check",
     "integration:check": "bun scripts/integration-release-check.ts",
     "pr:pack": "bun scripts/pr-pack.ts",
     "pr:gate": "bun scripts/pr-gate.ts",
     "pr:audit": "bun scripts/pr-ecosystem-audit.ts",
     "ssot:link": "sh scripts/link-ssot-files.sh --dry",
     "ssot:link:exec": "sh scripts/link-ssot-files.sh --exec",
+    "qa:observability": "bash scripts/qa/run_observability_suite.sh",
+    "qa:pending": "python scripts/qa/list_pending_tasks.py --input TASKS.md",
     "test": "bun test packages/shared/src/__tests__/",
     "activation:check": "bun scripts/activation-check.ts",
     "doctor": "bun scripts/doctor.ts",
@@ -41,6 +44,7 @@
   },
   "devDependencies": {
     "@types/bun": "^1.2.0",
+    "@types/node": "^22.15.0",
     "eslint": "^9.0.0",
     "husky": "^9.0.0",
     "typescript": "^5.7.0"
