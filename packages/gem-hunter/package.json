@@ -1,0 +1,36 @@
+{
+  "name": "@egosbr/gem-hunter",
+  "version": "6.0.0",
+  "description": "Multi-source gem discovery engine for AI tools, research papers, and frameworks",
+  "type": "module",
+  "bin": {
+    "gem-hunter": "./bin/gem-hunter.js"
+  },
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "bun build src/index.ts --outdir dist --target node",
+    "build:bin": "bun build bin/gem-hunter.ts --outfile bin/gem-hunter.js --target node",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "ai", "gem-hunter", "research", "papers", "discovery", "egos", "brazil"
+  ],
+  "author": "enioxt",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "bun": ">=1.0.0"
+  },
+  "peerDependencies": {
+    "typescript": ">=5.0.0"
+  }
+}
