@@ -1,5 +1,16 @@
 # OPERATOR MAP — EGOS Control Plane
 
+<!-- llmrefs:start -->
+## LLM Reference Signature
+
+- **Role:** live control-plane snapshot for services, revenue path, and active agents
+- **Summary:** Fast operational map of what is live now, ownership, and immediate operator actions.
+- **Read next:**
+  - `TASKS.md` — execution backlog and priorities
+  - `docs/SYSTEM_MAP.md` — architecture view
+  - `docs/SSOT_REGISTRY.md` — truth ownership contracts
+<!-- llmrefs:end -->
+
 > **Version:** 1.0.0 | **Updated:** 2026-03-30 | **EGOS-102**
 > Scannable in 10 seconds. No prose. Facts only.
 

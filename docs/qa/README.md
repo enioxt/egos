@@ -7,6 +7,9 @@ Relatórios:
 - `CODEX_PREFERENCES_VALIDATION_2026-04-01.md`
 - `CODEX_GLOBAL_PREFERENCES_V2.md`
 - `CODEX_GLOBAL_PREFERENCES_V3.md`
+- `PENDING_TASKS_SNAPSHOT_2026-04-02.md`
+- `STOPPED_FRONTS_REPORT_2026-04-02.md`
+- `SYSTEM_PANORAMA_2026-04-02.md`
 - `TELEMETRY_ASYNC_COMMENT_TEMPLATE.md`
 
 ## Gerar auditoria rápida dos últimos commits
@@ -88,11 +91,37 @@ python scripts/qa/telemetry_forecast.py --input tests/qa/fixtures/sample_telemet
   - `/tmp/qa-commit-audit.md`
   - `/tmp/qa-telemetry-dashboard.md`
   - `/tmp/qa-telemetry-forecast.md`
+  - `/tmp/qa-pending-tasks.md`
+  - `/tmp/qa-stalled-tasks.md`
+  - `/tmp/qa-guardrail.txt`
+  - `/tmp/qa-evidence.md`
+  - `/tmp/qa-ssot-check.md`
+  - `/tmp/qa-envelope.json`
 
 ## Suite única (local/CI)
 
 ```bash
 bun run qa:observability
+```
+
+> A suíte também gera diagnóstico SSOT em `/tmp/qa-ssot-check.md` via `ssot_check_diagnostic.py`.
+
+## Inventário rápido de pendências
+
+```bash
+bun run qa:pending
+```
+
+Formato JSON (integrações):
+
+```bash
+bun run qa:pending:json
+```
+
+## Relatório de frentes paradas
+
+```bash
+bun run qa:stalled
 ```
 
 ## Guardrail de risco (latência/custo)
@@ -105,4 +134,51 @@ Thresholds por ambiente (opcional):
 
 ```bash
 QA_MAX_MONTHLY_USD=50 QA_MAX_OVER5S=5 bun run qa:observability
+```
+
+> A suíte também gera diagnóstico SSOT em `/tmp/qa-ssot-check.md` via `ssot_check_diagnostic.py`.
+
+## Evidence summary (telemetry gate)
+
+```bash
+bun run qa:evidence
+```
+
+Gate estrito (falha se telemetry minimum gate não passar):
+
+```bash
+bun run qa:evidence:gate
+```
+
+## CI anotação amigável de falha
+
+Quando `qa:observability` falha no CI, o workflow publica no **Job Summary**:
+
+- conteúdo de `/tmp/qa-evidence.md` (quando disponível)
+- hint de correção com comandos locais (`qa:observability` e `qa:evidence:gate`)
+
+Isso facilita revisão assíncrona sem abrir artifacts manualmente em todo caso.
+
+## SSOT diagnostic (env drift vs repo drift)
+
+```bash
+bun run ssot:diagnostic
+```
+
+`/tmp/qa-ssot-check.md` agora inclui seção **Ação recomendada** automática por classificação (`env_drift`, `repo_drift`, `unknown_fail`).
+
+As ações recomendadas no SSOT diagnostic agora vêm com **prioridade, owner sugerido e comando copiável**.
+
+Melhoria contínua anti-regressão: usar `bun run ssot:diagnostic` no fluxo local antes de commit (hook global `~/.egos/hooks/pre-commit`) para detectar `mixed_drift` cedo, sem alterar zonas congeladas do kernel.
+
+Formato JSON (integração):
+
+```bash
+bun run ssot:diagnostic:json
+```
+
+Envelope único (interconexão para automações):
+
+```bash
+bun run qa:compose
 ```
