@@ -102,6 +102,8 @@ interface GemResult {
   rawUrl?: string; // Optional raw URL for fetching exact content
   ssotAssetPath?: string; // Local path to the extracted Lego block markdown
   legoBlockType?: string; // Assigned block type
+  structureBonus?: number; // GH-060: validated structure score bonus (0-25)
+  abstractScore?: number;  // GH-056: LLM abstract triage score (0-100)
 }
 
 interface GemPreferences {
@@ -1133,6 +1135,19 @@ async function main() {
       }
     } catch {}
   }
+  // GH-057: Inject context-aware keywords from git log + TASKS.md
+  const contextKeywords = loadContextSignals();
+  if (contextKeywords.length > 0) {
+    dynamicQueries.push({
+      topic: "Context-Aware: Current Sprint",
+      keywords: [contextKeywords.slice(0, 5).join(" "), contextKeywords.slice(5, 10).join(" ")].filter(Boolean),
+      sources: ["github", "arxiv"],
+      category: "context-auto",
+      track: "core",
+    });
+    console.log(`\n🎯 Context: Injected sprint keywords — ${contextKeywords.slice(0, 5).join(", ")}`);
+  }
+
   const ALL_QUERIES = [...DEFAULT_QUERIES, ...dynamicQueries];
 
   const queries = ALL_QUERIES.filter((q) => {
@@ -1324,6 +1339,22 @@ async function main() {
     console.log(`\n⚠️ Missing OPENROUTER_API_KEY, skipping AI analysis.`);
   }
 
+  // GH-060: Structural validation for top GitHub gems
+  const githubTopGems = unique
+    .filter(g => ["github", "github-code"].includes(g.source))
+    .sort((a, b) => scoreGem(b) - scoreGem(a))
+    .slice(0, 15);
+  if (githubTopGems.length > 0) {
+    console.log(`\n🏗️ GH-060: Validating structure for top ${githubTopGems.length} GitHub gems...`);
+    await Promise.allSettled(githubTopGems.map(g => validateGemStructure(g)));
+  }
+
+  // GH-056: Multi-stage paper pipeline (LLM triage + scaffold)
+  const papersThisRun = unique.filter(g => g.source === "papers-without-code" || g.category === "papers-without-code");
+  if (papersThisRun.length > 0 && OPENROUTER_API_KEY) {
+    await runPaperPipeline(papersThisRun, timestamp);
+  }
+
   // Atomization process (Lego blocks)
   if (doDeepAtomize && OPENROUTER_API_KEY && unique.length > 0) {
     console.log(`\n🧩 Extracting SSOT Lego assets (Atomization)...`);
@@ -1468,6 +1499,12 @@ function scoreGem(gem: GemResult): number {
   if (gem.category === 'papers-without-code' || gem.name.startsWith('[NO CODE]')) {
     score += 20;
   }
+
+  // GH-060: Structure validation bonus (set by validateGemStructure enrichment pass)
+  if (gem.structureBonus) score += gem.structureBonus;
+
+  // GH-056: Abstract triage score bonus (set by runPaperPipeline LLM pass)
+  if (gem.abstractScore && gem.abstractScore >= 70) score += Math.round((gem.abstractScore - 69) / 3);
 
   return Math.max(0, Math.round(score));
 }
@@ -1791,6 +1828,95 @@ function saveEvolutionState(results: GemResult[]): void {
   }
   writeFileSync(evolutionPath, JSON.stringify(state, null, 2));
   console.log(`\n🧬 Evolution state saved: ${evolutionPath}`);
+}
+
+// ── GH-060: Structural validation ──────────────────────────────────────────
+/** Checks GitHub repo file tree for quality signals: README, tests, benchmarks, docs */
+async function validateGemStructure(gem: GemResult): Promise<void> {
+  if (!["github", "github-code"].includes(gem.source)) return;
+  const match = gem.url.match(/github\.com\/([^/]+\/[^/]+)/);
+  if (!match) return;
+  const repo = match[1];
+  try {
+    const headers: Record<string, string> = { "User-Agent": "egos-gem-hunter/6.0" };
+    if (GITHUB_TOKEN) headers["Authorization"] = `token ${GITHUB_TOKEN}`;
+    const res = await fetch(`https://api.github.com/repos/${repo}/contents/`, { headers });
+    if (!res.ok) return;
+    const files = (await res.json()) as Array<{ name: string; type: string }>;
+    const names = files.map(f => f.name.toLowerCase());
+    let bonus = 0;
+    if (names.some(n => n.startsWith("readme"))) bonus += 5;
+    if (names.some(n => ["test", "tests", "__tests__", "spec", "specs"].includes(n))) bonus += 8;
+    if (names.some(n => ["benchmark", "benchmarks", "bench"].includes(n))) bonus += 7;
+    if (names.some(n => ["docs", "doc", "documentation"].includes(n))) bonus += 5;
+    gem.structureBonus = bonus;
+  } catch { /* silent — best-effort */ }
+}
+
+// ── GH-057: Context awareness ───────────────────────────────────────────────
+/** Reads git log + TASKS.md to extract context keywords for query injection */
+function loadContextSignals(): string[] {
+  const keywords: string[] = [];
+  try {
+    const { execSync } = require("child_process");
+    const log = execSync("git log --oneline -20", { cwd: ROOT, encoding: "utf-8" }) as string;
+    const logWords = log.split(/\s+/).filter((w: string) => w.length > 5 && /^[a-z]/i.test(w));
+    keywords.push(...logWords.slice(0, 10));
+  } catch { /* git not available */ }
+  try {
+    const tasks = readFileSync(join(ROOT, "TASKS.md"), "utf-8");
+    const inProgress = tasks.match(/\[ \] (GH|EAGLE|EGOS)-[^\n]+/g) || [];
+    const taskWords = inProgress.join(" ").split(/\s+/)
+      .filter(w => w.length > 4 && /^[a-zA-Z]/.test(w) && !["with","from","that","this","have","will"].includes(w.toLowerCase()));
+    keywords.push(...taskWords.slice(0, 20));
+  } catch { /* TASKS.md unreadable */ }
+  return [...new Set(keywords)].slice(0, 15);
+}
+
+// ── GH-056: Multi-stage paper pipeline ─────────────────────────────────────
+/** Stages 2-4: LLM triage → deep read → scaffold for papers-without-code gems */
+async function runPaperPipeline(papers: GemResult[], date: string): Promise<void> {
+  if (papers.length === 0) return;
+  console.log(`\n📄 Paper Pipeline: ${papers.length} paper(s) — LLM triage + scaffold...`);
+
+  // Stage 2: LLM abstract triage — score 0-100 for EGOS relevance
+  for (const paper of papers.slice(0, 8)) {
+    try {
+      const prompt = `Score this research paper abstract for relevance to an EGOS multi-agent TypeScript platform that does: orchestration, governance-as-code, crypto gem hunting, and Brazilian compliance. Reply ONLY with a JSON object: {"score": 0-100, "reason": "one sentence"}.\n\nTitle: ${paper.name}\nAbstract: ${paper.description.slice(0, 400)}`;
+      const res = await callAI({ userMessage: prompt, channelId: "gem-hunter", userId: "gem-hunter", userName: "GemHunter", platform: "discord", openrouterApiKey: OPENROUTER_API_KEY });
+      const jsonMatch = res.reply.match(/\{[^}]+\}/);
+      if (jsonMatch) {
+        const parsed = JSON.parse(jsonMatch[0]);
+        paper.abstractScore = Number(parsed.score) || 0;
+        console.log(`   S2 ${paper.abstractScore}/100 — ${paper.name.slice(0, 60)}`);
+      }
+    } catch { /* skip if LLM unavailable */ }
+  }
+
+  // Stage 4: Scaffold top-3 papers with abstractScore >= 60
+  const scaffoldCandidates = papers.filter(p => (p.abstractScore || 0) >= 60).slice(0, 3);
+  if (scaffoldCandidates.length === 0) return;
+
+  const scaffoldsDir = join(REPORTS_DIR, "scaffolds");
+  if (!existsSync(scaffoldsDir)) mkdirSync(scaffoldsDir, { recursive: true });
+
+  for (const paper of scaffoldCandidates) {
+    const arxivId = paper.description.match(/arxiv:([^\]]+)/)?.[1] || "";
+    const safeName = paper.name.replace(/\[NO CODE\]\s*/i, "").replace(/[^a-z0-9]/gi, "-").toLowerCase().slice(0, 50);
+    const tsPath = join(scaffoldsDir, `${safeName}-${date}.ts`);
+    const mdPath = join(scaffoldsDir, `${safeName}-${date}.md`);
+    if (existsSync(tsPath)) continue; // Skip if already scaffolded
+
+    try {
+      const prompt = `Based on this research paper, generate a TypeScript skeleton with 1-2 exported functions + types that could implement the core idea. Keep it under 50 lines with TODO comments.\n\nTitle: ${paper.name}\nAbstract: ${paper.description.slice(0, 400)}`;
+      const res = await callAI({ userMessage: prompt, channelId: "gem-hunter", userId: "gem-hunter", userName: "GemHunter", platform: "discord", openrouterApiKey: OPENROUTER_API_KEY });
+      const tsCode = res.reply.match(/```(?:typescript|ts)?\n([\s\S]+?)```/)?.[1] || res.reply;
+      writeFileSync(tsPath, `// GH-056 Auto-scaffold — ${paper.name}\n// Source: ${paper.url}\n// arXiv: ${arxivId}\n// Score: ${paper.abstractScore}/100\n\n${tsCode}`);
+      writeFileSync(mdPath, `# ${paper.name}\n\n**Source:** ${paper.url}\n**arXiv:** ${arxivId}\n**EGOS Score:** ${paper.abstractScore}/100\n\n## Abstract\n${paper.description.slice(0, 400)}\n\n## Scaffold\nSee \`${safeName}-${date}.ts\`\n\n## Next Steps\n- [ ] Review scaffold\n- [ ] Implement core algorithm\n- [ ] Add to TASKS.md if approved\n`);
+      paper.ssotAssetPath = `scaffolds/${safeName}-${date}.md`;
+      console.log(`   S4 Scaffolded → ${safeName}-${date}.ts`);
+    } catch { /* scaffold failed */ }
+  }
 }
 
 // ── GH-055: Telegram alert for hot gems ────────────────────────────────────
