@@ -44,5 +44,8 @@
     "test": "bun test src/guard.test.ts",
     "demo": "bun run src/demo.ts",
     "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.101.1"
   }
 }

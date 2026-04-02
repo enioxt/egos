@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-04-01T21:54:25.833Z",
-  "git_sha": "291e86f",
+  "generated_at": "2026-04-02T11:54:57.464Z",
+  "git_sha": "54921a4",
   "git_branch": "main",
-  "last_commit": "291e86f docs: mark EGOS-164 complete (Dashboard real data)",
+  "last_commit": "54921a4 feat(tests): add test suite from PR #10 (batch 3)",
   "tasks": {
-    "total": 127,
-    "done": 70,
+    "total": 142,
+    "done": 88,
     "p0_blockers": [],
     "p1_sprint": [
       {
@@ -16,38 +16,31 @@
         "priority": "P1"
       },
       {
-        "id": "EGOS-168",
-        "done": false,
-        "text": "- [ ] EGOS-168: llmrefs blocks on 10 more governance docs (manual, 1h)",
-        "section": "Remaining",
-        "priority": "P1"
-      },
-      {
         "id": "EGOS-169",
         "done": false,
         "text": "- [ ] EGOS-169: @aiready/pattern-detect pre-commit (duplicate detection)",
-        "section": "Remaining",
+        "section": "Telemetry & Observability (P1 — Critical Gap)",
         "priority": "P1"
       },
       {
         "id": "EGOS-173",
         "done": false,
         "text": "- [ ] EGOS-173: CRCDM hooks: llmrefs staleness + auto-heal rename",
-        "section": "Remaining",
+        "section": "Telemetry & Observability (P1 — Critical Gap)",
         "priority": "P1"
       },
       {
-        "id": "EAGLE-015",
+        "id": "EAGLE-019",
         "done": false,
-        "text": "- [ ] EAGLE-015: Dashboard filter UI for segmento/modalidade/porte taxonomy",
-        "section": "P1 — Production",
+        "text": "- [ ] EAGLE-019: Integrador partnership outreach — target DeLoit/Thoughtworks/regional partners, pitch EGOS as subcontra",
+        "section": "P4 — Government Licitações (DEPRIORITIZED 2026-04-02 — too slow, focus on API-first)",
         "priority": "P1"
       },
       {
-        "id": "EAGLE-016",
+        "id": "EAGLE-020",
         "done": false,
-        "text": "- [ ] EAGLE-016: Sync 84 territories to Supabase (seed script)",
-        "section": "P1 — Production",
+        "text": "- [ ] EAGLE-020: R$250k proposal submission (Sistema de Gestão de Licitações) — deadline 2026-04-29. Proposal drafted (P",
+        "section": "P4 — Government Licitações (DEPRIORITIZED 2026-04-02 — too slow, focus on API-first)",
         "priority": "P1"
       },
       {
@@ -263,23 +256,9 @@
         "priority": "P2"
       },
       {
-        "id": "EAGLE-010",
-        "done": false,
-        "text": "- [ ] EAGLE-010: Customer onboarding flow + dashboard customization",
-        "section": "P2 — Revenue",
-        "priority": "P2"
-      },
-      {
         "id": "EAGLE-011",
         "done": false,
         "text": "- [ ] EAGLE-011: E2E tests (Playwright)",
-        "section": "P2 — Revenue",
-        "priority": "P2"
-      },
-      {
-        "id": "EGOS-170",
-        "done": false,
-        "text": "- [ ] EGOS-170: Guard Brasil Next.js web dashboard — Vercel deploy, real data from guard_brasil_events, usage charts",
         "section": "P2 — Revenue",
         "priority": "P2"
       },
@@ -544,8 +523,14 @@
       "date": "2026-04-01",
       "headline": "**Date:** 2026-04-01  ",
       "severity": "UNKNOWN"
+    },
+    {
+      "source": "gem-hunter",
+      "date": "2026-04-02",
+      "headline": "Latest gem scan: latest discovery",
+      "severity": "CLEAN"
     }
   ],
   "blockers": [],
-  "health_pct": 55
+  "health_pct": 62
 }
