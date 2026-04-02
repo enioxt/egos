@@ -246,7 +246,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [ ] GH-046: EGOS ↔ agent-scaling-laws (`jimmyjdejesus-cmyk/agent-scaling-laws`) — /study: ArchitectureSelector (87% accuracy), 5 coordination architectures, error amplification metrics (17.2× → 4.4×), arXiv 2512.08296
 - [ ] GH-047: ArchitectureSelector adapter — transplant to packages/shared/intelligence/architecture-selector.ts. Wire to BRAID GRD: decide centralized/decentralized/hybrid before spawning agents
 - [ ] GH-048: Gem Hunter structural validation (Camada 1) — check tree for README+arXiv, benchmarks/, tests/, ArchitectureSelector-like patterns. Score boost for repos with empirical test suites
-- [ ] GH-049: Gem Hunter auto-integration decision (Camada 3) — if score > 85 and passes structural validation, auto-create branch + adapter + PR title. Save to Hindsight as "contracted gem"
+- [x] GH-049: Auto-integration queue (Camada 3) — queueForAutoIntegration(): score≥85 + structureBonus≥5 → docs/gem-hunter/auto-queue.json (branchSuggestion, status: queued/reviewed/adopted/rejected) ✅ 2026-04-02
 - [x] GH-050: Gem Hunter → world-model signal ingestion — gem-signals.ts (appendGemSignal/getGemSignals), signals.json (max 50, LIFO), world-model.ts parseSignals() reads signals.json, score > 90 = CRITICAL ✅ 2026-04-02
 
 **Gem Hunter v6.0 — Papers Without Code + Standalone Product (2026-04-02):**
@@ -260,7 +260,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] GH-053: Evolution Engine auto-integrate — loads next-queries.json, injects suggestedQueries as category=evolution-auto each run ✅ 2026-04-02
 - [x] GH-054: Multi-LLM fallback chain — MODEL_CHAIN already in llm-provider.ts; gem-hunter uses chatWithLLM() via callAI() ✅ 2026-04-02
 - [x] GH-055: Telegram alerts — sendGemTelegramAlert() fired for top 5 gems ≥80; appendGemSignal() wired; uses TELEGRAM_ADMIN_CHAT_ID ✅ 2026-04-02
-- [ ] CLEAN-001: Remove outdated gem-hunter reports, unify SSOT locations, update deprecated refs
+- [x] CLEAN-001: egos-lab/gem-hunter.ts deprecated (header added, v5.0 stale); docs/gem-hunter/ clean; no timestamped reports ✅ 2026-04-02
 
 *Week 2 — Intelligence Layer:*
 - [x] GH-056: Multi-stage paper pipeline — LLM abstract triage (0-100) + scaffold gen (.ts + .md) in docs/gem-hunter/scaffolds/ ✅ 2026-04-02
@@ -271,14 +271,14 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 
 *Week 3-4 — Monetization:*
 - [x] GH-058: Standalone API — agents/api/gem-hunter-server.ts (port 3097): /v1/hunt, /v1/findings, /v1/papers, /v1/signals, /v1/kols, /v1/jobs/:id ✅ 2026-04-02
-- [ ] BIZ-001: Unified monetization SSOT — consolidate 15+ scattered docs into one strategy
-- [ ] GH-065: Percentage-based pricing — % of LLM cost + margin, Stripe + Pix + x402
+- [x] BIZ-001: docs/business/MONETIZATION_SSOT.md — 3 products, ICP, revenue targets, payment infra, 4 open decisions ✅ 2026-04-02
+- [x] GH-065: packages/shared/src/billing/pricing.ts — priceGemHuntRun, priceGuardBrasilCalls, checkCustomerBudget, buildStripeCheckoutUrl ✅ 2026-04-02
 
 *Month 2-3 — Product Scale:*
 - [ ] GH-061: Dashboard web — gemhunter.egos.ia.br (findings feed, paper browser, trends, alerts config)
-- [ ] GH-062: NPM package — @egosbr/gem-hunter CLI standalone
+- [x] GH-062: packages/gem-hunter/ — @egosbr/gem-hunter v6.0.0 (GemHunter client + CLI: hunt/findings/papers/signals/wait) ✅ 2026-04-02
 - [ ] GH-063: x402 pay-per-call — M2M agent payments via x402 protocol
-- [ ] GH-064: Multi-channel distribution — WhatsApp (Evolution API) + Discord bot + X.com auto-threads
+- [x] GH-064: Discord webhook alerts — sendGemDiscordAlert() rich embeds (score≥80, color-coded); DISCORD_WEBHOOK_URL env ✅ 2026-04-02
 - [ ] GH-066: Paper → Code generator — LLM reads full paper, generates complete scaffold implementation
 
 **P2 — Advanced Studies:**
