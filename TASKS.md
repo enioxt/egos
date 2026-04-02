@@ -215,6 +215,16 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] GH-038: Gem Hunter keyword update — BRAID/SERV/bounded-reasoning/OpenServ search tracks added to x-reply-bot.ts ✅ 2026-04-01
 - [x] GH-039: **X.com Reply Bot** — `scripts/x-reply-bot.ts` deployed to VPS cron `0 * * * *`, 8 topic monitors, OAuth 1.0a ✅ 2026-04-01
 
+**Gem Hunter v5.1 — Research-Backed Discovery (2026-04-02):**
+- [x] GH-043: Papers With Code search source — searchPapersWithCode() queries PWC API for research implementations ✅ 2026-04-02
+- [x] GH-044: Low-star/high-value scoring — arXiv citation (+18), empirical benchmarks (+12), research structure (+10), low-star+research bonus (+15) in scoreGem() ✅ 2026-04-02
+- [x] GH-045: "agent-scaling" + "research-gems" search categories — scaling laws, error amplification, coordination architectures, clean-room implementations ✅ 2026-04-02
+- [ ] GH-046: EGOS ↔ agent-scaling-laws (`jimmyjdejesus-cmyk/agent-scaling-laws`) — /study: ArchitectureSelector (87% accuracy), 5 coordination architectures, error amplification metrics (17.2× → 4.4×), arXiv 2512.08296
+- [ ] GH-047: ArchitectureSelector adapter — transplant to packages/shared/intelligence/architecture-selector.ts. Wire to BRAID GRD: decide centralized/decentralized/hybrid before spawning agents
+- [ ] GH-048: Gem Hunter structural validation (Camada 1) — check tree for README+arXiv, benchmarks/, tests/, ArchitectureSelector-like patterns. Score boost for repos with empirical test suites
+- [ ] GH-049: Gem Hunter auto-integration decision (Camada 3) — if score > 85 and passes structural validation, auto-create branch + adapter + PR title. Save to Hindsight as "contracted gem"
+- [ ] GH-050: Gem Hunter → world-model signal ingestion — gems scoring > 80 auto-append to world-model.ts signals array (synergy with INTEL-005)
+
 **P2 — Advanced Studies:**
 - [ ] GH-020: EGOS ↔ Mem0 — persistent agent memory layer
 - [ ] GH-021: EGOS ↔ Temporal TS SDK — durable workflow engine
@@ -319,6 +329,8 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 | disler/claude-code-hooks-multi-agent-observability | observability_evals | Ref |
 | rohitg00/awesome-claude-code-toolkit | protocol_tooling | Ref |
 | nblintao/awesome-claude-code-postleak-insights | protocol_tooling | Ref |
+| jimmyjdejesus-cmyk/agent-scaling-laws | agent_scaling, intelligence_layer | P1 |
+| HKUDS/OpenHarness | agent_runtime, harness | P1 |
 
 ---
 
@@ -374,7 +386,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] INTEL-004: GH-037 BRAID Mode — /coordinator emits Mermaid GRD before Implementation ✅ 2026-04-01. Phase 2 synthesis now outputs template GRD (frozen-zone guard, phase groupings, terminal states). Execution contract for cheap models.
 
 **P1 — Signal Layer:**
-- [ ] INTEL-005: Signal ingestion — Gem Hunter scores > 80 → auto-append to world model signals
+- [ ] INTEL-005: Signal ingestion — Gem Hunter scores > 80 → auto-append to world model signals (= GH-050)
 - [ ] INTEL-006: Proactive blocker detection — world model scans P0 list → creates TASKS entries if blocker stale > 7 days
 - [ ] INTEL-007: `--mermaid` output from world-model.ts → embed in /start briefing as ASCII architecture snapshot
 
