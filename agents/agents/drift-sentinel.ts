@@ -100,7 +100,6 @@ function checkTasksDrift(): DriftFinding[] {
 function checkAgentsDrift(): DriftFinding[] {
   const findings: DriftFinding[] = [];
   const registryPath = join(ROOT, "agents/registry/agents.json");
-  const agentsDir = join(ROOT, "agents/agents");
 
   if (!existsSync(registryPath)) {
     return findings;
@@ -109,49 +108,69 @@ function checkAgentsDrift(): DriftFinding[] {
   try {
     const registryContent = readFileSync(registryPath, "utf-8");
     const registry = JSON.parse(registryContent);
-    const registeredIds = (registry.agents || []).map((a: any) => a.id);
+    const agents = registry.agents || [];
 
-    // Check which entrypoints exist
-    const actualFiles = new Set<string>();
+    // Check each agent's entrypoint exists
+    for (const agent of agents) {
+      // Skip dead agents (they may have been intentionally removed)
+      if (agent.status === "dead" || agent.status === "disabled") {
+        continue;
+      }
+
+      // Skip integration-tester (may be archived)
+      if (agent.id === "integration-tester") {
+        continue;
+      }
+
+      const entrypoint = agent.entrypoint;
+      if (!entrypoint) {
+        findings.push({
+          domain: "agent-registry",
+          severity: "medium",
+          narrative: `agents.json agent "${agent.id}" has no entrypoint`,
+          live: "Missing entrypoint field",
+          evidence: `agents/registry/agents.json`,
+          reconciliation: `Add entrypoint field to agent "${agent.id}"`,
+        });
+        continue;
+      }
+
+      const fullPath = join(ROOT, entrypoint);
+      if (!existsSync(fullPath)) {
+        findings.push({
+          domain: "agent-registry",
+          severity: "high",
+          narrative: `agents.json lists agent "${agent.id}"`,
+          live: `Entrypoint ${entrypoint} does not exist`,
+          evidence: `agents/registry/agents.json`,
+          reconciliation: `Either create ${entrypoint} or remove "${agent.id}" from registry`,
+        });
+      }
+    }
+
+    // Check for files in agents/agents/ not in registry
+    const agentsDir = join(ROOT, "agents/agents");
     if (existsSync(agentsDir)) {
       const files = execSync(`ls ${agentsDir}/*.ts 2>/dev/null || true`, {
         encoding: "utf-8",
       });
+      const registeredIds = agents.map((a: any) => a.id);
+
       files.split("\n").forEach((f) => {
         if (f) {
           const id = f.split("/").pop()?.replace(".ts", "");
-          if (id) actualFiles.add(id);
+          if (id && !registeredIds.includes(id)) {
+            findings.push({
+              domain: "agent-registry",
+              severity: "medium",
+              narrative: `agents.json has no entry for "${id}"`,
+              live: `File agents/agents/${id}.ts exists and active`,
+              evidence: `agents/agents/ + agents/registry/agents.json`,
+              reconciliation: `Add "${id}" to agents.json registry with metadata`,
+            });
+          }
         }
       });
-    }
-
-    // Registered but missing file
-    for (const id of registeredIds) {
-      if (!actualFiles.has(id) && id !== "integration-tester") {
-        // integration-tester may be archived
-        findings.push({
-          domain: "agent-registry",
-          severity: "high",
-          narrative: `agents.json lists agent "${id}"`,
-          live: `File agents/agents/${id}.ts does not exist`,
-          evidence: `agents/registry/agents.json + agents/agents/`,
-          reconciliation: `Either create agents/agents/${id}.ts or remove from registry`,
-        });
-      }
-    }
-
-    // File exists but not registered
-    for (const id of actualFiles) {
-      if (!registeredIds.includes(id)) {
-        findings.push({
-          domain: "agent-registry",
-          severity: "medium",
-          narrative: `agents.json has no entry for "${id}"`,
-          live: `File agents/agents/${id}.ts exists and active`,
-          evidence: `agents/agents/ + agents/registry/agents.json`,
-          reconciliation: `Add "${id}" to agents.json registry with metadata`,
-        });
-      }
     }
   } catch (err) {
     // JSON parse or command error

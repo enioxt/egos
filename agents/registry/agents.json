@@ -205,22 +205,6 @@
       "owner": "enioxt"
     },
     {
-      "id": "aiox-gem-hunter",
-      "name": "AIOX Gem Hunter",
-      "kind": "tool",
-      "description": "[KILLED 2026-03-31] Single-repo scanner for SynkraAI/aiox-core — too niche for general use",
-      "area": "knowledge",
-      "entrypoint": "agents/agents/aiox-gem-hunter.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual"],
-      "tools_allowed": [],
-      "risk_level": "T0",
-      "status": "dead",
-      "dead_reason": "prove-or-kill: too niche (scans single external repo), gem-hunter v3.2 covers this use case better",
-      "migrated_from": "egos-native",
-      "owner": "enioxt"
-    },
-    {
       "id": "framework-benchmarker",
       "name": "Framework Benchmarker",
       "kind": "tool",
@@ -240,22 +224,6 @@
       "last_duration_ms": 5000,
       "loop_mechanism": "none",
       "side_effects": ["api_call"]
-    },
-    {
-      "id": "mastra-gem-hunter",
-      "name": "Mastra Gem Hunter",
-      "kind": "tool",
-      "description": "[KILLED 2026-03-31] Single-repo scanner for mastra-ai/mastra — too niche",
-      "area": "knowledge",
-      "entrypoint": "agents/agents/mastra-gem-hunter.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual"],
-      "tools_allowed": [],
-      "risk_level": "T0",
-      "status": "dead",
-      "dead_reason": "prove-or-kill: too niche (scans single external repo), gem-hunter v3.2 covers this use case better",
-      "migrated_from": "egos-native",
-      "owner": "enioxt"
     },
     {
       "id": "mcp-router",
