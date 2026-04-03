@@ -25,6 +25,7 @@ Thumbs.db
 .vscode/
 .idea/
 .obsidian/
+EGOS/
 
 # Secrets & backups
 *.bak
