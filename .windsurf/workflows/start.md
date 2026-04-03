@@ -30,6 +30,56 @@ Verificar e testar (em paralelo quando possível):
 | **Gitleaks** | `which gitleaks` | Deve estar instalado |
 | **Bun** | `bun --version` | Versão atual |
 | **Agent registry** | `bun agent:lint` (egos-lab) | 0 errors |
+| **Agent validation** | 4-Point Check (CRITICAL — see below) | ALL agents verified |
+
+---
+
+### 🔍 AGENT REGISTRY VALIDATION — SSOT Hierarchy (MANDATORY)
+
+**Ground Truth Hierarchy (NEVER trust drift-sentinel blindly):**
+
+| Fonte | Propósito | Quando usar |
+|-------|-----------|-------------|
+| `agents.json` | SSOT de definição (o que DEVE existir) | Para saber quais agentes deveriam estar ativos |
+| **validation.json** | **SSOT de verificação** (o que FOI confirmado existir) | **Para saber quais agentes REALMENTE existem** |
+| `drift-sentinel` | Detector de drift | Apenas para alertas, NUNCA como ground truth |
+
+**⚠️ CRITICAL WARNING:** `drift-sentinel` tem falsos positivos em paths não-padrão (`scripts/`, `agents/api/`). **SEMPRE** verificar `validation.json` primeiro.
+
+**Quick Check (usar na maioria dos casos):**
+```bash
+# Verifica se cache de validação existe e é recente (< 24h)
+bun agents/agents/agent-validator.ts --check
+
+# Se falhar, rodar validação completa
+bun agents/agents/agent-validator.ts --exec
+```
+
+**Full 4-Point Check (apenas quando validation.json é stale ou suspeito):**
+
+| Step | Action | Evidence Required |
+|------|--------|-------------------|
+| 1 | `read_file` on `agents/registry/agents.json` | Complete agent entry |
+| 2 | Extract `entrypoint` field value | Path string (any location) |
+| 3 | Verify file EXISTS at that path | `read_file` or `existsSync` |
+| 4 | Check `status` field | `"dead"` = ignore, `"active"` = must exist |
+
+**Validation Protocol:**
+```
+For each agent in agents.json:
+  IF status == "dead" → Mark as ⚠️ (intentionally removed)
+  ELSE IF entrypoint exists → Mark as ✅ (verified alive)
+  ELSE → Mark as ❌ (ghost — needs task)
+```
+
+**Common False Positive Paths (já validados em validation.json):**
+- `scripts/kol-discovery.ts` — ✅ VALID (entrypoint is scripts/)
+- `agents/api/gem-hunter-server.ts` — ✅ VALID (entrypoint is agents/api/)
+- `agents/agents/mcp-router.ts` — ✅ VALID (standard path)
+
+**NEVER skip this validation. NEVER trust drift-sentinel blindly. SEMPRE consultar validation.json primeiro.**
+
+---
 | **Pre-commit hooks** | Verificar .husky/pre-commit existe | File intelligence ativo |
 | **Env vars** | Contar keys em .env (egos + egos-lab) | Mínimo esperado: 6 |
 

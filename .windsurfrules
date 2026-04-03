@@ -48,6 +48,7 @@ type: "framework-core + orchestration-kernel + agent-runtime"
 10. **TEACH** — Explain WHY, not just WHAT. Question bad ideas.
 11. **EDIT SIZE** — Max 80 lines per write_to_file/edit call.
 12. **PROTECTED** — Never edit protected surfaces without explicit user approval + proof.
+13. **AGENT VALIDATION** — Before claiming any agent is "ghost/missing/dead", MUST validate: (1) `agents.json` entrypoint field, (2) file exists at that exact path, (3) `status` field meaning, (4) `run_modes` and `kind` context. NEVER rely solely on `drift-sentinel` output — always verify raw data. False positives on `scripts/` and `agents/api/` entrypoints are COMMON.
 13. **CODEX** — Use Codex for diff-heavy, audit, and mechanical work. Codex task taxonomy:
     - ✅ USE: refactors, renames, dead-code removal, boilerplate additions, read-only audits, gate checks
     - ❌ SKIP: architecture decisions, multi-file cross-context reasoning, DB migrations, multi-repo changes

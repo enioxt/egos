@@ -21,8 +21,18 @@ else
   echo "  [1/5] gitleaks: NOT INSTALLED (install: brew install gitleaks)"
 fi
 
-# 2. TypeScript — Strict type check
-echo "  [2/5] tsc: running strict type check..."
+# 2. Session health check — /start v6.0 validation gates
+echo "  [2/5] start-v6.0: running system health checks..."
+HEALTH=$(bun scripts/start-v6.ts --json 2>/dev/null)
+GATES=$(echo "$HEALTH" | jq -r '.validation.gates_pass' 2>/dev/null || echo "false")
+if [ "$GATES" != "true" ]; then
+  echo "❌ BLOCKED: System health gates failed."
+  echo "$HEALTH" | jq '.blockers, .recommendations[:2]' 2>/dev/null || echo "Run: bun scripts/start-v6.ts --full"
+  exit 1
+fi
+
+# 2.5. TypeScript — Strict type check
+echo "  [2.5/5] tsc: running strict type check..."
 npx tsc --noEmit 2>/dev/null || bun run typecheck 2>/dev/null || {
   echo "❌ BLOCKED: TypeScript errors found. Fix before committing."
   exit 1
