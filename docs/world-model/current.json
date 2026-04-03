@@ -1,12 +1,27 @@
 {
-  "generated_at": "2026-04-02T11:54:57.464Z",
-  "git_sha": "54921a4",
+  "generated_at": "2026-04-03T09:58:21.285Z",
+  "git_sha": "c91bd31",
   "git_branch": "main",
-  "last_commit": "54921a4 feat(tests): add test suite from PR #10 (batch 3)",
+  "last_commit": "c91bd31 docs: /end handoff — P19 session complete (Eagle Eye viability + P1 tasks)",
   "tasks": {
-    "total": 142,
-    "done": 88,
-    "p0_blockers": [],
+    "total": 189,
+    "done": 116,
+    "p0_blockers": [
+      {
+        "id": "THEATER-001",
+        "done": false,
+        "text": "- [ ] THEATER-001: Deploy x-reply-bot (X_BEARER_TOKEN + crontab) or remove from done",
+        "section": "P0 — Theater Cleanup + Security",
+        "priority": "P0"
+      },
+      {
+        "id": "CTX-001",
+        "done": false,
+        "text": "- [ ] CTX-001: Context recovery hook to /start (load handoff + MEMORY.md)",
+        "section": "P0 — Theater Cleanup + Security",
+        "priority": "P0"
+      }
+    ],
     "p1_sprint": [
       {
         "id": "EGOS-163",
@@ -27,6 +42,34 @@
         "done": false,
         "text": "- [ ] EGOS-173: CRCDM hooks: llmrefs staleness + auto-heal rename",
         "section": "Telemetry & Observability (P1 — Critical Gap)",
+        "priority": "P1"
+      },
+      {
+        "id": "START-006",
+        "done": false,
+        "text": "- [ ] START-006: Monitor performance over 1 week — baseline, peak, outliers tracking (due 2026-04-09)",
+        "section": "Pending (P1)",
+        "priority": "P1"
+      },
+      {
+        "id": "START-007",
+        "done": false,
+        "text": "- [ ] START-007: v6.1 roadmap — distributed agent health checks (SSH parallel, multi-repo)",
+        "section": "Pending (P1)",
+        "priority": "P1"
+      },
+      {
+        "id": "START-008",
+        "done": false,
+        "text": "- [ ] START-008: Dashboard integration — real-time health display in Grafana/Claude Code UI",
+        "section": "Pending (P1)",
+        "priority": "P1"
+      },
+      {
+        "id": "START-009",
+        "done": false,
+        "text": "- [ ] START-009: Alert system — Slack/Telegram on critical blockers (health < 40%)",
+        "section": "Pending (P1)",
         "priority": "P1"
       },
       {
@@ -93,13 +136,6 @@
         "priority": "P1"
       },
       {
-        "id": "GH-012",
-        "done": false,
-        "text": "- [ ] GH-012: EGOS ↔ Cline (`cline/cline`) — IDE agent autonomy, human-in-the-loop UX",
-        "section": "P1 — Reference Repo Study Queue (priority order)",
-        "priority": "P1"
-      },
-      {
         "id": "GH-013",
         "done": false,
         "text": "- [ ] GH-013: EGOS ↔ OpenHands (`OpenHands/OpenHands`) — full software agent SDK/CLI/GUI",
@@ -156,6 +192,34 @@
         "priority": "P1"
       },
       {
+        "id": "GH-052",
+        "done": false,
+        "text": "- [ ] GH-052: KOL list curada — 50+ X.com accounts for trend monitoring (needs user input)",
+        "section": "Gem Hunter v6.0 — Papers Without Code + Standalone Product (2026-04-02)",
+        "priority": "P1"
+      },
+      {
+        "id": "GH-061",
+        "done": false,
+        "text": "- [ ] GH-061: Dashboard web — gemhunter.egos.ia.br (findings feed, paper browser, trends, alerts config)",
+        "section": "Gem Hunter v6.0 — Papers Without Code + Standalone Product (2026-04-02)",
+        "priority": "P1"
+      },
+      {
+        "id": "GH-063",
+        "done": false,
+        "text": "- [ ] GH-063: x402 pay-per-call — M2M agent payments via x402 protocol",
+        "section": "Gem Hunter v6.0 — Papers Without Code + Standalone Product (2026-04-02)",
+        "priority": "P1"
+      },
+      {
+        "id": "GH-066",
+        "done": false,
+        "text": "- [ ] GH-066: Paper → Code generator — LLM reads full paper, generates complete scaffold implementation",
+        "section": "Gem Hunter v6.0 — Papers Without Code + Standalone Product (2026-04-02)",
+        "priority": "P1"
+      },
+      {
         "id": "AI-008",
         "done": false,
         "text": "- [ ] AI-008: Add ai-coverage-scan.ts --check to pre-commit hook (fires when llm*.ts changes)",
@@ -174,6 +238,13 @@
         "done": false,
         "text": "- [ ] AI-010: Unified cost dashboard — aggregate ai_events from all repos into single Supabase view",
         "section": "P1 — Hook integration",
+        "priority": "P1"
+      },
+      {
+        "id": "X-003",
+        "done": false,
+        "text": "- [ ] X-003: VPS cron deploy — REVERTED: was marked done but cron never set up. Needs: X_BEARER_TOKEN + crontab on 204.1",
+        "section": "Code Written (not deployed)",
         "priority": "P1"
       },
       {
@@ -214,7 +285,7 @@
       {
         "id": "INTEL-005",
         "done": false,
-        "text": "- [ ] INTEL-005: Signal ingestion — Gem Hunter scores > 80 → auto-append to world model signals",
+        "text": "- [ ] INTEL-005: Signal ingestion — Gem Hunter scores > 80 → auto-append to world model signals (= GH-050)",
         "section": "P1 — Signal Layer",
         "priority": "P1"
       },
@@ -230,6 +301,48 @@
         "done": false,
         "text": "- [ ] INTEL-007: `--mermaid` output from world-model.ts → embed in /start briefing as ASCII architecture snapshot",
         "section": "P1 — Signal Layer",
+        "priority": "P1"
+      },
+      {
+        "id": "HERMES-001",
+        "done": false,
+        "text": "- [ ] HERMES-001: Wire Hermes-3 as BRAID mechanical executor (OpenRouter free tier, 2h, 30-40% cost savings)",
+        "section": "P1 — Architecture / Agents",
+        "priority": "P1"
+      },
+      {
+        "id": "OPENCLAW-001",
+        "done": false,
+        "text": "- [ ] OPENCLAW-001: Register Guard Brasil as OpenClaw MCP skill (precondition: MCP interface + 1 paying customer, Phase ",
+        "section": "P1 — Architecture / Agents",
+        "priority": "P1"
+      },
+      {
+        "id": "DASH-001",
+        "done": false,
+        "text": "- [ ] DASH-001: Mission Control Dashboard — React + Supabase Realtime (SSOTs, agents, tasks, revenue tracker)",
+        "section": "P1 — Infrastructure",
+        "priority": "P1"
+      },
+      {
+        "id": "CTX-002",
+        "done": false,
+        "text": "- [ ] CTX-002: Auto-index codebase-memory-mcp on /start (graph is cold, needs warm-up)",
+        "section": "P1 — Infrastructure",
+        "priority": "P1"
+      },
+      {
+        "id": "REWARDS-001",
+        "done": false,
+        "text": "- [ ] REWARDS-001: Unified rewards engine — merge ETHIK + 852 gamification + credit system into @egos/rewards",
+        "section": "P1 — Infrastructure",
+        "priority": "P1"
+      },
+      {
+        "id": "MOAT-001",
+        "done": false,
+        "text": "- [ ] MOAT-001: Data flywheels (moats ≠ features) — Eagle Eye: bid outcomes→scoring, Gem Hunter: gem adoption→scores, Gu",
+        "section": "P1 — Infrastructure",
         "priority": "P1"
       }
     ],
@@ -387,11 +500,32 @@
         "text": "- [ ] INTEL-010: World model diff — compare snapshots to detect regression (tasks going from [x] back to [ ])",
         "section": "P2 — Full Intelligence",
         "priority": "P2"
+      },
+      {
+        "id": "EAGLE-021",
+        "done": false,
+        "text": "- [ ] EAGLE-021: Proposal generator — auto-draft proposta técnica from edital + company profile",
+        "section": "P2 — Proposal Tools (R$250k opportunity)",
+        "priority": "P2"
+      },
+      {
+        "id": "EAGLE-022",
+        "done": false,
+        "text": "- [ ] EAGLE-022: Compliance checklist — auto-check habilitação requirements against company docs",
+        "section": "P2 — Proposal Tools (R$250k opportunity)",
+        "priority": "P2"
+      },
+      {
+        "id": "EAGLE-023",
+        "done": false,
+        "text": "- [ ] EAGLE-023: Submit EAGLE-020 proposal by 2026-04-29 (R$250k opportunity deadline)",
+        "section": "P2 — Proposal Tools (R$250k opportunity)",
+        "priority": "P2"
       }
     ]
   },
   "agents": {
-    "total": 12,
+    "total": 15,
     "active": [
       {
         "id": "ssot-auditor",
@@ -452,6 +586,21 @@
         "id": "spec-router",
         "role": "IC",
         "description": "Validates spec pipeline stage fields, detects current stage, routes to next revi"
+      },
+      {
+        "id": "gem-hunter",
+        "role": "IC",
+        "description": "Multi-track discovery engine: GitHub, arXiv, HuggingFace, PWC, Exa, X, Reddit, H"
+      },
+      {
+        "id": "kol-discovery",
+        "role": "IC",
+        "description": "Fetches @anoineim X following list, classifies accounts by bio (crypto/ai-ml/dev"
+      },
+      {
+        "id": "gem-hunter-api",
+        "role": "IC",
+        "description": "Standalone REST API for gem-hunter (Phase 1 product). Endpoints: GET /v1/finding"
       }
     ],
     "killed": [
@@ -526,11 +675,14 @@
     },
     {
       "source": "gem-hunter",
-      "date": "2026-04-02",
-      "headline": "Latest gem scan: latest discovery",
+      "date": "unknown",
+      "headline": "Latest gem scan: Score 0",
       "severity": "CLEAN"
     }
   ],
-  "blockers": [],
-  "health_pct": 62
+  "blockers": [
+    "THEATER-001: - [ ] THEATER-001: Deploy x-reply-bot (X_BEARER_TOKEN + crontab) or remove from ",
+    "CTX-001: - [ ] CTX-001: Context recovery hook to /start (load handoff + MEMORY.md)"
+  ],
+  "health_pct": 61
 }
