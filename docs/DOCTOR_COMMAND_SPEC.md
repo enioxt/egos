@@ -1,5 +1,16 @@
 # EGOS Doctor Command (EGOS-112) — Complete Specification
 
+<!-- llmrefs:start -->
+## LLM Reference Signature
+
+- **Role:** doctor command contract and health-check behavior reference
+- **Summary:** Defines checks, exit codes, integration gates, and remediation semantics for environment readiness.
+- **Read next:**
+  - `docs/SSOT_REGISTRY.md` — canonical ownership
+  - `docs/ENVIRONMENT_REGISTRY.md` — environment topology
+  - `TASKS.md` — pending follow-ups
+<!-- llmrefs:end -->
+
 **Status:** COMPLETE (100% - from 60% baseline)  
 **Date:** 2026-03-26  
 **Phase:** 3/3 Phases Implemented

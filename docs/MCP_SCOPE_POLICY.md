@@ -1,5 +1,16 @@
 # MCP Scope Policy — EGOS-004
 
+<!-- llmrefs:start -->
+## LLM Reference Signature
+
+- **Role:** least-privilege policy for MCP integrations
+- **Summary:** Defines mandatory scope declaration, privilege boundaries, and enforcement posture for MCP servers in EGOS.
+- **Read next:**
+  - `docs/MCP_ORCHESTRATION_STRATEGY.md` — orchestration context
+  - `docs/SSOT_REGISTRY.md` — ownership/freshness surfaces
+  - `TASKS.md` — governance backlog
+<!-- llmrefs:end -->
+
 **Date:** 2026-03-28
 **Status:** Active / MANDATORY
 **Purpose:** Define minimal, necessary scopes for each MCP server integration to prevent privilege escalation

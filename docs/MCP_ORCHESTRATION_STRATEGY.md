@@ -1,4 +1,16 @@
 # 🚀 EGOS Multi-MCP Orchestration & Model Routing Strategy
+
+<!-- llmrefs:start -->
+## LLM Reference Signature
+
+- **Role:** multi-MCP orchestration and model-routing strategy reference
+- **Summary:** Canonical routing strategy for MCP/tool and model selection with cost/latency context across providers.
+- **Read next:**
+  - `docs/ACTIVATION_GUIDE.md` — activation steps
+  - `docs/MCP_SCOPE_POLICY.md` — scope safety boundaries
+  - `TASKS.md` — implementation priorities
+<!-- llmrefs:end -->
+
 > **VERSION:** 1.0.0 | **UPDATED:** 2026-03-23 | **TYPE:** Orchestration Framework
 > **STATUS:** ACTIVE | **Priority:** P0 (Core Kernel)
 

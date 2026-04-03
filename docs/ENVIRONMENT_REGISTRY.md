@@ -1,4 +1,16 @@
 # EGOS Environment Registry
+
+<!-- llmrefs:start -->
+## LLM Reference Signature
+
+- **Role:** canonical host/tool/MCP environment map
+- **Summary:** Agnostic registry of approved hosts, runtime traits, and MCP capability surfaces across the EGOS ecosystem.
+- **Read next:**
+  - `docs/ACTIVATION_FLOW.md` — activation contract
+  - `docs/MCP_SCOPE_POLICY.md` — least-privilege scopes
+  - `TASKS.md` — open environment/governance tasks
+<!-- llmrefs:end -->
+
 > **VERSION:** 1.0.0 | **UPDATED:** 2026-03-21
 > **TYPE:** AGNÓSTICO - Central de Mapeamento de Ferramentas, MCPs e Ambientes de IA do Ecossistema EGOS.
 

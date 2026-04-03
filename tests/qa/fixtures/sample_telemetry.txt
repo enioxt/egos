@@ -1,0 +1,3 @@
+[agents-cli-telemetry] {"t":"2026-04-01T00:00:00Z","ev":"tool_call","ms":6100,"cost":0.0105,"meta":{"agentId":"mcp-router","toolName":"web.search"}}
+[agents-cli-telemetry] {"t":"2026-04-01T01:00:00Z","ev":"agent_session","ms":1200,"cost":0.0010,"meta":{"agentId":"context-tracker"}}
+[agents-cli-telemetry] {"t":"2026-04-02T01:00:00Z","ev":"tool_call","ms":800,"cost":0.0020,"meta":{"agentId":"mcp-router","toolName":"repo.read"}}

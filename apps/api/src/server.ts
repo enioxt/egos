@@ -14,6 +14,13 @@ import { evaluatePRI, requiresManualReview, shouldBlockOnPRI } from './pri.js';
 const guard = GuardBrasil.create();
 const PORT = Number(process.env.GUARD_API_PORT ?? 3099);
 const API_KEYS = new Set((process.env.GUARD_API_KEYS ?? '').split(',').filter(Boolean));
+const API_VERSION = '0.2.0';
+const ENDPOINTS = [
+  { method: 'GET', path: '/', description: 'Service health alias' },
+  { method: 'GET', path: '/health', description: 'Service health' },
+  { method: 'GET', path: '/v1/meta', description: 'Runtime metadata and limits' },
+  { method: 'POST', path: '/v1/inspect', description: 'Guard Brasil text inspection' },
+] as const;
 
 // ─── Auth middleware ──────────────────────────────────────────────────────────
 
@@ -64,8 +71,23 @@ const server = Bun.serve({
     if (url.pathname === '/health' || url.pathname === '/') {
       return Response.json({
         service: 'egos-guard-brasil-api',
-        version: '0.2.0',
+        version: API_VERSION,
         status: 'healthy',
+        timestamp: new Date().toISOString(),
+      });
+    }
+
+    // GET /v1/meta — API contract + runtime settings
+    if (url.pathname === '/v1/meta' && req.method === 'GET') {
+      return Response.json({
+        service: 'egos-guard-brasil-api',
+        version: API_VERSION,
+        auth: API_KEYS.size > 0 ? 'bearer' : 'open_dev_mode',
+        rateLimit: {
+          requestsPerWindow: RATE_LIMIT,
+          windowMs: RATE_WINDOW,
+        },
+        endpoints: ENDPOINTS,
         timestamp: new Date().toISOString(),
       });
     }
@@ -80,7 +102,9 @@ const server = Bun.serve({
       // Rate limit
       const apiKey = req.headers.get('authorization')?.slice(7) ?? 'anonymous';
       if (!checkRateLimit(apiKey)) {
-        return Response.json({ error: 'Rate limit exceeded. Max 100 requests/minute.' }, { status: 429 });
+        return Response.json({
+          error: `Rate limit exceeded. Max ${RATE_LIMIT} requests/${Math.round(RATE_WINDOW / 1000)}s.`,
+        }, { status: 429 });
       }
 
       // Parse body
@@ -131,7 +155,7 @@ const server = Bun.serve({
           meta: {
             durationMs,
             timestamp: new Date().toISOString(),
-            version: '0.2.0',
+            version: API_VERSION,
           },
         }, {
           status: 422,
@@ -182,7 +206,7 @@ const server = Bun.serve({
           durationMs,
           manualReviewRequired,
           timestamp: new Date().toISOString(),
-          version: '0.2.0',
+          version: API_VERSION,
         },
       }, {
         status: manualReviewRequired ? 202 : 200,
@@ -196,13 +220,15 @@ const server = Bun.serve({
 
     // 404
     return Response.json({
-      error: 'Not found. Available endpoints: GET /health, POST /v1/inspect',
+      error: 'Not found.',
+      availableEndpoints: ENDPOINTS,
     }, { status: 404 });
   },
 });
 
-console.log(`🛡️  EGOS Guard Brasil API v0.2.0`);
+console.log(`🛡️  EGOS Guard Brasil API v${API_VERSION}`);
 console.log(`   Endpoint: http://localhost:${PORT}/v1/inspect`);
 console.log(`   Health:   http://localhost:${PORT}/health`);
+console.log(`   Meta:     http://localhost:${PORT}/v1/meta`);
 console.log(`   Auth:     ${API_KEYS.size > 0 ? `${API_KEYS.size} API key(s) configured` : 'OPEN (dev mode)'}`);
 console.log(`   Rate:     ${RATE_LIMIT} req/min per key`);

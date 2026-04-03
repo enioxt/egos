@@ -1,5 +1,16 @@
 # EGOS-002: Universal Activation Flow — Platform-Specific Integration
 
+<!-- llmrefs:start -->
+## LLM Reference Signature
+
+- **Role:** activation contract across platforms and channels
+- **Summary:** Canonical EGOS activation flow (auth, scopes, token lifecycle, troubleshooting) for ChatGPT/Codex/Claude/GitHub/mobile/custom surfaces.
+- **Read next:**
+  - `docs/SSOT_REGISTRY.md` — ownership and freshness contracts
+  - `docs/CAPABILITY_REGISTRY.md` — capability adoption matrix
+  - `TASKS.md` — open execution priorities
+<!-- llmrefs:end -->
+
 **Date:** 2026-03-28  
 **Status:** Complete  
 **Baseline:** All 5 platforms documented with code examples, environment setup, and troubleshooting
