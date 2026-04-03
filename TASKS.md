@@ -427,12 +427,12 @@ Modern monetization: usage-based API + MCP tool + chatbot. Stripe-unified (card 
 
 **P0 — Core Pipeline:**
 - [x] EAGLE-GH-001: `scoring-service.ts` — 5-axis scorer live in egos-lab/apps/eagle-eye/src/modules/licitacoes/ (10 sector presets, BID/INVESTIGATE/SKIP thresholds, CLI demo) ✅ 2026-04-02
-- [ ] EAGLE-GH-002: `document-parser.ts` — extract structured data from edital PDFs (objeto, valor, prazo, requisitos técnicos, habilitação)
+- [x] EAGLE-GH-002: `document-parser.ts` — regex+LLM hybrid, extracts objeto/valor/prazo/modalidade/segmento/porte/habilitação, 78% confidence (no LLM) ✅ 2026-04-03
 - [ ] EAGLE-GH-003: `classification-service.ts` — auto-classify licitação by category + assign sector preset
 - [ ] EAGLE-GH-004: `extraction-service.ts` — pull deadline, CNAE, required docs, financial requirements from raw text
 
 **P1 — Intelligence Layer:**
-- [ ] EAGLE-GH-005: `insight-generator.ts` — LLM-based recommendation: "bid / skip / investigate" with justification
+- [x] EAGLE-GH-005: `insight-generator.ts` — LLM + rule-based fallback, BID/INVESTIGATE/SKIP + action items + risks + revenue estimate ✅ 2026-04-03
 - [ ] EAGLE-GH-006: `profile-service.ts` — company capability profile (past wins, CNAE, financial capacity) → fed into scoring
 - [ ] EAGLE-GH-007: `feedback-learning.ts` — track bid outcomes (won/lost/skipped) → adjust scoring weights per sector
 
