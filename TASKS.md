@@ -148,6 +148,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] GOV-028: Allowlist de artifacts versionados (`artifact_manifest.json`) aplicada no validator para conter proliferação de arquivos ✅ 2026-04-02
 - [x] GOV-029: CI upload de artifacts guiado por manifest (single source) para evitar divergência de paths ✅ 2026-04-02
 - [x] GOV-030: PR pack/template com atribuição explícita `Generated with Codex` para rastreabilidade de autoria em comentários/PRs ✅ 2026-04-03
+- [x] GOV-031: `pr:pack` agora lista próximas tasks abertas multi-prefixo (EGOS/GH/OBS/LEAK/TELEM...) com deduplicação + teste unitário ✅ 2026-04-03
 
 > **Archived:** All session summaries, ARCH project, benchmark plans, Grok intake → `docs/knowledge/TASKS_ARCHIVE_2026.md`
 

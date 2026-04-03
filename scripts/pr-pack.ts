@@ -76,18 +76,28 @@ function loadTemplate(): string {
   return `${template.trimEnd()}\n\n## Agent Attribution\n- [x] Authored-by: Codex (GPT-5.3-Codex)\n- [x] \`Generated with Codex\`\n\nSigned-off-by: EGOS Codex Agent <codex@egos.local>\n`;
 }
 
+export function parseOpenTaskIds(content: string, limit = 5): string[] {
+  const ids: string[] = [];
+  const seen = new Set<string>();
+
+  for (const line of content.split('\n')) {
+    const match = line.match(/^- \[ \]\s+([A-Z][A-Z0-9-]+):/);
+    if (!match) continue;
+    const id = match[1].trim();
+    if (seen.has(id)) continue;
+    seen.add(id);
+    ids.push(line.replace('- [ ] ', '').trim());
+    if (ids.length >= limit) break;
+  }
+
+  return ids;
+}
+
 function nextTasks(limit = 5): string[] {
   const tasksPath = resolve('TASKS.md');
   if (!existsSync(tasksPath)) return [];
-
   const content = readFileSync(tasksPath, 'utf-8');
-  const matches = content
-    .split('\n')
-    .filter((line) => line.startsWith('- [ ] EGOS-'))
-    .slice(0, limit)
-    .map((line) => line.replace('- [ ] ', '').trim());
-
-  return matches;
+  return parseOpenTaskIds(content, limit);
 }
 
 function render(options: Options): string {
@@ -155,4 +165,6 @@ function main(): void {
   console.log(`PR pack written to: ${outputPath}`);
 }
 
-main();
+if (import.meta.main) {
+  main();
+}
