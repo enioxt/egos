@@ -90,7 +90,7 @@ export const CNPJ_PATTERN: PIIPatternConfig = {
 export const RG_PATTERN: PIIPatternConfig = {
   id: 'rg',
   label: 'RG',
-  regex: /\b(?:RG|rg|Rg|Registro\s+Geral|registro\s+geral)[:\s]*\d{1,2}[.\s]?\d{3}[.\s]?\d{3}[.\s-]?\d?\b/gi,
+  regex: /(?:RG|rg|Rg|Registro\s+Geral|registro\s+geral)[\s:nº°.]*\d{1,2}[.\s]?\d{3}[.\s]?\d{3}[.\s-]?\d?/gi,
   maskFormat: '[RG REMOVIDO]',
   confidence: 'high',
   description: 'Registro Geral — RG 00.000.000-0',

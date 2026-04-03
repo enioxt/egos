@@ -114,13 +114,12 @@ describe('Guard Brasil — Usage pricing', () => {
     expect(estimate.totalBrl).toBe(0);
   });
 
-  it('uses starter tier pricing at 10k monthly calls', () => {
+  it('uses pro tier pricing at 10k monthly calls', () => {
     const tier = getGuardBrasilUsageTier(10_000);
     const estimate = priceGuardBrasilCalls(10_000);
 
-    expect(tier.id).toBe('starter');
-    expect(estimate.totalBrl).toBe(49);
-    expect(estimate.totalUsd).toBe(9.8);
+    expect(tier.id).toBe('pro'); // 10k is within pro tier (≤50k)
+    expect(estimate.totalBrl).toBe(70); // 10k × R$0.007 = R$70
   });
 
   it('uses enterprise pricing above 500k monthly calls', () => {
@@ -128,6 +127,6 @@ describe('Guard Brasil — Usage pricing', () => {
     const estimate = priceGuardBrasilCalls(750_000);
 
     expect(tier.id).toBe('enterprise');
-    expect(estimate.totalBrl).toBe(375);
+    expect(estimate.totalBrl).toBe(1500); // 750k × R$0.002 = R$1.500
   });
 });

@@ -1,0 +1,47 @@
+# Guard Brasil API
+> Brazilian PII detection, LGPD compliance, and cryptographic audit trail for AI pipelines.
+
+Guard Brasil detects 15+ Brazilian PII patterns (CPF, CNPJ, RG, CNH, CEP, email, phone,
+judicial records, MASP, NIS/PIS, SUS card, voter ID) and returns masked output plus a
+cryptographic inspection receipt (SHA256 hash chain) for LGPD audit compliance.
+
+## Quick Start
+
+npm: `npm install @egosbr/guard-brasil`
+
+```typescript
+import { guard } from '@egosbr/guard-brasil'
+const result = guard.inspect("CPF: 123.456.789-00, email: joao@empresa.com")
+// result.safe → false
+// result.output → "CPF: [CPF REMOVIDO], email: [EMAIL REMOVIDO]"
+// result.receipt.inspectionHash → "sha256:..."
+```
+
+## REST API
+
+Base URL: https://guard.egos.ia.br
+
+### GET /v1/meta — API capabilities + pricing (no auth)
+### POST /v1/inspect — PII detection + masking + receipt (Bearer token)
+### POST /v1/keys — Free API key (no credit card)
+
+## MCP (Model Context Protocol)
+
+Tools: guard_inspect, guard_scan_pii, guard_check_safe
+Config: { "guard-brasil": { "command": "npx", "args": ["@egosbr/guard-brasil", "--mcp"] } }
+
+## Pricing (Usage-Based)
+
+Free: 500 calls/month at R$0 | Developer: 5k at R$0.010/call | Startup: 50k at R$0.007/call
+Business: 500k at R$0.004/call | Enterprise: unlimited at R$0.002/call
+
+## PII Patterns (15 total)
+
+CPF, CNPJ, RG, CNH, MASP, REDS, Processo Judicial, Placa Veicular,
+Telefone, Email, Cartão SUS, Título Eleitor, NIS/PIS, CEP
+
+## Links
+
+- npm: https://www.npmjs.com/package/@egosbr/guard-brasil
+- Docs: https://guard.egos.ia.br/docs
+- Health: https://guard.egos.ia.br/health

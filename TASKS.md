@@ -1,6 +1,13 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.30.0 | **Updated:** 2026-04-02 | **LAST SESSION:** 2026-04-02 P16 — API monetization pivot (government → API-first), self-service keys, Supabase billing layer, Eagle Eye API auth
+> **Version:** 2.30.0 | **Updated:** 2026-04-03 | **LAST SESSION:** 2026-04-03 P17 — Agent registry ghost cleanup, drift-sentinel fix, LLM orchestration docs
+
+---
+
+### Agent Registry Health (2026-04-03)
+
+**Done:**
+- [x] EGOS-176: Agent registry ghost cleanup — removidos aiox-gem-hunter, mastra-gem-hunter (KILLED 2026-03-31). Drift sentinel corrigido para verificar entrypoints em qualquer path (scripts/, agents/api/, agents/agents/). ✅ 2026-04-03
 
 ---
 
@@ -468,30 +475,24 @@ Modern monetization: usage-based API + MCP tool + chatbot. Stripe-unified (card 
 - [ ] EAGLE-GH-008: REST API v2 — POST /v2/analyze (score single licitação), GET /v2/opportunities (filtered feed), GET /v2/insights/:id
 - [ ] EAGLE-GH-009: MCP server `eagle-eye-mcp` — tools: `analyze_licitacao`, `search_opportunities`, `get_profile` → usable from Claude Code
 - [ ] EAGLE-GH-010: Stripe Pix integration — enable `pix` payment method in Stripe Checkout for all Eagle Eye plans
-
 **P2 — Dashboard & Notifications:**
 - [ ] EAGLE-GH-011: Dashboard v2 redesign — opportunity feed with 5-axis radar chart, bid pipeline Kanban
 - [ ] EAGLE-GH-012: Telegram alert routing — score ≥75 → `egosmarkets_bot`; score ≥90 AND deadline ≤7d → admin bot
 - [ ] EAGLE-GH-013: Chatbot interface — natural language query: "find software opportunities in SP above R$500k"
-
 **P2 — Proposal Tools (R$250k opportunity):**
 - [ ] EAGLE-021: Proposal generator — auto-draft proposta técnica from edital + company profile
 - [ ] EAGLE-022: Compliance checklist — auto-check habilitação requirements against company docs
 - [ ] EAGLE-023: Submit EAGLE-020 proposal by 2026-04-29 (R$250k opportunity deadline)
-
 ### P19 Diagnostic Actions (2026-04-02)
-
 **P0 — Theater Cleanup + Security:**
 - [ ] THEATER-001: Deploy x-reply-bot (X_BEARER_TOKEN + crontab) or remove from done
 - [x] SECURITY-001: Auth audit CLOSED — 0 gaps found ✅ 2026-04-02
 - [ ] CTX-001: Context recovery hook to /start (load handoff + MEMORY.md)
 - [x] TEST-001: Integration test suite — 21 tests (Guard Brasil PII/API, Eagle Eye opportunities, Gem Hunter scoring+CLI) ✅ 2026-04-02
 - [x] EAGLE-EYE-UX-001: Dashboard UX (pagination 15/page, territory name resolution, classifications badges, value filter, segmento/porte display) ✅ 2026-04-02
-
 **P1 — Architecture / Agents:**
 - [ ] HERMES-001: Wire Hermes-3 as BRAID mechanical executor (OpenRouter free tier, 2h, 30-40% cost savings)
 - [ ] OPENCLAW-001: Register Guard Brasil as OpenClaw MCP skill (precondition: MCP interface + 1 paying customer, Phase 2-3)
-
 **P1 — Infrastructure:**
 - [ ] DASH-001: Mission Control Dashboard — React + Supabase Realtime (SSOTs, agents, tasks, revenue tracker)
 - [ ] CTX-002: Auto-index codebase-memory-mcp on /start (graph is cold, needs warm-up)

@@ -24,11 +24,16 @@ export interface GuardBrasilUsageTier {
 }
 
 export const GUARD_BRASIL_USAGE_TIERS: GuardBrasilUsageTier[] = [
-  { id: "free", monthlyCalls: 150, pricePerCallBrl: 0, estimatedMonthlyBrl: 0 },
-  { id: "starter", monthlyCalls: 10_000, pricePerCallBrl: 0.0049, estimatedMonthlyBrl: 49 },
-  { id: "pro", monthlyCalls: 100_000, pricePerCallBrl: 0.00199, estimatedMonthlyBrl: 199 },
-  { id: "business", monthlyCalls: 500_000, pricePerCallBrl: 0.000998, estimatedMonthlyBrl: 499 },
-  { id: "enterprise", monthlyCalls: null, pricePerCallBrl: 0.0005, estimatedMonthlyBrl: null },
+  // Free: acquisition tier — cost is ~R$0.007/month per user (negligible)
+  { id: "free",       monthlyCalls: 500,       pricePerCallBrl: 0,       estimatedMonthlyBrl: 0    },
+  // Developer: indie dev / hobby project — R$0.010/call, teto R$50/mês
+  { id: "starter",    monthlyCalls: 5_000,     pricePerCallBrl: 0.0100,  estimatedMonthlyBrl: 50   },
+  // Startup: small team 5-50 devs — R$0.007/call, teto R$350/mês
+  { id: "pro",        monthlyCalls: 50_000,    pricePerCallBrl: 0.0070,  estimatedMonthlyBrl: 350  },
+  // Business: empresa mid-market — R$0.004/call, teto R$2.000/mês
+  { id: "business",   monthlyCalls: 500_000,   pricePerCallBrl: 0.0040,  estimatedMonthlyBrl: 2000 },
+  // Enterprise: volume >500k — R$0.002/call, negociado, mín R$1k/mês
+  { id: "enterprise", monthlyCalls: null,      pricePerCallBrl: 0.0020,  estimatedMonthlyBrl: null },
 ];
 
 export type Product = "gem-hunter" | "guard-brasil" | "eagle-eye";
