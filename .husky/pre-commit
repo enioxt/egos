@@ -6,6 +6,10 @@ set -eu
 
 echo "🔒 EGOS Pre-Commit: Maximum enforcement active"
 
+# 0. FOCUS ENFORCEMENT — 90-day strategic commitment (April 3 - June 30, 2026)
+echo "  [0/8] focus enforcement: checking 90-day commitment..."
+bash .husky/focus-enforcement || exit 1
+
 # 1. Gitleaks — Secret scanning
 if command -v gitleaks > /dev/null 2>&1; then
   echo "  [1/5] gitleaks: scanning for secrets..."
