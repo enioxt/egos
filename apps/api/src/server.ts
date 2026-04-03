@@ -17,7 +17,7 @@ import { evaluatePRI, requiresManualReview, shouldBlockOnPRI } from './pri.js';
 
 const guard = GuardBrasil.create();
 const PORT = Number(process.env.GUARD_API_PORT ?? 3099);
-const API_VERSION = '0.2.0';
+const API_VERSION = '0.2.2';
 // Internal/CI keys loaded from env (bypass Supabase quota)
 const API_KEYS = new Set((process.env.GUARD_API_KEYS ?? '').split(',').filter(Boolean));
 
@@ -82,7 +82,7 @@ Bun.serve({
     if (url.pathname === '/health' || url.pathname === '/') {
       return Response.json({
         service: 'egos-guard-brasil-api',
-        version: '0.2.0',
+        version: API_VERSION,
         status: 'healthy',
         timestamp: new Date().toISOString(),
       });
@@ -120,6 +120,151 @@ Bun.serve({
         },
         timestamp: new Date().toISOString(),
       }, { headers: CORS });
+    }
+
+    // GET /openapi.json — OpenAPI 3.0 spec for AI agent / SDK discovery
+    if (url.pathname === '/openapi.json' && req.method === 'GET') {
+      const spec = {
+        openapi: '3.0.3',
+        info: {
+          title: 'Guard Brasil API',
+          version: API_VERSION,
+          description: 'Brazilian AI Safety Layer: PII detection, LGPD compliance, ATRiAN ethical validation.',
+          contact: { name: 'EGOS', url: 'https://egos.ia.br' },
+          license: { name: 'MIT' },
+        },
+        servers: [{ url: 'https://guard.egos.ia.br', description: 'Production' }],
+        paths: {
+          '/health': {
+            get: {
+              summary: 'Health check',
+              operationId: 'getHealth',
+              security: [],
+              responses: { '200': { description: 'Service is healthy' } },
+            },
+          },
+          '/v1/meta': {
+            get: {
+              summary: 'API contract + pricing tiers',
+              operationId: 'getMeta',
+              security: [],
+              responses: { '200': { description: 'API metadata and pricing' } },
+            },
+          },
+          '/v1/keys': {
+            post: {
+              summary: 'Create a free API key',
+              operationId: 'createKey',
+              security: [],
+              requestBody: {
+                required: true,
+                content: {
+                  'application/json': {
+                    schema: {
+                      type: 'object',
+                      required: ['name', 'email'],
+                      properties: {
+                        name: { type: 'string', description: 'Developer or company name' },
+                        email: { type: 'string', format: 'email' },
+                      },
+                    },
+                  },
+                },
+              },
+              responses: {
+                '201': { description: 'API key created' },
+                '400': { description: 'Missing or invalid fields' },
+              },
+            },
+          },
+          '/v1/inspect': {
+            post: {
+              summary: 'Inspect text for PII and ethical violations',
+              operationId: 'inspect',
+              security: [{ bearerAuth: [] }],
+              requestBody: {
+                required: true,
+                content: {
+                  'application/json': {
+                    schema: {
+                      type: 'object',
+                      required: ['text'],
+                      properties: {
+                        text: { type: 'string', description: 'Text to inspect (max ~50k chars)' },
+                        min_atrian_score: { type: 'integer', minimum: 0, maximum: 100, default: 80 },
+                        lgpd_disclosure: { type: 'boolean', default: true },
+                        blocked_entities: { type: 'array', items: { type: 'string' } },
+                        provenance: {
+                          type: 'object',
+                          properties: {
+                            sourceUrl: { type: 'string' },
+                            sourceMethod: { type: 'string' },
+                            level: { type: 'string', enum: ['inspection_only', 'source_context', 'source_row_bound'] },
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+              responses: {
+                '200': { description: 'Inspection result with receipt and masking details' },
+                '202': { description: 'Inspection flagged for manual review (PRI decision)' },
+                '401': { description: 'Missing or invalid API key' },
+                '422': { description: 'Request blocked by PRI policy' },
+              },
+            },
+          },
+        },
+        components: {
+          securitySchemes: {
+            bearerAuth: { type: 'http', scheme: 'bearer', description: 'API key from /v1/keys' },
+          },
+        },
+      };
+      return Response.json(spec, { headers: { ...CORS, 'Content-Type': 'application/json' } });
+    }
+
+    // GET /llms.txt — AI agent / LLM discovery file
+    if (url.pathname === '/llms.txt' && req.method === 'GET') {
+      const llmsTxt = [
+        '# Guard Brasil — Brazilian AI Safety Layer',
+        '# https://guard.egos.ia.br/llms.txt',
+        '',
+        '## Service',
+        '> Guard Brasil detects and masks Brazilian PII (CPF, CNPJ, RG, etc.), enforces LGPD compliance, and validates AI outputs via ATRiAN ethical scoring.',
+        '',
+        '## API',
+        '- Base URL: https://guard.egos.ia.br',
+        '- OpenAPI: https://guard.egos.ia.br/openapi.json',
+        '- Docs: https://guard.egos.ia.br',
+        '',
+        '## Authentication',
+        '- Header: Authorization: Bearer <api_key>',
+        '- Free key: POST /v1/keys { "name": "...", "email": "..." }',
+        '',
+        '## Key Endpoints',
+        '- POST /v1/inspect — Inspect text for PII, ATRiAN violations, LGPD issues',
+        '- GET /v1/meta — Pricing tiers, capabilities, API version',
+        '- GET /openapi.json — Full OpenAPI 3.0 specification',
+        '',
+        '## Pricing',
+        '- Free tier: 500 calls/month',
+        '- Starter: R$0.010/call (≤5k/month)',
+        '- Pro: R$0.007/call (≤50k/month)',
+        '- Business: R$0.004/call (≤500k/month)',
+        '- Enterprise: R$0.002/call (>500k/month)',
+        '',
+        '## PII Patterns Detected',
+        '- CPF, CNPJ, RG, CNH, Título de Eleitor, SUS, NIS/PIS',
+        '- CEP, Placa Veicular, Processo Judicial, MASP, REDS',
+        '- Email, Telefone/Celular brasileiro',
+        '',
+        '## npm Package',
+        '- @egosbr/guard-brasil (MIT)',
+        '- npm install @egosbr/guard-brasil',
+      ].join('\n');
+      return new Response(llmsTxt, { headers: { ...CORS, 'Content-Type': 'text/plain; charset=utf-8' } });
     }
 
     // POST /v1/keys — self-service free-tier key generation
@@ -218,7 +363,7 @@ Bun.serve({
         input_hash: result.receipt.inputHash,
         duration_ms: durationMs,
         session_id: body.sessionId,
-        api_version: '0.2.0',
+        api_version: API_VERSION,
       })
         .catch(err => console.warn('[api] Telemetry error:', err));
       if (auth.tenant) {
@@ -238,7 +383,7 @@ Bun.serve({
         return Response.json({
           error: 'PRI blocked request.',
           pri: priDecision,
-          meta: { durationMs, timestamp: new Date().toISOString(), version: '0.2.0' },
+          meta: { durationMs, timestamp: new Date().toISOString(), version: API_VERSION },
         }, { status: 422, headers: responseHeaders });
       }
 
@@ -282,7 +427,7 @@ Bun.serve({
           durationMs,
           manualReviewRequired,
           timestamp: new Date().toISOString(),
-          version: '0.2.0',
+          version: API_VERSION,
         },
       }, { status: manualReviewRequired ? 202 : 200, headers: responseHeaders });
     }

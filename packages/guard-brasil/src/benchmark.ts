@@ -7,9 +7,9 @@
  * Run: bun packages/guard-brasil/src/benchmark.ts
  */
 
-import { createGuardBrasil } from "./guard.ts";
-import type { PIIPatternId } from "./pii-patterns.ts";
-import type { PIICategory } from "./lib/pii-scanner.ts";
+import { createGuardBrasil } from "./guard.js";
+import type { PIIPatternId } from "./pii-patterns.js";
+import type { PIICategory } from "./lib/pii-scanner.js";
 
 const guard = createGuardBrasil();
 

@@ -105,7 +105,7 @@ const BRAZILIAN_KNOWN_ACRONYMS = [
   'OAB', 'CNJ', 'CRM', 'PIX', 'INSS', 'SUS', 'STF', 'STJ',
   'PCMG', 'PMMG', 'TJMG', 'MPMG', 'CGU', 'TCU', 'AGU',
 ];
-const GUARD_VERSION = '0.2.0';
+const GUARD_VERSION = '0.2.1';
 
 function buildInspectionReceipt(
   text: string,

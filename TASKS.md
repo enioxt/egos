@@ -297,72 +297,12 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 
 ---
 
-### Claude Code Leak Intelligence (2026-04-01)
+### Claude Code Hardening ✅ (2026-04-01)
+LEAK-001..009 done (hooks, settings.json, /coordinator, CLAUDE.md v2.1). Pending: LEAK-010/011/012 (monitor pattern repos).
 
-**Source:** X threads analysis (2038965567269249484, 2038894956459290963), clean-room approach
-**Principle:** Learn from public patterns, never use leaked code. Evidence-based only.
-
-**Done:**
-- [x] CLAUDE.md v2.1 employee-grade overrides (verification gates, context management, edit safety)
-- [x] settings.json: permissions + hooks configured
-- [x] Awareness: 44 feature flags, KAIROS, BUDDY, Coordinator Mode, anti-distillation patterns
-
-**P1 — Claude Code Hardening:**
-- [x] LEAK-001: Frustration-detection hook wired (UserPromptSubmit → ~/.claude/hooks/frustration-detector) ✅ 2026-04-01
-- [x] LEAK-002: Memory consolidation — embedded as Part 2 in Governance Drift CCR (daily 3:17 BRT) ✅ 2026-04-01
-- [x] LEAK-003: `/coordinator` skill — 4-phase orchestration (Research→Synthesis→Implementation→Verification) ✅ 2026-04-01
-- [x] LEAK-004: PostToolUse hook — post-write-typecheck fires after Write/Edit on .ts/.tsx ✅ 2026-04-01
-- [x] LEAK-005: Anti-compaction guard — UserPromptSubmit hook, turn counter, reminder every 10 turns ✅ 2026-04-01
-
-**P1 — Architecture Insights (from zainhas blog analysis):**
-- [x] LEAK-006: Tool result budgeting — note added to /end Phase 1 ✅ 2026-04-01
-- [x] LEAK-007: Structured session memory — fixed sections + 2K cap added to /end Phase 7 ✅ 2026-04-01
-- [x] LEAK-008: Read-parallel/Write-sequential — documented in CLAUDE.md §14, enforced in /coordinator ✅ 2026-04-01
-- [x] LEAK-009: settings.json deny rules — 13 wildcard patterns for .env/credentials/keys ✅ 2026-04-01
-
-**P2 — Awareness (no action needed yet):**
-- [ ] LEAK-010: Monitor `Piebald-AI/claude-code-system-prompts` for per-release prompt changes
-- [ ] LEAK-011: Monitor `nblintao/awesome-claude-code-postleak-insights` for community patterns
-- [ ] LEAK-012: Evaluate Guard Brasil anti-distillation patterns (fake-tool injection for API protection)
-
----
-
-### AI Coverage & Telemetry (2026-04-01)
-
-**Purpose:** Track which repos/files use AI, keep map auto-updated, wire cost telemetry.
-
-**Done:**
-- [x] AI-001: `docs/AI_COVERAGE_MAP.md` created — 7 repos, ~33 AI files, provider hierarchy, cost model ✅ 2026-04-01
-- [x] AI-002: `scripts/ai-coverage-scan.ts` — scanner + --update/--check/--dry-run modes ✅ 2026-04-01
-- [x] AI-003: DashScope API key synced to egos/.env + all GH Secrets (10 secrets set programmatically) ✅ 2026-04-01
-- [x] AI-004: X.com API keys synced from egos-lab to egos/.env ✅ 2026-04-01
-- [x] AI-005: qwq-plus (reasoning) added to deep tier fallback chain in llm-provider.ts ✅ 2026-04-01
-- [x] AI-006: gem-hunter.ts migrated from egos-lab → egos/agents/agents/ ✅ 2026-04-01
-- [x] AI-007: gem-hunter-adaptive.yml GH Actions workflow created in egos/.github/workflows/ ✅ 2026-04-01
-
-**P1 — Hook integration:**
-- [ ] AI-008: Add ai-coverage-scan.ts --check to pre-commit hook (fires when llm*.ts changes)
-- [ ] AI-009: Wire Atrian OBS spans to AI calls in llm-provider.ts (cost + latency per call)
-- [ ] AI-010: Unified cost dashboard — aggregate ai_events from all repos into single Supabase view
-
----
-
-### Atrian Observability Module (2026-04-01)
-
-**Source:** ChatGPT architecture + OTel public patterns + Claude Code hook system
-**Principle:** Collect metadata, not payload. Telemetry mínima de conteúdo, máxima de comportamento.
-
-**P1 — Foundation:**
-- [x] OBS-001: `packages/atrian-observability/` skeleton — SpanCollector, 4 subdirs ✅ 2026-04-01
-- [x] OBS-002: Telemetry policy — allowedFields, blockedPatterns, retention, opt-out (ATRIAN_TELEMETRY=off) ✅ 2026-04-01
-- [x] OBS-003: 12 trace spans (session.start → hook.result) OTel-compatible ✅ 2026-04-01
-- [x] OBS-004: 10 core metrics with alert thresholds (latency p95, tokens, override rate, stuck loops) ✅ 2026-04-01
-
-**P2 — Integration:**
-- [ ] OBS-010: Wire hooks → OTel spans (PreToolUse/PostToolUse emit span events)
-- [ ] OBS-011: Gem Hunter session telemetry (pair analysis duration, transplant acceptance rate)
-- [ ] OBS-012: Runtime dashboard vs Product analytics dashboard — separate concerns
-- [ ] OBS-013: Privacy-preserving structured logs (no raw code, masked secrets, redacted paths)
+### AI Coverage & Observability ✅ (2026-04-01)
+AI-001..007 done (coverage map, scanner, keys synced, gem-hunter migrated). Pending: AI-008/009/010 (pre-commit hook, OTel wiring, cost dashboard).
+OBS-001..004 done (atrian-observability skeleton, telemetry policy, 12 spans, 10 metrics). Pending: OBS-010..013 (wiring, privacy logs).
 
 ---
 
@@ -431,16 +371,41 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 
 **Done (4/4 P0):** INTEL-001..004 ✅ (world-model.ts, /start Phase 0, AGENTS.md IC/DRI/Coach, BRAID GRD)
 
+**P0 — World Model Foundation (NEW 2026-04-03):**
+- [ ] WM-001: Setup hardware local LLM (Ollama/LM Studio) — instalar Qwen2.5-7B ou Hermes-3-8B na máquina 24GB VRAM
+- [ ] WM-002: Integrate local LLM to world-model.ts — extender interface para reasoning queries
+- [ ] WM-003: Capability composition suggestions — dada task, sugerir agents/capabilities (embedding similarity)
+- [ ] WM-004: Dataset preparation — coletar tasks + decisions para fine-tuning futuro
+
 **P1 — Signal Layer:**
 - [ ] INTEL-005: Signal ingestion — Gem Hunter scores > 80 → auto-append to world model signals (= GH-050)
 - [ ] INTEL-006: Proactive blocker detection — world model scans P0 list → creates TASKS entries if blocker stale > 7 days
 - [ ] INTEL-007: `--mermaid` output from world-model.ts → embed in /start briefing as ASCII architecture snapshot
+
+**P1 — World Model Enhanced (NEW 2026-04-03):**
+- [ ] WM-005: Implement dynamics model (simulação básica — prediz estado futuro dado ação)
+- [ ] WM-006: Causal discovery — aprender relações causa-efeito do histórico EGOS
+- [ ] WM-007: Counterfactual reasoning — "o que teria acontecido se..."
+- [ ] WM-008: Model-predictive control para planning ótimo
 
 **P2 — Full Intelligence:**
 - [ ] INTEL-008: DRI auto-assignment — when P0 task has no commit activity for 3 days, auto-flag + Telegram alert
 - [ ] INTEL-009: Capability composition map — intelligence layer dynamically suggests which agents to invoke for a given task
 - [ ] INTEL-010: World model diff — compare snapshots to detect regression (tasks going from [x] back to [ ])
 
+**P2 — Ethics & Safety (NEW 2026-04-03):**
+- [ ] WM-009: Integrar Qwen3Guard para safety classification (Safe/Controversial/Unsafe)
+- [ ] WM-010: Constitutional rules embedding (frozen zones, PRIME DIRECTIVE)
+- [ ] WM-011: Value alignment local (ATRiAN principles: Accuracy, Truth, Reversibility, Impact, Accountability, Neutrality)
+- [ ] WM-012: Intervention system com human-in-the-loop
+
+**P3 — AGI Capabilities (Long-term):**
+- [ ] WM-013: Auto-observação (world model que monitora a si mesmo)
+- [ ] WM-014: Auto-modificação (melhorar próprio código)
+- [ ] WM-015: Planejamento longo horizonte (quarter/year goals)
+- [ ] WM-016: Criação automática de agents quando necessário
+
+**SSOT:** `docs/strategy/WORLD_MODEL_SSOT.md` — conceito completo, roadmap, hardware 16-24GB VRAM
 
 ---
 
@@ -483,18 +448,15 @@ Modern monetization: usage-based API + MCP tool + chatbot. Stripe-unified (card 
 - [ ] EAGLE-021: Proposal generator — auto-draft proposta técnica from edital + company profile
 - [ ] EAGLE-022: Compliance checklist — auto-check habilitação requirements against company docs
 - [ ] EAGLE-023: Submit EAGLE-020 proposal by 2026-04-29 (R$250k opportunity deadline)
-### P19 Diagnostic Actions (2026-04-02)
-**P0 — Theater Cleanup + Security:**
+### P19+ Active Tasks (2026-04-03)
+**P0 — Theater:**
 - [ ] THEATER-001: Deploy x-reply-bot (X_BEARER_TOKEN + crontab) or remove from done
-- [x] SECURITY-001: Auth audit CLOSED — 0 gaps found ✅ 2026-04-02
 - [ ] CTX-001: Context recovery hook to /start (load handoff + MEMORY.md)
-- [x] TEST-001: Integration test suite — 21 tests (Guard Brasil PII/API, Eagle Eye opportunities, Gem Hunter scoring+CLI) ✅ 2026-04-02
-- [x] EAGLE-EYE-UX-001: Dashboard UX (pagination 15/page, territory name resolution, classifications badges, value filter, segmento/porte display) ✅ 2026-04-02
 **P1 — Architecture / Agents:**
 - [ ] HERMES-001: Wire Hermes-3 as BRAID mechanical executor (OpenRouter free tier, 2h, 30-40% cost savings)
-- [ ] OPENCLAW-001: Register Guard Brasil as OpenClaw MCP skill (precondition: MCP interface + 1 paying customer, Phase 2-3)
+- [ ] OPENCLAW-001: Register Guard Brasil as OpenClaw MCP skill (Phase 2-3)
 **P1 — Infrastructure:**
-- [ ] DASH-001: Mission Control Dashboard — React + Supabase Realtime (SSOTs, agents, tasks, revenue tracker)
-- [ ] CTX-002: Auto-index codebase-memory-mcp on /start (graph is cold, needs warm-up)
-- [ ] REWARDS-001: Unified rewards engine — merge ETHIK + 852 gamification + credit system into @egos/rewards
-- [ ] MOAT-001: Data flywheels (moats ≠ features) — Eagle Eye: bid outcomes→scoring, Gem Hunter: gem adoption→scores, Guard Brasil: mask patterns→improve (2-3w total)
+- [ ] DASH-001: Mission Control Dashboard — React + Supabase Realtime
+- [ ] CTX-002: Auto-index codebase-memory-mcp on /start
+- [ ] REWARDS-001: Unified rewards engine — merge ETHIK + 852 gamification + credit system
+- [ ] MOAT-001: Data flywheels — Eagle Eye bid outcomes, Gem Hunter adoption, Guard Brasil patterns (2-3w)
