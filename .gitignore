@@ -11,6 +11,7 @@ node_modules/
 dist/
 .next/
 out/
+*.tsbuildinfo
 
 # Logs
 agents/.logs/
@@ -23,6 +24,7 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+.obsidian/
 
 # Secrets & backups
 *.bak
