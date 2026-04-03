@@ -1,0 +1,11 @@
+{
+  "id": "egos-llm-connector",
+  "name": "EGOS LLM Connector",
+  "version": "1.0.0",
+  "minAppVersion": "0.15.0",
+  "description": "Conecte Obsidian com Alibaba DashScope, Claude API e Codex diretamente. Suporte a múltiplos providers com interface unificada.",
+  "author": "EGOS Framework",
+  "authorUrl": "https://egos.ia.br",
+  "fundingUrl": "",
+  "isDesktopOnly": false
+}
