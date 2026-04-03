@@ -36,5 +36,6 @@
 - [ ] Frozen zones untouched (or explicitly approved)
 - [ ] SSOT surfaces updated
 - [ ] No forbidden/timestamped docs created
+- [ ] PR body/comment includes `Generated with Codex` for source attribution
 
 Signed-off-by: EGOS Codex Agent <codex@egos.local>

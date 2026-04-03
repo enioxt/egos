@@ -28,6 +28,9 @@ Use este template em comentários de PR/Issue para coordenação assíncrona ent
 - ...
 
 **Owner suggestion:** @claude / @codex
+
+**Attribution (mandatory):**
+- Generated with Codex
 ```
 
 ## Current baseline (2026-04-01)
