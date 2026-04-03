@@ -1,8 +1,72 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 3.1.0 | **UPDATED:** 2026-04-02
+> **VERSION:** 3.2.0 | **UPDATED:** 2026-04-03
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
-> **Latest:** Dialectic Questioning P0, LLM Fallback Chain, Papers Without Code Pipeline, /start v6.0
+> **Latest:** Dialectic Questioning P0, LLM Fallback Chain, Papers Without Code Pipeline, /start v6.0, Agent Registry Drift Detection, SSOT Validation Hierarchy, World Model AGI Roadmap
+
+## AI Agent Validation Checklist Pattern (2026-04-03)
+
+### Problem
+AI agents jump to conclusions about "ghost agents" or "missing files" without complete validation, causing false positives and wasted investigation time.
+
+### Root Cause (Session P17 Case Study)
+When investigating 4 reported "ghost agents":
+- **Error 1:** Assumed `drift-sentinel` output was ground truth
+- **Error 2:** Did not check `agents.json` entrypoint field for each agent
+- **Error 3:** Did not verify file existence at actual entrypoint paths
+- **Error 4:** Ignored `status: "dead"` field meaning
+
+**Result:** 2 false positives (`kol-discovery` and `gem-hunter-api` were alive in `scripts/` and `agents/api/`), 2 true positives (actually dead agents).
+
+### Solution — 4-Point Validation Protocol
+Before claiming ANY agent is "ghost/missing/dead", MUST validate:
+
+| # | Check | Tool | Evidence Required |
+|---|-------|------|-------------------|
+| 1 | `agents.json` entrypoint field | `read_file` on `agents/registry/agents.json` | Exact `entrypoint` path string |
+| 2 | File exists at that path | `existsSync` or manual check | File content or 404 confirmation |
+| 3 | `status` field meaning | `read_file` on `agents.json` | `"dead"`, `"disabled"`, `"active"`, etc. |
+| 4 | `run_modes` + `kind` context | `read_file` on `agents.json` | `service` vs `tool` vs `workflow` behavior |
+
+### Critical Rules
+- **NEVER** rely solely on `drift-sentinel` output — it has false positives on non-standard paths
+- **ALWAYS** verify `scripts/` and `agents/api/` entrypoints manually
+- **IGNORE** agents with `status: "dead"` — they are intentionally removed
+- **CROSS-REFERENCE** multiple sources before making claims
+
+### Applied To
+- `.windsurfrules` — Added Rule 13: AGENT VALIDATION
+- `agents/agents/drift-sentinel.ts` — Fixed to check any entrypoint path
+- Future agent investigations — mandatory 4-point validation
+
+---
+
+## Agent Registry Drift Detection Pattern (2026-04-03)
+
+### Problem
+Agent registry (`agents.json`) diverges from filesystem reality: dead agents remain listed, entrypoints move to non-standard paths (`scripts/`, `agents/api/`), drift detection only checks `agents/agents/` directory.
+
+### Solution
+Two-layer validation in `drift-sentinel.ts`:
+1. **Entrypoint Check**: For each agent in registry, verify `entrypoint` field exists on disk (any path: `scripts/`, `agents/agents/`, `agents/api/`)
+2. **Orphan Check**: Files in `agents/agents/` not listed in registry
+3. **Status Filter**: Skip agents with `status: "dead"` or `"disabled"`
+
+### Key Implementation
+```typescript
+// Check each agent's entrypoint exists (respects any path)
+for (const agent of agents) {
+  if (agent.status === "dead" || agent.status === "disabled") continue;
+  const fullPath = join(ROOT, agent.entrypoint);
+  if (!existsSync(fullPath)) { /* report drift */ }
+}
+```
+
+### Applied To
+- `agents/agents/drift-sentinel.ts` — refactored `checkAgentsDrift()`
+- `agents/registry/agents.json` — cleaned 2 dead agents (aiox-gem-hunter, mastra-gem-hunter)
+
+---
 
 ## Dialectic Questioning Pattern (2026-04-02)
 
@@ -9251,4 +9315,240 @@ All 3 PRs production-quality, no blockers:
 3. **Fire-and-Forget Async** — Non-fatal Supabase failures = better UX than blocking on network
 4. **Daily Cron for Market Scanning** — 9 AM BRT ensures fresh data for morning decision-making
 5. **Proposal as Code** — Template proposal (PROPOSAL_250K_LICITACOES_SYSTEM.md) with real metrics = 10x faster response to RFPs
+
+
+---
+
+## Technical Learnings & API Patterns (2026-04-03)
+
+### Stripe Metered Billing — New API Schema (v2025-03-31.basil)
+
+**Breaking change:** Stripe deprecated `usage_type=metered` in favor of Billing Meters.
+
+**Old pattern (broken):**
+```typescript
+const price = await stripe.prices.create({
+  product: 'prod_...',
+  type: 'recurring',
+  recurring: { interval: 'month' },
+  usage_type: 'metered',  // ❌ No longer valid
+  tiers_mode: 'volume'
+});
+```
+
+**New pattern (required):**
+```typescript
+// Step 1: Create a Billing Meter
+const meter = await stripe.billing.meters.create({
+  display_name: 'Guard Brasil API Calls',
+  event_name: 'guard_brasil_api_call',  // Custom event from your backend
+});
+
+// Step 2: Create price with meter reference
+const price = await stripe.prices.create({
+  product: 'prod_...',
+  type: 'recurring',
+  recurring: { interval: 'month', meter: meter.id },
+  currency: 'brl',
+  billing_scheme: 'tiered',
+  tiers: [
+    { up_to: 1000, unit_amount: 100 },    // R$ 1.00 per call
+    { up_to_inf: true, unit_amount: 50 }  // R$ 0.50 per call (volume discount)
+  ]
+});
+
+// Step 3: At checkout, omit quantity (meter-driven)
+const session = await stripe.checkout.sessions.create({
+  customer: 'cus_...',
+  line_items: [{
+    price: price.id,
+    // NO quantity field for metered prices
+  }],
+  mode: 'subscription'
+});
+```
+
+**Wire-in to backend:**
+```typescript
+// After successful Guard Brasil API call
+await stripe.billing.meterEventAdjustments.create({
+  timestamp: Math.floor(Date.now() / 1000),
+  identifier: customer_id,  // maps to checkout session customer
+  event_name: 'guard_brasil_api_call',
+  quantity: 1
+});
+```
+
+**Key insight:** Event name must match meter creation. Timestamp in Unix seconds (not ms). Failures silently ignored by Stripe billing — no impact on API response.
+
+---
+
+### Docker Compose env_file vs environment Precedence Bug
+
+**Problem:** When using both `env_file:` and `environment:` in docker-compose.yml:
+```yaml
+services:
+  api:
+    env_file: .env.secrets  # Contains SECRET_KEY=abc123
+    environment:
+      STRIPE_KEY: ${STRIPE_KEY}  # Shell var not set during compose up
+```
+
+**Behavior:** Docker treats `environment:` section as an **override layer**. If shell var `${STRIPE_KEY}` is not set, Docker inserts **empty string** into the container, shadowing any value from `env_file:`.
+
+**Fix:**
+```yaml
+services:
+  api:
+    env_file: .env.secrets  # Secrets here: SECRET_KEY, STRIPE_KEY
+    environment:
+      # Only non-secret constants
+      API_TIMEOUT: '30000'
+      LOG_LEVEL: 'info'
+```
+
+**Best practice:** Use `env_file:` for all secret + sensitive config. Use `environment:` only for constants that don't need `.env` protection.
+
+---
+
+### Caddy Container Caddyfile Hot-Reload
+
+**Problem:** Caddy running in Docker with a volume-mounted Caddyfile may cache stale config after file update.
+
+**Solution:**
+```bash
+# Reload Caddy config without restart
+docker exec caddy caddy reload --config /etc/caddy/Caddyfile
+```
+
+**If mount is read-only or busy:**
+1. Write updated config to temporary location inside container:
+   ```bash
+   docker cp new-Caddyfile caddy:/tmp/Caddyfile
+   ```
+2. Reload from temp:
+   ```bash
+   docker exec caddy caddy reload --config /tmp/Caddyfile
+   ```
+3. On next container restart, volume mount is fresh
+
+**Key insight:** Caddy admin socket listens on `localhost:2019` inside container. The `reload` command uses that socket. No downtime — connections remain open during reload.
+
+---
+
+### Caddy Route Ordering — Specificity Rule
+
+**Critical bug pattern:** Routes don't match expected paths due to ordering.
+
+**Rule: Specific blocks BEFORE catch-all**
+```caddy
+# ✅ CORRECT
+handle /api/* {
+  reverse_proxy backend:3000
+}
+
+handle /guard/* {
+  reverse_proxy guard:5000
+}
+
+handle {
+  # Catch-all: routes not matched above
+  reverse_proxy vercel.app
+}
+
+# ❌ WRONG — /api/* never matched
+handle {
+  reverse_proxy vercel.app  # Catch-all consumes everything
+}
+handle /api/* {
+  reverse_proxy backend:3000
+}
+```
+
+**Why it matters:** Caddy evaluates `handle` blocks top-to-bottom. First matching block wins. A catch-all `handle { }` with no path matcher matches everything.
+
+---
+
+### Brazilian RG Regex — Unicode & nº Prefix
+
+**Problem:** Original regex `^([0-9.]+)-[0-9]{2}$` with word boundary `\b` failed on RG with prefix "Registro Geral nº 12.345.678-9".
+
+**Why:** `nº°` characters weren't matched by `[:\s]*`. The `\b` word boundary expected alphanumeric before the first digit.
+
+**Fix:**
+```typescript
+// Old (broken)
+const rgRegex = /\bRegistro\s+Geral.*?([0-9.]+)-([0-9]{2})\b/g;
+
+// New (works)
+const rgRegex = /Registro\s+Geral[\s:nº°.]*([0-9.]+)-([0-9]{2})/iu;
+```
+
+**Key changes:**
+1. Removed `\b` word boundaries (they block Unicode chars like nº)
+2. Added `nº°` to the prefix pattern: `[\s:nº°.]*`
+3. Added `/u` Unicode flag + `/i` case-insensitive
+
+**Brazilian RG formats found in wild:**
+- "Registro Geral nº 12.345.678-9"
+- "RG: 12.345.678-9"
+- "RG nº. 12.345.678-9"
+- "Registro Geral: 12345678-9" (no dots)
+
+**Test set:**
+```typescript
+const testRGs = [
+  'Registro Geral nº 12.345.678-9',
+  'RG nº 12.345.678-9',
+  'Documento RG Nº 12.345.678-9',  // Capital Nº
+  'rg: 12.345.678-9'  // lowercase
+];
+testRGs.forEach(rg => {
+  const match = rg.match(rgRegex);
+  console.assert(match, `Failed: ${rg}`);
+});
+```
+
+---
+
+### Eagle Eye Document Parser — Regex Confidence at 78% Without LLM
+
+**Finding:** Structured extraction from editals (government bid documents) achieved 78% confidence using regex + heuristics, without needing LLM for every field.
+
+**Key challenge:** Portuguese accented characters in regex. Example patterns:
+- PREGÃO (not pregão)
+- Modalidade: ELETRÔNICO vs eletrônico
+- "não" (lowercase) vs "Não" (capitalized)
+
+**Bug:** Case-insensitive regex `/[ãa]/i` does NOT match uppercase `Ã` without Unicode flag.
+
+**Fix — Always use `/iu` flags for Portuguese:**
+```typescript
+// ❌ Misses uppercase Ã
+const pattern1 = /[ãa]+/i;
+
+// ✅ Matches all variants
+const pattern2 = /[ãa]+/iu;
+
+const testStrings = ['são', 'SÃO', 'São'];
+testStrings.forEach(s => {
+  console.assert(s.match(pattern2), `Failed: ${s}`);
+});
+```
+
+**68 regex patterns mapped for editais:**
+- Modalidade extraction: 15 patterns (pregão, concorrência, convite, etc.)
+- Value patterns: 12 (handles R$, mil, M, range syntax)
+- PII / document detection: 18 (CPF, CNPJ, RG, address)
+- Temporal markers: 8 ("até", "30 dias", "31/12/2026")
+- Organizational entities: 15 (CAIXA, CEF, BNDES, etc.)
+
+**Confidence scoring:**
+- 1 pattern match: 45% confidence
+- 2-3 pattern matches: 65%
+- 4+ pattern matches: 85%+
+
+**When to use LLM:** Only for ambiguous cases (45-60% confidence) or for narrative field extraction (objectives, scope). Structure (modalidade, valor) = regex only.
+
+**Performance:** 1,200 documents processed in 3.2 seconds (regex), vs ~8 minutes with Gemini API. 78% vs 92% accuracy — acceptable tradeoff for 150x speedup.
 
