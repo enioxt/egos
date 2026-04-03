@@ -439,17 +439,23 @@ Bun.serve({
         const stripeKey = process.env.STRIPE_SECRET_KEY;
         if (!stripeKey) return Response.json({ error: 'Stripe not configured' }, { status: 503, headers: CORS });
 
-        const priceId = tier === 'enterprise'
-          ? process.env.STRIPE_ENTERPRISE_PRICE_ID
-          : process.env.STRIPE_PRO_PRICE_ID;
+        const PRICE_MAP: Record<string, string | undefined> = {
+          developer:  process.env.STRIPE_PRICE_ID_GUARD_BRASIL_DEVELOPER,
+          startup:    process.env.STRIPE_PRICE_ID_GUARD_BRASIL_STARTUP,
+          business:   process.env.STRIPE_PRICE_ID_GUARD_BRASIL_BUSINESS,
+          enterprise: process.env.STRIPE_PRICE_ID_GUARD_BRASIL_ENTERPRISE,
+          // legacy aliases
+          pro:        process.env.STRIPE_PRICE_ID_GUARD_BRASIL_STARTUP ?? process.env.STRIPE_PRO_PRICE_ID,
+        };
+        const priceId = PRICE_MAP[tier];
 
-        if (!priceId) return Response.json({ error: 'Invalid tier' }, { status: 400, headers: CORS });
+        if (!priceId) return Response.json({ error: `Invalid tier: ${tier}. Valid: developer, startup, business, enterprise` }, { status: 400, headers: CORS });
 
         const origin = req.headers.get('origin') || 'https://guard.egos.ia.br';
+        // Metered prices (usage_type=metered) must NOT include quantity
         const body = new URLSearchParams({
           'mode': 'subscription',
           'line_items[0][price]': priceId,
-          'line_items[0][quantity]': '1',
           'customer_email': email,
           'success_url': `${origin}/landing?upgrade=success&tier=${tier}`,
           'cancel_url': `${origin}/landing?upgrade=cancel`,
@@ -457,6 +463,8 @@ Bun.serve({
           'metadata[tenant_id]': tenant_id ?? '',
           'allow_promotion_codes': 'true',
           'billing_address_collection': 'auto',
+          'subscription_data[metadata][tier]': tier,
+          'subscription_data[metadata][guard_brasil_meter_id]': process.env.STRIPE_METER_ID ?? '',
         });
 
         const sessionRes = await fetch('https://api.stripe.com/v1/checkout/sessions', {
