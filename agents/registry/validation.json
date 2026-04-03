@@ -1,0 +1,146 @@
+{
+  "version": "1.0.0",
+  "description": "EGOS Agent Registry Validation Cache — Lightweight provenance for agent existence checks",
+  "lastValidated": "2026-04-03T12:36:42.717Z",
+  "validator": "agent-validator",
+  "validationSource": "/home/enio/egos/agents/registry/agents.json",
+  "validationMethod": "4-point-check",
+  "agents": [
+    {
+      "id": "ssot-auditor",
+      "entrypoint": "agents/agents/ssot-auditor.ts",
+      "status": "active",
+      "exists": true,
+      "verifiedAt": "2026-04-03T12:36:42.716Z",
+      "validationHash": "sha256:c71a31e8835f208a"
+    },
+    {
+      "id": "ssot-fixer",
+      "entrypoint": "agents/agents/ssot-fixer.ts",
+      "status": "active",
+      "exists": true,
+      "verifiedAt": "2026-04-03T12:36:42.716Z",
+      "validationHash": "sha256:488ff353d749da35"
+    },
+    {
+      "id": "drift-sentinel",
+      "entrypoint": "agents/agents/drift-sentinel.ts",
+      "status": "active",
+      "exists": true,
+      "verifiedAt": "2026-04-03T12:36:42.716Z",
+      "validationHash": "sha256:9770892ade71a498"
+    },
+    {
+      "id": "dep-auditor",
+      "entrypoint": "agents/agents/dep-auditor.ts",
+      "status": "active",
+      "exists": true,
+      "verifiedAt": "2026-04-03T12:36:42.716Z",
+      "validationHash": "sha256:083dd762de9abadd"
+    },
+    {
+      "id": "archaeology-digger",
+      "entrypoint": "agents/agents/archaeology-digger.ts",
+      "status": "active",
+      "exists": true,
+      "verifiedAt": "2026-04-03T12:36:42.716Z",
+      "validationHash": "sha256:d696b376c5309cf0"
+    },
+    {
+      "id": "chatbot-compliance-checker",
+      "entrypoint": "agents/agents/chatbot-compliance-checker.ts",
+      "status": "dead",
+      "exists": true,
+      "verifiedAt": "2026-04-03T12:36:42.716Z",
+      "validationHash": "sha256:7189af2cdd3a52d0"
+    },
+    {
+      "id": "dead-code-detector",
+      "entrypoint": "agents/agents/dead-code-detector.ts",
+      "status": "active",
+      "exists": true,
+      "verifiedAt": "2026-04-03T12:36:42.717Z",
+      "validationHash": "sha256:4ec409ab6413cfad"
+    },
+    {
+      "id": "capability-drift-checker",
+      "entrypoint": "agents/agents/capability-drift-checker.ts",
+      "status": "active",
+      "exists": true,
+      "verifiedAt": "2026-04-03T12:36:42.717Z",
+      "validationHash": "sha256:e1c25035372bd585"
+    },
+    {
+      "id": "context-tracker",
+      "entrypoint": "agents/agents/context-tracker.ts",
+      "status": "active",
+      "exists": true,
+      "verifiedAt": "2026-04-03T12:36:42.717Z",
+      "validationHash": "sha256:71e7fe61db9396f2"
+    },
+    {
+      "id": "gtm-harvester",
+      "entrypoint": "agents/agents/gtm-harvester.ts",
+      "status": "dead",
+      "exists": true,
+      "verifiedAt": "2026-04-03T12:36:42.717Z",
+      "validationHash": "sha256:a47ee8595ce2f968"
+    },
+    {
+      "id": "framework-benchmarker",
+      "entrypoint": "agents/agents/framework-benchmarker.ts",
+      "status": "active",
+      "exists": true,
+      "verifiedAt": "2026-04-03T12:36:42.717Z",
+      "validationHash": "sha256:2d9144e7f73a33cb"
+    },
+    {
+      "id": "mcp-router",
+      "entrypoint": "agents/agents/mcp-router.ts",
+      "status": "active",
+      "exists": true,
+      "verifiedAt": "2026-04-03T12:36:42.717Z",
+      "validationHash": "sha256:92bacbb9f4eabb74"
+    },
+    {
+      "id": "spec-router",
+      "entrypoint": "agents/agents/spec-router.ts",
+      "status": "active",
+      "exists": true,
+      "verifiedAt": "2026-04-03T12:36:42.717Z",
+      "validationHash": "sha256:45142120b298b8e4"
+    },
+    {
+      "id": "gem-hunter",
+      "entrypoint": "agents/agents/gem-hunter.ts",
+      "status": "active",
+      "exists": true,
+      "verifiedAt": "2026-04-03T12:36:42.717Z",
+      "validationHash": "sha256:b0e34eebc697f7e5"
+    },
+    {
+      "id": "kol-discovery",
+      "entrypoint": "scripts/kol-discovery.ts",
+      "status": "active",
+      "exists": true,
+      "verifiedAt": "2026-04-03T12:36:42.717Z",
+      "validationHash": "sha256:a619408ee98f4412"
+    },
+    {
+      "id": "gem-hunter-api",
+      "entrypoint": "agents/api/gem-hunter-server.ts",
+      "status": "active",
+      "exists": true,
+      "verifiedAt": "2026-04-03T12:36:42.717Z",
+      "validationHash": "sha256:283076216a9db073"
+    }
+  ],
+  "stats": {
+    "total": 16,
+    "verified": 16,
+    "ghosts": 0,
+    "dead": 2,
+    "orphanFiles": 0
+  },
+  "globalHash": "sha256:47bc4057766b48bc"
+}
