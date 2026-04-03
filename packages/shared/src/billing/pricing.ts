@@ -14,7 +14,22 @@ import { estimateCost, type CostUsage } from "../cost-tracker.ts";
 
 export const DEFAULT_MARGIN_MULTIPLIER = 1.5; // 50% margin on LLM pass-through
 export const GEM_HUNTER_BASE_FEE_USD  = 0.30; // per /v1/hunt call
-export const GUARD_BRASIL_PER_CALL_USD = 0.02; // R$0.02 ≈ $0.004 → simplified as $0.02 floor
+export const GUARD_BRASIL_PER_CALL_USD = 0.00098;
+
+export interface GuardBrasilUsageTier {
+  id: "free" | "starter" | "pro" | "business" | "enterprise";
+  monthlyCalls: number | null;
+  pricePerCallBrl: number;
+  estimatedMonthlyBrl: number | null;
+}
+
+export const GUARD_BRASIL_USAGE_TIERS: GuardBrasilUsageTier[] = [
+  { id: "free", monthlyCalls: 150, pricePerCallBrl: 0, estimatedMonthlyBrl: 0 },
+  { id: "starter", monthlyCalls: 10_000, pricePerCallBrl: 0.0049, estimatedMonthlyBrl: 49 },
+  { id: "pro", monthlyCalls: 100_000, pricePerCallBrl: 0.00199, estimatedMonthlyBrl: 199 },
+  { id: "business", monthlyCalls: 500_000, pricePerCallBrl: 0.000998, estimatedMonthlyBrl: 499 },
+  { id: "enterprise", monthlyCalls: null, pricePerCallBrl: 0.0005, estimatedMonthlyBrl: null },
+];
 
 export type Product = "gem-hunter" | "guard-brasil" | "eagle-eye";
 
@@ -29,6 +44,14 @@ export interface PriceEstimate {
 
 /** Current BRL/USD rate (update monthly or fetch live) */
 export const USD_TO_BRL = 5.0;
+
+export function getGuardBrasilUsageTier(callCount: number): GuardBrasilUsageTier {
+  if (callCount <= GUARD_BRASIL_USAGE_TIERS[0].monthlyCalls!) return GUARD_BRASIL_USAGE_TIERS[0];
+  if (callCount <= GUARD_BRASIL_USAGE_TIERS[1].monthlyCalls!) return GUARD_BRASIL_USAGE_TIERS[1];
+  if (callCount <= GUARD_BRASIL_USAGE_TIERS[2].monthlyCalls!) return GUARD_BRASIL_USAGE_TIERS[2];
+  if (callCount <= GUARD_BRASIL_USAGE_TIERS[3].monthlyCalls!) return GUARD_BRASIL_USAGE_TIERS[3];
+  return GUARD_BRASIL_USAGE_TIERS[4];
+}
 
 /**
  * Calculate charge for a Gem Hunter hunt run.
@@ -59,14 +82,16 @@ export function priceGemHuntRun(
  * @param callCount - Number of PII inspection calls
  */
 export function priceGuardBrasilCalls(callCount: number): PriceEstimate {
-  const totalUsd = callCount * GUARD_BRASIL_PER_CALL_USD;
+  const tier = getGuardBrasilUsageTier(callCount);
+  const totalBrl = callCount * tier.pricePerCallBrl;
+  const totalUsd = totalBrl / USD_TO_BRL;
   return {
     product: "guard-brasil",
     llmCostUsd: 0,
-    baseFeeUsd: totalUsd,
+    baseFeeUsd: Math.round(totalUsd * 1_000_000) / 1_000_000,
     totalUsd: Math.round(totalUsd * 1_000_000) / 1_000_000,
-    totalBrl: Math.round(totalUsd * USD_TO_BRL * 100) / 100,
-    breakdown: `${callCount} calls × $${GUARD_BRASIL_PER_CALL_USD} = $${totalUsd.toFixed(4)}`,
+    totalBrl: Math.round(totalBrl * 100) / 100,
+    breakdown: `${callCount} calls × R$${tier.pricePerCallBrl.toFixed(6)} (${tier.id}) = R$${totalBrl.toFixed(2)}`,
   };
 }
 

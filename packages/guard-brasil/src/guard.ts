@@ -11,10 +11,14 @@ import {
   buildLGPDDisclosure,
   createEvidenceChain,
   formatEvidenceBlock,
+  buildAuditFields,
+  sha256Text,
+  sourceFingerprint,
   type AtrianConfig,
   type AtrianResult,
   type MaskingResult,
   type EvidenceChain,
+  type AuditFields,
   type EvidenceChainOptions,
   type ConfidenceLevel,
 } from './lib/index.js';
@@ -42,6 +46,32 @@ export interface InspectOptions {
     excerpt?: string;
     confidence?: ConfidenceLevel;
   }>;
+  provenance?: InspectProvenanceOptions;
+}
+
+export type ProvenanceLevel = 'inspection_only' | 'source_context' | 'source_row_bound';
+export interface InspectProvenanceOptions {
+  sourceUrl?: string;
+  sourceMethod?: string;
+  collectedAt?: string;
+  rawRow?: Record<string, unknown>;
+  query?: string;
+  recordId?: string;
+}
+export type SourceReceipt = Partial<AuditFields> & {
+  queryHash?: string;
+  recordId?: string;
+  provenanceLevel: Exclude<ProvenanceLevel, 'inspection_only'>;
+};
+export interface InspectionReceipt {
+  inspectedAt: string;
+  inputHash: string;
+  outputHash: string;
+  inspectionHash: string;
+  guardVersion: string;
+  evidenceHash?: string;
+  provenanceLevel: ProvenanceLevel;
+  source?: SourceReceipt;
 }
 
 export interface GuardBrasilResult {
@@ -65,6 +95,8 @@ export interface GuardBrasilResult {
   lgpdDisclosure: string;
   /** Human-readable summary of all issues found */
   summary: string;
+  /** Inspection receipt with hashes and optional source provenance */
+  receipt: InspectionReceipt;
 }
 
 // Brazilian government acronyms that should never be flagged as invented
@@ -73,6 +105,39 @@ const BRAZILIAN_KNOWN_ACRONYMS = [
   'OAB', 'CNJ', 'CRM', 'PIX', 'INSS', 'SUS', 'STF', 'STJ',
   'PCMG', 'PMMG', 'TJMG', 'MPMG', 'CGU', 'TCU', 'AGU',
 ];
+const GUARD_VERSION = '0.2.0';
+
+function buildInspectionReceipt(
+  text: string,
+  output: string,
+  evidenceChain: EvidenceChain | undefined,
+  provenance: InspectProvenanceOptions | undefined,
+): InspectionReceipt {
+  const inspectedAt = new Date().toISOString();
+  const inputHash = sha256Text(text);
+  const outputHash = sha256Text(output);
+  let provenanceLevel: ProvenanceLevel = 'inspection_only';
+  let source: SourceReceipt | undefined;
+  if (provenance?.sourceUrl && provenance?.sourceMethod) {
+    const verifiedAt = provenance.collectedAt ?? inspectedAt;
+    const audit = provenance.rawRow
+      ? buildAuditFields({ rawRow: provenance.rawRow, sourceUrl: provenance.sourceUrl, method: provenance.sourceMethod, collectedAt: verifiedAt })
+      : undefined;
+    provenanceLevel = audit ? 'source_row_bound' : 'source_context';
+    source = {
+      ...audit,
+      source_url: provenance.sourceUrl.trim(),
+      source_method: provenance.sourceMethod.trim() || 'unknown',
+      verified_at: audit?.verified_at ?? verifiedAt,
+      source_fingerprint: audit?.source_fingerprint ?? sourceFingerprint(provenance.sourceUrl, provenance.sourceMethod, verifiedAt),
+      ...(provenance.query ? { queryHash: sha256Text(provenance.query) } : {}),
+      ...(provenance.recordId ? { recordId: provenance.recordId } : {}),
+      provenanceLevel,
+    };
+  }
+  const inspectionHash = sha256Text(JSON.stringify({ inputHash, outputHash, inspectedAt, evidenceHash: evidenceChain?.auditHash ?? null, sourceFingerprint: source?.source_fingerprint ?? null, guardVersion: GUARD_VERSION, provenanceLevel }));
+  return { inspectedAt, inputHash, outputHash, inspectionHash, guardVersion: GUARD_VERSION, ...(evidenceChain ? { evidenceHash: evidenceChain.auditHash } : {}), ...(source ? { source } : {}), provenanceLevel };
+}
 
 // ─── GuardBrasil class ────────────────────────────────────────────────────────
 
@@ -162,6 +227,7 @@ export class GuardBrasil {
     const summary = issues.length === 0
       ? 'Output is clean — no violations found.'
       : `Issues found: ${issues.join(' | ')}`;
+    const receipt = buildInspectionReceipt(text, filteredOutput, evidenceChain, options.provenance);
 
     return {
       original: text,
@@ -174,6 +240,7 @@ export class GuardBrasil {
       evidenceBlock,
       lgpdDisclosure,
       summary,
+      receipt,
     };
   }
 }

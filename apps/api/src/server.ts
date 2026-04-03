@@ -12,6 +12,7 @@
 import { GuardBrasil } from '../../../packages/guard-brasil/src/index.js';
 import { recordApiCall } from '../../../packages/guard-brasil/src/telemetry.ts';
 import { validateKey, createFreeTenant, incrementUsage, type Tenant } from '../../../packages/guard-brasil/src/keys.ts';
+import { GUARD_BRASIL_USAGE_TIERS } from '../../../packages/shared/src/billing/pricing.ts';
 import { evaluatePRI, requiresManualReview, shouldBlockOnPRI } from './pri.js';
 
 const guard = GuardBrasil.create();
@@ -94,15 +95,29 @@ Bun.serve({
         version: API_VERSION,
         endpoints: [
           { method: 'GET',  path: '/health',                description: 'Service health' },
-          { method: 'GET',  path: '/v1/meta',               description: 'API contract + runtime limits' },
+          { method: 'GET',  path: '/v1/meta',               description: 'Public API contract + pricing metadata' },
           { method: 'POST', path: '/v1/keys',               description: 'Create free API key' },
           { method: 'POST', path: '/v1/inspect',            description: 'Guard Brasil PII inspection' },
-          { method: 'POST', path: '/v1/stripe/checkout',    description: 'Create Stripe Checkout Session' },
-          { method: 'POST', path: '/v1/stripe/webhook',     description: 'Stripe billing webhook' },
-          { method: 'GET',  path: '/api/admin/cost-dashboard', description: 'Real-time cost tracking (admin only)' },
         ],
-        tiers: { free: 150, pro: 10000, enterprise: 999999 },
-        pricing: { pro_brl: 497, enterprise_brl: 1497 },
+        capabilities: [
+          'brazilian-pii-detection',
+          'lgpd-disclosure',
+          'atrian-validation',
+          'inspection-receipts',
+          'provenance-binding',
+          'evidence-chain',
+        ],
+        pricing: {
+          model: 'usage-based',
+          currency: 'BRL',
+          free_monthly_calls: 150,
+          tiers: GUARD_BRASIL_USAGE_TIERS.map(tier => ({
+            id: tier.id,
+            monthly_calls: tier.monthlyCalls,
+            price_per_call_brl: tier.pricePerCallBrl,
+            estimated_monthly_brl: tier.estimatedMonthlyBrl,
+          })),
+        },
         timestamp: new Date().toISOString(),
       }, { headers: CORS });
     }
@@ -164,6 +179,14 @@ Bun.serve({
         text: string;
         sessionId?: string;
         claims?: Array<{ claim: string; source: string; excerpt?: string; confidence?: string }>;
+        provenance?: {
+          sourceUrl?: string;
+          sourceMethod?: string;
+          collectedAt?: string;
+          rawRow?: Record<string, unknown>;
+          query?: string;
+          recordId?: string;
+        };
         pii_types?: string[];
         pri_strategy?: 'paranoid' | 'balanced' | 'permissive';
         pri_context?: { impacts_fundamental_rights?: boolean; is_admin_action?: boolean; user_id?: string };
@@ -179,6 +202,7 @@ Bun.serve({
       const result = guard.inspect(body.text, {
         sessionId: body.sessionId,
         claims: body.claims as any,
+        provenance: body.provenance,
       });
       const priDecision = await evaluatePRI(
         body.text,
@@ -189,7 +213,13 @@ Bun.serve({
       const durationMs = Math.round(performance.now() - startMs);
 
       // Fire-and-forget: telemetry + usage increment
-      recordApiCall(result, { duration_ms: durationMs, session_id: body.sessionId, api_version: '0.2.0' })
+      recordApiCall(result, {
+        tenant_id: auth.tenant?.id,
+        input_hash: result.receipt.inputHash,
+        duration_ms: durationMs,
+        session_id: body.sessionId,
+        api_version: '0.2.0',
+      })
         .catch(err => console.warn('[api] Telemetry error:', err));
       if (auth.tenant) {
         incrementUsage(auth.tenant.id).catch(err => console.warn('[api] Usage increment error:', err));
@@ -199,6 +229,8 @@ Bun.serve({
         'Content-Type': 'application/json',
         ...CORS,
         'X-Guard-Duration-Ms': String(durationMs),
+        'X-Guard-Inspection-Hash': result.receipt.inspectionHash,
+        'X-Guard-Provenance-Level': result.receipt.provenanceLevel,
         ...(auth.tenant && { 'X-RateLimit-Remaining': String(Math.max(0, auth.remaining - 1)) }),
       };
 
@@ -237,6 +269,7 @@ Bun.serve({
           auditHash: result.evidenceChain.auditHash,
           claimCount: result.evidenceChain.claims.length,
         } : null,
+        receipt: result.receipt,
         pri: priDecision ? {
           output: priDecision.output,
           confidence: priDecision.confidence,

@@ -288,19 +288,20 @@ export default function LandingPage() {
 
         {/* Pricing */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-center mb-2">Planos</h2>
-          <p className="text-sm text-slate-400 text-center mb-8">Guard Brasil PII + Eagle Eye licitações — uma chave, dois produtos.</p>
+          <h2 className="text-2xl font-bold text-center mb-2">Pricing por uso</h2>
+          <p className="text-sm text-slate-400 text-center mb-8">Sem assinatura obrigatória. Comece grátis, escale por volume e receba hashes, receipts e proveniência quando precisar auditar cada inspeção.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
             {[
-              { tier: 'Free', price: 'R$ 0', calls: '150 chamadas/mês', features: ['Guard Brasil + Eagle Eye', 'Sem cartão de crédito', 'Dashboard básico', 'Suporte comunidade'], cta: 'Criar conta grátis', ctaHref: '#get-key', popular: false, stripeKey: null },
-              { tier: 'Pro', price: 'R$ 497', calls: '10.000 chamadas/mês', features: ['Guard Brasil + Eagle Eye', 'Alertas por email/Telegram', 'Dashboard completo', 'Suporte prioritário'], cta: 'Assinar Pro', popular: true, stripeKey: 'pro' as const },
-              { tier: 'Enterprise', price: 'R$ 1.497', calls: 'Ilimitado', features: ['Chamadas ilimitadas', 'SLA 99.9%', 'IP whitelist', 'Suporte dedicado'], cta: 'Falar com vendas', ctaHref: 'mailto:enio@egos.ia.br?subject=Enterprise', popular: false, stripeKey: null },
+              { tier: 'Free', price: 'R$ 0', calls: '150 inspeções/mês', detail: 'sandbox LGPD sem cartão', features: ['PII brasileiro local', 'LGPD disclosure', 'Teste imediato', 'Sem cartão de crédito'], cta: 'Criar conta grátis', ctaHref: '#get-key', popular: false },
+              { tier: 'Volume 10k', price: 'R$ 0,0049', calls: 'por inspeção', detail: '≈ R$ 49 por 10.000 chamadas', features: ['PII + ATRiAN', 'Inspection receipts', 'Evidence chain', 'Pronto para produção'], cta: 'Ver documentação', ctaHref: '/docs', popular: true },
+              { tier: 'Enterprise', price: 'R$ 0,001 → R$ 0,0005', calls: 'por inspeção', detail: 'pricing degressivo + comercial', features: ['Proveniência de fonte', 'Prova de inspeção', 'Acordo comercial', 'Suporte enterprise'], cta: 'Falar com vendas', ctaHref: 'mailto:enio@egos.ia.br?subject=Guard%20Brasil%20Enterprise', popular: false },
             ].map((plan) => (
               <div key={plan.tier} className={`bg-slate-900 border rounded-2xl p-6 ${plan.popular ? 'border-emerald-600 ring-1 ring-emerald-600/20' : 'border-slate-800'}`}>
                 {plan.popular && <p className="text-[10px] text-emerald-400 font-bold uppercase tracking-wider mb-2">MAIS POPULAR</p>}
                 <p className="text-sm text-slate-400">{plan.tier}</p>
-                <p className="text-2xl font-bold mt-1">{plan.price}<span className="text-sm text-slate-500">/mês</span></p>
+                <p className="text-2xl font-bold mt-1">{plan.price}</p>
                 <p className="text-xs text-slate-500 mt-1">{plan.calls}</p>
+                <p className="text-[11px] text-slate-500 mt-1">{plan.detail}</p>
                 <ul className="mt-4 space-y-2 mb-6">
                   {plan.features.map((f) => (
                     <li key={f} className="text-xs text-slate-400 flex items-center gap-2">
@@ -308,26 +309,9 @@ export default function LandingPage() {
                     </li>
                   ))}
                 </ul>
-                {plan.stripeKey ? (
-                  <button
-                    onClick={() => {
-                      const email = (document.getElementById('key-email') as HTMLInputElement)?.value;
-                      if (!email?.includes('@')) { alert('Informe seu email no formulário abaixo primeiro.'); return; }
-                      fetch('https://guard.egos.ia.br/v1/stripe/checkout', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ tier: plan.stripeKey, email }),
-                      }).then(r => r.json()).then(d => { if (d.url) window.location.href = d.url; });
-                    }}
-                    className={`w-full py-2 rounded-xl text-sm font-medium transition ${plan.popular ? 'bg-emerald-600 hover:bg-emerald-500 text-white' : 'border border-slate-700 text-slate-300 hover:bg-slate-800'}`}
-                  >
-                    {plan.cta}
-                  </button>
-                ) : (
-                  <a href={plan.ctaHref} className={`block text-center py-2 rounded-xl text-sm font-medium transition ${plan.popular ? 'bg-emerald-600 hover:bg-emerald-500 text-white' : 'border border-slate-700 text-slate-300 hover:bg-slate-800'}`}>
-                    {plan.cta}
-                  </a>
-                )}
+                <a href={plan.ctaHref} className={`block text-center py-2 rounded-xl text-sm font-medium transition ${plan.popular ? 'bg-emerald-600 hover:bg-emerald-500 text-white' : 'border border-slate-700 text-slate-300 hover:bg-slate-800'}`}>
+                  {plan.cta}
+                </a>
               </div>
             ))}
           </div>

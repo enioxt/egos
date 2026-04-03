@@ -52,7 +52,10 @@
     "start:json": "bun scripts/start-v6.ts --json",
     "doctor": "bun scripts/doctor.ts",
     "doctor:codex": "sh scripts/codex-doctor.sh",
-    "doctor:fix": "bun scripts/doctor.ts --fix"
+    "doctor:fix": "bun scripts/doctor.ts --fix",
+    "obsidian:sync": "bun scripts/obsidian-export.ts",
+    "obsidian:lint": "echo '🔍 Wiki health check (TODO: implement validation)'",
+    "obsidian:init": "echo '📁 Creating Obsidian Vault structure...' && mkdir -p '/home/enio/Obsidian Vault/EGOS/'{'00 - Inbox','01 - Raw Sources','02 - Wiki','03 - Sessions','04 - Outputs','05 - Templates','99 - Archive'}"
   },
   "devDependencies": {
     "@types/bun": "^1.2.0",

@@ -53,12 +53,14 @@ export async function recordApiCall(
   }
 
   try {
+    const findings = Array.isArray(result?.masking?.findings) ? result.masking.findings : [];
+    const piiTypes = [...new Set(findings.map((finding: any) => finding.category))];
     const event = {
       tenant_id: meta.tenant_id || 'default',
       event_type: 'pii_inspection',
       input_hash: meta.input_hash,
-      pii_types: result?.masking?.piiTypes || [],
-      pii_count: result?.masking?.piiTypes?.length || 0,
+      pii_types: piiTypes,
+      pii_count: findings.length,
       verdict: result?.safe ? 'safe' : 'blocked',
       model_id: meta.model_id || 'guard-brasil-v0.2.0',
       cost_usd: result?.cost?.usd || 0,

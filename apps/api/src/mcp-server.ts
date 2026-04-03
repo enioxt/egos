@@ -124,6 +124,13 @@ async function handleRequest(req: JsonRpcRequest): Promise<void> {
       if (params.name === 'guard_inspect') {
         const result = guard.inspect(text, {
           sessionId: typeof params.arguments.session_id === 'string' ? params.arguments.session_id : undefined,
+          provenance: {
+            sourceUrl: typeof params.arguments.source_url === 'string' ? params.arguments.source_url : undefined,
+            sourceMethod: typeof params.arguments.source_method === 'string' ? params.arguments.source_method : undefined,
+            collectedAt: typeof params.arguments.collected_at === 'string' ? params.arguments.collected_at : undefined,
+            query: typeof params.arguments.query === 'string' ? params.arguments.query : undefined,
+            recordId: typeof params.arguments.record_id === 'string' ? params.arguments.record_id : undefined,
+          },
         });
         const explicitPiiTypes = Array.isArray(params.arguments.pii_types)
           ? params.arguments.pii_types.map(String)
@@ -156,6 +163,7 @@ async function handleRequest(req: JsonRpcRequest): Promise<void> {
               })),
               sensitivityLevel: result.masking.sensitivityLevel,
               evidenceHash: result.evidenceChain?.auditHash,
+              receipt: result.receipt,
               priDecision,
               manualReviewRequired,
             }, null, 2),

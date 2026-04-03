@@ -14,3 +14,6 @@ export type { PublicGuardConfig, MaskingResult, MaskingAction, GuardAction, Sens
 
 export { createEvidenceChain, EvidenceChainBuilder, formatEvidenceBlock, validateChain } from './evidence-chain.js';
 export type { EvidenceChain, EvidenceItem, ClaimWithEvidence, EvidenceType, ConfidenceLevel, EvidenceChainOptions } from './evidence-chain.js';
+
+export { buildAuditFields, canonicalRowJson, rawRowHash, sha256Text, sourceFingerprint } from './provenance.js';
+export type { AuditFields } from './provenance.js';

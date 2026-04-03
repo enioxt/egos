@@ -6,7 +6,7 @@
  * Run: bun test packages/shared/src/__tests__/llm-provider.test.ts
  */
 import { describe, it, expect, beforeEach, afterEach } from 'bun:test';
-import { ALIBABA_TEST_MODELS } from '../llm-provider';
+import { ALIBABA_MODELS } from '../llm-provider';
 
 // Save and restore env
 const savedEnv: Record<string, string | undefined> = {};
@@ -29,13 +29,13 @@ afterEach(() => {
 // ═══════════════════════════════════════════════════════════
 describe('LLM Provider — Model catalog', () => {
   it('exports Alibaba test models', () => {
-    expect(ALIBABA_TEST_MODELS.length).toBeGreaterThan(0);
-    expect(ALIBABA_TEST_MODELS).toContain('qwen-plus');
-    expect(ALIBABA_TEST_MODELS).toContain('qwen-flash');
+    expect(ALIBABA_MODELS.length).toBeGreaterThan(0);
+    expect(ALIBABA_MODELS).toContain('qwen-plus');
+    expect(ALIBABA_MODELS).toContain('qwen-flash');
   });
 
   it('includes coder model', () => {
-    expect(ALIBABA_TEST_MODELS).toContain('qwen3-coder-plus');
+    expect(ALIBABA_MODELS).toContain('qwen3-coder-plus');
   });
 });
 

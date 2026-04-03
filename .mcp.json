@@ -9,6 +9,18 @@
       "command": "bun",
       "args": ["/home/enio/egos/packages/mcp-governance/src/index.ts"],
       "description": "EGOS-087: SSOT drift check, task listing, agent status, repo health"
+    },
+    "obsidian": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@smithery/cli@latest",
+        "run",
+        "@smithery/mcp-obsidian",
+        "--config",
+        "{\"vaultPath\":\"/home/enio/Obsidian Vault/EGOS\"}"
+      ],
+      "description": "Obsidian vault access - read/write notes, search, tasks"
     }
   }
 }

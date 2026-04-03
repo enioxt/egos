@@ -6,6 +6,7 @@
  */
 import { describe, it, expect } from 'bun:test';
 import { createGuardBrasil } from '../guard-brasil';
+import { getGuardBrasilUsageTier, priceGuardBrasilCalls } from '../billing/pricing';
 
 const guard = createGuardBrasil({
   atrian: {
@@ -101,5 +102,32 @@ describe('Guard Brasil — Configuration', () => {
     const defaultGuard = createGuardBrasil();
     const result = defaultGuard.validate('Texto simples e seguro.');
     expect(result.safe).toBe(true);
+  });
+});
+
+describe('Guard Brasil — Usage pricing', () => {
+  it('keeps the free tier for 150 monthly calls', () => {
+    const tier = getGuardBrasilUsageTier(150);
+    const estimate = priceGuardBrasilCalls(150);
+
+    expect(tier.id).toBe('free');
+    expect(estimate.totalBrl).toBe(0);
+  });
+
+  it('uses starter tier pricing at 10k monthly calls', () => {
+    const tier = getGuardBrasilUsageTier(10_000);
+    const estimate = priceGuardBrasilCalls(10_000);
+
+    expect(tier.id).toBe('starter');
+    expect(estimate.totalBrl).toBe(49);
+    expect(estimate.totalUsd).toBe(9.8);
+  });
+
+  it('uses enterprise pricing above 500k monthly calls', () => {
+    const tier = getGuardBrasilUsageTier(750_000);
+    const estimate = priceGuardBrasilCalls(750_000);
+
+    expect(tier.id).toBe('enterprise');
+    expect(estimate.totalBrl).toBe(375);
   });
 });

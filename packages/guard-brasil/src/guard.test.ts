@@ -4,6 +4,7 @@
  * Tests the GuardBrasil facade end-to-end with realistic inputs.
  */
 
+import { describe, expect, it } from 'bun:test';
 import { GuardBrasil } from './guard.js';
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -38,6 +39,12 @@ describe('GuardBrasil — PII detection', () => {
     expect(result.safe).toBe(false);
   });
 
+  it('detects Registro Geral wording as RG', () => {
+    const guard = makeGuard();
+    const result = guard.inspect('Registro Geral 123456789 do paciente foi apresentado.');
+    expect(result.masking.findings.some(f => f.category === 'rg')).toBe(true);
+  });
+
   it('detects MASP', () => {
     const guard = makeGuard();
     const result = guard.inspect('Delegado MASP: 1234567 presente.');
@@ -62,6 +69,19 @@ describe('GuardBrasil — PII detection', () => {
     const guard = makeGuard();
     const result = guard.inspect('Sem dados pessoais aqui.');
     expect(result.lgpdDisclosure).toBe('');
+  });
+
+  it('detects CEP without misclassifying it as phone', () => {
+    const guard = makeGuard();
+    const result = guard.inspect('CEP 01310100 informado para entrega.');
+    expect(result.masking.findings.some(f => f.category === 'cep')).toBe(true);
+    expect(result.masking.findings.some(f => f.category === 'phone')).toBe(false);
+  });
+
+  it('does not classify bare numeric codes as phone', () => {
+    const guard = makeGuard();
+    const result = guard.inspect('O código de barras é 789456123.');
+    expect(result.masking.findings.some(f => f.category === 'phone')).toBe(false);
   });
 });
 
@@ -145,6 +165,34 @@ describe('GuardBrasil — evidence chain', () => {
     const result = guard.inspect('Texto simples.');
     expect(result.evidenceChain).toBeUndefined();
     expect(result.evidenceBlock).toBeUndefined();
+  });
+});
+
+describe('GuardBrasil — inspection receipt', () => {
+  it('builds inspection hashes even without source provenance', () => {
+    const guard = makeGuard();
+    const result = guard.inspect('Texto simples.');
+    expect(result.receipt.inputHash).toHaveLength(64);
+    expect(result.receipt.outputHash).toHaveLength(64);
+    expect(result.receipt.inspectionHash).toHaveLength(64);
+    expect(result.receipt.provenanceLevel).toBe('inspection_only');
+  });
+
+  it('binds source provenance when source metadata is provided', () => {
+    const guard = makeGuard();
+    const result = guard.inspect('CPF 123.456.789-09', {
+      provenance: {
+        sourceUrl: 'https://dados.exemplo.gov.br/arquivo.csv',
+        sourceMethod: 'api',
+        rawRow: { id: 7, cpf: '123.456.789-09' },
+        query: 'cpf=12345678909',
+        recordId: 'row-7',
+      },
+    });
+    expect(result.receipt.provenanceLevel).toBe('source_row_bound');
+    expect(result.receipt.source?.source_fingerprint).toHaveLength(64);
+    expect(result.receipt.source?.raw_line_hash).toHaveLength(64);
+    expect(result.receipt.source?.queryHash).toHaveLength(64);
   });
 });
 

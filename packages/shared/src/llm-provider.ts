@@ -2,23 +2,39 @@ import type { AIAnalysisResult } from './types';
 
 export type SharedLLMProvider = 'openrouter' | 'alibaba';
 
-export const ALIBABA_TEST_MODELS = [
+// ── Architecture ────────────────────────────────────────────────────────────
+// ORCHESTRATOR: Claude Code (Opus + Sonnet + Haiku) - R$550/mês plan
+//   → Unlimited rate limit on all 3 models
+//   → Opus: complex reasoning, architecture decisions
+//   → Sonnet: code generation, analysis
+//   → Haiku: fast classification, quick tasks
+//   → This session IS the primary orchestrator, not routed through here
+//
+// BACKGROUND AGENTS (VPS): Use this fallback chain
+//   Priority: Alibaba (free tier) → OpenRouter (cheap models only)
+//   Rule: Exhaust ALL Alibaba models before trying OpenRouter
+//
+// Alibaba DashScope: ONE-TIME 1M token grant per model (90-day validity)
+//   Models: qwen-flash, qwen-plus, qwen-max, qwq-plus (reasoning)
+//   Rate limits: 30K RPM (fast), 15K RPM (default), 600 RPM (deep)
+//
+// OpenRouter: Only for when Alibaba quota exhausted
+//   Models: Gemini Flash (free/cheap), Hermes-3 (BRAID executor)
+//   NO Claude models - orchestrator already has Opus/Sonnet/Haiku
+
+export const ALIBABA_MODELS = [
   'qwen-max',
   'qwen-plus',
   'qwen-flash',
   'qwen3-coder-plus',
   'qwen3.5-plus',
+  'qwen-turbo',
+  'qwq-plus',
 ] as const;
 
 // ── Fallback Chain ─────────────────────────────────────────────────────────
-// Priority: cheapest/fastest first → escalate on rate limit or missing key.
-// DashScope quota is a ONE-TIME 1M token grant per model (90-day validity).
-// Rate limits are RPM/TPM sliding windows — retry after ~60s on 429.
-//
-// Tiers:
-//   'fast'    — classify, summarize, lint (qwen-flash/turbo class)
-//   'default' — analysis, synthesis (qwen-plus class)
-//   'deep'    — planning, code review, reasoning (qwen-max/claude class)
+// Priority: Alibaba (all models) → OpenRouter (cheap models only)
+// Claude Code Opus is the orchestrator - not in this chain
 
 interface ModelEntry {
   provider: SharedLLMProvider;
@@ -26,23 +42,36 @@ interface ModelEntry {
   tier: 'fast' | 'default' | 'deep';
 }
 
-const MODEL_CHAIN: ModelEntry[] = [
-  // Fast tier — 30K RPM, 10M TPM (DashScope free 1M tokens one-time)
-  { provider: 'alibaba',    model: 'qwen3.5-flash',                   tier: 'fast' },
-  { provider: 'alibaba',    model: 'qwen-flash',                       tier: 'fast' },
-  { provider: 'alibaba',    model: 'qwen-turbo',                       tier: 'fast' },
-  { provider: 'openrouter', model: 'google/gemini-flash-1.5',          tier: 'fast' },
+// Tier 1: Alibaba (FREE - exhaust all before OpenRouter)
+const ALIBABA_CHAIN: ModelEntry[] = [
+  // Fast tier — 30K RPM, 10M TPM (free 1M tokens)
+  { provider: 'alibaba', model: 'qwen3.5-flash',   tier: 'fast' },
+  { provider: 'alibaba', model: 'qwen-flash',       tier: 'fast' },
+  { provider: 'alibaba', model: 'qwen-turbo',        tier: 'fast' },
+  { provider: 'alibaba', model: 'qwen3-coder-plus', tier: 'fast' },
 
   // Default tier — 15K RPM, 5M TPM
-  { provider: 'alibaba',    model: 'qwen-plus',                        tier: 'default' },
-  { provider: 'alibaba',    model: 'qwen3.5-plus',                     tier: 'default' },
-  { provider: 'openrouter', model: 'google/gemini-2.0-flash-001',      tier: 'default' },
-  { provider: 'openrouter', model: 'nousresearch/hermes-3-llama-3.1-70b', tier: 'default' }, // structured output + BRAID executor (NousResearch)
+  { provider: 'alibaba', model: 'qwen-plus',    tier: 'default' },
+  { provider: 'alibaba', model: 'qwen3.5-plus', tier: 'default' },
 
   // Deep tier — 600 RPM, 1M TPM (reasoning/planning)
-  { provider: 'alibaba',    model: 'qwen3-max',                        tier: 'deep' },
-  { provider: 'alibaba',    model: 'qwq-plus',                         tier: 'deep' }, // reasoning model
-  { provider: 'openrouter', model: 'anthropic/claude-sonnet-4-5',      tier: 'deep' },
+  { provider: 'alibaba', model: 'qwen-max',  tier: 'deep' },
+  { provider: 'alibaba', model: 'qwq-plus',  tier: 'deep' },
+];
+
+// Tier 2: OpenRouter (CHEAP - only after Alibaba exhausted)
+// NO Claude models - use orchestrator (Claude Code Opus) for complex tasks
+const OPENROUTER_CHAIN: ModelEntry[] = [
+  // Fast tier - Gemini Flash (essentially free)
+  { provider: 'openrouter', model: 'google/gemini-flash-1.5',     tier: 'fast' },
+  { provider: 'openrouter', model: 'google/gemini-2.0-flash-001', tier: 'default' },
+
+  // Default tier - Hermes-3 for BRAID/structured output
+  { provider: 'openrouter', model: 'nousresearch/hermes-3-llama-3.1-70b', tier: 'default' },
+
+  // Deep tier - High capability, low cost (no Claude)
+  { provider: 'openrouter', model: 'google/gemini-2.5-pro',     tier: 'deep' },
+  { provider: 'openrouter', model: 'meta-llama/llama-4-maverick', tier: 'deep' },
 ];
 
 /** Detect rate-limit or quota exhaustion from HTTP status + response body */
@@ -54,7 +83,10 @@ function isRateLimitError(status: number, body: string): boolean {
     lower.includes('requests rate limit') ||
     lower.includes('allocated quota exceeded') ||
     lower.includes('request rate increased too quickly') ||
-    lower.includes('throttl')
+    lower.includes('throttl') ||
+    lower.includes('quota') ||
+    lower.includes('insufficient funds') ||
+    lower.includes('credit exhausted')
   );
 }
 
@@ -158,22 +190,30 @@ export async function chatWithLLM(params: {
     );
   }
 
-  // Build chain from tier preference
+  // Build chain: ALL Alibaba models first (exhaustive), then OpenRouter
   const tier = params.tier ?? 'default';
-  let chain: ModelEntry[];
+  let alibabaModels: ModelEntry[];
+  let openrouterModels: ModelEntry[];
+
   if (tier === 'fast') {
-    chain = MODEL_CHAIN.filter((e) => e.tier === 'fast');
+    alibabaModels = ALIBABA_CHAIN.filter((e: ModelEntry) => e.tier === 'fast');
+    openrouterModels = OPENROUTER_CHAIN.filter((e: ModelEntry) => e.tier === 'fast');
   } else if (tier === 'deep') {
-    chain = MODEL_CHAIN.filter((e) => e.tier === 'deep' || e.tier === 'default');
+    alibabaModels = ALIBABA_CHAIN.filter((e: ModelEntry) => e.tier === 'deep' || e.tier === 'default');
+    openrouterModels = OPENROUTER_CHAIN.filter((e: ModelEntry) => e.tier === 'deep' || e.tier === 'default');
   } else {
     // default: try default-tier first, then fast as fallback (never deep)
-    chain = MODEL_CHAIN.filter((e) => e.tier === 'default' || e.tier === 'fast');
+    alibabaModels = ALIBABA_CHAIN.filter((e: ModelEntry) => e.tier === 'default' || e.tier === 'fast');
+    openrouterModels = OPENROUTER_CHAIN.filter((e: ModelEntry) => e.tier === 'default' || e.tier === 'fast');
   }
+
+  // Chain order: Alibaba first (exhaustive), then OpenRouter
+  let chain: ModelEntry[] = [...alibabaModels, ...openrouterModels];
 
   // If a provider is forced, prioritize it in the chain order
   if (params.provider) {
-    const pref = chain.filter((e) => e.provider === params.provider);
-    const rest = chain.filter((e) => e.provider !== params.provider);
+    const pref = chain.filter((e: ModelEntry) => e.provider === params.provider);
+    const rest = chain.filter((e: ModelEntry) => e.provider !== params.provider);
     chain = [...pref, ...rest];
   }
 

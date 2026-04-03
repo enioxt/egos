@@ -90,7 +90,7 @@ export const CNPJ_PATTERN: PIIPatternConfig = {
 export const RG_PATTERN: PIIPatternConfig = {
   id: 'rg',
   label: 'RG',
-  regex: /\b(?:RG|rg|Rg)[:\s]*\d{1,2}[.\s]?\d{3}[.\s]?\d{3}[.\s-]?\d?\b/gi,
+  regex: /\b(?:RG|rg|Rg|Registro\s+Geral|registro\s+geral)[:\s]*\d{1,2}[.\s]?\d{3}[.\s]?\d{3}[.\s-]?\d?\b/gi,
   maskFormat: '[RG REMOVIDO]',
   confidence: 'high',
   description: 'Registro Geral — RG 00.000.000-0',
@@ -160,7 +160,7 @@ export const PLACA_MERCOSUL_PATTERN: PIIPatternConfig = {
 export const TELEFONE_PATTERN: PIIPatternConfig = {
   id: 'telefone',
   label: 'Telefone',
-  regex: /\b(?:\+55\s?)?(?:\(?\d{2}\)?\s?)?\d{4,5}[-.\s]?\d{4}\b/g,
+  regex: /\b(?:\+55\s?)?(?:\(?\d{2}\)?\s?)\d{4,5}[-.\s]?\d{4}\b/g,
   maskFormat: '[TELEFONE REMOVIDO]',
   confidence: 'medium',
   description: 'Telefone brasileiro — +55 (00) 00000-0000',
