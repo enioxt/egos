@@ -1,5 +1,16 @@
 # Incident Response Playbook — Health Data Breaches
 
+<!-- llmrefs:start -->
+## LLM Reference Signature
+
+- **Role:** health-data incident response runbook
+- **Summary:** Time-boxed breach response checklist with regulatory escalation chain (LGPD/ANPD) for health-related personal data incidents.
+- **Read next:**
+  - `docs/INCIDENT_RESPONSE_MCP.md` — MCP breach playbook
+  - `docs/MCP_SCOPE_POLICY.md` — prevention via least privilege
+  - `TASKS.md` — security/governance priorities
+<!-- llmrefs:end -->
+
 **Scope:** All systems processing health-related personal data
 **Activation:** ANY suspected unauthorized access, exposure, or loss
 **Escalation:** On-call engineer → CISO → DPO → Hospital → ANPD

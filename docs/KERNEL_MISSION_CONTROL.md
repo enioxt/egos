@@ -1,5 +1,16 @@
 # KERNEL MISSION CONTROL — kernel.egos.ia.br
 
+<!-- llmrefs:start -->
+## LLM Reference Signature
+
+- **Role:** mission-control architecture blueprint
+- **Summary:** Centralized observability/governance control plane design for cross-repo telemetry, anomaly detection, and automated governance actions.
+- **Read next:**
+  - `docs/SYSTEM_MAP.md` — kernel activation map
+  - `docs/CAPABILITY_REGISTRY.md` — reusable capabilities
+  - `TASKS.md` — execution backlog
+<!-- llmrefs:end -->
+
 > **Version:** 1.0.0 | **Absorbed from:** Google AI Studio Handoff (BLUEPRINT-EGOS) | **Status:** Architecture Phase | **Date:** 2026-03-25
 
 ---

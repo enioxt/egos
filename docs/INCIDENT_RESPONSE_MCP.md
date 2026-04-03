@@ -1,5 +1,16 @@
 # Incident Response Playbook — MCP Security Breaches — EGOS-004
 
+<!-- llmrefs:start -->
+## LLM Reference Signature
+
+- **Role:** MCP-specific security incident response runbook
+- **Summary:** Operational procedures for leaked credentials, unauthorized MCP actions, and containment/recovery workflows.
+- **Read next:**
+  - `docs/MCP_SCOPE_POLICY.md` — preventive scope controls
+  - `docs/INCIDENT_RESPONSE_HEALTH.md` — regulated incident handling
+  - `TASKS.md` — active remediation tasks
+<!-- llmrefs:end -->
+
 **Date:** 2026-03-28
 **Status:** ACTIVE
 **Purpose:** Step-by-step procedures for responding to MCP security incidents (leaked tokens, unauthorized access, etc.)

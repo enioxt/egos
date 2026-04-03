@@ -38,9 +38,10 @@
 - [x] CLAUDE.md v2.1 — codebase-memory-mcp rules + scheduled jobs reference
 
 **Remaining:**
-- [ ] EGOS-168: llmrefs blocks on 10 more governance docs (manual, 1h)
+- [x] EGOS-168: llmrefs blocks on 10 more governance docs (manual, 1h) ✅ 2026-04-03
   - [x] EGOS-168A: llmrefs blocks added to `CAPABILITY_REGISTRY`, `SSOT_REGISTRY`, `ECOSYSTEM_CLASSIFICATION_REGISTRY` ✅ 2026-04-02
   - [x] EGOS-168B: llmrefs blocks added to `OPERATOR_MAP`, `KERNEL_CONSOLIDATION_PLAN`, `MYCELIUM_TRUTH_REPORT`, `TELEMETRY_SSOT` ✅ 2026-04-02
+  - [x] EGOS-168C: llmrefs blocks added to `ACTIVATION_FLOW`, `ACTIVATION_GUIDE`, `DOCTOR_COMMAND_SPEC`, `ENVIRONMENT_REGISTRY`, `INCIDENT_RESPONSE_HEALTH`, `INCIDENT_RESPONSE_MCP`, `MCP_SCOPE_POLICY`, `MCP_ORCHESTRATION_STRATEGY`, `KERNEL_MISSION_CONTROL`, `METRICS_DASHBOARD` ✅ 2026-04-03
 - [ ] EGOS-169: @aiready/pattern-detect pre-commit (duplicate detection)
 - [ ] EGOS-173: CRCDM hooks: llmrefs staleness + auto-heal rename
 - [x] EGOS-175: llmrefs blocks added to 5 leaf AGENTS.md (forja, carteira-livre, smartbuscas, br-acc, santiago) ✅ 2026-04-01

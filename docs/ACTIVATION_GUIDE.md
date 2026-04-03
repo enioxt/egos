@@ -1,4 +1,16 @@
 # 🎯 OpenCode MCP & Model Orchestration Activation Guide
+
+<!-- llmrefs:start -->
+## LLM Reference Signature
+
+- **Role:** operational activation guide for OpenCode MCP + model routing
+- **Summary:** Step-by-step environment setup, MCP enablement, and provider activation for OpenCode lane.
+- **Read next:**
+  - `docs/MCP_ORCHESTRATION_STRATEGY.md` — routing strategy
+  - `docs/ENVIRONMENT_REGISTRY.md` — host/tool mapping
+  - `TASKS.md` — current priorities
+<!-- llmrefs:end -->
+
 > **VERSION:** 1.0.0 | **DATE:** 2026-03-23
 > **STATUS:** Ready to Activate | **Priority:** P0
 

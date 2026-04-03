@@ -1,5 +1,16 @@
 # Metrics Dashboard — EGOS Ecosystem
 
+<!-- llmrefs:start -->
+## LLM Reference Signature
+
+- **Role:** metrics dashboard specification and tracking model
+- **Summary:** Defines unified EGOS metrics for tooling usage, costs, performance, and orchestration quality.
+- **Read next:**
+  - `docs/TELEMETRY_SSOT.md` — telemetry contract
+  - `docs/KERNEL_MISSION_CONTROL.md` — observability control-plane vision
+  - `TASKS.md` — telemetry/observability open tasks
+<!-- llmrefs:end -->
+
 > **Version:** 1.0.0 | **Date:** 2026-03-20
 > **Purpose:** Unified metrics tracking for all AI tools, APIs, and orchestration patterns
 
