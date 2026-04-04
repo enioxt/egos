@@ -4,24 +4,14 @@
 
 ---
 
-### Agent Registry Health (2026-04-03)
-
-**Done:**
-- [x] EGOS-176: Agent registry ghost cleanup — removidos aiox-gem-hunter, mastra-gem-hunter (KILLED 2026-03-31). Drift sentinel corrigido para verificar entrypoints em qualquer path (scripts/, agents/api/, agents/agents/). ✅ 2026-04-03
+### Completed Archive (compressed — see git log for details)
+EGOS-151..176, MONETIZE-001..015, START-001..005, all DONE. Guard Brasil v0.2.2 live, Stripe metered billing wired, npm @egosbr/guard-brasil@0.2.2, 15 PII patterns, credentials vault (27), alert triage, daily WhatsApp report cron.
 
 ---
 
 ### Guard Brasil Monetization Roadmap
 
-**Completed:**
-- [x] EGOS-151..157: v0.2.0 (15 patterns), MCP server, market report, VPS orchestrator, /disseminate, /diag, VPS paths
-- [x] EGOS-158: npm publish @egosbr/guard-brasil@0.2.0 — **DONE 2026-04-01** (token expires ~2026-04-07)
-- [x] EGOS-161: MCP server registered in Claude Code
-- [x] Consumer apps PII sync: 852/forja/carteira-livre → 15 patterns each
-
-**P0 — Revenue blocking:**
-- [x] EGOS-159: @egosbr/guard-brasil@0.2.0 wired into VPS Docker API — CPF/PII live ✅ 2026-04-01
-- [x] EGOS-160: Reversible redaction — tokenize()/restore() in packages/guard-brasil/src/lib/tokenizer.ts ✅ 2026-04-01
+**Completed:** EGOS-151..161 (v0.2.0→v0.2.2, MCP, npm, VPS, PII sync, tokenizer) — all DONE ✅
 
 **P1 — Competitive:**
 - [x] EGOS-162: Accuracy benchmark vs Presidio/anonym.legal — 85.3% F1, benchmark.ts in guard-brasil/src ✅ 2026-04-01
@@ -33,9 +23,13 @@
 - [x] MONETIZE-006: Stripe meter events wired into /v1/inspect ✅ 2026-04-04. Fire-and-forget POST to /v1/billing/meter_events with guard_brasil_api_call event. Requires STRIPE_METER_ID + stripe_customer_id on tenant.
 - [x] MONETIZE-007: Credentials vault SSOT ✅ 2026-04-04. packages/shared/src/vault.ts + Supabase credentials_vault table (14 credentials indexed). verifyAll() for operational health.
 - [x] MONETIZE-008: Supabase decisions_log + claude_sessions tables ✅ 2026-04-04. Track deferred work + session productivity metrics.
-- [ ] MONETIZE-009: Fix Stripe tiered pricing (business/enterprise have R$0.00 — need graduated pricing or archive+recreate)
-- [ ] MONETIZE-010: Frontend checkout button on guard-brasil-web (calls /v1/stripe/checkout with tier selection)
-- [ ] MONETIZE-011: Deploy v0.2.3 to VPS with Stripe meter env vars (STRIPE_METER_ID)
+- [x] MONETIZE-009: Fix Stripe tiered pricing ✅ 2026-04-04. unit_amount_decimal (0.7/0.4/0.2 centavos). VPS .env updated.
+- [ ] MONETIZE-010: Frontend checkout button + playground demo on guard-brasil-web
+- [x] MONETIZE-011: Deploy v0.2.3 to VPS ✅ 2026-04-04. Free tier 150→500, version string fixed, Stripe meter env already present. SCP + docker rebuild.
+- [x] MONETIZE-012: npm token renewed ✅ 2026-04-04. New token npm_MllVHK...R1 (90d, expires 2026-07-03). Updated local + VPS.
+- [x] MONETIZE-013: Alert triage system on VPS ✅ 2026-04-04. /opt/egos/alert-triage.sh with rate limiting (5min/source), severity routing (critical→WA+TG, warn→TG, info→TG).
+- [x] MONETIZE-014: master-orchestrator loop bug found ✅ 2026-04-04. 68K events/day (1423x normal). Log rotated. Fix delegated to agent.
+- [x] MONETIZE-015: Telegram env vars added to VPS ✅ 2026-04-04. TELEGRAM_ADMIN_CHAT_ID added to egos-lab .env. Alerts were silently failing.
 - [ ] EGOS-163: Pix billing integration
 - [x] EGOS-164: Dashboard — real data from guard_brasil_events ✅ 2026-04-01
 
