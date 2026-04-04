@@ -19,15 +19,18 @@ ALLOWED_PATTERNS=(
 
   # Supporting infrastructure (shared modules serve Guard Brasil + Gem Hunter)
   "packages/shared/src"
+  "apps/egos-gateway"
   "agents/cli.ts"
   "agents/agents/gem-hunter"
   "agents/api/gem-hunter"
+  "agents/registry"
   "scripts/qa"
   "tests/qa"
   "docs/qa"
   "docs/gem-hunter"
   "docs/business"
   "docs/strategy"
+  "docs/_current_handoffs"
 
   # Strategic documentation only
   "STRATEGIC_FOCUS_PLAN"

@@ -1,6 +1,6 @@
 # EGOS Rules Index — Canonical Discovery Map
 
-> **Version:** 1.0.0 | **Updated:** 2026-03-31
+> **Version:** 1.1.0 | **Updated:** 2026-04-03
 > **Purpose:** Single entry point for ALL EGOS rules, standards, and governance surfaces.
 > Any AI session or human contributor starts here to find the relevant rule.
 
@@ -33,6 +33,13 @@
 | **File classification** | file-intelligence.sh | `scripts/file-intelligence.sh` |
 | **Doc proliferation** | check-doc-proliferation.sh | `scripts/check-doc-proliferation.sh` |
 | **Agent identity** | IDENTITY.md | `.guarani/IDENTITY.md` |
+| **Autonomy & challenge mode** | AUTONOMY_RULES.md | `.guarani/orchestration/AUTONOMY_RULES.md` |
+| **Investigation protocol** | INVESTIGATION_PROTOCOL.md | `.guarani/orchestration/INVESTIGATION_PROTOCOL.md` |
+| **Vocabulary map** | INVESTIGATION_PROTOCOL.md §21 | `.guarani/orchestration/INVESTIGATION_PROTOCOL.md` |
+| **Snapshot versioning** | AUTONOMY_RULES.md §17 | `.guarani/orchestration/AUTONOMY_RULES.md` |
+| **Disseminate everywhere** | AUTONOMY_RULES.md §18 | `.guarani/orchestration/AUTONOMY_RULES.md` |
+| **Meta-prompt activation** | AUTONOMY_RULES.md §19 | `.guarani/orchestration/AUTONOMY_RULES.md` |
+| **Chatbot everywhere** | AUTONOMY_RULES.md §22 | `.guarani/orchestration/AUTONOMY_RULES.md` |
 
 ## Enforcement Surfaces
 
@@ -61,3 +68,7 @@ When starting any work, check:
 > **Rule:** Never generate a report without reading REPORT_SSOT.md first.
 > **Rule:** Never claim an agent without reading AGENT_CLAIM_CONTRACT.md first.
 > **Rule:** Never release an integration without reading INTEGRATION_RELEASE_CONTRACT.md first.
+> **Rule:** Default to maximum autonomy — act first, report after (§15).
+> **Rule:** Challenge stale P0s, scope creep, and false claims (§16).
+> **Rule:** Every discovery/architecture decision must produce FACT/INFERENCE/PROPOSAL (§20).
+> **Rule:** Use Enio's vocabulary map for term translation (§21).
