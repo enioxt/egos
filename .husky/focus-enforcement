@@ -44,6 +44,9 @@ ALLOWED_PATTERNS=(
   "bun.lock"
   "tsconfig.json"
   ".eslintrc"
+  ".gitignore"
+  "CLAUDE.md"
+  ".claude/"
 
   # Governance (read-only for EGOS compliance)
   "TASKS.md"

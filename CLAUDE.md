@@ -84,7 +84,18 @@ bun agent:run context_tracker --dry  # CTX score
 - Foco em resultados, não em código
 - Prefere terminal/agentic workflow
 - Ubuntu/Linux nativo
+- **Autonomia máxima**: nunca parar para pedir permissão — agir e reportar
+- **Challenge mode**: cobrar P0s atrasados, empurrar de volta scope creep, ser direto sobre qualidade
+- **Disseminate everything**: regras devem propagar para todos os locais simultaneamente
 
 ---
 
-*Gerado em: 2026-04-03 | Claude Code v2.0.37*
+## 90-Day Focus (April 3 - June 30, 2026)
+
+**ALLOWED:** Guard Brasil API/Web/Infra + Gem Hunter (algorithm, dashboard, API)
+**GOAL:** R$ 30k+ MRR
+**ENFORCEMENT:** Pre-commit hook blocks commits outside focus scope
+
+---
+
+*Gerado em: 2026-04-04 | Claude Code v2.3.0*
