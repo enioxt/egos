@@ -17,12 +17,17 @@ ALLOWED_PATTERNS=(
   "guard-brasil"
   "gem-hunter"
 
-  # Supporting infrastructure
-  "packages/shared/src/telemetry"
+  # Supporting infrastructure (shared modules serve Guard Brasil + Gem Hunter)
+  "packages/shared/src"
   "agents/cli.ts"
+  "agents/agents/gem-hunter"
+  "agents/api/gem-hunter"
   "scripts/qa"
   "tests/qa"
   "docs/qa"
+  "docs/gem-hunter"
+  "docs/business"
+  "docs/strategy"
 
   # Strategic documentation only
   "STRATEGIC_FOCUS_PLAN"
