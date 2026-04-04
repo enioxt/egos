@@ -469,7 +469,7 @@ Modern monetization: usage-based API + MCP tool + chatbot. Stripe-unified (card 
 - [x] MASTER-001: Master API PRD created (3 architecture options: Gateway, Event-Driven, Consciousness Loop) ✅ 2026-04-04
 
 **P0 — Revenue (Guard Brasil focus):**
-- [ ] MONETIZE-009: Fix Stripe tiered pricing (business/enterprise R$0.00)
+- [x] MONETIZE-009: Fix Stripe tiered pricing ✅ 2026-04-04. Archived 3 broken prices, created 3 new with unit_amount_decimal (0.7/0.4/0.2 centavos). IDs: startup=price_1TISgBHdOnphplrgLp2RngAm, business=price_1TISgBHdOnphplrgXCCJPWx5, enterprise=price_1TISgBHdOnphplrghe81rAql. VPS .env updated, API restarted healthy v0.2.2.
 - [ ] MONETIZE-010: Frontend checkout button on guard-brasil-web
 - [ ] MONETIZE-011: Deploy v0.2.3 to VPS with STRIPE_METER_ID env var
 
