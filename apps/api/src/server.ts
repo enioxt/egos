@@ -368,6 +368,25 @@ Bun.serve({
         .catch(err => console.warn('[api] Telemetry error:', err));
       if (auth.tenant) {
         incrementUsage(auth.tenant.id).catch(err => console.warn('[api] Usage increment error:', err));
+
+        // Stripe Billing Meter — emit usage event for metered billing
+        const stripeKey = process.env.STRIPE_SECRET_KEY;
+        const meterId = process.env.STRIPE_METER_ID;
+        if (stripeKey && meterId && auth.tenant.stripe_customer_id) {
+          fetch('https://api.stripe.com/v1/billing/meter_events', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${stripeKey}`,
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+              event_name: 'guard_brasil_api_call',
+              'payload[stripe_customer_id]': auth.tenant.stripe_customer_id,
+              'payload[value]': '1',
+              timestamp: String(Math.floor(Date.now() / 1000)),
+            }).toString(),
+          }).catch(err => console.warn('[api] Stripe meter event error:', err));
+        }
       }
 
       const responseHeaders = {
