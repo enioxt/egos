@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.30.0 | **Updated:** 2026-04-03 | **LAST SESSION:** 2026-04-03 P17 — Agent registry ghost cleanup, drift-sentinel fix, LLM orchestration docs
+> **Version:** 2.31.0 | **Updated:** 2026-04-04 | **LAST SESSION:** 2026-04-04 P20 — Stripe meter wired, vault SSOT, Supabase tables (decisions_log, credentials_vault, claude_sessions), focus whitelist expanded
 
 ---
 
@@ -30,8 +30,14 @@
 - [x] MONETIZE-003: Vercel guard-brasil-web deployed ✅ 2026-04-02 (vercel deploy --prod, build OK 19s, "Obtenha sua chave de API" section live at guard-brasil-ilxbkmbak-enio-rochas-projects.vercel.app)
 - [x] MONETIZE-004: Eagle Eye API auth middleware ✅ 2026-04-02 (authenticateApiKey() on /api/territories + /api/opportunities + /api/scans/history; shared guard_brasil_tenants key system)
 - [x] MONETIZE-005: Stripe webhook for paid tier upgrades ✅ 2026-04-02. POST /v1/stripe/checkout creates Stripe Checkout Session; POST /v1/stripe/webhook handles checkout.session.completed → PATCH guard_brasil_tenants (tier, quota_limit, mrr_brl, stripe_customer_id). Webhook registered: we_1THj4pHdOnphplrg47z9I8nn. Live test: cs_live_b1MHUCgk confirmed.
+- [x] MONETIZE-006: Stripe meter events wired into /v1/inspect ✅ 2026-04-04. Fire-and-forget POST to /v1/billing/meter_events with guard_brasil_api_call event. Requires STRIPE_METER_ID + stripe_customer_id on tenant.
+- [x] MONETIZE-007: Credentials vault SSOT ✅ 2026-04-04. packages/shared/src/vault.ts + Supabase credentials_vault table (14 credentials indexed). verifyAll() for operational health.
+- [x] MONETIZE-008: Supabase decisions_log + claude_sessions tables ✅ 2026-04-04. Track deferred work + session productivity metrics.
+- [ ] MONETIZE-009: Fix Stripe tiered pricing (business/enterprise have R$0.00 — need graduated pricing or archive+recreate)
+- [ ] MONETIZE-010: Frontend checkout button on guard-brasil-web (calls /v1/stripe/checkout with tier selection)
+- [ ] MONETIZE-011: Deploy v0.2.3 to VPS with Stripe meter env vars (STRIPE_METER_ID)
 - [ ] EGOS-163: Pix billing integration
-- [x] EGOS-164: Dashboard — real data from guard_brasil_events ✅ 2026-04-01. Telemetry wired: API recordApiCall() → guard_brasil_events → /api/events → DashboardV2Lean polling 5s. Requires: SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY in .env files.
+- [x] EGOS-164: Dashboard — real data from guard_brasil_events ✅ 2026-04-01
 
 **P2 — Growth:**
 - [ ] EGOS-165: White-label outreach
