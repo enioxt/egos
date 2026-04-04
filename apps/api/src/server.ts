@@ -110,7 +110,7 @@ Bun.serve({
         pricing: {
           model: 'usage-based',
           currency: 'BRL',
-          free_monthly_calls: 150,
+          free_monthly_calls: 500,
           tiers: GUARD_BRASIL_USAGE_TIERS.map(tier => ({
             id: tier.id,
             monthly_calls: tier.monthlyCalls,
@@ -577,7 +577,7 @@ Bun.serve({
             Authorization: `Bearer ${supabaseKey}`,
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ tier: 'free', quota_limit: 150, mrr_brl: 0, updated_at: new Date().toISOString() }),
+          body: JSON.stringify({ tier: 'free', quota_limit: 500, mrr_brl: 0, updated_at: new Date().toISOString() }),
         });
         console.log(`⬇️  Downgraded tenant ${customerId} to free (subscription cancelled)`);
       }
@@ -687,7 +687,7 @@ function verifyStripeSignature(payload: string, sig: string, secret: string): bo
   } catch { return false; }
 }
 
-console.log(`🛡️  EGOS Guard Brasil API v0.2.0`);
+console.log(`🛡️  EGOS Guard Brasil API v${API_VERSION}`);
 console.log(`   Inspect: http://localhost:${PORT}/v1/inspect`);
 console.log(`   Keys:    http://localhost:${PORT}/v1/keys`);
 console.log(`   Health:  http://localhost:${PORT}/health`);
