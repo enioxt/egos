@@ -1,2 +1,2 @@
-import DashboardV1Giant from '@/components/DashboardV1Giant';
-export default function Page() { return <DashboardV1Giant />; }
+import { redirect } from 'next/navigation';
+export default function Page() { redirect('/landing'); }

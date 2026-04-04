@@ -292,9 +292,9 @@ export default function LandingPage() {
           <p className="text-sm text-slate-400 text-center mb-8">Sem assinatura obrigatória. Comece grátis, escale por volume e receba hashes, receipts e proveniência quando precisar auditar cada inspeção.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
             {[
-              { tier: 'Free', price: 'R$ 0', calls: '150 inspeções/mês', detail: 'sandbox LGPD sem cartão', features: ['PII brasileiro local', 'LGPD disclosure', 'Teste imediato', 'Sem cartão de crédito'], cta: 'Criar conta grátis', ctaHref: '#get-key', popular: false },
-              { tier: 'Volume 10k', price: 'R$ 0,0049', calls: 'por inspeção', detail: '≈ R$ 49 por 10.000 chamadas', features: ['PII + ATRiAN', 'Inspection receipts', 'Evidence chain', 'Pronto para produção'], cta: 'Ver documentação', ctaHref: '/docs', popular: true },
-              { tier: 'Enterprise', price: 'R$ 0,001 → R$ 0,0005', calls: 'por inspeção', detail: 'pricing degressivo + comercial', features: ['Proveniência de fonte', 'Prova de inspeção', 'Acordo comercial', 'Suporte enterprise'], cta: 'Falar com vendas', ctaHref: 'mailto:enio@egos.ia.br?subject=Guard%20Brasil%20Enterprise', popular: false },
+              { tier: 'Free', price: 'R$ 0', calls: '500 inspeções/mês', detail: 'sandbox LGPD sem cartão', features: ['15 padrões PII brasileiro', 'LGPD disclosure', 'Teste imediato', 'Sem cartão de crédito'], cta: 'Criar conta grátis', ctaHref: '#get-key', popular: false },
+              { tier: 'Startup', price: 'R$ 0,007', calls: 'por inspeção', detail: '≈ R$ 35 por 5.000 chamadas', features: ['PII + ATRiAN scoring', 'Inspection receipts', 'Evidence chain', 'Pronto para produção'], cta: 'Assinar Startup', ctaHref: 'https://guard.egos.ia.br/v1/stripe/checkout?tier=startup&email=', popular: true },
+              { tier: 'Business', price: 'R$ 0,004', calls: 'por inspeção', detail: '≈ R$ 2.000/mês (500k chamadas)', features: ['Tudo do Startup', 'Proveniência de fonte', 'Volume pricing', 'Suporte prioritário'], cta: 'Assinar Business', ctaHref: 'mailto:enio@egos.ia.br?subject=Guard%20Brasil%20Business', popular: false },
             ].map((plan) => (
               <div key={plan.tier} className={`bg-slate-900 border rounded-2xl p-6 ${plan.popular ? 'border-emerald-600 ring-1 ring-emerald-600/20' : 'border-slate-800'}`}>
                 {plan.popular && <p className="text-[10px] text-emerald-400 font-bold uppercase tracking-wider mb-2">MAIS POPULAR</p>}
@@ -320,7 +320,7 @@ export default function LandingPage() {
         {/* Get API Key */}
         <section id="get-key" className="mb-12">
           <h2 className="text-2xl font-bold text-center mb-2">Obtenha sua chave de API</h2>
-          <p className="text-sm text-slate-400 text-center mb-8">Grátis. Sem cartão de crédito. 150 chamadas/mês.</p>
+          <p className="text-sm text-slate-400 text-center mb-8">Grátis. Sem cartão de crédito. 500 chamadas/mês.</p>
           <div className="max-w-md mx-auto bg-slate-900 border border-slate-800 rounded-2xl p-6">
             {!generatedKey ? (
               <>
