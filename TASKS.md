@@ -454,15 +454,47 @@ Modern monetization: usage-based API + MCP tool + chatbot. Stripe-unified (card 
 - [ ] EAGLE-021: Proposal generator — auto-draft proposta técnica from edital + company profile
 - [ ] EAGLE-022: Compliance checklist — auto-check habilitação requirements against company docs
 - [ ] EAGLE-023: Submit EAGLE-020 proposal by 2026-04-29 (R$250k opportunity deadline)
-### P19+ Active Tasks (2026-04-03)
+### P20 Session Tasks (2026-04-04)
+
+**Done:**
+- [x] MONETIZE-006: Stripe meter events wired into /v1/inspect ✅ 2026-04-04
+- [x] MONETIZE-007: Credentials vault SSOT (vault.ts + Supabase credentials_vault, 14 indexed) ✅ 2026-04-04
+- [x] MONETIZE-008: Supabase tables: decisions_log, credentials_vault, claude_sessions ✅ 2026-04-04
+- [x] GOV-P20-001: CLAUDE.md v2.4.0 (autonomy, challenge, investigation, vocabulary, chatbot everywhere) ✅ 2026-04-04
+- [x] GOV-P20-002: Focus enforcement whitelist expanded (packages/shared, CLAUDE.md, .claude/, gem-hunter, docs/) ✅ 2026-04-04
+- [x] GOV-P20-003: Git tag v2.3.0-snapshot-2026-04-04 ✅ 2026-04-04
+- [x] WA-001: WhatsApp report sent via Evolution API (pipeline verified working) ✅ 2026-04-04
+- [x] WA-002: Daily report cron installed on VPS (8am BRT → WhatsApp) ✅ 2026-04-04
+- [x] WA-003: 196 WhatsApp groups indexed via Evolution API ✅ 2026-04-04
+- [x] MASTER-001: Master API PRD created (3 architecture options: Gateway, Event-Driven, Consciousness Loop) ✅ 2026-04-04
+
+**P0 — Revenue (Guard Brasil focus):**
+- [ ] MONETIZE-009: Fix Stripe tiered pricing (business/enterprise R$0.00)
+- [ ] MONETIZE-010: Frontend checkout button on guard-brasil-web
+- [ ] MONETIZE-011: Deploy v0.2.3 to VPS with STRIPE_METER_ID env var
+
+**P0 — Master API (Enables everything):**
+- [ ] MASTER-002: Build EGOS Gateway API (Hono server, port 3000, WhatsApp webhook handler)
+- [ ] MASTER-003: Evolution API webhook → gateway routing (WhatsApp commands → system actions)
+- [ ] MASTER-004: Deploy gateway to VPS Docker
+- [ ] MASTER-005: NLP intent classifier (Haiku, ~$1/day) for natural language commands
+
+**P1 — Dashboard & Monitoring:**
+- [ ] DASH-001: Evaluate ClawBridge / mission-control for EGOS mobile dashboard
+- [ ] DASH-002: Build mobile-first dashboard (agent status, costs, WhatsApp groups, alerts)
+
+**P1 — Gem Hunter Enhancement:**
+- [ ] GH-070: Add crypto/X.com KOL monitoring sources (xscan-app pattern, crypto-twitter-alpha-stream)
+- [ ] GH-071: Daily X.com scan via Gem Hunter (auto-trigger, not manual)
+
+### Previous P19 Tasks (Still Active)
 **P0 — Theater:**
-- [ ] THEATER-001: Deploy x-reply-bot (X_BEARER_TOKEN + crontab) or remove from done
-- [ ] CTX-001: Context recovery hook to /start (load handoff + MEMORY.md)
-**P1 — Architecture / Agents:**
-- [ ] HERMES-001: Wire Hermes-3 as BRAID mechanical executor (OpenRouter free tier, 2h, 30-40% cost savings)
-- [ ] OPENCLAW-001: Register Guard Brasil as OpenClaw MCP skill (Phase 2-3)
+- [ ] THEATER-001: Deploy x-reply-bot or remove from done
+- [ ] CTX-001: Context recovery hook to /start
+**P1 — Architecture:**
+- [ ] HERMES-001: Wire Hermes-3 as BRAID mechanical executor
+- [ ] OPENCLAW-001: Register Guard Brasil as OpenClaw MCP skill
 **P1 — Infrastructure:**
-- [ ] DASH-001: Mission Control Dashboard — React + Supabase Realtime
 - [ ] CTX-002: Auto-index codebase-memory-mcp on /start
-- [ ] REWARDS-001: Unified rewards engine — merge ETHIK + 852 gamification + credit system
-- [ ] MOAT-001: Data flywheels — Eagle Eye bid outcomes, Gem Hunter adoption, Guard Brasil patterns (2-3w)
+- [ ] REWARDS-001: Unified rewards engine
+- [ ] MOAT-001: Data flywheels
