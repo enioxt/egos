@@ -24,7 +24,7 @@ EGOS-151..176, MONETIZE-001..015, START-001..005, all DONE. Guard Brasil v0.2.2 
 - [x] MONETIZE-007: Credentials vault SSOT ✅ 2026-04-04. packages/shared/src/vault.ts + Supabase credentials_vault table (14 credentials indexed). verifyAll() for operational health.
 - [x] MONETIZE-008: Supabase decisions_log + claude_sessions tables ✅ 2026-04-04. Track deferred work + session productivity metrics.
 - [x] MONETIZE-009: Fix Stripe tiered pricing ✅ 2026-04-04. unit_amount_decimal (0.7/0.4/0.2 centavos). VPS .env updated.
-- [ ] MONETIZE-010: Frontend checkout button + playground demo on guard-brasil-web
+- [x] MONETIZE-010: Frontend updated ✅ 2026-04-04. Root→/landing redirect, pricing tiers corrected (Free 500, Startup R$0.007, Business R$0.004), Vercel deploy triggered.
 - [x] MONETIZE-011: Deploy v0.2.3 to VPS ✅ 2026-04-04. Free tier 150→500, version string fixed, Stripe meter env already present. SCP + docker rebuild.
 - [x] MONETIZE-012: npm token renewed ✅ 2026-04-04. New token npm_MllVHK...R1 (90d, expires 2026-07-03). Updated local + VPS.
 - [x] MONETIZE-013: Alert triage system on VPS ✅ 2026-04-04. /opt/egos/alert-triage.sh with rate limiting (5min/source), severity routing (critical→WA+TG, warn→TG, info→TG).
