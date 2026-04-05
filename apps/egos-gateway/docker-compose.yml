@@ -11,7 +11,10 @@ services:
       - GATEWAY_PORT=3050
     networks:
       - infra_bracc
+      - evolution-api_default
 
 networks:
   infra_bracc:
+    external: true
+  evolution-api_default:
     external: true

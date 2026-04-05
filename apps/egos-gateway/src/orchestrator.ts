@@ -52,19 +52,90 @@ export interface OrchestratorResponse {
   toolsUsed?: string[];
 }
 
-// ─── Supabase helper ──────────────────────────────────────────────────────────
+// ─── Supabase helpers ─────────────────────────────────────────────────────────
+
+const SB_HEADERS = () => ({
+  apikey: SUPABASE_KEY,
+  Authorization: `Bearer ${SUPABASE_KEY}`,
+  "Content-Type": "application/json",
+  Prefer: "return=minimal",
+});
 
 async function sbFetch(path: string): Promise<unknown> {
   if (!SUPABASE_URL || !SUPABASE_KEY) return null;
   try {
     const res = await fetch(`${SUPABASE_URL}/rest/v1/${path}`, {
-      headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` },
+      headers: SB_HEADERS(),
       signal: AbortSignal.timeout(6000),
     });
     return res.ok ? res.json() : null;
   } catch {
     return null;
   }
+}
+
+async function sbInsert(table: string, row: Record<string, unknown>): Promise<boolean> {
+  if (!SUPABASE_URL || !SUPABASE_KEY) return false;
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}`, {
+      method: "POST",
+      headers: SB_HEADERS(),
+      body: JSON.stringify(row),
+      signal: AbortSignal.timeout(6000),
+    });
+    return res.status === 201 || res.status === 200;
+  } catch {
+    return false;
+  }
+}
+
+// ─── Conversation memory ──────────────────────────────────────────────────────
+
+interface HistoryRow {
+  role: "user" | "assistant";
+  content: string;
+  created_at: string;
+}
+
+async function loadHistory(channel: string, userId: string, limit = 12): Promise<HistoryRow[]> {
+  if (!SUPABASE_URL || !SUPABASE_KEY) return [];
+  try {
+    const rows = await sbFetch(
+      `egos_chat_history?channel=eq.${encodeURIComponent(channel)}&user_id=eq.${encodeURIComponent(userId)}&order=created_at.desc&limit=${limit}&select=role,content,created_at`
+    ) as HistoryRow[] | null;
+    if (!rows?.length) return [];
+    return rows.reverse(); // oldest first for LLM context
+  } catch {
+    return [];
+  }
+}
+
+async function saveHistory(
+  channel: string,
+  userId: string,
+  userContent: string,
+  assistantContent: string,
+  toolsUsed: string[],
+  mediaType?: string,
+): Promise<void> {
+  if (!SUPABASE_URL || !SUPABASE_KEY) return;
+  // Save user turn
+  await sbInsert("egos_chat_history", {
+    channel,
+    user_id: userId,
+    role: "user",
+    content: userContent,
+    media_type: mediaType ?? null,
+    tools_used: [],
+  });
+  // Save assistant turn
+  await sbInsert("egos_chat_history", {
+    channel,
+    user_id: userId,
+    role: "assistant",
+    content: assistantContent,
+    tools_used: toolsUsed,
+  });
 }
 
 // ─── Tool: system_status ──────────────────────────────────────────────────────
@@ -364,6 +435,30 @@ async function toolKnowledgeStats(): Promise<string> {
   }
 }
 
+// ─── Tool: memory_search ─────────────────────────────────────────────────────
+
+async function toolMemorySearch(query: string, channel: string, userId: string): Promise<string> {
+  if (!SUPABASE_URL || !SUPABASE_KEY) return "Memória não disponível (Supabase não configurado).";
+  try {
+    // Full-text search across stored messages for this user
+    const encoded = encodeURIComponent(`%${query}%`);
+    const rows = await sbFetch(
+      `egos_chat_history?channel=eq.${encodeURIComponent(channel)}&user_id=eq.${encodeURIComponent(userId)}&content=ilike.${encoded}&order=created_at.desc&limit=8&select=role,content,created_at`
+    ) as Array<{ role: string; content: string; created_at: string }> | null;
+
+    if (!rows?.length) return `Nenhuma conversa encontrada sobre "${query}".`;
+
+    const lines = rows.map((r) => {
+      const d = new Date(r.created_at).toLocaleDateString("pt-BR");
+      const who = r.role === "user" ? "Você" : "EGOS";
+      return `[${d}] ${who}: ${r.content.slice(0, 150)}`;
+    });
+    return `Memória — "${query}":\n${lines.join("\n")}`;
+  } catch (e) {
+    return `Erro ao buscar memória: ${(e as Error).message}`;
+  }
+}
+
 // ─── Tool: world_model ───────────────────────────────────────────────────────
 
 async function toolWorldModel(): Promise<string> {
@@ -518,11 +613,29 @@ const TOOL_DEFS = [
       parameters: { type: "object", properties: {} },
     },
   },
+  {
+    type: "function" as const,
+    function: {
+      name: "memory_search",
+      description: "Busca no histórico de conversas passadas. Use quando o usuário perguntar sobre algo que foi discutido antes ('lembra quando...', 'o que falamos sobre...').",
+      parameters: {
+        type: "object",
+        properties: {
+          query: { type: "string", description: "Termo ou assunto a buscar nas conversas passadas" },
+        },
+        required: ["query"],
+      },
+    },
+  },
 ];
 
 // ─── Tool dispatcher ──────────────────────────────────────────────────────────
 
-async function dispatchTool(name: string, args: Record<string, unknown>): Promise<string> {
+async function dispatchTool(
+  name: string,
+  args: Record<string, unknown>,
+  ctx: { channel: Channel; userId: string },
+): Promise<string> {
   switch (name) {
     case "system_status":    return toolSystemStatus();
     case "guard_status":     return toolGuardStatus();
@@ -537,6 +650,7 @@ async function dispatchTool(name: string, args: Record<string, unknown>): Promis
     case "get_costs":        return toolGetCosts();
     case "knowledge_stats":  return toolKnowledgeStats();
     case "world_model":      return toolWorldModel();
+    case "memory_search":    return toolMemorySearch(args.query as string ?? "", ctx.channel, ctx.userId);
     default:                 return `Ferramenta "${name}" não reconhecida.`;
   }
 }
@@ -648,11 +762,12 @@ FERRAMENTAS DISPONÍVEIS (use proativamente):
 11. get_costs — custos de API de hoje
 12. knowledge_stats — estatísticas do Knowledge Base
 13. world_model — snapshot de saúde do sistema
+14. memory_search(query) — busca no histórico de conversas passadas (use quando Enio perguntar sobre algo já discutido)
 
-COMPARAÇÃO COM OPENCLAW:
-OpenClaw (rodando no VPS:18789) = plataforma multi-canal self-hosted com browser automation.
-EGOS Gateway é nossa implementação própria, focada no ecossistema EGOS.
-Não precisamos do OpenClaw agora — nosso gateway é purpose-built.
+MEMÓRIA PERSISTENTE:
+• As últimas mensagens desta conversa já estão no contexto acima (histórico automático)
+• Use memory_search para buscar conversas mais antigas por assunto
+• Nunca diga "não tenho acesso ao histórico" — você tem via memory_search
 
 ESTILO DE RESPOSTA:
 • Formato: ${fmt}
@@ -662,7 +777,8 @@ ESTILO DE RESPOSTA:
 • Use bullet points • e emojis funcionais (não decorativos)
 • Se a resposta requer múltiplas ferramentas, use todas antes de responder
 • Nunca invente dados — se não souber, diga claramente
-• Para tarefas críticas: mencione P0 blockers se relevante`;
+• Para tarefas críticas: mencione P0 blockers se relevante
+• Se Enio perguntar "lembra quando..." ou "o que falamos sobre..." → use memory_search antes de responder`;
 }
 
 // ─── Main orchestrator ────────────────────────────────────────────────────────
@@ -696,7 +812,7 @@ export async function orchestrate(msg: IncomingMessage): Promise<OrchestratorRes
     return { text: "Mensagem recebida mas não reconhecida. Envie texto, áudio ou imagem." };
   }
 
-  // Phase 2: LLM with tool calls (max 4 iterations)
+  // Phase 2: Load conversation history + build messages
   type ChatMsg = {
     role: "system" | "user" | "assistant" | "tool";
     content: string | unknown;
@@ -705,8 +821,11 @@ export async function orchestrate(msg: IncomingMessage): Promise<OrchestratorRes
     tool_calls?: unknown;
   };
 
+  const history = await loadHistory(msg.channel, msg.from, 12);
+
   const messages: ChatMsg[] = [
     { role: "system", content: buildSystemPrompt(msg.channel) },
+    ...history.map((h) => ({ role: h.role as "user" | "assistant", content: h.content })),
     { role: "user", content: userText },
   ];
 
@@ -753,7 +872,10 @@ export async function orchestrate(msg: IncomingMessage): Promise<OrchestratorRes
 
     if (finish_reason === "stop" || !message.tool_calls?.length) {
       const raw = message.content ?? "Sem resposta.";
-      return { text: formatForChannel(raw, msg.channel), toolsUsed };
+      const formatted = formatForChannel(raw, msg.channel);
+      // Persist conversation turn (non-blocking)
+      saveHistory(msg.channel, msg.from, userText, raw, toolsUsed, msg.mediaType).catch(() => {});
+      return { text: formatted, toolsUsed };
     }
 
     // Push assistant message with tool_calls
@@ -765,12 +887,14 @@ export async function orchestrate(msg: IncomingMessage): Promise<OrchestratorRes
       try { args = JSON.parse(tc.function.arguments); } catch { /* noop */ }
 
       console.log(`[orchestrator] Tool: ${tc.function.name}(${JSON.stringify(args)})`);
-      const result = await dispatchTool(tc.function.name, args);
+      const result = await dispatchTool(tc.function.name, args, { channel: msg.channel, userId: msg.from });
       toolsUsed.push(tc.function.name);
 
       messages.push({ role: "tool", tool_call_id: tc.id, name: tc.function.name, content: result });
     }
   }
 
-  return { text: "Processamento completo.", toolsUsed };
+  const fallback = "Processamento completo.";
+  saveHistory(msg.channel, msg.from, userText, fallback, toolsUsed, msg.mediaType).catch(() => {});
+  return { text: fallback, toolsUsed };
 }
