@@ -1,26 +1,26 @@
 /**
- * EGOS Gateway — WhatsApp Channel (Evolution API)
+ * EGOS Gateway — WhatsApp Channel v2 (Evolution API)
  *
- * Handles MESSAGES_UPSERT webhooks from Evolution API,
- * parses commands from authorized sender, executes them,
- * and replies via Evolution API sendText.
+ * Handles ALL message types from Evolution API:
+ *   text, audio (+ Groq Whisper transcription), image (+ Qwen-VL vision),
+ *   video, document, sticker
+ *
+ * Routes incoming messages to AI Orchestrator → tool calls → curated reply.
+ * Restricted to AUTHORIZED_NUMBER only for security.
+ *
+ * Evolution API webhook events handled:
+ *   MESSAGES_UPSERT — new message received
  */
 
 import { Hono } from "hono";
+import { orchestrate, type IncomingMessage, type MediaType } from "../orchestrator.js";
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 
 const EVOLUTION_BASE = process.env.EVOLUTION_API_URL ?? "http://localhost:8080";
 const EVOLUTION_KEY = process.env.EVOLUTION_API_KEY ?? "";
-const INSTANCE = "forja-notifications";
-const AUTHORIZED_NUMBER = "553492374363";
-const GUARD_HEALTH_URL = "https://guard.egos.ia.br/health";
-const AGENTS_JSON_PATH =
-  process.env.AGENTS_JSON_PATH ?? "/home/enio/egos-lab/agents.json";
-
-// Supabase connection (read-only queries via environment)
-const SUPABASE_URL = process.env.SUPABASE_URL ?? "";
-const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? "";
+const INSTANCE = process.env.EVOLUTION_INSTANCE ?? "forja-notifications";
+const AUTHORIZED_NUMBER = process.env.WA_AUTHORIZED_NUMBER ?? "553492374363";
 
 // ─── Evolution API helpers ────────────────────────────────────────────────────
 
@@ -28,184 +28,153 @@ async function sendText(to: string, text: string): Promise<void> {
   const url = `${EVOLUTION_BASE}/message/sendText/${INSTANCE}`;
   const res = await fetch(url, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      apikey: EVOLUTION_KEY,
-    },
-    body: JSON.stringify({
-      number: to,
-      text,
-    }),
+    headers: { "Content-Type": "application/json", apikey: EVOLUTION_KEY },
+    body: JSON.stringify({ number: to, text }),
+    signal: AbortSignal.timeout(10000),
   });
   if (!res.ok) {
-    console.error(
-      `[whatsapp] sendText failed: ${res.status} ${await res.text()}`
-    );
+    console.error(`[whatsapp] sendText failed: ${res.status} ${await res.text()}`);
   }
 }
 
-// ─── Command handlers ─────────────────────────────────────────────────────────
-
-async function handleStatus(): Promise<string> {
-  const lines: string[] = ["*EGOS System Status*\n"];
-
-  // Guard Brasil health
+async function sendTyping(to: string): Promise<void> {
+  // Simulate typing indicator (Evolution API presence update)
   try {
-    const res = await fetch(GUARD_HEALTH_URL, { signal: AbortSignal.timeout(5000) });
-    const data = await res.json();
-    lines.push(`Guard Brasil: ${res.ok ? "OK" : "DEGRADED"} (${JSON.stringify(data)})`);
-  } catch (e) {
-    lines.push(`Guard Brasil: UNREACHABLE (${(e as Error).message})`);
-  }
-
-  // Docker containers
-  try {
-    const proc = Bun.spawn(["docker", "ps", "--format", "{{.Names}}\t{{.Status}}"], {
-      stdout: "pipe",
-      stderr: "pipe",
+    await fetch(`${EVOLUTION_BASE}/chat/sendPresence/${INSTANCE}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", apikey: EVOLUTION_KEY },
+      body: JSON.stringify({ number: to, presence: "composing", delay: 1000 }),
+      signal: AbortSignal.timeout(3000),
     });
-    const output = await new Response(proc.stdout).text();
-    const containers = output.trim();
-    lines.push(`\nContainers:\n${containers || "(none running)"}`);
-  } catch {
-    lines.push("\nDocker: unavailable");
-  }
-
-  return lines.join("\n");
+  } catch { /* non-critical */ }
 }
 
-async function handleGems(): Promise<string> {
-  if (!SUPABASE_URL || !SUPABASE_KEY) {
-    return "Supabase not configured. Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY.";
-  }
-
+/** Download media as base64 from Evolution API */
+async function downloadMedia(message: EvolutionMessage): Promise<{ base64: string; mimetype: string } | null> {
   try {
-    const res = await fetch(
-      `${SUPABASE_URL}/rest/v1/gem_findings?order=created_at.desc&limit=5`,
-      {
-        headers: {
-          apikey: SUPABASE_KEY,
-          Authorization: `Bearer ${SUPABASE_KEY}`,
-        },
-      }
-    );
-    if (!res.ok) return `Supabase error: ${res.status}`;
-    const gems = (await res.json()) as Array<{
-      title?: string;
-      source?: string;
-      created_at?: string;
-    }>;
-    if (gems.length === 0) return "No gem findings found.";
-
-    const lines = ["*Latest Gem Findings*\n"];
-    for (const g of gems) {
-      lines.push(`- ${g.title ?? "untitled"} (${g.source ?? "?"}) — ${g.created_at?.slice(0, 10) ?? "?"}`);
-    }
-    return lines.join("\n");
+    const url = `${EVOLUTION_BASE}/chat/getBase64FromMediaMessage/${INSTANCE}`;
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", apikey: EVOLUTION_KEY },
+      body: JSON.stringify({ message }),
+      signal: AbortSignal.timeout(30000),
+    });
+    if (!res.ok) return null;
+    const data = await res.json() as { base64?: string; mimetype?: string };
+    if (!data.base64 || !data.mimetype) return null;
+    return { base64: data.base64, mimetype: data.mimetype };
   } catch (e) {
-    return `Gems fetch error: ${(e as Error).message}`;
+    console.error("[whatsapp] downloadMedia error:", e);
+    return null;
   }
 }
 
-async function handleCosts(): Promise<string> {
-  if (!SUPABASE_URL || !SUPABASE_KEY) {
-    return "Supabase not configured. Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY.";
-  }
+// ─── Evolution API message types ─────────────────────────────────────────────
 
-  const today = new Date().toISOString().slice(0, 10);
-  try {
-    const res = await fetch(
-      `${SUPABASE_URL}/rest/v1/api_usage?select=model,tokens_in,tokens_out,cost_usd&date=eq.${today}`,
-      {
-        headers: {
-          apikey: SUPABASE_KEY,
-          Authorization: `Bearer ${SUPABASE_KEY}`,
-        },
-      }
-    );
-    if (!res.ok) return `Supabase error: ${res.status}`;
-    const rows = (await res.json()) as Array<{
-      model?: string;
-      tokens_in?: number;
-      tokens_out?: number;
-      cost_usd?: number;
-    }>;
-    if (rows.length === 0) return `No cost data for ${today}.`;
-
-    let totalCost = 0;
-    const lines = [`*Costs for ${today}*\n`];
-    for (const r of rows) {
-      const cost = r.cost_usd ?? 0;
-      totalCost += cost;
-      lines.push(
-        `- ${r.model ?? "?"}: $${cost.toFixed(4)} (${r.tokens_in ?? 0} in / ${r.tokens_out ?? 0} out)`
-      );
-    }
-    lines.push(`\n*Total: $${totalCost.toFixed(4)}*`);
-    return lines.join("\n");
-  } catch (e) {
-    return `Costs fetch error: ${(e as Error).message}`;
-  }
+interface EvolutionMessageKey {
+  remoteJid?: string;
+  fromMe?: boolean;
+  id?: string;
 }
 
-async function handleAgents(): Promise<string> {
-  try {
-    const file = Bun.file(AGENTS_JSON_PATH);
-    if (!(await file.exists())) {
-      return `agents.json not found at ${AGENTS_JSON_PATH}`;
-    }
-    const data = (await file.json()) as Record<
-      string,
-      { status?: string; description?: string }
-    >;
-    const entries = Object.entries(data);
-    if (entries.length === 0) return "No agents registered.";
-
-    const lines = [`*Registered Agents (${entries.length})*\n`];
-    for (const [id, info] of entries) {
-      const status = info.status ?? "unknown";
-      lines.push(`- ${id}: ${status} — ${info.description ?? ""}`);
-    }
-    return lines.join("\n");
-  } catch (e) {
-    return `Agents read error: ${(e as Error).message}`;
-  }
+interface EvolutionMessage {
+  key?: EvolutionMessageKey;
+  message?: {
+    conversation?: string;
+    extendedTextMessage?: { text?: string; contextInfo?: unknown };
+    audioMessage?: { mimetype?: string; seconds?: number; ptt?: boolean };
+    imageMessage?: { mimetype?: string; caption?: string };
+    videoMessage?: { mimetype?: string; caption?: string; seconds?: number };
+    documentMessage?: { mimetype?: string; fileName?: string; caption?: string };
+    stickerMessage?: { mimetype?: string };
+    reactionMessage?: { text?: string };
+  };
+  messageType?: string;
+  messageTimestamp?: number;
 }
-
-// ─── Command router ───────────────────────────────────────────────────────────
-
-const COMMANDS: Record<string, () => Promise<string>> = {
-  status: handleStatus,
-  gems: handleGems,
-  costs: handleCosts,
-  agents: handleAgents,
-};
-
-async function routeCommand(text: string): Promise<string> {
-  const keyword = text.trim().toLowerCase().split(/\s+/)[0];
-  const handler = COMMANDS[keyword];
-  if (handler) return handler();
-  return "Command not recognized. Try: status, gems, costs, agents";
-}
-
-// ─── Evolution API webhook types ──────────────────────────────────────────────
 
 interface EvolutionWebhookPayload {
   event: string;
   instance: string;
-  data: {
-    key?: { remoteJid?: string; fromMe?: boolean };
-    message?: { conversation?: string; extendedTextMessage?: { text?: string } };
-    messageType?: string;
-  };
+  data: EvolutionMessage;
 }
 
-// ─── Hono routes ──────────────────────────────────────────────────────────────
+// ─── Message parser ───────────────────────────────────────────────────────────
+
+async function parseMessage(data: EvolutionMessage): Promise<IncomingMessage | null> {
+  const remoteJid = data.key?.remoteJid ?? "";
+  const senderNumber = remoteJid.replace("@s.whatsapp.net", "");
+  const msgType = data.messageType ?? "";
+  const msg = data.message ?? {};
+
+  const base: Omit<IncomingMessage, "text" | "mediaType" | "mediaBase64" | "mediaMime" | "caption" | "fileName"> = {
+    from: senderNumber,
+    channel: "whatsapp",
+  };
+
+  // Text message
+  if (msgType === "conversation" || msgType === "extendedTextMessage") {
+    const text = msg.conversation ?? msg.extendedTextMessage?.text ?? "";
+    if (!text) return null;
+    return { ...base, text };
+  }
+
+  // Audio message (voice note or audio file)
+  if (msgType === "audioMessage") {
+    const mime = msg.audioMessage?.mimetype ?? "audio/ogg; codecs=opus";
+    const media = await downloadMedia(data);
+    if (!media) return { ...base, mediaType: "audio", mediaMime: mime, text: "[Áudio recebido mas falhou no download]" };
+    return { ...base, mediaType: "audio", mediaBase64: media.base64, mediaMime: media.mimetype };
+  }
+
+  // Image message
+  if (msgType === "imageMessage") {
+    const mime = msg.imageMessage?.mimetype ?? "image/jpeg";
+    const caption = msg.imageMessage?.caption;
+    const media = await downloadMedia(data);
+    if (!media) return { ...base, mediaType: "image", caption, text: `[Imagem recebida${caption ? `: "${caption}"` : ""} — falhou no download]` };
+    return { ...base, mediaType: "image", mediaBase64: media.base64, mediaMime: media.mimetype, caption };
+  }
+
+  // Video message
+  if (msgType === "videoMessage") {
+    const caption = msg.videoMessage?.caption;
+    return { ...base, mediaType: "video", caption };
+  }
+
+  // Document / file
+  if (msgType === "documentMessage") {
+    const fileName = msg.documentMessage?.fileName ?? "arquivo";
+    const caption = msg.documentMessage?.caption;
+    return { ...base, mediaType: "document", fileName, caption };
+  }
+
+  // Sticker
+  if (msgType === "stickerMessage") {
+    return { ...base, mediaType: "sticker" };
+  }
+
+  // Reaction
+  if (msgType === "reactionMessage") {
+    return null; // ignore reactions
+  }
+
+  // Unknown — log and ignore
+  console.log(`[whatsapp] Unhandled messageType: ${msgType}`);
+  return null;
+}
+
+// ─── Webhook handler ──────────────────────────────────────────────────────────
 
 export const whatsapp = new Hono();
 
 whatsapp.post("/webhook", async (c) => {
-  const body = (await c.req.json()) as EvolutionWebhookPayload;
+  let body: EvolutionWebhookPayload;
+  try {
+    body = await c.req.json() as EvolutionWebhookPayload;
+  } catch {
+    return c.json({ error: "Invalid JSON" }, 400);
+  }
 
   // Only process MESSAGES_UPSERT
   if (body.event !== "MESSAGES_UPSERT") {
@@ -214,46 +183,58 @@ whatsapp.post("/webhook", async (c) => {
 
   const { data } = body;
 
-  // Ignore messages sent by us
+  // Ignore our own messages
   if (data.key?.fromMe) {
     return c.json({ ignored: true, reason: "fromMe" });
   }
 
-  // Extract sender number (strip @s.whatsapp.net)
   const remoteJid = data.key?.remoteJid ?? "";
   const senderNumber = remoteJid.replace("@s.whatsapp.net", "");
 
-  // Only respond to authorized sender
+  // Security: only authorized number
   if (senderNumber !== AUTHORIZED_NUMBER) {
-    console.warn(`[whatsapp] Unauthorized sender: ${senderNumber}`);
+    console.warn(`[whatsapp] Blocked unauthorized sender: ${senderNumber}`);
     return c.json({ ignored: true, reason: "unauthorized" });
   }
 
-  // Extract message text
-  const text =
-    data.message?.conversation ??
-    data.message?.extendedTextMessage?.text ??
-    "";
-
-  if (!text) {
-    return c.json({ ignored: true, reason: "no text" });
+  const incoming = await parseMessage(data);
+  if (!incoming) {
+    return c.json({ ignored: true, reason: "unparseable or ignored message type" });
   }
 
-  console.log(`[whatsapp] Command from ${senderNumber}: ${text}`);
+  const msgType = data.messageType ?? "text";
+  console.log(`[whatsapp] ${senderNumber} → ${msgType}: ${incoming.text?.slice(0, 50) ?? "[media]"}`);
 
-  // Route and respond
-  const response = await routeCommand(text);
-  await sendText(senderNumber, response);
+  // Send typing indicator (non-blocking)
+  sendTyping(senderNumber).catch(() => {});
 
-  return c.json({ ok: true, command: text.trim().toLowerCase().split(/\s+/)[0] });
+  // Route to AI orchestrator
+  const result = await orchestrate(incoming);
+
+  // Send response (non-fatal if Evolution API is unreachable)
+  try {
+    await sendText(senderNumber, result.text);
+  } catch (e) {
+    console.error("[whatsapp] sendText failed (Evolution API unreachable?):", (e as Error).message);
+  }
+
+  if (result.toolsUsed?.length) {
+    console.log(`[whatsapp] Tools used: ${result.toolsUsed.join(", ")}`);
+  }
+
+  return c.json({ ok: true, msgType, toolsUsed: result.toolsUsed ?? [] });
 });
 
-// Health check for the channel
+// Channel health
 whatsapp.get("/health", (c) => {
   return c.json({
     channel: "whatsapp",
+    version: "2.0.0",
     instance: INSTANCE,
     authorizedNumber: AUTHORIZED_NUMBER,
     evolutionBase: EVOLUTION_BASE,
+    capabilities: ["text", "audio+transcription", "image+vision", "video", "document", "sticker"],
+    orchestrator: "qwen-plus (DashScope)",
+    transcription: "whisper-large-v3-turbo (Groq)",
   });
 });
