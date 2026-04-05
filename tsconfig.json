@@ -42,6 +42,9 @@
     "packages/core/src/auth",
     "packages/audit/src/activation-audit.ts",
     "packages/shared/src/mcp-audit-handler.ts",
-    "packages/mcp-memory"
+    "packages/mcp-memory",
+    "packages/knowledge-mcp",
+    "packages/guard-brasil-langchain",
+    "packages/guard-brasil-python"
   ]
 }

@@ -78,7 +78,7 @@ async function diagnose() {
   const agentsTotal = agentsJson?.agents?.length || 0;
 
   // Type check
-  const typeCheckOutput = run("npx tsc --noEmit 2>&1 | grep -c 'error' || echo '0'");
+  const typeCheckOutput = run("./node_modules/.bin/tsc --noEmit 2>&1 | grep -c 'error' || echo '0'");
   const typeErrors = parseInt(typeCheckOutput) || 0;
   const typeCheckPassing = typeErrors === 0;
 
