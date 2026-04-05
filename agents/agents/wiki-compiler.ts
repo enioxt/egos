@@ -175,16 +175,45 @@ function extractTags(content: string): string[] {
 
 // ── Cross-Reference Detector ──────────────────────────────────────────
 
-function extractCrossRefs(content: string, allSlugs: string[]): string[] {
-  const refs: string[] = [];
-  for (const slug of allSlugs) {
-    // Check if content mentions terms that would match another page's slug
-    const pattern = slug.replace(/-/g, "[\\s-]?");
-    if (new RegExp(pattern, "i").test(content)) {
-      refs.push(slug);
+function extractCrossRefs(content: string, allSlugs: string[], ownTags: string[]): string[] {
+  const refs = new Set<string>();
+  const contentLower = content.toLowerCase();
+
+  // Strategy 1: Tag overlap — pages sharing 2+ tags are related
+  // (deferred to compile second-pass when all pages have tags)
+
+  // Strategy 2: Explicit mentions — detect entity names in content
+  const entityPatterns: Record<string, RegExp> = {
+    "egos-system-overview": /egos\s+(system|framework|kernel)/i,
+    "current-p0-blockers": /p0\s+blocker|blocker.*p0/i,
+    "active-signals": /signal.*alert|alert.*signal|critical.*signal/i,
+    "gem-hunter-v60-master-plan": /gem.?hunter\s+(v6|master|plan)/i,
+    "egos-world-model-ssot-document": /world.?model\s+(ssot|document)/i,
+    "egos-master-api-prd-product-requirements-document": /master\s+api|api\s+prd/i,
+  };
+
+  for (const [slug, pattern] of Object.entries(entityPatterns)) {
+    if (allSlugs.includes(slug) && pattern.test(content)) {
+      refs.add(slug);
     }
   }
-  return refs;
+
+  // Strategy 3: Tag-based cross-refs — if content mentions a known domain tag,
+  // link to the highest-quality page with that tag (handled in compile second pass)
+
+  // Strategy 4: Slug substring matching (conservative — only for short, specific slugs)
+  for (const slug of allSlugs) {
+    // Only match slugs that are specific enough (>15 chars, not a date-only slug)
+    if (slug.length < 15 || /^\d{4}-\d{2}-\d{2}/.test(slug)) continue;
+    // Extract key terms from slug (skip common words)
+    const terms = slug.split("-").filter(t => t.length > 4 && !["2026", "handoff", "session", "report", "complete"].includes(t));
+    if (terms.length < 2) continue;
+    // Must match at least 2 key terms
+    const matchCount = terms.filter(t => contentLower.includes(t)).length;
+    if (matchCount >= 2) refs.add(slug);
+  }
+
+  return [...refs];
 }
 
 // ── Quality Scorer ────────────────────────────────────────────────────
@@ -251,9 +280,23 @@ async function compile(): Promise<void> {
 
   // Second pass: cross-references
   for (const page of pages) {
-    page.cross_refs = extractCrossRefs(page.content, allSlugs).filter(
+    page.cross_refs = extractCrossRefs(page.content, allSlugs, page.tags).filter(
       (ref) => ref !== page.slug
     );
+  }
+
+  // Third pass: tag-based cross-refs (pages sharing 2+ tags are related)
+  for (const page of pages) {
+    for (const other of pages) {
+      if (other.slug === page.slug) continue;
+      if (page.cross_refs.includes(other.slug)) continue;
+      const sharedTags = page.tags.filter(t => other.tags.includes(t));
+      if (sharedTags.length >= 2) {
+        page.cross_refs.push(other.slug);
+      }
+    }
+    // Cap cross-refs at 10 to avoid noise
+    page.cross_refs = page.cross_refs.slice(0, 10);
   }
 
   console.log(`[wiki-compiler] Compiled ${pages.length} wiki pages`);
