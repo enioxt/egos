@@ -76,7 +76,7 @@ START-001..005 DONE (parallel diagnostics 22s, CI, pre-commit). Design: `docs/SE
 - [ ] START-006: Monitor performance 1 week (due 2026-04-09)
 - [ ] START-007: v6.1 distributed agent health (SSH parallel)
 - [ ] START-008: Dashboard integration (Grafana/Claude Code UI)
-- [ ] START-009: Alert system (Telegram on health < 40%)
+- [x] START-009: Alert system (Telegram on health < 40%) ✅ 2026-04-05 — health-monitor.ts polls 5min, score=100, alerts to TELEGRAM_AUTHORIZED_USER_ID
 
 ---
 
@@ -118,7 +118,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 **Gem Hunter product (revenue):**
 - [ ] GH-061: Dashboard gemhunter.egos.ia.br (Next.js web UI)
 - [x] GH-067: gem-hunter-server deployed to VPS port 3095, systemd, Caddy ready ✅ 2026-04-05 — [BLOCKER] DNS A record gemhunter.egos.ia.br → 204.168.217.125 needed
-- [ ] GH-068: API keys Supabase auth | GH-069: Rate limiting
+- [x] GH-068: API keys Supabase auth | GH-069: Rate limiting ✅ 2026-04-05
 - [x] GH-070: WhatsApp v2 — AI orchestrator (Qwen+tools: gem_search/wiki_search/status/costs/agents) + all media types ✅ 2026-04-05
 - [x] GH-071: Telegram @EGOSin_bot (egosin_bot) — long-polling + AI orchestrator ✅ 2026-04-05 — send /start to @EGOSin_bot to get your chat_id, then set TELEGRAM_AUTHORIZED_USER_ID
 - [ ] GH-073: Weekly email digest
@@ -195,8 +195,8 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] GH-064: Discord webhook alerts — sendGemDiscordAlert() rich embeds (score≥80, color-coded); DISCORD_WEBHOOK_URL env ✅ 2026-04-02
 - [x] GH-066*: Gateway /gem-hunter channel — sector filter, topics, product pricing, trending ✅ 2026-04-04 (NOTE: renamed from Paper→Code)
 - [ ] GH-067: Deploy gem-hunter-server to VPS (gemhunter.egos.ia.br) + Caddy routing → P0 revenue
-- [ ] GH-068: Auth — API keys via Supabase `gem_hunter_api_keys` table + Bearer token validation
-- [ ] GH-069: Rate limiting middleware (tier-aware: free/starter/pro/pay-per-use)
+- [x] GH-068: Auth — API keys via Supabase `gem_hunter_api_keys` table + Bearer token validation ✅ 2026-04-05
+- [x] GH-069: Rate limiting middleware (tier-aware: free/starter/pro/pay-per-use) ✅ 2026-04-05
 - [ ] GH-070: Chatbot orchestrator — WhatsApp channel NLP intent → tool calls → gem-hunter → curated reply
 - [ ] GH-071: Telegram bot (/hunt, /trending, /sector slash commands)
 - [ ] GH-072: Chatbot tier enforcement (200 queries/mo for R$149/mo chatbot plan)
