@@ -51,10 +51,11 @@ ALLOWED_PATTERNS=(
   "CLAUDE.md"
   ".claude/"
 
-  # Knowledge system + agents
+  # Knowledge system + agents + scripts
   "agents/agents"
   "supabase/"
   "docs/knowledge"
+  "scripts/"
 
   # Governance (read-only for EGOS compliance)
   "TASKS.md"
