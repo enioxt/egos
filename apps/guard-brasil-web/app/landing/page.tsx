@@ -12,13 +12,13 @@ import { useState } from 'react';
 
 const EXAMPLES = [
   {
-    title: 'CPF Masking',
+    title: 'Mascaramento de CPF',
     icon: '🔢',
     input: 'O cliente com CPF 123.456.789-00 solicitou alteração cadastral.',
     description: 'Detecta e mascara CPFs automaticamente',
   },
   {
-    title: 'RG Detection',
+    title: 'Detecção de RG',
     icon: '🪪',
     input: 'Identidade RG 1234567 SSP/MG do paciente internado na ala B.',
     description: 'Identifica RGs em textos não estruturados',
@@ -30,7 +30,7 @@ const EXAMPLES = [
     description: 'Anonimiza placas em relatórios policiais',
   },
   {
-    title: 'ATRiAN Bias Check',
+    title: 'Verificação de Viés ATRiAN',
     icon: '🧠',
     input: 'Jovem negro desempregado solicita empréstimo bancário de alto valor.',
     description: 'Score ético 0-100 para detectar viés',
@@ -117,14 +117,14 @@ export default function LandingPage() {
 
       if (!res.ok) {
         const errData = await res.json();
-        throw new Error(errData.error || 'API error');
+        throw new Error(errData.error || 'Erro na API');
       }
 
       const data = await res.json();
       setResult(data);
       setTestsUsed((prev) => prev + 1);
     } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : 'Unknown error');
+      setError(err instanceof Error ? err.message : 'Erro desconhecido');
     } finally {
       setLoading(false);
     }
@@ -140,7 +140,7 @@ export default function LandingPage() {
       {/* Hero */}
       <header className="border-b border-slate-800 bg-gradient-to-b from-slate-900 to-slate-950">
         <div className="max-w-5xl mx-auto px-6 py-16 text-center">
-          <p className="text-emerald-400 text-sm font-mono mb-4">Brazil-first AI safety for public and regulated workflows</p>
+          <p className="text-emerald-400 text-sm font-mono mb-4">Segurança de IA focada no Brasil para fluxos públicos e regulados</p>
           <h1 className="text-5xl font-bold mb-4">Guard Brasil</h1>
           <p className="text-xl text-slate-300 mb-2">
             Proteja dados sensíveis brasileiros antes que eles saiam da sua aplicação
@@ -161,7 +161,7 @@ export default function LandingPage() {
             <div className="w-px h-10 bg-slate-700" />
             <div className="text-center">
               <p className="text-2xl font-bold text-emerald-400">R$0</p>
-              <p className="text-xs text-slate-500">free tier</p>
+              <p className="text-xs text-slate-500">plano gratuito</p>
             </div>
           </div>
         </div>
@@ -288,13 +288,13 @@ export default function LandingPage() {
 
         {/* Pricing */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-center mb-2">Pricing por uso</h2>
+          <h2 className="text-2xl font-bold text-center mb-2">Preços por uso</h2>
           <p className="text-sm text-slate-400 text-center mb-8">Sem assinatura obrigatória. Comece grátis, escale por volume e receba hashes, receipts e proveniência quando precisar auditar cada inspeção.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
             {[
-              { tier: 'Free', price: 'R$ 0', calls: '500 inspeções/mês', detail: 'sandbox LGPD sem cartão', features: ['15 padrões PII brasileiro', 'LGPD disclosure', 'Teste imediato', 'Sem cartão de crédito'], cta: 'Criar conta grátis', ctaHref: '#get-key', popular: false },
-              { tier: 'Startup', price: 'R$ 0,007', calls: 'por inspeção', detail: '≈ R$ 35 por 5.000 chamadas', features: ['PII + ATRiAN scoring', 'Inspection receipts', 'Evidence chain', 'Pronto para produção'], cta: 'Assinar Startup', ctaHref: 'https://guard.egos.ia.br/v1/stripe/checkout?tier=startup&email=', popular: true },
-              { tier: 'Business', price: 'R$ 0,004', calls: 'por inspeção', detail: '≈ R$ 2.000/mês (500k chamadas)', features: ['Tudo do Startup', 'Proveniência de fonte', 'Volume pricing', 'Suporte prioritário'], cta: 'Assinar Business', ctaHref: 'mailto:enio@egos.ia.br?subject=Guard%20Brasil%20Business', popular: false },
+              { tier: 'Free', price: 'R$ 0', calls: '500 inspeções/mês', detail: 'sandbox LGPD sem cartão', features: ['15 padrões PII brasileiro', 'Conformidade LGPD', 'Teste imediato', 'Sem cartão de crédito'], cta: 'Criar conta grátis', ctaHref: '#get-key', popular: false },
+              { tier: 'Startup', price: 'R$ 0,007', calls: 'por inspeção', detail: '≈ R$ 35 por 5.000 chamadas', features: ['PII + pontuação ATRiAN', 'Recibos de inspeção', 'Cadeia de evidências', 'Pronto para produção'], cta: 'Assinar Startup', ctaHref: 'https://guard.egos.ia.br/v1/stripe/checkout?tier=startup&email=', popular: true },
+              { tier: 'Business', price: 'R$ 0,004', calls: 'por inspeção', detail: '≈ R$ 2.000/mês (500k chamadas)', features: ['Tudo do Startup', 'Proveniência de fonte', 'Preço por volume', 'Suporte prioritário'], cta: 'Assinar Business', ctaHref: 'mailto:enio@egos.ia.br?subject=Guard%20Brasil%20Business', popular: false },
             ].map((plan) => (
               <div key={plan.tier} className={`bg-slate-900 border rounded-2xl p-6 ${plan.popular ? 'border-emerald-600 ring-1 ring-emerald-600/20' : 'border-slate-800'}`}>
                 {plan.popular && <p className="text-[10px] text-emerald-400 font-bold uppercase tracking-wider mb-2">MAIS POPULAR</p>}
@@ -372,16 +372,16 @@ export default function LandingPage() {
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 text-center">
             <h2 className="text-xl font-bold mb-4">Comece em 30 segundos</h2>
             <div className="bg-slate-800 rounded-xl p-4 font-mono text-sm text-left max-w-md mx-auto">
-              <p className="text-slate-500"># Install</p>
+              <p className="text-slate-500"># Instalar</p>
               <p className="text-emerald-400">npm install @egosbr/guard-brasil</p>
-              <p className="text-slate-500 mt-3"># Use</p>
+              <p className="text-slate-500 mt-3"># Usar</p>
               <p className="text-blue-300">{'import { GuardBrasil } from \'@egosbr/guard-brasil\''}</p>
               <p className="text-slate-300 mt-1">{'const result = GuardBrasil.create().inspect(text)'}</p>
             </div>
             <div className="flex justify-center gap-4 mt-6">
               <a href="https://github.com/enioxt/egos" className="text-xs text-slate-400 hover:text-white transition">GitHub</a>
               <a href="https://www.npmjs.com/package/@egosbr/guard-brasil" className="text-xs text-slate-400 hover:text-white transition">npm</a>
-              <a href="/dashboard-v2" className="text-xs text-emerald-400 hover:text-emerald-300 transition">Dashboard preview</a>
+              <a href="/dashboard-v2" className="text-xs text-emerald-400 hover:text-emerald-300 transition">Prévia do Dashboard</a>
               <a href="/docs" className="text-xs text-amber-400 hover:text-amber-300 transition">📖 Documentação</a>
             </div>
           </div>
@@ -394,7 +394,7 @@ export default function LandingPage() {
           Guard Brasil | pacote público @egosbr/guard-brasil | MIT License
         </p>
         <p className="text-[10px] text-slate-600 mt-2">
-          Every inspection is auditable. Every cost is visible. No sensitive operational details in public surfaces.
+          Toda inspeção é auditável. Todo custo é visível. Nenhum detalhe operacional sensível em superfícies públicas.
         </p>
       </footer>
     </div>

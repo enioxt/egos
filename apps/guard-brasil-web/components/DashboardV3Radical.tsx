@@ -143,9 +143,9 @@ export default function DashboardV3Radical() {
   }, []);
 
   const phaseLabel = useCallback((x: number) => {
-    if (x < 30) return 'ENTERING';
-    if (x < 70) return 'SCANNING';
-    return 'PROCESSED';
+    if (x < 30) return 'ENTRADA';
+    if (x < 70) return 'ESCANEANDO';
+    return 'PROCESSADO';
   }, []);
 
   return (
@@ -154,18 +154,18 @@ export default function DashboardV3Radical() {
       <div className="absolute top-0 left-0 right-0 z-20 bg-black/80 backdrop-blur border-b border-slate-800 px-6 py-3 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <h1 className="text-lg font-bold tracking-wider">GUARD BRASIL</h1>
-          <span className="text-[10px] text-slate-500 tracking-widest uppercase">Radical Transparency Scanner</span>
+          <span className="text-[10px] text-slate-500 tracking-widest uppercase">Scanner de Transparência Radical</span>
         </div>
         <div className="flex items-center gap-6">
           <button
             onClick={() => setIsPaused(!isPaused)}
             className={`text-xs px-3 py-1 rounded border ${isPaused ? 'border-emerald-500 text-emerald-400' : 'border-slate-700 text-slate-400'}`}
           >
-            {isPaused ? '▶ Resume' : '⏸ Pause'}
+            {isPaused ? '▶ Retomar' : '⏸ Pausar'}
           </button>
           <div className="flex items-center gap-2">
             <span className={`w-2 h-2 rounded-full ${isPaused ? 'bg-amber-500' : 'bg-emerald-500 animate-pulse'}`} />
-            <span className="text-xs text-slate-400">{isPaused ? 'Paused' : 'Live'}</span>
+            <span className="text-xs text-slate-400">{isPaused ? 'Pausado' : 'Ao vivo'}</span>
           </div>
         </div>
       </div>
@@ -175,13 +175,13 @@ export default function DashboardV3Radical() {
         {/* Zone labels */}
         <div className="absolute top-16 left-0 right-0 flex z-10 pointer-events-none">
           <div className="w-[30%] text-center">
-            <span className="text-[10px] text-slate-600 tracking-[0.3em] uppercase">Input</span>
+            <span className="text-[10px] text-slate-600 tracking-[0.3em] uppercase">Entrada</span>
           </div>
           <div className="w-[40%] text-center">
-            <span className="text-[10px] text-emerald-800 tracking-[0.3em] uppercase">Guard Processing</span>
+            <span className="text-[10px] text-emerald-800 tracking-[0.3em] uppercase">Processamento Guard</span>
           </div>
           <div className="w-[30%] text-center">
-            <span className="text-[10px] text-slate-600 tracking-[0.3em] uppercase">Output</span>
+            <span className="text-[10px] text-slate-600 tracking-[0.3em] uppercase">Saída</span>
           </div>
         </div>
 
@@ -213,7 +213,7 @@ export default function DashboardV3Radical() {
                 <span key={pii} className="text-[8px] bg-white/10 px-1 rounded">{pii}</span>
               ))}
               {packet.verdict === 'blocked' && (
-                <span className="text-[8px] bg-red-500/30 text-red-300 px-1 rounded">BLOCKED</span>
+                <span className="text-[8px] bg-red-500/30 text-red-300 px-1 rounded">BLOQUEADO</span>
               )}
             </div>
           </div>
@@ -223,23 +223,23 @@ export default function DashboardV3Radical() {
         <div className="absolute bottom-0 left-0 right-0 z-20 bg-black/90 backdrop-blur border-t border-slate-800 px-6 py-4">
           <div className="flex items-center justify-between max-w-6xl mx-auto">
             <div className="text-center">
-              <p className="text-[10px] text-slate-500 uppercase tracking-wider">Processed</p>
+              <p className="text-[10px] text-slate-500 uppercase tracking-wider">Processados</p>
               <p className="text-xl font-bold font-mono">{stats.total_processed}</p>
             </div>
             <div className="text-center">
-              <p className="text-[10px] text-slate-500 uppercase tracking-wider">Blocked</p>
+              <p className="text-[10px] text-slate-500 uppercase tracking-wider">Bloqueados</p>
               <p className="text-xl font-bold font-mono text-red-400">{stats.total_blocked}</p>
             </div>
             <div className="text-center">
-              <p className="text-[10px] text-slate-500 uppercase tracking-wider">Total Cost</p>
+              <p className="text-[10px] text-slate-500 uppercase tracking-wider">Custo Total</p>
               <p className="text-xl font-bold font-mono text-amber-400">${stats.total_cost.toFixed(5)}</p>
             </div>
             <div className="text-center">
-              <p className="text-[10px] text-slate-500 uppercase tracking-wider">Avg Latency</p>
+              <p className="text-[10px] text-slate-500 uppercase tracking-wider">Latência Média</p>
               <p className="text-xl font-bold font-mono text-blue-400">{stats.avg_latency}ms</p>
             </div>
             <div className="text-center">
-              <p className="text-[10px] text-slate-500 uppercase tracking-wider">PII Types</p>
+              <p className="text-[10px] text-slate-500 uppercase tracking-wider">Tipos de PII</p>
               <div className="flex gap-1 mt-1">
                 {Object.entries(stats.pii_breakdown)
                   .sort((a, b) => b[1] - a[1])
@@ -260,19 +260,19 @@ export default function DashboardV3Radical() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm" onClick={() => setSelectedPacket(null)}>
           <div className="bg-slate-900 border border-slate-700 rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-lg font-bold">Packet Inspection</h3>
+              <h3 className="text-lg font-bold">Inspeção do Pacote</h3>
               <button onClick={() => setSelectedPacket(null)} className="text-slate-400 hover:text-white">x</button>
             </div>
 
             <div className="space-y-4">
               <div>
-                <p className="text-xs text-slate-500 mb-1">Input Preview</p>
+                <p className="text-xs text-slate-500 mb-1">Pré-visualização</p>
                 <p className="text-sm font-mono bg-slate-800 rounded p-3">{selectedPacket.text_preview}</p>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <p className="text-xs text-slate-500 mb-1">Verdict</p>
+                  <p className="text-xs text-slate-500 mb-1">Veredito</p>
                   <span className={`text-sm font-bold ${
                     selectedPacket.verdict === 'clean' ? 'text-emerald-400' :
                     selectedPacket.verdict === 'masked' ? 'text-blue-400' : 'text-red-400'
@@ -290,13 +290,13 @@ export default function DashboardV3Radical() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <p className="text-xs text-slate-500 mb-1">Model Used</p>
+                  <p className="text-xs text-slate-500 mb-1">Modelo Usado</p>
                   <p className="text-sm font-mono">{selectedPacket.model_used}</p>
                 </div>
                 <div>
-                  <p className="text-xs text-slate-500 mb-1">Cost</p>
+                  <p className="text-xs text-slate-500 mb-1">Custo</p>
                   <p className="text-sm font-mono text-amber-400">
-                    {selectedPacket.cost_usd > 0 ? `$${selectedPacket.cost_usd.toFixed(5)}` : 'Free (regex)'}
+                    {selectedPacket.cost_usd > 0 ? `$${selectedPacket.cost_usd.toFixed(5)}` : 'Grátis (regex)'}
                   </p>
                 </div>
               </div>
@@ -307,22 +307,22 @@ export default function DashboardV3Radical() {
                   <p className="text-sm font-mono text-blue-400">{selectedPacket.duration_ms}ms</p>
                 </div>
                 <div>
-                  <p className="text-xs text-slate-500 mb-1">PII Found</p>
+                  <p className="text-xs text-slate-500 mb-1">PII Encontrado</p>
                   <div className="flex gap-1 flex-wrap">
                     {selectedPacket.pii_found.length > 0
                       ? selectedPacket.pii_found.map((p) => (
                           <span key={p} className="text-xs bg-blue-900/50 text-blue-300 px-2 py-0.5 rounded">{p}</span>
                         ))
-                      : <span className="text-xs text-slate-400">None</span>}
+                      : <span className="text-xs text-slate-400">Nenhum</span>}
                   </div>
                 </div>
               </div>
 
               <div className="bg-emerald-900/20 border border-emerald-800/50 rounded-lg p-3 mt-4">
-                <p className="text-[10px] text-emerald-400 uppercase tracking-wider mb-1">Transparency Note</p>
+                <p className="text-[10px] text-emerald-400 uppercase tracking-wider mb-1">Nota de Transparência</p>
                 <p className="text-xs text-slate-300">
-                  This exact record is stored in your audit trail. You can export it,
-                  query it, or delete it. We hide nothing.
+                  Este registro exato é armazenado na sua trilha de auditoria. Você pode exportá-lo,
+                  consultá-lo ou excluí-lo. Não escondemos nada.
                 </p>
               </div>
             </div>

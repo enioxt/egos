@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Guard Brasil — LGPD PII Masking + ATRiAN Ethics',
+  title: 'Guard Brasil — Mascaramento de PII LGPD + Ética ATRiAN',
   description: 'Proteja dados sensíveis brasileiros em tempo real. CPF, RG, MASP, placa — masking em 4ms.',
 };
 

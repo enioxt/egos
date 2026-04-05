@@ -1,6 +1,6 @@
 # AGENTS.md — EGOS Framework Core
 
-> **VERSION:** 1.5.0 | **UPDATED:** 2026-03-30
+> **VERSION:** 1.6.0 | **UPDATED:** 2026-04-05
 > **TYPE:** Framework Core + Orchestration Kernel + Agent Runtime
 
 ---
@@ -186,6 +186,10 @@ bun agent:run context_tracker --dry   # CTX score 0-280 with zone emoji + /end a
 | `mcp-router` | **IC** | Routes and executes MCP discovery |
 | `spec-router` | **IC** | Executes spec validation pipeline |
 | `framework-benchmarker` | **Player-Coach** | Self-improves by studying peer frameworks |
+| `gem-hunter` | **DRI** | Discovery engine: GitHub/arXiv/HF/PWC — 14 sources, 6-stage pipeline |
+| `wiki-compiler` | **DRI** | Compiles raw sources → structured wiki pages (Supabase). Karpathy LLM Wiki pattern |
+| `kol-discovery` | **IC** | Fetches X following list, classifies KOLs by domain |
+| `gem-hunter-api` | **IC** | REST API for gem-hunter findings (port 3097) |
 
 ### Four Pillars (Block → EGOS)
 

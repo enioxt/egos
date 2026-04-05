@@ -12,6 +12,7 @@
 import { Hono } from "hono";
 import { logger } from "hono/logger";
 import { whatsapp } from "./channels/whatsapp.js";
+import { knowledge } from "./channels/knowledge.js";
 
 const app = new Hono();
 const PORT = Number(process.env.GATEWAY_PORT ?? 3000);
@@ -27,11 +28,12 @@ app.get("/health", (c) => {
     service: "egos-gateway",
     version: "0.1.0",
     uptime: process.uptime(),
-    channels: ["whatsapp"],
+    channels: ["whatsapp", "knowledge"],
   });
 });
 
 app.route("/channels/whatsapp", whatsapp);
+app.route("/knowledge", knowledge);
 
 // ─── Start ────────────────────────────────────────────────────────────────────
 

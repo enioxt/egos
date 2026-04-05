@@ -329,6 +329,27 @@
       "last_duration_ms": null,
       "loop_mechanism": "server",
       "side_effects": ["http_server", "spawn_agent"]
+    },
+    {
+      "id": "wiki-compiler",
+      "name": "Wiki Compiler",
+      "kind": "tool",
+      "description": "Compiles raw sources (handoffs, job reports, gem-hunter, strategy docs) into structured wiki pages in Supabase. Karpathy LLM Wiki pattern: ingest → compile → lint. Also records learnings for data flywheel.",
+      "area": "knowledge",
+      "entrypoint": "agents/agents/wiki-compiler.ts",
+      "run_modes": ["dry_run", "execute"],
+      "triggers": ["manual", "cron"],
+      "tools_allowed": [],
+      "risk_level": "T0",
+      "status": "active",
+      "migrated_from": "egos-native",
+      "owner": "enioxt",
+      "runtime_proof": "bun agents/agents/wiki-compiler.ts --compile --dry",
+      "telemetry_source": "stdout",
+      "cost_source": "none",
+      "last_duration_ms": null,
+      "loop_mechanism": "cron",
+      "side_effects": ["supabase_sync"]
     }
   ]
 }

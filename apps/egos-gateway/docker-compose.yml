@@ -1,0 +1,17 @@
+services:
+  egos-gateway:
+    build: .
+    container_name: egos-gateway
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3050:3050"
+    env_file:
+      - .env
+    environment:
+      - GATEWAY_PORT=3050
+    networks:
+      - infra_bracc
+
+networks:
+  infra_bracc:
+    external: true

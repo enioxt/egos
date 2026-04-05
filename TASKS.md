@@ -1,37 +1,20 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.31.0 | **Updated:** 2026-04-04 | **LAST SESSION:** 2026-04-04 P20 — Stripe meter wired, vault SSOT, Supabase tables (decisions_log, credentials_vault, claude_sessions), focus whitelist expanded
+> **Version:** 2.33.0 | **Updated:** 2026-04-05 | **LAST SESSION:** 2026-04-05 P21 — Knowledge System live (50 wiki pages, 3 Supabase tables, wiki-compiler agent, gateway API, world-model integration)
 
 ---
 
 ### Completed Archive (compressed — see git log for details)
-EGOS-151..176, MONETIZE-001..015, START-001..005, all DONE. Guard Brasil v0.2.2 live, Stripe metered billing wired, npm @egosbr/guard-brasil@0.2.2, 15 PII patterns, credentials vault (27), alert triage, daily WhatsApp report cron.
+EGOS-151..176, MONETIZE-001..015, START-001..005, EGOS-162/164, KB-001..007, all DONE. Guard Brasil v0.2.2+ live, Stripe metered billing wired, npm @egosbr/guard-brasil@0.2.2, 15 PII patterns, credentials vault (27), alert triage, daily WhatsApp report cron, Knowledge System (50 pages).
 
 ---
 
 ### Guard Brasil Monetization Roadmap
 
-**Completed:** EGOS-151..161 (v0.2.0→v0.2.2, MCP, npm, VPS, PII sync, tokenizer) — all DONE ✅
+**Completed:** EGOS-151..161, MONETIZE-001..015, EGOS-162/164 — all DONE ✅ (see archive)
 
-**P1 — Competitive:**
-- [x] EGOS-162: Accuracy benchmark vs Presidio/anonym.legal — 85.3% F1, benchmark.ts in guard-brasil/src ✅ 2026-04-01
-- [x] MONETIZE-001: Self-service API key generation (POST /v1/keys) + Supabase-backed auth + quota enforcement + landing page form ✅ 2026-04-02
-- [x] MONETIZE-002: Deploy updated Guard Brasil API to VPS ✅ 2026-04-02 (packages/core synced, Supabase keys in .env, /v1/keys live on guard.egos.ia.br)
-- [x] MONETIZE-003: Vercel guard-brasil-web deployed ✅ 2026-04-02 (vercel deploy --prod, build OK 19s, "Obtenha sua chave de API" section live at guard-brasil-ilxbkmbak-enio-rochas-projects.vercel.app)
-- [x] MONETIZE-004: Eagle Eye API auth middleware ✅ 2026-04-02 (authenticateApiKey() on /api/territories + /api/opportunities + /api/scans/history; shared guard_brasil_tenants key system)
-- [x] MONETIZE-005: Stripe webhook for paid tier upgrades ✅ 2026-04-02. POST /v1/stripe/checkout creates Stripe Checkout Session; POST /v1/stripe/webhook handles checkout.session.completed → PATCH guard_brasil_tenants (tier, quota_limit, mrr_brl, stripe_customer_id). Webhook registered: we_1THj4pHdOnphplrg47z9I8nn. Live test: cs_live_b1MHUCgk confirmed.
-- [x] MONETIZE-006: Stripe meter events wired into /v1/inspect ✅ 2026-04-04. Fire-and-forget POST to /v1/billing/meter_events with guard_brasil_api_call event. Requires STRIPE_METER_ID + stripe_customer_id on tenant.
-- [x] MONETIZE-007: Credentials vault SSOT ✅ 2026-04-04. packages/shared/src/vault.ts + Supabase credentials_vault table (14 credentials indexed). verifyAll() for operational health.
-- [x] MONETIZE-008: Supabase decisions_log + claude_sessions tables ✅ 2026-04-04. Track deferred work + session productivity metrics.
-- [x] MONETIZE-009: Fix Stripe tiered pricing ✅ 2026-04-04. unit_amount_decimal (0.7/0.4/0.2 centavos). VPS .env updated.
-- [x] MONETIZE-010: Frontend updated ✅ 2026-04-04. Root→/landing redirect, pricing tiers corrected (Free 500, Startup R$0.007, Business R$0.004), Vercel deploy triggered.
-- [x] MONETIZE-011: Deploy v0.2.3 to VPS ✅ 2026-04-04. Free tier 150→500, version string fixed, Stripe meter env already present. SCP + docker rebuild.
-- [x] MONETIZE-012: npm token renewed ✅ 2026-04-04. New token npm_MllVHK...R1 (90d, expires 2026-07-03). Updated local + VPS.
-- [x] MONETIZE-013: Alert triage system on VPS ✅ 2026-04-04. /opt/egos/alert-triage.sh with rate limiting (5min/source), severity routing (critical→WA+TG, warn→TG, info→TG).
-- [x] MONETIZE-014: master-orchestrator loop bug found ✅ 2026-04-04. 68K events/day (1423x normal). Log rotated. Fix delegated to agent.
-- [x] MONETIZE-015: Telegram env vars added to VPS ✅ 2026-04-04. TELEGRAM_ADMIN_CHAT_ID added to egos-lab .env. Alerts were silently failing.
+**P1 — Remaining:**
 - [ ] EGOS-163: Pix billing integration
-- [x] EGOS-164: Dashboard — real data from guard_brasil_events ✅ 2026-04-01
 
 **P2 — Growth:**
 - [ ] EGOS-165: White-label outreach
@@ -39,27 +22,44 @@ EGOS-151..176, MONETIZE-001..015, START-001..005, all DONE. Guard Brasil v0.2.2 
 
 ---
 
-### Neural Mesh — Composed (2026-04-01)
+### Neural Mesh + Telemetry — DONE (2026-04-01)
+EGOS-167/168/175, GH-040..042, EGOS-TELEM-001..005 — all DONE ✅. codebase-memory-mcp (51K nodes), llmrefs (15 docs), SSOT gate, smoke tests, version lock, full telemetry (5 layers). See git log.
 
-**Verdict:** COMPOSE — see `docs/research/NEURAL_MESH_INVESTIGATION_REPORT.md`
+---
+
+### EGOS Knowledge System — Karpathy LLM Wiki (2026-04-05)
+
+**Pattern:** 3-layer (raw sources → compiled wiki → schema). Supabase-backed, API-served, agent-compiled.
+**Agent:** `agents/agents/wiki-compiler.ts` | **API:** `apps/egos-gateway/src/channels/knowledge.ts`
+**Supabase tables:** `egos_wiki_pages` (50 pages), `egos_learnings`, `egos_wiki_changelog`
 
 **Done:**
-- [x] EGOS-167: codebase-memory-mcp installed, 7 repos indexed (51K nodes, 75K edges), 3D graph UI, 4 skills
-- [x] PreToolUse hook fixed (allows .md/.json, only blocks first code read)
-- [x] CLAUDE.md v2.1 — codebase-memory-mcp rules + scheduled jobs reference
+- [x] KB-001: Supabase schema (3 tables + RLS + indexes) ✅ 2026-04-05
+- [x] KB-002: wiki-compiler agent (--compile, --world, --lint, --index, --dry) ✅ 2026-04-05
+- [x] KB-003: Gateway API endpoints (7 routes: pages, search, index, learnings, stats) ✅ 2026-04-05
+- [x] KB-004: World-model integration (--world generates system overview, P0 blockers, signals) ✅ 2026-04-05
+- [x] KB-005: Initial compile — 50 pages from 5 raw source dirs, avg quality 80/100 ✅ 2026-04-05
+- [x] KB-006: Agent registered in agents.json + AGENTS.md ✅ 2026-04-05
+- [x] KB-007: NPM scripts (wiki:compile, wiki:lint, wiki:index) ✅ 2026-04-05
 
-**Remaining:**
-- [x] GH-040: SSOT consistency gate (validate-ssot.ts) ✅ 2026-04-01. Validates drift between agents.json, TASKS.md, HARVEST.md, CAPABILITY_REGISTRY. Integrated into CI (.github/workflows/ci.yml) and available as `npm run ssot:check`. Aligns with Codex QA report (PR #16) P0 recommendations.
-- [x] EGOS-168: llmrefs blocks added to 10 governance docs ✅ 2026-04-01. AI navigation blocks added to: CAPABILITY_REGISTRY, ECOSYSTEM_CLASSIFICATION_REGISTRY, ENVIRONMENT_REGISTRY, AI_COVERAGE_MAP, ACTIVATION_FLOW, ACTIVATION_GUIDE, BLUEPRINT_TASKS_MATRIX, DOCTOR_COMMAND_SPEC, SSOT_REGISTRY, MIGRATION_PLAN. Each includes role, summary, read-next pointers.
-- [x] GH-041: API smoke tests (5 contracts) ✅ 2026-04-01. Validates POST /v1/inspect schema, PII detection, Atrian response, rate limiting. Integrated into CI after ssot:check. Available as `npm run smoke:api`.
-- [x] GH-042: Version lock checker ✅ 2026-04-01. Validates version sync across package.json (root), apps/guard-brasil-web, apps/api/src/server.ts, packages/guard-brasil. Detects drift and recommends highest semver. Integrated into CI. Available as `npm run version:lock`.
+**P1 — Integration:**
+- [ ] KB-008: Add wiki:compile to Governance Drift CCR job (auto-compile after drift check)
+- [ ] KB-009: /start Phase 0 — include KB stats (page count, avg quality, stale pages)
+- [ ] KB-010: Record learnings from each Claude Code session (POST /knowledge/learnings on /end)
+- [ ] KB-011: Guard Brasil dashboard — add Knowledge tab consuming /knowledge/search?q=guard
 
-**Telemetry & Observability (P1 — Critical Gap):**
-- [x] EGOS-TELEM-001: Guard Brasil API telemetry (recordApiCall) — ✅ 2026-04-01. Integrated: telemetry.ts + recordApiCall() exported, API server calls recordApiCall() post-inspect, guard_brasil_events table schema ready (20 columns). Fire-and-forget pattern (non-fatal if Supabase down). Dashboard ready to display events. Pending: API deployment + test calls to populate table.
-- [x] EGOS-TELEM-002: Tool call attribution + cost tracking ✅ 2026-04-02. recordToolCall() + recordAgentSession() in packages/shared/src/telemetry.ts (from Codex PR #23). Tool calls tracked with duration, tokens, cost. Cost/tool ranking via telemetry_dashboard.py.
-- [x] EGOS-TELEM-003: Gargalo detection (latency heatmap) ✅ 2026-04-02. getLatencyHeatmap() in telemetry.ts returns latency buckets (p50/p95/p99). QA script: scripts/qa/telemetry_dashboard.py shows slow operations. Alert threshold configurable via telemetry_guardrail.py.
-- [x] EGOS-TELEM-004: Real-time cost dashboard ✅ 2026-04-02. GET /api/admin/cost-dashboard endpoint (admin-only): 24h cost breakdown by agent+tool, hourly breakdown.
-- [x] EGOS-TELEM-005: Historical cost analysis + forecasting ✅ 2026-04-02. scripts/telemetry_forecast.py: 30-day projection, linear trend fit, budget alerts, CSV export.
+**P1 — Quality:**
+- [ ] KB-012: Cross-reference enrichment — second-pass compile that links related pages
+- [ ] KB-013: Deduplication — detect similar pages and merge
+- [ ] KB-014: LLM summarization pass — enrich low-quality pages (<60 score) with AI synthesis
+
+**P2 — Advanced:**
+- [ ] KB-015: Full-text search with pg_trgm or pgvector embeddings
+- [ ] KB-016: Knowledge graph visualization (pages as nodes, cross-refs as edges)
+- [ ] KB-017: Auto-learning from git commits (extract patterns from commit messages + diffs)
+- [ ] KB-018: MCP server `knowledge-mcp` — tools: search_wiki, get_page, record_learning
+
+---
 
 - [ ] EGOS-169: @aiready/pattern-detect pre-commit (duplicate detection)
 - [ ] EGOS-173: CRCDM hooks: llmrefs staleness + auto-heal rename
@@ -67,27 +67,14 @@ EGOS-151..176, MONETIZE-001..015, START-001..005, all DONE. Guard Brasil v0.2.2 
 
 ---
 
-### Session Initialization v6.0 — Optimized Health Checks (2026-04-02)
-
-**Status:** ✅ LIVE — 50% faster, API validation, 3-min executive summary
-
-**Completed:**
-- [x] START-001: /start v6.0 core engine (TypeScript + Bun) — parallel diagnostics, 45s → 22s ✅ 2026-04-02 (`scripts/start-v6.ts`)
-- [x] START-002: npm run start aliases (default/--full/--json) ✅ 2026-04-02 (`package.json`)
-- [x] START-003: Design doc + bash fallback — `docs/SESSION_INITIALIZATION_v6.md`, `scripts/start-v6.sh` ✅ 2026-04-02
-- [x] START-004: GitHub Actions integration — session health check in CI pipeline ✅ 2026-04-02 (`.github/workflows/ci.yml`)
-- [x] START-005: Pre-commit hook integration — validation gates block commits on failures ✅ 2026-04-02 (`.husky/pre-commit`)
+### Session Initialization v6.0 ✅ LIVE (2026-04-02)
+START-001..005 DONE (parallel diagnostics 22s, CI, pre-commit). Design: `docs/SESSION_INITIALIZATION_v6.md`
 
 **Pending (P1):**
-- [ ] START-006: Monitor performance over 1 week — baseline, peak, outliers tracking (due 2026-04-09)
-- [ ] START-007: v6.1 roadmap — distributed agent health checks (SSH parallel, multi-repo)
-- [ ] START-008: Dashboard integration — real-time health display in Grafana/Claude Code UI
-- [ ] START-009: Alert system — Slack/Telegram on critical blockers (health < 40%)
-
-**Documentation:**
-- Memory: `/home/enio/.claude/projects/-home-enio-egos/memory/start_v6_improvements.md`
-- Design: `docs/SESSION_INITIALIZATION_v6.md`
-- Commits: `eb42e40` (core), `55a734c` (aliases), `1eff043` (docs)
+- [ ] START-006: Monitor performance 1 week (due 2026-04-09)
+- [ ] START-007: v6.1 distributed agent health (SSH parallel)
+- [ ] START-008: Dashboard integration (Grafana/Claude Code UI)
+- [ ] START-009: Alert system (Telegram on health < 40%)
 
 ---
 
@@ -468,7 +455,7 @@ Modern monetization: usage-based API + MCP tool + chatbot. Stripe-unified (card 
 - [ ] MONETIZE-011: Deploy v0.2.3 to VPS with STRIPE_METER_ID env var
 
 **P0 — Master API (Enables everything):**
-- [ ] MASTER-002: Build EGOS Gateway API (Hono server, port 3000, WhatsApp webhook handler)
+- [x] MASTER-002: Build EGOS Gateway API (Hono server, port 3000, WhatsApp + Knowledge channels) ✅ 2026-04-05
 - [ ] MASTER-003: Evolution API webhook → gateway routing (WhatsApp commands → system actions)
 - [ ] MASTER-004: Deploy gateway to VPS Docker
 - [ ] MASTER-005: NLP intent classifier (Haiku, ~$1/day) for natural language commands
@@ -491,4 +478,11 @@ Modern monetization: usage-based API + MCP tool + chatbot. Stripe-unified (card 
 **P1 — Infrastructure:**
 - [ ] CTX-002: Auto-index codebase-memory-mcp on /start
 - [ ] REWARDS-001: Unified rewards engine
-- [ ] MOAT-001: Data flywheels
+- [ ] MOAT-001: Data flywheels — partially addressed by KB (egos_learnings table)
+
+### Evaluated & Deferred (2026-04-05)
+
+**HiClaw (agentscope-ai/HiClaw):** Analyzed. Matrix rooms + MinIO + Higress = overhead for zero users. Already have WhatsApp gateway + Caddy + Supabase. **SKIP.**
+**PAL (agno-agi/pal):** Analyzed. Compiler + Linter pattern adopted via wiki-compiler agent. Syncer not needed (Supabase > Git sync). **ADOPTED partially.**
+**Karpathy LLM Wiki gist:** Adopted. 3-layer pattern (raw → wiki → schema) is now KB-001..007. **ADOPTED fully.**
+**Fine-tuning próprio (Gemma 2B/Qwen 7B):** VPS has 540MB free RAM, 0 GPU. Fine-tune on Colab is possible but not 90-day focus. WM-001..004 covers dataset prep. **DEFERRED to P2.**

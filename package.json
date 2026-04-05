@@ -53,8 +53,12 @@
     "doctor": "bun scripts/doctor.ts",
     "doctor:codex": "sh scripts/codex-doctor.sh",
     "doctor:fix": "bun scripts/doctor.ts --fix",
+    "wiki:compile": "bun agents/agents/wiki-compiler.ts --compile",
+    "wiki:compile:dry": "bun agents/agents/wiki-compiler.ts --compile --dry",
+    "wiki:lint": "bun agents/agents/wiki-compiler.ts --lint",
+    "wiki:index": "bun agents/agents/wiki-compiler.ts --index",
     "obsidian:sync": "bun scripts/obsidian-export.ts",
-    "obsidian:lint": "echo '🔍 Wiki health check (TODO: implement validation)'",
+    "obsidian:lint": "bun agents/agents/wiki-compiler.ts --lint",
     "obsidian:init": "echo '📁 Creating Obsidian Vault structure...' && mkdir -p '/home/enio/Obsidian Vault/EGOS/'{'00 - Inbox','01 - Raw Sources','02 - Wiki','03 - Sessions','04 - Outputs','05 - Templates','99 - Archive'}"
   },
   "devDependencies": {

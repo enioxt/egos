@@ -87,11 +87,11 @@ export default function DashboardV2Lean() {
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="text-2xl font-bold">Guard Brasil</h1>
-          <p className="text-sm text-slate-400">Your API activity in real-time</p>
+          <p className="text-sm text-slate-400">Atividade da sua API em tempo real</p>
         </div>
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-          <span className="text-xs text-emerald-400">Live</span>
+          <span className="text-xs text-emerald-400">Ao vivo</span>
         </div>
       </div>
 
@@ -99,11 +99,11 @@ export default function DashboardV2Lean() {
       <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 mb-6">
         <div className="flex items-center justify-between mb-2">
           <div>
-            <span className="text-xs text-slate-400">Plan: </span>
+            <span className="text-xs text-slate-400">Plano:</span>
             <span className="text-xs font-bold text-blue-400 uppercase">{quota.tier}</span>
           </div>
           <span className="text-xs text-slate-400">
-            Resets {new Date(quota.reset_date).toLocaleDateString()}
+            Renova em {new Date(quota.reset_date).toLocaleDateString()}
           </span>
         </div>
         <div className="bg-slate-800 rounded-full h-3 mb-2">
@@ -115,30 +115,30 @@ export default function DashboardV2Lean() {
           />
         </div>
         <div className="flex justify-between text-xs text-slate-400">
-          <span>{quota.used.toLocaleString()} / {quota.limit.toLocaleString()} calls</span>
-          <span>Total cost: ${quota.cost_total.toFixed(4)}</span>
+          <span>{quota.used.toLocaleString()} / {quota.limit.toLocaleString()} chamadas</span>
+          <span>Custo total: R${quota.cost_total.toFixed(4)}</span>
         </div>
       </div>
 
       {/* 3 Stats */}
       <div className="grid grid-cols-3 gap-4 mb-6">
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 text-center">
-          <p className="text-xs text-slate-400">Session Cost</p>
+          <p className="text-xs text-slate-400">Custo da Sessão</p>
           <p className="text-xl font-bold font-mono text-amber-400">${totalCost.toFixed(5)}</p>
         </div>
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 text-center">
-          <p className="text-xs text-slate-400">Avg Latency</p>
+          <p className="text-xs text-slate-400">Latência Média</p>
           <p className="text-xl font-bold font-mono text-blue-400">{avgLatency}ms</p>
         </div>
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 text-center">
-          <p className="text-xs text-slate-400">Success Rate</p>
+          <p className="text-xs text-slate-400">Taxa de Sucesso</p>
           <p className="text-xl font-bold font-mono text-emerald-400">{successRate}%</p>
         </div>
       </div>
 
-      {/* Activity Feed */}
+      {/* Feed de Atividade */}
       <div>
-        <h2 className="text-sm font-bold text-slate-400 mb-3">Activity Feed</h2>
+        <h2 className="text-sm font-bold text-slate-400 mb-3">Feed de Atividade</h2>
         <div className="space-y-1.5">
           {events.map((evt) => (
             <div
@@ -157,7 +157,7 @@ export default function DashboardV2Lean() {
               </div>
               <span className="text-xs text-slate-500 w-14 text-right flex-shrink-0">{evt.duration_ms}ms</span>
               <span className="text-xs font-mono w-16 text-right flex-shrink-0 text-amber-400">
-                {evt.cost_usd > 0 ? `$${evt.cost_usd.toFixed(5)}` : 'free'}
+                {evt.cost_usd > 0 ? `$${evt.cost_usd.toFixed(5)}` : 'grátis'}
               </span>
             </div>
           ))}
