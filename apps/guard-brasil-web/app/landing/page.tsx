@@ -346,9 +346,26 @@ export default function LandingPage() {
                     </li>
                   ))}
                 </ul>
-                <a href={plan.ctaHref} className={`block text-center py-2 rounded-xl text-sm font-medium transition ${plan.popular ? 'bg-emerald-600 hover:bg-emerald-500 text-white' : 'border border-slate-700 text-slate-300 hover:bg-slate-800'}`}>
+                <button
+                  onClick={async () => {
+                    if (plan.ctaHref.startsWith('#') || plan.ctaHref.startsWith('mailto:')) {
+                      window.location.href = plan.ctaHref;
+                      return;
+                    }
+                    // Stripe checkout via API
+                    const email = prompt('Seu email para checkout:');
+                    if (!email) return;
+                    try {
+                      const res = await fetch('/api/test', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ checkout: true, tier: plan.tier.toLowerCase(), email }) });
+                      const data = await res.json();
+                      if (data.url) window.open(data.url, '_blank');
+                      else alert(data.error || 'Erro no checkout');
+                    } catch { alert('Erro ao iniciar checkout'); }
+                  }}
+                  className={`block w-full text-center py-2 rounded-xl text-sm font-medium transition cursor-pointer ${plan.popular ? 'bg-emerald-600 hover:bg-emerald-500 text-white' : 'border border-slate-700 text-slate-300 hover:bg-slate-800'}`}
+                >
                   {plan.cta}
-                </a>
+                </button>
               </div>
             ))}
           </div>
