@@ -12,13 +12,18 @@
  *   GET  /gem-hunter/trending      — trending from SQLite history (multi-run)
  *   GET  /gem-hunter/health        — API health + last run info
  *
+ * Auth (GH-068): Bearer token validation via Supabase gem_hunter_api_keys
+ * Rate limiting (GH-069): Tier-aware daily limits via gem_hunter_usage
+ *
  * Product: Gem Hunter API (revenue stream)
- *   Free tier  : 5 req/day, top 5 results
+ *   Free tier  : 5 req/day, top 5 results (no key required — IP-based)
  *   Starter    : R$99/mo, 50 req/day, top 20 results
  *   Pro        : R$499/mo, unlimited, all sectors, AI synthesis
  */
 
 import { Hono } from "hono";
+import type { MiddlewareHandler } from "hono";
+import { createHash } from "crypto";
 import { join } from "path";
 import { existsSync, readdirSync, readFileSync, statSync } from "fs";
 import Database from "bun:sqlite";
@@ -28,7 +33,132 @@ const REPORTS_DIR = join(ROOT, "docs/gem-hunter");
 const LATEST_RUN_PATH = join(REPORTS_DIR, "latest-run.json");
 const HISTORY_DB_PATH = join(REPORTS_DIR, "history.db");
 
-export const gemHunter = new Hono();
+const SUPABASE_URL = process.env.SUPABASE_URL ?? "";
+const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? "";
+
+// ── Auth & Rate Limiting (GH-068/069) ─────────────────────────────────────────
+
+type Tier = "free" | "starter" | "pro" | "pay-per-use";
+
+interface ApiKeyRecord {
+  id: string;
+  tier: Tier;
+  requests_per_day: number;
+  results_limit: number;
+  active: boolean;
+}
+
+const TIER_DEFAULTS: Record<Tier, { requests_per_day: number; results_limit: number }> = {
+  free:          { requests_per_day: 5,  results_limit: 5 },
+  starter:       { requests_per_day: 50, results_limit: 20 },
+  pro:           { requests_per_day: 999999, results_limit: 100 },
+  "pay-per-use": { requests_per_day: 100, results_limit: 20 },
+};
+
+const SB_HEADERS = {
+  apikey: SUPABASE_KEY,
+  Authorization: `Bearer ${SUPABASE_KEY}`,
+  "Content-Type": "application/json",
+};
+
+async function lookupApiKey(raw: string): Promise<ApiKeyRecord | null> {
+  if (!SUPABASE_URL || !SUPABASE_KEY) return null;
+  const hash = createHash("sha256").update(raw).digest("hex");
+  try {
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/gem_hunter_api_keys?key_hash=eq.${hash}&active=eq.true&select=id,tier,requests_per_day,results_limit,active`,
+      { headers: SB_HEADERS, signal: AbortSignal.timeout(4000) }
+    );
+    if (!res.ok) return null;
+    const rows = (await res.json()) as ApiKeyRecord[];
+    return rows[0] ?? null;
+  } catch {
+    return null;
+  }
+}
+
+async function checkAndIncrementUsage(keyId: string | null, ip: string, limit: number): Promise<{ allowed: boolean; count: number }> {
+  if (!SUPABASE_URL || !SUPABASE_KEY) return { allowed: true, count: 0 }; // no-op if no Supabase
+
+  const today = new Date().toISOString().slice(0, 10);
+  const filter = keyId
+    ? `key_id=eq.${keyId}&usage_date=eq.${today}`
+    : `ip=eq.${encodeURIComponent(ip)}&usage_date=eq.${today}&key_id=is.null`;
+
+  try {
+    // Get current count
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/gem_hunter_usage?${filter}&select=id,count`,
+      { headers: SB_HEADERS, signal: AbortSignal.timeout(4000) }
+    );
+    const rows = res.ok ? ((await res.json()) as { id: number; count: number }[]) : [];
+    const current = rows[0]?.count ?? 0;
+
+    if (current >= limit) return { allowed: false, count: current };
+
+    // Upsert: increment or create
+    const upsertBody = keyId
+      ? { key_id: keyId, usage_date: today, count: current + 1, updated_at: new Date().toISOString() }
+      : { ip, usage_date: today, count: current + 1, updated_at: new Date().toISOString() };
+
+    const upsertRes = await fetch(`${SUPABASE_URL}/rest/v1/gem_hunter_usage`, {
+      method: rows[0] ? "PATCH" : "POST",
+      headers: { ...SB_HEADERS, Prefer: rows[0] ? "return=minimal" : "return=minimal" },
+      body: JSON.stringify(rows[0]
+        ? { count: current + 1, updated_at: new Date().toISOString() }
+        : upsertBody),
+      signal: AbortSignal.timeout(4000),
+    });
+
+    // For PATCH, we need to filter
+    if (rows[0]) {
+      await fetch(`${SUPABASE_URL}/rest/v1/gem_hunter_usage?id=eq.${rows[0].id}`, {
+        method: "PATCH",
+        headers: { ...SB_HEADERS, Prefer: "return=minimal" },
+        body: JSON.stringify({ count: current + 1, updated_at: new Date().toISOString() }),
+        signal: AbortSignal.timeout(4000),
+      });
+    }
+
+    void upsertRes; // already handled above
+    return { allowed: true, count: current + 1 };
+  } catch {
+    return { allowed: true, count: 0 }; // fail open to avoid blocking legit traffic
+  }
+}
+
+// Hono middleware: resolves tier from Bearer token (or defaults to free IP-based)
+interface TierContext {
+  tier: Tier;
+  resultsLimit: number;
+  requestsPerDay: number;
+  keyId: string | null;
+  ip: string;
+}
+
+async function resolveTier(authHeader: string | undefined, ip: string): Promise<TierContext> {
+  const defaults = TIER_DEFAULTS.free;
+  if (!authHeader?.startsWith("Bearer ")) {
+    return { tier: "free", resultsLimit: defaults.results_limit, requestsPerDay: defaults.requests_per_day, keyId: null, ip };
+  }
+
+  const raw = authHeader.slice(7).trim();
+  const record = await lookupApiKey(raw);
+  if (!record) {
+    return { tier: "free", resultsLimit: defaults.results_limit, requestsPerDay: defaults.requests_per_day, keyId: null, ip };
+  }
+
+  return {
+    tier: record.tier,
+    resultsLimit: record.results_limit,
+    requestsPerDay: record.requests_per_day,
+    keyId: record.id,
+    ip,
+  };
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const gemHunter = new Hono<{ Variables: { tierCtx: TierContext } }>();
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 
@@ -129,6 +259,39 @@ const TOPICS = [
   { sector: "ai", name: "Community Signals / Reddit Discussions", description: "Reddit discussions on AI/dev" },
 ];
 
+// ── Auth + Rate Limit Middleware ───────────────────────────────────────────────
+
+const authMiddleware: MiddlewareHandler<{ Variables: { tierCtx: TierContext } }> = async (c, next) => {
+  const ip = c.req.header("x-forwarded-for")?.split(",")[0]?.trim() ?? c.req.header("x-real-ip") ?? "unknown";
+  const auth = c.req.header("authorization");
+  const ctx = await resolveTier(auth, ip);
+
+  const { allowed, count } = await checkAndIncrementUsage(ctx.keyId, ctx.ip, ctx.requestsPerDay);
+
+  if (!allowed) {
+    return c.json({
+      error: "rate_limit_exceeded",
+      message: `Daily limit of ${ctx.requestsPerDay} requests reached for ${ctx.tier} tier. Resets at midnight UTC.`,
+      tier: ctx.tier,
+      limit: ctx.requestsPerDay,
+      used: count,
+      upgrade: "https://gateway.egos.ia.br/gem-hunter/product",
+    }, 429);
+  }
+
+  c.set("tierCtx", ctx);
+  c.header("X-RateLimit-Tier", ctx.tier);
+  c.header("X-RateLimit-Limit", String(ctx.requestsPerDay));
+  c.header("X-RateLimit-Used", String(count));
+
+  await next();
+};
+
+gemHunter.use("/latest", authMiddleware);
+gemHunter.use("/sector/*", authMiddleware);
+gemHunter.use("/trending", authMiddleware);
+gemHunter.use("/reports", authMiddleware);
+
 // ── Routes ────────────────────────────────────────────────────────────────────
 
 // Health
@@ -171,7 +334,11 @@ gemHunter.get("/latest", (c) => {
   const run = readLatestRun();
   if (!run) return c.json({ error: "No latest run found. Run: bun agent:run gem-hunter --exec" }, 404);
 
-  const limit = Math.min(Number(c.req.query("limit") || 20), 100);
+  const tierCtx = c.get("tierCtx") as TierContext | undefined;
+  const tierLimit = tierCtx?.resultsLimit ?? TIER_DEFAULTS.free.results_limit;
+
+  const requested = Math.min(Number(c.req.query("limit") || tierLimit), 100);
+  const limit = Math.min(requested, tierLimit); // cap at tier's max
   const sector = c.req.query("sector");
 
   let gems = run.gems || [];
@@ -183,6 +350,8 @@ gemHunter.get("/latest", (c) => {
   return c.json({
     date: run.date,
     total: gems.length,
+    tier: tierCtx?.tier ?? "free",
+    results_limit: tierLimit,
     sector: sector || "all",
     gems,
   });
@@ -194,6 +363,9 @@ gemHunter.get("/sector/:name", (c) => {
   const run = readLatestRun();
   if (!run) return c.json({ error: "No data available" }, 404);
 
+  const tierCtx = c.get("tierCtx") as TierContext | undefined;
+  const tierLimit = tierCtx?.resultsLimit ?? TIER_DEFAULTS.free.results_limit;
+
   const normalizedSector = SECTOR_ALIASES[sector] || sector;
   if (!SECTOR_MAP[normalizedSector]) {
     return c.json({ error: `Unknown sector: ${sector}`, available: Object.keys(SECTOR_MAP) }, 400);
@@ -201,11 +373,13 @@ gemHunter.get("/sector/:name", (c) => {
 
   const gems = filterBySector(run.gems || [], normalizedSector)
     .sort((a, b) => (b.score || 0) - (a.score || 0))
-    .slice(0, 20);
+    .slice(0, tierLimit);
 
   return c.json({
     sector: normalizedSector,
     date: run.date,
+    tier: tierCtx?.tier ?? "free",
+    results_limit: tierLimit,
     count: gems.length,
     gems,
   });
@@ -300,4 +474,62 @@ gemHunter.get("/product", (c) => {
       example: "\"Find me the best agent orchestration tools released this month\"",
     },
   });
+});
+
+// Admin: provision an API key (protected by GATEWAY_ADMIN_SECRET header)
+gemHunter.post("/admin/keys", async (c) => {
+  const adminSecret = process.env.GATEWAY_ADMIN_SECRET;
+  if (!adminSecret || c.req.header("x-admin-secret") !== adminSecret) {
+    return c.json({ error: "unauthorized" }, 401);
+  }
+  if (!SUPABASE_URL || !SUPABASE_KEY) {
+    return c.json({ error: "supabase_not_configured" }, 503);
+  }
+
+  const body = await c.req.json() as { name?: string; email?: string; tier?: Tier };
+  const { name, email, tier = "starter" } = body;
+  if (!name) return c.json({ error: "name required" }, 400);
+  if (!["free", "starter", "pro", "pay-per-use"].includes(tier)) {
+    return c.json({ error: "invalid tier" }, 400);
+  }
+
+  // Generate a secure random key: gh_live_<32 random hex chars>
+  const rawBytes = new Uint8Array(16);
+  crypto.getRandomValues(rawBytes);
+  const rawKey = `gh_live_${Array.from(rawBytes).map(b => b.toString(16).padStart(2, "0")).join("")}`;
+  const keyHash = createHash("sha256").update(rawKey).digest("hex");
+  const keyPrefix = rawKey.slice(0, 12);
+
+  const defaults = TIER_DEFAULTS[tier];
+  const row = {
+    key_hash: keyHash,
+    key_prefix: keyPrefix,
+    name,
+    email: email ?? null,
+    tier,
+    requests_per_day: defaults.requests_per_day,
+    results_limit: defaults.results_limit,
+  };
+
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/gem_hunter_api_keys`, {
+    method: "POST",
+    headers: { ...SB_HEADERS, Prefer: "return=representation" },
+    body: JSON.stringify(row),
+    signal: AbortSignal.timeout(5000),
+  });
+
+  if (!res.ok) {
+    return c.json({ error: "failed to create key", detail: await res.text() }, 500);
+  }
+
+  const [created] = await res.json() as [{ id: string }];
+  return c.json({
+    id: created.id,
+    key: rawKey,           // only time this is shown — store it securely
+    key_prefix: keyPrefix,
+    tier,
+    requests_per_day: defaults.requests_per_day,
+    results_limit: defaults.results_limit,
+    note: "Store this key securely — it will not be shown again.",
+  }, 201);
 });
