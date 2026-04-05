@@ -20,6 +20,8 @@ const TELEGRAM_BASE = `https://api.telegram.org/bot${BOT_TOKEN}`;
 const SUPABASE_URL = process.env.SUPABASE_URL ?? "";
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? "";
 
+const GW_PORT = process.env.GATEWAY_PORT ?? "3000";
+const GW_INTERNAL = `http://localhost:${GW_PORT}`;
 const CHECK_INTERVAL_MS = 5 * 60 * 1000; // 5 minutes
 const HEALTH_THRESHOLD = 40; // alert when below this
 
@@ -63,8 +65,8 @@ async function checkSupabase(): Promise<ComponentHealth> {
 async function checkAllComponents(): Promise<ComponentHealth[]> {
   const [guard, gateway, gemHunter, supabase] = await Promise.all([
     pingUrl("https://guard.egos.ia.br/health").then(r => ({ name: "Guard Brasil", ...r })),
-    pingUrl("https://gateway.egos.ia.br/health").then(r => ({ name: "EGOS Gateway", ...r })),
-    pingUrl("https://gateway.egos.ia.br/gem-hunter/health").then(r => ({ name: "Gem Hunter", ...r })),
+    pingUrl(`${GW_INTERNAL}/health`).then(r => ({ name: "EGOS Gateway", ...r })),
+    pingUrl(`${GW_INTERNAL}/gem-hunter/health`).then(r => ({ name: "Gem Hunter", ...r })),
     checkSupabase(),
   ]);
   return [guard, gateway, gemHunter, supabase];
