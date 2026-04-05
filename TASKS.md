@@ -120,7 +120,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] GH-067: gem-hunter-server deployed to VPS port 3095, systemd, Caddy ready ✅ 2026-04-05 — [BLOCKER] DNS A record gemhunter.egos.ia.br → 204.168.217.125 needed
 - [ ] GH-068: API keys Supabase auth | GH-069: Rate limiting
 - [x] GH-070: WhatsApp v2 — AI orchestrator (Qwen+tools: gem_search/wiki_search/status/costs/agents) + all media types ✅ 2026-04-05
-- [x] GH-071: Telegram @egosaiagents_bot — long-polling + same orchestrator ✅ 2026-04-05 — [BLOCKER] set TELEGRAM_AUTHORIZED_USER_ID in .env
+- [x] GH-071: Telegram @EGOSin_bot (egosin_bot) — long-polling + AI orchestrator ✅ 2026-04-05 — send /start to @EGOSin_bot to get your chat_id, then set TELEGRAM_AUTHORIZED_USER_ID
 - [ ] GH-073: Weekly email digest
 
 **New tasks from Continue study:**
