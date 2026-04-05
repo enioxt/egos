@@ -255,7 +255,7 @@ software.forEach(o => {
 
         {/* Pricing */}
         <section className="mb-12">
-          <h2 className="text-xl font-bold text-white mb-4">Pricing por uso</h2>
+          <h2 className="text-xl font-bold text-white mb-4">Preços por uso</h2>
           <p className="text-sm text-gray-400 mb-6">Sem assinatura obrigatória. O contrato público da API agora expõe faixas por volume em <code className="text-amber-300">GET /v1/meta</code>, incluindo capabilities de receipt, evidence chain e proveniência.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
             {[
