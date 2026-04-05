@@ -153,17 +153,17 @@ export default function DashboardV1Giant() {
   }, []);
 
   const tabs = [
-    { id: 'overview',      label: 'Overview',        icon: '📊' },
-    { id: 'scanner',       label: 'Live Scanner',     icon: '🔬' },
-    { id: 'activity',      label: 'Activity Feed',    icon: '⚡' },
-    { id: 'customers',     label: 'Customers',        icon: '👥' },
-    { id: 'costs',         label: 'Cost Analysis',    icon: '💰' },
-    { id: 'atrian',        label: 'ATRiAN Ethics',    icon: '🧠' },
-    { id: 'social',        label: 'Social Media',     icon: '📱' },
-    { id: 'alerts',        label: 'Alerts',           icon: '🔔' },
-    { id: 'reports',       label: 'IA Reports',       icon: '📄' },
-    { id: 'integrations',  label: 'Integrations',     icon: '🔌' },
-    { id: 'settings',      label: 'Settings',         icon: '⚙️' },
+    { id: 'overview',      label: 'Visão Geral',        icon: '📊' },
+    { id: 'scanner',       label: 'Scanner ao Vivo',     icon: '🔬' },
+    { id: 'activity',      label: 'Feed de Atividade',    icon: '⚡' },
+    { id: 'customers',     label: 'Clientes',        icon: '👥' },
+    { id: 'costs',         label: 'Análise de Custos',    icon: '💰' },
+    { id: 'atrian',        label: 'Ética ATRiAN',    icon: '🧠' },
+    { id: 'social',        label: 'Mídia Social',     icon: '📱' },
+    { id: 'alerts',        label: 'Alertas',           icon: '🔔' },
+    { id: 'reports',       label: 'Relatórios IA',       icon: '📄' },
+    { id: 'integrations',  label: 'Integrações',     icon: '🔌' },
+    { id: 'settings',      label: 'Configurações',         icon: '⚙️' },
   ];
 
   // Tabs with real/live data (no PLACEHOLDER badge in sidebar)
@@ -175,7 +175,7 @@ export default function DashboardV1Giant() {
       <aside className="w-64 bg-slate-900 border-r border-slate-800 flex flex-col">
         <div className="p-6 border-b border-slate-800">
           <h1 className="text-xl font-bold">Guard Brasil</h1>
-          <p className="text-xs text-slate-400 mt-1">Dashboard — Full Vision</p>
+          <p className="text-xs text-slate-400 mt-1">Dashboard — Visão Completa</p>
         </div>
         <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
           {tabs.map((tab) => (
@@ -203,7 +203,7 @@ export default function DashboardV1Giant() {
               {realStats ? `R$ ${realStats.total_mrr_brl.toFixed(0)}` : 'R$ —'}
             </p>
             <p className="text-xs text-slate-500 mt-1">
-              {realStats ? `${realStats.active_customers} customer${realStats.active_customers !== 1 ? 's' : ''} active` : '—'}
+              {realStats ? `${realStats.active_customers} cliente${realStats.active_customers !== 1 ? 's' : ''} ativo${realStats.active_customers !== 1 ? 's' : ''}` : '—'}
             </p>
           </div>
         </div>
@@ -218,10 +218,10 @@ export default function DashboardV1Giant() {
         {activeTab === 'costs'        && <CostsTab events={PLACEHOLDER_EVENTS} />}
         {activeTab === 'atrian'       && <AtrianTab />}
         {activeTab === 'social'       && <SocialTab />}
-        {activeTab === 'alerts'       && <PlaceholderTab name="Alerts" description="Webhook alerts, Slack notifications, email digests, anomaly detection" />}
-        {activeTab === 'reports'      && <PlaceholderTab name="IA Reports" description="Daily Qwen summaries, weekly trends, monthly executive report, custom queries" />}
-        {activeTab === 'integrations' && <PlaceholderTab name="Integrations" description="Slack, Discord, Telegram, Webhook, GitHub Actions, Zapier, n8n" />}
-        {activeTab === 'settings'     && <PlaceholderTab name="Settings" description="API keys, team members, billing, policy packs, custom recognizers, webhooks" />}
+        {activeTab === 'alerts'       && <PlaceholderTab name="Alertas" description="Alertas via webhook, notificações Slack, digests por email, detecção de anomalias" />}
+        {activeTab === 'reports'      && <PlaceholderTab name="Relatórios IA" description="Resumos diários Qwen, tendências semanais, relatório executivo mensal, consultas customizadas" />}
+        {activeTab === 'integrations' && <PlaceholderTab name="Integrações" description="Slack, Discord, Telegram, Webhook, GitHub Actions, Zapier, n8n" />}
+        {activeTab === 'settings'     && <PlaceholderTab name="Configurações" description="Chaves API, membros da equipe, faturamento, policy packs, reconhecedores customizados, webhooks" />}
       </main>
     </div>
   );
@@ -231,18 +231,18 @@ export default function DashboardV1Giant() {
 
 function OverviewTab() {
   const stats = [
-    { label: 'API Calls Today',     value: '12,847', change: '+23%', color: 'emerald' },
-    { label: 'PII Detected',        value: '3,291',  change: '+15%', color: 'amber' },
-    { label: 'ATRiAN Blocks',       value: '47',     change: '-8%',  color: 'red' },
-    { label: 'Avg Latency',         value: '4.2ms',  change: '-12%', color: 'blue' },
-    { label: 'Cost Today',          value: '$0.89',  change: '+5%',  color: 'purple' },
-    { label: 'Active Customers',    value: '5',      change: '+1',   color: 'emerald' },
+    { label: 'Chamadas de API Hoje',     value: '12,847', change: '+23%', color: 'emerald' },
+    { label: 'PII Detectado',        value: '3,291',  change: '+15%', color: 'amber' },
+    { label: 'Bloqueios ATRiAN',       value: '47',     change: '-8%',  color: 'red' },
+    { label: 'Latência Média',         value: '4.2ms',  change: '-12%', color: 'blue' },
+    { label: 'Custo de Hoje',          value: '$0.89',  change: '+5%',  color: 'purple' },
+    { label: 'Clientes Ativos',    value: '5',      change: '+1',   color: 'emerald' },
   ];
 
   return (
     <div className="p-8">
       <div className="flex items-center gap-2 mb-6">
-        <h2 className="text-2xl font-bold">Overview</h2>
+        <h2 className="text-2xl font-bold">Visão Geral</h2>
         <PH tooltip="Conectar guard.egos.ia.br/v1/stats" />
       </div>
 
@@ -253,7 +253,7 @@ function OverviewTab() {
             <p className="text-sm text-slate-400 flex items-center">{stat.label} <PH /></p>
             <p className="text-3xl font-bold mt-1">{stat.value}</p>
             <p className={`text-sm mt-2 ${stat.change.startsWith('+') ? 'text-emerald-400' : stat.change.startsWith('-') ? 'text-red-400' : 'text-slate-400'}`}>
-              {stat.change} vs yesterday
+              {stat.change} vs ontem
             </p>
           </div>
         ))}
@@ -263,7 +263,7 @@ function OverviewTab() {
       <div className="grid grid-cols-2 gap-6 mb-8">
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 h-64">
           <h3 className="text-sm font-bold text-slate-400 mb-1 flex items-center">
-            API Calls (7 days) <PH tooltip="Conectar tabela guard_brasil_events" />
+            Chamadas de API (7 dias) <PH tooltip="Conectar tabela guard_brasil_events" />
           </h3>
           <div className="flex items-end gap-2 h-40 mt-4">
             {[65, 78, 52, 91, 84, 97, 88].map((h, i) => (
@@ -273,13 +273,13 @@ function OverviewTab() {
             ))}
           </div>
           <div className="flex justify-between text-xs text-slate-500 mt-2">
-            <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+            <span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span><span>Dom</span>
           </div>
         </div>
 
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 h-64">
           <h3 className="text-sm font-bold text-slate-400 mb-1 flex items-center">
-            PII Types Distribution <PH tooltip="Conectar tabela guard_brasil_events" />
+            Distribuição de Tipos PII <PH tooltip="Conectar tabela guard_brasil_events" />
           </h3>
           <div className="space-y-3 mt-4">
             {[
@@ -305,7 +305,7 @@ function OverviewTab() {
       {/* Revenue + Cost split */}
       <div className="grid grid-cols-3 gap-6">
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
-          <h3 className="text-sm font-bold text-slate-400 mb-2 flex items-center">Revenue (MRR) <PH tooltip="Conectar tabela billing" /></h3>
+          <h3 className="text-sm font-bold text-slate-400 mb-2 flex items-center">Receita (MRR) <PH tooltip="Conectar tabela billing" /></h3>
           <p className="text-3xl font-bold text-emerald-400">R$ 5.747</p>
           <div className="mt-4 space-y-2">
             <div className="flex justify-between text-xs"><span className="text-slate-400">Enterprise</span><span>R$ 5.000</span></div>
@@ -315,7 +315,7 @@ function OverviewTab() {
           </div>
         </div>
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
-          <h3 className="text-sm font-bold text-slate-400 mb-2 flex items-center">LLM Costs (Month) <PH tooltip="Conectar OpenRouter billing API" /></h3>
+          <h3 className="text-sm font-bold text-slate-400 mb-2 flex items-center">Custos LLM (Mês) <PH tooltip="Conectar OpenRouter billing API" /></h3>
           <p className="text-3xl font-bold text-amber-400">$12.40</p>
           <div className="mt-4 space-y-2">
             <div className="flex justify-between text-xs"><span className="text-slate-400">Qwen-plus</span><span>$8.20</span></div>
@@ -325,13 +325,13 @@ function OverviewTab() {
           </div>
         </div>
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
-          <h3 className="text-sm font-bold text-slate-400 mb-2 flex items-center">Margin <PH tooltip="Calculado a partir de billing + LLM costs" /></h3>
+          <h3 className="text-sm font-bold text-slate-400 mb-2 flex items-center">Margem <PH tooltip="Calculado a partir de billing + LLM costs" /></h3>
           <p className="text-3xl font-bold text-blue-400">96.2%</p>
           <div className="mt-4 space-y-2">
-            <div className="flex justify-between text-xs"><span className="text-slate-400">Revenue</span><span className="text-emerald-400">R$ 5.747</span></div>
-            <div className="flex justify-between text-xs"><span className="text-slate-400">LLM Cost</span><span className="text-red-400">-R$ 62</span></div>
+            <div className="flex justify-between text-xs"><span className="text-slate-400">Receita</span><span className="text-emerald-400">R$ 5.747</span></div>
+            <div className="flex justify-between text-xs"><span className="text-slate-400">Custo LLM</span><span className="text-red-400">-R$ 62</span></div>
             <div className="flex justify-between text-xs"><span className="text-slate-400">Infra</span><span className="text-red-400">-R$ 650</span></div>
-            <div className="flex justify-between text-xs font-bold border-t border-slate-700 pt-2"><span>Net</span><span className="text-emerald-400">R$ 5.035</span></div>
+            <div className="flex justify-between text-xs font-bold border-t border-slate-700 pt-2"><span>Líquido</span><span className="text-emerald-400">R$ 5.035</span></div>
           </div>
         </div>
       </div>
@@ -469,16 +469,16 @@ function ScannerTab() {
         alertFlash ? 'border-red-600' : isHighDensity ? 'border-amber-600' : 'border-slate-800'
       } px-6 py-3 flex items-center justify-between`}>
         <div className="flex items-center gap-4">
-          <h2 className="text-lg font-bold tracking-wider">RADICAL TRANSPARENCY SCANNER</h2>
+          <h2 className="text-lg font-bold tracking-wider">SCANNER DE TRANSPARÊNCIA RADICAL</h2>
           <span className="text-[10px] text-slate-500 tracking-widest uppercase">dados fluindo em tempo real</span>
           {isHighDensity && (
             <span className="text-[9px] text-amber-400 bg-amber-900/40 px-2 py-1 rounded-full animate-pulse">
-              ⚠ HIGH DENSITY ({packetCount} packets)
+              ⚠ ALTA DENSIDADE ({packetCount} pacotes)
             </span>
           )}
           {alertFlash && (
             <span className="text-[9px] text-red-400 bg-red-900/40 px-2 py-1 rounded-full animate-pulse font-bold">
-              🚨 BLOCKED!
+              🚨 BLOQUEADO!
             </span>
           )}
         </div>
@@ -487,12 +487,12 @@ function ScannerTab() {
             onClick={() => setIsPaused(!isPaused)}
             className={`text-xs px-3 py-1 rounded border transition ${isPaused ? 'border-emerald-500 text-emerald-400' : 'border-slate-700 text-slate-400 hover:border-slate-500'}`}
           >
-            {isPaused ? '▶ Resume' : '⏸ Pause'}
+            {isPaused ? '▶ Retomar' : '⏸ Pausar'}
           </button>
           <div className="flex items-center gap-2">
             <span className={`w-2 h-2 rounded-full ${isPaused ? 'bg-amber-500' : alertFlash ? 'bg-red-500 animate-pulse' : 'bg-emerald-500 animate-pulse'}`} />
             <span className={`text-xs ${alertFlash ? 'text-red-400' : 'text-slate-400'}`}>
-              {isPaused ? 'Paused' : alertFlash ? 'ALERT!' : 'Live (simulated)'}
+              {isPaused ? 'Pausado' : alertFlash ? 'ALERTA!' : 'Ao vivo (simulado)'}
             </span>
           </div>
         </div>
@@ -503,15 +503,15 @@ function ScannerTab() {
         {/* Zone labels */}
         <div className="absolute top-16 left-0 right-0 flex z-10 pointer-events-none">
           <div className="w-[30%] text-center">
-            <span className="text-[10px] text-slate-600 tracking-[0.3em] uppercase">Input</span>
+            <span className="text-[10px] text-slate-600 tracking-[0.3em] uppercase">Entrada</span>
           </div>
           <div className="w-[40%] text-center">
             <span className={`text-[10px] tracking-[0.3em] uppercase transition-colors ${alertFlash ? 'text-red-600' : 'text-emerald-800'}`}>
-              Guard Processing
+              Processamento Guard
             </span>
           </div>
           <div className="w-[30%] text-center">
-            <span className="text-[10px] text-slate-600 tracking-[0.3em] uppercase">Output</span>
+            <span className="text-[10px] text-slate-600 tracking-[0.3em] uppercase">Saída</span>
           </div>
         </div>
 
@@ -529,9 +529,9 @@ function ScannerTab() {
         {/* Blocked zone accumulator (right side) */}
         {stats.total_blocked > 0 && (
           <div className="absolute top-20 right-8 bg-red-950/40 border border-red-600/60 rounded-lg p-4 z-5 density-warning">
-            <p className="text-[10px] text-red-400 font-bold uppercase tracking-wider">Blocked Queue</p>
+            <p className="text-[10px] text-red-400 font-bold uppercase tracking-wider">Fila de Bloqueio</p>
             <p className="text-2xl font-bold text-red-500 mt-1">{stats.total_blocked}</p>
-            <p className="text-[9px] text-red-600 mt-1">packets quarantined</p>
+            <p className="text-[9px] text-red-600 mt-1">pacotes em quarentena</p>
           </div>
         )}
 
@@ -560,7 +560,7 @@ function ScannerTab() {
                 <span key={pii} className="text-[8px] bg-white/10 px-1 rounded">{pii}</span>
               ))}
               {packet.verdict === 'blocked' && (
-                <span className="text-[8px] bg-red-700 text-red-100 px-1 rounded font-bold">✕ BLOCKED</span>
+                <span className="text-[8px] bg-red-700 text-red-100 px-1 rounded font-bold">✕ BLOQUEADO</span>
               )}
             </div>
           </div>
@@ -573,29 +573,29 @@ function ScannerTab() {
       } px-6 py-3`}>
         <div className="flex items-center justify-between gap-8 max-w-full">
           <div className="text-center">
-            <p className="text-[10px] text-slate-500 uppercase tracking-wider">Processed</p>
+            <p className="text-[10px] text-slate-500 uppercase tracking-wider">Processados</p>
             <p className="text-lg font-bold font-mono">{stats.total_processed}</p>
           </div>
           <div className={`text-center px-3 py-2 rounded-lg transition-all ${
             stats.total_blocked > 0 ? 'bg-red-950/60 border border-red-600/50' : ''
           }`}>
             <p className={`text-[10px] uppercase tracking-wider ${stats.total_blocked > 0 ? 'text-red-400' : 'text-slate-500'}`}>
-              Blocked {stats.total_blocked > 0 ? '🚨' : ''}
+              Bloqueados {stats.total_blocked > 0 ? '🚨' : ''}
             </p>
             <p className={`text-lg font-bold font-mono transition-colors ${stats.total_blocked > 0 ? 'text-red-500 animate-pulse' : 'text-slate-400'}`}>
               {stats.total_blocked}
             </p>
           </div>
           <div className="text-center">
-            <p className="text-[10px] text-slate-500 uppercase tracking-wider">Total Cost</p>
+            <p className="text-[10px] text-slate-500 uppercase tracking-wider">Custo Total</p>
             <p className="text-lg font-bold font-mono text-amber-400">${stats.total_cost.toFixed(5)}</p>
           </div>
           <div className="text-center">
-            <p className="text-[10px] text-slate-500 uppercase tracking-wider">Avg Latency</p>
+            <p className="text-[10px] text-slate-500 uppercase tracking-wider">Latência Média</p>
             <p className="text-lg font-bold font-mono text-blue-400">{stats.avg_latency}ms</p>
           </div>
           <div className="text-center min-w-fit">
-            <p className="text-[10px] text-slate-500 uppercase tracking-wider">PII Caught</p>
+            <p className="text-[10px] text-slate-500 uppercase tracking-wider">PII Capturado</p>
             <div className="flex gap-1 mt-1 justify-center flex-wrap">
               {Object.entries(stats.pii_breakdown)
                 .sort((a, b) => b[1] - a[1])
@@ -627,17 +627,17 @@ function ScannerTab() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-lg font-bold">Packet Inspection</h3>
+              <h3 className="text-lg font-bold">Inspeção de Pacote</h3>
               <button onClick={() => setSelectedPacket(null)} className="text-slate-400 hover:text-white text-lg">×</button>
             </div>
             <div className="space-y-4">
               <div>
-                <p className="text-xs text-slate-500 mb-1">Input Preview</p>
+                <p className="text-xs text-slate-500 mb-1">Pré-visualização</p>
                 <p className="text-sm font-mono bg-slate-800 rounded p-3">{selectedPacket.text_preview}</p>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <p className="text-xs text-slate-500 mb-1">Verdict</p>
+                  <p className="text-xs text-slate-500 mb-1">Veredito</p>
                   <span className={`text-sm font-bold ${selectedPacket.verdict === 'clean' ? 'text-emerald-400' : selectedPacket.verdict === 'masked' ? 'text-blue-400' : 'text-red-400'}`}>
                     {selectedPacket.verdict.toUpperCase()}
                   </span>
@@ -651,34 +651,34 @@ function ScannerTab() {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <p className="text-xs text-slate-500 mb-1">Model</p>
+                  <p className="text-xs text-slate-500 mb-1">Modelo Usado</p>
                   <p className="text-sm font-mono">{selectedPacket.model_used}</p>
                 </div>
                 <div>
-                  <p className="text-xs text-slate-500 mb-1">Cost</p>
+                  <p className="text-xs text-slate-500 mb-1">Custo</p>
                   <p className="text-sm font-mono text-amber-400">
-                    {selectedPacket.cost_usd > 0 ? `$${selectedPacket.cost_usd.toFixed(5)}` : 'Free (regex)'}
+                    {selectedPacket.cost_usd > 0 ? `$${selectedPacket.cost_usd.toFixed(5)}` : 'Grátis (regex)'}
                   </p>
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <p className="text-xs text-slate-500 mb-1">Latency</p>
+                  <p className="text-xs text-slate-500 mb-1">Latência</p>
                   <p className="text-sm font-mono text-blue-400">{selectedPacket.duration_ms}ms</p>
                 </div>
                 <div>
-                  <p className="text-xs text-slate-500 mb-1">PII Found</p>
+                  <p className="text-xs text-slate-500 mb-1">PII Encontrado</p>
                   <div className="flex gap-1 flex-wrap">
                     {selectedPacket.pii_found.length > 0
                       ? selectedPacket.pii_found.map((p) => (
                           <span key={p} className="text-xs bg-blue-900/50 text-blue-300 px-2 py-0.5 rounded">{p}</span>
                         ))
-                      : <span className="text-xs text-slate-400">None</span>}
+                      : <span className="text-xs text-slate-400">Nenhum</span>}
                   </div>
                 </div>
               </div>
               <div className="bg-emerald-900/20 border border-emerald-800/50 rounded-lg p-3 mt-2">
-                <p className="text-[10px] text-emerald-400 uppercase tracking-wider mb-1">Transparência Radical</p>
+                <p className="text-[10px] text-emerald-400 uppercase tracking-wider mb-1">Nota de Transparência</p>
                 <p className="text-xs text-slate-300">
                   Este registro ficará no seu audit trail. Exportável, consultável, deletável. Zero opacidade.
                 </p>
@@ -698,12 +698,12 @@ function ActivityTab({ events }: { events: Event[] }) {
     <div className="p-8">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2">
-          <h2 className="text-2xl font-bold">Live Activity</h2>
+          <h2 className="text-2xl font-bold">Atividade ao Vivo</h2>
           <PH tooltip="Conectar Supabase Realtime → tabela guard_brasil_events" />
         </div>
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 bg-amber-500 rounded-full" />
-          <span className="text-xs text-amber-400">Simulated</span>
+          <span className="text-xs text-amber-400">Simulado</span>
         </div>
       </div>
       <div className="space-y-2">
@@ -742,7 +742,7 @@ function CustomersTab({ customers }: { customers: Customer[] }) {
   return (
     <div className="p-8">
       <div className="flex items-center gap-2 mb-6">
-        <h2 className="text-2xl font-bold">Customers</h2>
+        <h2 className="text-2xl font-bold">Clientes</h2>
         <PH tooltip="Conectar Supabase → tabela tenants / subscriptions" />
       </div>
       <div className="space-y-3">
@@ -753,12 +753,12 @@ function CustomersTab({ customers }: { customers: Customer[] }) {
               <span className={`text-xs px-2 py-0.5 rounded ${tierColors[c.tier]}`}>{c.tier.toUpperCase()}</span>
             </div>
             <div className="text-right">
-              <p className="text-sm text-slate-400">Calls this month</p>
+              <p className="text-sm text-slate-400">Chamadas este mês</p>
               <p className="font-mono">{c.calls_this_month.toLocaleString()}</p>
             </div>
             <div className="w-32">
               <div className="flex justify-between text-xs text-slate-500 mb-1">
-                <span>Quota</span>
+                <span>Cota</span>
                 <span>{c.quota_limit === -1 ? '∞' : `${Math.round(c.calls_this_month / c.quota_limit * 100)}%`}</span>
               </div>
               <div className="bg-slate-800 rounded-full h-2">
@@ -791,19 +791,19 @@ function CostsTab({ events }: { events: Event[] }) {
   return (
     <div className="p-8">
       <div className="flex items-center gap-2 mb-6">
-        <h2 className="text-2xl font-bold">Cost Analysis — Transparência Radical</h2>
+        <h2 className="text-2xl font-bold">Análise de Custos — Transparência Radical</h2>
         <PH tooltip="Conectar guard.egos.ia.br/v1/billing + OpenRouter API" />
       </div>
 
       <div className="grid grid-cols-2 gap-6 mb-8">
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
-          <h3 className="text-sm text-slate-400 mb-2 flex items-center">Total Cost (displayed period) <PH /></h3>
+          <h3 className="text-sm text-slate-400 mb-2 flex items-center">Custo Total (período exibido) <PH /></h3>
           <p className="text-4xl font-bold text-amber-400">${totalCost.toFixed(4)}</p>
-          <p className="text-xs text-slate-500 mt-2">Every single call is logged. No hidden fees.</p>
+          <p className="text-xs text-slate-500 mt-2">Toda chamada é registrada. Sem taxas ocultas.</p>
         </div>
 
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
-          <h3 className="text-sm text-slate-400 mb-4 flex items-center">Cost by Model <PH /></h3>
+          <h3 className="text-sm text-slate-400 mb-4 flex items-center">Custo por Modelo <PH /></h3>
           <div className="space-y-3">
             {Object.entries(byModel).sort((a, b) => b[1] - a[1]).map(([model, cost]) => (
               <div key={model} className="flex items-center justify-between">
@@ -839,30 +839,30 @@ function AtrianTab() {
   return (
     <div className="p-8">
       <div className="flex items-center gap-2 mb-6">
-        <h2 className="text-2xl font-bold">ATRiAN — Ethical AI Validation</h2>
+        <h2 className="text-2xl font-bold">ATRiAN — Validação Ética de IA</h2>
         <PH tooltip="Conectar guard.egos.ia.br/v1/atrian + tabela atrian_violations" />
       </div>
 
       <div className="grid grid-cols-3 gap-4 mb-8">
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
-          <p className="text-sm text-slate-400 flex items-center">Avg ATRiAN Score <PH /></p>
+          <p className="text-sm text-slate-400 flex items-center">Score ATRiAN Médio <PH /></p>
           <p className="text-3xl font-bold text-emerald-400">87.3</p>
-          <p className="text-xs text-slate-500">out of 100 (safe)</p>
+          <p className="text-xs text-slate-500">de 100 (seguro)</p>
         </div>
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
-          <p className="text-sm text-slate-400 flex items-center">Violations (24h) <PH /></p>
+          <p className="text-sm text-slate-400 flex items-center">Violações (24h) <PH /></p>
           <p className="text-3xl font-bold text-red-400">3</p>
-          <p className="text-xs text-slate-500">blocked or flagged</p>
+          <p className="text-xs text-slate-500">bloqueados ou sinalizados</p>
         </div>
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
-          <p className="text-sm text-slate-400 flex items-center">Axioms Checked <PH /></p>
+          <p className="text-sm text-slate-400 flex items-center">Axiomas Verificados <PH /></p>
           <p className="text-3xl font-bold text-blue-400">7</p>
-          <p className="text-xs text-slate-500">fairness, privacy, consent, etc.</p>
+          <p className="text-xs text-slate-500">equidade, privacidade, consentimento, etc.</p>
         </div>
       </div>
 
       <h3 className="text-lg font-bold mb-4 text-red-400 flex items-center">
-        Recent Violations <PH tooltip="Conectar tabela atrian_violations via Supabase Realtime" />
+        Violações Recentes <PH tooltip="Conectar tabela atrian_violations via Supabase Realtime" />
       </h3>
       <div className="space-y-3">
         {violations.map((v, i) => (
@@ -890,11 +890,11 @@ function AtrianTab() {
 
 function SocialTab() {
   const posts = [
-    { day: 'Mon', text: 'CPF masking demo...', status: 'posted',  impressions: 342, engagement: 3.5 },
-    { day: 'Tue', text: 'Placa detection...',  status: 'posted',  impressions: 198, engagement: 4.0 },
-    { day: 'Wed', text: 'ATRiAN feature...',   status: 'pending', impressions: 0,   engagement: 0 },
-    { day: 'Thu', text: 'Poll: compliance?',   status: 'draft',   impressions: 0,   engagement: 0 },
-    { day: 'Fri', text: 'LGPD 8 years...',     status: 'draft',   impressions: 0,   engagement: 0 },
+    { day: 'Seg', text: 'CPF masking demo...', status: 'posted',  impressions: 342, engagement: 3.5 },
+    { day: 'Ter', text: 'Placa detection...',  status: 'posted',  impressions: 198, engagement: 4.0 },
+    { day: 'Qua', text: 'ATRiAN feature...',   status: 'pending', impressions: 0,   engagement: 0 },
+    { day: 'Qui', text: 'Poll: compliance?',   status: 'draft',   impressions: 0,   engagement: 0 },
+    { day: 'Sex', text: 'LGPD 8 years...',     status: 'draft',   impressions: 0,   engagement: 0 },
   ];
 
   const statusColors: Record<string, string> = {
@@ -906,16 +906,16 @@ function SocialTab() {
   return (
     <div className="p-8">
       <div className="flex items-center gap-2 mb-6">
-        <h2 className="text-2xl font-bold">Social Media — X.com @anoineim</h2>
+        <h2 className="text-2xl font-bold">Mídia Social — X.com @anoineim</h2>
         <PH tooltip="Conectar X.com API (Free tier: 500 writes/mo)" />
       </div>
 
       <div className="grid grid-cols-4 gap-4 mb-8">
         {[
-          { label: 'Posts This Week',    value: '5',    ph: true },
-          { label: 'Total Impressions',  value: '540',  ph: true },
-          { label: 'Avg Engagement',     value: '3.7%', ph: true, color: 'text-emerald-400' },
-          { label: 'API Tests from X',   value: '23',   ph: true, color: 'text-blue-400' },
+          { label: 'Posts Esta Semana',    value: '5',    ph: true },
+          { label: 'Impressões Totais',  value: '540',  ph: true },
+          { label: 'Engajamento Médio',     value: '3.7%', ph: true, color: 'text-emerald-400' },
+          { label: 'Testes de API via X',   value: '23',   ph: true, color: 'text-blue-400' },
         ].map((s) => (
           <div key={s.label} className="bg-slate-900 border border-slate-800 rounded-xl p-5">
             <p className="text-sm text-slate-400 flex items-center">{s.label} {s.ph && <PH />}</p>
@@ -925,7 +925,7 @@ function SocialTab() {
       </div>
 
       <h3 className="text-lg font-bold mb-4 flex items-center">
-        Content Calendar <PH tooltip="Conectar tabela social_posts + X API publisher" />
+        Calendário de Conteúdo <PH tooltip="Conectar tabela social_posts + X API publisher" />
       </h3>
       <div className="space-y-2">
         {posts.map((p, i) => (
@@ -940,11 +940,11 @@ function SocialTab() {
       </div>
 
       <h3 className="text-lg font-bold mb-4 mt-8 flex items-center">
-        Competitor Watch <PH tooltip="Conectar X API search por keywords" />
+        Monitoramento de Concorrentes <PH tooltip="Conectar X API search por keywords" />
       </h3>
       <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
         <p className="text-sm text-slate-400">
-          Grepture: 2 posts this week (EU privacy) | Protecto: 1 post (healthcare) | Strac: 3 posts (DLP)
+          Grepture: 2 posts esta semana (EU privacy) | Protecto: 1 post (healthcare) | Strac: 3 posts (DLP)
         </p>
       </div>
     </div>
@@ -962,7 +962,7 @@ function PlaceholderTab({ name, description }: { name: string; description: stri
       </div>
       <div className="bg-slate-900 border border-slate-800 border-dashed rounded-xl p-12 text-center">
         <p className="text-4xl mb-4">🚧</p>
-        <p className="text-lg font-bold text-slate-400">Coming Soon</p>
+        <p className="text-lg font-bold text-slate-400">Em Breve</p>
         <p className="text-sm text-slate-500 mt-2 max-w-md mx-auto">{description}</p>
       </div>
     </div>
