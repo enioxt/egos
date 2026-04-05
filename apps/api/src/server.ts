@@ -660,9 +660,123 @@ Bun.serve({
       }
     }
 
+    // POST /v1/crypto/checkout — create NOWPayments crypto payment
+    if (url.pathname === '/v1/crypto/checkout' && req.method === 'POST') {
+      try {
+        const { tier, email } = await req.json() as { tier: string; email: string };
+        const apiKey = process.env.NOWPAYMENTS_API_KEY;
+        if (!apiKey) return Response.json({ error: 'Crypto payments not configured' }, { status: 503, headers: CORS });
+
+        const CRYPTO_PRICE_MAP: Record<string, number> = {
+          startup: 7,
+          business: 35,
+          enterprise: 150,
+        };
+        const priceAmount = CRYPTO_PRICE_MAP[tier];
+        if (!priceAmount) return Response.json({ error: `Invalid tier: ${tier}. Valid: startup, business, enterprise` }, { status: 400, headers: CORS });
+        if (!email?.trim()) return Response.json({ error: 'Required: email' }, { status: 400, headers: CORS });
+
+        const orderId = `guard-${tier}-${Date.now()}`;
+        const paymentRes = await fetch('https://api.nowpayments.io/v1/payment', {
+          method: 'POST',
+          headers: {
+            'x-api-key': apiKey,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            price_amount: priceAmount,
+            price_currency: 'usd',
+            pay_currency: 'usdttrc20',
+            order_id: orderId,
+            ipn_callback_url: 'https://guard.egos.ia.br/v1/crypto/webhook',
+          }),
+        });
+        const payment = await paymentRes.json() as any;
+        if (payment.error || payment.message) {
+          return Response.json({ error: payment.message || payment.error }, { status: 400, headers: CORS });
+        }
+
+        console.log(`🪙 Crypto checkout created: ${orderId} (${tier}, ${email})`);
+        return Response.json({
+          payment_id: payment.payment_id,
+          pay_address: payment.pay_address,
+          pay_amount: payment.pay_amount,
+          pay_currency: payment.pay_currency,
+          order_id: orderId,
+          qr_url: payment.invoice_url || null,
+        }, { headers: CORS });
+      } catch (e: any) {
+        return Response.json({ error: e.message }, { status: 500, headers: CORS });
+      }
+    }
+
+    // POST /v1/crypto/webhook — NOWPayments IPN callback
+    if (url.pathname === '/v1/crypto/webhook' && req.method === 'POST') {
+      try {
+        const rawBody = await req.text();
+        const ipnSecret = process.env.NOWPAYMENTS_IPN_SECRET;
+
+        if (ipnSecret) {
+          const sig = req.headers.get('x-nowpayments-sig');
+          if (!sig) return Response.json({ error: 'Missing signature' }, { status: 400 });
+
+          const { createHmac } = require('crypto');
+          const parsed = JSON.parse(rawBody);
+          const sortedBody = JSON.stringify(Object.keys(parsed).sort().reduce((acc: any, key: string) => { acc[key] = parsed[key]; return acc; }, {}));
+          const computed = createHmac('sha512', ipnSecret).update(sortedBody).digest('hex');
+
+          if (computed !== sig) return Response.json({ error: 'Invalid signature' }, { status: 400 });
+        }
+
+        const body = JSON.parse(rawBody);
+        console.log(`🪙 Crypto webhook: status=${body.payment_status}, order=${body.order_id}`);
+
+        if (body.payment_status === 'finished' && body.order_id) {
+          // Parse tier from order_id: "guard-{tier}-{timestamp}"
+          const parts = body.order_id.split('-');
+          const tier = parts[1]; // startup | business | enterprise
+
+          if (tier) {
+            const quotaMap: Record<string, number> = { startup: 5000, business: 50000, enterprise: 999999 };
+            const quotaLimit = quotaMap[tier] ?? 5000;
+
+            const supabaseUrl = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+            const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
+
+            if (supabaseUrl && supabaseKey) {
+              // order_description or order_id may contain email; update by order metadata
+              // Since NOWPayments doesn't pass email in webhook, match by order_id stored in tenant
+              const updateRes = await fetch(`${supabaseUrl}/rest/v1/guard_brasil_tenants?nowpayments_order_id=eq.${encodeURIComponent(body.order_id)}`, {
+                method: 'PATCH',
+                headers: {
+                  apikey: supabaseKey,
+                  Authorization: `Bearer ${supabaseKey}`,
+                  'Content-Type': 'application/json',
+                  Prefer: 'return=representation',
+                },
+                body: JSON.stringify({
+                  tier,
+                  quota_limit: quotaLimit,
+                  status: 'active',
+                  updated_at: new Date().toISOString(),
+                }),
+              });
+              const updated = await updateRes.json() as any[];
+              console.log(`✅ Crypto upgrade to ${tier}: order=${body.order_id} (${updated?.length ?? 0} rows updated)`);
+            }
+          }
+        }
+
+        return Response.json({ received: true });
+      } catch (e: any) {
+        console.error('Crypto webhook error:', e);
+        return Response.json({ error: 'Webhook processing failed' }, { status: 500 });
+      }
+    }
+
     return Response.json({
       error: 'Not found.',
-      endpoints: { health: 'GET /health', keys: 'POST /v1/keys', inspect: 'POST /v1/inspect', checkout: 'POST /v1/stripe/checkout', webhook: 'POST /v1/stripe/webhook', 'cost-dashboard': 'GET /api/admin/cost-dashboard' },
+      endpoints: { health: 'GET /health', keys: 'POST /v1/keys', inspect: 'POST /v1/inspect', checkout: 'POST /v1/stripe/checkout', webhook: 'POST /v1/stripe/webhook', 'crypto-checkout': 'POST /v1/crypto/checkout', 'crypto-webhook': 'POST /v1/crypto/webhook', 'cost-dashboard': 'GET /api/admin/cost-dashboard' },
     }, { status: 404, headers: CORS });
   },
 });

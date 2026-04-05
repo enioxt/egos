@@ -9,6 +9,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 const EXAMPLES = [
   {
@@ -139,29 +140,45 @@ export default function LandingPage() {
     <div className="min-h-screen bg-slate-950 text-white">
       {/* Hero */}
       <header className="border-b border-slate-800 bg-gradient-to-b from-slate-900 to-slate-950">
-        <div className="max-w-5xl mx-auto px-6 py-16 text-center">
-          <p className="text-emerald-400 text-sm font-mono mb-4">Segurança de IA focada no Brasil para fluxos públicos e regulados</p>
-          <h1 className="text-5xl font-bold mb-4">Guard Brasil</h1>
-          <p className="text-xl text-slate-300 mb-2">
-            Proteja dados sensíveis brasileiros antes que eles saiam da sua aplicação
-          </p>
-          <p className="text-sm text-slate-400">
-            CPF, RG, MASP, REDS, placa, processo judicial e validação ética em uma única camada
-          </p>
-          <div className="flex items-center justify-center gap-6 mt-8">
-            <div className="text-center">
-              <p className="text-2xl font-bold text-emerald-400">4ms</p>
-              <p className="text-xs text-slate-500">latência de referência</p>
+        <div className="max-w-5xl mx-auto px-6 py-16">
+          <div className="flex flex-col md:flex-row items-center gap-10">
+            {/* Hero Text */}
+            <div className="flex-1 text-center md:text-left">
+              <p className="text-emerald-400 text-sm font-mono mb-4">Segurança de IA focada no Brasil para fluxos públicos e regulados</p>
+              <h1 className="text-5xl font-bold mb-4">Guard Brasil</h1>
+              <p className="text-xl text-slate-300 mb-2">
+                Proteja dados sensíveis brasileiros antes que eles saiam da sua aplicação
+              </p>
+              <p className="text-sm text-slate-400">
+                CPF, RG, MASP, REDS, placa, processo judicial e validação ética em uma única camada
+              </p>
+              <div className="flex items-center justify-center md:justify-start gap-6 mt-8">
+                <div className="text-center">
+                  <p className="text-2xl font-bold text-emerald-400">4ms</p>
+                  <p className="text-xs text-slate-500">latência de referência</p>
+                </div>
+                <div className="w-px h-10 bg-slate-700" />
+                <div className="text-center">
+                  <p className="text-2xl font-bold text-emerald-400">150</p>
+                  <p className="text-xs text-slate-500">testes de demo</p>
+                </div>
+                <div className="w-px h-10 bg-slate-700" />
+                <div className="text-center">
+                  <p className="text-2xl font-bold text-emerald-400">R$0</p>
+                  <p className="text-xs text-slate-500">plano gratuito</p>
+                </div>
+              </div>
             </div>
-            <div className="w-px h-10 bg-slate-700" />
-            <div className="text-center">
-              <p className="text-2xl font-bold text-emerald-400">150</p>
-              <p className="text-xs text-slate-500">testes de demo</p>
-            </div>
-            <div className="w-px h-10 bg-slate-700" />
-            <div className="text-center">
-              <p className="text-2xl font-bold text-emerald-400">R$0</p>
-              <p className="text-xs text-slate-500">plano gratuito</p>
+            {/* Hero Image */}
+            <div className="flex-shrink-0">
+              <Image
+                src="/hero-shield.jpg"
+                alt="Guard Brasil Shield"
+                width={500}
+                height={350}
+                className="rounded-2xl"
+                priority
+              />
             </div>
           </div>
         </div>
@@ -285,6 +302,26 @@ export default function LandingPage() {
             </div>
           </section>
         )}
+
+        {/* Como Funciona */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-center mb-2">Como Funciona</h2>
+          <p className="text-sm text-slate-400 text-center mb-8">Três passos para proteger seus dados</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              { step: 1, icon: '\u{1F511}', title: 'Gere sua chave', description: 'POST /v1/keys com seu nome e email. Sem cartão.' },
+              { step: 2, icon: '\u{1F4E1}', title: 'Envie seu texto', description: 'POST /v1/inspect com Authorization: Bearer sua_chave' },
+              { step: 3, icon: '\u{1F6E1}\u{FE0F}', title: 'Receba protegido', description: 'Texto mascarado + receipt SHA-256 + score ATRiAN' },
+            ].map((item) => (
+              <div key={item.step} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 text-center">
+                <span className="text-4xl">{item.icon}</span>
+                <p className="text-xs text-emerald-400 font-mono mt-4 mb-1">Passo {item.step}</p>
+                <p className="text-lg font-bold mb-2">{item.title}</p>
+                <p className="text-sm text-slate-400 font-mono">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* Pricing */}
         <section className="mb-12">
