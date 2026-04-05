@@ -1,0 +1,76 @@
+name: Publish Guard Brasil SDKs
+
+on:
+  push:
+    tags:
+      - 'guard-brasil-langchain/v*'  # npm: @egosbr/guard-brasil-langchain
+      - 'guard-brasil-python/v*'      # PyPI: egosbr-guard-brasil
+
+jobs:
+  publish-langchain:
+    name: Publish @egosbr/guard-brasil-langchain
+    if: startsWith(github.ref, 'refs/tags/guard-brasil-langchain/')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: cd packages/guard-brasil-langchain && bun install
+
+      - name: Build
+        run: cd packages/guard-brasil-langchain && bun run build
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Publish to npm
+        run: cd packages/guard-brasil-langchain && npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Summary
+        run: |
+          VERSION=$(node -p "require('./packages/guard-brasil-langchain/package.json').version")
+          echo "## Published @egosbr/guard-brasil-langchain@$VERSION" >> $GITHUB_STEP_SUMMARY
+
+  publish-python:
+    name: Publish egosbr-guard-brasil (PyPI)
+    if: startsWith(github.ref, 'refs/tags/guard-brasil-python/')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install build tools
+        run: pip install build twine
+
+      - name: Build package
+        run: cd packages/guard-brasil-python && python -m build
+
+      - name: Publish to PyPI
+        run: cd packages/guard-brasil-python && twine upload dist/*
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+
+      - name: Summary
+        run: |
+          VERSION=$(grep 'version' packages/guard-brasil-python/pyproject.toml | head -1 | sed 's/.*"\(.*\)"/\1/')
+          echo "## Published egosbr-guard-brasil@$VERSION to PyPI" >> $GITHUB_STEP_SUMMARY
