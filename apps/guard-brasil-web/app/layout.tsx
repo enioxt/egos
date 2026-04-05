@@ -5,7 +5,7 @@ const siteUrl = 'https://guard.egos.ia.br';
 const title = 'Guard Brasil — Mascaramento de PII LGPD + Ética ATRiAN';
 const description =
   'API de segurança de IA para dados brasileiros. Detecta e mascara 15 tipos de PII (CPF, CNPJ, RG, CNH) em tempo real. 500 chamadas/mês grátis. Compliance LGPD automático.';
-const ogImage = `${siteUrl}/og-image.png`;
+const ogImage = `${siteUrl}/og-image.jpg`;
 
 export const metadata: Metadata = {
   title,
