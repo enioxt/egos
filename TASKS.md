@@ -1,11 +1,13 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.33.0 | **Updated:** 2026-04-05 | **LAST SESSION:** 2026-04-05 P21 — Knowledge System live (50 wiki pages, 3 Supabase tables, wiki-compiler agent, gateway API, world-model integration)
+> **Version:** 2.34.0 | **Updated:** 2026-04-05 | **LAST SESSION:** 2026-04-05 P22 — Real data tests (9/10 PII patterns verified), free quota 150→500 fixed everywhere, landing page updated, partnership strategy created (docs/strategy/PARTNERSHIP_STRATEGY.md)
 
 ---
 
 ### Completed Archive (compressed — see git log for details)
-EGOS-151..176, MONETIZE-001..015, START-001..005, EGOS-162/164, KB-001..007, all DONE. Guard Brasil v0.2.2+ live, Stripe metered billing wired, npm @egosbr/guard-brasil@0.2.2, 15 PII patterns, credentials vault (27), alert triage, daily WhatsApp report cron, Knowledge System (50 pages).
+**P1-P22 (2026-03-27..2026-04-05):** EGOS-151..176, MONETIZE-001..015, START-001..005, KB-001..012, KB-016, MASTER-002/004, EAGLE-000..023, EAGLE-GH-001/002/005, GOV-001..003, BRACC-001..003, GH-001..060, GH-062/064/066, X-001..005, THEATER-001, WA-001..003 — all DONE ✅.
+**Products live:** Guard Brasil v0.2.2 API (VPS), npm@0.2.2, web landing (Vercel), about/faq/terms/privacy pages, EGOS Gateway v0.1.0 (port 3050), Eagle Eye (eagleeye.egos.ia.br), Knowledge System (50 wiki pages, 3 Supabase tables).
+**Infra:** Stripe metered billing, NOWPayments crypto, 27 credentials vault, WhatsApp daily cron, 196 groups indexed, 9/10 PII patterns verified with real br-acc data, free quota 500 everywhere.
 
 ---
 
@@ -90,118 +92,33 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 
 ---
 
-### Eagle Eye — OSINT Licitações (2026-04-01)
-
-**Code:** `/home/enio/egos-lab/apps/eagle-eye/`
-**Domain:** `eagleeye.egos.ia.br` ✅ LIVE (Caddy route port 3090, Docker container)
-**Supabase:** `lhscgsqhiooyatkebose` — 6 tables, 80 territories seeded, 121 opportunities (30-day backfill done 2026-04-02)
-
-**Done:**
-- [x] Backend pipeline: Querido Diário API → AI analysis (Gemini Flash ~$0.01/gazette) → 26 patterns
-- [x] Supabase migration executed (territories, opportunities, scans, users, alerts, notifications)
-- [x] React frontend (Dashboard, Reports, Analytics) — renders with mock data
-- [x] Detection patterns: 26 across 3 tiers (licitações, LGPD, INPI, fiscal, etc.)
-
-**P0 — Standalone extraction (egos-lab being deactivated):**
-- [x] EAGLE-000: @egos-lab/shared removed, lib/shared.ts inlined, 5 imports updated ✅ 2026-04-01
-- [x] EAGLE-001: 4 API endpoints confirmed in ui/server.ts (opportunities/territories/scans/scan-now) ✅ 2026-04-01
-- [x] EAGLE-002: Frontend already uses fetch() to all 4 endpoints ✅ 2026-04-01
-- [x] EAGLE-003: Dockerfile.standalone, docker-compose.prod.yml, Caddy route eagleeye.egos.ia.br ✅ 2026-04-01
-- [x] EAGLE-004: VPS running — eagleeye.egos.ia.br, 15 territories seeded, Caddy reloaded ✅ 2026-04-01
-
-**P1 — Production:**
-- [x] EAGLE-005: alerts.ts — Telegram Bot + Resend email, fires post-scan for new opps ✅ 2026-04-01
-- [x] EAGLE-006: 52 territories in code, 50 in Supabase — all 27 state capitals + tech hubs ✅ 2026-04-01
-- [x] EAGLE-007: PNCP enrichment — wire pncp-client.ts into analysis pipeline ✅ 2026-04-01 (wired in analyze_gazette.ts step 6)
-- [x] EAGLE-008: VPS cron added (0 12 * * * = 9am BRT, docker exec eagle-eye bun fetch) ✅ 2026-04-01
-- [x] EAGLE-012: Licitação taxonomy (9 segments, 12 modalities, 4 size tiers, srp, esfera) added to types.ts + AI prompt ✅ 2026-04-01
-- [x] EAGLE-013: Territory expansion Wave 2+3 — 52→84 cities, map.html COORDS updated ✅ 2026-04-01
-- [x] EAGLE-014: discover-territories.ts — auto-discovery via PNCP + IBGE APIs ✅ 2026-04-01
-- [x] EAGLE-015: Dashboard filter UI for segmento/modalidade/porte taxonomy ✅ 2026-04-02 (3 select dropdowns, setSegmento/setModalidade/setPorte wired to JS filter)
-- [x] EAGLE-016: Sync 84 territories to Supabase (seed script) ✅ 2026-04-02 (sync-territories.ts, 79 territories seeded with upsert)
-
-**P2 — Revenue:**
-- [ ] EAGLE-009: Stripe/Pix payment for Pro tier (R$497/mo, 50+ territories)
-- [x] EAGLE-010: Customer onboarding flow ✅ 2026-04-02. /docs page: API reference with cURL/JS/Python examples, params table, pricing tiers. Docs link added to landing footer. Vercel deploy triggered.
-- [ ] EAGLE-011: E2E tests (Playwright)
-- [x] EGOS-170: Guard Brasil dashboard wired to real Supabase data ✅ 2026-04-02 (/api/tenants + /api/stats routes, DashboardV1Giant fetches real customers + MRR on mount with 30s refresh)
-
-**P4 — Government Licitações (DEPRIORITIZED 2026-04-02 — too slow, focus on API-first):**
-- [x] EAGLE-017: Real data pipeline (Querido Diário API) — 36 opportunities found, R$ 10.5M value, 14 software/TI (38.9%) ✅ 2026-04-01. Script: `analyze-real-gazettes-v2.ts`. Cache + error handling robust. Enum validation fixed (Portuguese market_potential).
-- [x] EAGLE-018: Software opportunities analysis + Tier 1/2/3 mapping ✅ 2026-04-01. Tier 1: Sistema de Gestão (R$ 250k, 28d), Plataforma Análise (R$ 180k, 36d), Auditoria (R$ 120k, 51d). Total opportunity: R$ 550k. Geographic: SP, RJ, BH. Success probability: 60-75%.
-- [ ] EAGLE-019: Integrador partnership outreach — target DeLoit/Thoughtworks/regional partners, pitch EGOS as subcontractor for software bids. CRM + call scheduling.
-- [ ] EAGLE-020: R$250k proposal submission (Sistema de Gestão de Licitações) — deadline 2026-04-29. Proposal drafted (PROPOSAL_250K_LICITACOES_SYSTEM.md). Timeline: 120d (4 sprints), stack: React + Next.js + Bun/TypeScript + PostgreSQL, margin 35%.
-- [x] EAGLE-021: Daily analysis cron deployed ✅ 2026-04-02 (0 12 UTC = 9am BRT, full pipeline: fetch+AI+Supabase store, JSON parse fix for truncated responses)
-- [x] EAGLE-022: Scale to 80 territories (full Brazil) + batch-query daily cron ✅ 2026-04-02. 4 API batches × 20 territories, 22 gazettes/day found in dry-run. --backfill=N flag for historical runs.
-- [x] EAGLE-023: Integrador channel revenue share (70/30) + SLA documentation ✅ 2026-04-02. Doc: docs/eagle-eye/INTEGRADOR_CHANNEL.md — model, SLA, contract template, outreach script, API revenda, revenue projections.
+### Eagle Eye — OSINT Licitações ✅ LIVE
+**eagleeye.egos.ia.br** | 84 territories | 121 opportunities | daily cron 9am BRT
+**Done (EAGLE-000..023):** standalone Docker, Supabase 6 tables, 26 detection patterns, Telegram alerts, PNCP enrichment, 80 territories seeded, integrador 70/30 channel doc, daily cron, real pipeline (36 opps R$10.5M).
+- [ ] EAGLE-009: Stripe/Pix for Pro tier (R$497/mo)
+- [ ] EAGLE-019: Integrador partnership outreach
+- [ ] EAGLE-020: R$250k proposal — deadline 2026-04-29
+- [ ] EAGLE-GH-003..010: Classification + extraction + profile + API v2 + MCP + Pix
+- [ ] SANT-001: Santiago partner onboarding (MVP ready, waiting partner)
 
 ---
 
-### Commons & Santiago — Shared Infrastructure (2026-04-01)
+### Gem Hunter v6 — Research Discovery Engine ✅ LIVE
+**CCR:** seg+qui 2h37 BRT | **Standalone API:** port 3097 | **npm:** @egosbr/gem-hunter v6.0.0
+**Done (GH-001..066):** /study+/study-end skills, pair studies (Continue 71/100, Aider 74/100, Cline 72.8/100), PWC pipeline, Papers Without Code, KOL discovery, Telegram+Discord alerts, BRAID GRD, X-reply-bot (VPS hourly cron), ArchitectureSelector, cost-tracker, world-model signals, gem-hunter-server API, pricing.ts, Gateway /gem-hunter channel.
 
-**Commons** (`/home/enio/commons`): Shared Docker + services layer deployed on Hetzner (commit 3dec9e0)
-**Santiago** (`/home/enio/santiago`): WhatsApp SaaS (Vercel + Hetzner). Waiting on business partner.
+**Active — Pair Studies Queue:**
+- [ ] GH-013: EGOS ↔ OpenHands | GH-014: ↔ LangGraph | GH-015: ↔ OpenAI Agents SDK | GH-016: ↔ LiteLLM | GH-017: ↔ Langfuse
+- [ ] GH-020: ↔ Mem0 | GH-021: ↔ Temporal | GH-022: ↔ Haystack | GH-023: ↔ DSPy | GH-036: OpenHarness adapter
 
-**Done:**
-- [x] COMM-001: commons Dockerfile + docker-compose for shared services deployment ✅ 2026-04-01 (commit 3dec9e0)
-
-**Pending:**
-- [ ] COMM-002: Document commons services in ECOSYSTEM_REGISTRY.md
-- [ ] SANT-001: Santiago partner onboarding — MVP ready, waiting on business partner confirmation
-
----
-
-### br-acc (EGOS Inteligência) — Valuable Code Mining (2026-04-01)
-
-**6 reusable modules identified (~3000 LOC total):**
-- `provenance.py` (63 LOC) — **Proof-of-research hash system**: SHA-256 non-repudiation for data rows + source fingerprinting. Score: 9/10.
-- `guard.py` (293 LOC) — Guard Brasil client + offline PII fallback. Score: 8/10.
-- `base.py` (177 LOC) — Universal ETL pipeline base class + IngestionRun tracking. Score: 9/10.
-- `cache.py` (122 LOC) — Redis cache-aside with graceful degradation. Score: 9/10.
-- `neo4j_service.py` (90 LOC) + 47 .cypher files — Neo4j query abstraction. Score: 8/10.
-- `transparency_tools.py` (1372 LOC) — 21 Brazilian gov API clients with circuit breaker. Score: 7/10.
-
-**Tasks:**
-- [x] BRACC-001: Extract provenance.py → packages/shared/src/provenance.ts ✅ 2026-04-01
-- [x] BRACC-002: Extract cache.py pattern → packages/shared/src/cache.ts ✅ 2026-04-01
-- [x] BRACC-003: Extract ETL base class → packages/shared/src/pipeline-base.ts ✅ 2026-04-01
-- [ ] EGOS-128: Phase 2+3 (Python imports + Docker rename)
-- [ ] EGOS-129: Docker network rename + redeploy Hetzner
-
----
-
-### Governance Registry Health (2026-04-01)
-
-**Triple registry system found (working at ~60%):**
-- `docs/CAPABILITY_REGISTRY.md` v1.8.0 — 130+ capabilities, 12 domains. **Working.**
-- `docs/SSOT_REGISTRY.md` v2.0.0 — 30+ domain SSOTs. **Working.**
-- `docs/ECOSYSTEM_CLASSIFICATION_REGISTRY.md` v2.0.0 — repo governance classes. **NOT synced to leaves.**
-
-**Tasks:**
-- [x] GOV-001: Add ECOSYSTEM_CLASSIFICATION_REGISTRY.md to governance-sync.sh CANONICAL_DOCS ✅ 2026-04-01
-- [x] GOV-002: Sync leaf repos (carteira-livre/forja/852/smartbuscas) — all 3 registries fresh ✅ 2026-04-01
-- [x] GOV-003: Daily governance-sync cron added (0 12 * * * = 9am BRT) ✅ 2026-04-01
-
-> **Archived:** All session summaries, ARCH project, benchmark plans, Grok intake → `docs/knowledge/TASKS_ARCHIVE_2026.md`
-
----
-
-### Gem Hunter v2 — Pair Analysis Engine (2026-04-01)
-
-**Source:** ChatGPT conversation analysis + egos-lab Gem Hunter v5.0 handoff
-**Architecture:** 6-layer pipeline (Discovery→Triage→Pair Diagnosis→Decision Intelligence→SSOT→Continuous Operation)
-
-**Done:**
-- [x] Gem Hunter v5.0 Atomic Discovery Engine (anti-poisoning ≥40, -15 non-code, CJK block)
-- [x] CCR scheduled job: Gem Hunter Adaptive Intelligence (seg+qui 2h37 BRT)
-- [x] Report: 24 gems found 2026-04-01 (top: gptme ACP agent.py, 89pts)
-
-**P0 — Pair Analysis Core:**
-- [x] GH-001: Create `/study` skill — pair-analysis session for EGOS ↔ 1 reference repo
-- [x] GH-002: Create `/study-end` skill — mandatory closure (9 sections: scorecard, transplants, blind spots, next recs)
-- [x] GH-003: SSOT structure: `docs/gem-hunter/registry.yaml`, `pairs/`, `weights.yaml`, `SSOT.md`
-- [x] GH-004: Weighted scoring config: `docs/gem-hunter/weights.yaml` (9-factor rubric)
-- [x] GH-010: EGOS ↔ Continue — score 71/100, 5 transplants identified, 3 anti-patterns
+**Active — Product:**
+- [ ] GH-025: `/pr` workflow + GitHub App (pre-merge gate)
+- [ ] GH-026: Upgrade codebase-memory-mcp to HTTP/SSE transport
+- [ ] GH-027: `.guarani/checks/` layer
+**Gem Hunter product (revenue):**
+- [ ] GH-061: Dashboard gemhunter.egos.ia.br | GH-067: Deploy gem-hunter-server to VPS
+- [ ] GH-068: API keys Supabase auth | GH-069: Rate limiting | GH-070: WhatsApp NLP orchestrator
+- [ ] GH-071: Telegram bot (/hunt /trending) | GH-073: Weekly email digest
 
 **New tasks from Continue study:**
 - [ ] GH-025: `/pr` workflow + GitHub App — pre-merge gate invoking ssot-auditor + code-intel on branch diffs
@@ -459,13 +376,15 @@ Modern monetization: usage-based API + MCP tool + chatbot. Stripe-unified (card 
 
 **P0 — Revenue (Guard Brasil focus):**
 - [x] MONETIZE-009: Fix Stripe tiered pricing ✅ 2026-04-04. Archived 3 broken prices, created 3 new with unit_amount_decimal (0.7/0.4/0.2 centavos). IDs: startup=price_1TISgBHdOnphplrgLp2RngAm, business=price_1TISgBHdOnphplrgXCCJPWx5, enterprise=price_1TISgBHdOnphplrghe81rAql. VPS .env updated, API restarted healthy v0.2.2.
-- [ ] MONETIZE-010: Frontend checkout button on guard-brasil-web
+- [x] MONETIZE-010: Frontend checkout button on guard-brasil-web ✅ 2026-04-05 (Stripe + NOWPayments buttons wired via /api/test proxy)
 - [ ] MONETIZE-011: Deploy v0.2.3 to VPS with STRIPE_METER_ID env var
+- [ ] MONETIZE-012: NOWPayments webhook URL config in dashboard (guard.egos.ia.br/v1/crypto/webhook + 3×5min recurring notifications) — ENIO
+- [ ] MONETIZE-013: Pix billing integration (EGOS-163)
 
 **P0 — Master API (Enables everything):**
 - [x] MASTER-002: Build EGOS Gateway API (Hono server, port 3000, WhatsApp + Knowledge channels) ✅ 2026-04-05
+- [x] MASTER-004: Deploy gateway to VPS Docker ✅ 2026-04-05 (port 3050, docker network infra_bracc, healthy)
 - [ ] MASTER-003: Evolution API webhook → gateway routing (WhatsApp commands → system actions)
-- [ ] MASTER-004: Deploy gateway to VPS Docker
 - [ ] MASTER-005: NLP intent classifier (Haiku, ~$1/day) for natural language commands
 
 **P1 — Dashboard & Monitoring:**
@@ -487,6 +406,36 @@ Modern monetization: usage-based API + MCP tool + chatbot. Stripe-unified (card 
 - [ ] CTX-002: Auto-index codebase-memory-mcp on /start
 - [ ] REWARDS-001: Unified rewards engine
 - [ ] MOAT-001: Data flywheels — partially addressed by KB (egos_learnings table)
+
+### Partnership & Distribution Strategy (2026-04-05)
+
+**Goal:** Find technical + business partners to accelerate Guard Brasil to enterprise scale.
+**SSOT:** `docs/strategy/PARTNERSHIP_STRATEGY.md`
+
+**P0 — Immediate (this week):**
+- [ ] PART-001: Publish Guard Brasil on npm + ProductHunt (M-007 emails first)
+- [ ] PART-002: Post X.com + LinkedIn with og-image.jpg announcing Guard Brasil
+- [ ] PART-003: Reach out to 3 DPO/compliance SaaS BR (templates ready: docs/business/OUTREACH_EMAIL_TEMPLATES.md)
+- [ ] PART-004: Submit to Stripe App Marketplace (already on Stripe — low friction)
+
+**P1 — Distribution Partners:**
+- [ ] PART-005: Nuvemshop / VTEX app store integration (e-commerce PII protection)
+- [ ] PART-006: Totvs / SAP BR partner program (ERP + LGPD = natural fit)
+- [ ] PART-007: AWS Marketplace listing (SaaS contract, pay-as-you-go)
+- [ ] PART-008: Reach out to DPOnet / OneTrust BR for white-label or API partnership
+
+**P1 — Enterprise Layer:**
+- [ ] PART-009: SLA documentation v1.0 (99.9% uptime, <5ms P95, incident response)
+- [ ] PART-010: SOC2 readiness assessment (with Vanta or Secureframe)
+- [ ] PART-011: Enterprise pricing page (custom contracts, volume, dedicated support)
+- [ ] PART-012: Security questionnaire template (ready for enterprise procurement)
+
+**P2 — Technical Integrations:**
+- [ ] PART-013: LangChain Guard Brasil tool (npm @egosbr/guard-brasil-langchain)
+- [ ] PART-014: Zapier / Make.com connector
+- [ ] PART-015: Bubble.io plugin (no-code market)
+
+---
 
 ### Evaluated & Deferred (2026-04-05)
 
