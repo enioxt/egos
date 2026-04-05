@@ -22,6 +22,7 @@ import { knowledge } from "./channels/knowledge.js";
 import { ui } from "./channels/ui.js";
 import { gemHunter } from "./channels/gem-hunter-api.js";
 import { telegram, startTelegramPolling } from "./channels/telegram.js";
+import { startHealthMonitor } from "./health-monitor.js";
 
 const app = new Hono();
 const PORT = Number(process.env.GATEWAY_PORT ?? 3000);
@@ -66,6 +67,9 @@ console.log(`[egos-gateway] Gem Hunter:  http://localhost:${PORT}/gem-hunter/hea
 // Switch to webhook when gateway is deployed to VPS:
 //   curl -X POST http://localhost:3000/telegram/setup-webhook -d '{"webhookUrl":"https://gateway.egos.ia.br"}'
 startTelegramPolling().catch(console.error);
+
+// Start health monitor — alerts via Telegram when system health < 40% (START-009)
+startHealthMonitor();
 
 export default {
   port: PORT,
