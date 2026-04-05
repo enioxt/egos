@@ -82,7 +82,7 @@ export async function createFreeTenant(
       email,
       tier: 'free',
       api_key_hash: hash,
-      quota_limit: 150,
+      quota_limit: 500,
       calls_this_month: 0,
     })
     .select('id, name, email, tier, quota_limit, calls_this_month, status')
