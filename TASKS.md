@@ -49,13 +49,13 @@ EGOS-167/168/175, GH-040..042, EGOS-TELEM-001..005 — all DONE ✅. codebase-me
 - [ ] KB-011: Guard Brasil dashboard — add Knowledge tab consuming /knowledge/search?q=guard
 
 **P1 — Quality:**
-- [ ] KB-012: Cross-reference enrichment — second-pass compile that links related pages
+- [x] KB-012: Cross-reference enrichment — 3-strategy enrichment (entity/slug/tag), 0 orphans ✅ 2026-04-04
 - [ ] KB-013: Deduplication — detect similar pages and merge
 - [ ] KB-014: LLM summarization pass — enrich low-quality pages (<60 score) with AI synthesis
 
 **P2 — Advanced:**
 - [ ] KB-015: Full-text search with pg_trgm or pgvector embeddings
-- [ ] KB-016: Knowledge graph visualization (pages as nodes, cross-refs as edges)
+- [x] KB-016: Knowledge graph visualization — /ui dashboard (egos-gateway) with category cards, search, quality scores, learnings panel ✅ 2026-04-04
 - [ ] KB-017: Auto-learning from git commits (extract patterns from commit messages + diffs)
 - [ ] KB-018: MCP server `knowledge-mcp` — tools: search_wiki, get_page, record_learning
 
@@ -273,7 +273,15 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] GH-062: packages/gem-hunter/ — @egosbr/gem-hunter v6.0.0 (GemHunter client + CLI: hunt/findings/papers/signals/wait) ✅ 2026-04-02
 - [ ] GH-063: x402 pay-per-call — M2M agent payments via x402 protocol
 - [x] GH-064: Discord webhook alerts — sendGemDiscordAlert() rich embeds (score≥80, color-coded); DISCORD_WEBHOOK_URL env ✅ 2026-04-02
-- [ ] GH-066: Paper → Code generator — LLM reads full paper, generates complete scaffold implementation
+- [x] GH-066*: Gateway /gem-hunter channel — sector filter, topics, product pricing, trending ✅ 2026-04-04 (NOTE: renamed from Paper→Code)
+- [ ] GH-067: Deploy gem-hunter-server to VPS (gemhunter.egos.ia.br) + Caddy routing → P0 revenue
+- [ ] GH-068: Auth — API keys via Supabase `gem_hunter_api_keys` table + Bearer token validation
+- [ ] GH-069: Rate limiting middleware (tier-aware: free/starter/pro/pay-per-use)
+- [ ] GH-070: Chatbot orchestrator — WhatsApp channel NLP intent → tool calls → gem-hunter → curated reply
+- [ ] GH-071: Telegram bot (/hunt, /trending, /sector slash commands)
+- [ ] GH-072: Chatbot tier enforcement (200 queries/mo for R$149/mo chatbot plan)
+- [ ] GH-073: Email digest — weekly top 10 gems to subscribers
+- SSOT: docs/gem-hunter/GEM_HUNTER_PRODUCT.md
 
 **P2 — Advanced Studies:**
 - [ ] GH-020: EGOS ↔ Mem0 — persistent agent memory layer
