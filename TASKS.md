@@ -116,9 +116,12 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [ ] GH-026: Upgrade codebase-memory-mcp to HTTP/SSE transport
 - [ ] GH-027: `.guarani/checks/` layer
 **Gem Hunter product (revenue):**
-- [ ] GH-061: Dashboard gemhunter.egos.ia.br | GH-067: Deploy gem-hunter-server to VPS
-- [ ] GH-068: API keys Supabase auth | GH-069: Rate limiting | GH-070: WhatsApp NLP orchestrator
-- [ ] GH-071: Telegram bot (/hunt /trending) | GH-073: Weekly email digest
+- [ ] GH-061: Dashboard gemhunter.egos.ia.br (Next.js web UI)
+- [x] GH-067: gem-hunter-server deployed to VPS port 3095, systemd, Caddy ready ✅ 2026-04-05 — [BLOCKER] DNS A record gemhunter.egos.ia.br → 204.168.217.125 needed
+- [ ] GH-068: API keys Supabase auth | GH-069: Rate limiting
+- [x] GH-070: WhatsApp v2 — AI orchestrator (Qwen+tools: gem_search/wiki_search/status/costs/agents) + all media types ✅ 2026-04-05
+- [x] GH-071: Telegram @egosaiagents_bot — long-polling + same orchestrator ✅ 2026-04-05 — [BLOCKER] set TELEGRAM_AUTHORIZED_USER_ID in .env
+- [ ] GH-073: Weekly email digest
 
 **New tasks from Continue study:**
 - [ ] GH-025: `/pr` workflow + GitHub App — pre-merge gate invoking ssot-auditor + code-intel on branch diffs
@@ -384,7 +387,7 @@ Modern monetization: usage-based API + MCP tool + chatbot. Stripe-unified (card 
 **P0 — Master API (Enables everything):**
 - [x] MASTER-002: Build EGOS Gateway API (Hono server, port 3000, WhatsApp + Knowledge channels) ✅ 2026-04-05
 - [x] MASTER-004: Deploy gateway to VPS Docker ✅ 2026-04-05 (port 3050, docker network infra_bracc, healthy)
-- [ ] MASTER-003: Evolution API webhook → gateway routing (WhatsApp commands → system actions)
+- [x] MASTER-003: Evolution API webhook → gateway routing — WhatsApp v2 full orchestrator + Telegram bot live ✅ 2026-04-05
 - [ ] MASTER-005: NLP intent classifier (Haiku, ~$1/day) for natural language commands
 
 **P1 — Dashboard & Monitoring:**
