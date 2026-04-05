@@ -193,7 +193,7 @@ export default function LandingPage() {
               <button
                 key={ex.title}
                 onClick={() => selectExample(ex.input)}
-                className="bg-slate-900 border border-slate-800 rounded-xl p-4 text-left hover:border-emerald-600/50 hover:bg-slate-800/50 transition group"
+                className="bg-slate-900 border border-slate-800 rounded-xl p-4 text-left hover:border-emerald-600/50 hover:bg-slate-800/50 transition group cursor-pointer"
               >
                 <span className="text-2xl">{ex.icon}</span>
                 <p className="font-bold text-sm mt-2 group-hover:text-emerald-400 transition">{ex.title}</p>
