@@ -1,0 +1,26 @@
+{
+  "name": "@egosbr/guard-brasil-langchain",
+  "version": "0.1.0",
+  "description": "Guard Brasil LangChain middleware — Brazilian PII masking for LangChain agents",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "bun test"
+  },
+  "keywords": ["langchain", "lgpd", "pii", "brasil", "cpf", "cnpj", "privacy"],
+  "license": "MIT",
+  "peerDependencies": {
+    "@langchain/core": ">=0.2.0"
+  },
+  "dependencies": {
+    "@egosbr/guard-brasil": "^0.2.2"
+  }
+}
