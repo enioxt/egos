@@ -90,7 +90,7 @@ export const CNPJ_PATTERN: PIIPatternConfig = {
 export const RG_PATTERN: PIIPatternConfig = {
   id: 'rg',
   label: 'RG',
-  regex: /(?:RG|rg|Rg|Registro\s+Geral|registro\s+geral)[\s:nº°.]*\d{1,2}[.\s]?\d{3}[.\s]?\d{3}[.\s-]?\d?/gi,
+  regex: /(?:RG|rg|Rg|Registro\s+Geral|registro\s+geral)[\s:nº°.]*(?:[A-Z]{2}[\s-]?)?\d{1,2}[.\s]?\d{3}[.\s]?\d{3}[.\s-]?\d?/gi,
   maskFormat: '[RG REMOVIDO]',
   confidence: 'high',
   description: 'Registro Geral — RG 00.000.000-0',
@@ -110,7 +110,7 @@ export const CNH_PATTERN: PIIPatternConfig = {
 export const MASP_PATTERN: PIIPatternConfig = {
   id: 'masp',
   label: 'MASP',
-  regex: /\b(?:MASP|masp|Masp)[:\s]*\d{4,8}[.\s-]?\d{0,2}\b/gi,
+  regex: /\b(?:MASP|masp|Masp)[:\s]*\d{1,3}[.\s]?\d{3,5}[.\s-]?\d{0,2}\b/gi,
   maskFormat: '[MASP REMOVIDO]',
   confidence: 'high',
   description: 'Matrícula de Servidor Público — MASP 0000000-0',
