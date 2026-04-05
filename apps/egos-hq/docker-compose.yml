@@ -1,0 +1,18 @@
+services:
+  egos-hq:
+    build: .
+    container_name: egos-hq
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3060:3060"
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+      - PORT=3060
+    networks:
+      - infra_bracc
+
+networks:
+  infra_bracc:
+    external: true
