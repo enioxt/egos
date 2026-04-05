@@ -165,17 +165,17 @@ export default function HomePage() {
 
             {data?.knowledge && (
               <Card title="Knowledge Base">
-                <div style={{ display: "flex", alignItems: "center", marginBottom: 12 }}>
+                <div style={{ display: 'flex', alignItems: 'center', marginBottom: 12 }}>
                   <StatusDot ok={(data.knowledge.avg_quality ?? 0) >= 60} />
-                  <span style={{ color: (data.knowledge.avg_quality ?? 0) >= 60 ? "#22c55e" : "#f59e0b", fontWeight: 700 }}>
-                    {data.knowledge.avg_quality >= 60 ? "Saudável" : "Atenção — qualidade baixa"}
+                  <span style={{ color: (data.knowledge.avg_quality ?? 0) >= 60 ? '#22c55e' : '#f59e0b', fontWeight: 700 }}>
+                    {data.knowledge.avg_quality >= 60 ? 'Saudavel' : 'Atencao — qualidade baixa'}
                   </span>
                 </div>
-                <Metric label="Páginas wiki" value={data.knowledge.pages} />
-                <Metric label="Qualidade média" value={`${data.knowledge.avg_quality}/100`} />
+                <Metric label="Wiki pages" value={data.knowledge.pages} />
+                <Metric label="Qualidade media" value={String(data.knowledge.avg_quality) + '/100'} />
                 <Metric label="Learnings" value={data.knowledge.learnings} />
-                <a href="/knowledge" style={{ display: "block", marginTop: 10, padding: "0.4rem", background: "#111", border: "1px solid #1f1f1f", borderRadius: 6, color: "#737373", fontSize: 12, textAlign: "center", textDecoration: "none" }}>
-                  &rarr; Abrir Knowledge Base
+                <a href="/knowledge" style={{ display: 'block', marginTop: 10, padding: '0.4rem', background: '#111', border: '1px solid #1f1f1f', borderRadius: 6, color: '#737373', fontSize: 12, textAlign: 'center', textDecoration: 'none' }}>
+                  {'→'} Abrir Knowledge Base
                 </a>
               </Card>
             )}

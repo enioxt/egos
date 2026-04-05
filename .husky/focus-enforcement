@@ -20,6 +20,7 @@ ALLOWED_PATTERNS=(
   # Supporting infrastructure (shared modules serve Guard Brasil + Gem Hunter)
   "packages/shared/src"
   "apps/egos-gateway"
+  "apps/egos-hq"
   "agents/cli.ts"
   "agents/agents/gem-hunter"
   "agents/api/gem-hunter"
