@@ -156,19 +156,10 @@ bash ./scripts/oracle-instance-launcher/scripts/run.sh --dry-run  # Oracle OCI l
 bun agent:run context_tracker --dry   # CTX score 0-280 with zone emoji + /end advice
 ```
 
-## Slash Workflows (Operational)
+## Slash Workflows
+Canonical workflows in `.agents/workflows/`: start, sync, pr-prep, disseminate, mycelium.
 
-- Canonical command workflows live in `.agents/workflows/`
-- `/start` activation workflow: `.agents/workflows/start-workflow.md`
-- Governance dissemination workflow: `.agents/workflows/sync.md`
-- PR preparation workflow: `.agents/workflows/pr-prep.md`
-- `/disseminate` propagation workflow: `.agents/workflows/disseminate.md`
-- `/mycelium` mesh audit workflow: `.agents/workflows/mycelium.md`
-
-## EGOS as Intelligence — Block Model Mapping
-
-> **Source:** Jack Dorsey / Block "From Hierarchy to Intelligence" (2026-04-01)
-> Hierarchy = routing protocol for information. Replace with: World Model + Intelligence Layer + Atomic Capabilities.
+## EGOS as Intelligence — Block Model
 
 ### Agent Role Taxonomy (IC / DRI / Player-Coach)
 
