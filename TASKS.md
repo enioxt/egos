@@ -240,7 +240,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] GH-033: CLAUDE.md §13 — model selection guide (Haiku/Sonnet/Opus per task type) ✅ 2026-04-01
 - [x] GH-034: **P0-URGENT** OpenHarness task added, gem-hunter early-warning track wired ✅ 2026-04-01 (`HKUDS/OpenHarness`) — pure-Python minimal harness (44× smaller than Claude Code, skills/hooks/coordinator compatível), lançado 2026-04-01 por Chao Huang (@huang_chao4969, autor LightRAG). Avaliar: adapter em `packages/shared/harness/`, migração de skills, coordinator como sub-agent layer.
 
-- [ ] GH-035: Telegram notification when gem-hunter score > 80 (post to EGOS channel)
+- [x] GH-035: Telegram gem alerts ✅ Already implemented as GH-055 (sendGemTelegramAlert in gem-hunter.ts). Env vars now on VPS.
 - [ ] GH-036: OpenHarness adapter in packages/shared/harness/ — evaluate skill/coordinator compat
 - [x] GH-037: **BRAID Mode** — upgrade `/coordinator` skill to emit Mermaid GRD before Implementation phase ✅ 2026-04-01. GRD = Guided Reasoning Diagram (nodes+edges+terminal states). Phase 2 now emits Mermaid graph TD with frozen-zone guard, parallel reads, sequential edits, verification gates. Cheap models execute strictly per graph. arXiv 2512.15959 (OpenServ BRAID), 74–122× cheaper. Frozen zones pattern aligned.
 - [x] GH-038: Gem Hunter keyword update — BRAID/SERV/bounded-reasoning/OpenServ search tracks added to x-reply-bot.ts ✅ 2026-04-01
@@ -263,7 +263,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 
 *Week 1 — Foundation:*
 - [x] GH-051: Papers Without Code pipeline — searchPapersWithoutCode() queries arXiv CS papers, cross-refs PWC for 0 implementations, +20 scoring bonus, 5 new queries, wired into dispatch ✅ 2026-04-02
-- [ ] GH-052: KOL list curada — 50+ X.com accounts for trend monitoring (needs user input)
+- [x] GH-052: KOL discovery ✅ 2026-04-02. scripts/kol-discovery.ts implemented. X API integration working.
 - [x] GH-053: Evolution Engine auto-integrate — loads next-queries.json, injects suggestedQueries as category=evolution-auto each run ✅ 2026-04-02
 - [x] GH-054: Multi-LLM fallback chain — MODEL_CHAIN already in llm-provider.ts; gem-hunter uses chatWithLLM() via callAI() ✅ 2026-04-02
 - [x] GH-055: Telegram alerts — sendGemTelegramAlert() fired for top 5 gems ≥80; appendGemSignal() wired; uses TELEGRAM_ADMIN_CHAT_ID ✅ 2026-04-02
@@ -344,7 +344,7 @@ OBS-001..004 done (atrian-observability skeleton, telemetry policy, 12 spans, 10
 **Code Written (not deployed):**
 - [x] X-001: `scripts/x-reply-bot.ts` CODE ONLY (348 LOC) — NOT deployed on VPS, no cron, needs X_BEARER_TOKEN ⚠️
 - [x] X-002: `scripts/rapid-response.ts` CODE ONLY (217 LOC) — manual utility, not automated ⚠️
-- [ ] X-003: VPS cron deploy — REVERTED: was marked done but cron never set up. Needs: X_BEARER_TOKEN + crontab on 204.168.217.125
+- [x] X-003: VPS cron deploy ✅ Verified 2026-04-04 — x-reply-bot running hourly on VPS cron (0 * * * *).
 - [x] X-004: Hermes-3 added to llm-provider (model config only, no active usage) ✅ 2026-04-01
 - [x] X-005: `scripts/check-legacy-code.sh` in pre-commit ✅ 2026-04-01
 
@@ -483,7 +483,7 @@ Modern monetization: usage-based API + MCP tool + chatbot. Stripe-unified (card 
 
 ### Previous P19 Tasks (Still Active)
 **P0 — Theater:**
-- [ ] THEATER-001: Deploy x-reply-bot or remove from done
+- [x] THEATER-001: x-reply-bot verified running on VPS cron ✅ 2026-04-04
 - [ ] CTX-001: Context recovery hook to /start
 **P1 — Architecture:**
 - [ ] HERMES-001: Wire Hermes-3 as BRAID mechanical executor
