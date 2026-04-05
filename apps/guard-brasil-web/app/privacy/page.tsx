@@ -1,70 +1,194 @@
 'use client';
 
+import Link from 'next/link';
+
 export default function PrivacyPage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-300 px-4 py-16 max-w-3xl mx-auto">
-      <h1 className="text-3xl font-bold text-white mb-8">Política de Privacidade</h1>
-      <p className="text-xs text-slate-500 mb-8">Última atualização: 5 de abril de 2026</p>
-
-      <section className="space-y-6 text-sm leading-relaxed">
-        <div>
-          <h2 className="text-lg font-semibold text-white mb-2">1. O que coletamos</h2>
-          <p><strong>Para gerar sua chave de API:</strong> nome e email. Armazenados no Supabase (região us-east-1) para autenticação e controle de quota.</p>
-          <p className="mt-2"><strong>Para cada chamada à API:</strong> apenas metadados — hash SHA-256 do texto de entrada, hash do resultado, timestamp, duração, e ID do tenant. <em>O texto original NÃO é armazenado.</em></p>
+    <div className="min-h-screen bg-slate-950 text-white">
+      {/* Header */}
+      <header className="border-b border-slate-800">
+        <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+          <Link href="/landing" className="text-emerald-400 font-bold text-lg hover:text-emerald-300 transition">
+            Guard Brasil
+          </Link>
+          <nav className="flex gap-6 text-sm text-slate-400">
+            <Link href="/about" className="hover:text-white transition">Sobre</Link>
+            <Link href="/faq" className="hover:text-white transition">FAQ</Link>
+            <Link href="/terms" className="hover:text-white transition">Termos</Link>
+          </nav>
         </div>
+      </header>
 
-        <div>
-          <h2 className="text-lg font-semibold text-white mb-2">2. O que NÃO coletamos</h2>
-          <ul className="list-disc list-inside space-y-1">
-            <li>O texto enviado para inspeção (processado em memória, descartado imediatamente)</li>
-            <li>Dados pessoais detectados (CPF, RG, etc.) — apenas a categoria é registrada</li>
-            <li>Endereço IP completo (apenas hash irreversível para rate limiting)</li>
-            <li>Cookies de rastreamento (sem analytics de terceiros)</li>
-          </ul>
+      <main className="max-w-4xl mx-auto px-6 py-16">
+        <h1 className="text-4xl font-bold mb-2">Politica de Privacidade</h1>
+        <p className="text-sm text-slate-500 mb-12">Ultima atualizacao: 03 de abril de 2026</p>
+
+        <div className="space-y-10 text-slate-300 leading-relaxed">
+          <section>
+            <h2 className="text-lg font-bold text-emerald-400 mb-3">1. Dados que Coletamos</h2>
+            <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-4">
+              <div>
+                <p className="text-sm font-bold text-white mb-1">O que coletamos:</p>
+                <ul className="text-sm space-y-1 ml-4">
+                  <li className="flex items-start gap-2">
+                    <span className="text-emerald-400">&#x2713;</span>
+                    Nome e email (para geracao de chave de API)
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-emerald-400">&#x2713;</span>
+                    Hashes SHA-256 dos resultados de inspecao (para trilha de auditoria)
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-emerald-400">&#x2713;</span>
+                    Metadados de uso (contagem de chamadas, timestamps)
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <p className="text-sm font-bold text-white mb-1">O que NAO coletamos:</p>
+                <ul className="text-sm space-y-1 ml-4">
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-400">&#x2717;</span>
+                    O texto que voce envia para inspecao (processado em memoria, descartado)
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-400">&#x2717;</span>
+                    Dados pessoais detectados no texto (mascarados antes de qualquer log)
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-400">&#x2717;</span>
+                    Dados de navegacao, localizacao ou fingerprint do dispositivo
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-bold text-emerald-400 mb-3">2. Hashes SHA-256</h2>
+            <p className="text-sm">
+              Os hashes SHA-256 armazenados como receipts de auditoria sao
+              irreversiveis. Nao e possivel reconstruir o texto original a partir
+              do hash. Esses receipts servem exclusivamente para comprovar que uma
+              inspecao foi realizada em determinado momento, garantindo conformidade
+              com a LGPD.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-bold text-emerald-400 mb-3">3. Infraestrutura e Armazenamento</h2>
+            <p className="text-sm mb-3">
+              Utilizamos o Supabase para gerenciamento de tenants e chaves de API.
+            </p>
+            <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
+              <ul className="text-sm space-y-2">
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-400">&#x2022;</span>
+                  <span><strong className="text-white">Provedor:</strong> Supabase (PostgreSQL gerenciado)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-400">&#x2022;</span>
+                  <span><strong className="text-white">Regiao:</strong> us-east-1</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-400">&#x2022;</span>
+                  <span><strong className="text-white">Criptografia:</strong> Em repouso (AES-256) e em transito (TLS 1.3)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-400">&#x2022;</span>
+                  <span><strong className="text-white">Backups:</strong> Diarios, retencao de 7 dias</span>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-bold text-emerald-400 mb-3">4. Cookies</h2>
+            <p className="text-sm">
+              O Guard Brasil nao utiliza cookies de rastreamento. O unico cookie
+              possivel e o de autenticacao Privy (se habilitado), necessario para
+              manter a sessao do usuario. Nenhum cookie de terceiros e utilizado
+              para publicidade ou analytics.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-bold text-emerald-400 mb-3">5. Conformidade LGPD</h2>
+            <p className="text-sm mb-3">
+              O Guard Brasil foi projetado em conformidade com a Lei Geral de
+              Protecao de Dados (Lei 13.709/2018):
+            </p>
+            <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
+              <ul className="text-sm space-y-3">
+                <li className="flex items-start gap-3">
+                  <span className="text-emerald-400 font-mono text-xs mt-0.5 flex-shrink-0">Art. 6</span>
+                  <span>
+                    <strong className="text-white">Minimizacao de dados:</strong> Coletamos
+                    apenas o minimo necessario (nome + email). O texto inspecionado
+                    nunca e armazenado.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-emerald-400 font-mono text-xs mt-0.5 flex-shrink-0">Art. 46</span>
+                  <span>
+                    <strong className="text-white">Medidas de seguranca:</strong> Processamento
+                    em memoria, hashes irreversiveis, criptografia em transito e em
+                    repouso, rate limiting por chave.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-emerald-400 font-mono text-xs mt-0.5 flex-shrink-0">Art. 18</span>
+                  <span>
+                    <strong className="text-white">Direitos do titular:</strong> Voce pode
+                    solicitar acesso, correcao ou exclusao dos seus dados a qualquer
+                    momento.
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-bold text-emerald-400 mb-3">6. Encarregado (DPO)</h2>
+            <p className="text-sm">
+              Para questoes relacionadas a privacidade e protecao de dados, entre
+              em contato com o Encarregado de Protecao de Dados:{' '}
+              <a href="mailto:enio@egos.ia.br" className="text-emerald-400 hover:text-emerald-300 transition">
+                enio@egos.ia.br
+              </a>
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-bold text-emerald-400 mb-3">7. Direito a Exclusao</h2>
+            <p className="text-sm">
+              Solicite a exclusao completa dos seus dados (nome, email, chaves de API e receipts) enviando email para{' '}
+              <a href="mailto:enio@egos.ia.br" className="text-emerald-400 hover:text-emerald-300 transition">enio@egos.ia.br</a>{' '}
+              com o assunto &quot;Exclusao de Dados&quot;. Prazo: ate 15 dias uteis.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-bold text-emerald-400 mb-3">8. Alteracoes nesta Politica</h2>
+            <p className="text-sm">
+              Podemos atualizar esta Politica periodicamente. Alteracoes significativas serao comunicadas por email ou aviso no site.
+            </p>
+          </section>
         </div>
+      </main>
 
-        <div>
-          <h2 className="text-lg font-semibold text-white mb-2">3. Como processamos dados</h2>
-          <p>O Guard Brasil utiliza expressões regulares (regex) para detecção de PII. Todo processamento é feito em memória no servidor, sem envio para LLMs ou serviços externos. O texto é descartado após a resposta ser enviada.</p>
+      {/* Footer */}
+      <footer className="border-t border-slate-800 py-8 text-center">
+        <div className="flex justify-center gap-6 text-xs text-slate-500 mb-4">
+          <Link href="/landing" className="hover:text-white transition">Inicio</Link>
+          <Link href="/about" className="hover:text-white transition">Sobre</Link>
+          <Link href="/faq" className="hover:text-white transition">FAQ</Link>
+          <Link href="/terms" className="hover:text-white transition">Termos</Link>
         </div>
-
-        <div>
-          <h2 className="text-lg font-semibold text-white mb-2">4. Conformidade LGPD</h2>
-          <p>Em conformidade com a Lei 13.709/2018 (LGPD):</p>
-          <ul className="list-disc list-inside space-y-1 mt-2">
-            <li><strong>Art. 6, III (Necessidade):</strong> coletamos apenas o mínimo necessário (nome + email)</li>
-            <li><strong>Art. 46 (Segurança):</strong> dados em trânsito via HTTPS/TLS, hashing SHA-256, sem armazenamento de PII</li>
-            <li><strong>Art. 12 (Anonimização):</strong> textos processados são anonimizados em memória</li>
-          </ul>
-        </div>
-
-        <div>
-          <h2 className="text-lg font-semibold text-white mb-2">5. Receipts e auditoria</h2>
-          <p>Cada inspeção gera um receipt com 3 hashes SHA-256: entrada, saída e inspeção. Esses hashes são irreversíveis — não é possível reconstruir o texto original a partir deles. Servem como prova auditável de que a inspeção ocorreu.</p>
-        </div>
-
-        <div>
-          <h2 className="text-lg font-semibold text-white mb-2">6. Seus direitos</h2>
-          <ul className="list-disc list-inside space-y-1">
-            <li><strong>Acesso:</strong> solicite seus dados via email</li>
-            <li><strong>Correção:</strong> solicite correção de dados cadastrais</li>
-            <li><strong>Exclusão:</strong> solicite exclusão completa da sua conta e dados</li>
-            <li><strong>Portabilidade:</strong> exporte seus dados em formato JSON</li>
-          </ul>
-        </div>
-
-        <div>
-          <h2 className="text-lg font-semibold text-white mb-2">7. Contato</h2>
-          <p>Para questões de privacidade: <a href="mailto:enio@egos.ia.br" className="text-emerald-400 hover:underline">enio@egos.ia.br</a></p>
-        </div>
-      </section>
-
-      <div className="mt-12 flex gap-4 text-xs text-slate-500">
-        <a href="/landing" className="hover:text-emerald-400">← Voltar</a>
-        <a href="/terms" className="hover:text-emerald-400">Termos de Uso</a>
-        <a href="/faq" className="hover:text-emerald-400">FAQ</a>
-        <a href="/about" className="hover:text-emerald-400">Sobre</a>
-      </div>
-    </main>
+        <p className="text-xs text-slate-600">
+          Guard Brasil | @egosbr/guard-brasil | MIT License
+        </p>
+      </footer>
+    </div>
   );
 }
