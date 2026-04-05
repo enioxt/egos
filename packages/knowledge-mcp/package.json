@@ -1,0 +1,20 @@
+{
+  "name": "@egos/knowledge-mcp",
+  "version": "1.0.0",
+  "description": "EGOS Knowledge Base MCP server — search_wiki, get_page, record_learning",
+  "type": "module",
+  "bin": {
+    "knowledge-mcp": "./src/index.ts"
+  },
+  "scripts": {
+    "start": "bun src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

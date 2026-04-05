@@ -173,6 +173,17 @@ if [ "$MODE" = "--check" ] && [ "$DRIFT_COUNT" -gt 0 ]; then
   exit 1
 fi
 
+# KB-008: Auto-compile Knowledge Base wiki after governance check
+if [ "$MODE" = "--exec" ] || [ "$MODE" = "--check" ]; then
+  echo ""
+  printf "${BLUE}[KB-008] Wiki Knowledge Base — compiling...${NC}\n"
+  if bun wiki:compile --quiet 2>/dev/null; then
+    printf "${GREEN}✅ wiki:compile complete${NC}\n"
+  else
+    printf "${YELLOW}⚠️  wiki:compile skipped (not configured or no sources)${NC}\n"
+  fi
+fi
+
 if [ "$MODE" = "--exec" ] && [ "$SYNC_COUNT" -gt 0 ]; then
   echo ""
   printf "${GREEN}Synced %d files to ~/.egos/guarani/, ~/.egos/workflows/, and ~/.egos/docs/${NC}\n" "$SYNC_COUNT"

@@ -18,6 +18,9 @@ import { writeFileSync, readFileSync, existsSync } from "fs";
 import { join } from "path";
 
 const DRY_RUN = process.argv.includes("--dry-run") || !process.env.X_BEARER_TOKEN;
+const AUTO_APPROVE = process.env.AUTO_APPROVE === "true"; // Set to post immediately without dashboard review
+const SUPABASE_URL = process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
+const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? "";
 const STATUS_ONLY = process.argv.includes("--status");
 const STATE_FILE = "/tmp/x-reply-bot-state.json";
 
@@ -273,6 +276,35 @@ Reply only with the tweet text, nothing else.`;
   return `${topic.our_angle.slice(0, 200)}${topic.link ? ` ${topic.link}` : ""}`.slice(0, 270);
 }
 
+// ── Supabase HQ Dashboard Integration ────────────────────────────────────────
+
+async function saveToSupabase(tweet: XTweet, topic: string, generatedReply: string): Promise<void> {
+  if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) return;
+  try {
+    await fetch(`${SUPABASE_URL}/rest/v1/x_reply_runs`, {
+      method: "POST",
+      headers: {
+        "apikey": SUPABASE_SERVICE_KEY,
+        "Authorization": `Bearer ${SUPABASE_SERVICE_KEY}`,
+        "Content-Type": "application/json",
+        "Prefer": "return=minimal,resolution=ignore-duplicates",
+      },
+      body: JSON.stringify({
+        topic,
+        tweet_id: tweet.id,
+        tweet_text: tweet.text,
+        tweet_author: tweet.author_id,
+        tweet_likes: tweet.public_metrics?.like_count ?? 0,
+        generated_reply: generatedReply,
+        status: DRY_RUN ? "dry_run" : "pending",
+      }),
+    });
+    console.log(`  💾 Saved to HQ dashboard (status=${DRY_RUN ? "dry_run" : "pending"})`);
+  } catch (e) {
+    console.warn(`  ⚠️ Supabase save failed: ${String(e)}`);
+  }
+}
+
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 async function main() {
@@ -323,14 +355,28 @@ async function main() {
         const reply = await generateReply(tweet, topic);
         console.log(`  💬 Reply: "${reply}"`);
 
-        const ok = await postReply(tweet.id, reply);
-        if (ok) {
-          state.replies_sent++;
+        // Save to HQ dashboard for approval (replaces auto-posting)
+        await saveToSupabase(tweet, topic.category, reply);
+
+        if (AUTO_APPROVE && !DRY_RUN) {
+          // Legacy auto-approve mode — post immediately
+          const ok = await postReply(tweet.id, reply);
+          if (ok) {
+            state.replies_sent++;
+            state.replied_to.push(tweet.id);
+            repliesThisRun++;
+            saveState(state);
+            console.log(`  ✅ Replied (${state.replies_sent}/${MAX_DAILY_REPLIES} today)`);
+            await new Promise(r => setTimeout(r, 5000)); // 5s between posts
+          }
+        } else {
+          // Dashboard approval mode — mark as seen, wait for Enio to approve in HQ
           state.replied_to.push(tweet.id);
           repliesThisRun++;
           saveState(state);
-          console.log(`  ✅ Replied (${state.replies_sent}/${MAX_DAILY_REPLIES} today)`);
-          await new Promise(r => setTimeout(r, 5000)); // 5s between posts
+          if (!DRY_RUN) {
+            console.log(`  📋 Queued for HQ approval — hq.egos.ia.br/x`);
+          }
         }
       }
     } catch (e: any) {

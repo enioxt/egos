@@ -11,6 +11,8 @@
  * Operations:
  *   --compile   Scan raw sources, create/update wiki pages
  *   --lint      Health-check: orphan pages, stale content, missing cross-refs
+ *   --dedup     KB-013: detect and archive duplicate pages (>70% title similarity)
+ *   --enrich    KB-014: LLM enrichment for low-quality pages (score < 60)
  *   --index     Generate index (returns JSON summary of all pages)
  *   --world     Generate wiki pages from world-model snapshot (tasks, agents, signals)
  *   --dry       Preview changes without writing to Supabase
@@ -34,7 +36,11 @@ const MODE = process.argv.includes("--lint")
     ? "index"
     : process.argv.includes("--world")
       ? "world"
-      : "compile";
+      : process.argv.includes("--dedup")
+        ? "dedup"
+        : process.argv.includes("--enrich")
+          ? "enrich"
+          : "compile";
 
 const SUPABASE_URL = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL || "";
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
@@ -634,6 +640,157 @@ async function compileWorldModel(): Promise<void> {
 
 // ── Main ──────────────────────────────────────────────────────────────
 
+
+// ─── KB-013: Deduplication ───────────────────────────────────────────────────
+
+function similarity(a: string, b: string): number {
+  const sa = a.toLowerCase().split(/\W+/).filter(Boolean);
+  const sb = b.toLowerCase().split(/\W+/).filter(Boolean);
+  const setB = new Set(sb);
+  const intersection = sa.filter((w) => setB.has(w));
+  return intersection.length / Math.max(sa.length, sb.length, 1);
+}
+
+async function dedup(): Promise<void> {
+  console.log("[wiki-compiler] Dedup: loading pages...");
+  const pages = (await supabaseQuery("egos_wiki_pages", "GET", undefined,
+    "select=id,slug,title,quality_score,category&order=quality_score.desc"
+  )) as Array<{ id: string; slug: string; title: string; quality_score: number; category: string }>;
+
+  if (!pages?.length) { console.log("[wiki-compiler] No pages to dedup"); return; }
+  console.log(`[wiki-compiler] Checking ${pages.length} pages for duplicates...`);
+
+  const clusters: Array<{ keep: typeof pages[0]; remove: typeof pages[0]; score: number }> = [];
+
+  for (let i = 0; i < pages.length; i++) {
+    for (let j = i + 1; j < pages.length; j++) {
+      const score = similarity(pages[i].title, pages[j].title);
+      if (score >= 0.70) {
+        const keep = pages[i].quality_score >= pages[j].quality_score ? pages[i] : pages[j];
+        const remove = keep === pages[i] ? pages[j] : pages[i];
+        clusters.push({ keep, remove, score });
+      }
+    }
+  }
+
+  if (clusters.length === 0) {
+    console.log("[wiki-compiler] ✅ No duplicates found");
+    return;
+  }
+
+  console.log(`[wiki-compiler] Found ${clusters.length} potential duplicate pairs:`);
+  for (const { keep, remove, score } of clusters) {
+    console.log(`  [${Math.round(score * 100)}%] KEEP: "${keep.title}" | REMOVE: "${remove.title}"`);
+    if (!DRY_RUN) {
+      // Archive the lower-quality page by marking it as archived category
+      await supabaseQuery(`egos_wiki_pages?id=eq.${remove.id}`, "PATCH", {
+        category: "archived",
+        tags: ["duplicate", `merged-into:${keep.slug}`],
+      });
+      console.log(`    → Archived "${remove.title}" (id: ${remove.id})`);
+    }
+  }
+
+  if (DRY_RUN) {
+    console.log(`[wiki-compiler] Dry run — ${clusters.length} pairs would be archived`);
+  } else {
+    console.log(`[wiki-compiler] ✅ Archived ${clusters.length} duplicate pages`);
+  }
+}
+
+// ─── KB-014: LLM Enrichment ──────────────────────────────────────────────────
+
+const DASHSCOPE_BASE = process.env.ALIBABA_DASHSCOPE_BASE_URL
+  ?? "https://dashscope-intl.aliyuncs.com/compatible-mode/v1";
+const DASHSCOPE_KEY = process.env.ALIBABA_DASHSCOPE_API_KEY ?? "";
+
+async function enrichPage(page: { id: string; title: string; content: string; category: string }): Promise<{
+  summary: string;
+  tags: string[];
+  quality_boost: number;
+}> {
+  if (!DASHSCOPE_KEY) throw new Error("ALIBABA_DASHSCOPE_API_KEY not set");
+
+  const res = await fetch(`${DASHSCOPE_BASE}/chat/completions`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${DASHSCOPE_KEY}`, "Content-Type": "application/json" },
+    body: JSON.stringify({
+      model: "qwen-plus",
+      messages: [
+        {
+          role: "system",
+          content: "You are a technical knowledge base curator for the EGOS AI platform. Output JSON only.",
+        },
+        {
+          role: "user",
+          content: `Enrich this knowledge base page. Return JSON with keys: summary (2-3 sentences, PT-BR), tags (array of 5-8 technical keywords), quality_boost (int 0-20 representing improvement made).
+
+Title: ${page.title}
+Category: ${page.category}
+Content (truncated): ${page.content.slice(0, 1500)}`,
+        },
+      ],
+      max_tokens: 400,
+      temperature: 0.3,
+      response_format: { type: "json_object" },
+    }),
+    signal: AbortSignal.timeout(20000),
+  });
+
+  if (!res.ok) throw new Error(`DashScope ${res.status}`);
+  const data = await res.json() as { choices: Array<{ message: { content: string } }> };
+  return JSON.parse(data.choices[0].message.content);
+}
+
+async function enrich(): Promise<void> {
+  if (!DASHSCOPE_KEY) {
+    console.error("[wiki-compiler] ALIBABA_DASHSCOPE_API_KEY not set — cannot enrich");
+    return;
+  }
+
+  console.log("[wiki-compiler] Enrich: loading low-quality pages (score < 60)...");
+  const pages = (await supabaseQuery("egos_wiki_pages", "GET", undefined,
+    "select=id,title,content,category,quality_score&quality_score=lt.60&category=neq.archived&order=quality_score.asc&limit=10"
+  )) as Array<{ id: string; title: string; content: string; category: string; quality_score: number }>;
+
+  if (!pages?.length) {
+    console.log("[wiki-compiler] ✅ No low-quality pages to enrich");
+    return;
+  }
+
+  console.log(`[wiki-compiler] Enriching ${pages.length} pages with LLM...`);
+  let enriched = 0;
+
+  for (const page of pages) {
+    try {
+      console.log(`  Processing: "${page.title}" (score: ${page.quality_score})`);
+      const result = await enrichPage(page);
+
+      if (!DRY_RUN) {
+        const newScore = Math.min(100, page.quality_score + (result.quality_boost ?? 10));
+        await supabaseQuery(`egos_wiki_pages?id=eq.${page.id}`, "PATCH", {
+          summary: result.summary,
+          tags: result.tags,
+          quality_score: newScore,
+          updated_at: new Date().toISOString(),
+        });
+        console.log(`    ✅ Enriched → score ${page.quality_score} → ${newScore}`);
+        enriched++;
+      } else {
+        console.log(`    [dry] Would set summary: "${result.summary?.slice(0, 80)}..."`);
+        console.log(`    [dry] Would set tags: ${result.tags?.join(", ")}`);
+      }
+
+      // Rate limit: 1 req/s
+      await new Promise((r) => setTimeout(r, 1100));
+    } catch (e) {
+      console.error(`    ❌ Failed: ${(e as Error).message}`);
+    }
+  }
+
+  console.log(`[wiki-compiler] ✅ Enriched ${enriched}/${pages.length} pages`);
+}
+
 async function main(): Promise<void> {
   console.log(`[wiki-compiler] Mode: ${MODE} | Dry: ${DRY_RUN}`);
   console.log(`[wiki-compiler] Supabase: ${SUPABASE_URL ? "configured" : "NOT SET"}`);
@@ -650,6 +807,12 @@ async function main(): Promise<void> {
       break;
     case "world":
       await compileWorldModel();
+      break;
+    case "dedup":
+      await dedup();
+      break;
+    case "enrich":
+      await enrich();
       break;
   }
 }

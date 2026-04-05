@@ -65,5 +65,16 @@
       "/home/enio/.claude",
       "/home/enio/egos-lab/apps/eagle-eye/src"
     ]
+  },
+  "mcpServers": {
+    "egos-knowledge": {
+      "command": "bun",
+      "args": [
+        "/home/enio/egos/packages/knowledge-mcp/src/index.ts"
+      ],
+      "env": {
+        "EGOS_GATEWAY_URL": "https://gateway.egos.ia.br"
+      }
+    }
   }
 }

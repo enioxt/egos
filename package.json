@@ -57,6 +57,10 @@
     "wiki:compile:dry": "bun agents/agents/wiki-compiler.ts --compile --dry",
     "wiki:lint": "bun agents/agents/wiki-compiler.ts --lint",
     "wiki:index": "bun agents/agents/wiki-compiler.ts --index",
+    "wiki:dedup": "bun agents/agents/wiki-compiler.ts --dedup",
+    "wiki:dedup:dry": "bun agents/agents/wiki-compiler.ts --dedup --dry",
+    "wiki:enrich": "bun agents/agents/wiki-compiler.ts --enrich",
+    "wiki:enrich:dry": "bun agents/agents/wiki-compiler.ts --enrich --dry",
     "obsidian:sync": "bun scripts/obsidian-export.ts",
     "obsidian:lint": "bun agents/agents/wiki-compiler.ts --lint",
     "obsidian:init": "echo '📁 Creating Obsidian Vault structure...' && mkdir -p '/home/enio/Obsidian Vault/EGOS/'{'00 - Inbox','01 - Raw Sources','02 - Wiki','03 - Sessions','04 - Outputs','05 - Templates','99 - Archive'}"
