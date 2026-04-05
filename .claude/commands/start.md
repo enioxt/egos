@@ -84,7 +84,16 @@ ls -t docs/gem-hunter/*.md 2>/dev/null | head -1 | xargs head -5 2>/dev/null
 | codebase-memory-mcp | `which codebase-memory-mcp 2>/dev/null` | YES — knowledge graph |
 | SecOps Gate | `ls docs/gem-hunter/secops-*.md 2>/dev/null` | BLOCKING if UNMITIGATED |
 
-## Phase 7.5: Task Reconciliation
+## Phase 7.5: Knowledge Base Health
+
+```bash
+echo "=== Knowledge Base ==="
+bun /home/enio/egos/agents/agents/wiki-compiler.ts --index 2>/dev/null | tail -5
+```
+
+Include page count and avg quality in Phase 8 briefing. If 0 pages: note "KB empty — run `bun wiki:compile`".
+
+## Phase 7.6: Task Reconciliation
 
 ```bash
 bun /home/enio/egos/scripts/task-reconciliation.ts --summary 2>/dev/null
@@ -105,7 +114,8 @@ Present to user:
 - **Meta-prompts:** Count active triggers
 - **Orchestration:** Alibaba/Qwen availability + Pipeline status
 - **Knowledge Graph:** codebase-memory-mcp indexed repos count
+- **Knowledge Base:** page count, avg quality, stale pages (from Phase 7.5)
 - **Repo role:** from `egos.config.json` or heuristic
 
 ---
-*v5.6 — Added Phase 6 (scheduled job results intake), codebase-memory-mcp in tooling check*
+*v5.8 — Added Phase 7.5 (Knowledge Base health from wiki-compiler --index)*
