@@ -45,21 +45,21 @@ EGOS-167/168/175, GH-040..042, EGOS-TELEM-001..005 — all DONE ✅. codebase-me
 - [x] KB-007: NPM scripts (wiki:compile, wiki:lint, wiki:index) ✅ 2026-04-05
 
 **P1 — Integration:**
-- [ ] KB-008: Add wiki:compile to Governance Drift CCR job (auto-compile after drift check)
-- [ ] KB-009: /start Phase 0 — include KB stats (page count, avg quality, stale pages)
-- [ ] KB-010: Record learnings from each Claude Code session (POST /knowledge/learnings on /end)
-- [ ] KB-011: Guard Brasil dashboard — add Knowledge tab consuming /knowledge/search?q=guard
+- [x] KB-008: Add wiki:compile to Governance Drift CCR job (auto-compile after drift check) ✅ 2026-04-05
+- [x] KB-009: /start Phase 0 — include KB stats (page count, avg quality, stale pages) ✅ 2026-04-05
+- [x] KB-010: Record learnings from each Claude Code session (POST /knowledge/learnings on /end) ✅ 2026-04-05
+- [x] KB-011: HQ Knowledge Base page (/knowledge) + Mission Control KB card ✅ 2026-04-05
 
 **P1 — Quality:**
 - [x] KB-012: Cross-reference enrichment — 3-strategy enrichment (entity/slug/tag), 0 orphans ✅ 2026-04-04
-- [ ] KB-013: Deduplication — detect similar pages and merge
-- [ ] KB-014: LLM summarization pass — enrich low-quality pages (<60 score) with AI synthesis
+- [x] KB-013: Deduplication — detect similar pages and merge (wiki:dedup) ✅ 2026-04-05
+- [x] KB-014: LLM enrichment pass for low-quality pages (<60) via qwen-plus (wiki:enrich) ✅ 2026-04-05
 
 **P2 — Advanced:**
 - [ ] KB-015: Full-text search with pg_trgm or pgvector embeddings
 - [x] KB-016: Knowledge graph visualization — /ui dashboard (egos-gateway) with category cards, search, quality scores, learnings panel ✅ 2026-04-04
 - [ ] KB-017: Auto-learning from git commits (extract patterns from commit messages + diffs)
-- [ ] KB-018: MCP server `knowledge-mcp` — tools: search_wiki, get_page, record_learning
+- [x] KB-018: MCP server @egos/knowledge-mcp — 5 tools: search_wiki, get_page, get_stats, record_learning, list_learnings ✅ 2026-04-05
 
 ---
 
