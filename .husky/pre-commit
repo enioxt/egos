@@ -123,6 +123,14 @@ check_lines ".windsurfrules" 150 || exit 1
 check_lines ".guarani/PREFERENCES.md" 100 || exit 1
 check_lines "docs/SSOT_REGISTRY.md" 200 || exit 1
 
+# 5.5. LLMRefs Staleness (non-blocking warning)
+if echo "$STAGED" | grep -q '\.md$'; then
+  STALE=$(python3 scripts/qa/llmrefs_staleness.py --root . 2>&1 | grep "LLMREFS_STALE" | grep -oP '\d+' || echo "0")
+  if [ "$STALE" -gt 0 ] 2>/dev/null; then
+    echo "  ⚠️  LLMRefs: $STALE stale link(s) in docs (non-blocking, run: python3 scripts/qa/llmrefs_staleness.py --root .)"
+  fi
+fi
+
 # 6. File Intelligence — Classification + Compliance + PII scan
 echo "  [5/5] file intelligence: classifying and checking staged files..."
 bash scripts/file-intelligence.sh 2>/dev/null || {
