@@ -3,7 +3,7 @@
  *
  * 6 exemplos pré-definidos + teste interativo.
  * Convida a pessoa a testar com seus próprios dados.
- * Free tier: 150 chamadas/mês.
+ * Free tier: 500 chamadas/mês.
  */
 
 'use client';
@@ -159,8 +159,8 @@ export default function LandingPage() {
                 </div>
                 <div className="w-px h-10 bg-slate-700" />
                 <div className="text-center">
-                  <p className="text-2xl font-bold text-emerald-400">150</p>
-                  <p className="text-xs text-slate-500">testes de demo</p>
+                  <p className="text-2xl font-bold text-emerald-400">500</p>
+                  <p className="text-xs text-slate-500">chamadas grátis/mês</p>
                 </div>
                 <div className="w-px h-10 bg-slate-700" />
                 <div className="text-center">
@@ -208,7 +208,7 @@ export default function LandingPage() {
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-bold">Teste com texto real</h2>
-              <span className="text-xs text-slate-500">{testsUsed}/150 testes usados nesta sessão</span>
+              <span className="text-xs text-slate-500">{testsUsed}/500 testes disponíveis no plano grátis</span>
             </div>
 
             <textarea
