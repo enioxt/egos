@@ -436,7 +436,8 @@ export default function LandingPage() {
               <a href="https://github.com/enioxt/egos" className="text-xs text-slate-400 hover:text-white transition">GitHub</a>
               <a href="https://www.npmjs.com/package/@egosbr/guard-brasil" className="text-xs text-slate-400 hover:text-white transition">npm</a>
               <a href="/dashboard-v2" className="text-xs text-emerald-400 hover:text-emerald-300 transition">Prévia do Dashboard</a>
-              <a href="/docs" className="text-xs text-amber-400 hover:text-amber-300 transition">📖 Documentação</a>
+              <a href="/docs" className="text-xs text-amber-400 hover:text-amber-300 transition">📖 Docs da API</a>
+              <a href="/integrations" className="text-xs text-blue-400 hover:text-blue-300 transition">🔌 Integrações</a>
             </div>
           </div>
         </section>

@@ -1,226 +1,203 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 
-const BASE_URL = 'https://guard.egos.ia.br';
-const EAGLE_URL = 'https://eagleeye.egos.ia.br';
+const API_URL = 'https://guard.egos.ia.br';
+
+function CopyButton({ text }: { text: string }) {
+  const [copied, setCopied] = useState(false);
+  return (
+    <button
+      onClick={() => { navigator.clipboard.writeText(text); setCopied(true); setTimeout(() => setCopied(false), 2000); }}
+      className="text-xs text-slate-500 hover:text-emerald-400 transition px-2 py-1 rounded border border-slate-700 hover:border-emerald-600/50 flex-shrink-0"
+    >
+      {copied ? '✓' : 'copiar'}
+    </button>
+  );
+}
+
+function CodeBlock({ code, lang }: { code: string; lang: string }) {
+  return (
+    <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+      <div className="flex items-center justify-between px-4 py-2 border-b border-slate-800">
+        <span className="text-xs text-slate-600 font-mono">{lang}</span>
+        <CopyButton text={code} />
+      </div>
+      <pre className="p-4 text-sm font-mono text-slate-300 overflow-x-auto leading-relaxed whitespace-pre-wrap"><code>{code}</code></pre>
+    </div>
+  );
+}
 
 export default function DocsPage() {
-  const [copiedId, setCopiedId] = useState<string | null>(null);
-
-  function copy(text: string, id: string) {
-    navigator.clipboard.writeText(text);
-    setCopiedId(id);
-    setTimeout(() => setCopiedId(null), 1500);
-  }
-
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100 font-mono">
-      {/* Header */}
-      <div className="border-b border-gray-800 bg-gray-900/50">
-        <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div className="min-h-screen bg-slate-950 text-white">
+      <header className="border-b border-slate-800 sticky top-0 bg-slate-950/95 backdrop-blur z-10">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <span className="text-2xl">🛡️</span>
-            <div>
-              <div className="font-bold text-white">EGOS API — Documentação</div>
-              <div className="text-xs text-gray-400">Guard Brasil + Eagle Eye</div>
-            </div>
+            <Link href="/landing" className="text-emerald-400 font-bold text-lg hover:text-emerald-300 transition">Guard Brasil</Link>
+            <span className="text-slate-600">/</span>
+            <span className="text-slate-400 text-sm">API Reference</span>
           </div>
-          <a
-            href="/landing"
-            className="text-xs text-amber-400 border border-amber-400/30 px-3 py-1.5 rounded hover:bg-amber-400/10 transition"
-          >
-            ← Obter chave gratuita
-          </a>
+          <nav className="flex gap-4 text-sm">
+            <Link href="/integrations" className="text-slate-400 hover:text-white transition">Integrações</Link>
+            <Link href="/landing#get-key" className="text-emerald-400 hover:text-emerald-300 transition font-medium">Chave grátis →</Link>
+          </nav>
         </div>
-      </div>
+      </header>
 
-      <div className="max-w-4xl mx-auto px-6 py-12">
+      <div className="max-w-5xl mx-auto px-6 py-12 space-y-16">
+
+        {/* Hero */}
+        <div>
+          <h1 className="text-4xl font-bold mb-3">Guard Brasil API — Referência</h1>
+          <p className="text-slate-400 text-lg mb-6">Detecção e mascaramento de PII brasileiro. 15 padrões. SHA-256 receipts. Compliance LGPD.</p>
+          <div className="flex flex-wrap gap-3">
+            {['v0.2.2','REST + npm','15 tipos PII BR','SHA-256 receipts','ATRiAN scoring','500 chamadas/mês grátis'].map(tag => (
+              <span key={tag} className="px-2 py-1 bg-slate-800 text-slate-400 rounded border border-slate-700 text-sm">{tag}</span>
+            ))}
+          </div>
+        </div>
+
         {/* Quick start */}
-        <section className="mb-12">
-          <h1 className="text-3xl font-bold text-white mb-2">Início Rápido</h1>
-          <p className="text-gray-400 mb-8">
-            Duas APIs, uma chave. Sua chave <code className="text-amber-300">gb_live_*</code> funciona em ambas.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-            <div className="border border-gray-700 rounded-xl p-5 bg-gray-900/40">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-xl">🛡️</span>
-                <span className="font-bold text-white">Guard Brasil API</span>
-              </div>
-              <p className="text-sm text-gray-400 mb-2">
-                Detecção de PII no texto: CPF, CNPJ, RG, telefone, endereço.
-              </p>
-              <div className="text-xs text-green-400">✓ 150 chamadas/mês grátis</div>
-              <div className="text-xs text-gray-500 mt-1">{BASE_URL}/v1/inspect</div>
-            </div>
-            <div className="border border-gray-700 rounded-xl p-5 bg-gray-900/40">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-xl">🦅</span>
-                <span className="font-bold text-white">Eagle Eye API</span>
-              </div>
-              <p className="text-sm text-gray-400 mb-2">
-                Inteligência de licitações: 121+ oportunidades de 80 municípios brasileiros.
-              </p>
-              <div className="text-xs text-green-400">✓ Mesma chave, 150 chamadas/mês grátis</div>
-              <div className="text-xs text-gray-500 mt-1">{EAGLE_URL}/api/opportunities</div>
-            </div>
+        <section>
+          <h2 className="text-2xl font-bold mb-6">Início em 60 segundos</h2>
+          <div className="space-y-4">
+            <CodeBlock lang="bash" code={`# Passo 1 — Gere sua chave gratuita (sem cartão)
+curl -X POST ${API_URL}/v1/keys \\
+  -H "Content-Type: application/json" \\
+  -d '{"name": "meu-projeto", "email": "dev@empresa.com.br"}'
+# → {"key": "gb_live_abc123...", "quota_limit": 500}`} />
+            <CodeBlock lang="bash" code={`# Passo 2 — Use imediatamente
+curl -X POST ${API_URL}/v1/inspect \\
+  -H "Authorization: Bearer gb_live_SUA_CHAVE" \\
+  -H "Content-Type: application/json" \\
+  -d '{"text": "Cliente João, CPF 123.456.789-09, CNPJ 12.345.678/0001-95"}'`} />
+            <CodeBlock lang="json" code={`// Resposta
+{
+  "safe": false,
+  "output": "Cliente João, CPF [CPF REMOVIDO], CNPJ [CNPJ REMOVIDO]",
+  "masking": { "findingCount": 2, "findings": [{"category":"cpf"}, {"category":"cnpj"}] },
+  "receipt": { "inspectionHash": "sha256_para_auditoria_ANPD...", "inspectedAt": "2026-04-05T21:00:00Z" },
+  "atrian": { "score": 80, "passed": true }
+}`} />
           </div>
         </section>
 
-        {/* Guard Brasil */}
-        <section className="mb-12">
-          <h2 className="text-xl font-bold text-white mb-1 flex items-center gap-2">
-            <span>🛡️</span> Guard Brasil — Detecção de PII
-          </h2>
-          <p className="text-gray-400 text-sm mb-6">
-            Identifica e redige dados pessoais sensíveis em qualquer texto.
-          </p>
+        {/* Autenticação */}
+        <section>
+          <h2 className="text-2xl font-bold mb-4">Autenticação</h2>
+          <p className="text-slate-400 mb-4">Header <code className="text-amber-300 bg-slate-800 px-1 rounded">Authorization: Bearer gb_live_...</code> em todas as requisições autenticadas.</p>
+          <CodeBlock lang="bash" code={`# Variável de ambiente recomendada (nunca hard-code)
+export GUARD_BRASIL_API_KEY="gb_live_abc123..."
 
-          <CodeBlock
-            id="inspect-curl"
-            title="Detectar PII — cURL"
-            lang="bash"
-            code={`curl -X POST ${BASE_URL}/v1/inspect \\
-  -H "Authorization: Bearer SEU_GB_LIVE_KEY" \\
+curl -X POST ${API_URL}/v1/inspect \\
+  -H "Authorization: Bearer $GUARD_BRASIL_API_KEY" \\
   -H "Content-Type: application/json" \\
-  -d '{"text": "O CPF do cliente é 123.456.789-00 e o telefone é (11) 99999-0000"}'`}
-            onCopy={copy}
-            copiedId={copiedId}
-          />
+  -d '{"text": "texto"}'`} />
+        </section>
 
-          <CodeBlock
-            id="inspect-js"
-            title="Detectar PII — JavaScript/TypeScript"
-            lang="typescript"
-            code={`const response = await fetch('${BASE_URL}/v1/inspect', {
-  method: 'POST',
-  headers: {
-    'Authorization': 'Bearer SEU_GB_LIVE_KEY',
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    text: 'O CPF do cliente é 123.456.789-00 e o telefone é (11) 99999-0000',
-  }),
-});
-
-const result = await response.json();
-// result.verdict: 'blocked' | 'allowed'
-// result.pii_found: ['CPF', 'TELEFONE']
-// result.redacted_text: 'O CPF do cliente é [CPF REDACTED] e...'
-console.log(result);`}
-            onCopy={copy}
-            copiedId={copiedId}
-          />
-
-          <CodeBlock
-            id="inspect-python"
-            title="Detectar PII — Python"
-            lang="python"
-            code={`import requests
-
-response = requests.post(
-    '${BASE_URL}/v1/inspect',
-    headers={'Authorization': 'Bearer SEU_GB_LIVE_KEY'},
-    json={'text': 'O CPF do cliente é 123.456.789-00 e o telefone é (11) 99999-0000'},
-)
-result = response.json()
-print(result['verdict'])      # 'blocked' ou 'allowed'
-print(result['pii_found'])    # ['CPF', 'TELEFONE']
-print(result['redacted_text'])  # texto com PII substituído`}
-            onCopy={copy}
-            copiedId={copiedId}
-          />
-
-          <div className="border border-gray-700 rounded-xl p-5 bg-gray-900/40 mt-4">
-            <div className="text-sm font-bold text-gray-300 mb-3">Exemplo de Resposta</div>
-            <pre className="text-xs text-green-300 overflow-x-auto">{`{
-  "verdict": "blocked",
-  "confidence": 0.97,
-  "pii_found": ["CPF", "TELEFONE"],
-  "redacted_text": "O CPF do cliente é [CPF REDACTED] e o telefone é [TELEFONE REDACTED]",
-  "atrian_score": 8.2,
-  "processing_time_ms": 45,
-  "remaining_quota": 149
-}`}</pre>
-          </div>
-
-          <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-3">
-            {['CPF', 'CNPJ', 'RG', 'E-MAIL', 'TELEFONE', 'ENDEREÇO', 'NOME', 'MASP'].map(t => (
-              <div key={t} className="text-xs text-center border border-gray-700 rounded px-2 py-1.5 text-gray-300">
-                {t}
+        {/* Endpoints */}
+        <section>
+          <h2 className="text-2xl font-bold mb-4">Endpoints</h2>
+          <div className="space-y-2">
+            {[
+              {m:'GET', p:'/health',             d:'Status do serviço',                           auth:false},
+              {m:'GET', p:'/v1/meta',             d:'Contrato da API e planos de preço',           auth:false},
+              {m:'GET', p:'/openapi.json',        d:'Especificação OpenAPI 3.0',                   auth:false},
+              {m:'GET', p:'/llms.txt',            d:'Arquivo de descoberta para agentes de IA',    auth:false},
+              {m:'POST',p:'/v1/keys',             d:'Gera chave de API gratuita (500/mês)',        auth:false},
+              {m:'POST',p:'/v1/inspect',          d:'Inspecciona texto — endpoint principal',      auth:true},
+              {m:'POST',p:'/v1/stripe/checkout',  d:'Cria sessão de pagamento Stripe',             auth:true},
+              {m:'POST',p:'/v1/crypto/checkout',  d:'Checkout NOWPayments (241 criptomoedas)',     auth:true},
+            ].map(e => (
+              <div key={e.p} className="flex items-center gap-3 p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                <span className={`text-xs font-bold font-mono px-2 py-0.5 rounded border flex-shrink-0 ${e.m==='GET'?'text-blue-400 bg-blue-900/20 border-blue-700/40':'text-emerald-400 bg-emerald-900/20 border-emerald-700/40'}`}>{e.m}</span>
+                <code className="text-sm text-white font-mono flex-1">{e.p}</code>
+                <span className="text-sm text-slate-400 hidden md:block">{e.d}</span>
+                {e.auth && <span className="text-xs text-amber-500 bg-amber-900/20 border border-amber-700/40 px-2 py-0.5 rounded">Auth</span>}
               </div>
             ))}
           </div>
         </section>
 
-        {/* Eagle Eye */}
-        <section className="mb-12">
-          <h2 className="text-xl font-bold text-white mb-1 flex items-center gap-2">
-            <span>🦅</span> Eagle Eye — Inteligência de Licitações
-          </h2>
-          <p className="text-gray-400 text-sm mb-6">
-            Oportunidades de licitações detectadas por IA em Diários Oficiais de 80 municípios.
-          </p>
+        {/* POST /v1/inspect detalhado */}
+        <section>
+          <h2 className="text-2xl font-bold mb-1">POST /v1/inspect — Detalhes</h2>
+          <p className="text-slate-400 mb-6">Request body e resposta completa com todos os campos.</p>
+          <div className="space-y-4">
+            <CodeBlock lang="json" code={`// Request body
+{
+  "text": "string (obrigatório) — texto a inspecionar",
+  "sessionId": "string (opcional) — agrupa inspeções na trilha de auditoria"
+}`} />
+            <CodeBlock lang="json" code={`// Response 200 — exemplo completo
+{
+  "safe": false,
+  "blocked": false,
+  "output": "Paciente: [CPF REMOVIDO], cartão [SUS REMOVIDO], CEP [CEP REMOVIDO]",
+  "summary": "Issues found: PII: 3 finding(s) (critical)",
+  "lgpdDisclosure": "[LGPD] Dados detectados e mascarados: CPF, SUS, CEP. Lei 13.709/2018.",
 
-          <CodeBlock
-            id="opps-curl"
-            title="Listar Oportunidades — cURL"
-            lang="bash"
-            code={`curl "${EAGLE_URL}/api/opportunities?limit=10&category=TI" \\
-  -H "Authorization: Bearer SEU_GB_LIVE_KEY"`}
-            onCopy={copy}
-            copiedId={copiedId}
-          />
+  "masking": {
+    "sensitivityLevel": "critical",
+    "findingCount": 3,
+    "findings": [
+      { "category": "cpf", "label": "CPF", "suggestion": "[CPF REMOVIDO]" },
+      { "category": "sus", "label": "SUS", "suggestion": "[SUS REMOVIDO]" },
+      { "category": "cep", "label": "CEP", "suggestion": "[CEP REMOVIDO]" }
+    ]
+  },
 
-          <CodeBlock
-            id="opps-js"
-            title="Listar Oportunidades — JavaScript"
-            lang="typescript"
-            code={`// Buscar oportunidades de TI com alto potencial
-const response = await fetch(
-  '${EAGLE_URL}/api/opportunities?limit=20&status=open',
-  { headers: { 'Authorization': 'Bearer SEU_GB_LIVE_KEY' } }
-);
-const { data, count } = await response.json();
+  "atrian": { "passed": true, "score": 80, "violationCount": 0, "violations": [] },
 
-// Filtrar por TI/Software
-const software = data.filter(o =>
-  o.category?.includes('TI') || o.ai_summary?.includes('software')
-);
+  "receipt": {
+    "inspectedAt": "2026-04-05T21:00:00.000Z",
+    "inputHash": "sha256 do texto original",
+    "outputHash": "sha256 do texto mascarado",
+    "inspectionHash": "sha256 combinado — armazene este para a ANPD",
+    "guardVersion": "0.2.2"
+  },
 
-software.forEach(o => {
-  console.log(\`[\${o.market_potential}] \${o.title}\`);
-  console.log(\`  \${o.territory_name} — R$ \${o.estimated_value_brl?.toLocaleString('pt-BR')}\`);
-  console.log(\`  \${o.source_url}\`);
-});`}
-            onCopy={copy}
-            copiedId={copiedId}
-          />
+  "meta": { "durationMs": 2, "timestamp": "2026-04-05T21:00:00.000Z", "version": "0.2.2" }
+}`} />
+          </div>
+        </section>
 
-          <div className="border border-gray-700 rounded-xl p-5 bg-gray-900/40 mt-4">
-            <div className="text-sm font-bold text-gray-300 mb-3">Parâmetros da API</div>
-            <table className="w-full text-xs">
-              <thead>
-                <tr className="text-gray-500 border-b border-gray-700">
-                  <th className="text-left py-2 pr-4">Parâmetro</th>
-                  <th className="text-left py-2 pr-4">Tipo</th>
-                  <th className="text-left py-2">Descrição</th>
-                </tr>
-              </thead>
-              <tbody className="text-gray-300">
+        {/* 15 tipos de PII */}
+        <section>
+          <h2 className="text-2xl font-bold mb-4">15 Tipos de PII Detectados</h2>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead><tr className="text-left border-b border-slate-800">
+                <th className="pb-3 text-slate-400 pr-4">Categoria</th>
+                <th className="pb-3 text-slate-400 pr-4">ID</th>
+                <th className="pb-3 text-slate-400 pr-4">Exemplo</th>
+                <th className="pb-3 text-slate-400">Máscara</th>
+              </tr></thead>
+              <tbody className="text-slate-300">
                 {[
-                  ['limit', 'number', 'Máximo de resultados (padrão: 20, máx: 100)'],
-                  ['offset', 'number', 'Paginação'],
-                  ['status', 'string', 'open | closed'],
-                  ['category', 'string', 'Filtro parcial: TI, SAUDE, OBRAS...'],
-                  ['territory_id', 'uuid', 'UUID do território (de /api/territories)'],
-                ].map(([p, t, d]) => (
-                  <tr key={p} className="border-b border-gray-800">
-                    <td className="py-2 pr-4 text-amber-300">{p}</td>
-                    <td className="py-2 pr-4 text-blue-300">{t}</td>
-                    <td className="py-2 text-gray-400">{d}</td>
+                  ['CPF','cpf','123.456.789-09 / 12345678909','[CPF REMOVIDO]'],
+                  ['CNPJ','cnpj','12.345.678/0001-95','[CNPJ REMOVIDO]'],
+                  ['RG','rg','RG 12.345.678-9 / SP-12.345.678 / MG-12345678','[RG REMOVIDO]'],
+                  ['CNH','cnh','CNH 00000000000','[CNH REMOVIDO]'],
+                  ['Cartão SUS','sus','898 0012 3456 7890','[SUS REMOVIDO]'],
+                  ['NIS / PIS','nis','12345678901','[NIS REMOVIDO]'],
+                  ['CEP','cep','01310-100 / 01310100','[CEP REMOVIDO]'],
+                  ['Placa Veicular','plate','ABC-1234 (antiga) / ABC1D23 (Mercosul)','[PLACA REMOVIDA]'],
+                  ['MASP','masp','MASP 1234567 / 1.234.567-8','[MASP REMOVIDO]'],
+                  ['REDS','reds','REDS 2024/0098765','[REDS REMOVIDO]'],
+                  ['Processo Judicial','process_number','1234567-89.2024.1.00.0000','[PROCESSO REMOVIDO]'],
+                  ['Título de Eleitor','titulo_eleitor','1234 5678 9012','[TÍTULO REMOVIDO]'],
+                  ['Telefone','phone','(11) 99999-9999 / +55 11 9 9999-9999','[TELEFONE REMOVIDO]'],
+                  ['E-mail','email','joao@empresa.com.br','[EMAIL REMOVIDO]'],
+                  ['Passaporte','passport','AA123456 (formato ICAO)','[PASSAPORTE REMOVIDO]'],
+                ].map(([label,id,example,mask]) => (
+                  <tr key={id as string} className="border-b border-slate-900">
+                    <td className="py-2.5 pr-4 font-medium text-white">{label}</td>
+                    <td className="py-2.5 pr-4 font-mono text-xs text-emerald-400">{id}</td>
+                    <td className="py-2.5 pr-4 font-mono text-xs text-slate-400">{example}</td>
+                    <td className="py-2.5 font-mono text-xs text-red-400">{mask}</td>
                   </tr>
                 ))}
               </tbody>
@@ -228,103 +205,136 @@ software.forEach(o => {
           </div>
         </section>
 
-        {/* Auth */}
-        <section className="mb-12">
-          <h2 className="text-xl font-bold text-white mb-4">Autenticação</h2>
-          <div className="border border-gray-700 rounded-xl p-5 bg-gray-900/40">
-            <p className="text-sm text-gray-400 mb-4">
-              Todas as requisições precisam do header <code className="text-amber-300">Authorization</code>:
-            </p>
-            <pre className="text-xs text-amber-300 bg-black/40 p-3 rounded mb-4">
-              Authorization: Bearer gb_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...
-            </pre>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-              {[
-                ['401 Unauthorized', 'red', 'Chave inválida ou ausente'],
-                ['429 Quota Exceeded', 'yellow', 'Limite atingido — faça upgrade'],
-                ['200 OK', 'green', 'Sucesso + X-RateLimit-Remaining'],
-              ].map(([code, color, desc]) => (
-                <div key={code} className={`border border-${color}-700/40 rounded p-3 bg-${color}-900/10`}>
-                  <div className={`font-bold text-${color}-400 mb-1`}>{code}</div>
-                  <div className="text-gray-400">{desc}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Pricing */}
-        <section className="mb-12">
-          <h2 className="text-xl font-bold text-white mb-4">Preços por uso</h2>
-          <p className="text-sm text-gray-400 mb-6">Sem assinatura obrigatória. O contrato público da API agora expõe faixas por volume em <code className="text-amber-300">GET /v1/meta</code>, incluindo capabilities de receipt, evidence chain e proveniência.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+        {/* Erros */}
+        <section>
+          <h2 className="text-2xl font-bold mb-4">Códigos de Erro</h2>
+          <div className="space-y-3">
             {[
-              { tier: 'Free', price: 'R$ 0', calls: '150 inspeções/mês', detail: 'entrada sem cartão', cta: 'Criar conta grátis', ctaHref: '/landing' },
-              { tier: '10k/mês', price: 'R$ 0,0049', calls: 'por inspeção', detail: '≈ R$ 49 por 10.000 chamadas', cta: 'Criar conta grátis', ctaHref: '/landing' },
-              { tier: '100k/mês', price: 'R$ 0,00199', calls: 'por inspeção', detail: '≈ R$ 199 por 100.000 chamadas', cta: 'Criar conta grátis', ctaHref: '/landing' },
-              { tier: '500k+', price: 'R$ 0,000998 → R$ 0,0005', calls: 'por inspeção', detail: 'degressivo + comercial', cta: 'Falar com vendas', ctaHref: 'mailto:enio@egos.ia.br?subject=Guard%20Brasil%20Volume' },
-            ].map(plan => (
-              <div key={plan.tier} className="rounded-xl p-6 border border-gray-700 bg-gray-900/40">
-                <div className="font-bold text-white text-lg mb-1">{plan.tier}</div>
-                <div className="mb-4">
-                  <span className="text-2xl font-bold text-white">{plan.price}</span>
+              ['400','Bad Request','JSON inválido ou campo text ausente','{"error":"Missing required field: text"}'],
+              ['401','Unauthorized','Chave ausente, inválida ou revogada','{"error":"Unauthorized. Get a free API key at guard.egos.ia.br"}'],
+              ['429','Quota Exceeded','Cota mensal atingida (upgrade necessário)','{"error":"Monthly quota exceeded.","upgrade_url":"https://guard.egos.ia.br/landing#pricing"}'],
+              ['429','Rate Limited','Mais de 100 req/min por chave','{"error":"Rate limit exceeded. Max 100 requests/minute."}'],
+              ['500','Server Error','Erro interno — abra issue no GitHub','{"error":"Internal server error"}'],
+            ].map(([code,name,desc,example],i) => (
+              <div key={i} className="p-4 bg-slate-900/50 rounded-lg border border-slate-800">
+                <div className="flex items-center gap-3 mb-1">
+                  <span className={`font-mono text-sm font-bold ${code.startsWith('4')?'text-amber-400':'text-red-400'}`}>{code}</span>
+                  <span className="font-medium text-white">{name}</span>
                 </div>
-                <div className="text-sm text-gray-300 mb-1">{plan.calls}</div>
-                <div className="text-xs text-gray-500 mb-6">{plan.detail}</div>
-                <a href={plan.ctaHref} className="block text-center py-2 rounded-lg text-sm font-medium border border-gray-600 text-gray-300 hover:bg-gray-800 transition">
-                  {plan.cta}
-                </a>
+                <p className="text-sm text-slate-400 mb-2">{desc}</p>
+                <code className="text-xs text-slate-500 font-mono">{example}</code>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="border-t border-gray-800 pt-8 text-center">
-          <p className="text-gray-500 text-sm">
-            Dúvidas? <a href="mailto:enio@egos.ia.br" className="text-amber-400 hover:underline">enio@egos.ia.br</a>
-            {' · '}
-            <a href="/landing" className="text-amber-400 hover:underline">Criar conta grátis</a>
-            {' · '}
-            <a href={EAGLE_URL} target="_blank" rel="noopener noreferrer" className="text-amber-400 hover:underline">Eagle Eye Dashboard</a>
-          </p>
-        </footer>
-      </div>
-    </div>
-  );
-}
+        {/* Rate limits */}
+        <section>
+          <h2 className="text-2xl font-bold mb-4">Planos e Rate Limits</h2>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead><tr className="text-left border-b border-slate-800">
+                <th className="pb-3 text-slate-400 pr-6">Plano</th>
+                <th className="pb-3 text-slate-400 pr-6">Chamadas/mês</th>
+                <th className="pb-3 text-slate-400 pr-6">Rate limit</th>
+                <th className="pb-3 text-slate-400 pr-6">Preço/chamada</th>
+                <th className="pb-3 text-slate-400">Est. mensal</th>
+              </tr></thead>
+              <tbody className="text-slate-300">
+                {[
+                  ['Free','500','100/min','R$ 0,000','R$ 0'],
+                  ['Startup','5.000','100/min','R$ 0,007','≈ R$ 35'],
+                  ['Business','500.000','500/min','R$ 0,004','≈ R$ 2.000'],
+                  ['Enterprise','Ilimitado','Negociável','R$ 0,002','Sob contrato'],
+                ].map(([plan,calls,rate,price,est]) => (
+                  <tr key={plan as string} className="border-b border-slate-900">
+                    <td className="py-3 pr-6 font-medium">{plan}</td>
+                    <td className="py-3 pr-6 font-mono text-xs text-emerald-400">{calls}</td>
+                    <td className="py-3 pr-6 font-mono text-xs text-blue-400">{rate}</td>
+                    <td className="py-3 pr-6 font-mono text-xs text-amber-400">{price}</td>
+                    <td className="py-3 text-slate-400">{est}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
 
-// ── CodeBlock Component ───────────────────────────────────────────────────────
+        {/* Receipts */}
+        <section>
+          <h2 className="text-2xl font-bold mb-2">Receipts SHA-256 — Auditoria LGPD</h2>
+          <p className="text-slate-400 mb-6">Cada inspeção gera três hashes imutáveis. Armazene <code className="text-emerald-400">inspectionHash</code> como prova para a ANPD.</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            {[
+              ['inputHash','Hash do texto original','Prova que o texto foi recebido'],
+              ['outputHash','Hash do texto mascarado','Prova do resultado'],
+              ['inspectionHash','Hash combinado','← Armazene este no banco'],
+            ].map(([field,title,desc]) => (
+              <div key={field as string} className="p-4 bg-slate-900 rounded-xl border border-slate-800">
+                <code className="text-emerald-400 text-xs font-mono">{field}</code>
+                <p className="text-sm font-bold text-white mt-2">{title}</p>
+                <p className="text-xs text-slate-400 mt-1">{desc}</p>
+              </div>
+            ))}
+          </div>
+          <CodeBlock lang="typescript" code={`// Como armazenar para conformidade LGPD
+const result = guard.inspect(userMessage);
 
-function CodeBlock({
-  id,
-  title,
-  lang,
-  code,
-  onCopy,
-  copiedId,
-}: {
-  id: string;
-  title: string;
-  lang: string;
-  code: string;
-  onCopy: (text: string, id: string) => void;
-  copiedId: string | null;
-}) {
-  return (
-    <div className="border border-gray-700 rounded-xl overflow-hidden mb-4">
-      <div className="flex items-center justify-between bg-gray-800/60 px-4 py-2">
-        <span className="text-xs text-gray-400">{title}</span>
-        <button
-          onClick={() => onCopy(code, id)}
-          className="text-xs text-gray-400 hover:text-white transition px-2 py-1 rounded hover:bg-gray-700"
-        >
-          {copiedId === id ? '✓ Copiado' : 'Copiar'}
-        </button>
+await db.auditLog.create({
+  inspection_hash: result.receipt.inspectionHash,
+  inspected_at:    result.receipt.inspectedAt,
+  had_pii:         result.masking.findingCount > 0,
+  pii_categories:  result.masking.findings.map(f => f.category),
+});
+// Prova para a ANPD: PII foi detectado e mascarado
+// sem armazenar o texto original`} />
+        </section>
+
+        {/* LGPD */}
+        <section>
+          <h2 className="text-2xl font-bold mb-4">Compliance LGPD (Lei 13.709/2018)</h2>
+          <div className="space-y-3 mb-6">
+            {[
+              ['Art. 6','Minimização','Nome e email apenas para chave. Texto processado em memória e descartado.'],
+              ['Art. 12','Anonimização','Hashes SHA-256 são irreversíveis — impossível reconstruir o texto original.'],
+              ['Art. 46','Segurança','AES-256 em repouso, TLS 1.3 em trânsito, rate limiting por chave.'],
+              ['Art. 18','Direitos','Solicite exclusão via enio@egos.ia.br — prazo de 15 dias úteis.'],
+            ].map(([art,title,desc]) => (
+              <div key={art as string} className="flex gap-4 p-4 bg-slate-900 border border-slate-800 rounded-xl">
+                <span className="text-emerald-400 font-mono text-sm flex-shrink-0 w-14">{art}</span>
+                <div><p className="font-bold text-white">{title}</p><p className="text-sm text-slate-400 mt-1">{desc}</p></div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* CTA para integrações */}
+        <div className="p-6 bg-emerald-900/20 border border-emerald-600/30 rounded-xl text-center">
+          <h3 className="font-bold text-xl text-white mb-2">Pronto para integrar?</h3>
+          <p className="text-slate-400 mb-4">Veja guias passo-a-passo para Node.js, Python, LangChain, OpenAI, FastAPI e mais.</p>
+          <div className="flex justify-center gap-3">
+            <Link href="/integrations" className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-medium rounded-xl transition text-sm">
+              Ver todos os guias de integração →
+            </Link>
+            <Link href="/landing#get-key" className="px-5 py-2.5 border border-slate-700 hover:border-slate-600 text-slate-300 rounded-xl transition text-sm">
+              Gerar chave gratuita
+            </Link>
+          </div>
+        </div>
+
       </div>
-      <pre className="bg-black/40 p-4 text-xs text-gray-300 overflow-x-auto leading-relaxed">
-        <code>{code}</code>
-      </pre>
+
+      <footer className="border-t border-slate-800 py-8 text-center">
+        <div className="flex justify-center gap-6 text-xs text-slate-500 mb-3">
+          <Link href="/landing" className="hover:text-white transition">Início</Link>
+          <Link href="/integrations" className="hover:text-white transition">Integrações</Link>
+          <Link href="/faq" className="hover:text-white transition">FAQ</Link>
+          <Link href="/terms" className="hover:text-white transition">Termos</Link>
+          <Link href="/privacy" className="hover:text-white transition">Privacidade</Link>
+          <a href={`${API_URL}/openapi.json`} target="_blank" rel="noopener noreferrer" className="hover:text-white transition">OpenAPI JSON</a>
+        </div>
+        <p className="text-xs text-slate-600">Guard Brasil | @egosbr/guard-brasil | MIT License</p>
+      </footer>
     </div>
   );
 }
