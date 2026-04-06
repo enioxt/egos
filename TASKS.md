@@ -212,20 +212,10 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 
 ---
 
-### Claude Code Hardening ✅ (2026-04-01)
-LEAK-001..009 done (hooks, settings.json, /coordinator, CLAUDE.md v2.1). Pending: LEAK-010/011/012 (monitor pattern repos).
-
-### AI Coverage & Observability ✅ (2026-04-01)
-AI-001..007 done (coverage map, scanner, keys synced, gem-hunter migrated). Pending: AI-008/009/010 (pre-commit hook, OTel wiring, cost dashboard).
-OBS-001..004 done (atrian-observability skeleton, telemetry policy, 12 spans, 10 metrics). Pending: OBS-010..013 (wiring, privacy logs).
-
----
-
-### Reference Repos — Awareness Registry (2026-04-01)
-**P1:** continue, aider, cline, OpenHands, langgraph, openai-agents-python, litellm, langfuse, agent-scaling-laws, OpenHarness
-**P2:** pydantic-ai, mem0, phoenix, vercel/ai, temporal-ts, haystack, dspy, modelcontextprotocol/servers
-**Ref:** awesome-claude-code, claude-code-hooks-observability, awesome-claude-code-toolkit, post-leak-insights
-**Done:** GH-010 (Continue 71/100), GH-011 (Aider 74/100), GH-012 (Cline 72.8/100), GH-046 (agent-scaling-laws 87% ArchSelector)
+### Claude Code Hardening + Observability (archived)
+LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (OTel wiring), OBS-010..013 (privacy logs) — P2.
+**Ref repos done:** Continue 71/100, Aider 74/100, Cline 72.8/100, agent-scaling-laws 87% ArchSelector.
+**P1 queue:** OpenHands, LangGraph, OpenAI Agents SDK, LiteLLM, Langfuse, Mem0, Temporal TS.
 
 ---
 
@@ -469,6 +459,30 @@ OBS-001..004 done (atrian-observability skeleton, telemetry policy, 12 spans, 10
 - [ ] MCP-008: Move `egos-knowledge` MCP from `egos/.claude/settings.json` → `~/.claude/settings.json` (make global)
 - [ ] GTM-014: Build `guard-brasil-mcp` — wraps guard.egos.ia.br as Claude tool, publish as `@egosbr/guard-brasil-mcp` (GTM play: devs install it in their Claude session)
 - [ ] KB-019: `bun wiki:dedup` — fix HARVEST.md 1944-line triplication caused by wiki:compile running without dedup
+
+---
+
+### Dream Cycle — Overnight Intelligence (2026-04-06)
+**SSOT:** `docs/strategy/DREAM_CYCLE_SSOT.md`
+**Goal:** Wake up to briefed HQ showing all nightly work. LLM cost: $0 (Gemma 4 31B free).
+
+**Phase 1 — Foundation (DONE ✅):**
+- [x] DC-001: Supabase tables `egos_nightly_logs` + `egos_nightly_reports` (migration applied) ✅ 2026-04-06
+- [x] DC-002: Log Harvester script v1.1 (bash, 9 containers, severity classification) ✅ 2026-04-06
+- [x] DC-003: VPS cron `0 2 * * *` (23h00 BRT) + Telegram alerts on critical ✅ 2026-04-06
+- [x] LLM-001: Google AI Studio provider (Gemma 4 31B + Gemini 2.5 Flash free quota) ✅ 2026-04-06
+- [x] LLM-002: Qwen 3.6 Plus free via OpenRouter ($0/token) — new first OpenRouter model ✅ 2026-04-06
+
+**Phase 2 — Intelligence (this week):**
+- [ ] DC-004: `agents/agents/intelligence-engine.ts` — reads nightly logs + TASKS.md, uses Gemma 4 31B, writes egos_nightly_reports + auto-creates TASKS entries
+- [ ] DC-005: Extend CCR Governance Sentinel to run intelligence-engine after drift check
+- [ ] DC-006: Auto-Healer script — restart containers on known patterns (rule-based, no LLM)
+- [ ] DC-011: Tune log-harvester Caddy pattern (false-positive: 472 TLS entries flagged as critical)
+
+**Phase 3 — HQ Integration:**
+- [ ] DC-007: HQ "Last Night" card on home page — shows Dream Cycle results from egos_nightly_logs
+- [ ] DC-008: HQ `/events` page (CTRL-014) — real-time stream from egos_agent_events + nightly reports
+- [ ] DC-009: Morning Briefing (06h30 BRT) — Telegram + WhatsApp summary of overnight work
 
 ---
 
