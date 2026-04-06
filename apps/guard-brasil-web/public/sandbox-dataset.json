@@ -1,0 +1,1215 @@
+{
+  "generated_at": "2026-04-06T12:36:00Z",
+  "api_endpoint": "https://guard.egos.ia.br/v1/inspect",
+  "api_version": "0.2.2",
+  "tests": [
+    {
+      "id": "01_cpf_formatted",
+      "body": {
+        "safe": false,
+        "blocked": false,
+        "output": "Meu CPF é [CPF REMOVIDO]",
+        "summary": "Issues found: PII: 1 finding(s) (critical)",
+        "lgpdDisclosure": "[LGPD] Dados pessoais detectados e mascarados nesta resposta: CPF. Conforme Lei 13.709/2018.",
+        "atrian": {
+          "passed": true,
+          "score": 100,
+          "violationCount": 0,
+          "violations": []
+        },
+        "masking": {
+          "sensitivityLevel": "critical",
+          "findingCount": 1,
+          "findings": [
+            {
+              "category": "cpf",
+              "label": "CPF",
+              "suggestion": "[CPF REMOVIDO]"
+            }
+          ]
+        },
+        "evidenceChain": null,
+        "receipt": {
+          "inspectedAt": "2026-04-06T12:36:52.769Z",
+          "inputHash": "83dd15799430c31c37b4bef87bc660cafb668bcfefb4c4bb5d676849c8563617",
+          "outputHash": "9ec0efd4d3dddda273fb135affd50e2a6bc56aa2f45c3dff7263a723e70c4eca",
+          "inspectionHash": "f071e8ee00aef4bc9b8af2dcab2dfcaaf5e1552c65ec272f6e85d4cec00861b5",
+          "guardVersion": "0.2.1",
+          "provenanceLevel": "inspection_only"
+        },
+        "pri": {
+          "output": "ALLOW",
+          "confidence": 95,
+          "reasoning": "Explicit cpf pattern matched",
+          "missingSignals": [],
+          "classifiersConsulted": [
+            "regex:cpf:match"
+          ],
+          "auditHash": "4ba49f6809d0039e377328d4c05f70861ad716c3270f3b8a600b0a720a418feb"
+        },
+        "meta": {
+          "durationMs": 1,
+          "manualReviewRequired": false,
+          "timestamp": "2026-04-06T12:36:52.769Z",
+          "version": "0.2.2"
+        }
+      },
+      "stats": {
+        "http_status": 200,
+        "time_total": 0.989904,
+        "size": 1153
+      }
+    },
+    {
+      "id": "02_cpf_unformatted",
+      "body": {
+        "safe": false,
+        "blocked": false,
+        "output": "O número é [CPF REMOVIDO] para cadastro",
+        "summary": "Issues found: PII: 1 finding(s) (critical)",
+        "lgpdDisclosure": "[LGPD] Dados pessoais detectados e mascarados nesta resposta: CPF. Conforme Lei 13.709/2018.",
+        "atrian": {
+          "passed": true,
+          "score": 100,
+          "violationCount": 0,
+          "violations": []
+        },
+        "masking": {
+          "sensitivityLevel": "critical",
+          "findingCount": 1,
+          "findings": [
+            {
+              "category": "cpf",
+              "label": "CPF",
+              "suggestion": "[CPF REMOVIDO]"
+            }
+          ]
+        },
+        "evidenceChain": null,
+        "receipt": {
+          "inspectedAt": "2026-04-06T12:36:53.760Z",
+          "inputHash": "dd8cc6630b572ab71ac0bf79a35078cbf61c249862d4388f0fbb5e29e0fee983",
+          "outputHash": "aae62913f89fb30c2de0babd14e88e96c1f1422dbc63291b5d1cdf9b90ef5632",
+          "inspectionHash": "796a452f182c87af20478743ad25932de6d867b7847340b79b79fff4598043b7",
+          "guardVersion": "0.2.1",
+          "provenanceLevel": "inspection_only"
+        },
+        "pri": {
+          "output": "STUDY",
+          "confidence": 30,
+          "reasoning": "LLM could not classify pattern",
+          "missingSignals": [
+            "pattern_definition",
+            "training_data"
+          ],
+          "classifiersConsulted": [
+            "llm_mock"
+          ],
+          "auditHash": "f7b4d6dd415d58bfe0c54c76c737f38faf54ada7507f83eab930feb3b956418c"
+        },
+        "meta": {
+          "durationMs": 1,
+          "manualReviewRequired": true,
+          "timestamp": "2026-04-06T12:36:53.760Z",
+          "version": "0.2.2"
+        }
+      },
+      "stats": {
+        "http_status": 202,
+        "time_total": 1.067589,
+        "size": 1199
+      }
+    },
+    {
+      "id": "03_cpf_invalid_checksum",
+      "body": {
+        "safe": false,
+        "blocked": false,
+        "output": "CPF: [CPF REMOVIDO]",
+        "summary": "Issues found: PII: 1 finding(s) (critical)",
+        "lgpdDisclosure": "[LGPD] Dados pessoais detectados e mascarados nesta resposta: CPF. Conforme Lei 13.709/2018.",
+        "atrian": {
+          "passed": true,
+          "score": 100,
+          "violationCount": 0,
+          "violations": []
+        },
+        "masking": {
+          "sensitivityLevel": "critical",
+          "findingCount": 1,
+          "findings": [
+            {
+              "category": "cpf",
+              "label": "CPF",
+              "suggestion": "[CPF REMOVIDO]"
+            }
+          ]
+        },
+        "evidenceChain": null,
+        "receipt": {
+          "inspectedAt": "2026-04-06T12:36:55.097Z",
+          "inputHash": "a0096abfe995986fa3df0afcf80dc198b7494aa3364a4bc08818079d3e9338dc",
+          "outputHash": "c50ce36557fc15c67e8439014d554df95722d53e859d6ae03e8d3755cd06ce7f",
+          "inspectionHash": "24481a8a60b6bee4904264dc7005180a1bb1a66a80384be9f3ce1d3490140f67",
+          "guardVersion": "0.2.1",
+          "provenanceLevel": "inspection_only"
+        },
+        "pri": {
+          "output": "ALLOW",
+          "confidence": 95,
+          "reasoning": "Explicit cpf pattern matched",
+          "missingSignals": [],
+          "classifiersConsulted": [
+            "regex:cpf:match"
+          ],
+          "auditHash": "f9d37dadfbab9f156b5c02118901d8988e59a74f560fcf944469fac0510bb2c3"
+        },
+        "meta": {
+          "durationMs": 1,
+          "manualReviewRequired": false,
+          "timestamp": "2026-04-06T12:36:55.097Z",
+          "version": "0.2.2"
+        }
+      },
+      "stats": {
+        "http_status": 200,
+        "time_total": 1.244935,
+        "size": 1147
+      }
+    },
+    {
+      "id": "04_cpf_all_zeros",
+      "body": {
+        "safe": false,
+        "blocked": false,
+        "output": "CPF: [CPF REMOVIDO]",
+        "summary": "Issues found: PII: 1 finding(s) (critical)",
+        "lgpdDisclosure": "[LGPD] Dados pessoais detectados e mascarados nesta resposta: CPF. Conforme Lei 13.709/2018.",
+        "atrian": {
+          "passed": true,
+          "score": 100,
+          "violationCount": 0,
+          "violations": []
+        },
+        "masking": {
+          "sensitivityLevel": "critical",
+          "findingCount": 1,
+          "findings": [
+            {
+              "category": "cpf",
+              "label": "CPF",
+              "suggestion": "[CPF REMOVIDO]"
+            }
+          ]
+        },
+        "evidenceChain": null,
+        "receipt": {
+          "inspectedAt": "2026-04-06T12:36:56.108Z",
+          "inputHash": "a8839c7bb36b1e71bf5ef1c9d2bd4803bc11e9039d1ed9f0be07c057942ee5c6",
+          "outputHash": "c50ce36557fc15c67e8439014d554df95722d53e859d6ae03e8d3755cd06ce7f",
+          "inspectionHash": "c10e98daed209b02d144df69d33883d03dd98ae86a4c77816c131cfbed4e6b66",
+          "guardVersion": "0.2.1",
+          "provenanceLevel": "inspection_only"
+        },
+        "pri": {
+          "output": "ALLOW",
+          "confidence": 95,
+          "reasoning": "Explicit cpf pattern matched",
+          "missingSignals": [],
+          "classifiersConsulted": [
+            "regex:cpf:match"
+          ],
+          "auditHash": "9aa32259d3b902f9581917b8bafd7b81c3f58504881d242017ac83119ff0858e"
+        },
+        "meta": {
+          "durationMs": 1,
+          "manualReviewRequired": false,
+          "timestamp": "2026-04-06T12:36:56.109Z",
+          "version": "0.2.2"
+        }
+      },
+      "stats": {
+        "http_status": 200,
+        "time_total": 1.098193,
+        "size": 1147
+      }
+    },
+    {
+      "id": "05_cnpj_formatted",
+      "body": {
+        "safe": false,
+        "blocked": false,
+        "output": "Empresa CNPJ [CNPJ REMOVIDO]",
+        "summary": "Issues found: PII: 1 finding(s) (low)",
+        "lgpdDisclosure": "[LGPD] Dados pessoais detectados e mascarados nesta resposta: CNPJ. Conforme Lei 13.709/2018.",
+        "atrian": {
+          "passed": true,
+          "score": 95,
+          "violationCount": 1,
+          "violations": [
+            {
+              "level": "warning",
+              "category": "invented_acronym",
+              "message": "Possible invented acronym: \"CNPJ\"",
+              "matched": "CNPJ"
+            }
+          ]
+        },
+        "masking": {
+          "sensitivityLevel": "low",
+          "findingCount": 1,
+          "findings": [
+            {
+              "category": "cnpj",
+              "label": "CNPJ",
+              "suggestion": "[CNPJ REMOVIDO]"
+            }
+          ]
+        },
+        "evidenceChain": null,
+        "receipt": {
+          "inspectedAt": "2026-04-06T12:36:57.334Z",
+          "inputHash": "b8f0efb08cd94f7266e11728e7ee8455f341a3777d703d298e7f4a793487ec7d",
+          "outputHash": "611930e82e843bc412b738c0c822e5956c47fa50ab67e1c56a6aad2abb8228aa",
+          "inspectionHash": "563d58a38b091a5254bd13fee48a4577d4c3a9da8b64c51dbfc4878496471aed",
+          "guardVersion": "0.2.1",
+          "provenanceLevel": "inspection_only"
+        },
+        "pri": null,
+        "meta": {
+          "durationMs": 1,
+          "manualReviewRequired": false,
+          "timestamp": "2026-04-06T12:36:57.335Z",
+          "version": "0.2.2"
+        }
+      },
+      "stats": {
+        "http_status": 200,
+        "time_total": 1.130056,
+        "size": 1048
+      }
+    },
+    {
+      "id": "06_email",
+      "body": {
+        "safe": false,
+        "blocked": false,
+        "output": "Contato: [EMAIL REMOVIDO]",
+        "summary": "Issues found: PII: 1 finding(s) (low)",
+        "lgpdDisclosure": "[LGPD] Dados pessoais detectados e mascarados nesta resposta: Email. Conforme Lei 13.709/2018.",
+        "atrian": {
+          "passed": true,
+          "score": 100,
+          "violationCount": 0,
+          "violations": []
+        },
+        "masking": {
+          "sensitivityLevel": "low",
+          "findingCount": 1,
+          "findings": [
+            {
+              "category": "email",
+              "label": "Email",
+              "suggestion": "[EMAIL REMOVIDO]"
+            }
+          ]
+        },
+        "evidenceChain": null,
+        "receipt": {
+          "inspectedAt": "2026-04-06T12:36:58.345Z",
+          "inputHash": "214f758475cb259a9b3865bfb7b328015023f49ec79bff833e48c0a286fc10ef",
+          "outputHash": "50d5108458cd86bc6dafaad2256fdc951be644489e391db2b90c07f94a198ae6",
+          "inspectionHash": "a3443675ce6f9a819c17898c3243b7212a302d40feb03c690f6c8f8924ab7fb0",
+          "guardVersion": "0.2.1",
+          "provenanceLevel": "inspection_only"
+        },
+        "pri": {
+          "output": "ALLOW",
+          "confidence": 95,
+          "reasoning": "Explicit email pattern matched",
+          "missingSignals": [],
+          "classifiersConsulted": [
+            "regex:email:match"
+          ],
+          "auditHash": "ee63eab65024b11aa67b99b696950f3f5f8122ca30190ea25d2a623b86c7a265"
+        },
+        "meta": {
+          "durationMs": 1,
+          "manualReviewRequired": false,
+          "timestamp": "2026-04-06T12:36:58.345Z",
+          "version": "0.2.2"
+        }
+      },
+      "stats": {
+        "http_status": 200,
+        "time_total": 0.993964,
+        "size": 1155
+      }
+    },
+    {
+      "id": "07_rg",
+      "body": {
+        "safe": false,
+        "blocked": false,
+        "output": "[RG REMOVIDO] SSP/SP",
+        "summary": "Issues found: PII: 1 finding(s) (critical)",
+        "lgpdDisclosure": "[LGPD] Dados pessoais detectados e mascarados nesta resposta: RG. Conforme Lei 13.709/2018.",
+        "atrian": {
+          "passed": true,
+          "score": 90,
+          "violationCount": 2,
+          "violations": [
+            {
+              "level": "warning",
+              "category": "invented_acronym",
+              "message": "Possible invented acronym: \"SSP\"",
+              "matched": "SSP"
+            },
+            {
+              "level": "warning",
+              "category": "invented_acronym",
+              "message": "Possible invented acronym: \"SP\"",
+              "matched": "SP"
+            }
+          ]
+        },
+        "masking": {
+          "sensitivityLevel": "critical",
+          "findingCount": 1,
+          "findings": [
+            {
+              "category": "rg",
+              "label": "RG",
+              "suggestion": "[RG REMOVIDO]"
+            }
+          ]
+        },
+        "evidenceChain": null,
+        "receipt": {
+          "inspectedAt": "2026-04-06T12:36:59.374Z",
+          "inputHash": "b672fcdc28143cd1e778eb9f9827b50f662c34560ada39181290bf8067a3ea4f",
+          "outputHash": "60e36c3131271991f3b0ac5d04de8393447683559f051c9cf59ba49e478b9a3c",
+          "inspectionHash": "c2b891f9eaa3f1b8529114d44080048283ac557b2abc0eee5f6e1761c62deb3f",
+          "guardVersion": "0.2.1",
+          "provenanceLevel": "inspection_only"
+        },
+        "pri": {
+          "output": "ALLOW",
+          "confidence": 95,
+          "reasoning": "Explicit rg pattern matched",
+          "missingSignals": [],
+          "classifiersConsulted": [
+            "regex:rg:match"
+          ],
+          "auditHash": "f5ac5d414fe97269abeabae6a0cd2fd10ddbe6e8cc4b822b7f7e99bc0435da10"
+        },
+        "meta": {
+          "durationMs": 1,
+          "manualReviewRequired": false,
+          "timestamp": "2026-04-06T12:36:59.374Z",
+          "version": "0.2.2"
+        }
+      },
+      "stats": {
+        "http_status": 200,
+        "time_total": 1.130331,
+        "size": 1364
+      }
+    },
+    {
+      "id": "08_phone_br",
+      "body": {
+        "safe": false,
+        "blocked": false,
+        "output": "Telefone: ([TELEFONE REMOVIDO]",
+        "summary": "Issues found: PII: 1 finding(s) (low)",
+        "lgpdDisclosure": "[LGPD] Dados pessoais detectados e mascarados nesta resposta: Telefone. Conforme Lei 13.709/2018.",
+        "atrian": {
+          "passed": true,
+          "score": 100,
+          "violationCount": 0,
+          "violations": []
+        },
+        "masking": {
+          "sensitivityLevel": "low",
+          "findingCount": 1,
+          "findings": [
+            {
+              "category": "phone",
+              "label": "Telefone",
+              "suggestion": "[TELEFONE REMOVIDO]"
+            }
+          ]
+        },
+        "evidenceChain": null,
+        "receipt": {
+          "inspectedAt": "2026-04-06T12:37:01.017Z",
+          "inputHash": "ee071471abd7d7bf67e97893f41fcb4392230cea3ee16f28a71b97479811439b",
+          "outputHash": "43e084aa3775adffaba3cca69aa38cdcd93bac7a4c1511999ab20bbfb82e5c38",
+          "inspectionHash": "c2e8d4c45b189f6525952c6052625b6088267413e58250d42307a6780ae28bfd",
+          "guardVersion": "0.2.1",
+          "provenanceLevel": "inspection_only"
+        },
+        "pri": {
+          "output": "ALLOW",
+          "confidence": 95,
+          "reasoning": "Explicit phone pattern matched",
+          "missingSignals": [],
+          "classifiersConsulted": [
+            "regex:phone:match"
+          ],
+          "auditHash": "6b780144f1ca7edbeef767bc2c41ad6476f7781f724ffe95cc07a21a17cb0e18"
+        },
+        "meta": {
+          "durationMs": 1,
+          "manualReviewRequired": false,
+          "timestamp": "2026-04-06T12:37:01.017Z",
+          "version": "0.2.2"
+        }
+      },
+      "stats": {
+        "http_status": 200,
+        "time_total": 1.600812,
+        "size": 1169
+      }
+    },
+    {
+      "id": "09_credit_card",
+      "body": {
+        "safe": false,
+        "blocked": false,
+        "output": "Cartão [TÍTULO REMOVIDO] 1111 venc 12/28",
+        "summary": "Issues found: PII: 1 finding(s) (low)",
+        "lgpdDisclosure": "[LGPD] Dados pessoais detectados e mascarados nesta resposta: Título de Eleitor. Conforme Lei 13.709/2018.",
+        "atrian": {
+          "passed": true,
+          "score": 100,
+          "violationCount": 0,
+          "violations": []
+        },
+        "masking": {
+          "sensitivityLevel": "low",
+          "findingCount": 1,
+          "findings": [
+            {
+              "category": "titulo_eleitor",
+              "label": "Título de Eleitor",
+              "suggestion": "[TÍTULO REMOVIDO]"
+            }
+          ]
+        },
+        "evidenceChain": null,
+        "receipt": {
+          "inspectedAt": "2026-04-06T12:37:02.241Z",
+          "inputHash": "75cba9ca92e44afac949c47ae06cdc79570571f70444723364b1df497699d84f",
+          "outputHash": "5ad46f40d2d2f52ffd8d0276e87f0aaf7d125406a38ca3da617685c089ffd8a2",
+          "inspectionHash": "2ba3f807db3c043ed5f135c0d06f18d4a8c3e3adc672d238f52542f822fb509a",
+          "guardVersion": "0.2.1",
+          "provenanceLevel": "inspection_only"
+        },
+        "pri": null,
+        "meta": {
+          "durationMs": 0,
+          "manualReviewRequired": false,
+          "timestamp": "2026-04-06T12:37:02.241Z",
+          "version": "0.2.2"
+        }
+      },
+      "stats": {
+        "http_status": 200,
+        "time_total": 1.149317,
+        "size": 990
+      }
+    },
+    {
+      "id": "10_multiple_pii",
+      "body": {
+        "safe": false,
+        "blocked": false,
+        "output": "Cliente João Silva, CPF [CPF REMOVIDO], e-mail [EMAIL REMOVIDO], tel ([TELEFONE REMOVIDO]",
+        "summary": "Issues found: PII: 3 finding(s) (critical)",
+        "lgpdDisclosure": "[LGPD] Dados pessoais detectados e mascarados nesta resposta: CPF, Email, Telefone. Conforme Lei 13.709/2018.",
+        "atrian": {
+          "passed": true,
+          "score": 100,
+          "violationCount": 0,
+          "violations": []
+        },
+        "masking": {
+          "sensitivityLevel": "critical",
+          "findingCount": 3,
+          "findings": [
+            {
+              "category": "cpf",
+              "label": "CPF",
+              "suggestion": "[CPF REMOVIDO]"
+            },
+            {
+              "category": "email",
+              "label": "Email",
+              "suggestion": "[EMAIL REMOVIDO]"
+            },
+            {
+              "category": "phone",
+              "label": "Telefone",
+              "suggestion": "[TELEFONE REMOVIDO]"
+            }
+          ]
+        },
+        "evidenceChain": null,
+        "receipt": {
+          "inspectedAt": "2026-04-06T12:37:03.272Z",
+          "inputHash": "564a01e430da10197f83db37fd8599bfdef89b969f9a0fa580a7650aff0e5925",
+          "outputHash": "f69b87b0092f5d13fb448f78738167363b35fad788f4fcc7a775d8b073726fe5",
+          "inspectionHash": "3e8a1e2cd61e6b09fca86f056e99cbb287c8eaf1594d8a580a268c4927a45f3f",
+          "guardVersion": "0.2.1",
+          "provenanceLevel": "inspection_only"
+        },
+        "pri": {
+          "output": "ALLOW",
+          "confidence": 95,
+          "reasoning": "Explicit cpf pattern matched",
+          "missingSignals": [],
+          "classifiersConsulted": [
+            "regex:cpf:match"
+          ],
+          "auditHash": "20f959ac7aa3042693385adfb35c22c20cd31efa504df55fcedcd161f320ecc5"
+        },
+        "meta": {
+          "durationMs": 0,
+          "manualReviewRequired": false,
+          "timestamp": "2026-04-06T12:37:03.272Z",
+          "version": "0.2.2"
+        }
+      },
+      "stats": {
+        "http_status": 200,
+        "time_total": 1.125473,
+        "size": 1379
+      }
+    },
+    {
+      "id": "11_log_line",
+      "body": {
+        "safe": false,
+        "blocked": false,
+        "output": "[2026-04-06 12:00:00] INFO user_id=12345 cpf=[CPF REMOVIDO] action=login",
+        "summary": "Issues found: PII: 1 finding(s) (critical)",
+        "lgpdDisclosure": "[LGPD] Dados pessoais detectados e mascarados nesta resposta: CPF. Conforme Lei 13.709/2018.",
+        "atrian": {
+          "passed": true,
+          "score": 95,
+          "violationCount": 1,
+          "violations": [
+            {
+              "level": "warning",
+              "category": "invented_acronym",
+              "message": "Possible invented acronym: \"INFO\"",
+              "matched": "INFO"
+            }
+          ]
+        },
+        "masking": {
+          "sensitivityLevel": "critical",
+          "findingCount": 1,
+          "findings": [
+            {
+              "category": "cpf",
+              "label": "CPF",
+              "suggestion": "[CPF REMOVIDO]"
+            }
+          ]
+        },
+        "evidenceChain": null,
+        "receipt": {
+          "inspectedAt": "2026-04-06T12:37:04.518Z",
+          "inputHash": "4524ad0321250e77acde1dbaf43676214a269f378b12a5af4f80945ff777ebd1",
+          "outputHash": "fde904042128331dfdb945ffe5be8ea6637ab9f733cc8b55434d33cadd6639a0",
+          "inspectionHash": "98d8cec6b8ff4903bb650d1a22af8c8663e09c910d6b0cdebc47e0bf3f94dd82",
+          "guardVersion": "0.2.1",
+          "provenanceLevel": "inspection_only"
+        },
+        "pri": {
+          "output": "ALLOW",
+          "confidence": 90,
+          "reasoning": "LLM confirmed PII context",
+          "missingSignals": [],
+          "classifiersConsulted": [
+            "llm_mock"
+          ],
+          "auditHash": "d65c6ab84a82ed8589533164cfffdff88bdb062d983e490c57bf3e8ef947585b"
+        },
+        "meta": {
+          "durationMs": 1,
+          "manualReviewRequired": false,
+          "timestamp": "2026-04-06T12:37:04.518Z",
+          "version": "0.2.2"
+        }
+      },
+      "stats": {
+        "http_status": 200,
+        "time_total": 1.211552,
+        "size": 1303
+      }
+    },
+    {
+      "id": "12_sql_query",
+      "body": {
+        "safe": false,
+        "blocked": false,
+        "output": "SELECT * FROM clientes WHERE cpf = [CPF REMOVIDO] AND email = '[EMAIL REMOVIDO]'",
+        "summary": "Issues found: PII: 2 finding(s) (critical)",
+        "lgpdDisclosure": "[LGPD] Dados pessoais detectados e mascarados nesta resposta: CPF, Email. Conforme Lei 13.709/2018.",
+        "atrian": {
+          "passed": true,
+          "score": 85,
+          "violationCount": 3,
+          "violations": [
+            {
+              "level": "warning",
+              "category": "invented_acronym",
+              "message": "Possible invented acronym: \"FROM\"",
+              "matched": "FROM"
+            },
+            {
+              "level": "warning",
+              "category": "invented_acronym",
+              "message": "Possible invented acronym: \"WHERE\"",
+              "matched": "WHERE"
+            },
+            {
+              "level": "warning",
+              "category": "invented_acronym",
+              "message": "Possible invented acronym: \"AND\"",
+              "matched": "AND"
+            }
+          ]
+        },
+        "masking": {
+          "sensitivityLevel": "critical",
+          "findingCount": 2,
+          "findings": [
+            {
+              "category": "cpf",
+              "label": "CPF",
+              "suggestion": "[CPF REMOVIDO]"
+            },
+            {
+              "category": "email",
+              "label": "Email",
+              "suggestion": "[EMAIL REMOVIDO]"
+            }
+          ]
+        },
+        "evidenceChain": null,
+        "receipt": {
+          "inspectedAt": "2026-04-06T12:37:05.646Z",
+          "inputHash": "41ab273b1fb53d7f431259d9cbe532b0d991df536109f8cdbd5d3826d26cbc3d",
+          "outputHash": "f6cd0d746c8db0295c142802f01ed3ec9b75999c893d231244bfab93f9963973",
+          "inspectionHash": "6eb62bfc3d115dfadc63c40d9afe78d72b6d1c01b8665129f3255b9f7b1ad50e",
+          "guardVersion": "0.2.1",
+          "provenanceLevel": "inspection_only"
+        },
+        "pri": {
+          "output": "ALLOW",
+          "confidence": 95,
+          "reasoning": "Explicit email pattern matched",
+          "missingSignals": [],
+          "classifiersConsulted": [
+            "regex:cpf:nomatch",
+            "regex:email:match"
+          ],
+          "auditHash": "5b084f2e842d7394c89dd2a7a40ae9fe9106d2ab0e8bf1b85fab85a270087c41"
+        },
+        "meta": {
+          "durationMs": 1,
+          "manualReviewRequired": false,
+          "timestamp": "2026-04-06T12:37:05.646Z",
+          "version": "0.2.2"
+        }
+      },
+      "stats": {
+        "http_status": 200,
+        "time_total": 1.05003,
+        "size": 1651
+      }
+    },
+    {
+      "id": "13_json_payload",
+      "body": {
+        "safe": false,
+        "blocked": false,
+        "output": "{\"name\":\"Maria\",\"cpf\":\"[CPF REMOVIDO]\",\"email\":\"[EMAIL REMOVIDO]\"}",
+        "summary": "Issues found: PII: 2 finding(s) (critical)",
+        "lgpdDisclosure": "[LGPD] Dados pessoais detectados e mascarados nesta resposta: CPF, Email. Conforme Lei 13.709/2018.",
+        "atrian": {
+          "passed": true,
+          "score": 100,
+          "violationCount": 0,
+          "violations": []
+        },
+        "masking": {
+          "sensitivityLevel": "critical",
+          "findingCount": 2,
+          "findings": [
+            {
+              "category": "cpf",
+              "label": "CPF",
+              "suggestion": "[CPF REMOVIDO]"
+            },
+            {
+              "category": "email",
+              "label": "Email",
+              "suggestion": "[EMAIL REMOVIDO]"
+            }
+          ]
+        },
+        "evidenceChain": null,
+        "receipt": {
+          "inspectedAt": "2026-04-06T12:37:06.581Z",
+          "inputHash": "e01224997c5857e975558cea00eea992d71d329a8503f318a905bd25e6252ae2",
+          "outputHash": "0ad103da88c87aefba2b1e33754ef6b3601bd02cd15304608b6b643d0cdcb9ec",
+          "inspectionHash": "4a0de9b72e8ed1b4fbf7b22bc2abc9b6a90af55967df64b52df153550402c0a5",
+          "guardVersion": "0.2.1",
+          "provenanceLevel": "inspection_only"
+        },
+        "pri": {
+          "output": "ALLOW",
+          "confidence": 95,
+          "reasoning": "Explicit email pattern matched",
+          "missingSignals": [],
+          "classifiersConsulted": [
+            "regex:cpf:nomatch",
+            "regex:email:match"
+          ],
+          "auditHash": "d5f60447734d6828b1ee9f392ad3f5d4e88f5a33182b5a9f085add28595abab1"
+        },
+        "meta": {
+          "durationMs": 0,
+          "manualReviewRequired": false,
+          "timestamp": "2026-04-06T12:37:06.582Z",
+          "version": "0.2.2"
+        }
+      },
+      "stats": {
+        "http_status": 200,
+        "time_total": 0.986792,
+        "size": 1306
+      }
+    },
+    {
+      "id": "14_empty",
+      "body": {
+        "error": "Missing required field: \"text\" (string)"
+      },
+      "stats": {
+        "http_status": 400,
+        "time_total": 1.028435,
+        "size": 53
+      }
+    },
+    {
+      "id": "15_short",
+      "body": {
+        "safe": true,
+        "blocked": false,
+        "output": "a",
+        "summary": "Output is clean — no violations found.",
+        "lgpdDisclosure": "",
+        "atrian": {
+          "passed": true,
+          "score": 100,
+          "violationCount": 0,
+          "violations": []
+        },
+        "masking": {
+          "sensitivityLevel": "low",
+          "findingCount": 0,
+          "findings": []
+        },
+        "evidenceChain": null,
+        "receipt": {
+          "inspectedAt": "2026-04-06T12:37:08.699Z",
+          "inputHash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
+          "outputHash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
+          "inspectionHash": "2008ecedfacd6939d23cf91b51c8408deec76e3f4861caa14e42f700847e747c",
+          "guardVersion": "0.2.1",
+          "provenanceLevel": "inspection_only"
+        },
+        "pri": null,
+        "meta": {
+          "durationMs": 0,
+          "manualReviewRequired": false,
+          "timestamp": "2026-04-06T12:37:08.699Z",
+          "version": "0.2.2"
+        }
+      },
+      "stats": {
+        "http_status": 200,
+        "time_total": 1.005474,
+        "size": 752
+      }
+    },
+    {
+      "id": "16_long_email",
+      "body": {
+        "safe": false,
+        "blocked": false,
+        "output": "Olá, sou João Silva, gostaria de cancelar meu cadastro. Meu CPF é [CPF REMOVIDO], [RG REMOVIDO] SSP/SP, e-mail [EMAIL REMOVIDO]. Favor confirmar a exclusão dos dados conforme LGPD. Telefone para contato ([TELEFONE REMOVIDO]. Endereço: Rua das Flores 123, São Paulo SP, CEP [CEP REMOVIDO]. Atenciosamente, João.",
+        "summary": "Issues found: PII: 5 finding(s) (critical)",
+        "lgpdDisclosure": "[LGPD] Dados pessoais detectados e mascarados nesta resposta: CPF, RG, Email, Telefone, CEP. Conforme Lei 13.709/2018.",
+        "atrian": {
+          "passed": true,
+          "score": 80,
+          "violationCount": 4,
+          "violations": [
+            {
+              "level": "warning",
+              "category": "invented_acronym",
+              "message": "Possible invented acronym: \"SSP\"",
+              "matched": "SSP"
+            },
+            {
+              "level": "warning",
+              "category": "invented_acronym",
+              "message": "Possible invented acronym: \"SP\"",
+              "matched": "SP"
+            },
+            {
+              "level": "warning",
+              "category": "invented_acronym",
+              "message": "Possible invented acronym: \"SP\"",
+              "matched": "SP"
+            },
+            {
+              "level": "warning",
+              "category": "invented_acronym",
+              "message": "Possible invented acronym: \"CEP\"",
+              "matched": "CEP"
+            }
+          ]
+        },
+        "masking": {
+          "sensitivityLevel": "critical",
+          "findingCount": 5,
+          "findings": [
+            {
+              "category": "cpf",
+              "label": "CPF",
+              "suggestion": "[CPF REMOVIDO]"
+            },
+            {
+              "category": "rg",
+              "label": "RG",
+              "suggestion": "[RG REMOVIDO]"
+            },
+            {
+              "category": "email",
+              "label": "Email",
+              "suggestion": "[EMAIL REMOVIDO]"
+            },
+            {
+              "category": "phone",
+              "label": "Telefone",
+              "suggestion": "[TELEFONE REMOVIDO]"
+            },
+            {
+              "category": "cep",
+              "label": "CEP",
+              "suggestion": "[CEP REMOVIDO]"
+            }
+          ]
+        },
+        "evidenceChain": null,
+        "receipt": {
+          "inspectedAt": "2026-04-06T12:37:09.728Z",
+          "inputHash": "a011228214b89805bf2ee31906d198ccca471809e211cdd86ed11fa6593394eb",
+          "outputHash": "ba847ff8750c72e7afa2764a70ed34dfa2735b416db15a9462fea5657f2f0f9f",
+          "inspectionHash": "5a7664addc7c3d3376cf4d9b1f1cf401d50c7549e157448bb0cf1de334282239",
+          "guardVersion": "0.2.1",
+          "provenanceLevel": "inspection_only"
+        },
+        "pri": {
+          "output": "ALLOW",
+          "confidence": 95,
+          "reasoning": "Explicit cpf pattern matched",
+          "missingSignals": [],
+          "classifiersConsulted": [
+            "regex:cpf:match"
+          ],
+          "auditHash": "4d5953e2ec68cd21cf7c5f24d99c52ba1e824bdf5df557fadcd8f75944e082e8"
+        },
+        "meta": {
+          "durationMs": 1,
+          "manualReviewRequired": false,
+          "timestamp": "2026-04-06T12:37:09.728Z",
+          "version": "0.2.2"
+        }
+      },
+      "stats": {
+        "http_status": 200,
+        "time_total": 1.021602,
+        "size": 2184
+      }
+    },
+    {
+      "id": "17_unicode",
+      "body": {
+        "safe": false,
+        "blocked": false,
+        "output": "Olá! Meu CPF é [CPF REMOVIDO] — atenção à acentuação ção",
+        "summary": "Issues found: PII: 1 finding(s) (critical)",
+        "lgpdDisclosure": "[LGPD] Dados pessoais detectados e mascarados nesta resposta: CPF. Conforme Lei 13.709/2018.",
+        "atrian": {
+          "passed": true,
+          "score": 100,
+          "violationCount": 0,
+          "violations": []
+        },
+        "masking": {
+          "sensitivityLevel": "critical",
+          "findingCount": 1,
+          "findings": [
+            {
+              "category": "cpf",
+              "label": "CPF",
+              "suggestion": "[CPF REMOVIDO]"
+            }
+          ]
+        },
+        "evidenceChain": null,
+        "receipt": {
+          "inspectedAt": "2026-04-06T12:37:10.665Z",
+          "inputHash": "e33612f6eb6714a51279ed7af9727c4c12dcf5e243cb09f8b294802df61c5812",
+          "outputHash": "bf3cb231453b3e20fce44275716b9970929fa75ed25d6b332c5ed0b501431cdf",
+          "inspectionHash": "21f7fa22cde55c791a1bb6267819a60defabe22444c97d09578660ee5230f3b2",
+          "guardVersion": "0.2.1",
+          "provenanceLevel": "inspection_only"
+        },
+        "pri": {
+          "output": "ALLOW",
+          "confidence": 95,
+          "reasoning": "Explicit cpf pattern matched",
+          "missingSignals": [],
+          "classifiersConsulted": [
+            "regex:cpf:match"
+          ],
+          "auditHash": "5641520f37a209eb1ba15f77127661c644a7cfa6aea593bd69934d25dea7292a"
+        },
+        "meta": {
+          "durationMs": 0,
+          "manualReviewRequired": false,
+          "timestamp": "2026-04-06T12:37:10.665Z",
+          "version": "0.2.2"
+        }
+      },
+      "stats": {
+        "http_status": 200,
+        "time_total": 1.010867,
+        "size": 1195
+      }
+    },
+    {
+      "id": "18_no_pii",
+      "body": {
+        "safe": true,
+        "blocked": false,
+        "output": "O céu está azul e o sol brilha forte hoje em São Paulo.",
+        "summary": "Output is clean — no violations found.",
+        "lgpdDisclosure": "",
+        "atrian": {
+          "passed": true,
+          "score": 100,
+          "violationCount": 0,
+          "violations": []
+        },
+        "masking": {
+          "sensitivityLevel": "low",
+          "findingCount": 0,
+          "findings": []
+        },
+        "evidenceChain": null,
+        "receipt": {
+          "inspectedAt": "2026-04-06T12:37:11.759Z",
+          "inputHash": "2297d700880633ddae78236e917dfed945be38c67bf5f65b20af1639e1d277f4",
+          "outputHash": "2297d700880633ddae78236e917dfed945be38c67bf5f65b20af1639e1d277f4",
+          "inspectionHash": "ecc07b7535cc3ebf37378add658a120ba8a1bb1563f284dd9cd14e687e2a181a",
+          "guardVersion": "0.2.1",
+          "provenanceLevel": "inspection_only"
+        },
+        "pri": null,
+        "meta": {
+          "durationMs": 0,
+          "manualReviewRequired": false,
+          "timestamp": "2026-04-06T12:37:11.759Z",
+          "version": "0.2.2"
+        }
+      },
+      "stats": {
+        "http_status": 200,
+        "time_total": 1.004353,
+        "size": 809
+      }
+    },
+    {
+      "id": "19_false_positive_numeric",
+      "body": {
+        "safe": false,
+        "blocked": false,
+        "output": "Pedido número [CPF REMOVIDO] confirmado, valor R$ 999,00",
+        "summary": "Issues found: PII: 1 finding(s) (critical)",
+        "lgpdDisclosure": "[LGPD] Dados pessoais detectados e mascarados nesta resposta: CPF. Conforme Lei 13.709/2018.",
+        "atrian": {
+          "passed": true,
+          "score": 100,
+          "violationCount": 0,
+          "violations": []
+        },
+        "masking": {
+          "sensitivityLevel": "critical",
+          "findingCount": 1,
+          "findings": [
+            {
+              "category": "cpf",
+              "label": "CPF",
+              "suggestion": "[CPF REMOVIDO]"
+            }
+          ]
+        },
+        "evidenceChain": null,
+        "receipt": {
+          "inspectedAt": "2026-04-06T12:37:12.732Z",
+          "inputHash": "b2d2604c6e6af569f3b82ad991ec2dd1ee1bbbf14ca6c541ba8da21cd9b3262c",
+          "outputHash": "09c6e386b2e6e223d8291df9f3724b8c8e0ad31a7d738e06d0aff1cea4e4732e",
+          "inspectionHash": "2e6088358776eb19c1bc022675641e9db1552fcd344105c6c59e3e2fc7ab4651",
+          "guardVersion": "0.2.1",
+          "provenanceLevel": "inspection_only"
+        },
+        "pri": {
+          "output": "STUDY",
+          "confidence": 30,
+          "reasoning": "LLM could not classify pattern",
+          "missingSignals": [
+            "pattern_definition",
+            "training_data"
+          ],
+          "classifiersConsulted": [
+            "llm_mock"
+          ],
+          "auditHash": "f44f2fc4e6372572f35fbbbf4d34c7eae28bd33509c8e8cde2e6dab41b9260ab"
+        },
+        "meta": {
+          "durationMs": 1,
+          "manualReviewRequired": true,
+          "timestamp": "2026-04-06T12:37:12.732Z",
+          "version": "0.2.2"
+        }
+      },
+      "stats": {
+        "http_status": 202,
+        "time_total": 0.968109,
+        "size": 1215
+      }
+    },
+    {
+      "id": "20_atrian_risky",
+      "body": {
+        "safe": false,
+        "blocked": false,
+        "output": "Aprovar empréstimo para João da favela CPF [CPF REMOVIDO]",
+        "summary": "Issues found: PII: 1 finding(s) (critical)",
+        "lgpdDisclosure": "[LGPD] Dados pessoais detectados e mascarados nesta resposta: CPF. Conforme Lei 13.709/2018.",
+        "atrian": {
+          "passed": true,
+          "score": 100,
+          "violationCount": 0,
+          "violations": []
+        },
+        "masking": {
+          "sensitivityLevel": "critical",
+          "findingCount": 1,
+          "findings": [
+            {
+              "category": "cpf",
+              "label": "CPF",
+              "suggestion": "[CPF REMOVIDO]"
+            }
+          ]
+        },
+        "evidenceChain": null,
+        "receipt": {
+          "inspectedAt": "2026-04-06T12:37:13.659Z",
+          "inputHash": "547f92e57210cb4b972d26f7b16838aa098ecad6132aa5197140aee0b6fd0db3",
+          "outputHash": "e864f27ac76e19b977c78c366e6a27004a7597e7ceea96be206d5ca7dd8fef3f",
+          "inspectionHash": "3f52f16197327a8e18e10fdd2a60421d3164b3c193946ce0d78bf7b0ec8d86a5",
+          "guardVersion": "0.2.1",
+          "provenanceLevel": "inspection_only"
+        },
+        "pri": {
+          "output": "ALLOW",
+          "confidence": 95,
+          "reasoning": "Explicit cpf pattern matched",
+          "missingSignals": [],
+          "classifiersConsulted": [
+            "regex:cpf:match"
+          ],
+          "auditHash": "aa4b88f12466b8a3ae30e462cb1ab637e9f992747e8e5f123c5df171ca7e1480"
+        },
+        "meta": {
+          "durationMs": 0,
+          "manualReviewRequired": false,
+          "timestamp": "2026-04-06T12:37:13.659Z",
+          "version": "0.2.2"
+        }
+      },
+      "stats": {
+        "http_status": 200,
+        "time_total": 0.916813,
+        "size": 1187
+      }
+    }
+  ],
+  "latency": {
+    "samples": 30,
+    "min_ms": 891,
+    "p50_ms": 1013,
+    "p95_ms": 1111,
+    "p99_ms": 1197,
+    "max_ms": 1197,
+    "avg_ms": 1007,
+    "raw_ms": [
+      890.5,
+      894.7,
+      917.3,
+      926.1,
+      931.6,
+      950.4,
+      959.4,
+      978.7,
+      983.7,
+      994.1,
+      996.2,
+      1009.5,
+      1009.6,
+      1011.6,
+      1013.2,
+      1013.3,
+      1016.5,
+      1017.1,
+      1017.3,
+      1017.4,
+      1020.8,
+      1022.8,
+      1023.5,
+      1033.5,
+      1035.8,
+      1048.0,
+      1054.9,
+      1105.8,
+      1110.8,
+      1197.3
+    ],
+    "note": "End-to-end wall-clock from BR client to Hetzner DE server. Server-side processing alone is ~0-1ms (see meta.durationMs in responses)."
+  },
+  "scenarios_count": 20
+}

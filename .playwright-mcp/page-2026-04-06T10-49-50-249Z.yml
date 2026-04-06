@@ -1,0 +1,18 @@
+- generic [ref=e2]:
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - img [ref=e9]
+      - generic [ref=e12]:
+        - generic [ref=e13]: Guard Brasil
+        - generic [ref=e14]: LGPD · PII detection API
+    - heading "Detecção de PII brasileira em 4ms." [level=1] [ref=e15]:
+      - text: Detecção de PII
+      - text: brasileira
+      - text: em 4ms.
+    - generic [ref=e16]: CPF, RG, CNPJ, MASP e mais 11 padrões nativos. Open source, free tier 500 chamadas/mês.
+    - generic [ref=e17]:
+      - generic [ref=e18]: 15 padrões BR
+      - generic [ref=e19]: LGPD compliance
+      - generic [ref=e20]: OpenAPI + SDK
+  - img [ref=e22]
+  - generic [ref=e28]: "guard.egos.ia.br · npm: @egosbr/guard-brasil"

@@ -450,9 +450,7 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 
 > **SSOT:** `docs/OPENCLAW_SSOT.md` | **Gateway:** localhost:18789 | **Billing proxy:** localhost:18801
 
-**Current state:** Gateway UP (v2026.4.5, Node 22), billing proxy running (subscription=max), config valid, WebUI at http://127.0.0.1:18789, WebSocket handshake OK. **No channels configured yet** — only skeleton install.
-
----
+**Current state:** Gateway UP, billing proxy running (subscription=max), Codex proxy port 18802 (gpt-5.4). No channels configured — skeleton install.
 
 **P0 — Curto prazo (esta semana): Base funcional**
 
@@ -462,9 +460,8 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 - [x] OC-004: `~/.openclaw/workspace/USER.md` populado com perfil Enio (projetos, infra, preferências, estilo).
 - [x] OC-005: Token auto-refresh: `0 */4 * * *` rsync credentials local→VPS. Proxy relê por request — sem restart.
 
-- [x] OC-024: VPS watchdog (/opt/egos-watchdog.sh) — */5min cron, 10 containers + 4 endpoints + OAuth freshness, Telegram alert ✅ 2026-04-06
-- [x] OC-025: HQ health 4/4 services (Guard, Gateway, OpenClaw, BillingProxy via internal URLs) + /api/hq/health made public ✅ 2026-04-06
-- [x] OC-026: UFW rule — Docker infra_bracc 172.19.0.0/16 → port 18801 (billing proxy) ✅ 2026-04-06
+- [x] OC-024..026: VPS watchdog, HQ health 4/4, UFW Docker bridge ✅ 2026-04-06
+
 **P1 — Médio prazo (2 semanas): Canais + Integração EGOS**
 
 - [ ] OC-006: Decidir estratégia Telegram: (a) migrar egosin_bot para OpenClaw (OpenClaw gerencia o loop), ou (b) manter EGOS Gateway como primário e conectar OpenClaw via sessions API. **Recomendado: opção (b)** — EGOS Gateway tem LGPD/PII, OpenClaw traz skills/multi-device.
@@ -485,9 +482,19 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 
 **P3 — Longo prazo (3 meses): GTM + Produto**
 
-- [ ] OC-018: Construir `guard-brasil-mcp` como skill publicada no ClawHub — qualquer usuário OpenClaw pode instalar Guard Brasil PII detection. GTM play: **distribuição orgânica via marketplace de 13K+ skills**.
-- [ ] OC-019: Criar skill pública `egos-knowledge-mcp` no ClawHub — acesso à KB EGOS via OpenClaw. Showcase de capacidade para potenciais clientes.
-- [ ] OC-020: Integrar OpenClaw A2A Gateway — conectar EGOS agents ao protocolo A2A (Agent-to-Agent) do OpenClaw. Permite que agentes EGOS colaborem com agentes de outros usuários OpenClaw.
-- [ ] OC-021: Configurar multi-device — parear telefone Android + tablet com OpenClaw gateway via QR code. Todas as respostas chegam em todos os dispositivos.
-- [ ] OC-022: Tutor Melkin v2 via OpenClaw — substituir arquitetura atual do tutor por OpenClaw como runtime. Melkin = persona no SOUL.md. Canais: Telegram + WhatsApp + Web. Hermes para tasks autônomas.
-- [ ] OC-023: Avaliar OpenClaw para Guard Brasil self-serve onboarding — usuário instala Guard Brasil + OpenClaw, configura PII-scan automático em seus próprios canais de mensagem. Pricing: R$99/mo para essa stack.
+- [ ] OC-018: guard-brasil-mcp no ClawHub marketplace (GTM play: 13K+ skills distribution)
+- [ ] OC-019: egos-knowledge-mcp no ClawHub (KB EGOS via OpenClaw showcase)
+- [ ] OC-020: OpenClaw A2A Gateway — conectar EGOS agents ao protocolo A2A
+- [ ] OC-021: Multi-device QR — parear Android + tablet com OpenClaw gateway [BLOCKER: phone required]
+- [ ] OC-022: Tutor Melkin v2 — OpenClaw como runtime, SOUL.md persona, Telegram+WhatsApp+Web
+- [ ] OC-023: Guard Brasil self-serve onboarding via OpenClaw stack (R$99/mo)
+
+---
+
+### Self-Discovery Product (2026-04-06)
+**SSOT:** `docs/SELF_DISCOVERY_ARCHITECTURE.md` | self.egos.ia.br → VPS | B2C wellness (não medical device)
+- [ ] SD-001..008 (P0): Extract v2 archive → Dockerfile (FastAPI+Next.js) → docker-compose port 3098 → Caddy → VPS deploy → watchdog
+- [ ] SD-009..014 (P1): ICP + pricing + landing + procrastination detection + analytics + onboarding
+- [ ] SD-015..019 (P2): More patterns + Supabase auth + history + API docs + TS migration
+
+---

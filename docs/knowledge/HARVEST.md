@@ -1,8 +1,29 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 3.7.0 | **UPDATED:** 2026-04-06 P29
+> **VERSION:** 3.8.0 | **UPDATED:** 2026-04-06 P30
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
-> **Latest:** SSOT-First consolidation pattern (7→1 GTM files), pre-commit TTY fix ([ -t 0 ]), OAuth refresh cron + VPS sync
+> **Latest:** Self-Discovery product launch — containerization pattern with dedicated domain (self.egos.ia.br)
+
+## P30 Patterns (2026-04-06)
+
+**Self-Discovery Product Launch — Containerization Pattern:**
+- **Decision:** HUM-002 — Produtizar gem do archive v2 como container standalone
+- **Domain:** self.egos.ia.br → VPS 204.168.217.125:3098
+- **Pattern:** Extract from archive → Containerize → Dedicated domain → Reverse proxy (Caddy)
+- **Stack:** FastAPI (Python v2) + Next.js + Docker + Supabase
+- **Differentiation:** "IA que pergunta, não responde" — método maiêutico/socrático
+- **ICP:** B2C wellness/self-improvement (não medical device — evitar claims terapêuticos)
+- **Compliance:** LGPD-ready (reuses Guard Brasil patterns)
+- **Architecture spec:** `docs/SELF_DISCOVERY_ARCHITECTURE.md`
+- **Tasks:** SD-001..SD-019 (TASKS.md)
+
+**DNS Registration Pattern:**
+- Register A record: self.egos.ia.br → 204.168.217.125
+- Caddy reverse proxy: self.egos.ia.br → localhost:3098
+- TLS automático via Let's Encrypt (Caddy internal)
+- Health check: /health endpoint monitored by watchdog
+
+---
 
 ## P29 Patterns (2026-04-06)
 

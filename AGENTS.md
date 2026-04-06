@@ -192,3 +192,9 @@ Canonical workflows in `.agents/workflows/`: start, sync, pr-prep, disseminate, 
 ## Meta-Prompts (Operational)
 
 - `activation.egos-governance` → `.guarani/prompts/meta/egos-activation-governance.md` (used for `/start` and activation diagnostics)
+
+---
+
+## Investigation Documentation (P30)
+
+Complete ecosystem investigation: `docs/INVESTIGATION_FINAL_SUMMARY.md` | Decisions: HUM-001, 002, 003 | Architecture: `docs/SELF_DISCOVERY_ARCHITECTURE.md` | DNS: self.egos.ia.br → 204.168.217.125

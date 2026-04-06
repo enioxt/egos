@@ -42,7 +42,8 @@
       "mcp__codebase-memory-mcp__search_graph",
       "mcp__codebase-memory-mcp__search_code",
       "mcp__codebase-memory-mcp__list_projects",
-      "Bash(chmod +x scripts/daily-knowledge-sync.sh)"
+      "Bash(chmod +x scripts/daily-knowledge-sync.sh)",
+      "mcp__github__get_file_contents"
     ],
     "deny": [
       "Bash(rm -rf /:*)",
