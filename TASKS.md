@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.35.0 | **Updated:** 2026-04-06 | **LAST SESSION:** 2026-04-06 P24/P25 — HQ live (hq.egos.ia.br), 7 new skills synced from Windsurf, deps-watch track added, GTM-first mindset adopted, CLAUDE.md v2.5.0, Enio profile built, full plan created
+> **Version:** 2.36.0 | **Updated:** 2026-04-06 | **LAST SESSION:** 2026-04-06 P25/P26 — 4 new MCPs (Firecrawl, GitHub, Brave, Playwright), focus-enforcement v2.0 (researcher-builder FORBIDDEN-list), Guard Brasil market research (ICP confirmed), pre-commit TTY bug fixed, HARVEST.md v3.5.0 + CAPABILITY_REGISTRY.md v1.9.0
 
 ---
 
@@ -307,52 +307,17 @@ OBS-001..004 done (atrian-observability skeleton, telemetry policy, 12 spans, 10
 **P1:** EAGLE-GH-006 profile-service, EAGLE-GH-007 feedback-learning, EAGLE-GH-008 REST API v2, EAGLE-GH-009 MCP server, EAGLE-GH-010 Stripe Pix
 **P2:** EAGLE-GH-011..013 dashboard v2, Telegram routing, chatbot NL query
 **DEADLINE:** EAGLE-023 — R$250k proposal by 2026-04-29
-### P20 Session Tasks (2026-04-04)
+### P19-P20 Tasks — Active (archived done, see git log for P20 full list)
 
-**Done:**
-- [x] MONETIZE-006: Stripe meter events wired into /v1/inspect ✅ 2026-04-04
-- [x] MONETIZE-007: Credentials vault SSOT (vault.ts + Supabase credentials_vault, 14 indexed) ✅ 2026-04-04
-- [x] MONETIZE-008: Supabase tables: decisions_log, credentials_vault, claude_sessions ✅ 2026-04-04
-- [x] GOV-P20-001: CLAUDE.md v2.4.0 (autonomy, challenge, investigation, vocabulary, chatbot everywhere) ✅ 2026-04-04
-- [x] GOV-P20-002: Focus enforcement whitelist expanded (packages/shared, CLAUDE.md, .claude/, gem-hunter, docs/) ✅ 2026-04-04
-- [x] GOV-P20-003: Git tag v2.3.0-snapshot-2026-04-04 ✅ 2026-04-04
-- [x] WA-001: WhatsApp report sent via Evolution API (pipeline verified working) ✅ 2026-04-04
-- [x] WA-002: Daily report cron installed on VPS (8am BRT → WhatsApp) ✅ 2026-04-04
-- [x] WA-003: 196 WhatsApp groups indexed via Evolution API ✅ 2026-04-04
-- [x] MASTER-001: Master API PRD created (3 architecture options: Gateway, Event-Driven, Consciousness Loop) ✅ 2026-04-04
-
-**P0 — Revenue (Guard Brasil focus):**
-- [x] MONETIZE-009: Fix Stripe tiered pricing ✅ 2026-04-04. Archived 3 broken prices, created 3 new with unit_amount_decimal (0.7/0.4/0.2 centavos). IDs: startup=price_1TISgBHdOnphplrgLp2RngAm, business=price_1TISgBHdOnphplrgXCCJPWx5, enterprise=price_1TISgBHdOnphplrghe81rAql. VPS .env updated, API restarted healthy v0.2.2.
-- [x] MONETIZE-010: Frontend checkout button on guard-brasil-web ✅ 2026-04-05 (Stripe + NOWPayments buttons wired via /api/test proxy)
+**P0 — Revenue:**
 - [ ] MONETIZE-011: Deploy v0.2.3 to VPS with STRIPE_METER_ID env var
-- [ ] MONETIZE-012: NOWPayments webhook URL config in dashboard (guard.egos.ia.br/v1/crypto/webhook + 3×5min recurring notifications) — ENIO
-- [ ] MONETIZE-013: Pix billing integration (EGOS-163)
+- [ ] MONETIZE-012: NOWPayments webhook URL config — ENIO action required
+- [ ] MASTER-005: NLP intent classifier (Haiku, ~$1/day) for WhatsApp NL commands
 
-**P0 — Master API (Enables everything):**
-- [x] MASTER-002: Build EGOS Gateway API (Hono server, port 3000, WhatsApp + Knowledge channels) ✅ 2026-04-05
-- [x] MASTER-004: Deploy gateway to VPS Docker ✅ 2026-04-05 (port 3050, docker network infra_bracc, healthy)
-- [x] MASTER-003: Evolution API webhook → gateway routing — WhatsApp v2 full orchestrator + Telegram bot live ✅ 2026-04-05
-- [ ] MASTER-005: NLP intent classifier (Haiku, ~$1/day) for natural language commands
-
-**P1 — Dashboard & Monitoring:**
-- [ ] DASH-001: Evaluate ClawBridge / mission-control for EGOS mobile dashboard
-- [ ] DASH-002: Build mobile-first dashboard (agent status, costs, WhatsApp groups, alerts)
-
-**P1 — Gem Hunter Enhancement:**
-- [ ] GH-070: Add crypto/X.com KOL monitoring sources (xscan-app pattern, crypto-twitter-alpha-stream)
-- [ ] GH-071: Daily X.com scan via Gem Hunter (auto-trigger, not manual)
-
-### Previous P19 Tasks (Still Active)
-**P0 — Theater:**
-- [x] THEATER-001: x-reply-bot verified running on VPS cron ✅ 2026-04-04
-- [ ] CTX-001: Context recovery hook to /start
-**P1 — Architecture:**
-- [ ] HERMES-001: Wire Hermes-3 as BRAID mechanical executor
-- [ ] OPENCLAW-001: Register Guard Brasil as OpenClaw MCP skill
 **P1 — Infrastructure:**
+- [ ] HERMES-001: Wire Hermes-3 as BRAID mechanical executor
+- [ ] CTX-001: Context recovery hook to /start
 - [ ] CTX-002: Auto-index codebase-memory-mcp on /start
-- [ ] REWARDS-001: Unified rewards engine
-- [ ] MOAT-001: Data flywheels — partially addressed by KB (egos_learnings table)
 
 ### Partnership & Distribution Strategy (2026-04-05)
 
@@ -433,7 +398,7 @@ OBS-001..004 done (atrian-observability skeleton, telemetry policy, 12 spans, 10
 ### P25 — GTM-First Phase (2026-04-06)
 
 **North Star:** R$30k MRR by 2026-06-30. Every task must answer "who uses this?"
-**SSOT:** `docs/strategy/PARTNERSHIP_STRATEGY.md` | Market research: `business/MARKET_RESEARCH_GUARD_BRASIL_2026.md`
+**SSOT:** `docs/strategy/PARTNERSHIP_STRATEGY.md` | Market research: `docs/business/MARKET_RESEARCH_GUARD_BRASIL_2026.md` (moved from business/)
 **ICP (confirmed):** CTOs/backend devs at fintechs+healthtechs 50-500 employees. Handle CPF/RG daily, ANPD pressure, buy in days.
 **Positioning:** "The Presidio for Brazil — free API key, zero setup, 15 BR PII patterns." Presidio has 0 BR patterns.
 **Key insight:** Privacy Tools BR = PARTNER not competitor (process tool, no API). OneTrust/BigID = enterprise (R$50k+), not our market.
@@ -483,6 +448,27 @@ OBS-001..004 done (atrian-observability skeleton, telemetry policy, 12 spans, 10
 - [ ] HQ-008: `/gems` page — filterable card grid (score badge, source icon, category color, search)
 - [ ] HQ-009: `/system-map` page — interactive D3 graph (capability domains as nodes, agent edges)
 - [ ] HQ-010: Update nav in hq-layout.tsx with new links (tasks, world-model, gems, system-map, gtm)
+
+---
+
+### P26 — MCPs + Focus v2.0 (2026-04-06)
+
+**Completed:**
+- [x] MCP-001: Firecrawl MCP installed (`fc-45cf069ee7ef4c3aa4942a41127d8629`, tested against guard.egos.ia.br) ✅ 2026-04-06
+- [x] MCP-002: GitHub MCP installed (PAT token, repo access) ✅ 2026-04-06
+- [x] MCP-003: Brave Search MCP installed (`BSA0E6k_mAdnrOrieC_zRvLGhuu-4lp`) ✅ 2026-04-06
+- [x] MCP-004: Playwright MCP installed (headless browser automation) ✅ 2026-04-06
+- [x] FOCUS-001: focus-enforcement v2.0 — FORBIDDEN-list replaces allowlist (researcher-builder profile) ✅ 2026-04-06
+- [x] INFRA-001: pre-commit hook TTY graceful fallback for non-interactive environments ✅ 2026-04-06
+- [x] RES-001: Guard Brasil market research — ICP confirmed, 5 competitors mapped, Privacy Tools BR = partner ✅ 2026-04-06
+
+**Pending:**
+- [ ] MCP-005: Obsidian MCP — needs vault path from Enio (`setup-obsidian-mcp.sh` ready, smithery CLI)
+- [ ] MCP-006: Stripe MCP (`@stripe/mcp`) — needs Stripe secret key (on VPS only)
+- [ ] MCP-007: Telegram MCP (`mcp-telegram`) — needs bot token
+- [ ] MCP-008: Move `egos-knowledge` MCP from `egos/.claude/settings.json` → `~/.claude/settings.json` (make global)
+- [ ] GTM-014: Build `guard-brasil-mcp` — wraps guard.egos.ia.br as Claude tool, publish as `@egosbr/guard-brasil-mcp` (GTM play: devs install it in their Claude session)
+- [ ] KB-019: `bun wiki:dedup` — fix HARVEST.md 1944-line triplication caused by wiki:compile running without dedup
 
 ---
 
