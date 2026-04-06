@@ -40,6 +40,7 @@ export default function DocsPage() {
             <span className="text-slate-400 text-sm">API Reference</span>
           </div>
           <nav className="flex gap-4 text-sm">
+            <Link href="/sandbox" className="text-purple-400 hover:text-purple-300 transition">Sandbox</Link>
             <Link href="/integrations" className="text-slate-400 hover:text-white transition">Integrações</Link>
             <Link href="/landing#get-key" className="text-emerald-400 hover:text-emerald-300 transition font-medium">Chave grátis →</Link>
           </nav>
