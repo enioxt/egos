@@ -274,7 +274,21 @@ Each capability has:
 
 ---
 
-## 13. MISSION CONTROL (HQ)
+## 13. AUDITABLE LIVE SANDBOX (UX Pattern)
+
+> **Pattern SSOT:** `docs/patterns/AUDITABLE_SANDBOX_PATTERN.md`
+> Apply to any API/MCP/validation product. First impl: Guard Brasil.
+
+| Capability | SSOT | Quality | Adopted By | Should Adopt | Tags |
+|-----------|------|---------|------------|-------------|------|
+| **Auditable Live Sandbox** | `docs/patterns/AUDITABLE_SANDBOX_PATTERN.md` | A | guard-brasil-web (LIVE) | gem-hunter-web, eagle-eye-web, kb-api | `sandbox`, `ux`, `pattern`, `trust` |
+| **Sandbox Dataset Generator** | `apps/guard-brasil-web/app/sandbox/README.md` | B | guard-brasil | ALL viable | `sandbox`, `dataset`, `testing` |
+| **Client SHA-256 Receipt Verify** | `sandbox-client.tsx:sha256hex()` | A | guard-brasil-web | ALL APIs with receipts | `trust`, `crypto`, `receipt`, `lgpd` |
+| **Session Audit Trail Export** | `sandbox-client.tsx:exportAudit()` | A | guard-brasil-web | eagle-eye, gem-hunter | `audit`, `compliance`, `export` |
+
+---
+
+## 14. MISSION CONTROL (HQ)
 
 | Capability | SSOT | Quality | Adopted By | Should Adopt | Tags |
 |-----------|------|---------|------------|-------------|------|
