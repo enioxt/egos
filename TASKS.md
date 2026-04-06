@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.38.0 | **Updated:** 2026-04-06 | **LAST SESSION:** 2026-04-06 P24/P26 — OpenClaw billing proxy (sub=max), gateway v2026.4.5 fixed (Node 22 + config schema), OPENCLAW_SSOT.md, OC-001..023 roadmap added
+> **Version:** 2.39.0 | **Updated:** 2026-04-06 | **LAST SESSION:** 2026-04-06 P27 — OpenClaw VPS deploy complete (billing proxy + Telegram @egosmarkets_bot + Caddy routing), anthropic-subscription pipeline working end-to-end (PIPELINE_FINAL_OK), OC-001..005/009/015 done
 
 ---
 
@@ -441,19 +441,19 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 
 **P0 — Curto prazo (esta semana): Base funcional**
 
-- [ ] OC-001: Configurar canal Telegram no OpenClaw — adicionar bot token do @EGOSin_bot em `~/.openclaw/openclaw.json` (`channels.telegram.token`). Unificar com o egosin_bot do EGOS Gateway ou criar bot separado.
-- [ ] OC-002: Testar chat via WebUI — abrir http://127.0.0.1:18789, parear dispositivo, enviar mensagem, verificar resposta usando `anthropic-subscription` provider.
-- [ ] OC-003: Configurar modelo padrão para `anthropic-subscription` > `claude-sonnet-4-6` no OpenClaw UI.
-- [ ] OC-004: Populate `~/.openclaw/workspace/USER.md` com perfil completo do Enio (nome, contexto, preferências, projetos EGOS).
-- [ ] OC-005: Configurar token auto-refresh — `openclaw-billing-proxy` relê `~/.claude/.credentials.json` a cada request, mas token expira em ~24h. Adicionar cron: `0 */20 * * * systemctl --user restart openclaw-billing-proxy` para prevenir expiração.
+- [x] OC-001: Telegram local — decidido: @egosmarkets_bot no VPS, local sem Telegram (evitar conflito com EGOS Gateway @EGOSin_bot). VPS pronto.
+- [x] OC-002: Pipeline testado — `openclaw agent --message "..."` → billing proxy → Claude Sonnet 4.6 (PIPELINE_FINAL_OK ✅)
+- [x] OC-003: Modelo padrão: `anthropic-subscription/claude-sonnet-4-6` em `openclaw.json`. Fixes: `api:"anthropic-messages"` + `apiKey` obrigatório + auth-profiles.json.
+- [x] OC-004: `~/.openclaw/workspace/USER.md` populado com perfil Enio (projetos, infra, preferências, estilo).
+- [x] OC-005: Token auto-refresh: cron rsync credentials local→VPS a cada 4h (`0 */4 * * *`). Proxy relê arquivo a cada request — sem restart necessário.
 
 **P1 — Médio prazo (2 semanas): Canais + Integração EGOS**
 
 - [ ] OC-006: Decidir estratégia Telegram: (a) migrar egosin_bot para OpenClaw (OpenClaw gerencia o loop), ou (b) manter EGOS Gateway como primário e conectar OpenClaw via sessions API. **Recomendado: opção (b)** — EGOS Gateway tem LGPD/PII, OpenClaw traz skills/multi-device.
 - [ ] OC-007: Conectar EGOS Gateway → OpenClaw sessions API — `sessions_spawn` para criar sub-agentes OpenClaw a partir de intent do EGOS orchestrator. Exemplo: usuário pede "pesquise concorrentes" → EGOS spawna sessão OpenClaw com Gem Hunter skill.
 - [ ] OC-008: Instalar `@openclaw/whatsapp` channel — conectar ao Evolution API existente (port 8080 no VPS). OpenClaw gerencia loop de mensagens, EGOS Gateway faz PII-check antes de responder.
-- [ ] OC-009: Configurar `~/.openclaw/workspace/HEARTBEAT.md` com tarefas periódicas: verificar Guard Brasil API health, checar Supabase, reportar status via Telegram.
-- [ ] OC-010: Registrar Guard Brasil MCP (`@egosbr/guard-brasil-mcp`) como servidor MCP no OpenClaw — scanner PII automático em todas as respostas outbound. Trackeado como KB-019/guard-brasil-mcp.
+- [x] OC-009: `HEARTBEAT.md` configurado (Guard Brasil health, billing proxy, EGOS Gateway, Gem Hunter, daily summary).
+- [ ] OC-010: Registrar Guard Brasil MCP (`@egosbr/guard-brasil-mcp`) — blocked on KB-019 (MCP server não existe ainda).
 - [ ] OC-011: Configurar skills relevantes do ClawHub marketplace — pesquisar: Brave Search, Knowledge Base, Code Execution. Instalar 2-3 skills úteis.
 
 **P2 — Médio prazo (1 mês): Funcionalidades avançadas**
@@ -461,7 +461,7 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 - [ ] OC-012: Wire OpenClaw + Hermes-3 (8B local) — configurar provider `hermes-local` apontando para Hermes rodando via Ollama/llama.cpp. Usar para tasks autônomas overnight sem custo de API.
 - [ ] OC-013: Configurar `sessions_spawn` para multi-agent: OpenClaw spawna sub-agentes para Gem Hunter hunts, Guard Brasil scans, kb wiki compilation. Cada sub-agente roda em sessão isolada.
 - [ ] OC-014: Integrar OpenClaw Canvas — habilitar canvas-host para visualizações de dados (Gem Hunter dashboard, Guard Brasil stats) acessíveis via chat.
-- [ ] OC-015: Configurar `~/.openclaw/workspace/TOOLS.md` — mapear: câmeras, SSH hosts conhecidos (VPS 204.168.217.125), vozes TTS, dispositivos paired.
+- [x] OC-015: `TOOLS.md` configurado (SSH VPS, serviços EGOS, billing proxy, repos, bots).
 - [ ] OC-016: Instalar `@openclaw/discord` channel — criar servidor Discord EGOS para demo público do Guard Brasil. Bot responde a perguntas LGPD/PII.
 - [ ] OC-017: Configurar cron jobs no OpenClaw (`~/.openclaw/cron/jobs.json`) — daily: compilar wiki, weekly: Gem Hunter hunt, monthly: PII pattern review.
 
