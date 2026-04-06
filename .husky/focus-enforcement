@@ -1,74 +1,26 @@
 #!/bin/bash
 # ============================================================================
-# FOCUS ENFORCEMENT HOOK
-# Purpose: Block commits outside Guard Brasil + Gem Hunter for 90 days
+# FOCUS ENFORCEMENT HOOK v2.0 — Researcher-Builder Profile
 # Period: April 3 - June 30, 2026
-# Enforcement: HARD STOP (no exceptions except critical bugs)
+# 
+# v2.0 CHANGE: Two-tier enforcement
+#   FORBIDDEN list  → HARD BLOCK  (named scope-creep traps: ARCH, FORJA, etc.)
+#   Unknown files   → WARN + allow (research, tools, MCPs, skills always OK)
+#
+# Rationale: Enio is a researcher-builder who creates tools before demand.
+# The constraint is against SPECIFIC distractions, not against curiosity.
+# Work is never lost — only redirected when touching forbidden products.
 # ============================================================================
 
-set -e
+# Color codes
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+NC='\033[0m'
 
-# ALLOWED PATHS for commits (90-day focus period)
-ALLOWED_PATTERNS=(
-  # Core focus products
-  "packages/guard-brasil"
-  "apps/guard-brasil"
-  "apps/api"
-  "guard-brasil"
-  "gem-hunter"
-
-  # Supporting infrastructure (shared modules serve Guard Brasil + Gem Hunter)
-  "packages/shared/src"
-  "apps/egos-gateway"
-  "apps/egos-hq"
-  "agents/cli.ts"
-  "agents/agents/gem-hunter"
-  "agents/api/gem-hunter"
-  "agents/registry"
-  "scripts/qa"
-  "tests/qa"
-  "docs/qa"
-  "docs/gem-hunter"
-  "docs/business"
-  "docs/strategy"
-  "docs/_current_handoffs"
-  "docs/knowledge"
-  "docs/CAPABILITY_REGISTRY"
-  "docs/SYSTEM_MAP"
-
-  # Strategic documentation only
-  "STRATEGIC_FOCUS_PLAN"
-  "WEEK_ONE_EXECUTION"
-  "CODEX_MASTERY_GUIDE"
-  "EXECUTIVE_SUMMARY"
-  "PSYCHOLOGICAL_ANALYSIS"
-  "COMPLETE_REPO_INVENTORY"
-
-  # CI/CD and build config
-  ".github/workflows"
-  ".husky"
-  "package.json"
-  "bun.lock"
-  "tsconfig.json"
-  ".eslintrc"
-  ".gitignore"
-  "CLAUDE.md"
-  ".claude/"
-
-  # Knowledge system + agents + scripts
-  "agents/agents"
-  "supabase/"
-  "docs/knowledge"
-  "scripts/"
-
-  # Governance (read-only for EGOS compliance)
-  "TASKS.md"
-  "AGENTS.md"
-  ".windsurfrules"
-  ".guarani"
-)
-
-# FORBIDDEN: New repos or products outside focus
+# ── FORBIDDEN: These products are out-of-scope until July 2026 ──────────────
+# Committing to these = hard block. Everything else = warn + allow.
 FORBIDDEN_PATTERNS=(
   "ARCH/"
   "egos-self"
@@ -87,102 +39,68 @@ FORBIDDEN_PATTERNS=(
   "chacreamento"
 )
 
-# Get staged files
+# ── FOCUS: Files clearly within Guard Brasil + Gem Hunter ───────────────────
+FOCUS_PATTERNS=(
+  "guard-brasil" "gem-hunter" "apps/api" "packages/shared"
+  "apps/egos-gateway" "apps/egos-hq" "agents/agents" "agents/registry"
+  "scripts/" "packages/mcp" "packages/knowledge" ".claude/" ".guarani"
+  "TASKS.md" "AGENTS.md" "CLAUDE.md" "docs/" "business/" "supabase/"
+  ".github/" ".husky/" "package.json" "tsconfig" "bun.lock"
+)
+
 STAGED_FILES=$(git diff --cached --name-only)
-
-# Color codes for terminal output
-RED='\033[0;31m'
-YELLOW='\033[1;33m'
-GREEN='\033[0;32m'
-BLUE='\033[0;34m'
-NC='\033[0m' # No Color
-
-# Check each staged file
-VIOLATION=0
+FORBIDDEN_HIT=0
+WARN_FILES=()
 
 for file in $STAGED_FILES; do
-  # Skip deletion commits
-  if [ ! -f "$file" ]; then
-    continue
-  fi
+  [ ! -f "$file" ] && continue
 
-  # Check if file matches forbidden patterns
+  # 1. Hard block for forbidden products
   for forbidden in "${FORBIDDEN_PATTERNS[@]}"; do
     if [[ "$file" == *"$forbidden"* ]]; then
-      VIOLATION=1
-      echo -e "${RED}❌ FOCUS ENFORCEMENT VIOLATION${NC}"
-      echo -e "${RED}File: $file${NC}"
-      echo -e "${YELLOW}This file matches forbidden pattern: $forbidden${NC}"
-      echo ""
-      break
+      FORBIDDEN_HIT=1
+      echo -e "${RED}❌ FOCO VIOLADO: $file${NC}"
+      echo -e "${YELLOW}   → Produto fora do escopo: $forbidden${NC}"
     fi
   done
 
-  # If not forbidden, check if it matches allowed patterns
-  if [ $VIOLATION -eq 0 ]; then
-    ALLOWED=0
-    for allowed in "${ALLOWED_PATTERNS[@]}"; do
-      if [[ "$file" == *"$allowed"* ]]; then
-        ALLOWED=1
-        break
+  # 2. Warn (but allow) for files outside known focus paths
+  if [ $FORBIDDEN_HIT -eq 0 ]; then
+    IN_FOCUS=0
+    for focus in "${FOCUS_PATTERNS[@]}"; do
+      if [[ "$file" == *"$focus"* ]]; then
+        IN_FOCUS=1; break
       fi
     done
-
-    if [ $ALLOWED -eq 0 ]; then
-      VIOLATION=1
-      echo -e "${RED}❌ FOCUS ENFORCEMENT VIOLATION${NC}"
-      echo -e "${RED}File: $file${NC}"
-      echo -e "${YELLOW}This file is outside Guard Brasil + Gem Hunter focus${NC}"
-      echo ""
+    if [ $IN_FOCUS -eq 0 ]; then
+      WARN_FILES+=("$file")
     fi
   fi
 done
 
-# If violations found, print guidance and exit
-if [ $VIOLATION -eq 1 ]; then
+# Hard block for forbidden products
+if [ $FORBIDDEN_HIT -eq 1 ]; then
   echo ""
   echo -e "${BLUE}═══════════════════════════════════════════════════════════${NC}"
-  echo -e "${BLUE}FOCUS ENFORCEMENT — 90-Day Strategic Commitment${NC}"
+  echo -e "${BLUE}FOCUS ENFORCEMENT v2.0 — Produtos proibidos até Jul 2026${NC}"
   echo -e "${BLUE}═══════════════════════════════════════════════════════════${NC}"
-  echo ""
-  echo -e "${GREEN}✅ ALLOWED (Next 90 days):${NC}"
-  echo "  • Guard Brasil API + Web + Infrastructure"
-  echo "  • Gem Hunter (algorithm, GitHub app, dashboard)"
-  echo "  • Supporting telemetry, QA, CI/CD"
-  echo "  • Strategic documentation (planning, analysis)"
-  echo ""
-  echo -e "${RED}❌ FORBIDDEN (Until June 30, 2026):${NC}"
-  echo "  • ARCH (architectural design AI)"
-  echo "  • egos-self (personal OS)"
-  echo "  • smartbuscas (smart search)"
-  echo "  • FORJA (ERP)"
-  echo "  • EGOSv2, v3, v5 (old versions)"
-  echo "  • BLUEPRINT-EGOS, egos-cortex, intelink"
-  echo "  • Any new repos or experiments"
-  echo ""
-  echo -e "${YELLOW}⏰ PERIOD: April 3 - June 30, 2026${NC}"
-  echo -e "${YELLOW}🎯 GOAL: R\$ 30k+ MRR from Guard Brasil + Gem Hunter${NC}"
-  echo ""
-  echo -e "${BLUE}WHY THIS MATTERS:${NC}"
-  echo "  You have 20 repos but focus on none."
-  echo "  This rule forces you to FINISH instead of START."
-  echo "  The constraint is intentional and unbreakable."
-  echo ""
-  echo -e "${BLUE}EXCEPTION (Critical Bugs Only):${NC}"
-  echo "  If 852, carteira-livre, or egos-lab have security issues,"
-  echo "  you may commit fixes. Include [CRITICAL] in commit message."
-  echo ""
-  echo -e "${RED}TO BYPASS THIS:${NC}"
-  echo "  You cannot. This is structural, not optional."
-  echo "  If you need to, you need to change your mind about the focus."
-  echo "  (That's okay, but be intentional about it.)"
-  echo ""
+  echo -e "${RED}❌ ARCH, FORJA, egos-self, smartbuscas e similares estão fora do foco.${NC}"
+  echo -e "${GREEN}✅ Guard Brasil, Gem Hunter, MCPs, skills, infra → sempre OK.${NC}"
+  echo -e "${YELLOW}💡 Pesquisa e ferramentas novas → sempre permitidas (perfil researcher-builder).${NC}"
   echo -e "${BLUE}═══════════════════════════════════════════════════════════${NC}"
-  echo ""
-
   exit 1
 fi
 
-# If no violations, allow commit
+# Warn (but allow) for off-focus research files
+if [ ${#WARN_FILES[@]} -gt 0 ]; then
+  echo -e "${YELLOW}⚠️  AVISO DE FOCO (commit permitido — perfil researcher-builder)${NC}"
+  echo -e "${YELLOW}   Arquivos fora do foco principal Guard Brasil/Gem Hunter:${NC}"
+  for wf in "${WARN_FILES[@]}"; do
+    echo -e "${YELLOW}   → $wf${NC}"
+  done
+  echo -e "${BLUE}   💡 Pesquisa e ferramentas novas são válidas. Só ARCH/FORJA/etc. são bloqueados.${NC}"
+  echo -e "${BLUE}   Meta: R\$ 30k MRR até Jun 2026. Guard Brasil primeiro.${NC}"
+fi
+
 echo -e "${GREEN}✅ Focus enforcement check passed${NC}"
 exit 0
