@@ -32,6 +32,14 @@ type HealthData = {
   recent_events: Array<{ id: string; source: string; event_type: string; severity: string; created_at: string; payload: Record<string, unknown> }>;
 };
 
+type GTMData = {
+  revenue: { mrr_brl: number; formatted: string };
+  customers: { count: number; active: number };
+  outreach: { last_sent_days_ago: number; total_this_week: number; stale: boolean };
+  activity: { has_recent: boolean; last_event_at: string | null; events_this_week: number };
+  timestamp: string;
+};
+
 // ── Design tokens ─────────────────────────────────────────────────────────────
 
 const C = {
@@ -187,17 +195,24 @@ function LinkBtn({ href, children }: { href: string; children: React.ReactNode }
 
 export default function HomePage() {
   const [data, setData] = useState<HealthData | null>(null);
+  const [gtmData, setGtmData] = useState<GTMData | null>(null);
   const [loading, setLoading] = useState(true);
   const [lastUpdated, setLastUpdated] = useState('');
   const [actionMsg, setActionMsg] = useState<string | null>(null);
 
   const load = useCallback(async () => {
     try {
-      const res = await fetch('/api/hq/health');
-      if (res.ok) {
-        setData(await res.json());
-        setLastUpdated(new Date().toLocaleTimeString('pt-BR'));
+      const [healthRes, gtmRes] = await Promise.all([
+        fetch('/api/hq/health'),
+        fetch('/api/hq/gtm'),
+      ]);
+      if (healthRes.ok) {
+        setData(await healthRes.json());
       }
+      if (gtmRes.ok) {
+        setGtmData(await gtmRes.json());
+      }
+      setLastUpdated(new Date().toLocaleTimeString('pt-BR'));
     } finally {
       setLoading(false);
     }
@@ -423,9 +438,13 @@ export default function HomePage() {
             </Card>
 
             <Card title="GTM" defaultOpen={false}>
-              <Row label="Revenue" value="R$ 0 MRR" />
-              <Row label="Customers" value="0" />
-              <Row label="M-007 outreach" value={<span style={{ color: C.red }}>⚠ 7+ days stale</span>} />
+              <Row label="Revenue" value={gtmData?.revenue?.formatted ?? 'R$ 0 MRR'} />
+              <Row label="Customers" value={gtmData?.customers?.count ?? 0} />
+              <Row label="M-007 outreach" value={
+                gtmData?.outreach?.stale
+                  ? <span style={{ color: C.red }}>⚠ {gtmData.outreach.last_sent_days_ago}+ days stale</span>
+                  : <span style={{ color: C.green }}>✓ {gtmData?.outreach?.last_sent_days_ago ?? 0} days ago</span>
+              } />
               <div style={{ marginTop: 10, display: 'flex', gap: 6 }}>
                 <Btn small variant="primary" onClick={() => window.open('/docs/GTM_SSOT.md', '_blank')}>→ GTM SSOT</Btn>
                 <Btn small onClick={() => window.open('/x', '_blank')}>→ X posts</Btn>

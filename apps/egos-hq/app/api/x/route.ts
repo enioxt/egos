@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase';
+import { loadSearchQueries } from '@/lib/x-queries';
+import { generateSuggestionTexts } from '@/lib/x-suggestions';
 
 const X_BEARER = process.env.X_BEARER_TOKEN ?? '';
 const X_API_KEY = process.env.X_API_KEY ?? '';
@@ -88,18 +90,7 @@ export async function GET(req: NextRequest) {
 
   if (action === 'suggestions') {
     return NextResponse.json({
-      queries: [
-        { q: 'LGPD API -is:retweet lang:pt', label: 'LGPD + API (PT-BR)' },
-        { q: 'mascaramento CPF dados -is:retweet lang:pt', label: 'Mascaramento CPF' },
-        { q: '"proteção de dados" startup Brasil -is:retweet', label: 'Proteção dados startup BR' },
-        { q: 'ANPD multa fiscalização -is:retweet lang:pt', label: 'ANPD multas' },
-        { q: 'LGPD compliance software -is:retweet', label: 'LGPD compliance software' },
-        { q: 'CPF CNPJ API developer -is:retweet', label: 'CPF/CNPJ API dev' },
-        { q: '"inteligência artificial" LGPD dados pessoais -is:retweet lang:pt', label: 'IA + LGPD' },
-        { q: 'multi-agent framework -is:retweet lang:en', label: 'Multi-agent frameworks (EN)' },
-        { q: '#LGPD OR #ProteçãoDeDados -is:retweet lang:pt', label: '#LGPD hashtags' },
-        { q: '"Guard Brasil" OR "guard-brasil" OR @egosbr', label: 'Menções Guard Brasil' },
-      ],
+      queries: loadSearchQueries(),
     });
   }
 
@@ -189,23 +180,7 @@ export async function POST(req: NextRequest) {
     const { tweet_text } = body;
     if (!tweet_text) return NextResponse.json({ error: 'Missing tweet_text' }, { status: 400 });
 
-    const lower = (tweet_text as string).toLowerCase();
-    const suggestions: string[] = [];
-
-    if (lower.includes('lgpd') || lower.includes('cpf') || lower.includes('dados pessoais')) {
-      suggestions.push(`Construí uma API open-source que detecta e mascara 15 tipos de PII brasileiro (CPF, CNPJ, RG, etc.) em tempo real, com receipt SHA-256 por inspeção — guard.egos.ia.br`);
-      suggestions.push(`Trabalhando nisso há meses — @egosbr/guard-brasil detecta CPF, CNPJ, RG, placa, processo judicial e mais. Open source, MIT. guard.egos.ia.br`);
-    }
-    if (lower.includes('anpd') || lower.includes('multa')) {
-      suggestions.push(`Com as fiscalizações da ANPD aumentando, compliance automático vira obrigação. Estou construindo uma API que gera receipts SHA-256 por inspeção como prova auditável. guard.egos.ia.br`);
-    }
-    if (lower.includes('llm') || lower.includes('openai') || lower.includes('claude') || lower.includes('ia')) {
-      suggestions.push(`Antes de mandar dados brasileiros pra qualquer LLM, vale mascarar CPF/CNPJ automaticamente. 3 linhas de código: npm install @egosbr/guard-brasil — ainda em beta, feedback é ouro.`);
-    }
-    if (suggestions.length === 0) {
-      suggestions.push(`Contexto relevante — tenho trabalhado em ferramentas de compliance LGPD para devs brasileiros. Se for útil: guard.egos.ia.br`);
-    }
-
+    const suggestions = generateSuggestionTexts(tweet_text as string);
     return NextResponse.json({ suggestions });
   }
 

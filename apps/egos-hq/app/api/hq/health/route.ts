@@ -111,8 +111,8 @@ export async function GET() {
       },
       openclaw: {
         ...openclawHealth,
-        default_model: 'claude-haiku-4-5-20251001',
-        fallback_chain: ['openrouter/qwen3-235b:free', 'dashscope/qwen-turbo', 'codex/gpt-5.4'],
+        default_model: (openclawHealth.data as { default_model?: string })?.default_model ?? 'claude-haiku-4-5-20251001',
+        fallback_chain: (openclawHealth.data as { fallback_chain?: string[] })?.fallback_chain ?? ['openrouter/qwen3-235b:free', 'dashscope/qwen-turbo', 'codex/gpt-5.4'],
       },
       billing_proxy: {
         ...billingProxyHealth,
@@ -121,7 +121,7 @@ export async function GET() {
       },
       codex_proxy: {
         ...codexProxyHealth,
-        model: 'gpt-5.4',
+        model: (codexProxyHealth.data as { model?: string })?.model ?? 'gpt-5.4',
         quota: codexData?.quota ?? null,
         last_review: (lastReview.data ?? [])[0] ?? null,
       },
