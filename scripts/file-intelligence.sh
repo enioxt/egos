@@ -42,7 +42,7 @@ while IFS= read -r file; do
   [ -z "$file" ] && continue
 
   case "$file" in
-    docs/reports/*|docs/knowledge/*|**/REPORT*.md)
+    docs/reports/*|docs/knowledge/*REPORT*.md|**/REPORT*.md)
       REPORTS="$REPORTS $file"
       ;;
     docs/*|*.md|*.txt)
@@ -145,15 +145,23 @@ for docfile in $DOCS $REPORTS; do
   [ ! -f "$docfile" ] && continue
 
   # Check for raw CPF patterns (not already masked as [CPF REMOVIDO])
-  if grep -qP '(?<!\[CPF REMOVIDO\])\b\d{3}[.]\d{3}[.]\d{3}[-]\d{2}\b' "$docfile" 2>/dev/null; then
-    PII_FILES="$PII_FILES $docfile"
+  cpf_matches=$(grep -oP '(?<!\[CPF REMOVIDO\])\b\d{3}[.]\d{3}[.]\d{3}[-]\d{2}\b' "$docfile" 2>/dev/null || true)
+  if [ -n "$cpf_matches" ]; then
+    non_demo_cpfs=$(echo "$cpf_matches" | grep -vxE '123\.456\.789-00|000\.000\.000-00|111\.111\.111-11' || true)
+    if [ -n "$non_demo_cpfs" ]; then
+      PII_FILES="$PII_FILES $docfile"
+    fi
   fi
 
   # Check for raw email patterns in docs
-  if grep -qP '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b' "$docfile" 2>/dev/null; then
+  email_matches=$(grep -oP '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b' "$docfile" 2>/dev/null || true)
+  if [ -n "$email_matches" ]; then
     # Exclude package.json / lockfile refs and common false positives
     if ! echo "$docfile" | grep -qE 'package|lock|node_modules'; then
-      PII_FILES="$PII_FILES $docfile"
+      non_demo_emails=$(echo "$email_matches" | grep -viE '^[^[:space:]]+@(example\.(com|org|net)|egos\.local|[^[:space:]]+\.local)$|^noreply@anthropic\.com$' || true)
+      if [ -n "$non_demo_emails" ]; then
+        PII_FILES="$PII_FILES $docfile"
+      fi
     fi
   fi
 done

@@ -11,6 +11,7 @@ NC='\033[0m'
 echo "📋 EGOS Doc Proliferation Check (Kernel)"
 
 STAGED_DOCS=$(git diff --cached --name-only --diff-filter=A | grep '^docs/' || true)
+STAGED_ALL=$(git diff --cached --name-only 2>/dev/null || true)
 
 if [ -z "$STAGED_DOCS" ]; then
   echo "✅ No new docs staged"
@@ -18,6 +19,19 @@ if [ -z "$STAGED_DOCS" ]; then
 fi
 
 VIOLATIONS=0
+
+has_canonical_doc_registration() {
+  local target="$1"
+  local surface
+
+  for surface in AGENTS.md TASKS.md docs/SYSTEM_MAP.md docs/MASTER_INDEX.md docs/DOCUMENTATION_ARCHITECTURE_MAP.md; do
+    if echo "$STAGED_ALL" | grep -qx "$surface" && [ -f "$surface" ] && grep -q "$target" "$surface"; then
+      return 0
+    fi
+  done
+
+  return 1
+}
 
 while IFS= read -r file; do
   # Skip allowed folders
@@ -33,8 +47,12 @@ while IFS= read -r file; do
   
   # Check for AUDIT files (except canonical)
   if [[ "$file" =~ AUDIT.*\.md$ ]] && [[ ! "$file" =~ ^docs/_archived/ ]]; then
-    echo -e "${RED}❌ BLOCKED:${NC} $file (audit files must update AGENTS.md)"
-    VIOLATIONS=$((VIOLATIONS + 1))
+    base_name=$(basename "$file")
+
+    if ! has_canonical_doc_registration "$base_name"; then
+      echo -e "${RED}❌ BLOCKED:${NC} $file (new audit docs must be registered in staged AGENTS.md/TASKS.md/SYSTEM_MAP.md/MASTER_INDEX.md/DOCUMENTATION_ARCHITECTURE_MAP.md)"
+      VIOLATIONS=$((VIOLATIONS + 1))
+    fi
   fi
   
   # Check for DIAGNOSTIC files
