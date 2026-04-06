@@ -12,16 +12,27 @@
  *   bun scripts/rapid-response.ts --topic "BRAID reasoning"
  *   bun scripts/rapid-response.ts --topic "PII LGPD" --post
  *   bun scripts/rapid-response.ts --scan  # check trending topics vs our capabilities
+ *   bun scripts/rapid-response.ts --post-thread /tmp/egos-rapid-response-123.md
+ *   bun scripts/rapid-response.ts --topic "court data" --post-thread  # generate + post
  */
 
-import { writeFileSync } from "fs";
+import { writeFileSync, readFileSync, existsSync } from "fs";
 import { join } from "path";
 
 const ROOT = "/home/enio/egos";
 const TOPIC = process.argv.find(a => a.startsWith("--topic="))?.split("=").slice(1).join("=") ??
-              process.argv[process.argv.indexOf("--topic") + 1];
+              (process.argv.includes("--topic") ? process.argv[process.argv.indexOf("--topic") + 1] : undefined);
 const SCAN = process.argv.includes("--scan");
 const POST = process.argv.includes("--post");
+
+// --post-thread can be: --post-thread <file> or just --post-thread (uses last generated)
+const POST_THREAD_IDX = process.argv.indexOf("--post-thread");
+const POST_THREAD = POST_THREAD_IDX !== -1;
+const POST_THREAD_FILE = POST_THREAD_IDX !== -1
+  ? (process.argv[POST_THREAD_IDX + 1] && !process.argv[POST_THREAD_IDX + 1].startsWith("--")
+      ? process.argv[POST_THREAD_IDX + 1]
+      : null)
+  : null;
 
 // ── EGOS Capability Map ───────────────────────────────────────────────────────
 // Maps topics/keywords → what we have + links + 280-char pitch
@@ -115,6 +126,61 @@ const CAPABILITIES: EGOSCapability[] = [
       "docs/strategy/EAGLE_EYE_SSOT.md",
     ],
   },
+  // ── X-006: New capability profiles ─────────────────────────────────────────
+  {
+    id: "br_acc",
+    keywords: ["BRACC", "br-acc", "Brazilian court data", "STF data", "judicial intelligence", "tribunal", "processo judicial"],
+    name: "BR-ACC — Brazilian Court Intelligence",
+    pitch: "BR-ACC: real-time intelligence from 47M+ entities in Brazilian courts (STF, STJ, CNJ). PEP detection, network analysis, watchlists. Open source.",
+    thread: [
+      "🧵 BR-ACC: we scraped and indexed 47M+ entities from Brazilian courts (STF, STJ, CNJ, TRFs).\n\nWhy? Because Brazil's judicial data is public but completely unstructured. Nobody was connecting the dots.",
+      "What the data reveals:\n• PEP detection: identify Politically Exposed Persons appearing in court records\n• Network analysis: map relationships between entities across cases\n• Watchlist matching: flag sanctioned individuals and companies\n• Timeline: track how cases evolve across years",
+      "The pipeline:\n1. Scrape court portals (CNJ, STF, STJ, all TRFs)\n2. Entity extraction via NLP (names, CPF, CNPJ, OAB)\n3. Graph ingestion → Neo4j (47M+ nodes, 120M+ edges)\n4. Dedup + canonical entity resolution\n5. REST API for queries\n\nAll open source.",
+      "Use cases:\n• KYC/AML compliance checks against court records\n• Due diligence for M&A and investments\n• Investigative journalism (follow the money through litigation)\n• Competitive intelligence (who's suing your supplier?)\n\nBR-ACC: open-source judicial intelligence for Brazil.",
+    ],
+    repos: [
+      { name: "br-acc", url: "https://github.com/enioxt/br-acc", desc: "Brazilian court intelligence" },
+    ],
+    clean_files: [
+      "docs/strategy/BR_ACC_SSOT.md",
+    ],
+  },
+  {
+    id: "sistema_852",
+    keywords: ["citizen reporting", "civic tech", "transparência municipal", "denúncia pública", "open government brazil"],
+    name: "Sistema 852 — Civic Intelligence Platform",
+    pitch: "Sistema 852: civic reporting platform for Brazilian citizens. Municipal transparency, issue tracking, AI-powered resolution routing. 852.egos.ia.br",
+    thread: [
+      "🧵 Sistema 852: a civic reporting platform built for Brazilian citizens.\n\nThe problem: citizens have no effective way to report local issues, track government responses, or hold municipalities accountable.",
+      "How it works:\n• Citizen submits issue (pothole, broken light, irregular construction, etc.)\n• AI classifies and routes to the right municipal department\n• Issue tracked publicly until resolution\n• Escalation alerts if ignored beyond SLA\n\nTransparência real, não teatro.",
+      "The AI routing layer:\n• NLP classifies issue type (infraestrutura, saúde, educação, meio ambiente...)\n• Matches to correct secretaria and contact chain\n• Priority scoring based on: affected area, population density, recurrence\n• Auto-generates formal request in correct ABNT format for municipal protocols",
+      "Open government, not open theater:\n• All reported issues are public and indexed\n• Resolution rates by municipality and department are tracked\n• Exports for journalists and researchers (CSV, API)\n• Citizens can upvote others' reports to escalate priority\n\n852.egos.ia.br — civic intelligence for Brazil.",
+    ],
+    repos: [
+      { name: "sistema-852", url: "https://852.egos.ia.br", desc: "Civic intelligence platform" },
+    ],
+    clean_files: [
+      "docs/strategy/SISTEMA_852_SSOT.md",
+    ],
+  },
+  {
+    id: "gem_hunter",
+    keywords: ["open source discovery", "gem hunter", "AI tool discovery", "github trending", "best new repos", "open source radar"],
+    name: "Gem Hunter — AI Tool Discovery Engine",
+    pitch: "Gem Hunter: discovers the best open-source AI tools before they go viral. 20+ sources, BRAID-scoring, daily runs. gemhunter.egos.ia.br",
+    thread: [
+      "🧵 Gem Hunter: an AI-powered discovery engine for open-source tools.\n\nProblem: GitHub trending is gamed. Twitter is noise. Great tools go unnoticed for months while hype repos top the charts.",
+      "20+ sources we monitor:\n• GitHub (stars velocity, fork ratio, contributor growth)\n• arXiv (new papers with code)\n• Hacker News (Show HN + Ask HN)\n• Reddit (r/MachineLearning, r/LocalLLaMA, r/programming)\n• Product Hunt, Discord servers, X.com\n\nCross-source signal = signal. Single-source = noise.",
+      "BRAID scoring system (0-100):\n• B — Breakthrough potential (novel approach?)\n• R — Real usage (non-trivial forks, issues, PRs?)\n• A — Author credibility (track record, affiliations)\n• I — Integration fit (can EGOS ecosystem use this?)\n• D — Documentation quality (can you actually run it?)\n\nCuts 97% of noise. Surfaces day-0 gems.",
+      "Daily automated runs:\n• Haiku-powered (10× cheaper than Sonnet)\n• Results on live dashboard: gemhunter.egos.ia.br\n• Telegram alerts for gems scoring >80\n• Weekly digest with detailed analysis\n\nOpen source. If you're tired of missing the real gems — gemhunter.egos.ia.br",
+    ],
+    repos: [
+      { name: "gem-hunter", url: "https://gemhunter.egos.ia.br", desc: "AI tool discovery dashboard" },
+    ],
+    clean_files: [
+      "docs/strategy/GEM_HUNTER_SSOT.md",
+    ],
+  },
 ];
 
 // ── Score matching ────────────────────────────────────────────────────────────
@@ -162,13 +228,178 @@ ${cap.clean_files.map(f => `- \`${f}\``).join("\n")}
 `;
 }
 
+// ── X API: Post Tweet ─────────────────────────────────────────────────────────
+// Pattern borrowed from x-reply-bot.ts (OAuth 1.0a for write access)
+
+async function postTweet(text: string): Promise<{ id: string } | null> {
+  const url = "https://api.twitter.com/2/tweets";
+  const method = "POST";
+  const timestamp = Math.floor(Date.now() / 1000).toString();
+  const nonce = Math.random().toString(36).substring(2);
+
+  const oauthParams = {
+    oauth_consumer_key: process.env.X_API_KEY!,
+    oauth_nonce: nonce,
+    oauth_signature_method: "HMAC-SHA1",
+    oauth_timestamp: timestamp,
+    oauth_token: process.env.X_ACCESS_TOKEN!,
+    oauth_version: "1.0",
+  };
+
+  const sortedParams = Object.entries(oauthParams)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`)
+    .join("&");
+  const signatureBase = `${method}&${encodeURIComponent(url)}&${encodeURIComponent(sortedParams)}`;
+  const signingKey = `${encodeURIComponent(process.env.X_API_SECRET!)}&${encodeURIComponent(process.env.X_ACCESS_TOKEN_SECRET!)}`;
+
+  const encoder = new TextEncoder();
+  const keyData = encoder.encode(signingKey);
+  const msgData = encoder.encode(signatureBase);
+  const cryptoKey = await crypto.subtle.importKey(
+    "raw", keyData, { name: "HMAC", hash: "SHA-1" }, false, ["sign"]
+  );
+  const signature = await crypto.subtle.sign("HMAC", cryptoKey, msgData);
+  const signatureB64 = btoa(String.fromCharCode(...new Uint8Array(signature)));
+
+  const authHeader = "OAuth " + Object.entries({ ...oauthParams, oauth_signature: signatureB64 })
+    .map(([k, v]) => `${encodeURIComponent(k)}="${encodeURIComponent(v)}"`)
+    .join(", ");
+
+  const res = await fetch(url, {
+    method,
+    headers: { Authorization: authHeader, "Content-Type": "application/json" },
+    body: JSON.stringify({ text }),
+    signal: AbortSignal.timeout(10000),
+  });
+
+  if (!res.ok) {
+    const err = await res.text();
+    console.error(`  POST /2/tweets failed ${res.status}: ${err.slice(0, 200)}`);
+    return null;
+  }
+
+  const data = (await res.json()) as { data?: { id: string } };
+  return data.data ?? null;
+}
+
+// ── --post-thread handler ─────────────────────────────────────────────────────
+
+function parseThreadFromFile(filePath: string): string[] {
+  const content = readFileSync(filePath, "utf8");
+  // Extract thread tweets from the "## Thread (X.com ready)" section
+  const threadSection = content.match(/## Thread \(X\.com ready\)\n([\s\S]*?)(?:\n## |$)/);
+  if (!threadSection) {
+    throw new Error("Could not find '## Thread (X.com ready)' section in file");
+  }
+
+  const tweets: string[] = [];
+  // Each tweet block starts with **N/M:** then the content
+  const tweetBlocks = threadSection[1].split(/\*\*\d+\/\d+:\*\*\n/);
+  for (const block of tweetBlocks) {
+    const trimmed = block.trim();
+    if (trimmed) {
+      // Remove trailing section markers
+      const clean = trimmed.replace(/\n\n## [\s\S]*$/, "").trim();
+      if (clean) tweets.push(clean);
+    }
+  }
+  return tweets;
+}
+
+async function handlePostThread(filePath: string | null): Promise<void> {
+  // Resolve file: explicit path, or find last generated file
+  let resolvedFile = filePath;
+  if (!resolvedFile) {
+    // Find most recent /tmp/egos-rapid-response-*.md
+    const { execSync } = await import("child_process");
+    try {
+      resolvedFile = execSync("ls -t /tmp/egos-rapid-response-*.md 2>/dev/null | head -1")
+        .toString()
+        .trim();
+    } catch {
+      resolvedFile = "";
+    }
+    if (!resolvedFile) {
+      console.error("No --post-thread file specified and no generated file found in /tmp.");
+      console.error("Run: bun scripts/rapid-response.ts --topic \"<topic>\" first.");
+      process.exit(1);
+    }
+    console.log(`Using last generated file: ${resolvedFile}`);
+  }
+
+  if (!existsSync(resolvedFile)) {
+    console.error(`File not found: ${resolvedFile}`);
+    process.exit(1);
+  }
+
+  let tweets: string[];
+  try {
+    tweets = parseThreadFromFile(resolvedFile);
+  } catch (e: any) {
+    console.error(`Failed to parse thread from file: ${e.message}`);
+    process.exit(1);
+  }
+
+  if (tweets.length === 0) {
+    console.error("No tweets found in the thread file.");
+    process.exit(1);
+  }
+
+  console.log(`\nThread loaded: ${tweets.length} tweets from ${resolvedFile}\n`);
+  tweets.forEach((t, i) => {
+    console.log(`[${i + 1}/${tweets.length}] (${t.length} chars)`);
+    console.log(t);
+    console.log();
+  });
+
+  // Check for X_BEARER_TOKEN (read) or full OAuth credentials (write)
+  const hasOAuth = process.env.X_API_KEY && process.env.X_API_SECRET &&
+                   process.env.X_ACCESS_TOKEN && process.env.X_ACCESS_TOKEN_SECRET;
+
+  if (!hasOAuth) {
+    console.log("No X_BEARER_TOKEN / OAuth credentials — manual posting required.");
+    console.log("\nCopy tweets above and post manually at x.com/compose/tweet");
+    console.log("Tip: set X_API_KEY, X_API_SECRET, X_ACCESS_TOKEN, X_ACCESS_TOKEN_SECRET to enable auto-posting.");
+    return;
+  }
+
+  // Post first tweet via X API
+  console.log("Posting first tweet via X API...");
+  const result = await postTweet(tweets[0]);
+
+  if (!result) {
+    console.error("Failed to post first tweet. Check credentials and try again.");
+    process.exit(1);
+  }
+
+  console.log(`\nFirst tweet posted: https://x.com/i/web/status/${result.id}`);
+
+  if (tweets.length > 1) {
+    console.log("\nRemaining tweets (post as replies to the above, in order):\n");
+    for (let i = 1; i < tweets.length; i++) {
+      console.log(`[${i + 1}/${tweets.length}] Reply to previous tweet:`);
+      console.log(tweets[i]);
+      console.log();
+    }
+    console.log("Note: Full thread auto-posting (reply chaining) requires X Pro API tier.");
+    console.log("Copy remaining tweets and reply manually to continue the thread.");
+  }
+}
+
 // ── Main ──────────────────────────────────────────────────────────────────────
 
-function main() {
+async function main() {
+  // Handle --post-thread as a standalone flag (can combine with --topic)
+  if (POST_THREAD && !SCAN && !TOPIC) {
+    await handlePostThread(POST_THREAD_FILE);
+    return;
+  }
+
   if (SCAN) {
-    console.log("🔍 EGOS Capability Map — Topics We Can Respond To:\n");
+    console.log("EGOS Capability Map — Topics We Can Respond To:\n");
     for (const cap of CAPABILITIES) {
-      console.log(`  ✅ ${cap.name}`);
+      console.log(`  OK ${cap.name}`);
       console.log(`     Keywords: ${cap.keywords.join(", ")}`);
       console.log(`     Pitch: "${cap.pitch.slice(0, 80)}..."\n`);
     }
@@ -178,23 +409,23 @@ function main() {
   }
 
   if (!TOPIC) {
-    console.error("❌ Provide --topic or --scan");
+    console.error("Provide --topic or --scan");
     console.error("   Example: bun scripts/rapid-response.ts --topic 'BRAID multi-agent'");
     process.exit(1);
   }
 
   const cap = findBestCapability(TOPIC);
   if (!cap) {
-    console.log(`⚠️  No matching capability for topic: "${TOPIC}"`);
+    console.log(`No matching capability for topic: "${TOPIC}"`);
     console.log("   Run --scan to see available capabilities");
     return;
   }
 
-  console.log(`🚀 Rapid Response for: "${TOPIC}"`);
+  console.log(`Rapid Response for: "${TOPIC}"`);
   console.log(`   Matched: ${cap.name} (score: ${scoreMatch(TOPIC, cap)})\n`);
 
   // Print thread
-  console.log("📱 X Thread:\n");
+  console.log("X Thread:\n");
   cap.thread.forEach((t, i) => {
     console.log(`[${i + 1}/${cap.thread.length}] ${t.length} chars`);
     console.log(t);
@@ -205,13 +436,16 @@ function main() {
   const readme = generateShowcaseREADME(cap, TOPIC);
   const outFile = `/tmp/egos-rapid-response-${Date.now()}.md`;
   writeFileSync(outFile, readme);
-  console.log(`\n📄 Showcase README: ${outFile}`);
-  console.log(`💡 Pitch: ${cap.pitch}`);
+  console.log(`\nShowcase README: ${outFile}`);
+  console.log(`Pitch: ${cap.pitch}`);
 
-  if (POST) {
-    console.log("\n⚠️  --post flag detected. To auto-post thread, pipe first tweet to x-reply-bot.");
-    console.log("   Implement: bun scripts/x-reply-bot.ts --post-thread <file>");
+  if (POST_THREAD) {
+    console.log("\nPosting thread from generated file...");
+    await handlePostThread(outFile);
+  } else if (POST) {
+    console.log("\n--post flag detected. To auto-post thread, use --post-thread flag.");
+    console.log(`   bun scripts/rapid-response.ts --post-thread ${outFile}`);
   }
 }
 
-main();
+main().catch(console.error);
