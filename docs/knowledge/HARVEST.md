@@ -1,8 +1,30 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 3.6.0 | **UPDATED:** 2026-04-06 late
+> **VERSION:** 3.7.0 | **UPDATED:** 2026-04-06 P29
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
-> **Latest:** Google AI Studio Imagen 3 integration plan (thread-poster + social image gen), OG image automation via Playwright, X.com OAuth fully wired
+> **Latest:** SSOT-First consolidation pattern (7→1 GTM files), pre-commit TTY fix ([ -t 0 ]), OAuth refresh cron + VPS sync
+
+## P29 Patterns (2026-04-06)
+
+**SSOT-First Rule — enforcing content consolidation:**
+- Trigger: 7 GTM files had duplicate/overlapping content scattered across docs/business/, docs/sales/, docs/strategy/
+- Fix: Create domain SSOT first, migrate all content, delete sources → one file to rule the domain
+- Guard: `.guarani/orchestration/SSOT_RULES.md` + `CLAUDE.md §26` prevent future dispersion
+- Anti-pattern: don't create a new file when content belongs in an existing SSOT
+
+**Pre-commit hook TTY detection:**
+- Wrong: `[ -e /dev/tty ]` — file exists even when git runs hook non-interactively
+- Wrong: `{ : < /dev/tty; } 2>/dev/null` — /dev/tty may open but git commit doesn't connect stdin to it
+- Correct: `[ -t 0 ]` — "is stdin a file descriptor pointing to a terminal?" Returns false in `git commit`
+- Implication: hooks with interactive prompts must use `[ -t 0 ]` for non-interactive detection
+
+**OAuth token cron pattern:**
+- Token expires ~5h (not 24h). Cron every 2h, refresh if <4h remaining = 2 cycle buffer
+- 429 on refresh = token still valid (server rate-limits refresh of live tokens) — expected, not an error
+- VPS sync via rsync after every successful refresh — both local and VPS always in sync
+- Fallback: `node claude-code-cli.js --print "x"` triggers CC to refresh credentials automatically
+
+---
 
 ## Guard Brasil GTM Patterns (2026-04-06)
 
