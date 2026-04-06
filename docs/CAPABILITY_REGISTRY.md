@@ -11,7 +11,7 @@
   - `docs/SYSTEM_MAP.md` — architecture placement of capabilities
 <!-- llmrefs:end -->
 
-> **VERSION:** 1.8.0 | **UPDATED:** 2026-03-31
+> **VERSION:** 1.9.0 | **UPDATED:** 2026-04-06
 > **PURPOSE:** Master index of all capabilities across the EGOS ecosystem
 > **SSOT STATUS:** This file IS the canonical capability map
 > **LATEST:** Kernel governance sprint — Agent Claim Contract, MCP servers, Circuit Breaker, SSOT Visit Protocol v2
@@ -257,6 +257,33 @@ Each capability has:
 | Archaeology Digger Agent | `egos/agents/agents/archaeology-digger.ts` | A | egos | egos-lab | `docs`, `archaeology`, `agent` |
 | Evolution Tree (interactive) | `egos/docs/evolution-tree.html` | A | egos | — | `docs`, `visualization`, `history` |
 | Mycelium Architecture | `egos/docs/concepts/mycelium/` | A | egos | — | `docs`, `architecture`, `mycelium` |
+| **Knowledge System (wiki)** | `egos/agents/agents/wiki-compiler.ts` + `docs/knowledge/` | A | egos | — | `docs`, `wiki`, `knowledge`, `supabase` |
+| **HARVEST.md Patterns** | `egos/docs/knowledge/HARVEST.md` | A | egos | ALL | `docs`, `patterns`, `learnings` |
+
+---
+
+## 12. GTM & COMMERCIAL
+
+| Capability | SSOT | Quality | Adopted By | Should Adopt | Tags |
+|-----------|------|---------|------------|-------------|------|
+| **Partnership Strategy** | `egos/docs/strategy/PARTNERSHIP_STRATEGY.md` | B | egos | — | `gtm`, `partners`, `distribution` |
+| **Outreach Email Templates** | `egos/docs/business/OUTREACH_EMAIL_TEMPLATES.md` | B | egos | — | `gtm`, `outreach`, `lgpd` |
+| **X.com Reply Bot** | `egos/scripts/x-reply-bot.ts` (VPS cron hourly) | A | egos | — | `gtm`, `x.com`, `social`, `bot` |
+| **Rapid Response Thread** | `egos/scripts/rapid-response.ts` | B | egos | — | `gtm`, `x.com`, `thread`, `showcase` |
+| **Gem Hunter Partner Track** | `docs/gem-hunter/SSOT.md` → partner/community track | C | egos (planned) | — | `gtm`, `gem-hunter`, `discovery` |
+
+---
+
+## 13. MISSION CONTROL (HQ)
+
+| Capability | SSOT | Quality | Adopted By | Should Adopt | Tags |
+|-----------|------|---------|------------|-------------|------|
+| **EGOS HQ Dashboard** | `egos/apps/egos-hq/` (hq.egos.ia.br:3060) | A | egos (LIVE) | — | `hq`, `dashboard`, `mission-control` |
+| **HQ JWT Auth** | `apps/egos-hq/src/middleware.ts` + `DASHBOARD_MASTER_SECRET` | A | egos (LIVE) | — | `hq`, `auth`, `jwt` |
+| **HQ X Monitor** | `apps/egos-hq/app/x/` — 3 tabs: queue/search/history | A | egos (LIVE) | — | `hq`, `x.com`, `monitor` |
+| **Claude Code Skills (22+)** | `~/.claude/commands/` (22 skills) | A | egos | — | `dx`, `skills`, `automation` |
+| **Claude Code Hooks (12)** | `~/.claude/hooks/` + `~/.claude/settings.json` | A | egos | — | `dx`, `hooks`, `safety` |
+| **Gem Hunter deps-watch** | `agents/agents/gem-hunter.ts` → SearchTrack deps-watch | B | egos (manual) | — | `dx`, `deps`, `monitoring` |
 
 ---
 

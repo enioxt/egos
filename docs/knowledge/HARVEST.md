@@ -1,8 +1,91 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 3.3.0 | **UPDATED:** 2026-04-06
+> **VERSION:** 3.4.0 | **UPDATED:** 2026-04-06
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
-> **Latest:** Gateway Auth Middleware (SHA-256 Supabase keys), Health Monitor weighted scoring, Telegram slash commands proxy pattern, FTS pg_trgm + phfts(portuguese), Gem Hunter dashboard inline SSR injection
+> **Latest:** Docker bind mount restart required for Caddy, UserPromptSubmit hooks inject context (not commands), GTM-first researcher-builder pattern, Windsurf→Claude Code skill sync, CLAUDE.md dissemination protocol
+
+## Docker Bind Mount + Caddy Container Naming (2026-04-06)
+
+### Problem
+After editing a Caddyfile on the host machine (bind-mounted into a Docker container), the 502 persists.
+
+### Root Cause (two separate bugs)
+1. `reverse_proxy localhost:3060` inside Docker resolves to the **container's** localhost — not the host. Must use container name: `reverse_proxy egos-hq:3060`
+2. Even after fixing the Caddyfile, changes to a bind-mounted file don't live-update — the container must be restarted: `docker restart infra-caddy-1`
+
+### Solution
+```bash
+# Fix Caddy config: localhost → container name
+sed -i 's/reverse_proxy localhost:3060/reverse_proxy egos-hq:3060/' /opt/bracc/infra/Caddyfile
+# Reload: restart container (not just caddy reload)
+docker restart infra-caddy-1
+```
+
+**Rule:** After any bind-mounted config change, ALWAYS restart the consuming container.
+
+---
+
+## UserPromptSubmit Hooks — Context Injection (not Command Execution) (2026-04-06)
+
+### What hooks CAN do
+UserPromptSubmit hooks receive the prompt text via stdin and can write to stdout to inject additional context/instructions that get prepended to the conversation.
+
+### What hooks CANNOT do
+Hooks cannot invoke `/skill-name` commands. They do not have access to the Claude Code command system — only to the conversation context channel.
+
+### Pattern: Auto meta-prompt injection
+```bash
+# In ~/.claude/hooks/skill-auto-trigger
+PROMPT=$(cat /tmp/prompt_content)
+if echo "$PROMPT" | grep -qi "decisão estratégica"; then
+  cat ~/.guarani/prompts/meta/universal-strategist.md  # stdout → injected as context
+fi
+```
+
+**Rule:** Use hooks to inject meta-prompt **content**, not to run commands.
+
+---
+
+## GTM-First Pattern for Researcher-Builders (2026-04-06)
+
+### Problem
+Solo technical founders who build by investigation (not market demand) ship products with R$0 MRR despite high technical output. The gap is not technical — it's commercial.
+
+### Profile
+- **Researcher-builder:** creates features by following curiosity, not customer pull
+- Builds compulsively, doesn't show — "faço faço mas não mostro nada"
+- Dislikes cold sales, outreach, pitch decks (risk of rejection)
+- Needs: automatic GTM bridge, not manual hustle
+
+### System compensation pattern
+```
+/start → always show: MRR, customers, M-007 status, pending demos
+/end → always ask: "Did you advance GTM today?"
+Every new feature → document "Who uses this? How do they find it?" before done
+X.com bot → target LGPD/compliance conversations, not just AI topics
+HQ dashboard → GTM metrics card as PRIMARY widget
+```
+
+### Co-founder strategy
+Accept the division: researcher-builder handles product/tech, commercial co-founder handles sales/distribution. This is not failure — it's specialization.
+
+---
+
+## CLAUDE.md Dissemination Protocol (2026-04-06)
+
+### Rule
+Any rule written in one CLAUDE.md does not exist in the others. Must propagate simultaneously to: `~/.claude/CLAUDE.md`, `egos/CLAUDE.md`, `.guarani/`, `memory/`.
+
+### Pattern
+When adding a new global rule (e.g., GTM-first mindset):
+1. Add numbered section to `~/.claude/CLAUDE.md` (global)
+2. Add summary section to `egos/CLAUDE.md` (project)
+3. Create `memory/feedback_*.md` file (persistence)
+4. Update `MEMORY.md` index
+
+**Why:** Claude Code loads CLAUDE.md from the current project directory. Global rules in `~/.claude/CLAUDE.md` apply everywhere, but project rules in `egos/CLAUDE.md` only apply in that repo.
+
+---
 
 ## AI Agent Validation Checklist Pattern (2026-04-03)
 

@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.34.0 | **Updated:** 2026-04-05 | **LAST SESSION:** 2026-04-05 P22 — Real data tests (9/10 PII patterns verified), free quota 150→500 fixed everywhere, landing page updated, partnership strategy created (docs/strategy/PARTNERSHIP_STRATEGY.md)
+> **Version:** 2.35.0 | **Updated:** 2026-04-06 | **LAST SESSION:** 2026-04-06 P24/P25 — HQ live (hq.egos.ia.br), 7 new skills synced from Windsurf, deps-watch track added, GTM-first mindset adopted, CLAUDE.md v2.5.0, Enio profile built, full plan created
 
 ---
 
@@ -222,33 +222,10 @@ OBS-001..004 done (atrian-observability skeleton, telemetry policy, 12 spans, 10
 ---
 
 ### Reference Repos — Awareness Registry (2026-04-01)
-
-**Repos identified for study (from ChatGPT analysis + Gem Hunter + leak threads):**
-
-| ID | Repo | Category | Priority |
-|----|------|----------|----------|
-| continuedev/continue | coding_surface, governance | P1 |
-| Aider-AI/aider | coding_surface, agent_runtime | P1 |
-| cline/cline | coding_surface, agent_runtime | P1 |
-| OpenHands/OpenHands | agent_runtime, product_surface | P1 |
-| langchain-ai/langgraph | agent_runtime, durable_workflow | P1 |
-| openai/openai-agents-python | agent_runtime, governance_safety | P1 |
-| BerriAI/litellm | model_gateway | P1 |
-| langfuse/langfuse | observability_evals | P1 |
-| pydantic/pydantic-ai | agent_runtime | P2 |
-| mem0ai/mem0 | memory_context | P2 |
-| Arize-ai/phoenix | observability_evals | P2 |
-| vercel/ai | product_surface | P2 |
-| temporalio/sdk-typescript | durable_workflow | P2 |
-| deepset-ai/haystack | retrieval_context | P2 |
-| stanfordnlp/dspy | agent_runtime | P2 |
-| modelcontextprotocol/servers | protocol_tooling | P2 |
-| hesreallyhim/awesome-claude-code | protocol_tooling | Ref |
-| disler/claude-code-hooks-multi-agent-observability | observability_evals | Ref |
-| rohitg00/awesome-claude-code-toolkit | protocol_tooling | Ref |
-| nblintao/awesome-claude-code-postleak-insights | protocol_tooling | Ref |
-| jimmyjdejesus-cmyk/agent-scaling-laws | agent_scaling, intelligence_layer | P1 |
-| HKUDS/OpenHarness | agent_runtime, harness | P1 |
+**P1:** continue, aider, cline, OpenHands, langgraph, openai-agents-python, litellm, langfuse, agent-scaling-laws, OpenHarness
+**P2:** pydantic-ai, mem0, phoenix, vercel/ai, temporal-ts, haystack, dspy, modelcontextprotocol/servers
+**Ref:** awesome-claude-code, claude-code-hooks-observability, awesome-claude-code-toolkit, post-leak-insights
+**Done:** GH-010 (Continue 71/100), GH-011 (Aider 74/100), GH-012 (Cline 72.8/100), GH-046 (agent-scaling-laws 87% ArchSelector)
 
 ---
 
@@ -325,44 +302,11 @@ OBS-001..004 done (atrian-observability skeleton, telemetry policy, 12 spans, 10
 ---
 
 ### Eagle Eye v2 — Decision Intelligence Engine (GenHunter Spec 2026-04-02)
-
-**Source:** ChatGPT GenHunter Sistema Decisório spec — 7-layer pipeline, 5-axis scoring, 26 API endpoints
-**Insight:** Eagle Eye evolves from territory-scanner to full licitações DECISION INTELLIGENCE system.
-Modern monetization: usage-based API + MCP tool + chatbot. Stripe-unified (card + Pix).
-
-**Architecture (microservices):**
-- `collector-service` → `document-parser` → `classification-service` → `extraction-service`
-- `scoring-service` → `insight-generator` → `dashboard-api` → `notification-service` → `feedback-learning`
-
-**5-Axis Scoring:** aderência técnica / viabilidade econômica / capacidade técnica / risco operacional / compliance jurídica
-
-**Done:**
-- [x] EAGLE-020: Read and analyzed GenHunter spec (7-layer pipeline, 5-axis scoring, 26 endpoints) ✅ 2026-04-02
-- [x] BIZ-001: MONETIZATION_SSOT.md updated with Eagle Eye usage-based pricing (R$49/149/499) ✅ 2026-04-02
-
-**P0 — Core Pipeline:**
-- [x] EAGLE-GH-001: `scoring-service.ts` — 5-axis scorer live in egos-lab/apps/eagle-eye/src/modules/licitacoes/ (10 sector presets, BID/INVESTIGATE/SKIP thresholds, CLI demo) ✅ 2026-04-02
-- [x] EAGLE-GH-002: `document-parser.ts` — regex+LLM hybrid, extracts objeto/valor/prazo/modalidade/segmento/porte/habilitação, 78% confidence (no LLM) ✅ 2026-04-03
-- [ ] EAGLE-GH-003: `classification-service.ts` — auto-classify licitação by category + assign sector preset
-- [ ] EAGLE-GH-004: `extraction-service.ts` — pull deadline, CNAE, required docs, financial requirements from raw text
-
-**P1 — Intelligence Layer:**
-- [x] EAGLE-GH-005: `insight-generator.ts` — LLM + rule-based fallback, BID/INVESTIGATE/SKIP + action items + risks + revenue estimate ✅ 2026-04-03
-- [ ] EAGLE-GH-006: `profile-service.ts` — company capability profile (past wins, CNAE, financial capacity) → fed into scoring
-- [ ] EAGLE-GH-007: `feedback-learning.ts` — track bid outcomes (won/lost/skipped) → adjust scoring weights per sector
-
-**P1 — API & MCP:**
-- [ ] EAGLE-GH-008: REST API v2 — POST /v2/analyze (score single licitação), GET /v2/opportunities (filtered feed), GET /v2/insights/:id
-- [ ] EAGLE-GH-009: MCP server `eagle-eye-mcp` — tools: `analyze_licitacao`, `search_opportunities`, `get_profile` → usable from Claude Code
-- [ ] EAGLE-GH-010: Stripe Pix integration — enable `pix` payment method in Stripe Checkout for all Eagle Eye plans
-**P2 — Dashboard & Notifications:**
-- [ ] EAGLE-GH-011: Dashboard v2 redesign — opportunity feed with 5-axis radar chart, bid pipeline Kanban
-- [ ] EAGLE-GH-012: Telegram alert routing — score ≥75 → `egosmarkets_bot`; score ≥90 AND deadline ≤7d → admin bot
-- [ ] EAGLE-GH-013: Chatbot interface — natural language query: "find software opportunities in SP above R$500k"
-**P2 — Proposal Tools (R$250k opportunity):**
-- [ ] EAGLE-021: Proposal generator — auto-draft proposta técnica from edital + company profile
-- [ ] EAGLE-022: Compliance checklist — auto-check habilitação requirements against company docs
-- [ ] EAGLE-023: Submit EAGLE-020 proposal by 2026-04-29 (R$250k opportunity deadline)
+**Done:** EAGLE-020 spec analyzed, BIZ-001 pricing, EAGLE-GH-001 scoring-service, EAGLE-GH-002 document-parser (78%), EAGLE-GH-005 insight-generator ✅
+**P0:** EAGLE-GH-003 classification-service, EAGLE-GH-004 extraction-service
+**P1:** EAGLE-GH-006 profile-service, EAGLE-GH-007 feedback-learning, EAGLE-GH-008 REST API v2, EAGLE-GH-009 MCP server, EAGLE-GH-010 Stripe Pix
+**P2:** EAGLE-GH-011..013 dashboard v2, Telegram routing, chatbot NL query
+**DEADLINE:** EAGLE-023 — R$250k proposal by 2026-04-29
 ### P20 Session Tasks (2026-04-04)
 
 **Done:**
@@ -483,3 +427,67 @@ Modern monetization: usage-based API + MCP tool + chatbot. Stripe-unified (card 
 - [ ] GUARANI-001: Port .guarani/refinery/ pre-processor to Claude Code — add to PreToolUse hook for short/vague prompts (<50 chars)
 - [ ] GUARANI-002: Wire .guarani/prompts/triggers.json into /start — check triggers before executing
 - [ ] GUARANI-003: Evaluate .guarani/orchestration/GATES.md quality gates in pre-commit hook
+
+---
+
+### P25 — GTM-First Phase (2026-04-06)
+
+**North Star:** R$30k MRR by 2026-06-30. Every task must answer "who uses this?"
+**SSOT:** `docs/strategy/PARTNERSHIP_STRATEGY.md` | Market research: business/DPONET_PRIVACYTOOLS_DEEP_RESEARCH.md
+
+**P0 — M-007 (oldest blocker — send these NOW):**
+- [ ] M-007: Send 5 outreach emails to DPOs/compliance teams (templates: docs/business/OUTREACH_EMAIL_TEMPLATES.md). This is the ONLY action blocking first revenue. Days stale: 7+.
+
+**P0 — Guard Brasil GTM:**
+- [ ] GTM-001: Update x-reply-bot search queries to target LGPD/compliance/DPO/ANPD conversations on X.com (currently too broad — add keywords: lgpd, anpd, dpo, "proteção de dados", "vazamento de dados", "conformidade")
+- [ ] GTM-002: Publish 5 showcase posts on X.com @anoineim — demo Guard Brasil: CPF detection, LGPD compliance, 4ms response. Use docs/business/PART002_SOCIAL_POSTS.md drafts.
+- [ ] GTM-003: Add GTM metrics card to HQ home page — shows: MRR (R$0), customers (0), M-007 status (STALE), outreach sent/responded, pending demos
+- [ ] GTM-004: Add partner/community discovery track to Gem Hunter — queries: "lgpd api", "data privacy compliance brazil", "dpo tools brasil", "gdpr brazil saas", "pii detection api". Output feeds PART-001..015 pipeline.
+- [ ] GTM-005: Guard Brasil demo video (90 seconds) — record screen: API call → PII detected → LGPD report. Upload to X.com thread.
+
+**P1 — Visibility:**
+- [ ] GTM-006: Deploy Guard Brasil docs at guard.egos.ia.br/docs with interactive API playground (Scalar or Swagger UI)
+- [ ] GTM-007: Submit Guard Brasil to ANPD's public registry of DPO tools (builds legitimacy)
+- [ ] GTM-008: ProductHunt launch — prepare assets, schedule for Tuesday/Wednesday (peak traffic days)
+- [ ] GTM-009: LinkedIn post targeting compliance managers + DPOs in Brazil (different audience than X.com)
+
+**P1 — Partnership pipeline (from PART-001..015):**
+- [ ] GTM-010: Reach out to 3 DPO/compliance SaaS BR (DPOnet, OneTrust BR, Boa Compra) — use OUTREACH_EMAIL_TEMPLATES.md
+- [ ] GTM-011: Nuvemshop / VTEX app store — create integration guide + submit app listing
+
+---
+
+### HQ Dashboard v2 (2026-04-06)
+
+**Goal:** Mission Control shows full system state (tasks, gems, world model, GTM metrics, system map)
+**Prerequisite:** Volume mounts on VPS (data bound to /data/ inside container)
+
+**P0 — Volume mounts (needed for all v2 routes):**
+- [ ] HQ-000: Add Docker volume mounts to VPS docker-compose.yml: TASKS.md, world-model/, gem-hunter/latest-run.json, agents.json, CAPABILITY_REGISTRY.md → /data/*
+
+**P1 — API Routes (apps/egos-hq/app/api/hq/):**
+- [ ] HQ-001: `tasks/route.ts` — parse /data/TASKS.md → `{categories, priorities, total, done, pending, p0_stale}`
+- [ ] HQ-002: `world-model/route.ts` — read /data/world-model/current.json → full snapshot (health%, blockers, agents, signals)
+- [ ] HQ-003: `gems/route.ts` — read /data/gem-hunter/latest-run.json → top gems + filters (score, source, category)
+- [ ] HQ-004: `system-map/route.ts` — read /data/agents.json + CAPABILITY_REGISTRY.md → `{nodes, edges}` for D3
+- [ ] HQ-005: `gtm/route.ts` — aggregate: MRR from Supabase, M-007 status, outreach count, pending demos
+
+**P2 — Dashboard Pages:**
+- [ ] HQ-006: `/tasks` page — Kanban by priority (P0 red, P1 yellow, P2 blue), done/pending counts
+- [ ] HQ-007: `/world-model` page — health% gauge, P0 blocker cards, agent inventory, signal feed
+- [ ] HQ-008: `/gems` page — filterable card grid (score badge, source icon, category color, search)
+- [ ] HQ-009: `/system-map` page — interactive D3 graph (capability domains as nodes, agent edges)
+- [ ] HQ-010: Update nav in hq-layout.tsx with new links (tasks, world-model, gems, system-map, gtm)
+
+---
+
+### Skills + Hooks Backlog (2026-04-06)
+
+**Skills:**
+- [ ] SKILL-001: `/gate` — manual quality gate scoring (G1-G5 template from .guarani/orchestration/GATES.md). Create `~/.claude/commands/gate.md`
+- [ ] SKILL-002: `/mycelium-think` — thinking meta-prompt (different from /mycelium VPS check). Create `~/.claude/commands/mycelium-think.md`
+- [ ] SKILL-003: `/brainet` — sync content from .guarani/prompts/meta/brainet.md (if outdated). Verify ~/.claude/commands/brainet.md exists.
+
+**Hooks:**
+- [ ] HOOK-001: `~/.claude/hooks/skill-auto-trigger` — UserPromptSubmit hook that detects keywords from .guarani/prompts/triggers.json (7 triggers: strategy, brainet, mycelium, audit, debate, extraction, activation) and injects meta-prompt content as context
+- [ ] HOOK-002: `~/.claude/hooks/refinery-gate` — UserPromptSubmit hook for vague prompts (<50 chars) or risky keywords (deletar/remover/migrar/deploy/produção) → inject clarification guidance from .guarani/refinery/classifier.md
