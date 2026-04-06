@@ -96,6 +96,15 @@ bun agent:run context_tracker --dry  # CTX score
 **GOAL:** R$ 30k+ MRR
 **ENFORCEMENT:** Pre-commit hook blocks commits outside focus scope
 
+## GTM-First Rule (2026-04-06)
+
+Every feature must answer: **"Who uses this? How do they find it?"**
+- Revenue: R$0 MRR (as of 2026-04-06) — #1 priority to change
+- Customers: 0 paying — M-007 outreach emails are the critical blocker
+- X.com: Be the bridge — post demos, respond to LGPD conversations, attract partners
+- /end must ask: "Did you advance GTM today? (post, conversation, outreach, demo)"
+- Dashboard (hq.egos.ia.br): Must show GTM metrics alongside technical health
+
 ---
 
-*Gerado em: 2026-04-04 | Claude Code v2.3.0*
+*Gerado em: 2026-04-06 | Claude Code v2.5.0*
