@@ -21,9 +21,11 @@ export async function GET() {
   const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString();
 
   // Run all checks in parallel
-  const [guardHealth, gatewayHealth, guardStats, xStats, agentEvents, kbStats, kbLearnings] = await Promise.all([
+  const [guardHealth, gatewayHealth, openclawHealth, billingProxyHealth, guardStats, xStats, agentEvents, kbStats, kbLearnings] = await Promise.all([
     ping('https://guard.egos.ia.br/health', 'Guard Brasil API'),
     ping('https://gateway.egos.ia.br/health', 'EGOS Gateway'),
+    ping('https://openclaw.egos.ia.br', 'OpenClaw Gateway'),
+    ping('http://127.0.0.1:18801/health', 'Billing Proxy (local)'),
 
     // Guard Brasil today's stats
     sb.from('guard_brasil_events')
@@ -77,6 +79,16 @@ export async function GET() {
     services: {
       guard_brasil: { ...guardHealth, calls_today: callsToday, revenue_today_usd: revenueToday, mrr_brl: mrr },
       gateway: gatewayHealth,
+      openclaw: {
+        ...openclawHealth,
+        default_model: 'claude-haiku-4-5-20251001',
+        fallback_chain: ['openrouter/qwen3-235b:free', 'dashscope/qwen-turbo'],
+      },
+      billing_proxy: {
+        ...billingProxyHealth,
+        requests_served: (billingProxyHealth.data as { requestsServed?: number })?.requestsServed ?? null,
+        token_expires_in_hours: (billingProxyHealth.data as { tokenExpiresInHours?: number })?.tokenExpiresInHours ?? null,
+      },
     },
     x_bot: {
       pending: xByStatus['pending'] ?? 0,
