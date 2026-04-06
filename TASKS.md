@@ -433,7 +433,10 @@ OBS-001..004 done (atrian-observability skeleton, telemetry policy, 12 spans, 10
 ### P25 — GTM-First Phase (2026-04-06)
 
 **North Star:** R$30k MRR by 2026-06-30. Every task must answer "who uses this?"
-**SSOT:** `docs/strategy/PARTNERSHIP_STRATEGY.md` | Market research: business/DPONET_PRIVACYTOOLS_DEEP_RESEARCH.md
+**SSOT:** `docs/strategy/PARTNERSHIP_STRATEGY.md` | Market research: `business/MARKET_RESEARCH_GUARD_BRASIL_2026.md`
+**ICP (confirmed):** CTOs/backend devs at fintechs+healthtechs 50-500 employees. Handle CPF/RG daily, ANPD pressure, buy in days.
+**Positioning:** "The Presidio for Brazil — free API key, zero setup, 15 BR PII patterns." Presidio has 0 BR patterns.
+**Key insight:** Privacy Tools BR = PARTNER not competitor (process tool, no API). OneTrust/BigID = enterprise (R$50k+), not our market.
 
 **P0 — M-007 (oldest blocker — send these NOW):**
 - [ ] M-007: Send 5 outreach emails to DPOs/compliance teams (templates: docs/business/OUTREACH_EMAIL_TEMPLATES.md). This is the ONLY action blocking first revenue. Days stale: 7+.
@@ -451,9 +454,11 @@ OBS-001..004 done (atrian-observability skeleton, telemetry policy, 12 spans, 10
 - [ ] GTM-008: ProductHunt launch — prepare assets, schedule for Tuesday/Wednesday (peak traffic days)
 - [ ] GTM-009: LinkedIn post targeting compliance managers + DPOs in Brazil (different audience than X.com)
 
-**P1 — Partnership pipeline (from PART-001..015):**
-- [ ] GTM-010: Reach out to 3 DPO/compliance SaaS BR (DPOnet, OneTrust BR, Boa Compra) — use OUTREACH_EMAIL_TEMPLATES.md
-- [ ] GTM-011: Nuvemshop / VTEX app store — create integration guide + submit app listing
+**P1 — Content GTM (from market research):**
+- [ ] GTM-010: dev.to post "Como detectar CPF, RG e MASP em sua API Node.js em 5 minutos" — with live Guard Brasil example. Target: Brazilian backend devs.
+- [ ] GTM-011: X.com thread "ANPD está acelerando fiscalização em 2026. Aqui está uma API gratuita para verificar se seu app vaza PII brasileiro." + link free tier
+- [ ] GTM-012: Reach out to Privacy Tools BR for partnership/integration (they have DPO customers who need our API layer)
+- [ ] GTM-013: Nuvemshop / VTEX app store — create integration guide + submit app listing
 
 ---
 
