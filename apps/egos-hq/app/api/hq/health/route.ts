@@ -3,6 +3,8 @@ import { createServerClient } from '@/lib/supabase';
 
 const TIMEOUT = 4000;
 const BILLING_PROXY_URL = process.env.BILLING_PROXY_URL ?? 'http://127.0.0.1:18801';
+const GATEWAY_HEALTH_URL = process.env.GATEWAY_HEALTH_URL ?? 'https://gateway.egos.ia.br/health';
+const OPENCLAW_HEALTH_URL = process.env.OPENCLAW_HEALTH_URL ?? 'https://openclaw.egos.ia.br';
 
 async function ping(url: string, label: string) {
   try {
@@ -24,8 +26,8 @@ export async function GET() {
   // Run all checks in parallel
   const [guardHealth, gatewayHealth, openclawHealth, billingProxyHealth, guardStats, xStats, agentEvents, kbStats, kbLearnings] = await Promise.all([
     ping('https://guard.egos.ia.br/health', 'Guard Brasil API'),
-    ping('https://gateway.egos.ia.br/health', 'EGOS Gateway'),
-    ping('https://openclaw.egos.ia.br', 'OpenClaw Gateway'),
+    ping(GATEWAY_HEALTH_URL, 'EGOS Gateway'),
+    ping(OPENCLAW_HEALTH_URL, 'OpenClaw Gateway'),
     ping(`${BILLING_PROXY_URL}/health`, 'Billing Proxy'),
 
     // Guard Brasil today's stats
