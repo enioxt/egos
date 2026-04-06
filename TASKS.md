@@ -56,7 +56,7 @@ EGOS-167/168/175, GH-040..042, EGOS-TELEM-001..005 — all DONE ✅. codebase-me
 - [x] KB-014: LLM enrichment pass for low-quality pages (<60) via qwen-plus (wiki:enrich) ✅ 2026-04-05
 
 **P2 — Advanced:**
-- [ ] KB-015: Full-text search with pg_trgm or pgvector embeddings
+- [x] KB-015: Full-text search with pg_trgm or pgvector embeddings ✅ 2026-04-06 — pg_trgm GIN indexes + ?mode=fts param using phfts(portuguese)
 - [x] KB-016: Knowledge graph visualization — /ui dashboard (egos-gateway) with category cards, search, quality scores, learnings panel ✅ 2026-04-04
 - [ ] KB-017: Auto-learning from git commits (extract patterns from commit messages + diffs)
 - [x] KB-018: MCP server @egos/knowledge-mcp — 5 tools: search_wiki, get_page, get_stats, record_learning, list_learnings ✅ 2026-04-05
@@ -198,7 +198,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] GH-068: Auth — API keys via Supabase `gem_hunter_api_keys` table + Bearer token validation ✅ 2026-04-05
 - [x] GH-069: Rate limiting middleware (tier-aware: free/starter/pro/pay-per-use) ✅ 2026-04-05
 - [ ] GH-070: Chatbot orchestrator — WhatsApp channel NLP intent → tool calls → gem-hunter → curated reply
-- [ ] GH-071: Telegram bot (/hunt, /trending, /sector slash commands)
+- [x] GH-071: Telegram bot (/hunt, /trending, /sector slash commands) ✅ 2026-04-06 — all 3 commands live in telegram.ts, /sector validates 6 sectors
 - [ ] GH-072: Chatbot tier enforcement (200 queries/mo for R$149/mo chatbot plan)
 - [ ] GH-073: Email digest — weekly top 10 gems to subscribers
 - SSOT: docs/gem-hunter/GEM_HUNTER_PRODUCT.md
@@ -264,9 +264,9 @@ OBS-001..004 done (atrian-observability skeleton, telemetry policy, 12 spans, 10
 - [x] X-005: `scripts/check-legacy-code.sh` in pre-commit ✅ 2026-04-01
 
 **P1 — Expand:**
-- [ ] X-006: Grow capability profiles in rapid-response.ts (add br-acc, 852, BRAID executor)
-- [ ] X-007: `--post-thread` flag in rapid-response.ts — auto-post first tweet of thread
-- [ ] X-008: Daily X report to Telegram (how many replies sent, top threads engaged)
+- [x] X-006: Grow capability profiles in rapid-response.ts (add br-acc, 852, BRAID executor) ✅ 2026-04-06 — br_acc, sistema_852, gem_hunter profiles added
+- [x] X-007: `--post-thread` flag in rapid-response.ts — auto-post first tweet of thread ✅ 2026-04-06 — OAuth 1.0a posting, falls back to manual instructions
+- [x] X-008: Daily X report to Telegram (how many replies sent, top threads engaged) ✅ 2026-04-06 — RunStats + sendDailyReport() in x-reply-bot.ts
 - [ ] X-009: Trending topic scanner — check X API hourly for rising keywords vs our capabilities
 - [ ] X-010: "Clean showcase" branch auto-creator — when topic detected, create `showcase/<topic>` with only clean files
 
@@ -293,7 +293,7 @@ OBS-001..004 done (atrian-observability skeleton, telemetry policy, 12 spans, 10
 - [ ] WM-004: Dataset preparation — coletar tasks + decisions para fine-tuning futuro
 
 **P1 — Signal Layer:**
-- [ ] INTEL-005: Signal ingestion — Gem Hunter scores > 80 → auto-append to world model signals (= GH-050)
+- [x] INTEL-005: Signal ingestion — Gem Hunter scores > 80 → auto-append to world model signals (= GH-050) ✅ 2026-04-06 — gem-hunter.ts appends type:gem_discovery, capped at 50
 - [ ] INTEL-006: Proactive blocker detection — world model scans P0 list → creates TASKS entries if blocker stale > 7 days
 - [ ] INTEL-007: `--mermaid` output from world-model.ts → embed in /start briefing as ASCII architecture snapshot
 
