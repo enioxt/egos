@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.39.0 | **Updated:** 2026-04-06 | **LAST SESSION:** 2026-04-06 P27 — OpenClaw VPS deploy complete (billing proxy + Telegram @egosmarkets_bot + Caddy routing), anthropic-subscription pipeline working end-to-end (PIPELINE_FINAL_OK), OC-001..005/009/015 done
+> **Version:** 2.40.0 | **Updated:** 2026-04-06 | **LAST SESSION:** 2026-04-06 P28 — Default model→Haiku 4.5, fallback chain (OpenRouter Qwen3-free + Alibaba DashScope), VPS watchdog ✅, HQ health 4/4 services live (Guard/Gateway/OpenClaw/BillingProxy), UFW Docker bridge rule, OC-003 updated
 
 ---
 
@@ -443,10 +443,13 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 
 - [x] OC-001: Telegram local — decidido: @egosmarkets_bot no VPS, local sem Telegram (evitar conflito com EGOS Gateway @EGOSin_bot). VPS pronto.
 - [x] OC-002: Pipeline testado — `openclaw agent --message "..."` → billing proxy → Claude Sonnet 4.6 (PIPELINE_FINAL_OK ✅)
-- [x] OC-003: Modelo padrão: `anthropic-subscription/claude-sonnet-4-6` em `openclaw.json`. Fixes: `api:"anthropic-messages"` + `apiKey` obrigatório + auth-profiles.json.
+- [x] OC-003: Modelo padrão: `anthropic-subscription/claude-haiku-4-5-20251001` (updated P28 — Haiku default, Sonnet for complex, fallback chain: Qwen3-235B-free+qwen-turbo via OpenRouter+DashScope) em `openclaw.json`. Fixes: `api:"anthropic-messages"` + `apiKey` obrigatório + auth-profiles.json.
 - [x] OC-004: `~/.openclaw/workspace/USER.md` populado com perfil Enio (projetos, infra, preferências, estilo).
 - [x] OC-005: Token auto-refresh: cron rsync credentials local→VPS a cada 4h (`0 */4 * * *`). Proxy relê arquivo a cada request — sem restart necessário.
 
+- [x] OC-024: VPS watchdog script (/opt/egos-watchdog.sh) — cron */5 min, monitors 10 containers + 4 HTTP endpoints + OAuth token freshness, Telegram alert on down/recovery ✅ 2026-04-06
+- [x] OC-025: HQ health endpoint 4/4 real services (Guard Brasil, EGOS Gateway via container name, OpenClaw, Billing Proxy via BILLING_PROXY_URL env) + /api/hq/health made public ✅ 2026-04-06
+- [x] OC-026: UFW rule — Docker infra_bracc 172.19.0.0/16 → port 18801 (billing proxy) ✅ 2026-04-06
 **P1 — Médio prazo (2 semanas): Canais + Integração EGOS**
 
 - [ ] OC-006: Decidir estratégia Telegram: (a) migrar egosin_bot para OpenClaw (OpenClaw gerencia o loop), ou (b) manter EGOS Gateway como primário e conectar OpenClaw via sessions API. **Recomendado: opção (b)** — EGOS Gateway tem LGPD/PII, OpenClaw traz skills/multi-device.

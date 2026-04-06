@@ -44,7 +44,7 @@ systemctl --user restart openclaw-gateway
   "gateway": {"mode": "local"},
   "agents": {
     "defaults": {
-      "model": "anthropic-subscription/claude-sonnet-4-6",
+      "model": "anthropic-subscription/claude-haiku-4-5-20251001",
       "compaction": {"mode": "safeguard"},
       "maxConcurrent": 4
     }
@@ -58,11 +58,12 @@ MCP servers registered here are available to the OpenClaw agent.
 ### 3.2 Model Providers
 **Path:** `~/.openclaw/agents/main/agent/models.json`
 
-Two providers configured (VPS uses `172.19.0.1:18801` instead of `127.0.0.1:18801`):
+Three providers configured (VPS uses `172.19.0.1:18801` instead of `127.0.0.1:18801`). **Default: Haiku 4.5**. Fallback chain: OpenRouter Qwen3 free → Alibaba DashScope:
 
 | Provider | API type | Models | Notes |
 |----------|----------|--------|-------|
-| `openrouter` | `openai-completions` | Gemini 2.0 Flash | Via OpenRouter API — paid per token |
+| `openrouter` | `openai-completions` | Qwen3-235B:free, Qwen3-30B:free, Gemini 2.0 Flash | Free fallback (Qwen3) + paid (Gemini) |
+| `dashscope` | `openai-completions` | qwen-turbo, qwen-plus, qwen3-235b-a22b | Alibaba API — cheap paid fallback |
 | `anthropic-subscription` | `anthropic-messages` | Sonnet 4.6, Haiku 4.5, Opus 4.6 | **Via billing proxy → Claude Code subscription (zero cost)** |
 
 **Critical gotchas (discovered 2026-04-06):**
@@ -72,7 +73,7 @@ Two providers configured (VPS uses `172.19.0.1:18801` instead of `127.0.0.1:1880
 
 **Test:** `openclaw agent --to @test --message "Say: PIPELINE_OK"` → should show response + proxy `requestsServed: 1`
 
-**To use subscription models:** set `agents.defaults.model: "anthropic-subscription/claude-sonnet-4-6"` in `openclaw.json`.
+**To use subscription models:** set `agents.defaults.model: "anthropic-subscription/claude-haiku-4-5-20251001"` for default (Haiku). Fallback chain: `openrouter/qwen3-235b:free` → `dashscope/qwen-turbo`. Sonnet for complex tasks only..
 
 ### 3.3 Workspace Identity
 **Path:** `~/.openclaw/workspace/`
@@ -191,10 +192,13 @@ From `docs/research/plugplay-governance-landscape-2026-03-14.md`:
 | VPS Telegram (@egosmarkets_bot) | ✅ Done (2026-04-06) | Distinct bot to avoid conflict with EGOS Gateway |
 | openclaw.egos.ia.br routing | ✅ Done (2026-04-06) | Caddy `→ openclaw-sandbox:18789`, HTTP 200 |
 | Wire OpenClaw + Hermes | ⬜ Pending | MASTER_HANDOFF_2026-04-03 |
-| Local Telegram channel | ⬜ Pending | OC-001 — add bot token to `~/.openclaw/openclaw.json` |
-| VPS credentials cron sync | ⬜ Pending | `~/.claude/.credentials.json` rotates daily — needs rsync job |
-| Populate USER.md | ⬜ Pending | Add full Enio profile |
-| Configure HEARTBEAT.md | ⬜ Pending | Add monitoring tasks |
+| Default model → Haiku 4.5 | ✅ Done (2026-04-06) | Fallback: Qwen3-235B:free + qwen-turbo (OpenRouter+DashScope) |
+| VPS watchdog | ✅ Done (2026-04-06) | /opt/egos-watchdog.sh cron */5min, 10 containers + 4 endpoints + OAuth |
+| HQ health 4/4 services | ✅ Done (2026-04-06) | Guard, Gateway (internal), OpenClaw (internal), BillingProxy (UFW rule) |
+| Local Telegram channel | ✅ Done (2026-04-06) | @egosmarkets_bot on VPS OpenClaw; local uses no Telegram (avoids conflict) |
+| VPS credentials cron sync | ✅ Done (2026-04-06) | `0 */4 * * *` rsync local→VPS, credential read per-request |
+| Populate USER.md | ✅ Done (2026-04-06) | Full Enio profile (projects, infra, prefs, VPS) |
+| Configure HEARTBEAT.md | ✅ Done (2026-04-06) | Guard Brasil, billing proxy, EGOS Gateway, Gem Hunter, daily summary |
 
 ---
 
