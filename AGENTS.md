@@ -14,10 +14,10 @@
   agent runtime (runner + event bus), multi-LLM provider, and shared
   utilities. No apps — leaf repos (egos-lab, 852, br-acc, etc.) consume this.
 - **Read next:**
-  - `.windsurfrules` — active governance rules
+  - `.guarani/RULES_INDEX.md` — canonical governance entry point
   - `TASKS.md` — current priorities
   - `docs/SSOT_REGISTRY.md` — canonical cross-repo SSOT registry
-  - `.guarani/PREFERENCES.md` — coding standards
+  - `docs/DOCUMENTATION_ARCHITECTURE_MAP.md` — principal documentation navigation map
 
 <!-- llmrefs:end -->
 
@@ -117,7 +117,7 @@ egos/
 └── README.md
 ```
 
-## Frozen Zones
+## Protected Surfaces
 
 > **DO NOT EDIT** without explicit user request + proof-of-work:
 > - `agents/runtime/runner.ts`
@@ -157,7 +157,7 @@ bun agent:run context_tracker --dry   # CTX score 0-280 with zone emoji + /end a
 ```
 
 ## Slash Workflows
-Canonical workflows in `.agents/workflows/`: start, sync, pr-prep, disseminate, mycelium.
+Canonical repo workflows live in `.windsurf/workflows/`: start, end, pre, prompt, regras, research, disseminate, mycelium, stitch, diag.
 
 ## EGOS as Intelligence — Block Model
 
@@ -189,12 +189,8 @@ Canonical workflows in `.agents/workflows/`: start, sync, pr-prep, disseminate, 
 3. **Atomic Capabilities** → `docs/CAPABILITY_REGISTRY.md` (160 capabilities, 13 domains)
 4. **Signal Layer** → Gem Hunter CCR (seg+qui 2h37 BRT) → feeds world model signals
 
-## Meta-Prompts (Operational)
-
-- `activation.egos-governance` → `.guarani/prompts/meta/egos-activation-governance.md` (used for `/start` and activation diagnostics)
-
----
-
-## Investigation Documentation (P30)
-
-Complete ecosystem investigation: `docs/INVESTIGATION_FINAL_SUMMARY.md` | Decisions: HUM-001, 002, 003 | Architecture: `docs/SELF_DISCOVERY_ARCHITECTURE.md` | DNS: self.egos.ia.br → 204.168.217.125
+## Meta-Prompts + Docs
+- `activation.egos-governance` → `.guarani/prompts/meta/egos-activation-governance.md`
+- `README.md` — public entry | `docs/MASTER_INDEX.md` — ecosystem inventory
+- `docs/SSOT_REGISTRY.md` — ownership contract | `docs/SYSTEM_MAP.md` — activation order
+- `TASKS_ARCHIVE.md` — completed tasks archive (companion to TASKS.md)

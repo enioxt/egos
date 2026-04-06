@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.42.0 | **Updated:** 2026-04-06 | **LAST SESSION:** P28-P30 — Codex proxy (18802 local+VPS), HQ v2 collapsible, smart TASKS archiving, constitutional review cron 2x/dia
+> **Version:** 2.43.0 | **Updated:** 2026-04-06 | **LAST SESSION:** P31 — Graphify/A-Evolve/XMCP gem research; XMCP cloned+ready VPS (/opt/xmcp); X creds 401 [BLOCKER]; GTM-002 blocked on X creds
 
 ---
 
@@ -451,6 +451,25 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 - [ ] **SD-019 (P2)**: Freeze post-alpha backlog after evidence from deploy/security/ux/launch gates [DEP: SD-015, SD-016, SD-017, SD-018]
 
  ---
+
+ ### Gem Research — P31 (2026-04-06): Graphify + A-Evolve + XMCP
+**Source:** Grok analysis. Decisions: Graphify=adopt patterns only (codebase-memory-mcp overlap 80%); A-Evolve=bookmark pós PMF; XMCP=install now.
+
+**XMCP — X MCP Server oficial (xdevplatform/xmcp):**
+- [ ] **XMCP-001 [BLOCKER]**: Regenerar X credentials — developer.twitter.com → Apps → Keys and Tokens → Regenerate. Atualizar .env (X_API_KEY, X_API_SECRET, X_ACCESS_TOKEN, X_ACCESS_TOKEN_SECRET). Atual: 401 Unauthorized. [MANUAL ACTION]
+- [ ] **XMCP-002** (dep: XMCP-001): Atualizar /opt/xmcp/.env no VPS com credentials reais + iniciar serviço: `bash /opt/xmcp/start.sh`. Verificar: `curl http://VPS:8000/health`
+- [ ] **XMCP-003** (dep: XMCP-002): Adicionar UFW rule VPS: `ufw allow from 172.19.0.0/16 to any port 8000`. Ativar x-mcp no openclaw.json (remover nota INACTIVE).
+- [ ] **XMCP-004** (dep: XMCP-002): Criar skill `egos-x-researcher` — usa XMCP searchPostsRecent para monitorar: lgpd, anpd, dpo, "proteção de dados". Saída → Supabase + HQ.
+- [ ] **GTM-002-unblock**: Thread Guard Brasil (4 tweets prontos em GTM_SSOT.md §4.1) — BLOQUEADO por X credentials 401. Usar `bun /tmp/post-guard-thread.ts` após XMCP-001.
+
+**Graphify patterns (adotar sem instalar a lib):**
+- [ ] **GRF-001 (P2)**: Criar CCR job `graph-report` — usa codebase-memory-mcp query_graph para gerar GRAPH_REPORT.md semanal (god nodes, surprising connections, clusters). Output em `docs/jobs/`.
+- [ ] **GRF-002 (P2)**: Embutir graph.html (vis.js) no HQ como painel "Knowledge Graph" — feed de codebase-memory-mcp export. Parte de HQ-009.
+- [ ] **GRF-003 (P2)**: Adicionar ingestão multimodal ao wiki-compiler: PDFs + papers → Supabase `egos_wiki_pages`. Usa Graphify padrão (PDF→AST→nodes).
+
+**A-Evolve patterns (bookmark pós PMF):**
+- [ ] **AEV-001 (P3)**: Formalizar Agent Workspace manifest: cada skill em `~/.egos/.claude/commands/` ganha `manifest.yaml` (name, version, capabilities, evolution_score). Padrão A-Evolve sem o engine.
+- [ ] **AEV-002 (P3)**: Implementar evolution loop simples: constitutional reviewer (já existe, P30) → detecta violações → sugere mutação de skill → git tag `skill-v{N}`. Gate: hold-out test antes de aceitar.
 
  ### Governance Mesh Cleanup (2026-04-06 audit)
  - [ ] **GOV-001**: Collapse `~/.claude/CLAUDE.md` into a thin adapter to kernel `.guarani` [SOURCE: local Claude audit | IMPACT: parallel constitution / rule drift]
