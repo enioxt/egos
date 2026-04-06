@@ -85,7 +85,7 @@ function isContentRelevant(gem: GemResult, queryKeywords: string[]): boolean {
 }
 
 type GemSource = "github" | "github-code" | "huggingface" | "huggingface-space" | "exa" | "arxiv" | "hackernews" | "npm" | "zenodo" | "x-public" | "x-api" | "reddit" | "stackoverflow" | "producthunt" | "papers-with-code" | "papers-without-code" | "gitlab" | "coingecko" | "defillama";
-type SearchTrack = "core" | "web-extraction" | "x-signals-public" | "governance-plugplay" | "community-signals" | "early-warning" | "papers-without-code";
+type SearchTrack = "core" | "web-extraction" | "x-signals-public" | "governance-plugplay" | "community-signals" | "early-warning" | "papers-without-code" | "deps-watch";
 
 interface GemResult {
   name: string;
@@ -497,6 +497,109 @@ const DEFAULT_QUERIES: SearchQuery[] = [
     sources: ["papers-without-code"],
     category: "papers-without-code",
     track: "papers-without-code",
+  },
+
+  // ── DEPS-WATCH: Curated repos/tools we depend on ───────────────────────
+  // Purpose: Stay updated on releases, breaking changes, new features in our stack.
+  // Auto-creates TASK entries when significant updates are found.
+  {
+    topic: "Hermes-3 / NousResearch — LLM Updates",
+    keywords: [
+      "NousResearch hermes-3 release new version update",
+      "nousresearch/hermes-3-llama release 2026",
+      "hermes-3 llama new model weights openrouter",
+    ],
+    sources: ["github", "huggingface", "x-public", "exa"],
+    category: "deps-watch",
+    track: "deps-watch",
+  },
+  {
+    topic: "Claude Code — Anthropic CLI Updates",
+    keywords: [
+      "anthropics/claude-code release changelog new feature",
+      "claude code CLI update hooks skills new version",
+      "anthropic claude code release v1 v2 announcement",
+    ],
+    sources: ["github", "hackernews", "x-public", "exa", "npm"],
+    category: "deps-watch",
+    track: "deps-watch",
+  },
+  {
+    topic: "awesome-claude-code — New Skills & Hooks",
+    keywords: [
+      "hesreallyhim/awesome-claude-code new skill hook workflow added",
+      "claude code slash command hook new community contribution",
+      "awesome claude code curated list update",
+    ],
+    sources: ["github", "x-public", "exa"],
+    category: "deps-watch",
+    track: "deps-watch",
+  },
+  {
+    topic: "Supabase — Platform Updates",
+    keywords: [
+      "supabase release changelog new feature 2026",
+      "supabase realtime edge functions new version",
+      "supabase/supabase release breaking change",
+    ],
+    sources: ["github", "hackernews", "x-public", "exa"],
+    category: "deps-watch",
+    track: "deps-watch",
+  },
+  {
+    topic: "Next.js / Vercel — Framework Updates",
+    keywords: [
+      "nextjs 16 release new features 2026",
+      "vercel/next.js major release breaking change app router",
+      "next.js performance update turbopack stable",
+    ],
+    sources: ["github", "hackernews", "npm", "exa"],
+    category: "deps-watch",
+    track: "deps-watch",
+  },
+  {
+    topic: "Bun Runtime — Updates",
+    keywords: [
+      "oven-sh/bun release new version changelog 2026",
+      "bun runtime major update breaking change",
+      "bun 2.0 release performance improvement",
+    ],
+    sources: ["github", "hackernews", "npm", "x-public"],
+    category: "deps-watch",
+    track: "deps-watch",
+  },
+  {
+    topic: "OpenRouter — New Models & Pricing",
+    keywords: [
+      "openrouter new model added free tier 2026",
+      "openrouter/openrouter pricing update new provider",
+      "openrouter free model available announcement",
+    ],
+    sources: ["github", "x-public", "exa", "hackernews"],
+    category: "deps-watch",
+    track: "deps-watch",
+  },
+  {
+    topic: "Model Context Protocol (MCP) — SDK Updates",
+    keywords: [
+      "modelcontextprotocol/sdk release new version changelog",
+      "MCP SDK breaking change new tool type transport",
+      "anthropic MCP protocol update specification 2026",
+    ],
+    sources: ["github", "npm", "hackernews", "exa"],
+    category: "deps-watch",
+    track: "deps-watch",
+  },
+  {
+    topic: "LangChain — JS/Python SDK Updates",
+    keywords: [
+      "langchain release new version breaking change 2026",
+      "langchainjs langchain-core update tool calling",
+      "langchain community integrations new release",
+    ],
+    sources: ["github", "npm", "hackernews", "exa"],
+    category: "deps-watch",
+    track: "deps-watch",
   },
 ];
 
