@@ -1,8 +1,8 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 3.5.0 | **UPDATED:** 2026-04-06
+> **VERSION:** 3.6.0 | **UPDATED:** 2026-04-06 late
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
-> **Latest:** Guard Brasil GTM patterns (ICP: fintechs/healthtechs 50-500 employees, full analysis in business/MARKET_RESEARCH_GUARD_BRASIL_2026.md), MCP inventory (3 live EGOS + 5 spec-only skipped), CLAUDE.md dissemination protocol
+> **Latest:** Google AI Studio Imagen 3 integration plan (thread-poster + social image gen), OG image automation via Playwright, X.com OAuth fully wired
 
 ## Guard Brasil GTM Patterns (2026-04-06)
 
@@ -76,6 +76,41 @@ fi
 ```
 
 **Rule:** Use hooks to inject meta-prompt **content**, not to run commands.
+
+---
+
+## Google AI Studio: Text Chat vs Imagen 3 (2026-04-06 late)
+
+### State of implementation
+- **Text chat:** ✅ DONE — `packages/shared/src/llm-provider.ts` wired for Gemini 2.5 + Gemma 4 31B + Gemini 2.5 Pro
+- **Imagen 3:** ❌ NOT implemented — endpoint differs from chat, requires separate provider config
+
+### Integration pattern (next session)
+**OG image automation:**
+1. Use Playwright MCP → screenshot HTML template (`scripts/assets/guard-og.html`) → save as JPG
+2. Not Imagen 3 (deterministic design already exists in HTML)
+
+**Social image generation:**
+1. Endpoint: `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-001:predict`
+2. Auth: Bearer token (same key as chat)
+3. Body: `{ instances: [{ prompt: "..." }], parameters: { sampleCount: 1 } }`
+4. Returns: base64 PNG (decode to file)
+5. Use for: scan result cards, banners, LGPD thread replies
+
+**Plan saved:** `/home/enio/.claude/plans/precious-doodling-clover.md` (GTM-015 + X-thread-poster + Imagen 3 integration, 3 phases, ~2h)
+
+---
+
+## X.com OAuth Infrastructure (fully operational as of 2026-04-06)
+
+**API route:** `apps/guard-brasil-web/app/api/x/route.ts` (lines 24-53)
+- Full OAuth 1.0a signing implemented
+- Supports: `action: 'post'` (standalone tweets), `action: 'reply'` (thread replies), `action: 'search'`, `action: 'mentions'`
+- No image support in current version (needs media_upload chain)
+
+**Hourly bot:** `scripts/x-reply-bot.ts` — production 3+ months, rate-limited 40 replies/day
+
+**Next:** `scripts/x-post-thread.ts` (new script) — post 4-tweet thread from PART002_SOCIAL_POSTS.md with og-image attached
 
 ---
 

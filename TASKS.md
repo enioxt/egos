@@ -303,42 +303,11 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 **Karpathy LLM Wiki gist:** Adopted. 3-layer pattern (raw → wiki → schema) is now KB-001..007. **ADOPTED fully.**
 **Fine-tuning próprio (Gemma 2B/Qwen 7B):** VPS has 540MB free RAM, 0 GPU. Fine-tune on Colab is possible but not 90-day focus. WM-001..004 covers dataset prep. **DEFERRED to P2.**
 
-### P23 Session Tasks (2026-04-05) — EGOS HQ + Claude Code Skills
+### P23-P24 Sessions (2026-04-05..2026-04-06) — EGOS HQ + Skills Sync — COMPRESSED ✅
 
-**Completed:**
-- [x] CTRL-001: EGOS HQ `apps/egos-hq/` — Next.js 15 Mission Control dashboard scaffolded ✅ 2026-04-05
-- [x] CTRL-002: JWT auth (jose) + middleware + login/logout API ✅ 2026-04-05
-- [x] CTRL-003: Mission Control home — health grid (Guard Brasil, Gateway, X Bot, KB, Agents) ✅ 2026-04-05
-- [x] CTRL-004: X Monitor (`/x`) — 3 tabs: Fila Bot + Busca Manual + Histórico ✅ 2026-04-05
-- [x] CTRL-005: x-reply-bot.ts → saves to Supabase status=pending (queue for approval) ✅ 2026-04-05
-- [x] CTRL-006: Supabase migration `20260406_hq_tables.sql` (`x_reply_runs` + `egos_agent_events`) ✅ 2026-04-05
-- [x] CTRL-007: Docker build + deploy to VPS `/opt/apps/egos-hq/` port 3060 ✅ 2026-04-05
-- [x] CTRL-008: Caddy config `hq.egos.ia.br → localhost:3060` + DNS A record at Registro.br ✅ 2026-04-05
-- [x] CTRL-009: 11 Claude Code slash commands installed (`/commit`, `/pr-review`, `/create-pr`, `/create-worktrees`, `/todo`, `/fix-github-issue`, `/add-to-changelog`, `/update-docs`, `/optimize`, `/release`, `/context-prime`) ✅ 2026-04-05
-- [x] CTRL-010: `rm-guard` hook installed + wired in settings.json (smart Python regex, no false positives) ✅ 2026-04-05
-- [x] CTRL-011: GitHub Action `.github/workflows/pr-review.yml` — auto Claude PR review on open/sync ✅ 2026-04-05
+**DONE:** CTRL-001..012 (HQ live, JWT auth, X Monitor, pr-review GH Action, 11 skills), SYNC-001, DEPS-001 (git log shows all items). HQ at hq.egos.ia.br, TLS fixed, Caddy resolved container name issue.
 
-**Pending:**
-- [ ] CTRL-012: `hq.egos.ia.br` TLS cert verify (Caddy auto-provisions, test login in browser)
-- [ ] CTRL-013: Agents page `/agents` — wire to `agents.json` registry via `AGENTS_REGISTRY_PATH` env
-- [ ] CTRL-014: Events page `/events` — Supabase Realtime live stream for `egos_agent_events`
-- [ ] CTRL-015: X.com: approve flow end-to-end test (approve reply → verify posted on X.com)
-- [ ] CTRL-016: Run `bun scripts/x-reply-bot.ts --dry-run` → verify rows appear in Supabase `x_reply_runs`
-
-### P24 — Self-Updating System + Skills Sync (2026-04-06)
-
-**Completed:**
-- [x] CTRL-012: hq.egos.ia.br LIVE — TLS cert issued, 502 fixed (Caddy container name resolution: `egos-hq:3060`) ✅ 2026-04-06
-- [x] SYNC-001: Windsurf workflows → Claude Code skills synced (7 new skills: /diag, /pre, /research, /prompt, /regras, /capability-import, /system-map) ✅ 2026-04-06
-- [x] DEPS-001: Gem Hunter `deps-watch` track added (9 curated queries: Hermes-3, Claude Code, awesome-claude-code, Supabase, Next.js, Bun, OpenRouter, MCP SDK, LangChain) ✅ 2026-04-06
-
-**Pending:**
-- [ ] DEPS-002: Schedule deps-watch as weekly CCR job (Fri 3h00 BRT): `/schedule`
-- [ ] DEPS-003: Gem Hunter auto-creates TASKS.md entries when deps-watch finds significant updates (needs output parser → task writer)
-- [ ] HERMES-001: Wire Hermes-3 as BRAID mechanical executor (OpenRouter `nousresearch/hermes-3-llama-3.1-70b` → agent runner)
-- [ ] GUARANI-001: Port .guarani/refinery/ pre-processor to Claude Code — add to PreToolUse hook for short/vague prompts (<50 chars)
-- [ ] GUARANI-002: Wire .guarani/prompts/triggers.json into /start — check triggers before executing
-- [ ] GUARANI-003: Evaluate .guarani/orchestration/GATES.md quality gates in pre-commit hook
+**P25-onward pending:** DEPS-002 (schedule), HERMES-001 (Hermes-3 executor), GUARANI-001..003 (refinery/triggers/gates hooks)
 
 ---
 
@@ -358,7 +327,7 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 - [ ] GTM-009: Publish LinkedIn post targeting compliance managers + DPOs BR. Draft ready: docs/business/PART002_SOCIAL_POSTS.md. **Blocker:** no LINKEDIN_* credentials in .env + LinkedIn API requires OAuth2 app approval. Action: post MANUALLY (copy/paste) — fastest path, autonomous posting defer to GTM-014.
 - [ ] GTM-011: X.com solo tweet "ANPD está acelerando fiscalização em 2026..." + link free tier (from market research). Post after GTM-002 thread lands.
 - [ ] GTM-014: **NEW** — scripts/x-post.ts: standalone thread poster (reuse OAuth1.0a from x-reply-bot lines 169-225). Features: reads markdown → posts thread → returns thread URL. Required for GTM-002/011 autonomous.
-- [ ] GTM-015: **NEW** — og-image.jpg for Guard Brasil (1200x630, spec in PART002_SOCIAL_POSTS.md §og-image). Path: HTML template + playwright screenshot. Upload to X thread + LinkedIn post.
+- [ ] GTM-015: og-image.jpg for Guard Brasil (1200x630, HTML template ready). Playwright screenshot automation. Plan: `/home/enio/.claude/plans/precious-doodling-clover.md` (ready next session).
 - [ ] M-007: Send 5 outreach emails to DPOs/compliance teams (templates: docs/business/OUTREACH_EMAIL_TEMPLATES.md). Now P0#2 (was oldest blocker, reprio'd behind social per Enio 2026-04-06). Days stale: 7+.
 
 **P0 — GTM support (unchanged):**
