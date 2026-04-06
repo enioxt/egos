@@ -9829,3 +9829,77 @@ gems = [{"name": row[0], "url": row[1], "score": int(row[2]), ...} for row in pa
 json.dump({"date": date, "gems": gems, "totalFound": len(gems)}, f)
 ```
 **Lesson:** When TypeScript agent output format diverges from consumer expectations, a thin Python adapter is faster than refactoring both sides.
+
+### OpenClaw Model Chain — Haiku Default + Free Fallbacks (P28)
+**Pattern:** Never lock to one provider. OpenClaw `models.json` supports multiple providers in one file:
+1. `anthropic-subscription` → billing proxy → Claude (zero cost via Claude Code subscription)
+2. `openrouter` → Qwen3-235B:free (zero cost, 32K context, reasoning)
+3. `dashscope` → qwen-turbo (Alibaba, very cheap, 1M context)
+
+**Critical:** Provider order in models.json matters for fallback resolution. Put cheapest/fastest first.
+**Config pattern:**
+```json
+{
+  "providers": {
+    "anthropic-subscription": {"api": "anthropic-messages", "apiKey": "dummy", "baseUrl": "http://127.0.0.1:18801"},
+    "openrouter": {"api": "openai-completions", "apiKey": "sk-or-...", "baseUrl": "https://openrouter.ai/api/v1"},
+    "dashscope": {"api": "openai-completions", "apiKey": "sk-...", "baseUrl": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1"}
+  }
+}
+```
+**Default in openclaw.json:** `"model": "anthropic-subscription/claude-haiku-4-5-20251001"` — Sonnet only for complex tasks.
+
+### Docker Container-to-Host Connectivity (UFW Gotcha)
+**Problem:** HQ container (172.19.0.17) could NOT reach billing proxy on host (0.0.0.0:18801) despite proxy binding to all interfaces.
+**Root cause:** UFW default INPUT policy = DROP. Docker bridge traffic hits INPUT chain before host receives it.
+**Fix:** `ufw allow from 172.19.0.0/16 to any port 18801 proto tcp` — allows infra_bracc subnet to reach host ports.
+**Lesson:** Always check UFW when Docker container can't reach host-bound service. `ss -tlnp | grep <port>` confirms binding; `iptables -L INPUT -n` shows chain policy.
+
+### 24/7 Watchdog Pattern — VPS Service Monitor
+**Pattern:** Single bash script run every 5 min via cron. State stored as files (`/var/lib/egos-watchdog/<service>.state`). Alert only on state CHANGE (up→down or down→up), not every check cycle.
+```bash
+check_and_alert() {
+  local name="$1" status="$2"
+  local state_file="/var/lib/egos-watchdog/${name//\//-}.state"
+  local prev_status="up"
+  [ -f "$state_file" ] && prev_status=$(cat "$state_file")
+  if [ "$status" = "down" ] && [ "$prev_status" = "up" ]; then
+    send_telegram "🔴 DOWN: $name"
+  elif [ "$status" = "up" ] && [ "$prev_status" = "down" ]; then
+    send_telegram "✅ RECOVERED: $name"
+  fi
+  echo "$status" > "$state_file"
+}
+```
+**Checks:** Docker containers (`docker inspect ... | grep true`), HTTP endpoints (curl -sf --max-time 8), credential freshness (read JSON → compare timestamps).
+**Telegram:** Use `python3 -c 'import json,sys; print(json.dumps(sys.stdin.read()))'` to escape message for JSON body.
+
+### HQ Health Route — Internal Container URLs
+**Pattern:** Next.js HQ app running as Docker container should use internal container names for service health checks, not external domain names (avoids Caddy round-trip + DNS resolution failure).
+```typescript
+const GATEWAY_HEALTH_URL = process.env.GATEWAY_HEALTH_URL ?? 'https://gateway.egos.ia.br/health';
+const OPENCLAW_HEALTH_URL = process.env.OPENCLAW_HEALTH_URL ?? 'https://openclaw.egos.ia.br';
+const BILLING_PROXY_URL = process.env.BILLING_PROXY_URL ?? 'http://127.0.0.1:18801';
+```
+**VPS `.env`:**
+```
+GATEWAY_HEALTH_URL=http://egos-gateway:3050/health   # container name in infra_bracc
+OPENCLAW_HEALTH_URL=http://openclaw-sandbox:18789    # container name
+BILLING_PROXY_URL=http://172.19.0.1:18801           # host bridge IP
+```
+**Required:** UFW rule to allow Docker bridge → host port 18801.
+
+### Next.js Middleware Auth — Making Health Endpoint Public
+**Pattern:** Add public health endpoint to middleware PUBLIC_PATHS before auth check:
+```typescript
+const PUBLIC_PATHS = ['/login', '/api/auth/login', '/api/auth/logout', '/api/hq/health'];
+```
+**Always:** After changing middleware, force-remove running container and recreate — `docker restart` may reuse old image layers. Use `docker stop && docker rm && docker run` for guaranteed fresh start.
+
+### OpenClaw Credentials JSON Structure
+**Gotcha:** `~/.claude/.credentials.json` nests OAuth data under `claudeAiOauth`:
+```json
+{"claudeAiOauth": {"accessToken": "...", "expiresAt": 1775497970773, ...}}
+```
+**Wrong:** `d.get('expiresAt')` → None
+**Correct:** `d.get('claudeAiOauth', {}).get('expiresAt', 0) / 1000` → Unix timestamp

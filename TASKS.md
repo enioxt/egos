@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.40.0 | **Updated:** 2026-04-06 | **LAST SESSION:** 2026-04-06 P28 — Default model→Haiku 4.5, fallback chain (OpenRouter Qwen3-free + Alibaba DashScope), VPS watchdog ✅, HQ health 4/4 services live (Guard/Gateway/OpenClaw/BillingProxy), UFW Docker bridge rule, OC-003 updated
+> **Version:** 2.41.0 | **Updated:** 2026-04-06 | **LAST SESSION:** 2026-04-06 P28 — MASTER_INDEX.md created, HQ-001..HQ-013 tasks added
 
 ---
 
@@ -19,6 +19,30 @@
 **P2 — Growth:**
 - [ ] EGOS-165: White-label outreach
 - [ ] EGOS-166: REST API gateway mode
+
+---
+
+### HQ Dashboard + Master Index (2026-04-06)
+**SSOT:** `docs/MASTER_INDEX.md` | **Context:** Universal registry of all EGOS resources
+
+**P0 — Critical Gaps:**
+- [ ] **HQ-001**: Register `agent-validator.ts` in `agents.json` — agent exists but not in registry (4-point validation gap)
+- [ ] **HQ-002**: Create `AGENTS.md` + `TASKS.md` for `commons/` repo — currently Grade D (only .claude/ folder)
+- [ ] **HQ-003**: Add SSOT_REGISTRY pointers to repos 852, br-acc, carteira-livre — upgrade Grade C→A
+- [ ] **HQ-004**: Create integration manifests for 6 adapters (slack, discord, telegram, whatsapp, webhook, github)
+- [ ] **HQ-005**: Build `intelligence-engine.ts` for Dream Cycle Phase 2 (DC-004 dependency)
+
+**P1 — Integration:**
+- [ ] **HQ-006**: Configure OpenClaw Telegram/WhatsApp channels (OC-006..OC-008)
+- [ ] **HQ-007**: Complete MCP global setup (obsidian, stripe, telegram pending)
+- [ ] **HQ-008**: Build `@egosbr/guard-brasil-mcp` for OpenClaw marketplace
+- [ ] **HQ-009**: Complete HQ Dashboard v2 (volume mounts + 5 API routes)
+- [ ] **HQ-010**: Fix HARVEST.md deduplication (KB-019)
+
+**P2 — Archive:**
+- [ ] **HQ-011**: Archive 11 dormant repos per COMPLETE_REPO_INVENTORY_2026-04-03.md
+- [ ] **HQ-012**: Complete Santiago fix-or-kill decision
+- [ ] **HQ-013**: Consolidate egos-lab → kernel migration (LAB-ARCHIVE-001..006)
 
 ---
 
@@ -233,16 +257,7 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 - [ ] INTEL-010: World model diff — compare snapshots to detect regression (tasks going from [x] back to [ ])
 
 **P2 — Ethics & Safety (NEW 2026-04-03):**
-- [ ] WM-009: Integrar Qwen3Guard para safety classification (Safe/Controversial/Unsafe)
-- [ ] WM-010: Constitutional rules embedding (frozen zones, PRIME DIRECTIVE)
-- [ ] WM-011: Value alignment local (ATRiAN principles: Accuracy, Truth, Reversibility, Impact, Accountability, Neutrality)
-- [ ] WM-012: Intervention system com human-in-the-loop
-
-**P3 — AGI Capabilities (Long-term):**
-- [ ] WM-013: Auto-observação (world model que monitora a si mesmo)
-- [ ] WM-014: Auto-modificação (melhorar próprio código)
-- [ ] WM-015: Planejamento longo horizonte (quarter/year goals)
-- [ ] WM-016: Criação automática de agents quando necessário
+- [ ] WM-009..016: Safety+ethics+AGI capabilities (Qwen3Guard, constitutional rules, ATRiAN, auto-observation, self-modification, long-horizon planning) — P2/P3
 
 **SSOT:** `docs/strategy/WORLD_MODEL_SSOT.md` — conceito completo, roadmap, hardware 16-24GB VRAM
 
@@ -443,12 +458,12 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 
 - [x] OC-001: Telegram local — decidido: @egosmarkets_bot no VPS, local sem Telegram (evitar conflito com EGOS Gateway @EGOSin_bot). VPS pronto.
 - [x] OC-002: Pipeline testado — `openclaw agent --message "..."` → billing proxy → Claude Sonnet 4.6 (PIPELINE_FINAL_OK ✅)
-- [x] OC-003: Modelo padrão: `anthropic-subscription/claude-haiku-4-5-20251001` (updated P28 — Haiku default, Sonnet for complex, fallback chain: Qwen3-235B-free+qwen-turbo via OpenRouter+DashScope) em `openclaw.json`. Fixes: `api:"anthropic-messages"` + `apiKey` obrigatório + auth-profiles.json.
+- [x] OC-003: Modelo padrão: `anthropic-subscription/claude-haiku-4-5-20251001` (P28: Haiku default, Sonnet complex, fallback: Qwen3-free+DashScope). Fixes: `api:"anthropic-messages"` + `apiKey` + auth-profiles.json.
 - [x] OC-004: `~/.openclaw/workspace/USER.md` populado com perfil Enio (projetos, infra, preferências, estilo).
-- [x] OC-005: Token auto-refresh: cron rsync credentials local→VPS a cada 4h (`0 */4 * * *`). Proxy relê arquivo a cada request — sem restart necessário.
+- [x] OC-005: Token auto-refresh: `0 */4 * * *` rsync credentials local→VPS. Proxy relê por request — sem restart.
 
-- [x] OC-024: VPS watchdog script (/opt/egos-watchdog.sh) — cron */5 min, monitors 10 containers + 4 HTTP endpoints + OAuth token freshness, Telegram alert on down/recovery ✅ 2026-04-06
-- [x] OC-025: HQ health endpoint 4/4 real services (Guard Brasil, EGOS Gateway via container name, OpenClaw, Billing Proxy via BILLING_PROXY_URL env) + /api/hq/health made public ✅ 2026-04-06
+- [x] OC-024: VPS watchdog (/opt/egos-watchdog.sh) — */5min cron, 10 containers + 4 endpoints + OAuth freshness, Telegram alert ✅ 2026-04-06
+- [x] OC-025: HQ health 4/4 services (Guard, Gateway, OpenClaw, BillingProxy via internal URLs) + /api/hq/health made public ✅ 2026-04-06
 - [x] OC-026: UFW rule — Docker infra_bracc 172.19.0.0/16 → port 18801 (billing proxy) ✅ 2026-04-06
 **P1 — Médio prazo (2 semanas): Canais + Integração EGOS**
 

@@ -387,7 +387,7 @@ L5: Agent Registry + Skills    — Auto-discovery, hot-reload, marketplace patte
 |-----------|----------|---------------|
 | LangGraph | Complex branching workflows | Reference for Mycelium Phase 2 |
 | CrewAI | Fast prototyping role-based agents | Inspiration for agent registry |
-| OpenClaw | MCP-native skills marketplace (13K+ skills) | Pattern for skills layer |
+| OpenClaw | Multi-channel AI gateway (local+VPS). Billing proxy→Claude subscription (zero cost). Default: Haiku 4.5, fallback: Qwen3-free+DashScope. Watchdog: 10 containers, 5min cron, Telegram alert | Port 18789 local, openclaw.egos.ia.br VPS, @egosmarkets_bot Telegram |
 | Vercel AI SDK | Chat streaming + tool calling | Already used in 852/forja |
 | Mastra | TypeScript-first graph workflows | Alternative if LangGraph too heavy |
 
