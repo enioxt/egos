@@ -1,0 +1,82 @@
+#!/usr/bin/env sh
+# .husky/pre-push — Block destructive force-push to protected branches
+#
+# Why this exists: 2026-04-06 a scheduled agent (Gem Hunter Adaptive or
+# similar) executed `git push --force` to origin/main from a stale
+# worktree, dropping 9 commits of unrelated work in progress (Dream
+# Cycle, OpenClaw, brand assets, P26 MCPs, GTM reprio, hook fixes).
+# This hook prevents that.
+#
+# Protected branches: main, master, production, prod, release/*
+# Bypassed only by EXPLICIT human run with EGOS_ALLOW_FORCE_PUSH=1
+
+PROTECTED_BRANCHES="main master production prod"
+PROTECTED_PREFIXES="release/ hotfix/"
+
+remote="$1"
+url="$2"
+
+z40=0000000000000000000000000000000000000000
+
+# Read each ref being pushed (stdin format: <local_ref> <local_sha> <remote_ref> <remote_sha>)
+while read -r local_ref local_sha remote_ref remote_sha; do
+  # Strip refs/heads/ to get the branch name
+  branch="${remote_ref#refs/heads/}"
+
+  # Check if branch is protected
+  is_protected=0
+  for p in $PROTECTED_BRANCHES; do
+    [ "$branch" = "$p" ] && is_protected=1 && break
+  done
+  if [ $is_protected -eq 0 ]; then
+    for prefix in $PROTECTED_PREFIXES; do
+      case "$branch" in
+        ${prefix}*) is_protected=1 ;;
+      esac
+      [ $is_protected -eq 1 ] && break
+    done
+  fi
+
+  [ $is_protected -eq 0 ] && continue
+
+  # Skip branch deletions (local_sha = z40) — those need separate review
+  if [ "$local_sha" = "$z40" ]; then
+    echo "🛑 BLOCKED: refusing to delete protected branch '$branch'"
+    echo "   If intentional, run: EGOS_ALLOW_FORCE_PUSH=1 git push ..."
+    [ "${EGOS_ALLOW_FORCE_PUSH:-0}" = "1" ] || exit 1
+  fi
+
+  # Skip new branches (remote_sha = z40) — first push, no force
+  [ "$remote_sha" = "$z40" ] && continue
+
+  # Check if this is a non-fast-forward (force) push:
+  # If remote_sha is NOT an ancestor of local_sha, it's a force-push
+  if ! git merge-base --is-ancestor "$remote_sha" "$local_sha" 2>/dev/null; then
+    echo ""
+    echo "🛑 BLOCKED: non-fast-forward (force) push to protected branch '$branch'"
+    echo ""
+    echo "   Local:  $local_sha"
+    echo "   Remote: $remote_sha"
+    echo ""
+    echo "   This push would discard remote commits. Possible causes:"
+    echo "     1. Your local branch is stale → run 'git fetch && git rebase origin/$branch'"
+    echo "     2. A scheduled agent rewrote main from a stale worktree"
+    echo "     3. You're trying to undo a bad commit → use git revert instead"
+    echo ""
+    echo "   This guard exists because on 2026-04-06 a parallel scheduled"
+    echo "   job force-pushed to main and dropped 9 commits of in-progress"
+    echo "   work. Don't repeat that."
+    echo ""
+    echo "   To bypass (DESTRUCTIVE — requires explicit human intent):"
+    echo "     EGOS_ALLOW_FORCE_PUSH=1 git push --force origin $branch"
+    echo ""
+    if [ "${EGOS_ALLOW_FORCE_PUSH:-0}" = "1" ]; then
+      echo "⚠️  EGOS_ALLOW_FORCE_PUSH=1 set — allowing this push. You own the consequences."
+      echo ""
+    else
+      exit 1
+    fi
+  fi
+done
+
+exit 0

@@ -55,12 +55,17 @@ repos:
   - id: openhands
     name: OpenHands
     url: https://github.com/OpenHands/OpenHands
-    categories: [agent_runtime, product_surface]
+    categories: [agent_runtime, product_surface, durable_workflow]
     priority: P1
-    status: queued
+    status: completed
+    scored: 79
     license: MIT
     language: python
-    notes: "Full software agent SDK/CLI/GUI, container runtime, skills"
+    studied_date: 2026-04-06
+    notes: "Full software agent SDK/CLI/GUI, container runtime, skills. SWEBench 77.6. Tier 1 complement for agent planning + error recovery patterns."
+    key_transplants: [planning-decomposition, tool-calling-safety, session-isolation, error-recovery-loop, benchmarking-framework]
+    pair_report: "docs/gem-hunter/pairs/egos__openhands/"
+    recommendation: "P1 transplant — planning + error recovery to event-bus.ts (Q2). Study session isolation for concurrent safety."
 
   - id: langgraph
     name: LangGraph

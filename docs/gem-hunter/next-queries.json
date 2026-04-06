@@ -1,52 +1,76 @@
 {
-  "generatedAt": "2026-04-06T00:21:48.588Z",
+  "generatedAt": "2026-04-06T07:11:24.560Z",
   "trendingTerms": [
     [
       "score",
-      36
+      13
     ],
     [
       "comments",
-      25
+      13
     ],
     [
-      "show",
-      14
-    ],
-    [
-      "polymcp",
-      9
-    ],
-    [
-      "models",
-      9
-    ],
-    [
-      "development",
-      8
+      "issue",
+      12
     ],
     [
       "servers",
-      8
+      12
+    ],
+    [
+      "build",
+      12
+    ],
+    [
+      "show",
+      12
+    ],
+    [
+      "agent2agent",
+      11
+    ],
+    [
+      "https",
+      10
     ],
     [
       "guide",
+      10
+    ],
+    [
+      "a2aproject",
+      10
+    ],
+    [
+      "integration",
+      10
+    ],
+    [
+      "community",
+      9
+    ],
+    [
+      "cards",
       8
     ],
     [
-      "microsoft",
+      "polymcp",
       8
     ],
     [
-      "tools",
+      "releases",
       7
     ],
     [
-      "world",
+      "json-c",
+      7
+    ],
+    [
+      "http",
       6
     ],
     [
-      "detection",
+      "official",
       6
     ],
     [
@@ -54,97 +78,72 @@
       6
     ],
     [
-      "discovery",
+      "infrastructure",
       6
-    ],
-    [
-      "skill",
-      6
-    ],
-    [
-      "https",
-      6
-    ],
-    [
-      "kong",
-      6
-    ],
-    [
-      "without",
-      5
     ],
     [
       "coding",
+      6
+    ],
+    [
+      "proposal",
+      6
+    ],
+    [
+      "feat",
+      6
+    ],
+    [
+      "autogen",
+      6
+    ],
+    [
+      "logseq",
       5
-    ],
-    [
-      "generative",
-      5
-    ],
-    [
-      "existing",
-      5
-    ],
-    [
-      "such",
-      5
-    ],
-    [
-      "gateway",
-      5
-    ],
-    [
-      "toolkit",
-      4
-    ],
-    [
-      "apps",
-      4
-    ],
-    [
-      "core",
-      4
-    ],
-    [
-      "build",
-      4
-    ],
-    [
-      "workflows",
-      4
     ],
     [
       "powered",
-      4
+      5
     ],
     [
-      "field",
-      4
+      "docs",
+      5
+    ],
+    [
+      "support",
+      5
+    ],
+    [
+      "trust",
+      5
+    ],
+    [
+      "protocols",
+      5
     ]
   ],
   "suggestedQueries": [
     {
-      "topic": "Emerging: score + comments + show",
+      "topic": "Emerging: score + comments + issue",
       "keywords": [
-        "score comments show",
-        "comments show polymcp",
-        "show polymcp models"
+        "score comments issue",
+        "comments issue servers",
+        "issue servers build"
       ]
     },
     {
-      "topic": "Next-Gen: polymcp + models + development",
+      "topic": "Next-Gen: servers + build + show",
       "keywords": [
-        "polymcp models development",
-        "development servers guide"
+        "servers build show",
+        "show agent2agent https"
       ]
     }
   ],
-  "totalGemsAnalyzed": 342,
+  "totalGemsAnalyzed": 165,
   "actionBreakdown": {
-    "🔍 Evaluate": 215,
-    "🗑️ Discard": 25,
-    "📋 Create Task": 42,
-    "📝 Document": 57,
-    "⚡ Implement": 3
+    "📋 Create Task": 49,
+    "🗑️ Discard": 9,
+    "📝 Document": 64,
+    "🔍 Evaluate": 43
   }
 }
