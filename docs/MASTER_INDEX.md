@@ -878,4 +878,51 @@ REPOS=(
 
 ---
 
+## 📱 Complete Apps Catalog (All Repositories)
+
+### Production Apps (Live)
+
+| App | Repo | Path | Domain | Status | Revenue |
+|-----|------|------|--------|--------|---------|
+| **Guard Brasil API** | egos | `apps/api/` | guard.egos.ia.br | ✅ LIVE | MRR ativo |
+| **Guard Brasil Web** | egos | `apps/guard-brasil-web/` | — | ✅ Active | — |
+| **EGOS HQ** | egos | `apps/egos-hq/` | hq.egos.ia.br | ✅ LIVE | — |
+| **EGOS Gateway** | egos | `apps/egos-gateway/` | — | ✅ LIVE | — |
+| **852 Inteligência** | 852 | `src/app/` | 852.egos.ia.br | ✅ LIVE | — |
+| **Carteira Livre** | carteira-livre | `src/` | Vercel | ✅ LIVE | Marketplace |
+| **Forja** | forja | `src/` | forja-orpin.vercel.app | ✅ LIVE | SaaS CRM |
+| **BR-ACC** | br-acc | `api/` | — | ✅ LIVE | OSINT |
+
+### Lab/Development Apps
+
+| App | Repo | Path | Status | Notes |
+|-----|------|------|--------|-------|
+| **Eagle Eye** | egos-lab | `apps/eagle-eye/` | ✅ Active | 84 territórios, R$10.5M |
+| **Gem Hunter API** | egos | `agents/api/` | ✅ Active | 288 gems, Telegram bot |
+| **Inteligência egos** | egos-inteligencia | `frontend/` | ✅ Active | 7,787 lines TASKS.md |
+| **Telegram Bot** | egos-lab | `apps/telegram-bot/` | ⚠️ In Progress | — |
+| **EGOS Commons** | egos | `apps/commons/` | ⚠️ In Progress | — |
+| **Agent-028 Template** | egos | `apps/agent-028-template/` | 📋 Planned | — |
+| **Intelink** | INTELINK | `frontend/` | ❌ Dormant | Archive candidate |
+
+---
+
+## 📦 Packages Cross-Reference Matrix
+
+### Kernel Packages → Apps
+
+| Package | Used By | Purpose |
+|---------|---------|---------|
+| `@egos/shared` | All apps | LLM provider, PII scanner, rate limiter |
+| `@egos/guard-brasil` | Guard Brasil, 852, carteira-livre, forja | LGPD PII detection |
+| `@egos/search-engine` | Gem Hunter, wiki-compiler | AAR in-memory search |
+| `@egos/atomizer` | wiki-compiler, gem-hunter | Semantic atomization |
+| `@egos/core` | All apps | Contracts, PRI safety gate |
+| `@egos/audit` | Guard Brasil | Versioned record tracking |
+| `@egos/registry` | All apps | Module lookup |
+| `@egos/types` | All apps | Shared types |
+| `@egos/mcp-governance` | MCP servers | MCP tooling |
+
+---
+
 > *"One document to find them, one document to bind them, one document to bring them all and in the light entwine them."* — EGOS SSOT Discipline
