@@ -40,26 +40,39 @@ systemctl --user restart openclaw-gateway
 **Path:** `~/.openclaw/openclaw.json`
 ```json
 {
-  "mcpServers": {
-    "codebase-memory-mcp": {
-      "command": "/home/enio/.local/bin/codebase-memory-mcp"
+  "mcp": {"servers": {"codebase-memory-mcp": {"command": "/home/enio/.local/bin/codebase-memory-mcp"}}},
+  "gateway": {"mode": "local"},
+  "agents": {
+    "defaults": {
+      "model": "anthropic-subscription/claude-sonnet-4-6",
+      "compaction": {"mode": "safeguard"},
+      "maxConcurrent": 4
     }
   }
 }
 ```
+**Config schema note (v2026.4.5):** Key is `mcp.servers` (not `mcpServers`). Requires `gateway.mode: "local"` to start without full setup.
+
 MCP servers registered here are available to the OpenClaw agent.
 
 ### 3.2 Model Providers
 **Path:** `~/.openclaw/agents/main/agent/models.json`
 
-Three providers configured:
-| Provider | Models | Notes |
-|----------|--------|-------|
-| `openrouter` | Gemini 2.0 Flash, Claude 3 Haiku/Opus | Via OpenRouter API — paid per token |
-| `github-copilot` | (empty) | Placeholder |
-| `anthropic-subscription` | Sonnet 4.6, Haiku 4.5, Opus 4.6 | **Via billing proxy → Claude Code subscription (zero cost)** |
+Two providers configured (VPS uses `172.19.0.1:18801` instead of `127.0.0.1:18801`):
 
-**To use subscription models:** select `anthropic-subscription` provider in OpenClaw UI. Requires billing proxy running.
+| Provider | API type | Models | Notes |
+|----------|----------|--------|-------|
+| `openrouter` | `openai-completions` | Gemini 2.0 Flash | Via OpenRouter API — paid per token |
+| `anthropic-subscription` | `anthropic-messages` | Sonnet 4.6, Haiku 4.5, Opus 4.6 | **Via billing proxy → Claude Code subscription (zero cost)** |
+
+**Critical gotchas (discovered 2026-04-06):**
+1. `apiKey` is **required** in provider config when `models` are defined (schema validation rejects without it — causes silent empty model list, "Unknown model" error)
+2. Anthropic API type is `"anthropic-messages"` NOT `"anthropic"` (registered in `pi-ai/providers/register-builtins.js`)
+3. `auth-profiles.json` must have entry with `"provider": "anthropic-subscription"` (not `"anthropic"`) for the embedded agent to resolve auth
+
+**Test:** `openclaw agent --to @test --message "Say: PIPELINE_OK"` → should show response + proxy `requestsServed: 1`
+
+**To use subscription models:** set `agents.defaults.model: "anthropic-subscription/claude-sonnet-4-6"` in `openclaw.json`.
 
 ### 3.3 Workspace Identity
 **Path:** `~/.openclaw/workspace/`
@@ -121,6 +134,31 @@ OpenClaw gateway (port 18789) and EGOS gateway (port 3050) are independent servi
 
 ---
 
+## 5.1 VPS DEPLOYMENT (Hetzner — 2026-04-06)
+
+| Component | Location | Status |
+|-----------|----------|--------|
+| OpenClaw container | `openclaw-sandbox` (alpine/openclaw:latest v2026.3.24) | ✅ Running |
+| Container network | `infra_bracc` (172.19.0.9) + internal (172.23.0.2) | ✅ |
+| Gateway WebUI | `https://openclaw.egos.ia.br` → `openclaw-sandbox:18789` via Caddy | ✅ HTTP 200 |
+| Gateway bind | `gateway.bind: "lan"` + `auth.mode: "token"` | ✅ |
+| Volume | `openclaw_openclaw-data` → `/var/lib/docker/volumes/openclaw_openclaw-data/_data` | ✅ |
+| Billing proxy | `/root/.openclaw-billing-proxy/` (systemd: `openclaw-billing-proxy.service`) | ✅ Active |
+| Billing proxy bind | `0.0.0.0:18801` (reachable from Docker bridge 172.19.0.1) | ✅ |
+| Telegram channel | `@egosmarkets_bot` (token MARKETS — distinct from EGOS Gateway's `@EGOSin_bot`) | ✅ Connected |
+| anthropic-subscription provider | `http://172.19.0.1:18801` (VPS host from container) | ✅ Configured |
+| Claude credentials | `/root/.claude/.credentials.json` (copied from local, OAuth token) | ⚠️ Needs periodic sync |
+
+**Caddy upstream gotcha:** Caddy container (`infra-caddy-1`) cannot reach host via `127.0.0.1`. Must use container name `openclaw-sandbox:18789` since both are in `infra_bracc` network. Write Caddyfile via `cat file | docker exec -i infra-caddy-1 tee /etc/caddy/Caddyfile` to preserve bind mount inode.
+
+**Billing proxy bind gotcha:** Default binds to `127.0.0.1` only — patched to `0.0.0.0` in `proxy.js:336` so container gateway (172.19.0.1) can reach it.
+
+**Telegram channel conflict avoidance:** EGOS Gateway (port 3050) already polls `@EGOSin_bot` (token `TELEGRAM_BOT_TOKEN_AI_AGENTS`). OpenClaw uses a distinct bot (`@egosmarkets_bot`, token `TELEGRAM_BOT_TOKEN_MARKETS`) to avoid `409 Conflict: terminated by other getUpdates request`.
+
+**Token sync:** `~/.claude/.credentials.json` rotates daily via Claude Code. Copy is STATIC on VPS — needs cron or rsync schedule to stay valid. Currently 5.8h of validity remaining at deploy time.
+
+---
+
 ## 6. STRATEGIC POSITION
 
 From `docs/research/plugplay-governance-landscape-2026-03-14.md`:
@@ -149,8 +187,12 @@ From `docs/research/plugplay-governance-landscape-2026-03-14.md`:
 | Billing proxy installed | ✅ Done (2026-04-06) | systemd + subscription:max |
 | Gateway crash-loop fixed | ✅ Done (2026-04-06) | Reinstalled v2026.4.5 |
 | anthropic-subscription provider | ✅ Done (2026-04-06) | models.json updated |
+| VPS billing proxy installed | ✅ Done (2026-04-06) | systemd `openclaw-billing-proxy.service`, bound 0.0.0.0:18801 |
+| VPS Telegram (@egosmarkets_bot) | ✅ Done (2026-04-06) | Distinct bot to avoid conflict with EGOS Gateway |
+| openclaw.egos.ia.br routing | ✅ Done (2026-04-06) | Caddy `→ openclaw-sandbox:18789`, HTTP 200 |
 | Wire OpenClaw + Hermes | ⬜ Pending | MASTER_HANDOFF_2026-04-03 |
-| Wire Telegram → OpenClaw | ⬜ Pending | Route egosin_bot to OC gateway |
+| Local Telegram channel | ⬜ Pending | OC-001 — add bot token to `~/.openclaw/openclaw.json` |
+| VPS credentials cron sync | ⬜ Pending | `~/.claude/.credentials.json` rotates daily — needs rsync job |
 | Populate USER.md | ⬜ Pending | Add full Enio profile |
 | Configure HEARTBEAT.md | ⬜ Pending | Add monitoring tasks |
 
