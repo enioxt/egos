@@ -1,4 +1,45 @@
 {
   "version": "1.0.0",
-  "signals": []
+  "signals": [
+    {
+      "name": "@rigour-labs/mcp",
+      "url": "https://www.npmjs.com/package/@rigour-labs/mcp",
+      "score": 85,
+      "category": "mcp-governance-servers",
+      "date": "2026-04-06T00:21:48.592Z",
+      "headline": "MCP server + live dashboard for AI code governance — OWASP LLM Top 10 (10/10), real-time MCP App UI, 25+ security patter"
+    },
+    {
+      "name": "metheus-governance-mcp-cli",
+      "url": "https://www.npmjs.com/package/metheus-governance-mcp-cli",
+      "score": 85,
+      "category": "mcp-governance-servers",
+      "date": "2026-04-06T00:21:48.592Z",
+      "headline": "Metheus Governance MCP CLI (setup + stdio proxy)"
+    },
+    {
+      "name": "@mcp-ui/client",
+      "url": "https://www.npmjs.com/package/@mcp-ui/client",
+      "score": 85,
+      "category": "mcp-governance-servers",
+      "date": "2026-04-06T00:21:48.592Z",
+      "headline": "mcp-ui Client SDK"
+    },
+    {
+      "name": "@modelcontextprotocol/sdk",
+      "url": "https://www.npmjs.com/package/@modelcontextprotocol/sdk",
+      "score": 85,
+      "category": "mcp-governance-servers",
+      "date": "2026-04-06T00:21:48.592Z",
+      "headline": "Model Context Protocol implementation for TypeScript"
+    },
+    {
+      "name": "@playwright/mcp",
+      "url": "https://www.npmjs.com/package/@playwright/mcp",
+      "score": 95,
+      "category": "mcp-governance-servers",
+      "date": "2026-04-06T00:21:48.592Z",
+      "headline": "Playwright Tools for MCP"
+    }
+  ]
 }

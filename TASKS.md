@@ -116,7 +116,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [ ] GH-026: Upgrade codebase-memory-mcp to HTTP/SSE transport
 - [ ] GH-027: `.guarani/checks/` layer
 **Gem Hunter product (revenue):**
-- [ ] GH-061: Dashboard gemhunter.egos.ia.br (Next.js web UI)
+- [x] GH-061: Dashboard gemhunter.egos.ia.br ✅ 2026-04-06 — 288 gems, dark SPA servida em / (sem Next.js)
 - [x] GH-067: gem-hunter-server deployed to VPS port 3095, systemd, Caddy ready ✅ 2026-04-05 — [BLOCKER] DNS A record gemhunter.egos.ia.br → 204.168.217.125 needed
 - [x] GH-068: API keys Supabase auth | GH-069: Rate limiting ✅ 2026-04-05
 - [x] GH-070: WhatsApp v2 — AI orchestrator (Qwen+tools: gem_search/wiki_search/status/costs/agents) + all media types ✅ 2026-04-05
@@ -189,7 +189,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [x] GH-065: packages/shared/src/billing/pricing.ts — priceGemHuntRun, priceGuardBrasilCalls, checkCustomerBudget, buildStripeCheckoutUrl ✅ 2026-04-02
 
 *Month 2-3 — Product Scale:*
-- [ ] GH-061: Dashboard web — gemhunter.egos.ia.br (findings feed, paper browser, trends, alerts config)
+- [x] GH-061: Dashboard web — gemhunter.egos.ia.br ✅ 2026-04-06
 - [x] GH-062: packages/gem-hunter/ — @egosbr/gem-hunter v6.0.0 (GemHunter client + CLI: hunt/findings/papers/signals/wait) ✅ 2026-04-02
 - [ ] GH-063: x402 pay-per-call — M2M agent payments via x402 protocol
 - [x] GH-064: Discord webhook alerts — sendGemDiscordAlert() rich embeds (score≥80, color-coded); DISCORD_WEBHOOK_URL env ✅ 2026-04-02

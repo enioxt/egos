@@ -1,0 +1,150 @@
+{
+  "generatedAt": "2026-04-06T00:21:48.588Z",
+  "trendingTerms": [
+    [
+      "score",
+      36
+    ],
+    [
+      "comments",
+      25
+    ],
+    [
+      "show",
+      14
+    ],
+    [
+      "polymcp",
+      9
+    ],
+    [
+      "models",
+      9
+    ],
+    [
+      "development",
+      8
+    ],
+    [
+      "servers",
+      8
+    ],
+    [
+      "guide",
+      8
+    ],
+    [
+      "microsoft",
+      8
+    ],
+    [
+      "tools",
+      7
+    ],
+    [
+      "world",
+      6
+    ],
+    [
+      "detection",
+      6
+    ],
+    [
+      "pulumi",
+      6
+    ],
+    [
+      "discovery",
+      6
+    ],
+    [
+      "skill",
+      6
+    ],
+    [
+      "https",
+      6
+    ],
+    [
+      "kong",
+      6
+    ],
+    [
+      "without",
+      5
+    ],
+    [
+      "coding",
+      5
+    ],
+    [
+      "generative",
+      5
+    ],
+    [
+      "existing",
+      5
+    ],
+    [
+      "such",
+      5
+    ],
+    [
+      "gateway",
+      5
+    ],
+    [
+      "toolkit",
+      4
+    ],
+    [
+      "apps",
+      4
+    ],
+    [
+      "core",
+      4
+    ],
+    [
+      "build",
+      4
+    ],
+    [
+      "workflows",
+      4
+    ],
+    [
+      "powered",
+      4
+    ],
+    [
+      "field",
+      4
+    ]
+  ],
+  "suggestedQueries": [
+    {
+      "topic": "Emerging: score + comments + show",
+      "keywords": [
+        "score comments show",
+        "comments show polymcp",
+        "show polymcp models"
+      ]
+    },
+    {
+      "topic": "Next-Gen: polymcp + models + development",
+      "keywords": [
+        "polymcp models development",
+        "development servers guide"
+      ]
+    }
+  ],
+  "totalGemsAnalyzed": 342,
+  "actionBreakdown": {
+    "🔍 Evaluate": 215,
+    "🗑️ Discard": 25,
+    "📋 Create Task": 42,
+    "📝 Document": 57,
+    "⚡ Implement": 3
+  }
+}
