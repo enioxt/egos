@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase';
 
 const TIMEOUT = 4000;
+const BILLING_PROXY_URL = process.env.BILLING_PROXY_URL ?? 'http://127.0.0.1:18801';
 
 async function ping(url: string, label: string) {
   try {
@@ -25,7 +26,7 @@ export async function GET() {
     ping('https://guard.egos.ia.br/health', 'Guard Brasil API'),
     ping('https://gateway.egos.ia.br/health', 'EGOS Gateway'),
     ping('https://openclaw.egos.ia.br', 'OpenClaw Gateway'),
-    ping('http://127.0.0.1:18801/health', 'Billing Proxy (local)'),
+    ping(`${BILLING_PROXY_URL}/health`, 'Billing Proxy'),
 
     // Guard Brasil today's stats
     sb.from('guard_brasil_events')
