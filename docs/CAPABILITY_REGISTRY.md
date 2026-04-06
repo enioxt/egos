@@ -368,3 +368,19 @@ L5: Agent Registry + Skills    — Auto-discovery, hot-reload, marketplace patte
 
 **VPS deploy path:** `/opt/egos-lab/.env` has X API keys. Cron: `0 * * * * bun /home/enio/egos/scripts/x-reply-bot.ts`
 
+
+## 14. MISSION CONTROL & CLAUDE CODE TOOLING (2026-04-05)
+
+| Capability | SSOT | Quality | Adopted By | Tags |
+|-----------|------|---------|------------|------|
+| EGOS HQ Dashboard | `apps/egos-hq/` → hq.egos.ia.br | A | egos | `dashboard`, `mission-control`, `private`, `jwt-auth` |
+| X.com Reply Queue | `apps/egos-hq/app/x/page.tsx` + `x_reply_runs` | A | egos | `x.com`, `queue`, `approval-flow`, `supabase` |
+| HQ Health API | `apps/egos-hq/app/api/hq/health/route.ts` | A | egos | `health`, `monitoring`, `guard-brasil`, `gateway` |
+| Claude Code Skills (11) | `~/.claude/commands/` | A | global | `slash-commands`, `commit`, `pr-review`, `worktrees` |
+| rm-guard Hook | `~/.claude/hooks/rm-guard` | A | global | `safety`, `hooks`, `pre-tool-use`, `bash` |
+| PR Review Action | `.github/workflows/pr-review.yml` | A | egos | `github-actions`, `code-review`, `claude`, `automation` |
+
+**EGOS HQ URLs:**
+- Dashboard: https://hq.egos.ia.br (private, requires DASHBOARD_MASTER_SECRET)
+- Container: `docker ps | grep egos-hq` on VPS port 3060
+- Deploy: `/opt/apps/egos-hq/` on Hetzner 204.168.217.125

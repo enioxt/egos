@@ -9552,3 +9552,44 @@ testStrings.forEach(s => {
 
 **Performance:** 1,200 documents processed in 3.2 seconds (regex), vs ~8 minutes with Gemini API. 78% vs 92% accuracy — acceptable tradeoff for 150x speedup.
 
+
+---
+
+## Session P23 — EGOS HQ Dashboard + Claude Code Skills (2026-04-05)
+
+### EGOS HQ (hq.egos.ia.br) — Mission Control Dashboard
+**Pattern:** Private Next.js 15 dashboard behind JWT auth (jose, httpOnly cookie `hq_session`, 7-day expiry).
+- Single-user auth with `DASHBOARD_MASTER_SECRET` env — no external auth service needed
+- Docker: `oven/bun:1.3-slim` builder + `node:20-slim` runner (Next.js standalone output requires `node`, not `bun`)
+- **Critical:** `RUN mkdir -p public` in builder stage to prevent COPY failure when `/public` is empty
+- Caddy runs inside Docker container `infra-caddy-1` — reload via `docker exec infra-caddy-1 caddy reload --config /etc/caddy/Caddyfile`
+- VPS deploy path: `/opt/apps/<name>/` with `Dockerfile` + `docker-compose.yml` + `.env`
+
+**X.com Bot → Queue Flow:**
+- Bot saves results to Supabase `x_reply_runs` with `status=pending` (never auto-posts)
+- Dashboard `/x` tab shows queue → approve (posts reply) or reject
+- `AUTO_APPROVE=true` env restores old auto-post behavior for emergencies
+- `status` enum: `pending | approved | rejected | sent | dry_run`
+
+**DNS:** `egos.ia.br` zone managed at Registro.br. All VPS services: `A → 204.168.217.125`
+
+### Claude Code Skills/Hooks — Installation Patterns (2026-04-05)
+**Slash commands:** markdown files in `~/.claude/commands/` — auto-loaded as `/command-name`
+**Source:** `hesreallyhim/awesome-claude-code` repo under `resources/slash-commands/<name>/<name>.md`
+**Install one-liner:**
+```bash
+gh api "repos/hesreallyhim/awesome-claude-code/contents/resources/slash-commands/<cmd>/<cmd>.md" \
+  --jq '.content' | base64 -d > ~/.claude/commands/<cmd>.md
+```
+
+**Hooks wiring:** All hooks must be registered in `~/.claude/settings.json` under `hooks.<Event>[].hooks[]`
+**Hook false-positive trap:** PreToolUse Bash hooks see the full command string including quoted arguments.
+If checking for `rm -rf /home` in a command like `echo 'rm -rf /home'`, the pattern will match the quoted string.
+Fix: use Python regex requiring `rm` to appear as an actual command token (`^|; |&& `), not as substring anywhere.
+
+**rm-guard pattern (correct):**
+```python
+pattern = r'(?:^|;\s*|&&\s*|\|\|\s*)rm\s+-[rRf]+\s+(/etc|/var|/usr|/opt/bracc|/opt/apps)'
+```
+
+**GitHub Action for PR review:** `anthropics/claude-code-action@v1` — works on `pull_request: [opened, synchronize]`

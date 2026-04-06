@@ -32,6 +32,9 @@ ALLOWED_PATTERNS=(
   "docs/business"
   "docs/strategy"
   "docs/_current_handoffs"
+  "docs/knowledge"
+  "docs/CAPABILITY_REGISTRY"
+  "docs/SYSTEM_MAP"
 
   # Strategic documentation only
   "STRATEGIC_FOCUS_PLAN"

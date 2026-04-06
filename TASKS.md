@@ -446,3 +446,25 @@ Modern monetization: usage-based API + MCP tool + chatbot. Stripe-unified (card 
 **PAL (agno-agi/pal):** Analyzed. Compiler + Linter pattern adopted via wiki-compiler agent. Syncer not needed (Supabase > Git sync). **ADOPTED partially.**
 **Karpathy LLM Wiki gist:** Adopted. 3-layer pattern (raw → wiki → schema) is now KB-001..007. **ADOPTED fully.**
 **Fine-tuning próprio (Gemma 2B/Qwen 7B):** VPS has 540MB free RAM, 0 GPU. Fine-tune on Colab is possible but not 90-day focus. WM-001..004 covers dataset prep. **DEFERRED to P2.**
+
+### P23 Session Tasks (2026-04-05) — EGOS HQ + Claude Code Skills
+
+**Completed:**
+- [x] CTRL-001: EGOS HQ `apps/egos-hq/` — Next.js 15 Mission Control dashboard scaffolded ✅ 2026-04-05
+- [x] CTRL-002: JWT auth (jose) + middleware + login/logout API ✅ 2026-04-05
+- [x] CTRL-003: Mission Control home — health grid (Guard Brasil, Gateway, X Bot, KB, Agents) ✅ 2026-04-05
+- [x] CTRL-004: X Monitor (`/x`) — 3 tabs: Fila Bot + Busca Manual + Histórico ✅ 2026-04-05
+- [x] CTRL-005: x-reply-bot.ts → saves to Supabase status=pending (queue for approval) ✅ 2026-04-05
+- [x] CTRL-006: Supabase migration `20260406_hq_tables.sql` (`x_reply_runs` + `egos_agent_events`) ✅ 2026-04-05
+- [x] CTRL-007: Docker build + deploy to VPS `/opt/apps/egos-hq/` port 3060 ✅ 2026-04-05
+- [x] CTRL-008: Caddy config `hq.egos.ia.br → localhost:3060` + DNS A record at Registro.br ✅ 2026-04-05
+- [x] CTRL-009: 11 Claude Code slash commands installed (`/commit`, `/pr-review`, `/create-pr`, `/create-worktrees`, `/todo`, `/fix-github-issue`, `/add-to-changelog`, `/update-docs`, `/optimize`, `/release`, `/context-prime`) ✅ 2026-04-05
+- [x] CTRL-010: `rm-guard` hook installed + wired in settings.json (smart Python regex, no false positives) ✅ 2026-04-05
+- [x] CTRL-011: GitHub Action `.github/workflows/pr-review.yml` — auto Claude PR review on open/sync ✅ 2026-04-05
+
+**Pending:**
+- [ ] CTRL-012: `hq.egos.ia.br` TLS cert verify (Caddy auto-provisions, test login in browser)
+- [ ] CTRL-013: Agents page `/agents` — wire to `agents.json` registry via `AGENTS_REGISTRY_PATH` env
+- [ ] CTRL-014: Events page `/events` — Supabase Realtime live stream for `egos_agent_events`
+- [ ] CTRL-015: X.com: approve flow end-to-end test (approve reply → verify posted on X.com)
+- [ ] CTRL-016: Run `bun scripts/x-reply-bot.ts --dry-run` → verify rows appear in Supabase `x_reply_runs`
