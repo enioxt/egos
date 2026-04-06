@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Guard Brasil Hero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0A0E27;
+    --navy-2:#1A2F5A;
+    --blue:#2563EB;
+    --green:#10B981;
+    --green-soft:#10B98122;
+    --text:#E2E8F0;
+    --mute:#64748B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1000px;height:700px;background:transparent;font-family:'Inter',system-ui,sans-serif;color:var(--text);-webkit-font-smoothing:antialiased}
+  .stage{
+    width:1000px;height:700px;
+    background:radial-gradient(1200px 800px at 30% 30%, #13214a 0%, var(--navy) 55%, #05071a 100%);
+    position:relative;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+  }
+  /* subtle grid */
+  .grid{position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(37,99,235,.06) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(37,99,235,.06) 1px,transparent 1px);
+    background-size:44px 44px;mask-image:radial-gradient(800px 600px at 50% 50%,#000 30%,transparent 80%);
+  }
+  .glow{position:absolute;width:620px;height:620px;border-radius:50%;
+    background:radial-gradient(circle, rgba(16,185,129,.30) 0%, rgba(16,185,129,0) 60%);
+    filter:blur(4px);
+  }
+  .shield-wrap{position:relative;width:420px;height:520px;display:flex;align-items:center;justify-content:center}
+  svg.shield{filter:drop-shadow(0 40px 60px rgba(0,0,0,.55)) drop-shadow(0 0 30px rgba(16,185,129,.35))}
+  /* floating particles */
+  .dot{position:absolute;width:6px;height:6px;border-radius:50%;background:#3b82f6;opacity:.6;box-shadow:0 0 12px #3b82f6}
+  .d1{top:14%;left:12%}
+  .d2{top:22%;right:14%;background:#10B981;box-shadow:0 0 12px #10B981}
+  .d3{bottom:22%;left:16%;background:#10B981;box-shadow:0 0 12px #10B981}
+  .d4{bottom:16%;right:12%}
+  .d5{top:48%;left:6%;width:4px;height:4px}
+  .d6{top:60%;right:7%;width:4px;height:4px;background:#10B981}
+  /* orbit ring */
+  .ring{position:absolute;width:640px;height:640px;border-radius:50%;border:1px dashed rgba(148,163,184,.18)}
+  .ring.inner{width:520px;height:520px;border-color:rgba(148,163,184,.10)}
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="grid"></div>
+    <div class="glow"></div>
+    <div class="ring"></div>
+    <div class="ring inner"></div>
+    <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
+    <span class="dot d4"></span><span class="dot d5"></span><span class="dot d6"></span>
+    <div class="shield-wrap">
+      <svg class="shield" width="360" height="440" viewBox="0 0 360 440">
+        <defs>
+          <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#34D399"/>
+            <stop offset="55%" stop-color="#10B981"/>
+            <stop offset="100%" stop-color="#047857"/>
+          </linearGradient>
+          <linearGradient id="edge" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#6EE7B7"/>
+            <stop offset="100%" stop-color="#059669"/>
+          </linearGradient>
+          <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity=".35"/>
+            <stop offset="50%" stop-color="#ffffff" stop-opacity="0"/>
+            <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <!-- outer edge -->
+        <path d="M180 10 L330 60 L330 240 Q330 355 180 430 Q30 355 30 240 L30 60 Z" fill="url(#edge)"/>
+        <!-- body inset -->
+        <path d="M180 26 L314 70 L314 238 Q314 340 180 410 Q46 340 46 238 L46 70 Z" fill="url(#body)"/>
+        <!-- sheen -->
+        <path d="M180 26 L314 70 L314 238 Q314 340 180 410 Q46 340 46 238 L46 70 Z" fill="url(#sheen)"/>
+        <!-- checkmark -->
+        <path d="M110 220 L165 275 L260 160" fill="none" stroke="#0A0E27" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>
+        <path d="M110 220 L165 275 L260 160" fill="none" stroke="#ECFDF5" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>

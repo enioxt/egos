@@ -172,7 +172,7 @@ export default function LandingPage() {
             {/* Hero Image */}
             <div className="flex-shrink-0">
               <Image
-                src="/hero-shield.jpg"
+                src="/hero-shield.png"
                 alt="Guard Brasil Shield"
                 width={500}
                 height={350}

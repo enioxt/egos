@@ -1,13 +1,11 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.36.0 | **Updated:** 2026-04-06 | **LAST SESSION:** 2026-04-06 P25/P26 — 4 new MCPs (Firecrawl, GitHub, Brave, Playwright), focus-enforcement v2.0 (researcher-builder FORBIDDEN-list), Guard Brasil market research (ICP confirmed), pre-commit TTY bug fixed, HARVEST.md v3.5.0 + CAPABILITY_REGISTRY.md v1.9.0
+> **Version:** 2.37.0 | **Updated:** 2026-04-06 | **LAST SESSION:** 2026-04-06 P24/P26 — GH-071/KB-015/INTEL-005/X-006/007/008 ✅, OpenClaw billing proxy integrated (subscription:max), OPENCLAW_SSOT.md created, gateway crash fixed (v2026.4.5)
 
 ---
 
 ### Completed Archive (compressed — see git log for details)
-**P1-P22 (2026-03-27..2026-04-05):** EGOS-151..176, MONETIZE-001..015, START-001..005, KB-001..012, KB-016, MASTER-002/004, EAGLE-000..023, EAGLE-GH-001/002/005, GOV-001..003, BRACC-001..003, GH-001..060, GH-062/064/066, X-001..005, THEATER-001, WA-001..003 — all DONE ✅.
-**Products live:** Guard Brasil v0.2.2 API (VPS), npm@0.2.2, web landing (Vercel), about/faq/terms/privacy pages, EGOS Gateway v0.1.0 (port 3050), Eagle Eye (eagleeye.egos.ia.br), Knowledge System (50 wiki pages, 3 Supabase tables).
-**Infra:** Stripe metered billing, NOWPayments crypto, 27 credentials vault, WhatsApp daily cron, 196 groups indexed, 9/10 PII patterns verified with real br-acc data, free quota 500 everywhere.
+**P1-P26 (2026-03-27..2026-04-06):** EGOS-151..176, MONETIZE-001..015, START-001..009, KB-001..018, GH-001..071, X-001..008, INTEL-005, THEATER-001, WA-001..003, EAGLE-*, GOV-*, BRACC-*, PART-001..015 — all DONE ✅. Products live: Guard Brasil v0.2.2 API+web+npm, EGOS Gateway v0.3.0 (port 3050), Gem Hunter dashboard (port 3095), HQ (hq.egos.ia.br), Eagle Eye, KB (52 wiki pages). OpenClaw billing proxy integrated (subscription:max).
 
 ---
 
@@ -393,12 +391,16 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 **Positioning:** "The Presidio for Brazil — free API key, zero setup, 15 BR PII patterns." Presidio has 0 BR patterns.
 **Key insight:** Privacy Tools BR = PARTNER not competitor (process tool, no API). OneTrust/BigID = enterprise (R$50k+), not our market.
 
-**P0 — M-007 (oldest blocker — send these NOW):**
-- [ ] M-007: Send 5 outreach emails to DPOs/compliance teams (templates: docs/business/OUTREACH_EMAIL_TEMPLATES.md). This is the ONLY action blocking first revenue. Days stale: 7+.
+**P0 — SOCIAL FIRST (reprio 2026-04-06 per Enio): X.com → LinkedIn → email**
+- [ ] GTM-002: Publish 4-tweet showcase thread on X.com @anoineim — demo Guard Brasil (CPF/RG/MASP, 4ms, free tier). Drafts ready: docs/business/PART002_SOCIAL_POSTS.md. **Blocker:** no scripts/x-post.ts yet (x-reply-bot has OAuth1.0a but only postReply). Action: build scripts/x-post.ts (thread mode), post today.
+- [ ] GTM-009: Publish LinkedIn post targeting compliance managers + DPOs BR. Draft ready: docs/business/PART002_SOCIAL_POSTS.md. **Blocker:** no LINKEDIN_* credentials in .env + LinkedIn API requires OAuth2 app approval. Action: post MANUALLY (copy/paste) — fastest path, autonomous posting defer to GTM-014.
+- [ ] GTM-011: X.com solo tweet "ANPD está acelerando fiscalização em 2026..." + link free tier (from market research). Post after GTM-002 thread lands.
+- [ ] GTM-014: **NEW** — scripts/x-post.ts: standalone thread poster (reuse OAuth1.0a from x-reply-bot lines 169-225). Features: reads markdown → posts thread → returns thread URL. Required for GTM-002/011 autonomous.
+- [ ] GTM-015: **NEW** — og-image.jpg for Guard Brasil (1200x630, spec in PART002_SOCIAL_POSTS.md §og-image). Path: HTML template + playwright screenshot. Upload to X thread + LinkedIn post.
+- [ ] M-007: Send 5 outreach emails to DPOs/compliance teams (templates: docs/business/OUTREACH_EMAIL_TEMPLATES.md). Now P0#2 (was oldest blocker, reprio'd behind social per Enio 2026-04-06). Days stale: 7+.
 
-**P0 — Guard Brasil GTM:**
+**P0 — GTM support (unchanged):**
 - [ ] GTM-001: Update x-reply-bot search queries to target LGPD/compliance/DPO/ANPD conversations on X.com (currently too broad — add keywords: lgpd, anpd, dpo, "proteção de dados", "vazamento de dados", "conformidade")
-- [ ] GTM-002: Publish 5 showcase posts on X.com @anoineim — demo Guard Brasil: CPF detection, LGPD compliance, 4ms response. Use docs/business/PART002_SOCIAL_POSTS.md drafts.
 - [ ] GTM-003: Add GTM metrics card to HQ home page — shows: MRR (R$0), customers (0), M-007 status (STALE), outreach sent/responded, pending demos
 - [ ] GTM-004: Add partner/community discovery track to Gem Hunter — queries: "lgpd api", "data privacy compliance brazil", "dpo tools brasil", "gdpr brazil saas", "pii detection api". Output feeds PART-001..015 pipeline.
 - [ ] GTM-005: Guard Brasil demo video (90 seconds) — record screen: API call → PII detected → LGPD report. Upload to X.com thread.
@@ -407,7 +409,6 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 - [ ] GTM-006: Deploy Guard Brasil docs at guard.egos.ia.br/docs with interactive API playground (Scalar or Swagger UI)
 - [ ] GTM-007: Submit Guard Brasil to ANPD's public registry of DPO tools (builds legitimacy)
 - [ ] GTM-008: ProductHunt launch — prepare assets, schedule for Tuesday/Wednesday (peak traffic days)
-- [ ] GTM-009: LinkedIn post targeting compliance managers + DPOs in Brazil (different audience than X.com)
 
 **P1 — Content GTM (from market research):**
 - [ ] GTM-010: dev.to post "Como detectar CPF, RG e MASP em sua API Node.js em 5 minutos" — with live Guard Brasil example. Target: Brazilian backend devs.

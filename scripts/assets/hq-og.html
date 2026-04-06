@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>EGOS HQ OG</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0A0E27;--blue:#2563EB;--text:#F8FAFC;--mute:#94A3B8}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1200px;height:630px;font-family:'Inter',system-ui,sans-serif;color:var(--text);-webkit-font-smoothing:antialiased}
+  .og{width:1200px;height:630px;background:radial-gradient(1400px 900px at 70% 35%,#13214a 0%,var(--navy) 55%,#04061a 100%);position:relative;overflow:hidden;padding:80px;display:flex;align-items:center;gap:60px}
+  .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.07) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(900px 700px at 50% 55%,#000 30%,transparent 85%)}
+  .mark{position:relative;flex-shrink:0}
+  .mark svg{filter:drop-shadow(0 40px 60px rgba(0,0,0,.55)) drop-shadow(0 0 40px rgba(37,99,235,.45))}
+  .content{position:relative;z-index:2}
+  .kicker{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:14px;color:#93C5FD;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px;border:1px solid rgba(59,130,246,.35);border-radius:999px;background:rgba(37,99,235,.08);margin-bottom:28px}
+  h1{font-size:84px;line-height:1.02;font-weight:900;letter-spacing:-.04em;margin-bottom:20px}
+  h1 .hl{background:linear-gradient(180deg,#93C5FD,#2563EB);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .tag{font-size:22px;color:#CBD5E1;font-weight:500;max-width:560px;line-height:1.45}
+  .url{position:absolute;left:80px;bottom:48px;color:var(--mute);font-size:15px;font-family:'JetBrains Mono',monospace}
+  .ring{position:absolute;right:-80px;top:50%;transform:translateY(-50%);width:640px;height:640px;border-radius:50%;border:1px dashed rgba(148,163,184,.12)}
+  .ring.i{width:500px;height:500px;right:0}
+</style>
+</head>
+<body>
+<div class="og">
+  <div class="grid"></div>
+  <div class="ring"></div><div class="ring i"></div>
+  <div class="mark">
+    <svg width="340" height="380" viewBox="0 0 340 380">
+      <defs>
+        <linearGradient id="hex" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#60A5FA"/><stop offset="55%" stop-color="#2563EB"/><stop offset="100%" stop-color="#1E3A8A"/>
+        </linearGradient>
+        <linearGradient id="hexE" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#93C5FD"/><stop offset="100%" stop-color="#1D4ED8"/>
+        </linearGradient>
+        <linearGradient id="hexS" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity=".30"/><stop offset="55%" stop-color="#ffffff" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <polygon points="170,10 322,90 322,270 170,350 18,270 18,90" fill="url(#hexE)"/>
+      <polygon points="170,28 306,100 306,260 170,332 34,260 34,100" fill="url(#hex)"/>
+      <polygon points="170,28 306,100 306,260 170,332 34,260 34,100" fill="url(#hexS)"/>
+      <g stroke="#0A0E27" stroke-width="16" stroke-linecap="round" opacity=".9">
+        <line x1="110" y1="130" x2="230" y2="130"/>
+        <line x1="110" y1="180" x2="200" y2="180"/>
+        <line x1="110" y1="230" x2="230" y2="230"/>
+      </g>
+      <g stroke="#DBEAFE" stroke-width="7" stroke-linecap="round">
+        <line x1="110" y1="130" x2="230" y2="130"/>
+        <line x1="110" y1="180" x2="200" y2="180"/>
+        <line x1="110" y1="230" x2="230" y2="230"/>
+      </g>
+    </svg>
+  </div>
+  <div class="content">
+    <div class="kicker">Mission Control</div>
+    <h1>EGOS <span class="hl">HQ</span></h1>
+    <div class="tag">Observability &middot; Governance &middot; Agent runtime for the EGOS ecosystem.</div>
+  </div>
+  <div class="url">hq.egos.ia.br &nbsp;&middot;&nbsp; private dashboard</div>
+</div>
+</body>
+</html>
