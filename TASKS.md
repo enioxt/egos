@@ -417,7 +417,7 @@ Modern monetization: usage-based API + MCP tool + chatbot. Stripe-unified (card 
 
 **P0 — Immediate (this week):**
 - [ ] PART-001: Publish Guard Brasil on npm + ProductHunt (M-007 emails first)
-- [ ] PART-002: Post X.com + LinkedIn with og-image.jpg announcing Guard Brasil
+- [x] PART-002: Posts X.com + LinkedIn preparados ✅ 2026-04-06 — docs/business/PART002_SOCIAL_POSTS.md (aguarda og-image + postagem manual)
 - [ ] PART-003: Reach out to 3 DPO/compliance SaaS BR (templates ready: docs/business/OUTREACH_EMAIL_TEMPLATES.md)
 - [ ] PART-004: Submit to Stripe App Marketplace (already on Stripe — low friction)
 
