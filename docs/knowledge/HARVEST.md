@@ -1,8 +1,41 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 3.4.0 | **UPDATED:** 2026-04-06
+> **VERSION:** 3.5.0 | **UPDATED:** 2026-04-06
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
-> **Latest:** Docker bind mount restart required for Caddy, UserPromptSubmit hooks inject context (not commands), GTM-first researcher-builder pattern, Windsurf→Claude Code skill sync, CLAUDE.md dissemination protocol
+> **Latest:** Guard Brasil GTM patterns (ICP: fintechs/healthtechs 50-500 employees, full analysis in business/MARKET_RESEARCH_GUARD_BRASIL_2026.md), MCP inventory (3 live EGOS + 5 spec-only skipped), CLAUDE.md dissemination protocol
+
+## Guard Brasil GTM Patterns (2026-04-06)
+
+**Full competitive analysis:** `business/MARKET_RESEARCH_GUARD_BRASIL_2026.md` (source of truth — do not duplicate here)
+
+**ICP learned from research:** CTOs + backend devs at fintechs/healthtechs (50-500 employees). Daily CPF/RG processing, ANPD compliance pressure, days-not-months purchase cycle.
+
+**Positioning that resonates:** Developer-first, BR-specific PII detection via REST API. Full analysis with sources: `business/MARKET_RESEARCH_GUARD_BRASIL_2026.md`.
+
+**Partner pattern:** Process-focused compliance tools (workflow, ROPA, DSAR) typically have no detection API — approach as integration partner before outbound sales.
+
+**Content GTM pattern that works for developer tools:**
+1. Tutorial post with working code example (not a pitch) → drives organic inbound
+2. Tie to regulatory news (ANPD enforcement) → creates urgency without selling
+
+---
+
+## EGOS MCP Inventory — Decision Log (2026-04-06)
+
+**3 LIVE custom servers (keep):**
+- `egos-governance` — ssot_drift_check, list_tasks, agent_status, repo_health
+- `egos-memory` — memory_store, memory_recall, memory_list, memory_delete
+- `egos-knowledge` — search_wiki, get_page, record_learning, get_stats (calls gateway.egos.ia.br)
+
+**5 spec-only servers (SKIP — don't build):**
+- `llm-router-mcp`, `git-advanced-mcp`, `fs-watch-mcp`, `calendar-mcp`, `supabase-db` — `.guarani/mcp-config.json` has well-designed specs but zero server implementations. Alternatives already exist (GitHub MCP, Claude.ai Supabase, CCR scheduler).
+
+**1 MCP to BUILD (GTM value):**
+- `guard-brasil-mcp` — wraps `guard.egos.ia.br` as Claude tool. Any dev installs it and has Guard Brasil in their Claude session. GTM play: publish as `@egosbr/guard-brasil-mcp`.
+
+**Fix needed:** Move `egos-knowledge` from `egos/.claude/settings.json` → `~/.claude/settings.json` (make global, not project-only).
+
+---
 
 ## Docker Bind Mount + Caddy Container Naming (2026-04-06)
 
