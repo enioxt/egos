@@ -80,10 +80,14 @@ if [ -n "$STAGED_DIFF_STAT" ]; then
     echo "   Files with most changes:"
     echo "$STAGED_DIFF_STAT" | sort -k1 -k2 -n -r | head -5 | awk '{print "   - " $3 " (" $1 "+ / " $2 "-)"}'
     echo ""
-    read -p "Continue anyway? [y/N] " -n 1 -r < /dev/tty
-    echo
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-      exit 1
+    if [ -e /dev/tty ]; then
+      read -p "Continue anyway? [y/N] " -n 1 -r < /dev/tty
+      echo
+      if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        exit 1
+      fi
+    else
+      echo "   ⚠️  Non-interactive mode — allowing large commit (add smaller commits when possible)"
     fi
   fi
 fi
