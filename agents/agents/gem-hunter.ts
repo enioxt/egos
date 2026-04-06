@@ -1534,13 +1534,16 @@ async function main() {
     .sort((a, b) => b.score - a.score)
     .slice(0, 5);
   for (const { gem, score } of hotGems) {
+    const ts = new Date().toISOString();
     appendGemSignal({
+      type: "gem_discovery",
       name: gem.name,
       url: gem.url,
       score,
       category: gem.category,
-      date: new Date().toISOString(),
-      headline: gem.description.slice(0, 120),
+      date: ts,
+      ts,
+      headline: `${gem.name} — ${gem.description.slice(0, 100)}`,
     });
   }
   if (hotGems.length > 0) {

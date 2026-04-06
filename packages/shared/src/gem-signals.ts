@@ -9,12 +9,16 @@ import { readFileSync, writeFileSync, existsSync } from "fs";
 import { join } from "path";
 
 export interface GemSignal {
+  /** Signal type — gem_discovery for auto-appended high-score gems (INTEL-005) */
+  type?: "gem_discovery" | string;
   name: string;
   url: string;
   score: number;
   category: string;
   date: string;
   headline: string;
+  /** ISO timestamp alias — same as date, used by world-model downstream consumers */
+  ts?: string;
 }
 
 interface SignalsFile {

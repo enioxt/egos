@@ -305,6 +305,62 @@ async function saveToSupabase(tweet: XTweet, topic: string, generatedReply: stri
   }
 }
 
+// ── Daily Telegram Report (X-008) ─────────────────────────────────────────────
+
+interface RunStats {
+  attempted: number;
+  sent: number;      // auto-approved posts actually sent
+  queued: number;    // queued for HQ dashboard approval
+  rejected: number;  // skipped (rate-limit, budget, own tweet, etc.)
+  topTopic?: string; // category with most engagement this run
+}
+
+async function sendDailyReport(stats: RunStats): Promise<void> {
+  if (stats.sent === 0 && stats.queued === 0 && stats.rejected === 0) return;
+
+  const token = process.env.TELEGRAM_BOT_TOKEN_AI_AGENTS;
+  const chatId = process.env.TELEGRAM_ADMIN_CHAT_ID;
+  if (!token || !chatId) {
+    console.warn("  ⚠️ Telegram report skipped: TELEGRAM_BOT_TOKEN_AI_AGENTS or TELEGRAM_ADMIN_CHAT_ID not set");
+    return;
+  }
+
+  const now = new Date();
+  const nextRun = new Date(now.getTime() + 60 * 60 * 1000); // next hourly run
+  const nextRunStr = nextRun.toISOString().replace("T", " ").slice(0, 16) + " UTC";
+
+  const lines = [
+    `🐦 *X Reply Bot — Run Summary*`,
+    `📅 ${now.toISOString().replace("T", " ").slice(0, 16)} UTC`,
+    ``,
+    `• Attempted: ${stats.attempted}`,
+    `• Sent (auto-approve): ${stats.sent}`,
+    `• Queued for HQ: ${stats.queued}`,
+    `• Rejected/skipped: ${stats.rejected}`,
+    stats.topTopic ? `• Top topic: ${stats.topTopic}` : null,
+    ``,
+    `⏰ Next run: ${nextRunStr}`,
+    `📋 Review queue: hq.egos.ia.br/x`,
+  ].filter(Boolean).join("\n");
+
+  try {
+    const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id: chatId, text: lines, parse_mode: "Markdown" }),
+      signal: AbortSignal.timeout(8000),
+    });
+    if (res.ok) {
+      console.log("  📨 Daily report sent to Telegram");
+    } else {
+      const err = await res.text();
+      console.warn(`  ⚠️ Telegram report failed ${res.status}: ${err.slice(0, 100)}`);
+    }
+  } catch (e) {
+    console.warn(`  ⚠️ Telegram report error: ${String(e)}`);
+  }
+}
+
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 async function main() {
@@ -332,6 +388,10 @@ async function main() {
   let repliesThisRun = 0;
   const runLimit = Math.min(budgetLeft, MAX_PER_RUN);
 
+  // Stats tracking for X-008 Telegram report
+  const stats: RunStats = { attempted: 0, sent: 0, queued: 0, rejected: 0 };
+  const topicHits: Record<string, number> = {};
+
   for (const topic of TOPICS) {
     if (repliesThisRun >= runLimit) break;
 
@@ -344,11 +404,12 @@ async function main() {
         if (state.replied_to.includes(tweet.id)) continue;
 
         const likes = tweet.public_metrics?.like_count ?? 0;
-        if (likes < topic.min_likes) continue;
+        if (likes < topic.min_likes) { stats.rejected++; continue; }
 
         // Don't reply to our own tweets
-        if (tweet.author_id === process.env.X_USER_ID) continue;
+        if (tweet.author_id === process.env.X_USER_ID) { stats.rejected++; continue; }
 
+        stats.attempted++;
         console.log(`\n  📌 [${topic.category}] Tweet ${tweet.id} (${likes} likes)`);
         console.log(`     "${tweet.text.slice(0, 100)}..."`);
 
@@ -365,14 +426,20 @@ async function main() {
             state.replies_sent++;
             state.replied_to.push(tweet.id);
             repliesThisRun++;
+            stats.sent++;
+            topicHits[topic.category] = (topicHits[topic.category] ?? 0) + 1;
             saveState(state);
             console.log(`  ✅ Replied (${state.replies_sent}/${MAX_DAILY_REPLIES} today)`);
             await new Promise(r => setTimeout(r, 5000)); // 5s between posts
+          } else {
+            stats.rejected++;
           }
         } else {
           // Dashboard approval mode — mark as seen, wait for Enio to approve in HQ
           state.replied_to.push(tweet.id);
           repliesThisRun++;
+          stats.queued++;
+          topicHits[topic.category] = (topicHits[topic.category] ?? 0) + 1;
           saveState(state);
           if (!DRY_RUN) {
             console.log(`  📋 Queued for HQ approval — hq.egos.ia.br/x`);
@@ -388,7 +455,14 @@ async function main() {
     }
   }
 
+  // Determine top topic by engagement
+  const topTopicEntry = Object.entries(topicHits).sort(([, a], [, b]) => b - a)[0];
+  if (topTopicEntry) stats.topTopic = topTopicEntry[0];
+
   console.log(`\n✅ Run complete: ${repliesThisRun} replies sent (${state.replies_sent}/${MAX_DAILY_REPLIES} today)`);
+
+  // X-008: Send daily summary to Telegram
+  await sendDailyReport(stats);
 }
 
 main().catch(console.error);

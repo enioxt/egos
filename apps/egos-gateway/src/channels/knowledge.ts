@@ -8,7 +8,7 @@
  *   GET  /pages              — list all wiki pages (paginated)
  *   GET  /pages/:slug        — get a single page by slug
  *   GET  /index              — wiki index grouped by category
- *   GET  /search?q=term      — full-text search across pages
+ *   GET  /search?q=term      — search pages (mode=ilike|fts, default: ilike)
  *   GET  /learnings          — list learnings (filterable)
  *   POST /learnings          — record a new learning
  *   GET  /stats              — knowledge base stats
@@ -101,19 +101,37 @@ knowledge.get("/index", async (c) => {
 });
 
 // Full-text search
+// Query params:
+//   ?q=term        — search term (required, min 2 chars)
+//   ?mode=fts      — PostgreSQL full-text search via phfts (Portuguese, uses idx_wiki_pages_tsvec)
+//   ?mode=ilike    — (default) backward-compatible pattern search (uses idx_wiki_pages_*_trgm)
 knowledge.get("/search", async (c) => {
   const q = c.req.query("q");
   if (!q || q.length < 2) return c.json({ error: "Query too short (min 2 chars)" }, 400);
 
-  // Use ilike for simple text search (Supabase PostgREST)
-  const encoded = encodeURIComponent(`%${q}%`);
-  const res = await sbFetch(
-    `egos_wiki_pages?select=slug,title,category,tags,quality_score,updated_at&or=(title.ilike.${encoded},content.ilike.${encoded})&order=quality_score.desc&limit=20`
-  );
+  const mode = c.req.query("mode") ?? "ilike";
+
+  let res: Response;
+
+  if (mode === "fts") {
+    // PostgreSQL full-text search (phfts = plainto_tsquery, handles natural language).
+    // Hits the idx_wiki_pages_tsvec GIN index (KB-015 migration).
+    const ftsQuery = encodeURIComponent(q);
+    res = await sbFetch(
+      `egos_wiki_pages?select=slug,title,category,tags,quality_score,updated_at&or=(title.phfts(portuguese).${ftsQuery},content.phfts(portuguese).${ftsQuery})&order=quality_score.desc&limit=20`
+    );
+  } else {
+    // Default ilike — backward-compatible; accelerated by pg_trgm GIN indexes (KB-015).
+    const encoded = encodeURIComponent(`%${q}%`);
+    res = await sbFetch(
+      `egos_wiki_pages?select=slug,title,category,tags,quality_score,updated_at&or=(title.ilike.${encoded},content.ilike.${encoded})&order=quality_score.desc&limit=20`
+    );
+  }
+
   if (!res.ok) return c.json({ error: "Search failed" }, 500);
 
   const results = await res.json();
-  return c.json({ query: q, results, count: (results as unknown[]).length });
+  return c.json({ query: q, mode, results, count: (results as unknown[]).length });
 });
 
 // List learnings

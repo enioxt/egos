@@ -181,8 +181,68 @@ async function processTelegramMessage(msg: TelegramMessage): Promise<void> {
       incoming.text = "Liste todos os agentes EGOS registrados";
     } else if (text === "/costs") {
       incoming.text = "Mostre os custos de API de hoje";
+    } else if (text === "/hunt") {
+      // Trigger gem hunt via gem-hunter server — fire-and-forget
+      try {
+        const huntRes = await fetch("http://localhost:3095/v1/hunt", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ quick: true }),
+          signal: AbortSignal.timeout(8000),
+        });
+        if (!huntRes.ok) {
+          const errBody = await huntRes.text().catch(() => String(huntRes.status));
+          await sendMessage(chatId, `⚠️ Gem Hunter retornou erro ${huntRes.status}: ${errBody}`);
+        } else {
+          await sendMessage(chatId, "Hunt iniciado ⏳ — resultados em ~5min. Use /gems para ver os resultados.");
+        }
+      } catch (e) {
+        const msg2 = e instanceof Error ? e.message : String(e);
+        await sendMessage(chatId, `⚠️ Não foi possível contatar o Gem Hunter: ${msg2}`);
+      }
+      return;
+    } else if (text === "/trending") {
+      incoming.text = "Mostre os gems trending com maior confiabilidade (apareceram em múltiplos runs)";
+    } else if (text.startsWith("/sector ") || text === "/sector") {
+      const sector = text.replace("/sector", "").trim().toLowerCase();
+      const validSectors = ["ai", "crypto", "systems", "agents", "governance", "research"];
+      if (!sector) {
+        await sendMessage(chatId, `*Setores disponíveis:*\n${validSectors.map((s) => `• \`${s}\``).join("\n")}\n\nUso: /sector ai`);
+        return;
+      }
+      if (!validSectors.includes(sector)) {
+        await sendMessage(chatId, `❌ Setor desconhecido: \`${sector}\`\n\nSetores válidos: ${validSectors.join(", ")}`);
+        return;
+      }
+      try {
+        const findingsRes = await fetch(`http://localhost:3095/v1/findings?sector=${encodeURIComponent(sector)}`, {
+          signal: AbortSignal.timeout(10000),
+        });
+        if (!findingsRes.ok) {
+          await sendMessage(chatId, `⚠️ Gem Hunter retornou erro ${findingsRes.status} ao buscar setor \`${sector}\`.`);
+          return;
+        }
+        const findings = await findingsRes.json() as Array<{ name?: string; repo?: string; stars?: number; score?: number; description?: string }>;
+        const top5 = Array.isArray(findings) ? findings.slice(0, 5) : [];
+        if (top5.length === 0) {
+          await sendMessage(chatId, `Nenhum gem encontrado para o setor \`${sector}\` ainda. Tente /hunt para iniciar uma busca.`);
+          return;
+        }
+        const lines = top5.map((g, i) => {
+          const repo = g.repo ?? g.name ?? "?"
+          const stars = g.stars != null ? ` ⭐ ${g.stars}` : "";
+          const score = g.score != null ? ` | score: ${g.score}` : "";
+          const desc = g.description ? `\n  ${g.description.slice(0, 80)}` : "";
+          return `${i + 1}. *${repo}*${stars}${score}${desc}`;
+        });
+        await sendMessage(chatId, `*Gems — Setor: ${sector}*\n\n${lines.join("\n\n")}`);
+      } catch (e) {
+        const errMsg = e instanceof Error ? e.message : String(e);
+        await sendMessage(chatId, `⚠️ Erro ao buscar gems do setor \`${sector}\`: ${errMsg}`);
+      }
+      return;
     } else if (text === "/help") {
-      await sendMessage(chatId, `*EGOS Commands*\n\n/start — Boas-vindas\n/status — Status do sistema\n/gems [query] — Buscar gems\n/wiki [query] — Knowledge Base\n/agents — Listar agentes\n/costs — Custos de hoje\n\nOu envie mensagem livre, áudio ou imagem!`);
+      await sendMessage(chatId, `*EGOS Commands*\n\n/start — Boas-vindas\n/status — Status do sistema\n/gems [query] — Buscar gems\n/wiki [query] — Knowledge Base\n/agents — Listar agentes\n/costs — Custos de hoje\n/hunt — Disparar nova busca de gems (~5min)\n/trending — Gems com maior confiabilidade\n/sector <nome> — Filtrar gems por setor (ai, crypto, systems, agents, governance, research)\n\nOu envie mensagem livre, áudio ou imagem!`);
       return;
     } else {
       incoming.text = text;
