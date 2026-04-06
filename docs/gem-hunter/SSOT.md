@@ -46,11 +46,26 @@ Automated discovery pipeline that finds, scores, and extracts transplantable pat
 | `/study` | `~/.egos/.claude/commands/study.md` |
 | `/study-end` | `~/.egos/.claude/commands/study-end.md` |
 
+### Search Tracks
+
+| Track | Purpose | Repos/Sources Monitored |
+|-------|---------|------------------------|
+| `core` | New gems — AI/agents/governance | GitHub trending, HuggingFace, npm |
+| `early-warning` | Day-0 releases from known researchers | @karpathy, @jxnl, @emollick + GitHub |
+| `deps-watch` | **Our own stack** — updates to tools we use | Hermes-3, Claude Code, Supabase, Next.js, Bun, OpenRouter, MCP SDK, LangChain, awesome-claude-code |
+| `governance-plugplay` | MCP servers, A2A, agent protocols | GitHub, npm, hackernews |
+| `community-signals` | Discussions, ProductHunt, Reddit | reddit, stackoverflow, producthunt |
+| `papers-without-code` | Research papers without code | papers-without-code API |
+| `x-signals-public` | X.com public signals | x-public |
+
+**deps-watch purpose:** Automatically monitors repos and tools EGOS depends on. When significant updates detected, Gem Hunter creates TASK entries (e.g., `DEPS-001: Upgrade Bun to v2.1.3`). Run: `bun agent:run gem-hunter --exec --track=deps-watch`
+
 ### Scheduled Execution
 
 | Job | Schedule | Platform |
 |-----|----------|----------|
 | Gem Hunter Adaptive Intelligence | Seg+Qui 2h37 BRT | Claude Code CCR (trig_01Sn7Y...) |
+| Gem Hunter deps-watch | TODO: add weekly Fri 3h00 BRT | Claude Code CCR (create via /schedule) |
 
 ### Deprecated / Removed
 

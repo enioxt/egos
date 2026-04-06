@@ -468,3 +468,18 @@ Modern monetization: usage-based API + MCP tool + chatbot. Stripe-unified (card 
 - [ ] CTRL-014: Events page `/events` — Supabase Realtime live stream for `egos_agent_events`
 - [ ] CTRL-015: X.com: approve flow end-to-end test (approve reply → verify posted on X.com)
 - [ ] CTRL-016: Run `bun scripts/x-reply-bot.ts --dry-run` → verify rows appear in Supabase `x_reply_runs`
+
+### P24 — Self-Updating System + Skills Sync (2026-04-06)
+
+**Completed:**
+- [x] CTRL-012: hq.egos.ia.br LIVE — TLS cert issued, 502 fixed (Caddy container name resolution: `egos-hq:3060`) ✅ 2026-04-06
+- [x] SYNC-001: Windsurf workflows → Claude Code skills synced (7 new skills: /diag, /pre, /research, /prompt, /regras, /capability-import, /system-map) ✅ 2026-04-06
+- [x] DEPS-001: Gem Hunter `deps-watch` track added (9 curated queries: Hermes-3, Claude Code, awesome-claude-code, Supabase, Next.js, Bun, OpenRouter, MCP SDK, LangChain) ✅ 2026-04-06
+
+**Pending:**
+- [ ] DEPS-002: Schedule deps-watch as weekly CCR job (Fri 3h00 BRT): `/schedule`
+- [ ] DEPS-003: Gem Hunter auto-creates TASKS.md entries when deps-watch finds significant updates (needs output parser → task writer)
+- [ ] HERMES-001: Wire Hermes-3 as BRAID mechanical executor (OpenRouter `nousresearch/hermes-3-llama-3.1-70b` → agent runner)
+- [ ] GUARANI-001: Port .guarani/refinery/ pre-processor to Claude Code — add to PreToolUse hook for short/vague prompts (<50 chars)
+- [ ] GUARANI-002: Wire .guarani/prompts/triggers.json into /start — check triggers before executing
+- [ ] GUARANI-003: Evaluate .guarani/orchestration/GATES.md quality gates in pre-commit hook
