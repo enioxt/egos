@@ -121,3 +121,17 @@ If you need to bypass: `EGOS_ALLOW_FORCE_PUSH=1 bash scripts/safe-push.sh main`.
 ---
 
 *Gerado em: 2026-04-06 | Claude Code v2.6.0 — INC-001 hardening*
+
+## SSOT-First Rule (P28 — 2026-04-06)
+
+Cada domínio tem UM arquivo SSOT. Antes de criar documentação nova, verificar:
+
+| Domínio | SSOT | Proibido criar |
+|---------|------|---------------|
+| GTM / social / outreach / equity | `docs/GTM_SSOT.md` | `docs/business/PART*.md`, `docs/sales/*` |
+| OpenClaw | `docs/OPENCLAW_SSOT.md` | outros arquivos de config OpenClaw |
+| Tasks | `TASKS.md` | tasks avulsas em outros arquivos |
+| Capabilities | `docs/CAPABILITY_REGISTRY.md` | listas de capabilities dispersas |
+| Learnings técnicos | `docs/knowledge/HARVEST.md` | notes/findings avulsos |
+
+**Regra:** conteúdo novo vai para o SSOT do domínio. Nunca cria arquivo novo se SSOT existe.

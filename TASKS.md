@@ -284,12 +284,12 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 ### Partnership & Distribution Strategy (2026-04-05)
 
 **Goal:** Find technical + business partners to accelerate Guard Brasil to enterprise scale.
-**SSOT:** `docs/strategy/PARTNERSHIP_STRATEGY.md`
+**SSOT:** `docs/GTM_SSOT.md` (consolidated 2026-04-06 — replaces PARTNERSHIP_STRATEGY, OUTREACH_EMAIL_TEMPLATES, PART002_SOCIAL_POSTS, PART003_LAUNCH_THREAD, M007_OUTREACH_STRATEGY_EMAILS, DISTRIBUTION_PARTNERS_BR)
 
 **P0 — Immediate (this week):**
 - [ ] PART-001: Publish Guard Brasil on npm + ProductHunt (M-007 emails first)
-- [x] PART-002: Posts X.com + LinkedIn preparados ✅ 2026-04-06 — docs/business/PART002_SOCIAL_POSTS.md (aguarda og-image + postagem manual)
-- [ ] PART-003: Reach out to 3 DPO/compliance SaaS BR (templates ready: docs/business/OUTREACH_EMAIL_TEMPLATES.md)
+- [x] PART-002: Posts X.com + LinkedIn preparados ✅ 2026-04-06 — docs/GTM_SSOT.md §4 (aguarda og-image + postagem manual)
+- [ ] PART-003: Reach out to 3 DPO/compliance SaaS BR (templates ready: docs/GTM_SSOT.md §5)
 - [ ] PART-004: Submit to Stripe App Marketplace (already on Stripe — low friction)
 
 **P1 — Distribution Partners:**
@@ -329,7 +329,7 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 ### P25 — GTM-First Phase (2026-04-06)
 
 **North Star:** R$30k MRR by 2026-06-30. Every task must answer "who uses this?"
-**SSOT:** `docs/strategy/PARTNERSHIP_STRATEGY.md` | Market research: `docs/business/MARKET_RESEARCH_GUARD_BRASIL_2026.md` (moved from business/)
+**SSOT:** `docs/GTM_SSOT.md` | Market research: `docs/business/MARKET_RESEARCH_GUARD_BRASIL_2026.md`
 **ICP (confirmed):** CTOs/backend devs at fintechs+healthtechs 50-500 employees. Handle CPF/RG daily, ANPD pressure, buy in days.
 **Positioning:** "The Presidio for Brazil — free API key, zero setup, 15 BR PII patterns." Presidio has 0 BR patterns.
 **Key insight:** Privacy Tools BR = PARTNER not competitor (process tool, no API). OneTrust/BigID = enterprise (R$50k+), not our market.
@@ -338,12 +338,12 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 - [ ] INC-001: A scheduled CCR job (likely Code Intel + Security Audit, author "Claude <noreply@anthropic.com>") force-pushed to origin/main and dropped 9 commits of P26/P27 work. Recovered via merge `1d1ef23`. Mitigations applied: (1) `.husky/pre-push` blocks non-FF push to protected branches locally, (2) GitHub branch protection enabled (allow_force_pushes=false, allow_deletions=false). **Action:** identify which scheduled job did this — check claude.ai/code/scheduled history for runs that touched git, fix the agent to do `git fetch && git rebase origin/main` before any push, prefer `git pull --rebase` or worktree isolation. No more direct commits on detached/stale main.
 
 **P0 — SOCIAL FIRST (reprio 2026-04-06 per Enio): X.com → LinkedIn → email**
-- [ ] GTM-002: Publish 4-tweet showcase thread on X.com @anoineim — demo Guard Brasil (CPF/RG/MASP, 4ms, free tier). Drafts ready: docs/business/PART002_SOCIAL_POSTS.md. **Blocker:** no scripts/x-post.ts yet (x-reply-bot has OAuth1.0a but only postReply). Action: build scripts/x-post.ts (thread mode), post today.
-- [ ] GTM-009: Publish LinkedIn post targeting compliance managers + DPOs BR. Draft ready: docs/business/PART002_SOCIAL_POSTS.md. **Blocker:** no LINKEDIN_* credentials in .env + LinkedIn API requires OAuth2 app approval. Action: post MANUALLY (copy/paste) — fastest path, autonomous posting defer to GTM-014.
+- [ ] GTM-002: Publish 4-tweet showcase thread on X.com @anoineim — demo Guard Brasil (CPF/RG/MASP, 4ms, free tier). Drafts ready: docs/GTM_SSOT.md §4.1. **Blocker:** no scripts/x-post.ts yet (x-reply-bot has OAuth1.0a but only postReply). Action: build scripts/x-post.ts (thread mode), post today.
+- [ ] GTM-009: Publish LinkedIn post targeting compliance managers + DPOs BR. Draft ready: docs/GTM_SSOT.md §4.3. **Blocker:** no LINKEDIN_* credentials in .env + LinkedIn API requires OAuth2 app approval. Action: post MANUALLY (copy/paste) — fastest path, autonomous posting defer to GTM-014.
 - [ ] GTM-011: X.com solo tweet "ANPD está acelerando fiscalização em 2026..." + link free tier (from market research). Post after GTM-002 thread lands.
 - [ ] GTM-014: **NEW** — scripts/x-post.ts: standalone thread poster (reuse OAuth1.0a from x-reply-bot lines 169-225). Features: reads markdown → posts thread → returns thread URL. Required for GTM-002/011 autonomous.
 - [ ] GTM-015: og-image.jpg for Guard Brasil (1200x630, HTML template ready). Playwright screenshot automation. Plan: `/home/enio/.claude/plans/precious-doodling-clover.md` (ready next session).
-- [ ] M-007: Send 5 outreach emails to DPOs/compliance teams (templates: docs/business/OUTREACH_EMAIL_TEMPLATES.md). Now P0#2 (was oldest blocker, reprio'd behind social per Enio 2026-04-06). Days stale: 7+.
+- [ ] M-007: Send 5 outreach emails to DPOs/compliance teams (templates: docs/GTM_SSOT.md §5). Now P0#2 (was oldest blocker, reprio'd behind social per Enio 2026-04-06). Days stale: 7+.
 
 **P0 — GTM support (unchanged):**
 - [ ] GTM-001: Update x-reply-bot search queries to target LGPD/compliance/DPO/ANPD conversations on X.com (currently too broad — add keywords: lgpd, anpd, dpo, "proteção de dados", "vazamento de dados", "conformidade")
