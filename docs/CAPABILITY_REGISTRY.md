@@ -442,3 +442,25 @@ L5: Agent Registry + Skills    — Auto-discovery, hot-reload, marketplace patte
 
 **Gateway deploy:** `rsync src → /opt/apps/egos-gateway/src/ && docker compose build --no-cache && docker compose up -d`
 **No volume mounts** — source baked into image. Always rebuild after rsync.
+
+## 16. CODEX PROXY + CONSTITUTIONAL REVIEWER (2026-04-06)
+
+| Capability | SSOT | Quality | Adopted By | Tags |
+|-----------|------|---------|------------|------|
+| Codex Proxy API | `~/.openclaw-codex-proxy/proxy.js` (local+VPS) | A | openclaw | `codex`, `gpt-5.4`, `openai-compatible`, `quota-tracking` |
+| Constitutional Review Job | `~/.openclaw-codex/jobs/constitutional-review.sh` | A | egos | `codex`, `review`, `governance`, `cron`, `signed` |
+| Smart TASKS.md Archive | `scripts/archive-tasks.sh` + `.husky/pre-commit` | A | egos | `governance`, `tasks`, `archiving`, `pre-commit` |
+| HQ Action Endpoints | `apps/egos-hq/app/api/hq/actions/` | A | egos | `hq`, `actions`, `billing-refresh`, `codex-review` |
+| HQ Collapsible Dashboard | `apps/egos-hq/app/page.tsx` (v2) | A | egos | `hq`, `collapsible`, `quota-bar`, `5-services` |
+| Codex Quota Window Tracker | `~/.openclaw-codex-proxy/usage.json` (local+VPS) | B | openclaw | `quota`, `5h-window`, `rate-limit`, `usage-tracking` |
+
+**Codex Proxy endpoints:**
+- `POST /v1/chat/completions` → `codex exec --output-last-message` → OpenAI-compatible response
+- `GET /health` → status + quota window info
+- `GET /v1/usage` → detailed quota JSON
+- Quota block at 100%: returns HTTP 429 with `Retry-After` header
+
+**Nodes:**
+- Local: `http://127.0.0.1:18802` | VPS: `http://172.19.0.1:18802` (Docker bridge)
+- Auth: `codex-local-proxy-no-auth-needed` (OpenClaw profile `codex-local-proxy`)
+- Model: `gpt-5.4` (ChatGPT Plus subscription, zero API cost)

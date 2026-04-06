@@ -1,8 +1,24 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 3.8.0 | **UPDATED:** 2026-04-06 P30
+> **VERSION:** 3.9.0 | **UPDATED:** 2026-04-06 P31
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
-> **Latest:** Self-Discovery product launch — containerization pattern with dedicated domain (self.egos.ia.br)
+> **Latest:** Governance bundle canonicalization — `.guarani` as multi-environment SSOT, `CLAUDE.md`/`.windsurfrules` as adapters
+
+## P31 Patterns (2026-04-06)
+
+**Canonical Governance Bundle — multi-environment pattern:**
+- **Canon:** `kernel/.guarani/` is the source of truth; `~/.egos/guarani/` is the synced mirror
+- **Adapters:** `CLAUDE.md` and `.windsurfrules` are environment adapters, never constitutional roots
+- **Sync model:** kernel → `scripts/governance-sync.sh` → `~/.egos/` → repo/IDE adapters
+- **Rule:** if adapter text conflicts with `.guarani`, `.guarani` wins
+- **Cleanup trigger:** any local/global adapter that grows into a second constitution becomes drift and must be collapsed
+
+**Rollout Planning Pattern — no opaque task bundles:**
+- Avoid grouped items like `SD-001..008` without dependency order
+- Every rollout must expose: dependencies, exact order, deploy gate, security gate, UX gate, launch gate
+- Task bundles are acceptable only as summaries; execution must live in explicit checklist items
+
+---
 
 ## P30 Patterns (2026-04-06)
 
@@ -9946,3 +9962,39 @@ const PUBLIC_PATHS = ['/login', '/api/auth/login', '/api/auth/logout', '/api/hq/
 ```
 **Wrong:** `d.get('expiresAt')` → None
 **Correct:** `d.get('claudeAiOauth', {}).get('expiresAt', 0) / 1000` → Unix timestamp
+
+---
+
+## P28-P29 Patterns (2026-04-06 — Codex + HQ + Governance)
+
+**Codex CLI como wrapper de API (sem billing proxy):**
+- OpenAI Codex CLI (v0.105+) usa ChatGPT OAuth internamente — token ChatGPT NÃO tem scope `model.request` para API direta
+- Solução: wrappear `codex exec --output-last-message <file>` como HTTP server local
+- Porta 18802, API OpenAI-compatible, OpenClaw usa como provider `codex/gpt-5.4`
+- Quota: ~10 requisições por janela de 5h (ChatGPT Plus) — rastrear em usage.json
+- `codex exec` tem overhead ~9K tokens (MCP startup) — adequado para review, não para chat contínuo
+- `codex exec review` — subcomando específico para code review, mais eficiente
+
+**Proxy bind address para Docker:**
+- Proxy em `127.0.0.1:PORT` → inacessível de containers Docker (mesmo com UFW rule)
+- Correto: `0.0.0.0:PORT` + UFW `allow from 172.19.0.0/16 to any port PORT` + firewall externo bloqueando
+- Pattern: Claude billing proxy (18801) e Codex proxy (18802) ambos em 0.0.0.0, UFW filtra
+
+**TASKS.md smart archiving (regra não-burra):**
+- Regra dumb: bloquear commit quando > N linhas
+- Regra smart: auto-arquivar tasks [x] → TASKS_ARCHIVE.md quando > 490 linhas
+- Níveis: <490 OK | 490-600 auto-archive+warn | >600 BLOCK (genuinamente tasks demais)
+- `scripts/archive-tasks.sh` — move [x] para TASKS_ARCHIVE.md com header de data
+- Hook chama o script automaticamente no pre-commit, re-stages os arquivos
+
+**HQ collapsible/expandable sem library:**
+- React puro: `useState(defaultOpen)` por card + `onClick` no header
+- Eventos com `<details>/<summary>` HTML nativo → zero JavaScript para expand/collapse
+- `<details>` para eventos com payload JSON → auto-expand/collapse sem state management
+- Action buttons com `triggerAction(label, url)` — POST + toast notification 4s
+
+**Codex como revisor constitucional:**
+- Pattern: agent especializado com prompt fixo de regras + contexto de commits recentes
+- Assina cada job: `REVIEWED_BY: codex-constitutional-reviewer | <timestamp> | hash=<sha256>`
+- Cron 2x/dia (6h e 18h) — detecção de drift constitucional antes que acumule
+- Resultado postado no Supabase `egos_agent_events` para visibilidade no HQ

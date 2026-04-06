@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.41.0 | **Updated:** 2026-04-06 | **LAST SESSION:** 2026-04-06 P28 — MASTER_INDEX.md created, HQ-001..HQ-013 tasks added
+> **Version:** 2.42.0 | **Updated:** 2026-04-06 | **LAST SESSION:** P28-P30 — Codex proxy (18802 local+VPS), HQ v2 collapsible, smart TASKS archiving, constitutional review cron 2x/dia
 
 ---
 
@@ -58,36 +58,18 @@ EGOS-167/168/175, GH-040..042, EGOS-TELEM-001..005 — all DONE ✅. codebase-me
 **Supabase tables:** `egos_wiki_pages` (50 pages), `egos_learnings`, `egos_wiki_changelog`
 
 **Done:**
-- [x] KB-001: Supabase schema (3 tables + RLS + indexes) ✅ 2026-04-05
-- [x] KB-002: wiki-compiler agent (--compile, --world, --lint, --index, --dry) ✅ 2026-04-05
-- [x] KB-003: Gateway API endpoints (7 routes: pages, search, index, learnings, stats) ✅ 2026-04-05
-- [x] KB-004: World-model integration (--world generates system overview, P0 blockers, signals) ✅ 2026-04-05
-- [x] KB-005: Initial compile — 50 pages from 5 raw source dirs, avg quality 80/100 ✅ 2026-04-05
-- [x] KB-006: Agent registered in agents.json + AGENTS.md ✅ 2026-04-05
-- [x] KB-007: NPM scripts (wiki:compile, wiki:lint, wiki:index) ✅ 2026-04-05
 
 **P1 — Integration:**
-- [x] KB-008: Add wiki:compile to Governance Drift CCR job (auto-compile after drift check) ✅ 2026-04-05
-- [x] KB-009: /start Phase 0 — include KB stats (page count, avg quality, stale pages) ✅ 2026-04-05
-- [x] KB-010: Record learnings from each Claude Code session (POST /knowledge/learnings on /end) ✅ 2026-04-05
-- [x] KB-011: HQ Knowledge Base page (/knowledge) + Mission Control KB card ✅ 2026-04-05
 
 **P1 — Quality:**
-- [x] KB-012: Cross-reference enrichment — 3-strategy enrichment (entity/slug/tag), 0 orphans ✅ 2026-04-04
-- [x] KB-013: Deduplication — detect similar pages and merge (wiki:dedup) ✅ 2026-04-05
-- [x] KB-014: LLM enrichment pass for low-quality pages (<60) via qwen-plus (wiki:enrich) ✅ 2026-04-05
 
 **P2 — Advanced:**
-- [x] KB-015: Full-text search with pg_trgm or pgvector embeddings ✅ 2026-04-06 — pg_trgm GIN indexes + ?mode=fts param using phfts(portuguese)
-- [x] KB-016: Knowledge graph visualization — /ui dashboard (egos-gateway) with category cards, search, quality scores, learnings panel ✅ 2026-04-04
 - [ ] KB-017: Auto-learning from git commits (extract patterns from commit messages + diffs)
-- [x] KB-018: MCP server @egos/knowledge-mcp — 5 tools: search_wiki, get_page, get_stats, record_learning, list_learnings ✅ 2026-04-05
 
 ---
 
 - [ ] EGOS-169: @aiready/pattern-detect pre-commit (duplicate detection)
 - [ ] EGOS-173: CRCDM hooks: llmrefs staleness + auto-heal rename
-- [x] EGOS-175: llmrefs blocks added to 5 leaf AGENTS.md (forja, carteira-livre, smartbuscas, br-acc, santiago) ✅ 2026-04-01
 
 ---
 
@@ -98,7 +80,6 @@ START-001..005 DONE (parallel diagnostics 22s, CI, pre-commit). Design: `docs/SE
 - [ ] START-006: Monitor performance 1 week (due 2026-04-09)
 - [ ] START-007: v6.1 distributed agent health (SSH parallel)
 - [ ] START-008: Dashboard integration (Grafana/Claude Code UI)
-- [x] START-009: Alert system (Telegram on health < 40%) ✅ 2026-04-05 — health-monitor.ts polls 5min, score=100, alerts to TELEGRAM_AUTHORIZED_USER_ID
 
 ---
 
@@ -106,11 +87,6 @@ START-001..005 DONE (parallel diagnostics 22s, CI, pre-commit). Design: `docs/SE
 
 All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 
-- [x] Governance Drift Sentinel — diário 0h17 BRT (trig_01S5za...)
-- [x] Code Intel + Security Audit — seg+qui 1h42 BRT (trig_01RDDk...)
-- [x] Gem Hunter Adaptive Intelligence — seg+qui 2h37 BRT (trig_01Sn7Y...)
-- [x] /start v5.6 → v6.0 — upgraded from skill to self-contained executable ✅ 2026-04-02
-- [x] GitHub Actions audit: 9 failing workflows disabled, only essential kept
 
 ---
 
@@ -138,11 +114,6 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [ ] GH-026: Upgrade codebase-memory-mcp to HTTP/SSE transport
 - [ ] GH-027: `.guarani/checks/` layer
 **Gem Hunter product (revenue):**
-- [x] GH-061: Dashboard gemhunter.egos.ia.br ✅ 2026-04-06 — 288 gems, dark SPA servida em / (sem Next.js)
-- [x] GH-067: gem-hunter-server deployed to VPS port 3095, systemd, Caddy ready ✅ 2026-04-05 — [BLOCKER] DNS A record gemhunter.egos.ia.br → 204.168.217.125 needed
-- [x] GH-068: API keys Supabase auth | GH-069: Rate limiting ✅ 2026-04-05
-- [x] GH-070: WhatsApp v2 — AI orchestrator (Qwen+tools: gem_search/wiki_search/status/costs/agents) + all media types ✅ 2026-04-05
-- [x] GH-071: Telegram @EGOSin_bot (egosin_bot) — long-polling + AI orchestrator ✅ 2026-04-05 — send /start to @EGOSin_bot to get your chat_id, then set TELEGRAM_AUTHORIZED_USER_ID
 - [ ] GH-073: Weekly email digest
 
 **New tasks from Continue study:**
@@ -151,12 +122,8 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [ ] GH-027: `.guarani/checks/` layer — markdown-as-config for non-technical rule authoring
 
 **Gem Hunter CCR:**
-- [x] GH-028: Gem Hunter Adaptive CCR extended with Mission 2 (pair analysis Phase 6) ✅ 2026-04-01
 
 **P1 — Reference Repo Study Queue (priority order):**
-- [x] GH-010: EGOS ↔ Continue — score 71/100 (done — see P0 section above)
-- [x] GH-011: EGOS ↔ Aider — score 74/100, 4 transplants (dry-run, dirty-commit, SWE-Bench eval, weak model) ✅ 2026-04-01
-- [x] GH-012: EGOS ↔ Cline (`cline/cline`) — score 72.8/100, 4 transplants (permission-flow-ux, model-gateway-abstraction, ast-aware-context, checkpoint-rollback) ✅ 2026-04-02
 - [ ] GH-013: EGOS ↔ OpenHands (`OpenHands/OpenHands`) — full software agent SDK/CLI/GUI
 - [ ] GH-014: EGOS ↔ LangGraph (`langchain-ai/langgraph`) — stateful long-running agents, durable execution
 - [ ] GH-015: EGOS ↔ OpenAI Agents SDK (`openai/openai-agents-python`) — handoffs, guardrails, tracing
@@ -170,16 +137,9 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 **Gem Hunter v5.1+v6.0 DONE (GH-043..065):** PWC pipeline, low-star scoring, ArchitectureSelector adapter, structural validation, auto-queue, signals ingestion, Papers Without Code, KOL discovery, evolution engine, multi-LLM fallback, Telegram alerts, multi-stage paper pipeline, cost budgeting, standalone API, MONETIZATION_SSOT, pricing.ts, gem-hunter npm v6.0.0. Details: git log.
 
 *Month 2-3 — Product Scale:*
-- [x] GH-061: Dashboard web — gemhunter.egos.ia.br ✅ 2026-04-06
-- [x] GH-062: packages/gem-hunter/ — @egosbr/gem-hunter v6.0.0 ✅ 2026-04-02
 - [ ] GH-063: x402 pay-per-call — M2M agent payments via x402 protocol
-- [x] GH-064: Discord webhook alerts — sendGemDiscordAlert() rich embeds (score≥80, color-coded); DISCORD_WEBHOOK_URL env ✅ 2026-04-02
-- [x] GH-066*: Gateway /gem-hunter channel — sector filter, topics, product pricing, trending ✅ 2026-04-04 (NOTE: renamed from Paper→Code)
 - [ ] GH-067: Deploy gem-hunter-server to VPS (gemhunter.egos.ia.br) + Caddy routing → P0 revenue
-- [x] GH-068: Auth — API keys via Supabase `gem_hunter_api_keys` table + Bearer token validation ✅ 2026-04-05
-- [x] GH-069: Rate limiting middleware (tier-aware: free/starter/pro/pay-per-use) ✅ 2026-04-05
 - [ ] GH-070: Chatbot orchestrator — WhatsApp channel NLP intent → tool calls → gem-hunter → curated reply
-- [x] GH-071: Telegram bot (/hunt, /trending, /sector slash commands) ✅ 2026-04-06 — all 3 commands live in telegram.ts, /sector validates 6 sectors
 - [ ] GH-072: Chatbot tier enforcement (200 queries/mo for R$149/mo chatbot plan)
 - [ ] GH-073: Email digest — weekly top 10 gems to subscribers
 - SSOT: docs/gem-hunter/GEM_HUNTER_PRODUCT.md
@@ -205,16 +165,8 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 **Context:** Speed-to-thread matters. When a trending topic matches our capabilities, we must respond in hours, not days.
 
 **Code Written (not deployed):**
-- [x] X-001: `scripts/x-reply-bot.ts` CODE ONLY (348 LOC) — NOT deployed on VPS, no cron, needs X_BEARER_TOKEN ⚠️
-- [x] X-002: `scripts/rapid-response.ts` CODE ONLY (217 LOC) — manual utility, not automated ⚠️
-- [x] X-003: VPS cron deploy ✅ Verified 2026-04-04 — x-reply-bot running hourly on VPS cron (0 * * * *).
-- [x] X-004: Hermes-3 added to llm-provider (model config only, no active usage) ✅ 2026-04-01
-- [x] X-005: `scripts/check-legacy-code.sh` in pre-commit ✅ 2026-04-01
 
 **P1 — Expand:**
-- [x] X-006: Grow capability profiles in rapid-response.ts (add br-acc, 852, BRAID executor) ✅ 2026-04-06 — br_acc, sistema_852, gem_hunter profiles added
-- [x] X-007: `--post-thread` flag in rapid-response.ts — auto-post first tweet of thread ✅ 2026-04-06 — OAuth 1.0a posting, falls back to manual instructions
-- [x] X-008: Daily X report to Telegram (how many replies sent, top threads engaged) ✅ 2026-04-06 — RunStats + sendDailyReport() in x-reply-bot.ts
 - [ ] X-009: Trending topic scanner — check X API hourly for rising keywords vs our capabilities
 - [ ] X-010: "Clean showcase" branch auto-creator — when topic detected, create `showcase/<topic>` with only clean files
 
@@ -241,7 +193,6 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 - [ ] WM-004: Dataset preparation — coletar tasks + decisions para fine-tuning futuro
 
 **P1 — Signal Layer:**
-- [x] INTEL-005: Signal ingestion — Gem Hunter scores > 80 → auto-append to world model signals (= GH-050) ✅ 2026-04-06 — gem-hunter.ts appends type:gem_discovery, capped at 50
 - [ ] INTEL-006: Proactive blocker detection — world model scans P0 list → creates TASKS entries if blocker stale > 7 days
 - [ ] INTEL-007: `--mermaid` output from world-model.ts → embed in /start briefing as ASCII architecture snapshot
 
@@ -288,7 +239,6 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 
 **P0 — Immediate (this week):**
 - [ ] PART-001: Publish Guard Brasil on npm + ProductHunt (M-007 emails first)
-- [x] PART-002: Posts X.com + LinkedIn preparados ✅ 2026-04-06 — docs/GTM_SSOT.md §4 (aguarda og-image + postagem manual)
 - [ ] PART-003: Reach out to 3 DPO/compliance SaaS BR (templates ready: docs/GTM_SSOT.md §5)
 - [ ] PART-004: Submit to Stripe App Marketplace (already on Stripe — low friction)
 
@@ -391,13 +341,6 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 ### P26 — MCPs + Focus v2.0 (2026-04-06)
 
 **Completed:**
-- [x] MCP-001: Firecrawl MCP installed (`fc-45cf069ee7ef4c3aa4942a41127d8629`, tested against guard.egos.ia.br) ✅ 2026-04-06
-- [x] MCP-002: GitHub MCP installed (PAT token, repo access) ✅ 2026-04-06
-- [x] MCP-003: Brave Search MCP installed (`BSA0E6k_mAdnrOrieC_zRvLGhuu-4lp`) ✅ 2026-04-06
-- [x] MCP-004: Playwright MCP installed (headless browser automation) ✅ 2026-04-06
-- [x] FOCUS-001: focus-enforcement v2.0 — FORBIDDEN-list replaces allowlist (researcher-builder profile) ✅ 2026-04-06
-- [x] INFRA-001: pre-commit hook TTY graceful fallback for non-interactive environments ✅ 2026-04-06
-- [x] RES-001: Guard Brasil market research — ICP confirmed, 5 competitors mapped, Privacy Tools BR = partner ✅ 2026-04-06
 
 **Pending:**
 - [ ] MCP-005: Obsidian MCP — needs vault path from Enio (`setup-obsidian-mcp.sh` ready, smithery CLI)
@@ -414,11 +357,6 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 **Goal:** Wake up to briefed HQ showing all nightly work. LLM cost: $0 (Gemma 4 31B free).
 
 **Phase 1 — Foundation (DONE ✅):**
-- [x] DC-001: Supabase tables `egos_nightly_logs` + `egos_nightly_reports` (migration applied) ✅ 2026-04-06
-- [x] DC-002: Log Harvester script v1.1 (bash, 9 containers, severity classification) ✅ 2026-04-06
-- [x] DC-003: VPS cron `0 2 * * *` (23h00 BRT) + Telegram alerts on critical ✅ 2026-04-06
-- [x] LLM-001: Google AI Studio provider (Gemma 4 31B + Gemini 2.5 Flash free quota) ✅ 2026-04-06
-- [x] LLM-002: Qwen 3.6 Plus free via OpenRouter ($0/token) — new first OpenRouter model ✅ 2026-04-06
 
 **Phase 2 — Intelligence (this week):**
 - [ ] DC-004: `agents/agents/intelligence-engine.ts` — reads nightly logs + TASKS.md, uses Gemma 4 31B, writes egos_nightly_reports + auto-creates TASKS entries
@@ -454,20 +392,18 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 
 **P0 — Curto prazo (esta semana): Base funcional**
 
-- [x] OC-001: Telegram local — decidido: @egosmarkets_bot no VPS, local sem Telegram (evitar conflito com EGOS Gateway @EGOSin_bot). VPS pronto.
-- [x] OC-002: Pipeline testado — `openclaw agent --message "..."` → billing proxy → Claude Sonnet 4.6 (PIPELINE_FINAL_OK ✅)
-- [x] OC-003: Modelo padrão: `anthropic-subscription/claude-haiku-4-5-20251001` (P28: Haiku default, Sonnet complex, fallback: Qwen3-free+DashScope). Fixes: `api:"anthropic-messages"` + `apiKey` + auth-profiles.json.
-- [x] OC-004: `~/.openclaw/workspace/USER.md` populado com perfil Enio (projetos, infra, preferências, estilo).
-- [x] OC-005: Token auto-refresh: `0 */4 * * *` rsync credentials local→VPS. Proxy relê por request — sem restart.
 
-- [x] OC-024..026: VPS watchdog, HQ health 4/4, UFW Docker bridge ✅ 2026-04-06
+**P0 — GAPS CRÍTICOS identificados (2026-04-06):**
+- [ ] OC-031: Codex auth.json refresh cron no VPS — token expira, precisa refresh igual ao billing proxy (last_refresh: 2026-04-01)
+- [ ] OC-032: VPS watchdog — adicionar monitoramento porta 18802 (Codex proxy) ao /opt/egos-watchdog.sh
+- [ ] OC-033: Constitutional review cron no VPS — atualmente só roda local; adicionar ao crontab do VPS
+- [ ] OC-034: Codex quota Telegram alert — alertar via Telegram quando quota ≥ 80% usada (rate_limited_count > 0)
 
 **P1 — Médio prazo (2 semanas): Canais + Integração EGOS**
 
 - [ ] OC-006: Decidir estratégia Telegram: (a) migrar egosin_bot para OpenClaw (OpenClaw gerencia o loop), ou (b) manter EGOS Gateway como primário e conectar OpenClaw via sessions API. **Recomendado: opção (b)** — EGOS Gateway tem LGPD/PII, OpenClaw traz skills/multi-device.
 - [ ] OC-007: Conectar EGOS Gateway → OpenClaw sessions API — `sessions_spawn` para criar sub-agentes OpenClaw a partir de intent do EGOS orchestrator. Exemplo: usuário pede "pesquise concorrentes" → EGOS spawna sessão OpenClaw com Gem Hunter skill.
 - [ ] OC-008: Instalar `@openclaw/whatsapp` channel — conectar ao Evolution API existente (port 8080 no VPS). OpenClaw gerencia loop de mensagens, EGOS Gateway faz PII-check antes de responder.
-- [x] OC-009: `HEARTBEAT.md` configurado (Guard Brasil health, billing proxy, EGOS Gateway, Gem Hunter, daily summary).
 - [ ] OC-010: Registrar Guard Brasil MCP (`@egosbr/guard-brasil-mcp`) — blocked on KB-019 (MCP server não existe ainda).
 - [ ] OC-011: Configurar skills relevantes do ClawHub marketplace — pesquisar: Brave Search, Knowledge Base, Code Execution. Instalar 2-3 skills úteis.
 
@@ -476,7 +412,6 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 - [ ] OC-012: Wire OpenClaw + Hermes-3 (8B local) — configurar provider `hermes-local` apontando para Hermes rodando via Ollama/llama.cpp. Usar para tasks autônomas overnight sem custo de API.
 - [ ] OC-013: Configurar `sessions_spawn` para multi-agent: OpenClaw spawna sub-agentes para Gem Hunter hunts, Guard Brasil scans, kb wiki compilation. Cada sub-agente roda em sessão isolada.
 - [ ] OC-014: Integrar OpenClaw Canvas — habilitar canvas-host para visualizações de dados (Gem Hunter dashboard, Guard Brasil stats) acessíveis via chat.
-- [x] OC-015: `TOOLS.md` configurado (SSH VPS, serviços EGOS, billing proxy, repos, bots).
 - [ ] OC-016: Instalar `@openclaw/discord` channel — criar servidor Discord EGOS para demo público do Guard Brasil. Bot responde a perguntas LGPD/PII.
 - [ ] OC-017: Configurar cron jobs no OpenClaw (`~/.openclaw/cron/jobs.json`) — daily: compilar wiki, weekly: Gem Hunter hunt, monthly: PII pattern review.
 
@@ -489,12 +424,30 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 - [ ] OC-022: Tutor Melkin v2 — OpenClaw como runtime, SOUL.md persona, Telegram+WhatsApp+Web
 - [ ] OC-023: Guard Brasil self-serve onboarding via OpenClaw stack (R$99/mo)
 
----
-
-### Self-Discovery Product (2026-04-06)
-**SSOT:** `docs/SELF_DISCOVERY_ARCHITECTURE.md` | self.egos.ia.br → VPS | B2C wellness (não medical device)
-- [ ] SD-001..008 (P0): Extract v2 archive → Dockerfile (FastAPI+Next.js) → docker-compose port 3098 → Caddy → VPS deploy → watchdog
-- [ ] SD-009..014 (P1): ICP + pricing + landing + procrastination detection + analytics + onboarding
-- [ ] SD-015..019 (P2): More patterns + Supabase auth + history + API docs + TS migration
-
----
+ ---
+ 
+ ### Self-Discovery Product (2026-04-06)
+ **SSOT:** `docs/SELF_DISCOVERY_ARCHITECTURE.md` | self.egos.ia.br → VPS | B2C wellness (não medical device)
+- **Execution order:** SD-001 → 002 → 003 → 004 → 005 → 006/007/008 → 009 → 010..019
+- **Named gates:** `deploy` = SD-006 | `security` = SD-007 | `ux` = SD-008 | `launch` = SD-009
+- [ ] **SD-001 (P0)**: Inventory v2 source files and define exact extraction scope [DEP: HUM-002, architecture doc]
+- [ ] **SD-002 (P0)**: Map backend/frontend/shared boundaries for the future container tree [DEP: SD-001]
+- [ ] **SD-003 (P0)**: Define env contract, secrets map, Supabase touchpoints, and `.env.example` contract [DEP: SD-001]
+- [ ] **SD-004 (P0)**: Specify Dockerfiles + `docker-compose` shape for port 3098 without implementing yet [DEP: SD-002, SD-003]
+- [ ] **SD-005 (P0)**: Specify reverse proxy, health endpoint, watchdog path, and rollback path [DEP: SD-004]
+- [ ] **SD-006 (P0 / deploy gate)**: Approve deploy checklist — health check, smoke check, monitoring path, rollback path [DEP: SD-004, SD-005]
+- [ ] **SD-007 (P0 / security gate)**: Approve security checklist — disclaimers, secrets handling, PII/log policy, access model [DEP: SD-003, SD-005]
+- [ ] **SD-008 (P0 / ux gate)**: Approve UX checklist — onboarding, empty/error states, copy review, acceptance criteria [DEP: SD-002]
+- [ ] **SD-009 (P0 / launch gate)**: Approve launch checklist — ICP, analytics path, feedback loop, GTM/dissemination handoff [DEP: SD-006, SD-007, SD-008]
+- [ ] **SD-010 (P1)**: Define ICP and pricing hypothesis for the first niche (wellness / procrastination / journaling) [DEP: SD-009]
+- [ ] **SD-011 (P1)**: Define landing scope and public positioning without medical claims [DEP: SD-008, SD-010]
+- [ ] **SD-012 (P1)**: Define pattern taxonomy for the first production slice (reflection/procrastination/self-sabotage) [DEP: SD-001]
+- [ ] **SD-013 (P1)**: Define onboarding flow and first-session success criteria [DEP: SD-008, SD-010]
+- [ ] **SD-014 (P1)**: Define analytics, feedback, and session-review signals [DEP: SD-009]
+- [ ] **SD-015 (P2)**: Prioritize additional pattern packs after alpha validation [DEP: SD-012, SD-014]
+- [ ] **SD-016 (P2)**: Define auth/history strategy for when persistence becomes necessary [DEP: SD-003, SD-014]
+- [ ] **SD-017 (P2)**: Define API documentation surface and consumer contract [DEP: SD-004, SD-014]
+- [ ] **SD-018 (P2)**: Evaluate TypeScript migration boundaries vs leaving Python core isolated [DEP: SD-002, SD-017]
+- [ ] **SD-019 (P2)**: Freeze post-alpha backlog after evidence from deploy/security/ux/launch gates [DEP: SD-015, SD-016, SD-017, SD-018]
+ 
+ ---
