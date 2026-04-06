@@ -1,8 +1,8 @@
 {
   "$schema": "./schema.json",
-  "version": "2.1.0",
-  "updated": "2026-03-31",
-  "description": "EGOS Kernel Registry v2.1 — kebab-case IDs aligned with filenames and egos-lab convention. 15 CLI tools + 2 routers.",
+  "version": "2.2.0",
+  "updated": "2026-04-06",
+  "description": "EGOS Kernel Registry v2.1 — kebab-case IDs aligned with filenames and egos-lab convention. 17 entries. v2.2: added approval_level (L0/L1/L2) + signature metadata per INC-001.",
   "agents": [
     {
       "id": "ssot-auditor",
@@ -11,8 +11,14 @@
       "description": "Structural Triage Engine — scans TypeScript/Python codebases via AST, detects type drift (duplicate definitions with different shapes), produces prioritized reports with codemod plans",
       "area": "architecture",
       "entrypoint": "agents/agents/ssot-auditor.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual", "weekly"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual",
+        "weekly"
+      ],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
@@ -23,7 +29,16 @@
       "cost_source": "none",
       "last_duration_ms": 4200,
       "loop_mechanism": "none",
-      "side_effects": ["fs_write"]
+      "side_effects": [
+        "fs_write"
+      ],
+      "approval_level": "L0",
+      "signature": {
+        "enabled": false,
+        "public_key": null,
+        "algorithm": "ed25519",
+        "ledger_table": "agent_actions_ledger"
+      }
     },
     {
       "id": "ssot-fixer",
@@ -32,8 +47,13 @@
       "description": "Consumes ssot-auditor output and applies safe, low-risk codemod plans automatically (EXACT or RELAXED drift only)",
       "area": "architecture",
       "entrypoint": "agents/agents/ssot-fixer.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual"
+      ],
       "tools_allowed": [],
       "risk_level": "T1",
       "status": "active",
@@ -44,7 +64,16 @@
       "cost_source": "none",
       "last_duration_ms": 1800,
       "loop_mechanism": "none",
-      "side_effects": ["fs_write"]
+      "side_effects": [
+        "fs_write"
+      ],
+      "approval_level": "L1",
+      "signature": {
+        "enabled": false,
+        "public_key": null,
+        "algorithm": "ed25519",
+        "ledger_table": "agent_actions_ledger"
+      }
     },
     {
       "id": "drift-sentinel",
@@ -53,8 +82,14 @@
       "description": "Configuration drift detection — compares narrative (docs) vs live system state, monitors TASKS.md priorities vs git activity, agents.json vs agents/ directory",
       "area": "governance",
       "entrypoint": "agents/agents/drift-sentinel.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["every_6h", "manual"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "every_6h",
+        "manual"
+      ],
       "tools_allowed": [],
       "risk_level": "T1",
       "status": "active",
@@ -65,7 +100,16 @@
       "cost_source": "none",
       "last_duration_ms": 3100,
       "loop_mechanism": "none",
-      "side_effects": ["fs_write"]
+      "side_effects": [
+        "fs_write"
+      ],
+      "approval_level": "L0",
+      "signature": {
+        "enabled": false,
+        "public_key": null,
+        "algorithm": "ed25519",
+        "ledger_table": "agent_actions_ledger"
+      }
     },
     {
       "id": "dep-auditor",
@@ -74,8 +118,13 @@
       "description": "Scans package.json files for version conflicts, misplaced dev deps, and unused dependencies",
       "area": "architecture",
       "entrypoint": "agents/agents/dep-auditor.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual"
+      ],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
@@ -86,7 +135,14 @@
       "cost_source": "none",
       "last_duration_ms": 800,
       "loop_mechanism": "none",
-      "side_effects": []
+      "side_effects": [],
+      "approval_level": "L0",
+      "signature": {
+        "enabled": false,
+        "public_key": null,
+        "algorithm": "ed25519",
+        "ledger_table": "agent_actions_ledger"
+      }
     },
     {
       "id": "archaeology-digger",
@@ -95,8 +151,13 @@
       "description": "Recursively traverses git history, agent registries, governance files, and handoff documents to reconstruct the complete evolution lineage of the EGOS ecosystem",
       "area": "knowledge",
       "entrypoint": "agents/agents/archaeology-digger.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual"
+      ],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
@@ -107,7 +168,16 @@
       "cost_source": "none",
       "last_duration_ms": 12000,
       "loop_mechanism": "none",
-      "side_effects": ["fs_write"]
+      "side_effects": [
+        "fs_write"
+      ],
+      "approval_level": "L0",
+      "signature": {
+        "enabled": false,
+        "public_key": null,
+        "algorithm": "ed25519",
+        "ledger_table": "agent_actions_ledger"
+      }
     },
     {
       "id": "chatbot-compliance-checker",
@@ -116,14 +186,26 @@
       "description": "Scans a target repository for the required modules defined in CHATBOT_SSOT and reports missing chatbot capabilities",
       "area": "qa",
       "entrypoint": "agents/agents/chatbot-compliance-checker.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual"
+      ],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "dead",
       "dead_reason": "prove-or-kill: registered but no implementation file exists (chatbot-compliance-checker.ts missing)",
       "migrated_from": "egos-native",
-      "owner": "enioxt"
+      "owner": "enioxt",
+      "approval_level": "L0",
+      "signature": {
+        "enabled": false,
+        "public_key": null,
+        "algorithm": "ed25519",
+        "ledger_table": "agent_actions_ledger"
+      }
     },
     {
       "id": "dead-code-detector",
@@ -132,8 +214,13 @@
       "description": "Finds dead exports, orphan files, and empty stubs across any TypeScript codebase using regex-based analysis (no external deps)",
       "area": "qa",
       "entrypoint": "agents/agents/dead-code-detector.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual"
+      ],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
@@ -144,7 +231,14 @@
       "cost_source": "none",
       "last_duration_ms": 2100,
       "loop_mechanism": "none",
-      "side_effects": []
+      "side_effects": [],
+      "approval_level": "L0",
+      "signature": {
+        "enabled": false,
+        "public_key": null,
+        "algorithm": "ed25519",
+        "ledger_table": "agent_actions_ledger"
+      }
     },
     {
       "id": "capability-drift-checker",
@@ -153,8 +247,13 @@
       "description": "Scans any target repo against the EGOS kernel's shared capabilities, governance files, workflows, and security basics to detect missing adoptions",
       "area": "governance",
       "entrypoint": "agents/agents/capability-drift-checker.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual"
+      ],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
@@ -165,7 +264,14 @@
       "cost_source": "none",
       "last_duration_ms": 1500,
       "loop_mechanism": "none",
-      "side_effects": []
+      "side_effects": [],
+      "approval_level": "L0",
+      "signature": {
+        "enabled": false,
+        "public_key": null,
+        "algorithm": "ed25519",
+        "ledger_table": "agent_actions_ledger"
+      }
     },
     {
       "id": "context-tracker",
@@ -174,8 +280,14 @@
       "description": "Estimates remaining usable context window (CTX 0-280) from uncommitted files, session commits, handoff size, and agent runs. Emits zone emoji + /end recommendation when CTX > 180.",
       "area": "observability",
       "entrypoint": "agents/agents/context-tracker.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual", "pre_end"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual",
+        "pre_end"
+      ],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
@@ -186,7 +298,14 @@
       "cost_source": "none",
       "last_duration_ms": 200,
       "loop_mechanism": "none",
-      "side_effects": []
+      "side_effects": [],
+      "approval_level": "L0",
+      "signature": {
+        "enabled": false,
+        "public_key": null,
+        "algorithm": "ed25519",
+        "ledger_table": "agent_actions_ledger"
+      }
     },
     {
       "id": "gtm-harvester",
@@ -195,14 +314,26 @@
       "description": "[KILLED 2026-03-31] Scans GitHub repos for GTM signals — hangs on --dry (no rate limiting, downloads all raw files)",
       "area": "knowledge",
       "entrypoint": "agents/agents/gtm-harvester.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual"
+      ],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "dead",
       "dead_reason": "prove-or-kill: hangs on --dry (30s+ timeout), no GitHub rate limiting, downloads all raw files from every repo",
       "migrated_from": "egos-native",
-      "owner": "enioxt"
+      "owner": "enioxt",
+      "approval_level": "L0",
+      "signature": {
+        "enabled": false,
+        "public_key": null,
+        "algorithm": "ed25519",
+        "ledger_table": "agent_actions_ledger"
+      }
     },
     {
       "id": "framework-benchmarker",
@@ -211,8 +342,13 @@
       "description": "Benchmarks MASA and competing agent/orchestration frameworks from official docs to produce keep/drop adoption guidance for EGOS",
       "area": "knowledge",
       "entrypoint": "agents/agents/framework-benchmarker.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual"
+      ],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
@@ -223,7 +359,16 @@
       "cost_source": "openrouter",
       "last_duration_ms": 5000,
       "loop_mechanism": "none",
-      "side_effects": ["api_call"]
+      "side_effects": [
+        "api_call"
+      ],
+      "approval_level": "L0",
+      "signature": {
+        "enabled": false,
+        "public_key": null,
+        "algorithm": "ed25519",
+        "ledger_table": "agent_actions_ledger"
+      }
     },
     {
       "id": "mcp-router",
@@ -232,8 +377,13 @@
       "description": "Routes incoming MCP server discovery requests to the correct handler based on capability matching and server health status",
       "area": "infrastructure",
       "entrypoint": "agents/agents/mcp-router.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual"
+      ],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
@@ -244,7 +394,14 @@
       "cost_source": "none",
       "last_duration_ms": 300,
       "loop_mechanism": "none",
-      "side_effects": []
+      "side_effects": [],
+      "approval_level": "L0",
+      "signature": {
+        "enabled": false,
+        "public_key": null,
+        "algorithm": "ed25519",
+        "ledger_table": "agent_actions_ledger"
+      }
     },
     {
       "id": "spec-router",
@@ -253,8 +410,14 @@
       "description": "Validates spec pipeline stage fields, detects current stage, routes to next reviewer, tracks SLA violations, and generates merge-block reasons",
       "area": "governance",
       "entrypoint": "agents/agents/spec-router.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual", "on_label"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual",
+        "on_label"
+      ],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
@@ -265,7 +428,14 @@
       "cost_source": "none",
       "last_duration_ms": 400,
       "loop_mechanism": "none",
-      "side_effects": []
+      "side_effects": [],
+      "approval_level": "L0",
+      "signature": {
+        "enabled": false,
+        "public_key": null,
+        "algorithm": "ed25519",
+        "ledger_table": "agent_actions_ledger"
+      }
     },
     {
       "id": "gem-hunter",
@@ -274,8 +444,14 @@
       "description": "Multi-track discovery engine: GitHub, arXiv, HuggingFace, PWC, Exa, X, Reddit, HN, NPM. 6-stage paper pipeline (discovery→triage→deep-read→scaffold→score→evolution). Telegram alerts for gems ≥80.",
       "area": "intelligence",
       "entrypoint": "agents/agents/gem-hunter.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual", "cron"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual",
+        "cron"
+      ],
       "tools_allowed": [],
       "risk_level": "T1",
       "status": "active",
@@ -286,7 +462,18 @@
       "cost_source": "openrouter+gemini",
       "last_duration_ms": 120000,
       "loop_mechanism": "cron",
-      "side_effects": ["fs_write", "telegram_alert", "supabase_sync"]
+      "side_effects": [
+        "fs_write",
+        "telegram_alert",
+        "supabase_sync"
+      ],
+      "approval_level": "L1",
+      "signature": {
+        "enabled": false,
+        "public_key": null,
+        "algorithm": "ed25519",
+        "ledger_table": "agent_actions_ledger"
+      }
     },
     {
       "id": "kol-discovery",
@@ -295,8 +482,14 @@
       "description": "Fetches @anoineim X following list, classifies accounts by bio (crypto/ai-ml/dev-tooling/governance/markets), scores signal quality (HIGH/MED/LOW), outputs kol-list.json",
       "area": "intelligence",
       "entrypoint": "scripts/kol-discovery.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual", "weekly"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual",
+        "weekly"
+      ],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
@@ -307,7 +500,16 @@
       "cost_source": "none",
       "last_duration_ms": 15000,
       "loop_mechanism": "none",
-      "side_effects": ["fs_write"]
+      "side_effects": [
+        "fs_write"
+      ],
+      "approval_level": "L0",
+      "signature": {
+        "enabled": false,
+        "public_key": null,
+        "algorithm": "ed25519",
+        "ledger_table": "agent_actions_ledger"
+      }
     },
     {
       "id": "gem-hunter-api",
@@ -316,8 +518,13 @@
       "description": "Standalone REST API for gem-hunter (Phase 1 product). Endpoints: GET /v1/findings, /v1/papers, /v1/signals, /v1/kols; POST /v1/hunt. Port 3097.",
       "area": "intelligence",
       "entrypoint": "agents/api/gem-hunter-server.ts",
-      "run_modes": ["execute"],
-      "triggers": ["manual", "on_deploy"],
+      "run_modes": [
+        "execute"
+      ],
+      "triggers": [
+        "manual",
+        "on_deploy"
+      ],
       "tools_allowed": [],
       "risk_level": "T1",
       "status": "active",
@@ -328,7 +535,17 @@
       "cost_source": "none",
       "last_duration_ms": null,
       "loop_mechanism": "server",
-      "side_effects": ["http_server", "spawn_agent"]
+      "side_effects": [
+        "http_server",
+        "spawn_agent"
+      ],
+      "approval_level": "L1",
+      "signature": {
+        "enabled": false,
+        "public_key": null,
+        "algorithm": "ed25519",
+        "ledger_table": "agent_actions_ledger"
+      }
     },
     {
       "id": "wiki-compiler",
@@ -337,8 +554,14 @@
       "description": "Compiles raw sources (handoffs, job reports, gem-hunter, strategy docs) into structured wiki pages in Supabase. Karpathy LLM Wiki pattern: ingest → compile → lint. Also records learnings for data flywheel.",
       "area": "knowledge",
       "entrypoint": "agents/agents/wiki-compiler.ts",
-      "run_modes": ["dry_run", "execute"],
-      "triggers": ["manual", "cron"],
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "triggers": [
+        "manual",
+        "cron"
+      ],
       "tools_allowed": [],
       "risk_level": "T0",
       "status": "active",
@@ -349,7 +572,16 @@
       "cost_source": "none",
       "last_duration_ms": null,
       "loop_mechanism": "cron",
-      "side_effects": ["supabase_sync"]
+      "side_effects": [
+        "supabase_sync"
+      ],
+      "approval_level": "L0",
+      "signature": {
+        "enabled": false,
+        "public_key": null,
+        "algorithm": "ed25519",
+        "ledger_table": "agent_actions_ledger"
+      }
     }
   ]
 }
