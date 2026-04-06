@@ -1,0 +1,90 @@
+name: Push Audit
+
+# Detects force-pushes and history rewrites on protected branches.
+# Sends a Telegram alert and creates an issue if anything looks suspicious.
+#
+# Why: 2026-04-06 incident (INC-001) — a stale runner / scheduled job
+# rewrote main and dropped 9 commits. GitHub branch protection now blocks
+# force-pushes, but this workflow gives us an audit trail and alerts even
+# if protection is misconfigured in the future.
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - production
+      - prod
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Detect force push
+        id: detect
+        env:
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.event.after }}
+          FORCED: ${{ github.event.forced }}
+          PUSHER: ${{ github.event.pusher.name }}
+          REF: ${{ github.event.ref }}
+          REPO: ${{ github.repository }}
+        run: |
+          echo "before=$BEFORE"
+          echo "after=$AFTER"
+          echo "forced=$FORCED"
+          echo "pusher=$PUSHER"
+          echo "ref=$REF"
+          if [[ "$FORCED" == "true" ]]; then
+            echo "::error::FORCE PUSH detected on $REF by $PUSHER ($BEFORE → $AFTER)"
+            echo "force_push=1" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "force_push=0" >> "$GITHUB_OUTPUT"
+
+      - name: Create issue on force push
+        if: steps.detect.outputs.force_push == '1'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.event.after }}
+          PUSHER: ${{ github.event.pusher.name }}
+          REF: ${{ github.event.ref }}
+        run: |
+          BRANCH="${REF#refs/heads/}"
+          BODY_FILE=$(mktemp)
+          {
+            printf "Branch: %s\n" "$BRANCH"
+            printf "Pusher: %s\n" "$PUSHER"
+            printf "Before: %s\n" "$BEFORE"
+            printf "After: %s\n" "$AFTER"
+            printf "Workflow run: %s/%s/actions/runs/%s\n\n" "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID"
+            printf "This is a destructive operation. Investigate immediately:\n"
+            printf "- Was this an authorized human action?\n"
+            printf "- Was this an agent or scheduled job? Which one?\n"
+            printf "- What commits were dropped? Check the reflog of any local clone that has them.\n\n"
+            printf "GitHub branch protection should prevent this. If this issue exists, protection was weakened or bypassed. Re-enable with:\n"
+            printf "    gh api repos/%s/branches/%s/protection --method PUT -F allow_force_pushes=false -F allow_deletions=false\n\n" "$GITHUB_REPOSITORY" "$BRANCH"
+            printf "Reference: docs/INCIDENTS/INC-001-force-push.md\n"
+          } > "$BODY_FILE"
+          gh issue create \
+            --title "🚨 Force-push detected on $BRANCH by $PUSHER" \
+            --label "incident,governance,p0" \
+            --body-file "$BODY_FILE"
+
+      - name: Telegram alert (best effort)
+        if: steps.detect.outputs.force_push == '1' && env.TELEGRAM_BOT_TOKEN != ''
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          PUSHER: ${{ github.event.pusher.name }}
+          REF: ${{ github.event.ref }}
+        run: |
+          curl -sS -X POST \
+            "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" \
+            -d "chat_id=$TELEGRAM_CHAT_ID" \
+            -d "text=🚨 EGOS: Force-push detected on ${REF#refs/heads/} by $PUSHER. See repo issues." \
+            || true

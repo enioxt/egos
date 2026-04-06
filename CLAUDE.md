@@ -105,6 +105,19 @@ Every feature must answer: **"Who uses this? How do they find it?"**
 - /end must ask: "Did you advance GTM today? (post, conversation, outreach, demo)"
 - Dashboard (hq.egos.ia.br): Must show GTM metrics alongside technical health
 
+## Git Push Protocol (INC-001 — 2026-04-06)
+
+**Hard rule:** never `git push --force` to `main`. Always use `bash scripts/safe-push.sh main`. See `docs/INCIDENTS/INC-001-force-push.md` and `~/.claude/CLAUDE.md` §25.
+
+Layered protection:
+- `.husky/pre-push` — local non-FF block
+- GitHub branch protection — server-side `allow_force_pushes=false`
+- `.github/workflows/push-audit.yml` — audit + alert on any forced push
+- `scripts/safe-push.sh` — fetch+rebase wrapper for all automation
+- `gem-hunter-adaptive.yml` — uses retry+rebase loop, no plain push
+
+If you need to bypass: `EGOS_ALLOW_FORCE_PUSH=1 bash scripts/safe-push.sh main`. Never set this in CI or scheduled jobs.
+
 ---
 
-*Gerado em: 2026-04-06 | Claude Code v2.5.0*
+*Gerado em: 2026-04-06 | Claude Code v2.6.0 — INC-001 hardening*

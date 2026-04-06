@@ -24,6 +24,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0  # full history needed for safe rebase before push
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
@@ -49,12 +51,34 @@ jobs:
           XLIMIT="${{ github.event.inputs.x_limit || '15' }}"
           bun run agents/agents/gem-hunter.ts --exec --track=${TRACKS} --x-limit=${XLIMIT} --analyze
 
-      - name: Commit updated discovery artifacts
+      - name: Commit and safe-push discovery artifacts
         run: |
           git config --global user.name "Gem Hunter Bot"
           git config --global user.email "bot@egos.dev"
-          if [[ -n $(git status -s) ]]; then
-            git add docs/gem-hunter/
-            git commit -m "chore(gem-hunter): adaptive run [$(date +'%Y-%m-%d')]"
-            git push
+          if [[ -z $(git status -s) ]]; then
+            echo "No changes to commit"
+            exit 0
           fi
+          git add docs/gem-hunter/
+          git commit -m "chore(gem-hunter): adaptive run [$(date +'%Y-%m-%d')]"
+
+          # Safe push: never use --force on main. If push fails because main
+          # advanced while we ran, fetch + rebase + retry up to 3 times. This
+          # prevents the 2026-04-06 incident where stale runners would push
+          # blindly and (with branch protection off) drop in-flight commits.
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then
+              echo "Push succeeded on attempt $attempt"
+              exit 0
+            fi
+            echo "Push failed (attempt $attempt) — fetching and rebasing"
+            git fetch origin main
+            if ! git rebase origin/main; then
+              echo "Rebase conflict — aborting and bailing out"
+              git rebase --abort
+              echo "::error::gem-hunter could not safely push (rebase conflict). Inspect the run and resolve manually."
+              exit 1
+            fi
+          done
+          echo "::error::gem-hunter push failed after 3 attempts — main is changing too fast or there is a remote issue"
+          exit 1
