@@ -153,7 +153,7 @@
 
 | Surface | Classificação | Status | Notas |
 |---------|--------------|--------|-------|
-| Governance DNA | `kernel` | Active | `.guarani/` — FROZEN zones |
+| Governance DNA | `kernel` | Active | `.guarani/` — protected surfaces enforced |
 | Agent Runtime | `kernel` | FROZEN | `runner.ts`, `event-bus.ts` |
 | AAR Search | `kernel` | Active | `packages/search-engine/` |
 | Atomizer | `kernel` | Active | `packages/atomizer/` |
@@ -232,12 +232,12 @@
 
 | ID | Task | Prioridade | Status | Output Esperado | Prazo |
 |----|------|------------|--------|-----------------|-------|
-| **ORC-001** | **Documentar BRACC boundary no SSOT_REGISTRY.md** | P0 | 🔄 In Progress | SSOT atualizado | Hoje |
-| **ORC-002** | **Documentar Self-Discovery: arquitetura container** | P0 | 🔄 Ready | Doc arquitetura porta 3098 | Hoje |
+| **ORC-001** | **Documentar BRACC boundary no SSOT_REGISTRY.md** | P0 | ✅ Done | SSOT atualizado | Hoje |
+| **ORC-002** | **Documentar Self-Discovery: arquitetura container** | P0 | ✅ Done | Doc arquitetura porta 3098 | Hoje |
 | ORC-003 | Implementar MCP tools EGOS-specific (code_intel, ethik) | P1 | 🔲 Pending | mcp-config.json update | Semana 1 |
 | ORC-004 | Definir hierarquia AAR + Neo4j (separados) | P1 | 🔲 Pending | Architecture doc | Semana 1 |
-| ORC-005 | Mover DISCONNECTED_SYSTEMS_ANALYSIS para _investigations/ | P1 | � Ready | Arquivado | Hoje |
-| **ORC-006** | **Documentar arquivamento Booking Agent** | P0 | � Ready | ARCHIVE_GEMS update | Hoje |
+| ORC-005 | Mover DISCONNECTED_SYSTEMS_ANALYSIS para _investigations/ | P1 | ✅ Done | Arquivado | Hoje |
+| **ORC-006** | **Documentar arquivamento Booking Agent** | P0 | ✅ Done | ARCHIVE_GEMS update | Hoje |
 | ORC-007 | Sanitizar terminologia restante (sacred → technical) | P2 | 🔲 Pending | Vocab update | Semana 2 |
 
 ### 🖥️ VPS AGENTS — Tasks Ativas
@@ -245,7 +245,7 @@
 | ID | Task | Prioridade | Status | Detalhes | Prazo |
 |----|------|------------|--------|----------|-------|
 | VPS-001 | ~~Sync Neo4j → Mycelium~~ (CANCELADO — HUM-001=B) | N/A | ❌ Cancelado | BRACC mantido standalone | — |
-| **VPS-002** | **Criar container Self-Discovery porta 3098** | P0 | � Ready | Docker + Python v2 | Semana 1-2 |
+| **VPS-002** | **Criar container Self-Discovery porta 3098** | P0 | 📋 Ready | Docker + Python v2 | Semana 1-2 |
 | VPS-003 | ~~Container Booking Agent~~ (CANCELADO — HUM-003=C) | N/A | ❌ Cancelado | Arquivado | — |
 | VPS-004 | Ativar Redis Bridge (cross-container events) | P2 | 🔲 Pending | Se ORC-004 decidir | Semana 2-3 |
 | VPS-005 | Health check Gem Hunter → Telegram | P2 | 🔲 Pending | Cron job update | Semana 1 |
@@ -272,9 +272,8 @@
 | `MASTER_INDEX.md` | `docs/` | SSOT universal do EGOS | ✅ Atualizado |
 | `MASTER_INDEX_APPENDIX.md` | `docs/` | Extensão com handoffs | ✅ Atualizado |
 | `INFRASTRUCTURE_ARCHIVE_AUDIT.md` | `docs/` | VPS + Archive audit | ✅ Completo |
-| `ARCHIVE_GEMS_CATALOG.md` | `docs/` | 20 gems catalogados | ✅ Aguardando decisões |
-| `DISCONNECTED_SYSTEMS_ANALYSIS.md` | `docs/` | 7 sistemas desconectados | ✅ Aguardando decisões |
-| `DISCONNECTED_SYSTEMS_ANALYSIS.md` | `docs/` | 7 sistemas desconectados | ✅ Aguardando decisões |
+| `ARCHIVE_GEMS_CATALOG.md` | `docs/` | 20 gems catalogados | ✅ Parcialmente decidido |
+| `DISCONNECTED_SYSTEMS_ANALYSIS.md` | `docs/_investigations/` | 7 sistemas desconectados | ✅ Movido para investigação |
 
 ---
 
@@ -282,16 +281,16 @@
 
 ### Hoje (Imediato)
 1. **Revisar este documento** — Validar se todas as descobertas estão corretas
-2. **Decidir HUM-001** — BRACC Neo4j: integrar ao EGOS ou manter standalone?
-3. **Decidir HUM-002** — Self-Discovery: produtizar terapêutico ou arquivar?
+2. **Executar VPS-002** — Planejar container e rollout de Self-Discovery
+3. **Fechar documentação principal** — alinhar mapas, índices e SSOTs restantes
 
 ### Esta Semana
-4. Implementar decisões ORC-001 / VPS-001 (dependendo de HUM-001)
+4. Implementar VPS-002 (Self-Discovery)
 5. Atualizar TASKS.md com novas tasks categorizadas
 6. Comunicar equipe (se aplicável) sobre mudanças arquiteturais
 
 ### Próximas 2 Semanas
-7. Decidir HUM-003 (Booking Agent)
+7. Fechar ORC-007 (sanitização terminológica restante)
 8. Implementar ORC-003 (MCP tools EGOS)
 9. Criar containers VPS se produtos forem aprovados
 
@@ -299,12 +298,9 @@
 
 ## ❓ QUESTÕES EM ABERTO
 
-1. **BRACC Neo4j** é parte do EGOS ou produto standalone OSINT?
-2. **Self-Discovery** tem mercado viável como produto terapêutico?
-3. **Booking Agent** compete com Calendly/Square — diferencial claro?
-4. **Redis Bridge** deve ser ativado para eventos cross-container?
-5. **Terminologia**: "Talmudic" é apropriado ou deve ser substituído?
-6. **Scripts v2**: revisar 100+ scripts individualmente ou arquivar em bloco?
+1. **Redis Bridge** deve ser ativado para eventos cross-container?
+2. **Terminologia**: "Talmudic" é apropriado ou deve ser substituído?
+3. **Scripts v2**: revisar 100+ scripts individualmente ou arquivar em bloco?
 
 ---
 
@@ -312,7 +308,7 @@
 **Data:** 2026-04-06  
 **Status:** ✅ **DECISÕES COMPLETADAS** — HUM-001, HUM-002, HUM-003 decididos  
 **Coverage:** 95.6% do ecossistema investigado  
-**Próximo:** Executar ORC-001, ORC-002, ORC-006, VPS-002
+**Próximo:** Fechar a rodada documental principal e planejar `VPS-002`
 
 ---
 
@@ -320,7 +316,7 @@
 
 - **Investigação VPS:** `INFRASTRUCTURE_ARCHIVE_AUDIT.md`
 - **Gems do Archive:** `ARCHIVE_GEMS_CATALOG.md`
-- **Sistemas Desconectados:** `DISCONNECTED_SYSTEMS_ANALYSIS.md`
+- **Sistemas Desconectados:** `docs/_investigations/DISCONNECTED_SYSTEMS_ANALYSIS.md`
 - **SSOT Registry:** `docs/SSOT_REGISTRY.md`
 - **Ecosystem Classification:** `docs/ECOSYSTEM_CLASSIFICATION_REGISTRY.md`
 - **Mycelium Truth:** `docs/MYCELIUM_TRUTH_REPORT.md`

@@ -1,6 +1,16 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.43.0 | **Updated:** 2026-04-06 | **LAST SESSION:** P31 — Graphify/A-Evolve/XMCP gem research; XMCP cloned+ready VPS (/opt/xmcp); X creds 401 [BLOCKER]; GTM-002 blocked on X creds
+> **Version:** 2.44.0 | **Updated:** 2026-04-06 | **LAST SESSION:** P32 — documentation alignment sweep; INFRA audit restored; BRACC boundary documented; governance drift 0; wiki compile side effect recorded
+
+---
+
+### Documentation Alignment Sweep (2026-04-06)
+**SSOT:** `docs/DOCUMENTATION_ARCHITECTURE_MAP.md` | **Context:** principal docs aligned, missing audit restored, governance verification closed
+
+**Done:**
+
+**Follow-up:**
+- [ ] DOC-005: Continue terminology sanitization on remaining legacy governance/docs surfaces still using `Sacred Code` or `Frozen Zones`
 
 ---
 

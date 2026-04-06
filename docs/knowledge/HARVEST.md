@@ -9998,3 +9998,30 @@ const PUBLIC_PATHS = ['/login', '/api/auth/login', '/api/auth/logout', '/api/hq/
 - Assina cada job: `REVIEWED_BY: codex-constitutional-reviewer | <timestamp> | hash=<sha256>`
 - Cron 2x/dia (6h e 18h) — detecção de drift constitucional antes que acumule
 - Resultado postado no Supabase `egos_agent_events` para visibilidade no HQ
+
+---
+
+## P32 Documentation Alignment Sweep Pattern (2026-04-06)
+
+**Consertar drift documental = atualizar fixos e temporários ao mesmo tempo:**
+- Se uma decisão já foi tomada, o estado precisa mudar em `MASTER_INDEX`, `SSOT_REGISTRY`, resumos executivos e artefatos temporários relacionados
+- Corrigir só o dashboard executivo deixa o drift reaparecer via docs temporários
+- `DOCUMENTATION_ARCHITECTURE_MAP.md` deve explicitar quais docs são fixos, quais são temporários e quando arquivar cada um
+
+**Broken reference policy:**
+- Quando um documento principal referencia um arquivo ausente, preferir **materializar o artefato fixo** se ele ainda representa conhecimento útil
+- Só remover o link quando o conteúdo realmente morreu ou foi absorvido por outro SSOT
+- Neste sweep, `docs/INFRASTRUCTURE_ARCHIVE_AUDIT.md` foi recriado para restaurar a cadeia de navegação
+
+**Governance verification gotcha:**
+- `bun run governance:check` não é puramente leitura neste ambiente
+- Além de verificar drift, acionou `[KB-008] Wiki Knowledge Base — compiling...` e fez upsert de 59/59 páginas no Supabase
+- Tratar `governance:check` como comando com side effects externos ao planejar validações finais
+
+**Propagation rule:**
+- `bun run governance:sync:exec` só deve rodar com alinhamento explícito do operador, porque muta `~/.egos` e leaf repos
+- Quando o objetivo é só fechar drift entre kernel e espelho local, avaliar `governance:sync:local` antes da propagação completa
+
+**Meta-prompt triggers observed:**
+- `audit.ecosystem` — aplicou bem à rodada de alinhamento documental
+- `systems.mycelium` — aplicou bem à fase de sync/propagação e verificação de drift

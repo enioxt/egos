@@ -39,6 +39,14 @@ bun run governance:sync:exec   # kernel -> ~/.egos -> leaf repos
 bun run governance:check       # must return 0 drift
 ```
 
+Canonical documentation entry points for contributors:
+
+- `.guarani/RULES_INDEX.md` — governance canon
+- `AGENTS.md` — kernel identity and command surface
+- `docs/SSOT_REGISTRY.md` — ownership and freshness contract
+- `docs/DOCUMENTATION_ARCHITECTURE_MAP.md` — documentation navigation and permanence rules
+- `TASKS.md` — execution order and active priorities
+
 ## Core Rules
 
 1. **CHALLENGE before EXECUTE** — question, detect contradictions, ask for evidence
@@ -46,9 +54,9 @@ bun run governance:check       # must return 0 drift
 3. **ZERO DEPS** — agents use only Node/Bun stdlib, no external frameworks
 4. **REGISTRY** — no agent runs without an entry in `agents/registry/agents.json`
 5. **SHARED** — reusable code goes in `packages/shared/`, zero duplication
-6. **FROZEN ZONES** — never edit protected files without explicit approval
+6. **PROTECTED SURFACES** — never edit protected files without explicit approval
 
-### Frozen Files
+### Protected Files
 
 These files require explicit maintainer approval to modify:
 
@@ -91,6 +99,7 @@ Also update:
 
 - `docs/SSOT_REGISTRY.md` when adding or changing canonical cross-repo SSOT surfaces
 - `docs/CAPABILITY_REGISTRY.md` when a reusable capability changes owner, status, or adoption
+- `docs/DOCUMENTATION_ARCHITECTURE_MAP.md` when a principal document changes role, permanence, or read order
 
 ### 5. Commit
 

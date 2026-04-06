@@ -2,7 +2,20 @@
 
 > **Date:** 2026-04-06  
 > **Analyst:** Cascade  
-> **Purpose:** Definir documentos fixos vs temporários e criar cross-references
+> **Purpose:** Definir documentos fixos vs temporários e criar cross-references  
+> **Status:** Consolidação documental em andamento — mapa já usável como guia canônico
+
+<!-- llmrefs:start -->
+## LLM Reference Signature
+
+- **Role:** documentation navigation map for the kernel documentation sweep
+- **Summary:** separates canonical docs, durable references, and temporary investigation artifacts, with the read order that minimizes drift
+- **Type:** FIXO
+- **Read next:**
+  - `.guarani/RULES_INDEX.md` — governance canon
+  - `docs/MASTER_INDEX.md` — ecosystem inventory
+  - `docs/SSOT_REGISTRY.md` — ownership and freshness contract
+<!-- llmrefs:end -->
 
 ---
 
@@ -13,7 +26,7 @@
 | # | Documento | Tipo | Status | Destino Final |
 |---|-----------|------|--------|---------------|
 | 1 | `EXECUTIVE_SUMMARY_DECISION_MATRIX.md` | **FIXO** | Ativo | Mantém como dashboard executivo |
-| 2 | `DISCONNECTED_SYSTEMS_ANALYSIS.md` | **TEMPORÁRIO** | Ativo | Arquivar após integrações |
+| 2 | `docs/_investigations/DISCONNECTED_SYSTEMS_ANALYSIS.md` | **TEMPORÁRIO** | Ativo | Arquivar após integrações |
 | 3 | `ARCHIVE_GEMS_CATALOG.md` | **FIXO** | Ativo | Mantém como catálogo do archive |
 | 4 | `INFRASTRUCTURE_ARCHIVE_AUDIT.md` | **FIXO** | Ativo | Mantém como inventário VPS |
 
@@ -24,6 +37,10 @@
 ### Tier 1: SSOT Mestre (Sempre referenciar estes)
 
 ```
+📍 .guarani/RULES_INDEX.md                  ← ENTRADA CANÔNICA DE GOVERNANÇA
+    ├── Define onde procurar regras primeiro
+    └── Referencia: AGENTS.md, SSOT_REGISTRY.md, SYSTEM_MAP.md
+
 📍 MASTER_INDEX.md                          ← COMEÇAR AQUI SEMPRE
     ├── É o SSOT universal do EGOS
     ├── Referencia TODOS os outros documentos
@@ -38,8 +55,7 @@
     └── Referencia: MASTER_INDEX.md, DECISION_MATRIX
 
 📍 EXECUTIVE_SUMMARY_DECISION_MATRIX.md      ← Dashboard decisões
-    ├── Criado hoje
-    ├── Resumo executivo + decisões pendentes
+    ├── Resumo executivo + decisões confirmadas + pendências restantes
     └── Referencia: MASTER_INDEX.md
 ```
 
@@ -48,12 +64,12 @@
 ```
 📍 ARCHIVE_GEMS_CATALOG.md                   ← Catálogo do archive
     ├── 20 gems catalogados do v2-v5
-    ├── Status: Aguardando suas decisões PORT/STUDY/ARCHIVE
+    ├── Status: decisões parciais já registradas; restante segue em avaliação
     └── Referencia: MASTER_INDEX.md (seção Archive)
 
 📍 INFRASTRUCTURE_ARCHIVE_AUDIT.md           ← Inventário VPS
-    ├── 10 containers, 3 cron jobs, scripts /opt/
-    ├── Atualizar quando infra mudar
+    ├── Runtime surfaces, jobs recorrentes e boundaries operacionais
+    ├── Atualizar quando runtime topology ou ownership mudar
     └── Referencia: MASTER_INDEX.md (seção VPS)
 
 📍 ECOSYSTEM_CLASSIFICATION_REGISTRY.md      ← Classificação repos
@@ -92,13 +108,13 @@
 ### Investigação Atual (Arquivar após decisões)
 
 ```
-📍 DISCONNECTED_SYSTEMS_ANALYSIS.md           ← TEMPORÁRIO
+📍 docs/_investigations/DISCONNECTED_SYSTEMS_ANALYSIS.md  ← TEMPORÁRIO
     ├── 7 sistemas desconectados identificados
-    ├── Status: Aguardando HUM-001, HUM-002, HUM-003
+    ├── Status: decisões principais já tomadas; manter como evidência de investigação
     └── ⚠️ ARQUIVAR quando:
-        - Decisões tomadas (HUM-001, 002, 003)
-        - Integrações implementadas
-        - Ou: movido para `docs/_archived_handoffs/`
+        - Boundaries e decisões estiverem absorvidos pelos SSOTs fixos
+        - Integrações/containers pendentes forem implementados ou cancelados
+        - Ou: virar apenas referência histórica
 
 📍 *_current_handoffs/*.md                   ← TEMPORÁRIO
     ├── Handoffs de sessão
@@ -129,15 +145,19 @@
 ```
 FLUXO DE LEITURA:
 
-1º  MASTER_INDEX.md              → Scope geral, "o que temos"
+1º  .guarani/RULES_INDEX.md      → Governança canônica
     ↓
-2º  EXECUTIVE_SUMMARY_...        → Decisões pendentes, status atual
+2º  MASTER_INDEX.md              → Scope geral, "o que temos"
     ↓
-3º  [Documento específico]       → Detalhe técnico
+3º  DOCUMENTATION_ARCHITECTURE_MAP.md → Onde cada doc vive e como envelhece
+    ↓
+4º  EXECUTIVE_SUMMARY_...        → Decisões confirmadas e pendências reais
+    ↓
+5º  [Documento específico]       → Detalhe técnico
     
     - Infraestrutura → INFRASTRUCTURE_ARCHIVE_AUDIT.md
     - Archive v2-v5  → ARCHIVE_GEMS_CATALOG.md
-    - Sistemas desc. → DISCONNECTED_SYSTEMS_ANALYSIS.md
+    - Sistemas desc. → docs/_investigations/DISCONNECTED_SYSTEMS_ANALYSIS.md
     - Tasks ativas   → TASKS.md
 ```
 
@@ -146,15 +166,15 @@ FLUXO DE LEITURA:
 ```
 FLUXO DE DECISÃO:
 
-1º  EXECUTIVE_SUMMARY_DECISION_MATRIX.md    → Veja decisões pendentes
+1º  EXECUTIVE_SUMMARY_DECISION_MATRIX.md    → Veja decisões tomadas e pendências reais
     ↓
-2º  DISCONNECTED_SYSTEMS_ANALYSIS.md         → Entenda impacto de cada uma
+2º  docs/_investigations/DISCONNECTED_SYSTEMS_ANALYSIS.md → Entenda impacto e evidência
     ↓
 3º  ARCHIVE_GEMS_CATALOG.md                → Veja o que pode ser portado
     ↓
-4º  Decida → Atualize EXECUTIVE_SUMMARY... com decisão
+4º  Decida → Atualize EXECUTIVE_SUMMARY, MASTER_INDEX e SSOTs
     ↓
-5º  Task implementada → Arquive DISCONNECTED_SYSTEMS quando integrado
+5º  Task implementada → Arquive o material temporário quando o fixo absorver o contexto
 ```
 
 ---
@@ -187,12 +207,13 @@ FLUXO DE DECISÃO:
 ✅ `MYCELIUM_TRUTH_REPORT.md` — Tem LLM refs  
 ✅ `ECOSYSTEM_CLASSIFICATION_REGISTRY.md` — Tem LLM refs  
 ✅ `SSOT_REGISTRY.md` — Tem LLM refs  
+✅ `INFRASTRUCTURE_ARCHIVE_AUDIT.md` — Tem LLM refs  
+✅ `docs/_investigations/DISCONNECTED_SYSTEMS_ANALYSIS.md` — Tem LLM refs  
+✅ `INVESTIGATION_FINAL_SUMMARY.md` — Tem LLM refs  
 
 ### Documentos que PRECISAM de LLM References:
 
-🔲 `ARCHIVE_GEMS_CATALOG.md` — Adicionar refs  
-🔲 `DISCONNECTED_SYSTEMS_ANALYSIS.md` — Adicionar refs  
-🔲 `INFRASTRUCTURE_ARCHIVE_AUDIT.md` — Adicionar refs  
+Nenhum dos documentos principais desta rodada permanece sem `llmrefs`.
 
 ---
 
@@ -212,9 +233,9 @@ FLUXO DE DECISÃO:
 
 | Documento | Condição de arquivamento | Prazo |
 |-----------|-------------------------|-------|
-| `DISCONNECTED_SYSTEMS_...` | Após HUM-001, 002, 003 decididos | 2-4 semanas |
+| `DISCONNECTED_SYSTEMS_...` | Após boundaries/decisões refletidos nos docs fixos e tarefas estabilizadas | 2-4 semanas |
 | `*_current_handoffs/*.md` | Após sessão completada | 1 semana |
-| `DISCONNECTED_SYSTEMS_...` | Integrações implementadas | 1 mês |
+| `DISCONNECTED_SYSTEMS_...` | Integrações implementadas ou canceladas | 1 mês |
 
 ---
 
@@ -259,18 +280,18 @@ docs/
 
 ### Próximo passo (Sua decisão)
 - [ ] Revisar este mapeamento
-- [ ] Decidir HUM-001 (BRACC Neo4j)
-- [ ] Decidir HUM-002 (Self-Discovery)
-- [ ] Decidir HUM-003 (Booking Agent)
+- [ ] Sincronizar os últimos docs fixos que ainda carregam status antigo
+- [ ] Adicionar LLM refs aos temporários que ainda faltam
+- [ ] Preparar `/disseminate` e `/end`
 
-### Após decisões
-- [ ] Mover DISCONNECTED_SYSTEMS_ANALYSIS.md para `_investigations/` ou arquivar
-- [ ] Atualizar EXECUTIVE_SUMMARY com decisões tomadas
-- [ ] Atualizar MASTER_INDEX.md com novos status
-- [ ] Criar/executar tasks de implementação
+### Após consolidação
+- [ ] Arquivar ou resumir investigações temporárias absorvidas pelos docs fixos
+- [ ] Atualizar EXECUTIVE_SUMMARY com próximos passos finais
+- [ ] Atualizar MASTER_INDEX.md com novos status, se necessário
+- [ ] Criar/executar tasks de implementação quando a fase documental encerrar
 
 ---
 
 **Preparado por:** Cascade  
 **Data:** 2026-04-06  
-**Status:** Mapa criado — Aguardando decisões para consolidar
+**Status:** Mapa consolidado — pronto para orientar a rodada anti-drift

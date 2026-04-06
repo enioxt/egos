@@ -1,6 +1,6 @@
 # AGENTS.md — EGOS Framework Core
 
-> **VERSION:** 1.6.0 | **UPDATED:** 2026-04-05
+> **VERSION:** 1.6.1 | **UPDATED:** 2026-04-06
 > **TYPE:** Framework Core + Orchestration Kernel + Agent Runtime
 
 ---
@@ -113,7 +113,8 @@ egos/
 ├── docs/
 │   ├── SYSTEM_MAP.md            # Kernel activation map
 │   ├── CAPABILITY_REGISTRY.md   # Reusable capability SSOT
-│   └── SSOT_REGISTRY.md         # Cross-repo SSOT registry
+│   ├── SSOT_REGISTRY.md         # Cross-repo SSOT registry
+│   └── INFRASTRUCTURE_ARCHIVE_AUDIT.md # Runtime topology + VPS boundaries
 └── README.md
 ```
 
@@ -193,4 +194,5 @@ Canonical repo workflows live in `.windsurf/workflows/`: start, end, pre, prompt
 - `activation.egos-governance` → `.guarani/prompts/meta/egos-activation-governance.md`
 - `README.md` — public entry | `docs/MASTER_INDEX.md` — ecosystem inventory
 - `docs/SSOT_REGISTRY.md` — ownership contract | `docs/SYSTEM_MAP.md` — activation order
+- `docs/INFRASTRUCTURE_ARCHIVE_AUDIT.md` — runtime topology, jobs, and VPS ownership boundaries
 - `TASKS_ARCHIVE.md` — completed tasks archive (companion to TASKS.md)

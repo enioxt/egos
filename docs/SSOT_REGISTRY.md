@@ -8,25 +8,12 @@
 - **Read next:**
   - `TASKS.md` — open resolution tasks
   - `docs/CAPABILITY_REGISTRY.md` — capability adoption matrix
-  - `.agents/workflows/start-workflow.md` — activation and governance flow
+  - `docs/DOCUMENTATION_ARCHITECTURE_MAP.md` — documentation navigation and permanence rules
 <!-- llmrefs:end -->
 
-> **VERSION:** 2.0.0 | **UPDATED:** 2026-03-30
+> **VERSION:** 2.1.0 | **UPDATED:** 2026-04-06
 > **PURPOSE:** canonical registry for all SSOT surfaces across the EGOS workspace.
 > **TASK:** EGOS-083 (created), EGOS-085 (expanded)
-
-<!-- llmrefs:start -->
-
-## LLM Reference Signature
-
-- **Role:** Master index of all SSOTs across kernel + leaf repos
-- **Summary:** Maps which SSOT lives where (kernel_canonical vs leaf_local vs shared_home). Declares owner, enforcement point, freshness rule for each.
-- **Read next:**
-  - `CAPABILITY_REGISTRY.md` — capability-specific SSOTs
-  - `ECOSYSTEM_CLASSIFICATION_REGISTRY.md` — repo classification SSOT
-  - `.guarani/RULES_INDEX.md` — governance SSOT enforcement
-
-<!-- llmrefs:end -->
 
 ## Registry Contract
 
@@ -66,6 +53,7 @@
 | WhatsApp integration | `egos/docs/knowledge/WHATSAPP_SSOT.md` | enioxt | kernel_canonical; validated 2026-03-30 with forja-notifications | 2026-03-30 |
 | Integration release gate | `egos/.guarani/orchestration/INTEGRATION_RELEASE_CONTRACT.md` | enioxt | Update when new integration surface is added; `bun run integration:check` | 2026-03-30 |
 | Integration manifests | `egos/integrations/manifests/` | enioxt | New bundle = new manifest; validated via `integration:check` | 2026-03-30 |
+| BRACC Neo4j boundary | `br-acc/` + `docs/ECOSYSTEM_CLASSIFICATION_REGISTRY.md` | enioxt | leaf_local; BRACC remains standalone OSINT and must not be merged into kernel Mycelium/reference-graph surfaces | 2026-04-06 |
 | Capability registry | `egos/docs/CAPABILITY_REGISTRY.md` | enioxt | kernel_canonical; update when capability added or removed | 2026-03-30 |
 | System map (kernel) | `egos/docs/SYSTEM_MAP.md` | enioxt | kernel_canonical; update when architecture changes; LLM activation map | 2026-03-30 |
 | SSOT Registry | `egos/docs/SSOT_REGISTRY.md` (this file) | enioxt | kernel_canonical; update when SSOT added/changed/resolved | 2026-03-30 |
@@ -174,3 +162,4 @@
 - [x] SSOT-VISIT 2026-03-30: `commons/` → no AGENTS.md, no SSOT → stale-confirmed (grade D)
 - [x] SSOT-VISIT 2026-03-30: `egos/docs/TELEMETRY_SSOT.md` → exists → confirmed canonical
 - [x] SSOT-VISIT 2026-03-30: `egos-lab/branding/BRAND_GUIDE.md` → brand guide exists (Cyan/Purple/Green) → conflicted (EGOS-132)
+- [x] SSOT-VISIT 2026-04-06: `docs/ECOSYSTEM_CLASSIFICATION_REGISTRY.md` + `docs/SSOT_REGISTRY.md` → BRACC boundary restated as standalone OSINT, not kernel Mycelium

@@ -5,6 +5,18 @@
 > **Status:** ✅ **COMPLETO** — Decisões confirmadas, documentos vinculados  
 > **Cobertura:** 95.6% do ecossistema EGOS
 
+<!-- llmrefs:start -->
+## LLM Reference Signature
+
+- **Role:** consolidated investigation handoff for the 2026-04-06 ecosystem sweep
+- **Summary:** captures the confirmed decisions, resulting documents, and remaining execution fronts after the investigation phase
+- **Type:** TEMPORÁRIO
+- **Read next:**
+  - `docs/MASTER_INDEX.md` — canonical inventory after the sweep
+  - `docs/EXECUTIVE_SUMMARY_DECISION_MATRIX.md` — current decisions and pending fronts
+  - `docs/DOCUMENTATION_ARCHITECTURE_MAP.md` — where this summary sits in the documentation hierarchy
+<!-- llmrefs:end -->
+
 ---
 
 ## ✅ O QUE FOI REALIZADO
@@ -86,15 +98,15 @@
 |-----------|------|----------|-----------------|
 | `MASTER_INDEX.md` | SSOT Mestre | Universal registry de tudo | Referencia todos os docs abaixo |
 | `EXECUTIVE_SUMMARY_DECISION_MATRIX.md` | Dashboard | Decisões + tasks ativas | ← MASTER_INDEX, → ARCHIVE_GEMS |
-| `ARCHIVE_GEMS_CATALOG.md` | Catálogo | 20 gems do v2-v5 | ← EXECUTIVE_SUMMARY, → DISCONNECTED_SYSTEMS |
+| `ARCHIVE_GEMS_CATALOG.md` | Catálogo | 20 gems do v2-v5 com decisões parciais registradas | ← EXECUTIVE_SUMMARY, → DISCONNECTED_SYSTEMS |
 | `INFRASTRUCTURE_ARCHIVE_AUDIT.md` | Inventário | VPS + cron jobs + scripts | ← MASTER_INDEX |
 | `DOCUMENTATION_ARCHITECTURE_MAP.md` | Guia | Como navegar docs | ← Todos os docs |
 
-### Documentos Temporários (Arquivados)
+### Documentos Temporários (Em investigação)
 
 | Documento | Status | Localização | Quando arquivar |
 |-----------|--------|-------------|-----------------|
-| `DISCONNECTED_SYSTEMS_ANALYSIS.md` | ✅ Movido | `docs/_investigations/` | Após implementações (já movido) |
+| `DISCONNECTED_SYSTEMS_ANALYSIS.md` | ✅ Movido | `docs/_investigations/` | Após os docs fixos absorverem o contexto e as execuções pendentes fecharem |
 
 ---
 
@@ -103,19 +115,22 @@
 ```
 FLUXO DE NAVEGAÇÃO (IAs e Humanos):
 
-1. Entrada: MASTER_INDEX.md
+1. Entrada: .guarani/RULES_INDEX.md
+   ↓ (governança canônica)
+
+2. Inventário: MASTER_INDEX.md
    ↓ (scope geral)
    
-2. Decisões: EXECUTIVE_SUMMARY_DECISION_MATRIX.md
-   ↓ (ver o que foi decidido)
+3. Decisões: EXECUTIVE_SUMMARY_DECISION_MATRIX.md
+   ↓ (ver o que foi decidido e o que falta)
    
-3. Detalhes:
+4. Detalhes:
    ├── Infraestrutura → INFRASTRUCTURE_ARCHIVE_AUDIT.md
    ├── Archive v2-v5 → ARCHIVE_GEMS_CATALOG.md
    ├── Navegação → DOCUMENTATION_ARCHITECTURE_MAP.md
-   └── Sistemas desc. → _investigations/DISCONNECTED_SYSTEMS_ANALYSIS.md
+   └── Sistemas desc. → docs/_investigations/DISCONNECTED_SYSTEMS_ANALYSIS.md
    
-4. Implementação: TASKS.md (próximo passo)
+5. Implementação: TASKS.md (próximo passo)
 ```
 
 ---
@@ -126,10 +141,10 @@ FLUXO DE NAVEGAÇÃO (IAs e Humanos):
 
 | ID | Task | Prazo | Output |
 |----|------|-------|--------|
-| ORC-001 | Documentar BRACC boundary no SSOT_REGISTRY.md | Hoje | SSOT atualizado |
-| ORC-002 | Documentar arquitetura Self-Discovery (porta 3098) | Hoje | Doc técnico |
-| ORC-006 | Documentar arquivamento Booking Agent | Hoje | ARCHIVE_GEMS update |
-| ORC-005 | Confirmar DISCONNECTED_SYSTEMS em _investigations/ | Hoje | Arquivado |
+| ORC-001 | Documentar BRACC boundary no SSOT_REGISTRY.md | ✅ Feito | SSOT atualizado |
+| ORC-002 | Documentar arquitetura Self-Discovery (porta 3098) | ✅ Feito | Doc técnico |
+| ORC-006 | Documentar arquivamento Booking Agent | ✅ Feito | ARCHIVE_GEMS update |
+| ORC-005 | Confirmar DISCONNECTED_SYSTEMS em _investigations/ | ✅ Feito | Arquivado |
 
 ### 🖥️ VPS AGENT — Prioridade 0-1
 
@@ -190,10 +205,10 @@ FLUXO DE NAVEGAÇÃO (IAs e Humanos):
 ## 🚀 PRÓXIMOS PASSOS IMEDIATOS (Hoje)
 
 1. **Revisar este resumo** — Validar se tudo está correto
-2. **Executar ORC-001** — Documentar BRACC boundary (Claude Code)
-3. **Executar ORC-002** — Documentar arquitetura Self-Discovery (Claude Code)
-4. **Planejar VPS-002** — Preparar Dockerfile Self-Discovery (VPS agent)
-5. **Definir ICP Self-Discovery** — Persona, pricing, nicho inicial (Você)
+2. **Fechar a rodada documental** — alinhar os últimos docs principais com anti-drift
+3. **Planejar VPS-002** — Preparar Dockerfile Self-Discovery (VPS agent)
+4. **Definir ICP Self-Discovery** — Persona, pricing, nicho inicial (Você)
+5. **Preparar disseminação** — consolidar handoff documental para `/disseminate` e `/end`
 
 ---
 
@@ -204,11 +219,11 @@ FLUXO DE NAVEGAÇÃO (IAs e Humanos):
 - **Inventário VPS:** `INFRASTRUCTURE_ARCHIVE_AUDIT.md`
 - **Guia navegação:** `DOCUMENTATION_ARCHITECTURE_MAP.md`
 - **SSOT mestre:** `MASTER_INDEX.md`
-- **Sistemas desconectados:** `_investigations/DISCONNECTED_SYSTEMS_ANALYSIS.md`
+- **Sistemas desconectados:** `docs/_investigations/DISCONNECTED_SYSTEMS_ANALYSIS.md`
 
 ---
 
 **Preparado por:** Cascade  
 **Data:** 2026-04-06  
-**Status:** ✅ Investigação COMPLETA — Aguardando execução das tasks  
+**Status:** ✅ Investigação COMPLETA — documentação principal consolidada, aguardando execução das tasks  
 **Cobertura:** 95.6% do ecossistema EGOS mapeado, decidido e documentado

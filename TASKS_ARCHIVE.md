@@ -79,3 +79,10 @@
 - [x] OC-030: Smart TASKS.md archiving — auto-arquiva [x] a 490+ linhas, bloqueia a 600+ ✅ 2026-04-06
 - [x] OC-009: `HEARTBEAT.md` configurado (Guard Brasil health, billing proxy, EGOS Gateway, Gem Hunter, daily summary).
 - [x] OC-015: `TOOLS.md` configurado (SSH VPS, serviços EGOS, billing proxy, repos, bots).
+
+## Archived 2026-04-06 (4 tasks)
+
+- [x] DOC-001: Restore `docs/INFRASTRUCTURE_ARCHIVE_AUDIT.md` and reconnect broken references
+- [x] DOC-002: Align `README.md`, `CONTRIBUTING.md`, `SYSTEM_MAP.md`, `MASTER_INDEX.md`, `SSOT_REGISTRY.md`
+- [x] DOC-003: Align `EXECUTIVE_SUMMARY_DECISION_MATRIX.md`, `INVESTIGATION_FINAL_SUMMARY.md`, `ARCHIVE_GEMS_CATALOG.md`, `docs/_investigations/DISCONNECTED_SYSTEMS_ANALYSIS.md`
+- [x] DOC-004: Run `bun run governance:sync:exec` + `bun run governance:check` (drift 0)

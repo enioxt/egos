@@ -1,7 +1,7 @@
 # EGOS MASTER INDEX — Universal SSOT Registry
 
 > **The canonical source of truth for everything EGOS.**  
-> **Version:** 1.1.0 | **Created:** 2026-04-06 | **Updated:** 2026-04-06  
+> **Version:** 1.2.0 | **Created:** 2026-04-06 | **Updated:** 2026-04-06  
 > **Purpose:** Single document to answer "What do we have? Where is it? What's its status?"
 
 <!-- llmrefs:start -->
@@ -12,9 +12,9 @@
 - **Summary:** 17 repos, 17 agents, 73 scripts, 90.6% coverage — Updated with 2026-04-06 decisions
 - **Type:** FIXO — Master SSOT, always authoritative
 - **Read next:**
-  - `EXECUTIVE_SUMMARY_DECISION_MATRIX.md` — Latest decisions (HUM-001, 002, 003 confirmed)
-  - `ARCHIVE_GEMS_CATALOG.md` — Archive gems with decisions
-  - `INVESTIGATION_FINAL_SUMMARY.md` — Complete investigation results
+  - `.guarani/RULES_INDEX.md` — canonical governance entry point
+  - `docs/SSOT_REGISTRY.md` — ownership and freshness contracts
+  - `docs/DOCUMENTATION_ARCHITECTURE_MAP.md` — documentation read order and permanence map
 - **Update when:** Any structural change to repos, agents, capabilities, integrations
 
 <!-- llmrefs:end -->
@@ -41,16 +41,17 @@
 - Duplicate/legacy code discovered
 
 **Read Order for AIs:**
-1. This document (MASTER_INDEX.md) — scope everything
-2. AGENTS.md — kernel identity
-3. CAPABILITY_REGISTRY.md — detailed capability specs
-4. SSOT_REGISTRY.md — cross-repo ownership
-5. SYSTEM_MAP.md — activation flow
-6. TASKS.md — current execution priorities
+1. `.guarani/RULES_INDEX.md` — governance canon
+2. This document (`MASTER_INDEX.md`) — scope everything
+3. `AGENTS.md` — kernel identity
+4. `SSOT_REGISTRY.md` — cross-repo ownership
+5. `DOCUMENTATION_ARCHITECTURE_MAP.md` — document roles and permanence
+6. `SYSTEM_MAP.md` — activation flow
+7. `TASKS.md` — current execution priorities
 
 ---
 
-## 🗺️ Repository Universe (13 Active Repos)
+## 🗺️ Repository Universe (Mapped Repo Surfaces)
 
 ### Classification Map
 
@@ -59,7 +60,7 @@
 | **egos** | kernel | `/home/enio/egos` | A | ✅ Active | Core governance + Guard Brasil + Self-Discovery (planned) |
 | **egos-lab** | lab/incubator | `/home/enio/egos-lab` | B | ⚠️ Archiving | Being consolidated into kernel |
 | **852** | standalone | `/home/enio/852` | C | ✅ Production | Police chatbot, 27 tools |
-| **br-acc** → egos-inteligencia | standalone | `/home/enio/br-acc` | C | ✅ Production | OSINT platform, 77M Neo4j — **DECIDIDO: mantido standalone (HUM-001)** |
+| **EGOS Inteligência (br-acc)** | standalone | `/home/enio/br-acc` | C | ✅ Production | OSINT platform, 77M Neo4j — boundary documented as standalone |
 | **carteira-livre** | candidate | `/home/enio/carteira-livre` | C | ✅ Production | 191 profiles, 234 APIs |
 | **forja** | candidate | `/home/enio/forja` | B | ✅ Active | CRM/ERP + WhatsApp live |
 | **santiago** | candidate | `/home/enio/santiago` | C | ⚠️ Broken | Vercel deploy blocked |
@@ -68,7 +69,6 @@
 | **policia** | lab | `/home/enio/policia` | C | ✅ Active | DHPP workspace |
 | **INPI** | candidate | `/home/enio/INPI` | C | ? | Needs verification |
 | **smartbuscas** | lab | `/home/enio/smartbuscas` | C | ⚠️ Rebrowser | Cloudflare bypass migration |
-| **santiago** | candidate | `/home/enio/santiago` | C | ⚠️ Blocked | Asaas integration pending |
 
 ### Archive Candidates (11 Repos to Archive)
 
@@ -187,7 +187,7 @@ Per COMPLETE_REPO_INVENTORY_2026-04-03.md:
 
 ## 🔌 Integration Matrix
 
-### MCP Servers (8 Total)
+### MCP Servers (12 Total)
 
 | # | MCP | Status | Install Date | Blocker |
 |---|-----|--------|--------------|---------|
@@ -232,7 +232,7 @@ Per COMPLETE_REPO_INVENTORY_2026-04-03.md:
 
 ## 📊 Task Consolidation (From All TASKS.md Files)
 
-### egos/TASKS.md (v2.39.0) — 476 lines
+### egos/TASKS.md (v2.42.0) — current kernel snapshot
 
 **Active P0 Tasks:**
 - EGOS-163: Pix billing integration
@@ -244,6 +244,10 @@ Per COMPLETE_REPO_INVENTORY_2026-04-03.md:
 - GTM-009: LinkedIn post
 - M-007: 5 outreach emails to DPOs
 - HQ-000..HQ-010: Dashboard v2 (pending)
+
+**Documentation + governance snapshot:**
+- SD-001..SD-019: Self-Discovery planning with explicit dependencies and named rollout gates
+- GOV-001..GOV-007: governance mesh cleanup backlog (Claude adapter, workflows, skills, mirror, repo mesh)
 
 **Active P1 Tasks:**
 - EGOS-165: White-label outreach
@@ -490,12 +494,13 @@ Per COMPLETE_REPO_INVENTORY_2026-04-03.md:
 
 ### Read Next
 
+- **.guarani/RULES_INDEX.md** — Governance canon
 - **AGENTS.md** — Kernel identity and command surface
 - **CAPABILITY_REGISTRY.md** — 160 capabilities detailed
 - **SSOT_REGISTRY.md** — Ownership and freshness contracts
+- **DOCUMENTATION_ARCHITECTURE_MAP.md** — Documentation navigation and permanence
 - **SYSTEM_MAP.md** — Activation and topology
 - **TASKS.md** — Current execution priorities
-- **.windsurfrules** — Active governance
 
 ### Related Documents
 
@@ -520,6 +525,7 @@ Per COMPLETE_REPO_INVENTORY_2026-04-03.md:
 |------|---------|---------|
 | 2026-04-06 | 1.0.0 | Initial compilation from all SSOTs, commit history analysis, gap identification |
 | 2026-04-06 | 1.1.0 | Added P27 Session handoff: Guard Brasil Sandbox, INC-001 hardening, CCR jobs, GTM status |
+| 2026-04-06 | 1.2.0 | Aligned repo map, documentation read order, and kernel-first cross-references |
 
 ---
 
@@ -632,7 +638,7 @@ REPOS=(
 
 | Directory | Status | Purpose |
 |-----------|--------|---------|
-| **/.agent/** | ⚠️ Minimal | workflows symlink only |
+| **/.agent/** + **/.agents/** | ⚠️ Minimal | compatibility workflow surfaces for older command layouts |
 | **/arch/** | ✅ Active | SINAPI integration system (9175 lines TASKS.md) |
 | **/egos-self/** | ✅ Active | Kotlin mobile app (1540 lines TASKS.md) |
 | **/egos-archive/** | ⚠️ Archive | v2, v3, v4, v5 historical versions |

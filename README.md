@@ -89,6 +89,27 @@ bun test packages/guard-brasil/src/guard.test.ts
 
 ---
 
+## Documentation Entry Points
+
+- `README.md` — public overview and operator quick start
+- `.guarani/RULES_INDEX.md` — canonical governance entry point
+- `docs/MASTER_INDEX.md` — ecosystem-wide inventory and linkage
+- `docs/DOCUMENTATION_ARCHITECTURE_MAP.md` — documentation navigation and permanence map
+- `docs/SSOT_REGISTRY.md` — ownership and freshness contracts
+- `docs/SYSTEM_MAP.md` — activation order and runtime topology
+- `TASKS.md` — live execution roadmap
+
+## Governance Flow
+
+Kernel governance changes follow this path:
+
+1. Edit canonical surfaces in `egos/.guarani/` or kernel SSOT docs.
+2. Run `bun run governance:sync:exec`.
+3. Run `bun run governance:check` and keep drift at `0`.
+4. Update `TASKS.md`, `docs/knowledge/HARVEST.md`, and affected SSOT docs when the change alters execution or architecture.
+
+---
+
 ## Architecture
 
 ```
@@ -108,8 +129,9 @@ egos/
 │   ├── api/                # Guard Brasil REST + MCP reference server
 │   └── guard-brasil-web/   # Public landing page
 ├── scripts/                # doctor.ts, governance-sync.sh, kernel utilities
+├── docs/                   # SSOTs, maps, strategy, knowledge, handoffs
 ├── TASKS.md                # Live roadmap
-└── docs/concepts/          # Architecture references (see status in each file)
+└── README.md               # Public entry point
 ```
 
 ---
@@ -137,7 +159,7 @@ See [TASKS.md](TASKS.md) for the live roadmap and current sprint priorities.
 See [CONTRIBUTING.md](CONTRIBUTING.md). All commits pass through:
 - `gitleaks` — secret detection
 - `tsc --noEmit` — strict typecheck
-- frozen zones check — canonical file protection
+- protected surfaces check — canonical file protection
 - governance drift check — `~/.egos/` sync
 
 ## License

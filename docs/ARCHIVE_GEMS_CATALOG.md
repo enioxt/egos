@@ -3,7 +3,7 @@
 > **Date:** 2026-04-06  
 > **Analyst:** Cascade  
 > **Scope:** Deep Investigation of /home/enio/egos-archive (v2-v5)  
-> **Status:** INVESTIGATION COMPLETE — Awaiting User Decisions
+> **Status:** INVESTIGATION COMPLETE — Partial decisions recorded, remaining gems still under evaluation
 > **Type:** FIXO — Catálogo permanente do archive
 
 <!-- llmrefs:start -->
@@ -11,12 +11,12 @@
 ## LLM Reference Signature
 
 - **Role:** Catalog of valuable legacy code/concepts from egos-archive v2-v5
-- **Summary:** 20 gems cataloged awaiting PORT/STUDY/ARCHIVE decisions
+- **Summary:** 20 gems cataloged; Self-Discovery and Booking Agent already decided, remaining items still await PORT/STUDY/ARCHIVE decisions
 - **Type:** FIXO — Permanent reference catalog
 - **Read next:**
   - `MASTER_INDEX.md` — scope everything
   - `EXECUTIVE_SUMMARY_DECISION_MATRIX.md` — current decisions status
-  - `DISCONNECTED_SYSTEMS_ANALYSIS.md` — integration recommendations
+  - `docs/_investigations/DISCONNECTED_SYSTEMS_ANALYSIS.md` — integration recommendations
 - **Archive when:** NEVER — Keep as historical catalog
 
 <!-- llmrefs:end -->
@@ -26,8 +26,8 @@
 ## ⚠️ IMPORTANT NOTICE
 
 This document catalogs **ALL** discovered items from egos-archive **before** any archive decisions.  
-**Nothing has been marked for archiving without user discussion.**  
-Each item is presented with context for you to decide its fate.
+**Confirmed decisions are now recorded inline where they already exist.**  
+Remaining items stay presented with enough context for future PORT/STUDY/ARCHIVE decisions.
 
 ---
 
@@ -477,7 +477,7 @@ Each item is presented with context for you to decide its fate.
 | **Booking Agent** | 1 | ~100KB | ✅ **ARQUIVADO (2026-04-06)** |
 | **Self-Discovery** | 1 | ~50KB | ✅ **PRODUTIZAR (2026-04-06)** |
 | **Documentation** | 5 | ~5,000 lines | AWAITING DECISION |
-| **TOTAL** | **20 gems** | **~200KB+** | **AWAITING USER** |
+| **TOTAL** | **20 gems** | **~200KB+** | **PARTIAL DECISIONS RECORDED** |
 
 ---
 
@@ -510,15 +510,13 @@ Each item is presented with context for you to decide its fate.
 
 ---
 
-### Immediate Decisions Needed:
+### Remaining Decisions Needed:
 
 1. **Sacred Math** — Port Golden Ratio algorithms to TypeScript?
 2. **Event Bus** — Use patterns for modern Mycelium?
 3. **Knowledge Graph** — Port to BRACC Neo4j schema?
 4. **MCP Hub** — Study patterns or fully superseded?
-5. **Booking Agent** — Is this a product to sell or archive?
-6. **Self-Discovery** — Therapeutic product or archive?
-7. **ETHIK System** — Extract gamification or fully archive?
+5. **ETHIK System** — Extract gamification or fully archive?
 
 ### Terminology Discussion:
 
@@ -597,5 +595,5 @@ egos-archive/
 
 **Prepared by:** Cascade  
 **Date:** 2026-04-06  
-**Status:** AWAITING USER DECISIONS  
-**No items archived without explicit approval**
+**Status:** PARTIAL DECISIONS RECORDED — remaining archive gems still await review  
+**No additional items should be ported or archived without explicit approval**

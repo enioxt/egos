@@ -2,7 +2,19 @@
 
 > **Date:** 2026-04-06  
 > **Analyst:** Cascade  
-> **Status:** INVESTIGATION COMPLETE — Awaiting Integration Decisions
+> **Status:** INVESTIGATION COMPLETE — decisões principais absorvidas nos docs fixos; questões arquiteturais remanescentes seguem abertas
+
+<!-- llmrefs:start -->
+## LLM Reference Signature
+
+- **Role:** temporary investigation artifact for disconnected-system evidence
+- **Summary:** preserves the evidence behind the disconnected-system analysis after BRACC, Self-Discovery, and Booking Agent product decisions were already taken
+- **Type:** TEMPORÁRIO
+- **Read next:**
+  - `docs/EXECUTIVE_SUMMARY_DECISION_MATRIX.md` — decision state and remaining fronts
+  - `docs/SSOT_REGISTRY.md` — BRACC boundary and ownership contract
+  - `docs/DOCUMENTATION_ARCHITECTURE_MAP.md` — archival policy for temporary investigation docs
+<!-- llmrefs:end -->
 
 ---
 
@@ -28,12 +40,12 @@ Após revisão completa do VPS, archive (v2-v5), e kernel atual, identifiquei **
 - Mycelium Reference Graph é estático, sem persistência
 - Neo4j tem 77M entidades mas não alimenta o reference-graph.ts
 
-**Decisão necessária:**
+**Decisão registrada (2026-04-06):**
+- [x] **B)** Manter separado — BRACC é produto standalone (OSINT)
 - [ ] **A)** Integrar BRACC Neo4j como backend persistido do Mycelium
-- [ ] **B)** Manter separado — BRACC é produto standalone (OSINT)
 - [ ] **C)** Criar sync periódico: Neo4j → Reference Graph (read-only)
 
-**Abordagem recomendada:** Claude Code (orquestrador) + VPS agent (sync script)
+**Próximo passo válido:** manter boundary explícito em SSOTs; avaliar adapter/API apenas se surgir caso de uso real.
 
 ---
 
@@ -53,12 +65,12 @@ Após revisão completa do VPS, archive (v2-v5), e kernel atual, identifiquei **
 - Nenhum endpoint de maieutic engine
 - Nenhum sistema de Self-Discovery
 
-**Decisão necessária:**
-- [ ] **A)** Reviver como produto standalone (tipo Eagle Eye, Gem Hunter)
+**Decisão registrada (2026-04-06):**
+- [x] **A)** Reviver como produto standalone (tipo Eagle Eye, Gem Hunter)
 - [ ] **B)** Portar padrões para Guard Brasil ou outro produto
 - [ ] **C)** Integrar como feature do egos-web (platform)
 
-**Abordagem recomendada:** VPS agent (rodar em container separado) ou produtizar
+**Próximo passo válido:** seguir com `VPS-002` e definição de ICP/rollout do produto.
 
 ---
 
@@ -80,12 +92,12 @@ Após revisão completa do VPS, archive (v2-v5), e kernel atual, identifiquei **
 - Não está rodando no VPS
 - Não integrado com EGOS Gateway ou OpenClaw
 
-**Decisão necessária:**
+**Decisão registrada (2026-04-06):**
+- [x] **C)** Arquivar — mercado saturado (Calendly, etc.)
 - [ ] **A)** Reviver como produto standalone (SaaS de agendamento)
 - [ ] **B)** Integrar como módulo do egos-web
-- [ ] **C)** Arquivar — mercado saturado (Calendly, etc.)
 
-**Abordagem recomendada:** VPS agent (container Docker) ou human (decisão de produto)
+**Próximo passo válido:** manter no archive v2; extrair apenas padrões reaproveitáveis se houver demanda futura.
 
 ---
 
@@ -193,21 +205,21 @@ Após revisão completa do VPS, archive (v2-v5), e kernel atual, identifiquei **
 
 | ID | Task | Priority | System |
 |----|------|----------|--------|
-| **ORC-001** | Decidir arquitetura: BRACC Neo4j vs Mycelium Reference Graph | P0 | Knowledge Graph |
-| **ORC-002** | Portar Maieutic Engine (v2) para TypeScript ou manter Python | P0 | Self-Discovery |
+| **ORC-001** | Documentar boundary: BRACC Neo4j vs Mycelium Reference Graph | P0 | Knowledge Graph |
+| **ORC-002** | Documentar arquitetura de Self-Discovery (produto standalone) | P0 | Self-Discovery |
 | **ORC-003** | Implementar MCP tools EGOS-specific (code_intel, ethik) em mcp-config.json | P1 | MCP |
 | **ORC-004** | Definir hierarquia AAR ↔ codebase-memory-mcp | P1 | Search |
-| **ORC-005** | Criar documentação de integração para sistemas desconectados | P1 | Docs |
-| **ORC-006** | Atualizar ARCHIVE_GEMS_CATALOG.md com decisões de portar/arquivar | P2 | Archive |
+| **ORC-005** | Confirmar este documento como artefato temporário em `_investigations/` | P1 | Docs |
+| **ORC-006** | Atualizar ARCHIVE_GEMS_CATALOG.md com decisões de portar/arquivar | P0 | Archive |
 | **ORC-007** | Revisar terminologia: remover "sacred" restante, padronizar técnico | P2 | Governance |
 
 ### 🖥️ VPS AGENTS (Containers/Scripts)
 
 | ID | Task | Priority | Location |
 |----|------|----------|----------|
-| **VPS-001** | Implementar sync script: BRACC Neo4j → Mycelium (se decidido) | P1 | VPS:204.168.217.125 |
+| **VPS-001** | ~~Implementar sync script: BRACC Neo4j → Mycelium~~ | ❌ Cancelado | VPS:204.168.217.125 |
 | **VPS-002** | Reviver Self-Discovery como container Docker standalone | P1 | VPS |
-| **VPS-003** | Reviver Booking Agent como container Docker (se decidido produtizar) | P2 | VPS |
+| **VPS-003** | ~~Reviver Booking Agent como container Docker~~ | ❌ Cancelado | VPS |
 | **VPS-004** | Ativar Redis Bridge para cross-container events (se decidido) | P2 | VPS |
 | **VPS-005** | Health check automático: Gem Hunter API status → Telegram | P2 | VPS cron |
 | **VPS-006** | Log harvester: integrar com EGOS Mycelium Event Bus | P3 | VPS cron |
@@ -216,9 +228,9 @@ Após revisão completa do VPS, archive (v2-v5), e kernel atual, identifiquei **
 
 | ID | Task | Priority | Owner |
 |----|------|----------|-------|
-| **HUM-001** | **DECISÃO CRÍTICA:** BRACC Neo4j — integrar ao EGOS ou manter standalone? | P0 | Enio |
-| **HUM-002** | **DECISÃO CRÍTICA:** Self-Discovery — produtizar como terapêutico ou arquivar? | P0 | Enio |
-| **HUM-003** | **DECISÃO CRÍTICA:** Booking Agent — SaaS de agendamento ou arquivar? | P1 | Enio |
+| **HUM-001** | **DECISÃO CRÍTICA:** BRACC Neo4j — integrar ao EGOS ou manter standalone? | ✅ Done | Enio |
+| **HUM-002** | **DECISÃO CRÍTICA:** Self-Discovery — produtizar como terapêutico ou arquivar? | ✅ Done | Enio |
+| **HUM-003** | **DECISÃO CRÍTICA:** Booking Agent — SaaS de agendamento ou arquivar? | ✅ Done | Enio |
 | **HUM-004** | Definir ICP (Ideal Customer Profile) para cada produto standalone | P1 | Enio |
 | **HUM-005** | Priorizar roadmap: qual sistema desconectado integrar primeiro? | P1 | Enio |
 | **HUM-006** | Revisar terminologia: "Talmudic" apropriado? Substituir por? | P2 | Enio |
@@ -286,22 +298,22 @@ Após revisão completa do VPS, archive (v2-v5), e kernel atual, identifiquei **
 ## 🎯 PRÓXIMOS PASSOS RECOMENDADOS
 
 ### Semana 1 (Imediato)
-1. **HUM-001** — Decidir sobre BRACC Neo4j (integrar ou standalone)
-2. **HUM-002** — Decidir sobre Self-Discovery (produtizar ou arquivar)
-3. **ORC-001** — Documentar arquitetura decidida em SSOT
+1. **Fechar rodada documental** — refletir decisões e paths corretos nos docs fixos
+2. **VPS-002** — Planejar container Self-Discovery
+3. **HUM-004** — Definir ICP detalhado de Self-Discovery
 
 ### Semana 2-3
-4. **VPS-001** ou **ORC-002** — Implementar integração decida
+4. **ORC-004** — Definir estratégia AAR ↔ codebase-memory-mcp
 5. **ORC-003** — Portar tools EGOS para MCP moderno
-6. **HUM-003** — Decidir sobre Booking Agent
+6. **HUM-007** — Decidir destino dos scripts v2 restantes
 
 ### Mês 2
-7. **VPS-002** — Se Self-Discovery for produtizado, criar container
-8. **VPS-003** — Se Booking Agent for produtizado, criar container
-9. **ORC-004** — Unificar estratégia de busca (AAR + Neo4j)
+7. **VPS-002** — Implementar container Self-Discovery
+8. **VPS-004** — Ativar Redis Bridge se a decisão arquitetural aprovar
+9. **ORC-004** — Executar a estratégia de busca escolhida (AAR + Neo4j)
 
 ---
 
 **Preparado por:** Cascade  
 **Data:** 2026-04-06  
-**Status:** AGUARDANDO DECISÕES HUMANAS (HUM-001, HUM-002, HUM-003)
+**Status:** DECISÕES PRINCIPAIS FECHADAS — manter como evidência temporária para integrações remanescentes

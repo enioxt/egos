@@ -1,6 +1,6 @@
 # SYSTEM_MAP.md — EGOS Framework Core
 
-> **VERSION:** 2.4.0 | **UPDATED:** 2026-03-30
+> **VERSION:** 2.5.0 | **UPDATED:** 2026-04-06
 > **ROLE:** repo-local map for `/start` in the canonical kernel
 
 <!-- llmrefs:start -->
@@ -10,10 +10,10 @@
 - **Role:** activation map for the `egos` kernel
 - **Summary:** points to the local SSOTs that define governance, runtime, shared modules, migration status, and chatbot/mycelium standards
 - **Read next:**
+  - `.guarani/RULES_INDEX.md` — canonical governance entry point
   - `AGENTS.md` — repo identity, architecture, command surface
   - `TASKS.md` — current sprint and roadmap horizons
-  - `.windsurfrules` — active governance and frozen zones
-  - `docs/MIGRATION_PLAN.md` — kernel vs lab separation and sync direction
+  - `docs/DOCUMENTATION_ARCHITECTURE_MAP.md` — documentation read order and permanence rules
   - `docs/CAPABILITY_REGISTRY.md` — reusable capability SSOT
   - `docs/SSOT_REGISTRY.md` — canonical cross-repo SSOT registry
   - `docs/modules/CHATBOT_SSOT.md` — canonical chatbot standard
@@ -22,9 +22,10 @@
 
 ## Canonical Local Truth
 
+- `.guarani/RULES_INDEX.md` — where governance lookup starts
 - `AGENTS.md` — what this repo is
 - `TASKS.md` — what is next
-- `.windsurfrules` — what is allowed
+- `CLAUDE.md` / `.windsurfrules` — environment adapters only
 - `docs/SSOT_REGISTRY.md` — what is globally canonical vs locally owned
 - `.guarani/` — how reasoning and governance work
 - `agents/runtime/` — frozen execution kernel
@@ -32,15 +33,15 @@
 
 ## Activation Chain
 
-1. Read `AGENTS.md`
-2. Read `TASKS.md`
-3. Read `.windsurfrules`
-4. Read `.guarani/PREFERENCES.md` and `.guarani/IDENTITY.md`
-5. Read `docs/SSOT_REGISTRY.md`
-6. Read `docs/CAPABILITY_REGISTRY.md`
-7. Read `docs/modules/CHATBOT_SSOT.md` when chatbot/compliance work is in scope
-8. Read `docs/MIGRATION_PLAN.md` when scope touches kernel vs lab boundaries
-9. Read latest file in `docs/_current_handoffs/`
+1. Read `.guarani/RULES_INDEX.md`
+2. Read `AGENTS.md`
+3. Read `TASKS.md`
+4. Read `docs/DOCUMENTATION_ARCHITECTURE_MAP.md`
+5. Read `.guarani/PREFERENCES.md` and `.guarani/IDENTITY.md`
+6. Read `docs/SSOT_REGISTRY.md`
+7. Read `docs/CAPABILITY_REGISTRY.md`
+8. Read `docs/modules/CHATBOT_SSOT.md` when chatbot/compliance work is in scope
+9. Read `docs/MIGRATION_PLAN.md` when scope touches kernel vs lab boundaries
 
 ## Cross-Repo Context
 
@@ -85,18 +86,9 @@ When a kernel change is made, the following leaf repos require notification (via
 - Utilities: `scripts/oracle-instance-launcher/` (Python OCI launcher with AD retry + capacity-aware handling)
 - Validation: `bun run typecheck`, `bun run agent:lint`, `bun run governance:check`
 - Integration release gate: `.guarani/orchestration/INTEGRATION_RELEASE_CONTRACT.md`, `integrations/manifests/`, `integrations/distribution/`, `bun run integration:check`
-- Agents:
-  - `dep_auditor`, `archaeology_digger`, `chatbot_compliance_checker`, `context_tracker`
-  - `ethik_agent`: x402 Tokenomics, GCP Dynamic Key Gateway, and Donation Engine
-  - `atrian_agent`: Ethical Compliance Gate
-  - `mycelium_agent`: Event Bus and Mesh Logging
-- Docs: `docs/concepts/mycelium/`, `docs/archaeology/`, `docs/modules/`
-- **Guard Brasil GTM (2026-03-30):**
-  - `docs/SESSION_GUARDBRASIL_DIAGNOSTIC.md` — session diagnostic summary
-  - `docs/_current_handoffs/handoff_guardbrasil_gtm.md` — complete GTM handoff (architecture, revenue math, critical blocker M-007)
-  - `docs/strategy/GUARD_BRASIL_TRANSPARENCIA_RADICAL.md` — pricing model spec (pay-per-use + IA reports)
-  - `docs/_current_handoffs/GUARD_BRASIL_ARCHITECTURE_STACK.md` — 4-layer technical blueprint
-  - `docs/_current_handoffs/ROADMAP_3WEEKS_GUARD_BRASIL_GTM.md` — week-by-week execution plan
+- Core agents: `ssot-auditor`, `drift-sentinel`, `dep-auditor`, `context-tracker`, `mcp-router`, `spec-router`, `gem-hunter`, `wiki-compiler`
+- Docs: `docs/MASTER_INDEX.md`, `docs/SSOT_REGISTRY.md`, `docs/DOCUMENTATION_ARCHITECTURE_MAP.md`, `docs/modules/`
+- Product architecture refs: `docs/SELF_DISCOVERY_ARCHITECTURE.md`, `docs/EXECUTIVE_SUMMARY_DECISION_MATRIX.md`, `docs/strategy/`
 
 ## Shared Modules (@egos/shared)
 
@@ -123,11 +115,6 @@ When a kernel change is made, the following leaf repos require notification (via
 
 | Workflow | File | Version |
 |----------|------|---------|
-| /start (canonical ops) | `.agents/workflows/start-workflow.md` | v1.0 |
-| /sync (canonical ops) | `.agents/workflows/sync.md` | v1.0 |
-| /pr (canonical ops) | `.agents/workflows/pr-prep.md` | v1.0 |
-| /disseminate (canonical ops) | `.agents/workflows/disseminate.md` | v1.0 |
-| /mycelium (canonical ops) | `.agents/workflows/mycelium.md` | v1.0 |
 | /start | `.windsurf/workflows/start.md` | v5.4 |
 | /end | `.windsurf/workflows/end.md` | v5.5 |
 | /pre | `.windsurf/workflows/pre.md` | v1.0 |
@@ -136,6 +123,8 @@ When a kernel change is made, the following leaf repos require notification (via
 | /disseminate | `.windsurf/workflows/disseminate.md` | v1.0 |
 | /mycelium | `.windsurf/workflows/mycelium.md` | v1.0 |
 | /regras | `.windsurf/workflows/regras.md` | v1.0 |
+| /stitch | `.windsurf/workflows/stitch.md` | v1.0 |
+| /diag | `.windsurf/workflows/diag.md` | v1.0 |
 
 ---
 
