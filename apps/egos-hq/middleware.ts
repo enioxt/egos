@@ -5,7 +5,7 @@ const JWT_SECRET = new TextEncoder().encode(
   process.env.DASHBOARD_MASTER_SECRET ?? 'egos-hq-dev-secret-change-in-prod'
 );
 
-const PUBLIC_PATHS = ['/login', '/api/auth/login', '/api/auth/logout'];
+const PUBLIC_PATHS = ['/login', '/api/auth/login', '/api/auth/logout', '/api/hq/health'];
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
