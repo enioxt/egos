@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.37.0 | **Updated:** 2026-04-06 | **LAST SESSION:** 2026-04-06 P24/P26 — GH-071/KB-015/INTEL-005/X-006/007/008 ✅, OpenClaw billing proxy integrated (subscription:max), OPENCLAW_SSOT.md created, gateway crash fixed (v2026.4.5)
+> **Version:** 2.38.0 | **Updated:** 2026-04-06 | **LAST SESSION:** 2026-04-06 P24/P26 — OpenClaw billing proxy (sub=max), gateway v2026.4.5 fixed (Node 22 + config schema), OPENCLAW_SSOT.md, OC-001..023 roadmap added
 
 ---
 
@@ -139,56 +139,15 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [ ] GH-016: EGOS ↔ LiteLLM (`BerriAI/litellm`) — multi-model proxy, cost tracking, routing
 - [ ] GH-017: EGOS ↔ Langfuse (`langfuse/langfuse`) — observability, prompt versioning, evals
 
-**New tasks from Aider study:**
-- [x] GH-031: `.claude/hooks/pre-edit-safety` — PreToolUse hook warns on dirty working tree ✅ 2026-04-01
-- [ ] GH-032: EGOS edit benchmark — 20 real edit tasks tracked over time (SWE-Bench inspired)
-- [x] GH-033: CLAUDE.md §13 — model selection guide (Haiku/Sonnet/Opus per task type) ✅ 2026-04-01
-- [x] GH-034: **P0-URGENT** OpenHarness task added, gem-hunter early-warning track wired ✅ 2026-04-01 (`HKUDS/OpenHarness`) — pure-Python minimal harness (44× smaller than Claude Code, skills/hooks/coordinator compatível), lançado 2026-04-01 por Chao Huang (@huang_chao4969, autor LightRAG). Avaliar: adapter em `packages/shared/harness/`, migração de skills, coordinator como sub-agent layer.
+**Aider study done (GH-031..039):** pre-edit-safety hook, CLAUDE.md §13 model guide, OpenHarness early-warning, Telegram gem alerts, BRAID Mode GRD, x-reply-bot VPS cron. Details: git log.
+- [ ] GH-032: EGOS edit benchmark (SWE-Bench inspired, 20 tasks)
+- [ ] GH-036: OpenHarness adapter in packages/shared/harness/
 
-- [x] GH-035: Telegram gem alerts ✅ Already implemented as GH-055 (sendGemTelegramAlert in gem-hunter.ts). Env vars now on VPS.
-- [ ] GH-036: OpenHarness adapter in packages/shared/harness/ — evaluate skill/coordinator compat
-- [x] GH-037: **BRAID Mode** — upgrade `/coordinator` skill to emit Mermaid GRD before Implementation phase ✅ 2026-04-01. GRD = Guided Reasoning Diagram (nodes+edges+terminal states). Phase 2 now emits Mermaid graph TD with frozen-zone guard, parallel reads, sequential edits, verification gates. Cheap models execute strictly per graph. arXiv 2512.15959 (OpenServ BRAID), 74–122× cheaper. Frozen zones pattern aligned.
-- [x] GH-038: Gem Hunter keyword update — BRAID/SERV/bounded-reasoning/OpenServ search tracks added to x-reply-bot.ts ✅ 2026-04-01
-- [x] GH-039: **X.com Reply Bot** — `scripts/x-reply-bot.ts` deployed to VPS cron `0 * * * *`, 8 topic monitors, OAuth 1.0a ✅ 2026-04-01
-
-**Gem Hunter v5.1 — Research-Backed Discovery (2026-04-02):**
-- [x] GH-043: Papers With Code search source — searchPapersWithCode() queries PWC API for research implementations ✅ 2026-04-02
-- [x] GH-044: Low-star/high-value scoring — arXiv citation (+18), empirical benchmarks (+12), research structure (+10), low-star+research bonus (+15) in scoreGem() ✅ 2026-04-02
-- [x] GH-045: "agent-scaling" + "research-gems" search categories — scaling laws, error amplification, coordination architectures, clean-room implementations ✅ 2026-04-02
-- [x] GH-046: EGOS ↔ agent-scaling-laws (`jimmyjdejesus-cmyk/agent-scaling-laws`) — /study: ArchitectureSelector (87% accuracy), 5 coordination architectures, error amplification metrics (17.2× → 4.4×), arXiv 2512.08296 ✅ 2026-04-02
-- [x] GH-047: ArchitectureSelector adapter — transplant to packages/shared/intelligence/architecture-selector.ts. Wire to BRAID GRD: decide centralized/decentralized/hybrid before spawning agents ✅ 2026-04-02
-- [x] GH-048: Gem Hunter structural validation (Camada 1) — check tree for README+arXiv, benchmarks/, tests/, ArchitectureSelector-like patterns. Score boost for repos with empirical test suites ✅ 2026-04-02
-- [x] GH-049: Auto-integration queue (Camada 3) — queueForAutoIntegration(): score≥85 + structureBonus≥5 → docs/gem-hunter/auto-queue.json (branchSuggestion, status: queued/reviewed/adopted/rejected) ✅ 2026-04-02
-- [x] GH-050: Gem Hunter → world-model signal ingestion — gem-signals.ts (appendGemSignal/getGemSignals), signals.json (max 50, LIFO), world-model.ts parseSignals() reads signals.json, score > 90 = CRITICAL ✅ 2026-04-02
-
-**Gem Hunter v6.0 — Papers Without Code + Standalone Product (2026-04-02):**
-**Master Plan:** `docs/gem-hunter/GEM_HUNTER_v6_MASTER_PLAN.md`
-**Budget:** ~$15/month (free tiers + Gemini Flash)
-**Decisions:** B (scaffold output), B (full auto trends), D (API→Bot→Dashboard→NPM), % pricing
-
-*Week 1 — Foundation:*
-- [x] GH-051: Papers Without Code pipeline — searchPapersWithoutCode() queries arXiv CS papers, cross-refs PWC for 0 implementations, +20 scoring bonus, 5 new queries, wired into dispatch ✅ 2026-04-02
-- [x] GH-052: KOL discovery ✅ 2026-04-02. scripts/kol-discovery.ts implemented. X API integration working.
-- [x] GH-053: Evolution Engine auto-integrate — loads next-queries.json, injects suggestedQueries as category=evolution-auto each run ✅ 2026-04-02
-- [x] GH-054: Multi-LLM fallback chain — MODEL_CHAIN already in llm-provider.ts; gem-hunter uses chatWithLLM() via callAI() ✅ 2026-04-02
-- [x] GH-055: Telegram alerts — sendGemTelegramAlert() fired for top 5 gems ≥80; appendGemSignal() wired; uses TELEGRAM_ADMIN_CHAT_ID ✅ 2026-04-02
-- [x] CLEAN-001: egos-lab/gem-hunter.ts deprecated (header added, v5.0 stale); docs/gem-hunter/ clean; no timestamped reports ✅ 2026-04-02
-
-*Week 2 — Intelligence Layer:*
-- [x] GH-056: Multi-stage paper pipeline — LLM abstract triage (0-100) + scaffold gen (.ts + .md) in docs/gem-hunter/scaffolds/ ✅ 2026-04-02
-- [x] GH-057: Context awareness — loadContextSignals() from git log + TASKS.md → injects category=context-auto queries ✅ 2026-04-02
-- [x] GH-059: Cost budgeting — packages/shared/src/cost-tracker.ts (COST_TABLE, estimateCost, checkBudget, createCostSession) ✅ 2026-04-02
-- [x] GH-060: Structural validation — validateGemStructure() checks README/tests/benchmarks/docs via GitHub API; structureBonus (0-25) ✅ 2026-04-02
-- [x] GH-052: KOL discovery — scripts/kol-discovery.ts; fetches @anoineim following via X API, classifies bio (crypto/ai-ml/gov/markets), outputs kol-list.json ✅ 2026-04-02
-
-*Week 3-4 — Monetization:*
-- [x] GH-058: Standalone API — agents/api/gem-hunter-server.ts (port 3097): /v1/hunt, /v1/findings, /v1/papers, /v1/signals, /v1/kols, /v1/jobs/:id ✅ 2026-04-02
-- [x] BIZ-001: docs/business/MONETIZATION_SSOT.md — 3 products, ICP, revenue targets, payment infra, 4 open decisions ✅ 2026-04-02
-- [x] GH-065: packages/shared/src/billing/pricing.ts — priceGemHuntRun, priceGuardBrasilCalls, checkCustomerBudget, buildStripeCheckoutUrl ✅ 2026-04-02
+**Gem Hunter v5.1+v6.0 DONE (GH-043..065):** PWC pipeline, low-star scoring, ArchitectureSelector adapter, structural validation, auto-queue, signals ingestion, Papers Without Code, KOL discovery, evolution engine, multi-LLM fallback, Telegram alerts, multi-stage paper pipeline, cost budgeting, standalone API, MONETIZATION_SSOT, pricing.ts, gem-hunter npm v6.0.0. Details: git log.
 
 *Month 2-3 — Product Scale:*
 - [x] GH-061: Dashboard web — gemhunter.egos.ia.br ✅ 2026-04-06
-- [x] GH-062: packages/gem-hunter/ — @egosbr/gem-hunter v6.0.0 (GemHunter client + CLI: hunt/findings/papers/signals/wait) ✅ 2026-04-02
+- [x] GH-062: packages/gem-hunter/ — @egosbr/gem-hunter v6.0.0 ✅ 2026-04-02
 - [ ] GH-063: x402 pay-per-call — M2M agent payments via x402 protocol
 - [x] GH-064: Discord webhook alerts — sendGemDiscordAlert() rich embeds (score≥80, color-coded); DISCORD_WEBHOOK_URL env ✅ 2026-04-02
 - [x] GH-066*: Gateway /gem-hunter channel — sector filter, topics, product pricing, trending ✅ 2026-04-04 (NOTE: renamed from Paper→Code)
@@ -497,3 +456,48 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 **Hooks:**
 - [ ] HOOK-001: `~/.claude/hooks/skill-auto-trigger` — UserPromptSubmit hook that detects keywords from .guarani/prompts/triggers.json (7 triggers: strategy, brainet, mycelium, audit, debate, extraction, activation) and injects meta-prompt content as context
 - [ ] HOOK-002: `~/.claude/hooks/refinery-gate` — UserPromptSubmit hook for vague prompts (<50 chars) or risky keywords (deletar/remover/migrar/deploy/produção) → inject clarification guidance from .guarani/refinery/classifier.md
+
+---
+
+### OpenClaw Integration Roadmap (2026-04-06)
+
+> **SSOT:** `docs/OPENCLAW_SSOT.md` | **Gateway:** localhost:18789 | **Billing proxy:** localhost:18801
+
+**Current state:** Gateway UP (v2026.4.5, Node 22), billing proxy running (subscription=max), config valid, WebUI at http://127.0.0.1:18789, WebSocket handshake OK. **No channels configured yet** — only skeleton install.
+
+---
+
+**P0 — Curto prazo (esta semana): Base funcional**
+
+- [ ] OC-001: Configurar canal Telegram no OpenClaw — adicionar bot token do @EGOSin_bot em `~/.openclaw/openclaw.json` (`channels.telegram.token`). Unificar com o egosin_bot do EGOS Gateway ou criar bot separado.
+- [ ] OC-002: Testar chat via WebUI — abrir http://127.0.0.1:18789, parear dispositivo, enviar mensagem, verificar resposta usando `anthropic-subscription` provider.
+- [ ] OC-003: Configurar modelo padrão para `anthropic-subscription` > `claude-sonnet-4-6` no OpenClaw UI.
+- [ ] OC-004: Populate `~/.openclaw/workspace/USER.md` com perfil completo do Enio (nome, contexto, preferências, projetos EGOS).
+- [ ] OC-005: Configurar token auto-refresh — `openclaw-billing-proxy` relê `~/.claude/.credentials.json` a cada request, mas token expira em ~24h. Adicionar cron: `0 */20 * * * systemctl --user restart openclaw-billing-proxy` para prevenir expiração.
+
+**P1 — Médio prazo (2 semanas): Canais + Integração EGOS**
+
+- [ ] OC-006: Decidir estratégia Telegram: (a) migrar egosin_bot para OpenClaw (OpenClaw gerencia o loop), ou (b) manter EGOS Gateway como primário e conectar OpenClaw via sessions API. **Recomendado: opção (b)** — EGOS Gateway tem LGPD/PII, OpenClaw traz skills/multi-device.
+- [ ] OC-007: Conectar EGOS Gateway → OpenClaw sessions API — `sessions_spawn` para criar sub-agentes OpenClaw a partir de intent do EGOS orchestrator. Exemplo: usuário pede "pesquise concorrentes" → EGOS spawna sessão OpenClaw com Gem Hunter skill.
+- [ ] OC-008: Instalar `@openclaw/whatsapp` channel — conectar ao Evolution API existente (port 8080 no VPS). OpenClaw gerencia loop de mensagens, EGOS Gateway faz PII-check antes de responder.
+- [ ] OC-009: Configurar `~/.openclaw/workspace/HEARTBEAT.md` com tarefas periódicas: verificar Guard Brasil API health, checar Supabase, reportar status via Telegram.
+- [ ] OC-010: Registrar Guard Brasil MCP (`@egosbr/guard-brasil-mcp`) como servidor MCP no OpenClaw — scanner PII automático em todas as respostas outbound. Trackeado como KB-019/guard-brasil-mcp.
+- [ ] OC-011: Configurar skills relevantes do ClawHub marketplace — pesquisar: Brave Search, Knowledge Base, Code Execution. Instalar 2-3 skills úteis.
+
+**P2 — Médio prazo (1 mês): Funcionalidades avançadas**
+
+- [ ] OC-012: Wire OpenClaw + Hermes-3 (8B local) — configurar provider `hermes-local` apontando para Hermes rodando via Ollama/llama.cpp. Usar para tasks autônomas overnight sem custo de API.
+- [ ] OC-013: Configurar `sessions_spawn` para multi-agent: OpenClaw spawna sub-agentes para Gem Hunter hunts, Guard Brasil scans, kb wiki compilation. Cada sub-agente roda em sessão isolada.
+- [ ] OC-014: Integrar OpenClaw Canvas — habilitar canvas-host para visualizações de dados (Gem Hunter dashboard, Guard Brasil stats) acessíveis via chat.
+- [ ] OC-015: Configurar `~/.openclaw/workspace/TOOLS.md` — mapear: câmeras, SSH hosts conhecidos (VPS 204.168.217.125), vozes TTS, dispositivos paired.
+- [ ] OC-016: Instalar `@openclaw/discord` channel — criar servidor Discord EGOS para demo público do Guard Brasil. Bot responde a perguntas LGPD/PII.
+- [ ] OC-017: Configurar cron jobs no OpenClaw (`~/.openclaw/cron/jobs.json`) — daily: compilar wiki, weekly: Gem Hunter hunt, monthly: PII pattern review.
+
+**P3 — Longo prazo (3 meses): GTM + Produto**
+
+- [ ] OC-018: Construir `guard-brasil-mcp` como skill publicada no ClawHub — qualquer usuário OpenClaw pode instalar Guard Brasil PII detection. GTM play: **distribuição orgânica via marketplace de 13K+ skills**.
+- [ ] OC-019: Criar skill pública `egos-knowledge-mcp` no ClawHub — acesso à KB EGOS via OpenClaw. Showcase de capacidade para potenciais clientes.
+- [ ] OC-020: Integrar OpenClaw A2A Gateway — conectar EGOS agents ao protocolo A2A (Agent-to-Agent) do OpenClaw. Permite que agentes EGOS colaborem com agentes de outros usuários OpenClaw.
+- [ ] OC-021: Configurar multi-device — parear telefone Android + tablet com OpenClaw gateway via QR code. Todas as respostas chegam em todos os dispositivos.
+- [ ] OC-022: Tutor Melkin v2 via OpenClaw — substituir arquitetura atual do tutor por OpenClaw como runtime. Melkin = persona no SOUL.md. Canais: Telegram + WhatsApp + Web. Hermes para tasks autônomas.
+- [ ] OC-023: Avaliar OpenClaw para Guard Brasil self-serve onboarding — usuário instala Guard Brasil + OpenClaw, configura PII-scan automático em seus próprios canais de mensagem. Pricing: R$99/mo para essa stack.
