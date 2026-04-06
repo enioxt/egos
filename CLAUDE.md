@@ -43,7 +43,9 @@ bun agent:run context_tracker --dry  # CTX score
 
 ## Arquitetura
 
-- **SSOT:** `AGENTS.md`, `TASKS.md`, `agents/registry/agents.json`
+- **Governance canon:** `.guarani/RULES_INDEX.md` → `.guarani/PREFERENCES.md` → `.guarani/orchestration/*`
+- **Repo SSOT:** `AGENTS.md`, `TASKS.md`, `agents/registry/agents.json`
+- **Adapter rule:** `CLAUDE.md` is an environment adapter; if it conflicts with `.guarani`, `.guarani` wins
 - **Frozen Zones:** `agents/runtime/runner.ts`, `agents/runtime/event-bus.ts`, `.husky/pre-commit`, `.guarani/orchestration/PIPELINE.md`
 - **Shared:** `packages/shared/src/` — código reutilizável
 - **Integrações:** MCP servers ativos na sessão
@@ -57,6 +59,7 @@ bun agent:run context_tracker --dry  # CTX score
 - **Testes:** `bun test` coverage obrigatória
 - **DRY-RUN:** Todo agent deve suportar `--dry` antes de `--exec`
 - **Edit Size:** Máximo 80 linhas por operação de escrita
+- **Rollout rule:** toda task MODERATE+ de produto/deploy deve explicitar dependências, ordem exata e gates `deploy`, `security`, `ux`, `launch` antes de implementar
 
 ---
 

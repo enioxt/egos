@@ -1,6 +1,6 @@
 # EGOS Preferences — Coding Standards
 
-> **Version:** 1.0.0 | **Updated:** 2026-03-13
+> **Version:** 1.1.0 | **Updated:** 2026-04-06
 
 ## Security
 
@@ -17,6 +17,12 @@
 - Conventional commits: `feat:`, `fix:`, `chore:`, `docs:`.
 - Never create Supabase clients at module top-level (lazy init).
 - MAX_DEPTH ~50 for recursive operations. IGNORE_DIRS: `External/`.
+
+## Governance Canon
+
+- `.guarani/RULES_INDEX.md` is the canonical entry point for rules in every environment.
+- Kernel `.guarani/` is authoritative; `~/.egos/guarani/` is the synced mirror.
+- `CLAUDE.md` and `.windsurfrules` are adapter surfaces only; if they conflict with `.guarani`, `.guarani` wins.
 
 ## Agent Conventions
 
@@ -41,6 +47,14 @@
 - Never call something live without runtime evidence.
 - Never call something missing before searching for it.
 - **P0 CONSTITUTIONAL:** Present dialectic questions (Options A/B/C with tradeoffs) before executing MODERATE+ tasks. Minimum 3 questions. User alignment required.
+
+## Rollout & Launch Planning
+
+- Every MODERATE+ product, rollout, or deployment task MUST define dependencies and exact execution order before implementation.
+- TASKS.md rollout sections MUST name gates explicitly: `deploy`, `security`, `ux`, and `launch`.
+- No deploy starts before health checks, smoke checks, monitoring path, and rollback path are explicit.
+- No launch starts before disclaimer/copy review, UX acceptance, and analytics/feedback path are explicit.
+- Reusable rollout patterns MUST be disseminated to `TASKS.md`, `docs/knowledge/HARVEST.md`, and the relevant `.guarani` rule surface.
 
 ## Design & UI
 

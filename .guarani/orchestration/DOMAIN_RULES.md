@@ -194,6 +194,33 @@ agents/registry/agents.json (structure, not content)
 
 ---
 
+## 6A. PRODUCT ROLLOUT & LAUNCH READINESS
+
+### SSOT
+
+- **Governance canon:** `.guarani/RULES_INDEX.md`
+- **Execution standards:** `.guarani/PREFERENCES.md`
+- **Task order / dependencies:** `TASKS.md`
+- **Architecture / runbook:** domain SSOT doc (`docs/*_ARCHITECTURE*.md`, `docs/*SSOT*.md`, or equivalent)
+
+### Anti-Patterns
+
+- Bundling rollout work into opaque ranges (`SD-001..008`) without explicit dependency order
+- Starting deploy without rollback path, smoke checks, and monitoring path
+- Launching public surfaces before disclaimer/copy review and UX acceptance
+- Treating `CLAUDE.md` or `.windsurfrules` as canonical when `.guarani` says otherwise
+
+### Checklist
+
+- [ ] Dependencies are explicit (`depends_on` or equivalent wording in TASKS.md)
+- [ ] Exact execution order is named before implementation starts
+- [ ] **Deploy gate** defined: health check, smoke check, monitoring path, rollback path
+- [ ] **Security gate** defined: secrets/env handling, PII/log policy, access model, disclaimers
+- [ ] **UX gate** defined: onboarding, empty/error states, copy review, acceptance criteria
+- [ ] **Launch gate** defined: ICP/persona, analytics path, feedback loop, GTM/dissemination handoff
+
+---
+
 ## 7. SSOT VISIT PROTOCOL (Cross-Repo AND Intra-Repo)
 
 **Rule:** Whenever you visit a file that is contextually distant — either in another repo OR deep inside the current repo (archive/, docs/, legacy/, old/, >2 directories from CWD) — you MUST log the visit. Large repos have "lost gems": files created, forgotten, never referenced again. Logging prevents silent drift.

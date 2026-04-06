@@ -1,6 +1,6 @@
 # EGOS Rules Index — Canonical Discovery Map
 
-> **Version:** 1.1.0 | **Updated:** 2026-04-03
+> **Version:** 1.2.0 | **Updated:** 2026-04-06
 > **Purpose:** Single entry point for ALL EGOS rules, standards, and governance surfaces.
 > Any AI session or human contributor starts here to find the relevant rule.
 
@@ -10,8 +10,14 @@
 
 | I need rules for... | File | Location |
 |---------------------|------|----------|
+| **Governance canon** | RULES_INDEX.md | `.guarani/RULES_INDEX.md` |
+| **Multi-env sync** | governance-sync.sh | `scripts/governance-sync.sh` |
+| **Shared home mirror** | EGOS sync | `.egos/sync.sh` |
+| **Claude Code adapter** | CLAUDE.md | `CLAUDE.md` |
+| **Windsurf adapter** | .windsurfrules | `.windsurfrules` |
 | **Reports** | REPORT_SSOT.md | `docs/REPORT_SSOT.md` |
 | **Code quality** | PREFERENCES.md | `.guarani/PREFERENCES.md` |
+| **Rollout / launch planning** | PREFERENCES.md + DOMAIN_RULES.md | `.guarani/PREFERENCES.md`, `.guarani/orchestration/DOMAIN_RULES.md` |
 | **Agent claims** | AGENT_CLAIM_CONTRACT.md | `.guarani/orchestration/AGENT_CLAIM_CONTRACT.md` |
 | **Worktree workflow** | WORKTREE_CONTRACT.md | `.guarani/orchestration/WORKTREE_CONTRACT.md` |
 | **QA/Testing** | QA_LOOP_CONTRACT.md | `.guarani/orchestration/QA_LOOP_CONTRACT.md` |
@@ -59,11 +65,12 @@
 ## For AI Sessions
 
 When starting any work, check:
-1. `TASKS.md` — what's pending
-2. `.guarani/RULES_INDEX.md` (this file) — what rules apply
-3. `.guarani/PREFERENCES.md` — coding standards
-4. `docs/REPORT_SSOT.md` — if generating reports
-5. `.guarani/orchestration/` — if touching governance
+1. `.guarani/RULES_INDEX.md` (this file) — canonical rule discovery
+2. `TASKS.md` — what is pending and in what order
+3. `.guarani/PREFERENCES.md` — coding and rollout standards
+4. `CLAUDE.md` / `.windsurfrules` — environment adapter surface only
+5. `.guarani/orchestration/` — if touching governance or planning execution
+6. `docs/REPORT_SSOT.md` — if generating reports
 
 > **Rule:** Never generate a report without reading REPORT_SSOT.md first.
 > **Rule:** Never claim an agent without reading AGENT_CLAIM_CONTRACT.md first.
@@ -72,3 +79,4 @@ When starting any work, check:
 > **Rule:** Challenge stale P0s, scope creep, and false claims (§16).
 > **Rule:** Every discovery/architecture decision must produce FACT/INFERENCE/PROPOSAL (§20).
 > **Rule:** Use Enio's vocabulary map for term translation (§21).
+> **Rule:** If any adapter surface (`CLAUDE.md`, `.windsurfrules`) conflicts with `.guarani`, `.guarani` wins.

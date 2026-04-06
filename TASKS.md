@@ -449,5 +449,16 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 - [ ] **SD-017 (P2)**: Define API documentation surface and consumer contract [DEP: SD-004, SD-014]
 - [ ] **SD-018 (P2)**: Evaluate TypeScript migration boundaries vs leaving Python core isolated [DEP: SD-002, SD-017]
 - [ ] **SD-019 (P2)**: Freeze post-alpha backlog after evidence from deploy/security/ux/launch gates [DEP: SD-015, SD-016, SD-017, SD-018]
- 
+
+ ---
+
+ ### Governance Mesh Cleanup (2026-04-06 audit)
+ - [ ] **GOV-001**: Collapse `~/.claude/CLAUDE.md` into a thin adapter to kernel `.guarani` [SOURCE: local Claude audit | IMPACT: parallel constitution / rule drift]
+ - [ ] **GOV-002**: Unify workflow catalog across `egos/.windsurf/workflows`, `~/.egos/workflows`, and `scripts/workflow-sync-check.sh` [SOURCE: workflow audit | IMPACT: missing/stale workflow inheritance]
+ - [ ] **GOV-003**: Define canonical skill distribution between `~/.egos/skills` and `~/.claude/skills` [SOURCE: local skill audit | IMPACT: duplicated discovery rules]
+ - [ ] **GOV-004**: Update `~/.claude/config/manifest.json` SSOT hierarchy to kernel-first `.guarani` and remove adapter surfaces from constitutional status [SOURCE: local Claude audit | IMPACT: wrong authority model]
+ - [ ] **GOV-005**: Review `~/.claude/settings.local.json` allowlist for hardcoded tokens and unsafe legacy permissions [SOURCE: local Claude audit | IMPACT: security and governance exposure]
+ - [ ] **GOV-006**: Sanitize or archive stale shared-home artifacts (`.egos/.windsurfrules`, `SSOT_STATUS_20260328.txt`, repo-specific mirror leftovers) [SOURCE: ~/.egos audit | IMPACT: legacy noise and false authority]
+ - [ ] **GOV-007**: Unify repo mesh registry across `.egos/sync.sh`, `scripts/sync-all-leaf-repos.sh`, `scripts/workflow-sync-check.sh`, and `.egos/manifest.json` [SOURCE: sync audit | IMPACT: drifted propagation targets]
+
  ---

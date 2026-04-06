@@ -47,6 +47,8 @@ HOOKS_SRC="$EGOS_KERNEL/.egos/hooks"
 HOOKS_DST="$EGOS_HOME/hooks"
 HOME_SYNC_SRC="$EGOS_KERNEL/.egos/sync.sh"
 HOME_SYNC_DST="$EGOS_HOME/sync.sh"
+HOME_META_SRC="$EGOS_KERNEL/.egos"
+HOME_META_FILES="README.md manifest.json"
 CANONICAL_DOCS="CAPABILITY_REGISTRY.md SSOT_REGISTRY.md ECOSYSTEM_CLASSIFICATION_REGISTRY.md modules/CHATBOT_SSOT.md"
 
 GREEN='\033[0;32m'
@@ -157,6 +159,12 @@ fi
 if [ -f "$HOME_SYNC_SRC" ]; then
   compare_file "sync.sh" "$EGOS_KERNEL/.egos" "$EGOS_HOME" "home"
 fi
+
+for rel in $HOME_META_FILES; do
+  if [ -f "$HOME_META_SRC/$rel" ]; then
+    compare_file "$rel" "$HOME_META_SRC" "$EGOS_HOME" "home"
+  fi
+done
 
 for rel in $CANONICAL_DOCS; do
   if [ -f "$DOCS_SRC/$rel" ]; then
