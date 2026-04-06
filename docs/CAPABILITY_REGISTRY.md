@@ -384,3 +384,20 @@ L5: Agent Registry + Skills    — Auto-discovery, hot-reload, marketplace patte
 - Dashboard: https://hq.egos.ia.br (private, requires DASHBOARD_MASTER_SECRET)
 - Container: `docker ps | grep egos-hq` on VPS port 3060
 - Deploy: `/opt/apps/egos-hq/` on Hetzner 204.168.217.125
+
+## 15. GATEWAY P24 — AUTH + TELEGRAM COMMANDS + FTS (2026-04-06)
+
+| Capability | SSOT | Quality | Adopted By | Tags |
+|-----------|------|---------|------------|------|
+| Gem Hunter API Key Auth | `egos-gateway/src/channels/gem-hunter-api.ts` | A | egos | `auth`, `sha256`, `supabase`, `middleware` |
+| Gem Hunter Rate Limiting | `gem-hunter-api.ts#checkAndIncrementUsage` | A | egos | `rate-limit`, `tier`, `usage-tracking` |
+| Gateway Health Monitor | `egos-gateway/src/health-monitor.ts` | A | egos | `health`, `telegram-alert`, `weighted-score` |
+| Telegram /hunt /sector /trending | `egos-gateway/src/channels/telegram.ts` | A | egos | `telegram`, `slash-commands`, `gem-hunter` |
+| Knowledge FTS (pg_trgm + phfts) | `egos-gateway/src/channels/knowledge.ts` | A | egos | `fts`, `pg_trgm`, `portuguese`, `search` |
+| Gem Hunter Dashboard (inline SSR) | `agents/api/gem-hunter-server.ts` | A | egos | `dashboard`, `bun`, `ssr`, `gem-hunter` |
+| X Bot Daily Report | `scripts/x-reply-bot.ts#sendDailyReport` | A | egos | `x.com`, `telegram`, `reporting`, `automation` |
+| Rapid Response Profiles | `scripts/rapid-response.ts` | A | egos | `x.com`, `showcase`, `br_acc`, `sistema_852`, `gem_hunter` |
+| Gem Signal Auto-append | `agents/agents/gem-hunter.ts` + `gem-signals.ts` | A | egos | `signals`, `world-model`, `gem-hunter`, `intel` |
+
+**Gateway deploy:** `rsync src → /opt/apps/egos-gateway/src/ && docker compose build --no-cache && docker compose up -d`
+**No volume mounts** — source baked into image. Always rebuild after rsync.

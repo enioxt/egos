@@ -1,8 +1,8 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 3.2.0 | **UPDATED:** 2026-04-03
+> **VERSION:** 3.3.0 | **UPDATED:** 2026-04-06
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
-> **Latest:** Dialectic Questioning P0, LLM Fallback Chain, Papers Without Code Pipeline, /start v6.0, Agent Registry Drift Detection, SSOT Validation Hierarchy, World Model AGI Roadmap
+> **Latest:** Gateway Auth Middleware (SHA-256 Supabase keys), Health Monitor weighted scoring, Telegram slash commands proxy pattern, FTS pg_trgm + phfts(portuguese), Gem Hunter dashboard inline SSR injection
 
 ## AI Agent Validation Checklist Pattern (2026-04-03)
 
@@ -9593,3 +9593,88 @@ pattern = r'(?:^|;\s*|&&\s*|\|\|\s*)rm\s+-[rRf]+\s+(/etc|/var|/usr|/opt/bracc|/o
 ```
 
 **GitHub Action for PR review:** `anthropics/claude-code-action@v1` — works on `pull_request: [opened, synchronize]`
+
+
+---
+
+## Session P24 — Gateway Auth + Telegram Commands + FTS + Gem Hunter Dashboard (2026-04-06)
+
+### Gateway API Key Auth Pattern (SHA-256 + Supabase)
+**Pattern:** Never store raw tokens — only SHA-256 hashes in `gem_hunter_api_keys` table.
+```typescript
+const hash = createHash("sha256").update(rawToken).digest("hex");
+const row = await supabase.from("gem_hunter_api_keys").select("*").eq("key_hash", hash).single();
+```
+- `lookupApiKey()` → Supabase fetch by hash, returns tier + limits
+- `checkAndIncrementUsage()` → GET count today, POST/PATCH usage row, fail-open on DB error
+- Hono middleware: `authMiddleware: MiddlewareHandler<{Variables:{tierCtx:TierContext}}>` — downstream routes call `c.get("tierCtx")`
+- Admin key creation: `POST /admin/keys` protected by `GATEWAY_ADMIN_SECRET` env
+
+**Critical:** Fail-open on auth DB error (allow request, log warning) — never block legitimate traffic due to Supabase outage.
+
+### Docker Gateway Deploy: no volume mounts → must rsync + rebuild
+**Finding:** `egos-gateway` Docker container has **no volume mounts** (Binds: []). Source is baked into image at build time.
+**Deploy protocol:**
+```bash
+rsync -avz -e "ssh -i ~/.ssh/hetzner_ed25519" src/channels/file.ts root@VPS:/opt/apps/egos-gateway/src/channels/
+cd /opt/apps/egos-gateway && docker compose build --no-cache && docker compose up -d
+```
+**Container path:** `/opt/apps/egos-gateway/` (NOT `/opt/bracc/` which is the old br-acc repo)
+**Port:** `127.0.0.1:3050:3050` (gateway), `127.0.0.1:3095:3095` (gem-hunter-server)
+
+### Telegram Slash Commands → Proxy Pattern
+**Pattern:** Telegram commands that trigger other services use an immediate reply + background proxy:
+```typescript
+} else if (text === "/hunt") {
+  await sendMessage(chatId, "🔍 Iniciando hunt...");
+  const res = await fetch("http://localhost:3095/v1/hunt", { 
+    method: "POST", body: JSON.stringify({ quick: true }),
+    signal: AbortSignal.timeout(8000)
+  });
+  // reply based on res.ok
+}
+```
+- `/sector <name>` validates against known sectors before fetch — prevents unnecessary API calls
+- `/trending` reuses existing NLP path (inject text into orchestrator flow) — zero extra code
+
+### Knowledge FTS with pg_trgm + phfts(portuguese)
+**Migration pattern:**
+```sql
+CREATE EXTENSION IF NOT EXISTS pg_trgm;
+CREATE INDEX idx_wiki_pages_title_trgm ON egos_wiki_pages USING GIN (title gin_trgm_ops);
+CREATE INDEX idx_wiki_pages_content_trgm ON egos_wiki_pages USING GIN (content gin_trgm_ops);
+CREATE INDEX idx_wiki_pages_tsvec ON egos_wiki_pages USING GIN (to_tsvector('portuguese', title || ' ' || content));
+```
+**PostgREST FTS query:** `phfts(portuguese)` operator on multiple columns via `or=()`:
+```
+?or=(title.phfts(portuguese).${q},content.phfts(portuguese).${q})&order=quality_score.desc
+```
+- `?mode=ilike` = default trigram ILIKE (fuzzy, partial match)
+- `?mode=fts` = plainto_tsquery Portuguese (semantic word match, ignores inflections)
+
+### Gem Hunter Dashboard — Inline SSR Data Injection
+**Pattern:** Bun HTTP server serves a complete dark SPA as a string literal. Data is injected at render time:
+```typescript
+function dashboardHTML(): string {
+  const gems = readGemsFromFile(); // reads latest-run.json
+  return `<html>...<script>const INLINE_GEMS = ${JSON.stringify(gems)};</script>...`;
+}
+app.get("/", (req, res) => res.end(dashboardHTML()));
+```
+- Zero API round-trips on first load — data arrives with HTML
+- Hunt trigger: `POST /v1/hunt` → polls `/v1/jobs/:id` every 8s → `location.reload()` on done
+- **Avoids Next.js overhead** for an internal tool — Tailwind CDN + vanilla JS sufficient
+
+### Health Monitor Gotcha: Internal vs External URLs
+**Bug:** Health monitor pinged `https://gateway.egos.ia.br` (external DNS) from inside Docker — fails because DNS resolves to public IP, rejected inside container network.
+**Fix:** Always use `GW_INTERNAL = http://localhost:${GW_PORT}` for self-checks.
+**Score computation:** `Math.round((sum_ok_weights / sum_all_weights) * 100)` — alert when < 40%.
+
+### Gem Hunter Data Format Mismatch (Python parser pattern)
+**Problem:** `gem-hunter.ts` generates `{generatedAt, byCategory, bySource}` but dashboard expects `{date, gems:[{name,url,score,...}]}`.
+**Solution:** Python parser reads markdown report (`gems-YYYY-MM-DD.md`) line by line, extracts table rows, outputs normalized JSON:
+```python
+gems = [{"name": row[0], "url": row[1], "score": int(row[2]), ...} for row in parse_table(md)]
+json.dump({"date": date, "gems": gems, "totalFound": len(gems)}, f)
+```
+**Lesson:** When TypeScript agent output format diverges from consumer expectations, a thin Python adapter is faster than refactoring both sides.
