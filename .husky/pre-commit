@@ -122,7 +122,23 @@ check_lines() {
 }
 
 check_lines "AGENTS.md" 200 || exit 1
-check_lines "TASKS.md" 500 || exit 1
+
+# TASKS.md smart rule: auto-archive [x] tasks before blocking
+# Levels: <500 OK | 500-600 auto-archive+warn | >600 BLOCK (too many active tasks)
+if [ -f "TASKS.md" ]; then
+  _tasks_lines=$(wc -l < "TASKS.md")
+  if [ "$_tasks_lines" -gt 600 ]; then
+    echo "❌ TASKS.md has $_tasks_lines lines — too many active tasks (max 600 even after archiving)."
+    echo "   Prioritize or delete tasks before committing."
+    exit 1
+  elif [ "$_tasks_lines" -gt 490 ]; then
+    echo "  ⚠️  TASKS.md has $_tasks_lines lines — auto-archiving completed tasks..."
+    bash scripts/archive-tasks.sh 2>/dev/null && git add TASKS.md TASKS_ARCHIVE.md 2>/dev/null || true
+    _new_lines=$(wc -l < "TASKS.md")
+    echo "  ✅ TASKS.md: $_tasks_lines → $_new_lines lines (archived to TASKS_ARCHIVE.md)"
+  fi
+fi
+
 check_lines ".windsurfrules" 150 || exit 1
 check_lines ".guarani/PREFERENCES.md" 100 || exit 1
 check_lines "docs/SSOT_REGISTRY.md" 200 || exit 1
