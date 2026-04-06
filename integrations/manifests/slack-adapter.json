@@ -1,0 +1,42 @@
+{
+  "id": "slack-adapter",
+  "channel": "slack",
+  "name": "Slack Integration Adapter",
+  "version": "1.0.0",
+  "owner": "egos-kernel",
+  "status": "stub",
+  "authType": "oauth2",
+  "events": [
+    "message",
+    "app_mention",
+    "channel_created",
+    "member_joined_channel"
+  ],
+  "actions": [
+    "send_message",
+    "create_channel",
+    "invite_user",
+    "get_user_info"
+  ],
+  "documentation": {
+    "ssot": "integrations/_contracts/slack.ts",
+    "setup": "integrations/README.md#slack",
+    "runbook": null
+  },
+  "runtimeProof": [],
+  "distribution": {
+    "kind": "npm",
+    "artifactRef": "integrations/_contracts/slack.ts",
+    "installCommand": null,
+    "envExampleRef": null
+  },
+  "validation": {
+    "smokeCommand": "test -f integrations/_contracts/slack.ts",
+    "evidenceRefs": [
+      "integrations/_contracts/slack.ts",
+      "integrations/README.md"
+    ]
+  },
+  "configSchemaRef": null,
+  "blocker": "Implementation pending - needs OAuth2 app registration and test workspace"
+}

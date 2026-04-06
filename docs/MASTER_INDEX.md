@@ -9,7 +9,7 @@
 ## LLM Reference Signature
 
 - **Role:** Universal SSOT registry for entire EGOS ecosystem
-- **Summary:** 17 repos, 17 agents, 73 scripts, 90.6% coverage — Updated with 2026-04-06 decisions
+- **Summary:** 17 repos, **18 agents**, 73 scripts, 90.6% coverage — Updated with 2026-04-06 decisions
 - **Type:** FIXO — Master SSOT, always authoritative
 - **Read next:**
   - `.guarani/RULES_INDEX.md` — canonical governance entry point
@@ -65,7 +65,7 @@
 | **forja** | candidate | `/home/enio/forja` | B | ✅ Active | CRM/ERP + WhatsApp live |
 | **santiago** | candidate | `/home/enio/santiago` | C | ⚠️ Broken | Vercel deploy blocked |
 | **intelink** | candidate | `/home/enio/INTELINK` | C | ❌ Dormant | 128 days stale |
-| **commons** | candidate | `/home/enio/commons` | D | ❌ Empty | Only .claude/ folder |
+| **commons** | candidate | `/home/enio/commons` | C | ⚠️ Empty | AGENTS.md + TASKS.md created 2026-04-06 |
 | **policia** | lab | `/home/enio/policia` | C | ✅ Active | DHPP workspace |
 | **INPI** | candidate | `/home/enio/INPI` | C | ? | Needs verification |
 | **smartbuscas** | lab | `/home/enio/smartbuscas` | C | ⚠️ Rebrowser | Cloudflare bypass migration |
@@ -85,9 +85,9 @@ Per COMPLETE_REPO_INVENTORY_2026-04-03.md:
 
 ---
 
-## 🤖 Agent Registry (17 Agents)
+## 🤖 Agent Registry (18 Agents)
 
-### Active Agents (15)
+### Active Agents (16)
 
 | # | Agent ID | Entrypoint | Status | Last Verified |
 |---|----------|------------|--------|---------------|
@@ -106,21 +106,14 @@ Per COMPLETE_REPO_INVENTORY_2026-04-03.md:
 | 13 | kol-discovery | `scripts/kol-discovery.ts` | ✅ | 2026-04-06 |
 | 14 | gem-hunter-api | `agents/api/gem-hunter-server.ts` | ✅ | 2026-04-06 |
 | 15 | wiki-compiler | `agents/agents/wiki-compiler.ts` | ✅ | 2026-04-06 |
+| 16 | **agent-validator** | `agents/agents/agent-validator.ts` | ✅ **NEW** | 2026-04-06 |
 
 ### Dead Agents (2)
 
-| Agent ID | Entrypoint | Death Reason |
-|----------|------------|--------------|
-| chatbot-compliance-checker | `agents/agents/chatbot-compliance-checker.ts` | prove-or-kill: no implementation |
-| gtm-harvester | `agents/agents/gtm-harvester.ts` | hangs on --dry, no rate limiting |
-
-### Missing from Registry (1)
-
-| Agent ID | Entrypoint | Status |
-|----------|------------|--------|
-| **agent-validator** | `agents/agents/agent-validator.ts` | ⚠️ EXISTS but NOT in agents.json |
-
-**Action Required:** Register agent-validator.ts in agents.json (HQ-001)
+| # | Agent ID | Entrypoint | Death Reason |
+|---|----------|------------|--------------|
+| 1 | chatbot-compliance-checker | `agents/agents/chatbot-compliance-checker.ts` | prove-or-kill: no implementation |
+| 2 | gtm-harvester | `agents/agents/gtm-harvester.ts` | hangs on --dry, no rate limiting |
 
 ---
 
@@ -200,22 +193,22 @@ Per COMPLETE_REPO_INVENTORY_2026-04-03.md:
 | 7 | firecrawl | ✅ Installed | 2026-04-06 | — |
 | 8 | brave-search | ✅ Installed | 2026-04-06 | — |
 | 9 | playwright | ✅ Installed | 2026-04-06 | — |
-| 10 | obsidian | ⏳ Pending | — | Needs vault path |
-| 11 | stripe | ⏳ Pending | — | Needs secret key |
+| 10 | obsidian | ⏳ Pending | — | Needs vault path from Enio |
+| 11 | stripe | ⏳ Pending | — | Needs Stripe secret key (VPS only) |
 | 12 | telegram | ⏳ Pending | — | Needs bot token |
 
 ### Integration Contracts (6 Adapters)
 
 | Adapter | Contract | Implementation | Manifest |
 |---------|----------|----------------|----------|
-| Slack | `slack.ts` | Stub | ⏳ Needed |
-| Discord | `discord.ts` | Stub | ⏳ Needed |
-| Telegram | `telegram.ts` | Stub | ⏳ Needed |
-| WhatsApp | `whatsapp.ts` | ✅ Forja | ⏳ Needed |
-| Webhook | `webhook.ts` | Stub | ⏳ Needed |
-| GitHub | `github.ts` | Stub | ⏳ Needed |
+| Slack | `slack.ts` | Stub | ⚠️ Stub manifest | HQC-007 stub created |
+| Discord | `discord.ts` | Stub | ⚠️ Stub manifest | HQC-007 stub created |
+| Telegram | `telegram.ts` | Stub | ⚠️ Stub manifest | HQC-007 stub created |
+| WhatsApp | `whatsapp.ts` | ✅ Forja | ✅ whatsapp-runtime.json | Validated |
+| Webhook | `webhook.ts` | Stub | ⚠️ Stub manifest | HQC-007 stub created |
+| GitHub | `github.ts` | Stub | ⚠️ Stub manifest | HQC-007 stub created |
 
-**Action Required:** Create manifests for all 6 adapters (HQ-004)
+**Action Required:** Implement adapters to move from stub → validated (future sprint)
 
 ### VPS Services (Hetzner 204.168.217.125)
 
@@ -232,7 +225,7 @@ Per COMPLETE_REPO_INVENTORY_2026-04-03.md:
 
 ## 📊 Task Consolidation (From All TASKS.md Files)
 
-### egos/TASKS.md (v2.42.0) — current kernel snapshot
+### egos/TASKS.md (v2.44.0) — current kernel snapshot
 
 **Active P0 Tasks:**
 - EGOS-163: Pix billing integration
@@ -243,9 +236,10 @@ Per COMPLETE_REPO_INVENTORY_2026-04-03.md:
 - GTM-002: X.com showcase thread
 - GTM-009: LinkedIn post
 - M-007: 5 outreach emails to DPOs
-- HQ-000..HQ-010: Dashboard v2 (pending)
+- HQC-001..HQC-006: HQ truth normalization + `/start` evidence
 
 **Documentation + governance snapshot:**
+- HQV2-000..HQV2-010: Dashboard v2 implementation track (mounted data + API routes + pages)
 - SD-001..SD-019: Self-Discovery planning with explicit dependencies and named rollout gates
 - GOV-001..GOV-007: governance mesh cleanup backlog (Claude adapter, workflows, skills, mirror, repo mesh)
 
@@ -256,12 +250,14 @@ Per COMPLETE_REPO_INVENTORY_2026-04-03.md:
 - EGOS-173: CRCDM llmrefs hooks
 - KB-017: Auto-learning from git commits
 - DC-004: Intelligence-engine.ts
+- HQC-007..HQC-012: HQ wiring + contracts + anti-hardcode data flow
 - OC-006..OC-023: OpenClaw roadmap
 
 **Active P2 Tasks:**
 - GH-013..GH-024: Pair studies (OpenHands, LangGraph, etc.)
 - WM-001..WM-016: World Model enhancements
 - X-009..X-013: X.com automation expansion
+- HQC-013..HQC-015: ecosystem consolidation + archive cleanup
 
 ### egos-lab/TASKS.md (141 lines — Compressed)
 
@@ -317,7 +313,7 @@ Per COMPLETE_REPO_INVENTORY_2026-04-03.md:
 |---------|-------------|-----------|--------|
 | Brand guide | `egos/docs/KERNEL_MISSION_CONTROL.md` | `egos-lab/branding/BRAND_GUIDE.md` | ⚠️ CONFLICTED (EGOS-132) |
 | Shared packages | Kernel canonical | Lab deprecated | Migration in progress |
-| SSOT pointers | Required in all repos | Missing in 6 repos | HQ-003 needed |
+| SSOT pointers | Required in all repos | Missing in 6 repos | HQC-004 needed |
 
 ---
 
@@ -439,8 +435,7 @@ Per COMPLETE_REPO_INVENTORY_2026-04-03.md:
 | Task ID | Repo | Description | Owner | Blocker |
 |---------|------|-------------|-------|---------|
 | **ADMIN-SECURITY-001** | carteira-livre | 14 admin pages without auth checks | carteira-livre | CRITICAL SECURITY |
-| **HQ-001** | egos | Register agent-validator.ts in agents.json | kernel | Validation gap |
-| **HQ-002** | egos | Create AGENTS.md + TASKS.md for commons | kernel | Grade D repo |
+| **HQC-003** | egos | Create AGENTS.md + TASKS.md for commons | kernel | Grade D repo |
 | **INC-001** | egos | Investigate scheduled agent force-push | kernel | Git safety |
 | **EGOS-158** | egos | Publish @egosbr/guard-brasil to npm | kernel | Auth/publish |
 | **M-007** | egos | Send 5 outreach emails to DPOs | kernel | GTM blocker |
@@ -457,7 +452,7 @@ Per COMPLETE_REPO_INVENTORY_2026-04-03.md:
 | **TASK-002** | br-acc | Neo4j memory upgrade + optimization | TASK-001 complete |
 | **FORJA-003** | forja | Auth multi-tenant + RLS | Security |
 | **LAB-SHARED-001** | egos-lab | Migrate 4 apps to @egos/shared | Deprecation |
-| **HQ-006..HQ-010** | egos | OpenClaw + MCP + Dashboard v2 | Integration |
+| **HQC-008..HQC-012 + HQV2-000..010** | egos | MCP + OpenClaw + Dashboard v2 | Integration |
 
 ---
 

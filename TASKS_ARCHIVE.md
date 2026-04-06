@@ -86,3 +86,12 @@
 - [x] DOC-002: Align `README.md`, `CONTRIBUTING.md`, `SYSTEM_MAP.md`, `MASTER_INDEX.md`, `SSOT_REGISTRY.md`
 - [x] DOC-003: Align `EXECUTIVE_SUMMARY_DECISION_MATRIX.md`, `INVESTIGATION_FINAL_SUMMARY.md`, `ARCHIVE_GEMS_CATALOG.md`, `docs/_investigations/DISCONNECTED_SYSTEMS_ANALYSIS.md`
 - [x] DOC-004: Run `bun run governance:sync:exec` + `bun run governance:check` (drift 0)
+
+## Archived 2026-04-06 (6 tasks)
+
+- [x] **HQC-001**: Normalize HQ task namespace — keep `HQ-*` for ecosystem backlog and move dashboard implementation track to `HQV2-*`
+- [x] **HQC-002**: Register `agent-validator.ts` in `agents.json` and wire `validation.json` as HQ truth source — **DONE 2026-04-06** (18 agents verified, 0 ghosts)
+- [x] **HQC-003**: Create `AGENTS.md` + `TASKS.md` for `commons/` — **DONE 2026-04-06** (Grade D→C, minimum viable governance)
+- [x] **HQC-005**: Refresh `MASTER_INDEX.md` from live evidence — split verified vs inferred claims and sync task/integration snapshots — **DONE 2026-04-06** (18 agents, validated registry)
+- [x] **HQC-006**: Execute `/start` evidence matrix for kernel + leaf repos + VPS + MCP + OpenClaw + key APIs with explicit pass/warn/fail — **DONE 2026-04-06** (see `docs/_investigations/START_EVIDENCE_MATRIX_2026-04-06.md`)
+- [x] **HQC-007**: Create manifests for 6 integration adapters — **DONE 2026-04-06** (1 validated: whatsapp; 5 stubs: slack, discord, telegram, webhook, github — see `integrations/manifests/`)

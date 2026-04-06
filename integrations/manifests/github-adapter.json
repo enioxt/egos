@@ -1,0 +1,42 @@
+{
+  "id": "github-adapter",
+  "channel": "github",
+  "name": "GitHub Integration Adapter",
+  "version": "1.0.0",
+  "owner": "egos-kernel",
+  "status": "stub",
+  "authType": "github-app",
+  "events": [
+    "push",
+    "pull_request",
+    "issue",
+    "workflow_run"
+  ],
+  "actions": [
+    "create_pr",
+    "merge_pr",
+    "create_issue",
+    "trigger_workflow"
+  ],
+  "documentation": {
+    "ssot": "integrations/_contracts/github.ts",
+    "setup": "integrations/README.md#github",
+    "runbook": null
+  },
+  "runtimeProof": [],
+  "distribution": {
+    "kind": "npm",
+    "artifactRef": "integrations/_contracts/github.ts",
+    "installCommand": null,
+    "envExampleRef": null
+  },
+  "validation": {
+    "smokeCommand": "test -f integrations/_contracts/github.ts",
+    "evidenceRefs": [
+      "integrations/_contracts/github.ts",
+      "integrations/README.md"
+    ]
+  },
+  "configSchemaRef": null,
+  "blocker": "Implementation pending - needs GitHub App registration and webhook endpoint"
+}

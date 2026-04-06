@@ -1,0 +1,41 @@
+{
+  "id": "telegram-adapter",
+  "channel": "telegram",
+  "name": "Telegram Bot Adapter",
+  "version": "1.0.0",
+  "owner": "egos-kernel",
+  "status": "stub",
+  "authType": "bot-token",
+  "events": [
+    "message",
+    "callback_query",
+    "chat_member"
+  ],
+  "actions": [
+    "send_message",
+    "send_photo",
+    "answer_callback_query",
+    "get_chat_info"
+  ],
+  "documentation": {
+    "ssot": "integrations/_contracts/telegram.ts",
+    "setup": "integrations/README.md#telegram",
+    "runbook": null
+  },
+  "runtimeProof": [],
+  "distribution": {
+    "kind": "npm",
+    "artifactRef": "integrations/_contracts/telegram.ts",
+    "installCommand": null,
+    "envExampleRef": null
+  },
+  "validation": {
+    "smokeCommand": "test -f integrations/_contracts/telegram.ts",
+    "evidenceRefs": [
+      "integrations/_contracts/telegram.ts",
+      "integrations/README.md"
+    ]
+  },
+  "configSchemaRef": null,
+  "blocker": "Implementation pending - needs Telegram bot token (@BotFather) and test channel"
+}

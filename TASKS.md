@@ -32,38 +32,35 @@
 
 ---
 
-### HQ Dashboard + Master Index (2026-04-06)
-**SSOT:** `docs/MASTER_INDEX.md` | **Context:** Universal registry of all EGOS resources
+### HQ Completion Program (2026-04-06)
+**SSOT:** `docs/MASTER_INDEX.md` + `docs/SSOT_REGISTRY.md` + `docs/SYSTEM_MAP.md`
+**Goal:** HQ becomes the non-hardcoded control plane for verified ecosystem reality.
 
-**P0 — Critical Gaps:**
-- [ ] **HQ-001**: Register `agent-validator.ts` in `agents.json` — agent exists but not in registry (4-point validation gap)
-- [ ] **HQ-002**: Create `AGENTS.md` + `TASKS.md` for `commons/` repo — currently Grade D (only .claude/ folder)
-- [ ] **HQ-003**: Add SSOT_REGISTRY pointers to repos 852, br-acc, carteira-livre — upgrade Grade C→A
-- [ ] **HQ-004**: Create integration manifests for 6 adapters (slack, discord, telegram, whatsapp, webhook, github)
-- [ ] **HQ-005**: Build `intelligence-engine.ts` for Dream Cycle Phase 2 (DC-004 dependency)
+**P0 — Truth normalization + /start evidence:**
+- [ ] **HQC-004**: Add kernel SSOT pointers to `852`, `br-acc`, `carteira-livre`, `forja`, `egos-lab`; audit `policia`, `INPI`, `commons`
 
-**P1 — Integration:**
-- [ ] **HQ-006**: Configure OpenClaw Telegram/WhatsApp channels (OC-006..OC-008)
-- [ ] **HQ-007**: Complete MCP global setup (obsidian, stripe, telegram pending)
-- [ ] **HQ-008**: Build `@egosbr/guard-brasil-mcp` for OpenClaw marketplace
-- [ ] **HQ-009**: Complete HQ Dashboard v2 (volume mounts + 5 API routes)
-- [ ] **HQ-010**: Fix HARVEST.md deduplication (KB-019)
+**P1 — Wiring + contracts:**
+- [ ] **HQC-008**: Complete MCP setup gaps (obsidian, stripe, telegram) and make HQ consume installation truth
+- [ ] **HQC-009**: Build `@egosbr/guard-brasil-mcp` and register OpenClaw/ClawHub path
+- [ ] **HQC-010**: Configure OpenClaw Gateway / WhatsApp / Telegram path without duplicated orchestration
+- [ ] **HQC-011**: Remove hardcoded HQ data dependencies and drive HQ from canonical registries (`TASKS.md`, `agents.json`, `validation.json`, `CAPABILITY_REGISTRY.md`, `MASTER_INDEX.md`)
+- [ ] **HQC-012**: Build `intelligence-engine.ts` and connect Dream Cycle outputs to HQ
 
-**P2 — Archive:**
-- [ ] **HQ-011**: Archive 11 dormant repos per COMPLETE_REPO_INVENTORY_2026-04-03.md
-- [ ] **HQ-012**: Complete Santiago fix-or-kill decision
-- [ ] **HQ-013**: Consolidate egos-lab → kernel migration (LAB-ARCHIVE-001..006)
+**P2 — Ecosystem consolidation:**
+- [ ] **HQC-013**: Fix HARVEST/KB dedup and freshness so HQ can trust knowledge surfaces
+- [ ] **HQC-014**: Archive 11 dormant repos and close Santiago fix-or-kill
+- [ ] **HQC-015**: Execute egos-lab kernel consolidation wave (`LAB-ARCHIVE-001..006`)
 
 ---
 
 ### Neural Mesh + Telemetry — DONE (2026-04-01)
-EGOS-167/168/175, GH-040..042, EGOS-TELEM-001..005 — all DONE ✅. codebase-memory-mcp (51K nodes), llmrefs (15 docs), SSOT gate, smoke tests, version lock, full telemetry (5 layers). See git log.
+EGOS-167/168/175, GH-040..042, EGOS-TELEM-001..005 — all DONE . codebase-memory-mcp (51K nodes), llmrefs (15 docs), SSOT gate, smoke tests, version lock, full telemetry (5 layers). See git log.
 
 ---
 
 ### EGOS Knowledge System — Karpathy LLM Wiki (2026-04-05)
 
-**Pattern:** 3-layer (raw sources → compiled wiki → schema). Supabase-backed, API-served, agent-compiled.
+**Pattern:** 3-layer (raw sources compiled wiki schema). Supabase-backed, API-served, agent-compiled.
 **Agent:** `agents/agents/wiki-compiler.ts` | **API:** `apps/egos-gateway/src/channels/knowledge.ts`
 **Supabase tables:** `egos_wiki_pages` (50 pages), `egos_learnings`, `egos_wiki_changelog`
 
@@ -83,7 +80,7 @@ EGOS-167/168/175, GH-040..042, EGOS-TELEM-001..005 — all DONE ✅. codebase-me
 
 ---
 
-### Session Initialization v6.0 ✅ LIVE (2026-04-02)
+### Session Initialization v6.0 LIVE (2026-04-02)
 START-001..005 DONE (parallel diagnostics 22s, CI, pre-commit). Design: `docs/SESSION_INITIALIZATION_v6.md`
 
 **Pending (P1):**
@@ -97,10 +94,9 @@ START-001..005 DONE (parallel diagnostics 22s, CI, pre-commit). Design: `docs/SE
 
 All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 
-
 ---
 
-### Eagle Eye — OSINT Licitações ✅ LIVE
+### Eagle Eye — OSINT Licitações LIVE
 **eagleeye.egos.ia.br** | 84 territories | 121 opportunities | daily cron 9am BRT
 **Done (EAGLE-000..023):** standalone Docker, Supabase 6 tables, 26 detection patterns, Telegram alerts, PNCP enrichment, 80 territories seeded, integrador 70/30 channel doc, daily cron, real pipeline (36 opps R$10.5M).
 - [ ] EAGLE-009: Stripe/Pix for Pro tier (R$497/mo)
@@ -111,13 +107,13 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 
 ---
 
-### Gem Hunter v6 — Research Discovery Engine ✅ LIVE
+### Gem Hunter v6 — Research Discovery Engine LIVE
 **CCR:** seg+qui 2h37 BRT | **Standalone API:** port 3097 | **npm:** @egosbr/gem-hunter v6.0.0
 **Done (GH-001..066):** /study+/study-end skills, pair studies (Continue 71/100, Aider 74/100, Cline 72.8/100), PWC pipeline, Papers Without Code, KOL discovery, Telegram+Discord alerts, BRAID GRD, X-reply-bot (VPS hourly cron), ArchitectureSelector, cost-tracker, world-model signals, gem-hunter-server API, pricing.ts, Gateway /gem-hunter channel.
 
 **Active — Pair Studies Queue:**
-- [ ] GH-013: EGOS ↔ OpenHands | GH-014: ↔ LangGraph | GH-015: ↔ OpenAI Agents SDK | GH-016: ↔ LiteLLM | GH-017: ↔ Langfuse
-- [ ] GH-020: ↔ Mem0 | GH-021: ↔ Temporal | GH-022: ↔ Haystack | GH-023: ↔ DSPy | GH-036: OpenHarness adapter
+- [ ] GH-013: EGOS OpenHands | GH-014: EGOS LangGraph | GH-015: EGOS OpenAI Agents SDK | GH-016: EGOS LiteLLM | GH-017: EGOS Langfuse
+- [ ] GH-020: EGOS Mem0 | GH-021: EGOS Temporal | GH-022: EGOS Haystack | GH-023: EGOS DSPy | GH-036: OpenHarness adapter
 
 **Active — Product:**
 - [ ] GH-025: `/pr` workflow + GitHub App (pre-merge gate)
@@ -134,11 +130,11 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 **Gem Hunter CCR:**
 
 **P1 — Reference Repo Study Queue (priority order):**
-- [ ] GH-013: EGOS ↔ OpenHands (`OpenHands/OpenHands`) — full software agent SDK/CLI/GUI
-- [ ] GH-014: EGOS ↔ LangGraph (`langchain-ai/langgraph`) — stateful long-running agents, durable execution
-- [ ] GH-015: EGOS ↔ OpenAI Agents SDK (`openai/openai-agents-python`) — handoffs, guardrails, tracing
-- [ ] GH-016: EGOS ↔ LiteLLM (`BerriAI/litellm`) — multi-model proxy, cost tracking, routing
-- [ ] GH-017: EGOS ↔ Langfuse (`langfuse/langfuse`) — observability, prompt versioning, evals
+- [ ] GH-013: EGOS OpenHands (`OpenHands/OpenHands`) — full software agent SDK/CLI/GUI
+- [ ] GH-014: EGOS LangGraph (`langchain-ai/langgraph`) — stateful long-running agents, durable execution
+- [ ] GH-015: EGOS OpenAI Agents SDK (`openai/openai-agents-python`) — handoffs, guardrails, tracing
+- [ ] GH-016: EGOS LiteLLM (`BerriAI/litellm`) — multi-model proxy, cost tracking, routing
+- [ ] GH-017: EGOS Langfuse (`langfuse/langfuse`) — observability, prompt versioning, evals
 
 **Aider study done (GH-031..039):** pre-edit-safety hook, CLAUDE.md §13 model guide, OpenHarness early-warning, Telegram gem alerts, BRAID Mode GRD, x-reply-bot VPS cron. Details: git log.
 - [ ] GH-032: EGOS edit benchmark (SWE-Bench inspired, 20 tasks)
@@ -155,10 +151,10 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - SSOT: docs/gem-hunter/GEM_HUNTER_PRODUCT.md
 
 **P2 — Advanced Studies:**
-- [ ] GH-020: EGOS ↔ Mem0 — persistent agent memory layer
-- [ ] GH-021: EGOS ↔ Temporal TS SDK — durable workflow engine
-- [ ] GH-022: EGOS ↔ Haystack — RAG/retrieval/context engineering
-- [ ] GH-023: EGOS ↔ DSPy — programmatic prompt optimization
+- [ ] GH-020: EGOS Mem0 — persistent agent memory layer
+- [ ] GH-021: EGOS Temporal TS SDK — durable workflow engine
+- [ ] GH-022: EGOS Haystack — RAG/retrieval/context engineering
+- [ ] GH-023: EGOS DSPy — programmatic prompt optimization
 - [ ] GH-024: Lego Assembler agent — consumes `.md` SSOT blocks from discovery engine
 
 ---
@@ -194,7 +190,7 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 
 ### Block Intelligence Model — EGOS as Mini-AGI (2026-04-01)
 
-**Done (4/4 P0):** INTEL-001..004 ✅ (world-model.ts, /start Phase 0, AGENTS.md IC/DRI/Coach, BRAID GRD)
+**Done (4/4 P0):** INTEL-001..004 (world-model.ts, /start Phase 0, AGENTS.md IC/DRI/Coach, BRAID GRD)
 
 **P0 — World Model Foundation (NEW 2026-04-03):**
 - [ ] WM-001: Setup hardware local LLM (Ollama/LM Studio) — instalar Qwen2.5-7B ou Hermes-3-8B na máquina 24GB VRAM
@@ -225,7 +221,7 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 ---
 
 ### Eagle Eye v2 — Decision Intelligence Engine (GenHunter Spec 2026-04-02)
-**Done:** EAGLE-020 spec analyzed, BIZ-001 pricing, EAGLE-GH-001 scoring-service, EAGLE-GH-002 document-parser (78%), EAGLE-GH-005 insight-generator ✅
+**Done:** EAGLE-020 spec analyzed, BIZ-001 pricing, EAGLE-GH-001 scoring-service, EAGLE-GH-002 document-parser (78%), EAGLE-GH-005 insight-generator
 **P0:** EAGLE-GH-003 classification-service, EAGLE-GH-004 extraction-service
 **P1:** EAGLE-GH-006 profile-service, EAGLE-GH-007 feedback-learning, EAGLE-GH-008 REST API v2, EAGLE-GH-009 MCP server, EAGLE-GH-010 Stripe Pix
 **P2:** EAGLE-GH-011..013 dashboard v2, Telegram routing, chatbot NL query
@@ -278,7 +274,7 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 **Karpathy LLM Wiki gist:** Adopted. 3-layer pattern (raw → wiki → schema) is now KB-001..007. **ADOPTED fully.**
 **Fine-tuning próprio (Gemma 2B/Qwen 7B):** VPS has 540MB free RAM, 0 GPU. Fine-tune on Colab is possible but not 90-day focus. WM-001..004 covers dataset prep. **DEFERRED to P2.**
 
-### P23-P24 Sessions (2026-04-05..2026-04-06) — EGOS HQ + Skills Sync — COMPRESSED ✅
+### P23-P24 Sessions (2026-04-05..2026-04-06) — EGOS HQ + Skills Sync — COMPRESSED 
 
 **DONE:** CTRL-001..012 (HQ live, JWT auth, X Monitor, pr-review GH Action, 11 skills), SYNC-001, DEPS-001 (git log shows all items). HQ at hq.egos.ia.br, TLS fixed, Caddy resolved container name issue.
 
@@ -325,26 +321,25 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 ---
 
 ### HQ Dashboard v2 (2026-04-06)
-
 **Goal:** Mission Control shows full system state (tasks, gems, world model, GTM metrics, system map)
 **Prerequisite:** Volume mounts on VPS (data bound to /data/ inside container)
 
 **P0 — Volume mounts (needed for all v2 routes):**
-- [ ] HQ-000: Add Docker volume mounts to VPS docker-compose.yml: TASKS.md, world-model/, gem-hunter/latest-run.json, agents.json, CAPABILITY_REGISTRY.md → /data/*
+- [ ] HQV2-000: Add Docker volume mounts to VPS docker-compose.yml: TASKS.md, world-model/, gem-hunter/latest-run.json, agents.json, CAPABILITY_REGISTRY.md → /data/*
 
 **P1 — API Routes (apps/egos-hq/app/api/hq/):**
-- [ ] HQ-001: `tasks/route.ts` — parse /data/TASKS.md → `{categories, priorities, total, done, pending, p0_stale}`
-- [ ] HQ-002: `world-model/route.ts` — read /data/world-model/current.json → full snapshot (health%, blockers, agents, signals)
-- [ ] HQ-003: `gems/route.ts` — read /data/gem-hunter/latest-run.json → top gems + filters (score, source, category)
-- [ ] HQ-004: `system-map/route.ts` — read /data/agents.json + CAPABILITY_REGISTRY.md → `{nodes, edges}` for D3
-- [ ] HQ-005: `gtm/route.ts` — aggregate: MRR from Supabase, M-007 status, outreach count, pending demos
+- [ ] HQV2-001: `tasks/route.ts` — parse /data/TASKS.md → `{categories, priorities, total, done, pending, p0_stale}`
+- [ ] HQV2-002: `world-model/route.ts` — read /data/world-model/current.json → full snapshot (health%, blockers, agents, signals)
+- [ ] HQV2-003: `gems/route.ts` — read /data/gem-hunter/latest-run.json → top gems + filters (score, source, category)
+- [ ] HQV2-004: `system-map/route.ts` — read /data/agents.json + CAPABILITY_REGISTRY.md → `{nodes, edges}` for D3
+- [ ] HQV2-005: `gtm/route.ts` — aggregate: MRR from Supabase, M-007 status, outreach count, pending demos
 
 **P2 — Dashboard Pages:**
-- [ ] HQ-006: `/tasks` page — Kanban by priority (P0 red, P1 yellow, P2 blue), done/pending counts
-- [ ] HQ-007: `/world-model` page — health% gauge, P0 blocker cards, agent inventory, signal feed
-- [ ] HQ-008: `/gems` page — filterable card grid (score badge, source icon, category color, search)
-- [ ] HQ-009: `/system-map` page — interactive D3 graph (capability domains as nodes, agent edges)
-- [ ] HQ-010: Update nav in hq-layout.tsx with new links (tasks, world-model, gems, system-map, gtm)
+- [ ] HQV2-006: `/tasks` page — Kanban by priority (P0 red, P1 yellow, P2 blue), done/pending counts
+- [ ] HQV2-007: `/world-model` page — health% gauge, P0 blocker cards, agent inventory, signal feed
+- [ ] HQV2-008: `/gems` page — filterable card grid (score badge, source icon, category color, search)
+- [ ] HQV2-009: `/system-map` page — interactive D3 graph (capability domains as nodes, agent edges)
+- [ ] HQV2-010: Update nav in hq-layout.tsx with new links (tasks, world-model, gems, system-map, gtm)
 
 ---
 
@@ -366,7 +361,7 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 **SSOT:** `docs/strategy/DREAM_CYCLE_SSOT.md`
 **Goal:** Wake up to briefed HQ showing all nightly work. LLM cost: $0 (Gemma 4 31B free).
 
-**Phase 1 — Foundation (DONE ✅):**
+**Phase 1 — Foundation (DONE ):**
 
 **Phase 2 — Intelligence (this week):**
 - [ ] DC-004: `agents/agents/intelligence-engine.ts` — reads nightly logs + TASKS.md, uses Gemma 4 31B, writes egos_nightly_reports + auto-creates TASKS entries
@@ -398,7 +393,7 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 
 > **SSOT:** `docs/OPENCLAW_SSOT.md` | **Gateway:** localhost:18789 | **Billing proxy:** localhost:18801
 
-**Current state:** Gateway UP, billing proxy running (subscription=max), Codex proxy port 18802 (gpt-5.4). No channels configured — skeleton install.
+**Current state:** Gateway UP, billing proxy running (subscription:max), Codex proxy port 18802 (gpt-5.4). No channels configured — skeleton install.
 
 **P0 — Curto prazo (esta semana): Base funcional**
 
@@ -474,7 +469,7 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 
 **Graphify patterns (adotar sem instalar a lib):**
 - [ ] **GRF-001 (P2)**: Criar CCR job `graph-report` — usa codebase-memory-mcp query_graph para gerar GRAPH_REPORT.md semanal (god nodes, surprising connections, clusters). Output em `docs/jobs/`.
-- [ ] **GRF-002 (P2)**: Embutir graph.html (vis.js) no HQ como painel "Knowledge Graph" — feed de codebase-memory-mcp export. Parte de HQ-009.
+- [ ] **GRF-002 (P2)**: Embutir graph.html (vis.js) no HQ como painel "Knowledge Graph" — feed de codebase-memory-mcp export. Parte de HQV2-009.
 - [ ] **GRF-003 (P2)**: Adicionar ingestão multimodal ao wiki-compiler: PDFs + papers → Supabase `egos_wiki_pages`. Usa Graphify padrão (PDF→AST→nodes).
 
 **A-Evolve patterns (bookmark pós PMF):**

@@ -1,0 +1,41 @@
+{
+  "id": "discord-adapter",
+  "channel": "discord",
+  "name": "Discord Integration Adapter",
+  "version": "1.0.0",
+  "owner": "egos-kernel",
+  "status": "stub",
+  "authType": "bot-token",
+  "events": [
+    "message",
+    "guild_member_add",
+    "interaction_create"
+  ],
+  "actions": [
+    "send_message",
+    "create_invite",
+    "kick_member",
+    "get_guild_info"
+  ],
+  "documentation": {
+    "ssot": "integrations/_contracts/discord.ts",
+    "setup": "integrations/README.md#discord",
+    "runbook": null
+  },
+  "runtimeProof": [],
+  "distribution": {
+    "kind": "npm",
+    "artifactRef": "integrations/_contracts/discord.ts",
+    "installCommand": null,
+    "envExampleRef": null
+  },
+  "validation": {
+    "smokeCommand": "test -f integrations/_contracts/discord.ts",
+    "evidenceRefs": [
+      "integrations/_contracts/discord.ts",
+      "integrations/README.md"
+    ]
+  },
+  "configSchemaRef": null,
+  "blocker": "Implementation pending - needs Discord bot registration and test server"
+}

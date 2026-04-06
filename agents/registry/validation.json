@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "description": "EGOS Agent Registry Validation Cache — Lightweight provenance for agent existence checks",
-  "lastValidated": "2026-04-03T12:36:42.717Z",
+  "lastValidated": "2026-04-06T22:00:07.328Z",
   "validator": "agent-validator",
   "validationSource": "/home/enio/egos/agents/registry/agents.json",
   "validationMethod": "4-point-check",
@@ -11,7 +11,7 @@
       "entrypoint": "agents/agents/ssot-auditor.ts",
       "status": "active",
       "exists": true,
-      "verifiedAt": "2026-04-03T12:36:42.716Z",
+      "verifiedAt": "2026-04-06T22:00:07.327Z",
       "validationHash": "sha256:c71a31e8835f208a"
     },
     {
@@ -19,7 +19,7 @@
       "entrypoint": "agents/agents/ssot-fixer.ts",
       "status": "active",
       "exists": true,
-      "verifiedAt": "2026-04-03T12:36:42.716Z",
+      "verifiedAt": "2026-04-06T22:00:07.327Z",
       "validationHash": "sha256:488ff353d749da35"
     },
     {
@@ -27,7 +27,7 @@
       "entrypoint": "agents/agents/drift-sentinel.ts",
       "status": "active",
       "exists": true,
-      "verifiedAt": "2026-04-03T12:36:42.716Z",
+      "verifiedAt": "2026-04-06T22:00:07.327Z",
       "validationHash": "sha256:9770892ade71a498"
     },
     {
@@ -35,7 +35,7 @@
       "entrypoint": "agents/agents/dep-auditor.ts",
       "status": "active",
       "exists": true,
-      "verifiedAt": "2026-04-03T12:36:42.716Z",
+      "verifiedAt": "2026-04-06T22:00:07.328Z",
       "validationHash": "sha256:083dd762de9abadd"
     },
     {
@@ -43,7 +43,7 @@
       "entrypoint": "agents/agents/archaeology-digger.ts",
       "status": "active",
       "exists": true,
-      "verifiedAt": "2026-04-03T12:36:42.716Z",
+      "verifiedAt": "2026-04-06T22:00:07.328Z",
       "validationHash": "sha256:d696b376c5309cf0"
     },
     {
@@ -51,7 +51,7 @@
       "entrypoint": "agents/agents/chatbot-compliance-checker.ts",
       "status": "dead",
       "exists": true,
-      "verifiedAt": "2026-04-03T12:36:42.716Z",
+      "verifiedAt": "2026-04-06T22:00:07.328Z",
       "validationHash": "sha256:7189af2cdd3a52d0"
     },
     {
@@ -59,7 +59,7 @@
       "entrypoint": "agents/agents/dead-code-detector.ts",
       "status": "active",
       "exists": true,
-      "verifiedAt": "2026-04-03T12:36:42.717Z",
+      "verifiedAt": "2026-04-06T22:00:07.328Z",
       "validationHash": "sha256:4ec409ab6413cfad"
     },
     {
@@ -67,7 +67,7 @@
       "entrypoint": "agents/agents/capability-drift-checker.ts",
       "status": "active",
       "exists": true,
-      "verifiedAt": "2026-04-03T12:36:42.717Z",
+      "verifiedAt": "2026-04-06T22:00:07.328Z",
       "validationHash": "sha256:e1c25035372bd585"
     },
     {
@@ -75,7 +75,7 @@
       "entrypoint": "agents/agents/context-tracker.ts",
       "status": "active",
       "exists": true,
-      "verifiedAt": "2026-04-03T12:36:42.717Z",
+      "verifiedAt": "2026-04-06T22:00:07.328Z",
       "validationHash": "sha256:71e7fe61db9396f2"
     },
     {
@@ -83,7 +83,7 @@
       "entrypoint": "agents/agents/gtm-harvester.ts",
       "status": "dead",
       "exists": true,
-      "verifiedAt": "2026-04-03T12:36:42.717Z",
+      "verifiedAt": "2026-04-06T22:00:07.328Z",
       "validationHash": "sha256:a47ee8595ce2f968"
     },
     {
@@ -91,7 +91,7 @@
       "entrypoint": "agents/agents/framework-benchmarker.ts",
       "status": "active",
       "exists": true,
-      "verifiedAt": "2026-04-03T12:36:42.717Z",
+      "verifiedAt": "2026-04-06T22:00:07.328Z",
       "validationHash": "sha256:2d9144e7f73a33cb"
     },
     {
@@ -99,7 +99,7 @@
       "entrypoint": "agents/agents/mcp-router.ts",
       "status": "active",
       "exists": true,
-      "verifiedAt": "2026-04-03T12:36:42.717Z",
+      "verifiedAt": "2026-04-06T22:00:07.328Z",
       "validationHash": "sha256:92bacbb9f4eabb74"
     },
     {
@@ -107,7 +107,7 @@
       "entrypoint": "agents/agents/spec-router.ts",
       "status": "active",
       "exists": true,
-      "verifiedAt": "2026-04-03T12:36:42.717Z",
+      "verifiedAt": "2026-04-06T22:00:07.328Z",
       "validationHash": "sha256:45142120b298b8e4"
     },
     {
@@ -115,7 +115,7 @@
       "entrypoint": "agents/agents/gem-hunter.ts",
       "status": "active",
       "exists": true,
-      "verifiedAt": "2026-04-03T12:36:42.717Z",
+      "verifiedAt": "2026-04-06T22:00:07.328Z",
       "validationHash": "sha256:b0e34eebc697f7e5"
     },
     {
@@ -123,7 +123,7 @@
       "entrypoint": "scripts/kol-discovery.ts",
       "status": "active",
       "exists": true,
-      "verifiedAt": "2026-04-03T12:36:42.717Z",
+      "verifiedAt": "2026-04-06T22:00:07.328Z",
       "validationHash": "sha256:a619408ee98f4412"
     },
     {
@@ -131,16 +131,32 @@
       "entrypoint": "agents/api/gem-hunter-server.ts",
       "status": "active",
       "exists": true,
-      "verifiedAt": "2026-04-03T12:36:42.717Z",
-      "validationHash": "sha256:283076216a9db073"
+      "verifiedAt": "2026-04-06T22:00:07.328Z",
+      "validationHash": "sha256:76fa584db9b165f4"
+    },
+    {
+      "id": "agent-validator",
+      "entrypoint": "agents/agents/agent-validator.ts",
+      "status": "active",
+      "exists": true,
+      "verifiedAt": "2026-04-06T22:00:07.328Z",
+      "validationHash": "sha256:d1d72515d5420673"
+    },
+    {
+      "id": "wiki-compiler",
+      "entrypoint": "agents/agents/wiki-compiler.ts",
+      "status": "active",
+      "exists": true,
+      "verifiedAt": "2026-04-06T22:00:07.328Z",
+      "validationHash": "sha256:fe4c85a0c3e5ea1d"
     }
   ],
   "stats": {
-    "total": 16,
-    "verified": 16,
+    "total": 18,
+    "verified": 18,
     "ghosts": 0,
     "dead": 2,
     "orphanFiles": 0
   },
-  "globalHash": "sha256:47bc4057766b48bc"
+  "globalHash": "sha256:9acf2638ba711205"
 }

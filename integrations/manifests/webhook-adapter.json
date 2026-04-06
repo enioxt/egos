@@ -1,0 +1,38 @@
+{
+  "id": "webhook-adapter",
+  "channel": "webhook",
+  "name": "Generic Webhook Adapter",
+  "version": "1.0.0",
+  "owner": "egos-kernel",
+  "status": "stub",
+  "authType": "hmac-signature",
+  "events": [
+    "webhook_received"
+  ],
+  "actions": [
+    "register_endpoint",
+    "verify_signature",
+    "forward_payload"
+  ],
+  "documentation": {
+    "ssot": "integrations/_contracts/webhook.ts",
+    "setup": "integrations/README.md#webhook",
+    "runbook": null
+  },
+  "runtimeProof": [],
+  "distribution": {
+    "kind": "npm",
+    "artifactRef": "integrations/_contracts/webhook.ts",
+    "installCommand": null,
+    "envExampleRef": null
+  },
+  "validation": {
+    "smokeCommand": "test -f integrations/_contracts/webhook.ts",
+    "evidenceRefs": [
+      "integrations/_contracts/webhook.ts",
+      "integrations/README.md"
+    ]
+  },
+  "configSchemaRef": null,
+  "blocker": "Implementation pending - needs HMAC secret management and endpoint routing"
+}

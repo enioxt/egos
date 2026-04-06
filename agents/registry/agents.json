@@ -2,7 +2,7 @@
   "$schema": "./schema.json",
   "version": "2.2.0",
   "updated": "2026-04-06",
-  "description": "EGOS Kernel Registry v2.1 — kebab-case IDs aligned with filenames and egos-lab convention. 17 entries. v2.2: added approval_level (L0/L1/L2) + signature metadata per INC-001.",
+  "description": "EGOS Kernel Registry v2.1 — kebab-case IDs aligned with filenames and egos-lab convention. 18 entries. v2.2: added approval_level (L0/L1/L2) + signature metadata per INC-001.",
   "agents": [
     {
       "id": "ssot-auditor",
@@ -540,6 +540,43 @@
         "spawn_agent"
       ],
       "approval_level": "L1",
+      "signature": {
+        "enabled": false,
+        "public_key": null,
+        "algorithm": "ed25519",
+        "ledger_table": "agent_actions_ledger"
+      }
+    },
+    {
+      "id": "agent-validator",
+      "name": "Agent Registry Validator",
+      "kind": "tool",
+      "description": "Lightweight validation agent — updates agents/registry/validation.json cache. 4-point check: entrypoint read, file exists, status verified, context validated. Ground truth hierarchy: agents.json (definitions) > validation.json (verification) > drift-sentinel (detector).",
+      "area": "governance",
+      "entrypoint": "agents/agents/agent-validator.ts",
+      "run_modes": [
+        "dry_run",
+        "execute",
+        "check"
+      ],
+      "triggers": [
+        "manual",
+        "on_agents_json_change"
+      ],
+      "tools_allowed": [],
+      "risk_level": "T0",
+      "status": "active",
+      "migrated_from": "egos-native",
+      "owner": "enioxt",
+      "runtime_proof": "bun agents/agents/agent-validator.ts --exec",
+      "telemetry_source": "stdout",
+      "cost_source": "none",
+      "last_duration_ms": null,
+      "loop_mechanism": "none",
+      "side_effects": [
+        "fs_write"
+      ],
+      "approval_level": "L0",
       "signature": {
         "enabled": false,
         "public_key": null,
