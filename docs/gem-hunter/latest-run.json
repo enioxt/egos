@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-04-06T07:11:24.571Z",
+  "reportPath": "/home/runner/work/egos/egos/docs/gem-hunter/gems-2026-04-06.md",
+  "totalGems": 165,
+  "quick": false,
+  "topicFilter": null,
+  "tracks": [
+    "x-signals-public",
+    "early-warning",
+    "governance-plugplay"
+  ],
+  "byCategory": {
+    "early-warning": 22,
+    "mcp-governance-servers": 38,
+    "a2a-agent-cards": 31,
+    "agent-adapters": 29,
+    "agent-marketplaces": 31,
+    "strategic-signals": 14
+  },
+  "bySource": {
+    "github": 23,
+    "x-public": 1,
+    "exa": 74,
+    "hackernews": 13,
+    "npm": 42,
+    "arxiv": 12
+  }
+}

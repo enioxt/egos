@@ -1,0 +1,149 @@
+{
+  "generatedAt": "2026-04-06T07:11:24.560Z",
+  "trendingTerms": [
+    [
+      "score",
+      13
+    ],
+    [
+      "comments",
+      13
+    ],
+    [
+      "issue",
+      12
+    ],
+    [
+      "servers",
+      12
+    ],
+    [
+      "build",
+      12
+    ],
+    [
+      "show",
+      12
+    ],
+    [
+      "agent2agent",
+      11
+    ],
+    [
+      "https",
+      10
+    ],
+    [
+      "guide",
+      10
+    ],
+    [
+      "a2aproject",
+      10
+    ],
+    [
+      "integration",
+      10
+    ],
+    [
+      "community",
+      9
+    ],
+    [
+      "cards",
+      8
+    ],
+    [
+      "polymcp",
+      8
+    ],
+    [
+      "releases",
+      7
+    ],
+    [
+      "json-c",
+      7
+    ],
+    [
+      "http",
+      6
+    ],
+    [
+      "official",
+      6
+    ],
+    [
+      "pulumi",
+      6
+    ],
+    [
+      "infrastructure",
+      6
+    ],
+    [
+      "coding",
+      6
+    ],
+    [
+      "proposal",
+      6
+    ],
+    [
+      "feat",
+      6
+    ],
+    [
+      "autogen",
+      6
+    ],
+    [
+      "logseq",
+      5
+    ],
+    [
+      "powered",
+      5
+    ],
+    [
+      "docs",
+      5
+    ],
+    [
+      "support",
+      5
+    ],
+    [
+      "trust",
+      5
+    ],
+    [
+      "protocols",
+      5
+    ]
+  ],
+  "suggestedQueries": [
+    {
+      "topic": "Emerging: score + comments + issue",
+      "keywords": [
+        "score comments issue",
+        "comments issue servers",
+        "issue servers build"
+      ]
+    },
+    {
+      "topic": "Next-Gen: servers + build + show",
+      "keywords": [
+        "servers build show",
+        "show agent2agent https"
+      ]
+    }
+  ],
+  "totalGemsAnalyzed": 165,
+  "actionBreakdown": {
+    "📋 Create Task": 49,
+    "🗑️ Discard": 9,
+    "📝 Document": 64,
+    "🔍 Evaluate": 43
+  }
+}
