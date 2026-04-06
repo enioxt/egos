@@ -146,6 +146,123 @@ Per COMPLETE_REPO_INVENTORY_2026-04-03.md:
 
 ---
 
+## 🧪 egos-lab Applications (Extended Catalog)
+
+### Eagle Eye — Brazilian Gazette Monitor
+
+| Property | Value |
+|----------|-------|
+| **Path** | `egos-lab/apps/eagle-eye/` |
+| **Status** | ✅ Active (84 territórios, 36 oportunidades) |
+| **Version** | 0.1.0 |
+| **Domain** | eagle-eye.egos.ia.br (planned) |
+| **Description** | Alerta antecipado de licitações de tecnologia para empresas que vendem pro governo |
+
+**Components:**
+- `fetch_gazettes.ts` — Querido Diário API client
+- `analyze_gazette.ts` — AI analysis pipeline (Gemini 2.0 Flash)
+- `idea_patterns.ts` — 26 detection patterns em 3 tiers
+- `territories.ts` — 84 territórios configurados
+- `batch_scan.ts` — Daily batch processing (08:00 UTC)
+- `ui/server.ts` — Bun HTTP server + React frontend
+
+**ICP:** Empresas de software em pregões, consultorias regulatórias, escritórios de direito público
+
+**Revenue Model:** R$99-499/mês por integrador municipal
+
+**Cross-References:**
+- Querido Diário API: https://queridodiario.ok.org.br/
+- PNCP API enrichment: `pncp-client.ts`
+- SSOT: `egos-lab/apps/eagle-eye/README.md`
+- Tasks: EAGLE-000..023 em `egos-lab/TASKS.md`
+
+---
+
+### Gem Hunter — Discovery Engine
+
+| Property | Value |
+|----------|-------|
+| **Agent ID** | AGENT-027 |
+| **Path** | `egos/agents/agents/gem-hunter.ts` |
+| **Status** | ✅ Active (288 gems catalogados) |
+| **Version** | 5.0 |
+| **API** | gemhunter.egos.ia.br:3095/3097 |
+| **Description** | Preference-driven discovery engine for open-source tools, models, papers, frameworks |
+
+**Sources:**
+- GitHub Search API (code + repos)
+- HuggingFace Hub API
+- arXiv API
+- Exa API
+- Reddit (no auth)
+- StackOverflow (no auth)
+- ProductHunt (via Exa)
+
+**Features:**
+- `--lang=typescript` — Filter by language
+- `--license=mit` — Filter by license
+- `--min-stars=100` — Star threshold
+- `--deep` — SSOT Lego atomization
+- `--track=x-signals` — Daily X signals
+- `--history` — SQLite trending (multi-run)
+
+**ICP:** Devs, VCs, aceleradoras, research teams
+
+**Revenue Path:** R$50/mês (100 scans) → R$350 (1k) → Enterprise
+
+**Cross-References:**
+- Dashboard: `gemhunter.egos.ia.br`
+- Telegram: `/hunt`, `/sector`, `/trending` commands
+- API: `agents/api/gem-hunter-server.ts`
+- Tasks: GH-001..071 em `egos/TASKS.md`
+
+---
+
+### Intelink — Knowledge Bridge (Legacy/Dormant)
+
+| Property | Value |
+|----------|-------|
+| **Path** | `/home/enio/INTELINK` |
+| **Status** | ❌ Dormant (128 days stale) |
+| **Type** | Python experiment — knowledge aggregation |
+| **Stack** | FastAPI backend + React frontend |
+
+**Components:**
+- `backend/` — FastAPI Python server
+- `frontend/` — React SPA
+- `docker/` — Docker compose setup
+
+**Note:** Candidate for archive per HQC-014. Migration content to kernel if valuable.
+
+**Cross-References:**
+- Migration notes: `MIGRACAO_EGOS_INTELIGENCIA.md`
+- Archive decision: HQC-014
+
+---
+
+### EGOS Inteligência — Intelligence Hub
+
+| Property | Value |
+|----------|-------|
+| **Path** | `/home/enio/egos-inteligencia` |
+| **Status** | ✅ Active (7,787 lines TASKS.md) |
+| **Type** | Intelligence hub + ETL pipelines |
+| **Stack** | Python ETL + API + Frontend |
+
+**Components:**
+- `etl/` — Data extraction pipelines
+- `api/` — REST API surface
+- `frontend/` — Web interface
+- `scripts/` — Automation scripts
+
+**Status:** Recently created (April 2026) — consolidating intelligence capabilities.
+
+**Cross-References:**
+- Tasks: 7,787 lines in `TASKS.md`
+- AGENTS.md: `/home/enio/egos-inteligencia/AGENTS.md`
+
+---
+
 ## 🔧 Scripts & Tools Catalog
 
 ### Core Scripts (24 in egos/scripts/)
