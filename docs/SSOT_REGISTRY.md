@@ -44,6 +44,7 @@
 | GitHub Actions (kernel) | `egos/.github/workflows/` | enioxt | Kernel CI/CD: `ci.yml`, `publish-npm.yml`, `spec-pipeline.yml` | 2026-03-30 |
 | GitHub Actions (egos-lab) | `egos-lab/.github/workflows/` | enioxt | Lab-specific: eagle-eye-scan, gem-hunter-daily, ssot-drift-check, scorecard | 2026-03-30 |
 | GitHub Actions (br-acc) | `br-acc/.github/workflows/` | enioxt | Leaf-local: bracc-monitor, ci, deploy, publish-release, claude-pr-governor | 2026-03-30 |
+| Monetization & partnership strategy | `egos/docs/business/MONETIZATION_SSOT.md` | enioxt | kernel_canonical; update for ecosystem pricing, partner model, role maps, and founder/partner decisions | 2026-04-06 |
 | Governance rules (.guarani) | `egos/.guarani/` | enioxt | kernel_canonical; propagate via `scripts/governance-sync.sh --exec` | 2026-03-30 |
 | Governance rules (~/.egos) | `~/.egos/guarani/` | enioxt | shared_home; synced from kernel via `governance:sync:exec` | 2026-03-30 |
 | Brand / visual identity | `egos-lab/branding/BRAND_GUIDE.md` (Cyan/Purple/Green, Space Grotesk) | enioxt | CONFLICTED — see EGOS-132 | 2026-03-30 |

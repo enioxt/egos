@@ -241,12 +241,21 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 ### Partnership & Distribution Strategy (2026-04-05)
 
 **Goal:** Find technical + business partners to accelerate Guard Brasil to enterprise scale.
-**SSOT:** `docs/GTM_SSOT.md` (consolidated 2026-04-06 — replaces PARTNERSHIP_STRATEGY, OUTREACH_EMAIL_TEMPLATES, PART002_SOCIAL_POSTS, PART003_LAUNCH_THREAD, M007_OUTREACH_STRATEGY_EMAILS, DISTRIBUTION_PARTNERS_BR)
+**SSOT:** `docs/GTM_SSOT.md` (consolidated 2026-04-06) + `docs/business/MONETIZATION_SSOT.md` (ecosystem partner model v1.1.0 2026-04-06)
 
 **P0 — Immediate (this week):**
 - [ ] PART-001: Publish Guard Brasil on npm + ProductHunt (M-007 emails first)
 - [ ] PART-003: Reach out to 3 DPO/compliance SaaS BR (templates ready: docs/GTM_SSOT.md §5)
 - [ ] PART-004: Submit to Stripe App Marketplace (already on Stripe — low friction)
+- [ ] PART-016: Decide PARTNER-D1: Guard Brasil first partner — co-founder operator vs channel partner (see MONETIZATION_SSOT §16)
+- [ ] PART-017: Schedule 2 calls this week with prospects from Tier A list (MONETIZATION_SSOT §13)
+
+**P0 — Ecosystem Partner Search (new):**
+- [ ] ECO-PART-001: EGOS Inteligência — reach out to 2 due-diligence/govtech boutiques (pilot pitch ready)
+- [ ] ECO-PART-002: Eagle Eye — reach out to 2 procurement/licitações operators (alert pilot ready)
+- [ ] ECO-PART-003: Forja — reach out to 2 industrial ERP/metalworking consultancies (WhatsApp pilot ready)
+- [ ] ECO-PART-004: Prepare 1-page partner brief per P1 product with proof points (MONETIZATION_SSOT §11.1)
+- [ ] ECO-PART-005: Update root AGENTS.md meta-docs list to include MONETIZATION_SSOT.md read order
 
 **P1 — Distribution Partners:**
 - [ ] PART-005: Nuvemshop / VTEX app store integration (e-commerce PII protection)

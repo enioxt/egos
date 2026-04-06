@@ -195,4 +195,5 @@ Canonical repo workflows live in `.windsurf/workflows/`: start, end, pre, prompt
 - `README.md` — public entry | `docs/MASTER_INDEX.md` — ecosystem inventory
 - `docs/SSOT_REGISTRY.md` — ownership contract | `docs/SYSTEM_MAP.md` — activation order
 - `docs/INFRASTRUCTURE_ARCHIVE_AUDIT.md` — runtime topology, jobs, and VPS ownership boundaries
+- `docs/business/MONETIZATION_SSOT.md` — ecosystem monetization, partner model, founder-partner fit
 - `TASKS_ARCHIVE.md` — completed tasks archive (companion to TASKS.md)

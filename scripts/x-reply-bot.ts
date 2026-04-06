@@ -41,7 +41,7 @@ function loadState(): DailyState {
     try {
       const s = JSON.parse(readFileSync(STATE_FILE, "utf8")) as DailyState;
       if (s.date === today) return s;
-    } catch {}
+    } catch { }
   }
   return { date: today, replies_sent: 0, replied_to: [] };
 }
@@ -97,6 +97,43 @@ const TOPICS: TopicQuery[] = [
     min_likes: 20,
     link: "https://github.com/enioxt/egos",
   },
+  // LGPD / Compliance / DPO — GTM-001
+  {
+    query: 'LGPD "dados pessoais" "proteção de dados" lang:pt -is:retweet',
+    category: "lgpd_general",
+    our_angle: "Guard Brasil: API gratuita de detecção de PII brasileiro. 15 padrões, 4ms, compliance LGPD.",
+    min_likes: 10,
+    link: "https://guard.egos.ia.br",
+  },
+  {
+    query: 'ANPD fiscalização multa "vazamento de dados" lang:pt -is:retweet',
+    category: "anpd_enforcement",
+    our_angle: "ANPD acelerando fiscalizações em 2026. Guard Brasil ajuda a detectar e proteger PII antes que vaze.",
+    min_likes: 15,
+    link: "https://guard.egos.ia.br",
+  },
+  {
+    query: 'DPO "data protection officer" Brasil LGPD lang:pt -is:retweet',
+    category: "dpo_professional",
+    our_angle: "DPOs precisam de ferramentas técnicas para demonstrar compliance à ANPD. Guard Brasil: evidence chain automática.",
+    min_likes: 8,
+    link: "https://guard.egos.ia.br",
+  },
+  {
+    query: '"mascaramento de dados" OR "data masking" Brasil LGPD lang:pt -is:retweet',
+    category: "data_masking",
+    our_angle: "Guard Brasil: masking reversível de PII brasileiro. CPF, CNPJ, RG, MASP — preserva formato, protege dado.",
+    min_likes: 5,
+    link: "https://guard.egos.ia.br",
+  },
+  {
+    query: '"compliance LGPD" API fintech OR healthtech lang:pt -is:retweet',
+    category: "compliance_api",
+    our_angle: "Fintechs e healthtechs processam CPF/RG diariamente. Guard Brasil: SDK npm, 4ms latência, free tier.",
+    min_likes: 10,
+    link: "https://www.npmjs.com/package/@egosbr/guard-brasil",
+  },
+  // Guard Brasil Direct
   {
     query: 'LGPD "PII detection" OR "dados pessoais" API open-source lang:pt -is:retweet',
     category: "guard_brasil",
@@ -104,6 +141,7 @@ const TOPICS: TopicQuery[] = [
     min_likes: 10,
     link: "https://www.npmjs.com/package/@egosbr/guard-brasil",
   },
+  // Eagle Eye / GovTech
   {
     query: '"licitação" API OR "PNCP" dados abertos lang:pt -is:retweet',
     category: "eagle_eye",
@@ -111,6 +149,14 @@ const TOPICS: TopicQuery[] = [
     min_likes: 10,
     link: "https://github.com/enioxt/egos",
   },
+  {
+    query: '"compras governamentais" OR "diário oficial" API dados lang:pt -is:retweet',
+    category: "gov_data",
+    our_angle: "Monitoramento automático de licitações tech em 50+ territórios. Alertas em tempo real para B2G.",
+    min_likes: 8,
+    link: "https://github.com/enioxt/egos",
+  },
+  // Ecosystem
   {
     query: '"agent framework" "open source" release OR launched lang:en -is:retweet',
     category: "ecosystem",
@@ -270,7 +316,7 @@ Reply only with the tweet text, nothing else.`;
       const text = d.choices?.[0]?.message?.content?.trim() ?? "";
       if (text && text.length < 270) return text;
     }
-  } catch (_e) {}
+  } catch (_e) { }
 
   // Fallback
   return `${topic.our_angle.slice(0, 200)}${topic.link ? ` ${topic.link}` : ""}`.slice(0, 270);

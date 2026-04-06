@@ -48,6 +48,7 @@
 5. `DOCUMENTATION_ARCHITECTURE_MAP.md` — document roles and permanence
 6. `SYSTEM_MAP.md` — activation flow
 7. `TASKS.md` — current execution priorities
+8. `docs/business/MONETIZATION_SSOT.md` — ecosystem monetization, partner model, founder-partner fit
 
 ---
 

@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enio Rocha — Equity Partnership</title>
-    <meta name="description" content="161K+ LOC. 7 produtos. 18 meses. 1 pessoa. Equity generosa para parceiros de distribuição.">
+    <title>Enio Rocha — Builder/Researcher Procurando Parceiros de GTM</title>
+    <meta name="description"
+        content="13 produtos em 18 meses. Zero VC. Zero equipe. Código pronto, infra rodando, buscando parceiros para converter construção em receita. Equity generosa.">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         :root {
             --bg-primary: #0a0a0f;
             --bg-secondary: #12121a;
@@ -25,98 +27,99 @@
             --warning: #f59e0b;
             --border: rgba(148, 163, 184, 0.1);
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
         }
-        
+
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 2rem;
         }
-        
+
         /* Hero */
         .hero {
             text-align: center;
             padding: 4rem 0;
             border-bottom: 1px solid var(--border);
         }
-        
+
         .hero h1 {
             font-size: 3rem;
             font-weight: 800;
             background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-light) 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 1rem;
         }
-        
+
         .hero .tagline {
             font-size: 1.5rem;
             color: var(--text-secondary);
             margin-bottom: 2rem;
         }
-        
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 1.5rem;
             margin: 3rem 0;
         }
-        
+
         .stat {
             background: var(--bg-secondary);
             padding: 1.5rem;
             border-radius: 12px;
             border: 1px solid var(--border);
         }
-        
+
         .stat-value {
             font-size: 2.5rem;
             font-weight: 700;
             color: var(--accent-light);
         }
-        
+
         .stat-label {
             font-size: 0.875rem;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
-        
+
         /* Sections */
         section {
             padding: 4rem 0;
             border-bottom: 1px solid var(--border);
         }
-        
+
         h2 {
             font-size: 2rem;
             margin-bottom: 2rem;
             color: var(--text-primary);
         }
-        
+
         h3 {
             font-size: 1.25rem;
             margin: 2rem 0 1rem;
             color: var(--accent-light);
         }
-        
+
         p {
             color: var(--text-secondary);
             margin-bottom: 1rem;
         }
-        
+
         /* Products */
         .products {
             display: grid;
             gap: 1.5rem;
         }
-        
+
         .product {
             background: var(--bg-secondary);
             padding: 2rem;
@@ -124,23 +127,23 @@
             border: 1px solid var(--border);
             transition: border-color 0.2s;
         }
-        
+
         .product:hover {
             border-color: var(--accent);
         }
-        
+
         .product-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 1rem;
         }
-        
+
         .product-name {
             font-size: 1.5rem;
             font-weight: 700;
         }
-        
+
         .product-status {
             font-size: 0.75rem;
             padding: 0.25rem 0.75rem;
@@ -148,17 +151,17 @@
             font-weight: 600;
             text-transform: uppercase;
         }
-        
+
         .status-live {
             background: rgba(34, 197, 94, 0.2);
             color: var(--success);
         }
-        
+
         .status-beta {
             background: rgba(245, 158, 11, 0.2);
             color: var(--warning);
         }
-        
+
         .product-metrics {
             display: flex;
             gap: 2rem;
@@ -166,7 +169,7 @@
             font-size: 0.875rem;
             color: var(--text-muted);
         }
-        
+
         .equity-badge {
             display: inline-block;
             background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
@@ -176,36 +179,36 @@
             font-weight: 600;
             margin-top: 1rem;
         }
-        
+
         /* Differentiators */
         .diff-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
         }
-        
+
         .diff-card {
             background: var(--bg-secondary);
             padding: 1.5rem;
             border-radius: 12px;
             border: 1px solid var(--border);
         }
-        
+
         .diff-card h4 {
             color: var(--accent-light);
             margin-bottom: 0.5rem;
         }
-        
+
         .diff-card p {
             font-size: 0.875rem;
         }
-        
+
         /* CTA */
         .cta-section {
             text-align: center;
             padding: 6rem 0;
         }
-        
+
         .cta-button {
             display: inline-block;
             background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
@@ -217,17 +220,17 @@
             font-size: 1.125rem;
             transition: transform 0.2s, box-shadow 0.2s;
         }
-        
+
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
         }
-        
+
         .cta-email {
             margin-top: 2rem;
             color: var(--text-muted);
         }
-        
+
         /* Footer */
         footer {
             text-align: center;
@@ -235,21 +238,21 @@
             color: var(--text-muted);
             font-size: 0.875rem;
         }
-        
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2rem;
             }
-            
+
             .hero .tagline {
                 font-size: 1.125rem;
             }
-            
+
             .stat-value {
                 font-size: 1.75rem;
             }
-            
+
             .product-header {
                 flex-direction: column;
                 align-items: flex-start;
@@ -258,165 +261,241 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <!-- Hero -->
         <header class="hero">
             <h1>Enio Rocha</h1>
-            <p class="tagline">7 produtos. 161K+ LOC. 18 meses. Solo. Bootstrapped.</p>
-            
+            <p class="tagline">Builder · Researcher · Venture Operator</p>
+
+            <div class="honest-box">
+                <h3>🎯 O Problema Honesto</h3>
+                <p>• Construí 13 produtos em 18 meses — solo, bootstrapped, zero VC</p>
+                <p>• Código pronto, infra rodando, Stripe configurado</p>
+                <p>• <strong>ZERO</strong> clientes pagantes recorrentes hoje</p>
+                <p>• Sou pesquisador/builder — não vendedor</p>
+                <p>• LGPD/compliance se vende com confiança, não com feature list</p>
+            </div>
+
             <div class="stats-grid">
                 <div class="stat">
-                    <div class="stat-value">7</div>
+                    <div class="stat-value">13</div>
                     <div class="stat-label">Produtos</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-value">161K+</div>
-                    <div class="stat-label">Linhas de Código</div>
+                    <div class="stat-value">77M+</div>
+                    <div class="stat-label">Entidades Neo4j</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-value">3</div>
-                    <div class="stat-label">Faturando</div>
+                    <div class="stat-value">288</div>
+                    <div class="stat-label">Gems Descobertas</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-value">R$7M</div>
-                    <div class="stat-label">Valuation</div>
+                    <div class="stat-value">50+</div>
+                    <div class="stat-label">Capabilities</div>
                 </div>
                 <div class="stat">
                     <div class="stat-value">$50</div>
                     <div class="stat-label">Custo AI/mês</div>
                 </div>
             </div>
-            
-            <p style="font-size: 1.125rem; max-width: 600px; margin: 0 auto;">
-                Não estou vendendo produtos. Estou oferecendo <strong>equity generosa</strong> para quem ajude a distribuir, escalar e vender o que já construí.
+
+            <p style="font-size: 1.125rem; max-width: 700px; margin: 2rem auto 0;">
+                Não estou vendendo produtos. Estou oferecendo <strong>equity generosa</strong> (15-35%) para quem ajude
+                a converter código em receita.
             </p>
         </header>
 
         <!-- Products -->
         <section>
-            <h2>🚀 Produtos Prontos para Escala</h2>
-            
+            <h2>🚀 Produtos Prontos para Parceria</h2>
+            <p style="margin-bottom: 2rem;">Cada um com código, infra, proof points. Buscando parceiros de GTM
+                específicos por produto.</p>
+
             <div class="products">
                 <div class="product">
                     <div class="product-header">
                         <span class="product-name">🔐 Guard Brasil</span>
-                        <span class="product-status status-live">MRR Ativo</span>
+                        <span class="product-status status-live">API Live</span>
                     </div>
-                    <p>API de compliance LGPD com PII detection + evidence chain. Enterprise-ready.</p>
+                    <p>Detecção de PII brasileiro para compliance LGPD. 15 padrões nativos, 4ms latência, F1 85.3%.</p>
                     <div class="product-metrics">
-                        <span>47 capabilities</span>
-                        <span>9 tipos de PII</span>
-                        <span>Stripe billing</span>
+                        <span>15 padrões BR</span>
+                        <span>SDK npm</span>
+                        <span>Stripe ativo</span>
                     </div>
-                    <span class="equity-badge">Equity: 20-30%</span>
+                    <span class="equity-badge">Equity: 20-30% · Parceiro: DPO/compliance seller</span>
                 </div>
-                
+
+                <div class="product">
+                    <div class="product-header">
+                        <span class="product-name">🧠 EGOS Inteligência</span>
+                        <span class="product-status status-beta">Merge 98%</span>
+                    </div>
+                    <p>Plataforma de inteligência sobre dados públicos brasileiros. 77M+ entidades Neo4j, OSINT, due
+                        diligence.</p>
+                    <div class="product-metrics">
+                        <span>77M nós</span>
+                        <span>25M relações</span>
+                        <span>46 ETLs</span>
+                    </div>
+                    <span class="equity-badge">Equity: 25-35% · Parceiro: Govtech/due diligence boutique</span>
+                </div>
+
                 <div class="product">
                     <div class="product-header">
                         <span class="product-name">🦅 Eagle Eye</span>
-                        <span class="product-status status-beta">R$10.5M Pipeline</span>
+                        <span class="product-status status-beta">Pipeline Ativo</span>
                     </div>
-                    <p>Monitor de licitações tech em diários oficiais. GovTech B2G.</p>
+                    <p>Monitor de licitações tech em diários oficiais. GovTech B2G. 50+ territórios, alertas em tempo
+                        real.</p>
                     <div class="product-metrics">
-                        <span>15 territórios</span>
-                        <span>26 padrões</span>
-                        <span>$0.01/análise</span>
+                        <span>50+ territórios</span>
+                        <span>AI scanning</span>
+                        <span>MCP ready</span>
                     </div>
-                    <span class="equity-badge">Equity: 25-35%</span>
+                    <span class="equity-badge">Equity: 25-35% · Parceiro: Procurement/licitações operator</span>
                 </div>
-                
+
+                <div class="product">
+                    <div class="product-header">
+                        <span class="product-name">🏭 Forja</span>
+                        <span class="product-status status-beta">WhatsApp Live</span>
+                    </div>
+                    <p>CRM/ERP WhatsApp-native para metalúrgicas e indústrias. Pedidos, orçamentos, estoque via
+                        WhatsApp.</p>
+                    <div class="product-metrics">
+                        <span>WhatsApp API</span>
+                        <span>ERP features</span>
+                        <span>Campo-ready</span>
+                    </div>
+                    <span class="equity-badge">Equity: 20-30% · Parceiro: Industrial ERP seller</span>
+                </div>
+
                 <div class="product">
                     <div class="product-header">
                         <span class="product-name">💎 Gem Hunter</span>
-                        <span class="product-status status-beta">288 Gems</span>
+                        <span class="product-status status-live">288 Gems</span>
                     </div>
-                    <p>Discovery engine AI-powered. Encontra gems antes do hype.</p>
+                    <p>Discovery engine AI-powered. Escaneia GitHub, arXiv, HN, HuggingFace — encontra gems antes do
+                        hype.</p>
                     <div class="product-metrics">
-                        <span>14 fontes</span>
+                        <span>288 findings</span>
                         <span>API + Telegram</span>
-                        <span>DevTools</span>
+                        <span>14 fontes</span>
                     </div>
-                    <span class="equity-badge">Equity: 15-25%</span>
+                    <span class="equity-badge">Equity: 15-25% · Parceiro: DevRel/community builder</span>
+                </div>
+
+                <div class="product">
+                    <div class="product-header">
+                        <span class="product-name">🎓 Carteira Livre</span>
+                        <span class="product-status status-live">Produção</span>
+                    </div>
+                    <p>Marketplace de instrutores de direção. 191 perfis, 234 APIs de veículos. Valuation thesis
+                        documentado.</p>
+                    <div class="product-metrics">
+                        <span>191 instrutores</span>
+                        <span>234 APIs</span>
+                        <span>Marketplace</span>
+                    </div>
+                    <span class="equity-badge">Equity: 15-25% · Parceiro: Growth/marketplace operator</span>
                 </div>
             </div>
         </section>
 
-        <!-- Differentiators -->
+        <!-- What I Bring -->
         <section>
-            <h2>💎 O Que Faço de Diferente</h2>
-            
+            <h2>�️ O Que Eu Trago</h2>
+
             <div class="diff-grid">
                 <div class="diff-card">
-                    <h4>🍄 Arquitetura Micélio</h4>
-                    <p>Não construo apps isolados. Construo ecossistemas onde cada nó pode emancipar-se (Hard Fork).</p>
+                    <h4>⚡ Velocidade de Síntese</h4>
+                    <p>Pego documentação complexa (LGPD, OSINT, procurement) e converto em arquitetura + API + AI em
+                        semanas.</p>
                 </div>
-                
+
                 <div class="diff-card">
-                    <h4>⚡ Custo Impossível</h4>
-                    <p>$50/mês em AI para 7 produtos. Alibaba Qwen + multi-provider fallback. Zero lock-in.</p>
+                    <h4>🇧🇷 Brasil-First Nativo</h4>
+                    <p>CPF, CNPJ, RG, MASP, PIX, LGPD, ANPD — constraints nativas, não features bolted-on.</p>
                 </div>
-                
+
                 <div class="diff-card">
-                    <h4>🛡️ Compliance Nativo</h4>
-                    <p>ATRiAN ethical layer + Guard Brasil PII detection em TODOS os produtos. LGPD by design.</p>
+                    <h4>🎯 Zero-to-One Completo</h4>
+                    <p>Backend Python/FastAPI, frontend Next.js, AI multi-provider, Neo4j, DevOps — todas as camadas.
+                    </p>
                 </div>
-                
+
                 <div class="diff-card">
                     <h4>📊 Governança como Código</h4>
-                    <p>Pre-commit hooks, agents verificadores, SSOT enforcement. Velocity SEM dívida técnica.</p>
+                    <p>Pre-commit hooks, SSOT enforcement, ATRiAN ethical validation. Velocity sem dívida técnica.</p>
                 </div>
-                
+
                 <div class="diff-card">
-                    <h4>🎯 Multi-Modal Solo</h4>
-                    <p>Backend, frontend, AI, DevOps, product, compliance. Todos as camadas. Um dev.</p>
+                    <h4>🔍 Research + Arquitetura</h4>
+                    <p>Conecto dados públicos brasileiros em grafos navegáveis de 77M+ nós.</p>
                 </div>
-                
+
                 <div class="diff-card">
-                    <h4>🇧🇷 Brasil-First</h4>
-                    <p>CPF, CNPJ, PIX, LGPD, ANPD nativo. Enquanto outros usam Stripe USD, eu uso Asaas BRL.</p>
+                    <h4>💰 Custo Impossível</h4>
+                    <p>$50/mês em AI para 13 produtos. Alibaba Qwen + Gemini Flash. Zero lock-in.</p>
                 </div>
             </div>
         </section>
 
         <!-- What I Need -->
         <section>
-            <h2>🤝 O Que Busco em Parceiros</h2>
-            
-            <h3>❌ O Que EU NÃO Faço Bem</h3>
-            <p>• Vendas enterprise</p>
-            <p>• DevRel e comunidade</p>
-            <p>• Marketing e growth</p>
-            <p>• Networking e pitch events</p>
-            
-            <h3>✅ O Que VOCÊ Traz</h3>
-            <p><strong>Distribuição:</strong> Conexões que convertem em vendas</p>
-            <p><strong>Sales:</strong> Pipeline B2B, contatos, closes</p>
-            <p><strong>Growth:</strong> SEO, virality, community building</p>
-            <p><strong>Tempo:</strong> 10-20h/semana para escalar o produto escolhido</p>
-            
-            <h3>🎁 O Que EU Trago</h3>
-            <p><strong>Código 100% pronto:</strong> 161K+ LOC, testado, documentado</p>
-            <p><strong>Infraestrutura:</strong> VPS, domínios, CI/CD rodando</p>
-            <p><strong>Suporte técnico:</strong> Eu mantenho, você vende</p>
-            <p><strong>EGOS Kernel:</strong> Acesso ao micélio de produtos</p>
+            <h2>🤝 O Que Busco</h2>
+
+            <h3>❌ NÃO Faço Bem (e não quero aprender)</h3>
+            <p>• Sales enterprise e follow-up sistemático</p>
+            <p>• DevRel, comunidade, marketing de conteúdo</p>
+            <p>• Networking, pitch events, cold calling</p>
+            <p>• Contratos, procurement, burocracia comercial</p>
+
+            <h3>✅ VOCÊ Traz (parceiro ideal)</h3>
+            <p><strong>Distribuição:</strong> Já tem acesso ao meu ICP (DPOs, govtech, indústria)</p>
+            <p><strong>Conversão:</strong> Sabe vender B2B com confiança, não com feature list</p>
+            <p><strong>Operação:</strong> 10-20h/semana para abrir portas e fechar primeiros clientes</p>
+            <p><strong>Equity mindset:</strong> Confortável com risco e upside, não salário fixo inicial</p>
+
+            <h3>🎁 EU Mantenho (tech owner)</h3>
+            <p>• Arquitetura, código, infra, evolução técnica</p>
+            <p>• Documentação, testes, compliance, segurança</p>
+            <p>• Novos produtos e capacidades (R&D)</p>
+            <p>• Suporte técnico aos primeiros clientes</p>
         </section>
 
         <!-- CTA -->
         <section class="cta-section">
             <h2>Quer construir junto?</h2>
-            <p style="font-size: 1.25rem; margin-bottom: 2rem;">
-                Equity generosa (15-35%) para quem topar o desafio de escalar.<br>
-                Nota de compromisso simples. Vesting 1 ano.
+            <p
+                style="font-size: 1.25rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Código pronto. Infra rodando. Prova de capacidade feita.<br>
+                Só falta alguém que converta construção em receita.
             </p>
-            
+
             <a href="https://twitter.com/anoineim" target="_blank" class="cta-button">
-                Enviar DM no X.com
+                📨 Enviar DM no X.com
             </a>
-            
+            <a href="https://github.com/enioxt/egos" target="_blank" class="cta-secondary">
+                🔍 Ver código no GitHub
+            </a>
+
             <p class="cta-email">
-                Ou email: enio@egos.ia.br
+                📧 enioxt@gmail.com
             </p>
+
+            <div class="social-links">
+                <a href="https://twitter.com/anoineim" target="_blank">X.com</a>
+                <a href="https://github.com/enioxt" target="_blank">GitHub</a>
+                <a href="https://guard.egos.ia.br" target="_blank">Guard Brasil</a>
+            </div>
+
+            <div class="ssot-link">
+                SSOT: docs/business/MONETIZATION_SSOT.md · Atualizado: 2026-04-06
+            </div>
         </section>
 
         <footer>
@@ -427,4 +506,5 @@
         </footer>
     </div>
 </body>
+
 </html>
