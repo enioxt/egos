@@ -237,42 +237,9 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 
 ---
 
-### Block Intelligence Model — EGOS as Mini-AGI (2026-04-01)
-
-**Done (4/4 P0):** INTEL-001..004 (world-model.ts, /start Phase 0, AGENTS.md IC/DRI/Coach, BRAID GRD)
-
-**P0 — World Model Foundation (NEW 2026-04-03):**
-- [ ] WM-001: Setup hardware local LLM (Ollama/LM Studio) — instalar Qwen2.5-7B ou Hermes-3-8B na máquina 24GB VRAM
-- [ ] WM-002: Integrate local LLM to world-model.ts — extender interface para reasoning queries
-- [ ] WM-003: Capability composition suggestions — dada task, sugerir agents/capabilities (embedding similarity)
-- [ ] WM-004: Dataset preparation — coletar tasks + decisions para fine-tuning futuro
-
-**P1 — Signal Layer:**
-- [ ] INTEL-006: Proactive blocker detection — world model scans P0 list → creates TASKS entries if blocker stale > 7 days
-- [ ] INTEL-007: `--mermaid` output from world-model.ts → embed in /start briefing as ASCII architecture snapshot
-
-**P1 — World Model Enhanced (NEW 2026-04-03):**
-- [ ] WM-005: Implement dynamics model (simulação básica — prediz estado futuro dado ação)
-- [ ] WM-006: Causal discovery — aprender relações causa-efeito do histórico EGOS
-- [ ] WM-007: Counterfactual reasoning — "o que teria acontecido se..."
-- [ ] WM-008: Model-predictive control para planning ótimo
-
-**P2 — Full Intelligence:**
-- [ ] INTEL-008: DRI auto-assignment — when P0 task has no commit activity for 3 days, auto-flag + Telegram alert
-- [ ] INTEL-009: Capability composition map — intelligence layer dynamically suggests which agents to invoke for a given task
-- [ ] INTEL-010: World model diff — compare snapshots to detect regression (tasks going from [x] back to [ ])
-
-**SSOT:** `docs/strategy/WORLD_MODEL_SSOT.md` — WM-009..016 safety+ethics+AGI (P3, post-PMF)
-
----
-
-### Eagle Eye v2 — Decision Intelligence Engine (GenHunter Spec 2026-04-02)
-**Done:** EAGLE-020 spec analyzed, BIZ-001 pricing, EAGLE-GH-001 scoring-service, EAGLE-GH-002 document-parser (78%), EAGLE-GH-005 insight-generator
-**P0:** EAGLE-GH-003 classification-service, EAGLE-GH-004 extraction-service
-**P1:** EAGLE-GH-006 profile-service, EAGLE-GH-007 feedback-learning, EAGLE-GH-008 REST API v2, EAGLE-GH-009 MCP server, EAGLE-GH-010 Stripe Pix
-**P2:** EAGLE-GH-011..013 dashboard v2, Telegram routing, chatbot NL query
-**DEADLINE:** EAGLE-023 — R$250k proposal by 2026-04-29
-### P19-P20 Tasks — Active Residual
+### Block Intelligence + Eagle Eye (compressed)
+**WM-001..008:** Local LLM + world model (P2, post-PMF). **INTEL-006..010:** Proactive detection, mermaid, DRI auto-assign (P1-P2). SSOT: `docs/strategy/WORLD_MODEL_SSOT.md`
+**Eagle Eye v2:** EAGLE-GH-001..005 done. P0: GH-003/004 (classification/extraction). Deadline: EAGLE-023 R$250k proposal 2026-04-29.
 - [ ] MONETIZE-011: Deploy v0.2.3 to VPS with STRIPE_METER_ID env var
 - [ ] MONETIZE-012: NOWPayments webhook URL config — ENIO action required
 
