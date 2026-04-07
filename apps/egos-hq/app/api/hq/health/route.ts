@@ -12,12 +12,18 @@ const GUARD_META_URL = process.env.GUARD_BRASIL_URL ?? 'https://guard.egos.ia.br
 const EAGLE_EYE_URL = process.env.EAGLE_EYE_URL ?? 'http://eagle-eye:3001';
 const APP_852_URL = process.env.APP_852_URL ?? 'http://852-app:3000';
 const SINAPI_URL = process.env.SINAPI_URL ?? 'http://egos-sinapi-api:8000';
-const BRACC_URL = process.env.BRACC_URL ?? 'http://bracc-neo4j:7474';
+const BRACC_API_URL = process.env.BRACC_API_URL ?? 'http://bracc-api:8000';
+const BRACC_NEO4J_URL = process.env.BRACC_NEO4J_URL ?? 'http://bracc-neo4j:7474';
 
-async function ping(url: string, label: string) {
+async function ping(url: string, label: string, auth?: { user: string; password: string }) {
   try {
     const start = Date.now();
-    const res = await fetch(url, { signal: AbortSignal.timeout(TIMEOUT) });
+    const headers: Record<string, string> = {};
+    if (auth) {
+      const encoded = Buffer.from(`${auth.user}:${auth.password}`).toString('base64');
+      headers['Authorization'] = `Basic ${encoded}`;
+    }
+    const res = await fetch(url, { signal: AbortSignal.timeout(TIMEOUT), headers });
     const latency = Date.now() - start;
     const data = res.ok ? await res.json().catch(() => ({})) : {};
     return { label, url, ok: res.ok, latency, status: res.status, data };
@@ -34,7 +40,7 @@ export async function GET() {
   // Run all checks in parallel — core + extended services
   const [
     guardHealth, gatewayHealth, openclawHealth, billingProxyHealth, codexProxyHealth,
-    // Extended services (placeholders until HQI-001..008 fully wired)
+    // Extended services (HQI-001..004 wired)
     eagleEyeHealth, app852Health, sinapiHealth, braccHealth,
     // Gateway channel details
     waHealth, tgHealth,
@@ -48,11 +54,11 @@ export async function GET() {
     ping(OPENCLAW_HEALTH_URL, 'OpenClaw Gateway'),
     ping(`${BILLING_PROXY_URL}/health`, 'Billing Proxy (Claude)'),
     ping(`${CODEX_PROXY_URL}/health`, 'Codex Proxy (GPT-5.4)'),
-    // Extended services — HQI-001..004
+    // Extended services — HQI-001..004 (fixed endpoints)
     ping(`${EAGLE_EYE_URL}/api/health`, 'Eagle Eye'),
-    ping(`${APP_852_URL}/api/health`, '852 Police Bot'),
+    ping(`${APP_852_URL}`, '852 Police Bot'), // Next.js app, no dedicated health endpoint, check homepage
     ping(`${SINAPI_URL}/health`, 'SINAPI API'),
-    ping(`${BRACC_URL}/db/data/`, 'br-acc Neo4j'),
+    ping(`${BRACC_API_URL}/health`, 'br-acc API'), // Use bracc-api health, not neo4j directly
     // Gateway channel health — HQI-005
     ping(`${GATEWAY_INTERNAL_URL}/channels/whatsapp/health`, 'WhatsApp Channel'),
     ping(`${GATEWAY_INTERNAL_URL}/telegram/health`, 'Telegram Channel'),

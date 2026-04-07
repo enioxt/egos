@@ -1,0 +1,1320 @@
+- generic [ref=e3]:
+  - generic [ref=e6]:
+    - link "Go to Freelancer homepage" [ref=e8] [cursor=pointer]:
+      - /url: /
+      - img "Freelancer logo" [ref=e11]
+    - generic [ref=e13]:
+      - button "Hire freelancers" [ref=e16] [cursor=pointer]:
+        - img [ref=e18]:
+          - img [ref=e20]
+        - text: Hire freelancers
+      - text:     
+    - generic [ref=e25]:
+      - button "Find work" [ref=e28] [cursor=pointer]:
+        - img [ref=e30]:
+          - img [ref=e32]
+        - text: Find work
+      - text:      
+    - generic [ref=e37]:
+      - button "Solutions" [ref=e40] [cursor=pointer]:
+        - img [ref=e42]:
+          - img [ref=e44]
+        - text: Solutions
+      - text:       
+    - generic [ref=e48]:
+      - link "Log In" [ref=e50] [cursor=pointer]:
+        - /url: /login?next=%2Fprojects%2Fhtml%2Fsenior-mcp-server-engineer-python
+      - link "Sign Up" [ref=e52] [cursor=pointer]:
+        - /url: /signup?next=%2Fprojects%2Fhtml%2Fsenior-mcp-server-engineer-python
+      - link "Post a Project" [ref=e55] [cursor=pointer]:
+        - /url: /post-project
+      - text: 
+  - generic [ref=e61]:
+    - generic [ref=e63]:
+      - list [ref=e66]:
+        - listitem [ref=e67]:
+          - link "Freelancer" [ref=e69] [cursor=pointer]:
+            - /url: /
+          - text: ›
+        - listitem [ref=e70]:
+          - link "Jobs" [ref=e72] [cursor=pointer]:
+            - /url: /job
+          - text: ›
+        - listitem [ref=e73]:
+          - link "HTML" [ref=e75] [cursor=pointer]:
+            - /url: /jobs/html
+          - text: ›
+        - listitem [ref=e76]:
+          - link "Senior MCP Server Engineer – Python/FastAPI or Node.js/TypeScript (AI Agents + Gateway)" [ref=e78] [cursor=pointer]:
+            - /url: /projects/html/senior-mcp-server-engineer-python
+            - paragraph [ref=e80]: Senior MCP Server Engineer – Python/FastAPI or Node.js/TypeScript (AI Agents + Gateway)
+      - generic [ref=e81]:
+        - generic [ref=e82]:
+          - generic [ref=e83]:
+            - heading "Senior MCP Server Engineer – Python/FastAPI or Node.js/TypeScript (AI Agents + Gateway)" [level=1] [ref=e84]
+            - generic [ref=e85]:
+              - paragraph [ref=e91]: Open
+              - paragraph [ref=e92]:
+                - text: Posted
+                - generic [ref=e94]: 7 days ago
+              - paragraph [ref=e95]: •
+              - paragraph [ref=e96]: Ends in 1 day
+          - generic [ref=e97]:
+            - heading "$250-750 USD" [level=2] [ref=e98]
+            - paragraph [ref=e99]: Paid on delivery
+        - paragraph [ref=e100]: "Senior MCP Server Engineer – Python/FastAPI or Node.js/TypeScript (AI Agents + Gateway) We're building a modular AI ecosystem for RWA tokenization, family offices, and automation. Freelance Mission: Design/implement 1 MCP Gateway (routing, JWT auth, rate-limiting, multi-tenant isolation via CLS/Prisma) + 10 custom MCP servers (RWA/assets, investors/clubs, workflows, KYC/KYB, documents x2). Connect to existing backend (Supabase/PostgreSQL APIs) for real data exposure to LLM agents. Prioritize types/ESM-CJS, security (scopes, audit trails). MCP Architecture: Gateway federate servers → seamless access for an LLM orchestrator + external LLMs. Deliverables: Docker-ready code, minimal docs/examples. Profile: Senior Backend MCP/AI expert (Python/FastAPI OR Node/TS). RWA/fintech bonus."
+        - generic [ref=e101]:
+          - link "HTML" [ref=e104] [cursor=pointer]:
+            - /url: /jobs/html
+            - generic [ref=e107]: HTML
+          - link "Node.js" [ref=e110] [cursor=pointer]:
+            - /url: /jobs/nodejs
+            - generic [ref=e113]: Node.js
+          - link "Model Context Protocol (MCP)" [ref=e116] [cursor=pointer]:
+            - /url: /jobs/model-context-protocol
+            - generic [ref=e119]: Model Context Protocol (MCP)
+          - link "Python" [ref=e122] [cursor=pointer]:
+            - /url: /jobs/python
+            - generic [ref=e125]: Python
+          - link "LLM Integration" [ref=e128] [cursor=pointer]:
+            - /url: /jobs/llm-integration
+            - generic [ref=e131]: LLM Integration
+          - link "FastAPI" [ref=e134] [cursor=pointer]:
+            - /url: /jobs/fastapi
+            - generic [ref=e137]: FastAPI
+          - link "AI Development" [ref=e140] [cursor=pointer]:
+            - /url: /jobs/ai-development
+            - generic [ref=e143]: AI Development
+          - link "Backend Development" [ref=e146] [cursor=pointer]:
+            - /url: /jobs/backend-development
+            - generic [ref=e149]: Backend Development
+          - link "AI Agents" [ref=e152] [cursor=pointer]:
+            - /url: /jobs/ai-agents
+            - generic [ref=e155]: AI Agents
+          - link "Security" [ref=e158] [cursor=pointer]:
+            - /url: /jobs/security
+            - generic [ref=e161]: Security
+        - paragraph [ref=e162]: "Project ID: 40339311"
+        - generic [ref=e163]:
+          - heading "About the project" [level=3] [ref=e164]
+          - generic [ref=e165]:
+            - generic [ref=e166]:
+              - img [ref=e167]:
+                - generic [ref=e168]: 
+              - paragraph [ref=e169]: 236 proposals
+            - generic [ref=e170]:
+              - img [ref=e171]:
+                - generic [ref=e172]: 
+              - paragraph [ref=e173]: Open for bidding
+            - generic [ref=e174]:
+              - img [ref=e175]:
+                - generic [ref=e176]: 
+              - paragraph [ref=e177]: Remote project
+            - generic [ref=e178]:
+              - img [ref=e179]:
+                - generic [ref=e180]: 
+              - paragraph [ref=e181]: Active 3 days ago
+        - generic [ref=e182]:
+          - generic [ref=e184]:
+            - heading "Place your bid" [level=3] [ref=e185]
+            - generic [ref=e187]: Bid amount
+            - generic [ref=e190]:
+              - generic [ref=e192]: $
+              - spinbutton [ref=e194]
+              - generic [ref=e196]: USD
+            - generic [ref=e198]: Email address
+            - textbox "jane@freelancer.com" [ref=e203]
+            - button "Bid on the project" [ref=e205] [cursor=pointer]
+          - generic [ref=e206]:
+            - heading "Benefits of bidding on Freelancer" [level=3] [ref=e207]
+            - generic [ref=e208]:
+              - img [ref=e209]:
+                - generic [ref=e210]: 
+              - paragraph [ref=e211]: Set your budget and timeframe
+            - generic [ref=e212]:
+              - img [ref=e213]:
+                - generic [ref=e214]: 
+              - paragraph [ref=e215]: Get paid for your work
+            - generic [ref=e216]:
+              - img [ref=e217]:
+                - generic [ref=e218]: 
+              - paragraph [ref=e219]: Outline your proposal
+            - generic [ref=e220]:
+              - img [ref=e221]:
+                - generic [ref=e222]: 
+              - paragraph [ref=e223]: It's free to sign up and bid on jobs
+      - generic [ref=e224]:
+        - paragraph [ref=e225]: 236 freelancers are bidding on average $535 USD for this job
+        - generic [ref=e227]:
+          - generic [ref=e228]:
+            - link "User Avatar" [ref=e230] [cursor=pointer]:
+              - /url: /u/outsourceman
+              - generic "OutsourceMan" [ref=e233]:
+                - img "User Avatar" [ref=e234]
+            - generic [ref=e235]:
+              - generic [ref=e236]:
+                - generic [ref=e237]:
+                  - link "@OutsourceMan" [ref=e242] [cursor=pointer]:
+                    - /url: /u/outsourceman
+                  - img "Flag of INDIA" [ref=e244]
+                - paragraph [ref=e245]:
+                  - text: Harnessing the power of AI and blockchain to create a transformative ecosystem for RWA tokenization and family offices is no small feat. However, my extensive experience in AI development with proficient knowledge in both Python and Node.js makes me an ideal fit for this project. Having…
+                  - button "more" [ref=e246] [cursor=pointer]
+              - generic [ref=e247]:
+                - paragraph [ref=e248]:
+                  - strong [ref=e249]: $500 USD
+                  - text: in 7 days
+                - generic [ref=e251]:
+                  - 'img "Rating: 4.9 out of 5" [ref=e252]':
+                    - generic [ref=e253]:
+                      - generic [ref=e254]:
+                        - img [ref=e255]
+                        - img [ref=e257]
+                      - generic [ref=e259]:
+                        - img [ref=e260]
+                        - img [ref=e262]
+                      - generic [ref=e264]:
+                        - img [ref=e265]
+                        - img [ref=e267]
+                      - generic [ref=e269]:
+                        - img [ref=e270]
+                        - img [ref=e272]
+                      - generic [ref=e274]:
+                        - img [ref=e275]
+                        - img [ref=e277]
+                  - generic [ref=e279]: "4.9"
+                  - generic [ref=e280]: (380 reviews)
+                - generic [ref=e281]:
+                  - generic [ref=e282]:
+                    - paragraph [ref=e283]: "8.6"
+                    - img [ref=e284]:
+                      - generic [ref=e285]: 
+                  - text: 
+          - generic [ref=e297]:
+            - link "User Avatar" [ref=e299] [cursor=pointer]:
+              - /url: /u/softsolution2000
+              - generic "softsolution2000" [ref=e302]:
+                - img "User Avatar" [ref=e303]
+            - generic [ref=e304]:
+              - generic [ref=e305]:
+                - generic [ref=e306]:
+                  - link "@softsolution2000" [ref=e311] [cursor=pointer]:
+                    - /url: /u/softsolution2000
+                  - img "Flag of PAKISTAN" [ref=e313]
+                - paragraph [ref=e314]:
+                  - text: I am a Senior Backend Engineer with expertise in Python, Node.js, Backend Development, and Security, making me a great match for the Senior MCP Server Engineer – Python/FastAPI or Node.js/TypeScript (AI Agents) project. I am confident in my ability to deliver high-quality…
+                  - button "more" [ref=e315] [cursor=pointer]
+              - generic [ref=e316]:
+                - paragraph [ref=e317]:
+                  - strong [ref=e318]: $675 USD
+                  - text: in 12 days
+                - generic [ref=e320]:
+                  - 'img "Rating: 4.9 out of 5" [ref=e321]':
+                    - generic [ref=e322]:
+                      - generic [ref=e323]:
+                        - img [ref=e324]
+                        - img [ref=e326]
+                      - generic [ref=e328]:
+                        - img [ref=e329]
+                        - img [ref=e331]
+                      - generic [ref=e333]:
+                        - img [ref=e334]
+                        - img [ref=e336]
+                      - generic [ref=e338]:
+                        - img [ref=e339]
+                        - img [ref=e341]
+                      - generic [ref=e343]:
+                        - img [ref=e344]
+                        - img [ref=e346]
+                  - generic [ref=e348]: "4.9"
+                  - generic [ref=e349]: (308 reviews)
+                - generic [ref=e350]:
+                  - generic [ref=e351]:
+                    - paragraph [ref=e352]: "8.4"
+                    - img [ref=e353]:
+                      - generic [ref=e354]: 
+                  - text: 
+          - generic [ref=e366]:
+            - link "User Avatar" [ref=e368] [cursor=pointer]:
+              - /url: /u/ykarora26
+              - generic "ykarora26" [ref=e371]:
+                - img "User Avatar" [ref=e372]
+            - generic [ref=e373]:
+              - generic [ref=e374]:
+                - generic [ref=e375]:
+                  - link "@ykarora26" [ref=e380] [cursor=pointer]:
+                    - /url: /u/ykarora26
+                  - img "Flag of INDIA" [ref=e382]
+                - paragraph [ref=e383]:
+                  - text: Hello, I hope you're doing well. I came across your project and would love to assist you. I am a professional web developer with…
+                  - button "more" [ref=e384] [cursor=pointer]
+              - generic [ref=e385]:
+                - paragraph [ref=e386]:
+                  - strong [ref=e387]: $270 USD
+                  - text: in 3 days
+                - generic [ref=e389]:
+                  - 'img "Rating: 4.9 out of 5" [ref=e390]':
+                    - generic [ref=e391]:
+                      - generic [ref=e392]:
+                        - img [ref=e393]
+                        - img [ref=e395]
+                      - generic [ref=e397]:
+                        - img [ref=e398]
+                        - img [ref=e400]
+                      - generic [ref=e402]:
+                        - img [ref=e403]
+                        - img [ref=e405]
+                      - generic [ref=e407]:
+                        - img [ref=e408]
+                        - img [ref=e410]
+                      - generic [ref=e412]:
+                        - img [ref=e413]
+                        - img [ref=e415]
+                  - generic [ref=e417]: "4.9"
+                  - generic [ref=e418]: (364 reviews)
+                - generic [ref=e419]:
+                  - generic [ref=e420]:
+                    - paragraph [ref=e421]: "8.3"
+                    - img [ref=e422]:
+                      - generic [ref=e423]: 
+                  - text: 
+          - generic [ref=e435]:
+            - link "User Avatar" [ref=e437] [cursor=pointer]:
+              - /url: /u/toni5705
+              - generic "toni5705" [ref=e440]:
+                - img "User Avatar" [ref=e441]
+            - generic [ref=e442]:
+              - generic [ref=e443]:
+                - generic [ref=e444]:
+                  - link "@toni5705" [ref=e449] [cursor=pointer]:
+                    - /url: /u/toni5705
+                  - img "Flag of COSTA RICA" [ref=e451]
+                - paragraph [ref=e452]:
+                  - text: Hello, I can design and implement your modular MCP ecosystem for RWA and family offices. I specialize in building secure, production-ready AI Gateways and custom MCP servers that bridge LLM…
+                  - button "more" [ref=e453] [cursor=pointer]
+              - generic [ref=e454]:
+                - paragraph [ref=e455]:
+                  - strong [ref=e456]: $750 USD
+                  - text: in 12 days
+                - generic [ref=e458]:
+                  - 'img "Rating: 5.0 out of 5" [ref=e459]':
+                    - generic [ref=e460]:
+                      - generic [ref=e461]:
+                        - img [ref=e462]
+                        - img [ref=e464]
+                      - generic [ref=e466]:
+                        - img [ref=e467]
+                        - img [ref=e469]
+                      - generic [ref=e471]:
+                        - img [ref=e472]
+                        - img [ref=e474]
+                      - generic [ref=e476]:
+                        - img [ref=e477]
+                        - img [ref=e479]
+                      - generic [ref=e481]:
+                        - img [ref=e482]
+                        - img [ref=e484]
+                  - generic [ref=e486]: "5.0"
+                  - generic [ref=e487]: (3 reviews)
+                - generic [ref=e488]:
+                  - generic [ref=e489]:
+                    - paragraph [ref=e490]: "7.7"
+                    - img [ref=e491]:
+                      - generic [ref=e492]: 
+                  - text: 
+          - generic [ref=e504]:
+            - link "User Avatar" [ref=e506] [cursor=pointer]:
+              - /url: /u/zohaibroy
+              - generic "ZohaibRoy" [ref=e509]:
+                - img "User Avatar" [ref=e510]
+            - generic [ref=e511]:
+              - generic [ref=e512]:
+                - generic [ref=e513]:
+                  - link "@ZohaibRoy" [ref=e518] [cursor=pointer]:
+                    - /url: /u/zohaibroy
+                  - img "Flag of PAKISTAN" [ref=e520]
+                - paragraph [ref=e521]:
+                  - text: ⭐⭐⭐⭐⭐ Build a Modular AI Ecosystem with a Senior MCP Server Engineer ❇️ Hi My Friend, I hope you are doing well. I've reviewed your project requirements and see you are looking for a Senior MCP Server Engineer…
+                  - button "more" [ref=e522] [cursor=pointer]
+              - generic [ref=e523]:
+                - paragraph [ref=e524]:
+                  - strong [ref=e525]: $350 USD
+                  - text: in 2 days
+                - generic [ref=e527]:
+                  - 'img "Rating: 4.9 out of 5" [ref=e528]':
+                    - generic [ref=e529]:
+                      - generic [ref=e530]:
+                        - img [ref=e531]
+                        - img [ref=e533]
+                      - generic [ref=e535]:
+                        - img [ref=e536]
+                        - img [ref=e538]
+                      - generic [ref=e540]:
+                        - img [ref=e541]
+                        - img [ref=e543]
+                      - generic [ref=e545]:
+                        - img [ref=e546]
+                        - img [ref=e548]
+                      - generic [ref=e550]:
+                        - img [ref=e551]
+                        - img [ref=e553]
+                  - generic [ref=e555]: "4.9"
+                  - generic [ref=e556]: (144 reviews)
+                - generic [ref=e557]:
+                  - generic [ref=e558]:
+                    - paragraph [ref=e559]: "8.0"
+                    - img [ref=e560]:
+                      - generic [ref=e561]: 
+                  - text: 
+          - generic [ref=e573]:
+            - link "User Avatar" [ref=e575] [cursor=pointer]:
+              - /url: /u/webtechdesignbg
+              - generic "WebTechDesignBG" [ref=e578]:
+                - img "User Avatar" [ref=e579]
+            - generic [ref=e580]:
+              - generic [ref=e581]:
+                - generic [ref=e582]:
+                  - link "@WebTechDesignBG" [ref=e587] [cursor=pointer]:
+                    - /url: /u/webtechdesignbg
+                  - img "Flag of BULGARIA" [ref=e589]
+                - paragraph [ref=e590]:
+                  - text: Woah Hello, It looks like you're looking for a Senior MCP Server Engineer to help design and implement custom servers for your modular AI ecosystem. This involves creating 10 MCP servers to expose…
+                  - button "more" [ref=e591] [cursor=pointer]
+              - generic [ref=e592]:
+                - paragraph [ref=e593]:
+                  - strong [ref=e594]: $250 USD
+                  - text: in 7 days
+                - generic [ref=e596]:
+                  - 'img "Rating: 4.9 out of 5" [ref=e597]':
+                    - generic [ref=e598]:
+                      - generic [ref=e599]:
+                        - img [ref=e600]
+                        - img [ref=e602]
+                      - generic [ref=e604]:
+                        - img [ref=e605]
+                        - img [ref=e607]
+                      - generic [ref=e609]:
+                        - img [ref=e610]
+                        - img [ref=e612]
+                      - generic [ref=e614]:
+                        - img [ref=e615]
+                        - img [ref=e617]
+                      - generic [ref=e619]:
+                        - img [ref=e620]
+                        - img [ref=e622]
+                  - generic [ref=e624]: "4.9"
+                  - generic [ref=e625]: (407 reviews)
+                - generic [ref=e626]:
+                  - generic [ref=e627]:
+                    - paragraph [ref=e628]: "7.3"
+                    - img [ref=e629]:
+                      - generic [ref=e630]: 
+                  - text: 
+          - generic [ref=e642]:
+            - link "User Avatar" [ref=e644] [cursor=pointer]:
+              - /url: /u/developerstation
+              - generic "DeveloperStation" [ref=e647]:
+                - img "User Avatar" [ref=e648]
+            - generic [ref=e649]:
+              - generic [ref=e650]:
+                - generic [ref=e651]:
+                  - link "@DeveloperStation" [ref=e656] [cursor=pointer]:
+                    - /url: /u/developerstation
+                  - img "Flag of PAKISTAN" [ref=e658]
+                - paragraph [ref=e659]:
+                  - text: Hi, We’ve built a similar product called Descripio, where we developed a custom LLM server to extract data from Amazon and eBay product listings. We also created multiple LLM agents to generate…
+                  - button "more" [ref=e660] [cursor=pointer]
+              - generic [ref=e661]:
+                - paragraph [ref=e662]:
+                  - strong [ref=e663]: $444.13 USD
+                  - text: in 7 days
+                - generic [ref=e665]:
+                  - 'img "Rating: 5.0 out of 5" [ref=e666]':
+                    - generic [ref=e667]:
+                      - generic [ref=e668]:
+                        - img [ref=e669]
+                        - img [ref=e671]
+                      - generic [ref=e673]:
+                        - img [ref=e674]
+                        - img [ref=e676]
+                      - generic [ref=e678]:
+                        - img [ref=e679]
+                        - img [ref=e681]
+                      - generic [ref=e683]:
+                        - img [ref=e684]
+                        - img [ref=e686]
+                      - generic [ref=e688]:
+                        - img [ref=e689]
+                        - img [ref=e691]
+                  - generic [ref=e693]: "5.0"
+                  - generic [ref=e694]: (22 reviews)
+                - generic [ref=e695]:
+                  - generic [ref=e696]:
+                    - paragraph [ref=e697]: "7.2"
+                    - img [ref=e698]:
+                      - generic [ref=e699]: 
+                  - text: 
+          - generic [ref=e711]:
+            - link "User Avatar" [ref=e713] [cursor=pointer]:
+              - /url: /u/herculesz
+              - generic "Herculesz" [ref=e716]:
+                - img "User Avatar" [ref=e717]
+            - generic [ref=e718]:
+              - generic [ref=e719]:
+                - generic [ref=e720]:
+                  - link "@Herculesz" [ref=e725] [cursor=pointer]:
+                    - /url: /u/herculesz
+                  - img "Flag of UNITED STATES" [ref=e727]
+                - paragraph [ref=e728]:
+                  - text: Hi You’re building MCP servers to expose structured RWA and investor data to LLM agents, and the main challenge here is ensuring strict schema consistency and tenant isolation while keeping the system…
+                  - button "more" [ref=e729] [cursor=pointer]
+              - generic [ref=e730]:
+                - paragraph [ref=e731]:
+                  - strong [ref=e732]: $500 USD
+                  - text: in 7 days
+                - generic [ref=e734]:
+                  - 'img "Rating: 5.0 out of 5" [ref=e735]':
+                    - generic [ref=e736]:
+                      - generic [ref=e737]:
+                        - img [ref=e738]
+                        - img [ref=e740]
+                      - generic [ref=e742]:
+                        - img [ref=e743]
+                        - img [ref=e745]
+                      - generic [ref=e747]:
+                        - img [ref=e748]
+                        - img [ref=e750]
+                      - generic [ref=e752]:
+                        - img [ref=e753]
+                        - img [ref=e755]
+                      - generic [ref=e757]:
+                        - img [ref=e758]
+                        - img [ref=e760]
+                  - generic [ref=e762]: "5.0"
+                  - generic [ref=e763]: (14 reviews)
+                - generic [ref=e764]:
+                  - generic [ref=e765]:
+                    - paragraph [ref=e766]: "7.3"
+                    - img [ref=e767]:
+                      - generic [ref=e768]: 
+                  - text: 
+          - generic [ref=e780]:
+            - link "User Avatar" [ref=e782] [cursor=pointer]:
+              - /url: /u/corpmember29
+              - generic "corpmember29" [ref=e785]:
+                - img "User Avatar" [ref=e786]
+            - generic [ref=e787]:
+              - generic [ref=e788]:
+                - generic [ref=e789]:
+                  - link "@corpmember29" [ref=e794] [cursor=pointer]:
+                    - /url: /u/corpmember29
+                  - img "Flag of INDIA" [ref=e796]
+                - paragraph [ref=e797]:
+                  - text: Hello, I have reviewed your requirement for a Senior MCP Server Engineer to build modular AI-compatible servers, and I clearly understand the need for a structured, secure, and scalable architecture…
+                  - button "more" [ref=e798] [cursor=pointer]
+              - generic [ref=e799]:
+                - paragraph [ref=e800]:
+                  - strong [ref=e801]: $250 USD
+                  - text: in 7 days
+                - generic [ref=e803]:
+                  - 'img "Rating: 5.0 out of 5" [ref=e804]':
+                    - generic [ref=e805]:
+                      - generic [ref=e806]:
+                        - img [ref=e807]
+                        - img [ref=e809]
+                      - generic [ref=e811]:
+                        - img [ref=e812]
+                        - img [ref=e814]
+                      - generic [ref=e816]:
+                        - img [ref=e817]
+                        - img [ref=e819]
+                      - generic [ref=e821]:
+                        - img [ref=e822]
+                        - img [ref=e824]
+                      - generic [ref=e826]:
+                        - img [ref=e827]
+                        - img [ref=e829]
+                  - generic [ref=e831]: "5.0"
+                  - generic [ref=e832]: (17 reviews)
+                - generic [ref=e833]:
+                  - generic [ref=e834]:
+                    - paragraph [ref=e835]: "7.1"
+                    - img [ref=e836]:
+                      - generic [ref=e837]: 
+                  - text: 
+          - generic [ref=e849]:
+            - link "User Avatar" [ref=e851] [cursor=pointer]:
+              - /url: /u/mohjib092
+              - generic "mohjib092" [ref=e854]:
+                - img "User Avatar" [ref=e855]
+            - generic [ref=e856]:
+              - generic [ref=e857]:
+                - generic [ref=e858]:
+                  - link "@mohjib092" [ref=e863] [cursor=pointer]:
+                    - /url: /u/mohjib092
+                  - img "Flag of PAKISTAN" [ref=e865]
+                - paragraph [ref=e866]:
+                  - text: Yo, I’m an experienced Senior Backend Engineer specializing in Python/FastAPI and Node.js/TypeScript, with hands-on expertise in AI integrations, multi-tenant architectures, and…
+                  - button "more" [ref=e867] [cursor=pointer]
+              - generic [ref=e868]:
+                - paragraph [ref=e869]:
+                  - strong [ref=e870]: $650 USD
+                  - text: in 5 days
+                - generic [ref=e872]:
+                  - 'img "Rating: 4.9 out of 5" [ref=e873]':
+                    - generic [ref=e874]:
+                      - generic [ref=e875]:
+                        - img [ref=e876]
+                        - img [ref=e878]
+                      - generic [ref=e880]:
+                        - img [ref=e881]
+                        - img [ref=e883]
+                      - generic [ref=e885]:
+                        - img [ref=e886]
+                        - img [ref=e888]
+                      - generic [ref=e890]:
+                        - img [ref=e891]
+                        - img [ref=e893]
+                      - generic [ref=e895]:
+                        - img [ref=e896]
+                        - img [ref=e898]
+                  - generic [ref=e900]: "4.9"
+                  - generic [ref=e901]: (117 reviews)
+                - generic [ref=e902]:
+                  - generic [ref=e903]:
+                    - paragraph [ref=e904]: "6.7"
+                    - img [ref=e905]:
+                      - generic [ref=e906]: 
+                  - text: 
+          - generic [ref=e918]:
+            - link "User Avatar" [ref=e920] [cursor=pointer]:
+              - /url: /u/kareemmaize
+              - generic "kareemmaize" [ref=e923]:
+                - img "User Avatar" [ref=e924]
+            - generic [ref=e925]:
+              - generic [ref=e926]:
+                - generic [ref=e927]:
+                  - link "@kareemmaize" [ref=e932] [cursor=pointer]:
+                    - /url: /u/kareemmaize
+                  - img "Flag of UNITED STATES" [ref=e934]
+                - paragraph [ref=e935]:
+                  - text: Hi there To build a reliable MCP layer for AI agents, the most critical part is defining consistent data contracts and access patterns across all 10 servers—so agents can reason over RWA, KYC, and workflows without…
+                  - button "more" [ref=e936] [cursor=pointer]
+              - generic [ref=e937]:
+                - paragraph [ref=e938]:
+                  - strong [ref=e939]: $500 USD
+                  - text: in 7 days
+                - generic [ref=e941]:
+                  - 'img "Rating: 5.0 out of 5" [ref=e942]':
+                    - generic [ref=e943]:
+                      - generic [ref=e944]:
+                        - img [ref=e945]
+                        - img [ref=e947]
+                      - generic [ref=e949]:
+                        - img [ref=e950]
+                        - img [ref=e952]
+                      - generic [ref=e954]:
+                        - img [ref=e955]
+                        - img [ref=e957]
+                      - generic [ref=e959]:
+                        - img [ref=e960]
+                        - img [ref=e962]
+                      - generic [ref=e964]:
+                        - img [ref=e965]
+                        - img [ref=e967]
+                  - generic [ref=e969]: "5.0"
+                  - generic [ref=e970]: (7 reviews)
+                - generic [ref=e971]:
+                  - generic [ref=e972]:
+                    - paragraph [ref=e973]: "6.7"
+                    - img [ref=e974]:
+                      - generic [ref=e975]: 
+                  - text: 
+          - generic [ref=e987]:
+            - link "User Avatar" [ref=e989] [cursor=pointer]:
+              - /url: /u/koolvishruth
+              - generic "koolvishruth" [ref=e992]:
+                - img "User Avatar" [ref=e993]
+            - generic [ref=e994]:
+              - generic [ref=e995]:
+                - generic [ref=e996]:
+                  - link "@koolvishruth" [ref=e1001] [cursor=pointer]:
+                    - /url: /u/koolvishruth
+                  - img "Flag of INDIA" [ref=e1003]
+                - paragraph [ref=e1004]: Hello Sir, I have 8 years of experience in Ai engineering,FASTApi, LLM integrations. Let’s connect for this
+              - generic [ref=e1005]:
+                - paragraph [ref=e1006]:
+                  - strong [ref=e1007]: $250 USD
+                  - text: in 3 days
+                - generic [ref=e1009]:
+                  - 'img "Rating: 5.0 out of 5" [ref=e1010]':
+                    - generic [ref=e1011]:
+                      - generic [ref=e1012]:
+                        - img [ref=e1013]
+                        - img [ref=e1015]
+                      - generic [ref=e1017]:
+                        - img [ref=e1018]
+                        - img [ref=e1020]
+                      - generic [ref=e1022]:
+                        - img [ref=e1023]
+                        - img [ref=e1025]
+                      - generic [ref=e1027]:
+                        - img [ref=e1028]
+                        - img [ref=e1030]
+                      - generic [ref=e1032]:
+                        - img [ref=e1033]
+                        - img [ref=e1035]
+                  - generic [ref=e1037]: "5.0"
+                  - generic [ref=e1038]: (98 reviews)
+                - generic [ref=e1039]:
+                  - generic [ref=e1040]:
+                    - paragraph [ref=e1041]: "6.4"
+                    - img [ref=e1042]:
+                      - generic [ref=e1043]: 
+                  - text: 
+          - generic [ref=e1055]:
+            - link "User Avatar" [ref=e1057] [cursor=pointer]:
+              - /url: /u/feriver
+              - generic "Feriver" [ref=e1060]:
+                - img "User Avatar" [ref=e1061]
+            - generic [ref=e1062]:
+              - generic [ref=e1063]:
+                - generic [ref=e1064]:
+                  - link "@Feriver" [ref=e1069] [cursor=pointer]:
+                    - /url: /u/feriver
+                  - img "Flag of PAKISTAN" [ref=e1071]
+                - paragraph [ref=e1072]:
+                  - text: Hello, I can design and implement your 10 custom MCP servers using either Python/FastAPI or Node.js/TypeScript, enabling secure, multi-tenant access to internal RWA, investor, workflow…
+                  - button "more" [ref=e1073] [cursor=pointer]
+              - generic [ref=e1074]:
+                - paragraph [ref=e1075]:
+                  - strong [ref=e1076]: $750 USD
+                  - text: in 11 days
+                - generic [ref=e1078]:
+                  - 'img "Rating: 5.0 out of 5" [ref=e1079]':
+                    - generic [ref=e1080]:
+                      - generic [ref=e1081]:
+                        - img [ref=e1082]
+                        - img [ref=e1084]
+                      - generic [ref=e1086]:
+                        - img [ref=e1087]
+                        - img [ref=e1089]
+                      - generic [ref=e1091]:
+                        - img [ref=e1092]
+                        - img [ref=e1094]
+                      - generic [ref=e1096]:
+                        - img [ref=e1097]
+                        - img [ref=e1099]
+                      - generic [ref=e1101]:
+                        - img [ref=e1102]
+                        - img [ref=e1104]
+                  - generic [ref=e1106]: "5.0"
+                  - generic [ref=e1107]: (76 reviews)
+                - generic [ref=e1108]:
+                  - generic [ref=e1109]:
+                    - paragraph [ref=e1110]: "6.5"
+                    - img [ref=e1111]:
+                      - generic [ref=e1112]: 
+                  - text: 
+          - generic [ref=e1124]:
+            - link "User Avatar" [ref=e1126] [cursor=pointer]:
+              - /url: /u/mubeenm5026
+              - generic "mubeenm5026" [ref=e1129]:
+                - img "User Avatar" [ref=e1130]
+            - generic [ref=e1131]:
+              - generic [ref=e1132]:
+                - generic [ref=e1133]:
+                  - link "@mubeenm5026" [ref=e1138] [cursor=pointer]:
+                    - /url: /u/mubeenm5026
+                  - img "Flag of PAKISTAN" [ref=e1140]
+                - paragraph [ref=e1141]:
+                  - text: With over a decade of experience in web and software development, particularly in HTML, Node.js, and Python (including FastAPI), my team at Web Crest has consistently delivered scalable and high-performing solutions that align with clients' needs for growth. As a senior backend engineer, I have a…
+                  - button "more" [ref=e1142] [cursor=pointer]
+              - generic [ref=e1143]:
+                - paragraph [ref=e1144]:
+                  - strong [ref=e1145]: $700 USD
+                  - text: in 5 days
+                - generic [ref=e1147]:
+                  - 'img "Rating: 4.7 out of 5" [ref=e1148]':
+                    - generic [ref=e1149]:
+                      - generic [ref=e1150]:
+                        - img [ref=e1151]
+                        - img [ref=e1153]
+                      - generic [ref=e1155]:
+                        - img [ref=e1156]
+                        - img [ref=e1158]
+                      - generic [ref=e1160]:
+                        - img [ref=e1161]
+                        - img [ref=e1163]
+                      - generic [ref=e1165]:
+                        - img [ref=e1166]
+                        - img [ref=e1168]
+                      - generic [ref=e1170]:
+                        - img [ref=e1171]
+                        - img [ref=e1173]
+                  - generic [ref=e1175]: "4.7"
+                  - generic [ref=e1176]: (29 reviews)
+                - generic [ref=e1177]:
+                  - generic [ref=e1178]:
+                    - paragraph [ref=e1179]: "6.6"
+                    - img [ref=e1180]:
+                      - generic [ref=e1181]: 
+                  - text: 
+          - generic [ref=e1193]:
+            - link "User Avatar" [ref=e1195] [cursor=pointer]:
+              - /url: /u/abhisaini0188
+              - generic "abhisaini0188" [ref=e1198]:
+                - img "User Avatar" [ref=e1199]
+            - generic [ref=e1200]:
+              - generic [ref=e1201]:
+                - generic [ref=e1202]:
+                  - link "@abhisaini0188" [ref=e1207] [cursor=pointer]:
+                    - /url: /u/abhisaini0188
+                  - img "Flag of INDIA" [ref=e1209]
+                - paragraph [ref=e1210]:
+                  - text: Hi, I’m a senior backend engineer with strong experience in AI systems, APIs, and modular architectures, and I can design and deliver your MCP server ecosystem efficiently. Approach:…
+                  - button "more" [ref=e1211] [cursor=pointer]
+              - generic [ref=e1212]:
+                - paragraph [ref=e1213]:
+                  - strong [ref=e1214]: $750 USD
+                  - text: in 7 days
+                - generic [ref=e1216]:
+                  - 'img "Rating: 5.0 out of 5" [ref=e1217]':
+                    - generic [ref=e1218]:
+                      - generic [ref=e1219]:
+                        - img [ref=e1220]
+                        - img [ref=e1222]
+                      - generic [ref=e1224]:
+                        - img [ref=e1225]
+                        - img [ref=e1227]
+                      - generic [ref=e1229]:
+                        - img [ref=e1230]
+                        - img [ref=e1232]
+                      - generic [ref=e1234]:
+                        - img [ref=e1235]
+                        - img [ref=e1237]
+                      - generic [ref=e1239]:
+                        - img [ref=e1240]
+                        - img [ref=e1242]
+                  - generic [ref=e1244]: "5.0"
+                  - generic [ref=e1245]: (18 reviews)
+                - generic [ref=e1246]:
+                  - generic [ref=e1247]:
+                    - paragraph [ref=e1248]: "6.4"
+                    - img [ref=e1249]:
+                      - generic [ref=e1250]: 
+                  - text: 
+          - generic [ref=e1262]:
+            - link "User Avatar" [ref=e1264] [cursor=pointer]:
+              - /url: /u/vishal1145
+              - generic "vishal1145" [ref=e1267]:
+                - img "User Avatar" [ref=e1268]
+            - generic [ref=e1269]:
+              - generic [ref=e1270]:
+                - generic [ref=e1271]:
+                  - link "@vishal1145" [ref=e1276] [cursor=pointer]:
+                    - /url: /u/vishal1145
+                  - img "Flag of INDIA" [ref=e1278]
+                - paragraph [ref=e1279]:
+                  - text: Your AI orchestrator will fail if those 10 MCP servers don't enforce tenant isolation at the protocol level. Without context-aware middleware, one investor query could leak another tenant's KYC data through the LLM's context window - that's a regulatory nightmare in RWA tokenization…
+                  - button "more" [ref=e1280] [cursor=pointer]
+              - generic [ref=e1281]:
+                - paragraph [ref=e1282]:
+                  - strong [ref=e1283]: $450 USD
+                  - text: in 10 days
+                - generic [ref=e1285]:
+                  - 'img "Rating: 4.3 out of 5" [ref=e1286]':
+                    - generic [ref=e1287]:
+                      - generic [ref=e1288]:
+                        - img [ref=e1289]
+                        - img [ref=e1291]
+                      - generic [ref=e1293]:
+                        - img [ref=e1294]
+                        - img [ref=e1296]
+                      - generic [ref=e1298]:
+                        - img [ref=e1299]
+                        - img [ref=e1301]
+                      - generic [ref=e1303]:
+                        - img [ref=e1304]
+                        - img [ref=e1306]
+                      - generic [ref=e1308]:
+                        - img [ref=e1309]
+                        - img [ref=e1311]
+                  - generic [ref=e1313]: "4.3"
+                  - generic [ref=e1314]: (68 reviews)
+                - generic [ref=e1315]:
+                  - generic [ref=e1316]:
+                    - paragraph [ref=e1317]: "7.2"
+                    - img [ref=e1318]:
+                      - generic [ref=e1319]: 
+                  - text: 
+          - generic [ref=e1331]:
+            - link "User Avatar" [ref=e1333] [cursor=pointer]:
+              - /url: /u/teodorgeorge
+              - generic "teodorgeorge" [ref=e1336]:
+                - img "User Avatar" [ref=e1337]
+            - generic [ref=e1338]:
+              - generic [ref=e1339]:
+                - generic [ref=e1340]:
+                  - link "@teodorgeorge" [ref=e1345] [cursor=pointer]:
+                    - /url: /u/teodorgeorge
+                  - img "Flag of ROMANIA" [ref=e1347]
+                - paragraph [ref=e1348]:
+                  - text: Hello, I have extensive experience designing and implementing backend systems using Python/FastAPI and Node.js/TypeScript, which aligns well with your need for custom MCP servers…
+                  - button "more" [ref=e1349] [cursor=pointer]
+              - generic [ref=e1350]:
+                - paragraph [ref=e1351]:
+                  - strong [ref=e1352]: $300 USD
+                  - text: in 5 days
+                - generic [ref=e1354]:
+                  - 'img "Rating: 5.0 out of 5" [ref=e1355]':
+                    - generic [ref=e1356]:
+                      - generic [ref=e1357]:
+                        - img [ref=e1358]
+                        - img [ref=e1360]
+                      - generic [ref=e1362]:
+                        - img [ref=e1363]
+                        - img [ref=e1365]
+                      - generic [ref=e1367]:
+                        - img [ref=e1368]
+                        - img [ref=e1370]
+                      - generic [ref=e1372]:
+                        - img [ref=e1373]
+                        - img [ref=e1375]
+                      - generic [ref=e1377]:
+                        - img [ref=e1378]
+                        - img [ref=e1380]
+                  - generic [ref=e1382]: "5.0"
+                  - generic [ref=e1383]: (24 reviews)
+                - generic [ref=e1384]:
+                  - generic [ref=e1385]:
+                    - paragraph [ref=e1386]: "6.4"
+                    - img [ref=e1387]:
+                      - generic [ref=e1388]: 
+                  - text: 
+          - generic [ref=e1400]:
+            - link "User Avatar" [ref=e1402] [cursor=pointer]:
+              - /url: /u/durgesh8527
+              - generic "durgesh8527" [ref=e1405]:
+                - img "User Avatar" [ref=e1406]
+            - generic [ref=e1407]:
+              - generic [ref=e1408]:
+                - generic [ref=e1409]:
+                  - link "@durgesh8527" [ref=e1414] [cursor=pointer]:
+                    - /url: /u/durgesh8527
+                  - img "Flag of INDIA" [ref=e1416]
+                - paragraph [ref=e1417]:
+                  - text: With a solid 12+ years of experience in full stack development, especially in your favored technology stack of Node.js/Python, I am more than inclined to be your chosen Senior MCP Server Engineer for this project. I understand and can readily adapt to the unique intricacies that RWA tokenization…
+                  - button "more" [ref=e1418] [cursor=pointer]
+              - generic [ref=e1419]:
+                - paragraph [ref=e1420]:
+                  - strong [ref=e1421]: $250 USD
+                  - text: in 7 days
+                - generic [ref=e1423]:
+                  - 'img "Rating: 4.6 out of 5" [ref=e1424]':
+                    - generic [ref=e1425]:
+                      - generic [ref=e1426]:
+                        - img [ref=e1427]
+                        - img [ref=e1429]
+                      - generic [ref=e1431]:
+                        - img [ref=e1432]
+                        - img [ref=e1434]
+                      - generic [ref=e1436]:
+                        - img [ref=e1437]
+                        - img [ref=e1439]
+                      - generic [ref=e1441]:
+                        - img [ref=e1442]
+                        - img [ref=e1444]
+                      - generic [ref=e1446]:
+                        - img [ref=e1447]
+                        - img [ref=e1449]
+                  - generic [ref=e1451]: "4.6"
+                  - generic [ref=e1452]: (134 reviews)
+                - generic [ref=e1453]:
+                  - generic [ref=e1454]:
+                    - paragraph [ref=e1455]: "7.0"
+                    - img [ref=e1456]:
+                      - generic [ref=e1457]: 
+                  - text: 
+          - generic [ref=e1469]:
+            - link "User Avatar" [ref=e1471] [cursor=pointer]:
+              - /url: /u/devendrathakur12
+              - generic "devendrathakur12" [ref=e1474]:
+                - img "User Avatar" [ref=e1475]
+            - generic [ref=e1476]:
+              - generic [ref=e1477]:
+                - generic [ref=e1478]:
+                  - link "@devendrathakur12" [ref=e1483] [cursor=pointer]:
+                    - /url: /u/devendrathakur12
+                  - img "Flag of INDIA" [ref=e1485]
+                - paragraph [ref=e1486]:
+                  - text: i’ve done very similar recently building MCP-style gateways with FastAPI/Node, JWT auth, rate limits, and multi-tenant isolation over Postgres/Supabase Do you want CLS-based tenant isolation at request level or per-connection pooling with scoped…
+                  - button "more" [ref=e1487] [cursor=pointer]
+              - generic [ref=e1488]:
+                - paragraph [ref=e1489]:
+                  - strong [ref=e1490]: $700 USD
+                  - text: in 10 days
+                - generic [ref=e1492]:
+                  - 'img "Rating: 5.0 out of 5" [ref=e1493]':
+                    - generic [ref=e1494]:
+                      - generic [ref=e1495]:
+                        - img [ref=e1496]
+                        - img [ref=e1498]
+                      - generic [ref=e1500]:
+                        - img [ref=e1501]
+                        - img [ref=e1503]
+                      - generic [ref=e1505]:
+                        - img [ref=e1506]
+                        - img [ref=e1508]
+                      - generic [ref=e1510]:
+                        - img [ref=e1511]
+                        - img [ref=e1513]
+                      - generic [ref=e1515]:
+                        - img [ref=e1516]
+                        - img [ref=e1518]
+                  - generic [ref=e1520]: "5.0"
+                  - generic [ref=e1521]: (32 reviews)
+                - generic [ref=e1522]:
+                  - generic [ref=e1523]:
+                    - paragraph [ref=e1524]: "6.4"
+                    - img [ref=e1525]:
+                      - generic [ref=e1526]: 
+                  - text: 
+          - generic [ref=e1538]:
+            - link "User Avatar" [ref=e1540] [cursor=pointer]:
+              - /url: /u/rbtech1984
+              - generic "rbtech1984" [ref=e1543]:
+                - img "User Avatar" [ref=e1544]
+            - generic [ref=e1545]:
+              - generic [ref=e1546]:
+                - generic [ref=e1547]:
+                  - link "@rbtech1984" [ref=e1552] [cursor=pointer]:
+                    - /url: /u/rbtech1984
+                  - img "Flag of INDIA" [ref=e1554]
+                - paragraph [ref=e1555]:
+                  - text: Hello There!!! ★★★★ ( Build scalable MCP gateway with secure multi-agent architecture ) ★★★★ I understand you need an MCP Gateway with…
+                  - button "more" [ref=e1556] [cursor=pointer]
+              - generic [ref=e1557]:
+                - paragraph [ref=e1558]:
+                  - strong [ref=e1559]: $256 USD
+                  - text: in 10 days
+                - generic [ref=e1561]:
+                  - 'img "Rating: 4.8 out of 5" [ref=e1562]':
+                    - generic [ref=e1563]:
+                      - generic [ref=e1564]:
+                        - img [ref=e1565]
+                        - img [ref=e1567]
+                      - generic [ref=e1569]:
+                        - img [ref=e1570]
+                        - img [ref=e1572]
+                      - generic [ref=e1574]:
+                        - img [ref=e1575]
+                        - img [ref=e1577]
+                      - generic [ref=e1579]:
+                        - img [ref=e1580]
+                        - img [ref=e1582]
+                      - generic [ref=e1584]:
+                        - img [ref=e1585]
+                        - img [ref=e1587]
+                  - generic [ref=e1589]: "4.8"
+                  - generic [ref=e1590]: (44 reviews)
+                - generic [ref=e1591]:
+                  - generic [ref=e1592]:
+                    - paragraph [ref=e1593]: "6.3"
+                    - img [ref=e1594]:
+                      - generic [ref=e1595]: 
+                  - text: 
+    - generic [ref=e1607]:
+      - link "Post a project like this" [ref=e1611] [cursor=pointer]:
+        - /url: /buyers/repost.php?id=40339311
+        - strong [ref=e1612]: Post a project like this
+      - generic [ref=e1615]:
+        - heading "About the client" [level=3] [ref=e1616]
+        - generic [ref=e1617]:
+          - img "Flag of BRAZIL" [ref=e1620]
+          - paragraph [ref=e1621]: São Paulo, Brazil
+        - generic [ref=e1622]:
+          - img [ref=e1623]:
+            - generic [ref=e1624]: 
+          - generic [ref=e1626]:
+            - 'img "Rating: 0.0 out of 5" [ref=e1627]':
+              - generic [ref=e1628]:
+                - generic [ref=e1629]:
+                  - img [ref=e1630]
+                  - img [ref=e1632]
+                - generic [ref=e1634]:
+                  - img [ref=e1635]
+                  - img [ref=e1637]
+                - generic [ref=e1639]:
+                  - img [ref=e1640]
+                  - img [ref=e1642]
+                - generic [ref=e1644]:
+                  - img [ref=e1645]
+                  - img [ref=e1647]
+                - generic [ref=e1649]:
+                  - img [ref=e1650]
+                  - img [ref=e1652]
+            - generic [ref=e1654]: "0.0"
+          - generic [ref=e1655]:
+            - img [ref=e1656]:
+              - generic [ref=e1657]: 
+            - generic [ref=e1658]: "0"
+        - generic [ref=e1659]:
+          - img [ref=e1660]:
+            - generic [ref=e1661]: 
+          - paragraph [ref=e1662]: Member since Jan 30, 2026
+        - heading "Client Verification" [level=3] [ref=e1664]
+        - generic [ref=e1665]:
+          - img "Deposit made" [ref=e1666]:
+            - generic [ref=e1667]: 
+          - img "Email verified" [ref=e1668]:
+            - generic [ref=e1669]: 
+          - img "Profile complete" [ref=e1670]:
+            - generic [ref=e1671]: 
+          - img "Phone verified" [ref=e1672]:
+            - generic [ref=e1673]: 
+          - img "Payment verified" [ref=e1674]:
+            - generic [ref=e1675]: 
+      - generic [ref=e1678]:
+        - heading "Other jobs from this client" [level=3] [ref=e1679]
+        - link "Senior Freelance Full‑Stack Developer (TypeScript / Node.js / React / Next.js) – Lead Architect for a 12‑Website Ecosystem (Long‑Term) $250-750 USD" [ref=e1681] [cursor=pointer]:
+          - /url: /projects/web-design/senior-freelance-web-developer-node
+          - text: Senior Freelance Full‑Stack Developer (TypeScript / Node.js / React / Next.js) – Lead Architect for a 12‑Website Ecosystem (Long‑Term)
+          - paragraph [ref=e1682]: $250-750 USD
+        - link "Website Portfolio $250-750 USD" [ref=e1684] [cursor=pointer]:
+          - /url: /projects/web-design/website-portfolio
+          - text: Website Portfolio
+          - paragraph [ref=e1685]: $250-750 USD
+      - generic [ref=e1687]:
+        - link "Previous job" [ref=e1689] [cursor=pointer]:
+          - /url: /projects/sales/sales-for-private-apartments
+          - img [ref=e1690]:
+            - generic [ref=e1691]: 
+          - text: Previous job
+        - link "Next job" [ref=e1693] [cursor=pointer]:
+          - /url: /projects/customer-support/canl-destek-merkezi-40339312
+          - text: Next job
+          - img [ref=e1694]:
+            - generic [ref=e1695]: 
+      - generic [ref=e1698]:
+        - heading "Similar jobs" [level=3] [ref=e1699]
+        - link "Unified CRM & WhatsApp API, drip automation, automation, dialer ,.ivr Platform ₹12500-37500 INR" [ref=e1701] [cursor=pointer]:
+          - /url: /projects/api-developmet/unified-crm-whatsapp-api-drip
+          - text: Unified CRM & WhatsApp API, drip automation, automation, dialer ,.ivr Platform
+          - paragraph [ref=e1702]: ₹12500-37500 INR
+        - link "Flexible Web Development Project ₹12500-37500 INR" [ref=e1704] [cursor=pointer]:
+          - /url: /projects/javascript/flexible-web-development-project
+          - text: Flexible Web Development Project
+          - paragraph [ref=e1705]: ₹12500-37500 INR
+        - link "AI Swarm Defence Drone Models -- 2 ₹37500-75000 INR" [ref=e1707] [cursor=pointer]:
+          - /url: /projects/cad-cam/swarm-defence-drone-models-40345749
+          - text: AI Swarm Defence Drone Models -- 2
+          - paragraph [ref=e1708]: ₹37500-75000 INR
+        - link "LTX Studio AI Video Expert for 3min video $30-250 USD" [ref=e1710] [cursor=pointer]:
+          - /url: /projects/ai-hw-sw/ltx-studio-video-expert-for
+          - text: LTX Studio AI Video Expert for 3min video
+          - paragraph [ref=e1711]: $30-250 USD
+        - link "Homepage Setup & Product page Duplication ₹1500-12500 INR" [ref=e1713] [cursor=pointer]:
+          - /url: /projects/php/homepage-setup-product-page-duplication
+          - text: Homepage Setup & Product page Duplication
+          - paragraph [ref=e1714]: ₹1500-12500 INR
+        - link "Build Router Layer for AI Islamic App (RAG + Multi-Module System) ₹1000-3000 INR" [ref=e1716] [cursor=pointer]:
+          - /url: /projects/python/build-router-layer-for-islamic
+          - text: Build Router Layer for AI Islamic App (RAG + Multi-Module System)
+          - paragraph [ref=e1717]: ₹1000-3000 INR
+        - link "Geospatial Analysis Website & API $250-750 CAD" [ref=e1719] [cursor=pointer]:
+          - /url: /projects/geospatial/geospatial-analysis-website-api
+          - text: Geospatial Analysis Website & API
+          - paragraph [ref=e1720]: $250-750 CAD
+        - link "Web development job ₹12500-37500 INR" [ref=e1722] [cursor=pointer]:
+          - /url: /projects/api-integration/web-development-job
+          - text: Web development job
+          - paragraph [ref=e1723]: ₹12500-37500 INR
+        - link "Fully cycle High-Ticket AI Chatbot Closer $10-30 USD" [ref=e1725] [cursor=pointer]:
+          - /url: /projects/ai-chatbot/fully-cycle-high-ticket-chatbot
+          - text: Fully cycle High-Ticket AI Chatbot Closer
+          - paragraph [ref=e1726]: $10-30 USD
+        - link "Go Engineer for API Gateway and Platform Validation Engine $15-25 USD / hour" [ref=e1728] [cursor=pointer]:
+          - /url: /projects/api-developmet/engineer-for-api-gateway-platform
+          - text: Go Engineer for API Gateway and Platform Validation Engine
+          - paragraph [ref=e1729]: $15-25 USD / hour
+        - link "Agentic AI Developer for Autonomous Healthcare ₹120000-140000 INR" [ref=e1731] [cursor=pointer]:
+          - /url: /projects/large-language-models/agentic-developer-for-autonomous
+          - text: Agentic AI Developer for Autonomous Healthcare
+          - paragraph [ref=e1732]: ₹120000-140000 INR
+        - link "React-Node B2B marketplace Platform ₹1500-12500 INR" [ref=e1734] [cursor=pointer]:
+          - /url: /projects/frontend-development/react-node-marketplace-platform
+          - text: React-Node B2B marketplace Platform
+          - paragraph [ref=e1735]: ₹1500-12500 INR
+        - link "Develop AI Voice & Lead Apps ₹1500-12500 INR" [ref=e1737] [cursor=pointer]:
+          - /url: /projects/ai-chatbot-development/develop-voice-lead-apps
+          - text: Develop AI Voice & Lead Apps
+          - paragraph [ref=e1738]: ₹1500-12500 INR
+        - link "Sales Dashboard & AI Forecasting $250-750 USD" [ref=e1740] [cursor=pointer]:
+          - /url: /projects/ai-development/sales-dashboard-forecasting
+          - text: Sales Dashboard & AI Forecasting
+          - paragraph [ref=e1741]: $250-750 USD
+        - link "Zoom API Integration with Python $2-8 USD / hour" [ref=e1743] [cursor=pointer]:
+          - /url: /projects/api-developmet/zoom-api-integration-with-python
+          - text: Zoom API Integration with Python
+          - paragraph [ref=e1744]: $2-8 USD / hour
+        - link "Full Stack Developer Specialist ₹1500-12500 INR" [ref=e1746] [cursor=pointer]:
+          - /url: /projects/full-stack-development/full-stack-developer-specialist
+          - text: Full Stack Developer Specialist
+          - paragraph [ref=e1747]: ₹1500-12500 INR
+        - link "LLMGraph Automation Agents Development $750-1500 CAD" [ref=e1749] [cursor=pointer]:
+          - /url: /projects/automation/llmgraph-automation-agents-development
+          - text: LLMGraph Automation Agents Development
+          - paragraph [ref=e1750]: $750-1500 CAD
+        - link "FastAPI Customer Management Microservice $250-750 USD" [ref=e1752] [cursor=pointer]:
+          - /url: /projects/fastapi/fastapi-customer-management-microservice
+          - text: FastAPI Customer Management Microservice
+          - paragraph [ref=e1753]: $250-750 USD
+        - link "AI Bot - Intelligent AI Sales and Voice Bot Development ₹1500-12500 INR" [ref=e1755] [cursor=pointer]:
+          - /url: /projects/ai-development/bot-intelligent-sales-voice-bot
+          - text: AI Bot - Intelligent AI Sales and Voice Bot Development
+          - paragraph [ref=e1756]: ₹1500-12500 INR
+        - link "AI Voice Agent Cold Caller $30-250 USD" [ref=e1758] [cursor=pointer]:
+          - /url: /projects/ai-chatbot-development/voice-agent-cold-caller
+          - text: AI Voice Agent Cold Caller
+          - paragraph [ref=e1759]: $30-250 USD
+  - contentinfo [ref=e1762]:
+    - generic [ref=e1765]:
+      - generic [ref=e1766]:
+        - link "Freelancer logo" [ref=e1768] [cursor=pointer]:
+          - /url: /
+          - img "Freelancer logo" [ref=e1771]
+        - generic [ref=e1773]:
+          - img [ref=e1774]:
+            - generic [ref=e1775]: 
+          - link "US (International) / English" [ref=e1777] [cursor=pointer]:
+            - /url: /choose-your-country
+        - generic [ref=e1778]:
+          - img [ref=e1779]:
+            - generic [ref=e1780]: 
+          - link "Help & Support" [ref=e1782] [cursor=pointer]:
+            - /url: /support
+        - generic [ref=e1783]:
+          - img [ref=e1784]:
+            - generic [ref=e1785]: 
+          - button "Accessibility" [ref=e1787] [cursor=pointer]
+      - generic [ref=e1788]:
+        - paragraph [ref=e1789]: Freelancer
+        - generic [ref=e1790]:
+          - link "Categories" [ref=e1792] [cursor=pointer]:
+            - /url: /job
+          - link "Projects" [ref=e1794] [cursor=pointer]:
+            - /url: /jobs
+          - link "Contests" [ref=e1796] [cursor=pointer]:
+            - /url: /contest
+          - link "Freelancers" [ref=e1798] [cursor=pointer]:
+            - /url: /freelancers
+          - link "Enterprise" [ref=e1800] [cursor=pointer]:
+            - /url: /enterprise
+          - link "Innovation Challenges" [ref=e1802] [cursor=pointer]:
+            - /url: /innovation
+          - link "AI Development" [ref=e1804] [cursor=pointer]:
+            - /url: /ai
+          - link "Membership" [ref=e1806] [cursor=pointer]:
+            - /url: /membership
+          - link "Preferred Freelancer Program" [ref=e1808] [cursor=pointer]:
+            - /url: /preferred-freelancer-program
+          - link "Project Management" [ref=e1810] [cursor=pointer]:
+            - /url: /project-management
+          - link "Local Jobs" [ref=e1812] [cursor=pointer]:
+            - /url: /local
+          - link "Photo Anywhere" [ref=e1814] [cursor=pointer]:
+            - /url: https://www.photoanywhere.com
+          - link "Showcase" [ref=e1816] [cursor=pointer]:
+            - /url: /showcase
+          - link "API for Developers" [ref=e1818] [cursor=pointer]:
+            - /url: https://developers.freelancer.com
+          - link "Get Verified" [ref=e1820] [cursor=pointer]:
+            - /url: /verified
+      - generic [ref=e1821]:
+        - paragraph [ref=e1822]: About
+        - generic [ref=e1823]:
+          - link "About us" [ref=e1825] [cursor=pointer]:
+            - /url: /about
+          - link "How it Works" [ref=e1827] [cursor=pointer]:
+            - /url: /info/how-it-works
+          - link "Security" [ref=e1829] [cursor=pointer]:
+            - /url: /about/security
+          - link "Investor" [ref=e1831] [cursor=pointer]:
+            - /url: /investor
+          - link "Sitemap" [ref=e1833] [cursor=pointer]:
+            - /url: /sitemap
+          - link "Stories" [ref=e1835] [cursor=pointer]:
+            - /url: /about/stories
+          - link "News" [ref=e1837] [cursor=pointer]:
+            - /url: /about/media
+          - link "Team" [ref=e1839] [cursor=pointer]:
+            - /url: /about/management
+          - link "Awards" [ref=e1841] [cursor=pointer]:
+            - /url: /about/awards
+          - link "Press Releases" [ref=e1843] [cursor=pointer]:
+            - /url: /about/press
+          - link "Careers" [ref=e1845] [cursor=pointer]:
+            - /url: /careers
+      - generic [ref=e1846]:
+        - paragraph [ref=e1847]: Terms
+        - generic [ref=e1848]:
+          - link "Privacy Policy" [ref=e1850] [cursor=pointer]:
+            - /url: /about/privacy
+          - link "Terms and Conditions" [ref=e1852] [cursor=pointer]:
+            - /url: /about/terms
+          - link "Copyright Policy" [ref=e1854] [cursor=pointer]:
+            - /url: /dmca
+          - link "Code of Conduct" [ref=e1856] [cursor=pointer]:
+            - /url: /info/codeofconduct
+          - link "Fees and Charges" [ref=e1858] [cursor=pointer]:
+            - /url: /feesandcharges
+      - generic [ref=e1859]:
+        - paragraph [ref=e1860]: Partners
+        - generic [ref=e1861]:
+          - link "Escrow.com" [ref=e1863] [cursor=pointer]:
+            - /url: https://www.escrow.com
+          - link "Loadshift" [ref=e1865] [cursor=pointer]:
+            - /url: https://www.loadshift.com.au
+          - link "Warrior Forum" [ref=e1867] [cursor=pointer]:
+            - /url: https://www.warriorforum.com
+      - generic [ref=e1868]:
+        - paragraph [ref=e1869]: Apps
+        - generic [ref=e1870]:
+          - link "Apple App Store logo" [ref=e1872] [cursor=pointer]:
+            - /url: /download
+            - img "Apple App Store logo" [ref=e1874]
+          - link "Google Play logo" [ref=e1876] [cursor=pointer]:
+            - /url: /download
+            - img "Google Play logo" [ref=e1878]
+        - list [ref=e1879]:
+          - listitem [ref=e1880]:
+            - link "Facebook" [ref=e1882] [cursor=pointer]:
+              - /url: https://facebook.com/fansoffreelancer
+              - img "Facebook" [ref=e1883]:
+                - img [ref=e1885]
+          - listitem [ref=e1889]:
+            - link "X" [ref=e1891] [cursor=pointer]:
+              - /url: https://x.com/freelancer
+              - img "X" [ref=e1892]:
+                - img [ref=e1894]
+          - listitem [ref=e1896]:
+            - link "YouTube" [ref=e1898] [cursor=pointer]:
+              - /url: https://youtube.com/freelancerchannel
+              - img "YouTube" [ref=e1899]:
+                - img [ref=e1901]
+          - listitem [ref=e1904]:
+            - link "Instagram" [ref=e1906] [cursor=pointer]:
+              - /url: https://instagram.com/freelancerofficial
+              - img "Instagram" [ref=e1907]:
+                - img [ref=e1909]
+    - generic [ref=e1915]:
+      - generic [ref=e1916]:
+        - paragraph [ref=e1917]: 87,460,075
+        - paragraph [ref=e1918]: Registered Users
+      - generic [ref=e1919]:
+        - paragraph [ref=e1920]: 25,521,731
+        - paragraph [ref=e1921]: Total Jobs Posted
+      - generic [ref=e1922]:
+        - paragraph [ref=e1923]: Freelancer ® is a registered Trademark of Freelancer Technology Pty Limited (ACN 142 189 759)
+        - paragraph [ref=e1924]: Copyright © 2026 Freelancer Technology Pty Limited (ACN 142 189 759)

@@ -1,0 +1,142 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - link "Lemon.io" [ref=e7] [cursor=pointer]:
+          - /url: https://lemon.io/
+          - img "Lemon.io" [ref=e8]
+        - navigation [ref=e9]:
+          - list [ref=e10]:
+            - listitem [ref=e11]:
+              - link "Start hiring" [ref=e12] [cursor=pointer]:
+                - /url: https://magic.lemon.io/welcome?from=hire-talent
+            - listitem [ref=e13]:
+              - link "Find jobs" [ref=e14] [cursor=pointer]:
+                - /url: https://me.lemon.io/escape-the-matrix?from=header
+            - listitem [ref=e15]:
+              - link "Login" [ref=e16] [cursor=pointer]:
+                - /url: https://app.lemon.io/auth/login
+                - text: Login
+                - img [ref=e17]
+          - list [ref=e20]:
+            - listitem [ref=e21]:
+              - link "For developers" [ref=e22] [cursor=pointer]:
+                - /url: https://lemon.io/for-developers/
+            - listitem [ref=e23]:
+              - link "For companies" [ref=e24] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e25]:
+              - link "Services" [ref=e26] [cursor=pointer]:
+                - /url: "#"
+    - main [ref=e29]:
+      - article [ref=e31]:
+        - generic [ref=e32]:
+          - generic [ref=e33]:
+            - heading "Can’t find this page" [level=1] [ref=e34]
+            - paragraph [ref=e35]: // could we interest you in some hands tho?
+            - link "get best hands" [ref=e37] [cursor=pointer]:
+              - /url: https://magic.lemon.io/welcome
+          - img "Page Error" [ref=e39]
+    - contentinfo [ref=e40]:
+      - list [ref=e44]:
+        - listitem [ref=e45]:
+          - link "Company":
+            - /url: "#"
+          - list [ref=e46]:
+            - listitem [ref=e47]:
+              - link "About us" [ref=e48] [cursor=pointer]:
+                - /url: https://lemon.io/about-us/
+            - listitem [ref=e49]:
+              - link "Hey AI, learn about us" [ref=e50] [cursor=pointer]:
+                - /url: /llm-info/
+            - listitem [ref=e51]:
+              - link "For developers" [ref=e52] [cursor=pointer]:
+                - /url: https://lemon.io/for-developers/
+            - listitem [ref=e53]:
+              - link "Careers" [ref=e54] [cursor=pointer]:
+                - /url: https://lemonio.bamboohr.com/careers/
+            - listitem [ref=e55]:
+              - link "Partner program" [ref=e56] [cursor=pointer]:
+                - /url: https://lemon.io/partnership/
+        - listitem [ref=e57]:
+          - link "Community":
+            - /url: "#"
+          - list [ref=e58]:
+            - listitem [ref=e59]:
+              - link "Blog" [ref=e60] [cursor=pointer]:
+                - /url: https://lemon.io/blog/
+            - listitem [ref=e61]:
+              - link "AI-Assisted Coding" [ref=e62] [cursor=pointer]:
+                - /url: https://lemon.io/blog/ai-assisted-coding/
+            - listitem [ref=e63]:
+              - link "Cloud Computing Statistics" [ref=e64] [cursor=pointer]:
+                - /url: https://lemon.io/blog/cloud-computing-statistics/
+            - listitem [ref=e65]:
+              - link "Events" [ref=e66] [cursor=pointer]:
+                - /url: https://events.lemon.io/
+        - listitem [ref=e67]:
+          - link "Resources":
+            - /url: "#"
+          - list [ref=e68]:
+            - listitem [ref=e69]:
+              - link "FAQ for companies" [ref=e70] [cursor=pointer]:
+                - /url: https://lemon.io/support-help-faq/
+            - listitem [ref=e71]:
+              - link "FAQ for developers" [ref=e72] [cursor=pointer]:
+                - /url: https://lemon.io/faq-for-devs/
+            - listitem [ref=e73]:
+              - link "Case studies" [ref=e74] [cursor=pointer]:
+                - /url: /case-studies/
+            - listitem [ref=e75]:
+              - link "Questions & Answers" [ref=e76] [cursor=pointer]:
+                - /url: /answers-hub/
+            - listitem [ref=e77]:
+              - link "Interview Questions" [ref=e78] [cursor=pointer]:
+                - /url: https://lemon.io/interview-questions/
+        - listitem [ref=e79]:
+          - link "Important links":
+            - /url: "#"
+          - list [ref=e80]:
+            - listitem [ref=e81]:
+              - link "Job descriptions" [ref=e82] [cursor=pointer]:
+                - /url: /job-description/
+            - listitem [ref=e83]:
+              - link "Reviews" [ref=e84] [cursor=pointer]:
+                - /url: https://www.trustpilot.com/review/lemon.io
+            - listitem [ref=e85]:
+              - link "Rate Calculator" [ref=e86] [cursor=pointer]:
+                - /url: https://lemon.io/rate-calculator/
+        - listitem [ref=e87]:
+          - link "Terms":
+            - /url: "#"
+          - list [ref=e88]:
+            - listitem [ref=e89]:
+              - link "Terms of use" [ref=e90] [cursor=pointer]:
+                - /url: https://lemon.io/terms-of-use/
+            - listitem [ref=e91]:
+              - link "Privacy policy" [ref=e92] [cursor=pointer]:
+                - /url: https://lemon.io/privacy-policy/
+      - generic [ref=e94]:
+        - link "Home" [ref=e95] [cursor=pointer]:
+          - /url: /
+          - img "Lemon logo" [ref=e96]
+        - generic [ref=e97]:
+          - link "Facebook" [ref=e98] [cursor=pointer]:
+            - /url: https://www.facebook.com/lemoneyeo
+            - img "Facebook" [ref=e99]
+          - link "X" [ref=e100] [cursor=pointer]:
+            - /url: https://twitter.com/lemoneyeo
+            - img "X" [ref=e101]
+          - link "Instagram" [ref=e102] [cursor=pointer]:
+            - /url: https://www.instagram.com/lemoneyeo
+            - img "Instagram" [ref=e103]
+          - link "Linkedin" [ref=e104] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/lemoneyeo/
+            - img "Linkedin" [ref=e105]
+        - generic [ref=e106]: © 2026 lemon.io
+  - navigation "Language Switcher" [ref=e107]:
+    - list [ref=e108]:
+      - listitem [ref=e109]:
+        - link "Switch to Deutsch" [ref=e110] [cursor=pointer]:
+          - /url: https://lemon.io/de/
+          - text: Deutsch

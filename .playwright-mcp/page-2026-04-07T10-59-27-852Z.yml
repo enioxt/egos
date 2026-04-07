@@ -1,0 +1,1426 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - link "Lemon.io" [ref=e7] [cursor=pointer]:
+          - /url: https://lemon.io/
+          - img "Lemon.io" [ref=e8]
+        - navigation [ref=e9]:
+          - list [ref=e10]:
+            - listitem [ref=e11]:
+              - link "Start hiring" [ref=e12] [cursor=pointer]:
+                - /url: https://magic.lemon.io/welcome?from=hire-talent
+            - listitem [ref=e13]:
+              - link "Find jobs" [ref=e14] [cursor=pointer]:
+                - /url: https://me.lemon.io/escape-the-matrix?from=header
+            - listitem [ref=e15]:
+              - link "Login" [ref=e16] [cursor=pointer]:
+                - /url: https://app.lemon.io/auth/login
+                - text: Login
+                - img [ref=e17]
+          - list [ref=e20]:
+            - listitem [ref=e21]:
+              - link "For developers" [ref=e22] [cursor=pointer]:
+                - /url: https://lemon.io/for-developers/
+            - listitem [ref=e23]:
+              - link "For companies" [ref=e24] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e25]:
+              - link "Services" [ref=e26] [cursor=pointer]:
+                - /url: "#"
+    - main [ref=e29]:
+      - generic [ref=e31]:
+        - heading "Ship software faster with experienced engineers" [level=1] [ref=e32]
+        - paragraph [ref=e34]: Rigorously vetted and curated developers from around Europe, LatAm, and the US. Lemon.io helps you hire talent fast, on budget, and with month-to-month flexibility.
+        - generic [ref=e35]:
+          - generic [ref=e36]:
+            - combobox [ref=e38]:
+              - option "Choose specialization" [selected]
+              - option "Full-stack Web Developer"
+              - option "Front-end Web Developer"
+              - option "Back-end Web Developer"
+              - option "Mobile Developer"
+              - option "Machine Learning Engineer"
+              - option "UI/UX Designer"
+              - option "AI Engineer"
+              - option "AI Red Teamer"
+              - option "Animator"
+              - option "Architect"
+              - option "Automation QA Engineer"
+              - option "Blockchain Engineer"
+              - option "CTO"
+              - option "Cloud Engineer"
+              - option "Data Analyst"
+              - option "Data Annotator"
+              - option "Data Engineer"
+              - option "Data Scientist"
+              - option "DevOps"
+              - option "DevSecOps"
+              - option "Embedded Software Engineer"
+              - option "Engineering Manager"
+              - option "Game Developer"
+              - option "Graphic Designer"
+              - option "MLOps Engineer"
+              - option "Manual QA Engineer"
+              - option "Platform Engineer"
+              - option "Product Designer"
+              - option "Product Manager"
+              - option "Project Manager"
+              - option "Prompt Engineer"
+              - option "Robotics Engineer"
+              - option "Shopify Developer"
+              - option "Site Reliability Engineer"
+              - option "Team lead"
+              - option "Tech lead"
+              - option "WordPress Developer"
+            - link "Hire developer now" [ref=e39] [cursor=pointer]:
+              - /url: https://magic.lemon.io/welcome?from=home-first-screen
+              - text: Hire developer now
+              - img [ref=e40]
+          - generic [ref=e42]:
+            - generic [ref=e43]:
+              - heading "1,500+" [level=5] [ref=e44]
+              - paragraph [ref=e46]: manually vetted developers
+            - generic [ref=e47]:
+              - heading "24 hours" [level=5] [ref=e48]
+              - paragraph [ref=e50]: average matching time
+            - generic [ref=e51]:
+              - heading "2.3M hours" [level=5] [ref=e52]
+              - paragraph [ref=e54]: worked since 2015
+        - img "hero bg" [ref=e56]
+        - img "hero bg" [ref=e58]
+      - generic [ref=e59]:
+        - img [ref=e62] [cursor=pointer]
+        - img [ref=e66] [cursor=pointer]
+        - generic [ref=e71]:
+          - link [ref=e73] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/aleksander-g-fwcr5lbu4
+            - generic [ref=e74]:
+              - img [ref=e76]
+              - generic [ref=e77]:
+                - generic [ref=e78]:
+                  - text: Aleksander
+                  - img [ref=e79]
+                - generic [ref=e80]: Back-end Web Developer
+                - generic [ref=e81]:
+                  - generic [ref=e82]: Python,
+                  - generic [ref=e83]: Django,
+                  - text: Flask
+              - generic [ref=e84]:
+                - generic [ref=e85]: Previously at
+                - img [ref=e86]
+          - link [ref=e88] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/nazar-t-a36ozd4sy
+            - generic [ref=e89]:
+              - img [ref=e91]
+              - generic [ref=e92]:
+                - generic [ref=e93]:
+                  - text: Nazar
+                  - img [ref=e94]
+                - generic [ref=e95]: Full-stack Developer
+                - generic [ref=e96]:
+                  - generic [ref=e97]: React,
+                  - generic [ref=e98]: Node.js,
+                  - text: Typescript
+              - generic [ref=e99]:
+                - generic [ref=e100]: Previously at
+                - img [ref=e101]
+          - link [ref=e103] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/angel-r-esdjzgjn4
+            - generic [ref=e104]:
+              - img [ref=e106]
+              - generic [ref=e107]:
+                - generic [ref=e108]:
+                  - text: Angel
+                  - img [ref=e109]
+                - generic [ref=e110]: Mobile Developer
+                - generic [ref=e111]:
+                  - generic [ref=e112]: Swift,
+                  - generic [ref=e113]: SwiftUI,
+                  - text: UIKit
+              - generic [ref=e114]:
+                - generic [ref=e115]: Previously at
+                - img [ref=e116]
+          - link [ref=e118] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/vitalii-m-e8obuxkgq
+            - generic [ref=e119]:
+              - img [ref=e121]
+              - generic [ref=e122]:
+                - generic [ref=e123]:
+                  - text: Vitalii
+                  - img [ref=e124]
+                - generic [ref=e125]: Full-stack Web Developer
+                - generic [ref=e126]:
+                  - generic [ref=e127]: Python,
+                  - generic [ref=e128]: React,
+                  - text: Node.js
+              - generic [ref=e129]:
+                - generic [ref=e130]: Previously at
+                - img [ref=e131]
+          - link [ref=e133] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/giacomo-s-qhgn0w64b
+            - generic [ref=e134]:
+              - img [ref=e136]
+              - generic [ref=e137]:
+                - generic [ref=e138]:
+                  - text: Giacomo
+                  - img [ref=e139]
+                - generic [ref=e140]: Front-end web developer
+                - generic [ref=e141]:
+                  - generic [ref=e142]: React,
+                  - generic [ref=e143]: Typescript,
+                  - text: Next.js
+              - generic [ref=e144]:
+                - generic [ref=e145]: Previously at
+                - img [ref=e146]
+          - link "avatar Daniel MX flag Mobile Developer Android, Kotlin Previously at Airbnb" [ref=e148] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/daniel-g-jcnotg28v
+            - generic [ref=e149]:
+              - img "avatar" [ref=e151]
+              - generic [ref=e152]:
+                - generic [ref=e153]:
+                  - text: Daniel
+                  - img "MX flag" [ref=e154]
+                - generic [ref=e155]: Mobile Developer
+                - generic [ref=e156]:
+                  - generic [ref=e157]: Android,
+                  - text: Kotlin
+              - generic [ref=e158]:
+                - generic [ref=e159]: Previously at
+                - img "Airbnb" [ref=e160]
+          - link "avatar Teddy KE flag Full-stack Web Developer React, Python, AWS Previously at Microsoft" [ref=e162] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/teddy-b-vblfu0btq
+            - generic [ref=e163]:
+              - img "avatar" [ref=e165]
+              - generic [ref=e166]:
+                - generic [ref=e167]:
+                  - text: Teddy
+                  - img "KE flag" [ref=e168]
+                - generic [ref=e169]: Full-stack Web Developer
+                - generic [ref=e170]:
+                  - generic [ref=e171]: React,
+                  - generic [ref=e172]: Python,
+                  - text: AWS
+              - generic [ref=e173]:
+                - generic [ref=e174]: Previously at
+                - img "Microsoft" [ref=e175]
+          - link "avatar Artur PL flag Game Developer Unity, C#, .Net Previously at Samsung" [ref=e177] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/artur-m-g23zhwm6y
+            - generic [ref=e178]:
+              - img "avatar" [ref=e180]
+              - generic [ref=e181]:
+                - generic [ref=e182]:
+                  - text: Artur
+                  - img "PL flag" [ref=e183]
+                - generic [ref=e184]: Game Developer
+                - generic [ref=e185]:
+                  - generic [ref=e186]: Unity,
+                  - generic [ref=e187]: C#,
+                  - text: .Net
+              - generic [ref=e188]:
+                - generic [ref=e189]: Previously at
+                - img "Samsung" [ref=e190]
+          - link "avatar Caio PT flag DevOps Kubernetes, Terraform, AWS Previously at Nokia" [ref=e192] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/caio-s-sdj5uxuv9
+            - generic [ref=e193]:
+              - img "avatar" [ref=e195]
+              - generic [ref=e196]:
+                - generic [ref=e197]:
+                  - text: Caio
+                  - img "PT flag" [ref=e198]
+                - generic [ref=e199]: DevOps
+                - generic [ref=e200]:
+                  - generic [ref=e201]: Kubernetes,
+                  - generic [ref=e202]: Terraform,
+                  - text: AWS
+              - generic [ref=e203]:
+                - generic [ref=e204]: Previously at
+                - img "Nokia" [ref=e205]
+          - link "avatar Alla CA flag Full-stack Developer PHP, React, Node.js Previously at Farfetch" [ref=e207] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/alla-h-gpswnouyb
+            - generic [ref=e208]:
+              - img "avatar" [ref=e210]
+              - generic [ref=e211]:
+                - generic [ref=e212]:
+                  - text: Alla
+                  - img "CA flag" [ref=e213]
+                - generic [ref=e214]: Full-stack Developer
+                - generic [ref=e215]:
+                  - generic [ref=e216]: PHP,
+                  - generic [ref=e217]: React,
+                  - text: Node.js
+              - generic [ref=e218]:
+                - generic [ref=e219]: Previously at
+                - img "Farfetch" [ref=e220]
+          - link [ref=e222] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/andre-n-qbeugunqm
+            - generic [ref=e223]:
+              - img [ref=e225]
+              - generic [ref=e226]:
+                - generic [ref=e227]:
+                  - text: Andre
+                  - img [ref=e228]
+                - generic [ref=e229]: Full-stack Web Developer
+                - generic [ref=e230]:
+                  - generic [ref=e231]: React,
+                  - generic [ref=e232]: Node.js,
+                  - text: React Native
+              - generic [ref=e233]:
+                - generic [ref=e234]: Previously at
+                - img [ref=e235]
+          - link [ref=e237] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/adrian-d-xjaak80l1
+            - generic [ref=e238]:
+              - img [ref=e240]
+              - generic [ref=e241]:
+                - generic [ref=e242]:
+                  - text: Adrian
+                  - img [ref=e243]
+                - generic [ref=e244]: UI/UX Designer
+                - generic [ref=e245]:
+                  - generic [ref=e246]: UI/UX,
+                  - text: Figma
+              - generic [ref=e247]:
+                - generic [ref=e248]: Previously at
+                - img [ref=e249]
+          - link [ref=e251] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/viktoria-b-yf1xtfr77
+            - generic [ref=e252]:
+              - img [ref=e254]
+              - generic [ref=e255]:
+                - generic [ref=e256]:
+                  - text: Viktoria
+                  - img [ref=e257]
+                - generic [ref=e258]: Back-end Web Developer
+                - generic [ref=e259]:
+                  - generic [ref=e260]: Ruby,
+                  - generic [ref=e261]: Ruby on Rails,
+                  - text: React
+              - generic [ref=e262]:
+                - generic [ref=e263]: Previously at
+                - img [ref=e264]
+          - link [ref=e266] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/renan-p-dku9suxed
+            - generic [ref=e267]:
+              - img [ref=e269]
+              - generic [ref=e270]:
+                - generic [ref=e271]:
+                  - text: Renan
+                  - img [ref=e272]
+                - generic [ref=e273]: Full-Stack Web Developer
+                - generic [ref=e274]:
+                  - generic [ref=e275]: React,
+                  - generic [ref=e276]: Python,
+                  - text: Node.js
+              - generic [ref=e277]:
+                - generic [ref=e278]: Previously at
+                - img [ref=e279]
+          - link [ref=e281] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/eugene-s-up7xbvm3s
+            - generic [ref=e282]:
+              - img [ref=e284]
+              - generic [ref=e285]:
+                - generic [ref=e286]:
+                  - text: Eugene
+                  - img [ref=e287]
+                - generic [ref=e288]: Full-Stack Web Developer
+                - generic [ref=e289]:
+                  - generic [ref=e290]: C#,
+                  - generic [ref=e291]: .NET,
+                  - text: Vue
+              - generic [ref=e292]:
+                - generic [ref=e293]: Previously at
+                - img [ref=e294]
+          - link [ref=e296] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/bartosz-s-wz5tjzgae
+            - generic [ref=e297]:
+              - img [ref=e299]
+              - generic [ref=e300]:
+                - generic [ref=e301]:
+                  - text: Bartosz
+                  - img [ref=e302]
+                - generic [ref=e303]: Front-end Web Developer
+                - generic [ref=e304]:
+                  - generic [ref=e305]: React,
+                  - generic [ref=e306]: Typescript,
+                  - text: Next.js
+              - generic [ref=e307]:
+                - generic [ref=e308]: Previously at
+                - img [ref=e309]
+          - link [ref=e311] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/ayse-a-xtc0f2ahb
+            - generic [ref=e312]:
+              - img [ref=e314]
+              - generic [ref=e315]:
+                - generic [ref=e316]:
+                  - text: Ayse
+                  - img [ref=e317]
+                - generic [ref=e318]: Data Scientist
+                - generic [ref=e319]:
+                  - generic [ref=e320]: Python,
+                  - generic [ref=e321]: Linux,
+                  - text: GCP
+              - generic [ref=e322]:
+                - generic [ref=e323]: Previously at
+                - img [ref=e324]
+          - link [ref=e326] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/julio-g-ykggqbzej
+            - generic [ref=e327]:
+              - img [ref=e329]
+              - generic [ref=e330]:
+                - generic [ref=e331]:
+                  - text: Julio
+                  - img [ref=e332]
+                - generic [ref=e333]: Front-end Web Developer
+                - generic [ref=e334]:
+                  - generic [ref=e335]: JavaScript,
+                  - generic [ref=e336]: Typescript,
+                  - text: React
+              - generic [ref=e337]:
+                - generic [ref=e338]: Previously at
+                - img [ref=e339]
+          - link [ref=e341] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/dimitar-j-wjvwf6rto
+            - generic [ref=e342]:
+              - img [ref=e344]
+              - generic [ref=e345]:
+                - generic [ref=e346]:
+                  - text: Dimitar
+                  - img [ref=e347]
+                - generic [ref=e348]: Full-Stack Web Developer
+                - generic [ref=e349]:
+                  - generic [ref=e350]: React,
+                  - generic [ref=e351]: Node.js,
+                  - text: Angular
+              - generic [ref=e352]:
+                - generic [ref=e353]: Previously at
+                - img [ref=e354]
+          - link [ref=e356] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/orkun-m-gu51o6nn1
+            - generic [ref=e357]:
+              - img [ref=e359]
+              - generic [ref=e360]:
+                - generic [ref=e361]:
+                  - text: Orkun
+                  - img [ref=e362]
+                - generic [ref=e363]: Mobile Developer
+                - generic [ref=e364]:
+                  - generic [ref=e365]: React Native,
+                  - generic [ref=e366]: React,
+                  - text: Node.js
+              - generic [ref=e367]:
+                - generic [ref=e368]: Previously at
+                - img [ref=e369]
+          - link [ref=e371] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/kateryna-m-ly4lxphy9
+            - generic [ref=e372]:
+              - img [ref=e374]
+              - generic [ref=e375]:
+                - generic [ref=e376]:
+                  - text: Kateryna
+                  - img [ref=e377]
+                - generic [ref=e378]: Back-end Web Developer
+                - generic [ref=e379]:
+                  - generic [ref=e380]: C#,
+                  - generic [ref=e381]: .NET,
+                  - text: .NET Core
+              - generic [ref=e382]:
+                - generic [ref=e383]: Previously at
+                - img [ref=e384]
+          - link [ref=e386] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/marin-c-n0gbt5gre
+            - generic [ref=e387]:
+              - img [ref=e389]
+              - generic [ref=e390]:
+                - generic [ref=e391]:
+                  - text: Marin
+                  - img [ref=e392]
+                - generic [ref=e393]: UI/UX Designer
+                - generic [ref=e394]:
+                  - generic [ref=e395]: UI/UX,
+                  - generic [ref=e396]: iOS,
+                  - text: Swift
+              - generic [ref=e397]:
+                - generic [ref=e398]: Previously at
+                - img [ref=e399]
+          - link [ref=e401] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/nicolas-s-q3hu1u6sx
+            - generic [ref=e402]:
+              - img [ref=e404]
+              - generic [ref=e405]:
+                - generic [ref=e406]:
+                  - text: Nicolás
+                  - img [ref=e407]
+                - generic [ref=e408]: Full-stack Web Developer
+                - generic [ref=e409]:
+                  - generic [ref=e410]: Node.js,
+                  - generic [ref=e411]: React,
+                  - text: Angular
+              - generic [ref=e412]:
+                - generic [ref=e413]: Previously at
+                - img [ref=e414]
+          - link [ref=e416] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/mario-j-f9yihjd0n
+            - generic [ref=e417]:
+              - img [ref=e419]
+              - generic [ref=e420]:
+                - generic [ref=e421]:
+                  - text: Mario
+                  - img [ref=e422]
+                - generic [ref=e423]: Data Engineer
+                - generic [ref=e424]:
+                  - generic [ref=e425]: Python,
+                  - generic [ref=e426]: AWS,
+                  - text: SQL
+              - generic [ref=e427]:
+                - generic [ref=e428]: Previously at
+                - img [ref=e429]
+          - link [ref=e431] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/aleksander-g-fwcr5lbu4
+            - generic [ref=e432]:
+              - img [ref=e434]
+              - generic [ref=e435]:
+                - generic [ref=e436]:
+                  - text: Aleksander
+                  - img [ref=e437]
+                - generic [ref=e438]: Back-end Web Developer
+                - generic [ref=e439]:
+                  - generic [ref=e440]: Python,
+                  - generic [ref=e441]: Django,
+                  - text: Flask
+              - generic [ref=e442]:
+                - generic [ref=e443]: Previously at
+                - img [ref=e444]
+          - link [ref=e446] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/nazar-t-a36ozd4sy
+            - generic [ref=e447]:
+              - img [ref=e449]
+              - generic [ref=e450]:
+                - generic [ref=e451]:
+                  - text: Nazar
+                  - img [ref=e452]
+                - generic [ref=e453]: Full-stack Developer
+                - generic [ref=e454]:
+                  - generic [ref=e455]: React,
+                  - generic [ref=e456]: Node.js,
+                  - text: Typescript
+              - generic [ref=e457]:
+                - generic [ref=e458]: Previously at
+                - img [ref=e459]
+          - link [ref=e461] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/angel-r-esdjzgjn4
+            - generic [ref=e462]:
+              - img [ref=e464]
+              - generic [ref=e465]:
+                - generic [ref=e466]:
+                  - text: Angel
+                  - img [ref=e467]
+                - generic [ref=e468]: Mobile Developer
+                - generic [ref=e469]:
+                  - generic [ref=e470]: Swift,
+                  - generic [ref=e471]: SwiftUI,
+                  - text: UIKit
+              - generic [ref=e472]:
+                - generic [ref=e473]: Previously at
+                - img [ref=e474]
+          - link [ref=e476] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/vitalii-m-e8obuxkgq
+            - generic [ref=e477]:
+              - img [ref=e479]
+              - generic [ref=e480]:
+                - generic [ref=e481]:
+                  - text: Vitalii
+                  - img [ref=e482]
+                - generic [ref=e483]: Full-stack Web Developer
+                - generic [ref=e484]:
+                  - generic [ref=e485]: Python,
+                  - generic [ref=e486]: React,
+                  - text: Node.js
+              - generic [ref=e487]:
+                - generic [ref=e488]: Previously at
+                - img [ref=e489]
+          - link [ref=e491] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/giacomo-s-qhgn0w64b
+            - generic [ref=e492]:
+              - img [ref=e494]
+              - generic [ref=e495]:
+                - generic [ref=e496]:
+                  - text: Giacomo
+                  - img [ref=e497]
+                - generic [ref=e498]: Front-end web developer
+                - generic [ref=e499]:
+                  - generic [ref=e500]: React,
+                  - generic [ref=e501]: Typescript,
+                  - text: Next.js
+              - generic [ref=e502]:
+                - generic [ref=e503]: Previously at
+                - img [ref=e504]
+          - link [ref=e506] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/daniel-g-jcnotg28v
+            - generic [ref=e507]:
+              - img [ref=e509]
+              - generic [ref=e510]:
+                - generic [ref=e511]:
+                  - text: Daniel
+                  - img [ref=e512]
+                - generic [ref=e513]: Mobile Developer
+                - generic [ref=e514]:
+                  - generic [ref=e515]: Android,
+                  - text: Kotlin
+              - generic [ref=e516]:
+                - generic [ref=e517]: Previously at
+                - img [ref=e518]
+          - link [ref=e520] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/teddy-b-vblfu0btq
+            - generic [ref=e521]:
+              - img [ref=e523]
+              - generic [ref=e524]:
+                - generic [ref=e525]:
+                  - text: Teddy
+                  - img [ref=e526]
+                - generic [ref=e527]: Full-stack Web Developer
+                - generic [ref=e528]:
+                  - generic [ref=e529]: React,
+                  - generic [ref=e530]: Python,
+                  - text: AWS
+              - generic [ref=e531]:
+                - generic [ref=e532]: Previously at
+                - img [ref=e533]
+          - link [ref=e535] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/artur-m-g23zhwm6y
+            - generic [ref=e536]:
+              - img [ref=e538]
+              - generic [ref=e539]:
+                - generic [ref=e540]:
+                  - text: Artur
+                  - img [ref=e541]
+                - generic [ref=e542]: Game Developer
+                - generic [ref=e543]:
+                  - generic [ref=e544]: Unity,
+                  - generic [ref=e545]: C#,
+                  - text: .Net
+              - generic [ref=e546]:
+                - generic [ref=e547]: Previously at
+                - img [ref=e548]
+          - link [ref=e550] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/caio-s-sdj5uxuv9
+            - generic [ref=e551]:
+              - img [ref=e553]
+              - generic [ref=e554]:
+                - generic [ref=e555]:
+                  - text: Caio
+                  - img [ref=e556]
+                - generic [ref=e557]: DevOps
+                - generic [ref=e558]:
+                  - generic [ref=e559]: Kubernetes,
+                  - generic [ref=e560]: Terraform,
+                  - text: AWS
+              - generic [ref=e561]:
+                - generic [ref=e562]: Previously at
+                - img [ref=e563]
+          - link [ref=e565] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/alla-h-gpswnouyb
+            - generic [ref=e566]:
+              - img [ref=e568]
+              - generic [ref=e569]:
+                - generic [ref=e570]:
+                  - text: Alla
+                  - img [ref=e571]
+                - generic [ref=e572]: Full-stack Developer
+                - generic [ref=e573]:
+                  - generic [ref=e574]: PHP,
+                  - generic [ref=e575]: React,
+                  - text: Node.js
+              - generic [ref=e576]:
+                - generic [ref=e577]: Previously at
+                - img [ref=e578]
+          - link [ref=e580] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/andre-n-qbeugunqm
+            - generic [ref=e581]:
+              - img [ref=e583]
+              - generic [ref=e584]:
+                - generic [ref=e585]:
+                  - text: Andre
+                  - img [ref=e586]
+                - generic [ref=e587]: Full-stack Web Developer
+                - generic [ref=e588]:
+                  - generic [ref=e589]: React,
+                  - generic [ref=e590]: Node.js,
+                  - text: React Native
+              - generic [ref=e591]:
+                - generic [ref=e592]: Previously at
+                - img [ref=e593]
+          - link [ref=e595] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/adrian-d-xjaak80l1
+            - generic [ref=e596]:
+              - img [ref=e598]
+              - generic [ref=e599]:
+                - generic [ref=e600]:
+                  - text: Adrian
+                  - img [ref=e601]
+                - generic [ref=e602]: UI/UX Designer
+                - generic [ref=e603]:
+                  - generic [ref=e604]: UI/UX,
+                  - text: Figma
+              - generic [ref=e605]:
+                - generic [ref=e606]: Previously at
+                - img [ref=e607]
+          - link [ref=e609] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/viktoria-b-yf1xtfr77
+            - generic [ref=e610]:
+              - img [ref=e612]
+              - generic [ref=e613]:
+                - generic [ref=e614]:
+                  - text: Viktoria
+                  - img [ref=e615]
+                - generic [ref=e616]: Back-end Web Developer
+                - generic [ref=e617]:
+                  - generic [ref=e618]: Ruby,
+                  - generic [ref=e619]: Ruby on Rails,
+                  - text: React
+              - generic [ref=e620]:
+                - generic [ref=e621]: Previously at
+                - img [ref=e622]
+          - link [ref=e624] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/renan-p-dku9suxed
+            - generic [ref=e625]:
+              - img [ref=e627]
+              - generic [ref=e628]:
+                - generic [ref=e629]:
+                  - text: Renan
+                  - img [ref=e630]
+                - generic [ref=e631]: Full-Stack Web Developer
+                - generic [ref=e632]:
+                  - generic [ref=e633]: React,
+                  - generic [ref=e634]: Python,
+                  - text: Node.js
+              - generic [ref=e635]:
+                - generic [ref=e636]: Previously at
+                - img [ref=e637]
+          - link [ref=e639] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/eugene-s-up7xbvm3s
+            - generic [ref=e640]:
+              - img [ref=e642]
+              - generic [ref=e643]:
+                - generic [ref=e644]:
+                  - text: Eugene
+                  - img [ref=e645]
+                - generic [ref=e646]: Full-Stack Web Developer
+                - generic [ref=e647]:
+                  - generic [ref=e648]: C#,
+                  - generic [ref=e649]: .NET,
+                  - text: Vue
+              - generic [ref=e650]:
+                - generic [ref=e651]: Previously at
+                - img [ref=e652]
+          - link [ref=e654] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/bartosz-s-wz5tjzgae
+            - generic [ref=e655]:
+              - img [ref=e657]
+              - generic [ref=e658]:
+                - generic [ref=e659]:
+                  - text: Bartosz
+                  - img [ref=e660]
+                - generic [ref=e661]: Front-end Web Developer
+                - generic [ref=e662]:
+                  - generic [ref=e663]: React,
+                  - generic [ref=e664]: Typescript,
+                  - text: Next.js
+              - generic [ref=e665]:
+                - generic [ref=e666]: Previously at
+                - img [ref=e667]
+          - link [ref=e669] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/ayse-a-xtc0f2ahb
+            - generic [ref=e670]:
+              - img [ref=e672]
+              - generic [ref=e673]:
+                - generic [ref=e674]:
+                  - text: Ayse
+                  - img [ref=e675]
+                - generic [ref=e676]: Data Scientist
+                - generic [ref=e677]:
+                  - generic [ref=e678]: Python,
+                  - generic [ref=e679]: Linux,
+                  - text: GCP
+              - generic [ref=e680]:
+                - generic [ref=e681]: Previously at
+                - img [ref=e682]
+          - link [ref=e684] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/julio-g-ykggqbzej
+            - generic [ref=e685]:
+              - img [ref=e687]
+              - generic [ref=e688]:
+                - generic [ref=e689]:
+                  - text: Julio
+                  - img [ref=e690]
+                - generic [ref=e691]: Front-end Web Developer
+                - generic [ref=e692]:
+                  - generic [ref=e693]: JavaScript,
+                  - generic [ref=e694]: Typescript,
+                  - text: React
+              - generic [ref=e695]:
+                - generic [ref=e696]: Previously at
+                - img [ref=e697]
+          - link [ref=e699] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/dimitar-j-wjvwf6rto
+            - generic [ref=e700]:
+              - img [ref=e702]
+              - generic [ref=e703]:
+                - generic [ref=e704]:
+                  - text: Dimitar
+                  - img [ref=e705]
+                - generic [ref=e706]: Full-Stack Web Developer
+                - generic [ref=e707]:
+                  - generic [ref=e708]: React,
+                  - generic [ref=e709]: Node.js,
+                  - text: Angular
+              - generic [ref=e710]:
+                - generic [ref=e711]: Previously at
+                - img [ref=e712]
+          - link [ref=e714] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/orkun-m-gu51o6nn1
+            - generic [ref=e715]:
+              - img [ref=e717]
+              - generic [ref=e718]:
+                - generic [ref=e719]:
+                  - text: Orkun
+                  - img [ref=e720]
+                - generic [ref=e721]: Mobile Developer
+                - generic [ref=e722]:
+                  - generic [ref=e723]: React Native,
+                  - generic [ref=e724]: React,
+                  - text: Node.js
+              - generic [ref=e725]:
+                - generic [ref=e726]: Previously at
+                - img [ref=e727]
+          - link [ref=e729] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/kateryna-m-ly4lxphy9
+            - generic [ref=e730]:
+              - img [ref=e732]
+              - generic [ref=e733]:
+                - generic [ref=e734]:
+                  - text: Kateryna
+                  - img [ref=e735]
+                - generic [ref=e736]: Back-end Web Developer
+                - generic [ref=e737]:
+                  - generic [ref=e738]: C#,
+                  - generic [ref=e739]: .NET,
+                  - text: .NET Core
+              - generic [ref=e740]:
+                - generic [ref=e741]: Previously at
+                - img [ref=e742]
+          - link [ref=e744] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/marin-c-n0gbt5gre
+            - generic [ref=e745]:
+              - img [ref=e747]
+              - generic [ref=e748]:
+                - generic [ref=e749]:
+                  - text: Marin
+                  - img [ref=e750]
+                - generic [ref=e751]: UI/UX Designer
+                - generic [ref=e752]:
+                  - generic [ref=e753]: UI/UX,
+                  - generic [ref=e754]: iOS,
+                  - text: Swift
+              - generic [ref=e755]:
+                - generic [ref=e756]: Previously at
+                - img [ref=e757]
+          - link [ref=e759] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/nicolas-s-q3hu1u6sx
+            - generic [ref=e760]:
+              - img [ref=e762]
+              - generic [ref=e763]:
+                - generic [ref=e764]:
+                  - text: Nicolás
+                  - img [ref=e765]
+                - generic [ref=e766]: Full-stack Web Developer
+                - generic [ref=e767]:
+                  - generic [ref=e768]: Node.js,
+                  - generic [ref=e769]: React,
+                  - text: Angular
+              - generic [ref=e770]:
+                - generic [ref=e771]: Previously at
+                - img [ref=e772]
+          - link [ref=e774] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/mario-j-f9yihjd0n
+            - generic [ref=e775]:
+              - img [ref=e777]
+              - generic [ref=e778]:
+                - generic [ref=e779]:
+                  - text: Mario
+                  - img [ref=e780]
+                - generic [ref=e781]: Data Engineer
+                - generic [ref=e782]:
+                  - generic [ref=e783]: Python,
+                  - generic [ref=e784]: AWS,
+                  - text: SQL
+              - generic [ref=e785]:
+                - generic [ref=e786]: Previously at
+                - img [ref=e787]
+          - link [ref=e789] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/aleksander-g-fwcr5lbu4
+            - generic [ref=e790]:
+              - img [ref=e792]
+              - generic [ref=e793]:
+                - generic [ref=e794]:
+                  - text: Aleksander
+                  - img [ref=e795]
+                - generic [ref=e796]: Back-end Web Developer
+                - generic [ref=e797]:
+                  - generic [ref=e798]: Python,
+                  - generic [ref=e799]: Django,
+                  - text: Flask
+              - generic [ref=e800]:
+                - generic [ref=e801]: Previously at
+                - img [ref=e802]
+          - link [ref=e804] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/nazar-t-a36ozd4sy
+            - generic [ref=e805]:
+              - img [ref=e807]
+              - generic [ref=e808]:
+                - generic [ref=e809]:
+                  - text: Nazar
+                  - img [ref=e810]
+                - generic [ref=e811]: Full-stack Developer
+                - generic [ref=e812]:
+                  - generic [ref=e813]: React,
+                  - generic [ref=e814]: Node.js,
+                  - text: Typescript
+              - generic [ref=e815]:
+                - generic [ref=e816]: Previously at
+                - img [ref=e817]
+          - link [ref=e819] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/angel-r-esdjzgjn4
+            - generic [ref=e820]:
+              - img [ref=e822]
+              - generic [ref=e823]:
+                - generic [ref=e824]:
+                  - text: Angel
+                  - img [ref=e825]
+                - generic [ref=e826]: Mobile Developer
+                - generic [ref=e827]:
+                  - generic [ref=e828]: Swift,
+                  - generic [ref=e829]: SwiftUI,
+                  - text: UIKit
+              - generic [ref=e830]:
+                - generic [ref=e831]: Previously at
+                - img [ref=e832]
+          - link [ref=e834] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/vitalii-m-e8obuxkgq
+            - generic [ref=e835]:
+              - img [ref=e837]
+              - generic [ref=e838]:
+                - generic [ref=e839]:
+                  - text: Vitalii
+                  - img [ref=e840]
+                - generic [ref=e841]: Full-stack Web Developer
+                - generic [ref=e842]:
+                  - generic [ref=e843]: Python,
+                  - generic [ref=e844]: React,
+                  - text: Node.js
+              - generic [ref=e845]:
+                - generic [ref=e846]: Previously at
+                - img [ref=e847]
+          - link [ref=e849] [cursor=pointer]:
+            - /url: https://magic.lemon.io/share/giacomo-s-qhgn0w64b
+            - generic [ref=e850]:
+              - img [ref=e852]
+              - generic [ref=e853]:
+                - generic [ref=e854]:
+                  - text: Giacomo
+                  - img [ref=e855]
+                - generic [ref=e856]: Front-end web developer
+                - generic [ref=e857]:
+                  - generic [ref=e858]: React,
+                  - generic [ref=e859]: Typescript,
+                  - text: Next.js
+              - generic [ref=e860]:
+                - generic [ref=e861]: Previously at
+                - img [ref=e862]
+      - generic [ref=e867]:
+        - link "Trustpilot" [ref=e870] [cursor=pointer]:
+          - /url: https://www.trustpilot.com/review/lemon.io
+        - link "g2" [ref=e872] [cursor=pointer]:
+          - /url: https://www.g2.com/products/lemon-io/reviews
+          - img "g2" [ref=e873]
+        - link "clutch" [ref=e875] [cursor=pointer]:
+          - /url: https://clutch.co/profile/lemonio#highlights
+          - img "clutch" [ref=e876]
+        - link "Our Case studies" [ref=e877] [cursor=pointer]:
+          - /url: https://lemon.io/case-studies/
+          - text: Our Case studies
+          - img [ref=e878]
+      - generic [ref=e883]:
+        - generic [ref=e884]:
+          - heading "Launch. Scale. Stabilize." [level=2] [ref=e885]:
+            - text: Launch. Scale.
+            - text: Stabilize.
+          - paragraph [ref=e887]: Startups and scaleups use Lemon.io developers to accelerate development at every stage.
+          - link "Hire to move faster" [ref=e888] [cursor=pointer]:
+            - /url: https://magic.lemon.io/welcome?from=home-use-cases
+            - text: Hire to move faster
+            - img [ref=e889]
+        - generic [ref=e891]:
+          - generic [ref=e892]:
+            - generic [ref=e893]:
+              - paragraph [ref=e895]: Launch an MVP
+              - paragraph [ref=e897]: Turn proposals and designs into functional prototypes, with a senior developer’s expertise.
+            - img "image" [ref=e899]
+          - generic [ref=e900]:
+            - generic [ref=e901]:
+              - paragraph [ref=e903]:
+                - text: Accelerate
+                - text: feature development
+              - paragraph [ref=e905]: Meet launch deadlines with much-needed capacity. Add new skills your team currently lacks.
+            - img "image" [ref=e907]
+          - generic [ref=e908]:
+            - generic [ref=e909]:
+              - paragraph [ref=e911]:
+                - text: Stabilize
+                - text: technical infrastructure
+              - paragraph [ref=e913]: Refactor legacy code and get rid of technical debt, so your team can build faster.
+            - img "image" [ref=e915]
+      - generic [ref=e919]:
+        - heading "Hiring through Lemon.io takes days, not months" [level=2] [ref=e920]
+        - generic [ref=e921]:
+          - generic [ref=e923]:
+            - img "item image" [ref=e924]
+            - heading "Check out profiles" [level=5] [ref=e925]
+            - paragraph [ref=e927]: You can do it right now
+            - paragraph [ref=e929]: Fill out a short form and check out our ready-to-interview developers
+          - generic [ref=e932]:
+            - img "item image" [ref=e933]
+            - heading "Interview" [level=5] [ref=e934]
+            - paragraph [ref=e936]: 1-3 days
+            - paragraph [ref=e938]: Share your needs, get 2-3 expertly matched candidates within 24-48 hours and meet the worthiest
+          - generic [ref=e941]:
+            - img "item image" [ref=e942]
+            - heading "Onboard the chosen one" [level=5] [ref=e943]
+            - paragraph [ref=e945]: 1 week
+            - paragraph [ref=e947]: Your developer starts with a project—we deal with a contract, monthly payouts, and what not
+        - link "Hire with confidence" [ref=e948] [cursor=pointer]:
+          - /url: https://magic.lemon.io/welcome?from=home-how-it-works
+          - text: Hire with confidence
+          - img [ref=e949]
+      - generic [ref=e954]:
+        - heading "How we filter top 1% talent for your next hire" [level=2] [ref=e955]
+        - paragraph [ref=e957]: No AI bulls%$t—we vet and match candidates 100% manually with a human touch on every stage.
+        - generic [ref=e958]:
+          - generic [ref=e959]:
+            - generic [ref=e961]: "1"
+            - heading "Resume and LinkedIn review" [level=6] [ref=e962]:
+              - strong [ref=e963]: Resume and LinkedIn review
+            - generic [ref=e964]:
+              - paragraph [ref=e965]: 100%
+              - paragraph [ref=e966]: go through manual check
+          - generic [ref=e967]:
+            - generic [ref=e969]: "2"
+            - heading "Soft skills interview, resume credibility validation, and English check" [level=6] [ref=e970]:
+              - strong [ref=e971]: Soft skills interview
+              - text: ", resume credibility validation, and English check"
+            - generic [ref=e972]:
+              - paragraph [ref=e973]: 10.6%
+              - paragraph [ref=e974]: undergo live screening
+          - generic [ref=e975]:
+            - generic [ref=e977]: "3"
+            - heading "Technical interview with top senior engineers from our community" [level=6] [ref=e978]:
+              - strong [ref=e979]: Technical interview
+              - text: with top senior engineers from our community
+            - generic [ref=e980]:
+              - paragraph [ref=e981]: 3.1%
+              - paragraph [ref=e982]: pass rigorous technical screening
+          - generic [ref=e983]:
+            - generic [ref=e985]: "4"
+            - heading "Listing on Lemon.io with validated skills and experience only" [level=6] [ref=e986]:
+              - strong [ref=e987]: Listing on Lemon.io
+              - text: with validated skills and experience only
+            - generic [ref=e988]:
+              - paragraph [ref=e989]: 1.2%
+              - paragraph [ref=e990]: get fully vetted and onboarded
+        - generic [ref=e991]:
+          - link "Read more about our screening" [ref=e992] [cursor=pointer]:
+            - /url: https://lemon.io/our-vetting-process/
+            - text: Read more about our screening
+            - img [ref=e993]
+          - link "Hire a miraculous dev" [ref=e995] [cursor=pointer]:
+            - /url: https://magic.lemon.io/welcome?from=home-how-we-fiter
+            - text: Hire a miraculous dev
+            - img [ref=e996]
+        - img "dev image" [ref=e998]
+      - generic [ref=e1002]:
+        - heading "Guaranteed flexibility for your team’s changing needs" [level=2] [ref=e1003]
+        - paragraph [ref=e1005]: Lemon.io works with companies on a month-to-month subscription basis, to ensure you only pay for the work you need right now.
+        - generic [ref=e1006]:
+          - generic [ref=e1007]:
+            - img "image" [ref=e1009]
+            - paragraph [ref=e1011]: Flexible scaling
+            - paragraph [ref=e1013]: Shift headcount up or down, based on how much work you need done right now.
+          - generic [ref=e1014]:
+            - img "image" [ref=e1016]
+            - paragraph [ref=e1018]: Quick & easy adjustments
+            - paragraph [ref=e1020]: If priorities change or your developer isn’t a fit, switch hires at no cost.
+          - generic [ref=e1021]:
+            - img "image" [ref=e1023]
+            - paragraph [ref=e1025]: No risky commitments
+            - paragraph [ref=e1027]: Companies work with Lemon.io on a monthly basis, with no pressure to commit long-term.
+          - generic [ref=e1028]:
+            - img "image" [ref=e1030]
+            - paragraph [ref=e1032]: Directly hire your favorites
+            - paragraph [ref=e1034]: If you love working with a particular developer, we provide the option to hire them out for just a recruiting fee.
+        - link "Hire risk-free" [ref=e1035] [cursor=pointer]:
+          - /url: https://magic.lemon.io/welcome?from=home-advantages
+          - text: Hire risk-free
+          - img [ref=e1036]
+      - generic [ref=e1041]:
+        - heading "Remote engineers from Europe, LatAm, the US and Canada will get you covered" [level=2] [ref=e1042]
+        - generic [ref=e1043]:
+          - generic [ref=e1044]:
+            - heading "7+ years" [level=5] [ref=e1045]
+            - paragraph [ref=e1047]: average commercial experience of developers in community
+          - generic [ref=e1048]:
+            - heading "800+" [level=5] [ref=e1049]
+            - paragraph [ref=e1051]: skills and technologies listed in profiles and validated
+          - generic [ref=e1052]:
+            - heading "1 year" [level=5] [ref=e1053]
+            - paragraph [ref=e1055]: average partnership duration with a client
+        - generic [ref=e1056]:
+          - heading "Hire developers by role" [level=4] [ref=e1057]
+          - generic [ref=e1058]:
+            - link "Hire Full-stack Developer Hire Full-stack Developer" [ref=e1059] [cursor=pointer]:
+              - /url: /hire/full-stack-developers/
+              - img "Hire Full-stack Developer" [ref=e1061]
+              - generic [ref=e1063]: Hire Full-stack Developer
+            - link "Hire Front-end Developer Hire Front-end Developer" [ref=e1064] [cursor=pointer]:
+              - /url: /hire/front-end-developers/
+              - img "Hire Front-end Developer" [ref=e1066]
+              - generic [ref=e1068]: Hire Front-end Developer
+            - link "Hire Back-end Developer Hire Back-end Developer" [ref=e1069] [cursor=pointer]:
+              - /url: /hire/back-end-developers/
+              - img "Hire Back-end Developer" [ref=e1071]
+              - generic [ref=e1073]: Hire Back-end Developer
+            - link "Hire Mobile Developer Hire Mobile Developer" [ref=e1074] [cursor=pointer]:
+              - /url: /hire/mobile-developers/
+              - img "Hire Mobile Developer" [ref=e1076]
+              - generic [ref=e1078]: Hire Mobile Developer
+            - link "Hire Game Developer Hire Game Developer" [ref=e1079] [cursor=pointer]:
+              - /url: /hire/game-developers/
+              - img "Hire Game Developer" [ref=e1081]
+              - generic [ref=e1083]: Hire Game Developer
+            - link "Hire DevOps Hire DevOps" [ref=e1084] [cursor=pointer]:
+              - /url: /hire/devops/
+              - img "Hire DevOps" [ref=e1086]
+              - generic [ref=e1088]: Hire DevOps
+            - link "Hire Cloud Engineer Hire Cloud Engineer" [ref=e1089] [cursor=pointer]:
+              - /url: /hire/cloud-engineers/
+              - img "Hire Cloud Engineer" [ref=e1091]
+              - generic [ref=e1093]: Hire Cloud Engineer
+            - link "Hire AI Developer Hire AI Developer" [ref=e1094] [cursor=pointer]:
+              - /url: /hire/ai-engineers/
+              - img "Hire AI Developer" [ref=e1096]
+              - generic [ref=e1098]: Hire AI Developer
+            - link "Hire Machine Learning Engineer Hire Machine Learning Engineer" [ref=e1099] [cursor=pointer]:
+              - /url: /hire/machine-learning-engineers/
+              - img "Hire Machine Learning Engineer" [ref=e1101]
+              - generic [ref=e1103]: Hire Machine Learning Engineer
+            - link "Hire Data Analyst Hire Data Analyst" [ref=e1104] [cursor=pointer]:
+              - /url: /hire/data-analysts/
+              - img "Hire Data Analyst" [ref=e1106]
+              - generic [ref=e1108]: Hire Data Analyst
+            - link "Hire Data Engineer Hire Data Engineer" [ref=e1109] [cursor=pointer]:
+              - /url: /hire/data-engineers/
+              - img "Hire Data Engineer" [ref=e1111]
+              - generic [ref=e1113]: Hire Data Engineer
+            - link "Hire Data Scientist Hire Data Scientist" [ref=e1114] [cursor=pointer]:
+              - /url: /hire/data-scientists/
+              - img "Hire Data Scientist" [ref=e1116]
+              - generic [ref=e1118]: Hire Data Scientist
+            - link "Hire Blockchain Developer Hire Blockchain Developer" [ref=e1119] [cursor=pointer]:
+              - /url: /hire/blockchain-developers/
+              - img "Hire Blockchain Developer" [ref=e1121]
+              - generic [ref=e1123]: Hire Blockchain Developer
+            - link "Hire Automation QA Hire Automation QA" [ref=e1124] [cursor=pointer]:
+              - /url: /hire/automation-qa-engineers/
+              - img "Hire Automation QA" [ref=e1126]
+              - generic [ref=e1128]: Hire Automation QA
+            - generic [ref=e1129]:
+              - generic [ref=e1131]: Looking for other role?
+              - link "Place request" [ref=e1133] [cursor=pointer]:
+                - /url: https://magic.lemon.io/welcome?from=crosslinks-by-role
+                - text: Place request
+                - img [ref=e1134]
+        - generic [ref=e1136]:
+          - heading "Hire developers by skill" [level=4] [ref=e1137]
+          - generic [ref=e1138]:
+            - link "Hire React developer React" [ref=e1139] [cursor=pointer]:
+              - /url: /hire/react-developers/
+              - img "Hire React developer" [ref=e1141]
+              - generic [ref=e1143]: React
+            - link "Hire Typescript developer Typescript" [ref=e1144] [cursor=pointer]:
+              - /url: /hire/typescript-developers/
+              - img "Hire Typescript developer" [ref=e1146]
+              - generic [ref=e1148]: Typescript
+            - link "Hire Python developer Python" [ref=e1149] [cursor=pointer]:
+              - /url: /hire/python-developers/
+              - img "Hire Python developer" [ref=e1151]
+              - generic [ref=e1153]: Python
+            - link "Hire Node.js developer Node.js" [ref=e1154] [cursor=pointer]:
+              - /url: /hire/node-js-developers/
+              - img "Hire Node.js developer" [ref=e1156]
+              - generic [ref=e1158]: Node.js
+            - link "Hire AWS developer AWS" [ref=e1159] [cursor=pointer]:
+              - /url: /hire/aws-developers/
+              - img "Hire AWS developer" [ref=e1161]
+              - generic [ref=e1163]: AWS
+            - link "Hire Next.js developer Next.js" [ref=e1164] [cursor=pointer]:
+              - /url: /hire/next-js-developers/
+              - img "Hire Next.js developer" [ref=e1166]
+              - generic [ref=e1168]: Next.js
+            - link "Hire PostgreSQL developer PostgreSQL" [ref=e1169] [cursor=pointer]:
+              - /url: /hire/postgresql-developers/
+              - img "Hire PostgreSQL developer" [ref=e1171]
+              - generic [ref=e1173]: PostgreSQL
+            - link "Hire JavaScript developer JavaScript" [ref=e1174] [cursor=pointer]:
+              - /url: /hire/javascript-developers/
+              - img "Hire JavaScript developer" [ref=e1176]
+              - generic [ref=e1178]: JavaScript
+            - link "Hire React Native developer React Native" [ref=e1179] [cursor=pointer]:
+              - /url: /hire/react-native-developers/
+              - img "Hire React Native developer" [ref=e1181]
+              - generic [ref=e1183]: React Native
+            - link "Hire Tailwind CSS developer Tailwind CSS" [ref=e1184] [cursor=pointer]:
+              - /url: /hire/tailwindcss-developers/
+              - img "Hire Tailwind CSS developer" [ref=e1186]
+              - generic [ref=e1188]: Tailwind CSS
+            - link "Hire REST API developer REST API" [ref=e1189] [cursor=pointer]:
+              - /url: /hire/rest-api-developers/
+              - img "Hire REST API developer" [ref=e1191]
+              - generic [ref=e1193]: REST API
+            - link "Hire iOS developer iOS" [ref=e1194] [cursor=pointer]:
+              - /url: /hire/ios-developers/
+              - img "Hire iOS developer" [ref=e1196]
+              - generic [ref=e1198]: iOS
+            - link "Hire Flutter developer Flutter" [ref=e1199] [cursor=pointer]:
+              - /url: /hire/flutter-developers/
+              - img "Hire Flutter developer" [ref=e1201]
+              - generic [ref=e1203]: Flutter
+            - link "Hire Firebase developer Firebase" [ref=e1204] [cursor=pointer]:
+              - /url: /hire/firebase-developers/
+              - img "Hire Firebase developer" [ref=e1206]
+              - generic [ref=e1208]: Firebase
+            - link "Hire PHP developer PHP" [ref=e1209] [cursor=pointer]:
+              - /url: /hire/php-developers/
+              - img "Hire PHP developer" [ref=e1211]
+              - generic [ref=e1213]: PHP
+            - link "Hire Android developer Android" [ref=e1214] [cursor=pointer]:
+              - /url: /hire/android-developers/
+              - img "Hire Android developer" [ref=e1216]
+              - generic [ref=e1218]: Android
+            - link "Hire MongoDB developer MongoDB" [ref=e1219] [cursor=pointer]:
+              - /url: /hire/mongodb-developers/
+              - img "Hire MongoDB developer" [ref=e1221]
+              - generic [ref=e1223]: MongoDB
+            - link "Hire Ruby on Rails developer Ruby on Rails" [ref=e1224] [cursor=pointer]:
+              - /url: /hire/ruby-on-rails-developers/
+              - img "Hire Ruby on Rails developer" [ref=e1226]
+              - generic [ref=e1228]: Ruby on Rails
+            - link "Hire GraphQL developer GraphQL" [ref=e1229] [cursor=pointer]:
+              - /url: /hire/graphql-developers/
+              - img "Hire GraphQL developer" [ref=e1231]
+              - generic [ref=e1233]: GraphQL
+            - link "Hire Docker developer Docker" [ref=e1234] [cursor=pointer]:
+              - /url: /hire/docker-developers/
+              - img "Hire Docker developer" [ref=e1236]
+              - generic [ref=e1238]: Docker
+            - link "Hire Django developer Django" [ref=e1239] [cursor=pointer]:
+              - /url: /hire/django-developers/
+              - img "Hire Django developer" [ref=e1241]
+              - generic [ref=e1243]: Django
+            - link "Hire Vue.js developer Vue.js" [ref=e1244] [cursor=pointer]:
+              - /url: /hire/vue-js-developers/
+              - img "Hire Vue.js developer" [ref=e1246]
+              - generic [ref=e1248]: Vue.js
+            - link "Hire MySQL developer MySQL" [ref=e1249] [cursor=pointer]:
+              - /url: /hire/mysql-developers/
+              - img "Hire MySQL developer" [ref=e1251]
+              - generic [ref=e1253]: MySQL
+            - link "Hire SQL developer SQL" [ref=e1254] [cursor=pointer]:
+              - /url: /hire/sql-developers/
+              - img "Hire SQL developer" [ref=e1256]
+              - generic [ref=e1258]: SQL
+            - link "Hire .NET developer .NET" [ref=e1259] [cursor=pointer]:
+              - /url: /hire/net-developers/
+              - img "Hire .NET developer" [ref=e1261]
+              - generic [ref=e1263]: .NET
+            - link "Hire Dart developer Dart" [ref=e1264] [cursor=pointer]:
+              - /url: /hire/dart-developers/
+              - img "Hire Dart developer" [ref=e1266]
+              - generic [ref=e1268]: Dart
+            - link "Hire Swift developer Swift" [ref=e1269] [cursor=pointer]:
+              - /url: /hire/swift-developers/
+              - img "Hire Swift developer" [ref=e1271]
+              - generic [ref=e1273]: Swift
+            - link "Hire C# developer C#" [ref=e1274] [cursor=pointer]:
+              - /url: /hire/c-sharp-developers/
+              - img "Hire C# developer" [ref=e1276]
+              - generic [ref=e1278]: C#
+            - link "Hire FastAPI developer FastAPI" [ref=e1279] [cursor=pointer]:
+              - /url: /hire/fastapi-developers/
+              - img "Hire FastAPI developer" [ref=e1281]
+              - generic [ref=e1283]: FastAPI
+            - link "Hire Kubernetes developer Kubernetes" [ref=e1284] [cursor=pointer]:
+              - /url: /hire/kubernetes-developers/
+              - img "Hire Kubernetes developer" [ref=e1286]
+              - generic [ref=e1288]: Kubernetes
+            - link "Hire Java developer Java" [ref=e1289] [cursor=pointer]:
+              - /url: /hire/java-developers/
+              - img "Hire Java developer" [ref=e1291]
+              - generic [ref=e1293]: Java
+            - link "Hire Laravel developer Laravel" [ref=e1294] [cursor=pointer]:
+              - /url: /hire/laravel-developers/
+              - img "Hire Laravel developer" [ref=e1296]
+              - generic [ref=e1298]: Laravel
+            - link "Hire Terraform developer Terraform" [ref=e1299] [cursor=pointer]:
+              - /url: /hire/terraform-developers/
+              - img "Hire Terraform developer" [ref=e1301]
+              - generic [ref=e1303]: Terraform
+            - link "Hire Express.js developer Express.js" [ref=e1304] [cursor=pointer]:
+              - /url: /hire/express-js-developers/
+              - img "Hire Express.js developer" [ref=e1306]
+              - generic [ref=e1308]: Express.js
+            - link "Hire ASP.NET Core developer ASP.NET Core" [ref=e1309] [cursor=pointer]:
+              - /url: /hire/asp-net-core-developers/
+              - img "Hire ASP.NET Core developer" [ref=e1311]
+              - generic [ref=e1313]: ASP.NET Core
+            - link "Hire Golang developer Golang" [ref=e1314] [cursor=pointer]:
+              - /url: /hire/golang-developers/
+              - img "Hire Golang developer" [ref=e1316]
+              - generic [ref=e1318]: Golang
+            - link "Hire Google API and Services developer Google API and Services" [ref=e1319] [cursor=pointer]:
+              - /url: /hire/google-api-services-developers/
+              - img "Hire Google API and Services developer" [ref=e1321]
+              - generic [ref=e1323]: Google API and Services
+            - link "Hire OpenAI developer OpenAI" [ref=e1324] [cursor=pointer]:
+              - /url: /hire/openai-engineers/
+              - img "Hire OpenAI developer" [ref=e1326]
+              - generic [ref=e1328]: OpenAI
+            - link "Hire Jest developer Jest" [ref=e1329] [cursor=pointer]:
+              - /url: /hire/jest-developers/
+              - img "Hire Jest developer" [ref=e1331]
+              - generic [ref=e1333]: Jest
+            - generic [ref=e1334]:
+              - generic [ref=e1336]: Looking for other skill?
+              - link "Place request" [ref=e1338] [cursor=pointer]:
+                - /url: https://magic.lemon.io/welcome?from=crosslinks-by-skills
+                - text: Place request
+                - img [ref=e1339]
+      - generic [ref=e1344]:
+        - img [ref=e1345]
+        - img [ref=e1348]
+        - heading "Simplify your hiring process with remote ready-to-interview developers" [level=3] [ref=e1351]
+        - link "Hire developer now" [ref=e1353] [cursor=pointer]:
+          - /url: https://magic.lemon.io/welcome?from=home-cta-s
+          - text: Hire developer now
+          - img [ref=e1354]
+    - contentinfo [ref=e1357]:
+      - list [ref=e1361]:
+        - listitem [ref=e1362]:
+          - link "Company":
+            - /url: "#"
+          - list [ref=e1363]:
+            - listitem [ref=e1364]:
+              - link "About us" [ref=e1365] [cursor=pointer]:
+                - /url: https://lemon.io/about-us/
+            - listitem [ref=e1366]:
+              - link "Hey AI, learn about us" [ref=e1367] [cursor=pointer]:
+                - /url: /llm-info/
+            - listitem [ref=e1368]:
+              - link "For developers" [ref=e1369] [cursor=pointer]:
+                - /url: https://lemon.io/for-developers/
+            - listitem [ref=e1370]:
+              - link "Careers" [ref=e1371] [cursor=pointer]:
+                - /url: https://lemonio.bamboohr.com/careers/
+            - listitem [ref=e1372]:
+              - link "Partner program" [ref=e1373] [cursor=pointer]:
+                - /url: https://lemon.io/partnership/
+        - listitem [ref=e1374]:
+          - link "Community":
+            - /url: "#"
+          - list [ref=e1375]:
+            - listitem [ref=e1376]:
+              - link "Blog" [ref=e1377] [cursor=pointer]:
+                - /url: https://lemon.io/blog/
+            - listitem [ref=e1378]:
+              - link "AI-Assisted Coding" [ref=e1379] [cursor=pointer]:
+                - /url: https://lemon.io/blog/ai-assisted-coding/
+            - listitem [ref=e1380]:
+              - link "Cloud Computing Statistics" [ref=e1381] [cursor=pointer]:
+                - /url: https://lemon.io/blog/cloud-computing-statistics/
+            - listitem [ref=e1382]:
+              - link "Events" [ref=e1383] [cursor=pointer]:
+                - /url: https://events.lemon.io/
+        - listitem [ref=e1384]:
+          - link "Resources":
+            - /url: "#"
+          - list [ref=e1385]:
+            - listitem [ref=e1386]:
+              - link "FAQ for companies" [ref=e1387] [cursor=pointer]:
+                - /url: https://lemon.io/support-help-faq/
+            - listitem [ref=e1388]:
+              - link "FAQ for developers" [ref=e1389] [cursor=pointer]:
+                - /url: https://lemon.io/faq-for-devs/
+            - listitem [ref=e1390]:
+              - link "Case studies" [ref=e1391] [cursor=pointer]:
+                - /url: /case-studies/
+            - listitem [ref=e1392]:
+              - link "Questions & Answers" [ref=e1393] [cursor=pointer]:
+                - /url: /answers-hub/
+            - listitem [ref=e1394]:
+              - link "Interview Questions" [ref=e1395] [cursor=pointer]:
+                - /url: https://lemon.io/interview-questions/
+        - listitem [ref=e1396]:
+          - link "Important links":
+            - /url: "#"
+          - list [ref=e1397]:
+            - listitem [ref=e1398]:
+              - link "Job descriptions" [ref=e1399] [cursor=pointer]:
+                - /url: /job-description/
+            - listitem [ref=e1400]:
+              - link "Reviews" [ref=e1401] [cursor=pointer]:
+                - /url: https://www.trustpilot.com/review/lemon.io
+            - listitem [ref=e1402]:
+              - link "Rate Calculator" [ref=e1403] [cursor=pointer]:
+                - /url: https://lemon.io/rate-calculator/
+        - listitem [ref=e1404]:
+          - link "Terms":
+            - /url: "#"
+          - list [ref=e1405]:
+            - listitem [ref=e1406]:
+              - link "Terms of use" [ref=e1407] [cursor=pointer]:
+                - /url: https://lemon.io/terms-of-use/
+            - listitem [ref=e1408]:
+              - link "Privacy policy" [ref=e1409] [cursor=pointer]:
+                - /url: https://lemon.io/privacy-policy/
+      - generic [ref=e1411]:
+        - link "Home" [ref=e1412] [cursor=pointer]:
+          - /url: /
+          - img "Lemon logo" [ref=e1413]
+        - generic [ref=e1414]:
+          - link "Facebook" [ref=e1415] [cursor=pointer]:
+            - /url: https://www.facebook.com/lemoneyeo
+            - img "Facebook" [ref=e1416]
+          - link "X" [ref=e1417] [cursor=pointer]:
+            - /url: https://twitter.com/lemoneyeo
+            - img "X" [ref=e1418]
+          - link "Instagram" [ref=e1419] [cursor=pointer]:
+            - /url: https://www.instagram.com/lemoneyeo
+            - img "Instagram" [ref=e1420]
+          - link "Linkedin" [ref=e1421] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/lemoneyeo/
+            - img "Linkedin" [ref=e1422]
+        - generic [ref=e1423]: © 2026 lemon.io
+  - navigation "Language Switcher" [ref=e1424]:
+    - list [ref=e1425]:
+      - listitem [ref=e1426]:
+        - link "Switch to Deutsch" [ref=e1427] [cursor=pointer]:
+          - /url: https://lemon.io/de/
+          - text: Deutsch

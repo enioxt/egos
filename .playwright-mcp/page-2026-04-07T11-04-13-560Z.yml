@@ -1,0 +1,312 @@
+- generic [ref=e3]:
+  - generic [ref=e5]:
+    - link [ref=e6] [cursor=pointer]:
+      - /url: /
+      - img [ref=e8]
+    - navigation [ref=e10]:
+      - generic [ref=e11]:
+        - generic [ref=e13] [cursor=pointer]:
+          - generic [ref=e14]: For companies
+          - img [ref=e16]
+        - generic [ref=e21] [cursor=pointer]:
+          - generic [ref=e22]: For talent
+          - img [ref=e24]
+    - generic [ref=e28]:
+      - button [ref=e29] [cursor=pointer]:
+        - generic [ref=e30]: Log In
+      - button [ref=e31] [cursor=pointer]:
+        - generic [ref=e32]: Find jobs
+      - button [ref=e33] [cursor=pointer]:
+        - generic [ref=e34]: Hire talent
+  - dialog [ref=e40]:
+    - generic [ref=e41]:
+      - generic [ref=e42]:
+        - generic [ref=e45]:
+          - img [ref=e47]
+          - link [ref=e48] [cursor=pointer]:
+            - /url: /company/coolpeople207
+            - text: CoolPeople
+        - heading [level=1] [ref=e49]: Senior Python Software Engineer (MCP & AI Agents)
+        - generic [ref=e52]:
+          - generic [ref=e53]:
+            - heading [level=3] [ref=e54]:
+              - generic [ref=e55]:
+                - text: Location
+                - img [ref=e57]
+            - generic [ref=e61]: Remote restrictions apply
+            - generic [ref=e63] [cursor=pointer]:
+              - text: See all remote locations
+              - img [ref=e65]
+          - generic [ref=e67]:
+            - heading [level=3] [ref=e68]:
+              - generic [ref=e69]: Salary Estimate
+            - generic [ref=e71]:
+              - generic [ref=e72]: N/A
+              - link [ref=e73] [cursor=pointer]:
+                - /url: /salaries
+                - img [ref=e75]
+          - generic [ref=e79]:
+            - heading [level=3] [ref=e80]:
+              - generic [ref=e81]: Seniority
+            - generic [ref=e84]: Senior
+          - generic [ref=e85]:
+            - heading [level=3] [ref=e86]:
+              - generic [ref=e87]: Tech stacks
+            - generic [ref=e88]:
+              - generic [ref=e89]: Security software
+              - generic [ref=e90]:
+                - text: /
+                - link [ref=e91] [cursor=pointer]:
+                  - /url: /remote-jobs/python
+                  - text: Python
+              - generic [ref=e92]:
+                - text: /
+                - link [ref=e93] [cursor=pointer]:
+                  - /url: /remote-jobs/azure
+                  - text: Azure
+              - generic [ref=e94]:
+                - text: /
+                - generic [ref=e95] [cursor=pointer]: "+28"
+          - generic [ref=e97]:
+            - generic [ref=e98]: Contract role
+            - generic [ref=e99]: / 2 months ago
+        - generic [ref=e101]:
+          - button [ref=e102] [cursor=pointer]:
+            - generic [ref=e103]: Save
+          - link [ref=e104] [cursor=pointer]:
+            - /url: /remote-jobs/j/redirect/o56b4u3cyw
+            - text: Apply now
+            - img [ref=e106]
+        - generic [ref=e109]:
+          - generic [ref=e112]:
+            - paragraph [ref=e113]:
+              - strong [ref=e114]: "Remote:"
+              - text: 99 % (2x-3x times per year come to Prague)
+            - paragraph [ref=e115]:
+              - strong [ref=e116]: "Location:"
+              - text: Europe
+            - paragraph [ref=e117]:
+              - strong [ref=e118]: "Type of collaboration:"
+              - text: freelance (EU VAT ID required)
+            - paragraph [ref=e119]:
+              - strong [ref=e120]: "Start:"
+              - text: ASAP (2 weeks from the offer)
+            - paragraph [ref=e121]:
+              - strong [ref=e122]: "Project information:"
+            - paragraph [ref=e123]: We are seeking a skilled Backend Software Engineer to build and maintain production-ready Model Context Protocol (MCP)servers that power our AI agent workflows. This role focuses on the Internal AI platform, requiring you to design distributed systems using Python, FastMCP, and Redis with enterprise-grade security.
+            - paragraph [ref=e124]:
+              - strong [ref=e125]: "About the Role:"
+            - paragraph [ref=e126]: You will join a team responsible for the backbone of our AI infrastructure. You will be responsible for designing and deploying FastMCP servers that handle complex agentic workflows. Your work will center on creating robust, asynchronous systems that integrate securely with Azure AD and persist state via Redis. This role demands high code quality, rigorous testing habits (TDD), and close collaboration with platform and delivery teams to ensure scalable, secure AI solutions.
+            - paragraph [ref=e127]:
+              - strong [ref=e128]: "What You Will Do:"
+            - paragraph [ref=e129]: MCP Server & API Development
+            - paragraph [ref=e130]: "• Build MCP Servers: Design, build, and maintain high-performance servers using theFastMCPframework, ensuring reliability and maintainability."
+            - paragraph [ref=e131]: "• REST API Design: Design and implement RESTful APIs with strict adherence to OpenAPI/Swagger standards, focusing on proper endpoint structure and error handling."
+            - paragraph [ref=e132]: "Async Programming: Write clean, efficient Python code utilizing asyncio and httpx for non-blocking I/O operations."
+            - paragraph [ref=e133]: Agentic Workflow & Architecture
+            - paragraph [ref=e134]: "• Orchestration Systems: Implement and extend agentic workflow orchestration systems, utilizing event-driven architectures and webhook integrations."
+            - paragraph [ref=e135]: "• State Management: LeverageRedisfor distributed state persistence, caching strategies, and TTL-based data management."
+            - paragraph [ref=e136]: "• System Reliability: Troubleshoot and debug complex issues across the distributed system stack to ensure uptime and performance."
+            - paragraph [ref=e137]: Security & DevOps
+            - paragraph [ref=e138]: "• Enterprise Security: Implement robust security features, including OAuth2 flows,Azure Entra ID(SSO) integration, and secure JWT token validation."
+            - paragraph [ref=e139]: "• Testing & QA: Build and maintain comprehensive test suites (unit, integration, and E2E) using pytest and pytest-asyncio."
+            - paragraph [ref=e140]: "• Containerization: Containerize applications using Dockerand manage local/prod environments via docker-compose and Azure pipelines."
+            - paragraph [ref=e141]:
+              - strong [ref=e142]: Must have skills
+            - paragraph [ref=e143]: Core Development
+            - paragraph [ref=e144]: • Strong proficiency in Python with deep knowledge ofasync/await patterns.
+            - paragraph [ref=e145]: • Solid experience with FastAPI and REST API design.
+            - paragraph [ref=e146]: MCP Specialization
+            - paragraph [ref=e147]: • Proven experience building MCP servers (critical requirement).
+            - paragraph [ref=e148]: • Hands-on experience with FastMCP framework.
+            - paragraph [ref=e149]: Data & Storage
+            - paragraph [ref=e150]: • Proficiency with Relational Databases (SQL) and Key-Value stores (Redis).
+            - paragraph [ref=e151]: Security (IAM)
+            - paragraph [ref=e152]: • Deep understanding of AuthN/AuthZ protocols.
+            - paragraph [ref=e153]: • Experience with OAuth2, Azure Entra ID/SSO, and JWT token handling.
+            - paragraph [ref=e154]: Architecture
+            - paragraph [ref=e155]: • Familiarity with Distributed Systems and Event-Driven Architecture.
+            - paragraph [ref=e156]: • Experience with Docker and containerization principles.
+            - paragraph [ref=e157]: Soft Skills
+            - paragraph [ref=e158]: • Strong problem-solving capabilities.
+            - paragraph [ref=e159]: • Ability to work independently and communicate technical concepts clearly.
+            - paragraph [ref=e160]:
+              - strong [ref=e161]: Nice to have skills
+            - paragraph [ref=e162]: "• MCP Ecosystem: Orientation in the broader ecosystem of MCP applications and clients."
+            - paragraph [ref=e163]: "• AI Frameworks: Experience with AI/LLM agent frameworks such as LangGraph, LangChain, or Langfuse."
+            - paragraph [ref=e164]: "• DevOps: Familiarity with Azure CI/CD pipelines and GitHub Actions."
+            - paragraph [ref=e165]: "• Observability: Knowledge of Datadog or similar platforms for logging and monitoring."
+            - paragraph [ref=e166]: "• Modern Practices: Prior exposure to \"Vibe\" coding practices (AI-assisted iterative coding)."
+          - generic [ref=e168]:
+            - generic [ref=e169]:
+              - heading [level=2] [ref=e170]: About CoolPeople
+              - generic [ref=e172]:
+                - generic [ref=e173]: 🔗
+                - link [ref=e174] [cursor=pointer]:
+                  - /url: http://www.coolpeople.cz
+                  - text: Website
+            - link [ref=e175] [cursor=pointer]:
+              - /url: /company/coolpeople207
+              - text: Visit company profile
+              - img [ref=e177]
+          - generic [ref=e181]:
+            - generic [ref=e182]:
+              - heading [level=3] [ref=e183]: Unlock all Arc benefits!
+              - list [ref=e184]:
+                - listitem [ref=e185]:
+                  - img [ref=e187]
+                  - generic [ref=e191]: Browse remote jobs in one place
+                - listitem [ref=e192]:
+                  - img [ref=e194]
+                  - generic [ref=e198]: Land interviews more quickly
+                - listitem [ref=e199]:
+                  - img [ref=e201]
+                  - generic [ref=e205]: Get hands-on recruiter support
+            - button [ref=e207] [cursor=pointer]:
+              - generic [ref=e208]: Sign up
+      - button [ref=e210] [cursor=pointer]:
+        - img [ref=e213]
+  - contentinfo [ref=e215]:
+    - generic [ref=e216]:
+      - generic [ref=e217]:
+        - generic [ref=e218]:
+          - generic [ref=e219]: PRODUCTS
+          - generic [ref=e220]:
+            - link [ref=e221] [cursor=pointer]:
+              - /url: /talent
+              - text: Arc
+            - paragraph [ref=e222]: The remote career platform for talent
+            - link [ref=e223] [cursor=pointer]:
+              - /url: https://www.codementor.io
+              - text: Codementor
+            - paragraph [ref=e224]: Find a mentor to help you in real time
+        - generic [ref=e225]:
+          - generic [ref=e226]: LINKS
+          - link [ref=e227] [cursor=pointer]:
+            - /url: https://arc.dev/about-us?developer=1
+            - text: About us
+          - link [ref=e228] [cursor=pointer]:
+            - /url: https://arc.dev/pricing?ref=dev_footer
+            - text: Pricing
+          - link [ref=e229] [cursor=pointer]:
+            - /url: https://www.notion.so/codementor/Hi-we-re-Arc-and-Codementor-1d506da9d8d64e83b44eaf0aa4a79a0f
+            - text: Arc Careers - Hiring Now!
+          - link [ref=e230] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jr-jobs
+            - text: Remote Junior Jobs
+          - link [ref=e231] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs
+            - text: Remote jobs
+          - link [ref=e232] [cursor=pointer]:
+            - /url: https://arc.dev/w/get-remote-job
+            - text: Career Success Stories
+          - link [ref=e233] [cursor=pointer]:
+            - /url: https://arc.dev/talent-blog/
+            - text: Talent Career Blog
+          - link [ref=e234] [cursor=pointer]:
+            - /url: https://arc.dev/w/arc-newsletter
+            - text: Arc Newsletter
+        - generic [ref=e235]:
+          - generic [ref=e236]: JOBS BY EXPERTISE
+          - link [ref=e237] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs/front-end
+            - text: Remote Front End Developer Jobs
+          - link [ref=e238] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs/back-end
+            - text: Remote Back End Developer Jobs
+          - link [ref=e239] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs/full-stack
+            - text: Remote Full Stack Developer Jobs
+          - link [ref=e240] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs/mobile-hybrid
+            - text: Remote Mobile Developer Jobs
+          - link [ref=e241] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs/data-science
+            - text: Remote Data Scientist Jobs
+          - link [ref=e242] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs/game
+            - text: Remote Game Developer Jobs
+          - link [ref=e243] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs/data-engineer
+            - text: Remote Data Engineer Jobs
+          - link [ref=e244] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs?jobRoles=engineering
+            - text: Remote Programming Jobs
+          - link [ref=e245] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs?jobRoles=design
+            - text: Remote Design Jobs
+          - link [ref=e246] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs?jobRoles=marketing
+            - text: Remote Marketing Jobs
+          - link [ref=e247] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs?jobRoles=product_manager
+            - text: Remote Product Manager Jobs
+          - link [ref=e248] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs?jobRoles=project_manager
+            - text: Remote Project Manager Jobs
+          - link [ref=e249] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs?jobRoles=administrative_support
+            - text: Remote Administrative Support Jobs
+        - generic [ref=e250]:
+          - generic [ref=e251]: JOBS BY TECH STACKS
+          - link [ref=e252] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs/aws
+            - text: Remote AWS Developer Jobs
+          - link [ref=e253] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs/java
+            - text: Remote Java Developer Jobs
+          - link [ref=e254] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs/javascript
+            - text: Remote Javascript Developer Jobs
+          - link [ref=e255] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs/python
+            - text: Remote Python Developer Jobs
+          - link [ref=e256] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs/reactjs
+            - text: Remote React Developer Jobs
+          - link [ref=e257] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs/shopify
+            - text: Remote Shopify Developer Jobs
+          - link [ref=e258] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs/sql
+            - text: Remote SQL Developer Jobs
+          - link [ref=e259] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs/unity
+            - text: Remote Unity Developer Jobs
+          - link [ref=e260] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs/wordpress
+            - text: Remote Wordpress Developer Jobs
+          - link [ref=e261] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs/web-development
+            - text: Remote Web Development Jobs
+          - link [ref=e262] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs/motion-graphics
+            - text: Remote Motion Graphic Jobs
+          - link [ref=e263] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs/seo
+            - text: Remote SEO Jobs
+          - link [ref=e264] [cursor=pointer]:
+            - /url: https://arc.dev/remote-jobs/ai
+            - text: Remote AI Jobs
+      - generic [ref=e265]:
+        - generic [ref=e266]: © Copyright 2026 Arc
+        - generic [ref=e267]:
+          - link [ref=e268] [cursor=pointer]:
+            - /url: https://arc.dev/cookies
+            - text: Cookie Policy
+          - link [ref=e269] [cursor=pointer]:
+            - /url: https://arc.dev/privacy
+            - text: Privacy Policy
+          - link [ref=e270] [cursor=pointer]:
+            - /url: https://arc.dev/terms
+            - text: Terms of Service
+        - generic [ref=e271]:
+          - link [ref=e272] [cursor=pointer]:
+            - /url: https://www.facebook.com/arcdotdev
+            - img [ref=e274]
+          - link [ref=e280] [cursor=pointer]:
+            - /url: https://www.twitter.com/arcdotdev
+            - img [ref=e282]
+          - link [ref=e288] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/arcdotdev
+            - img [ref=e290]

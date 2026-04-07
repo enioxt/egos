@@ -1,0 +1,395 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - link "we work remotely" [ref=e5] [cursor=pointer]:
+          - /url: /
+          - img "we work remotely" [ref=e6]
+        - navigation [ref=e7]:
+          - list [ref=e10]:
+            - listitem [ref=e11]:
+              - link "Find Jobs" [ref=e12] [cursor=pointer]:
+                - /url: "#"
+                - text: Find Jobs
+                - generic [ref=e13]: 
+              - text:   
+            - listitem [ref=e14]:
+              - link "Community" [ref=e15] [cursor=pointer]:
+                - /url: "#"
+                - text: Community
+                - generic [ref=e16]: 
+              - text:    
+            - listitem [ref=e17]:
+              - link "Career Services" [ref=e18] [cursor=pointer]:
+                - /url: "#"
+                - text: Career Services
+                - generic [ref=e19]: 
+            - listitem [ref=e20]:
+              - link "About" [ref=e21] [cursor=pointer]:
+                - /url: "#"
+                - text: About
+                - generic [ref=e22]: 
+              - text: 
+            - listitem [ref=e23]:
+              - generic [ref=e24]:
+                - generic [ref=e25]: 
+                - textbox "Search" [ref=e26]
+            - listitem
+            - listitem [ref=e27]:
+              - link "Sign in" [ref=e28] [cursor=pointer]:
+                - /url: /account/sign_in?utm_content=sign-in-cta&utm_source=wwr-accounts-nav-top
+            - listitem [ref=e29]:
+              - link "Post a job" [ref=e30] [cursor=pointer]:
+                - /url: /remote-jobs/new?utm_source=wwr-accounts-nav-top
+    - text:              
+    - generic [ref=e32]:
+      - generic [ref=e33]:
+        - generic [ref=e34]:
+          - link "All jobs" [ref=e35] [cursor=pointer]:
+            - /url: /
+          - generic [ref=e36]: /
+          - link "Customer Support" [ref=e37] [cursor=pointer]:
+            - /url: /categories/remote-customer-support-jobs
+          - generic [ref=e38]: /
+          - link "SaaS Product Specialist (German-speaking, EMEA)" [ref=e39] [cursor=pointer]:
+            - /url: /listings/creative-force-saas-product-specialist-german-speaking-emea-2
+        - generic [ref=e40]:
+          - link [ref=e41] [cursor=pointer]:
+            - /url: /company/creative-force
+          - generic [ref=e43]:
+            - heading "SaaS Product Specialist (German-speaking, EMEA)" [level=1] [ref=e44]
+            - paragraph [ref=e46]:
+              - generic [ref=e47]: 
+              - generic [ref=e48]: Posted 2 hours ago
+            - generic [ref=e49]:
+              - paragraph [ref=e50]: Creative Force is the maker of industry-leading cloud software for organisers of awards, grants, scholarships and pitch competitions to manage submission, evaluation and awards, online.
+              - paragraph [ref=e51]: Since launching in Australia late 2013, we’ve had an outstanding market response and we’re now supporting a growing list of clients across Asia Pacific, Europe, North & South America and the Middle East.
+              - paragraph [ref=e52]: Creative Force builds beautifully designed, high quality software and we make sure all our clients have a fantastic experience!
+              - paragraph [ref=e53]: Our growing team is distributed across 43 cities in 25 countries, mostly working from home offices. We use a range of internet-based tools for communication and collaboration that help our teams work closely over global distance and time zones.
+              - paragraph [ref=e54]:
+                - strong [ref=e55]: Creative Force is an equal opportunity employer.
+                - text: We are a growing business made up of professional, like-minded, mature individuals who celebrate diversity, work in an ethical, discrimination-free environment, value continuous improvement and support environmental initiatives.
+            - generic [ref=e56]:
+              - link "Apply now" [ref=e59] [cursor=pointer]:
+                - /url: /job-seekers/account/register?alert=Create+an+account+to+view+full+job+details.
+                - generic [ref=e60]: 
+                - generic [ref=e61]: Apply now
+              - link "AI Auto-Apply" [ref=e62] [cursor=pointer]:
+                - /url: /career-services/job-copilot
+                - generic [ref=e63]: 
+                - text: AI Auto-Apply
+              - button "Save job" [ref=e64] [cursor=pointer]:
+                - generic [ref=e65]: 
+                - text: Save job
+      - generic [ref=e66]:
+        - generic [ref=e68]:
+          - paragraph [ref=e69]: Are you commercially savvy, technically capable, highly organised and great with people? Do you speak fluent German and want to help clients get the most out of a world-class SaaS platform?
+          - paragraph [ref=e70]: Then this is the role you have been looking for. Join a lean-by-design, fast-growth and globally recognised B2B SaaS company as a product specialist focused on the DACH+ markets.
+          - paragraph [ref=e71]: Our much-loved products are in high-demand and proven to make a difference to our clients' lives. You'll be supporting these clients with everything they need to discover, use and ultimately advocate for our software products through clear pre-sales discussions, tight onboarding and responsive, friendly support.
+          - paragraph [ref=e72]: SaaS experience (selling and/or supporting) is mandatory. Strong communication skills, patience, curiosity, keenness to learn, and friendliness are key to success in this role. A strong commercial instinct will set you apart.
+          - heading "Join our Rebel Alliance" [level=2] [ref=e73]
+          - paragraph [ref=e74]: Creative Force is experiencing tremendous growth and as we scale our efforts in 2025 and beyond, we’re looking for enthusiastic and commercially astute individuals to join our diverse team of Jedi.
+          - paragraph [ref=e75]: You'll be a respected member of our remote global Client Success team and will be well supported with the tools, knowledge and answers you need to provide exceptional levels of service.
+          - paragraph [ref=e76]: "In time, you’ll master the Force: knowing how to work across departments, align with different teams and draw on collective expertise to support our clients. You’ll have the backing you need at every turn to develop that understanding with confidence."
+          - heading "Responsibilities" [level=2] [ref=e77]
+          - list [ref=e78]:
+            - listitem [ref=e79]:
+              - paragraph [ref=e80]: Help prospects find the specific value they seek (“this is the product you are looking for”)
+            - listitem [ref=e81]:
+              - paragraph [ref=e82]: With our help, learn to be a product expert to confidently demonstrate and answer product questions with clients and prospects
+            - listitem [ref=e83]:
+              - paragraph [ref=e84]: Respond accurately and quickly to client questions
+            - listitem [ref=e85]:
+              - paragraph [ref=e86]: Onboard and support DACH+ clients in German and/or English
+            - listitem [ref=e87]:
+              - paragraph [ref=e88]: Report recurring issues to improve the product experience
+            - listitem [ref=e89]:
+              - paragraph [ref=e90]: Collaborate with our global team to stay on the leading edge
+            - listitem [ref=e91]:
+              - paragraph [ref=e92]: Build trust through honesty, empathy, and reliability
+          - heading "Essentials" [level=2] [ref=e93]
+          - list [ref=e94]:
+            - listitem [ref=e95]:
+              - paragraph [ref=e96]: You are a native German speaker with strong English (C2+)
+            - listitem [ref=e97]:
+              - paragraph [ref=e98]: You live anywhere in the EMEA region (within UTC -1 to +4)
+            - listitem [ref=e99]:
+              - paragraph [ref=e100]: Minimum 3 years SaaS experience in support, onboarding or pre-sales
+            - listitem [ref=e101]:
+              - paragraph [ref=e102]: You’re a confident communicator, written and verbal
+            - listitem [ref=e103]:
+              - paragraph [ref=e104]: You’re comfortable discussing product value and guiding decisions (no hard sell)
+            - listitem [ref=e105]:
+              - paragraph [ref=e106]: Words like HTML, CSS, JS, API, Integrations, Dev console, staging & production environments, GitHub repo, database queries etc are not alien to you. You don't need to know how to work them but you must know about them (well enough)
+            - listitem [ref=e107]:
+              - paragraph [ref=e108]: You’re process-driven, highly organised, and thrive in remote, tool-rich environments
+            - listitem [ref=e109]:
+              - paragraph [ref=e110]: Working remotely suits you perfectly, your natural work ethic makes you a high performer!
+            - listitem [ref=e111]:
+              - paragraph [ref=e112]: You have access to fast, reliable internet and a dedicated space to work without distractions
+          - heading "What we offer" [level=2] [ref=e113]
+          - strong [ref=e115]: Work-life balance
+          - list [ref=e116]:
+            - listitem [ref=e117]:
+              - emphasis [ref=e118]: Genuine
+              - text: work-life balance, backed by an average team tenure of over 5 years
+            - listitem [ref=e119]: 32 hour work week, Monday to Thursday
+            - listitem [ref=e120]: 20 days paid annual leave
+            - listitem [ref=e121]: 12 days paid public holidays (your local country/region public holidays)
+            - listitem [ref=e122]: Your birthday is a holiday every year
+          - strong [ref=e124]: Personal development and wellbeing
+          - list [ref=e125]:
+            - listitem [ref=e126]: Commitment to continued learning and development
+            - listitem [ref=e127]: A culture of promoting work life balance
+            - listitem [ref=e128]: Access to mental health support
+          - strong [ref=e130]: Location and compensation
+          - list [ref=e131]:
+            - listitem [ref=e132]: Full-time role, based remotely anywhere within within UTC -1 to +4
+            - listitem [ref=e133]: Competitive salary, indexed to your experience and location
+            - listitem [ref=e134]: Budget for computer and office equipment (pending 6 month probationary period)
+          - strong [ref=e136]: Respect, growth and stability
+          - list [ref=e137]:
+            - listitem [ref=e138]: Friendly, sociable, responsible, collaborative team (a great place to be)
+            - listitem [ref=e139]: Respect for each other’s time, value and contribution
+            - listitem [ref=e140]: Regular communication with global team via chat and video calls
+            - listitem [ref=e141]: Dynamic, young, growing tech company leveraging all the latest tech tools and leading industry trends
+            - listitem [ref=e142]: Stable, bootstrapped, independent business (no VCs calling the shots)
+          - heading "How to apply" [level=2] [ref=e143]
+          - generic [ref=e144]: Submission is via our system only, the application will take you about 15-20 minutes. Applications from outside the system will not be considered.
+          - generic [ref=e145]:
+            - text: Ready? Go!
+            - link "https://www.creativeforce.team/careers/" [ref=e146] [cursor=pointer]:
+              - /url: https://www.awardforce.com/careers/
+          - separator [ref=e147]
+        - generic [ref=e148]:
+          - generic [ref=e149]:
+            - link [ref=e150] [cursor=pointer]:
+              - /url: /company/creative-force
+            - generic [ref=e152]:
+              - heading "Creative Force Star Icon" [level=3] [ref=e154]:
+                - text: Creative Force
+                - img "Star Icon" [ref=e155]
+              - link "View company" [ref=e156] [cursor=pointer]:
+                - /url: /company/creative-force
+                - generic [ref=e157]: View company
+                - generic [ref=e158]: 
+              - paragraph [ref=e159]: "Jobs posted: 61"
+          - generic [ref=e160]:
+            - heading "About the job" [level=2] [ref=e161]
+            - list [ref=e162]:
+              - listitem [ref=e163]:
+                - text: Posted on
+                - generic [ref=e164]: 2 hours ago
+              - listitem [ref=e165]:
+                - text: Apply before
+                - generic [ref=e166]: May 7th, 2026
+              - listitem [ref=e167]:
+                - text: Job type
+                - link "Full-Time" [ref=e168] [cursor=pointer]:
+                  - /url: /categories/remote-customer-support-jobs
+                  - generic [ref=e169]:
+                    - generic [ref=e170]: 
+                    - text: Full-Time
+              - listitem [ref=e171]:
+                - text: Category
+                - link "Customer Support" [ref=e172] [cursor=pointer]:
+                  - /url: /categories/remote-customer-support-jobs
+                  - generic [ref=e173]: Customer Support
+              - listitem [ref=e174]:
+                - text: Region
+                - link "Anywhere in the World" [ref=e176] [cursor=pointer]:
+                  - /url: /100-percent-remote-jobs
+                  - generic [ref=e177]: Anywhere in the World
+              - listitem
+            - generic [ref=e178]:
+              - link "Apply now" [ref=e181] [cursor=pointer]:
+                - /url: /job-seekers/account/register?alert=Create+an+account+to+view+full+job+details.
+                - generic [ref=e182]: 
+                - text: Apply now
+              - generic [ref=e185]: or
+              - link "Auto-Apply with AI" [ref=e187] [cursor=pointer]:
+                - /url: /career-services/job-copilot
+                - generic [ref=e188]: 
+                - text: Auto-Apply with AI
+              - paragraph [ref=e189]: No forms. Just smart, optimized applications.
+          - generic [ref=e193]:
+            - generic [ref=e194]:
+              - generic [ref=e195]: Learn the skills employers are hiring for
+              - paragraph [ref=e196]: Enhance your skills with courses tailored to your job search
+              - generic [ref=e197]:
+                - img [ref=e199]
+                - textbox "By subject, occupation etc." [ref=e201]: SaaS Product Specialist (German-speaking, EMEA)
+                - button "Find Courses" [ref=e202] [cursor=pointer]
+            - generic [ref=e212]:
+              - button "Or Get Personalised Recommendations" [ref=e214] [cursor=pointer]
+              - generic [ref=e215]:
+                - link "Privacy Policy" [ref=e217] [cursor=pointer]:
+                  - /url: https://learnisa.com/main/home/privacy
+                - link "Powered by Learnisa" [ref=e219] [cursor=pointer]:
+                  - /url: https://learnisa.com
+                  - text: Powered by Learnisa
+                  - img [ref=e220]
+      - article [ref=e223]:
+        - heading "Related Jobs Remote Customer Support jobs→" [level=2] [ref=e224]:
+          - text: Related Jobs
+          - link "Remote Customer Support jobs→" [ref=e226] [cursor=pointer]:
+            - /url: /categories/remote-customer-support-jobs
+        - list [ref=e227]:
+          - listitem [ref=e228]:
+            - generic:
+              - link:
+                - /url: /company/crae-group-ltd
+            - link "Customer Support Agent (Remote) 3d CRAE GROUP LTD Cyprus Featured Full-Time $10,000 - $25,000 USD 🇧🇬 Bulgaria 🇨🇾 Cyprus 🇪🇪 Estonia 🇭🇺 Hungary 🇱🇹 Lithuania 🇱🇻 Latvia 🇵🇱 Poland 🇷🇴 Romania 🇷🇸 Serbia 🇸🇰 Slovakia 🇺🇦 Ukraine" [ref=e231] [cursor=pointer]:
+              - /url: /remote-jobs/crae-group-ltd-customer-support-agent-remote
+              - generic [ref=e232]:
+                - generic [ref=e233]:
+                  - heading "Customer Support Agent (Remote)" [level=3] [ref=e234]:
+                    - generic [ref=e235]: Customer Support Agent (Remote)
+                    - img [ref=e236]:  
+                  - paragraph [ref=e238]: 3d
+                - paragraph [ref=e239]: CRAE GROUP LTD
+                - paragraph [ref=e240]:
+                  - text: Cyprus
+                  - generic [ref=e241]: 
+                - generic [ref=e242]:
+                  - paragraph [ref=e243]: Featured
+                  - paragraph [ref=e244]: Full-Time
+                  - paragraph [ref=e245]: $10,000 - $25,000 USD
+                  - paragraph [ref=e246]: 🇧🇬 Bulgaria
+                  - paragraph [ref=e247]: 🇨🇾 Cyprus
+                  - paragraph [ref=e248]: 🇪🇪 Estonia
+                  - paragraph [ref=e249]: 🇭🇺 Hungary
+                  - paragraph [ref=e250]: 🇱🇹 Lithuania
+                  - paragraph [ref=e251]: 🇱🇻 Latvia
+                  - paragraph [ref=e252]: 🇵🇱 Poland
+                  - paragraph [ref=e253]: 🇷🇴 Romania
+                  - paragraph [ref=e254]: 🇷🇸 Serbia
+                  - paragraph [ref=e255]: 🇸🇰 Slovakia
+                  - paragraph [ref=e256]: 🇺🇦 Ukraine
+          - listitem [ref=e257]:
+            - generic:
+              - link:
+                - /url: /company/filestage
+            - link "Support Enablement Manager 4d Filestage Remote Featured Top 100 Full-Time $25,000 - $48,999 USD Anywhere in the World" [ref=e260] [cursor=pointer]:
+              - /url: /remote-jobs/filestage-support-enablement-manager
+              - generic [ref=e261]:
+                - generic [ref=e262]:
+                  - heading "Support Enablement Manager" [level=3] [ref=e263]:
+                    - generic [ref=e264]: Support Enablement Manager
+                    - img [ref=e265]:  
+                  - paragraph [ref=e267]: 4d
+                - paragraph [ref=e268]: Filestage
+                - paragraph [ref=e269]:
+                  - text: Remote
+                  - generic [ref=e270]: 
+                - generic [ref=e271]:
+                  - paragraph [ref=e272]: Featured
+                  - paragraph [ref=e273]:
+                    - generic [ref=e274]: 
+                    - text: Top 100
+                  - paragraph [ref=e275]: Full-Time
+                  - paragraph [ref=e276]: $25,000 - $48,999 USD
+                  - paragraph [ref=e277]: Anywhere in the World
+          - listitem [ref=e278]:
+            - generic:
+              - link:
+                - /url: /company/crisp
+            - link "Technical Customer Support Specialist (EU Timezone) 4d Crisp Nantes, France Featured Full-Time $25,000 - $48,999 USD 🇦🇩 Andorra 🇦🇹 Austria 🇧🇦 Bosnia and Herzegovina 🇧🇪 Belgium 🇨🇭 Switzerland 🇨🇿 Czechia 🇩🇪 Germany 🇩🇰 Denmark 🇩🇿 Algeria 🇪🇸 Spain 🇫🇷 France 🇬🇧 United Kingdom of Great Britain and Northern Ireland 🇬🇮 Gibraltar 🇭🇷 Croatia 🇭🇺 Hungary 🇮🇪 Ireland 🇮🇸 Iceland 🇮🇹 Italy 🇱🇮 Liechtenstein 🇱🇺 Luxembourg 🇲🇦 Morocco 🇲🇨 Monaco 🇲🇪 Montenegro 🇲🇰 North Macedonia 🇲🇹 Malta 🇳🇱 Netherlands 🇳🇴 Norway 🇵🇱 Poland 🇵🇹 Portugal 🇷🇸 Serbia 🇸🇪 Sweden 🇸🇮 Slovenia 🇸🇯 Svalbard and Jan Mayen 🇸🇰 Slovakia 🇹🇳 Tunisia" [ref=e281] [cursor=pointer]:
+              - /url: /remote-jobs/crisp-technical-customer-support-specialist-eu-timezone-1
+              - generic [ref=e282]:
+                - generic [ref=e283]:
+                  - heading "Technical Customer Support Specialist (EU Timezone)" [level=3] [ref=e284]:
+                    - generic [ref=e285]: Technical Customer Support Specialist (EU Timezone)
+                    - img [ref=e286]:  
+                  - paragraph [ref=e288]: 4d
+                - paragraph [ref=e289]: Crisp
+                - paragraph [ref=e290]:
+                  - text: Nantes, France
+                  - generic [ref=e291]: 
+                - generic [ref=e292]:
+                  - paragraph [ref=e293]: Featured
+                  - paragraph [ref=e294]: Full-Time
+                  - paragraph [ref=e295]: $25,000 - $48,999 USD
+                  - paragraph [ref=e296]: 🇦🇩 Andorra
+                  - paragraph [ref=e297]: 🇦🇹 Austria
+                  - paragraph [ref=e298]: 🇧🇦 Bosnia and Herzegovina
+                  - paragraph [ref=e299]: 🇧🇪 Belgium
+                  - paragraph [ref=e300]: 🇨🇭 Switzerland
+                  - paragraph [ref=e301]: 🇨🇿 Czechia
+                  - paragraph [ref=e302]: 🇩🇪 Germany
+                  - paragraph [ref=e303]: 🇩🇰 Denmark
+                  - paragraph [ref=e304]: 🇩🇿 Algeria
+                  - paragraph [ref=e305]: 🇪🇸 Spain
+                  - paragraph [ref=e306]: 🇫🇷 France
+                  - paragraph [ref=e307]: 🇬🇧 United Kingdom of Great Britain and Northern Ireland
+                  - paragraph [ref=e308]: 🇬🇮 Gibraltar
+                  - paragraph [ref=e309]: 🇭🇷 Croatia
+                  - paragraph [ref=e310]: 🇭🇺 Hungary
+                  - paragraph [ref=e311]: 🇮🇪 Ireland
+                  - paragraph [ref=e312]: 🇮🇸 Iceland
+                  - paragraph [ref=e313]: 🇮🇹 Italy
+                  - paragraph [ref=e314]: 🇱🇮 Liechtenstein
+                  - paragraph [ref=e315]: 🇱🇺 Luxembourg
+                  - paragraph [ref=e316]: 🇲🇦 Morocco
+                  - paragraph [ref=e317]: 🇲🇨 Monaco
+                  - paragraph [ref=e318]: 🇲🇪 Montenegro
+                  - paragraph [ref=e319]: 🇲🇰 North Macedonia
+                  - paragraph [ref=e320]: 🇲🇹 Malta
+                  - paragraph [ref=e321]: 🇳🇱 Netherlands
+                  - paragraph [ref=e322]: 🇳🇴 Norway
+                  - paragraph [ref=e323]: 🇵🇱 Poland
+                  - paragraph [ref=e324]: 🇵🇹 Portugal
+                  - paragraph [ref=e325]: 🇷🇸 Serbia
+                  - paragraph [ref=e326]: 🇸🇪 Sweden
+                  - paragraph [ref=e327]: 🇸🇮 Slovenia
+                  - paragraph [ref=e328]: 🇸🇯 Svalbard and Jan Mayen
+                  - paragraph [ref=e329]: 🇸🇰 Slovakia
+                  - paragraph [ref=e330]: 🇹🇳 Tunisia
+  - contentinfo [ref=e331]:
+    - generic [ref=e332]:
+      - link "footer logo" [ref=e334] [cursor=pointer]:
+        - /url: "#"
+        - img "footer logo" [ref=e335]
+      - generic [ref=e336]:
+        - link "Top 100 Companies" [ref=e337] [cursor=pointer]:
+          - /url: /top-remote-companies
+        - link "Blog" [ref=e338] [cursor=pointer]:
+          - /url: /blog
+        - link "Remote Hiring Guide" [ref=e339] [cursor=pointer]:
+          - /url: /remote-work-hiring-guide
+        - link "FAQ - Employers" [ref=e340] [cursor=pointer]:
+          - /url: /frequently-asked-questions
+        - link "Events" [ref=e341] [cursor=pointer]:
+          - /url: /blog?category=events
+        - link "RSS" [ref=e342] [cursor=pointer]:
+          - /url: /remote-job-rss-feed
+      - generic [ref=e343]:
+        - generic [ref=e344]: 
+        - paragraph [ref=e345]: 39,597 Remote jobs posted
+    - generic [ref=e346]:
+      - generic [ref=e347]: © 2026 We Work Remotely
+      - generic [ref=e348]:
+        - generic [ref=e349]:
+          - link "Contact Support" [ref=e350] [cursor=pointer]:
+            - /url: mailto:support@weworkremotely.com
+          - link "Terms" [ref=e351] [cursor=pointer]:
+            - /url: /terms-and-conditions
+          - link "Guidelines" [ref=e352] [cursor=pointer]:
+            - /url: /community-guidelines
+          - link "Privacy" [ref=e353] [cursor=pointer]:
+            - /url: /privacy
+          - link "Why Choose WWR?" [ref=e354] [cursor=pointer]:
+            - /url: /post-a-remote-job
+        - generic [ref=e355]:
+          - link [ref=e356] [cursor=pointer]:
+            - /url: https://www.facebook.com/weworkremotely/?utm_content=footer-network&utm_source=we-work-remotely&utm_campaign=footer-network-fb&utm_medium=footer-network-fb
+            - generic [ref=e357]: 
+          - link [ref=e358] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/18527028/?utm_content=footer-network&utm_source=we-work-remotely&utm_campaign=footer-network-linkedin&utm_medium=footer-network-linkedin
+            - generic [ref=e359]: 
+          - link [ref=e360] [cursor=pointer]:
+            - /url: https://www.instagram.com/weworkremotelycom/?hl=en&utm_campaign=footer-network-ig&utm_medium=footer-network-ig
+            - generic [ref=e361]: 
+          - link [ref=e362] [cursor=pointer]:
+            - /url: https://twitter.com/weworkremotely/?utm_content=footer-network&utm_source=we-work-remotely&utm_campaign=footer-network-twitter&utm_medium=footer-network-twitter
+            - generic [ref=e363]: 

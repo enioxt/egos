@@ -1,0 +1,105 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e6]:
+      - generic [ref=e7]:
+        - generic [ref=e8]: "1"
+        - generic [ref=e10]: Project preferences
+        - img [ref=e12]
+      - generic [ref=e14]:
+        - generic [ref=e15]: "2"
+        - generic [ref=e17]: Specialization and stack
+        - img [ref=e19]
+      - generic [ref=e21]:
+        - generic [ref=e22]: "3"
+        - generic [ref=e24]: Additional info
+        - img [ref=e26]
+      - generic [ref=e28]:
+        - generic [ref=e29]: "4"
+        - generic [ref=e31]: Registration
+    - generic [ref=e32]:
+      - generic [ref=e34]:
+        - link "Logo" [ref=e37] [cursor=pointer]:
+          - /url: https://lemon.io
+          - img "Logo" [ref=e38]
+        - generic [ref=e41]:
+          - generic [ref=e42]:
+            - generic [ref=e43]: 1 / 8
+            - generic [ref=e44]:
+              - heading "What kind of project are you looking for?" [level=2] [ref=e45]
+              - heading "Project type" [level=5] [ref=e46]
+          - generic [ref=e47]:
+            - generic [ref=e48]: 2 / 8
+            - generic [ref=e49]:
+              - heading "What is your hourly rate range?" [level=2] [ref=e50]
+              - heading "Rate range" [level=5] [ref=e51]
+          - generic [ref=e52]:
+            - generic [ref=e53]: 3 / 8
+            - generic [ref=e54]:
+              - heading "What is your main Specialization?" [level=2] [ref=e55]
+              - heading "Main Specialization" [level=5] [ref=e56]
+          - generic [ref=e57]:
+            - generic [ref=e58]: 4 / 8
+            - generic [ref=e59]:
+              - heading "When did your commercial experience start?" [level=2] [ref=e60]
+              - heading "Commercial experience" [level=5] [ref=e61]
+          - generic [ref=e62]:
+            - generic [ref=e63]: 5 / 8
+            - generic [ref=e64]:
+              - heading "Choose your main technologies" [level=2] [ref=e65]
+              - heading "Core technologies" [level=5] [ref=e66]
+          - generic [ref=e67]:
+            - generic [ref=e68]: 6 / 8
+            - generic [ref=e69]:
+              - heading "Add your experience highlights" [level=2] [ref=e70]
+              - heading "Experience highlights" [level=5] [ref=e71]
+          - generic [ref=e72]:
+            - generic [ref=e73]: 7 / 8
+            - generic [ref=e74]:
+              - heading "Ready to pass an interview in english?" [level=2] [ref=e75]
+              - heading "English level" [level=5] [ref=e76]
+          - generic [ref=e77]:
+            - generic [ref=e78]: 8 / 8
+            - generic [ref=e79]:
+              - heading "Submit your application to lemonverse" [level=2] [ref=e80]
+              - heading "Enter the lemonverse" [level=5] [ref=e81]
+          - generic [ref=e82]:
+            - text: NEXT
+            - heading "Learn if we have good projects for you" [level=5] [ref=e84]
+      - generic [ref=e86]:
+        - paragraph [ref=e87]: Copyright © 2026 lemon.io. All Rights Reserved.
+        - generic [ref=e88]:
+          - link "Terms of use" [ref=e89] [cursor=pointer]:
+            - /url: https://lemon.io/terms-of-use/
+          - link "Privacy policy" [ref=e90] [cursor=pointer]:
+            - /url: https://lemon.io/privacy-policy/
+      - generic [ref=e93]:
+        - heading "Apply to Join Lemon.io as a Developer" [level=1] [ref=e94]
+        - generic [ref=e95]:
+          - generic [ref=e96] [cursor=pointer]:
+            - generic [ref=e97]:
+              - radio [ref=e98]
+              - img [ref=e100]
+            - generic [ref=e102]:
+              - img [ref=e104]
+              - heading "Full-time" [level=5] [ref=e108]
+              - generic [ref=e109]: 40 hours/week
+          - generic [ref=e110] [cursor=pointer]:
+            - generic [ref=e111]:
+              - radio [ref=e112]
+              - img [ref=e114]
+            - generic [ref=e116]:
+              - img [ref=e118]
+              - heading "Part-time" [level=5] [ref=e121]
+              - generic [ref=e122]: 20-35 hours/week
+          - generic [ref=e123] [cursor=pointer]:
+            - generic [ref=e124]:
+              - radio [ref=e125]
+              - img [ref=e127]
+            - generic [ref=e129]:
+              - img [ref=e131]
+              - heading "None" [level=5] [ref=e133]
+              - generic [ref=e134]: just checking around
+        - button "Ok, next" [disabled]:
+          - text: Ok, next
+          - img
+  - alert [ref=e135]

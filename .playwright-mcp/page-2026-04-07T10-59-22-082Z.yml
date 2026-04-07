@@ -1,0 +1,57 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - figure [ref=e4]:
+        - link [ref=e5] [cursor=pointer]:
+          - /url: https://www.toptal.com
+        - generic [ref=e6]: Hire the top 3% of freelance talent
+      - link "Login to Toptal" [ref=e7] [cursor=pointer]:
+        - /url: /users/login
+    - generic [ref=e10]:
+      - heading "Unfortunately, the page you’re looking for doesn’t exist." [level=1] [ref=e11]
+      - generic [ref=e12]: "404"
+      - generic [ref=e13]:
+        - text: Toptal - Hire the
+        - link "top 3%" [ref=e14] [cursor=pointer]:
+          - /url: https://www.toptal.com/top-3-percent
+        - text: of freelance talent.
+      - link "Go to Home Page" [ref=e16] [cursor=pointer]:
+        - /url: https://www.toptal.com
+      - generic [ref=e17]:
+        - link "Hire a Toptaler Work with top freelancers on a no-risk trial period." [ref=e18] [cursor=pointer]:
+          - /url: https://www.toptal.com/hire
+          - generic [ref=e19]: Hire a Toptaler
+          - generic [ref=e20]: Work with top freelancers on a no-risk trial period.
+        - link "Become a Toptaler Apply to join the elite ranks of Toptal freelancers." [ref=e21] [cursor=pointer]:
+          - /url: https://www.toptal.com/talent/apply
+          - generic [ref=e22]: Become a Toptaler
+          - generic [ref=e23]: Apply to join the elite ranks of Toptal freelancers.
+        - link "The Toptal Blog Read world-class research and insights in business, design, and technology." [ref=e24] [cursor=pointer]:
+          - /url: https://www.toptal.com/blog
+          - generic [ref=e25]: The Toptal Blog
+          - generic [ref=e26]: Read world-class research and insights in business, design, and technology.
+        - link "FAQ See answers to common freelancing questions." [ref=e27] [cursor=pointer]:
+          - /url: https://www.toptal.com/faq
+          - generic [ref=e28]: FAQ
+          - generic [ref=e29]: See answers to common freelancing questions.
+        - link "Contact Get in touch with our team." [ref=e30] [cursor=pointer]:
+          - /url: https://www.toptal.com/contact
+          - generic [ref=e31]: Contact
+          - generic [ref=e32]: Get in touch with our team.
+    - contentinfo [ref=e33]:
+      - paragraph [ref=e36]: The World’s Top Talent, On Demand®
+      - list [ref=e37]:
+        - listitem [ref=e38]: Copyright 2010 - 2026 Toptal, LLC
+        - listitem [ref=e39]:
+          - link "Privacy Policy" [ref=e40] [cursor=pointer]:
+            - /url: /privacy
+        - listitem [ref=e41]:
+          - link "Website Terms" [ref=e42] [cursor=pointer]:
+            - /url: /tos
+  - generic [ref=e43]:
+    - generic [ref=e44]:
+      - text: By continuing to use this site you agree to our
+      - link "Cookie Policy" [ref=e45] [cursor=pointer]:
+        - /url: https://www.toptal.com/cookie-policy
+      - text: .
+    - generic [ref=e46]: Got it

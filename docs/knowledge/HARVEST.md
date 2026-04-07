@@ -2182,3 +2182,21 @@ const PUBLIC_PATHS = ['/login', '/api/auth/login', '/api/auth/logout', '/api/hq/
 - `docs/concepts/` = arquivos de visão/arquitetura arquivados (Cortex, ETHIK, Neural Mesh) — não são tasks
 
 ---
+
+## KB-020: Defensive Number Coercion in Next.js API Boundaries (2026-04-07)
+
+**Problem:** `toFixed()` crashes at runtime when the value is a string, even if TypeScript types say `number | null`. External HTTP responses from Docker services can return numbers as strings (JSON serialization issues or manual string construction).
+
+**Pattern:** Proxy health endpoints return `{ tokenExpiresInHours: "2.5" }` (string) instead of `2.5` (number). The `!= null` guard passes for strings, so `.toFixed()` crashes.
+
+**Fix — Two-layer defense:**
+1. **API boundary (route.ts):** Always coerce with `Number()` when reading from external service responses:
+   ```ts
+   token_expires_in_hours: raw != null ? Number(raw) : null,
+   ```
+2. **Render layer (page.tsx):** Defensive `Number()` before any `.toFixed()`:
+   ```tsx
+   `${Number(svc.billing_proxy.token_expires_in_hours).toFixed(1)}h`
+   ```
+
+**Rule:** NEVER call `.toFixed()` directly on a value from an API response without `Number()` wrapping. TypeScript types at runtime are advisory, not guaranteed.
