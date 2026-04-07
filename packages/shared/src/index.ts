@@ -66,3 +66,5 @@ export type { ArchitectureType, ArchitectureProfile, SelectionInput, SelectionRe
 
 export { assemblePrompt, createAssembler } from './prompt-assembler';
 export type { PromptSection, AssembledPrompt } from './prompt-assembler';
+export { SupabaseMemoryStore, InMemoryStore, NullMemoryStore } from './memory-store';
+export type { MemoryEntry, MemoryStore, SupabaseClientLike, SupabaseMemoryStoreOptions } from './memory-store';
