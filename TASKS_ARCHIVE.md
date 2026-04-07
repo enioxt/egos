@@ -105,3 +105,15 @@
 - [x] **INFRA-011**: Caddyfile on VPS fixed — added 852.egos.ia.br route, fixed eagleeye→eagle-eye:3001, fixed gemhunter→egos-gateway:3050; Caddy container restarted to pick new inode
 - [x] **INFRA-012**: `sed -i` breaks Docker bind mount inodes — pattern documented in handoff; canonical fix: edit + docker restart
 - [x] **DIAG-P0..P5**: Full ecosystem diagnostic (19 VPS containers + 8/8 domains + Neo4j 83.7M/26.8M/32 labels + Carteira Livre 1690 commits/134 pages/254 APIs/182.589 LOC)
+
+## Archived 2026-04-07 (9 tasks)
+
+- [x] **DRIFT-004**: `doc-drift-verifier.ts` written — YAML parsing, tolerance eval, domain checks, JSON/MD/human output ✅
+- [x] **DRIFT-005**: `.husky/doc-drift-check.sh` written + wired at step 5.5/8 in pre-commit ✅
+- [x] **DRIFT-006**: `doc-drift-sentinel.ts` written — discovers repos, patches manifests, opens issues, Telegram alerts ✅
+- [x] **DRIFT-007**: Registered in agents.json — 19 agents, `bun agent:lint` ✅
+- [x] **DIAG-P6**: br-acc README: 77M→83.7M + 10 GitHub topics + description. Pushed to 128⭐ repo ✅
+- [x] **DIAG-P7**: MASTER_INDEX v1.3.0 — Verified Evidence section with Neo4j proofs, domains table, Carteira Livre metrics, Drift Shield status ✅
+- [x] **COMMIT-001**: carteira-livre committed + pushed (3a9159ff) ✅
+- [x] **COMMIT-002**: br-acc committed + pushed (ad93647) ✅
+- [x] **COMMIT-003**: egos committed + pushed (52a8a36, e597e3c) ✅

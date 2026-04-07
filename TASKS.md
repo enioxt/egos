@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.45.0 | **Updated:** 2026-04-07 | **LAST SESSION:** P33 — full diagnostic + Caddyfile fix (852/eagleeye/gemhunter) + Carteira Livre deep-dive + Doc-Drift Shield foundation (L1 + CLAUDE.md §27). Next: P34 executes L2-L4 + Phase 6-10 per handoff_2026-04-07_doc-drift-shield-plan.md
+> **Version:** 2.46.0 | **Updated:** 2026-04-07 | **LAST SESSION:** P34 — Doc-Drift Shield L2+L3 complete (verifier, sentinel, hook, 19 agents). DIAG-P6 (br-acc 83.7M + 10 topics) + DIAG-P7 (MASTER_INDEX v1.3.0) done. Remaining: DRIFT-008/009, DIAG-P9, DIAG-P10.
 
 ---
 
@@ -10,11 +10,9 @@
 
 **Done P33 (2026-04-07):**
 
-**P0 — Next session (P34) execution — ORDER MATTERS:**
-- [ ] **DRIFT-004**: Write `agents/agents/doc-drift-verifier.ts` (L2 verifier) — handoff §3.DRIFT-001 has full spec + test plan
-- [ ] **DRIFT-005**: Write `.husky/doc-drift-check.sh` + wire into pre-commit chain (after step 2.5 tsc check) — handoff §3.DRIFT-002
-- [ ] **DRIFT-006**: Write `agents/agents/doc-drift-sentinel.ts` (L3 autonomous — NOTE: existing `drift-sentinel.ts` may conflict, read first) — handoff §3.DRIFT-003
-- [ ] **DRIFT-007**: Register sentinel in `agents/registry/agents.json` + `bun agent:lint` — handoff §3.DRIFT-004
+**Done P34 (2026-04-07):**
+
+**P0 — Next session (P35):**
 - [ ] **DRIFT-008**: Deploy sentinel cron to VPS OR as CCR job (Enio to decide) — handoff §3.DRIFT-005
 - [ ] **DRIFT-009**: Extend CCR Governance Drift Sentinel job with doc-drift-analyzer module — handoff §3.DRIFT-006
 
@@ -30,18 +28,13 @@
 **SSOT:** `docs/MASTER_INDEX.md` | **Handoff:** `docs/_current_handoffs/handoff_2026-04-07_doc-drift-shield-plan.md`
 **Context:** P33 captured all verified numbers. Next session applies updates to READMEs, MASTER_INDEX, and creates posts.
 
-- [ ] **DIAG-P6**: Update `/home/enio/br-acc/README.md` (EGOS-Inteligencia.git, **128⭐**) — 77M→83.7M, Rho Score block (Contributors 4→1), VPS Contabo→Hetzner, scope section with 32 entity types, + `gh repo edit` with description + 10 topics (osint/neo4j/brazil/lgpd/public-data/graph-database/python/open-source/corruption-detection/govtech)
-- [ ] **DIAG-P7**: Update `docs/MASTER_INDEX.md` — version bump 1.2.0→1.3.0, 77M→83.7M, add inteligencia.egos.ia.br, new "Verified Evidence 2026-04-07" section (table with 13 verification commands)
 - [ ] **DIAG-P9**: Write `docs/ENIO_DEVELOPER_TIMELINE.md` — Dec 2025→Apr 2026 reconstructed from git logs across 5 repos (carteira-livre genesis Dec 12, egos-lab Feb 13, br-acc Feb 22, forja Mar 4, 852 Mar 10)
 - [ ] **DIAG-P10a**: Post X.com PT — Version 6 (investigador→builder, 7 tweets) ready in `/home/enio/personal/X_POST_5_VERCOES_LOW_PROFILE.md`, needs final review
 - [ ] **DIAG-P10b**: Post X.com EN — write native (NOT translation), focus Neo4j/agents/multi-LLM/Web3 for global audience
 
 ---
 
-### Commit queue (uncommitted from P33 — do FIRST in P34)
-- [ ] **COMMIT-001**: carteira-livre repo: commit `README.md` (rewrite) + `.egos-manifest.yaml`
-- [ ] **COMMIT-002**: br-acc repo: commit `.egos-manifest.yaml` (README update is DIAG-P6, separate commit)
-- [ ] **COMMIT-003**: egos repo: commit `docs/DOC_DRIFT_SHIELD.md` + `.egos-manifest.yaml` + `docs/_current_handoffs/handoff_2026-04-07_doc-drift-shield-plan.md` + `TASKS.md`
+### Commit queue — P34 DONE
 
 ---
 
