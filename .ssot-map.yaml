@@ -1,9 +1,11 @@
 # .ssot-map.yaml — EGOS SSOT Domain Map
 # Machine-readable version of CLAUDE.md §26 (SSOT-First Rule)
 # Used by: scripts/ssot-router.ts (pre-commit SSOT gate)
-# Updated: 2026-04-07
+# Updated: 2026-04-07 | Version: 2.0.0 — 21 domains
 
-version: "1.0.0"
+version: "2.0.0"
+
+# ─── TIER 1: GTM & REVENUE ────────────────────────────────────────────────────
 
 domains:
   - id: gtm
@@ -23,44 +25,270 @@ domains:
       - "@anoineim"
       - "vendas"
       - "sales"
-      - "monetiz"
       - "revenue share"
       - "co-fundador"
+      - "go-to-market"
     forbidden_paths:
-      - "docs/business/"
       - "docs/sales/"
       - "docs/strategy/PART*.md"
       - "docs/strategy/DISTRIBUTION*.md"
+      - "docs/strategy/OUTREACH*.md"
+    note: "Partner briefs in docs/outreach/ are GTM content — consolidate into GTM_SSOT.md"
 
-  - id: tasks
-    description: "Tasks, priorities, work tracker"
-    ssot: "TASKS.md"
+  - id: monetization
+    description: "Pricing tiers, revenue model, billing, Stripe, product economics"
+    ssot: "docs/business/MONETIZATION_SSOT.md"
     keywords:
-      - "- [ ]"
-      - "- [x]"
-      - "P0"
-      - "P1"
-      - "sprint"
-      - "backlog"
+      - "pricing"
+      - "R$/mo"
+      - "R$/mes"
+      - "MRR"
+      - "ARR"
+      - "stripe"
+      - "billing"
+      - "free tier"
+      - "starter"
+      - "enterprise tier"
+      - "churn"
+      - "LTV"
+      - "CAC"
     forbidden_paths:
-      - "docs/tasks/"
-      - "*_TASKS.md"
-      - "*_TODO.md"
+      - "docs/pricing/"
+      - "*_PRICING*.md"
+      - "*_MONETIZATION*.md"
+    note: "Ecosystem-level economics. GTM execution goes to GTM_SSOT.md."
+
+# ─── TIER 2: PRODUCT & TECHNICAL ─────────────────────────────────────────────
 
   - id: capabilities
-    description: "Agent capabilities, feature registry"
+    description: "Agent capabilities, feature registry, what EGOS can do"
     ssot: "docs/CAPABILITY_REGISTRY.md"
     keywords:
       - "capability"
       - "capabilities"
       - "agent registry"
       - "feature list"
+      - "pattern §"
     forbidden_paths:
       - "docs/features/"
       - "*_CAPABILITIES.md"
 
+  - id: agents
+    description: "Agent definitions, registry, runtime contract"
+    ssot: "agents/registry/agents.json"
+    ssot_secondary: "AGENTS.md"
+    keywords:
+      - "agent_id"
+      - "run_modes"
+      - "risk_level"
+      - "entrypoint"
+      - "agent definition"
+    forbidden_paths:
+      - "docs/agents/"
+    note: "Code definitions in agents.json. Human docs in AGENTS.md per repo."
+
+  - id: system_arch
+    description: "System architecture, module map, kernel topology"
+    ssot: "docs/SYSTEM_MAP.md"
+    keywords:
+      - "architecture"
+      - "system map"
+      - "kernel"
+      - "topology"
+      - "module diagram"
+      - "component diagram"
+    forbidden_paths:
+      - "*_ARCHITECTURE*.md"
+      - "*_TOPOLOGY*.md"
+    note: "Exception: product-specific architecture specs (e.g., GUARD_BRASIL_ARCHITECTURE_STACK.md) are OK."
+
+  - id: mcp
+    description: "MCP servers, tools, integration config, deployment"
+    ssot: "docs/MCP_SSOT.md"
+    keywords:
+      - "MCP server"
+      - "mcp__"
+      - "stdio"
+      - "mcp_server"
+      - "claude_desktop"
+      - "MCP tool"
+      - "mcp config"
+    forbidden_paths:
+      - "docs/MCP_DEPLOYMENT_CHECKLIST.md"
+      - "docs/MCP_ENV_VARS_REFERENCE.md"
+      - "docs/MCP_INTEGRATION_GUIDE.md"
+      - "docs/MCP_INTEGRATION_MAP.md"
+      - "docs/MCP_ORCHESTRATION_STRATEGY.md"
+      - "docs/MCP_SCOPE_POLICY.md"
+      - "docs/MCP_IMPLEMENTATION_SUMMARY.md"
+    note: "CONSOLIDATION NEEDED: 7 existing MCP_*.md files should merge into docs/MCP_SSOT.md (P35 task)"
+
+  - id: chatbot
+    description: "Chatbot architecture, module standard, channels (852, Forja, Carteira)"
+    ssot: "docs/modules/CHATBOT_SSOT.md"
+    keywords:
+      - "chatbot"
+      - "streaming"
+      - "ATRiAN"
+      - "bot channel"
+      - "telegram bot"
+      - "discord bot"
+      - "chat interface"
+    forbidden_paths:
+      - "*_CHATBOT*.md"
+
+  - id: telemetry
+    description: "Telemetry schema, event fields, metrics, observability"
+    ssot: "docs/TELEMETRY_SSOT.md"
+    keywords:
+      - "telemetry"
+      - "event schema"
+      - "agent_events"
+      - "metric"
+      - "observability"
+      - "structured log"
+      - "TELEM-"
+    forbidden_paths:
+      - "*_TELEMETRY*.md"
+      - "*_METRICS*.md"
+
+  - id: reports
+    description: "Report generation standard, output format, EGOS Report v2.0"
+    ssot: "docs/REPORT_SSOT.md"
+    keywords:
+      - "report standard"
+      - "EGOS Report"
+      - "report format"
+      - "REPORT_SSOT"
+      - "confidence level"
+      - "evidence"
+      - "NEVER accusatory"
+    forbidden_paths:
+      - "*_REPORT_STANDARD*.md"
+
+  - id: whatsapp
+    description: "WhatsApp integration, Evolution API, messaging pipelines"
+    ssot: "docs/knowledge/WHATSAPP_SSOT.md"
+    keywords:
+      - "whatsapp"
+      - "evolution api"
+      - "evolution_api"
+      - "forja-notifications"
+      - "wa-"
+    forbidden_paths:
+      - "*_WHATSAPP*.md"
+      - "docs/whatsapp/"
+
+# ─── TIER 3: INFRASTRUCTURE & OPERATIONS ─────────────────────────────────────
+
+  - id: vps
+    description: "VPS infrastructure, Docker containers, Caddy routing, Hetzner"
+    ssot: "docs/VPS_RESOURCE_SSOT.md"
+    keywords:
+      - "hetzner"
+      - "204.168.217.125"
+      - "docker-compose"
+      - "caddy"
+      - "container"
+      - "VPS"
+      - "/opt/"
+      - "ssh root@"
+    forbidden_paths:
+      - "*_INFRASTRUCTURE*.md"
+      - "docs/vps/"
+
+  - id: environment
+    description: "Env vars, API keys, credentials map, .env structure"
+    ssot: "docs/ENVIRONMENT_REGISTRY.md"
+    ssot_credentials: "~/.openclaw/workspace/TOOLS.md"
+    keywords:
+      - "env var"
+      - "api key"
+      - "API_KEY"
+      - "secret"
+      - ".env"
+      - "credentials"
+      - "DASHSCOPE"
+      - "OPENROUTER"
+    forbidden_paths:
+      - "*_ENV_VARS*.md"
+      - "*_CREDENTIALS*.md"
+    note: "Actual credential values NEVER in git. Mapping only."
+
+  - id: openclaw
+    description: "OpenClaw billing proxy, gateway config, quota management"
+    ssot: "docs/OPENCLAW_SSOT.md"
+    keywords:
+      - "openclaw"
+      - "clawHub"
+      - "billing proxy"
+      - "port 18802"
+    forbidden_paths:
+      - "docs/openclaw/"
+
+# ─── TIER 4: INTELLIGENCE & DISCOVERY ────────────────────────────────────────
+
+  - id: gem_hunter
+    description: "Gem Hunter discovery pipeline, scoring, sessions, tracks"
+    ssot: "docs/gem-hunter/SSOT.md"
+    keywords:
+      - "gem hunter"
+      - "gem-hunter"
+      - "GH-0"
+      - "discovery pipeline"
+      - "track"
+      - "scoring"
+      - "gem score"
+    forbidden_paths:
+      - "docs/GEM_HUNTER*.md"
+
+  - id: dream_cycle
+    description: "Dream Cycle overnight batch, autonomous nightly work"
+    ssot: "docs/strategy/DREAM_CYCLE_SSOT.md"
+    keywords:
+      - "dream cycle"
+      - "overnight"
+      - "nightly"
+      - "batch processing"
+      - "memory consolidation"
+    forbidden_paths:
+      - "*_DREAM_CYCLE*.md"
+
+  - id: world_model
+    description: "World model, system snapshot, health state, ecosystem state"
+    ssot: "docs/strategy/WORLD_MODEL_SSOT.md"
+    keywords:
+      - "world model"
+      - "world-model"
+      - "ecosystem health"
+      - "system snapshot"
+      - "health score"
+    forbidden_paths:
+      - "*_WORLD_MODEL*.md"
+
+# ─── TIER 5: BRAND & COMMUNICATION ───────────────────────────────────────────
+
+  - id: brand
+    description: "Visual identity, colors, typography, logo, brand guidelines"
+    ssot: "docs/BRAND_CANONICAL.md"
+    ssot_conflict: "egos-lab/branding/BRAND_GUIDE.md"
+    keywords:
+      - "brand guide"
+      - "color palette"
+      - "typography"
+      - "Space Grotesk"
+      - "logo"
+      - "visual identity"
+      - "#0A0E27"
+      - "brand canonical"
+    forbidden_paths:
+      - "*_BRAND_GUIDE*.md"
+    note: "CONFLICTED (EGOS-132 open): kernel BRAND_CANONICAL.md vs egos-lab/branding/BRAND_GUIDE.md. Use egos-lab version until resolved."
+
+# ─── TIER 6: GOVERNANCE & KNOWLEDGE ──────────────────────────────────────────
+
   - id: learnings
-    description: "Technical learnings, gotchas, patterns, harvest"
+    description: "Technical learnings, gotchas, patterns, what worked/failed"
     ssot: "docs/knowledge/HARVEST.md"
     keywords:
       - "lesson learned"
@@ -69,20 +297,25 @@ domains:
       - "what worked"
       - "what failed"
       - "aprendizado"
+      - "HARVEST"
     forbidden_paths:
       - "docs/notes/"
       - "docs/findings/"
       - "*_NOTES.md"
 
-  - id: openclaw
-    description: "OpenClaw billing proxy, gateway config"
-    ssot: "docs/OPENCLAW_SSOT.md"
+  - id: tasks
+    description: "Tasks, priorities, work tracker, sprint"
+    ssot: "TASKS.md"
     keywords:
-      - "openclaw"
-      - "clawHub"
-      - "billing proxy"
+      - "- [ ]"
+      - "- [x]"
+      - "sprint"
+      - "backlog"
+      - "P0 blocker"
     forbidden_paths:
-      - "docs/openclaw/"
+      - "docs/tasks/"
+      - "*_TASKS.md"
+      - "*_TODO.md"
 
   - id: handoffs
     description: "Session handoffs between AI sessions"
@@ -91,22 +324,33 @@ domains:
       - "handoff"
       - "next session"
       - "accomplished"
-      - "in progress"
       - "blocked"
+      - "session summary"
     forbidden_paths: []
-    note: "One file per session date. Older ones move to docs/_archived_handoffs/"
+    note: "One file per session date. Archive to docs/_archived_handoffs/"
 
   - id: incidents
-    description: "Production incidents, postmortems"
+    description: "Production incidents, postmortems, INC-* reports"
     ssot: "docs/INCIDENTS/INC-*.md"
     keywords:
       - "incident"
       - "postmortem"
       - "INC-"
       - "root cause"
+      - "recovery"
     forbidden_paths: []
 
-# Files that are always OK to create (no SSOT check needed)
+# ─── OPEN CONSOLIDATION TASKS ─────────────────────────────────────────────────
+# These directories contain dispersed content that should be merged into their SSOT:
+#
+# docs/outreach/       → merge into docs/GTM_SSOT.md (partnership kits, prospect lists)
+# docs/sales/          → merge into docs/GTM_SSOT.md or MONETIZATION_SSOT.md
+# docs/MCP_*.md (x7)   → create docs/MCP_SSOT.md and consolidate (P35)
+# egos-lab/branding/   → resolve EGOS-132 brand conflict
+# docs/products/       → evaluate: product-specific docs may be OK as standalone
+
+# ─── ALWAYS OK: no SSOT check needed ─────────────────────────────────────────
+
 always_ok:
   - "*.test.ts"
   - "*.spec.ts"
@@ -114,10 +358,16 @@ always_ok:
   - "*.ts"
   - "*.tsx"
   - "*.js"
+  - "*.jsx"
   - "*.json"
   - "*.yaml"
   - "*.yml"
+  - "*.html"
+  - "*.css"
   - ".env*"
   - "AGENTS.md"
   - "CLAUDE.md"
   - "README.md"
+  - "CHANGELOG.md"
+  - "*.sql"
+  - "*.py"

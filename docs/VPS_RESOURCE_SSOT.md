@@ -46,7 +46,7 @@
 ### ✅ RAM Monitoring Required
 - **Threshold:** Alert if free_ram < 1GB
 - **Current:** 604-620MB free = very tight
-- **Action:** Add watchdog alert to `/opt/egos/bin/watchdog.sh`
+- **Action:** Add watchdog alert to `/opt/egos/bin/vps-ram-monitor.sh` (VPS-MEMORY-001)
 - **Blocker for Hermes MVP:** Must have >2GB free before deployment
 
 ---
@@ -132,7 +132,7 @@ if free_ram < 100MB:
 - [ ] Permanent delete if clean
 
 ### Phase 2: Monitoring (2026-04-08)
-- [ ] Add RAM alerting to watchdog.sh (VPS-MEMORY-001)
+- [ ] Add RAM alerting to vps-ram-monitor.sh (VPS-MEMORY-001)
 - [ ] Verify alerts work (manual test)
 - [ ] Document thresholds in this SSOT
 
