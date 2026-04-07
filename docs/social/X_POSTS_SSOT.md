@@ -1,610 +1,367 @@
-# X_POSTS_SSOT.md — X.com Posts Canonical Source
-# Account: @anoineim | SSOT version: 1.0.0 | 2026-04-07
-# Rule: ALL X.com post content lives here. No other post files should exist.
-# Deprecated: X_POST_PROFILE_PARTNERSHIP.md, X_COM_CONTENT_KIT.md (content merged below)
+# X_POSTS_SSOT.md — X.com Strategy & Content
+# Account: @anoineim | SSOT version: 2.0.0 | 2026-04-07
+# Rule: TODO sobre X.com vive aqui. Nenhum outro arquivo de posts/social deve existir.
+#
+# MUDANÇA DE ESTRATÉGIA v2.0:
+# Antes: threads de marketing → parceiros de GTM (não funcionou)
+# Agora: DMs pessoais → encontrar pessoas parecidas, mostrar o que foi construído
 
 ---
 
-## STATUS BOARD
+## 1. ESTRATÉGIA ATUAL — ENCONTRAR PESSOAS
 
-| Thread | Status | Audience | Tweets | Scheduled |
-|--------|--------|----------|--------|-----------|
-| Version 6 — Investigador→Builder (PT) | ✅ READY | BR dev/compliance/govtech | 7 | 9h–11h BRT |
-| English Native — Neo4j/OSINT (EN) | ✅ READY | Global Neo4j/agents/govtech | 7 | 9h–11h EST |
-| Partnership Thread (PT) | ✅ READY | BR GTM operators | 11 | Semana 2 |
-| Themed Kit v1 — 77M Entities (EN) | ⚠️ OUTDATED | BR/EN open-source | 5 | Atualizar antes de usar |
-| Themed Kit v2 — 17 Agents (EN) | ⚠️ OUTDATED | EN devs | 5 | Atualizar antes de usar |
-| Themed Kit v3 — Architecture (EN) | ⚠️ OUTDATED | EN infra | 5 | Atualizar antes de usar |
-| Kernel Sprint Post (2026-03-30) | 🗄️ HISTORICAL | — | 1 | Não postar |
+**Objetivo:** Não vender. Não fazer marketing. Encontrar builders/operadores alinhados.
 
-**Rule:** Post PT first, EN 2–3 dias depois. Nunca dois threads no mesmo dia.
+**Quem é Enio no X:**
+- Pesquisador-builder. Rápido para desenvolver. Sem paciência para vender.
+- Tem vários MVPs rodando. Está procurando pessoas que complementem o que ele não faz.
+- Quer parcerias reais, não investidores. Quer trabalhar COM alguém, não FOR alguém.
+
+**Tom canônico** (DM enviada, tom de referência):
+> "Sobre seu post, posso te mostrar um pouco do que venho pesquisando e desenvolvendo.
+> Já tenho alguns MVPs mais avançados, protótipos, diversas ideias em setores variados
+> e tô nesse pique de arrumar outras rendas.
+> Andei gastando uma energia com esse aqui: [link produto]
+> ...
+> A real é que sou rápido para desenvolver, mas não tenho paciência para vender,
+> distribuir, então estou nesse momento procurando parcerias que se encaixem
+> no que não faço ainda."
+
+**O que isso tem:**
+- Contexto (responde algo que a pessoa postou)
+- Mostra sem vender
+- Honesto sobre o gap (não vendo)
+- Pede parceria, não aprovação
 
 ---
 
-## BLOCO 1 — VERSÃO 6: O INVESTIGADOR QUE VIROU BUILDER (PT) ← POSTAR PRIMEIRO
+## 2. PRODUTOS — REFERÊNCIA PARA DMs E POSTS
 
-> **Tom:** Pessoal + técnico. Narrativa única. Use esta primeiro.
-> **Recomendada para:** lançamento inicial, foco em parceiros BR
+Lista canônica. Sempre usar links corretos.
 
-### Tweet 1/7 — O Gancho
+| Produto | Link | Status | Para mencionar quando... |
+|---------|------|--------|--------------------------|
+| Guard Brasil | https://guard.egos.ia.br/landing | ✅ VPS live | LGPD, PII, compliance, DPO |
+| Eagle Eye | https://eagleeye.egos.ia.br/dashboard.html | ✅ live | licitações, B2G, govtech, PNCP |
+| Carteira Livre | https://www.carteiralivre.com | ✅ empresa funcionando | marketplace, split payment, fiscal |
+| EGOS Inteligência | https://inteligencia.egos.ia.br | ✅ VPS live | grafos, OSINT, investigação, Neo4j |
+| Intelink | https://www.intelink.ia.br | ✅ live | análise de vínculos, investigação |
+| Tira-Voz / 852 | https://852.egos.ia.br | ✅ live | chatbot policial, escuta institucional |
+
+**Split payment (módulo CL):** sem link próprio — mencionar como "um dos módulos do Carteira Livre
+que vai ter muito mais demanda este ano com as mudanças fiscais".
+
+---
+
+## 3. BIO DO PERFIL
+
 ```
-15 anos investigando crimes em Minas Gerais.
-
-Em 2024, larguei o Excel e passei a construir código.
-
-18 meses depois: 13 produtos, 83,7 milhões de entidades em grafo, zero vendas.
-
-Essa é minha história e o que estou buscando 👇
-```
-
-### Tweet 2/7 — A Transferência de Skills
-```
-Como investigador, aprendi a conectar pontos em bases de dados dispersas.
-
-Apliquei isso direto no código:
-
-Neo4j com 83,7M nós. 32 tipos: empresas, PEPs, contratos, sanções, licitações, viagens corporativas.
-
-26,8M relacionamentos. Tudo público. Tudo rastreável.
-
-Isso é OSINT de dados públicos brasileiros em escala.
+Builder pesquisador. Ex-investigador policial → código.
+MVPs de análise investigativa, LGPD, licitações, split payment.
+Procurando parcerias. Construo rápido. Não sei vender. Que tal trocamos?
 ```
 
-### Tweet 3/7 — Guard Brasil (Produto Principal)
+_(Versão curta, 160 chars, atualizar quando tiver cliente real)_
+
+---
+
+## 4. DM TEMPLATES
+
+### 4A — Template Base (para qualquer contexto)
+
 ```
-Meu primeiro produto monetizável: Guard Brasil.
+Oi [nome], vi seu post sobre [assunto].
 
-API de detecção de PII/LGPD com 15 padrões brasileiros.
-4ms de latência. F1 85.3%.
+Trabalho em algo parecido/relacionado — posso te mostrar um pouco do
+que venho construindo?
 
-Rodando em produção em guard.egos.ia.br.
+Tenho [produto relevante]: [link]
+[Frase de contexto honesta — ex: "andei gastando energia com esse aqui"]
 
-DPO de uma empresa de 500 pessoas precisa disso. Ele só não sabe que existe.
-```
+[Segundo produto se relevante]
 
-### Tweet 4/7 — O Problema Honesto
-```
-Sou pesquisador e builder.
+A real: sou rápido para desenvolver mas não tenho paciência para vender.
+Estou procurando parcerias que complementem o que não faço.
 
-Não sou vendedor. Nunca fui. Não vou fingir que vou virar.
-
-Código: excelente.
-Venda: zero.
-
-Busco parceiro de GTM que complete o que falta.
-Equity real. Produto real. Sem pitch deck.
-```
-
-### Tweet 5/7 — O Que Ofereço
-```
-3 produtos procurando GTM partner:
-
-🔐 Guard Brasil — compliance LGPD, ICP: DPOs, advogados, fintechs
-🧠 EGOS Inteligência — 83,7M nós, ICP: govtech, investigações, compliance
-🦅 Eagle Eye — licitações 84+ territórios, ICP: software houses, integradores B2G
-
-Equity 20-35%. Código pronto. VPS rodando há 9+ dias sem falha.
-```
-
-### Tweet 6/7 — Verificação Pública
-```
-Não é vaporware. Hoje às 0h verifiquei:
-
-✅ guard.egos.ia.br — responde em 4ms
-✅ 852.egos.ia.br — up 9 dias
-✅ Neo4j: 83.773.683 nós (query executada agora)
-✅ 19 containers Docker em produção
-✅ Gateway v0.3.0 — 4 canais ativos
-
-github.com/enioxt — MIT license, auditável.
-```
-
-### Tweet 7/7 — CTA
-```
-Se você:
-→ Já vendeu SaaS B2B
-→ Tem acesso a DPOs, govtech, compliance, licitações
-→ Prefere equity em produto real a equity em PowerPoint
-
-Me chama. DM aberto.
-enioxt@gmail.com
-
-Não tenho pressa. Só quero o parceiro certo.
+Se fizer sentido, fico feliz em trocar ideia.
 ```
 
 ---
 
-## BLOCO 2 — ENGLISH NATIVE: NEO4J/OSINT/AGENTS (EN) ← POSTAR SEGUNDO
+### 4B — Para alguém postando sobre LGPD / compliance / PII
 
-> **Tom:** Technical confidence, no hype. Show the work.
-> **Target:** Neo4j engineers, agent builders, compliance devs, govtech, Web3/ethics crowd
-> **Hashtags (tweet 1):** `#Neo4j #GraphDatabase #AI #Agents #OSINT #OpenSource`
-> **Best time:** 9–11am EST
-
-### Tweet 1/7 — The Hook
 ```
-I spent 4 months building a graph database of Brazil's entire public sector.
+Oi [nome], vi seu post sobre [LGPD/PII/compliance].
 
-83,773,683 nodes.
-26,808,540 relationships.
-32 entity types: politicians, contractors, sanctions, elections, judiciary.
+Desenvolvi uma API pra isso especificamente: guard.egos.ia.br/landing
+15 padrões brasileiros (CPF, RG, CNPJ, MASP...), 4ms latência.
 
-All interconnected. All queryable. Here's what I found. 🧵
-```
+Andei gastando bastante energia nisso. Está rodando em produção.
 
-### Tweet 2/7 — The Architecture
-```
-The stack:
-
-→ Neo4j on Hetzner VPS (12 vCPU, 24GB RAM)
-→ 45+ ETL pipelines: procurement, elections, IBAMA, STF, PEPs
-→ FastAPI + React explorer
-→ 19 AI agents orchestrated by EGOS Framework
-→ LGPD-compliant: CPF/RG masked at ingest
-
-19 Docker containers. 9+ days uptime. No k8s. Just discipline.
-```
-
-### Tweet 3/7 — The Agent Layer
-```
-On top of the graph: a multi-LLM agent system.
-
-- Multi-provider routing: Alibaba Qwen (primary), OpenRouter, DashScope
-- 26 OSINT tools: procurement, judiciary, corporate registry, PEPs, sanctions
-- Telegram + Discord chatbots (24/7)
-- Doc-Drift Shield: sentinel validates all claims daily via .egos-manifest.yaml
-
-The system self-monitors. No manual number-checking.
-```
-
-### Tweet 4/7 — What It Actually Found
-```
-Real patterns from the graph (examples, not allegations):
-
-→ Company A won 3 municipal contracts worth R$4.2M
-→ Same company appears in 7 sanction records (CEIS)
-→ Partner of Company A is a declared asset of Politician B (TSE filings)
-
-These are public records. The graph just removes the 40 browser tabs.
-```
-
-### Tweet 5/7 — The Builder Story
-```
-Built in 4 months. Solo. Bootstrapped.
-
-Dec 2025 → Carteira Livre (marketplace) MVP: 1 day to prod
-Feb 2026 → br-acc foundation: 5 commits in 9 minutes (pre-planned)
-Mar 2026 → EGOS Framework v1.0 + Guard Brasil API: 7 days to production
-Apr 2026 → 19 agents, 3 CCR scheduled jobs, 8 public domains live
-
-Total: ~3,000 commits. Revenue: R$0. Working on that last part.
-```
-
-### Tweet 6/7 — The Honest Ask
-```
-I'm a researcher-builder. Excellent at: architecture, agents, infrastructure.
-Not excellent at: selling, outreach, closing deals.
-
-Looking for:
-→ GTM partner (B2G/govtech or compliance/LGPD focus)
-→ Co-founder who likes selling what already works
-→ Or just: interesting conversations with graph/agent/OSINT people
-
-Equity: real. Code: MIT. Pipeline: live.
-```
-
-### Tweet 7/7 — CTA + Links
-```
-Open source. Verifiable.
-
-→ github.com/enioxt/EGOS-Inteligencia (128⭐)
-→ inteligencia.egos.ia.br (live chatbot)
-→ guard.egos.ia.br/health (4ms response time)
-
-Want to see how the graph works? Ask me anything.
-DM open. No pitch deck.
-
-Built in Brazil 🇧🇷 for the world.
+Não sou de vendas, estou procurando parceiro que entenda esse mercado
+e queira trabalhar junto. Se tiver interesse em conhecer, chama.
 ```
 
 ---
 
-## BLOCO 3 — PARTNERSHIP THREAD: GTM OPERATOR SEARCH (PT) ← SEMANA 2
+### 4C — Para alguém em govtech / licitações / B2G
 
-> **Tom:** Direto, honesto sobre o gap de vendas. Para operadores BR.
-> **Checklist pré-postagem:**
-> - [ ] og-image.jpg deployada (GTM-015)
-> - [ ] 2h bloqueadas para replies/DMs
-> - [ ] X DMs abertos para não-seguidores
-
-### Tweet 1/11 — Hook
 ```
-Construí 13 produtos em 18 meses.
+Oi [nome], seu trabalho com [govtech/licitações] me chamou atenção.
 
-Solo. Bootstrapped. Zero VC.
+Tenho dois projetos que podem fazer sentido pra você:
 
-Código pronto. Infra rodando.
+Eagle Eye — monitora licitações em 84+ territórios, PNCP:
+eagleeye.egos.ia.br/dashboard.html
 
-Resultado: ZERO clientes pagantes.
+EGOS Inteligência — grafo com 83M entidades públicas BR (empresas,
+contratos, PEPs, sanções, licitações): inteligencia.egos.ia.br
 
-Por que? 👇
-```
-
-### Tweet 2/11 — A Verdade
-```
-Sou pesquisador/builder. Não sou vendedor.
-
-LGPD se vende com confiança, não com feature list.
-Compliance se vende com credibilidade, não código.
-
-Preciso de quem converta construção em receita.
-```
-
-### Tweet 3/11 — O Que Construí
-```
-Guard Brasil: API de PII detection, 15 padrões BR, 4ms latência, F1 85.3%.
-
-EGOS Inteligência: 83,7M nós Neo4j (verificado), 32 tipos de entidade, OSINT brasileiro.
-
-Eagle Eye: Monitor de licitações, 84+ territórios.
-
-Tudo no GitHub. MIT license. Auditável.
-```
-
-### Tweet 4/11 — Prova de Capacidade
-```
-83,7M entidades em grafo Neo4j (verificado, rodando hoje).
-19 containers Docker no VPS.
-23 agentes autônomos orquestrados.
-13+ fontes de dados para Gem Hunter.
-
-Não é promessa. É código rodando.
-https://github.com/enioxt/egos
-```
-
-### Tweet 5/11 — O Que Eu Não Faço Bem
-```
-❌ Sales enterprise e follow-up
-❌ DevRel e comunidade
-❌ Networking e pitch events
-❌ Contratos e burocracia comercial
-
-Isso não é modéstia. É honestidade.
-Busco parceiros que compensem minhas falhas.
-```
-
-### Tweet 6/11 — História Crypto
-```
-Desde 2017 no crypto.
-
-Não como influencer. Como gem hunter.
-Avaliei 1000+ projetos, estudei tokenomics, vi rug pulls de perto.
-
-Aprendi: open source + transparência > hype.
-Esse é o DNA do EGOS.
-```
-
-### Tweet 7/11 — O Que Busco
-```
-Parceiro de GTM que:
-• Já vendeu SaaS B2B
-• Tem acesso ao meu ICP (DPOs, govtech, indústria)
-• Topa equity generosa (15-35%) em vez de salário
-• Faz 10-20h/semana no início
-
-Sem bullshit. Split justo.
-```
-
-### Tweet 8/11 — Modelos de Parceria
-```
-1. Co-fundador equity (20-35%)
-2. Revenue share (20-30% MRR)
-3. White-label (sua marca, minha tech)
-4. Pilot pago (validar antes de equity)
-
-Nota de compromisso simples. Vesting 1 ano.
-```
-
-### Tweet 9/11 — Produtos Prioritários
-```
-🔐 Guard Brasil — equity 20-30%
-🧠 EGOS Inteligência — equity 25-35%
-🦅 Eagle Eye — equity 25-35%
-🏭 Forja — equity 20-30%
-
-Todos: código pronto, infra rodando, ICP definido.
-Falta só quem venda.
-```
-
-### Tweet 10/11 — CTA
-```
-Se você é DPO, consultor LGPD, govtech operator, ou ERP seller...
-
-E quer equity em produto pronto em vez de equity em slide deck...
-
-Me chama. Vamos conversar.
-
-enioxt@gmail.com
-DM aberto.
-```
-
-### Tweet 11/11 — Links
-```
-🛡️ Guard Brasil: https://guard.egos.ia.br
-📁 GitHub: https://github.com/enioxt
-📧 Email: enioxt@gmail.com
-
-Sacred Code: 000.111.369.963.1618
-```
-
-**O QUE NÃO DIZER:**
-- ❌ "Production-ready, enterprise-grade" (ainda não)
-- ❌ "Trusted by leading fintechs" (zero clientes enterprise)
-- ❌ "$10M ARR potential" (especulação)
-- ❌ "AI-powered" (é arquitetura + dados, não hype)
-
----
-
-## BLOCO 5 — ALTERNATIVE FORMATS (PT) — single-tweet variants
-
-> **Origem:** consolidado de `personal/X_POST_5_VERCOES_LOW_PROFILE.md` (Versões 2-5)
-> **Uso:** quando não há tempo/energia para postar thread completa (BLOCO 1), ou para reposts subsequentes
-> **Tom:** low profile, sem hype, "faz muito fala pouco"
-
-### V5.1 — Post Único Conciso (1 tweet, ~280 chars)
-```
-Construí 13+ produtos solo em 18 meses. Código pronto, infra rodando, 83,7M nós em grafo Neo4j (verificado hoje).
-
-Resultado: 0 vendas. Porque sou builder, não vendedor.
-
-Busco parceiro GTM com equity generosa (15-35%). DPOs, govtech, compliance — meu ICP é seu network?
-
-guard.egos.ia.br | github.com/enioxt
-```
-
-### V5.2 — Storytelling Pessoal (1 post longo)
-```
-Em 2017 descobri crypto. Não como trader. Como curioso.
-
-Passei 8 anos avaliando projetos, estudando tokenomics, aprendendo a detectar padrões. 1000+ projetos analisados.
-
-Em 2024 apliquei isso em código. Construí o EGOS: 13 produtos, open source, governança transparente.
-
-Agora preciso de quem complete o que falta: distribuição.
-
-Se você vende B2B e quer equity em produto real — vamos conversar.
-```
-
-### V5.3 — Técnico Sem Arrogância (1 post)
-```
-Stack atual:
-• 83,7M nós Neo4j (CNPJ, PEPs, sanções, contratos — 32 tipos)
-• 26,8M relacionamentos entre entidades
-• 15 padrões PII brasileiros detectados em 4ms
-• 23 agentes autônomos com governança
-• 19 containers Docker em produção (Hetzner VPS)
-
-Tudo documentado, testado, open source.
-
-Só falta quem leve isso pra quem precisa.
-
-DM aberto pra parceiros de GTM.
-```
-
-### V5.4 — Convite Direto (1 post — para quem já conhece)
-```
-Você já viu meu código no GitHub.
-Já viu o Guard Brasil funcionando em produção.
-Já viu o grafo de 83,7M nós rodando no VPS hoje.
-
-Sabe que não é vaporware.
-
-Agora: quer equity pra distribuir isso?
-
-Busco 3 parceiros de GTM:
-• Guard Brasil (LGPD/compliance)
-• EGOS Inteligência (govtech/OSINT)
-• Eagle Eye (licitações/B2G)
-
-Equity 20-35%. Nota simples. Split justo.
-
-enioxt@gmail.com
+Sou pesquisador-builder, desenvolvo rápido, mas não distribuo sozinho.
+Se fizer sentido conversar, fico disponível.
 ```
 
 ---
 
-## BLOCO 4 — THEMED KIT: DADOS/AGENTES/INFRA (EN) ← ATUALIZAR ANTES DE USAR
-
-> **Status:** ⚠️ OUTDATED — números precisam atualização para 83.7M, 19 containers, Hetzner
-> **Origin:** X_COM_CONTENT_KIT.md (egos-lab/docs/plans/, 2026-03-06, agora depreciado)
-> **Uso:** base de inspiração para futuras threads, não postar sem revisão
-
-### Thread A: "83M Entities" (escala de dados)
-Hook: `I spent 4 months building a graph database of Brazil's entire public sector. 83,773,683 nodes...`
-(Usar Bloco 2 Tweet 1 como base atualizada — os números do content kit original estavam desatualizados)
-
-### Thread B: "19 Agents" (plataforma agentic)
-> Atualizar: 17→19 agents, zero-deps ainda válido, ~50KB total ainda válido
-
-### Thread C: "~$50/month Architecture" (infraestrutura)
-> Atualizar: Contabo→Hetzner (12 vCPU, 24GB RAM, 204.168.217.125), Redis: verificar se ainda em uso
-
-### Thread D: "Governance Story" (qualidade de código)
-> Conteúdo ainda válido — GOV-006/007 story, .guarani/, 19 agents enforcing rules
-
-### Video Script: "EGOS in 60 Seconds"
-> Atualizar números antes de gravar. Usar asciinema para terminal, Neo4j Bloom para grafo.
-> Vertical 1080x1920 para X/TikTok ou 1920x1080 horizontal.
-
----
-
-## DIRETRIZES GERAIS DE POSTAGEM
-
-### O Que Fazer ✅
-- Postar entre 9h–11h BRT (audience BR) ou 9h–11h EST (audience EN)
-- Responder comentários em até 2h após postagem
-- Fixar no perfil por 1 semana
-- Repostar a cada 3–4 dias com variação de texto
-- Primeiro reply own-thread: "Bookmark this 🔖" para boostar saves
-
-### O Que Evitar ❌
-- Não usar emojis excessivos (máx 2 por tweet)
-- Não fazer "threadstorm" (máx 11 tweets por thread)
-- Não responder haters defensivamente
-- Não prometer datas ou milestones
-- Não postar dois threads no mesmo dia
-- Não postar EN e PT no mesmo dia (2–3 dias de intervalo)
-
-### Hashtags por audiência
-- **BR tech/compliance:** `#LGPD #OpenSource #BuildInPublic #FintechBrasil`
-- **EN global:** `#Neo4j #GraphDatabase #AI #Agents #OSINT #OpenSource`
-- Usar 2–3 por thread máximo, somente no primeiro tweet
-
-### Métricas de Sucesso
-- 50+ bookmarks = interesse real
-- 10+ DMs qualificados = sucesso
-- 3+ calls agendadas = ótimo
-- 1 parceria fechada = meta atingida
-
----
-
-## AUTOMAÇÃO X.COM & STRATEGY
-
-> **Origem:** consolidado de `egos/docs/strategy/XCOM_SOCIAL_AUTOMATION_PLAN.md` (482 linhas, 2026-03-30) + `gtm15_x_thread_imagen_plan_2026_04_06.md`
-
-### A) X API Capabilities (2026)
-
-| Tipo | Via API? | Limites | Notas |
-|------|----------|---------|-------|
-| Tweet texto | ✅ | 280 chars (free), 25k chars (Premium) | Core |
-| Thread | ✅ | Encadeamento múltiplo | Tutorials |
-| Imagens | ✅ | 4 por post, JPG/PNG/GIF, max 5MB | media endpoint |
-| Vídeos | ✅ | 1 por post, 512MB, 2:20 min | upload async |
-| GIFs | ✅ | media upload | — |
-| Polls | ✅ | 2-4 opções, 5min-7d | engajamento alto |
-| Articles | ❌ | Premium only, web UI | postar manual ou via browser auto |
-| Spaces | ⚠️ parcial | criar/gerenciar | audio live |
-| Cards | auto | link preview | URL gera card |
-
-### B) X API Pricing (2026)
-
-| Tier | Preço | Writes/mês | Reads/mês |
-|------|-------|------------|-----------|
-| Free | $0 | ~500 | ~50 |
-| Basic | $200/mo | ~50.000 | ~10-15k |
-| Pro | $5.000/mo | ~300.000 | 1.000.000 |
-| Pay-per-use | créditos | $0.01/post | $0.005/read |
-
-**Nosso cenário:** 1 post/dia = 30/mês → **Free tier basta**. Migrar para Pay-per-use só se precisar monitorar mentions.
-
-**Limites duros:** 2400 posts/dia, ~50 posts/30min, follow 400/dia free, DM 500/dia.
-
-### C) Architecture: GUARD BRASIL SOCIAL ENGINE (planejado)
+### 4D — Para alguém builder / desenvolvedor / tech
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│                GUARD BRASIL SOCIAL ENGINE               │
-├─────────────────────────────────────────────────────────┤
-│  Content Gen (Qwen) → Visual Gen → Schedule Manager     │
-│         ↓                                                │
-│  Post Composer (text + image + hashtags + CTA)          │
-│         ↓                                                │
-│  Review Queue (Telegram approval before posting)        │
-│         ↓                                                │
-│  X.com API Publisher (OAuth 1.0a + media upload)        │
-│         ↓                                                │
-│  Analytics Tracker (impressions, likes, RT, clicks)     │
-│         ↓                                                │
-│  Engagement Bot (reply mentions, thank followers)       │
-└─────────────────────────────────────────────────────────┘
-         ↓
-   HQ Dashboard: social tab + Semrush-style monitoring
-```
+Oi [nome], vi que você trabalha com [área técnica].
 
-### D) Weekly content calendar (auto-generated)
+Tenho alguns MVPs mais avançados e protótipos em setores variados.
+Tô nesse pique de encontrar pessoas para trabalhar junto.
 
-| Dia | Categoria | Tópico |
-|-----|-----------|--------|
-| Mon | educational | LGPD concept |
-| Tue | case_study | CPF masking demo |
-| Wed | product | Guard Brasil feature |
-| Thu | engagement | poll or question |
-| Fri | news | AI safety news |
-| Sat | educational | ATRiAN ethical AI |
-| Sun | case_study | govtech use case |
+Os mais maduros:
+→ guard.egos.ia.br/landing — LGPD/PII API, BR-native
+→ carteiralivre.com — marketplace com split payment
+→ inteligencia.egos.ia.br — análise de vínculos/grafos
 
-### E) Visual generation strategies
-
-- **case_study** → terminal screenshot (curl → response, dark theme)
-- **educational** → infographic HTML → Playwright screenshot
-- **product** → dashboard preview screenshot
-- **news** → text-only or quote-card
-- **engagement** → poll image or simple stat card
-
-### F) Scheduler workflow
-
-1. Content generator runs 6 AM BRT daily → drafts in queue
-2. Telegram bot notifies Enio with preview
-3. Enio approves/edits via Telegram inline buttons OR HQ dashboard
-4. Publisher posts at 9 AM BRT (peak engagement window for BR tech)
-5. Analytics tracker pulls metrics every 6h, persists to Supabase
-
-### G) KPIs semanais
-
-- Engagement rate > 2% (bom para tech/B2B)
-- URL clicks > 10% das impressions
-- API tests > 5 por post
-- Signups > 1 por semana
-
-### H) Tasks pendentes (GTM/automation)
-
-- **XMCP-001:** regenerar credenciais X em developer.twitter.com (atual: 401 Unauthorized) → bloqueador #1
-- **GTM-015:** OG image — screenshot `scripts/assets/guard-og.html` → `og-image.jpg` via Playwright
-- **GTM-015b:** `x-post-thread.ts` — script que posta thread em sequência com imagem no tweet 1
-- **GTM-015c:** Imagen 3 — `generate-social-image.ts` para cards e banners LGPD
-- **SOCIAL-001:** Telegram approval bot wired to Supabase queue
-- **SOCIAL-002:** HQ dashboard social tab (analytics + queue + scheduler)
-
-### I) Engagement bot rules (auto + manual)
-
-**Auto (with approval):**
-- Like mentions of Guard Brasil
-- Reply thank-you to anyone who tests guard.egos.ia.br
-- Quote retweet posts about LGPD/PII with relevant comment
-- Follow back govtech/devs BR
-
-**Manual (Enio):**
-- Answer technical questions
-- Share demo results
-- Post articles longos (1x/semana via web UI)
-
----
-
-## HISTÓRICO (NÃO POSTAR)
-
-### Sprint Update — 2026-03-30
-> Kernel sprint notification — publicado internamente apenas
-```
-EGOS Kernel Sprint: 16 tasks shipped, Agent Claim taxonomy live, SSOT Visit Protocol
-now constitutional law. Guard Brasil API 4ms. Eagle Eye 15→50 territories next sprint.
-Neo4j claim (77M entities) corrected to br-acc. Control plane ready. egos.ia.br/#mission
+Código MIT, VPS rodando. Rápido pra construir, não sou vendedor.
+Se algum desses encaixar no que você faz, vamos trocar ideia.
 ```
 
 ---
 
-## ARQUIVOS DELETADOS (consolidação 2026-04-07)
+### 4E — Para alguém em análise investigativa / inteligência
 
-| Arquivo | Status | Conteúdo migrado para |
-|---------|--------|------------------------|
-| `personal/X_POST_5_VERCOES_LOW_PROFILE.md` | 🗑️ DELETED 2026-04-07 | Blocos 1, 3 + novo BLOCO 5 (V5.1-V5.4) |
-| `egos/docs/social/X_POST_PROFILE_PARTNERSHIP.md` | 🗑️ DELETED 2026-04-07 | BLOCO 3 (partnership thread completo) |
-| `egos-lab/docs/plans/X_COM_CONTENT_KIT.md` | 🗑️ DELETED 2026-04-07 | BLOCO 4 (themed kit, marcado outdated) |
-| `egos/docs/strategy/XCOM_SOCIAL_AUTOMATION_PLAN.md` | 🗑️ DELETED 2026-04-07 | §AUTOMAÇÃO X.COM & STRATEGY (seções A-I) |
-| `egos/docs/_archived_handoffs/SOCIAL_POSTS_2026-03-30.md` | 📚 archived | §Histórico |
-| `.egos/memory/mcp-store/gtm15_x_thread_imagen_plan_2026_04_06.md` | 📚 keep (memory) | §Automação H |
+```
+Oi [nome], vi seu trabalho com [análise/investigação/inteligência].
+
+Tenho projetos nessa linha:
+
+Análise de vínculos, grafos: intelink.ia.br e inteligencia.egos.ia.br
+83M entidades públicas BR: empresas, PEPs, contratos, licitações, sanções.
+
+E uma plataforma de escuta institucional para policiais civis: 852.egos.ia.br
+
+Sou ex-investigador policial, agora builder. Procuro pessoas parecidas
+para colaborar. DM aberta se quiser trocar ideia.
+```
 
 ---
 
-*Version: 1.0.0 — 2026-04-07*
-*SSOT criado para cumprir §26 (SSOT-First Rule) — conteúdo de 5 arquivos dispersos consolidado*
-*Próxima atualização: após execução do GTM-015 (OG image + x-post-thread.ts)*
+### 4F — Para alguém em marketplace / fintech / fiscal
+
+```
+Oi [nome], vi seu post sobre [split payment/marketplace/fiscal 2026].
+
+Desenvolvi marketplace com split payment como um dos módulos do
+Carteira Livre: carteiralivre.com
+
+Com as mudanças fiscais desse ano, a demanda pra isso vai explodir.
+Tenho o produto pronto mas estou sozinho na distribuição.
+
+Seria interessante conversar sobre parceria?
+```
+
+---
+
+## 5. POSTS PÚBLICOS
+
+Postar com pouca frequência. Não fazer marketing agressivo.
+Mostrar o trabalho. Ser honesto sobre o estágio.
+
+### 5A — Post de apresentação (para usar como pinado ou primeira impressão)
+
+```
+15 anos investigando crimes. Em 2024 comecei a transformar isso em código.
+
+O que tenho rodando hoje:
+
+🔐 guard.egos.ia.br — API LGPD/PII (CPF, RG, CNPJ, MASP...)
+🦅 eagleeye.egos.ia.br — monitoramento de licitações
+💼 carteiralivre.com — marketplace com split payment
+🧠 inteligencia.egos.ia.br — 83M entidades públicas em grafo
+🔗 intelink.ia.br — análise de vínculos
+
+Rápido para construir. Não sei vender.
+Procurando pessoas que complementem isso.
+
+DM aberta.
+```
+
+---
+
+### 5B — Post mostrando um produto específico (Guard Brasil)
+
+```
+Construí uma API de detecção de PII brasileira.
+
+CPF, RG, CNPJ, MASP, REDS, CNH, telefone, e-mail, CEP...
+15 padrões. 4ms de latência. F1 85.3%.
+
+guard.egos.ia.br/landing
+
+Parcial ou total: você escolhe como mascarar.
+LGPD-compliant. MIT.
+
+Ainda procurando o primeiro cliente pagante.
+Se você ou alguém que conhece precisar: chama.
+```
+
+---
+
+### 5C — Post mostrando Eagle Eye
+
+```
+Tem uma licitação em 84 territórios do Brasil que ninguém viu ainda.
+
+Estou monitorando isso: eagleeye.egos.ia.br/dashboard.html
+
+Esta semana encontrei 7 oportunidades abertas:
+R$72k chatbot IA (Linhares/ES — encerra 09/04)
+ERP municipal 34 módulos (Brumado/BA)
+GED+Workflow (Brumadinho/MG)
+[...]
+
+Software house que quiser automatizar prospecção B2G: DM.
+```
+
+---
+
+### 5D — Post honesto sobre estágio (para conectar com pessoas parecidas)
+
+```
+Estado real dos meus projetos em 2026:
+
+✅ Código: excelente
+✅ Infraestrutura: 19 containers, 9+ dias uptime, zero falhas
+✅ Produto: múltiplos MVPs avançados
+❌ Vendas: zero
+❌ Clientes pagantes: zero
+
+Não é fracasso — é um builder sem parceiro de distribuição.
+
+Se você vende o que construtores constroem,
+e está procurando produto com fundação real: DM.
+```
+
+---
+
+### 5E — Post sobre split payment (timing: mudanças fiscais 2026)
+
+```
+Em 2026 toda plataforma digital vai precisar de split payment.
+
+Nota fiscal por destinatário. Obrigação, não feature.
+
+Tenho isso rodando no Carteira Livre há meses.
+carteiralivre.com
+
+Quem vai sentir mais: marketplaces, freelancers, SaaS com revenda.
+
+Desenvolvedor, contador ou advogado que queira trabalhar com isso: me chama.
+```
+
+---
+
+## 6. REGRAS DE USO
+
+### O que fazer
+- Responder posts de pessoas que falam de LGPD, licitações, análise investigativa, grafos, split payment
+- DM pessoas que parecem builders ou operadores com problemas que os produtos resolvem
+- Postar mostrando trabalho real (não promessas)
+- Ser honesto: "ainda procurando primeiro cliente", "rápido pra construir, não sei vender"
+
+### O que NÃO fazer
+- Não fazer threads de 7+ tweets de marketing
+- Não mencionar equity % em posts públicos (só em DM se perguntar)
+- Não usar linguagem de VC/startup (pitch deck, MVP, go-to-market, ARR)
+- Não postar sobre tecnologia genérica (AI, LLMs, etc.) sem mostrar produto próprio
+- Não responder de forma genérica — sempre contextualizar no post da pessoa
+
+### Cadência
+- DMs: 3–5 por semana, qualidade > quantidade
+- Posts públicos: 1–2 por semana máximo
+- Resposta a mentions: imediata (x-reply-bot quando configurado)
+
+---
+
+## 7. AUTOMAÇÃO (x-reply-bot)
+
+X API keys agora válidas (atualizado 2026-04-07). Bearer + OAuth1 todos os 5 tokens.
+
+### Configuração atual
+- `X_API_KEY`, `X_API_SECRET`, `X_ACCESS_TOKEN`, `X_ACCESS_TOKEN_SECRET`, `X_BEARER_TOKEN`
+- Todos em `~/.egos/secrets.env`
+
+### Tarefas pendentes (x-reply-bot)
+
+| Task | Descrição | Prioridade |
+|------|-----------|-----------|
+| SOCIAL-003 | Configurar busca por: "LGPD", "licitação", "split payment", "análise de vínculos" | P1 |
+| SOCIAL-004 | Fila Supabase de DMs candidatas para aprovação manual antes de enviar | P1 |
+| SOCIAL-005 | Resposta automática a @mentions com link para produto relevante | P2 |
+| SOCIAL-006 | HQ dashboard: tab social (candidatos, DMs enviadas, respostas) | P2 |
+
+### Regra de automação
+- NUNCA enviar DM automática sem aprovação manual via Telegram bot
+- Posts de reply automático: apenas para @mentions diretas ao @anoineim
+- Busca de candidatos: automática. Seleção + envio: sempre manual
+
+---
+
+## 8. TARGETING — QUEM ABORDAR
+
+### Perfil ideal para DM
+
+**Builders complementares** (fazem o que Enio não faz):
+- Pessoa que vende SaaS B2B / tem processo de vendas
+- Consultor de compliance/LGPD com carteira de clientes
+- Integrador govtech / software house B2G
+- Advogado ou contador que entende o mercado fiscal/marketplace
+
+**Pessoas parecidas** (para colaboração técnica):
+- Builders brasileiros solo ou pequeno time
+- Quem está trabalhando em grafos, OSINT, análise de dados públicos
+- Desenvolvedores em legal-tech, compliance, govtech
+
+**Sinais de interesse em posts X:**
+- Posta sobre LGPD, PII, proteção de dados
+- Posta sobre licitações, PNCP, B2G
+- Posta sobre análise investigativa, OSINT
+- Posta sobre split payment, marketplace fiscal
+- Posta sobre análise de grafos, Neo4j, entity resolution
+- Posta sobre "procuro co-fundador" ou "preciso de parceiro técnico"
+
+### Exemplo de busca manual
+```
+site:twitter.com "LGPD" "consultor" -job -vaga
+site:twitter.com "licitação" "software" -curso
+"análise de vínculos" OR "entity resolution" Brazil
+"split payment" "marketplace" brazil 2026
+```
+
+---
+
+## 9. ARCHIVE — THREADS ANTERIORES
+
+> Threads das versões 1–6 e conteúdo de GTM anterior foram utilizados como referência
+> para esta versão 2.0. O foco mudou de broadcast marketing para conexão direta.
+> Se necessário recuperar os threads completos, estão em TASKS_ARCHIVE.md e commits anteriores.
+
+---
+
+*Version: 2.0.0 — 2026-04-07*
+*Mudança: estratégia broadcast → DM pessoal / mostrar o que foi construído*
+*Conta: @anoineim | Vault: ~/.egos/secrets.env (X keys válidas)*
