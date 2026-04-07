@@ -55,7 +55,7 @@
 - [x] X-008: Daily X report to Telegram (how many replies sent, top threads engaged) ✅ 2026-04-06 — RunStats + sendDailyReport() in x-reply-bot.ts
 - [x] INTEL-005: Signal ingestion — Gem Hunter scores > 80 → auto-append to world model signals (= GH-050) ✅ 2026-04-06 — gem-hunter.ts appends type:gem_discovery, capped at 50
 - [x] PART-002: Posts X.com + LinkedIn preparados ✅ 2026-04-06 — docs/GTM_SSOT.md §4 (aguarda og-image + postagem manual)
-- [x] MCP-001: Firecrawl MCP installed (`fc-45cf069ee7ef4c3aa4942a41127d8629`, tested against guard.egos.ia.br) ✅ 2026-04-06
+- [x] MCP-001: Firecrawl MCP installed (key rotated 2026-04-07 after exposure in git history) ✅ 2026-04-06
 - [x] MCP-002: GitHub MCP installed (PAT token, repo access) ✅ 2026-04-06
 - [x] MCP-003: Brave Search MCP installed (`BSA0E6k_mAdnrOrieC_zRvLGhuu-4lp`) ✅ 2026-04-06
 - [x] MCP-004: Playwright MCP installed (headless browser automation) ✅ 2026-04-06
