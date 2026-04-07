@@ -68,3 +68,5 @@ export { assemblePrompt, createAssembler } from './prompt-assembler';
 export type { PromptSection, AssembledPrompt } from './prompt-assembler';
 export { SupabaseMemoryStore, InMemoryStore, NullMemoryStore } from './memory-store';
 export type { MemoryEntry, MemoryStore, SupabaseClientLike, SupabaseMemoryStoreOptions } from './memory-store';
+export { runEval } from './eval/runner';
+export type { GoldenCase, EvalResult, EvalReport, ChatFn, EvalMessage } from './eval/runner';

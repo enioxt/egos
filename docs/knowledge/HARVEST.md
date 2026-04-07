@@ -1,8 +1,64 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 4.3.0 | **UPDATED:** 2026-04-07
+> **VERSION:** 4.4.0 | **UPDATED:** 2026-04-07
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
-> **Latest:** P36 added — Hermes Claude OAuth deployment + rotating refreshToken sync pattern
+> **Latest:** P37 added — Cold email GTM learnings + Guard Brasil sandbox audit (4 bugs found)
+
+## P37 Patterns (2026-04-07)
+
+### Cold Email GTM — Verificação de Endereço Antes de Criar Drafts
+
+**Problema:** Dois dos 5 emails M-007 falharam na entrega por endereços inválidos:
+- `contact@lgpd-brasil.com.br` — domínio não existe
+- `contato@rocketseat.com.br` — endereço não aceita mensagens
+
+**Regra:** Antes de criar drafts de outreach, verificar se o domínio do email existe:
+```bash
+host lgpd-brasil.com.br  # se retornar NXDOMAIN, domínio inválido
+```
+Ou usar DNS lookup via browser antes de assumir que o email genérico (`contato@`) funciona.
+
+**Padrão para encontrar emails corretos:**
+1. Verificar página `/contato` ou `/about` do site oficial
+2. Procurar no LinkedIn da empresa (email na bio de fundadores)
+3. Buscar no GitHub (email em commits ou perfil)
+4. Usar `info@`, `hello@`, `ola@` como fallback quando `contato@` falhar
+
+---
+
+### Guard Brasil Sandbox Audit — Gaps Identificados (2026-04-07)
+
+Testados os 6 demos do frontend (`/landing`) contra a API real (`/v1/inspect`). Resultado:
+
+| Demo | Status | Gap |
+|------|--------|-----|
+| CPF masking | ✅ | Funciona |
+| RG detection | ❌ | Formato `12.345.678-9` → zero findings |
+| Placa veicular | ✅ | Funciona (false positive menor em "ABC") |
+| ATRiAN bias | ❌ | Texto racialmente carregado → score 100 |
+| Dados médicos | ⚠️ | CPF mascarado, nome + diagnóstico intactos |
+| Multi-PII | ⚠️ | 5/5 tipos detectados, nome sempre intacto |
+
+**Regra:** Não apresentar sandbox para prospects sem corrigir GUARD-BUG-001 (RG) e GUARD-BUG-002 (ATRiAN). Esses são os dois demos mais demonstrativos do produto — RG é core BR, ATRiAN é diferencial ético.
+
+**False positives ATRiAN:** "MG" (estado), "ABC" (qualquer sigla 3 letras), "HIV" (termo médico) — o detector `invented_acronym` precisa de whitelist.
+
+---
+
+### Dashboard de Produto — Nunca Expor Sem Auth
+
+**Incidente:** `/dashboard-v1` ficou publicamente acessível mostrando placeholders que pareciam dados reais (MRR R$5.747, 5 clientes, 12.847 chamadas). Qualquer um com a URL podia ver.
+
+**Regra:** Toda rota `/dashboard*`, `/admin*`, `/internal*` deve ter middleware de autenticação (JWT ou session) desde o primeiro commit. Nunca deploiar painel interno sem auth "porque é placeholder" — a URL vaza e o contexto se perde.
+
+**Fix padrão (Next.js):**
+```ts
+// middleware.ts
+export const config = { matcher: ['/dashboard/:path*'] }
+export default withAuth(/* session check */)
+```
+
+---
 
 ## P36 Patterns (2026-04-07)
 

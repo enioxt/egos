@@ -208,7 +208,8 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 ### Partnership & Distribution Strategy (2026-04-05)
 **Compressed:** See `docs/GTM_SSOT.md` + `docs/MONETIZATION_SSOT.md` for full roadmap.
 - [ ] **PART-001**: Publish npm + ProductHunt (M-007 emails first)
-- [/] **M-007**: 5 Gmail drafts ready (Nubank/Memed/RD Station/LGPD Brasil/Rocketseat). Awaiting send approval. Personalized per GTM_SSOT §5 templates. **READY TO SEND.**
+- [/] **M-007**: 3/5 enviados ✅ (Nubank, Memed, RD Station). 2 falharam — endereços inválidos: contact@lgpd-brasil.com.br (domínio não existe), contato@rocketseat.com.br (não aceita). Buscar emails corretos.
+- [ ] **M-007-FIX**: Encontrar emails corretos para Rocketseat (site: rocketseat.com.br) e LGPD Brasil (site: lgpdbrasil.com.br ou lgpd-brasil.info)
 - [ ] **PART-016**: Decide PARTNER-D1 co-founder model
 
 ---
@@ -225,10 +226,19 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 **SSOT:** `docs/GTM_SSOT.md` | **ICP:** CTOs/backend devs at fintechs+healthtechs (confirmed).  
 **INC-001 (2026-04-06):** Force-push incident — recovered. Mitigations: `.husky/pre-push` blocks, GitHub branch protection enabled, CLAUDE.md §25 added.
 
-**P0 — Social & Outreach (stale, see GTM_SSOT.md for details):**
-- [ ] **M-007**: Send 5 outreach emails to DPOs (STALE 7+ days)
+**P0 — Social & Outreach:**
+- [/] **M-007**: 3/5 enviados (Nubank, Memed, RD Station). Ver M-007-FIX acima.
 - [ ] **GTM-002**: X.com thread demo (4 tweets, drafts ready)
 - [ ] **GTM-001**: x-reply-bot search tuning (lgpd/anpd/dpo keywords)
+
+**P0 — Guard Brasil Bugs (encontrados em sandbox audit 2026-04-07):**
+- [ ] **GUARD-BUG-001 [P0]**: RG não detectado — formato `12.345.678-9` retorna zero findings. Regex precisa ser revisada.
+- [ ] **GUARD-BUG-002 [P0]**: ATRiAN bias detection falha — texto com "negro + favela + histórico criminal" retorna score 100, zero violações. Motor de viés não está ativo.
+- [ ] **GUARD-BUG-003 [P1]**: Nome de pessoa não é mascarado — "João da Silva", "Maria Santos" permanecem no output mesmo quando CPF é detectado.
+- [ ] **GUARD-BUG-004 [P1]**: Condição médica não mascarada — "HIV positivo" intacto no output de dados de saúde.
+- [ ] **GUARD-BUG-005 [P2]**: ATRiAN false positives — "MG", "ABC", "HIV", "XYZ" flagados como invented_acronym. Whitelist de siglas conhecidas necessária.
+- [ ] **GUARD-BUG-006 [P2]**: guardVersion inconsistente — receipt retorna `0.2.1`, meta retorna `0.2.2`.
+- [ ] **GUARD-SEC-001 [P0]**: `/dashboard-v1` acessível publicamente sem autenticação. Adicionar JWT/sessão antes de qualquer divulgação.
 
 **P1 — Content & Integrations:** GTM-006..013 (docs playground, ProductHunt, dev.to, partnerships) — see git log for status.
 
