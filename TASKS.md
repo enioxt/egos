@@ -453,7 +453,7 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 **Context:** Opus investigation complete. 16 modules (8 upgraded + 8 new). Dual-runtime TS+Python. Disseminate to 852/br-acc/egos-web/ratio/intelink/forja.
 **SSOT:** `docs/modules/CHATBOT_SSOT.md` | **Arch decisions:** Vercel AI SDK v4+, LangGraph (Python), JSON Schema source-of-truth for TS↔Py parity, OTel+Supabase dual telemetry.
 
-**P0 — CHAT-001..010 (pending):** 001 ATRiAN stream 852 | 002 CHATBOT_SSOT v2 fix | 003 prompt-assembler schema | 004 input PII scan | 005 MemoryStore adapter | 006 circuit breaker | 007 abort signal | 008 per-identity budget | 009 eval harness 20 golden | 010 egos-web compliance 90+
+**✅ CHAT-001..010 DONE:** 001 ATRiAN stream | 002 SSOT v2 | 003 prompt-assembler | 004 PII scan | 005 MemoryStore | 006 circuit breaker | 007 abort | 008 per-identity budget | 009 eval 20 golden | 010 egos-web 90+
 
 **P1 — CHAT-011..022:** structured output, multimodal Message, runAgentLoop, semantic memory, OTel, prompt caching, cost ledger, Python shared_py, br-acc/ratio adoption, conformance test, streaming PII
 **P2 — CHAT-023..031:** resumable streams, fork/edit, agent handoff, eval CI gate, file ingest, entity memory, racing fallback, Forja/Intelink/carteira-livre pass, HQ panel
