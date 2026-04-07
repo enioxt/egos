@@ -95,3 +95,13 @@
 - [x] **HQC-005**: Refresh `MASTER_INDEX.md` from live evidence — split verified vs inferred claims and sync task/integration snapshots — **DONE 2026-04-06** (18 agents, validated registry)
 - [x] **HQC-006**: Execute `/start` evidence matrix for kernel + leaf repos + VPS + MCP + OpenClaw + key APIs with explicit pass/warn/fail — **DONE 2026-04-06** (see `docs/_investigations/START_EVIDENCE_MATRIX_2026-04-06.md`)
 - [x] **HQC-007**: Create manifests for 6 integration adapters — **DONE 2026-04-06** (1 validated: whatsapp; 5 stubs: slack, discord, telegram, webhook, github — see `integrations/manifests/`)
+
+## Archived 2026-04-07 (7 tasks)
+
+- [x] **DRIFT-000**: `docs/DOC_DRIFT_SHIELD.md` — 4-layer design doc with state-of-the-art references (doc-drift, DeepDocs, Palmieri 2026, Specmatic)
+- [x] **DRIFT-001**: `.egos-manifest.yaml` schema defined (claims + domains + endpoints + tolerances exact/±N/±N%/min:N/max:N)
+- [x] **DRIFT-002**: `.egos-manifest.yaml` created for 3 pilot repos: egos (5 claims) + br-acc (7 claims inc. Neo4j 83.7M proof) + carteira-livre (16 claims)
+- [x] **DRIFT-003**: `~/.claude/CLAUDE.md §27` Doc-Drift Shield Hard Rules — 10 non-negotiable rules, bumped to v2.8.0
+- [x] **INFRA-011**: Caddyfile on VPS fixed — added 852.egos.ia.br route, fixed eagleeye→eagle-eye:3001, fixed gemhunter→egos-gateway:3050; Caddy container restarted to pick new inode
+- [x] **INFRA-012**: `sed -i` breaks Docker bind mount inodes — pattern documented in handoff; canonical fix: edit + docker restart
+- [x] **DIAG-P0..P5**: Full ecosystem diagnostic (19 VPS containers + 8/8 domains + Neo4j 83.7M/26.8M/32 labels + Carteira Livre 1690 commits/134 pages/254 APIs/182.589 LOC)

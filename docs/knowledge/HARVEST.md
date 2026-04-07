@@ -1,8 +1,70 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 4.0.0 | **UPDATED:** 2026-04-06
+> **VERSION:** 4.1.0 | **UPDATED:** 2026-04-07
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
-> **Latest:** Deduplicated via KB-019 — unique patterns only
+> **Latest:** P33 added — Doc-Drift Shield + sed inode bug + Carteira Livre scope reality + Caddyfile routing pattern
+
+## P33 Patterns (2026-04-07)
+
+### Doc-Drift Shield — proposed structural approach (status: L1 + global rules only, L2-L4 not yet implemented)
+
+- **Problem observed in THIS repo (reproducible):**
+  - Carteira Livre README claimed 54 pages; `find app/ -name 'page.tsx' | wc -l` returned 134 on 2026-04-07 → drift +148%
+  - Carteira Livre README claimed 68 APIs; `find app/api -name 'route.ts' | wc -l` returned 254 → drift +273%
+  - BR-ACC README claimed 77M Neo4j nodes; `MATCH (n) RETURN count(n)` against `bracc-neo4j` container returned 83,773,683 on 2026-04-07 → drift +8.8%
+  - All commands above are in `.egos-manifest.yaml` of the respective repos — run them to reproduce.
+- **Proposed solution (design only):** `.egos-manifest.yaml` per repo declaring every quantitative claim with its reproducible command + tolerance. Four intended layers:
+  1. L1 contract manifest — **IMPLEMENTED in 3 pilot repos (egos, br-acc, carteira-livre)**
+  2. L2 pre-commit pairing hook — **NOT YET IMPLEMENTED** (spec in handoff)
+  3. L3 autonomous sentinel agent — **NOT YET IMPLEMENTED** (spec in handoff)
+  4. L4 weekly LLM analysis — **NOT YET IMPLEMENTED** (spec in handoff)
+- **What is NOT claimed:** this has not been benchmarked against other approaches; no proof yet that it prevents drift in practice (sample size = 0, we just designed it today). The hypothesis will be tested when L2-L4 ship.
+- **Reference:** `docs/DOC_DRIFT_SHIELD.md` (design doc with implementation status marked per layer) + `~/.claude/CLAUDE.md §27` (hard rules added 2026-04-07).
+- **Prior art we read while designing (attribution, not comparison):** jbrockSTL/doc-drift (GitHub), DeepDocs (Medium article), Federico Palmieri's "Two git hooks" Medium article 2026-03-08 (source of the pairing rule), Specmatic, nold-ai/specfact-cli, suhteevah/docsync. We did not run or benchmark any of them — we only read their descriptions and borrowed naming/concepts.
+
+### `sed -i` breaks Docker bind mount inodes
+
+- **Symptom:** After `sed -i /path/on/host/file`, host sees new content but container still serves old. Caddy reload says "config is unchanged".
+- **Root cause:** `sed -i` is NOT in-place — it creates a temp file and renames, producing a new inode. Docker bind mounts track the original inode at container start; container references the OLD inode indefinitely.
+- **Canonical fix:** Edit file on host, then `docker restart <container>` to rebind.
+- **Alternatives that FAIL:** `docker cp new_file container:/path` ("device or resource busy"), `python3 open("w")` (new inode still).
+- **Discovered:** 2026-04-07 during Caddyfile fix session. ~20 min debugging wasted before the insight.
+
+### Caddyfile routing pattern for Docker multi-network setups
+
+- **Rule:** When Caddy and backend container share a Docker network, use **container name + container port**, never host-mapped port.
+- **Wrong:** `reverse_proxy 127.0.0.1:3090` (Caddy's Docker network can't reach host localhost)
+- **Right:** `reverse_proxy eagle-eye:3001` (Docker DNS resolves container name)
+- **Verify before deploy:**
+  1. `docker inspect <container> | grep Networks` — same network as Caddy?
+  2. Container port (not host-mapped) from `docker inspect`
+  3. `docker exec infra-caddy-1 curl -s http://<container-name>:<port>/` — reachable?
+
+### Repository git remote archaeology
+
+- When investigating which local path corresponds to a public GitHub repo, `git remote -v` is definitive.
+- Example (2026-04-07): `/home/enio/br-acc origin: git@github.com:enioxt/EGOS-Inteligencia.git` (128⭐) — canonical. `/home/enio/egos-inteligencia` is NOT a git repo — abandoned scaffold.
+- Commit message forensics: `git log --grep="rename\|migrat"` reveals migration intent that may have stopped mid-flight.
+
+### Carteira Livre: the "undersold scope" pattern
+
+- Early README badges reflect the first 2 weeks. After 4 months of rapid iteration, real numbers are 2-4x higher but badges rarely update.
+- Example: Carteira Livre (Dec 2025 era) said 54 pages + 68 APIs + 175 tests. Reality on 2026-04-07: 134 pages + 254 APIs + 2847 assertions.
+- Detection commands baked into `.egos-manifest.yaml` so sentinel catches this automatically.
+- **Bonus:** git log revealed 16 "hidden features" never promoted in README (Rádio Philein 24/7, AI Orchestrator, Ambassador system, INPI MVP, multi-state, mobile offline, influencer discovery).
+
+### Neo4j proof capture (reproducible query)
+
+- For any Neo4j claim in docs, embed the exact query + auth in `.egos-manifest.yaml`:
+  ```bash
+  curl -s -u neo4j:$PASS http://localhost:7474/db/neo4j/query/v2 \
+    -H "Content-Type: application/json" \
+    -d '{"statement":"MATCH (n) RETURN count(n) as nodes"}'
+  ```
+- Auth discovery: `docker exec bracc-neo4j env | grep NEO4J_AUTH`
+- Reproducibility: any skeptic runs the command and verifies — no trust required.
+
+---
 
 ## P31 Patterns (2026-04-06)
 

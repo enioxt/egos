@@ -1,0 +1,95 @@
+# EGOS Kernel — Doc-Drift Manifest
+# Schema: docs/DOC_DRIFT_SHIELD.md
+# This file declares every quantitative claim in README.md as a reproducible contract.
+
+schema_version: "1.0.0"
+repo: "egos"
+updated_at: "2026-04-07"
+updated_by: "enioxt"
+manifest_doc: "docs/DOC_DRIFT_SHIELD.md"
+
+claims:
+  - id: total_agents
+    description: "Agents registered in agents.json"
+    readme_location: "CLAUDE.md / AGENTS.md"
+    command: "python3 -c \"import json; print(len(json.load(open('agents/registry/agents.json')).get('agents', [])))\""
+    tolerance: "min:18"
+    last_value: "18"
+    last_verified_at: "2026-04-07"
+    category: "integrations"
+
+  - id: total_capabilities
+    description: "Capabilities declared in CAPABILITY_REGISTRY.md"
+    readme_location: "docs/CAPABILITY_REGISTRY.md"
+    command: "grep -c '^### ' docs/CAPABILITY_REGISTRY.md"
+    tolerance: "±10"
+    last_value: "0"
+    last_verified_at: "2026-04-07"
+    category: "custom"
+    note: "Baseline TBD; sentinel will populate last_value on first run"
+
+  - id: guarani_governance_files
+    description: "Governance rule files in .guarani/"
+    readme_location: "CLAUDE.md §5"
+    command: "find .guarani/ -type f -name '*.md' 2>/dev/null | wc -l | tr -d ' '"
+    tolerance: "±5"
+    last_value: "48"
+    last_verified_at: "2026-04-07"
+    category: "custom"
+
+  - id: slash_commands
+    description: "User-invocable slash commands in .claude/commands/"
+    readme_location: "CLAUDE.md §6"
+    command: "find /home/enio/.claude/commands /home/enio/.egos/.claude/commands -maxdepth 2 -name '*.md' 2>/dev/null | wc -l | tr -d ' '"
+    tolerance: "±3"
+    last_value: "25"
+    last_verified_at: "2026-04-07"
+    category: "custom"
+
+  - id: kernel_packages
+    description: "Packages in packages/ directory"
+    readme_location: "CLAUDE.md"
+    command: "ls -d packages/*/ 2>/dev/null | wc -l | tr -d ' '"
+    tolerance: "exact"
+    last_value: "0"
+    last_verified_at: "2026-04-07"
+    category: "custom"
+    note: "Baseline TBD"
+
+domains:
+  - url: "https://guard.egos.ia.br/health"
+    expected_status: "200"
+    checked_at: "2026-04-07"
+    note: "Guard Brasil API health"
+  - url: "https://hq.egos.ia.br/"
+    expected_status: "307"
+    checked_at: "2026-04-07"
+    note: "Redirects to /login"
+  - url: "https://openclaw.egos.ia.br/"
+    expected_status: "200"
+    checked_at: "2026-04-07"
+  - url: "https://gemhunter.egos.ia.br/gem-hunter/topics"
+    expected_status: "200"
+    checked_at: "2026-04-07"
+  - url: "https://eagleeye.egos.ia.br/"
+    expected_status: "200"
+    checked_at: "2026-04-07"
+  - url: "https://852.egos.ia.br/"
+    expected_status: "200"
+    checked_at: "2026-04-07"
+    note: "Restored to active Caddyfile 2026-04-07"
+  - url: "https://inteligencia.egos.ia.br/"
+    expected_status: "200"
+    checked_at: "2026-04-07"
+
+endpoints:
+  - name: "guard_brasil_health"
+    url: "https://guard.egos.ia.br/health"
+    method: "GET"
+    expected_status: "200"
+    expected_contains: '"status":"healthy"'
+  - name: "gem_hunter_topics"
+    url: "https://gemhunter.egos.ia.br/gem-hunter/topics"
+    method: "GET"
+    expected_status: "200"
+    expected_contains: "sectors"
