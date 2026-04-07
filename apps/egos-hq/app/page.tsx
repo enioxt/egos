@@ -23,7 +23,7 @@ type ChannelInfo = { ok: boolean; instance?: string | null; authorized_number?: 
 type HealthData = {
   timestamp: string;
   services: {
-    guard_brasil: ServiceBase & { calls_today: number; revenue_today_usd: number; mrr_brl: number; pattern_count: number | null; version: string | null };
+    guard_brasil: ServiceBase & { calls_today: number; revenue_today_usd: number; mrr_brl: number; pattern_count: number; capabilities_count: number | null; version: string | null };
     gateway: ServiceBase & { channels: string[]; uptime_seconds: number | null; data: Record<string, unknown>; whatsapp: ChannelInfo; telegram: ChannelInfo };
     openclaw: ServiceBase & { default_model: string; fallback_chain: string[]; data: Record<string, unknown> };
     billing_proxy: ServiceBase & { requests_served: number | null; token_expires_in_hours: number | null; subscription_type: string | null; uptime_seconds: number | null; replacement_patterns: number | null; token_status: string | null };

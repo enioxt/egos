@@ -123,8 +123,8 @@ export async function GET() {
   type EagleEyeData = { healthy?: boolean; tables?: { territories?: boolean; opportunities?: boolean; scans?: boolean } };
   const eeData = eagleEyeHealth.data as EagleEyeData;
 
-  // Guard meta patterns
-  type GuardMetaData = { patterns?: Array<{ id: string }>; version?: string };
+  // Guard meta — capabilities + version (patterns not exposed by /v1/meta, use manifest count)
+  type GuardMetaData = { capabilities?: string[]; version?: string };
   const guardMetaData = guardMeta.data as GuardMetaData;
 
   // Billing proxy enriched data — HQI-007
@@ -154,7 +154,9 @@ export async function GET() {
         revenue_today_usd: revenueToday,
         mrr_brl: mrr,
         // HQI-006: pattern count from meta
-        pattern_count: Array.isArray(guardMetaData?.patterns) ? guardMetaData.patterns.length : null,
+        // 15 PII patterns verified 2026-04-07 (manifest-backed); /v1/meta doesn't expose count
+        pattern_count: 15,
+        capabilities_count: Array.isArray(guardMetaData?.capabilities) ? guardMetaData.capabilities.length : null,
         version: (guardMeta.data as { version?: string })?.version ?? null,
       },
       gateway: {
