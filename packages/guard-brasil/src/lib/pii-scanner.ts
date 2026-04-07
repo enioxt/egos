@@ -3,7 +3,7 @@ import {
   type PIIPatternConfig,
 } from '../pii-patterns.js';
 
-export type PIICategory = 'cpf' | 'rg' | 'masp' | 'phone' | 'email' | 'reds' | 'process_number' | 'name' | 'address' | 'plate' | 'date_of_birth' | 'cnpj' | 'cnh' | 'cep';
+export type PIICategory = 'cpf' | 'rg' | 'masp' | 'phone' | 'email' | 'reds' | 'process_number' | 'name' | 'address' | 'plate' | 'date_of_birth' | 'cnpj' | 'cnh' | 'cep' | 'health_data';
 export interface PIIFinding { category: PIICategory; label: string; matched: string; start: number; end: number; suggestion: string; }
 export interface PIIPatternDefinition { category: PIICategory; label: string; pattern: RegExp; suggestion: string; }
 
@@ -24,6 +24,7 @@ const PATTERN_ID_TO_CATEGORY: Record<string, PIICategory> = {
   telefone: 'phone',
   email: 'email',
   cep: 'cep',
+  health_condition: 'health_data',
 };
 
 function toPIIPatternDefinition(config: PIIPatternConfig): PIIPatternDefinition {
@@ -49,7 +50,9 @@ const DATE_OF_BIRTH_PATTERN: PIIPatternDefinition = {
 // Append date-of-birth (not yet in centralized patterns — context-dependent)
 DEFAULT_PII_PATTERNS.push(DATE_OF_BIRTH_PATTERN);
 
-const DEFAULT_NAME_PATTERN = /\b(?:delegad[oa]|chefe|colega|servidor|investigador|escriv[aã]o?|comissário|perito|agente)\s+([A-ZÁÉÍÓÚÃÕÂÊÎÔÛ][a-záéíóúãõâêîôû]+(?:\s+[A-ZÁÉÍÓÚÃÕÂÊÎÔÛ][a-záéíóúãõâêîôû]+){1,4})\b/g;
+// Catches names preceded by role/title (law enforcement) OR explicit label fields (Nome:, Paciente:, etc.)
+// Uses /g (not /gi) so character classes remain case-sensitive — prevents over-matching.
+const DEFAULT_NAME_PATTERN = /\b(?:delegad[oa]|chefe|colega|servidor|investigador|escriv[aã]o?|comissário|perito|agente|[Nn]ome(?:\s+completo)?|[Pp]aciente|[Cc]liente|[Rr]esponsável|[Rr]equerente|[Rr]equerido|[Aa]utor|[Rr]éu|[Rr]é|[Dd]etentor|[Pp]ortador|[Tt]itular|[Ii]nteressado)\s*:?\s+([A-ZÁÉÍÓÚÃÕÂÊÎÔÛ][a-záéíóúãõâêîôû]+(?:\s+(?:d[aeo]\s+)?[A-ZÁÉÍÓÚÃÕÂÊÎÔÛ][a-záéíóúãõâêîôû]+){1,4})\b/g;
 const clonePattern = (pattern: RegExp) => new RegExp(pattern.source, pattern.flags.includes('g') ? pattern.flags : `${pattern.flags}g`);
 
 export function scanForPII(text: string, options?: { patterns?: PIIPatternDefinition[]; namePattern?: RegExp }): PIIFinding[] {

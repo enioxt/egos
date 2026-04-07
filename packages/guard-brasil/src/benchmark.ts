@@ -26,9 +26,10 @@ const CATEGORY_TO_PATTERN: Record<PIICategory, PIIPatternId | null> = {
   phone: "telefone",
   email: "email",
   cep: "cep",
-  name: null,       // not in PIIPatternId
-  address: null,    // not in PIIPatternId
+  name: null,          // not in PIIPatternId
+  address: null,       // not in PIIPatternId
   date_of_birth: null, // not in PIIPatternId
+  health_data: 'health_condition',
 };
 
 function scanText(text: string): { matches: Array<{ patternId: PIIPatternId }> } {

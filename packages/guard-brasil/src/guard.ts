@@ -120,7 +120,7 @@ const BRAZILIAN_KNOWN_ACRONYMS = [
   'PDF', 'CPD', 'TI', 'RH', 'DP', 'PJ', 'PF', 'ME', 'MEI',
   'CNPJ', 'CEP', 'CNH', 'FGTS', 'CLT', 'PIS', 'NIS',
 ];
-const GUARD_VERSION = '0.2.1';
+const GUARD_VERSION = '0.2.2';
 
 function buildInspectionReceipt(
   text: string,

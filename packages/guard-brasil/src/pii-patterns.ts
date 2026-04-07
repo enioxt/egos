@@ -25,7 +25,8 @@ export type PIIPatternId =
   | 'placa_mercosul'
   | 'telefone'
   | 'email'
-  | 'cep';
+  | 'cep'
+  | 'health_condition';
 
 /** Confidence that a regex match is actually the claimed PII type */
 export type PatternConfidence = 'high' | 'medium' | 'low';
@@ -259,6 +260,19 @@ export const CEP_PATTERN: PIIPatternConfig = {
   description: 'Código de Endereçamento Postal — 00000-000',
 };
 
+/** HEALTH_CONDITION — Condição médica / dado de saúde sensível (LGPD art.11)
+ * Matches: "HIV positivo", "portador de diabetes", "diagnóstico de câncer", "soropositivo"
+ * Context-required to avoid false positives in clinical docs discussing conditions generally.
+ */
+export const HEALTH_CONDITION_PATTERN: PIIPatternConfig = {
+  id: 'health_condition',
+  label: 'Dado de Saúde',
+  regex: /\b(?:portador[ae]?\s+de|diagnos(?:tic|e)ado[ae]?\s+(?:com|de)|soropositivo|HIV\s*\+|HIV\s+positivo|resultado\s+positivo\s+para|condição\s+médica[:\s]+|doença\s+(?:crônica|grave)[:\s]+)\s*([A-Za-záéíóúãõâêîôûàèìòùüçñ][A-Za-záéíóúãõâêîôûàèìòùüçñ\s]{2,40})/gi,
+  maskFormat: '[DADO DE SAÚDE REMOVIDO]',
+  confidence: 'medium',
+  description: 'Condição médica ou dado de saúde sensível (LGPD art.11 §1º I)',
+};
+
 // ─── Registry ─────────────────────────────────────────────────────────────────
 
 /**
@@ -282,6 +296,7 @@ export const ALL_PII_PATTERNS: readonly PIIPatternConfig[] = [
   TELEFONE_PATTERN,
   TITULO_ELEITOR_PATTERN,
   CEP_PATTERN,
+  HEALTH_CONDITION_PATTERN,
 ] as const;
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
