@@ -209,14 +209,14 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 - [ ] **GTM-002**: X.com thread demo (4 tweets, drafts ready)
 - [ ] **GTM-001**: x-reply-bot search tuning (lgpd/anpd/dpo keywords)
 
-**P0 — Guard Brasil Bugs (encontrados em sandbox audit 2026-04-07):**
-- [ ] **GUARD-BUG-001 [P0]**: RG não detectado — formato `12.345.678-9` retorna zero findings. Regex precisa ser revisada.
-- [ ] **GUARD-BUG-002 [P0]**: ATRiAN bias detection falha — texto com "negro + favela + histórico criminal" retorna score 100, zero violações. Motor de viés não está ativo.
-- [ ] **GUARD-BUG-003 [P1]**: Nome de pessoa não é mascarado — "João da Silva", "Maria Santos" permanecem no output mesmo quando CPF é detectado.
-- [ ] **GUARD-BUG-004 [P1]**: Condição médica não mascarada — "HIV positivo" intacto no output de dados de saúde.
-- [ ] **GUARD-BUG-005 [P2]**: ATRiAN false positives — "MG", "ABC", "HIV", "XYZ" flagados como invented_acronym. Whitelist de siglas conhecidas necessária.
-- [ ] **GUARD-BUG-006 [P2]**: guardVersion inconsistente — receipt retorna `0.2.1`, meta retorna `0.2.2`.
-- [ ] **GUARD-SEC-001 [P0]**: `/dashboard-v1` acessível publicamente sem autenticação. Adicionar JWT/sessão antes de qualquer divulgação.
+**Guard Brasil Bugs — Status (2026-04-07):**
+- [x] **GUARD-BUG-001**: ✅ RG detecta `12.345.678-9` sem keyword. Verificado em prod. Commit 185b0f7.
+- [/] **GUARD-BUG-002**: ATRiAN bias **não existe no código**. Demo corrigido para mostrar o que funciona (absolute_claim, fabricated_data). Feature futura.
+- [ ] **GUARD-BUG-003 [P1]**: Nome de pessoa não mascarado — "João da Silva" permanece no output.
+- [ ] **GUARD-BUG-004 [P1]**: Condição médica não mascarada — "HIV positivo" intacto.
+- [x] **GUARD-BUG-005**: ✅ Whitelist expandida — 27 estados BR, termos médicos, siglas comuns.
+- [ ] **GUARD-BUG-006 [P2]**: guardVersion inconsistente (receipt=0.2.1, meta=0.2.2).
+- [x] **GUARD-SEC-001**: ✅ middleware.ts — Basic Auth em /dashboard-v{1,2,3} + /x-dashboard. DASHBOARD_SECRET env var necessária no Vercel.
 
 **P1 — Content & Integrations:** GTM-006..013 (docs playground, ProductHunt, dev.to, partnerships) — see git log for status.
 
