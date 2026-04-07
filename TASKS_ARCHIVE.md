@@ -137,3 +137,10 @@
 ## Archived 2026-04-07 (1 tasks)
 
 - [x] **VPS-BACKUP-001**: ✅ DONE 2026-04-07 — Deleted `/opt/backups.archived_20260407` (freed ~15GB disk + ~2-4GB RAM). Disk: 69G→54G used | 220G→235G free
+
+## Archived 2026-04-07 (4 tasks)
+
+- [x] **CAREER-001**: Clone career-ops + setup (npm install, playwright chromium) ✅ 2026-04-07
+- [x] **CAREER-002**: Configure profile.yml — freelance only, remote, $50/h+ min, async, 1-4 week projects ✅ 2026-04-07
+- [x] **CAREER-003**: portals.yml — Toptal, Arc.dev, Lemon.io, Contra, WeWorkRemotely, Wellfound, Upwork, Neo4j direct, LangChain ✅ 2026-04-07
+- [x] **CAREER-004**: cv.md (markdown, honest profile), modes/_profile.md (negotiation scripts, STAR stories), story-bank.md ✅ 2026-04-07

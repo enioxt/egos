@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.47.0 | **Updated:** 2026-04-07 | **LAST SESSION:** P35 — readme-syncer (dynamic docs), sentinel cron, timeline, X.com posts PT+EN complete
+> **Version:** 2.48.0 | **Updated:** 2026-04-07 | **LAST SESSION:** P35+CAREER — SSOT gate 26 domains, career-ops setup (CAREER-001..004 done), profile fixes
 
 ---
 
@@ -25,33 +25,36 @@
 
 ### CAREER-OPS — Freelance Discovery Pipeline (P1 — Revenue Bridge)
 **Goal:** Use [santifer/career-ops](https://github.com/santifer/career-ops) adapted for freelance gigs to generate revenue while EGOS matures. Enio's CV already exists (5 versions in `/home/enio/personal/`).
-- [ ] **CAREER-001**: Clone career-ops to `/home/enio/personal/career-ops/` and run setup
-- [ ] **CAREER-002**: Configure preferences.yaml — freelance only, remote, $50/h+ min, no TZ restriction, async, 1-4 week projects
-- [ ] **CAREER-003**: Adapt scrapers — replace Greenhouse/Lever/Ashby with: Toptal, Arc, Lemon.io, Contra, We Work Remotely (contract section), Wellfound, Upwork
-- [ ] **CAREER-004**: Skills filter config: Neo4j, OSINT, PII/LGPD, FastAPI, Next.js, Supabase, agents, scraping, Brazilian compliance
-- [ ] **CAREER-005**: First batch run — process 50 URLs, only follow up on score ≥ 4.0/5
-- [ ] **CAREER-006**: Apply to top 3 (after Enio review) — first revenue test
+**SSOT:** `/home/enio/personal/career-ops/` | Profile: `config/profile.yml` | CV: `cv.md`
+**Profile note:** Background presented as "law enforcement intelligence (15 years)" — not "active police investigator". Constraint is invisible to clients; only deliverability matters. Freelance/contract = ideal fit (no conflict with current employment).
+- [ ] **CAREER-005** [ENIO]: First batch run — `cd /home/enio/personal/career-ops && claude` → `/career-ops pipeline` (6 URLs seeded). Score ≥ 4.0/5 only
+- [ ] **CAREER-006** [ENIO]: Apply to top 3 after review — first revenue signal
 
 ---
 
-### Diagnostic Phases 6-10 — Apply Verified Data (P34)
-**SSOT:** `docs/MASTER_INDEX.md` | **Handoff:** `docs/_current_handoffs/handoff_2026-04-07_doc-drift-shield-plan.md`
-**Context:** P33 captured all verified numbers. Next session applies updates to READMEs, MASTER_INDEX, and creates posts.
+### P2 — SSOT Limpeza (Content em lugares errados)
+**Context:** Descoberto em P35. Arquivos dispersos que devem ser movidos para SSOTs existentes.
 
+| Arquivo | Conteúdo | Ação |
+|---------|----------|------|
+| `docs/strategy/XCOM_SOCIAL_AUTOMATION_PLAN.md` | Estratégia automação X.com | Mover → GTM_SSOT.md §automação |
+| `docs/social/X_POST_PROFILE_PARTNERSHIP.md` | Post já consolidado em X_POSTS_SSOT.md | Deletar (migrado P35) |
+| `docs/outreach/*.md` (8 arquivos) | Partner briefs, prospects, kit | Mover → GTM_SSOT.md §partnerships |
+| `docs/MCP_*.md` (7 arquivos) | Config MCP dispersa | → **SSOT-MCP** (task separada abaixo) |
+| `docs/sales/*.md` | Vendas/pricing content | Mover → MONETIZATION_SSOT.md |
+
+- [ ] **CLEAN-001 [P2]**: Mover XCOM_SOCIAL_AUTOMATION_PLAN.md → GTM_SSOT.md §X.com automation e deletar original
+- [ ] **CLEAN-002 [P2]**: Deletar `docs/social/X_POST_PROFILE_PARTNERSHIP.md` (conteúdo já em X_POSTS_SSOT.md)
+- [ ] **CLEAN-003 [P2]**: Migrar `docs/outreach/` (8 arquivos) → GTM_SSOT.md §partnerships (= SSOT-OUTREACH)
+- [ ] **CLEAN-004 [P2]**: Migrar `docs/sales/*.md` → MONETIZATION_SSOT.md
+- [ ] **EGOS-132 [P2]**: Resolver conflito brand: `docs/BRAND_CANONICAL.md` (kernel) vs `egos-lab/branding/BRAND_GUIDE.md` (lab). Decisão: usar egos-lab até resolução (conforme .ssot-map.yaml nota)
 
 ---
 
-### Commit queue — P34 DONE
-
 ---
 
-### Documentation Alignment Sweep (2026-04-06)
-**SSOT:** `docs/DOCUMENTATION_ARCHITECTURE_MAP.md` | **Context:** principal docs aligned, missing audit restored, governance verification closed
-
-**Done:**
-
-**Follow-up:**
-- [ ] DOC-005: Continue terminology sanitization on remaining legacy governance/docs surfaces still using `Sacred Code` or `Frozen Zones`
+### Documentation — Misc Pending
+- [ ] DOC-005: Terminology sanitization — remove `Sacred Code` / `Frozen Zones` from legacy governance docs
 
 ---
 
@@ -186,12 +189,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [ ] GH-073: Email digest — weekly top 10 gems to subscribers
 - SSOT: docs/gem-hunter/GEM_HUNTER_PRODUCT.md
 
-**P2 — Advanced Studies:**
-- [ ] GH-020: EGOS Mem0 — persistent agent memory layer
-- [ ] GH-021: EGOS Temporal TS SDK — durable workflow engine
-- [ ] GH-022: EGOS Haystack — RAG/retrieval/context engineering
-- [ ] GH-023: EGOS DSPy — programmatic prompt optimization
-- [ ] GH-024: Lego Assembler agent — consumes `.md` SSOT blocks from discovery engine
+**P2:** GH-020..024 (Mem0, Temporal, Haystack, DSPy, Lego Assembler) — post PMF.
 
 ---
 
@@ -202,25 +200,11 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 
 ---
 
-### X.com Presence & Rapid Response (2026-04-01)
-
-**Context:** Speed-to-thread matters. When a trending topic matches our capabilities, we must respond in hours, not days.
-
-**Code Written (not deployed):**
-
-**P1 — Expand:**
-- [ ] X-009: Trending topic scanner — check X API hourly for rising keywords vs our capabilities
-- [ ] X-010: "Clean showcase" branch auto-creator — when topic detected, create `showcase/<topic>` with only clean files
-
-**P2 — Upgrade:**
-- [ ] X-011: Upgrade to Basic tier ($100/mo) when bot proves value — 3,000 writes/month vs 1,500
-- [ ] X-012: Build thread scheduler — post multi-tweet threads with 2-min gaps
-- [ ] X-013: Analytics dashboard — track which replies got most engagement
-
-**X API Rate Limits (Free tier):**
-- Write: 50/day hard limit → bot uses 40 (10 buffer)
-- Search: 10 req/15min → 1 search per topic per run
-- Run schedule: hourly, max 3 replies per run
+### X.com Presence (2026-04-01)
+**BLOCKER:** XMCP-001 (X credentials 401 — regenerate at developer.twitter.com first)
+- [ ] X-009: Trending topic scanner (hourly, keywords vs capabilities)
+- [ ] X-012: Thread scheduler (multi-tweet, 2-min gaps) — dep XMCP-001
+- [ ] GTM-002-unblock: Post Guard Brasil thread after XMCP-001
 
 ---
 
@@ -249,10 +233,7 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 - [ ] INTEL-009: Capability composition map — intelligence layer dynamically suggests which agents to invoke for a given task
 - [ ] INTEL-010: World model diff — compare snapshots to detect regression (tasks going from [x] back to [ ])
 
-**P2 — Ethics & Safety (NEW 2026-04-03):**
-- [ ] WM-009..016: Safety+ethics+AGI capabilities (Qwen3Guard, constitutional rules, ATRiAN, auto-observation, self-modification, long-horizon planning) — P2/P3
-
-**SSOT:** `docs/strategy/WORLD_MODEL_SSOT.md` — conceito completo, roadmap, hardware 16-24GB VRAM
+**SSOT:** `docs/strategy/WORLD_MODEL_SSOT.md` — WM-009..016 safety+ethics+AGI (P3, post-PMF)
 
 ---
 
@@ -262,17 +243,9 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 **P1:** EAGLE-GH-006 profile-service, EAGLE-GH-007 feedback-learning, EAGLE-GH-008 REST API v2, EAGLE-GH-009 MCP server, EAGLE-GH-010 Stripe Pix
 **P2:** EAGLE-GH-011..013 dashboard v2, Telegram routing, chatbot NL query
 **DEADLINE:** EAGLE-023 — R$250k proposal by 2026-04-29
-### P19-P20 Tasks — Active (archived done, see git log for P20 full list)
-
-**P0 — Revenue:**
+### P19-P20 Tasks — Active Residual
 - [ ] MONETIZE-011: Deploy v0.2.3 to VPS with STRIPE_METER_ID env var
 - [ ] MONETIZE-012: NOWPayments webhook URL config — ENIO action required
-- [ ] MASTER-005: NLP intent classifier (Haiku, ~$1/day) for WhatsApp NL commands
-
-**P1 — Infrastructure:**
-- [ ] HERMES-001: Wire Hermes-3 as BRAID mechanical executor
-- [ ] CTX-001: Context recovery hook to /start
-- [ ] CTX-002: Auto-index codebase-memory-mcp on /start
 
 ### Partnership & Distribution Strategy (2026-04-05)
 **Compressed:** See `docs/GTM_SSOT.md` + `docs/MONETIZATION_SSOT.md` for full roadmap.
@@ -403,22 +376,9 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 - [ ] OC-010: Registrar Guard Brasil MCP (`@egosbr/guard-brasil-mcp`) — blocked on KB-019 (MCP server não existe ainda).
 - [ ] OC-011: Configurar skills relevantes do ClawHub marketplace — pesquisar: Brave Search, Knowledge Base, Code Execution. Instalar 2-3 skills úteis.
 
-**P2 — Médio prazo (1 mês): Funcionalidades avançadas**
+**P2:** OC-012..017 (Hermes local, sessions_spawn multi-agent, Canvas, Discord, cron jobs) — post HERMES MVP go/no-go.
 
-- [ ] OC-012: Wire OpenClaw + Hermes-3 (8B local) — configurar provider `hermes-local` apontando para Hermes rodando via Ollama/llama.cpp. Usar para tasks autônomas overnight sem custo de API.
-- [ ] OC-013: Configurar `sessions_spawn` para multi-agent: OpenClaw spawna sub-agentes para Gem Hunter hunts, Guard Brasil scans, kb wiki compilation. Cada sub-agente roda em sessão isolada.
-- [ ] OC-014: Integrar OpenClaw Canvas — habilitar canvas-host para visualizações de dados (Gem Hunter dashboard, Guard Brasil stats) acessíveis via chat.
-- [ ] OC-016: Instalar `@openclaw/discord` channel — criar servidor Discord EGOS para demo público do Guard Brasil. Bot responde a perguntas LGPD/PII.
-- [ ] OC-017: Configurar cron jobs no OpenClaw (`~/.openclaw/cron/jobs.json`) — daily: compilar wiki, weekly: Gem Hunter hunt, monthly: PII pattern review.
-
-**P3 — Longo prazo (3 meses): GTM + Produto**
-
-- [ ] OC-018: guard-brasil-mcp no ClawHub marketplace (GTM play: 13K+ skills distribution)
-- [ ] OC-019: egos-knowledge-mcp no ClawHub (KB EGOS via OpenClaw showcase)
-- [ ] OC-020: OpenClaw A2A Gateway — conectar EGOS agents ao protocolo A2A
-- [ ] OC-021: Multi-device QR — parear Android + tablet com OpenClaw gateway [BLOCKER: phone required]
-- [ ] OC-022: Tutor Melkin v2 — OpenClaw como runtime, SOUL.md persona, Telegram+WhatsApp+Web
-- [ ] OC-023: Guard Brasil self-serve onboarding via OpenClaw stack (R$99/mo)
+**P3:** OC-018..023 (ClawHub marketplace, A2A, multi-device, Tutor Melkin v2, self-serve onboarding) — post PMF.
 
  ---
  
@@ -440,11 +400,7 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 - [ ] **SD-012 (P1)**: Define pattern taxonomy for the first production slice (reflection/procrastination/self-sabotage) [DEP: SD-001]
 - [ ] **SD-013 (P1)**: Define onboarding flow and first-session success criteria [DEP: SD-008, SD-010]
 - [ ] **SD-014 (P1)**: Define analytics, feedback, and session-review signals [DEP: SD-009]
-- [ ] **SD-015 (P2)**: Prioritize additional pattern packs after alpha validation [DEP: SD-012, SD-014]
-- [ ] **SD-016 (P2)**: Define auth/history strategy for when persistence becomes necessary [DEP: SD-003, SD-014]
-- [ ] **SD-017 (P2)**: Define API documentation surface and consumer contract [DEP: SD-004, SD-014]
-- [ ] **SD-018 (P2)**: Evaluate TypeScript migration boundaries vs leaving Python core isolated [DEP: SD-002, SD-017]
-- [ ] **SD-019 (P2)**: Freeze post-alpha backlog after evidence from deploy/security/ux/launch gates [DEP: SD-015, SD-016, SD-017, SD-018]
+- [ ] **SD-015..019 (P2)**: Post-alpha backlog — prioritize pattern packs, auth/history, API docs, TypeScript migration, freeze backlog. [DEP: SD-014 alpha evidence]
 
 ### VPS Infrastructure Optimization & Resource Management (P34-P35)
 
@@ -510,20 +466,14 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 
 **SSOT:** `docs/OPENCLAW_SSOT.md` (OpenClaw routing) | `docs/INFRA_SSOT.md` (VPS services mapping)
 
-**P0 — Token Refresh & Quota Management (This Week):**
-
-
-**P1 — Integration & Fallback Chains (P35):**
-
-- [ ] **ORB-002**: Wire fallback chain — if Codex proxy fails (rate limit / crash), route to DashScope (free tier) or MiniMax-M2.7 (R$40/mo plan). Implement in packages/shared/orchestrator. [Owner: dev, 2h]
-- [ ] **ORB-003**: Add cost attribution per task — log which service (Codex/Claude/Hermes/OpenClaw) executed each job, token count, cost. Route to Supabase. Use for monthly cost review. [Owner: dev + monitoring, 3h]
-- [ ] **ORB-004**: Create HQ dashboard widget: "Orchestration Status" — shows Codex health, Claude Code session count, Hermes uptime, OpenClaw sandbox queue, Gemini token % used. [Owner: UI, 2h]
+**P1:**
+- [ ] **ORB-002**: Fallback chain if Codex proxy fails → DashScope/MiniMax-M2.7 [dev, 2h]
+- [ ] **ORB-003**: Cost attribution per task → Supabase [dev, 3h]
+- [ ] **ORB-004**: HQ widget "Orchestration Status" [UI, 2h]
 
 ---
 
- ---
-
- ### Gem Research — P31 (2026-04-06): Graphify + A-Evolve + XMCP
+### Gem Research — P31 (2026-04-06): Graphify + A-Evolve + XMCP
 **Source:** Grok analysis. Decisions: Graphify=adopt patterns only (codebase-memory-mcp overlap 80%); A-Evolve=bookmark pós PMF; XMCP=install now.
 
 **XMCP — X MCP Server oficial (xdevplatform/xmcp):**
@@ -538,17 +488,15 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 - [ ] **GRF-002 (P2)**: Embutir graph.html (vis.js) no HQ como painel "Knowledge Graph" — feed de codebase-memory-mcp export. Parte de HQV2-009.
 - [ ] **GRF-003 (P2)**: Adicionar ingestão multimodal ao wiki-compiler: PDFs + papers → Supabase `egos_wiki_pages`. Usa Graphify padrão (PDF→AST→nodes).
 
-**A-Evolve patterns (bookmark pós PMF):**
-- [ ] **AEV-001 (P3)**: Formalizar Agent Workspace manifest: cada skill em `~/.egos/.claude/commands/` ganha `manifest.yaml` (name, version, capabilities, evolution_score). Padrão A-Evolve sem o engine.
-- [ ] **AEV-002 (P3)**: Implementar evolution loop simples: constitutional reviewer (já existe, P30) → detecta violações → sugere mutação de skill → git tag `skill-v{N}`. Gate: hold-out test antes de aceitar.
+**A-Evolve patterns (bookmark pós PMF):** AEV-001..002 (P3) — manifest.yaml per skill + evolution loop. See git log for design.
 
- ### Governance Mesh Cleanup (2026-04-06 audit)
- - [ ] **GOV-001**: Collapse `~/.claude/CLAUDE.md` into a thin adapter to kernel `.guarani` [SOURCE: local Claude audit | IMPACT: parallel constitution / rule drift]
- - [ ] **GOV-002**: Unify workflow catalog across `egos/.windsurf/workflows`, `~/.egos/workflows`, and `scripts/workflow-sync-check.sh` [SOURCE: workflow audit | IMPACT: missing/stale workflow inheritance]
- - [ ] **GOV-003**: Define canonical skill distribution between `~/.egos/skills` and `~/.claude/skills` [SOURCE: local skill audit | IMPACT: duplicated discovery rules]
- - [ ] **GOV-004**: Update `~/.claude/config/manifest.json` SSOT hierarchy to kernel-first `.guarani` and remove adapter surfaces from constitutional status [SOURCE: local Claude audit | IMPACT: wrong authority model]
- - [ ] **GOV-005**: Review `~/.claude/settings.local.json` allowlist for hardcoded tokens and unsafe legacy permissions [SOURCE: local Claude audit | IMPACT: security and governance exposure]
- - [ ] **GOV-006**: Sanitize or archive stale shared-home artifacts (`.egos/.windsurfrules`, `SSOT_STATUS_20260328.txt`, repo-specific mirror leftovers) [SOURCE: ~/.egos audit | IMPACT: legacy noise and false authority]
- - [ ] **GOV-007**: Unify repo mesh registry across `.egos/sync.sh`, `scripts/sync-all-leaf-repos.sh`, `scripts/workflow-sync-check.sh`, and `.egos/manifest.json` [SOURCE: sync audit | IMPACT: drifted propagation targets]
+### Governance Mesh Cleanup (2026-04-06 audit)
+- [ ] **GOV-001**: CLAUDE.md → thin adapter to `.guarani` kernel [constitution drift]
+- [ ] **GOV-002**: Unify workflow catalog (.windsurf/workflows + ~/.egos/workflows + workflow-sync-check.sh)
+- [ ] **GOV-003**: Canonical skill distribution ~/.egos/skills vs ~/.claude/skills
+- [ ] **GOV-004**: manifest.json SSOT hierarchy → kernel-first `.guarani`
+- [ ] **GOV-005**: settings.local.json allowlist audit — hardcoded tokens, unsafe legacy permissions
+- [ ] **GOV-006**: Sanitize stale ~/.egos artifacts (.windsurfrules, SSOT_STATUS_20260328.txt)
+- [ ] **GOV-007**: Unify repo mesh registry (sync.sh + sync-all-leaf-repos.sh + manifest.json)
 
  ---
