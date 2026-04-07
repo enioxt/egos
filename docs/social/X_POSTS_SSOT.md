@@ -345,6 +345,74 @@ Sacred Code: 000.111.369.963.1618
 
 ---
 
+## BLOCO 5 — ALTERNATIVE FORMATS (PT) — single-tweet variants
+
+> **Origem:** consolidado de `personal/X_POST_5_VERCOES_LOW_PROFILE.md` (Versões 2-5)
+> **Uso:** quando não há tempo/energia para postar thread completa (BLOCO 1), ou para reposts subsequentes
+> **Tom:** low profile, sem hype, "faz muito fala pouco"
+
+### V5.1 — Post Único Conciso (1 tweet, ~280 chars)
+```
+Construí 13+ produtos solo em 18 meses. Código pronto, infra rodando, 83,7M nós em grafo Neo4j (verificado hoje).
+
+Resultado: 0 vendas. Porque sou builder, não vendedor.
+
+Busco parceiro GTM com equity generosa (15-35%). DPOs, govtech, compliance — meu ICP é seu network?
+
+guard.egos.ia.br | github.com/enioxt
+```
+
+### V5.2 — Storytelling Pessoal (1 post longo)
+```
+Em 2017 descobri crypto. Não como trader. Como curioso.
+
+Passei 8 anos avaliando projetos, estudando tokenomics, aprendendo a detectar padrões. 1000+ projetos analisados.
+
+Em 2024 apliquei isso em código. Construí o EGOS: 13 produtos, open source, governança transparente.
+
+Agora preciso de quem complete o que falta: distribuição.
+
+Se você vende B2B e quer equity em produto real — vamos conversar.
+```
+
+### V5.3 — Técnico Sem Arrogância (1 post)
+```
+Stack atual:
+• 83,7M nós Neo4j (CNPJ, PEPs, sanções, contratos — 32 tipos)
+• 26,8M relacionamentos entre entidades
+• 15 padrões PII brasileiros detectados em 4ms
+• 23 agentes autônomos com governança
+• 19 containers Docker em produção (Hetzner VPS)
+
+Tudo documentado, testado, open source.
+
+Só falta quem leve isso pra quem precisa.
+
+DM aberto pra parceiros de GTM.
+```
+
+### V5.4 — Convite Direto (1 post — para quem já conhece)
+```
+Você já viu meu código no GitHub.
+Já viu o Guard Brasil funcionando em produção.
+Já viu o grafo de 83,7M nós rodando no VPS hoje.
+
+Sabe que não é vaporware.
+
+Agora: quer equity pra distribuir isso?
+
+Busco 3 parceiros de GTM:
+• Guard Brasil (LGPD/compliance)
+• EGOS Inteligência (govtech/OSINT)
+• Eagle Eye (licitações/B2G)
+
+Equity 20-35%. Nota simples. Split justo.
+
+enioxt@gmail.com
+```
+
+---
+
 ## BLOCO 4 — THEMED KIT: DADOS/AGENTES/INFRA (EN) ← ATUALIZAR ANTES DE USAR
 
 > **Status:** ⚠️ OUTDATED — números precisam atualização para 83.7M, 19 containers, Hetzner
@@ -400,14 +468,115 @@ Hook: `I spent 4 months building a graph database of Brazil's entire public sect
 
 ---
 
-## AUTOMAÇÃO X.COM (GTM-015 — pendente)
+## AUTOMAÇÃO X.COM & STRATEGY
 
-**Status:** ✅ PLANEJADO | Arquivo: `/home/enio/.egos/memory/mcp-store/gtm15_x_thread_imagen_plan_2026_04_06.md`
+> **Origem:** consolidado de `egos/docs/strategy/XCOM_SOCIAL_AUTOMATION_PLAN.md` (482 linhas, 2026-03-30) + `gtm15_x_thread_imagen_plan_2026_04_06.md`
 
-**Fases pendentes:**
-1. **GTM-015 OG image:** screenshot `scripts/assets/guard-og.html` → `og-image.jpg` via Playwright
-2. **x-post-thread.ts:** script que posta thread em sequência com imagem no tweet 1
-3. **Imagen 3:** `generate-social-image.ts` para cards de scan result e banners LGPD
+### A) X API Capabilities (2026)
+
+| Tipo | Via API? | Limites | Notas |
+|------|----------|---------|-------|
+| Tweet texto | ✅ | 280 chars (free), 25k chars (Premium) | Core |
+| Thread | ✅ | Encadeamento múltiplo | Tutorials |
+| Imagens | ✅ | 4 por post, JPG/PNG/GIF, max 5MB | media endpoint |
+| Vídeos | ✅ | 1 por post, 512MB, 2:20 min | upload async |
+| GIFs | ✅ | media upload | — |
+| Polls | ✅ | 2-4 opções, 5min-7d | engajamento alto |
+| Articles | ❌ | Premium only, web UI | postar manual ou via browser auto |
+| Spaces | ⚠️ parcial | criar/gerenciar | audio live |
+| Cards | auto | link preview | URL gera card |
+
+### B) X API Pricing (2026)
+
+| Tier | Preço | Writes/mês | Reads/mês |
+|------|-------|------------|-----------|
+| Free | $0 | ~500 | ~50 |
+| Basic | $200/mo | ~50.000 | ~10-15k |
+| Pro | $5.000/mo | ~300.000 | 1.000.000 |
+| Pay-per-use | créditos | $0.01/post | $0.005/read |
+
+**Nosso cenário:** 1 post/dia = 30/mês → **Free tier basta**. Migrar para Pay-per-use só se precisar monitorar mentions.
+
+**Limites duros:** 2400 posts/dia, ~50 posts/30min, follow 400/dia free, DM 500/dia.
+
+### C) Architecture: GUARD BRASIL SOCIAL ENGINE (planejado)
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                GUARD BRASIL SOCIAL ENGINE               │
+├─────────────────────────────────────────────────────────┤
+│  Content Gen (Qwen) → Visual Gen → Schedule Manager     │
+│         ↓                                                │
+│  Post Composer (text + image + hashtags + CTA)          │
+│         ↓                                                │
+│  Review Queue (Telegram approval before posting)        │
+│         ↓                                                │
+│  X.com API Publisher (OAuth 1.0a + media upload)        │
+│         ↓                                                │
+│  Analytics Tracker (impressions, likes, RT, clicks)     │
+│         ↓                                                │
+│  Engagement Bot (reply mentions, thank followers)       │
+└─────────────────────────────────────────────────────────┘
+         ↓
+   HQ Dashboard: social tab + Semrush-style monitoring
+```
+
+### D) Weekly content calendar (auto-generated)
+
+| Dia | Categoria | Tópico |
+|-----|-----------|--------|
+| Mon | educational | LGPD concept |
+| Tue | case_study | CPF masking demo |
+| Wed | product | Guard Brasil feature |
+| Thu | engagement | poll or question |
+| Fri | news | AI safety news |
+| Sat | educational | ATRiAN ethical AI |
+| Sun | case_study | govtech use case |
+
+### E) Visual generation strategies
+
+- **case_study** → terminal screenshot (curl → response, dark theme)
+- **educational** → infographic HTML → Playwright screenshot
+- **product** → dashboard preview screenshot
+- **news** → text-only or quote-card
+- **engagement** → poll image or simple stat card
+
+### F) Scheduler workflow
+
+1. Content generator runs 6 AM BRT daily → drafts in queue
+2. Telegram bot notifies Enio with preview
+3. Enio approves/edits via Telegram inline buttons OR HQ dashboard
+4. Publisher posts at 9 AM BRT (peak engagement window for BR tech)
+5. Analytics tracker pulls metrics every 6h, persists to Supabase
+
+### G) KPIs semanais
+
+- Engagement rate > 2% (bom para tech/B2B)
+- URL clicks > 10% das impressions
+- API tests > 5 por post
+- Signups > 1 por semana
+
+### H) Tasks pendentes (GTM/automation)
+
+- **XMCP-001:** regenerar credenciais X em developer.twitter.com (atual: 401 Unauthorized) → bloqueador #1
+- **GTM-015:** OG image — screenshot `scripts/assets/guard-og.html` → `og-image.jpg` via Playwright
+- **GTM-015b:** `x-post-thread.ts` — script que posta thread em sequência com imagem no tweet 1
+- **GTM-015c:** Imagen 3 — `generate-social-image.ts` para cards e banners LGPD
+- **SOCIAL-001:** Telegram approval bot wired to Supabase queue
+- **SOCIAL-002:** HQ dashboard social tab (analytics + queue + scheduler)
+
+### I) Engagement bot rules (auto + manual)
+
+**Auto (with approval):**
+- Like mentions of Guard Brasil
+- Reply thank-you to anyone who tests guard.egos.ia.br
+- Quote retweet posts about LGPD/PII with relevant comment
+- Follow back govtech/devs BR
+
+**Manual (Enio):**
+- Answer technical questions
+- Share demo results
+- Post articles longos (1x/semana via web UI)
 
 ---
 
@@ -423,15 +592,16 @@ Neo4j claim (77M entities) corrected to br-acc. Control plane ready. egos.ia.br/
 
 ---
 
-## ARQUIVOS DEPRECIADOS (manter para referência, não editar)
+## ARQUIVOS DELETADOS (consolidação 2026-04-07)
 
-| Arquivo | Motivo | Conteúdo migrado aqui? |
+| Arquivo | Status | Conteúdo migrado para |
 |---------|--------|------------------------|
-| `/home/enio/personal/X_POST_5_VERCOES_LOW_PROFILE.md` | Consolidado aqui | ✅ Blocos 1+2+3 |
-| `/home/enio/egos/docs/social/X_POST_PROFILE_PARTNERSHIP.md` | Consolidado aqui | ✅ Bloco 3 expandido |
-| `/home/enio/egos-lab/docs/plans/X_COM_CONTENT_KIT.md` | Consolidado aqui | ✅ Bloco 4 |
-| `/home/enio/egos/docs/_archived_handoffs/SOCIAL_POSTS_2026-03-30.md` | Histórico | ✅ Seção Histórico |
-| `/home/enio/.egos/memory/mcp-store/gtm15_x_thread_imagen_plan_2026_04_06.md` | Task plan | ✅ Seção Automação |
+| `personal/X_POST_5_VERCOES_LOW_PROFILE.md` | 🗑️ DELETED 2026-04-07 | Blocos 1, 3 + novo BLOCO 5 (V5.1-V5.4) |
+| `egos/docs/social/X_POST_PROFILE_PARTNERSHIP.md` | 🗑️ DELETED 2026-04-07 | BLOCO 3 (partnership thread completo) |
+| `egos-lab/docs/plans/X_COM_CONTENT_KIT.md` | 🗑️ DELETED 2026-04-07 | BLOCO 4 (themed kit, marcado outdated) |
+| `egos/docs/strategy/XCOM_SOCIAL_AUTOMATION_PLAN.md` | 🗑️ DELETED 2026-04-07 | §AUTOMAÇÃO X.COM & STRATEGY (seções A-I) |
+| `egos/docs/_archived_handoffs/SOCIAL_POSTS_2026-03-30.md` | 📚 archived | §Histórico |
+| `.egos/memory/mcp-store/gtm15_x_thread_imagen_plan_2026_04_06.md` | 📚 keep (memory) | §Automação H |
 
 ---
 
