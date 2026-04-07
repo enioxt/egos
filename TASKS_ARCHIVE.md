@@ -158,3 +158,9 @@
 - [x] **HERMES-004-P2**: Test tasks passed: Guard Brasil health check ✅, VPS hostname ✅, Claude OAuth ✅.
 - [x] **HERMES-004-P3**: Telegram integration pending (HERMES-006 scope).
 - [x] **HERMES-004-P4**: Token refresh cron: `*/5 * * * *` local → refreshes + syncs to VPS.
+
+## Archived 2026-04-07 (3 tasks)
+
+- [x] **HQI-005**: Gateway channels ✅ wired → verify WA/TG cards show real data in HQ
+- [x] **HQI-006**: Guard Brasil pattern_count ✅ from /v1/meta → verify card shows 15 patterns
+- [x] **HQI-007**: Billing proxy enriched ✅ (subscription_type, uptime, patterns) → verify card

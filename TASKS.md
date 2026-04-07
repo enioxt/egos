@@ -33,9 +33,6 @@
 - [ ] **HQI-002**: 852 Police Bot → expose messages_today from 852-app internal API (find correct health endpoint)
 - [ ] **HQI-003**: SINAPI → verify internal Docker URL + expose entry_count from DB
 - [ ] **HQI-004**: br-acc/Neo4j → live node count via bolt (find creds in VPS docker-compose)
-- [ ] **HQI-005**: Gateway channels ✅ wired → verify WA/TG cards show real data in HQ
-- [ ] **HQI-006**: Guard Brasil pattern_count ✅ from /v1/meta → verify card shows 15 patterns
-- [ ] **HQI-007**: Billing proxy enriched ✅ (subscription_type, uptime, patterns) → verify card
 - [ ] **HQI-008**: OpenClaw real config → read actual fallback_chain from openclaw-sandbox (not hardcoded)
 
 **Phase 2 — Volume mounts + data routes:**
