@@ -224,7 +224,7 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 ### Partnership & Distribution Strategy (2026-04-05)
 **Compressed:** See `docs/GTM_SSOT.md` + `docs/MONETIZATION_SSOT.md` for full roadmap.
 - [ ] **PART-001**: Publish npm + ProductHunt (M-007 emails first)
-- [ ] **M-007**: Send 5 outreach emails to DPOs (templates in GTM_SSOT §5) — **STALE 7+ days**
+- [/] **M-007**: 5 Gmail drafts ready (Nubank/Memed/RD Station/LGPD Brasil/Rocketseat). Awaiting send approval. Personalized per GTM_SSOT §5 templates. **READY TO SEND.**
 - [ ] **PART-016**: Decide PARTNER-D1 co-founder model
 
 ---
@@ -471,9 +471,6 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 ### Ratio VPS Deployment (2026-04-07)
 **Context:** Ratio deployed on VPS — ratio-api:3085 + ratio-frontend:3086 live. Guard Brasil connected (PII enabled). Caddy routes: ratio.egos.ia.br + ratio-api.egos.ia.br. .env synced (Gemini/OpenRouter/Alibaba/Anthropic keys).
 
-- [ ] **RATIO-VPS-001 [P1]**: Rsync LanceDB data to VPS → `rsync -az lancedb_store/ root@204.168.217.125:/opt/data/ratio/lancedb_store/` (8.5GB). Enables RAG jurisprudência search.
-- [ ] **RATIO-VPS-002 [P2]**: br-acc entity enrichment adapter for Ratio — `entity_resolver.py` calls bracc-neo4j bolt at `bolt://bracc-neo4j:7687`. Container already on same `infra_bracc` network.
-- [ ] **RATIO-VPS-003 [P1]**: Verify Caddy routes live (DNS for ratio.egos.ia.br + ratio-api.egos.ia.br). Add to HQ dashboard.
 
 ### Chatbot SSOT v2.0 — World-Class Upgrade (2026-04-07)
 **Context:** Opus investigation complete. 16 modules (8 upgraded + 8 new). Dual-runtime TS+Python. Disseminate to 852/br-acc/egos-web/ratio/intelink/forja.

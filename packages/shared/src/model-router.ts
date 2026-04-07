@@ -160,8 +160,78 @@ export interface ResolvedRoute {
   profile: ModelProfile;
 }
 
+// ═══════════════════════════════════════════════════════════
+// Circuit Breaker (in-memory, per provider)
+// ═══════════════════════════════════════════════════════════
+
+type CBState = 'closed' | 'open' | 'half_open';
+
+interface ProviderCBEntry {
+  state: CBState;
+  failures: number;
+  lastFailure: number;   // ms timestamp
+  cooldownUntil: number; // ms timestamp when to try half_open
+}
+
+const _cb: Record<string, ProviderCBEntry> = {};
+const CB_FAILURE_THRESHOLD = 3;
+const CB_COOLDOWN_MS = 30_000; // 30s before attempting recovery
+
+function _getCB(provider: string): ProviderCBEntry {
+  if (!_cb[provider]) {
+    _cb[provider] = { state: 'closed', failures: 0, lastFailure: 0, cooldownUntil: 0 };
+  }
+  const entry = _cb[provider];
+  // Transition open → half_open after cooldown
+  if (entry.state === 'open' && Date.now() >= entry.cooldownUntil) {
+    entry.state = 'half_open';
+  }
+  return entry;
+}
+
+/** Call when a provider request fails. Opens circuit after CB_FAILURE_THRESHOLD. */
+export function recordProviderFailure(provider: string): void {
+  const entry = _getCB(provider);
+  entry.failures += 1;
+  entry.lastFailure = Date.now();
+  if (entry.failures >= CB_FAILURE_THRESHOLD) {
+    entry.state = 'open';
+    entry.cooldownUntil = Date.now() + CB_COOLDOWN_MS;
+  }
+}
+
+/** Call when a provider request succeeds. Resets the circuit. */
+export function recordProviderSuccess(provider: string): void {
+  const entry = _getCB(provider);
+  entry.state = 'closed';
+  entry.failures = 0;
+  entry.lastFailure = 0;
+  entry.cooldownUntil = 0;
+}
+
+/** Returns true when a provider is in OPEN state (fast-fail). */
+export function isProviderCircuitOpen(provider: string): boolean {
+  return _getCB(provider).state === 'open';
+}
+
+/** Snapshot of all circuit states — for observability (HQ dashboard, telemetry). */
+export function getCircuitBreakerSnapshot(): Record<string, { state: CBState; failures: number; lastFailure: number; cooldownRemainingMs: number }> {
+  const now = Date.now();
+  return Object.fromEntries(
+    Object.entries(_cb).map(([provider, entry]) => [
+      provider,
+      {
+        state: entry.state,
+        failures: entry.failures,
+        lastFailure: entry.lastFailure,
+        cooldownRemainingMs: Math.max(0, entry.cooldownUntil - now),
+      },
+    ])
+  );
+}
+
 function isAvailable(profile: ModelProfile): boolean {
-  return !!process.env[profile.envKey];
+  return !!process.env[profile.envKey] && !isProviderCircuitOpen(profile.provider);
 }
 
 const TIER_SCORE: Record<string, Record<string, number>> = {

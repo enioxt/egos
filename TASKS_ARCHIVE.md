@@ -170,3 +170,9 @@
 - [x] Test 1: `HAIKU_LOCAL_OK` — Haiku 4.5 OAuth local ✅
 - [x] Test 2: `EGOS_KERNEL_HAIKU_OK` — egos-kernel profile, read INFRASTRUCTURE file ✅
 - [x] Test 3: `HAIKU_VPS_OK` — Haiku 4.5 OAuth VPS, ran `date + free -h` ✅
+
+## Archived 2026-04-07 (3 tasks)
+
+- [x] **RATIO-VPS-001 [P1]**: ✅ LanceDB synced to VPS (/opt/data/ratio/lancedb_store). Payload 4.0K (minimal repo).
+- [x] **RATIO-VPS-002 [P2]**: ✅ br-acc Neo4j healthy (bolt://bracc-neo4j:7687, 10d uptime, healthy status).
+- [x] **RATIO-VPS-003 [P1]**: ✅ Caddy routes live (ratio.egos.ia.br + ratio-api.egos.ia.br, both containers up ~1h).
