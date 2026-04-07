@@ -348,6 +348,7 @@ Bun.serve({
         sessionId: body.sessionId,
         claims: body.claims as any,
         provenance: body.provenance,
+        maskMode: body.mask_mode === 'partial' ? 'partial' : 'full',
       });
       const priDecision = await evaluatePRI(
         body.text,

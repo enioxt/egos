@@ -22,6 +22,7 @@ import {
   type EvidenceChainOptions,
   type ConfidenceLevel,
 } from './lib/index.js';
+import { type MaskMode } from './pii-patterns.js';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -47,6 +48,8 @@ export interface InspectOptions {
     confidence?: ConfidenceLevel;
   }>;
   provenance?: InspectProvenanceOptions;
+  /** Masking mode: 'full' (default) fully redacts, 'partial' reveals enough for user confirmation */
+  maskMode?: MaskMode;
 }
 
 export type ProvenanceLevel = 'inspection_only' | 'source_context' | 'source_row_bound';
@@ -186,6 +189,7 @@ export class GuardBrasil {
     // Step 2 — PII masking (Public Guard)
     const maskingResult = maskPublicOutput(text, {
       criticalPiiAction: this.config.blockOnCriticalPII ? 'block' : 'redact',
+      maskMode: options.maskMode,
     });
 
     const blocked = maskingResult.masked.startsWith('[CONTEÚDO BLOQUEADO');

@@ -49,7 +49,7 @@ export {
   PLACA_ANTIGA_PATTERN, PLACA_MERCOSUL_PATTERN,
   TELEFONE_PATTERN, EMAIL_PATTERN, CEP_PATTERN,
 } from './pii-patterns.js';
-export type { PIIPatternId, PatternConfidence, PIIPatternConfig, PIIMatch } from './pii-patterns.js';
+export type { PIIPatternId, PatternConfidence, PIIPatternConfig, PIIMatch, MaskMode } from './pii-patterns.js';
 
 // Reversible tokenized redaction (EGOS-160)
 export { tokenize, restore, hasTokens } from './lib/tokenizer.js';

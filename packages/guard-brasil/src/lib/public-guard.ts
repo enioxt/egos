@@ -7,6 +7,7 @@
  */
 
 import { scanForPII, sanitizeText, type PIIFinding } from './pii-scanner.js';
+import { maskPII, type MaskMode } from '../pii-patterns.js';
 
 export type GuardAction = 'mask' | 'redact' | 'block' | 'warn';
 export type SensitivityLevel = 'low' | 'medium' | 'high' | 'critical';
@@ -22,6 +23,12 @@ export interface PublicGuardConfig {
   auditTrail?: boolean;
   /** Custom replacement templates */
   replacements?: Partial<Record<string, string>>;
+  /**
+   * Masking mode:
+   * - 'full' (default): fully redact → [CPF REMOVIDO]
+   * - 'partial': banking-style partial reveal → ***.456.789-**
+   */
+  maskMode?: MaskMode;
 }
 
 export interface MaskingResult {
@@ -82,7 +89,14 @@ export function maskPublicOutput(text: string, config: PublicGuardConfig = {}): 
   }
 
   const blocked = sensitivityLevel === 'critical' && criticalPiiAction === 'block';
-  const masked = blocked ? '[CONTEÚDO BLOQUEADO — DADOS SENSÍVEIS DETECTADOS]' : sanitizeText(text, findings);
+  let masked: string;
+  if (blocked) {
+    masked = '[CONTEÚDO BLOQUEADO — DADOS SENSÍVEIS DETECTADOS]';
+  } else if (config.maskMode === 'partial') {
+    masked = maskPII(text, undefined, 'partial');
+  } else {
+    masked = sanitizeText(text, findings);
+  }
 
   return {
     original: text,

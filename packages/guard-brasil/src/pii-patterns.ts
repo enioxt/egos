@@ -31,6 +31,9 @@ export type PIIPatternId =
 export type PatternConfidence = 'high' | 'medium' | 'low';
 
 /** Definition of a single PII pattern */
+/** Whether to fully redact or partially reveal (banking-style) */
+export type MaskMode = 'full' | 'partial';
+
 export interface PIIPatternConfig {
   /** Unique identifier */
   id: PIIPatternId;
@@ -38,12 +41,18 @@ export interface PIIPatternConfig {
   label: string;
   /** Detection regex — MUST use the `g` flag */
   regex: RegExp;
-  /** Mask format shown in redacted output */
+  /** Mask format shown in redacted output (full mode) */
   maskFormat: string;
   /** How confident we are that a match is real (not a false positive) */
   confidence: PatternConfidence;
   /** Optional description for documentation / tooling */
   description?: string;
+  /**
+   * Partial mask — show enough digits for user confirmation (banking-style).
+   * E.g. CPF 123.456.789-09 → ***.456.789-**
+   * Falls back to maskFormat if undefined.
+   */
+  partialMaskFn?: (matched: string) => string;
 }
 
 /** A single PII match found in text */
@@ -74,6 +83,12 @@ export const CPF_PATTERN: PIIPatternConfig = {
   maskFormat: '[CPF REMOVIDO]',
   confidence: 'high',
   description: 'Cadastro de Pessoas Físicas — 000.000.000-00',
+  // Banking-style: ***.456.789-** (middle 6 digits visible)
+  partialMaskFn: (matched) => {
+    const d = matched.replace(/\D/g, '');
+    if (d.length !== 11) return '[CPF REMOVIDO]';
+    return `***.${d.slice(3, 6)}.${d.slice(6, 9)}-**`;
+  },
 };
 
 /** CNPJ — Cadastro Nacional de Pessoas Jurídicas (14 digits) */
@@ -84,6 +99,12 @@ export const CNPJ_PATTERN: PIIPatternConfig = {
   maskFormat: '[CNPJ REMOVIDO]',
   confidence: 'high',
   description: 'Cadastro Nacional de Pessoas Jurídicas — 00.000.000/0000-00',
+  // **.333.000/****-** (show digits 3-8, hide qualifier + check)
+  partialMaskFn: (matched) => {
+    const d = matched.replace(/\D/g, '');
+    if (d.length !== 14) return '[CNPJ REMOVIDO]';
+    return `**.${d.slice(2, 5)}.${d.slice(5, 8)}/****-**`;
+  },
 };
 
 /** RG — Registro Geral (preceded by "RG" keyword) */
@@ -164,6 +185,15 @@ export const TELEFONE_PATTERN: PIIPatternConfig = {
   maskFormat: '[TELEFONE REMOVIDO]',
   confidence: 'medium',
   description: 'Telefone brasileiro — +55 (00) 00000-0000',
+  // (31) ****-5432 — keep area code + last 4 digits
+  partialMaskFn: (matched) => {
+    const d = matched.replace(/\D/g, '');
+    if (d.length < 10) return '[TELEFONE REMOVIDO]';
+    // last 4 digits always visible; first 2 = DDD
+    const ddd = d.slice(0, 2);
+    const last4 = d.slice(-4);
+    return `(${ddd}) ****-${last4}`;
+  },
 };
 
 /** Email */
@@ -174,6 +204,17 @@ export const EMAIL_PATTERN: PIIPatternConfig = {
   maskFormat: '[EMAIL REMOVIDO]',
   confidence: 'high',
   description: 'Endereço de email',
+  // j***@e*****.com.br — first char of local + first char of domain + extension
+  partialMaskFn: (matched) => {
+    const [local, domain] = matched.split('@');
+    if (!local || !domain) return '[EMAIL REMOVIDO]';
+    const dotIdx = domain.lastIndexOf('.');
+    const domainName = dotIdx > 0 ? domain.slice(0, dotIdx) : domain;
+    const tld = dotIdx > 0 ? domain.slice(dotIdx) : '';
+    const maskedLocal = local[0] + '***';
+    const maskedDomain = domainName[0] + '*'.repeat(Math.max(1, domainName.length - 1));
+    return `${maskedLocal}@${maskedDomain}${tld}`;
+  },
 };
 
 /** Cartão SUS — Cartão Nacional de Saúde (15 digits) */
@@ -324,7 +365,7 @@ export function detectPII(
  * // 'CPF: [CPF REMOVIDO], email: fulano@email.com'
  * ```
  */
-export function maskPII(text: string, patternIds?: PIIPatternId[]): string {
+export function maskPII(text: string, patternIds?: PIIPatternId[], mode: MaskMode = 'full'): string {
   const patterns = patternIds
     ? ALL_PII_PATTERNS.filter(p => patternIds.includes(p.id))
     : ALL_PII_PATTERNS;
@@ -337,7 +378,14 @@ export function maskPII(text: string, patternIds?: PIIPatternId[]): string {
   let result = text;
   const reversed = matches.slice().sort((a, b) => b.start - a.start);
   for (const match of reversed) {
-    result = result.slice(0, match.start) + match.maskFormat + result.slice(match.end);
+    let replacement: string;
+    if (mode === 'partial') {
+      const config = ALL_PII_PATTERNS.find(p => p.id === match.patternId);
+      replacement = config?.partialMaskFn?.(match.matched) ?? match.maskFormat;
+    } else {
+      replacement = match.maskFormat;
+    }
+    result = result.slice(0, match.start) + replacement + result.slice(match.end);
   }
 
   return result;
