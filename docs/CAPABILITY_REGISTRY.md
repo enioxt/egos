@@ -505,6 +505,33 @@ L5: Agent Registry + Skills    — Auto-discovery, hot-reload, marketplace patte
 | egos-lab | ✅ | 4 | Baseline |
 | egos-inteligencia | ✅ | 5 | Not a git repo — manifest on filesystem |
 
+## 19. HERMES AGENT — ALWAYS-ON EXECUTOR (2026-04-07)
+
+> **Status:** LIVE — MVP deployed | **Version:** v0.7.0 | **Author:** NousResearch (MIT)
+
+### What It Is
+Python-based AI agent runtime with persistent TUI, 40+ tools (bash, file ops, browser/CDP), scheduled automations, skills (procedural memory that self-improves), messaging gateway (Telegram/Discord), and sub-agent spawning. Not a framework — a full application.
+
+### EGOS Integration
+- **Auth:** Claude OAuth via `~/.claude/.credentials.json` — auto-detected. No API key needed.
+- **Default model:** `claude-haiku-4-5-20251001` (local + VPS + egos-kernel profile)
+- **Profiles:** `default`, `egos-kernel` (system prompt: EGOS context + Guard Brasil focus)
+- **Install:**
+  - Local: `~/.hermes-agent` (source) + `~/.hermes-venv` (Python env) + `~/.local/bin/hermes` (symlink)
+  - VPS: `/opt/hermes-agent` + `/opt/hermes-venv` + `/root/.local/bin/hermes`
+- **Token refresh:** `*/5 * * * *` cron on local machine only (rotating refreshToken pattern — see HARVEST.md §P36)
+
+### Non-interactive (scripting)
+```bash
+hermes chat --provider anthropic --model claude-haiku-4-5-20251001 -q "task here" --yolo -Q
+hermes chat --provider anthropic --profile egos-kernel -q "task here" --yolo -Q
+```
+
+### Next steps
+- HERMES-005: 1-week trial (2026-04-07 → 2026-04-15), go/no-go gate
+- HERMES-006: Scale to 6 profiles per domain (post-trial)
+- HERMES-008: Connect Gem Hunter v7 as Hermes cron job
+
 ## 18. ARR — ADAPTIVE ATOMIC RETRIEVAL (DORMANT) (2026-04-07)
 
 > **Status:** DORMANT — implemented, not wired | **Packages:** `@egos/atomizer` + `@egos/search-engine`

@@ -164,3 +164,9 @@
 - [x] **HQI-005**: Gateway channels ✅ wired → verify WA/TG cards show real data in HQ
 - [x] **HQI-006**: Guard Brasil pattern_count ✅ from /v1/meta → verify card shows 15 patterns
 - [x] **HQI-007**: Billing proxy enriched ✅ (subscription_type, uptime, patterns) → verify card
+
+## Archived 2026-04-07 (3 tasks)
+
+- [x] Test 1: `HAIKU_LOCAL_OK` — Haiku 4.5 OAuth local ✅
+- [x] Test 2: `EGOS_KERNEL_HAIKU_OK` — egos-kernel profile, read INFRASTRUCTURE file ✅
+- [x] Test 3: `HAIKU_VPS_OK` — Haiku 4.5 OAuth VPS, ran `date + free -h` ✅

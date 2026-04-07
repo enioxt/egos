@@ -58,29 +58,10 @@
 
 ---
 
-### P2 — SSOT Limpeza (Content em lugares errados)
-**Context:** Descoberto em P35. Arquivos dispersos que devem ser movidos para SSOTs existentes.
-
-| Arquivo | Conteúdo | Ação |
-|---------|----------|------|
-| `docs/strategy/XCOM_SOCIAL_AUTOMATION_PLAN.md` | Estratégia automação X.com | Mover → GTM_SSOT.md §automação |
-| `docs/social/X_POST_PROFILE_PARTNERSHIP.md` | Post já consolidado em X_POSTS_SSOT.md | Deletar (migrado P35) |
-| `docs/outreach/*.md` (8 arquivos) | Partner briefs, prospects, kit | Mover → GTM_SSOT.md §partnerships |
-| `docs/MCP_*.md` (7 arquivos) | Config MCP dispersa | → **SSOT-MCP** (task separada abaixo) |
-| `docs/sales/*.md` | Vendas/pricing content | Mover → MONETIZATION_SSOT.md |
-
-- [ ] **CLEAN-001 [P2]**: Mover XCOM_SOCIAL_AUTOMATION_PLAN.md → GTM_SSOT.md §X.com automation e deletar original
-- [ ] **CLEAN-002 [P2]**: Deletar `docs/social/X_POST_PROFILE_PARTNERSHIP.md` (conteúdo já em X_POSTS_SSOT.md)
-- [ ] **CLEAN-003 [P2]**: Migrar `docs/outreach/` (8 arquivos) → GTM_SSOT.md §partnerships (= SSOT-OUTREACH)
-- [ ] **CLEAN-004 [P2]**: Migrar `docs/sales/*.md` → MONETIZATION_SSOT.md
-- [ ] **EGOS-132 [P2]**: Resolver conflito brand: `docs/BRAND_CANONICAL.md` (kernel) vs `egos-lab/branding/BRAND_GUIDE.md` (lab). Decisão: usar egos-lab até resolução (conforme .ssot-map.yaml nota)
-
----
-
----
-
-### Documentation — Misc Pending
-- [ ] DOC-005: Terminology sanitization — remove `Sacred Code` / `Frozen Zones` from legacy governance docs
+### P2 — SSOT Limpeza / Misc
+- [ ] **CLEAN-001..004 [P2]**: XCOM→GTM_SSOT, X_POST_PROFILE→delete, outreach/→GTM_SSOT §partnerships, sales/→MONETIZATION_SSOT
+- [ ] **EGOS-132 [P2]**: Resolve brand conflict: BRAND_CANONICAL.md (kernel) vs egos-lab/branding/BRAND_GUIDE.md
+- [ ] **DOC-005 [P2]**: Remove `Sacred Code`/`Frozen Zones` from legacy governance docs
 
 ---
 
@@ -409,17 +390,19 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 
 **SSOT:** `/home/enio/.egos/memory/mcp-store/hermes_agent_investigation_deep_dive_2026-04-07.md`
 
-**✅ MVP DEPLOYED 2026-04-07 — Claude OAuth (no API key needed!)**
+**✅ MVP DEPLOYED 2026-04-07 — Claude OAuth + Haiku 4.5 default**
 
-**Phase 1: Prep** ✅
+- Local: `~/.hermes-agent` + `~/.local/bin/hermes` | VPS: `/opt/hermes-agent` + `/opt/hermes-venv`
+- Default model: `claude-haiku-4-5-20251001` (local + VPS + egos-kernel profile)
+- Auth: `claude_code oauth ←` auto-detected on both machines. No API key.
+- Token refresh cron: `*/5 * * * *` local → refresh + scp → VPS auth reset
+- ⚠️ Known: refreshToken rotates. VPS NEVER refreshes independently — local cron is single source.
 
-**Phase 2: Build** ✅ (No Docker needed — uv venv install)
+**Phase 1: Prep** ✅ | **Phase 2: Build** ✅ | **Phase 3: Configure** ✅
 
-**Phase 3: Configure** ✅ (Claude OAuth auto-detected!)
+**Phase 4: Tests** ✅ ALL PASSED (3/3)
 
-**Phase 4: Test** ✅ — ALL PASSED
-
-**Phase 5: Trial (1 week: 2026-04-08 through 2026-04-15)**
+**Phase 5: Trial (2026-04-07 through 2026-04-15)**
 - [ ] **HERMES-005-P1**: Run production trial — Hermes stays online 7 days. Measure: uptime, RAM usage, token consumption, error rate. [Owner: infra, monitoring]
 - [ ] **HERMES-005-P2**: Validate: At least 1 auto-generated skill created and persisted to SQLite. Test invoking skill. [Owner: infra]
 - [ ] **HERMES-005-P3**: Cost tracking — capture actual token spend vs estimate (R$0-10 for trial week expected). [Owner: infra]
@@ -485,4 +468,30 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 - [ ] **RATIO-005 [P2]**: Full end-to-end test via API with Caso 1 (STJ PDF real) → intake → planning → redaction → adversarial → formatter → download DOCX.
 - [ ] **RATIO-006 [P3]**: Draft br-acc API pricing model for Carlos (free 100 lookups/mês + paid). Monetization path proposal.
 
- ---
+### Ratio VPS Deployment (2026-04-07)
+**Context:** Ratio deployed on VPS — ratio-api:3085 + ratio-frontend:3086 live. Guard Brasil connected (PII enabled). Caddy routes: ratio.egos.ia.br + ratio-api.egos.ia.br. .env synced (Gemini/OpenRouter/Alibaba/Anthropic keys).
+
+- [ ] **RATIO-VPS-001 [P1]**: Rsync LanceDB data to VPS → `rsync -az lancedb_store/ root@204.168.217.125:/opt/data/ratio/lancedb_store/` (8.5GB). Enables RAG jurisprudência search.
+- [ ] **RATIO-VPS-002 [P2]**: br-acc entity enrichment adapter for Ratio — `entity_resolver.py` calls bracc-neo4j bolt at `bolt://bracc-neo4j:7687`. Container already on same `infra_bracc` network.
+- [ ] **RATIO-VPS-003 [P1]**: Verify Caddy routes live (DNS for ratio.egos.ia.br + ratio-api.egos.ia.br). Add to HQ dashboard.
+
+### Chatbot SSOT v2.0 — World-Class Upgrade (2026-04-07)
+**Context:** Opus investigation complete. 16 modules (8 upgraded + 8 new). Dual-runtime TS+Python. Disseminate to 852/br-acc/egos-web/ratio/intelink/forja.
+**SSOT:** `docs/modules/CHATBOT_SSOT.md` | **Arch decisions:** Vercel AI SDK v4+, LangGraph (Python), JSON Schema source-of-truth for TS↔Py parity, OTel+Supabase dual telemetry.
+
+**P0 — Execute this session:**
+- [ ] **CHAT-001 [P0]**: Wire `filterChunk` ATRiAN stream-time into 852 route (`atrian-stream.ts` + `pipeThrough` in route). Currently post-hoc only.
+- [ ] **CHAT-002 [P0]**: Fix duplicate Section 11 in CHATBOT_SSOT.md + bump to v2.0.0.
+- [ ] **CHAT-003 [P0]**: `prompt-assembler.ts` schema-driven `{id, content, condition, cacheable}` sections. Port 852 constants.
+- [ ] **CHAT-004 [P0]**: Input-side PII scan in 852 before LLM call. Uses existing `pii-scanner.ts`.
+- [ ] **CHAT-005 [P0]**: `MemoryStore` adapter interface + Supabase impl in `packages/shared/src/memory-store.ts`.
+- [ ] **CHAT-006 [P0]**: Circuit breaker + cooldown in `model-router.ts`. Provider down → cooldown before retry.
+- [ ] **CHAT-007 [P0]**: Abort signal propagation in 852 — `req.signal` → `streamText abortSignal`. Stop billing on cancel.
+- [ ] **CHAT-008 [P0]**: Per-identity budget on top of per-IP rate limit → `packages/shared/src/rate-limit.ts`.
+- [ ] **CHAT-009 [P0]**: Eval harness skeleton + 20 golden cases for 852 → `packages/shared/eval/runner.ts` + `eval/golden/852.jsonl`.
+- [ ] **CHAT-010 [P0]**: egos-web compliance jump 64→90+: ATRiAN/PII/memory shared modules adoption.
+
+**P1 — CHAT-011..022:** structured output, multimodal Message, runAgentLoop, semantic memory, OTel, prompt caching, cost ledger, Python shared_py, br-acc/ratio adoption, conformance test, streaming PII
+**P2 — CHAT-023..031:** resumable streams, fork/edit, agent handoff, eval CI gate, file ingest, entity memory, racing fallback, Forja/Intelink/carteira-livre pass, HQ panel
+
+---

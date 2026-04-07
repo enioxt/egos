@@ -1,8 +1,37 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 4.2.0 | **UPDATED:** 2026-04-07
+> **VERSION:** 4.3.0 | **UPDATED:** 2026-04-07
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
-> **Latest:** P35 added — Firecrawl key rotation incident + API key exposure in git history pattern
+> **Latest:** P36 added — Hermes Claude OAuth deployment + rotating refreshToken sync pattern
+
+## P36 Patterns (2026-04-07)
+
+### Hermes Agent — Claude OAuth via ~/.claude/.credentials.json
+
+- **Discovery:** NousResearch hermes-agent v0.7.0 auto-discovers Claude Code OAuth from `~/.claude/.credentials.json`. Zero config. No API key needed. Uses Claude Max subscription.
+- **Install:** `uv pip install -e '/path/to/hermes-agent[all]'` into a dedicated venv. Not on PyPI — clone from GitHub first.
+- **Auth auto-detection:** `hermes auth list` shows `claude_code oauth ←` automatically if `~/.claude/.credentials.json` exists.
+- **Model IDs that work:** `claude-haiku-4-5-20251001`, `claude-sonnet-4-6`, `claude-opus-4-6`. Use exact model ID strings.
+- **Non-interactive usage:** `hermes chat --provider anthropic --model <model> -q "prompt" --yolo -Q`
+- **EGOS default:** Haiku 4.5 (`claude-haiku-4-5-20251001`) — 10x cheaper, same quality for mechanical tasks.
+
+### Hermes OAuth token sync — rotating refreshToken gotcha
+
+- **Problem:** OAuth refreshToken ROTATES on each use. If VPS refreshes independently, local refreshToken becomes invalid (and vice versa). One machine must be the single source.
+- **Solution:** Local machine is the ONLY refresher. Cron `*/5 * * * *` runs:
+  1. `refresh-token.py` — refreshes if <10min to expiry, writes `~/.claude/.credentials.json`
+  2. `scp` credentials to VPS
+  3. `ssh root@VPS "/opt/hermes-venv/bin/hermes auth reset anthropic"` — clears exhaustion state
+- **Exhaustion state:** Hermes marks credentials `exhausted` after a failed auth (e.g. expired token). Must reset with `hermes auth reset <provider>` after syncing fresh credentials. Non-obvious.
+- **Cron location:** `crontab -l | grep refresh-token` on local machine
+- **Script:** `~/.hermes-agent/scripts/refresh-token.py`
+
+### Hermes profile system
+
+- `hermes profile create <name>` → creates `~/.hermes/profiles/<name>/` with 77 bundled skills, wrapper at `~/.local/bin/<name>`
+- Per-profile model: `hermes config set model <id> --profile <name>`
+- System prompt: write to `~/.hermes/profiles/<name>/system_prompt.md`
+- List: `hermes profile list` shows all profiles with model + gateway status
 
 ## P35 Patterns (2026-04-07)
 
