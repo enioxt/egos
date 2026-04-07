@@ -1,8 +1,69 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 4.4.0 | **UPDATED:** 2026-04-07
+> **VERSION:** 4.5.0 | **UPDATED:** 2026-04-07
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
-> **Latest:** P37 added — Cold email GTM learnings + Guard Brasil sandbox audit (4 bugs found)
+> **Latest:** P38 added — X.com automation system + VPS path separation pattern
+
+---
+
+## P38 Patterns (2026-04-07)
+
+### X.com Automation — Self-Hosted Alternative to $275/mo Tools
+
+**Research:** AutoTweet ($29/mo), TweetHunter ($99/mo), Hypefury ($49/mo), Brand24 ($79/mo)  
+**Solution:** Integrar features-chave em solução própria TypeScript/Bun, VPS auto-hospedado.
+
+| Feature | Ferramenta | Nossa Implementação | Status |
+|---------|-----------|---------------------|--------|
+| Smart scheduling AI | AutoTweet | x-smart-scheduler.ts (análise audiência) | P1 |
+| Evergreen recycling | AutoTweet | x-evergreen-recycler.ts (repost inteligente) | P1 |
+| Thread composer | Typefully | Web interface HQ (Next.js) | P1 |
+| Viral library | TweetHunter | x-viral-library.ts (busca+categorização) | P2 |
+| Lead CRM | TweetHunter | Supabase table + x-lead-crm.ts | P2 |
+| Auto-DM sequences | TweetHunter | x-approval-bot.ts (day 0/3/7 workflow) | P2 |
+| Social listening | Brand24 | x-opportunity-alert.ts (extended) | P2 |
+| Analytics dashboard | Hypefury | HQ /x-analytics page | P2 |
+
+**Economia:** $3,300/ano → $0 (VPS já pago, X API gratuita até 500 posts/mês)
+
+---
+
+### VPS Path Separation — Evitar Conflitos Entre Serviços
+
+**Problema:** /opt/xmcp/ já existe com X MCP Server (Python, OpenClaw). Risco de conflito ao deployar novos scripts.
+
+**Padrão:** Usar paths separados por runtime/language:
+- `/opt/xmcp/` = Python services (MCP servers, existing)
+- `/opt/x-automation/` = TypeScript/Bun scripts (novos)
+- `/opt/hermes-agent/` = Rust/Python Hermes framework
+- `/opt/egos-*` = Outros serviços EGOS
+
+**Benefícios:**
+- Isolamento de dependências (venv vs bun)
+- Clarity sobre qual runtime gerencia qual serviço
+- Facilita backup/restore por componente
+- Evita conflitos de porta/env
+
+**Implementação:** Atualizar setup-x-monitoring.sh para usar REMOTE_DIR="/opt/x-automation"
+
+---
+
+### Cota X API Gratuita — Estratégia Conservadora
+
+**Limites Free tier (2026-04):**
+- 500 posts/mês leitura (~16/dia)
+- 500 posts/mês escrita (~16/dia)
+- 10 buscas/15min (~960/dia)
+
+**Estratégia EGOS:**
+- 12 runs/dia (a cada 2h) = 120 buscas/dia (12% do limite)
+- Máx 20 alertas/dia (Telegram/WhatsApp)
+- Máx 40 DMs/dia (dentro do limite de escrita)
+- Buffer de 20% para contingências
+
+**Rate limiting:** State file em `/tmp/x-opportunity-state.json` com contadores diários.
+
+---
 
 ## P37 Patterns (2026-04-07)
 

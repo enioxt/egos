@@ -45,7 +45,9 @@
       "Bash(chmod +x scripts/daily-knowledge-sync.sh)",
       "mcp__github__get_file_contents",
       "mcp__codebase-memory-mcp__index_repository",
-      "mcp__codebase-memory-mcp__get_code_snippet"
+      "mcp__codebase-memory-mcp__get_code_snippet",
+      "mcp__firecrawl__firecrawl_search",
+      "mcp__claude_ai_Gmail__gmail_create_draft"
     ],
     "deny": [
       "Bash(rm -rf /:*)",

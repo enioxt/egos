@@ -176,7 +176,258 @@ Seria interessante conversar sobre parceria?
 
 ---
 
-## 5. POSTS PÚBLICOS
+### 4G — Para alguém reclamando de vazamento de dados / breach
+
+```
+Oi [nome], vi seu post sobre o vazamento.
+
+Infelizmente tá ficando comum no Brasil. ANPD já multou R$ 65M em 2025.
+
+Desenvolvi uma API que detecta PII em tempo real antes que vaze:
+guard.egos.ia.br/landing
+
+15 padrões brasileiros (CPF, RG, CNPJ, MASP...), 4ms.
+Free tier pra quem quer testar.
+
+Se tiver interesse em proteger dados proativamente: chama.
+```
+
+---
+
+### 4H — Para software house / dev shop procurando projeto
+
+```
+Oi [nome], vi que vocês trabalham com software sob demanda.
+
+Tenho produtos prontos que podem acelerar entregas de vocês:
+
+→ Guard Brasil — API LGPD/PII (encaixa em qualquer projeto com dados pessoais)
+→ Eagle Eye — monitoramento de licitações (para prospecção B2G de vocês)
+→ Carteira Livre — marketplace com split payment (white-label possível)
+
+Código MIT, VPS rodando. Rápido pra adaptar.
+
+Se fizer sentido conversar: DM aberta.
+```
+
+---
+
+### 4I — Para alguém em crypto/Web3 precisando de compliance
+
+```
+Oi [nome], vi seu post sobre [projeto crypto].
+
+Web3 no Brasil tá precisando se adequar à LGPD também.
+Exchanges já foram notificadas pela ANPD.
+
+Desenvolvi API de detecção/mascaramento de PII:
+guard.egos.ia.br/landing
+
+Funciona em Node.js, Python, Go. 4ms latência.
+Pode ajudar vocês a demonstrar compliance se precisarem.
+
+DM aberta se quiser trocar ideia.
+```
+
+---
+
+### 4J — Para advogado de tecnologia / compliance
+
+```
+Oi [nome], vi seu trabalho com [tech law/compliance].
+
+Desenvolvi ferramenta técnica que pode interessar:
+guard.egos.ia.br/landing
+
+API de detecção de PII brasileiro com evidence chain.
+Ajuda a demonstrar due diligence técnica pra ANPD.
+
+Também tenho:
+→ Eagle Eye (licitações) — carteiralivre.com
+→ Carteira Livre (marketplace) — carteiralivre.com
+
+Se fizer sentido conversar sobre parceria: DM aberta.
+```
+
+---
+
+### 4K — Para alguém postando "procuro parceiro técnico"
+
+```
+Oi [nome], vi seu post procurando parceiro técnico.
+
+Sou builder solo, ex-investigador policial → código.
+Tenho vários MVPs rodando, código MIT, infraestrutura estável.
+
+O que desenvolvo rápido:
+- APIs, automações, scrapers, análise de dados
+- LGPD/compliance, OSINT, grafos
+- Marketplace, split payment, fintech modules
+
+A real: sou rápido pra construir, não sei vender.
+Se você tem o lado comercial e precisa do técnico: vamos conversar.
+```
+
+---
+
+### 4L — Para alguém em dados públicos / transparência / TI cidadão
+
+```
+Oi [nome], vi seu trabalho com dados públicos/transparência.
+
+Desenvolvi algumas ferramentas nessa linha:
+
+→ EGOS Inteligência — grafo com 83M entidades públicas BR
+  (empresas, contratos, PEPs, sanções, licitações)
+  inteligencia.egos.ia.br
+
+→ Eagle Eye — monitoramento de licitações em 84 municípios
+  eagleeye.egos.ia.br/dashboard.html
+
+Código open source. Se tiver interesse em colaborar: DM aberta.
+```
+
+---
+
+### 4M — Resposta curta para threads de PII/LGPD (público)
+
+```
+Desenvolvi uma API open source pra isso:
+https://guard.egos.ia.br/landing
+
+15 padrões brasileiros, 4ms, free tier.
+DM aberta se quiser testar.
+```
+
+---
+
+### 4N — Resposta curta para threads de licitações/govtech (público)
+
+```
+Tô monitorando licitações em 84 territórios com OSINT:
+https://eagleeye.egos.ia.br/dashboard.html
+
+7 oportunidades abertas esta semana.
+DM se quiser trocar ideia sobre automação B2G.
+```
+
+---
+
+### 4O — Para quem posta sobre "estou cansado de trabalhar sozinho"
+
+```
+Oi [nome], me identifiquei com seu post.
+
+Builder solo aqui também. Desenvolvo rápido mas distribuição é meu gargalo.
+
+Tenho produtos técnicos rodando (LGPD API, licitações, marketplace)
+mas não tenho paciência pra venda/partnerships.
+
+Se você tá no lado oposto (vende bem, procura produto técnico sólido):
+será que não faz sentido conversarmos?
+```
+
+---
+
+### 4P — Para head de produto / CPO reclamando de dívida técnica
+
+```
+Oi [nome], vi seu post sobre dívida técnica/legado.
+
+Uma coisa que aprendi: começar com governança desde o dia 1.
+
+Desenvolvi framework EGOS exatamente pra isso:
+- Frozen zones (nada muda sem review)
+- Pre-commit enforcement
+- Agentes autônomos com bounds
+
+github.com/enioxt/egos
+
+Se tiver interesse em como aplicar isso no seu contexto: DM aberta.
+```
+
+---
+
+### 4Q — Para alguém em recruiting tech / HR tech
+
+```
+Oi [nome], vi que você trabalha com [RH tech/recrutamento].
+
+Processos de seleção hoje em dia coletam MUITO dado pessoal.
+LGPD se aplica full — e a ANPD tá fiscalizando.
+
+Desenvolvi API de detecção de PLI que pode ajudar vocês a:
+- Identificar dados sensíveis em currículos
+- Mascarar CPF/ RG antes de armazenar
+- Gerar evidence chain pra compliance
+
+guard.egos.ia.br/landing
+
+DM aberta se fizer sentido conversar.
+```
+
+---
+
+### 4R — Para alguém em healthtech / telemedicina
+
+```
+Oi [nome], vi seu post sobre [healthtech/telemedicina].
+
+Saúde é setor crítico pra LGPD — dados sensíveis, multas altas.
+ANPD já notificou operadores de saúde.
+
+Desenvolvi API de detecção/mascaramento de PII:
+guard.egos.ia.br/landing
+
+Funciona em tempo real, 4ms, preserva formato dos dados.
+Free tier pra testes.
+
+Se tiverem dúvidas de como aplicar: DM aberta.
+```
+
+---
+
+## 4.1 ARSENAL RÁPIDO — Copy-Paste por Contexto
+
+### Quando alguém pergunta "qual seu produto?"
+
+```
+Tenho 6 produtos técnicos rodando:
+
+🔐 guard.egos.ia.br — API LGPD/PII (15 padrões BR)
+🦅 eagleeye.egos.ia.br — OSINT licitações (84 municípios)
+💼 carteiralivre.com — marketplace split payment
+🧠 inteligencia.egos.ia.br — grafo 83M entidades públicas
+🔗 intelink.ia.br — análise de vínculos
+📱 852.egos.ia.br — chatbot policial
+
+Código MIT. Rápido pra construir. Procurando parceiros de GTM.
+```
+
+### Quando alguém pergunta "o que você faz?"
+
+```
+Sou builder pesquisador. Ex-investigador policial → código.
+Desenvolvo MVPs rápido (18 meses → 13 produtos).
+Código open source, infraestrutura estável.
+
+Meu gargalo: não sei vender.
+Procurando parceiros que complementem isso.
+```
+
+### Quando alguém pergunta "por que open source?"
+
+```
+Dois motivos:
+
+1. Transparência = trust. Código auditável, sem black box.
+2. Quem compra LGPD/compliance quer ver como funciona.
+
+MIT license não impede monetização (Stripe, SaaS).
+Só impede de esconder merda do usuário.
+```
+
+---
 
 Postar com pouca frequência. Não fazer marketing agressivo.
 Mostrar o trabalho. Ser honesto sobre o estágio.

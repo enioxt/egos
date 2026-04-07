@@ -1,7 +1,7 @@
 {
   "manifest": "/home/enio/egos/.egos-manifest.yaml",
   "repo": "egos",
-  "verified_at": "2026-04-07T17:58:26.392Z",
+  "verified_at": "2026-04-07T20:01:22.558Z",
   "summary": {
     "total_claims": 5,
     "passed": 5,
@@ -28,9 +28,9 @@
       "description": "Capabilities declared in CAPABILITY_REGISTRY.md",
       "status": "ok",
       "last_value": "16",
-      "current_value": "16",
+      "current_value": "20",
       "tolerance": "±10",
-      "drift_abs": 0,
+      "drift_abs": 4,
       "command": "grep -c '^### ' docs/CAPABILITY_REGISTRY.md",
       "severity": "ok"
     },

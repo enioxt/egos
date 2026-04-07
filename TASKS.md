@@ -4,6 +4,61 @@
 
 ---
 
+### X.com Monitoring System (2026-04-07)
+**SSOT:** `docs/social/X_POSTS_SSOT.md` | **Features Roadmap:** `docs/social/X_FEATURES_INTEGRATION_ROADMAP.md` | **Scripts:** `scripts/x-opportunity-alert.ts`, `scripts/x-approval-bot.ts`, `scripts/setup-x-monitoring.sh`
+**Context:** Sistema completo de monitoramento de oportunidades X.com. Busca automática a cada 2h, alertas WhatsApp/Telegram, aprovação manual via bot. Integrando melhores features de ferramentas pagas (AutoTweet, TweetHunter, Hypefury) em solução própria self-hosted.
+
+**Done (2026-04-07):**
+- X-COM-001: x-opportunity-alert.ts — 10 queries de oportunidades, alertas Telegram/WhatsApp
+- X-COM-002: x-approval-bot.ts — bot Telegram para aprovar/rejeitar/enviar DMs
+- X-COM-003: setup-x-monitoring.sh — deploy automatizado no VPS
+- X-COM-004: X_POSTS_SSOT.md expandido — 14 novos templates DM (4G-4R) + arsenal rápido
+- X-COM-005: X_FEATURES_INTEGRATION_ROADMAP.md — features de $275/mo integradas
+
+**P0 — Deploy + Core (Esta semana):**
+- [ ] **X-COM-006**: Adaptar setup script para `/opt/x-automation/` (evitar conflito com `/opt/xmcp` existente)
+- [ ] **X-COM-007**: Deploy no VPS — testar alertas end-to-end Telegram/WhatsApp
+- [ ] **X-COM-008**: x-smart-scheduler.ts — análise de audiência para melhores horários
+- [ ] **X-COM-009**: x-evergreen-recycler.ts — recompartilhamento inteligente de top posts
+
+**P1 — Growth (Próximas 2 semanas):**
+- [ ] **X-COM-010**: Thread composer web — interface no HQ para criar threads
+- [ ] **X-COM-011**: x-viral-library.ts — biblioteca de conteúdo viral por nicho
+- [ ] **X-COM-012**: x-lead-crm.ts — tracking de leads no Supabase
+- [ ] **X-COM-013**: Auto-DM sequences — workflow day 0/3/7 pós-aprovação
+
+**P2 — Scale (Mês 2):**
+- [ ] **X-COM-014**: Social listening avançado — Brand24-style monitoring
+- [ ] **X-COM-015**: Analytics dashboard no HQ — heatmaps, métricas de crescimento
+- [ ] **X-COM-016**: Auto-plug — promoção inteligente em tweets virais
+- [ ] **X-COM-017**: Variations generator — A/B testing com LLM local (Gemma)
+
+---
+
+### GovTech — Documentação de Oportunidades (2026-04-07)
+**SSOT:** `docs/knowledge/GOVTECH_LICITACOES_ABERTAS_2026-04-07.md`
+**Context:** Documentar licitações abertas para apresentar Eagle Eye e stack EGOS a potenciais parceiros. **NÃO participar de licitações diretamente** — falta habilitação completa (SICAF, atestados). Foco em documentar e prospectar parcerias com software houses habilitadas.
+
+**Done (2026-04-07):**
+- GOV-TECH-001: Levantamento de 7 licitações abertas com match técnico
+- GOV-TECH-002: Template de proposta técnica reutilizável
+- GOV-TECH-003: Pitch de parceria para software houses
+- GOV-TECH-004: Análise SAAE Linhares — match perfeito com Evolution API
+
+**P1 — Documentação + Parcerias (Esta semana):**
+- [ ] **GOV-TECH-005**: Atualizar documento com novas licitações (monitoramento diário)
+- [ ] **GOV-TECH-006**: Criar one-pager "Eagle Eye para Parceiros" (stack técnica)
+- [ ] **GOV-TECH-007**: Identificar 5 software houses habilitadas para abordar
+- [ ] **GOV-TECH-008**: Preparar deck de 5 minutos para calls de parceria
+
+**P2 — Pilotos (Mês 2-3, se parceria confirmada):**
+- [ ] **GOV-TECH-009**: Atestado técnico via piloto gratuito (após parceria)
+- [ ] **GOV-TECH-010**: Registro SICAF (se viável economicamente)
+
+**Nota:** Licitações identificadas são para documentação e apresentação a parceiros. Não executar propostas sem parceiro habilitado.
+
+---
+
 ### Doc-Drift Shield Implementation (2026-04-07)
 **SSOT:** `docs/DOC_DRIFT_SHIELD.md` | **Handoff:** `docs/_current_handoffs/handoff_2026-04-07_doc-drift-shield-plan.md`
 **Context:** P33 discovered severe drift across READMEs (Carteira Livre: 54 pages → real 134 / +148%; 68 APIs → real 254 / +273%; BR-ACC 77M → real 83,773,683 Neo4j nodes). Solution: 4-layer structural shield. L1 (contract manifest) + L4 part B (CLAUDE.md §27 rules) DONE. L2 (pre-commit) + L3 (VPS sentinel) + L4 part A (CCR module) pending.
