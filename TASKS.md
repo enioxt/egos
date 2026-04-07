@@ -445,14 +445,10 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 **P0 — Critical (This Week: Before Hermes MVP):**
 
 - [ ] **VPS-BACKUP-001**: Remove `/opt/backups/` (15GB, 3 dumps) — freeing 2-4GB RAM pressure relief. ⚠️ MANUAL ACTION: `ssh -i ~/.ssh/hetzner_ed25519 root@204.168.217.125 'rm -rf /opt/backups.archived_20260407'` then verify `df -h`. [OWNER: Enio, MANUAL SSH required]
-- [x] **VPS-BACKUP-002**: ✅ DONE 2026-04-07 — docs/VPS_RESOURCE_SSOT.md created (backup strategy + monitoring rules documented)
-- [x] **VPS-MEMORY-001**: ✅ DONE 2026-04-07 — scripts/vps-ram-monitor.sh (ready for VPS deploy via scripts/deploy-vps-monitoring.sh)
-- [x] **VPS-NEO4J-TUNE-001**: ✅ DONE 2026-04-07 — scripts/analyze-neo4j-heap.sh (ready to run: `bash scripts/analyze-neo4j-heap.sh`)
 
 **P1 — Infrastructure Baseline (P35):**
 
 - [ ] **VPS-CAPACITY-001**: Create capacity planning model — given: current 19 containers, Neo4j 4.8GB, how much RAM remains for Hermes+Codex? Simulate: "if we add X, what breaks?" [OWNER: arch, 2h]
-- [x] **VPS-HEALTH-SSOT**: ✅ DONE 2026-04-07 — docs/VPS_RESOURCE_SSOT.md (merged with VPS-BACKUP-002)
 - [ ] **VPS-SWAP-001**: Add 4GB swap partition if cleanup + Neo4j tuning insufficient. Benchmark: does swapping kill performance? (defer if not needed) [OWNER: infra, P1]
 
 ---
@@ -507,9 +503,6 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 
 **P0 — Token Refresh & Quota Management (This Week):**
 
-- [x] **GEM-TOKEN-001**: ✅ DONE 2026-04-07 — scripts/gemini-token-refresh.sh (ready for cron deployment)
-- [x] **GEM-TOKEN-002**: ✅ DONE 2026-04-07 — scripts/gemini-quota-tracker.ts (ready for cron deployment)
-- [x] **ORB-001**: ✅ DONE 2026-04-07 — docs/ORCHESTRATION_BRIEF.md (5-layer routing architecture documented)
 
 **P1 — Integration & Fallback Chains (P35):**
 

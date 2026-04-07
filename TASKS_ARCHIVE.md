@@ -123,3 +123,13 @@
 - [x] **DIAG-P9**: docs/ENIO_DEVELOPER_TIMELINE.md — git archaeology 5 repos, velocity analysis ✅
 - [x] **DIAG-P10a**: Post PT Version 6 pronto — X_POST_5_VERCOES_LOW_PROFILE.md ✅
 - [x] **DIAG-P10b**: Post EN nativo escrito — Neo4j/agents/OSINT/builder angle ✅
+
+## Archived 2026-04-07 (7 tasks)
+
+- [x] **VPS-BACKUP-002**: ✅ DONE 2026-04-07 — docs/VPS_RESOURCE_SSOT.md created (backup strategy + monitoring rules documented)
+- [x] **VPS-MEMORY-001**: ✅ DONE 2026-04-07 — scripts/vps-ram-monitor.sh (ready for VPS deploy via scripts/deploy-vps-monitoring.sh)
+- [x] **VPS-NEO4J-TUNE-001**: ✅ DONE 2026-04-07 — scripts/analyze-neo4j-heap.sh (ready to run: `bash scripts/analyze-neo4j-heap.sh`)
+- [x] **VPS-HEALTH-SSOT**: ✅ DONE 2026-04-07 — docs/VPS_RESOURCE_SSOT.md (merged with VPS-BACKUP-002)
+- [x] **GEM-TOKEN-001**: ✅ DONE 2026-04-07 — scripts/gemini-token-refresh.sh (ready for cron deployment)
+- [x] **GEM-TOKEN-002**: ✅ DONE 2026-04-07 — scripts/gemini-quota-tracker.ts (ready for cron deployment)
+- [x] **ORB-001**: ✅ DONE 2026-04-07 — docs/ORCHESTRATION_BRIEF.md (5-layer routing architecture documented)
