@@ -1,0 +1,104 @@
+{
+  "manifest": "/home/enio/br-acc/.egos-manifest.yaml",
+  "repo": "br-acc",
+  "verified_at": "2026-04-07T01:15:07.353Z",
+  "summary": {
+    "total_claims": 7,
+    "passed": 7,
+    "warned": 0,
+    "drifted": 0,
+    "errors": 0,
+    "total_domains": 2,
+    "domains_ok": 2,
+    "domains_drifted": 0
+  },
+  "results": [
+    {
+      "id": "total_commits",
+      "description": "Total commits to main branch",
+      "status": "ok",
+      "last_value": "360",
+      "current_value": "361",
+      "tolerance": "min:360",
+      "command": "git log --pretty=format:'%h' | wc -l | tr -d ' '",
+      "severity": "ok"
+    },
+    {
+      "id": "github_stars",
+      "description": "Stars on enioxt/EGOS-Inteligencia",
+      "status": "ok",
+      "last_value": "128",
+      "current_value": "128",
+      "tolerance": "min:128",
+      "command": "curl -s https://api.github.com/repos/enioxt/EGOS-Inteligencia | python3 -c \"import json,sys; print(json.load(sys.stdin)['stargazers_count'])\"",
+      "severity": "ok"
+    },
+    {
+      "id": "github_forks",
+      "description": "Forks on enioxt/EGOS-Inteligencia",
+      "status": "ok",
+      "last_value": "16",
+      "current_value": "16",
+      "tolerance": "min:16",
+      "command": "curl -s https://api.github.com/repos/enioxt/EGOS-Inteligencia | python3 -c \"import json,sys; print(json.load(sys.stdin)['forks_count'])\"",
+      "severity": "ok"
+    },
+    {
+      "id": "neo4j_nodes",
+      "description": "Total nodes in Neo4j graph (running on VPS bracc-neo4j container)",
+      "status": "ok",
+      "last_value": "83773683",
+      "current_value": "83773683",
+      "tolerance": "min:83000000",
+      "command": "ssh -o ConnectTimeout=10 -i ~/.ssh/hetzner_ed25519 root@204.168.217.125 \\\n  'curl -s -u neo4j:\"$(docker exec bracc-neo4j env | grep NEO4J_AUTH | cut -d= -f2 | cut -d/ -f2)\" \\\n  http://localhost:7474/db/neo4j/query/v2 \\\n  -H \"Content-Type: application/json\" \\\n  -d \"{\\\"statement\\\":\\\"MATCH (n) RETURN count(n) as nodes\\\"}\"' \\\n  | python3 -c \"import json,sys; print(json.load(sys.stdin)['data']['values'][0][0])\"\n",
+      "severity": "ok"
+    },
+    {
+      "id": "neo4j_relationships",
+      "description": "Total relationships in Neo4j graph",
+      "status": "ok",
+      "last_value": "26808540",
+      "current_value": "26808540",
+      "tolerance": "min:26000000",
+      "command": "ssh -o ConnectTimeout=10 -i ~/.ssh/hetzner_ed25519 root@204.168.217.125 \\\n  'curl -s -u neo4j:\"$(docker exec bracc-neo4j env | grep NEO4J_AUTH | cut -d= -f2 | cut -d/ -f2)\" \\\n  http://localhost:7474/db/neo4j/query/v2 \\\n  -H \"Content-Type: application/json\" \\\n  -d \"{\\\"statement\\\":\\\"MATCH ()-[r]->() RETURN count(r) as rels\\\"}\"' \\\n  | python3 -c \"import json,sys; print(json.load(sys.stdin)['data']['values'][0][0])\"\n",
+      "severity": "ok"
+    },
+    {
+      "id": "neo4j_node_labels",
+      "description": "Distinct node labels (entity types) in Neo4j graph",
+      "status": "ok",
+      "last_value": "32",
+      "current_value": "32",
+      "tolerance": "±2",
+      "drift_abs": 0,
+      "command": "ssh -o ConnectTimeout=10 -i ~/.ssh/hetzner_ed25519 root@204.168.217.125 \\\n  'curl -s -u neo4j:\"$(docker exec bracc-neo4j env | grep NEO4J_AUTH | cut -d= -f2 | cut -d/ -f2)\" \\\n  http://localhost:7474/db/neo4j/query/v2 \\\n  -H \"Content-Type: application/json\" \\\n  -d \"{\\\"statement\\\":\\\"CALL db.labels() YIELD label RETURN count(label) as n\\\"}\"' \\\n  | python3 -c \"import json,sys; print(json.load(sys.stdin)['data']['values'][0][0])\"\n",
+      "severity": "ok"
+    },
+    {
+      "id": "python_source_files",
+      "description": "Python source files in api/ and etl/ packages",
+      "status": "ok",
+      "last_value": "7248",
+      "current_value": "7248",
+      "tolerance": "±500",
+      "drift_abs": 0,
+      "command": "find api/ etl/ -name '*.py' 2>/dev/null | wc -l | tr -d ' '",
+      "severity": "ok"
+    }
+  ],
+  "domains": [
+    {
+      "url": "https://inteligencia.egos.ia.br/",
+      "status": "ok",
+      "expected_status": "200",
+      "actual_status": "200"
+    },
+    {
+      "url": "https://api.github.com/repos/enioxt/EGOS-Inteligencia",
+      "status": "ok",
+      "expected_status": "200",
+      "actual_status": "200"
+    }
+  ],
+  "exit_code": 0
+}

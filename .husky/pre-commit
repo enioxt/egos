@@ -151,6 +151,14 @@ if echo "$STAGED" | grep -q '\.md$'; then
   fi
 fi
 
+# 5.5. Doc-Drift Check — Layer 2 of the Doc-Drift Shield
+echo "  [5.5/8] doc-drift: verifying .egos-manifest.yaml claims..."
+if [ -t 0 ]; then
+  bash .husky/doc-drift-check.sh || exit 1
+else
+  bash .husky/doc-drift-check.sh </dev/null || exit 1
+fi
+
 # 6. File Intelligence — Classification + Compliance + PII scan
 echo "  [5/5] file intelligence: classifying and checking staged files..."
 bash scripts/file-intelligence.sh 2>/dev/null || {

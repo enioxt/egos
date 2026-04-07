@@ -619,6 +619,44 @@
         "algorithm": "ed25519",
         "ledger_table": "agent_actions_ledger"
       }
+    },
+    {
+      "id": "doc-drift-sentinel",
+      "name": "Doc-Drift Sentinel",
+      "description": "Layer 3 of the EGOS Doc-Drift Shield. Daily scanner that verifies all .egos-manifest.yaml claims against live state, auto-patches last_value on manifests, opens GitHub issues, sends Telegram alerts on drift.",
+      "area": "governance",
+      "entrypoint": "agents/agents/doc-drift-sentinel.ts",
+      "path": "agents/agents/doc-drift-sentinel.ts",
+      "runtime": "bun",
+      "schedule": "0 3 * * *",
+      "schedule_tz": "America/Sao_Paulo",
+      "status": "active",
+      "tags": ["governance", "documentation", "drift", "sentinel"],
+      "created_at": "2026-04-07",
+      "requires": ["yaml", "git", "gh"],
+      "outputs": ["docs/jobs/YYYY-MM-DD-doc-drift-sentinel.md"],
+      "dry_run_support": true,
+      "migrated_from": "new",
+      "owner": "enioxt",
+      "runtime_proof": "bun agents/agents/doc-drift-sentinel.ts --dry",
+      "telemetry_source": "stdout",
+      "cost_source": "none",
+      "last_duration_ms": null,
+      "loop_mechanism": "cron",
+      "risk_level": "T1",
+      "run_modes": ["dry_run", "execute"],
+      "side_effects": [
+        "git_branch",
+        "github_issue",
+        "telegram_alert"
+      ],
+      "approval_level": "L1",
+      "signature": {
+        "enabled": false,
+        "public_key": null,
+        "algorithm": "ed25519",
+        "ledger_table": "agent_actions_ledger"
+      }
     }
   ]
 }
