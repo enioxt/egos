@@ -1,6 +1,6 @@
 # CHATBOT_SSOT — Canonical Chatbot Standard
 
-> **VERSION:** 1.2.0 | **UPDATED:** 2026-03-21
+> **VERSION:** 2.0.0 | **UPDATED:** 2026-04-07
 > **REFERENCE IMPLEMENTATION:** `/home/enio/852` (852 Inteligência) + reusable core modules in `/home/enio/egos/packages/shared`
 > **STATUS:** Active — all new chatbots MUST follow this standard
 
@@ -390,16 +390,39 @@ Minimum evidence per rollout:
 
 ---
 
-## 11. Adoption Status
+## 12. Adoption Status
 
 | Project | Status | Verified State | Next Gap |
 |---------|--------|----------------|----------|
-| **852** | SSOT Reference | Production-grade reference implementation with prompt, ATRiAN, PII, memory, routing, telemetry, and hardening. | Keep as origin benchmark. |
+| **852** | SSOT Reference | Active development — reference implementation with prompt, ATRiAN, PII, memory, routing, telemetry, and hardening. Real users, but evolving. | Keep as origin benchmark. |
 | **carteira-livre** | HAS | Shared ATRiAN/PII/memory modules integrated in `app/api/tutor/route.ts`; validated by typecheck + `chatbot_compliance_checker` `100/100`. | Broader 852 parity remains optional (exports/dashboard-level extras). |
 | **intelink** | HAS | Shared ATRiAN/PII/memory modules integrated in `app/api/chat/route.ts`; validated by typecheck + `chatbot_compliance_checker` `100/100`. | Deeper parity with 852 review/export surfaces remains optional. |
 | **egos-web** | BASIC | Public chat has provider fallback, rate limiting, cost guard, prompt hardening, and file-context awareness; `chatbot_compliance_checker` currently scores `64/100`. | Adopt shared ATRiAN/PII/memory modules and align maturity tags in registry. |
 | **Forja** | FOUNDATION | Prompt builder + `/api/chat` foundation integrated with shared modules; validated by typecheck + `chatbot_compliance_checker` `100/100`. | DB-backed memory, durable telemetry, tools, and full production workflow still pending. |
 | **br-acc** | Python variant | Tool-calling chat, public guard, in-memory conversation state, evidence chain, and rate limits exist in Python; `chatbot_compliance_checker` currently scores `71/100`. | Define ATRiAN/shared-module adapter path and align replication contract to this SSOT. |
+
+---
+
+## 13. v2.0 Upgrade Roadmap (2026-04-07)
+
+**Architectural decisions:**
+- Vercel AI SDK v4+ is canonical TS adapter (not custom streaming)
+- LangGraph is canonical Python orchestrator for agent loops
+- JSON Schema source-of-truth for TS↔Python parity (types generated from `packages/shared/contracts/`)
+- OpenTelemetry for traces + Supabase for queryable analytics (duals, not competitors)
+- Memory is layered: Working → Episodic (AI summary) → Semantic (pgvector) → Entity (facts)
+
+**New modules (M9–M16):**
+- M9: Tool Calling & Agent Loop (`runAgentLoop`, lifted from br-acc into shared)
+- M10: Structured Output Layer (Zod/Pydantic with auto-retry)
+- M11: Multi-modal Message Parts (text/image/file/tool canonical type)
+- M12: Conversation Forking & Edit
+- M13: Resumable Streams (stream IDs + buffer)
+- M14: Eval & Regression Harness (golden set CI gate)
+- M15: Dual-Runtime Spec (TS + Python `packages/shared_py/`)
+- M16: Agent Handoff Swarm-style (`transfer_to_<agent>` primitive)
+
+**P0 tasks:** CHAT-001..010 in `TASKS.md`
 
 ---
 
