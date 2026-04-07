@@ -270,40 +270,10 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 - [ ] CTX-002: Auto-index codebase-memory-mcp on /start
 
 ### Partnership & Distribution Strategy (2026-04-05)
-
-**Goal:** Find technical + business partners to accelerate Guard Brasil to enterprise scale.
-**SSOT:** `docs/GTM_SSOT.md` (consolidated 2026-04-06) + `docs/business/MONETIZATION_SSOT.md` (ecosystem partner model v1.1.0 2026-04-06)
-
-**P0 — Immediate (this week):**
-- [ ] PART-001: Publish Guard Brasil on npm + ProductHunt (M-007 emails first)
-- [ ] PART-003: Reach out to 3 DPO/compliance SaaS BR (templates ready: docs/GTM_SSOT.md §5)
-- [ ] PART-004: Submit to Stripe App Marketplace (already on Stripe — low friction)
-- [ ] PART-016: Decide PARTNER-D1: Guard Brasil first partner — co-founder operator vs channel partner (see MONETIZATION_SSOT §16)
-- [ ] PART-017: Schedule 2 calls this week with prospects from Tier A list (MONETIZATION_SSOT §13)
-
-**P0 — Ecosystem Partner Search (new):**
-- [ ] ECO-PART-001: EGOS Inteligência — reach out to 2 due-diligence/govtech boutiques (pilot pitch ready)
-- [ ] ECO-PART-002: Eagle Eye — reach out to 2 procurement/licitações operators (alert pilot ready)
-- [ ] ECO-PART-003: Forja — reach out to 2 industrial ERP/metalworking consultancies (WhatsApp pilot ready)
-- [ ] ECO-PART-004: Prepare 1-page partner brief per P1 product with proof points (MONETIZATION_SSOT §11.1)
-- [ ] ECO-PART-005: Update root AGENTS.md meta-docs list to include MONETIZATION_SSOT.md read order
-
-**P1 — Distribution Partners:**
-- [ ] PART-005: Nuvemshop / VTEX app store integration (e-commerce PII protection)
-- [ ] PART-006: Totvs / SAP BR partner program (ERP + LGPD = natural fit)
-- [ ] PART-007: AWS Marketplace listing (SaaS contract, pay-as-you-go)
-- [ ] PART-008: Reach out to DPOnet / OneTrust BR for white-label or API partnership
-
-**P1 — Enterprise Layer:**
-- [ ] PART-009: SLA documentation v1.0 (99.9% uptime, <5ms P95, incident response)
-- [ ] PART-010: SOC2 readiness assessment (with Vanta or Secureframe)
-- [ ] PART-011: Enterprise pricing page (custom contracts, volume, dedicated support)
-- [ ] PART-012: Security questionnaire template (ready for enterprise procurement)
-
-**P2 — Technical Integrations:**
-- [ ] PART-013: LangChain Guard Brasil tool (npm @egosbr/guard-brasil-langchain)
-- [ ] PART-014: Zapier / Make.com connector
-- [ ] PART-015: Bubble.io plugin (no-code market)
+**Compressed:** See `docs/GTM_SSOT.md` + `docs/MONETIZATION_SSOT.md` for full roadmap.
+- [ ] **PART-001**: Publish npm + ProductHunt (M-007 emails first)
+- [ ] **M-007**: Send 5 outreach emails to DPOs (templates in GTM_SSOT §5) — **STALE 7+ days**
+- [ ] **PART-016**: Decide PARTNER-D1 co-founder model
 
 ---
 
@@ -322,41 +292,17 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 
 ---
 
-### P25 — GTM-First Phase (2026-04-06)
+### GTM & Incidents (P25-P35)
 
-**North Star:** R$30k MRR by 2026-06-30. Every task must answer "who uses this?"
-**SSOT:** `docs/GTM_SSOT.md` | Market research: `docs/business/MARKET_RESEARCH_GUARD_BRASIL_2026.md`
-**ICP (confirmed):** CTOs/backend devs at fintechs+healthtechs 50-500 employees. Handle CPF/RG daily, ANPD pressure, buy in days.
-**Positioning:** "The Presidio for Brazil — free API key, zero setup, 15 BR PII patterns." Presidio has 0 BR patterns.
-**Key insight:** Privacy Tools BR = PARTNER not competitor (process tool, no API). OneTrust/BigID = enterprise (R$50k+), not our market.
+**SSOT:** `docs/GTM_SSOT.md` | **ICP:** CTOs/backend devs at fintechs+healthtechs (confirmed).  
+**INC-001 (2026-04-06):** Force-push incident — recovered. Mitigations: `.husky/pre-push` blocks, GitHub branch protection enabled, CLAUDE.md §25 added.
 
-**P0 — INCIDENT 2026-04-06 (force-push by scheduled agent):**
-- [ ] INC-001: A scheduled CCR job (likely Code Intel + Security Audit, author "Claude <noreply@anthropic.com>") force-pushed to origin/main and dropped 9 commits of P26/P27 work. Recovered via merge `1d1ef23`. Mitigations applied: (1) `.husky/pre-push` blocks non-FF push to protected branches locally, (2) GitHub branch protection enabled (allow_force_pushes=false, allow_deletions=false). **Action:** identify which scheduled job did this — check claude.ai/code/scheduled history for runs that touched git, fix the agent to do `git fetch && git rebase origin/main` before any push, prefer `git pull --rebase` or worktree isolation. No more direct commits on detached/stale main.
+**P0 — Social & Outreach (stale, see GTM_SSOT.md for details):**
+- [ ] **M-007**: Send 5 outreach emails to DPOs (STALE 7+ days)
+- [ ] **GTM-002**: X.com thread demo (4 tweets, drafts ready)
+- [ ] **GTM-001**: x-reply-bot search tuning (lgpd/anpd/dpo keywords)
 
-**P0 — SOCIAL FIRST (reprio 2026-04-06 per Enio): X.com → LinkedIn → email**
-- [ ] GTM-002: Publish 4-tweet showcase thread on X.com @anoineim — demo Guard Brasil (CPF/RG/MASP, 4ms, free tier). Drafts ready: docs/GTM_SSOT.md §4.1. **Blocker:** no scripts/x-post.ts yet (x-reply-bot has OAuth1.0a but only postReply). Action: build scripts/x-post.ts (thread mode), post today.
-- [ ] GTM-009: Publish LinkedIn post targeting compliance managers + DPOs BR. Draft ready: docs/GTM_SSOT.md §4.3. **Blocker:** no LINKEDIN_* credentials in .env + LinkedIn API requires OAuth2 app approval. Action: post MANUALLY (copy/paste) — fastest path, autonomous posting defer to GTM-014.
-- [ ] GTM-011: X.com solo tweet "ANPD está acelerando fiscalização em 2026..." + link free tier (from market research). Post after GTM-002 thread lands.
-- [ ] GTM-014: **NEW** — scripts/x-post.ts: standalone thread poster (reuse OAuth1.0a from x-reply-bot lines 169-225). Features: reads markdown → posts thread → returns thread URL. Required for GTM-002/011 autonomous.
-- [ ] GTM-015: og-image.jpg for Guard Brasil (1200x630, HTML template ready). Playwright screenshot automation. Plan: `/home/enio/.claude/plans/precious-doodling-clover.md` (ready next session).
-- [ ] M-007: Send 5 outreach emails to DPOs/compliance teams (templates: docs/GTM_SSOT.md §5). Now P0#2 (was oldest blocker, reprio'd behind social per Enio 2026-04-06). Days stale: 7+.
-
-**P0 — GTM support (unchanged):**
-- [ ] GTM-001: Update x-reply-bot search queries to target LGPD/compliance/DPO/ANPD conversations on X.com (currently too broad — add keywords: lgpd, anpd, dpo, "proteção de dados", "vazamento de dados", "conformidade")
-- [ ] GTM-003: Add GTM metrics card to HQ home page — shows: MRR (R$0), customers (0), M-007 status (STALE), outreach sent/responded, pending demos
-- [ ] GTM-004: Add partner/community discovery track to Gem Hunter — queries: "lgpd api", "data privacy compliance brazil", "dpo tools brasil", "gdpr brazil saas", "pii detection api". Output feeds PART-001..015 pipeline.
-- [ ] GTM-005: Guard Brasil demo video (90 seconds) — record screen: API call → PII detected → LGPD report. Upload to X.com thread.
-
-**P1 — Visibility:**
-- [ ] GTM-006: Deploy Guard Brasil docs at guard.egos.ia.br/docs with interactive API playground (Scalar or Swagger UI)
-- [ ] GTM-007: Submit Guard Brasil to ANPD's public registry of DPO tools (builds legitimacy)
-- [ ] GTM-008: ProductHunt launch — prepare assets, schedule for Tuesday/Wednesday (peak traffic days)
-
-**P1 — Content GTM (from market research):**
-- [ ] GTM-010: dev.to post "Como detectar CPF, RG e MASP em sua API Node.js em 5 minutos" — with live Guard Brasil example. Target: Brazilian backend devs.
-- [ ] GTM-011: X.com thread "ANPD está acelerando fiscalização em 2026. Aqui está uma API gratuita para verificar se seu app vaza PII brasileiro." + link free tier
-- [ ] GTM-012: Reach out to Privacy Tools BR for partnership/integration (they have DPO customers who need our API layer)
-- [ ] GTM-013: Nuvemshop / VTEX app store — create integration guide + submit app listing
+**P1 — Content & Integrations:** GTM-006..013 (docs playground, ProductHunt, dev.to, partnerships) — see git log for status.
 
 ---
 
@@ -494,6 +440,89 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 - [ ] **SD-017 (P2)**: Define API documentation surface and consumer contract [DEP: SD-004, SD-014]
 - [ ] **SD-018 (P2)**: Evaluate TypeScript migration boundaries vs leaving Python core isolated [DEP: SD-002, SD-017]
 - [ ] **SD-019 (P2)**: Freeze post-alpha backlog after evidence from deploy/security/ux/launch gates [DEP: SD-015, SD-016, SD-017, SD-018]
+
+### VPS Infrastructure Optimization & Resource Management (P34-P35)
+
+**Investigation Complete (2026-04-07):** Full VPS audit reveals healthy infrastructure (19 containers stable, 23 agents active, 9-day uptime) but critical RAM pressure (622MB free / 15GB total). Neo4j BR-ACC consuming 4.8GB (31.5% of total). `/opt/backups/` = 15GB of dated Neo4j dumps (2026-04-03/04/05). Decision: Keep BR-ACC online as production SSOT; clean backups; implement intelligent resource management before Hermes MVP.
+
+**SSOT:** `/home/enio/.egos/memory/mcp-store/vps_hetzner_complete_infrastructure_map_2026-04-07.md` | **Handoff:** docs/_current_handoffs/handoff_2026-04-07_doc-drift-shield-plan.md §2
+
+**P0 — Critical (This Week: Before Hermes MVP):**
+
+- [ ] **VPS-BACKUP-001**: Remove `/opt/backups/` (15GB, 3 dumps) — freeing 2-4GB RAM pressure relief. Verify: `df -h` before/after. Log decision in VPS_RESOURCE_SSOT.md. [OWNER: infra]
+- [ ] **VPS-BACKUP-002**: Document backup retention policy — formalize decision to use BR-ACC online (real production graph 83.7M nodes) rather than restore from dump. Store in INFRA_SSOT.md §3. [OWNER: infra]
+- [ ] **VPS-MEMORY-001**: Add RAM monitoring to watchdog cron — alert Telegram if free_ram < 1GB. Current threshold too loose (622MB → crashes possible). Update `/opt/egos/bin/watchdog.sh`. [OWNER: infra, 30min]
+- [ ] **VPS-NEO4J-TUNE-001**: Analyze Neo4j heap allocation — currently taking 4.8GB. Audit: `dbms.memory.heap.initial_size` vs `.max_size` in neo4j.conf. Document if tuning viable without rebuild. [OWNER: infra, 1hr research]
+
+**P1 — Infrastructure Baseline (P35):**
+
+- [ ] **VPS-CAPACITY-001**: Create capacity planning model — given: current 19 containers, Neo4j 4.8GB, how much RAM remains for Hermes+Codex? Simulate: "if we add X, what breaks?" [OWNER: arch, 2h]
+- [ ] **VPS-HEALTH-SSOT**: Create VPS_RESOURCE_SSOT.md documenting: container inventory, memory baseline, free capacity post-cleanup, monitoring thresholds, escalation paths. [OWNER: infra, 1h]
+- [ ] **VPS-SWAP-001**: Add 4GB swap partition if cleanup + Neo4j tuning insufficient. Benchmark: does swapping kill performance? (defer if not needed) [OWNER: infra, P1]
+
+---
+
+### Hermes MVP Deployment (P35 — Proposed Start 2026-04-08)
+
+**Investigation Complete (2026-04-07):** Hermes Agent (24/7 executor framework) ready for MVP. Design documented. Deployment path clear. Blocker: RAM cleanup first (see VPS-BACKUP-001). ROI: R$0-40/month marginal cost, unlocks always-on research + self-improving skills. Risk: Low (can remove in 1h if needed). Trial period: 1 week, go/no-go gate at 2026-04-19.
+
+**SSOT:** `/home/enio/.egos/memory/mcp-store/hermes_agent_investigation_deep_dive_2026-04-07.md`
+
+**P0 — MVP Deployment (Sequential Phases, Start 2026-04-08):**
+
+**Phase 1: Prep (1 hour)**
+- [ ] **HERMES-001-P1**: Confirm `/opt/backups/` cleanup done (VPS-BACKUP-001). Verify: `free -h` shows >2GB available. [DEP: VPS-BACKUP-001 | Owner: infra]
+- [ ] **HERMES-001-P2**: Verify Docker/docker-compose versions on VPS. Confirm: `docker --version && docker-compose --version`. Minimum: Docker 20.x, compose 2.x. [Owner: infra, 10min]
+
+**Phase 2: Build (1 hour)**
+- [ ] **HERMES-002-P1**: Clone Hermes Agent repo to VPS: `ssh ... cd /opt && git clone https://github.com/NousResearch/hermes-agent.git`. [Owner: infra, 15min]
+- [ ] **HERMES-002-P2**: Build Hermes Docker image on VPS: `cd /opt/hermes-agent && docker build -t hermes:latest .`. Confirm: `docker images | grep hermes` shows image. [Owner: infra, 30min]
+- [ ] **HERMES-002-P3**: Prepare docker-compose skeleton — copy from investigation doc (lines 778-817) to `/opt/hermes/docker-compose.yml`. [Owner: infra, 10min]
+
+**Phase 3: Configure (30 min)**
+- [ ] **HERMES-003-P1**: Create first profile: `hermes profile create egos-kernel --model claude-3-7-sonnet-20250219 --system-prompt "$(cat .guarani/BLUEPRINT-EGOS)"`. [Owner: infra, 15min]
+- [ ] **HERMES-003-P2**: Generate `.env` for Hermes: HERMES_MODEL, HERMES_TELEGRAM_TOKEN (from egos-watchdog), HERMES_SQLITE_PATH, HERMES_LOG_LEVEL=info. [Owner: infra, 15min]
+
+**Phase 4: Test (2 hours)**
+- [ ] **HERMES-004-P1**: Start Hermes container: `docker-compose up -d` from /opt/hermes/. Wait 30s. [Owner: infra, 5min]
+- [ ] **HERMES-004-P2**: Run test task: `hermes task --profile egos-kernel "list /opt/egos/agents"`. Confirm: task completes, outputs agent list. [Owner: infra, 15min]
+- [ ] **HERMES-004-P3**: Verify Telegram integration — Hermes should have sent startup message to configured chat_id. Check Telegram. [Owner: infra, 5min]
+- [ ] **HERMES-004-P4**: Monitor logs: `docker logs hermes | tail -50`. Check for errors, memory warnings, startup messages. Confirm: clean boot. [Owner: infra, 10min]
+
+**Phase 5: Trial (1 week: 2026-04-08 through 2026-04-15)**
+- [ ] **HERMES-005-P1**: Run production trial — Hermes stays online 7 days. Measure: uptime, RAM usage, token consumption, error rate. [Owner: infra, monitoring]
+- [ ] **HERMES-005-P2**: Validate: At least 1 auto-generated skill created and persisted to SQLite. Test invoking skill. [Owner: infra]
+- [ ] **HERMES-005-P3**: Cost tracking — capture actual token spend vs estimate (R$0-10 for trial week expected). [Owner: infra]
+- [ ] **HERMES-005-P4**: Decision gate (2026-04-15): Go/no-go for scaling to 6 profiles. If YES → P35 scope expands. If NO → remove, document learnings. [Owner: Enio]
+
+**P1 — Scaling (P35+ Post-MVP):**
+
+- [ ] **HERMES-006**: Scale to 6 profiles (egos-kernel, egos-strategy, egos-governance, egos-research, egos-ops, egos-learning) — one per domain. [DEP: HERMES-005-P4 go]
+- [ ] **HERMES-007**: Integrate Hindsight SDK (persistent memory + world-model sync) — enables GEPA self-improvement. [DEP: HERMES-006]
+- [ ] **HERMES-008**: Connect Gem Hunter v7 as Hermes job — automate cross-repo discovery runs. Cron: `0 2 * * * hermes task --profile egos-kernel "analyze-cross-repo-patterns"`. [DEP: HERMES-006 + GEM_HUNTER_V7]
+- [ ] **HERMES-009**: Add watchdog for Hermes itself — if process dies, auto-restart. Alert via Telegram. [DEP: HERMES-006]
+
+---
+
+### VPS Orchestration — Codex + Claude Code + OpenClaw + Gemini CLI (P35)
+
+**Context:** VPS runs 5 overlapping execution layers. Need explicit orchestration strategy to avoid conflicts, token quota exhaustion, and cost drift.
+
+**SSOT:** `docs/OPENCLAW_SSOT.md` (OpenClaw routing) | `docs/INFRA_SSOT.md` (VPS services mapping)
+
+**P0 — Token Refresh & Quota Management (This Week):**
+
+- [ ] **GEM-TOKEN-001**: Create Gemini CLI token refresh cron on VPS — similar to Codex proxy refresh pattern. Script: `bash /opt/egos/bin/gemini-token-refresh.sh` every 2 hours. Fallback: if token expires, route to DashScope backup. [Owner: infra, 1h, blocks Gem Hunter if skipped]
+- [ ] **GEM-TOKEN-002**: Document daily quota tracking — Gemini CLI has daily free quota (varies by account). Log actual usage to Supabase table `gemini_usage_log` daily. Alert if approaching limit. [Owner: monitoring, 30min]
+- [ ] **ORB-001**: Create orchestration brief: "Who calls what? In what order? What's the contract?" — matrix: Codex (always-on proxy), Claude Code (session-based, R$550/mo pay), OpenClaw (sandbox), Hermes (after MVP). Rules: if Codex available, route research there; if Claude Code needed, use for reasoning only; Hermes handles routine batch tasks. [Owner: arch, 1h]
+
+**P1 — Integration & Fallback Chains (P35):**
+
+- [ ] **ORB-002**: Wire fallback chain — if Codex proxy fails (rate limit / crash), route to DashScope (free tier) or MiniMax-M2.7 (R$40/mo plan). Implement in packages/shared/orchestrator. [Owner: dev, 2h]
+- [ ] **ORB-003**: Add cost attribution per task — log which service (Codex/Claude/Hermes/OpenClaw) executed each job, token count, cost. Route to Supabase. Use for monthly cost review. [Owner: dev + monitoring, 3h]
+- [ ] **ORB-004**: Create HQ dashboard widget: "Orchestration Status" — shows Codex health, Claude Code session count, Hermes uptime, OpenClaw sandbox queue, Gemini token % used. [Owner: UI, 2h]
+
+---
 
  ---
 
