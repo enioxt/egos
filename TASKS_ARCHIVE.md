@@ -117,3 +117,9 @@
 - [x] **COMMIT-001**: carteira-livre committed + pushed (3a9159ff) ✅
 - [x] **COMMIT-002**: br-acc committed + pushed (ad93647) ✅
 - [x] **COMMIT-003**: egos committed + pushed (52a8a36, e597e3c) ✅
+
+## Archived 2026-04-07 (3 tasks)
+
+- [x] **DIAG-P9**: docs/ENIO_DEVELOPER_TIMELINE.md — git archaeology 5 repos, velocity analysis ✅
+- [x] **DIAG-P10a**: Post PT Version 6 pronto — X_POST_5_VERCOES_LOW_PROFILE.md ✅
+- [x] **DIAG-P10b**: Post EN nativo escrito — Neo4j/agents/OSINT/builder angle ✅

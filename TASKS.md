@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.46.0 | **Updated:** 2026-04-07 | **LAST SESSION:** P34 — Doc-Drift Shield L2+L3 complete (verifier, sentinel, hook, 19 agents). DIAG-P6 (br-acc 83.7M + 10 topics) + DIAG-P7 (MASTER_INDEX v1.3.0) done. Remaining: DRIFT-008/009, DIAG-P9, DIAG-P10.
+> **Version:** 2.47.0 | **Updated:** 2026-04-07 | **LAST SESSION:** P35 — readme-syncer (dynamic docs), sentinel cron, timeline, X.com posts PT+EN complete
 
 ---
 
@@ -28,9 +28,6 @@
 **SSOT:** `docs/MASTER_INDEX.md` | **Handoff:** `docs/_current_handoffs/handoff_2026-04-07_doc-drift-shield-plan.md`
 **Context:** P33 captured all verified numbers. Next session applies updates to READMEs, MASTER_INDEX, and creates posts.
 
-- [ ] **DIAG-P9**: Write `docs/ENIO_DEVELOPER_TIMELINE.md` — Dec 2025→Apr 2026 reconstructed from git logs across 5 repos (carteira-livre genesis Dec 12, egos-lab Feb 13, br-acc Feb 22, forja Mar 4, 852 Mar 10)
-- [ ] **DIAG-P10a**: Post X.com PT — Version 6 (investigador→builder, 7 tweets) ready in `/home/enio/personal/X_POST_5_VERCOES_LOW_PROFILE.md`, needs final review
-- [ ] **DIAG-P10b**: Post X.com EN — write native (NOT translation), focus Neo4j/agents/multi-LLM/Web3 for global audience
 
 ---
 
