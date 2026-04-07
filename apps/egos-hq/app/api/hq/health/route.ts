@@ -116,8 +116,12 @@ export async function GET() {
       },
       billing_proxy: {
         ...billingProxyHealth,
-        requests_served: (billingProxyHealth.data as { requestsServed?: number })?.requestsServed ?? null,
-        token_expires_in_hours: (billingProxyHealth.data as { tokenExpiresInHours?: number })?.tokenExpiresInHours ?? null,
+        requests_served: (billingProxyHealth.data as { requestsServed?: unknown })?.requestsServed != null
+          ? Number((billingProxyHealth.data as { requestsServed?: unknown }).requestsServed)
+          : null,
+        token_expires_in_hours: (billingProxyHealth.data as { tokenExpiresInHours?: unknown })?.tokenExpiresInHours != null
+          ? Number((billingProxyHealth.data as { tokenExpiresInHours?: unknown }).tokenExpiresInHours)
+          : null,
       },
       codex_proxy: {
         ...codexProxyHealth,

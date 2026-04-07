@@ -301,8 +301,8 @@ export default function HomePage() {
             >
               <Row label="Status" value={<span style={{ color: svc?.guard_brasil.ok ? C.green : C.red }}>{svc?.guard_brasil.ok ? 'Online' : 'Offline'}</span>} />
               <Row label="Chamadas hoje" value={svc?.guard_brasil.calls_today ?? 0} />
-              <Row label="Receita hoje" value={`$${(svc?.guard_brasil.revenue_today_usd ?? 0).toFixed(4)}`} />
-              <Row label="MRR ativo" value={`R$ ${(svc?.guard_brasil.mrr_brl ?? 0).toFixed(0)}`} />
+              <Row label="Receita hoje" value={`$${Number(svc?.guard_brasil.revenue_today_usd ?? 0).toFixed(4)}`} />
+              <Row label="MRR ativo" value={`R$ ${Number(svc?.guard_brasil.mrr_brl ?? 0).toFixed(0)}`} />
               <div style={{ marginTop: 10, display: 'flex', gap: 6 }}>
                 <Btn small variant="primary" onClick={() => window.open('https://guard.egos.ia.br', '_blank')}>→ Docs</Btn>
                 <Btn small onClick={() => window.open('/api/hq/health', '_blank')}>JSON</Btn>
@@ -356,7 +356,7 @@ export default function HomePage() {
               <Row label="Requisições servidas" value={svc?.billing_proxy.requests_served ?? '—'} />
               <Row label="Token expira em" value={
                 svc?.billing_proxy.token_expires_in_hours != null
-                  ? `${svc.billing_proxy.token_expires_in_hours.toFixed(1)}h`
+                  ? `${Number(svc.billing_proxy.token_expires_in_hours).toFixed(1)}h`
                   : '—'
               } />
               <Row label="Porta" value={<Tag color={C.muted}>:18801</Tag>} />
