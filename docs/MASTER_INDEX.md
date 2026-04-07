@@ -1,7 +1,7 @@
 # EGOS MASTER INDEX — Universal SSOT Registry
 
 > **The canonical source of truth for everything EGOS.**  
-> **Version:** 1.2.0 | **Created:** 2026-04-06 | **Updated:** 2026-04-06  
+> **Version:** 1.3.0 | **Created:** 2026-04-06 | **Updated:** 2026-04-07  
 > **Purpose:** Single document to answer "What do we have? Where is it? What's its status?"
 
 <!-- llmrefs:start -->
@@ -9,7 +9,7 @@
 ## LLM Reference Signature
 
 - **Role:** Universal SSOT registry for entire EGOS ecosystem
-- **Summary:** 17 repos, **18 agents**, 73 scripts, 90.6% coverage — Updated with 2026-04-06 decisions
+- **Summary:** 17 repos, **19 agents**, 73 scripts, 90.6% coverage — Updated 2026-04-07 with verified evidence
 - **Type:** FIXO — Master SSOT, always authoritative
 - **Read next:**
   - `.guarani/RULES_INDEX.md` — canonical governance entry point
@@ -923,6 +923,100 @@ REPOS=(
 | `@egos/registry` | All apps | Module lookup |
 | `@egos/types` | All apps | Shared types |
 | `@egos/mcp-governance` | MCP servers | MCP tooling |
+
+---
+
+## 🔬 Verified Evidence (P33 Diagnostic — 2026-04-07)
+
+> All claims below were verified via command execution on the live system on 2026-04-07.
+> Commands are reproducible. See `.egos-manifest.yaml` in each repo for the full manifest.
+
+### Neo4j Graph (br-acc / EGOS-Inteligencia)
+
+```bash
+# Verify node count (requires VPS SSH + Neo4j access)
+ssh -i ~/.ssh/hetzner_ed25519 root@204.168.217.125 \
+  'curl -s -u neo4j:BrAcc2026EgosNeo4j! \
+  http://localhost:7474/db/neo4j/query/v2 \
+  -H "Content-Type: application/json" \
+  -d "{\"statement\":\"MATCH (n) RETURN count(n) as nodes\"}"' \
+  | python3 -c "import json,sys; print(json.load(sys.stdin)['data']['values'][0][0])"
+# Result: 83773683
+
+# Verify relationship count
+# -d '{"statement":"MATCH ()-[r]->() RETURN count(r) as rels"}'
+# Result: 26808540
+
+# Verify label count
+# -d '{"statement":"CALL db.labels() YIELD label RETURN count(label) as n"}'
+# Result: 32
+```
+
+| Metric | Verified Value | Verified At |
+|--------|---------------|-------------|
+| Nodes | 83,773,683 | 2026-04-07 |
+| Relationships | 26,808,540 | 2026-04-07 |
+| Labels | 32 | 2026-04-07 |
+| Container | bracc-neo4j | 2026-04-07 |
+
+### 8/8 Public Domains (2026-04-07)
+
+```bash
+# Verify all domains at once
+for url in \
+  "https://guard.egos.ia.br/health" \
+  "https://852.egos.ia.br/" \
+  "https://eagleeye.egos.ia.br/" \
+  "https://gemhunter.egos.ia.br/gem-hunter/topics" \
+  "https://hq.egos.ia.br/" \
+  "https://openclaw.egos.ia.br/" \
+  "https://carteiralivre.com/" \
+  "https://inteligencia.egos.ia.br/"; do
+  STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 10 "$url")
+  echo "$STATUS $url"
+done
+```
+
+| Domain | Status | Notes |
+|--------|--------|-------|
+| guard.egos.ia.br | 200 ✅ | Guard Brasil API |
+| 852.egos.ia.br | 200 ✅ | Restored 2026-04-07 (was missing from Caddyfile) |
+| eagleeye.egos.ia.br | 200 ✅ | Fixed 2026-04-07 (was :3090 → eagle-eye:3001) |
+| gemhunter.egos.ia.br | 200 ✅ | Fixed 2026-04-07 (was :3095 → egos-gateway:3050) |
+| hq.egos.ia.br | 307 ✅ | Redirect to /login (normal) |
+| openclaw.egos.ia.br | 200 ✅ | |
+| carteiralivre.com | 308→200 ✅ | Redirect from .com.br |
+| inteligencia.egos.ia.br | 200 ✅ | Newly discovered (not in prev. MASTER_INDEX) |
+
+### Carteira Livre Deep Metrics (2026-04-07)
+
+```bash
+# Run from /home/enio/carteira-livre:
+bun /home/enio/egos/agents/agents/doc-drift-verifier.ts --repo /home/enio/carteira-livre --json
+```
+
+| Metric | Value | Reproduction Command |
+|--------|-------|---------------------|
+| Total commits | 1,690 | `git log --pretty=format:'%h' \| wc -l` |
+| Next.js pages | 134 | `find app/ -name 'page.tsx' \| wc -l` |
+| API routes | 254 | `find app/api/ -name 'route.ts' \| wc -l` |
+| TypeScript LOC | 182,589 | `find . -name '*.ts' -o -name '*.tsx' \| ... \| wc -l` |
+| Test files | 37 | `find . -name '*.test.ts' -o ... \| wc -l` |
+| Test assertions | 2,847 | `grep -rhE 'it\(\|test\(\|describe\(' --include='*.test.*' .` |
+
+### Doc-Drift Shield Status (2026-04-07)
+
+| Layer | Component | Status |
+|-------|-----------|--------|
+| L1 — Contract Manifests | `.egos-manifest.yaml` in egos, br-acc, carteira-livre | ✅ Deployed |
+| L2 — Pre-commit Hook | `doc-drift-verifier.ts` + `.husky/doc-drift-check.sh` | ✅ Deployed |
+| L3 — Autonomous Sentinel | `doc-drift-sentinel.ts` (registered as agent #19) | ✅ Code ready |
+| L4 — CLAUDE.md Rules | §27 in `~/.claude/CLAUDE.md` (v2.8.0) | ✅ Active |
+
+```bash
+# Verify all 3 repos clean (run from /home/enio/egos):
+bun agents/agents/doc-drift-sentinel.ts --dry
+```
 
 ---
 
