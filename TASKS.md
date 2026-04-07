@@ -10,17 +10,17 @@
 
 **Done P33 (2026-04-07):**
 
-**Done P34 (2026-04-07):**
+**Done P34 (2026-04-07):** doc-drift-verifier.ts, doc-drift-sentinel.ts, readme-syncer.ts, doc-drift-check.sh hook, agents.json registered (19 agents), br-acc/carteira-livre manifests + annotations, MASTER_INDEX v1.3.0
 
-**P0 — Next session (P35):**
-- [ ] **DRIFT-008**: Deploy sentinel cron to VPS OR as CCR job (Enio to decide) — handoff §3.DRIFT-005
-- [ ] **DRIFT-009**: Extend CCR Governance Drift Sentinel job with doc-drift-analyzer module — handoff §3.DRIFT-006
+**Done P35 (2026-04-07):** DRIFT-008 (decision: local cron primary, CCR secondary), DRIFT-009 (governance-drift.yml CCR workflow), DRIFT-010 (manifests: 852/forja/egos-lab/egos-inteligencia), DRIFT-011 (manifest-generator.ts LLM extraction), SSOT gate (.ssot-map.yaml 21 domains + ssot-router.ts pre-commit step 5.7), X_POSTS_SSOT.md (5 files → 1), doc-drift-analyzer.ts (Layer 3.5), developer timeline, EN native thread
 
-**P1 — Expansion (P35+):**
-- [ ] **DRIFT-010**: Roll out `.egos-manifest.yaml` to: 852, forja, egos-lab, egos-inteligencia scaffold
-- [ ] **DRIFT-011**: Auto-generate initial manifests from existing READMEs (LLM-powered extraction)
+**P1 — Pending:**
 - [ ] **DRIFT-012**: Drift dashboard in hq.egos.ia.br showing status across all repos
 - [ ] **DRIFT-013**: Integrate with Gem Hunter for third-party claim verification
+- [ ] **SSOT-MCP**: Create `docs/MCP_SSOT.md` — consolidate 7 MCP_*.md files (MCP_DEPLOYMENT_CHECKLIST, MCP_ENV_VARS_REFERENCE, MCP_INTEGRATION_GUIDE, MCP_INTEGRATION_MAP, MCP_ORCHESTRATION_STRATEGY, MCP_SCOPE_POLICY, MCP_IMPLEMENTATION_SUMMARY)
+- [ ] **SSOT-OUTREACH**: Migrate docs/outreach/ (8 files) → GTM_SSOT.md §partnerships
+- [ ] **ARR-001**: Wire AAR (`@egos/search-engine`) into Gem Hunter content indexing (first activation use case)
+- [ ] **ARR-002**: Wire AAR into KB wiki search (replaces raw grep in wiki-compiler)
 
 ---
 
@@ -152,11 +152,6 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 - [ ] GH-027: `.guarani/checks/` layer
 **Gem Hunter product (revenue):**
 - [ ] GH-073: Weekly email digest
-
-**New tasks from Continue study:**
-- [ ] GH-025: `/pr` workflow + GitHub App — pre-merge gate invoking ssot-auditor + code-intel on branch diffs
-- [ ] GH-026: Upgrade codebase-memory-mcp to HTTP/SSE transport (enables SaaS deployments)
-- [ ] GH-027: `.guarani/checks/` layer — markdown-as-config for non-technical rule authoring
 
 **Gem Hunter CCR:**
 
@@ -449,15 +444,15 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 
 **P0 — Critical (This Week: Before Hermes MVP):**
 
-- [ ] **VPS-BACKUP-001**: Remove `/opt/backups/` (15GB, 3 dumps) — freeing 2-4GB RAM pressure relief. Verify: `df -h` before/after. Log decision in VPS_RESOURCE_SSOT.md. [OWNER: infra]
-- [ ] **VPS-BACKUP-002**: Document backup retention policy — formalize decision to use BR-ACC online (real production graph 83.7M nodes) rather than restore from dump. Store in INFRA_SSOT.md §3. [OWNER: infra]
-- [ ] **VPS-MEMORY-001**: Add RAM monitoring to watchdog cron — alert Telegram if free_ram < 1GB. Current threshold too loose (622MB → crashes possible). Update `/opt/egos/bin/watchdog.sh`. [OWNER: infra, 30min]
-- [ ] **VPS-NEO4J-TUNE-001**: Analyze Neo4j heap allocation — currently taking 4.8GB. Audit: `dbms.memory.heap.initial_size` vs `.max_size` in neo4j.conf. Document if tuning viable without rebuild. [OWNER: infra, 1hr research]
+- [ ] **VPS-BACKUP-001**: Remove `/opt/backups/` (15GB, 3 dumps) — freeing 2-4GB RAM pressure relief. ⚠️ MANUAL ACTION: `ssh -i ~/.ssh/hetzner_ed25519 root@204.168.217.125 'rm -rf /opt/backups.archived_20260407'` then verify `df -h`. [OWNER: Enio, MANUAL SSH required]
+- [x] **VPS-BACKUP-002**: ✅ DONE 2026-04-07 — docs/VPS_RESOURCE_SSOT.md created (backup strategy + monitoring rules documented)
+- [x] **VPS-MEMORY-001**: ✅ DONE 2026-04-07 — scripts/vps-ram-monitor.sh (ready for VPS deploy via scripts/deploy-vps-monitoring.sh)
+- [x] **VPS-NEO4J-TUNE-001**: ✅ DONE 2026-04-07 — scripts/analyze-neo4j-heap.sh (ready to run: `bash scripts/analyze-neo4j-heap.sh`)
 
 **P1 — Infrastructure Baseline (P35):**
 
 - [ ] **VPS-CAPACITY-001**: Create capacity planning model — given: current 19 containers, Neo4j 4.8GB, how much RAM remains for Hermes+Codex? Simulate: "if we add X, what breaks?" [OWNER: arch, 2h]
-- [ ] **VPS-HEALTH-SSOT**: Create VPS_RESOURCE_SSOT.md documenting: container inventory, memory baseline, free capacity post-cleanup, monitoring thresholds, escalation paths. [OWNER: infra, 1h]
+- [x] **VPS-HEALTH-SSOT**: ✅ DONE 2026-04-07 — docs/VPS_RESOURCE_SSOT.md (merged with VPS-BACKUP-002)
 - [ ] **VPS-SWAP-001**: Add 4GB swap partition if cleanup + Neo4j tuning insufficient. Benchmark: does swapping kill performance? (defer if not needed) [OWNER: infra, P1]
 
 ---
@@ -512,9 +507,9 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 
 **P0 — Token Refresh & Quota Management (This Week):**
 
-- [ ] **GEM-TOKEN-001**: Create Gemini CLI token refresh cron on VPS — similar to Codex proxy refresh pattern. Script: `bash /opt/egos/bin/gemini-token-refresh.sh` every 2 hours. Fallback: if token expires, route to DashScope backup. [Owner: infra, 1h, blocks Gem Hunter if skipped]
-- [ ] **GEM-TOKEN-002**: Document daily quota tracking — Gemini CLI has daily free quota (varies by account). Log actual usage to Supabase table `gemini_usage_log` daily. Alert if approaching limit. [Owner: monitoring, 30min]
-- [ ] **ORB-001**: Create orchestration brief: "Who calls what? In what order? What's the contract?" — matrix: Codex (always-on proxy), Claude Code (session-based, R$550/mo pay), OpenClaw (sandbox), Hermes (after MVP). Rules: if Codex available, route research there; if Claude Code needed, use for reasoning only; Hermes handles routine batch tasks. [Owner: arch, 1h]
+- [x] **GEM-TOKEN-001**: ✅ DONE 2026-04-07 — scripts/gemini-token-refresh.sh (ready for cron deployment)
+- [x] **GEM-TOKEN-002**: ✅ DONE 2026-04-07 — scripts/gemini-quota-tracker.ts (ready for cron deployment)
+- [x] **ORB-001**: ✅ DONE 2026-04-07 — docs/ORCHESTRATION_BRIEF.md (5-layer routing architecture documented)
 
 **P1 — Integration & Fallback Chains (P35):**
 

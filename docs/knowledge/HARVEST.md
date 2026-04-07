@@ -2114,3 +2114,48 @@ const PUBLIC_PATHS = ['/login', '/api/auth/login', '/api/auth/logout', '/api/hq/
 
 ---
 
+
+## P35 Patterns (2026-04-07 — Doc-Drift Shield L2+L3 + SSOT Gate + ARR)
+
+**SSOT Gate Pattern — LLM confirmado por keyword, keyword bloqueado por LLM**
+- Keyword matching sozinho tem falso-positivos (score baixo = ruído)
+- LLM sozinho é lento demais para pre-commit e pode estar offline
+- Padrão correto: keyword detecta candidate → LLM confirma/descarta → fallback local se API down
+- Timeout 8s por LLM call — nunca bloquear commit por falha de API
+- Override seguro: `SSOT-NEW: <razão>` no commit message (auditável, não bypass silencioso)
+
+**`.ssot-map.yaml` como contrato machine-readable de SSOT**
+- CLAUDE.md §26 define a regra em prosa — ssot-map.yaml define em código
+- ssot-router.ts lê o mapa, não tem lógica hardcoded de domínios
+- Adicionar domínio = editar um arquivo YAML, não código TypeScript
+- Domínios com `forbidden_paths` forçam o router a bloquear antes de chamar LLM (fast path)
+- `always_ok` lista: `.ts/.tsx/.sh/.json/.yaml/.py` — nunca rodar SSOT gate em código
+
+**ARR / Quantum Search — Status e Posicionamento**
+- Sistema: `@egos/atomizer` + `@egos/search-engine` — in-memory full-text com scoring hierárquico
+- Status: DORMANT — implementado, não conectado a nenhum consumer em produção
+- "Quantum Search" = vocab-guard blocked — inserido em `.husky/pre-commit` para prevenir AI hallucinations
+- Fit correto hoje: Gem Hunter (indexar discoveries), KB wiki (busca em HARVEST.md + pages), não como DB vetorial
+- Ativação mínima: `import { AtomizerCore } from '@egos/atomizer'` no gem-hunter pipeline + `InMemorySearch.search()`
+- Complementa (não substitui): codebase-memory-mcp (graph), Supabase pg_trgm FTS (já live)
+
+**manifest-generator.ts — Bootstrap de manifests via LLM**
+- Extrai claims quantitativos de READMEs existentes sem intervenção manual
+- Estratégia: Gemini Flash → Alibaba Qwen → regex patterns (fallback chain idêntico ao ssot-router)
+- Só adiciona claims novos — nunca sobrescreve claims manuais já existentes no manifest
+- Bug: regex alternation `(\d+)\s*(?:X)|Y` sem capture group correto → undefined. Usar grupos não-capturantes `(?:)` + grupos capturantes `()` explícitos
+- Uso: `bun scripts/manifest-generator.ts --repo /path --dry` antes de `--exec`
+
+**doc-drift-analyzer.ts — Pattern analysis de histórico**
+- Analisa docs/jobs/ para detectar claims que driftam frequentemente
+- Output: health score (0-100) + top 10 drifting claims + trend (improving/stable/worsening)
+- Projetado para rodar no CCR (GitHub Actions) — leve, sem acesso cross-repo
+- O sentinel local é heavy (cria branches + issues + pushes) — analyzer é read-only
+
+**SSOT domain discovery — investigar docs/ antes de criar arquivos novos**
+- 21 domínios mapeados em .ssot-map.yaml v2.0.0
+- Padrão: ao criar qualquer `.md` novo, primeiro grep `.ssot-map.yaml` pelo domínio
+- Dispersão encontrada: MCP (7 arquivos) → precisa MCP_SSOT.md; outreach (8 arquivos) → GTM_SSOT.md
+- `docs/concepts/` = arquivos de visão/arquitetura arquivados (Cortex, ETHIK, Neural Mesh) — não são tasks
+
+---

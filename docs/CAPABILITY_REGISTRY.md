@@ -464,3 +464,61 @@ L5: Agent Registry + Skills    — Auto-discovery, hot-reload, marketplace patte
 - Local: `http://127.0.0.1:18802` | VPS: `http://172.19.0.1:18802` (Docker bridge)
 - Auth: `codex-local-proxy-no-auth-needed` (OpenClaw profile `codex-local-proxy`)
 - Model: `gpt-5.4` (ChatGPT Plus subscription, zero API cost)
+
+## 17. DOC-DRIFT SHIELD — 4-LAYER DOCUMENTATION INTEGRITY (2026-04-07)
+
+> **Status:** LIVE — all 4 layers operational | **SSOT:** `docs/DOC_DRIFT_SHIELD.md`
+
+### Layer Architecture
+| Layer | Artifact | Trigger | Scope |
+|-------|----------|---------|-------|
+| L1 | `.egos-manifest.yaml` per repo | Manual + generator | claim contracts |
+| L2 | `doc-drift-verifier.ts` + `.husky/doc-drift-check.sh` | Pre-commit (staged code files) | egos repo |
+| L3 | `doc-drift-sentinel.ts` | Local cron 0h17 BRT daily | all known repos |
+| L3.5 | `doc-drift-analyzer.ts` | CCR `governance-drift.yml` | egos repo (GH Actions) |
+| L4 | CLAUDE.md §27 + SSOT gate | Every session + pre-commit | global |
+
+### New Agents (Registered in agents.json)
+- **`doc-drift-sentinel`** — autonomous daily drift detector + fixer (branch + issue + telegram)
+- **`readme-syncer`** — patches `<!-- metric:ID -->` annotations from manifest `last_value`
+- **`doc-drift-verifier`** (CLI) — `--all/--repo/--fail-on-drift/--markdown`
+
+### SSOT Gate (Pre-Commit Step 5.7)
+- `.ssot-map.yaml` — 26-domain machine-readable SSOT map
+- `scripts/ssot-router.ts` — LLM gate (Gemini Flash → Alibaba → keyword → warn-only)
+- Triggers only on **new `.md` files** (not modifications)
+- Override: `SSOT-NEW: <reason>` in commit message
+
+### Supporting Scripts
+- `scripts/manifest-generator.ts` — DRIFT-011: auto-extract claims from READMEs via LLM
+- `scripts/run-doc-drift-sentinel.sh` — cron wrapper with `cd /home/enio/egos`
+- `.github/workflows/governance-drift.yml` — daily CCR + doc-drift-verifier + safe-push
+
+### Manifest Rollout Status
+| Repo | Manifest | Claims | Notes |
+|------|----------|--------|-------|
+| egos | ✅ | 8 | Baseline, verified |
+| carteira-livre | ✅ | 6 | readme-syncer annotations live |
+| br-acc | ✅ | 5 | 83.7M nodes verified |
+| 852 | ✅ | 5 | New this session |
+| forja | ✅ | 2 | Baseline |
+| egos-lab | ✅ | 4 | Baseline |
+| egos-inteligencia | ✅ | 5 | Not a git repo — manifest on filesystem |
+
+## 18. ARR — ADAPTIVE ATOMIC RETRIEVAL (DORMANT) (2026-04-07)
+
+> **Status:** DORMANT — implemented, not wired | **Packages:** `@egos/atomizer` + `@egos/search-engine`
+
+### What It Is
+In-memory full-text search with hierarchical scoring at sentence/claim level.
+Scoring: exact substring (high) > token overlap (medium) > atom confidence (base).
+
+### Current State
+- Code: `packages/atomizer/src/` + `packages/search-engine/src/`
+- Consumer: **NONE** — not imported anywhere in production
+- "Quantum Search" (deprecated alias) = vocab-guard blocked term in pre-commit
+
+### Activation Path
+1. **ARR-001**: `import { AtomizerCore } from '@egos/atomizer'` in gem-hunter pipeline
+2. **ARR-002**: Wire into KB wiki search (replace raw grep in wiki-compiler.ts)
+3. Complements (not replaces): codebase-memory-mcp graph, Supabase pg_trgm FTS

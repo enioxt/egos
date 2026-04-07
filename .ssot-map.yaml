@@ -1,7 +1,7 @@
 # .ssot-map.yaml — EGOS SSOT Domain Map
 # Machine-readable version of CLAUDE.md §26 (SSOT-First Rule)
 # Used by: scripts/ssot-router.ts (pre-commit SSOT gate)
-# Updated: 2026-04-07 | Version: 2.0.0 — 21 domains
+# Updated: 2026-04-07 | Version: 3.0.0 — 26 domains
 
 version: "2.0.0"
 
@@ -339,6 +339,78 @@ domains:
       - "root cause"
       - "recovery"
     forbidden_paths: []
+
+# ─── TIER 7: SEARCH & RETRIEVAL ──────────────────────────────────────────────
+
+  - id: arr
+    description: "Adaptive Atomic Retrieval (AAR) — in-memory semantic search, atomizer, sentence-level indexing"
+    ssot: "packages/search-engine/README.md"
+    ssot_code: "packages/atomizer/src/"
+    keywords:
+      - "quantum search"
+      - "atomic retrieval"
+      - "AAR"
+      - "atomizer"
+      - "in-memory search"
+      - "atom confidence"
+      - "search engine"
+    forbidden_paths:
+      - "*_SEARCH_ENGINE*.md"
+      - "*_QUANTUM_SEARCH*.md"
+    note: "STATUS DORMANT. 'Quantum Search' = vocab-guard blocked term. Activation: wire into Gem Hunter (ARR-001) + KB wiki (ARR-002)"
+
+  - id: legal
+    description: "Legal templates, LGPD compliance docs, equity agreements, regulatory"
+    ssot: "docs/legal/"
+    keywords:
+      - "nota de compromisso"
+      - "equity template"
+      - "term sheet"
+      - "vesting"
+      - "LGPD compliance"
+      - "regulatório"
+      - "contrato"
+    forbidden_paths: []
+    note: "NOTA_COMPROMISSO_EQUITY_GTM_TEMPLATE.md lives here (not in GTM_SSOT) — it's a legal doc, GTM references it"
+
+  - id: products
+    description: "Product-specific strategy docs, roadmaps, architecture specs per product"
+    ssot: "docs/products/"
+    ssot_secondary: "docs/strategy/"
+    keywords:
+      - "flagship roadmap"
+      - "product spec"
+      - "product architecture"
+      - "free vs paid"
+      - "defensibility"
+    forbidden_paths: []
+    note: "Each product can have standalone docs here. Cross-product economics → MONETIZATION_SSOT.md"
+
+  - id: patterns
+    description: "Reusable engineering patterns — auditable sandbox, deployment, API design"
+    ssot: "docs/patterns/"
+    keywords:
+      - "auditable sandbox"
+      - "pattern §"
+      - "reusable pattern"
+      - "standard pattern"
+      - "egos standard"
+    forbidden_paths:
+      - "*_PATTERN*.md"
+    note: "Exception: AUDITABLE_SANDBOX_PATTERN.md is the SSOT for that pattern — also referenced in CAPABILITY_REGISTRY §13"
+
+  - id: concepts
+    description: "Archived architecture concepts and vision docs (Cortex, ETHIK, Neural Mesh)"
+    ssot: "docs/concepts/"
+    keywords:
+      - "cortex knowledge"
+      - "ethik token"
+      - "neural mesh"
+      - "espirais"
+      - "git layer architecture"
+      - "concept archive"
+    forbidden_paths: []
+    note: "These are archived/reference docs from EGOSv2/v4. Not active roadmap — do not add tasks based on these without research"
 
 # ─── OPEN CONSOLIDATION TASKS ─────────────────────────────────────────────────
 # These directories contain dispersed content that should be merged into their SSOT:
