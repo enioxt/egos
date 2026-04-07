@@ -144,3 +144,17 @@
 - [x] **CAREER-002**: Configure profile.yml — freelance only, remote, $50/h+ min, async, 1-4 week projects ✅ 2026-04-07
 - [x] **CAREER-003**: portals.yml — Toptal, Arc.dev, Lemon.io, Contra, WeWorkRemotely, Wellfound, Upwork, Neo4j direct, LangChain ✅ 2026-04-07
 - [x] **CAREER-004**: cv.md (markdown, honest profile), modes/_profile.md (negotiation scripts, STAR stories), story-bank.md ✅ 2026-04-07
+
+## Archived 2026-04-07 (11 tasks)
+
+- [x] **HERMES-001-P1**: VPS RAM verified: 7.9GB available (cleaned backups). Docker 29.3.1 + Compose v5.1.1 confirmed.
+- [x] **HERMES-001-P2**: Docker versions verified. ✅
+- [x] **HERMES-002-P1**: Cloned to `/opt/hermes-agent` on VPS. Local: `~/.hermes-agent`.
+- [x] **HERMES-002-P2**: Installed via `uv pip install -e '[all]'` in `/opt/hermes-venv`. v0.7.0 verified.
+- [x] **HERMES-002-P3**: No docker-compose needed — direct Python install. Cleaner approach.
+- [x] **HERMES-003-P1**: `egos-kernel` profile created. Model: `claude-sonnet-4-6`. System prompt written.
+- [x] **HERMES-003-P2**: No .env needed — OAuth reads `~/.claude/.credentials.json` automatically. `hermes auth list` shows `claude_code oauth ←` on both machines.
+- [x] **HERMES-004-P1**: Running directly (no container). Both local + VPS verified.
+- [x] **HERMES-004-P2**: Test tasks passed: Guard Brasil health check ✅, VPS hostname ✅, Claude OAuth ✅.
+- [x] **HERMES-004-P3**: Telegram integration pending (HERMES-006 scope).
+- [x] **HERMES-004-P4**: Token refresh cron: `*/5 * * * *` local → refreshes + syncs to VPS.

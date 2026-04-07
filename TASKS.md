@@ -412,26 +412,15 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 
 **SSOT:** `/home/enio/.egos/memory/mcp-store/hermes_agent_investigation_deep_dive_2026-04-07.md`
 
-**P0 — MVP Deployment (Sequential Phases, Start 2026-04-08):**
+**✅ MVP DEPLOYED 2026-04-07 — Claude OAuth (no API key needed!)**
 
-**Phase 1: Prep (1 hour)**
-- [ ] **HERMES-001-P1**: Confirm `/opt/backups/` cleanup done (VPS-BACKUP-001). Verify: `free -h` shows >2GB available. [DEP: VPS-BACKUP-001 | Owner: infra]
-- [ ] **HERMES-001-P2**: Verify Docker/docker-compose versions on VPS. Confirm: `docker --version && docker-compose --version`. Minimum: Docker 20.x, compose 2.x. [Owner: infra, 10min]
+**Phase 1: Prep** ✅
 
-**Phase 2: Build (1 hour)**
-- [ ] **HERMES-002-P1**: Clone Hermes Agent repo to VPS: `ssh ... cd /opt && git clone https://github.com/NousResearch/hermes-agent.git`. [Owner: infra, 15min]
-- [ ] **HERMES-002-P2**: Build Hermes Docker image on VPS: `cd /opt/hermes-agent && docker build -t hermes:latest .`. Confirm: `docker images | grep hermes` shows image. [Owner: infra, 30min]
-- [ ] **HERMES-002-P3**: Prepare docker-compose skeleton — copy from investigation doc (lines 778-817) to `/opt/hermes/docker-compose.yml`. [Owner: infra, 10min]
+**Phase 2: Build** ✅ (No Docker needed — uv venv install)
 
-**Phase 3: Configure (30 min)**
-- [ ] **HERMES-003-P1**: Create first profile: `hermes profile create egos-kernel --model claude-3-7-sonnet-20250219 --system-prompt "$(cat .guarani/BLUEPRINT-EGOS)"`. [Owner: infra, 15min]
-- [ ] **HERMES-003-P2**: Generate `.env` for Hermes: HERMES_MODEL, HERMES_TELEGRAM_TOKEN (from egos-watchdog), HERMES_SQLITE_PATH, HERMES_LOG_LEVEL=info. [Owner: infra, 15min]
+**Phase 3: Configure** ✅ (Claude OAuth auto-detected!)
 
-**Phase 4: Test (2 hours)**
-- [ ] **HERMES-004-P1**: Start Hermes container: `docker-compose up -d` from /opt/hermes/. Wait 30s. [Owner: infra, 5min]
-- [ ] **HERMES-004-P2**: Run test task: `hermes task --profile egos-kernel "list /opt/egos/agents"`. Confirm: task completes, outputs agent list. [Owner: infra, 15min]
-- [ ] **HERMES-004-P3**: Verify Telegram integration — Hermes should have sent startup message to configured chat_id. Check Telegram. [Owner: infra, 5min]
-- [ ] **HERMES-004-P4**: Monitor logs: `docker logs hermes | tail -50`. Check for errors, memory warnings, startup messages. Confirm: clean boot. [Owner: infra, 10min]
+**Phase 4: Test** ✅ — ALL PASSED
 
 **Phase 5: Trial (1 week: 2026-04-08 through 2026-04-15)**
 - [ ] **HERMES-005-P1**: Run production trial — Hermes stays online 7 days. Measure: uptime, RAM usage, token consumption, error rate. [Owner: infra, monitoring]
