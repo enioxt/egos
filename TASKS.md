@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.48.0 | **Updated:** 2026-04-07 | **LAST SESSION:** P35+CAREER — SSOT gate 26 domains, career-ops setup (CAREER-001..004 done), profile fixes
+> **Version:** 2.49.0 | **Updated:** 2026-04-07 | **LAST SESSION:** MemPalace+CORAL+GovTech — 17 tasks criadas (MEM-001..004, CORAL-001..003, GOV-TECH-001..010), compressão seções legacy
 
 ---
 
@@ -109,20 +109,9 @@ EGOS-167/168/175, GH-040..042, EGOS-TELEM-001..005 — all DONE . codebase-memor
 
 ---
 
-### EGOS Knowledge System — Karpathy LLM Wiki (2026-04-05)
-
-**Pattern:** 3-layer (raw sources compiled wiki schema). Supabase-backed, API-served, agent-compiled.
-**Agent:** `agents/agents/wiki-compiler.ts` | **API:** `apps/egos-gateway/src/channels/knowledge.ts`
-**Supabase tables:** `egos_wiki_pages` (50 pages), `egos_learnings`, `egos_wiki_changelog`
-
-**Done:**
-
-**P1 — Integration:**
-
-**P1 — Quality:**
-
-**P2 — Advanced:**
-- [ ] KB-017: Auto-learning from git commits (extract patterns from commit messages + diffs)
+### EGOS Knowledge System — DONE (2026-04-05)
+KB-001..016 DONE ✅ (wiki-compiler, 50 pages, gateway /knowledge channel, learnings, changelog). See git log.
+- [ ] **KB-017 [P2]**: Auto-learning from git commits — extract patterns from messages + diffs
 
 ---
 
@@ -131,13 +120,8 @@ EGOS-167/168/175, GH-040..042, EGOS-TELEM-001..005 — all DONE . codebase-memor
 
 ---
 
-### Session Initialization v6.0 LIVE (2026-04-02)
-START-001..005 DONE (parallel diagnostics 22s, CI, pre-commit). Design: `docs/SESSION_INITIALIZATION_v6.md`
-
-**Pending (P1):**
-- [ ] START-006: Monitor performance 1 week (due 2026-04-09)
-- [ ] START-007: v6.1 distributed agent health (SSH parallel)
-- [ ] START-008: Dashboard integration (Grafana/Claude Code UI)
+### Session Initialization v6.0 LIVE — DONE (2026-04-02)
+START-001..005 DONE ✅. Pending P1: START-006 (monitor 1 week), START-007 (distributed health), START-008 (dashboard).
 
 ---
 
@@ -291,9 +275,7 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 **SSOT:** `docs/strategy/DREAM_CYCLE_SSOT.md`
 **Goal:** Wake up to briefed HQ showing all nightly work. LLM cost: $0 (Gemma 4 31B free).
 
-**Phase 1 — Foundation (DONE ):**
-
-**Phase 2 — Intelligence (this week):**
+**Phase 2 — Intelligence (pending):**
 - [ ] DC-004: `agents/agents/intelligence-engine.ts` — reads nightly logs + TASKS.md, uses Gemma 4 31B, writes egos_nightly_reports + auto-creates TASKS entries
 - [ ] DC-005: Extend CCR Governance Sentinel to run intelligence-engine after drift check
 - [ ] DC-006: Auto-Healer script — restart containers on known patterns (rule-based, no LLM)
@@ -352,30 +334,15 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
  **SSOT:** `docs/SELF_DISCOVERY_ARCHITECTURE.md` | self.egos.ia.br → VPS | B2C wellness (não medical device)
 - **Execution order:** SD-001 → 002 → 003 → 004 → 005 → 006/007/008 → 009 → 010..019
 - **Named gates:** `deploy` = SD-006 | `security` = SD-007 | `ux` = SD-008 | `launch` = SD-009
-- [ ] **SD-001 (P0)**: Inventory v2 source files and define exact extraction scope [DEP: HUM-002, architecture doc]
-- [ ] **SD-002 (P0)**: Map backend/frontend/shared boundaries for the future container tree [DEP: SD-001]
-- [ ] **SD-003 (P0)**: Define env contract, secrets map, Supabase touchpoints, and `.env.example` contract [DEP: SD-001]
-- [ ] **SD-004 (P0)**: Specify Dockerfiles + `docker-compose` shape for port 3098 without implementing yet [DEP: SD-002, SD-003]
-- [ ] **SD-005 (P0)**: Specify reverse proxy, health endpoint, watchdog path, and rollback path [DEP: SD-004]
-- [ ] **SD-006 (P0 / deploy gate)**: Approve deploy checklist — health check, smoke check, monitoring path, rollback path [DEP: SD-004, SD-005]
-- [ ] **SD-007 (P0 / security gate)**: Approve security checklist — disclaimers, secrets handling, PII/log policy, access model [DEP: SD-003, SD-005]
-- [ ] **SD-008 (P0 / ux gate)**: Approve UX checklist — onboarding, empty/error states, copy review, acceptance criteria [DEP: SD-002]
-- [ ] **SD-009 (P0 / launch gate)**: Approve launch checklist — ICP, analytics path, feedback loop, GTM/dissemination handoff [DEP: SD-006, SD-007, SD-008]
-- [ ] **SD-010 (P1)**: Define ICP and pricing hypothesis for the first niche (wellness / procrastination / journaling) [DEP: SD-009]
-- [ ] **SD-011 (P1)**: Define landing scope and public positioning without medical claims [DEP: SD-008, SD-010]
-- [ ] **SD-012 (P1)**: Define pattern taxonomy for the first production slice (reflection/procrastination/self-sabotage) [DEP: SD-001]
-- [ ] **SD-013 (P1)**: Define onboarding flow and first-session success criteria [DEP: SD-008, SD-010]
-- [ ] **SD-014 (P1)**: Define analytics, feedback, and session-review signals [DEP: SD-009]
-- [ ] **SD-015..019 (P2)**: Post-alpha backlog — prioritize pattern packs, auth/history, API docs, TypeScript migration, freeze backlog. [DEP: SD-014 alpha evidence]
+- [ ] **SD-001..009 [P0]**: Inventory (001) → boundaries (002) → env contract (003) → Dockerfiles spec (004) → proxy spec (005) → gates: deploy (006) / security (007) / ux (008) / launch (009). Full detail: `docs/SELF_DISCOVERY_ARCHITECTURE.md`.
+- [ ] **SD-010..014 [P1]**: ICP + pricing hypothesis (010), landing scope (011), pattern taxonomy (012), onboarding flow (013), analytics signals (014). [DEP: SD-009]
+- [ ] **SD-015..019 [P2]**: Post-alpha — pattern packs, auth/history, API docs, TS migration, freeze backlog.
 
 ### VPS Infrastructure Optimization & Resource Management (P34-P35)
 
 **Investigation Complete (2026-04-07):** Full VPS audit reveals healthy infrastructure (19 containers stable, 23 agents active, 9-day uptime) but critical RAM pressure (622MB free / 15GB total). Neo4j BR-ACC consuming 4.8GB (31.5% of total). `/opt/backups/` = 15GB of dated Neo4j dumps (2026-04-03/04/05). Decision: Keep BR-ACC online as production SSOT; clean backups; implement intelligent resource management before Hermes MVP.
 
 **SSOT:** `/home/enio/.egos/memory/mcp-store/vps_hetzner_complete_infrastructure_map_2026-04-07.md` | **Handoff:** docs/_current_handoffs/handoff_2026-04-07_doc-drift-shield-plan.md §2
-
-**P0 — Critical (This Week: Before Hermes MVP):**
-
 
 **P1 — Infrastructure Baseline (P35):**
 
@@ -476,19 +443,54 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 **Context:** Opus investigation complete. 16 modules (8 upgraded + 8 new). Dual-runtime TS+Python. Disseminate to 852/br-acc/egos-web/ratio/intelink/forja.
 **SSOT:** `docs/modules/CHATBOT_SSOT.md` | **Arch decisions:** Vercel AI SDK v4+, LangGraph (Python), JSON Schema source-of-truth for TS↔Py parity, OTel+Supabase dual telemetry.
 
-**P0 — Execute this session:**
-- [ ] **CHAT-001 [P0]**: Wire `filterChunk` ATRiAN stream-time into 852 route (`atrian-stream.ts` + `pipeThrough` in route). Currently post-hoc only.
-- [ ] **CHAT-002 [P0]**: Fix duplicate Section 11 in CHATBOT_SSOT.md + bump to v2.0.0.
-- [ ] **CHAT-003 [P0]**: `prompt-assembler.ts` schema-driven `{id, content, condition, cacheable}` sections. Port 852 constants.
-- [ ] **CHAT-004 [P0]**: Input-side PII scan in 852 before LLM call. Uses existing `pii-scanner.ts`.
-- [ ] **CHAT-005 [P0]**: `MemoryStore` adapter interface + Supabase impl in `packages/shared/src/memory-store.ts`.
-- [ ] **CHAT-006 [P0]**: Circuit breaker + cooldown in `model-router.ts`. Provider down → cooldown before retry.
-- [ ] **CHAT-007 [P0]**: Abort signal propagation in 852 — `req.signal` → `streamText abortSignal`. Stop billing on cancel.
-- [ ] **CHAT-008 [P0]**: Per-identity budget on top of per-IP rate limit → `packages/shared/src/rate-limit.ts`.
-- [ ] **CHAT-009 [P0]**: Eval harness skeleton + 20 golden cases for 852 → `packages/shared/eval/runner.ts` + `eval/golden/852.jsonl`.
-- [ ] **CHAT-010 [P0]**: egos-web compliance jump 64→90+: ATRiAN/PII/memory shared modules adoption.
+**P0 — CHAT-001..010 (pending):** 001 ATRiAN stream 852 | 002 CHATBOT_SSOT v2 fix | 003 prompt-assembler schema | 004 input PII scan | 005 MemoryStore adapter | 006 circuit breaker | 007 abort signal | 008 per-identity budget | 009 eval harness 20 golden | 010 egos-web compliance 90+
 
 **P1 — CHAT-011..022:** structured output, multimodal Message, runAgentLoop, semantic memory, OTel, prompt caching, cost ledger, Python shared_py, br-acc/ratio adoption, conformance test, streaming PII
 **P2 — CHAT-023..031:** resumable streams, fork/edit, agent handoff, eval CI gate, file ingest, entity memory, racing fallback, Forja/Intelink/carteira-livre pass, HQ panel
 
 ---
+
+---
+
+### Memory Intelligence — MemPalace + ARR Activation (2026-04-07)
+**Context:** MemPalace (96.6% R@5, MIT, local ChromaDB, 13.8k stars em 2 dias) resolveu o mesmo problema que nosso ARR (dormant desde ARR-001). CORAL (arXiv 2604.01658, MIT) prova: 50%+ dos breakthroughs vêm de reutilização de conhecimento entre agents. Nenhum dos dois está ativo no EGOS hoje.
+**SSOT:** `packages/shared/src/cross-session-memory.ts` + `.guarani/mcp-config.json`
+
+- [ ] **MEM-001 [P1]**: Benchmark MemPalace. `pip install mempalace`, `mempalace mine --mode convos` nas últimas sessões Claude Code. Comparar R@5 vs file-based memory (`memory/*.md`). Critério de avanço: R@5 ≥ 80%. [2h]
+- [ ] **MEM-002 [P1]** (dep: MEM-001 pass): Mapear Palace structure para domínios EGOS. Wings = repos (egos, egos-lab, 852, br-acc, ratio). Rooms = domínios (guard-brasil, hq, gem-hunter, licitações, governance). Documentar em `docs/MEM_PALACE_SSOT.md`. [2h]
+- [ ] **MEM-003 [P1]** (dep: MEM-001 pass): Adicionar `mempalace-mcp` ao `.guarani/mcp-config.json`. Expor 6 tools: mine, wake-up, search, add, list-wings, get-room. Configurar auto-detect de wings a partir dos repos. [2h]
+- [ ] **MEM-004 [P2]** (dep: MEM-003): Migrar handoffs anteriores para MemPalace. `mempalace mine --mode general` nos `docs/_current_handoffs/` + `memory/*.md`. Verificar retrieval de decisões-chave (INC-001, LGPD pricing, Docker network). [1h]
+- [ ] **GTM-X-001 [P1]**: Thread X.com sobre MemPalace + CORAL (trending agora — 13.8k stars). `bun scripts/rapid-response.ts --topic "MemPalace CORAL memory agents"`. Ângulo: "EGOS já tem governance layer que ambos precisam — LGPD + evidence-first." [1h — UNBLOCKED após XMCP-001]
+
+---
+
+### CORAL Pattern — Shared Agent Discovery Store (2026-04-07)
+**Context:** CORAL (MIT, arXiv 2604.01658) mostra que agents compartilhando descobertas = 50%+ dos breakthroughs. Gem Hunter hoje: cada run é isolado, zero memória entre runs. Padrão a adotar (não o framework completo): tabela `gem_discoveries` + agents consultam antes de explorar.
+**SSOT:** `agents/agents/gem-hunter.ts` + `packages/shared/src/event-bus.ts`
+
+- [ ] **CORAL-001 [P1]**: Criar tabela Supabase `gem_discoveries`. Schema: `{id, repo_url, gem_name, category, score, discovered_by, discovered_at, summary, tags[], last_seen_at}`. RLS habilitado. Migration em `supabase/migrations/`. [1h]
+- [ ] **CORAL-002 [P1]** (dep: CORAL-001): Modificar Gem Hunter stage-1 para consultar `gem_discoveries` antes de scrape. Skip repos score ≥ 7 nos últimos 14 dias. Log: "X repos skipped (already discovered)". Esperado: 30-50% redução em API calls. [3h]
+- [ ] **CORAL-003 [P2]** (dep: CORAL-001): Hermes escreve em `gem_discoveries` após research tasks. Qualquer agent que encontrar "gem" (tool/pattern relevante) chama `event-bus.ts` → upsert `gem_discoveries`. [2h]
+
+---
+
+### GovTech — Licitações de Software (2026-04-07)
+**Context:** Mercado govtech software BR = ~R$20-30bi/ano em prefeituras/estados (FATO: Intercept/UFSM 2025). Big techs dominam federal via inexigibilidade. Janela real: prefeituras pequenas (5k-50k hab), Pregão ME/EPP até R$80k/ano. EGOS assets: Guard Brasil (LGPD mandatório pós 14.133), Eagle Eye (OSINT), 852 (chatbot municipal). TCU audita TI federal 2026 = janela para novos players compliance-first.
+**SSOT:** `docs/GTM_SSOT.md` §govtech | **Fontes:** pncp.gov.br, IN SGD/ME 94/2022, Lei 14.133/2021, análise 12 buscas 2026-04-07
+
+**P1 — Discovery + Habilitação:**
+- [ ] **GOV-TECH-001 [P1]**: Configurar Eagle Eye para monitorar PNCP — filtros: objeto `%software%|%sistema%|%plataforma%|%desenvolvimento%`, valor R$15k-80k, exclusivo ME/EPP, UF alvo SC/PR/SP. Alerta Telegram diário. [4h]
+- [ ] **GOV-TECH-002 [P1]**: Dashboard vencedores licitações software. Query PNCP API + ComprasNet: top 15 empresas, ticket médio, modalidade, CNPJ, setor dominante. Output: `docs/knowledge/GOVTECH_WINNERS_MAP.md`. [6h]
+- [ ] **GOV-TECH-003 [P1]**: Checklist habilitação EGOS. Verificar: CNPJ ativo, CNAE 6201-5/00 ou 6202-3/00, SICAF cadastro, certidões (CND Federal/Estadual/Municipal, CRF FGTS, CNDT), capital social ≥ 10% valor contrato-alvo. [2h MANUAL]
+- [ ] **GOV-TECH-004 [P1]**: Mapa oportunidades abertas agora. Buscar 5 pregões ME/EPP no PNCP: ouvidoria municipal, gestão LGPD, portal cidadão, sistema saúde municipal. Verificar objeto + requisitos + prazo. [3h]
+
+**P1 — Produto:**
+- [ ] **GOV-TECH-005 [P1]**: Brief produto "Ouvidoria Municipal + LGPD Compliance SaaS". Core: Guard Brasil mascaramento PII (CPF/RG/nome), relatórios ANPD-compliant, painel prefeitura. Ticket-alvo: R$30k-80k/ano. Público: prefeituras 5k-50k hab. [4h]
+- [ ] **GOV-TECH-006 [P1]**: Análise técnica de 3 sistemas verificáveis (e-cidade PHP/PostgreSQL, Softplan Obras.gov Java/Spring, Betha Cloud SaaS). Identificar gaps LGPD que Guard Brasil resolve. Output: tabela comparativa. [3h]
+
+**P2 — Parcerias:**
+- [ ] **GOV-TECH-007 [P2]**: Parceria Softplan — Guard Brasil como módulo LGPD para Obras.gov/SAJ. Pitch: "EGOS Guard Brasil cobre o gap que TCU está auditando em 2026." LinkedIn + GitHub. [2h prep]
+- [ ] **GOV-TECH-008 [P2]**: Parceria Betha Sistemas — Guard Brasil como add-on LGPD no Betha Cloud (+3000 prefeituras). Modelo: R$0.02/call × volume municipal. Revenue share 70/30. [2h prep]
+- [ ] **GOV-TECH-009 [P2]**: Estratégia primeiro atestado. Pilot gratuito/subsidiado para prefeitura pequena SC/PR/SP (5-15k hab) → obter atestado capacidade técnica. Mínimo viável: 3 meses contrato assinado. [5h MANUAL]
+- [ ] **GOV-TECH-010 [P2]**: Estudar Diálogo Competitivo (Lei 14.133 art.32) para produto inovador IA+LGPD. Municípios que não sabem especificar → EGOS pode ser único habilitado. Mapear 3 prefeituras usando esta modalidade. [2h]
+
