@@ -444,7 +444,6 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 
 **P0 — Critical (This Week: Before Hermes MVP):**
 
-- [ ] **VPS-BACKUP-001**: Remove `/opt/backups/` (15GB, 3 dumps) — freeing 2-4GB RAM pressure relief. ⚠️ MANUAL ACTION: `ssh -i ~/.ssh/hetzner_ed25519 root@204.168.217.125 'rm -rf /opt/backups.archived_20260407'` then verify `df -h`. [OWNER: Enio, MANUAL SSH required]
 
 **P1 — Infrastructure Baseline (P35):**
 
@@ -455,7 +454,7 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 
 ### Hermes MVP Deployment (P35 — Proposed Start 2026-04-08)
 
-**Investigation Complete (2026-04-07):** Hermes Agent (24/7 executor framework) ready for MVP. Design documented. Deployment path clear. Blocker: RAM cleanup first (see VPS-BACKUP-001). ROI: R$0-40/month marginal cost, unlocks always-on research + self-improving skills. Risk: Low (can remove in 1h if needed). Trial period: 1 week, go/no-go gate at 2026-04-19.
+**Investigation Complete (2026-04-07):** Hermes Agent (24/7 executor framework) ready for MVP. Design documented. Deployment path clear. ✅ **RAM cleanup DONE (VPS-BACKUP-001).** ROI: R$0-40/month marginal cost, unlocks always-on research + self-improving skills. Risk: Low (can remove in 1h if needed). Trial period: 1 week, go/no-go gate at 2026-04-19.
 
 **SSOT:** `/home/enio/.egos/memory/mcp-store/hermes_agent_investigation_deep_dive_2026-04-07.md`
 

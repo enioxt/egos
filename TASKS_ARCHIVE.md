@@ -133,3 +133,7 @@
 - [x] **GEM-TOKEN-001**: ✅ DONE 2026-04-07 — scripts/gemini-token-refresh.sh (ready for cron deployment)
 - [x] **GEM-TOKEN-002**: ✅ DONE 2026-04-07 — scripts/gemini-quota-tracker.ts (ready for cron deployment)
 - [x] **ORB-001**: ✅ DONE 2026-04-07 — docs/ORCHESTRATION_BRIEF.md (5-layer routing architecture documented)
+
+## Archived 2026-04-07 (1 tasks)
+
+- [x] **VPS-BACKUP-001**: ✅ DONE 2026-04-07 — Deleted `/opt/backups.archived_20260407` (freed ~15GB disk + ~2-4GB RAM). Disk: 69G→54G used | 220G→235G free
