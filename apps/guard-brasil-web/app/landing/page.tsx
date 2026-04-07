@@ -21,7 +21,7 @@ const EXAMPLES = [
   {
     title: 'Detecção de RG',
     icon: '🪪',
-    input: 'Identidade RG 1234567 SSP/MG do paciente internado na ala B.',
+    input: 'Identidade 12.345.678-9 SSP/MG do paciente internado na ala B.',
     description: 'Identifica RGs em textos não estruturados',
   },
   {
@@ -31,10 +31,10 @@ const EXAMPLES = [
     description: 'Anonimiza placas em relatórios policiais',
   },
   {
-    title: 'Verificação de Viés ATRiAN',
+    title: 'Verificação Ética ATRiAN',
     icon: '🧠',
-    input: 'Jovem negro desempregado solicita empréstimo bancário de alto valor.',
-    description: 'Score ético 0-100 para detectar viés',
+    input: 'Com certeza esta análise está correta. O sistema SEMPRE toma a decisão certa. Segundo dados do Ministério, 100% dos casos são aprovados automaticamente.',
+    description: 'Score ético 0-100: detecta afirmações absolutas e dados fabricados',
   },
   {
     title: 'Dados Médicos',
@@ -330,7 +330,7 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
             {[
               { tier: 'Free', price: 'R$ 0', calls: '500 inspeções/mês', detail: 'sandbox LGPD sem cartão', features: ['15 padrões PII brasileiro', 'Conformidade LGPD', 'Teste imediato', 'Sem cartão de crédito'], cta: 'Criar conta grátis', ctaHref: '#get-key', popular: false },
-              { tier: 'Startup', price: 'R$ 0,007', calls: 'por inspeção', detail: '≈ R$ 35 por 5.000 chamadas', features: ['PII + pontuação ATRiAN', 'Recibos de inspeção', 'Cadeia de evidências', 'Pronto para produção'], cta: 'Assinar Startup', ctaHref: 'https://guard.egos.ia.br/v1/stripe/checkout?tier=startup&email=', popular: true },
+              { tier: 'Startup', price: 'R$ 0,007', calls: 'por inspeção', detail: '≈ R$ 35 por 5.000 chamadas', features: ['PII + pontuação ATRiAN', 'Recibos de inspeção', 'Cadeia de evidências', 'API em desenvolvimento ativo'], cta: 'Assinar Startup', ctaHref: 'https://guard.egos.ia.br/v1/stripe/checkout?tier=startup&email=', popular: true },
               { tier: 'Business', price: 'R$ 0,004', calls: 'por inspeção', detail: '≈ R$ 2.000/mês (500k chamadas)', features: ['Tudo do Startup', 'Proveniência de fonte', 'Preço por volume', 'Suporte prioritário'], cta: 'Assinar Business', ctaHref: 'mailto:enio@egos.ia.br?subject=Guard%20Brasil%20Business', popular: false },
             ].map((plan) => (
               <div key={plan.tier} className={`bg-slate-900 border rounded-2xl p-6 ${plan.popular ? 'border-emerald-600 ring-1 ring-emerald-600/20' : 'border-slate-800'}`}>

@@ -104,9 +104,21 @@ export interface GuardBrasilResult {
 
 // Brazilian government acronyms that should never be flagged as invented
 const BRAZILIAN_KNOWN_ACRONYMS = [
+  // Identifiers
   'CPF', 'RG', 'MASP', 'REDS', 'BO', 'SINESP', 'LGPD', 'ANPD',
   'OAB', 'CNJ', 'CRM', 'PIX', 'INSS', 'SUS', 'STF', 'STJ',
   'PCMG', 'PMMG', 'TJMG', 'MPMG', 'CGU', 'TCU', 'AGU',
+  // Brazilian states
+  'AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO',
+  'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR',
+  'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO',
+  // Medical / health
+  'HIV', 'AIDS', 'UTI', 'CTI', 'UPA', 'UBS', 'CID', 'SUS',
+  'ANVISA', 'CFM', 'CFO', 'CFF', 'COREN',
+  // Common BR abbreviations that are NOT invented
+  'CEO', 'CTO', 'CFO', 'COO', 'API', 'URL', 'SQL', 'XML',
+  'PDF', 'CPD', 'TI', 'RH', 'DP', 'PJ', 'PF', 'ME', 'MEI',
+  'CNPJ', 'CEP', 'CNH', 'FGTS', 'CLT', 'PIS', 'NIS',
 ];
 const GUARD_VERSION = '0.2.1';
 

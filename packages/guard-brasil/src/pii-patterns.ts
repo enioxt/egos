@@ -107,11 +107,13 @@ export const CNPJ_PATTERN: PIIPatternConfig = {
   },
 };
 
-/** RG — Registro Geral (preceded by "RG" keyword) */
+/** RG — Registro Geral (with OR without "RG" keyword) */
 export const RG_PATTERN: PIIPatternConfig = {
   id: 'rg',
   label: 'RG',
-  regex: /(?:RG|rg|Rg|Registro\s+Geral|registro\s+geral)[\s:nº°.]*(?:[A-Z]{2}[\s-]?)?\d{1,2}[.\s]?\d{3}[.\s]?\d{3}[.\s-]?\d?/gi,
+  // Matches with keyword: "RG 12.345.678-9", "Registro Geral 12.345.678-9"
+  // Matches standalone canonical format (dots+dash required): "12.345.678-9"
+  regex: /(?:(?:RG|rg|Rg|Registro\s+Geral|registro\s+geral)[\s:nº°.]*(?:[A-Z]{2}[\s-]?)?\d{1,2}[.\s]?\d{3}[.\s]?\d{3}[.\s-]?\d?|\b\d{1,2}\.\d{3}\.\d{3}-\d\b)/gi,
   maskFormat: '[RG REMOVIDO]',
   confidence: 'high',
   description: 'Registro Geral — RG 00.000.000-0',
