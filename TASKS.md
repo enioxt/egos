@@ -21,6 +21,16 @@
 - [ ] **SSOT-OUTREACH**: Migrate docs/outreach/ (8 files) → GTM_SSOT.md §partnerships
 - [ ] **ARR-001**: Wire AAR (`@egos/search-engine`) into Gem Hunter content indexing (first activation use case)
 - [ ] **ARR-002**: Wire AAR into KB wiki search (replaces raw grep in wiki-compiler)
+- [ ] **ARR-003**: Hybrid retrieval pattern — AAR (precision/exact) + pg_trgm FTS (recall) for Guard Brasil + EGOS Inteligência. Validated by 2025 research (Meilisearch/Redis/Glean): full-text superior to vectors for identifier-heavy domains (CPF/CNPJ/PEPs/contracts). NOT a vector DB replacement.
+
+### CAREER-OPS — Freelance Discovery Pipeline (P1 — Revenue Bridge)
+**Goal:** Use [santifer/career-ops](https://github.com/santifer/career-ops) adapted for freelance gigs to generate revenue while EGOS matures. Enio's CV already exists (5 versions in `/home/enio/personal/`).
+- [ ] **CAREER-001**: Clone career-ops to `/home/enio/personal/career-ops/` and run setup
+- [ ] **CAREER-002**: Configure preferences.yaml — freelance only, remote, $50/h+ min, no TZ restriction, async, 1-4 week projects
+- [ ] **CAREER-003**: Adapt scrapers — replace Greenhouse/Lever/Ashby with: Toptal, Arc, Lemon.io, Contra, We Work Remotely (contract section), Wellfound, Upwork
+- [ ] **CAREER-004**: Skills filter config: Neo4j, OSINT, PII/LGPD, FastAPI, Next.js, Supabase, agents, scraping, Brazilian compliance
+- [ ] **CAREER-005**: First batch run — process 50 URLs, only follow up on score ≥ 4.0/5
+- [ ] **CAREER-006**: Apply to top 3 (after Enio review) — first revenue test
 
 ---
 

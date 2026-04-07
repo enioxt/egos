@@ -1,8 +1,31 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 4.1.0 | **UPDATED:** 2026-04-07
+> **VERSION:** 4.2.0 | **UPDATED:** 2026-04-07
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
-> **Latest:** P33 added — Doc-Drift Shield + sed inode bug + Carteira Livre scope reality + Caddyfile routing pattern
+> **Latest:** P35 added — Firecrawl key rotation incident + API key exposure in git history pattern
+
+## P35 Patterns (2026-04-07)
+
+### Firecrawl key exposure in git history — incident pattern
+
+- **Incident:** Old Firecrawl API key `fc-45cf069ee7ef4c3aa4942a41127d8629` exposed in:
+  - Git commit 74ea2c2 (handoff_2026-04-06.md, documented as "Firecrawl MCP installed")
+  - Local `.env` files (gitignored but accessible on VPS/local machine)
+- **Root cause:** Documented key value in handoff before understanding the security boundary; `.env` files are gitignored per policy but the key was exposed in version-controlled docs.
+- **Resolution:** Rotated to new key `fc-d9060a030e454d8dab6e0003ba20933b` on 2026-04-07, commit a63ea8c.
+- **Canonical fix process:**
+  1. Identify all instances: `grep -r "old-key" .` (all repos, including git history)
+  2. Update all `.env` files directly (no add/commit since gitignored)
+  3. Update docs/refs to remove sensitive values (keep "key rotated 2026-04-07" instead)
+  4. Commit with clear security incident message
+  5. Recommend key revocation on external service dashboard
+  6. Optional: `git filter-repo` to clean history if critical (not done here — handoff scope)
+- **Prevention:** Never document actual credential values in prose. Instead:
+  - `.env` files: keep values only locally
+  - Docs: write "key rotated YYYY-MM-DD" or "configured via envvar FIRECRAWL_API_KEY"
+  - Handoffs: link to `.env.example` or section refs, never inline secrets
+  - Audit: pre-commit hook `gitleaks` passes all commits; incident was doc-not-code
+- **Lesson:** `gitleaks` protects code but not markdown prose. Add `.md` pattern check if documenting services with secrets.
 
 ## P33 Patterns (2026-04-07)
 
