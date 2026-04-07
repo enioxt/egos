@@ -2285,3 +2285,25 @@ const PUBLIC_PATHS = ['/login', '/api/auth/login', '/api/auth/logout', '/api/hq/
    ```
 
 **Rule:** NEVER call `.toFixed()` directly on a value from an API response without `Number()` wrapping. TypeScript types at runtime are advisory, not guaranteed.
+
+---
+
+## KB-021: Guard Brasil v0.2.3 — Name + Health Data Detection (2026-04-07)
+
+**Problema:** Guard Brasil detectava nomes apenas após títulos de delegacia/função pública. Nomes em contextos civis ("Nome: João da Silva", "Paciente: Maria Santos") passavam sem detecção. Condições médicas ("HIV positivo", "diagnosticado com diabetes") eram invisíveis para o scanner.
+
+**Causa raiz:** `DEFAULT_NAME_PATTERN` só cobria role-titles policiais (delegado, perito, agente). Não havia categoria `health_data` nem padrão de condição médica.
+
+**Fix aplicado (v0.2.3):**
+1. `DEFAULT_NAME_PATTERN` expandido para 12 labels civis/médicos:
+   - Nome:, Paciente:, Cliente:, Responsável:, Requerente:, Réu:, Autor:, Detentor:, Portador:, Titular:, Interessado:
+   - Regex usa `/g` (não `/gi`) para preservar constraint uppercase no capture de nome
+2. `HEALTH_CONDITION_PATTERN` criado como 16º padrão no `ALL_PII_PATTERNS`:
+   - Detecta: "portador de X", "diagnosticado com X", "soropositivo", "HIV positivo", "resultado positivo para X"
+   - Nova `PIICategory: 'health_data'` adicionada
+   - Referência LGPD: art.11 §1º I (dados sensíveis de saúde)
+3. `GUARD_VERSION` corrigido: '0.2.1' → '0.2.2' (era inconsistente com package.json)
+
+**Regra de ouro para PII scanners:** flags `/gi` tornam character classes case-insensitive, quebrando constraints de casing no texto capturado. Sempre usar `/g` quando o capture group requer uppercase.
+
+**Cobertura atual (16 patterns):** CPF, CNPJ, RG, CNH, SUS, NIS/PIS, MASP, REDS, Processo, Placa×2, Email, Telefone, TítuloEleitor, CEP, **Dado de Saúde**.

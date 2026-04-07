@@ -68,11 +68,12 @@ Each capability has:
 
 ### Guard Brasil Stack
 
-> **EGOS Guard Brasil** (`@egosbr/guard-brasil` v0.2.0) — ATRiAN + PII Scanner + Public Guard + Evidence Chain.
-> **15 PII patterns:** CPF, CNPJ, RG, CNH, SUS, NIS/PIS, MASP, REDS, Processo, Placa (2), Email, Telefone, Título de Eleitor, CEP
+> **EGOS Guard Brasil** (`@egosbr/guard-brasil` v0.2.3) — ATRiAN + PII Scanner + Public Guard + Evidence Chain.
+> **16 PII patterns:** CPF, CNPJ, RG, CNH, SUS, NIS/PIS, MASP, REDS, Processo, Placa (2), Email, Telefone, Título de Eleitor, CEP, **Dado de Saúde** (LGPD art.11)
+> **Name detection:** Detects person names after 12 context labels (Nome:, Paciente:, Requerente:, etc.)
 > Package: `packages/guard-brasil/` | Product brief: `docs/strategy/FLAGSHIP_BRIEF.md`
 > Demo: `bun run packages/guard-brasil/src/demo.ts`
-> Tests: 15/15 pass (`bun test packages/guard-brasil/src/guard.test.ts`)
+> Tests: 20/20 pass (`bun test packages/guard-brasil/src/guard.test.ts`)
 
 ### Canonical Standard
 
