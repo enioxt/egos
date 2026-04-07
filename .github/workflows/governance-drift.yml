@@ -1,0 +1,96 @@
+name: Governance Drift Sentinel
+
+on:
+  schedule:
+    # Daily 0h17 BRT (3h17 UTC)
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Run mode: verify-only | analyze | full'
+        required: false
+        default: 'full'
+
+jobs:
+  governance-drift:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Doc-Drift Verify (egos repo)
+        id: drift_verify
+        run: |
+          bun agents/agents/doc-drift-verifier.ts \
+            --repo . \
+            --markdown \
+            --fail-on-drift \
+            > /tmp/drift-verify.md 2>&1 || echo "DRIFT_DETECTED=true" >> $GITHUB_ENV
+          cat /tmp/drift-verify.md
+
+      - name: Doc-Drift Pattern Analysis
+        if: ${{ github.event.inputs.mode != 'verify-only' }}
+        run: |
+          bun agents/agents/doc-drift-analyzer.ts --output-file
+
+      - name: Open GitHub Issue on Drift
+        if: ${{ env.DRIFT_DETECTED == 'true' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DATE=$(date +%Y-%m-%d)
+          BODY=$(cat /tmp/drift-verify.md | head -80)
+          # Check if issue already open today
+          EXISTING=$(gh issue list --label "doc-drift" --state open --search "Drift $DATE" --json number -q '.[0].number' 2>/dev/null || echo "")
+          if [ -z "$EXISTING" ]; then
+            gh issue create \
+              --title "🔴 Doc-Drift Detected — $DATE" \
+              --body "$BODY" \
+              --label "doc-drift,automated" \
+              --assignee "enioxt" || true
+          else
+            echo "Issue $EXISTING already open for today — skipping"
+          fi
+
+      - name: Commit analysis artifacts
+        run: |
+          git config --global user.name "Governance Drift Bot"
+          git config --global user.email "bot@egos.dev"
+          if [[ -z $(git status -s docs/jobs/) ]]; then
+            echo "No new analysis artifacts to commit"
+            exit 0
+          fi
+          git add docs/jobs/
+          git commit -m "chore(drift): governance drift report [$(date +'%Y-%m-%d')]"
+
+          # Safe push — never force. Rebase up to 3 times. (INC-001 protocol)
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then
+              echo "Push succeeded on attempt $attempt"
+              exit 0
+            fi
+            echo "Push failed (attempt $attempt) — fetching and rebasing"
+            git fetch origin main
+            if ! git rebase origin/main; then
+              echo "Rebase conflict — aborting"
+              git rebase --abort
+              echo "::error::governance-drift could not safely push. Resolve manually."
+              exit 1
+            fi
+          done
+          echo "::error::All 3 push attempts failed."
+          exit 1

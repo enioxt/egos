@@ -1,0 +1,123 @@
+# .ssot-map.yaml — EGOS SSOT Domain Map
+# Machine-readable version of CLAUDE.md §26 (SSOT-First Rule)
+# Used by: scripts/ssot-router.ts (pre-commit SSOT gate)
+# Updated: 2026-04-07
+
+version: "1.0.0"
+
+domains:
+  - id: gtm
+    description: "GTM, social media, outreach, equity, partners, X.com posts, threads"
+    ssot: "docs/GTM_SSOT.md"
+    ssot_social: "docs/social/X_POSTS_SSOT.md"
+    keywords:
+      - "parceiro"
+      - "partner"
+      - "equity"
+      - "gtm"
+      - "outreach"
+      - "tweet"
+      - "thread"
+      - "x.com"
+      - "xcom"
+      - "@anoineim"
+      - "vendas"
+      - "sales"
+      - "monetiz"
+      - "revenue share"
+      - "co-fundador"
+    forbidden_paths:
+      - "docs/business/"
+      - "docs/sales/"
+      - "docs/strategy/PART*.md"
+      - "docs/strategy/DISTRIBUTION*.md"
+
+  - id: tasks
+    description: "Tasks, priorities, work tracker"
+    ssot: "TASKS.md"
+    keywords:
+      - "- [ ]"
+      - "- [x]"
+      - "P0"
+      - "P1"
+      - "sprint"
+      - "backlog"
+    forbidden_paths:
+      - "docs/tasks/"
+      - "*_TASKS.md"
+      - "*_TODO.md"
+
+  - id: capabilities
+    description: "Agent capabilities, feature registry"
+    ssot: "docs/CAPABILITY_REGISTRY.md"
+    keywords:
+      - "capability"
+      - "capabilities"
+      - "agent registry"
+      - "feature list"
+    forbidden_paths:
+      - "docs/features/"
+      - "*_CAPABILITIES.md"
+
+  - id: learnings
+    description: "Technical learnings, gotchas, patterns, harvest"
+    ssot: "docs/knowledge/HARVEST.md"
+    keywords:
+      - "lesson learned"
+      - "gotcha"
+      - "pattern"
+      - "what worked"
+      - "what failed"
+      - "aprendizado"
+    forbidden_paths:
+      - "docs/notes/"
+      - "docs/findings/"
+      - "*_NOTES.md"
+
+  - id: openclaw
+    description: "OpenClaw billing proxy, gateway config"
+    ssot: "docs/OPENCLAW_SSOT.md"
+    keywords:
+      - "openclaw"
+      - "clawHub"
+      - "billing proxy"
+    forbidden_paths:
+      - "docs/openclaw/"
+
+  - id: handoffs
+    description: "Session handoffs between AI sessions"
+    ssot: "docs/_current_handoffs/handoff_YYYY-MM-DD.md"
+    keywords:
+      - "handoff"
+      - "next session"
+      - "accomplished"
+      - "in progress"
+      - "blocked"
+    forbidden_paths: []
+    note: "One file per session date. Older ones move to docs/_archived_handoffs/"
+
+  - id: incidents
+    description: "Production incidents, postmortems"
+    ssot: "docs/INCIDENTS/INC-*.md"
+    keywords:
+      - "incident"
+      - "postmortem"
+      - "INC-"
+      - "root cause"
+    forbidden_paths: []
+
+# Files that are always OK to create (no SSOT check needed)
+always_ok:
+  - "*.test.ts"
+  - "*.spec.ts"
+  - "*.sh"
+  - "*.ts"
+  - "*.tsx"
+  - "*.js"
+  - "*.json"
+  - "*.yaml"
+  - "*.yml"
+  - ".env*"
+  - "AGENTS.md"
+  - "CLAUDE.md"
+  - "README.md"

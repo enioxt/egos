@@ -159,6 +159,31 @@ else
   bash .husky/doc-drift-check.sh </dev/null || exit 1
 fi
 
+# 5.7. SSOT Gate — Block new .md files that belong to existing SSOTs
+NEW_MD_FILES=$(git diff --cached --name-only --diff-filter=A 2>/dev/null | grep '\.md$' || true)
+if [ -n "$NEW_MD_FILES" ]; then
+  COMMIT_MSG=$(cat .git/COMMIT_EDITMSG 2>/dev/null || echo "")
+  if echo "$COMMIT_MSG" | grep -q "SSOT-NEW:"; then
+    echo "  [5.7/8] ssot-gate: override detected (SSOT-NEW in commit message) — skipping"
+  else
+    echo "  [5.7/8] ssot-gate: checking new .md files against SSOT map..."
+    SSOT_BLOCK=0
+    for md_file in $NEW_MD_FILES; do
+      if bun scripts/ssot-router.ts --file "$md_file" --warn-only 2>&1; then
+        true
+      else
+        SSOT_BLOCK=1
+      fi
+    done
+    if [ "$SSOT_BLOCK" -eq 1 ]; then
+      echo ""
+      echo "❌ BLOCKED: New .md file belongs to existing SSOT domain."
+      echo "   See suggestions above. To override: add 'SSOT-NEW: <reason>' to commit message."
+      exit 1
+    fi
+  fi
+fi
+
 # 6. File Intelligence — Classification + Compliance + PII scan
 echo "  [5/5] file intelligence: classifying and checking staged files..."
 bash scripts/file-intelligence.sh 2>/dev/null || {
