@@ -508,6 +508,25 @@ async function runSentinel(mode: "dry" | "exec", singleRepo?: string): Promise<S
   }
 
   saveIssueLog(issueLog, mode);
+
+  // ── Step 4: Sync READMEs with updated manifest values ──
+  const SYNCER = join(dirname(Bun.main), "readme-syncer.ts");
+  if (existsSync(SYNCER)) {
+    console.log(`\n📝 Syncing README annotations...`);
+    for (const repoDir of repos) {
+      const syncArgs = mode === "dry" ? "--dry" : "";
+      const { stdout } = await run(
+        `bun "${SYNCER}" --repo "${repoDir}" ${syncArgs}`,
+        repoDir,
+        30_000
+      );
+      if (stdout.includes("patched")) {
+        sentinelRun.actions.push(`${repoDir}: README synced`);
+        console.log(`  ✏️  ${repoDir}: README updated`);
+      }
+    }
+  }
+
   return sentinelRun;
 }
 
