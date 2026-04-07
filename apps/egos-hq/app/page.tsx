@@ -18,14 +18,21 @@ type QuotaInfo = {
 
 type ServiceBase = { label: string; ok: boolean; latency: number | null; status: number };
 
+type ChannelInfo = { ok: boolean; instance?: string | null; authorized_number?: string | null; orchestrator?: string | null; capabilities?: string[]; bot?: string | null; polling_active?: boolean; authorized_user?: string | null };
+
 type HealthData = {
   timestamp: string;
   services: {
-    guard_brasil: ServiceBase & { calls_today: number; revenue_today_usd: number; mrr_brl: number };
-    gateway: ServiceBase & { channels: string[]; uptime_seconds: number | null; data: Record<string, unknown> };
+    guard_brasil: ServiceBase & { calls_today: number; revenue_today_usd: number; mrr_brl: number; pattern_count: number | null; version: string | null };
+    gateway: ServiceBase & { channels: string[]; uptime_seconds: number | null; data: Record<string, unknown>; whatsapp: ChannelInfo; telegram: ChannelInfo };
     openclaw: ServiceBase & { default_model: string; fallback_chain: string[]; data: Record<string, unknown> };
-    billing_proxy: ServiceBase & { requests_served: number | null; token_expires_in_hours: number | null };
+    billing_proxy: ServiceBase & { requests_served: number | null; token_expires_in_hours: number | null; subscription_type: string | null; uptime_seconds: number | null; replacement_patterns: number | null; token_status: string | null };
     codex_proxy: ServiceBase & { model: string; quota: QuotaInfo | null; last_review: Record<string, unknown> | null };
+    // Extended services — HQI-001..004
+    eagle_eye: ServiceBase & { tables_healthy: boolean; territories_table: boolean; opportunities_table: boolean };
+    app_852: ServiceBase;
+    sinapi: ServiceBase & { last_sync: string | null; scheduler: string | null };
+    bracc_neo4j: ServiceBase & { node_count_manifest: number };
   };
   x_bot: { pending: number; sent_today: number; rejected_today: number };
   knowledge: { pages: number; avg_quality: number; learnings: number };
@@ -246,6 +253,10 @@ export default function HomePage() {
   const gatewayStatus = svc?.gateway.ok ? 'ok' : 'offline';
   const openclawStatus = svc?.openclaw.ok ? 'ok' : 'offline';
   const billingStatus = svc?.billing_proxy.ok ? 'ok' : 'offline';
+  const eagleEyeStatus = svc?.eagle_eye.ok ? 'ok' : 'offline';
+  const app852Status = svc?.app_852.ok ? 'ok' : 'offline';
+  const sinapiStatus = svc?.sinapi.ok ? 'ok' : 'offline';
+  const braccStatus = svc?.bracc_neo4j.ok ? 'ok' : 'offline';
   const codexStatus = svc?.codex_proxy.ok
     ? (svc.codex_proxy.quota?.status === 'exhausted' ? 'error' : svc.codex_proxy.quota?.status === 'warning' ? 'warn' : 'ok')
     : 'offline';
@@ -416,6 +427,80 @@ export default function HomePage() {
                 <LinkBtn href="/knowledge">→ Abrir Knowledge Base</LinkBtn>
               </Card>
             )}
+
+            {/* Guard Brasil — enriched (HQI-006) */}
+            <Card title="Guard Brasil · Detalhes" status={guardStatus} accent={C.green}>
+              <Row label="Padrões PII ativos" value={svc?.guard_brasil.pattern_count != null ? <Tag color={C.green}>{svc.guard_brasil.pattern_count} padrões</Tag> : <span style={{color:C.dim}}>—</span>} />
+              <Row label="Versão" value={svc?.guard_brasil.version ? <Tag color={C.muted}>v{svc.guard_brasil.version}</Tag> : '—'} />
+              <Row label="Chamadas hoje" value={svc?.guard_brasil.calls_today ?? 0} />
+              <Row label="Receita hoje" value={`$${Number(svc?.guard_brasil.revenue_today_usd ?? 0).toFixed(4)}`} />
+              <div style={{ marginTop: 10, display: 'flex', gap: 6 }}>
+                <Btn small onClick={() => window.open('https://guard.egos.ia.br/v1/meta', '_blank')}>→ Meta</Btn>
+              </div>
+            </Card>
+
+            {/* Billing Proxy — enriched (HQI-007) */}
+            <Card title="Billing Proxy · Detalhes" status={billingStatus}>
+              <Row label="Subscription" value={svc?.billing_proxy.subscription_type ? <Tag color={C.purple}>{svc.billing_proxy.subscription_type}</Tag> : '—'} />
+              <Row label="Token status" value={
+                svc?.billing_proxy.token_status
+                  ? <span style={{ color: svc.billing_proxy.token_status === 'token_expired' ? C.red : C.green }}>{svc.billing_proxy.token_status}</span>
+                  : '—'
+              } />
+              <Row label="Uptime" value={svc?.billing_proxy.uptime_seconds != null ? `${Math.floor(svc.billing_proxy.uptime_seconds / 3600)}h` : '—'} />
+              <Row label="Padrões substituição" value={svc?.billing_proxy.replacement_patterns ?? '—'} />
+            </Card>
+
+            {/* Gateway Channels — WhatsApp + Telegram (HQI-005) */}
+            <Card title="Gateway · Canais" status={gatewayStatus}>
+              <div style={{ marginBottom: 8, paddingBottom: 8, borderBottom: `1px solid ${C.border}` }}>
+                <div style={{ fontSize: 11, color: C.dim, marginBottom: 4 }}>WhatsApp</div>
+                <Row label="Status" value={<span style={{ color: svc?.gateway.whatsapp?.ok ? C.green : C.red }}>{svc?.gateway.whatsapp?.ok ? 'Online' : 'Offline'}</span>} />
+                <Row label="Instância" value={svc?.gateway.whatsapp?.instance ? <Tag color={C.muted}>{svc.gateway.whatsapp.instance}</Tag> : '—'} />
+                <Row label="Orquestrador" value={svc?.gateway.whatsapp?.orchestrator ? <Tag color={C.blue}>{svc.gateway.whatsapp.orchestrator}</Tag> : '—'} />
+              </div>
+              <div>
+                <div style={{ fontSize: 11, color: C.dim, marginBottom: 4 }}>Telegram</div>
+                <Row label="Status" value={<span style={{ color: svc?.gateway.telegram?.ok ? C.green : C.red }}>{svc?.gateway.telegram?.ok ? 'Online' : 'Offline'}</span>} />
+                <Row label="Bot" value={svc?.gateway.telegram?.bot ? <Tag color={C.muted}>{svc.gateway.telegram.bot}</Tag> : '—'} />
+                <Row label="Polling" value={svc?.gateway.telegram?.polling_active ? <span style={{color:C.green}}>ativo</span> : <span style={{color:C.dim}}>inativo</span>} />
+              </div>
+            </Card>
+
+            {/* Eagle Eye (HQI-001) */}
+            <Card title="Eagle Eye · Licitações" status={eagleEyeStatus} accent={C.yellow}>
+              <Row label="Status" value={<span style={{ color: svc?.eagle_eye.ok ? C.green : C.red }}>{svc?.eagle_eye.ok ? 'Online' : 'Offline'}</span>} />
+              <Row label="Territórios" value={svc?.eagle_eye.territories_table ? <Tag color={C.yellow}>tabela OK</Tag> : <span style={{color:C.dim}}>—</span>} />
+              <Row label="Oportunidades" value={svc?.eagle_eye.opportunities_table ? <Tag color={C.yellow}>tabela OK</Tag> : <span style={{color:C.dim}}>—</span>} />
+              <div style={{ marginTop: 10 }}>
+                <Btn small onClick={() => window.open('https://eagle-eye.egos.ia.br', '_blank')}>→ Eagle Eye</Btn>
+              </div>
+            </Card>
+
+            {/* br-acc / Neo4j (HQI-008) */}
+            <Card title="br-acc · Neo4j" status={braccStatus} accent={C.blue}>
+              <Row label="Status porta" value={<span style={{ color: svc?.bracc_neo4j.ok ? C.green : C.red }}>{svc?.bracc_neo4j.ok ? 'Acessível' : 'Inacessível'}</span>} />
+              <Row label="Nós (manifest)" value={
+                <span style={{ color: C.blue, fontFamily: 'monospace', fontSize: 12 }}>
+                  {svc?.bracc_neo4j.node_count_manifest?.toLocaleString('pt-BR') ?? '—'}
+                </span>
+              } />
+              <div style={{ marginTop: 6, fontSize: 11, color: C.dim }}>Verificado em 2026-04-07 · claim manifest</div>
+            </Card>
+
+            {/* SINAPI (HQI-003) */}
+            <Card title="SINAPI · Preços" status={sinapiStatus}>
+              <Row label="Status" value={<span style={{ color: svc?.sinapi.ok ? C.green : C.red }}>{svc?.sinapi.ok ? 'Online' : 'Offline'}</span>} />
+              <Row label="Último sync" value={svc?.sinapi.last_sync ? new Date(svc.sinapi.last_sync).toLocaleDateString('pt-BR') : '—'} />
+              <Row label="Scheduler" value={svc?.sinapi.scheduler ? <Tag color={C.muted}>{svc.sinapi.scheduler}</Tag> : '—'} />
+            </Card>
+
+            {/* 852 Police Bot (HQI-002) */}
+            <Card title="852 · Police Bot" status={app852Status}>
+              <Row label="Status" value={<span style={{ color: svc?.app_852.ok ? C.green : C.red }}>{svc?.app_852.ok ? 'Online' : 'Offline'}</span>} />
+              <Row label="Latência" value={svc?.app_852.latency != null ? `${svc.app_852.latency}ms` : '—'} />
+              <div style={{ fontSize: 11, color: C.dim, marginTop: 6 }}>Chatbot policial — 83.7M entidades br-acc</div>
+            </Card>
 
           </div>
 

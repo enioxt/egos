@@ -23,12 +23,41 @@
 - [ ] **ARR-002**: Wire AAR into KB wiki search (replaces raw grep in wiki-compiler)
 - [ ] **ARR-003**: Hybrid retrieval pattern — AAR (precision/exact) + pg_trgm FTS (recall) for Guard Brasil + EGOS Inteligência. Validated by 2025 research (Meilisearch/Redis/Glean): full-text superior to vectors for identifier-heavy domains (CPF/CNPJ/PEPs/contracts). NOT a vector DB replacement.
 
-### CAREER-OPS — Freelance Discovery Pipeline (P1 — Revenue Bridge)
-**Goal:** Use [santifer/career-ops](https://github.com/santifer/career-ops) adapted for freelance gigs to generate revenue while EGOS matures. Enio's CV already exists (5 versions in `/home/enio/personal/`).
-**SSOT:** `/home/enio/personal/career-ops/` | Profile: `config/profile.yml` | CV: `cv.md`
-**Profile note:** Background presented as "law enforcement intelligence (15 years)" — not "active police investigator". Constraint is invisible to clients; only deliverability matters. Freelance/contract = ideal fit (no conflict with current employment).
-- [ ] **CAREER-005** [ENIO]: First batch run — `cd /home/enio/personal/career-ops && claude` → `/career-ops pipeline` (6 URLs seeded). Score ≥ 4.0/5 only
-- [ ] **CAREER-006** [ENIO]: Apply to top 3 after review — first revenue signal
+### HQ Integration Masterplan (2026-04-07)
+**Goal:** HQ shows live data for ALL 19 VPS containers — no service invisible, no number hardcoded.
+**Diagnostic:** 2026-04-07 — hq.egos.ia.br covers 5/19 services. 14 containers invisible. Placeholder cards shipped (page.tsx + health/route.ts extended). Integration in 4 phases.
+**SSOT:** `apps/egos-hq/app/page.tsx` + `apps/egos-hq/app/api/hq/health/route.ts`
+
+**Phase 1 — Wiring internal services (health/route.ts already extended):**
+- [ ] **HQI-001**: Eagle Eye → add counts from Supabase (territories, opportunities) via `/api/hq/eagle-eye` route
+- [ ] **HQI-002**: 852 Police Bot → expose messages_today from 852-app internal API (find correct health endpoint)
+- [ ] **HQI-003**: SINAPI → verify internal Docker URL + expose entry_count from DB
+- [ ] **HQI-004**: br-acc/Neo4j → live node count via bolt (find creds in VPS docker-compose)
+- [ ] **HQI-005**: Gateway channels ✅ wired → verify WA/TG cards show real data in HQ
+- [ ] **HQI-006**: Guard Brasil pattern_count ✅ from /v1/meta → verify card shows 15 patterns
+- [ ] **HQI-007**: Billing proxy enriched ✅ (subscription_type, uptime, patterns) → verify card
+- [ ] **HQI-008**: OpenClaw real config → read actual fallback_chain from openclaw-sandbox (not hardcoded)
+
+**Phase 2 — Volume mounts + data routes:**
+- [ ] **HQV2-000**: VPS docker-compose: volume mounts → TASKS.md, agents.json, CAPABILITY_REGISTRY.md, docs/jobs/ → /data/*
+- [ ] **HQV2-001**: `/api/hq/tasks` — parse /data/TASKS.md → `{total, pending, p0, p1, stale_p0}`
+- [ ] **HQV2-002**: `/api/hq/world-model` — read /data/world-model/current.json → health%, blockers
+- [ ] **HQV2-003**: `/api/hq/gems` — gem-hunter API → top gems, last run, sector breakdown
+- [ ] **HQV2-004**: `/api/hq/drift` — read /data/jobs/doc-drift-sentinel.md → structured drift per repo (DRIFT-012)
+
+**Phase 3 — New dashboard pages:**
+- [ ] **HQV2-006**: `/tasks` page — Kanban P0/P1/P2, done/pending counts (dep: HQV2-001)
+- [ ] **HQV2-007**: `/world-model` page — health% gauge, P0 blockers, agent inventory
+- [ ] **HQV2-008**: `/gems` page — filterable cards (score, source, category)
+- [ ] **HQV2-009**: `/system-map` page — D3 graph from agents.json + CAPABILITY_REGISTRY
+- [ ] **HQV2-010**: Nav update — add tasks, world-model, gems, system-map, drift links
+
+**Phase 4 — Intelligence + Dream Cycle:**
+- [ ] **DC-007**: HQ "Last Night" card — Dream Cycle results from egos_nightly_logs
+- [ ] **HQC-012**: Intelligence engine — `intelligence-engine.ts` + Gemma 4 31B free → auto-task creation
+- [ ] **GRF-002**: Knowledge Graph panel — vis.js embed from codebase-memory-mcp
+- [ ] **ORB-004**: Orchestration Status widget — MCP server health (brave, github, filesystem, etc.)
+- [ ] **HQC-011**: Remove all remaining hardcoded data — drive from canonical registries
 
 ---
 

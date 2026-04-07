@@ -5,7 +5,14 @@ const TIMEOUT = 4000;
 const BILLING_PROXY_URL = process.env.BILLING_PROXY_URL ?? 'http://127.0.0.1:18801';
 const CODEX_PROXY_URL = process.env.CODEX_PROXY_URL ?? 'http://127.0.0.1:18802';
 const GATEWAY_HEALTH_URL = process.env.GATEWAY_HEALTH_URL ?? 'https://gateway.egos.ia.br/health';
+const GATEWAY_INTERNAL_URL = process.env.GATEWAY_INTERNAL_URL ?? 'http://egos-gateway:3050';
 const OPENCLAW_HEALTH_URL = process.env.OPENCLAW_HEALTH_URL ?? 'https://openclaw.egos.ia.br';
+const GUARD_META_URL = process.env.GUARD_BRASIL_URL ?? 'https://guard.egos.ia.br';
+// Internal VPS services (only reachable from inside Docker network)
+const EAGLE_EYE_URL = process.env.EAGLE_EYE_URL ?? 'http://eagle-eye:3001';
+const APP_852_URL = process.env.APP_852_URL ?? 'http://852-app:3000';
+const SINAPI_URL = process.env.SINAPI_URL ?? 'http://egos-sinapi-api:8000';
+const BRACC_URL = process.env.BRACC_URL ?? 'http://bracc-neo4j:7474';
 
 async function ping(url: string, label: string) {
   try {
@@ -24,9 +31,16 @@ export async function GET() {
   const now = new Date();
   const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString();
 
-  // Run all checks in parallel
+  // Run all checks in parallel — core + extended services
   const [
     guardHealth, gatewayHealth, openclawHealth, billingProxyHealth, codexProxyHealth,
+    // Extended services (placeholders until HQI-001..008 fully wired)
+    eagleEyeHealth, app852Health, sinapiHealth, braccHealth,
+    // Gateway channel details
+    waHealth, tgHealth,
+    // Guard meta (pattern count)
+    guardMeta,
+    // Supabase queries
     guardStats, xStats, agentEvents, kbStats, kbLearnings, lastReview,
   ] = await Promise.all([
     ping('https://guard.egos.ia.br/health', 'Guard Brasil API'),
@@ -34,6 +48,16 @@ export async function GET() {
     ping(OPENCLAW_HEALTH_URL, 'OpenClaw Gateway'),
     ping(`${BILLING_PROXY_URL}/health`, 'Billing Proxy (Claude)'),
     ping(`${CODEX_PROXY_URL}/health`, 'Codex Proxy (GPT-5.4)'),
+    // Extended services — HQI-001..004
+    ping(`${EAGLE_EYE_URL}/api/health`, 'Eagle Eye'),
+    ping(`${APP_852_URL}/api/health`, '852 Police Bot'),
+    ping(`${SINAPI_URL}/health`, 'SINAPI API'),
+    ping(`${BRACC_URL}/db/data/`, 'br-acc Neo4j'),
+    // Gateway channel health — HQI-005
+    ping(`${GATEWAY_INTERNAL_URL}/channels/whatsapp/health`, 'WhatsApp Channel'),
+    ping(`${GATEWAY_INTERNAL_URL}/telegram/health`, 'Telegram Channel'),
+    // Guard meta — HQI-006
+    ping(`${GUARD_META_URL}/v1/meta`, 'Guard Brasil Meta'),
 
     sb.from('guard_brasil_events')
       .select('cost_usd, verdict', { count: 'exact' })
@@ -95,6 +119,32 @@ export async function GET() {
   };
   const codexData = codexProxyHealth.data as CodexProxyData;
 
+  // Eagle Eye tables health
+  type EagleEyeData = { healthy?: boolean; tables?: { territories?: boolean; opportunities?: boolean; scans?: boolean } };
+  const eeData = eagleEyeHealth.data as EagleEyeData;
+
+  // Guard meta patterns
+  type GuardMetaData = { patterns?: Array<{ id: string }>; version?: string };
+  const guardMetaData = guardMeta.data as GuardMetaData;
+
+  // Billing proxy enriched data — HQI-007
+  type BillingProxyData = {
+    requestsServed?: unknown;
+    tokenExpiresInHours?: unknown;
+    subscriptionType?: string;
+    uptime?: string;
+    replacementPatterns?: number;
+    reverseMapPatterns?: number;
+    status?: string;
+  };
+  const bpData = billingProxyHealth.data as BillingProxyData;
+
+  // Gateway channel details — HQI-005
+  type WAData = { instance?: string; authorizedNumber?: string; orchestrator?: string; capabilities?: string[] };
+  type TGData = { bot?: string; polling_active?: boolean; authorized_user?: string };
+  const waData = waHealth.data as WAData;
+  const tgData = tgHealth.data as TGData;
+
   return NextResponse.json({
     timestamp: now.toISOString(),
     services: {
@@ -103,11 +153,28 @@ export async function GET() {
         calls_today: callsToday,
         revenue_today_usd: revenueToday,
         mrr_brl: mrr,
+        // HQI-006: pattern count from meta
+        pattern_count: Array.isArray(guardMetaData?.patterns) ? guardMetaData.patterns.length : null,
+        version: (guardMeta.data as { version?: string })?.version ?? null,
       },
       gateway: {
         ...gatewayHealth,
         channels: (gatewayHealth.data as { channels?: string[] })?.channels ?? [],
         uptime_seconds: (gatewayHealth.data as { uptime?: number })?.uptime ?? null,
+        // HQI-005: channel details
+        whatsapp: {
+          ok: waHealth.ok,
+          instance: waData?.instance ?? null,
+          authorized_number: waData?.authorizedNumber ?? null,
+          orchestrator: waData?.orchestrator ?? null,
+          capabilities: waData?.capabilities ?? [],
+        },
+        telegram: {
+          ok: tgHealth.ok,
+          bot: tgData?.bot ?? null,
+          polling_active: tgData?.polling_active ?? false,
+          authorized_user: tgData?.authorized_user ?? null,
+        },
       },
       openclaw: {
         ...openclawHealth,
@@ -116,18 +183,39 @@ export async function GET() {
       },
       billing_proxy: {
         ...billingProxyHealth,
-        requests_served: (billingProxyHealth.data as { requestsServed?: unknown })?.requestsServed != null
-          ? Number((billingProxyHealth.data as { requestsServed?: unknown }).requestsServed)
-          : null,
-        token_expires_in_hours: (billingProxyHealth.data as { tokenExpiresInHours?: unknown })?.tokenExpiresInHours != null
-          ? Number((billingProxyHealth.data as { tokenExpiresInHours?: unknown }).tokenExpiresInHours)
-          : null,
+        requests_served: bpData?.requestsServed != null ? Number(bpData.requestsServed) : null,
+        token_expires_in_hours: bpData?.tokenExpiresInHours != null ? Number(bpData.tokenExpiresInHours) : null,
+        // HQI-007: enriched fields
+        subscription_type: bpData?.subscriptionType ?? null,
+        uptime_seconds: bpData?.uptime ? parseInt(bpData.uptime) : null,
+        replacement_patterns: bpData?.replacementPatterns ?? null,
+        token_status: bpData?.status ?? null,
       },
       codex_proxy: {
         ...codexProxyHealth,
         model: (codexProxyHealth.data as { model?: string })?.model ?? 'gpt-5.4',
         quota: codexData?.quota ?? null,
         last_review: (lastReview.data ?? [])[0] ?? null,
+      },
+      // Extended services — HQI-001..004
+      eagle_eye: {
+        ...eagleEyeHealth,
+        tables_healthy: eeData?.healthy ?? false,
+        territories_table: eeData?.tables?.territories ?? false,
+        opportunities_table: eeData?.tables?.opportunities ?? false,
+      },
+      app_852: {
+        ...app852Health,
+      },
+      sinapi: {
+        ...sinapiHealth,
+        last_sync: (sinapiHealth.data as { last_sync?: string })?.last_sync ?? null,
+        scheduler: (sinapiHealth.data as { scheduler?: string })?.scheduler ?? null,
+      },
+      bracc_neo4j: {
+        ...braccHealth,
+        // Node count is manifest-verified: 83,773,683 (2026-04-07)
+        node_count_manifest: 83773683,
       },
     },
     x_bot: {
