@@ -104,30 +104,10 @@
 
 ---
 
-### Neural Mesh + Telemetry — DONE (2026-04-01)
-EGOS-167/168/175, GH-040..042, EGOS-TELEM-001..005 — all DONE . codebase-memory-mcp (51K nodes), llmrefs (15 docs), SSOT gate, smoke tests, version lock, full telemetry (5 layers). See git log.
-
----
-
-### EGOS Knowledge System — DONE (2026-04-05)
-KB-001..016 DONE ✅ (wiki-compiler, 50 pages, gateway /knowledge channel, learnings, changelog). See git log.
+### Infrastructure + Session Init — DONE
+**Neural Mesh+Telemetry (EGOS-167/168/175, GH-040..042, EGOS-TELEM-001..005):** codebase-memory-mcp 51K nodes, telemetry 5 layers ✅ | **KB (KB-001..016):** wiki-compiler, 50 pages ✅ | **Session Init v6 (START-001..005):** ✅ | **CCR Jobs:** 3 slots, Haiku, 00-06h BRT, docs/jobs/ + docs/gem-hunter/ ✅
 - [ ] **KB-017 [P2]**: Auto-learning from git commits — extract patterns from messages + diffs
-
----
-
-- [ ] EGOS-169: @aiready/pattern-detect pre-commit (duplicate detection)
-- [ ] EGOS-173: CRCDM hooks: llmrefs staleness + auto-heal rename
-
----
-
-### Session Initialization v6.0 LIVE — DONE (2026-04-02)
-START-001..005 DONE ✅. Pending P1: START-006 (monitor 1 week), START-007 (distributed health), START-008 (dashboard).
-
----
-
-### Scheduled Jobs — 3 CCR slots (2026-04-01)
-
-All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
+- [ ] EGOS-169: @aiready/pattern-detect pre-commit | EGOS-173: CRCDM hooks llmrefs staleness + auto-heal rename
 
 ---
 
@@ -185,9 +165,7 @@ All Haiku, 00-06h BRT, reports in `docs/jobs/` + `docs/gem-hunter/`
 ---
 
 ### Claude Code Hardening + Observability (archived)
-LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (OTel wiring), OBS-010..013 (privacy logs) — P2.
-**Ref repos done:** Continue 71/100, Aider 74/100, Cline 72.8/100, agent-scaling-laws 87% ArchSelector.
-**P1 queue:** OpenHands, LangGraph, OpenAI Agents SDK, LiteLLM, Langfuse, Mem0, Temporal TS.
+LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013. Ref repos: Continue 71, Aider 74, Cline 72.8, agent-scaling-laws 87. P1 queue: OpenHands, LangGraph, OpenAI Agents SDK, LiteLLM, Langfuse, Mem0.
 
 ---
 
@@ -457,8 +435,6 @@ LEAK/AI/OBS 001..013 done. Pending: LEAK-010..012 (monitor repos), AI-008..010 (
 
 **P1 — CHAT-011..022:** structured output, multimodal Message, runAgentLoop, semantic memory, OTel, prompt caching, cost ledger, Python shared_py, br-acc/ratio adoption, conformance test, streaming PII
 **P2 — CHAT-023..031:** resumable streams, fork/edit, agent handoff, eval CI gate, file ingest, entity memory, racing fallback, Forja/Intelink/carteira-livre pass, HQ panel
-
----
 
 ---
 
