@@ -2307,3 +2307,138 @@ const PUBLIC_PATHS = ['/login', '/api/auth/login', '/api/auth/logout', '/api/hq/
 **Regra de ouro para PII scanners:** flags `/gi` tornam character classes case-insensitive, quebrando constraints de casing no texto capturado. Sempre usar `/g` quando o capture group requer uppercase.
 
 **Cobertura atual (16 patterns):** CPF, CNPJ, RG, CNH, SUS, NIS/PIS, MASP, REDS, Processo, Placa×2, Email, Telefone, TítuloEleitor, CEP, **Dado de Saúde**.
+
+---
+
+## KB-022: Guard Brasil — Partial Masking Mode (MaskMode) (2026-04-07)
+
+**Pattern:** Banking-style partial reveal for user confirmation flows.
+
+**Implementation:**
+- `MaskMode = 'full' | 'partial'` added to `pii-patterns.ts`
+- `partialMaskFn?: (matched: string) => string` on `PIIPatternConfig`
+- Thread: `PIIPatternConfig` → `maskPII(text, ids?, mode)` → `PublicGuardConfig.maskMode` → `maskPublicOutput()` → `InspectOptions.maskMode` → `guard.inspect()` → `POST /v1/inspect body.mask_mode`
+
+**Partial masks per type:**
+- CPF `123.456.789-00` → `***.456.789-**` (middle 6 digits)
+- CNPJ `11.222.333/0001-81` → `**.222.333/****-**`
+- Telefone `(31) 99876-5432` → `(31) ****-5432` (keep DDD + last 4)
+- Email `joao@empresa.com.br` → `j***@e*****.com.br`
+
+**API usage:** `POST /v1/inspect { "text": "...", "mask_mode": "partial" }`
+
+**Fallback rule:** If `partialMaskFn` is undefined for a pattern, falls back to full `maskFormat`. Critical patterns (MASP, REDS) intentionally have no `partialMaskFn`.
+
+---
+
+## KB-023: Schema-Driven Prompt Assembler (2026-04-07)
+
+**Pattern:** Replace hardcoded prompt strings with typed section array.
+
+**Module:** `packages/shared/src/prompt-assembler.ts`
+
+**Types:**
+```typescript
+interface PromptSection<TCtx> {
+  id: string;
+  content: string | (() => string);
+  condition?: (ctx: TCtx) => boolean;
+  cacheable?: boolean;   // true = Anthropic prompt cache eligible
+  priority?: number;     // sort order, lower = earlier
+}
+```
+
+**Usage:** `createAssembler(sections)` returns `(ctx, extra?) => AssembledPrompt`.
+Extra sections (memory block) go in as `{ id, content, priority: 0 }`.
+
+**Key win:** `cacheable: true` sections are marked for Anthropic prompt caching.
+Large stable prefixes (rules, legal refs) eligible for >1024 token cache blocks.
+
+**Copy pattern:** 852 doesn't have `@egos/shared` — copy `prompt-assembler.ts` locally.
+Same pattern for any repo that needs shared logic without monorepo wiring.
+
+---
+
+## KB-024: MemoryStore Adapter Pattern (2026-04-07)
+
+**Pattern:** Decouple chatbot memory persistence via interface.
+
+**Module:** `packages/shared/src/memory-store.ts`
+
+**Three implementations:**
+- `SupabaseMemoryStore(client, tableName, opts)` — production, configurable columns
+- `InMemoryStore()` — process-scoped Map, for dev/test, has `.clear()`
+- `NullMemoryStore()` — no-op, always returns null, for CI/offline
+
+**Interface:**
+```typescript
+interface MemoryStore {
+  getRecent(key: string, limit?: number): Promise<MemoryEntry[]>;
+  save(key: string, content: string, opts?): Promise<void>;
+  buildMemoryBlock(key: string, limit?, options?): Promise<string | null>;
+}
+```
+
+**Column mapping:** `SupabaseMemoryStoreOptions` lets you map any Supabase table schema.
+Default: `session_hash`, `summary`, `title`, `metadata`, `updated_at`.
+
+---
+
+## KB-025: Per-Identity Budget Tiers for Rate Limiting (2026-04-07)
+
+**Pattern:** Two-layer rate limiting: per-IP (strict) + per-identity (tiered by auth state).
+
+**Tiers in 852:**
+```typescript
+const IDENTITY_BUDGET = {
+  authenticated: { limit: 50, windowMs: 10 * 60_000 },
+  anonymous:     { limit: 20, windowMs: 10 * 60_000 },
+  unknown:       { limit: 12, windowMs:  5 * 60_000 },
+}
+```
+
+**Identity detection:** prefix on key — `user:${userId}` = authenticated, `anon:${hash}` = anonymous.
+
+**Order:** IP check first (blocks abuse), identity check second (user experience).
+
+**Response header:** `X-Budget-Tier: authenticated|anonymous|unknown` in 429 response.
+
+---
+
+## KB-026: Credential Rotation Audit — Dead Keys (2026-04-07)
+
+**Pattern:** Live-test credentials periodically, not just check .env presence.
+
+**Audit results (2026-04-07):**
+- ❌ Dead: `ANTHROPIC_API_KEY` (401), `OPENAI_API_KEY` (revoked earlier), `LARRYBRAIN` (NXDOMAIN)
+- ✅ Rotated: `GITHUB_TOKEN` (ghp_mnsfk...), `HUGGINGFACE_TOKEN` (hf_XKFmd...), `BRAVE_API` (BSAeXQ...), all 5 X.com keys
+
+**Rule:** Never trust .env presence = key validity. Test quarterly minimum.
+Script pattern: iterate all keys, HTTP call with minimal scope, log PASS/FAIL only (no values).
+
+**ANTHROPIC_API_KEY:** Dead but low-priority — Claude Code uses its own injected key.
+Any agent/script reading `process.env.ANTHROPIC_API_KEY` will fail silently.
+
+---
+
+## KB-027: X.com Strategy Shift — Broadcast→DM (2026-04-07)
+
+**Pattern:** Personal DMs outperform broadcast threads for finding technical partners.
+
+**Insight:** Marketing threads (7+ tweets, metrics, equity %) do not convert builders.
+Direct messages that reference someone's specific post + show real products do.
+
+**DM anatomy that works:**
+1. Reference their specific post (context)
+2. Show 1-2 relevant products with links (authentic)
+3. Honest gap statement ("rápido para desenvolver, não sei vender")
+4. Open-ended ask ("parcerias que se encaixem")
+
+**Anti-patterns:**
+- Equity percentages upfront
+- "GTM partner" / startup vocabulary
+- Generic intros ("olá, vi seu perfil")
+- Threads longer than 3 tweets for initial outreach
+
+**Automation rule:** Never auto-send DMs. Auto-discover candidates → manual review → manual send.
+

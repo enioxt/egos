@@ -550,3 +550,56 @@ Scoring: exact substring (high) > token overlap (medium) > atom confidence (base
 1. **ARR-001**: `import { AtomizerCore } from '@egos/atomizer'` in gem-hunter pipeline
 2. **ARR-002**: Wire into KB wiki search (replace raw grep in wiki-compiler.ts)
 3. Complements (not replaces): codebase-memory-mcp graph, Supabase pg_trgm FTS
+
+---
+
+## §19 — Partial Masking Mode (Guard Brasil) (2026-04-07)
+
+**Module:** `packages/guard-brasil/src/pii-patterns.ts` + `lib/public-guard.ts` + `apps/api/src/server.ts`
+
+**Capability:** Banking-style partial PII reveal for confirmation UIs.
+
+- `MaskMode = 'full' | 'partial'` on all masking APIs
+- Per-pattern `partialMaskFn` (CPF, CNPJ, telefone, email)
+- API: `POST /v1/inspect { mask_mode: "partial" }`
+- Full masking remains default — partial is opt-in
+
+---
+
+## §20 — Schema-Driven Prompt Assembler (2026-04-07)
+
+**Module:** `packages/shared/src/prompt-assembler.ts` (+ `852/src/lib/prompt-assembler.ts` local copy)
+
+**Capability:** Typed, conditional, cacheable prompt section assembly.
+
+- `PromptSection<TCtx>`: id, content, condition, cacheable, priority
+- `createAssembler(sections)` → reusable builder bound to section registry
+- `AssembledPrompt`: text + cacheableIds + dynamicIds for Anthropic cache integration
+- 852 prompt.ts fully refactored to use this pattern
+
+---
+
+## §21 — MemoryStore Adapter (2026-04-07)
+
+**Module:** `packages/shared/src/memory-store.ts`
+
+**Capability:** Backend-agnostic conversational memory persistence.
+
+- `MemoryStore` interface: getRecent / save / buildMemoryBlock
+- `SupabaseMemoryStore` — configurable column mapping, production
+- `InMemoryStore` — process-scoped, dev/test, clearable
+- `NullMemoryStore` — no-op for CI/offline
+
+---
+
+## §22 — Eval Harness (2026-04-07)
+
+**Module:** `packages/shared/src/eval/runner.ts` + `852/src/eval/golden/852.ts`
+
+**Capability:** Golden case regression testing for chatbot responses.
+
+- `GoldenCase`: mustContain, mustNotContain, minLength, maxLength, custom score fn
+- `runEval(cases, chatFn, opts)` → `EvalReport` with passRate, avgScore, failures
+- 20 golden cases for 852 across 7 categories: PII safety, ATRiAN, governance, legal, ops, tone, anti-hallucination
+- Run: `BASE_URL=http://localhost:3001 bun run eval`
+
