@@ -63,3 +63,6 @@ export type { EvidenceChain, EvidenceItem, ClaimWithEvidence, EvidenceType, Conf
 // Intelligence Layer — Architecture Selector (GH-046/047, arXiv 2512.08296)
 export { selectArchitecture, classifyFromDescription, formatForBraid } from './intelligence/architecture-selector.js';
 export type { ArchitectureType, ArchitectureProfile, SelectionInput, SelectionResult } from './intelligence/architecture-selector.js';
+
+export { assemblePrompt, createAssembler } from './prompt-assembler';
+export type { PromptSection, AssembledPrompt } from './prompt-assembler';
