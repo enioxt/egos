@@ -618,11 +618,11 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 
 | ID | Post | CTA | Schedule | Status |
 |----|------|-----|----------|--------|
-| **SOCIAL-001** | Open partnerships (equity flexible) | "DM aberta" | 2026-04-14 | ⏳ Queue — **PIN** |
-| **SOCIAL-002** | Gem Hunter spotlight | "DM para parceria" | 2026-04-16 | ⏳ Queue |
-| **SOCIAL-003** | Carteira Livre + split payment | "Conversa sobre parceria" | 2026-04-18 | ⏳ Queue |
-| **SOCIAL-004** | Transparência radical (0 MRR, 6 products, real infra) | "Procurando parceiro" | 2026-04-21 | ⏳ Queue |
-| **SOCIAL-005** | Researcher mindset | "DM aberta" | 2026-04-22 | ⏳ Queue |
+| **SOCIAL-001** | Open partnerships (equity flexible) | "DM aberta" | 2026-04-14 | ✅ Queued Supabase |
+| **SOCIAL-002** | Gem Hunter spotlight | "DM para parceria" | 2026-04-15 | ✅ Queued Supabase |
+| **SOCIAL-003** | Guard Brasil LGPD | "parceria compliance" | 2026-04-16 | ✅ Queued Supabase |
+| **SOCIAL-004** | Researcher mindset | "DM aberta" | 2026-04-17 | ✅ Queued Supabase |
+| **SOCIAL-005** | Transparência radical | "building in public" | 2026-04-18 | ✅ Queued Supabase |
 | **SOCIAL-006** | Hermes decommission (Codex → qwen-plus chain) | "Vale ler pra agentic builders" | 2026-04-15 | ⏳ Queue |
 | **SOCIAL-007** | Governance (26 SSOTs, 4-layer doc-drift) | "Vale ver se tá nesse pico" | 2026-04-17 | ⏳ Queue |
 | **SOCIAL-008** | Call for builders | "DM aberta" | 2026-04-23 | ⏳ Queue |
