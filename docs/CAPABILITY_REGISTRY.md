@@ -682,3 +682,19 @@ or HARVEST.md are missing, it skips silently. This prevents hook failures from b
 - Preference summary injected into LLM system prompt for next generation
 
 **User flow:** Telegram inline keyboard → [A Bold][B Conv][C Tech][Edit A][Edit B][Edit C][Skip] → type edited text if editing → auto-posts to X after approval.
+
+## §25 — Auto-Disseminate Pipeline (2026-04-08)
+
+**What:** 3-agent pipeline that propagates kernel rule changes across all EGOS repos automatically.
+**Trigger:** Post-commit on kernel files (CLAUDE.md, .windsurfrules, CAPABILITY_REGISTRY.md, RULES_INDEX.md)
+**Status:** Architecture defined → implementation pending (DISS-001..006)
+
+**Pipeline:**
+1. **Agent-Scanner** (`scripts/disseminate-scanner.ts`): `git diff HEAD~1` on kernel files → builds propagation manifest (what changed, which repos affected)
+2. **Agent-Propagator** (`scripts/disseminate-propagator.ts`): per repo → update kernel block at `# EGOS-KERNEL-PROPAGATED` marker → commit with `chore(kernel): propagate YYYY-MM-DD`
+3. **Agent-Verifier** (`scripts/disseminate-verifier.ts`): re-reads each repo → confirms marker + last_modified + changed rule present → outputs pass/fail per repo
+4. **Orchestrator** (Claude Code / Telegram): receives summary report → Enio approves/rejects per-repo via Telegram inline buttons
+
+**Repos:** arch, INPI, santiago, carteira-livre, commons, egos-self, egos-inteligencia, smartbuscas, br-acc, egos-lab, 852, policia (12 local) + 4 VPS repos
+
+**Manual fallback:** `bash scripts/governance-propagate.sh --exec` (existing, idempotent)

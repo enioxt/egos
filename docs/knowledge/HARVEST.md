@@ -2520,3 +2520,78 @@ Direct messages that reference someone's specific post + show real products do.
 ### Auto-harvested — 2769a60 (2026-04-08)
 
 - Add export {} to Bun script-style files to avoid TS2393 "Duplicate function implementation" — TypeScript treats files without import/export as globals, conflicting with same-named functions across scripts
+
+### Auto-harvested — 72af5d2 (2026-04-08)
+
+- sed -i breaks Docker bind mounts (inode mismatch) — restart container or use cat > file
+
+---
+
+## KB-028: Paperclip AI — Orchestration Patterns (2026-04-08)
+
+**Source:** Deep research on github.com/paperclipai/paperclip (49.9K stars, March 2026, MIT)
+
+**What it is:** Org-chart-first agent orchestration. CEO agent → Directors → ICs. Heartbeat scheduling (default 30min dormant cycles). Per-agent monthly token budgets with auto-pause. Immutable ticket system with full tool-call tracing.
+
+**EGOS overlap (we already have):**
+- Governance-first kernel (`.guarani/`) — equivalent to Paperclip's company mission propagation
+- Evidence chains (Guard Brasil) — equivalent to audit trail
+- Multi-agent runner with registry — equivalent to org structure (flat, not hierarchical)
+- Supabase event bus — equivalent to ticket system (events, not structured tickets)
+
+**EGOS gaps (they're ahead):**
+1. **Heartbeat scheduling** — native 30min wake/sleep cycles. EGOS uses external cron. Easy to add.
+2. **Per-agent budget enforcement** — monthly token caps, auto-pause at 100%. EGOS has monitoring but no enforcement.
+3. **Org chart with hierarchical delegation** — CEO breaks goals → managers decompose → ICs execute. EGOS agents are flat.
+4. **Structured ticket objects** — work as first-class typed objects. EGOS uses event logs.
+5. **Config versioning + rollback UI** — instant rollback. EGOS uses git.
+
+**EGOS advantages (we're ahead):**
+- Guard Brasil LGPD compliance out-of-box (Paperclip has zero PII/regulatory layer)
+- Knowledge graph + semantic search (codebase-memory-mcp)
+- Brazilian-specific compliance (CPF, RG, MASP detection + masking)
+- Integrated ecosystem (Supabase, Telegram, Caddy, VPS, Gem Hunter) — Paperclip is orchestration-only
+
+**Strategic decision:** Hybrid — EGOS as safety/compliance kernel running INSIDE Paperclip, not competing.
+Adapter pattern: EGOS agents register as Paperclip employees, Guard Brasil validates all outputs.
+
+**Immediate adoptable patterns (no Paperclip dependency):**
+1. Heartbeat loop: `while(true) { await sleep(30min); checkWorkQueue(); execute(); }` — add to agent-runner.ts
+2. Per-agent budget: extend Guard Brasil token counter → add monthly cap field + auto-pause signal
+3. Goal ancestry: every TASKS.md item should reference its parent goal (column: WHY)
+
+---
+
+## KB-029: Auto-Disseminate Agent Architecture (2026-04-08)
+
+**Problem:** `/disseminate` is manual and requires AI tokens to compress/propagate rules.
+Current governance-propagate.sh is idempotent but not smart (doesn't know what changed).
+
+**Solution pattern:** 3-agent pipeline triggered by post-commit on kernel files.
+
+```
+Trigger: commit touches CLAUDE.md | .windsurfrules | CAPABILITY_REGISTRY.md
+   ↓
+Agent-1 (Scanner): reads diff, identifies which rules changed, builds propagation manifest
+   ↓  
+Agent-2 (Propagator): for each repo in manifest, updates kernel block, creates git commit
+   ↓
+Agent-3 (Verifier): re-reads each updated file, confirms kernel marker + new content present
+   ↓
+Orchestrator (Claude Code): receives summary, Enio approves or rejects per-repo
+```
+
+**Key design decisions:**
+- Scanner uses `git diff HEAD~1` on kernel files to extract changed sections
+- Propagator uses `grep EGOS-KERNEL-PROPAGATED` to find injection point, sed to update block
+- Verifier checks: marker present + last_modified date + specific changed rule present
+- Orchestrator step = Telegram message with summary + approval buttons (HITL)
+
+**Files to watch for auto-trigger:**
+- `~/.claude/CLAUDE.md` (global kernel)
+- `/home/enio/egos/CLAUDE.md` (egos adapter)
+- `/home/enio/egos/docs/CAPABILITY_REGISTRY.md`
+- `/home/enio/egos/.guarani/RULES_INDEX.md`
+
+**Repos in propagation manifest:** arch, INPI, santiago, carteira-livre, commons, egos-self, egos-inteligencia, smartbuscas, br-acc, egos-lab, 852, policia
+

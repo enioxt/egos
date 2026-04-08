@@ -1,7 +1,7 @@
 {
   "manifest": "/home/enio/egos/.egos-manifest.yaml",
   "repo": "egos",
-  "verified_at": "2026-04-08T17:37:04.143Z",
+  "verified_at": "2026-04-08T18:38:09.136Z",
   "summary": {
     "total_claims": 5,
     "passed": 5,
@@ -9,8 +9,8 @@
     "drifted": 0,
     "errors": 0,
     "total_domains": 9,
-    "domains_ok": 7,
-    "domains_drifted": 2
+    "domains_ok": 8,
+    "domains_drifted": 1
   },
   "results": [
     {
@@ -89,9 +89,9 @@
     },
     {
       "url": "https://gemhunter.egos.ia.br/gem-hunter/topics",
-      "status": "drifted",
+      "status": "ok",
       "expected_status": "200",
-      "actual_status": "502"
+      "actual_status": "200"
     },
     {
       "url": "https://eagleeye.egos.ia.br/",
@@ -122,7 +122,7 @@
       "url": "https://gemhunter.egos.ia.br/gem-hunter/topics",
       "status": "drifted",
       "expected_status": "200",
-      "actual_status": "502",
+      "actual_status": "200",
       "contains_check": false
     }
   ],

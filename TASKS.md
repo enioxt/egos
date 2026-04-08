@@ -748,3 +748,30 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 - [ ] **TEST-011 [P2]**: Test Analytics Dashboard — no HQ: cobertura por repo, tempo médio de execução, taxa de falha, economia de tempo com auto-tests
 - [ ] **TEST-012 [P2]**: Regression Prediction — ML simples para prever quais arquivos têm maior risco de regressão baseado em histórico de mudanças
 - [ ] **TEST-013 [P2]**: Integration com LLM-MON — usar modelos mais baratos/free do OpenRouter para geração de testes quando qualidade for equivalente
+- [ ] **TEST-013 [P2]**: Integration com LLM-MON — usar modelos mais baratos/free do OpenRouter para geração de testes quando qualidade for equivalente
+
+---
+
+### Auto-Disseminate Agent Pipeline (2026-04-08)
+**SSOT:** `docs/CAPABILITY_REGISTRY.md` §25 | **Context:** `/disseminate` hoje é manual e custoso em tokens. Goal: 3-agent pipeline post-commit → propagação automática → Enio aprova via Telegram.
+
+- [ ] **DISS-001 [P1]**: `scripts/disseminate-scanner.ts` — lê `git diff HEAD~1` nos kernel files, identifica seções que mudaram, gera manifest `{changed_rules: [], affected_repos: []}` | 2h
+- [ ] **DISS-002 [P1]**: `scripts/disseminate-propagator.ts` — recebe manifest, para cada repo: atualiza bloco kernel no marker `# EGOS-KERNEL-PROPAGATED`, cria commit `chore(kernel): propagate YYYY-MM-DD` | 3h
+- [ ] **DISS-003 [P1]**: `scripts/disseminate-verifier.ts` — re-lê cada repo após propagação, verifica marker + conteúdo + data, output: `{repo, status: pass|fail, missing_rules: []}` | 2h
+- [ ] **DISS-004 [P1]**: post-commit hook trigger — quando CLAUDE.md | .windsurfrules | CAPABILITY_REGISTRY.md muda, auto-chama scanner | 1h
+- [ ] **DISS-005 [P1]**: Telegram approval gate — verifier envia summary ao Telegram (`@ethikin`): lista repos + status, botões [✅ Approve All][❌ Review] | 2h
+- [ ] **DISS-006 [P2]**: VPS propagation — após aprovação local, SSH push kernel block para os 4 repos no VPS (`/opt/852`, `/opt/bracc`, `/opt/egos`, `/opt/egos-lab`) | 2h
+
+---
+
+### Paperclip Integration Patterns (2026-04-08)
+**SSOT:** `docs/knowledge/HARVEST.md` KB-028 | **Source:** github.com/paperclipai/paperclip (49.9K⭐, MIT) | **Strategy:** EGOS = safety/compliance kernel inside Paperclip, not competing.
+
+**Adoptable NOW (sem Paperclip dependency):**
+- [ ] **PAP-001 [P1]**: Heartbeat loop nativo — adicionar a `agents/runtime/runner.ts`: ciclo wake(30min) → checkWorkQueue() → execute() → sleep. Configurable per-agent. | 2h
+- [ ] **PAP-002 [P1]**: Per-agent budget enforcement — estender Guard Brasil token counter: campo `monthly_cap` per agent_id, auto-pause signal quando 100%, warning Telegram 80%. | 3h
+- [ ] **PAP-003 [P2]**: Goal ancestry em TASKS.md — adicionar coluna `WHY` em tasks (link para parent goal). Template: `[PAP-003] Fix X → goal: Y → mission: Z`. | 1h
+
+**Integration (com Paperclip):**
+- [ ] **PAP-004 [P2]**: EGOS↔Paperclip adapter — registra agents EGOS como "employees" do Paperclip. Guard Brasil valida outputs antes de retornar ao Paperclip. Repositório: `@egosbr/paperclip-adapter`. | 8h
+- [ ] **PAP-005 [P3]**: Pitch adapter para @dotta (criador Paperclip) — "EGOS adds LGPD/PII compliance layer for Brazilian Paperclip users." DM via GitHub Issues ou X.com. | 1h
