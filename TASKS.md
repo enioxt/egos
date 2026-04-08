@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.52.0 | **Updated:** 2026-04-08 | **NEW:** AgentCash monetization analysis + tasks (AGENTCASH-001..012) | **LAST SESSION:** Sprint 1 locked — TL-001 ✅ GH-074 ✅ + 28 tasks planejadas (TL-002..018, GH-075..085, SOCIAL-001..008). Line limit: 750.
+> **Version:** 2.54.0 | **Updated:** 2026-04-08 | **NEW:** Expanded API marketplace research — 20+ platforms (X/Twitter, Reddit, Web) — Payment Protocols (x402, Stripe MPP), Agent-Native, MCP (11,000+ servers), Web3 (Virtuals, ai16z, Sahara, Heurist, Talus), Traditional | **LAST SESSION:** Sprint 1 locked — TL-001 ✅ GH-074 ✅ + 28 tasks planejadas (TL-002..018, GH-075..085, SOCIAL-001..008). Line limit: 750.
 > **Philosophy:** Build what needs to be built, in the right order, without urgency.
 
 ---
@@ -87,34 +87,84 @@
 
 ---
 
-### AgentCash — Monetização de APIs EGOS (2026-04-08)
-**SSOT:** `/home/enio/.codeium/windsurf-next/AGENTCASH_OPPORTUNITY_ANALYSIS.md` | **Plataforma:** https://agentcash.dev | **Código:** `AC-LZR4-C5AX-F5DH-EAB2`
-**Context:** AgentCash é uma plataforma de "agentic commerce" que permite agentes de IA pagarem por APIs premium usando protocolo x402 (HTTP 402). Oportunidade de monetizar Guard Brasil, OSINT Brasil, e ATRiAN para agentes globais.
+### API Marketplaces — Estratégia Multi-Plataforma EGOS (2026-04-08) [EXPANDED]
+**SSOTs:** `/home/enio/.codeium/windsurf-next/AGENTCASH_OPPORTUNITY_ANALYSIS.md` | `/home/enio/.codeium/windsurf-next/API_MARKETPLACES_MASTER_ANALYSIS.md` | `/home/enio/.codeium/windsurf-next/API_MARKETPLACES_EXTENDED_RESEARCH.md`
+**Context:** Pesquisa ampla (X/Twitter, Reddit, Web) identificou **20+ plataformas** em 5 camadas: Payment Protocols (x402, Stripe MPP), Agent-Native Marketplaces (0%), MCP Ecosystem (11,000+ servers, <5% monetizados), Web3/On-chain (Virtuals, ai16z, Sahara, Heurist, Talus), Traditional + Hybrid. Mercado projetado: **$52B até 2030**.
 
-**Oportunidades Identificadas:**
-- **PUBLISH Mode:** Publicar Guard Brasil como API paga (LGPD PII detection brasileiro)
-- **CONSUME Mode:** Usar AgentCash para acessar APIs premium (StableEnrich, StableSocial)
-- **HYBRID Mode:** Ambos — publicar capacidades BR + consumir capacidades globais
+**Camada 1 — Payment Protocols:**
+- **x402** (Coinbase + Cloudflare) — HTTP 402, USDC, 0%, Apache 2.0, Linux Foundation
+- **Stripe MPP** (Stripe + Tempo) — Session-based, USDC + Fiat, enterprise focus, Mar 2026
 
-**P0 — Onboarding & Validação (Esta semana):**
-- [ ] **AGENTCASH-001**: Onboard em AgentCash com invite code (recebe créditos gratuitos)
-- [ ] **AGENTCASH-002**: Testar como consumer — `npx agentcash search` + APIs úteis
-- [ ] **AGENTCASH-003**: Análise técnica — mapear modificação Guard Brasil para x402 middleware
-- [ ] **AGENTCASH-004**: Avaliar viabilidade de integração Gem Hunter com AgentCash
+**Camada 2 — Agent-Native Marketplaces (x402-first, 0%):**
+- **AgentCash** — 300+ APIs, `agentwallet-sdk`, invite: `AC-LZR4-C5AX-F5DH-EAB2`
+- **APINow.fun** — Tokenization endpoints + API coins, leaderboards
+- **Proxies.sx** — 0%, 4G/5G proxies, bounties, ~95% take rate
+- **ToolOracle** — 73 MCP servers, 708 tools, $0.01-0.08/call, AgentGuard security
 
-**P1 — Implementação (Próximas 2 semanas):**
-- [ ] **AGENTCASH-005**: Implementar middleware x402 no Guard Brasil (`feat/x402-agentcash` branch)
-- [ ] **AGENTCASH-006**: Criar wallet Guard Brasil (Base chain) para receber pagamentos
-- [ ] **AGENTCASH-007**: Publicar `openapi.json` com `x-payment-info` e `x-guidance`
-- [ ] **AGENTCASH-008**: Criar `SKILL.md` para AgentCash directory
-- [ ] **AGENTCASH-009**: Submeter Guard Brasil para review em https://agentcash.dev/apis
+**Camada 3 — MCP Ecosystem:**
+- **Smithery** — 5,000+ servers, one-click install, gateway 6500
+- **Glama** — 20,771 servers, SEO discovery (80% inbound)
+- **MCP Hive, MCP Market, mcpservers.org** — Directories
+- **TrueFoundry** — Enterprise gateway, RBAC, audit
 
-**P2 — Scale (Mês 2-3):**
-- [ ] **AGENTCASH-010**: Publicar OSINT Brasil API (Escavador, Brasil.IO wrappers)
-- [ ] **AGENTCASH-011**: Publicar ATRiAN Validator como serviço de compliance
-- [ ] **AGENTCASH-012**: Documentar case study de receita na plataforma
+**Camada 4 — Web3/On-chain:**
+- **Virtuals Protocol** — Agent tokenization on Base, $VIRTUAL liquidity
+- **ai16z / ELIZAOS** — AI-led VC DAO, Eliza framework
+- **Sahara AI** — 40+ enterprise clients, AI marketplace
+- **Heurist Mesh** — 25 providers, 100 tools, 40 agents, Web3 skills
+- **Talus** — Sui blockchain, autonomous AI agents
+- **Nevermined** — Visa + Coinbase integration, card rails
 
-**Nota:** Protocolo x402 usa USDC na Base chain. SDK `agentwallet-sdk` é MIT license.
+**Camada 5 — Traditional + Hybrid:**
+- **RapidAPI** — 4M devs, 40k APIs, 20% commission
+- **Replicate** — ML models, per-compute billing
+- **DigitalAPI, API Layer, APYHub, Zyla** — Curated marketplaces
+
+**P0 — Payment Protocols & x402 Onboarding (Esta semana):**
+- [ ] **API-001**: AgentCash onboard + testar consumer
+- [ ] **API-002**: APINow.fun — criar conta, explorar tokenization
+- [ ] **API-003**: Proxies.sx — avaliar match OSINT scraping
+- [ ] **API-004**: Análise x402 vs Stripe MPP — escolher primary protocol
+- [ ] **API-005**: Criar wallet Base chain única para pagamentos
+
+**P1 — MCP Ecosystem (Próximas 2 semanas):**
+- [ ] **API-006**: Implementar x402-mcp wrapper (Vercel SDK)
+- [ ] **API-007**: Submit Guard Brasil em Smithery (5,000+ servers)
+- [ ] **API-008**: Listar em Glama (20,771 servers, SEO)
+- [ ] **API-009**: Criar llms.txt para AI discovery
+- [ ] **API-010**: Documentar X402_INTEGRATION.md
+
+**P2 — Web3/On-chain (Mês 2):**
+- [ ] **API-011**: Avaliar Virtuals tokenization para 852 Intelligence
+- [ ] **API-012**: Submit skills ao Heurist Mesh (Web3 audience)
+- [ ] **API-013**: Explorar Nevermined (Visa integration)
+- [ ] **API-014**: Publicar OSINT Brasil wrappers (Brasil.IO, Escavador)
+- [ ] **API-015**: ATRiAN Validator como compliance-as-a-service
+
+**P3 — Traditional Scale (Mês 2-3):**
+- [ ] **API-016**: RapidAPI provider account + freemium tiers
+- [ ] **API-017**: Replicate — avaliar Gem Hunter como "model"
+- [ ] **API-018**: DigitalAPI curated listing
+
+**P4 — Otimização & Scale (Mês 3+):**
+- [ ] **API-019**: A/B test pricing cross-platform
+- [ ] **API-020**: Consolidar métricas revenue/usage/discovery (all platforms)
+- [ ] **API-021**: Case study: "Guard Brasil: from local API to global agent marketplace"
+- [ ] **API-022**: Avaliar criação API coins/tokens (APINow model)
+- [ ] **API-023**: Stripe MPP integration (enterprise clients)
+
+**Insights da Pesquisa:**
+- 11,000+ MCP servers listados, **<5% monetizados** (oportunidade enorme)
+- ToolOracle: 15% conversion free→paid via health_check discovery
+- Stripe MPP: session batching para high-frequency (vs 1 TX/call x402)
+- Nevermined: Visa partnership (abril 2026) — card rails tradicionais
+- GoPlus: AgentGuard security layer para x402
+
+**Recursos:**
+- Awesome x402: https://github.com/xpaysh/awesome-x402
+- x402 vs MPP (WorkOS): https://workos.com/blog/x402-vs-stripe-mpp
+- MCP State 2026: https://settlegrid.ai/learn/state-of-mcp-2026
+- ToolOracle guide: https://tooloracle.io/blog/how-to-monetize-mcp-servers-x402-usdc-micropayments
 
 ---
 
@@ -816,3 +866,90 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 - [x] **LS-001 [P2]**: Análise assets EGOSv2 — ObservatoryLanding.tsx (React Three Fiber), 3 agentes Python, design_concept.md → gerar spec moderna Bun/TS. Decisão: standalone app ou integrar em egos-site? | 2h ✅ 2026-04-08
 - [ ] **LS-002 [P2]**: Port EVA+GUARANI+MAIÊUTICA para TypeScript — usar EGOS agent-runner como base. Guard Brasil wrapping dados de alunos (LGPD). | 6h
 - [ ] **LS-003 [P3]**: Observatory UI — Bun/Hono + React Three Fiber — tela cósmica full-screen. Stars, órbitas gravitacionais, portal de entrada. Base: `live_school_redesign/src/components/ObservatoryLanding.tsx` | 8h
+
+---
+
+### KB-as-a-Service — "EGOS Knowledge" (2026-04-08)
+**SSOT:** `docs/strategy/KB_AS_A_SERVICE_PLAN.md` | **Parent:** Track A+B+C+D
+**Contexto:** Produtizar wiki-compiler + atomizer + ARR + Guard Brasil + Notion MCP nativo como serviço de "Cérebro Externo Governado" para profissionais brasileiros. FORJA = beta. Notion = frontend (curva baixa). Claude Code $20/mês = motor no cliente. EGOS kernel = governance.
+**Unlock 2026-04-08:** Notion MCP nativo descoberto (`mcp__claude_ai_Notion__*`) — eliminou blocker de integração custom.
+
+**P0 — Dogfooding + template + FORJA (próximas 2 semanas):**
+- [ ] **KBS-001 [P0]**: Criar template Notion "Inteligência da Empresa" via MCP — DB Documentos, DB Q&A, DB Decisões, página "Como usar" PT-BR. Duplicável. | 4h
+- [ ] **KBS-002 [P0]**: Escrever `CLAUDE.md` cliente (≤100 linhas, PT-BR, placeholders por setor — metal/jurídico/saúde). Salvar em `packages/knowledge-mcp/templates/CLAUDE.md.tpl`. | 2h
+- [ ] **KBS-003 [P0]**: Guia setup PT-BR — `docs/guides/KBS_ONBOARDING_PT_BR.md` — install Claude Code → OAuth Notion MCP → primeiro `/ingest` + `/ask`. Com screenshots. | 3h
+- [ ] **KBS-004 [P0]**: FORJA namespace beta — `clients/forja/` ou branch no FORJA repo, `.guarani/forja-rules.md`, ingestar 10 docs piloto (orçamento antigo, ficha produção, ABNT referenciada). | 6h
+- [ ] **KBS-005 [P0]**: Loom demo 3–5min PT-BR — "Sua Inteligência da Empresa em 5 minutos". Gravar usando dogfooding interno (TASKS.md + HARVEST.md como exemplo). | 2h
+- [ ] **KBS-006 [P0]**: PDF/Docx ingestor — plugar em `wiki-compiler.ts` via `unpdf` + `mammoth`. Input: pasta, output: atoms no `egos_wiki_pages`. | 8h
+- [ ] **KBS-007 [P0]**: KB-lint adaptado — fork de `ssot-auditor.ts` focado em: órfãos, contradições, staleness >90d, citações quebradas. Modo `bun kb:lint --tenant=forja`. | 6h
+- [ ] **KBS-008 [P0]**: `packages/knowledge-mcp/` completar — expor tools: `kb_ingest`, `kb_ask`, `kb_lint`, `kb_export`. Publicar como `@egosbr/knowledge-mcp`. | 8h
+- [ ] **KBS-009 [P0]**: Dogfooding interno — apontar knowledge-mcp para TASKS.md + HARVEST.md + handoffs. Usar 2 semanas antes de qualquer venda. Gate: 10 queries/dia por 14 dias. | on-going
+
+**P1 — Produto público + pricing (semanas 3-6):**
+- [ ] **KBS-010 [P1]**: Landing page "EGOS Knowledge" no `egos-site/` — 1 página, hero + 3 tiers + demo embed + CTA WhatsApp. PT-BR. | 6h
+- [ ] **KBS-011 [P1]**: Pricing page detalhada — Starter R$1.5k / Pro R$5k / Enterprise R$15k+. Comparação com consultoria tradicional. | 3h
+- [ ] **KBS-012 [P1]**: Contract template — serviço de implementação + manutenção. Revisado por advogado (network Enio). | 4h
+- [ ] **KBS-013 [P1]**: Onboarding checklist — `docs/guides/KBS_DELIVERY_CHECKLIST.md` — passo-a-passo replicável (discovery → contrato → setup → treinamento → handoff). | 3h
+- [ ] **KBS-014 [P1]**: Primeiros 3 leads aligned (não vaga, não cold sales) — advogado brasileiro, PME metal além de FORJA, clínica. Research via exa/firecrawl em grupos WhatsApp/Telegram e Twitter. | 4h
+- [ ] **KBS-015 [P1]**: Template Notion público no GitHub (`egosbr/knowledge-template`) — MIT, com instruções de duplicação. | 2h
+- [ ] **KBS-016 [P1]**: Multi-tenant Supabase — RLS por `tenant_id`, migration `egos_wiki_pages_tenanted`. Antes do 2º cliente Pro. | 8h
+- [ ] **KBS-017 [P1]**: Stripe billing tiers (Starter/Pro/Enterprise) — reusar infra Guard Brasil. Cartão BRL aceito. | 4h
+- [ ] **KBS-018 [P1]**: Citation export — comando `/export` produz Markdown + PDF com fontes numeradas. | 4h
+- [ ] **KBS-019 [P1]**: Guard Brasil hook no ingest — todo `/ingest` roda via `guard_scan_pii` primeiro, redação automática, alerta no Telegram se PII detectada. | 4h
+
+**P2 — Scale + evolução (mês 2+):**
+- [ ] **KBS-020 [P2]**: Multi-idioma PT+EN no mesmo vault — tag `lang` no schema, query filter. Para clientes bilíngues. | 6h
+- [ ] **KBS-021 [P2]**: Dream Cycle integration — KB linting automático noturno (batch `kb:lint` em todos tenants ativos). | 4h
+- [ ] **KBS-022 [P2]**: Agente "KB-Librarian" — agente EGOS dedicado que mantém KB do cliente (dedup, sugere cross-refs, flagga staleness). Roda via hermes-gateway. | 8h
+- [ ] **KBS-023 [P2]**: `/ingest` via web clipper — Chrome extension que envia URL para o KB do cliente. | 6h
+- [ ] **KBS-024 [P2]**: Health dashboard por tenant — página Notion auto-atualizada com stats (total docs, staleness, queries/semana, linting score). | 4h
+- [ ] **KBS-025 [P2]**: Vídeos de caso de uso por setor — jurídico, metal, saúde, consultoria. 2–3 min cada, PT-BR. | 8h
+- [ ] **KBS-026 [P2]**: Certificação "EGOS Knowledge Implementer" — programa leve para parceiros que queiram revender serviço. | on-going
+
+---
+
+### API Monetization — x402 Marketplaces (carry-over 2026-04-07)
+**SSOT:** `docs/strategy/KB_AS_A_SERVICE_PLAN.md` §4.2 + `~/.codeium/windsurf-next/API_MARKETPLACES_MASTER_ANALYSIS.md` | **Parent:** Camada B monetização
+**Context:** Publicar Guard Brasil + (futuramente) knowledge-mcp + OSINT Brasil em marketplaces agent-native para receber USDC global via protocolo x402. AGENTCASH-001..012 foram consolidados em API-001..019.
+
+**P0 — Tier 1 x402 native (0% comissão):**
+- [ ] **API-001 [P0]**: AgentCash onboard — `npx agentcash@latest onboard AC-LZR4-C5AX-F5DH-EAB2` (rodar local, não sandbox). Salvar wallet info em vault. | 1h
+- [ ] **API-002 [P0]**: APINow.fun provider signup — criar conta em `https://www.apinow.fun/providers`, instalar `apinow-sdk`. | 1h
+- [ ] **API-003 [P0]**: Proxies.sx marketplace avaliação — verificar fit com OSINT Brasil scraping em `https://proxies.sx/marketplace`. | 1h
+- [ ] **API-004 [P0]**: Wallet Base chain — criar wallet dedicada para receber USDC (não usar wallet pessoal). Documentar em `memory/infra_credentials_ssot.md`. | 1h
+- [ ] **API-005 [P0]**: x402 middleware no Guard Brasil — branch `feat/x402-marketplaces`, middleware HTTP 402 que aceita USDC on-demand. | 6h
+- [ ] **API-006 [P0]**: Publicar Guard Brasil v0.2.3 no AgentCash — primeiro deploy, pricing $0.001-0.005/call. | 3h
+
+**P1 — Tier 1 expansão:**
+- [ ] **API-007 [P1]**: Publicar Guard Brasil no APINow.fun — avaliar tokenization do endpoint popular. | 2h
+- [ ] **API-008 [P1]**: Publicar OSINT Brasil scraping no Proxies.sx — match perfeito com 0% comissão. | 4h
+- [ ] **API-009 [P1]**: OpenAPI spec universal — `openapi.yaml` que serve todos os marketplaces. | 3h
+- [ ] **API-010 [P1]**: Dashboard monetização no HQ — mostra receita x402 por plataforma, calls/dia, top consumers. | 4h
+
+**P2 — Tier 2 tradicionais:**
+- [ ] **API-011 [P2]**: RapidAPI freemium listing do Guard Brasil (4M+ devs, 20% comissão). | 4h
+- [ ] **API-012 [P2]**: Replicate — avaliar fit (foco ML models, pode não servir). | 2h
+- [ ] **API-013 [P2]**: DigitalAPI — curated enterprise listing. | 3h
+- [ ] **API-014 [P2]**: APILayer listing. | 2h
+- [ ] **API-015 [P2]**: APYHub credits system. | 2h
+- [ ] **API-016 [P2]**: Zyla Labs listing. | 2h
+- [ ] **API-017 [P2]**: Mintlify docs sync para API portal. | 3h
+- [ ] **API-018 [P2]**: Knowledge MCP publicado como API x402 — `@egosbr/knowledge-mcp` exposto via AgentCash após KBS-008 pronto. | 4h
+- [ ] **API-019 [P2]**: x402 + Stripe hybrid billing — cliente escolhe crypto ou cartão na checkout. | 6h
+
+---
+
+### Session Carry-over — DISS + PAP + LS (2026-04-08 → próximas sessões)
+**SSOT:** `docs/_current_handoffs/handoff_2026-04-08_end.md` | **Parent:** Track E manutenção
+**Context:** Tasks pendentes do session end 2026-04-08. Não perder de vista enquanto KBS-* toma espaço.
+
+**P0 — Desbloqueio GTM:**
+- [ ] **XMCP-002 [P0]**: SSH VPS e rodar `cd /opt/xmcp && bash start.sh`. Keys já estão no .env. Desbloqueia GTM-002 (X thread demo). | 15min
+- [ ] **DISS-002 [P0]**: `scripts/disseminate-propagator.ts` — propaga kernel blocks pós-scanner (DISS-001 ✅). Target: blocks de rules via `scripts/auto-disseminate.sh`. | 3h
+- [ ] **DISS-003 [P0]**: `scripts/disseminate-verifier.ts` — re-verifica propagação (hash check). | 2h
+- [ ] **DISS-005 [P0]**: Telegram approval gate para propagação — /approve antes de push. | 2h
+- [ ] **PAP-002 [P0]**: Per-agent monthly token budget — estender Guard Brasil token counter com `monthly_cap` por agent_id, auto-pause + alerta 80%. | 3h
+
+**P1 — GH-086 + LS-002 (Sprint 1 continuação):**
+- [ ] **GH-086 [P1]**: `@egosbr/gem-hunter-mcp` — MCP server (3 tools: `gh_search`, `gh_trending`, `gh_score`) para Claude Code/Windsurf/Cursor. Blocked by §26 completion. | 6h
+- [ ] **LS-002 [P2]**: Port EVA+GUARANI+MAIÊUTICA para TypeScript — ver seção Live School acima. | 6h
