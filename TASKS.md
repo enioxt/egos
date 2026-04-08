@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.54.0 | **Updated:** 2026-04-08 | **NEW:** Expanded API marketplace research — 20+ platforms (X/Twitter, Reddit, Web) — Payment Protocols (x402, Stripe MPP), Agent-Native, MCP (11,000+ servers), Web3 (Virtuals, ai16z, Sahara, Heurist, Talus), Traditional | **LAST SESSION:** Sprint 1 locked — TL-001 ✅ GH-074 ✅ + 28 tasks planejadas (TL-002..018, GH-075..085, SOCIAL-001..008). Line limit: 750.
+> **Version:** 2.55.0 | **Updated:** 2026-04-08 | **NEW:** GH-089..097 (Gem Hunter Feedback Loop v8), XRB-001..004 (scoring quality), FORJA tasks → `/home/enio/forja/TASKS.md`, SAFETY-001..002, API-024 | **LAST SESSION:** Opus planned FORJA vision + feedback loop + API monetization complement. Execution starts now.
 > **Philosophy:** Build what needs to be built, in the right order, without urgency.
 
 ---
@@ -1012,6 +1012,56 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 - [ ] **KBS-PM-019 [P2]**: Criar databases para SENAR/Escola (perfil 10) — Cursos, Competências, Experimentos, Turmas. | 2h
 - [ ] **KBS-PM-020 [P2]**: Guia de replicação — documento PT-BR "Como duplicar e configurar em 15 minutos" para qualquer um dos 10 perfis. | 3h
 - [ ] **KBS-PM-021 [P2]**: Gravar 2 vídeos demo adicionais: Advocacia (prazo processual em segundos) + Agrônomo (defensivo por carência). | 4h
+
+---
+
+### Gem Hunter — Feedback Loop v8 (2026-04-08)
+**Context:** Root cause encontrado: `scoreGem()` em `gem-hunter.ts:1778` é heurística composta — Qwen só pontua papers. Low-star bonus só dispara com arXiv/PWC signal, por isso @zhuokaiz (Meta eng) foi subavaliado. Telegram alerts sem inline keyboard. `gem_feedback` table não existe.
+
+**P1 — Fundações (fazer primeiro, desbloqueiam todo o resto):**
+- [ ] **GH-089 [P1]**: Extrair scoring prompts hardcoded do `gem-hunter.ts:2274` → `docs/gem-hunter/prompts/scoring-v1.md` (versionado, editável sem deploy). | 2h
+- [ ] **GH-090 [P1]**: Supabase migration: `gem_feedback(id uuid, alert_id text, gem_url text, reaction text, comment text, run_id text, created_at timestamptz)` + RLS policy (service role only). | 1h
+- [ ] **GH-091 [P1]**: Qwen-based scoring para gems gerais (não só papers) — adicionar categoria `"low_visibility_research_gem"` em `scoreGem()`: big-tech eng + poucos likes/stars + código real = +25 pts. | 4h
+- [ ] **GH-092 [P1]**: Telegram inline keyboard em alerts — botões 👍👎🔍💬 + webhook handler que salva em `gem_feedback`. Usar `sendMessage` com `reply_markup.inline_keyboard`. | 6h
+- [ ] **GH-093 [P1]**: `scripts/scoring-feedback-reader.ts` — cron 2x/dia (09:00 + 21:00 BRT) lê `gem_feedback` → gera relatório `docs/jobs/scoring-feedback-YYYY-MM-DD.md` → auto-cria tasks via auto-disseminate. | 6h
+- [ ] **GH-094 [P1]**: Repetition detector — hash URL+author, score -30 se mesma gem apareceu nos últimos 30 dias. Persistir hashes em `gem_seen_cache` table. | 3h
+- [ ] **GH-095 [P1]**: `docs/gem-hunter/preferences.md` — SSOT de preferências co-editado Enio+AI: categorias valorizadas, red-flags, exemplos curados dos 8 posts analisados. | 2h
+
+**P2 — Self-improvement loop:**
+- [ ] **GH-096 [P2]**: HQ aba "Feedback Loop" — score drift chart, approve/reject rate, top false positives. | 8h
+- [ ] **GH-097 [P2]**: `scripts/scoring-prompt-evolver.ts` — agrega feedback mensal, propõe rewrite de `scoring-v1.md` → Enio aprova via HQ → vira `scoring-v2.md`. | 6h
+
+---
+
+### X.com Reply Bot — Scoring Quality (2026-04-08)
+**Context:** 8 posts analisados revelaram: Qwen subavalia low-visibility gems (ex: @zhuokaiz Meta eng, poucas stars); overvalue news (ex: @claudeai 92 pts); repetitivo não detectado (ex: @hasantoxr). Root cause: `min_likes` threshold em `x-reply-bot.ts` — scoring não usa Qwen diretamente para relevância, só para geração de reply.
+
+**P1 — Fixes imediatos:**
+- [ ] **XRB-001 [P1]**: Validar manualmente post `@claudeai/2041927687460024721` — feature útil ou notícia genérica? Se feature → criar task de integração. Se notícia → adicionar ao few-shot de rejeição. *(30min — ação manual do Enio ou pesquisa web)* | 30min
+- [ ] **XRB-002 [P1]**: Update sistema de scoring com 8 few-shot examples em `x-reply-bot.ts` prompt: vacacafe/MrCl0wnLab/PreyWebthree/zhuokaiz/TFTC21 = gem (score +); hasantoxr/LOWTAXALT/claudeai-news = reject (score -). | 2h
+- [ ] **XRB-003 [P1]**: Adicionar categoria "low-visibility gem" ao scoring: post de engenheiro de big-tech (Meta/Google/OpenAI em bio) com código real + poucos likes → score mínimo 70. | 3h
+- [ ] **XRB-004 [P1]**: News-post detector: conta oficial (@claudeai, @openai, @anthropic) + padrão "announcing/introducing/launching" → penalidade -40 pts (não é gem, é PR corporativo). | 3h
+
+---
+
+### FORJA Chatbot Pilot — Referência (repo standalone)
+**FORJA é repo standalone em `/home/enio/forja/`. Tasks FORJA adicionadas lá.**
+- Tasks P0 em `/home/enio/forja/TASKS.md`: FORJA-003 (RLS), FORJA-004B (Design Oficina), FORJA-019B (Email Pipeline), FORJA-020 (WhatsApp bidirecional), FORJA-TOOLS-001 (budget_tool/cost_history/ata_extractor), FORJA-TOOLS-002 (Whisper), FORJA-KBS-001 (namespace EGOS Knowledge)
+- KBS-003..007 já existem em egos/TASKS.md (seção KB-as-a-Service)
+- Para trabalhar no FORJA: `cd /home/enio/forja && claude`
+
+---
+
+### Safety & Testing — Guard Brasil + ATRiAN (2026-04-08)
+**Context:** Windsurf session identificou gap: faltam 50 amostras reais + k6 load test + fuzzing. ATRiAN ⊆ Guard (componente do resultado + uso standalone em 852).
+- [ ] **SAFETY-001 [P1]**: Coletar 50 amostras de texto real da internet (notícias, tweets, docs públicos) contendo PII brasileiro para validar Guard Brasil + ATRiAN. Salvar em `packages/guard-brasil/test/fixtures/real-world-samples/`. | 1 dia
+- [ ] **SAFETY-002 [P2]**: Prompt injection detection module — Guard Brasil extension: detecta tentativas de override ("ignore previous instructions", "você é um assistente diferente"). | 3 dias
+
+---
+
+### API Monetization — Carry-over + Novos (2026-04-08)
+**Nota:** API-001..023 já existem em seção anterior. Abaixo apenas IDs novos.
+- [ ] **API-024 [P2]**: Churn tracker — cliente sem chamadas à API por 14 dias → Telegram alert. Implementar como cron diário em `scripts/churn-tracker.ts` lendo `gem_hunter_usage` + billing events. | 3h
 
 ---
 

@@ -279,6 +279,10 @@ async function generateReply(tweet: XTweet, topic: TopicQuery): Promise<string> 
     return `${topic.our_angle}${topic.link ? ` ${topic.link}` : ""}`;
   }
 
+  // XRB-002: Few-shot examples from 8 posts analyzed 2026-04-08
+  // Good gems: vacacafe (agentic research), MrCl0wnLab (security code), PreyWebthree (web3+ethics+AI),
+  //            zhuokaiz (Meta eng real code), TFTC21 (bitcoin research)
+  // Reject: hasantoxr (repetitive), LOWTAXALT (noise), claudeai official (PR, not conversation)
   const prompt = `You are Enio Rocha, a Brazilian open-source builder working on EGOS (multi-agent governance framework).
 
 Tweet you're replying to:
@@ -286,6 +290,16 @@ Tweet you're replying to:
 
 Your angle: ${topic.our_angle}
 ${topic.link ? `Link to share: ${topic.link}` : ""}
+
+GOOD reply examples (add genuine value, no hype):
+- To a researcher sharing novel agent architecture: "This compounding-error problem is exactly why we built frozen execution zones in EGOS. arXiv 2512.15959 goes deep on it. github.com/enioxt/egos"
+- To a security engineer posting real LGPD breach code: "Esse padrão de vazamento foi o gatilho pra eu criar o Guard Brasil — PII detection open source. guard.egos.ia.br"
+- To a Meta engineer showing a production pattern: "Smart approach. We use a similar bounded execution model in EGOS. Curious if you hit the same state drift issues."
+
+BAD reply examples (avoid these):
+- Generic: "Great work! 🚀" — adds no value
+- Spam: "Check out our tool!" without context
+- Irrelevant: connecting EGOS to something unrelated just to mention it
 
 Write a reply (max 240 chars) that:
 - Adds genuine value to the conversation
@@ -450,7 +464,24 @@ async function main() {
         if (state.replied_to.includes(tweet.id)) continue;
 
         const likes = tweet.public_metrics?.like_count ?? 0;
-        if (likes < topic.min_likes) { stats.rejected++; continue; }
+
+        // XRB-004: News-post detector — skip official corporate accounts announcing features
+        // These are PR posts, not conversations worth joining
+        const tweetTextLower = tweet.text.toLowerCase();
+        const isCorporateAnnouncement =
+          /announcing|introducing|launching|we're excited|new feature|now available|rolling out|just shipped/i.test(tweetTextLower) &&
+          /\b(anthropic|openai|google|meta ai|microsoft|mistral|hugging face)\b/i.test(tweetTextLower);
+        if (isCorporateAnnouncement) { stats.rejected++; console.log(`  ⏭️  [XRB-004] Corporate announcement skip`); continue; }
+
+        // XRB-003: Low-visibility gem bypass — big-tech engineers posting real code
+        // Even with few likes, these are high-value signals worth engaging
+        const isBigTechCodePost =
+          /(meta|google|openai|anthropic|deepmind|apple|microsoft|amazon|nvidia)/i.test(tweetTextLower) &&
+          /```|github\.com\//i.test(tweet.text) &&
+          likes >= 2; // minimal floor (2+) to avoid completely dead posts
+        const effectiveMinLikes = isBigTechCodePost ? Math.min(2, topic.min_likes) : topic.min_likes;
+
+        if (likes < effectiveMinLikes) { stats.rejected++; continue; }
 
         // Don't reply to our own tweets
         if (tweet.author_id === process.env.X_USER_ID) { stats.rejected++; continue; }
