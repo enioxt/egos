@@ -394,12 +394,12 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 **Source:** Grok analysis. Decisions: Graphify=adopt patterns only (codebase-memory-mcp overlap 80%); A-Evolve=bookmark pós PMF; XMCP=install now.
 
 **XMCP — X MCP Server oficial (xdevplatform/xmcp):**
-- [/] **XMCP-002**: Keys regeneradas e .env atualizado ✅ 2026-04-07. Serviço NÃO está rodando — `start.sh` precisa ser executado. [PENDENTE: iniciar processo]
+- [x] **XMCP-002**: Keys regeneradas e .env atualizado ✅ 2026-04-07. Serviço iniciado ✅ 2026-04-08 — PID 802844, port 8200, VPS 204.168.217.125. Dois patches em server.py: (1) usar tokens existentes ao invés de OAuth flow, (2) load_env() antes de ler MCP_PORT.
 - [ ] **SOCIAL-003 [P1]**: x-reply-bot — busca por "LGPD", "licitação", "split payment", "análise de vínculos"
 - [x] **SOCIAL-004 [P1]**: X Post HITL bot live ✅ 2026-04-08 — 3 alternatives + Telegram inline keyboard + choice learning (x_post_options, x_post_choices, x_post_preferences tables). VPS daemon running.
 - [ ] **SOCIAL-005 [P2]**: Reply automático a @mentions com link produto relevante (aprovação manual)
 - [ ] **SOCIAL-006 [P2]**: HQ dashboard tab social — candidatos DM, DMs enviadas, respostas
-- [ ] **XMCP-003** (dep: XMCP-002): Adicionar UFW rule VPS: `ufw allow from 172.19.0.0/16 to any port 8000`. Ativar x-mcp no openclaw.json (remover nota INACTIVE).
+- [x] **XMCP-003** (dep: XMCP-002): UFW rules adicionadas (172.19.0.0/16 + 172.17.0.0/16 → port 8200). ✅ 2026-04-08
 - [ ] **XMCP-004** (dep: XMCP-002): Criar skill `egos-x-researcher` — usa XMCP searchPostsRecent para monitorar: lgpd, anpd, dpo, "proteção de dados". Saída → Supabase + HQ.
 
 **Graphify patterns (adotar sem instalar a lib):**
