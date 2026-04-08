@@ -539,6 +539,33 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 
 ---
 
+### Intelink v3 — Consolidação SSOT + Migração (2026-04-09)
+**SSOT canônico:** `/home/enio/egos-inteligencia/` — **DECISÃO APROVADA 2026-04-09**
+**Registrado em:** `egos/docs/SSOT_REGISTRY.md`
+
+**Estado atual da dispersão (mapeado 2026-04-09):**
+```
+/home/enio/INTELINK            737MB  → ARCHIVED (migração incompleta, não tocar)
+/home/enio/egos-lab/apps/intelink  197MB, 502 arquivos → ARCHIVED após migração
+/home/enio/egos-inteligencia       ← SSOT CANÔNICO (api Python + frontend + neo4j)
+/home/enio/egos-archive/v2/EGOSv2/intelink-*  → LIXO (v2 antiga)
+/home/enio/Downloads/intelink-*    → LIXO (starters descartáveis)
+```
+
+**P0 — Consolidação (BLOCKER para tudo mais):**
+- [ ] **INTELINK-CONS-001**: Criar `ARCHIVED.md` em `/home/enio/INTELINK/` e `egos-lab/apps/intelink/` declarando que o SSOT é `egos-inteligencia`
+- [ ] **INTELINK-CONS-002**: Portar `lib/intelink/cross-reference-service.ts` (egos-lab) → `egos-inteligencia/frontend/src/lib/`
+- [ ] **INTELINK-CONS-003**: Portar `lib/intelink/entity-matcher.ts` + `graph-algorithms.ts` (egos-lab) → `egos-inteligencia/frontend/src/lib/`
+- [ ] **INTELINK-CONS-004**: Portar `lib/auth/` completo (jwt.ts, password.ts, session.ts) (egos-lab) → `egos-inteligencia/frontend/src/lib/auth/`
+- [ ] **INTELINK-CONS-005**: Portar `lib/security/audit.ts` (egos-lab) → `egos-inteligencia/frontend/src/lib/security/`
+- [ ] **INTELINK-CONS-006**: Portar `lib/intelink/ai-router.ts` + `ai-chat.ts` + `meta-prompts.ts` (egos-lab) → `egos-inteligencia`
+- [ ] **INTELINK-CONS-007**: Portar componentes UI chave: `components/intelink/` (egos-lab 30+ componentes) → `egos-inteligencia/frontend/src/components/`
+- [ ] **INTELINK-CONS-008**: Verificar `egos-inteligencia/api/src/` (FastAPI Python) — mapear endpoints existentes vs lacunas
+- [ ] **INTELINK-CONS-009**: Remover `egos-archive/v2/EGOSv2/intelink-*` e `Downloads/intelink-project-starter` (lixo confirmado)
+- [ ] **INTELINK-CONS-010**: Criar `AGENTS.md` em `egos-inteligencia/` com mapa canônico do sistema
+
+---
+
 ### Intelink v3 — Segurança + Multi-Device (2026-04-09)
 **SSOT:** `docs/knowledge/INTELINK_V3_SECURITY_ARCHITECTURE.md`
 **Decisões aprovadas:** Híbrido local+cloud | TIER 3 max | MASP+senha+2FA | CRDT (Automerge) | RxDB | PBKDF2 | Hetzner MVP→HA→Edge

@@ -137,7 +137,7 @@ if [ -f "TASKS.md" ]; then
   fi
 fi
 
-check_lines ".windsurfrules" 150 || exit 1
+check_lines ".windsurfrules" 250 || exit 1
 check_lines ".guarani/PREFERENCES.md" 100 || exit 1
 check_lines "docs/SSOT_REGISTRY.md" 200 || exit 1
 

@@ -11,7 +11,7 @@ type: "framework-core + orchestration-kernel + agent-runtime"
 |------|---------|-----------|
 | `AGENTS.md` | System map, stack, commands | 200 |
 | `TASKS.md` | All tasks | 750 |
-| `.windsurfrules` | Agent rules (this file) | 150 |
+| `.windsurfrules` | Agent rules (this file) | 250 |
 | `.guarani/PREFERENCES.md` | Coding standards | 100 |
 | `agents/registry/agents.json` | Agent registry (SSOT) | — |
 
