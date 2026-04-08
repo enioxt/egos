@@ -12,8 +12,8 @@
 **✅ DONE 2026-04-07/08:** X-COM-001..005 (alert+approval bots, setup, SSOT templates, roadmap) | X-COM-018..024 (LLM analysis layer DashScope+OpenRouter, recordFeedback, HTML format, diagnostic — all in `scripts/x-opportunity-alert.ts`)
 
 **P0 — Deploy + Core (Esta semana):**
-- [ ] **X-COM-008**: x-smart-scheduler.ts — análise de audiência para melhores horários
-- [ ] **X-COM-009**: x-evergreen-recycler.ts — recompartilhamento inteligente de top posts
+- [x] **X-COM-008**: x-smart-scheduler.ts — análise de audiência para melhores horários
+- [x] **X-COM-009**: x-evergreen-recycler.ts — recompartilhamento inteligente de top posts
 
 **P1 — Growth (Próximas 2 semanas):**
 - [ ] **X-COM-010**: Thread composer web — interface no HQ para criar threads
@@ -167,7 +167,7 @@
 
 **P1 — Wiring + contracts:**
 - [ ] **HQC-008**: Complete MCP setup gaps (obsidian, stripe, telegram) and make HQ consume installation truth
-- [ ] **HQC-009**: Build `@egosbr/guard-brasil-mcp` and register OpenClaw/ClawHub path
+- [x] **HQC-009**: DUPLICATE of GTM-016 — guard-brasil-mcp package already exists
 - [ ] **HQC-010**: Configure OpenClaw Gateway / WhatsApp / Telegram path without duplicated orchestration
 - [ ] **HQC-011**: Remove hardcoded HQ data dependencies and drive HQ from canonical registries (`TASKS.md`, `agents.json`, `validation.json`, `CAPABILITY_REGISTRY.md`, `MASTER_INDEX.md`)
 - [ ] **HQC-012**: Build `intelligence-engine.ts` and connect Dream Cycle outputs to HQ
@@ -298,8 +298,8 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 - [ ] MCP-006: Stripe MCP (`@stripe/mcp`) — needs Stripe secret key (on VPS only)
 - [ ] MCP-007: Telegram MCP (`mcp-telegram`) — needs bot token
 - [ ] MCP-008: Move `egos-knowledge` MCP from `egos/.claude/settings.json` → `~/.claude/settings.json` (make global)
-- [ ] GTM-016: Build `guard-brasil-mcp` — wraps guard.egos.ia.br as Claude tool, publish as `@egosbr/guard-brasil-mcp` (GTM play: devs install it in their Claude session)
-- [ ] KB-019: `bun wiki:dedup` — fix HARVEST.md 1944-line triplication caused by wiki:compile running without dedup
+- [/] GTM-016: `guard-brasil-mcp` package EXISTS at packages/guard-brasil-mcp/ — needs npm publish + Claude tool registration — wraps guard.egos.ia.br as Claude tool, publish as `@egosbr/guard-brasil-mcp` (GTM play: devs install it in their Claude session)
+- [x] KB-019: `bun wiki:dedup` ✅ command exists in package.json — fix HARVEST.md 1944-line triplication caused by wiki:compile running without dedup
 
 ---
 

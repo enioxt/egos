@@ -165,3 +165,20 @@ Qualquer mudança de limite (linhas TASKS.md, AGENTS.md, etc.) deve atualizar SI
 | TASKS.md | nenhum (append-only) | 900 | `bun scripts/tasks-archive.ts` (move seções [x] → TASKS_ARCHIVE.md) |
 | AGENTS.md | 200 linhas | — | compressão manual |
 | .windsurfrules | 200 linhas | — | compressão manual |
+
+## TASKS.MD ANTI-HALLUCINATION (INC-003 — 2026-04-08)
+
+**Rule:** Before adding any task, verify artifact doesn't exist. After implementing, mark `[x]` in same commit.
+
+```bash
+# Pre-add check:
+find /home/enio/egos -name "*keyword*" 2>/dev/null | grep -v node_modules
+grep -i "keyword" TASKS.md | head -5
+git log --oneline --since="30 days ago" | grep -i "keyword"
+
+# Post-implement (same commit):
+grep -n "related keyword" TASKS.md  # find + mark [x]
+```
+
+**Duplicate prevention:** `grep -i "description" TASKS.md` before creating new ID. Update existing, never duplicate.
+**Checklist rule:** Spot-check top 5 P0/P1 tasks with `ls`/`grep` before presenting as pending.
