@@ -460,7 +460,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 **Context:** CORAL (MIT, arXiv 2604.01658) mostra que agents compartilhando descobertas = 50%+ dos breakthroughs. Gem Hunter hoje: cada run é isolado, zero memória entre runs. Padrão a adotar (não o framework completo): tabela `gem_discoveries` + agents consultam antes de explorar.
 **SSOT:** `agents/agents/gem-hunter.ts` + `packages/shared/src/event-bus.ts`
 
-- [ ] **CORAL-001 [P1]**: Criar tabela Supabase `gem_discoveries`. Schema: `{id, repo_url, gem_name, category, score, discovered_by, discovered_at, summary, tags[], last_seen_at}`. RLS habilitado. Migration em `supabase/migrations/`. [1h]
+- [x] **CORAL-001 [P1]**: Criar tabela Supabase `gem_discoveries`. Schema: `{id, repo_url, gem_name, category, score, discovered_by, discovered_at, summary, tags[], last_seen_at}`. RLS habilitado. Migration em `supabase/migrations/`. ✅ 2026-04-08
 - [ ] **CORAL-002 [P1]** (dep: CORAL-001): Modificar Gem Hunter stage-1 para consultar `gem_discoveries` antes de scrape. Skip repos score ≥ 7 nos últimos 14 dias. Log: "X repos skipped (already discovered)". Esperado: 30-50% redução em API calls. [3h]
 - [ ] **CORAL-003 [P2]** (dep: CORAL-001): Hermes escreve em `gem_discoveries` após research tasks. Qualquer agent que encontrar "gem" (tool/pattern relevante) chama `event-bus.ts` → upsert `gem_discoveries`. [2h]
 
