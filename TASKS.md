@@ -578,8 +578,8 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 | | TL-006 | Route: GET /timeline — list articles paginated | [x] |
 | | TL-007 | Route: GET /timeline/[slug] — render article + metrics | [x] |
 | | TL-008 | Caddy: egos.ia.br → egos-site:3071 — live | [x] |
-| **3: Automação** | TL-009 | timeline-cron-daily.sh — scan commits 24h (cron 03:00 UTC) | [ ] |
-| | TL-010 | Crontab: add timeline-cron-daily.sh | [ ] |
+| **3: Automação** | TL-009 | timeline-cron-daily.sh — scan commits 24h (cron 03:00 UTC) | [x] |
+| | TL-010 | Crontab: add timeline-cron-daily.sh | [x] |
 | | TL-011 | auto-disseminate.sh: detect `PUBLISH:` in commit body | [ ] |
 | | TL-012 | x-reply-bot: postArticle(snippet, url) method | [ ] |
 | **4: Multi-canal** | TL-013 | WhatsApp via Evolution API (same approval flow) | [ ] |
@@ -601,7 +601,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 | | GH-075 | Landing page: gemhunter.egos.ia.br (Vite, "What is?" + gems + subscribe) | [ ] |
 | | GH-076 | Substack: Telegram HITL draft Thu 08:00 UTC — cron live | [x] |
 | **B: Community** | GH-077 | Supabase: gem_lists + gem_votes + vote_count — RLS live | [x] |
-| | GH-078 | API: /gems/{id}/upvote, /lists/*, GET trending by votes | [ ] |
+| | GH-078 | API: /gems/:url/upvote + /trending + /lists/* — live port 3070 | [x] |
 | | GH-079 | Dashboard: 👍 voting button, "Top voted", "Your lists" | [ ] |
 | | GH-080 | github.com/enioxt/awesome-gems — weekly curated list | [ ] |
 | **C: Distribution** | GH-081 | Slack bot: /gem-hunter trending [lang] | [ ] |
