@@ -698,3 +698,32 @@ or HARVEST.md are missing, it skips silently. This prevents hook failures from b
 **Repos:** arch, INPI, santiago, carteira-livre, commons, egos-self, egos-inteligencia, smartbuscas, br-acc, egos-lab, 852, policia (12 local) + 4 VPS repos
 
 **Manual fallback:** `bash scripts/governance-propagate.sh --exec` (existing, idempotent)
+
+## §26 — Kernel Change Scanner + Heartbeat Loop (2026-04-08)
+
+**What:** Two infrastructure primitives added to EGOS kernel.
+
+### §26a — Disseminate Scanner (DISS-001 + DISS-004)
+
+**What:** Detects governance drift before it accumulates across repos.
+**Components:**
+- `scripts/disseminate-scanner.ts` — diffs 4 kernel files (`~/.claude/CLAUDE.md`, `.windsurfrules`, `CLAUDE.md`, `CAPABILITY_REGISTRY.md`), extracts changed sections by markdown heading, writes `.egos-disseminate-manifest.json`
+- `.husky/post-commit` — triggers scanner automatically when kernel files are in a commit
+**Output:** `{changed_rules[], affected_repos[], propagation_needed: bool}` — feeds DISS-002 propagator
+
+### §26b — Heartbeat Loop (PAP-001)
+
+**What:** Paperclip-inspired native 30min wake/sleep cycle for long-running agents.
+**Component:** `agents/runtime/heartbeat.ts` — wraps `runAgent()` in configurable loop
+**API:**
+```typescript
+const handle = startHeartbeat({
+  agentId: 'gem-hunter',
+  intervalMs: 30 * 60 * 1000,
+  checkWorkQueue: async () => hasNewRepos(),  // skip if nothing to do
+  handler: gemHunterHandler,
+});
+handle.stop();     // graceful shutdown
+handle.status();   // { cycleCount, lastRunAt, nextRunAt, lastResult }
+```
+**Events:** emits `agent.heartbeat.complete` on Mycelium bus after each cycle
