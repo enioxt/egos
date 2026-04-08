@@ -387,6 +387,108 @@ Se tiverem dúvidas de como aplicar: DM aberta.
 
 ---
 
+## 4.2 TEMPLATES DM ESPECÍFICOS — OSINT & Intelligence (NOVO 2026-04-08)
+
+### OSINT-1 — Para investigador/jornalista de dados fazendo cruzamento manual
+
+```
+Oi [nome], vi seu post sobre [investigação específica].
+
+Estou desenvolvendo ferramentas exatamente nessa linha:
+→ 852 — plataforma de inteligência policial com análise de PII
+→ Cruzamento automático de dados, grafos de relacionamentos
+→ Detecção de CPF/PII em documentos para compliance LGPD
+
+Funciona tanto pra investigação policial quanto jornalística.
+Ex: subir 10k PDFs, extrair entidades, cruzar com bases públicas.
+
+852.egos.ia.br (beta fechado, posso liberar acesso)
+
+Se fizer sentido pra suas investigações: DM aberta.
+```
+
+### OSINT-2 — Para profissional de forense digital
+
+```
+Oi [nome], vi seu trabalho com forense digital.
+
+Desenvolvi Guard Brasil — API de detecção/mascaramento de PII brasileiro.
+
+Uso cases forenses:
+- Mascarar dados em relatórios antes de compartilhar
+- Gerar evidence chain com hashes pra compliance
+- Detectar CPF/RG/MASP em dumps de dados
+
+guard.egos.ia.br/landing
+
+Se tiver casos onde isso ajude: DM aberta.
+```
+
+### OSINT-3 — Para jornalista de dados/analista OSINT
+
+```
+Oi [nome], vi sua análise de [tema da investigação].
+
+Tô construindo EGOS Inteligência — grafo com 83M+ entidades públicas BR:
+- Empresas, sócios, contratos
+- PEPs, sanções, licitações
+- Cruzamento automático de padrões
+
+API-first. Dá pra integrar com seu fluxo de análise.
+
+inteligencia.egos.ia.br
+
+Quer explorar os dados pra próxima investigação? DM aberta.
+```
+
+### AI-1 — Para dev/CTO construindo sistema multi-agent
+
+```
+Oi [nome], vi seu post sobre [framework/agents].
+
+Estou desenvolvendo EGOS Kernel — framework de orquestração de agentes IA:
+- Governança: frozen zones, pre-commit enforcement
+- Event bus para comunicação entre agentes
+- Runtime isolado, cada agente faz UMA coisa
+- Multi-provider LLM (Alibaba, OpenRouter, Claude)
+
+github.com/enioxt/egos
+
+Se tiver explorando arquiteturas de agentes: vamos trocar ideia.
+```
+
+### AI-2 — Para builder querendo automatizar workflows com IA
+
+```
+Oi [nome], vi seu post sobre automação/IA.
+
+Tenho stack completo pronto:
+→ EGOS Kernel — orquestração de agentes
+→ Gem Hunter — mineração de tecnologias emergentes (arxiv, github, hf)
+→ X Automation — busca de oportunidades + DM bot
+
+Tudo rodando em VPS próprio. Código MIT.
+
+Se quiser acelerar alguma parte do que tá construindo: DM aberta.
+```
+
+### GOV-1 — Para cidadão/ONG monitorando gastos públicos
+
+```
+Oi [nome], vi seu trabalho com transparência/dados abertos.
+
+Desenvolvi Eagle Eye — monitoramento de licitações:
+- 84 municípios, atualização diária
+- Alertas de oportunidades por email/Telegram
+- Dashboard de gastos por fornecedor
+
+eagleeye.egos.ia.br/dashboard.html
+
+Open source. Se quiser replicar pra outro território: DM aberta.
+```
+
+---
+
 ## 4.1 ARSENAL RÁPIDO — Copy-Paste por Contexto
 
 ### Quando alguém pergunta "qual seu produto?"
