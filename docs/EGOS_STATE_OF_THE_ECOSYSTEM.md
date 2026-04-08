@@ -358,6 +358,49 @@ Fallback: keyword-based (sem LLM)
 - Scoring prompts versionados e editáveis sem deploy
 - 2x/dia AI lê comentários → relatórios → tasks auto-geradas (GH-093 pendente)
 
+### 7. ATRiAN — Validação de Integridade de Outcomes
+**Arquivo:** `packages/shared/src/atrian.ts`
+- 7 axiomas éticos (não apenas LGPD — inclui equidade, transparência, reversibilidade)
+- 5 categorias de violação: absolute claims, fabricated data, false promises, invented acronyms, blocked entities
+- 4 níveis de severidade: CRITICAL / HIGH / MEDIUM / LOW
+- Padrões específicos ao português brasileiro ("não se preocupe", "garanto que")
+- Único framework ético-técnico PT-BR open-source disponível
+
+### 8. Evidence Chain — Proveniência para LGPD DPO
+**Arquivo:** `packages/shared/src/evidence-chain.ts`
+- Ledger de proveniência: `timestamp + agent_id + action + output_hash + compliance_score`
+- Auditável por DPO (encarregado LGPD art.41) e por autoridade (ANPD)
+- Hash SHA-256 de cada saída de LLM — prova de que o modelo não alucinorq
+- Nenhuma solução concorrente brasileira tem isso a nível de SDK
+
+### 9. Doc-Drift Shield — Contratos de Documentação Verificáveis
+**Arquivo:** `docs/DOC_DRIFT_SHIELD.md` | **Sentinel:** `scripts/doc-drift-sentinel.ts`
+- Todo número em README é um contrato com `last_value + proof_command` no `.egos-manifest.yaml`
+- 4 camadas: manifest YAML + pre-commit + sentinel diário VPS + CCR semanal
+- Derive de incidente real: Carteira Livre README dizia 54 páginas (real: 134), 68 APIs (real: 254)
+- Tolerance rules por claim_type: percentages (±5%), counts (±10%), tech names (exact match)
+
+### 10. World Model — Snapshot Estruturado para Raciocínio Causal de LLMs
+**Arquivo:** `packages/shared/src/world-model.ts`
+- JSON estruturado do estado do ecossistema, desenhado para LLM causal reasoning (não humanos)
+- Alimenta o `/start` e a consciência dos agentes sobre o estado atual da plataforma
+- Inclui: health%, P0 blockers, critical signals, top sprint tasks — carregado a cada sessão
+- Padrão inovador: ecosystems-as-structured-data para multi-agent coordination
+
+### 11. SIGNAL_MESH — Arquitetura de Coleta Intencional Anti-Poisoning
+**Arquivo:** `docs/SIGNAL_MESH.md`
+- 14 fontes simultâneas com orçamento definido ($15/mês)
+- Cross-validation: Exa + arXiv + GitHub stars como triangulação anti-ruído
+- arXiv penalty para papers sem código, PWC bonus para papers reproduzíveis
+- Design explícito: "qual sinal, de onde, com qual confiança" — não descoberta aleatória
+
+### 12. Auditable Sandbox Pattern — UX de Transparência Radical
+**Arquivo:** `docs/patterns/AUDITABLE_SANDBOX_PATTERN.md` | **Live:** guard.egos.ia.br/sandbox
+- 4 zonas na UI: Input → Processing → Result → Audit Trail (SHA-256 de cada passo)
+- Usuário final vê o hash e pode verificar que o resultado não foi manipulado
+- Padrão de produto (CAPABILITY_REGISTRY §13): reutilizável em todos os produtos EGOS
+- Único "produto demo" que também é documento de arquitetura e prova de compliance
+
 ---
 
 ## 🚧 PRÓXIMOS PASSOS PRIORITÁRIOS
@@ -413,4 +456,4 @@ grep "EGOS_STATE_OF_THE_ECOSYSTEM" docs/MASTER_INDEX.md  # deve existir
 
 ---
 
-*Versão: 1.0.0 | Criado: 2026-04-08 | Próxima atualização: próxima sessão /end*
+*Versão: 1.1.0 | Criado: 2026-04-08 | Atualizado: 2026-04-08 | Próxima atualização: próxima sessão /end*

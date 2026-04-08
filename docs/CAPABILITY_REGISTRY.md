@@ -727,3 +727,37 @@ handle.stop();     // graceful shutdown
 handle.status();   // { cycleCount, lastRunAt, nextRunAt, lastResult }
 ```
 **Events:** emits `agent.heartbeat.complete` on Mycelium bus after each cycle
+**Events:** emits `agent.heartbeat.complete` on Mycelium bus after each cycle
+
+## §27 — KBS — Knowledge Base as a Service (2026-04-08)
+
+**What:** Notion-based knowledge management SaaS for 10 professional profiles in small Brazilian cities. Uses Claude Code + Notion MCP as the zero-infra engine.
+
+**Components:**
+- `packages/knowledge-mcp/templates/sectors/` — sector templates: industrial-forja, medico, advocacia, contador, agronomo (5 ready)
+- `agents/agents/wiki-compiler.ts` — converts Markdown → searchable Notion database entries
+- `supabase/tables/knowledge_base` — 1648 rows ARR embeddings (vector search via pgvector)
+- `packages/search-engine/` — ARR (Adaptive Atomic Retrieval): sentence-level semantic indexing
+- Notion MCP (nativo Claude Code) — zero custom integration, uses Claude's native Notion tools
+
+**Profiles supported:** Consultor Agrícola, Veterinário, Agrônomo, Engenheiro Civil, Médico/Clínica, Contador Rural, Advogado (Direito Agrário), Cooperativa, Imobiliária Rural, SENAR/Escola
+
+**Business model:** R$1.5k setup + R$200/mês (starter) | R$5k setup + R$800/mês (full)
+**Current state:** 10 profiles + 12 Notion databases populated (KBS-PM-001..011 ✅ 2026-04-08)
+**SSOT:** `docs/strategy/KB_AS_A_SERVICE_PLAN.md` + `docs/strategy/KBS_PATOS_DE_MINAS_PERSONAS.md`
+
+## §28 — X.com Reply Bot — Quality Scoring v2 (2026-04-08)
+
+**What:** Scoring improvements to x-reply-bot.ts that prevent false positives (news overscored) and false negatives (real engineers underscored).
+
+**File:** `scripts/x-reply-bot.ts` (545 lines, queue mode → Supabase `x_reply_runs`)
+
+**Changes shipped 2026-04-08 (XRB-002..004):**
+- **Few-shot examples injected into scoring prompt** (XRB-002): 5 gems (vacacafe/MrCl0wnLab/PreyWebthree/zhuokaiz/TFTC21) + 3 rejects (hasantoxr/LOWTAXALT/claudeai-news)
+- **Low-visibility big-tech bypass** (XRB-003): If tweet contains bigtech company name + code snippet (```, github.com) → `effectiveMinLikes = min(2, topic.min_likes)`. Captures @zhuokaiz-style engineers with few likes posting real code.
+- **Corporate announcement detector** (XRB-004): If tweet contains "announcing/introducing/launching" + "anthropic/openai/google/meta ai/microsoft" → `stats.rejected++; continue`. Prevents PR posts from scoring as gems.
+
+**Scoring principle (documented in scoring-v1.md §5):**
+> "A gem is a signal BEFORE it's popular. Official announcements are never gems — they're already known."
+
+**Pending:** GH-091 (Qwen replaces heuristic in scoreGem()), GH-093 (Telegram inline feedback keyboard)
