@@ -775,3 +775,13 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 **Integration (com Paperclip):**
 - [ ] **PAP-004 [P2]**: EGOS↔Paperclip adapter — registra agents EGOS como "employees" do Paperclip. Guard Brasil valida outputs antes de retornar ao Paperclip. Repositório: `@egosbr/paperclip-adapter`. | 8h
 - [ ] **PAP-005 [P3]**: Pitch adapter para @dotta (criador Paperclip) — "EGOS adds LGPD/PII compliance layer for Brazilian Paperclip users." DM via GitHub Issues ou X.com. | 1h
+
+---
+
+### Live School — The Observatory (reativação EGOSv2)
+**SSOT:** `egos-archive/v2/EGOSv2/live_school_redesign/` + `modules/egos_learning_orbit/` | **Status:** EGOSv2 completo, precisa rewrite Bun/TS
+**Conceito:** Tela inteira cosmos 3D (React Three Fiber) + 3 agentes AI (EVA/GUARANI/MAIÉTICA). "Ensinar é recordar o que já se é" — maiêutica socrática.
+
+- [ ] **LS-001 [P2]**: Análise assets EGOSv2 — ObservatoryLanding.tsx (React Three Fiber), 3 agentes Python, design_concept.md → gerar spec moderna Bun/TS. Decisão: standalone app ou integrar em egos-site? | 2h
+- [ ] **LS-002 [P2]**: Port EVA+GUARANI+MAIÉTICA para TypeScript — usar EGOS agent-runner como base. Guard Brasil wrapping dados de alunos (LGPD). | 6h
+- [ ] **LS-003 [P3]**: Observatory UI — Bun/Hono + React Three Fiber — tela cósmica full-screen. Stars, órbitas gravitacionais, portal de entrada. Base: `live_school_redesign/src/components/ObservatoryLanding.tsx` | 8h
