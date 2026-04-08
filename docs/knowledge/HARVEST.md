@@ -2508,3 +2508,7 @@ Direct messages that reference someone's specific post + show real products do.
 
 - post-commit hooks must always exit 0 — hook failure blocks commit, which is worse than missing SSOT sync
 - grep -c returns exit 1 on zero matches — use wc -l for counting in cron scripts to avoid false || fallback double-output
+
+### Auto-harvested — f27e9fe (2026-04-08)
+
+- Rename *AUDIT* files to *INVENTORY* to comply with pre-commit doc proliferation check
