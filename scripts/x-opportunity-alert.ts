@@ -94,117 +94,248 @@ interface SearchQuery {
 }
 
 const OPPORTUNITY_QUERIES: SearchQuery[] = [
-  // P0 — Alta prioridade (parceiros potenciais)
+  // ═══════════════════════════════════════════════════════════════════════════
+  // P0 — MOAT PRINCIPAL: OSINT & Intelligence (852, Guard Brasil Forense)
+  // ═══════════════════════════════════════════════════════════════════════════
   {
-    query: '"procuro parceiro técnico" OR "preciso de CTO" OR "procuro co-fundador" Brasil',
-    category: "parceria_tecnica",
+    query: "(OSINT OR osint OR \"inteligência de fontes abertas\") Brasil lang:pt",
+    category: "osint_core",
     priority: "P0",
-    product_match: "EGOS produtos",
-    template_suggestion: "4K — Procuro parceiro técnico",
+    product_match: "852 / Guard Brasil",
+    template_suggestion: "OSINT-1 — Ferramenta de investigação",
     min_likes: 3,
     lang: "pt",
   },
   {
-    query: '"procuro vendedor" OR "procuro parceiro comercial" SaaS OR software',
-    category: "parceria_comercial",
+    query: '("cruzamento de dados" OR "cross reference" OR "análise forense") Brasil lang:pt',
+    category: "investigacao_dados",
     priority: "P0",
-    product_match: "Todos",
-    template_suggestion: "4O — Cansado de trabalhar sozinho",
+    product_match: "852",
+    template_suggestion: "OSINT-2 — Cruzamento automático",
+    min_likes: 3,
+    lang: "pt",
+  },
+  {
+    query: '(investigação OR investigações OR inteligência) (digital OR cibercrime OR forense) Brasil lang:pt',
+    category: "investigacao_digital",
+    priority: "P0",
+    product_match: "852",
+    template_suggestion: "OSINT-3 — Plataforma policial",
+    min_likes: 5,
+    lang: "pt",
+  },
+  {
+    query: '"análise de redes sociais" OR "monitoramento digital" OR "rastreamento online" Brasil lang:pt',
+    category: "monitoramento_digital",
+    priority: "P0",
+    product_match: "852",
+    template_suggestion: "OSINT-4 — Monitoramento",
     min_likes: 3,
     lang: "pt",
   },
 
-  // P0 — LGPD/Compliance (Guard Brasil)
+  // ═══════════════════════════════════════════════════════════════════════════
+  // P0 — MOAT: AI + Automação + Frameworks (EGOS Kernel)
+  // ═══════════════════════════════════════════════════════════════════════════
   {
-    query: 'consultor LGPD "proteção de dados" OR "DPO" Brasil contratar',
-    category: "lgpd_consultor",
-    priority: "P0",
-    product_match: "Guard Brasil",
-    template_suggestion: "4B — LGPD/compliance",
-    min_likes: 5,
-    lang: "pt",
-  },
-  {
-    query: 'vazamento dados Brasil OR "vazou CPF" OR breach "dados pessoais"',
-    category: "vazamento_dados",
-    priority: "P0",
-    product_match: "Guard Brasil",
-    template_suggestion: "4G — Vazamento de dados",
-    min_likes: 10,
-    lang: "pt",
-  },
-
-  // P1 — GovTech/Licitações (Eagle Eye)
-  {
-    query: 'licitação software OR "pregão eletrônico" TI OR govtech Brasil',
-    category: "licitacao_ti",
-    priority: "P1",
-    product_match: "Eagle Eye",
-    template_suggestion: "4C — GovTech/licitações",
-    min_likes: 5,
-    lang: "pt",
-  },
-  {
-    query: '"software house" prospectar governo OR "B2G" Brasil',
-    category: "software_house_b2g",
-    priority: "P1",
-    product_match: "Eagle Eye",
-    template_suggestion: "4H — Software house",
-    min_likes: 3,
-    lang: "pt",
-  },
-
-  // P1 — Split Payment/Fiscal (Carteira Livre)
-  {
-    query: '"split payment" Brasil 2026 OR marketplace fiscal OR "nota fiscal destinatário"',
-    category: "split_payment",
-    priority: "P1",
-    product_match: "Carteira Livre",
-    template_suggestion: "4F — Split payment",
-    min_likes: 5,
-    lang: "pt",
-  },
-  {
-    query: '"marketplace" desenvolvimento OR "plataforma digital" pagamento Brasil',
-    category: "marketplace_dev",
-    priority: "P1",
-    product_match: "Carteira Livre",
-    template_suggestion: "4F — Marketplace",
-    min_likes: 5,
-    lang: "pt",
-  },
-
-  // P1 — HealthTech/Recruiting (Guard Brasil)
-  {
-    query: 'healthtech Brasil startup OR telemedicina compliance LGPD',
-    category: "healthtech",
-    priority: "P1",
-    product_match: "Guard Brasil",
-    template_suggestion: "4R — HealthTech",
-    min_likes: 5,
-    lang: "pt",
-  },
-  {
-    query: '"RH tech" OR recruiting tech OR ATS Brasil startup',
-    category: "rh_tech",
-    priority: "P1",
-    product_match: "Guard Brasil",
-    template_suggestion: "4Q — RH tech",
-    min_likes: 5,
-    lang: "pt",
-  },
-
-  // P2 — Builders/Dev (EGOS Kernel)
-  {
-    query: '"multi-agent framework" OR "agent governance" open source lang:en',
+    query: '("multi-agent" OR "agent framework" OR "AI orchestration") (github OR open source) lang:en',
     category: "agent_framework",
-    priority: "P2",
+    priority: "P0",
     product_match: "EGOS Kernel",
-    template_suggestion: "4P — Head de produto/dívida técnica",
-    min_likes: 10,
+    template_suggestion: "AI-1 — Framework multi-agent",
+    min_likes: 5,
     lang: "en",
   },
+  {
+    query: '"agent governance" OR "orquestração de agentes" OR "AI automation" lang:en',
+    category: "ai_governance",
+    priority: "P0",
+    product_match: "EGOS Kernel",
+    template_suggestion: "AI-2 — Governança de agentes",
+    min_likes: 5,
+    lang: "en",
+  },
+  {
+    query: '(LLM workflow OR "LLM pipeline") (automation OR framework) lang:en',
+    category: "llm_automation",
+    priority: "P0",
+    product_match: "EGOS Kernel",
+    template_suggestion: "AI-3 — Pipeline LLM",
+    min_likes: 5,
+    lang: "en",
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // P1 — GovTech + Dados Abertos + Automação (Eagle Eye)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    query: '(govtech OR "dados abertos" OR transparência) (automação OR IA OR software) Brasil lang:pt',
+    category: "govtech_automacao",
+    priority: "P1",
+    product_match: "Eagle Eye",
+    template_suggestion: "GOV-1 — GovTech automação",
+    min_likes: 3,
+    lang: "pt",
+  },
+  {
+    query: '"licitação" (inteligência artificial OR IA OR software) Brasil lang:pt',
+    category: "licitacao_ia",
+    priority: "P1",
+    product_match: "Eagle Eye",
+    template_suggestion: "GOV-2 — Licitações + IA",
+    min_likes: 3,
+    lang: "pt",
+  },
+  {
+    query: '("monitorar contratos" OR "transparência pública") automação Brasil lang:pt',
+    category: "transparencia_automacao",
+    priority: "P1",
+    product_match: "Eagle Eye",
+    template_suggestion: "GOV-3 — Transparência",
+    min_likes: 3,
+    lang: "pt",
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // P1 — LGPD Forense + Compliance Investigativo (Guard Brasil)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    query: '(LGPD OR compliance) (forense OR investigação OR PII) Brasil lang:pt',
+    category: "lgpd_forense",
+    priority: "P1",
+    product_match: "Guard Brasil",
+    template_suggestion: "LGPD-1 — Forense",
+    min_likes: 3,
+    lang: "pt",
+  },
+  {
+    query: '"proteção de dados" (investigação OR relatório OR forense) Brasil lang:pt',
+    category: "protecao_dados_forense",
+    priority: "P1",
+    product_match: "Guard Brasil",
+    template_suggestion: "LGPD-2 — Proteção em investigações",
+    min_likes: 3,
+    lang: "pt",
+  },
+  {
+    query: '"vazamento de dados" (análise OR investigação OR cruzamento) Brasil lang:pt',
+    category: "vazamento_analise",
+    priority: "P1",
+    product_match: "Guard Brasil",
+    template_suggestion: "LGPD-3 — Análise de vazamentos",
+    min_likes: 5,
+    lang: "pt",
+  },
 ];
+
+// ── Anti-Keyword Filter & Relevance Scoring ────────────────────────────────
+
+const ANTI_KEYWORDS = [
+  // Cursos/educação (está vendendo, não precisa de produto)
+  "curso de", "mentoria", "sou coach", "aprenda a", "aula de", "workshop de",
+  // Marketing genérico
+  "marketing digital", "dropshipping", "day trade", "trader", "forex",
+  // Contratação (não é parceria)
+  "estou contratando", "vaga de emprego", "procuro estagiário", "clt",
+  // Conteúdo viral/genérico
+  "siga que eu sigo", "sdv", "follow back",
+];
+
+const MOAT_KEYWORDS = {
+  osint: ["osint", "inteligência de fontes abertas", "cruzamento de dados", "investigação digital", "forense", "análise forense"],
+  ai_framework: ["multi-agent", "agent framework", "ai orchestration", "llm workflow", "agent governance", "orquestração"],
+  govtech: ["govtech", "dados abertos", "transparência", "licitação", "controle social", "monitorar contratos"],
+  security: ["lgpd", "compliance", "proteção de dados", "vazamento", "breach", "pii"],
+};
+
+function isRelevantPost(text: string, category: string): { relevant: boolean; score: number; reasons: string[] } {
+  const lowerText = text.toLowerCase();
+  const reasons: string[] = [];
+  let score = 50; // Base score
+
+  // Check anti-keywords (penalty)
+  for (const anti of ANTI_KEYWORDS) {
+    if (lowerText.includes(anti.toLowerCase())) {
+      score -= 30;
+      reasons.push(`❌ anti: ${anti}`);
+    }
+  }
+
+  // Check moat keywords (bonus)
+  for (const [moatCategory, keywords] of Object.entries(MOAT_KEYWORDS)) {
+    for (const kw of keywords) {
+      if (lowerText.includes(kw.toLowerCase())) {
+        score += 20;
+        reasons.push(`✅ moat: ${kw}`);
+      }
+    }
+  }
+
+  // Category-specific bonuses
+  if (category.includes("osint") && /\b(osint|investigação|cruzamento|forense)\b/i.test(text)) {
+    score += 15;
+    reasons.push("✅ OSINT match");
+  }
+
+  if (category.includes("agent") && /\b(agent|ai|automation|llm|framework)\b/i.test(text)) {
+    score += 15;
+    reasons.push("✅ AI match");
+  }
+
+  // Cap score
+  score = Math.max(0, Math.min(100, score));
+
+  return { relevant: score >= 60, score, reasons };
+}
+
+// ── Feedback Learning System ────────────────────────────────────────────────
+
+const FEEDBACK_FILE = "/tmp/x-feedback-state.json";
+
+interface FeedbackRecord {
+  candidateId: string;
+  tweetId: string;
+  category: string;
+  queryUsed: string;
+  relevanceScore: number;
+  action: "alerted" | "approved" | "rejected" | "ignored";
+  timestamp: string;
+}
+
+function loadFeedback(): FeedbackRecord[] {
+  if (!existsSync(FEEDBACK_FILE)) return [];
+  try {
+    return JSON.parse(readFileSync(FEEDBACK_FILE, "utf8"));
+  } catch {
+    return [];
+  }
+}
+
+function saveFeedback(feedback: FeedbackRecord[]) {
+  writeFileSync(FEEDBACK_FILE, JSON.stringify(feedback, null, 2));
+}
+
+function recordFeedback(candidate: Candidate, query: SearchQuery, relevanceScore: number, action: FeedbackRecord["action"]) {
+  const feedback = loadFeedback();
+  feedback.push({
+    candidateId: candidate.id,
+    tweetId: candidate.id,
+    category: candidate.category,
+    queryUsed: query.query,
+    relevanceScore,
+    action,
+    timestamp: new Date().toISOString(),
+  });
+  saveFeedback(feedback.slice(-100));
+}
+
+function getQueryPerformance(query: string): { avgScore: number; count: number } {
+  const feedback = loadFeedback();
+  const relevant = feedback.filter(f => f.queryUsed === query);
+  if (relevant.length === 0) return { avgScore: 50, count: 0 };
+  const avg = relevant.reduce((sum, f) => sum + f.relevanceScore, 0) / relevant.length;
+  return { avgScore: avg, count: relevant.length };
+}
 
 // ── X API Search ───────────────────────────────────────────────────────────
 
@@ -407,8 +538,16 @@ async function main() {
         const likes = tweet.public_metrics?.like_count || 0;
         if (likes < (q.min_likes || 0)) continue;
 
-        // Check if author looks relevant (not a bot, has followers)
-        // Simplified check — could be enhanced
+        // 🧠 RELEVANCE SCORING — Moat-aligned filtering
+        const relevance = isRelevantPost(tweet.text, q.category);
+        console.log(`    📝 @${tweet.username}: ${relevance.score}/100 ${relevance.relevant ? "✅" : "❌"}`);
+        if (relevance.reasons.length > 0) console.log(`       ${relevance.reasons.slice(0, 2).join(" | ")}`);
+
+        // Skip if not relevant
+        if (!relevance.relevant) {
+          recordFeedback({ id: tweet.id, author: tweet.username || "unknown", text: tweet.text, url: "", category: q.category, priority: q.priority, product_match: q.product_match, template_suggestion: q.template_suggestion, found_at: new Date().toISOString(), status: "rejected" }, q, relevance.score, "rejected");
+          continue;
+        }
 
         const candidate: Candidate = {
           id: tweet.id,
@@ -434,9 +573,10 @@ async function main() {
           if (telegramOk || whatsappOk) {
             candidate.status = "alerted";
             state.alerts_sent++;
-            console.log(`    ✅ Alerta enviado: @${candidate.author} (${q.priority})`);
+            recordFeedback(candidate, q, relevance.score, "alerted");
+            console.log(`    ✅ Alerta: @${candidate.author} (${q.priority}, ${relevance.score}pts)`);
           } else {
-            console.log(`    ⚠️ Falha no alerta: @${candidate.author}`);
+            console.log(`    ⚠️ Falha: @${candidate.author}`);
           }
         }
 
