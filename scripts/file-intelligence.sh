@@ -183,8 +183,9 @@ for cfgfile in $CONFIGS; do
   [ -z "$cfgfile" ] && continue
   [ ! -f "$cfgfile" ] && continue
 
-  # Block .env files (should be in .gitignore)
-  if echo "$cfgfile" | grep -qE '^\.env'; then
+
+  # Block .env files (should be in .gitignore) — but allow .env.example templates
+  if echo "$cfgfile" | grep -qE '^\.env' && ! echo "$cfgfile" | grep -qE '\.example$|\.sample$|\.template$'; then
     echo "  ❌ .env file staged: $cfgfile — MUST be in .gitignore"
     ERRORS=$((ERRORS + 1))
   fi

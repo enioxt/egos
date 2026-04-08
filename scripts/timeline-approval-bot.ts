@@ -18,6 +18,11 @@ const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? "";
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN ?? "";
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_ADMIN_CHAT_ID ?? "";
 
+// Substack dual-publish (optional — gracefully skipped if not configured)
+const SUBSTACK_SID = process.env.SUBSTACK_SID ?? "";
+const SUBSTACK_PUBLICATION_URL = process.env.SUBSTACK_PUBLICATION_URL ?? "";
+const TIMELINE_BASE_URL = process.env.TIMELINE_BASE_URL ?? "https://egos.ia.br";
+
 const POLL_INTERVAL_MS = 5 * 60 * 1000; // 5 minutes
 const HQ_BASE_URL = "https://hq.egos.ia.br";
 
@@ -115,6 +120,52 @@ async function updateDraftStatus(
   if (!res.ok) {
     const err = await res.text();
     throw new Error(`Supabase update failed (${res.status}): ${err}`);
+  }
+}
+
+// ── Substack helpers ─────────────────────────────────────────────────────
+
+async function fetchDraftById(id: string): Promise<TimelineDraft | null> {
+  const res = await fetch(
+    `${SUPABASE_URL}/rest/v1/timeline_drafts?id=eq.${encodeURIComponent(id)}&limit=1`,
+    {
+      headers: {
+        apikey: SUPABASE_SERVICE_KEY,
+        Authorization: `Bearer ${SUPABASE_SERVICE_KEY}`,
+        "Content-Type": "application/json",
+      },
+      signal: AbortSignal.timeout(15000),
+    }
+  );
+  if (!res.ok) return null;
+  const rows = (await res.json()) as TimelineDraft[];
+  return rows[0] ?? null;
+}
+
+// Publishes a Substack Note (short-form) linking to the approved article.
+// Full articles live on egos.ia.br/timeline — the Note drives subscribers there.
+async function publishSubstackNote(draft: TimelineDraft): Promise<string | null> {
+  if (!SUBSTACK_SID || !SUBSTACK_PUBLICATION_URL) {
+    console.warn("⚠️  SUBSTACK_SID or SUBSTACK_PUBLICATION_URL not set — skipping Substack note");
+    return null;
+  }
+  try {
+    const { SubstackClient } = await import("substack-api");
+    const client = new SubstackClient({ publicationUrl: SUBSTACK_PUBLICATION_URL, token: SUBSTACK_SID });
+    const articleUrl = `${TIMELINE_BASE_URL}/timeline/${draft.slug}`;
+    const profile = await client.ownProfile();
+    const result = await profile
+      .newNoteWithLink(articleUrl)
+      .paragraph()
+      .bold(draft.title)
+      .text("\n\n")
+      .text(draft.summary.slice(0, 280))
+      .publish();
+    console.log(`  📰 Substack note published: id=${result.id}`);
+    return String(result.id);
+  } catch (err) {
+    console.error(`  ❌ Substack publish failed: ${err}`);
+    return null;
   }
 }
 
@@ -318,17 +369,23 @@ async function processCallbacks(): Promise<void> {
 
     try {
       switch (action) {
-        case "tl_approve":
+        case "tl_approve": {
+          const draft = await fetchDraftById(draftId);
           await updateDraftStatus(draftId, "approved");
           await answerCallbackQuery(callbackId, "✅ Approved!");
+          let substackLine = "";
+          if (draft) {
+            const noteId = await publishSubstackNote(draft);
+            substackLine = noteId ? `\n📰 Substack note: ${noteId}` : "";
+          }
           await sendTelegramMessage(
             chatId,
-            `✅ <b>Draft approved</b>\nID: <code>${draftId}</code>\nApproved by @${username}`
+            `✅ <b>Draft approved</b>\nID: <code>${draftId}</code>\nApproved by @${username}${substackLine}`
           );
-          // Remove from notified set so it can be re-notified if it somehow goes back to pending
           notifiedDraftIds.delete(draftId);
           console.log(`  ✅ Approved: ${draftId}`);
           break;
+        }
 
         case "tl_reject":
           await updateDraftStatus(draftId, "rejected", { rejected_reason: "manual" });
