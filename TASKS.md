@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.51.0 | **Updated:** 2026-04-08 | **LAST SESSION:** Sprint 1 locked — TL-001 ✅ GH-074 ✅ + 28 tasks planejadas (TL-002..018, GH-075..085, SOCIAL-001..008). Line limit: 750.
+> **Version:** 2.52.0 | **Updated:** 2026-04-08 | **NEW:** AgentCash monetization analysis + tasks (AGENTCASH-001..012) | **LAST SESSION:** Sprint 1 locked — TL-001 ✅ GH-074 ✅ + 28 tasks planejadas (TL-002..018, GH-075..085, SOCIAL-001..008). Line limit: 750.
 > **Philosophy:** Build what needs to be built, in the right order, without urgency.
 
 ---
@@ -84,6 +84,37 @@
 - [ ] **OSINT-014**: Integração Maltego para visualização gráfica de vínculos
 - [ ] **OSINT-015**: Plugin 852 para análise de metadados (ExifTool)
 - [ ] **OSINT-016**: GEOINT module — TerraBrasilis + Sentinel Hub para casos ambientais
+
+---
+
+### AgentCash — Monetização de APIs EGOS (2026-04-08)
+**SSOT:** `/home/enio/.codeium/windsurf-next/AGENTCASH_OPPORTUNITY_ANALYSIS.md` | **Plataforma:** https://agentcash.dev | **Código:** `AC-LZR4-C5AX-F5DH-EAB2`
+**Context:** AgentCash é uma plataforma de "agentic commerce" que permite agentes de IA pagarem por APIs premium usando protocolo x402 (HTTP 402). Oportunidade de monetizar Guard Brasil, OSINT Brasil, e ATRiAN para agentes globais.
+
+**Oportunidades Identificadas:**
+- **PUBLISH Mode:** Publicar Guard Brasil como API paga (LGPD PII detection brasileiro)
+- **CONSUME Mode:** Usar AgentCash para acessar APIs premium (StableEnrich, StableSocial)
+- **HYBRID Mode:** Ambos — publicar capacidades BR + consumir capacidades globais
+
+**P0 — Onboarding & Validação (Esta semana):**
+- [ ] **AGENTCASH-001**: Onboard em AgentCash com invite code (recebe créditos gratuitos)
+- [ ] **AGENTCASH-002**: Testar como consumer — `npx agentcash search` + APIs úteis
+- [ ] **AGENTCASH-003**: Análise técnica — mapear modificação Guard Brasil para x402 middleware
+- [ ] **AGENTCASH-004**: Avaliar viabilidade de integração Gem Hunter com AgentCash
+
+**P1 — Implementação (Próximas 2 semanas):**
+- [ ] **AGENTCASH-005**: Implementar middleware x402 no Guard Brasil (`feat/x402-agentcash` branch)
+- [ ] **AGENTCASH-006**: Criar wallet Guard Brasil (Base chain) para receber pagamentos
+- [ ] **AGENTCASH-007**: Publicar `openapi.json` com `x-payment-info` e `x-guidance`
+- [ ] **AGENTCASH-008**: Criar `SKILL.md` para AgentCash directory
+- [ ] **AGENTCASH-009**: Submeter Guard Brasil para review em https://agentcash.dev/apis
+
+**P2 — Scale (Mês 2-3):**
+- [ ] **AGENTCASH-010**: Publicar OSINT Brasil API (Escavador, Brasil.IO wrappers)
+- [ ] **AGENTCASH-011**: Publicar ATRiAN Validator como serviço de compliance
+- [ ] **AGENTCASH-012**: Documentar case study de receita na plataforma
+
+**Nota:** Protocolo x402 usa USDC na Base chain. SDK `agentwallet-sdk` é MIT license.
 
 ---
 
