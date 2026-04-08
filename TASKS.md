@@ -780,8 +780,8 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 
 ### Live School — The Observatory (reativação EGOSv2)
 **SSOT:** `egos-archive/v2/EGOSv2/live_school_redesign/` + `modules/egos_learning_orbit/` | **Status:** EGOSv2 completo, precisa rewrite Bun/TS
-**Conceito:** Tela inteira cosmos 3D (React Three Fiber) + 3 agentes AI (EVA/GUARANI/MAIÉTICA). "Ensinar é recordar o que já se é" — maiêutica socrática.
+**Conceito:** Tela inteira cosmos 3D (React Three Fiber) + 3 agentes AI (EVA/GUARANI/MAIÊUTICA). "Ensinar é recordar o que já se é" — método maiêutico socrático (do grego μαιευτική: arte de parir ideias).
 
-- [ ] **LS-001 [P2]**: Análise assets EGOSv2 — ObservatoryLanding.tsx (React Three Fiber), 3 agentes Python, design_concept.md → gerar spec moderna Bun/TS. Decisão: standalone app ou integrar em egos-site? | 2h
-- [ ] **LS-002 [P2]**: Port EVA+GUARANI+MAIÉTICA para TypeScript — usar EGOS agent-runner como base. Guard Brasil wrapping dados de alunos (LGPD). | 6h
+- [x] **LS-001 [P2]**: Análise assets EGOSv2 — ObservatoryLanding.tsx (React Three Fiber), 3 agentes Python, design_concept.md → gerar spec moderna Bun/TS. Decisão: standalone app ou integrar em egos-site? | 2h ✅ 2026-04-08
+- [ ] **LS-002 [P2]**: Port EVA+GUARANI+MAIÊUTICA para TypeScript — usar EGOS agent-runner como base. Guard Brasil wrapping dados de alunos (LGPD). | 6h
 - [ ] **LS-003 [P3]**: Observatory UI — Bun/Hono + React Three Fiber — tela cósmica full-screen. Stars, órbitas gravitacionais, portal de entrada. Base: `live_school_redesign/src/components/ObservatoryLanding.tsx` | 8h
