@@ -542,27 +542,46 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 ### Intelink v3 — Consolidação SSOT + Migração (2026-04-09)
 **SSOT canônico:** `/home/enio/egos-inteligencia/` — **DECISÃO APROVADA 2026-04-09**
 **Registrado em:** `egos/docs/SSOT_REGISTRY.md`
+**Auditoria completa 2026-04-09** — todos os locais varridos antes de qualquer deleção.
 
-**Estado atual da dispersão (mapeado 2026-04-09):**
+**Estado pós-auditoria:**
 ```
-/home/enio/INTELINK            737MB  → ARCHIVED (migração incompleta, não tocar)
-/home/enio/egos-lab/apps/intelink  197MB, 502 arquivos → ARCHIVED após migração
-/home/enio/egos-inteligencia       ← SSOT CANÔNICO (api Python + frontend + neo4j)
-/home/enio/egos-archive/v2/EGOSv2/intelink-*  → LIXO (v2 antiga)
-/home/enio/Downloads/intelink-*    → LIXO (starters descartáveis)
+/home/enio/egos-inteligencia          ← SSOT CANÔNICO ✅
+/home/enio/INTELINK                   → AGUARDA PORT (backend Python com módulos únicos)
+/home/enio/egos-lab/apps/intelink     → AGUARDA PORT (TS modules únicos de alto valor)
+/home/enio/egos-archive/v2/EGOSv2/intelink-*  ✅ DELETADO 2026-04-09
+/home/enio/Downloads/intelink-*       ✅ DELETADO 2026-04-09
 ```
 
-**P0 — Consolidação (BLOCKER para tudo mais):**
-- [ ] **INTELINK-CONS-001**: Criar `ARCHIVED.md` em `/home/enio/INTELINK/` e `egos-lab/apps/intelink/` declarando que o SSOT é `egos-inteligencia`
-- [ ] **INTELINK-CONS-002**: Portar `lib/intelink/cross-reference-service.ts` (egos-lab) → `egos-inteligencia/frontend/src/lib/`
-- [ ] **INTELINK-CONS-003**: Portar `lib/intelink/entity-matcher.ts` + `graph-algorithms.ts` (egos-lab) → `egos-inteligencia/frontend/src/lib/`
-- [ ] **INTELINK-CONS-004**: Portar `lib/auth/` completo (jwt.ts, password.ts, session.ts) (egos-lab) → `egos-inteligencia/frontend/src/lib/auth/`
-- [ ] **INTELINK-CONS-005**: Portar `lib/security/audit.ts` (egos-lab) → `egos-inteligencia/frontend/src/lib/security/`
-- [ ] **INTELINK-CONS-006**: Portar `lib/intelink/ai-router.ts` + `ai-chat.ts` + `meta-prompts.ts` (egos-lab) → `egos-inteligencia`
-- [ ] **INTELINK-CONS-007**: Portar componentes UI chave: `components/intelink/` (egos-lab 30+ componentes) → `egos-inteligencia/frontend/src/components/`
-- [ ] **INTELINK-CONS-008**: Verificar `egos-inteligencia/api/src/` (FastAPI Python) — mapear endpoints existentes vs lacunas
-- [ ] **INTELINK-CONS-009**: Remover `egos-archive/v2/EGOSv2/intelink-*` e `Downloads/intelink-project-starter` (lixo confirmado)
-- [ ] **INTELINK-CONS-010**: Criar `AGENTS.md` em `egos-inteligencia/` com mapa canônico do sistema
+**✅ Feito:**
+- [x] **INTELINK-CONS-001**: ARCHIVED.md criados em INTELINK/ e egos-lab/apps/intelink/
+- [x] **INTELINK-CONS-009**: egos-archive + Downloads deletados (lixo confirmado)
+- [x] **INTELINK-CONS-010**: AGENTS.md atualizado em egos-inteligencia/
+
+**P0 — Port frontend TS (egos-lab → egos-inteligencia/frontend/src/):**
+- [ ] **INTELINK-PORT-001**: `lib/intelink/cross-reference-service.ts` — Jaro-Winkler, 6 níveis CPF/CNPJ/nome (711 linhas) ⭐⭐⭐
+- [ ] **INTELINK-PORT-002**: `lib/intelink/entity-matcher.ts` + `graph-algorithms.ts` — deduplicação + algoritmos de grafo ⭐⭐⭐
+- [ ] **INTELINK-PORT-003**: `lib/legal/criminal-articles.ts` — base CP, Lei Drogas, Maria da Penha, keywords por crime ⭐⭐⭐
+- [ ] **INTELINK-PORT-004**: `lib/intelink/ai-router.ts` + `ai-chat.ts` + `meta-prompts.ts` + `analysis-prompts.ts` ⭐⭐⭐
+- [ ] **INTELINK-PORT-005**: `lib/analysis/modus-operandi.ts` — comparação MO entre casos, detecção de serial ⭐⭐⭐
+- [ ] **INTELINK-PORT-006**: `lib/detectors/benford-anomaly.ts` — fraude financeira por Lei de Benford + chi-squared ⭐⭐⭐
+- [ ] **INTELINK-PORT-007**: `lib/auth/` completo (jwt.ts, password.ts, session.ts, audit.ts) — edge-compatible ⭐⭐
+- [ ] **INTELINK-PORT-008**: `lib/analysis/executive-summary.ts` + `diligence-suggestions.ts` — relatórios delegado/promotor ⭐⭐
+- [ ] **INTELINK-PORT-009**: `lib/intelink/evidence-validation.ts` — mapa Infoseg/REDS/SIP/PCNET (MG) ⭐⭐
+- [ ] **INTELINK-PORT-010**: `lib/reports/arkham-templates.ts` + `lib/intelink/llm-verifier.ts` ⭐⭐
+- [ ] **INTELINK-PORT-011**: Componentes UI: `components/intelink/` (30+ componentes) → egos-inteligencia ⭐
+
+**P0 — Port backend Python (INTELINK/backend → egos-inteligencia/api/src/):**
+- [ ] **INTELINK-PORT-012**: `bertimbau_ner.py` — NER português BERTimbau/spaCy (único na stack) ⭐⭐⭐
+- [ ] **INTELINK-PORT-013**: `pattern_detector.py` — detecção padrões criminais + phi/fibonacci scoring ⭐⭐⭐
+- [ ] **INTELINK-PORT-014**: `investigation_templates.py` — templates corrupção/lavagem/jornalismo + Cypher queries ⭐⭐⭐
+- [ ] **INTELINK-PORT-015**: `migrations/versions/*.py` — 3 migrations Supabase (schema, sessions, investigations) ⭐⭐
+- [ ] **INTELINK-PORT-016**: `x402_payment_handler.py` — protocolo x402/USDC Coinbase pay-per-query ⭐⭐
+- [ ] **INTELINK-PORT-017**: `archive_processor.py` + `formality_endpoints.py` — ZIP/RAR + MLP ⭐
+
+**P1 — Limpeza final (após PORT completo):**
+- [ ] **INTELINK-CLEAN-001**: Deletar `/home/enio/INTELINK` (backend/frontend/tests/docker)
+- [ ] **INTELINK-CLEAN-002**: Deletar `/home/enio/egos-lab/apps/intelink` (197MB, 502 arquivos)
 
 ---
 
@@ -693,3 +712,24 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 | **SOCIAL-007** | Governance (26 SSOTs, 4-layer doc-drift) | "Vale ver se tá nesse pico" | 2026-04-17 | ⏳ Queue |
 | **SOCIAL-008** | Call for builders | "DM aberta" | 2026-04-23 | ⏳ Queue |
 
+
+---
+
+### CLAUDE.md Modular Refactor (2026-04-08)
+**SSOT:** `~/.claude/CLAUDE.md` | **Evidence:** arXiv "Curse of Instructions" + Lost in Middle + HumanLayer analysis
+**Context:** 639 linhas, 30 seções = above reliable compliance threshold. §10-§20 systematically 30%+ lower compliance (middle blind spot). Solution: modular architecture — core file <120 lines + domain files loaded on demand.
+
+**P0 — Reorder critical rules (30 min, immediate impact):**
+- [ ] **RULES-001 [P0]**: Move §7 Security + §25 Git Push Protocol to lines 1-40 in ~/.claude/CLAUDE.md (currently at lines 250+/450+, in compliance blind spot)
+
+**P1 — Modular split (2-3h, correct fix):**
+- [ ] **RULES-002 [P1]**: Create ~/.claude/egos-rules/ directory with domain files: ssot-map.md, doc-drift.md, jobs-monitoring.md, llm-routing.md, gtm-product.md
+- [ ] **RULES-003 [P1]**: Strip informational sections (§12, §17, §22, §28, §29) from core file → move to egos-rules/ as reference docs
+- [ ] **RULES-004 [P1]**: Compress core ~/.claude/CLAUDE.md to <120 lines — only MUST/MUST NOT rules
+- [ ] **RULES-005 [P1]**: Update ~/.claude/CLAUDE.md to include pointer table: "Read ~/.claude/egos-rules/<file> for domain rules"
+
+**P2 — Skills for on-demand loading:**
+- [ ] **RULES-006 [P2]**: Convert §12 (Scheduled Jobs) to a /start skill that loads on session open
+- [ ] **RULES-007 [P2]**: Convert §28 (Auto-Disseminate) to a /disseminate skill
+
+**Target after refactor:** ~100 lines core file, 7 domain files, compliance for critical rules at primacy position.
