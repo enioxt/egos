@@ -263,11 +263,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 ---
 
 ### Evaluated & Deferred (2026-04-05)
-
-**HiClaw (agentscope-ai/HiClaw):** Analyzed. Matrix rooms + MinIO + Higress = overhead for zero users. Already have WhatsApp gateway + Caddy + Supabase. **SKIP.**
-**PAL (agno-agi/pal):** Analyzed. Compiler + Linter pattern adopted via wiki-compiler agent. Syncer not needed (Supabase > Git sync). **ADOPTED partially.**
-**Karpathy LLM Wiki gist:** Adopted. 3-layer pattern (raw → wiki → schema) is now KB-001..007. **ADOPTED fully.**
-**Fine-tuning próprio (Gemma 2B/Qwen 7B):** VPS has 540MB free RAM, 0 GPU. Fine-tune on Colab is possible but not 90-day focus. WM-001..004 covers dataset prep. **DEFERRED to P2.**
+**HiClaw:** SKIP. **PAL:** ADOPTED partial (wiki-compiler). **Karpathy LLM Wiki:** ADOPTED full (KB-001..007). **Fine-tuning Gemma/Qwen:** DEFERRED to P2 (no GPU, not 90-day focus).
 
 ### GTM & Incidents (P25-P35)
 
@@ -337,8 +333,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 
 ---
 
-### ~~OpenClaw Integration Roadmap~~ — DECOMMISSIONED 2026-04-08
-**OC-006..034 CANCELED.** ChatGPT subscription cancelled → Codex proxy + billing proxy + OpenClaw gateway removed. Replaced by DashScope qwen-plus + OpenRouter free fallback (see §16 CAPABILITY_REGISTRY) + Hermes systemd service. Channels (WhatsApp/Telegram) continue via existing Evolution API + egosin_bot direct.
+### ~~OpenClaw~~ — DECOMMISSIONED 2026-04-08 (OC-006..034 CANCELED). Replaced by DashScope qwen-plus + OpenRouter free fallback + Hermes systemd. Channels via Evolution API + egosin_bot.
 
 ---
  
@@ -435,8 +430,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 - [ ] **RATIO-005 [P2]**: Full end-to-end test via API with Caso 1 (STJ PDF real) → intake → planning → redaction → adversarial → formatter → download DOCX.
 - [ ] **RATIO-006 [P3]**: Draft br-acc API pricing model for Carlos (free 100 lookups/mês + paid). Monetization path proposal.
 
-### Ratio VPS Deployment (2026-04-07)
-**Context:** Ratio deployed on VPS — ratio-api:3085 + ratio-frontend:3086 live. Guard Brasil connected (PII enabled). Caddy routes: ratio.egos.ia.br + ratio-api.egos.ia.br. .env synced (Gemini/OpenRouter/Alibaba/Anthropic keys).
+### Ratio VPS Deployment (2026-04-07) — DONE: ratio-api:3085 + ratio-frontend:3086 live. Caddy: ratio.egos.ia.br + ratio-api.egos.ia.br. Guard Brasil PII enabled.
 
 
 ### Chatbot SSOT v2.0 — World-Class Upgrade (2026-04-07)
@@ -609,6 +603,11 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 | | GH-083 | Telegram @gem_hunter_bot: /trending /random /subscribe | [ ] |
 | **D: Optional tiers** | GH-084 | Stripe: Free/Pro/Team tiers when community validates demand | [ ] |
 | | GH-085 | Supply-chain risk endpoint: /gems/{id}/supply-chain-risk | [ ] |
+| **E: MCP + Multi-Domain** | GH-086 | `@egosbr/gem-hunter-mcp` — MCP server (tools: search/trending/by_domain) for Claude Code/Windsurf/Cursor/Copilot, install by repo URL | [ ] |
+| | GH-087 | Multi-domain sources: medical (PubMed/arXiv-bio), engineering (IEEE/papers-with-code), veterinary, finance/traders (QuantConnect/QuantStack), web3 (Awesome lists, Etherscan dev tools) — adapter pattern in `agents/gem-hunter/sources/` | [ ] |
+| | GH-088 | Persona-aware scoring: same gem ranks differently for `--persona=doctor` vs `trader` vs `web3-dev` | [ ] |
+| **Fixes 2026-04-08** | GH-FIX-1 | Caddyfile: gemhunter upstream `egos-site:3070` → `gem-hunter-landing:3070` (was 502) | [x] |
+| | GH-FIX-2 | server.ts + index.html: query column `language` → `category` (404 in trending API) | [x] |
 
 ---
 
@@ -627,6 +626,18 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 | **SOCIAL-007** | Governance (26 SSOTs, 4-layer doc-drift) | "Vale ver se tá nesse pico" | 2026-04-17 | ⏳ Queue |
 | **SOCIAL-008** | Call for builders | "DM aberta" | 2026-04-23 | ⏳ Queue |
 
+
+---
+
+### Supabase Cleanup (2026-04-08)
+**SSOT:** `docs/SUPABASE_AUDIT.md` | **Project:** `lhscgsqhiooyatkebose` | **State:** 173 tables, ~37 dead, 4 unrelated domains
+
+- [ ] **SUPA-001 [P0]**: Drop unrelated domains (`ethik_*` 12, `volante_*` 6, `nexusmkt_*` 7, empty `hub_*`) — 0 risk, ~30 tables
+- [ ] **SUPA-002 [P0]**: Drop empty `*_v2`/`*_v3` migration leftovers (`telemetry_events_v2`, `messages_v3`, `conversations_v3`, `ai_call_metrics`, `ai_response_cache`, `audit_logs`, `profiles`, `rate_limits`, `user_consents`, `knowledge_vectors`, `detected_patterns`, `conversation_logs`)
+- [ ] **SUPA-003 [P1]**: Investigate `knowledge_base` (9 rows / 28 MB) — dump schema + sample, decide migrate→`egos_wiki_pages` or drop
+- [ ] **SUPA-004 [P1]**: Drop `code_*` indexer tables (chunks/symbols/files/relations) — replaced by codebase-memory-mcp
+- [ ] **SUPA-005 [P2]**: CCR weekly job — alert if any non-core table > 50 MB
+- [ ] **SUPA-006 [P2]**: Naming convention rule — every new table prefixed with active domain (`egos_`, `gem_`, `guard_`, `intelink_`, `eagle_`, `x_post_`, `timeline_`, `852_`)
 
 ---
 

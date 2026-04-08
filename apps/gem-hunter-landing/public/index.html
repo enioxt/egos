@@ -155,7 +155,7 @@
           const url = gem.url || gem.html_url || '#'
           const score = Math.round((gem.max_score || 0) * 10) / 10
           const stars = gem.stars >= 1000 ? (gem.stars / 1000).toFixed(1) + 'k' : (gem.stars || 0)
-          const lang = gem.language || ''
+          const lang = gem.category || ''
           const desc = gem.description || ''
           const votes = gem.vote_count || 0
           const hasVoted = voted[url]

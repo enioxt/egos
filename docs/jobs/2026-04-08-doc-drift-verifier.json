@@ -1,7 +1,7 @@
 {
   "manifest": "/home/enio/egos/.egos-manifest.yaml",
   "repo": "egos",
-  "verified_at": "2026-04-08T16:21:49.549Z",
+  "verified_at": "2026-04-08T17:37:04.143Z",
   "summary": {
     "total_claims": 5,
     "passed": 5,
@@ -28,9 +28,9 @@
       "description": "Capabilities declared in CAPABILITY_REGISTRY.md",
       "status": "ok",
       "last_value": "16",
-      "current_value": "20",
+      "current_value": "24",
       "tolerance": "±10",
-      "drift_abs": 4,
+      "drift_abs": 8,
       "command": "grep -c '^### ' docs/CAPABILITY_REGISTRY.md",
       "severity": "ok"
     },
@@ -39,9 +39,9 @@
       "description": "Governance rule files in .guarani/",
       "status": "ok",
       "last_value": "48",
-      "current_value": "45",
+      "current_value": "50",
       "tolerance": "±5",
-      "drift_abs": 3,
+      "drift_abs": 2,
       "command": "find .guarani/ -type f -name '*.md' 2>/dev/null | wc -l | tr -d ' '",
       "severity": "ok"
     },
@@ -83,15 +83,15 @@
     },
     {
       "url": "https://openclaw.egos.ia.br/",
-      "status": "drifted",
-      "expected_status": "200",
+      "status": "ok",
+      "expected_status": "502",
       "actual_status": "502"
     },
     {
       "url": "https://gemhunter.egos.ia.br/gem-hunter/topics",
-      "status": "ok",
+      "status": "drifted",
       "expected_status": "200",
-      "actual_status": "200"
+      "actual_status": "502"
     },
     {
       "url": "https://eagleeye.egos.ia.br/",
@@ -122,7 +122,7 @@
       "url": "https://gemhunter.egos.ia.br/gem-hunter/topics",
       "status": "drifted",
       "expected_status": "200",
-      "actual_status": "200",
+      "actual_status": "502",
       "contains_check": false
     }
   ],

@@ -2512,3 +2512,11 @@ Direct messages that reference someone's specific post + show real products do.
 ### Auto-harvested — f27e9fe (2026-04-08)
 
 - Rename *AUDIT* files to *INVENTORY* to comply with pre-commit doc proliferation check
+
+### Auto-harvested — 60d4666 (2026-04-08)
+
+- git post-init hook doesn't auto-execute — use shell function wrapper instead
+
+### Auto-harvested — 2769a60 (2026-04-08)
+
+- Add export {} to Bun script-style files to avoid TS2393 "Duplicate function implementation" — TypeScript treats files without import/export as globals, conflicting with same-named functions across scripts

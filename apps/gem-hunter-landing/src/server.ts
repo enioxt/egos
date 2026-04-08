@@ -74,7 +74,7 @@ app.get('/api/gems/trending', async (c) => {
 
   const limit = Math.min(parseInt(c.req.query('limit') ?? '20', 10), 50)
   const res = await supabaseQuery(
-    `gem_hunter_gems?select=url,name,description,stars,language,max_score,vote_count&order=vote_count.desc,max_score.desc&limit=${limit}`
+    `gem_hunter_gems?select=url,name,description,stars,category,max_score,vote_count&order=vote_count.desc,max_score.desc&limit=${limit}`
   )
 
   if (!res.ok) return c.json({ error: 'query failed' }, 500)
