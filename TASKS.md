@@ -553,35 +553,38 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 /home/enio/Downloads/intelink-*       ✅ DELETADO 2026-04-09
 ```
 
-**✅ Feito:**
+**✅ CONSOLIDAÇÃO COMPLETA — 2026-04-09:**
 - [x] **INTELINK-CONS-001**: ARCHIVED.md criados em INTELINK/ e egos-lab/apps/intelink/
 - [x] **INTELINK-CONS-009**: egos-archive + Downloads deletados (lixo confirmado)
 - [x] **INTELINK-CONS-010**: AGENTS.md atualizado em egos-inteligencia/
 
-**P0 — Port frontend TS (egos-lab → egos-inteligencia/frontend/src/):**
-- [ ] **INTELINK-PORT-001**: `lib/intelink/cross-reference-service.ts` — Jaro-Winkler, 6 níveis CPF/CNPJ/nome (711 linhas) ⭐⭐⭐
-- [ ] **INTELINK-PORT-002**: `lib/intelink/entity-matcher.ts` + `graph-algorithms.ts` — deduplicação + algoritmos de grafo ⭐⭐⭐
-- [ ] **INTELINK-PORT-003**: `lib/legal/criminal-articles.ts` — base CP, Lei Drogas, Maria da Penha, keywords por crime ⭐⭐⭐
-- [ ] **INTELINK-PORT-004**: `lib/intelink/ai-router.ts` + `ai-chat.ts` + `meta-prompts.ts` + `analysis-prompts.ts` ⭐⭐⭐
-- [ ] **INTELINK-PORT-005**: `lib/analysis/modus-operandi.ts` — comparação MO entre casos, detecção de serial ⭐⭐⭐
-- [ ] **INTELINK-PORT-006**: `lib/detectors/benford-anomaly.ts` — fraude financeira por Lei de Benford + chi-squared ⭐⭐⭐
-- [ ] **INTELINK-PORT-007**: `lib/auth/` completo (jwt.ts, password.ts, session.ts, audit.ts) — edge-compatible ⭐⭐
-- [ ] **INTELINK-PORT-008**: `lib/analysis/executive-summary.ts` + `diligence-suggestions.ts` — relatórios delegado/promotor ⭐⭐
-- [ ] **INTELINK-PORT-009**: `lib/intelink/evidence-validation.ts` — mapa Infoseg/REDS/SIP/PCNET (MG) ⭐⭐
-- [ ] **INTELINK-PORT-010**: `lib/reports/arkham-templates.ts` + `lib/intelink/llm-verifier.ts` ⭐⭐
-- [ ] **INTELINK-PORT-011**: Componentes UI: `components/intelink/` (30+ componentes) → egos-inteligencia ⭐
+**✅ Port frontend TS — CONCLUÍDO (94 arquivos TS, 134 componentes TSX):**
+- [x] **INTELINK-PORT-001**: `cross-reference-service.ts` → `lib/intelligence/`
+- [x] **INTELINK-PORT-002**: `entity-matcher.ts` + `graph-algorithms.ts` → `lib/intelligence/`
+- [x] **INTELINK-PORT-003**: `criminal-articles.ts` + `law-sync-service.ts` → `lib/legal/`
+- [x] **INTELINK-PORT-004**: `ai-router.ts` + `ai-chat.ts` + `meta-prompts.ts` + `analysis-prompts.ts` → `lib/intelligence/`
+- [x] **INTELINK-PORT-005**: `modus-operandi.ts` + suite analysis completa (7 arquivos) → `lib/analysis/`
+- [x] **INTELINK-PORT-006**: `benford-anomaly.ts` + `hhi-concentration.ts` + `ghost-employees.ts` → `lib/detectors/`
+- [x] **INTELINK-PORT-007**: `lib/auth/` completo (jwt, password, session, audit, rbac, security) → `lib/auth/`
+- [x] **INTELINK-PORT-008**: `executive-summary.ts` + `diligence-suggestions.ts` → `lib/analysis/`
+- [x] **INTELINK-PORT-009**: `evidence-validation.ts` (mapa Infoseg/REDS/SIP/PCNET) → `lib/intelligence/`
+- [x] **INTELINK-PORT-010**: `arkham-templates.ts` + `llm-verifier.ts` → `lib/reports/` + `lib/intelligence/`
+- [x] **INTELINK-PORT-011**: 38 componentes intelink + chat + graph + dashboard → `src/components/`
 
-**P0 — Port backend Python (INTELINK/backend → egos-inteligencia/api/src/):**
-- [ ] **INTELINK-PORT-012**: `bertimbau_ner.py` — NER português BERTimbau/spaCy (único na stack) ⭐⭐⭐
-- [ ] **INTELINK-PORT-013**: `pattern_detector.py` — detecção padrões criminais + phi/fibonacci scoring ⭐⭐⭐
-- [ ] **INTELINK-PORT-014**: `investigation_templates.py` — templates corrupção/lavagem/jornalismo + Cypher queries ⭐⭐⭐
-- [ ] **INTELINK-PORT-015**: `migrations/versions/*.py` — 3 migrations Supabase (schema, sessions, investigations) ⭐⭐
-- [ ] **INTELINK-PORT-016**: `x402_payment_handler.py` — protocolo x402/USDC Coinbase pay-per-query ⭐⭐
-- [ ] **INTELINK-PORT-017**: `archive_processor.py` + `formality_endpoints.py` — ZIP/RAR + MLP ⭐
+**✅ Port backend Python — CONCLUÍDO (81 arquivos Python):**
+- [x] **INTELINK-PORT-012**: `bertimbau_ner.py` + `spacy_ner.py` → `services/nlp/`
+- [x] **INTELINK-PORT-013**: `pattern_detector.py` → `services/patterns/`
+- [x] **INTELINK-PORT-014**: `investigation_templates.py` (templates Neo4j Cypher) → `services/`
+- [x] **INTELINK-PORT-015**: `migrations/versions/001..003` → `migrations/versions/`
+- [x] **INTELINK-PORT-016**: `x402_payment_handler.py` → `services/`
+- [x] **INTELINK-PORT-017**: `archive_processor.py` + `jobs_worker.py` + `image_generation.py` → `services/`
+- [x] **extras**: `ethik_scorer.py`, `atrian_validator.py`, `structured_logging.py`, `audio_video_processors.py`
 
-**P1 — Limpeza final (após PORT completo):**
-- [ ] **INTELINK-CLEAN-001**: Deletar `/home/enio/INTELINK` (backend/frontend/tests/docker)
-- [ ] **INTELINK-CLEAN-002**: Deletar `/home/enio/egos-lab/apps/intelink` (197MB, 502 arquivos)
+**✅ Limpeza — CONCLUÍDA:**
+- [x] **INTELINK-CLEAN-001**: `/home/enio/INTELINK` deletado (737MB liberados)
+- [x] **INTELINK-CLEAN-002**: `/home/enio/egos-lab/apps/intelink` deletado (197MB liberados)
+
+**Dispersão Intelink: RESOLVIDA. Único SSOT: `/home/enio/egos-inteligencia/`**
 
 ---
 
@@ -720,7 +723,8 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 **Context:** 639 linhas, 30 seções = above reliable compliance threshold. §10-§20 systematically 30%+ lower compliance (middle blind spot). Solution: modular architecture — core file <120 lines + domain files loaded on demand.
 
 **P0 — Reorder critical rules (30 min, immediate impact):**
-- [ ] **RULES-001 [P0]**: Move §7 Security + §25 Git Push Protocol to lines 1-40 in ~/.claude/CLAUDE.md (currently at lines 250+/450+, in compliance blind spot)
+- [x] **RULES-001 [P0]**: ✅ Critical rules block at top of ~/.claude/CLAUDE.md — 5 non-negotiables in primacy position.
+- [ ] **RULES-001b [P1]**: GUARD_BRASIL_API_KEY missing — PII check in article-writer fails silently. Set in ~/.egos/secrets.env. Found: TL-002 dry-run.
 
 **P1 — Modular split (2-3h, correct fix):**
 - [ ] **RULES-002 [P1]**: Create ~/.claude/egos-rules/ directory with domain files: ssot-map.md, doc-drift.md, jobs-monitoring.md, llm-routing.md, gtm-product.md

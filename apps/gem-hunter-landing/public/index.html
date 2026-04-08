@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gem Hunter — Autonomous Repository Discovery</title>
+  <meta name="description" content="Gem Hunter scans GitHub continuously to surface repositories worth your attention. Quality-scored, multi-source, no hype." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gem: {
+              50:  '#f0fdf4',
+              100: '#dcfce7',
+              400: '#4ade80',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              900: '#14532d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-feature-settings: 'kern', 'liga'; }
+    .gem-card:hover { transform: translateY(-2px); }
+    .gem-card { transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  </style>
+</head>
+<body class="dark bg-zinc-950 text-zinc-100 min-h-screen antialiased">
+
+  <!-- Nav -->
+  <header class="border-b border-zinc-800 px-6 py-4">
+    <div class="max-w-3xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="text-gem-500 text-xl font-bold tracking-tight">💎 Gem Hunter</span>
+      </div>
+      <nav class="flex gap-6 text-sm text-zinc-400">
+        <a href="#what" class="hover:text-zinc-100 transition-colors">What is it?</a>
+        <a href="#gems" class="hover:text-zinc-100 transition-colors">This week</a>
+        <a href="#subscribe" class="hover:text-zinc-100 transition-colors">Subscribe</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-6">
+
+    <!-- Hero -->
+    <section class="py-20 text-center">
+      <div class="inline-flex items-center gap-2 bg-gem-900/40 border border-gem-700/40 rounded-full px-4 py-1.5 text-xs text-gem-400 font-medium mb-6">
+        Autonomous · Weekly · Open
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold tracking-tight leading-tight mb-4">
+        Find repositories<br class="sm:hidden" /> worth your attention
+      </h1>
+      <p class="text-lg text-zinc-400 max-w-xl mx-auto">
+        No algorithm hype. No sponsored content. Just good software, found autonomously and scored honestly.
+      </p>
+      <div class="mt-8 flex justify-center gap-4">
+        <a href="#gems" class="bg-gem-600 hover:bg-gem-500 text-white font-medium px-5 py-2.5 rounded-lg text-sm transition-colors">
+          See this week's gems
+        </a>
+        <a href="#subscribe" class="border border-zinc-700 hover:border-zinc-500 text-zinc-300 font-medium px-5 py-2.5 rounded-lg text-sm transition-colors">
+          Subscribe for updates
+        </a>
+      </div>
+    </section>
+
+    <!-- Section 1: What is Gem Hunter? -->
+    <section id="what" class="py-16 border-t border-zinc-800">
+      <h2 class="text-2xl font-bold mb-6">What is Gem Hunter?</h2>
+      <div class="space-y-4 text-zinc-300 leading-relaxed text-[0.975rem]">
+        <p>
+          Gem Hunter is an autonomous discovery engine that continuously scans GitHub, Hacker News,
+          and developer forums to surface repositories you'd actually want to know about.
+          It runs nightly, scores candidates across multiple dimensions — code quality, documentation
+          completeness, community traction, and dependency freshness — and filters out noise
+          before the results reach you.
+        </p>
+        <p>
+          The engine doesn't reward stars alone. A two-week-old repo with a clean API,
+          working tests, and a real use case scores higher than a viral project with
+          no LICENSE file. Each gem comes with a one-line reason and a quality score
+          so you can decide in under ten seconds whether it deserves a deeper look.
+          No sponsored placements, no affiliate links, no hot-takes. Just repositories
+          earning their spot through the work.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 2: This week's gems -->
+    <section id="gems" class="py-16 border-t border-zinc-800">
+      <div class="flex items-baseline justify-between mb-8">
+        <h2 class="text-2xl font-bold">This week's gems</h2>
+        <span class="text-xs text-zinc-500 font-mono">Week of 2026-04-07</span>
+      </div>
+
+      <div class="space-y-4">
+
+        <!-- Gem card 1 -->
+        <div class="gem-card bg-zinc-900 border border-zinc-800 rounded-xl p-5 hover:border-zinc-600 hover:shadow-lg hover:shadow-black/30">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-1">
+                <a href="https://github.com/simonw/llm" target="_blank" rel="noopener" class="font-semibold text-zinc-100 hover:text-gem-400 transition-colors truncate">
+                  simonw/llm
+                </a>
+                <span class="shrink-0 text-xs bg-blue-900/50 text-blue-300 px-2 py-0.5 rounded font-mono">Python</span>
+              </div>
+              <p class="text-sm text-zinc-400 leading-snug">
+                CLI and Python library for running prompts against dozens of models with a unified interface — practical tooling that removes the boilerplate before every experiment.
+              </p>
+            </div>
+            <div class="shrink-0 text-right">
+              <div class="text-2xl font-bold text-gem-400">91</div>
+              <div class="text-[10px] text-zinc-600 uppercase tracking-wide">score</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gem card 2 -->
+        <div class="gem-card bg-zinc-900 border border-zinc-800 rounded-xl p-5 hover:border-zinc-600 hover:shadow-lg hover:shadow-black/30">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-1">
+                <a href="https://github.com/anthropics/anthropic-cookbook" target="_blank" rel="noopener" class="font-semibold text-zinc-100 hover:text-gem-400 transition-colors truncate">
+                  anthropics/anthropic-cookbook
+                </a>
+                <span class="shrink-0 text-xs bg-yellow-900/50 text-yellow-300 px-2 py-0.5 rounded font-mono">Jupyter</span>
+              </div>
+              <p class="text-sm text-zinc-400 leading-snug">
+                Reproducible notebooks covering Claude patterns that actually work in production — subagents, tool use, caching. Reference-grade, not tutorial-grade.
+              </p>
+            </div>
+            <div class="shrink-0 text-right">
+              <div class="text-2xl font-bold text-gem-400">88</div>
+              <div class="text-[10px] text-zinc-600 uppercase tracking-wide">score</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gem card 3 -->
+        <div class="gem-card bg-zinc-900 border border-zinc-800 rounded-xl p-5 hover:border-zinc-600 hover:shadow-lg hover:shadow-black/30">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-1">
+                <a href="https://github.com/nicholasgasior/gsfmt" target="_blank" rel="noopener" class="font-semibold text-zinc-100 hover:text-gem-400 transition-colors truncate">
+                  prefecthq/marvin
+                </a>
+                <span class="shrink-0 text-xs bg-purple-900/50 text-purple-300 px-2 py-0.5 rounded font-mono">TypeScript</span>
+              </div>
+              <p class="text-sm text-zinc-400 leading-snug">
+                Lightweight AI function library where you annotate a TypeScript function and the model fills the logic — structured outputs without hand-writing every prompt schema.
+              </p>
+            </div>
+            <div class="shrink-0 text-right">
+              <div class="text-2xl font-bold text-gem-400">84</div>
+              <div class="text-[10px] text-zinc-600 uppercase tracking-wide">score</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="mt-6 text-xs text-zinc-600 text-center">
+        These are placeholder examples. Live data from the discovery engine will appear here after GH-076.
+      </p>
+    </section>
+
+    <!-- Section 3: Subscribe -->
+    <section id="subscribe" class="py-16 border-t border-zinc-800">
+      <div class="max-w-lg mx-auto text-center">
+        <h2 class="text-2xl font-bold mb-3">Stay updated</h2>
+        <p class="text-zinc-400 text-sm mb-8 leading-relaxed">
+          Once a week. The best repositories scored and explained, delivered directly.
+          No digest padding, no "top 100 repos you need to know right now."
+        </p>
+
+        <!-- Substack embed form -->
+        <form
+          action="https://gemhunter.substack.com/subscribe"
+          method="post"
+          target="_blank"
+          class="flex flex-col sm:flex-row gap-3"
+        >
+          <input
+            type="email"
+            name="email"
+            placeholder="your@email.com"
+            required
+            class="flex-1 bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-2.5 text-sm placeholder-zinc-600 focus:outline-none focus:border-gem-500 transition-colors"
+          />
+          <button
+            type="submit"
+            class="bg-gem-600 hover:bg-gem-500 text-white font-medium px-6 py-2.5 rounded-lg text-sm transition-colors whitespace-nowrap"
+          >
+            Subscribe free
+          </button>
+        </form>
+
+        <p class="mt-4 text-[11px] text-zinc-600">
+          Powered by Substack. No spam. Unsubscribe any time.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-zinc-800 mt-8 py-8 px-6">
+    <div class="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-600">
+      <span>Built by <a href="https://egos.ia.br" class="hover:text-zinc-400 transition-colors">EGOS</a> — open discovery, honest scoring.</span>
+      <div class="flex gap-4">
+        <a href="https://github.com/enioxt/egos" target="_blank" rel="noopener" class="hover:text-zinc-400 transition-colors">GitHub</a>
+        <a href="https://gemhunter.substack.com" target="_blank" rel="noopener" class="hover:text-zinc-400 transition-colors">Newsletter</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
