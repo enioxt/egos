@@ -666,3 +666,19 @@ or HARVEST.md are missing, it skips silently. This prevents hook failures from b
 - egos.ia.br/timeline/:slug — article render + view tracking
 
 **Principles:** HITL (never blind publish), PII guard (Guard Brasil), zero auto-post to X.com.
+
+## §24 — X.com Post HITL Approval + LLM Learning (2026-04-08)
+
+**What:** 3-option Telegram approval flow for X.com posts. LLM generates bold/conversational/technical alternatives personalized by accumulated user choice history.
+
+**Components:**
+- `scripts/x-post-approval-bot.ts` — daemon: polls `x_post_queue` → generates 3 alternatives via DashScope → Telegram inline keyboard → records choice → posts to X API
+- `supabase/migrations/20260408_x_post_hitl.sql` — `x_post_options`, `x_post_choices`, `x_post_preferences` tables
+- VPS: daemon running, watchdog cron `*/5 * * * *`
+
+**Learning loop:**
+- Every choice records: option chosen, was_edited, edit_distance, preferred_tone, preferred_length
+- `x_post_preferences` aggregated: tone %, avg_length, pct_edited, avg_edit_distance
+- Preference summary injected into LLM system prompt for next generation
+
+**User flow:** Telegram inline keyboard → [A Bold][B Conv][C Tech][Edit A][Edit B][Edit C][Skip] → type edited text if editing → auto-posts to X after approval.
