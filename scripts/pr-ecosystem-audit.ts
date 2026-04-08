@@ -47,6 +47,7 @@ function isRecent(iso: string, days: number): boolean {
   return new Date(iso).getTime() >= daysAgoIso(days);
 }
 
+export {};
 async function main(): Promise<void> {
   const owner = arg('--owner', 'enioxt');
   const days = Number(arg('--days', '15'));

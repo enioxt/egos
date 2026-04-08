@@ -401,7 +401,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 **XMCP — X MCP Server oficial (xdevplatform/xmcp):**
 - [/] **XMCP-002**: Keys regeneradas e .env atualizado ✅ 2026-04-07. Serviço NÃO está rodando — `start.sh` precisa ser executado. [PENDENTE: iniciar processo]
 - [ ] **SOCIAL-003 [P1]**: x-reply-bot — busca por "LGPD", "licitação", "split payment", "análise de vínculos"
-- [ ] **SOCIAL-004 [P1]**: Fila Supabase de DMs candidatas para aprovação manual via Telegram antes de enviar
+- [x] **SOCIAL-004 [P1]**: X Post HITL bot live ✅ 2026-04-08 — 3 alternatives + Telegram inline keyboard + choice learning (x_post_options, x_post_choices, x_post_preferences tables). VPS daemon running.
 - [ ] **SOCIAL-005 [P2]**: Reply automático a @mentions com link produto relevante (aprovação manual)
 - [ ] **SOCIAL-006 [P2]**: HQ dashboard tab social — candidatos DM, DMs enviadas, respostas
 - [ ] **XMCP-003** (dep: XMCP-002): Adicionar UFW rule VPS: `ufw allow from 172.19.0.0/16 to any port 8000`. Ativar x-mcp no openclaw.json (remover nota INACTIVE).
@@ -643,6 +643,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 - [x] **RULES-003 [P1]**: ✅ §12, §13, §28, §29 compressed → references to egos-rules/ — 653→615 lines
 - [ ] **RULES-004 [P1]**: Compress core ~/.claude/CLAUDE.md to <120 lines — only MUST/MUST NOT rules
 - [x] **RULES-005 [P1]**: ✅ Pointer table added after CRITICAL NON-NEGOTIABLES block
+- [x] **RULES-008 [P1]**: ✅ Governance kernel propagation live 2026-04-08 — scripts/governance-propagate.sh applied to 12 local + 4 VPS repos. Crons: local 04:00 + VPS 05:00. git init wrapper in ~/.bashrc for new repos. ~/.egos/sync.sh updated (egos-inteligencia added).
 
 **P2 — Skills for on-demand loading:**
 - [ ] **RULES-006 [P2]**: Convert §12 (Scheduled Jobs) to a /start skill that loads on session open
