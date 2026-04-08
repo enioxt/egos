@@ -602,8 +602,8 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 | | GH-076 | Substack: Telegram HITL draft Thu 08:00 UTC — cron live | [x] |
 | **B: Community** | GH-077 | Supabase: gem_lists + gem_votes + vote_count — RLS live | [x] |
 | | GH-078 | API: /gems/:url/upvote + /trending + /lists/* — live port 3070 | [x] |
-| | GH-079 | Dashboard: 👍 voting button, "Top voted", "Your lists" | [ ] |
-| | GH-080 | github.com/enioxt/awesome-gems — weekly curated list | [ ] |
+| | GH-079 | Dashboard: 👍 voting button + Top voted tab + dynamic API load | [x] |
+| | GH-080 | github.com/enioxt/awesome-gems — created, README + 2026-04-08 gems | [x] |
 | **C: Distribution** | GH-081 | Slack bot: /gem-hunter trending [lang] | [ ] |
 | | GH-082 | Discord bot: !gems [lang] embed + buttons | [ ] |
 | | GH-083 | Telegram @gem_hunter_bot: /trending /random /subscribe | [ ] |

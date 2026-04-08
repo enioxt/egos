@@ -94,84 +94,155 @@
       </div>
     </section>
 
-    <!-- Section 2: This week's gems -->
+    <!-- Section 2: Gems (dynamic + voting) -->
     <section id="gems" class="py-16 border-t border-zinc-800">
-      <div class="flex items-baseline justify-between mb-8">
+      <div class="flex items-baseline justify-between mb-6">
         <h2 class="text-2xl font-bold">This week's gems</h2>
-        <span class="text-xs text-zinc-500 font-mono">Week of 2026-04-07</span>
+        <div class="flex gap-2">
+          <button id="tab-recent" onclick="switchTab('recent')"
+            class="tab-btn active text-xs px-3 py-1.5 rounded-lg bg-gem-600 text-white transition-colors">
+            Recent
+          </button>
+          <button id="tab-trending" onclick="switchTab('trending')"
+            class="tab-btn text-xs px-3 py-1.5 rounded-lg bg-zinc-800 text-zinc-400 hover:bg-zinc-700 transition-colors">
+            👍 Top voted
+          </button>
+        </div>
       </div>
 
-      <div class="space-y-4">
-
-        <!-- Gem card 1 -->
-        <div class="gem-card bg-zinc-900 border border-zinc-800 rounded-xl p-5 hover:border-zinc-600 hover:shadow-lg hover:shadow-black/30">
-          <div class="flex items-start justify-between gap-4">
-            <div class="flex-1 min-w-0">
-              <div class="flex items-center gap-2 mb-1">
-                <a href="https://github.com/simonw/llm" target="_blank" rel="noopener" class="font-semibold text-zinc-100 hover:text-gem-400 transition-colors truncate">
-                  simonw/llm
-                </a>
-                <span class="shrink-0 text-xs bg-blue-900/50 text-blue-300 px-2 py-0.5 rounded font-mono">Python</span>
-              </div>
-              <p class="text-sm text-zinc-400 leading-snug">
-                CLI and Python library for running prompts against dozens of models with a unified interface — practical tooling that removes the boilerplate before every experiment.
-              </p>
-            </div>
-            <div class="shrink-0 text-right">
-              <div class="text-2xl font-bold text-gem-400">91</div>
-              <div class="text-[10px] text-zinc-600 uppercase tracking-wide">score</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Gem card 2 -->
-        <div class="gem-card bg-zinc-900 border border-zinc-800 rounded-xl p-5 hover:border-zinc-600 hover:shadow-lg hover:shadow-black/30">
-          <div class="flex items-start justify-between gap-4">
-            <div class="flex-1 min-w-0">
-              <div class="flex items-center gap-2 mb-1">
-                <a href="https://github.com/anthropics/anthropic-cookbook" target="_blank" rel="noopener" class="font-semibold text-zinc-100 hover:text-gem-400 transition-colors truncate">
-                  anthropics/anthropic-cookbook
-                </a>
-                <span class="shrink-0 text-xs bg-yellow-900/50 text-yellow-300 px-2 py-0.5 rounded font-mono">Jupyter</span>
-              </div>
-              <p class="text-sm text-zinc-400 leading-snug">
-                Reproducible notebooks covering Claude patterns that actually work in production — subagents, tool use, caching. Reference-grade, not tutorial-grade.
-              </p>
-            </div>
-            <div class="shrink-0 text-right">
-              <div class="text-2xl font-bold text-gem-400">88</div>
-              <div class="text-[10px] text-zinc-600 uppercase tracking-wide">score</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Gem card 3 -->
-        <div class="gem-card bg-zinc-900 border border-zinc-800 rounded-xl p-5 hover:border-zinc-600 hover:shadow-lg hover:shadow-black/30">
-          <div class="flex items-start justify-between gap-4">
-            <div class="flex-1 min-w-0">
-              <div class="flex items-center gap-2 mb-1">
-                <a href="https://github.com/nicholasgasior/gsfmt" target="_blank" rel="noopener" class="font-semibold text-zinc-100 hover:text-gem-400 transition-colors truncate">
-                  prefecthq/marvin
-                </a>
-                <span class="shrink-0 text-xs bg-purple-900/50 text-purple-300 px-2 py-0.5 rounded font-mono">TypeScript</span>
-              </div>
-              <p class="text-sm text-zinc-400 leading-snug">
-                Lightweight AI function library where you annotate a TypeScript function and the model fills the logic — structured outputs without hand-writing every prompt schema.
-              </p>
-            </div>
-            <div class="shrink-0 text-right">
-              <div class="text-2xl font-bold text-gem-400">84</div>
-              <div class="text-[10px] text-zinc-600 uppercase tracking-wide">score</div>
-            </div>
-          </div>
-        </div>
-
+      <div id="gems-container" class="space-y-4">
+        <div class="text-center text-zinc-600 text-sm py-8">Loading gems...</div>
       </div>
-
-      <p class="mt-6 text-xs text-zinc-600 text-center">
-        These are placeholder examples. Live data from the discovery engine will appear here after GH-076.
-      </p>
     </section>
+
+    <script>
+      const VOTED_KEY = 'gh_voted_gems'
+      const API_BASE = window.location.origin
+
+      function getVoted() {
+        try { return JSON.parse(localStorage.getItem(VOTED_KEY) || '{}') } catch { return {} }
+      }
+      function markVoted(url) {
+        const voted = getVoted()
+        voted[url] = true
+        localStorage.setItem(VOTED_KEY, JSON.stringify(voted))
+      }
+
+      function getFingerprint() {
+        let fp = localStorage.getItem('gh_fp')
+        if (!fp) {
+          fp = Math.random().toString(36).slice(2) + Date.now().toString(36)
+          localStorage.setItem('gh_fp', fp)
+        }
+        return fp
+      }
+
+      function langColor(lang) {
+        const map = { Python:'blue', TypeScript:'blue', JavaScript:'yellow', Go:'cyan', Rust:'orange', Java:'red', 'C++':'purple', Ruby:'red', Swift:'orange' }
+        const c = map[lang] || 'zinc'
+        return `bg-${c}-900/50 text-${c}-300`
+      }
+
+      function renderGems(gems) {
+        const voted = getVoted()
+        const container = document.getElementById('gems-container')
+        if (!gems || gems.length === 0) {
+          container.innerHTML = '<p class="text-center text-zinc-600 text-sm py-8">No gems found yet. Check back soon.</p>'
+          return
+        }
+        container.innerHTML = gems.map(gem => {
+          const name = gem.name || gem.url?.replace('https://github.com/', '') || '?'
+          const url = gem.url || gem.html_url || '#'
+          const score = Math.round((gem.max_score || 0) * 10) / 10
+          const stars = gem.stars >= 1000 ? (gem.stars / 1000).toFixed(1) + 'k' : (gem.stars || 0)
+          const lang = gem.language || ''
+          const desc = gem.description || ''
+          const votes = gem.vote_count || 0
+          const hasVoted = voted[url]
+          const encodedUrl = encodeURIComponent(url)
+
+          return \`<div class="gem-card bg-zinc-900 border border-zinc-800 rounded-xl p-5 hover:border-zinc-600 hover:shadow-lg hover:shadow-black/30">
+            <div class="flex items-start justify-between gap-4">
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-2 mb-1">
+                  <a href="\${url}" target="_blank" rel="noopener" class="font-semibold text-zinc-100 hover:text-gem-400 transition-colors truncate">\${name}</a>
+                  \${lang ? \`<span class="shrink-0 text-xs \${langColor(lang)} px-2 py-0.5 rounded font-mono">\${lang}</span>\` : ''}
+                </div>
+                \${desc ? \`<p class="text-sm text-zinc-400 leading-snug">\${desc.slice(0, 140)}\${desc.length > 140 ? '…' : ''}</p>\` : ''}
+                <div class="flex items-center gap-3 mt-3">
+                  <button
+                    onclick="vote('\${encodedUrl}', this)"
+                    data-url="\${encodedUrl}"
+                    class="vote-btn flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg border transition-all \${hasVoted ? 'border-gem-600 text-gem-400 bg-gem-900/30 cursor-default' : 'border-zinc-700 text-zinc-400 hover:border-gem-600 hover:text-gem-400 hover:bg-gem-900/20'}"
+                    \${hasVoted ? 'disabled' : ''}
+                  >
+                    👍 <span class="vote-count">\${votes}</span>
+                  </button>
+                  <span class="text-[11px] text-zinc-600">⭐ \${stars}</span>
+                </div>
+              </div>
+              <div class="shrink-0 text-right">
+                <div class="text-2xl font-bold text-gem-400">\${score}</div>
+                <div class="text-[10px] text-zinc-600 uppercase tracking-wide">score</div>
+              </div>
+            </div>
+          </div>\`
+        }).join('')
+      }
+
+      async function vote(encodedUrl, btn) {
+        if (btn.disabled) return
+        btn.disabled = true
+        const url = decodeURIComponent(encodedUrl)
+        try {
+          const res = await fetch(\`\${API_BASE}/api/gems/\${encodedUrl}/upvote\`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ fingerprint: getFingerprint() })
+          })
+          const data = await res.json()
+          if (res.ok || res.status === 409) {
+            markVoted(url)
+            btn.classList.add('border-gem-600', 'text-gem-400', 'bg-gem-900/30', 'cursor-default')
+            btn.classList.remove('border-zinc-700', 'text-zinc-400', 'hover:border-gem-600', 'hover:text-gem-400', 'hover:bg-gem-900/20')
+            if (data.vote_count !== undefined) {
+              btn.querySelector('.vote-count').textContent = data.vote_count
+            }
+          }
+        } catch (e) {
+          btn.disabled = false
+        }
+      }
+
+      let currentTab = 'recent'
+      async function switchTab(tab) {
+        currentTab = tab
+        document.querySelectorAll('.tab-btn').forEach(b => {
+          b.classList.toggle('bg-gem-600', b.id === 'tab-' + tab)
+          b.classList.toggle('text-white', b.id === 'tab-' + tab)
+          b.classList.toggle('bg-zinc-800', b.id !== 'tab-' + tab)
+          b.classList.toggle('text-zinc-400', b.id !== 'tab-' + tab)
+        })
+        await loadGems(tab)
+      }
+
+      async function loadGems(mode = 'recent') {
+        const container = document.getElementById('gems-container')
+        container.innerHTML = '<div class="text-center text-zinc-600 text-sm py-8">Loading...</div>'
+        try {
+          const endpoint = mode === 'trending'
+            ? \`\${API_BASE}/api/gems/trending?limit=10\`
+            : \`\${API_BASE}/api/gems/trending?limit=10\`
+          const res = await fetch(endpoint)
+          if (!res.ok) throw new Error('API error')
+          renderGems(await res.json())
+        } catch {
+          container.innerHTML = '<p class="text-center text-zinc-500 text-sm py-8">Could not load gems. Try again later.</p>'
+        }
+      }
+
+      loadGems('recent')
+    </script>
 
     <!-- Section 3: Subscribe -->
     <section id="subscribe" class="py-16 border-t border-zinc-800">
