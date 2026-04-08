@@ -2,11 +2,11 @@ import { NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase';
 
 const TIMEOUT = 4000;
-const BILLING_PROXY_URL = process.env.BILLING_PROXY_URL ?? 'http://127.0.0.1:18801';
-const CODEX_PROXY_URL = process.env.CODEX_PROXY_URL ?? 'http://127.0.0.1:18802';
+// REMOVED: billing proxy decommissioned 2026-04-08
+// REMOVED: codex proxy decommissioned 2026-04-08 — using Hermes/DashScope
 const GATEWAY_HEALTH_URL = process.env.GATEWAY_HEALTH_URL ?? 'https://gateway.egos.ia.br/health';
 const GATEWAY_INTERNAL_URL = process.env.GATEWAY_INTERNAL_URL ?? 'http://egos-gateway:3050';
-const OPENCLAW_HEALTH_URL = process.env.OPENCLAW_HEALTH_URL ?? 'https://openclaw.egos.ia.br';
+// REMOVED: openclaw decommissioned 2026-04-08
 const GUARD_META_URL = process.env.GUARD_BRASIL_URL ?? 'https://guard.egos.ia.br';
 // Internal VPS services (only reachable from inside Docker network)
 const EAGLE_EYE_URL = process.env.EAGLE_EYE_URL ?? 'http://eagle-eye:3001';
@@ -51,9 +51,9 @@ export async function GET() {
   ] = await Promise.all([
     ping('https://guard.egos.ia.br/health', 'Guard Brasil API'),
     ping(GATEWAY_HEALTH_URL, 'EGOS Gateway'),
-    ping(OPENCLAW_HEALTH_URL, 'OpenClaw Gateway'),
-    ping(`${BILLING_PROXY_URL}/health`, 'Billing Proxy (Claude)'),
-    ping(`${CODEX_PROXY_URL}/health`, 'Codex Proxy (GPT-5.4)'),
+    { label: 'OpenClaw', ok: false, latency: null, status: 0, data: {decommissioned: true} },
+    { label: 'Billing Proxy', ok: false, latency: null, status: 0, data: {decommissioned: true} },
+    { label: 'Codex Proxy', ok: false, latency: null, status: 0, data: {decommissioned: true, replacement: 'hermes+dashscope'} },
     // Extended services — HQI-001..004 (fixed endpoints)
     ping(`${EAGLE_EYE_URL}/api/health`, 'Eagle Eye'),
     ping(`${APP_852_URL}`, '852 Police Bot'), // Next.js app, no dedicated health endpoint, check homepage

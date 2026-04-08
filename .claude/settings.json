@@ -19,7 +19,7 @@
       "Bash(ls:*)",
       "Bash(grep:*)",
       "Bash(find:*)",
-      "Bash(codex:*)",
+      "Bash(hermes:*)",
       "Bash(jq:*)",
       "Bash(head:*)",
       "Bash(tail:*)",

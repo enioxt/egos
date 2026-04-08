@@ -15,6 +15,17 @@
 - X-COM-004: X_POSTS_SSOT.md expandido — 14 novos templates DM (4G-4R) + arsenal rápido
 - X-COM-005: X_FEATURES_INTEGRATION_ROADMAP.md — features de $275/mo integradas
 
+**P0 — Intelligence Upgrade (Agora):**
+- [ ] **X-COM-018**: Integrar análise por IA completa nas mensagens Telegram do x-opportunity-alert
+- [ ] **X-COM-019**: Definir provider/modelo oficial para a análise rápida e a análise detalhada (DashScope/Alibaba)
+- [ ] **X-COM-020**: Confirmar e documentar se Hermes participa ou não do fluxo X.com
+- [ ] **X-COM-021**: Usar sistema de cotas diárias para priorizar modelos melhores sem estourar limites
+
+**P1 — Quality & Feedback:**
+- [ ] **X-COM-022**: Padronizar formato das mensagens com resumo executivo, análise IA e recomendação final
+- [ ] **X-COM-023**: Registrar feedback humano por alertas para calibrar scoring e queries
+- [ ] **X-COM-024**: Produzir diagnóstico consolidado do sistema X.com com status por componente
+
 **P0 — Deploy + Core (Esta semana):**
 - [ ] **X-COM-006**: Adaptar setup script para `/opt/x-automation/` (evitar conflito com `/opt/xmcp` existente)
 - [ ] **X-COM-007**: Deploy no VPS — testar alertas end-to-end Telegram/WhatsApp
@@ -120,10 +131,7 @@
 
 ---
 
-### Completed Archive (compressed — see git log for details)
-**P1-P26 (2026-03-27..2026-04-06):** EGOS-151..176, MONETIZE-001..015, START-001..009, KB-001..018, GH-001..071, X-001..008, INTEL-005, THEATER-001, WA-001..003, EAGLE-*, GOV-*, BRACC-*, PART-001..015 — all DONE ✅. Products live: Guard Brasil v0.2.2 API+web+npm, EGOS Gateway v0.3.0 (port 3050), Gem Hunter dashboard (port 3095), HQ (hq.egos.ia.br), Eagle Eye, KB (52 wiki pages). OpenClaw billing proxy integrated (subscription:max).
-
----
+**Archive (P1-P26):** EGOS-151..176, MONETIZE-001..015, KB-001..018, GH-001..071, X-001..008, THEATER, WA, EAGLE, GOV, BRACC, PART — all ✅. Products: Guard Brasil v0.2.2 API+web+npm, Gateway v0.3.0, Gem Hunter dashboard, HQ, Eagle Eye, KB. Codex/OpenClaw/billing proxy decommissioned 2026-04-08 → DashScope+Hermes.
 
 ### Guard Brasil Monetization Roadmap
 
@@ -159,10 +167,8 @@
 
 ---
 
-### Infrastructure + Session Init — DONE
-**Neural Mesh+Telemetry (EGOS-167/168/175, GH-040..042, EGOS-TELEM-001..005):** codebase-memory-mcp 51K nodes, telemetry 5 layers ✅ | **KB (KB-001..016):** wiki-compiler, 50 pages ✅ | **Session Init v6 (START-001..005):** ✅ | **CCR Jobs:** 3 slots, Haiku, 00-06h BRT, docs/jobs/ + docs/gem-hunter/ ✅
-- [ ] **KB-017 [P2]**: Auto-learning from git commits — extract patterns from messages + diffs
-- [ ] EGOS-169: @aiready/pattern-detect pre-commit | EGOS-173: CRCDM hooks llmrefs staleness + auto-heal rename
+**Infra+Init DONE:** Neural Mesh telemetry ✅, codebase-memory-mcp 51K nodes ✅, KB wiki-compiler 50 pages ✅, CCR 3 jobs ✅
+- [ ] **KB-017 [P2]**: Auto-learning from git commits | EGOS-169: @aiready/pattern-detect | EGOS-173: CRCDM auto-heal rename
 
 ---
 
@@ -394,17 +400,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 
 **SSOT:** `/home/enio/.egos/memory/mcp-store/hermes_agent_investigation_deep_dive_2026-04-07.md`
 
-**✅ MVP DEPLOYED 2026-04-07 — Claude OAuth + Haiku 4.5 default**
-
-- Local: `~/.hermes-agent` + `~/.local/bin/hermes` | VPS: `/opt/hermes-agent` + `/opt/hermes-venv`
-- Default model: `claude-haiku-4-5-20251001` (local + VPS + egos-kernel profile)
-- Auth: `claude_code oauth ←` auto-detected on both machines. No API key.
-- Token refresh cron: `*/5 * * * *` local → refresh + scp → VPS auth reset
-- ⚠️ Known: refreshToken rotates. VPS NEVER refreshes independently — local cron is single source.
-
-**Phase 1: Prep** ✅ | **Phase 2: Build** ✅ | **Phase 3: Configure** ✅
-
-**Phase 4: Tests** ✅ ALL PASSED (3/3)
+**✅ HERMES-001..004 DONE (2026-04-07/08):** systemd service (hermes-gateway) running 142MB RAM. DashScope qwen-plus primary, OpenRouter gemma-4-26b free fallback. Codex/OpenClaw/billing proxy decommissioned.
 
 **Phase 5: Trial (2026-04-07 through 2026-04-15)**
 - [ ] **HERMES-005-P1**: Run production trial — Hermes stays online 7 days. Measure: uptime, RAM usage, token consumption, error rate. [Owner: infra, monitoring]
@@ -421,14 +417,10 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 
 ---
 
-### VPS Orchestration — Codex + Claude Code + OpenClaw + Gemini CLI (P35)
+### VPS Orchestration — DashScope + Hermes + Gemini CLI (P35)
 
-**Context:** VPS runs 5 overlapping execution layers. Need explicit orchestration strategy to avoid conflicts, token quota exhaustion, and cost drift.
+**2026-04-08:** Codex + OpenClaw + Billing proxy DECOMMISSIONED. Engine: DashScope qwen-plus (primary) + OpenRouter free (fallback). Hermes systemd running.
 
-**SSOT:** `docs/OPENCLAW_SSOT.md` (OpenClaw routing) | `docs/INFRA_SSOT.md` (VPS services mapping)
-
-**P1:**
-- [ ] **ORB-002**: Fallback chain if Codex proxy fails → DashScope/MiniMax-M2.7 [dev, 2h]
 - [ ] **ORB-003**: Cost attribution per task → Supabase [dev, 3h]
 - [ ] **ORB-004**: HQ widget "Orchestration Status" [UI, 2h]
 
@@ -531,4 +523,78 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 - [ ] **GOV-TECH-008 [P2]**: Parceria Betha Sistemas — Guard Brasil como add-on LGPD no Betha Cloud (+3000 prefeituras). Modelo: R$0.02/call × volume municipal. Revenue share 70/30. [2h prep]
 - [ ] **GOV-TECH-009 [P2]**: Estratégia primeiro atestado. Pilot gratuito/subsidiado para prefeitura pequena SC/PR/SP (5-15k hab) → obter atestado capacidade técnica. Mínimo viável: 3 meses contrato assinado. [5h MANUAL]
 - [ ] **GOV-TECH-010 [P2]**: Estudar Diálogo Competitivo (Lei 14.133 art.32) para produto inovador IA+LGPD. Municípios que não sabem especificar → EGOS pode ser único habilitado. Mapear 3 prefeituras usando esta modalidade. [2h]
+
+---
+
+### Content Orchestrator — OpenMontage + OpenScreen (2026-04-08)
+**Context:** OpenMontage (MIT/AGPL) = sistema agentic de produção de vídeo com 11 pipelines + 49 tools. OpenScreen (MIT) = alternativo open-source ao Screen Studio para demos profissionais. Ambos encaixam perfeitamente no EGOS para criar conteúdo escalável para todos os repositórios.
+**SSOT:** `docs/knowledge/CONTENT_ORCHESTRATOR.md` (a criar) | **Fontes:** https://github.com/calesthio/OpenMontage, https://github.com/siddharthvaddem/openscreen
+
+**P0 — Foundation:**
+- [ ] **CONTENT-001 [P1]**: Fork OpenMontage para `.egos/content-orchestrator/openmontage/` com EGOS governance wrapper (Guard Brasil, audit trail, cost approval)
+- [ ] **CONTENT-002 [P1]**: Fork OpenScreen para `.egos/content-orchestrator/openscreen/` com EGOS governance wrapper (LGPD compliance, evidence chain)
+- [ ] **CONTENT-003 [P1]**: Criar meta-prompt `content.orchestrator` em `.guarani/prompts/` — aceita descrição em linguagem natural, gera vídeo via OpenMontage ou demo via OpenScreen
+- [ ] **CONTENT-004 [P1]**: Integração em `agents.json` e `triggers.json` — comando `egos content "descrição"` disponível para todos os agents
+
+**P1 — Integration:**
+- [ ] **CONTENT-005 [P1]**: MemPalace integration — salvar todo output (vídeo + assets + script) no wing "content", room por repositório
+- [ ] **CONTENT-006 [P1]**: Event-bus integration — tópicos `content.generated`, `content.demo.recorded` para outros agents consumirem
+- [ ] **CONTENT-007 [P2]**: Combinar OpenMontage + OpenScreen — vídeo AI com demos reais injetados (ex: demo do EGOS + narração AI)
+- [ ] **CONTENT-008 [P2]**: Criar 3 exemplos: (1) vídeo 30s MemPalace, (2) demo walkthrough EGOS, (3) vídeo combinado Guard Brasil
+
+**P2 — Scale:**
+- [ ] **CONTENT-009 [P2]**: Auto-generate content para todos os repos EGOS — script que detecta novos releases e gera vídeo explicativo automaticamente
+- [ ] **CONTENT-010 [P2]**: Content dashboard no HQ — visualizar todos os vídeos/demos gerados, métricas de views (se publicado no X/YouTube)
+
+---
+
+### Test & Validation Orchestrator — Multi-Agent Review (2026-04-08)
+**Context:** Thread X (Bruno Pinheiro) + pesquisa aprofundada revela padrão comprovado: breakdown estruturado (epic → stories) + E2E tests auto-gerados + multi-agent swarm review = crescimento rápido com validação. Não temos isso no EGOS ainda — criar orchestrator dedicado.
+**SSOT:** `docs/knowledge/TEST_ORCHESTRATOR.md` (a criar) | **Fontes:** Thread X Bruno Pinheiro, CrewAI, LangChain swarms, Qodo
+
+**P0 — Core:**
+- [ ] **TEST-001 [P1]**: Criar pasta `.egos/test-orchestrator/` com agent swarm de 6 especialistas: Planner, Generator, Reviewer1 (acceptance), Reviewer2 (security/best-practices), Validator (self-run), Reporter
+- [ ] **TEST-002 [P1]**: Meta-prompt `test.validation.orchestrator` — aceita "valide epic X" ou "gere E2E tests para story Y", quebra em stories com regras de negócio + user journeys
+- [ ] **TEST-003 [P1]**: E2E test generator — gera Playwright/TestNG tests automaticamente a partir de stories (usar LLM + templates)
+- [ ] **TEST-004 [P1]**: Integração em `agents.json` — comando `egos validate "descrição"` e `egos test epic X`
+
+**P1 — Validation Pipeline:**
+- [ ] **TEST-005 [P1]**: Self-verification gates — agents rodam lint, type-check, testes, E2E antes de PR (integrar com pre-commit)
+- [ ] **TEST-006 [P1]**: Evidence chain integration — cada validação gera evidence entry automaticamente (para compliance)
+- [ ] **TEST-007 [P2]**: MemPalace wake-up — puxar contexto de testes passados para evitar regressões
+- [ ] **TEST-008 [P2]**: Integrar com Content Orchestrator — gerar demo video da feature validada automaticamente
+
+**P2 — Intelligence:**
+- [ ] **TEST-009 [P2]**: Self-healing tests — quando teste quebra, agent tenta corrigir automaticamente (usar CORAL pattern para aprender com fixes passados)
+- [ ] **TEST-010 [P2]**: Test analytics — dashboard no HQ mostrando cobertura, flakiness, tempo de execução por repo
+
+---
+
+### Git Workflow — Branch Protection & Safe Push (2026-04-08)
+**Context:** Análise do incidente INC-001 revela que branch protection está funcionando corretamente — bloqueio de force push é intencional e necessário. O problema atual (push bloqueado após Memory Integration v2) é devido a CCR jobs paralelos criando divergência. Solução: usar PR workflow em vez de push direto.
+**SSOT:** `docs/INCIDENTS/INC-001-force-push.md` | **Regras atuais:** pre-push hook, GitHub protection (allow_force_pushes=false), `scripts/safe-push.sh`
+
+**Análise do Estado Atual:**
+✅ **Branch protection está funcionando como deveria** — bloqueio de force push evitou reescrita de história após INC-001
+⚠️ **Push direto bloqueado** — CCR jobs criaram commits remotos que divergiram do local
+🔧 **Solução recomendada** — usar PR workflow para mudanças grandes (não push direto)
+
+**P0 — Immediate (Esta sessão):**
+- [ ] **GIT-001 [P0]**: Criar branch `feat/memory-integration-v2` com todos os commits locais
+- [ ] **GIT-002 [P0]**: Abrir PR para `main` — merge via GitHub interface (bypassa o bloqueio de force push)
+- [ ] **GIT-003 [P0]**: Após merge, deletar branch e sincronizar local
+
+**P1 — Workflow Improvement:**
+- [ ] **GIT-004 [P1]**: Documentar no `CLAUDE.md` §workflow — preferir PR para mudanças >5 arquivos ou >100 linhas
+- [ ] **GIT-005 [P1]**: Criar script `scripts/create-pr.sh` — automatiza criação de branch + push + abertura de PR via gh CLI
+- [ ] **GIT-006 [P1]**: Adicionar ao `agents.json` — comando `egos pr "título"` para agents criarem PRs automaticamente
+
+**Riscos vs Vantagens das Regras Atuais:**
+| Aspecto | Risco | Vantagem | Decisão |
+|---------|-------|----------|---------|
+| Force push bloqueado | Push direto impossível quando há divergência | Protege história de reescrita acidental | ✅ Manter |
+| Branch protection | Requer PR para mudanças grandes | Permite review antes de merge | ✅ Manter |
+| CCR jobs paralelos | Podem criar divergência inesperada | Automatização contínua | ✅ Manter + usar PR workflow |
+
+**Decisão:** NÃO alterar regras de branch protection. Em vez disso, adaptar workflow para usar PRs quando há divergência (como agora).
 
