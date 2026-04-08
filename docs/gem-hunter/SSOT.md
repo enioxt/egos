@@ -115,6 +115,13 @@ Pricing: Percentage-based (% of LLM cost + margin)
   Free: 10 findings/day | Pro: unlimited + scaffolds | Enterprise: custom weights
 ```
 
+## Artifacts & Prompts
+
+| File | Purpose |
+|------|---------|
+| `docs/gem-hunter/prompts/scoring-v1.md` | Scoring prompts SSOT — extracted 2026-04-08. Version-controlled. |
+| `docs/gem-hunter/GEM_HUNTER_PRODUCT.md` | Product roadmap |
+
 ## Rules
 
 1. **One SSOT**: This file is the canonical reference. All other mentions should point here.
