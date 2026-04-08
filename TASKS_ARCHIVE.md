@@ -176,3 +176,13 @@
 - [x] **RATIO-VPS-001 [P1]**: ✅ LanceDB synced to VPS (/opt/data/ratio/lancedb_store). Payload 4.0K (minimal repo).
 - [x] **RATIO-VPS-002 [P2]**: ✅ br-acc Neo4j healthy (bolt://bracc-neo4j:7687, 10d uptime, healthy status).
 - [x] **RATIO-VPS-003 [P1]**: ✅ Caddy routes live (ratio.egos.ia.br + ratio-api.egos.ia.br, both containers up ~1h).
+
+## Archived 2026-04-08 (7 tasks)
+
+- [x] **GUARD-BUG-001**: ✅ RG detecta `12.345.678-9` sem keyword. Verificado em prod. Commit 185b0f7.
+- [x] **GUARD-BUG-003**: ✅ DEFAULT_NAME_PATTERN expandido — Nome:, Paciente:, Requerente: + 11 labels. v0.2.3.
+- [x] **GUARD-BUG-004**: ✅ HEALTH_CONDITION_PATTERN adicionado — PIICategory health_data. v0.2.3.
+- [x] **GUARD-BUG-005**: ✅ Whitelist expandida — 27 estados BR, termos médicos, siglas comuns.
+- [x] **GUARD-BUG-006**: ✅ GUARD_VERSION corrigido para '0.2.2', package.json bumped para 0.2.3.
+- [x] **GUARD-SEC-001**: ✅ middleware.ts — Basic Auth em /dashboard-v{1,2,3} + /x-dashboard. DASHBOARD_SECRET env var necessária no Vercel.
+- [x] **XMCP-001 [DONE 2026-04-07]**: X credentials rotados — todos 5 tokens válidos em ~/.egos/secrets.env

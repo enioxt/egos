@@ -265,13 +265,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 - [ ] **GTM-001**: x-reply-bot search tuning (lgpd/anpd/dpo keywords)
 
 **Guard Brasil Bugs — Status (2026-04-07):**
-- [x] **GUARD-BUG-001**: ✅ RG detecta `12.345.678-9` sem keyword. Verificado em prod. Commit 185b0f7.
 - [/] **GUARD-BUG-002**: ATRiAN bias **não existe no código**. Demo corrigido para mostrar o que funciona (absolute_claim, fabricated_data). Feature futura.
-- [x] **GUARD-BUG-003**: ✅ DEFAULT_NAME_PATTERN expandido — Nome:, Paciente:, Requerente: + 11 labels. v0.2.3.
-- [x] **GUARD-BUG-004**: ✅ HEALTH_CONDITION_PATTERN adicionado — PIICategory health_data. v0.2.3.
-- [x] **GUARD-BUG-005**: ✅ Whitelist expandida — 27 estados BR, termos médicos, siglas comuns.
-- [x] **GUARD-BUG-006**: ✅ GUARD_VERSION corrigido para '0.2.2', package.json bumped para 0.2.3.
-- [x] **GUARD-SEC-001**: ✅ middleware.ts — Basic Auth em /dashboard-v{1,2,3} + /x-dashboard. DASHBOARD_SECRET env var necessária no Vercel.
 
 **P1 — Content & Integrations:** GTM-006..013 (docs playground, ProductHunt, dev.to, partnerships) — see git log for status.
 
@@ -444,7 +438,6 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 **Source:** Grok analysis. Decisions: Graphify=adopt patterns only (codebase-memory-mcp overlap 80%); A-Evolve=bookmark pós PMF; XMCP=install now.
 
 **XMCP — X MCP Server oficial (xdevplatform/xmcp):**
-- [x] **XMCP-001 [DONE 2026-04-07]**: X credentials rotados — todos 5 tokens válidos em ~/.egos/secrets.env
 - [ ] **XMCP-002** [UNBLOCKED]: Atualizar /opt/xmcp/.env no VPS com X keys rotados + iniciar serviço
 - [ ] **SOCIAL-003 [P1]**: x-reply-bot — busca por "LGPD", "licitação", "split payment", "análise de vínculos"
 - [ ] **SOCIAL-004 [P1]**: Fila Supabase de DMs candidatas para aprovação manual via Telegram antes de enviar
