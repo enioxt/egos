@@ -3,10 +3,12 @@ import { createClient } from '@supabase/supabase-js'
 
 const PORT = parseInt(process.env.PORT ?? '3071', 10)
 
-const supabase = createClient(
-  process.env.SUPABASE_URL ?? '',
-  process.env.SUPABASE_ANON_KEY ?? ''
-)
+function getSupabase() {
+  const url = process.env.SUPABASE_URL
+  const key = process.env.SUPABASE_ANON_KEY
+  if (!url || !key) return null
+  return createClient(url, key)
+}
 
 const app = new Hono()
 
@@ -69,6 +71,9 @@ app.get('/timeline', async (c) => {
   const limit = 12
   const offset = (page - 1) * limit
 
+  const supabase = getSupabase()
+  if (!supabase) return c.html(layout('Timeline', '<p class="text-slate-400">Supabase não configurado.</p>'))
+
   const { data: articles, error, count } = await supabase
     .from('timeline_articles')
     .select('slug, title, summary, published_at, commit_hash', { count: 'exact' })
@@ -121,6 +126,9 @@ app.get('/timeline', async (c) => {
 app.get('/timeline/:slug', async (c) => {
   const slug = c.req.param('slug')
 
+  const supabase = getSupabase()
+  if (!supabase) return c.html(layout('Artigo não encontrado', '<p class="text-slate-400">Supabase não configurado.</p>'), 503)
+
   const { data: article, error } = await supabase
     .from('timeline_articles')
     .select('*')
@@ -138,7 +146,7 @@ app.get('/timeline/:slug', async (c) => {
   }
 
   // Track view (fire-and-forget)
-  supabase
+  getSupabase()
     .from('timeline_articles')
     .update({ view_count: (article.view_count ?? 0) + 1 })
     .eq('slug', slug)
