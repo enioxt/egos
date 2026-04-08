@@ -10,7 +10,7 @@ type: "framework-core + orchestration-kernel + agent-runtime"
 | File | Purpose | MAX lines |
 |------|---------|-----------|
 | `AGENTS.md` | System map, stack, commands | 200 |
-| `TASKS.md` | All tasks | 750 |
+| `TASKS.md` | All tasks | no hard limit — warn >900, archive with `bun scripts/tasks-archive.ts` |
 | `.windsurfrules` | Agent rules (this file) | 250 |
 | `.guarani/PREFERENCES.md` | Coding standards | 100 |
 | `agents/registry/agents.json` | Agent registry (SSOT) | — |

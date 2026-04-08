@@ -159,9 +159,9 @@ Qualquer mudança de limite (linhas TASKS.md, AGENTS.md, etc.) deve atualizar SI
 - `.husky/pre-commit` (enforcement numérico)
 - `CLAUDE.md` (esta seção)
 
-### Limite atual (2026-04-08)
-| Arquivo | Limite | Warn em |
-|---------|--------|---------|
-| TASKS.md | 750 linhas | 650 |
-| AGENTS.md | 200 linhas | — |
-| .windsurfrules | 200 linhas | — |
+### Limite atual (2026-04-08, revisado)
+| Arquivo | Hard limit | Warn em | Ação |
+|---------|-----------|---------|------|
+| TASKS.md | nenhum (append-only) | 900 | `bun scripts/tasks-archive.ts` (move seções [x] → TASKS_ARCHIVE.md) |
+| AGENTS.md | 200 linhas | — | compressão manual |
+| .windsurfrules | 200 linhas | — | compressão manual |
