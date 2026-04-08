@@ -1,0 +1,499 @@
+- generic [ref=e3]:
+  - banner [ref=e5]:
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - button "Menu principal" [ref=e10] [cursor=pointer]:
+          - generic [ref=e11]: 
+        - link "Portal Nacional de Contratações Públicas Portal Nacional de Contratações Públicas" [ref=e13] [cursor=pointer]:
+          - /url: https://pncp.gov.br
+          - generic [ref=e14]:
+            - img "Portal Nacional de Contratações Públicas" [ref=e15]
+            - generic [ref=e16]: Portal Nacional de Contratações Públicas
+      - text: 
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - textbox "Texto da pesquisa" [ref=e20]:
+            - /placeholder: Buscar no PNCP
+          - button "Pesquisar" [ref=e21] [cursor=pointer]:
+            - generic [ref=e22]: 
+            - text: 
+        - text:  
+      - button "Entrar" [ref=e25] [cursor=pointer]:
+        - generic [ref=e26]: 
+        - text: Entrar
+  - main [ref=e27]:
+    - generic [ref=e29]:
+      - generic:
+        - generic:
+          - generic: 
+      - generic [ref=e33]:
+        - generic [ref=e36]:
+          - link "" [ref=e37] [cursor=pointer]:
+            - /url: https://pncp.gov.br
+            - generic [ref=e38]: 
+          - generic [ref=e39]:
+            - generic [ref=e40]: 
+            - link "Editais" [ref=e41] [cursor=pointer]:
+              - /url: /app/editais
+        - heading "Contratações" [level=1] [ref=e42]
+        - generic [ref=e44]:
+          - navigation [ref=e45]:
+            - list [ref=e46]:
+              - listitem [ref=e47]:
+                - button "Editais e Avisos de Contratações" [ref=e48] [cursor=pointer]
+              - listitem [ref=e49]:
+                - button "Atas de Registro de Preços" [ref=e50] [cursor=pointer]
+              - listitem [ref=e51]:
+                - button "Contratos" [ref=e52] [cursor=pointer]
+          - generic [ref=e55]:
+            - text: Consulte os diversos
+            - generic [ref=e56] [cursor=pointer]: instrumentos convocatórios
+            - text: para compra de produtos, serviços e outros interesses da administração pública.
+          - generic [ref=e59]:
+            - generic [ref=e60]:
+              - generic [ref=e62]:
+                - generic [ref=e63]: Palavra-chave
+                - textbox "Palavra-chave" [ref=e64]:
+                  - /placeholder: Digite um termo para pesquisar
+                  - text: software gestao publica web
+              - generic [ref=e65]:
+                - paragraph [ref=e66]: Status
+                - generic [ref=e67]:
+                  - generic [ref=e69]:
+                    - radio "A Receber/Recebendo Proposta" [checked] [ref=e70]
+                    - generic [ref=e71] [cursor=pointer]: A Receber/Recebendo Proposta
+                  - generic [ref=e73]:
+                    - radio "Em Julgamento/Propostas Encerradas" [ref=e74]
+                    - generic [ref=e75] [cursor=pointer]: Em Julgamento/Propostas Encerradas
+                  - generic [ref=e77]:
+                    - radio "Encerradas" [ref=e78]
+                    - generic [ref=e79] [cursor=pointer]: Encerradas
+                  - generic [ref=e81]:
+                    - radio "Todos" [ref=e82]
+                    - generic [ref=e83] [cursor=pointer]: Todos
+            - generic [ref=e86]:
+              - text:  
+              - generic [ref=e87]:
+                - generic [ref=e88]:
+                  - generic [ref=e89]: 
+                  - text: Filtros
+                  - button "Abrir Tooltip" [ref=e90] [cursor=pointer]:
+                    - generic [ref=e91]: 
+                - generic [ref=e93]:
+                  - generic [ref=e95]:
+                    - generic [ref=e97]: Tipos de Instrumento Convocatório
+                    - generic [ref=e100]:
+                      - generic [ref=e101]: Selecione
+                      - combobox [ref=e102]:
+                        - textbox [ref=e103]
+                  - generic [ref=e106]:
+                    - generic [ref=e108]: Modalidades da Contratação
+                    - generic [ref=e111]:
+                      - generic [ref=e112]: Selecione
+                      - combobox [ref=e113]:
+                        - textbox [ref=e114]
+                  - generic [ref=e117]:
+                    - generic [ref=e119]: Órgãos
+                    - generic [ref=e122]:
+                      - generic [ref=e123]: Selecione
+                      - combobox [ref=e124]:
+                        - textbox [ref=e125]
+                  - generic [ref=e128]:
+                    - generic [ref=e130]: Unidades
+                    - generic [ref=e133]:
+                      - generic [ref=e134]: Selecione
+                      - combobox [ref=e135]:
+                        - textbox [ref=e136]
+                  - generic [ref=e139]:
+                    - generic [ref=e141]: UFs
+                    - generic [ref=e144]:
+                      - generic [ref=e145]: Selecione
+                      - combobox [ref=e146]:
+                        - textbox [ref=e147]
+                  - generic [ref=e150]:
+                    - generic [ref=e152]: Municípios
+                    - generic [ref=e155]:
+                      - generic [ref=e156]: Selecione
+                      - combobox [ref=e157]:
+                        - textbox [ref=e158]
+                  - generic [ref=e161]:
+                    - generic [ref=e163]: Esferas
+                    - generic [ref=e166]:
+                      - generic [ref=e167]: Selecione
+                      - combobox [ref=e168]:
+                        - textbox [ref=e169]
+                  - generic [ref=e172]:
+                    - generic [ref=e174]: Poderes
+                    - generic [ref=e177]:
+                      - generic [ref=e178]: Selecione
+                      - combobox [ref=e179]:
+                        - textbox [ref=e180]
+                  - generic [ref=e183]:
+                    - generic [ref=e185]: Fontes Orçamentárias
+                    - generic [ref=e188]:
+                      - generic [ref=e189]: Selecione
+                      - combobox [ref=e190]:
+                        - textbox [ref=e191]
+                  - generic [ref=e194]:
+                    - generic [ref=e196]: Tipos de Margens de Preferência
+                    - generic [ref=e199]:
+                      - generic [ref=e200]: Selecione
+                      - combobox [ref=e201]:
+                        - textbox [ref=e202]
+                  - generic [ref=e205]:
+                    - generic [ref=e207]: Exigência de Conteúdo Nacional
+                    - generic [ref=e210]:
+                      - generic [ref=e211]: Selecione
+                      - combobox [ref=e212]:
+                        - textbox [ref=e213]
+            - generic [ref=e215]:
+              - button "Limpar" [ref=e217] [cursor=pointer]:
+                - generic [ref=e218]: Limpar
+              - button "Buscar" [ref=e220] [cursor=pointer]:
+                - generic [ref=e221]: 
+                - generic [ref=e222]: Pesquisar
+          - generic [ref=e224]:
+            - generic [ref=e226]:
+              - heading "Editais e Avisos de Contratações A Receber/Recebendo Propostas" [level=3] [ref=e227]
+              - generic [ref=e228]:
+                - generic [ref=e229]: "Termo Pesquisado:"
+                - text: software gestao publica web
+              - generic [ref=e230]:
+                - generic [ref=e231]: "Exibindo:"
+                - text: 10 de 68
+            - generic [ref=e233]:
+              - generic [ref=e234]:
+                - generic [ref=e235]: "Ordenar por:"
+                - generic [ref=e239]:
+                  - generic [ref=e240]: Mais recente
+                  - combobox [ref=e241]:
+                    - textbox [ref=e242]
+              - generic [ref=e246]:
+                - 'link "Edital nº 000000082026/2026 Id contratação PNCP: 02391654000119-1-000326/2026 Modalidade da Contratação: Pregão - Eletrônico Última Atualização: 07/04/2026 Órgão: MUNICIPIO DE SAO MIGUEL DO ARAGUAIA Local: São Miguel do Araguaia/GO Objeto: CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA PRESTAÇÃO DE SERVIÇOS DE LOCAÇÃO – LICENÇA DE USO DE SOFTWARE DE GESTÃO PÚBLICA, DESENVOLVIDO POR ÚNICO DESENVOLVEDOR, DE FORMA INTEGRADA, SISTÊMICA E MODULAR, OPERANDO EM AMBIENTE 100% WEB, COM HOSPEDAGEM DE DADOS EM INTERNET DATA CENTER – IDC, INCLUINDO IMPLANTAÇÃO, MIGRAÇÃO E CONVERSÃO DE DADOS, SUPORTE TÉCNICO, MANUTENÇÃO CORRETIVA, EVOLUTIVA E LEGAL, ATUALIZAÇÕES AUTOMÁTICAS, TREINAMENTO DE USUÁRIOS E DEMAIS SERVIÇOS CORRELATOS, CONFORME CONSTA DO" [ref=e248] [cursor=pointer]':
+                  - /url: /editais/02391654000119/2026/326
+                  - generic [ref=e249]:
+                    - generic [ref=e253]:
+                      - strong [ref=e255]: Edital nº 000000082026/2026
+                      - generic [ref=e257]:
+                        - strong [ref=e258]: "Id contratação PNCP:"
+                        - text: 02391654000119-1-000326/2026
+                      - generic [ref=e259]:
+                        - generic [ref=e260]:
+                          - strong [ref=e261]: "Modalidade da Contratação:"
+                          - text: Pregão - Eletrônico
+                        - generic [ref=e262]:
+                          - strong [ref=e263]: "Última Atualização:"
+                          - text: 07/04/2026
+                      - generic [ref=e264]:
+                        - generic [ref=e266]:
+                          - strong [ref=e267]: "Órgão:"
+                          - text: MUNICIPIO DE SAO MIGUEL DO ARAGUAIA
+                        - generic [ref=e269]:
+                          - strong [ref=e270]: "Local:"
+                          - text: São Miguel do Araguaia/GO
+                      - generic [ref=e271]:
+                        - strong [ref=e272]: "Objeto:"
+                        - text: CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA PRESTAÇÃO DE SERVIÇOS DE LOCAÇÃO – LICENÇA DE USO DE SOFTWARE DE GESTÃO PÚBLICA, DESENVOLVIDO POR ÚNICO DESENVOLVEDOR, DE FORMA INTEGRADA, SISTÊMICA E MODULAR, OPERANDO EM AMBIENTE 100% WEB, COM HOSPEDAGEM DE DADOS EM INTERNET DATA CENTER – IDC, INCLUINDO IMPLANTAÇÃO, MIGRAÇÃO E CONVERSÃO DE DADOS, SUPORTE TÉCNICO, MANUTENÇÃO CORRETIVA, EVOLUTIVA E LEGAL, ATUALIZAÇÕES AUTOMÁTICAS, TREINAMENTO DE USUÁRIOS E DEMAIS SERVIÇOS CORRELATOS, CONFORME CONSTA DO
+                    - generic [ref=e274]: 
+                - 'link "Edital nº 8/2026 Id contratação PNCP: 02391654000119-1-000325/2026 Modalidade da Contratação: Pregão - Eletrônico Última Atualização: 07/04/2026 Órgão: MUNICIPIO DE SAO MIGUEL DO ARAGUAIA Local: São Miguel do Araguaia/GO Objeto: CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA PRESTAÇÃO DE SERVIÇOS DE LOCAÇÃO – LICENÇA DE USO DE SOFTWARE DE GESTÃO PÚBLICA, DESENVOLVIDO POR ÚNICO DESENVOLVEDOR, DE FORMA INTEGRADA, SISTÊMICA E MODULAR, OPERANDO EM AMBIENTE 100% WEB, COM HOSPEDAGEM DE DADOS EM INTERNET DATA CENTER – IDC, INCLUINDO IMPLANTAÇÃO, MIGRAÇÃO E CONVERSÃO DE DADOS, SUPORTE TÉCNICO, MANUTENÇÃO CORRETIVA, EVOLUTIVA E LEGAL, ATUALIZAÇÕES AUTOMÁTICAS, TREINAMENTO DE USUÁRIOS E DEMAIS SERVIÇOS CORRELATOS, CONFORME CONSTA DO T ..." [ref=e277] [cursor=pointer]':
+                  - /url: /editais/02391654000119/2026/325
+                  - generic [ref=e278]:
+                    - generic [ref=e282]:
+                      - strong [ref=e284]: Edital nº 8/2026
+                      - generic [ref=e286]:
+                        - strong [ref=e287]: "Id contratação PNCP:"
+                        - text: 02391654000119-1-000325/2026
+                      - generic [ref=e288]:
+                        - generic [ref=e289]:
+                          - strong [ref=e290]: "Modalidade da Contratação:"
+                          - text: Pregão - Eletrônico
+                        - generic [ref=e291]:
+                          - strong [ref=e292]: "Última Atualização:"
+                          - text: 07/04/2026
+                      - generic [ref=e293]:
+                        - generic [ref=e295]:
+                          - strong [ref=e296]: "Órgão:"
+                          - text: MUNICIPIO DE SAO MIGUEL DO ARAGUAIA
+                        - generic [ref=e298]:
+                          - strong [ref=e299]: "Local:"
+                          - text: São Miguel do Araguaia/GO
+                      - generic [ref=e300]:
+                        - strong [ref=e301]: "Objeto:"
+                        - text: CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA PRESTAÇÃO DE SERVIÇOS DE LOCAÇÃO – LICENÇA DE USO DE SOFTWARE DE GESTÃO PÚBLICA, DESENVOLVIDO POR ÚNICO DESENVOLVEDOR, DE FORMA INTEGRADA, SISTÊMICA E MODULAR, OPERANDO EM AMBIENTE 100% WEB, COM HOSPEDAGEM DE DADOS EM INTERNET DATA CENTER – IDC, INCLUINDO IMPLANTAÇÃO, MIGRAÇÃO E CONVERSÃO DE DADOS, SUPORTE TÉCNICO, MANUTENÇÃO CORRETIVA, EVOLUTIVA E LEGAL, ATUALIZAÇÕES AUTOMÁTICAS, TREINAMENTO DE USUÁRIOS E DEMAIS SERVIÇOS CORRELATOS, CONFORME CONSTA DO T ...
+                    - generic [ref=e303]: 
+                - 'link "Edital nº PE 14/2026 Id contratação PNCP: 95780441000160-1-000026/2026 Modalidade da Contratação: Pregão - Eletrônico Última Atualização: 07/04/2026 Órgão: MUNICIPIO DE CAPIVARI DE BAIXO Local: Capivari de Baixo/SC Objeto: Contratação de empresa especializada para prestação de serviços de Licenciamento mensal, de solução integrada de software de gestão educacional, em ambiente web, incluindo implantação, parametrização, migração de dados, treinamento de usuários, suporte técnico contínuo, manutenção corretiva, evolutiva, legal e tecnológica, bem como hospedagem em data center. A solução deverá atender às unidades escolares e à Secretaria Municipal de Educação, contemplando, no mínimo, os módulos de Gestão Escolar, ..." [ref=e306] [cursor=pointer]':
+                  - /url: /editais/95780441000160/2026/26
+                  - generic [ref=e307]:
+                    - generic [ref=e311]:
+                      - strong [ref=e313]: Edital nº PE 14/2026
+                      - generic [ref=e315]:
+                        - strong [ref=e316]: "Id contratação PNCP:"
+                        - text: 95780441000160-1-000026/2026
+                      - generic [ref=e317]:
+                        - generic [ref=e318]:
+                          - strong [ref=e319]: "Modalidade da Contratação:"
+                          - text: Pregão - Eletrônico
+                        - generic [ref=e320]:
+                          - strong [ref=e321]: "Última Atualização:"
+                          - text: 07/04/2026
+                      - generic [ref=e322]:
+                        - generic [ref=e324]:
+                          - strong [ref=e325]: "Órgão:"
+                          - text: MUNICIPIO DE CAPIVARI DE BAIXO
+                        - generic [ref=e327]:
+                          - strong [ref=e328]: "Local:"
+                          - text: Capivari de Baixo/SC
+                      - generic [ref=e329]:
+                        - strong [ref=e330]: "Objeto:"
+                        - text: Contratação de empresa especializada para prestação de serviços de Licenciamento mensal, de solução integrada de software de gestão educacional, em ambiente web, incluindo implantação, parametrização, migração de dados, treinamento de usuários, suporte técnico contínuo, manutenção corretiva, evolutiva, legal e tecnológica, bem como hospedagem em data center. A solução deverá atender às unidades escolares e à Secretaria Municipal de Educação, contemplando, no mínimo, os módulos de Gestão Escolar, ...
+                    - generic [ref=e332]: 
+                - 'link "Edital nº 17/2026 Id contratação PNCP: 08754111000103-1-000029/2026 Modalidade da Contratação: Pregão - Eletrônico Última Atualização: 07/04/2026 Órgão: MUNICIPIO DE AREIA Local: Areia/PB Objeto: [Portal de Compras Públicas] - CONTRATAÇAO DE PESSOA JURIDICA ESPECIALIZADA EM TECNOLOGIA DA INFORMAÇAO PARA PRESTAÇAO DE SERVIÇOS DE IMPLANTAÇAO DO PRONTUARIO ELETRONICO CIDADAO E-SUS AB PEC, CDS, E-SUS AB TERRITORIO COMO FORMA DE SUPRIR AS NECESSIDADES DE UM PRONTUARIO ELETRONICO, OFERECENDO TREINAMENTO/ RECICLAGEM DOS PROFISSIONAIS PARA ESTE SOFTWARE, E LOCAÇAO DE SOFTWARE WEB SINCRONIZADO/INTEGRAD AO E-SUS DE GESTAO DE SAUDE PUBLICA E INCLUINDO COMODADTO PARA TODOS EQUIPAMENTOS" [ref=e335] [cursor=pointer]':
+                  - /url: /editais/08754111000103/2026/29
+                  - generic [ref=e336]:
+                    - generic [ref=e340]:
+                      - strong [ref=e342]: Edital nº 17/2026
+                      - generic [ref=e344]:
+                        - strong [ref=e345]: "Id contratação PNCP:"
+                        - text: 08754111000103-1-000029/2026
+                      - generic [ref=e346]:
+                        - generic [ref=e347]:
+                          - strong [ref=e348]: "Modalidade da Contratação:"
+                          - text: Pregão - Eletrônico
+                        - generic [ref=e349]:
+                          - strong [ref=e350]: "Última Atualização:"
+                          - text: 07/04/2026
+                      - generic [ref=e351]:
+                        - generic [ref=e353]:
+                          - strong [ref=e354]: "Órgão:"
+                          - text: MUNICIPIO DE AREIA
+                        - generic [ref=e356]:
+                          - strong [ref=e357]: "Local:"
+                          - text: Areia/PB
+                      - generic [ref=e358]:
+                        - strong [ref=e359]: "Objeto:"
+                        - text: "[Portal de Compras Públicas] - CONTRATAÇAO DE PESSOA JURIDICA ESPECIALIZADA EM TECNOLOGIA DA INFORMAÇAO PARA PRESTAÇAO DE SERVIÇOS DE IMPLANTAÇAO DO PRONTUARIO ELETRONICO CIDADAO E-SUS AB PEC, CDS, E-SUS AB TERRITORIO COMO FORMA DE SUPRIR AS NECESSIDADES DE UM PRONTUARIO ELETRONICO, OFERECENDO TREINAMENTO/ RECICLAGEM DOS PROFISSIONAIS PARA ESTE SOFTWARE, E LOCAÇAO DE SOFTWARE WEB SINCRONIZADO/INTEGRAD AO E-SUS DE GESTAO DE SAUDE PUBLICA E INCLUINDO COMODADTO PARA TODOS EQUIPAMENTOS"
+                    - generic [ref=e361]: 
+                - 'link "Edital nº 90017/2026 Id contratação PNCP: 76205699000198-1-000028/2026 Modalidade da Contratação: Pregão - Eletrônico Última Atualização: 07/04/2026 Órgão: MUNICIPIO DE SALGADO FILHO Local: Salgado Filho/PR Objeto: Contratação de empresa especializada para implantação, capacitação e fornecimento de licença de uso temporário de sistemas de gestão pública, com acessos simultâneos para usuários da administração municipal direta e indireta" [ref=e364] [cursor=pointer]':
+                  - /url: /editais/76205699000198/2026/28
+                  - generic [ref=e365]:
+                    - generic [ref=e369]:
+                      - strong [ref=e371]: Edital nº 90017/2026
+                      - generic [ref=e373]:
+                        - strong [ref=e374]: "Id contratação PNCP:"
+                        - text: 76205699000198-1-000028/2026
+                      - generic [ref=e375]:
+                        - generic [ref=e376]:
+                          - strong [ref=e377]: "Modalidade da Contratação:"
+                          - text: Pregão - Eletrônico
+                        - generic [ref=e378]:
+                          - strong [ref=e379]: "Última Atualização:"
+                          - text: 07/04/2026
+                      - generic [ref=e380]:
+                        - generic [ref=e382]:
+                          - strong [ref=e383]: "Órgão:"
+                          - text: MUNICIPIO DE SALGADO FILHO
+                        - generic [ref=e385]:
+                          - strong [ref=e386]: "Local:"
+                          - text: Salgado Filho/PR
+                      - generic [ref=e387]:
+                        - strong [ref=e388]: "Objeto:"
+                        - text: Contratação de empresa especializada para implantação, capacitação e fornecimento de licença de uso temporário de sistemas de gestão pública, com acessos simultâneos para usuários da administração municipal direta e indireta
+                    - generic [ref=e390]: 
+                - 'link "Edital nº 90005/2025 Id contratação PNCP: 81140303000101-1-000084/2025 Modalidade da Contratação: Concorrência - Eletrônica Última Atualização: 07/04/2026 Órgão: MUNICIPIO DE ITAPOA Local: Itapoá/SC Objeto: Contratação de empresa de engenharia especializada para promover a gestão de Iluminação Pública do Município de Itapoá, contemplando manutenção de rotina e emergencial, fornecimento de software de gestão, implantação de tele atendimento, levantamento de informações para formação de cadastro georreferenciado, projetos, ampliações, modernização do sistema e extensão de rede com fornecimento de insumos" [ref=e393] [cursor=pointer]':
+                  - /url: /editais/81140303000101/2025/84
+                  - generic [ref=e394]:
+                    - generic [ref=e398]:
+                      - strong [ref=e400]: Edital nº 90005/2025
+                      - generic [ref=e402]:
+                        - strong [ref=e403]: "Id contratação PNCP:"
+                        - text: 81140303000101-1-000084/2025
+                      - generic [ref=e404]:
+                        - generic [ref=e405]:
+                          - strong [ref=e406]: "Modalidade da Contratação:"
+                          - text: Concorrência - Eletrônica
+                        - generic [ref=e407]:
+                          - strong [ref=e408]: "Última Atualização:"
+                          - text: 07/04/2026
+                      - generic [ref=e409]:
+                        - generic [ref=e411]:
+                          - strong [ref=e412]: "Órgão:"
+                          - text: MUNICIPIO DE ITAPOA
+                        - generic [ref=e414]:
+                          - strong [ref=e415]: "Local:"
+                          - text: Itapoá/SC
+                      - generic [ref=e416]:
+                        - strong [ref=e417]: "Objeto:"
+                        - text: Contratação de empresa de engenharia especializada para promover a gestão de Iluminação Pública do Município de Itapoá, contemplando manutenção de rotina e emergencial, fornecimento de software de gestão, implantação de tele atendimento, levantamento de informações para formação de cadastro georreferenciado, projetos, ampliações, modernização do sistema e extensão de rede com fornecimento de insumos
+                    - generic [ref=e419]: 
+                - 'link "Edital nº 90009/2026 Id contratação PNCP: 75743377000130-1-000056/2026 Modalidade da Contratação: Concorrência - Eletrônica Última Atualização: 07/04/2026 Órgão: MUNICIPIO DE ASTORGA Local: Astorga/PR Objeto: Contratação de empresa especializada para implementação de projeto de modernização da gestão pública para Prefeitura Municipal de Astorga, Estado do Paraná" [ref=e422] [cursor=pointer]':
+                  - /url: /editais/75743377000130/2026/56
+                  - generic [ref=e423]:
+                    - generic [ref=e427]:
+                      - strong [ref=e429]: Edital nº 90009/2026
+                      - generic [ref=e431]:
+                        - strong [ref=e432]: "Id contratação PNCP:"
+                        - text: 75743377000130-1-000056/2026
+                      - generic [ref=e433]:
+                        - generic [ref=e434]:
+                          - strong [ref=e435]: "Modalidade da Contratação:"
+                          - text: Concorrência - Eletrônica
+                        - generic [ref=e436]:
+                          - strong [ref=e437]: "Última Atualização:"
+                          - text: 07/04/2026
+                      - generic [ref=e438]:
+                        - generic [ref=e440]:
+                          - strong [ref=e441]: "Órgão:"
+                          - text: MUNICIPIO DE ASTORGA
+                        - generic [ref=e443]:
+                          - strong [ref=e444]: "Local:"
+                          - text: Astorga/PR
+                      - generic [ref=e445]:
+                        - strong [ref=e446]: "Objeto:"
+                        - text: Contratação de empresa especializada para implementação de projeto de modernização da gestão pública para Prefeitura Municipal de Astorga, Estado do Paraná
+                    - generic [ref=e448]: 
+                - 'link "Edital nº 90002/2026 Id contratação PNCP: 78103579000105-1-000003/2026 Modalidade da Contratação: Pregão - Eletrônico Última Atualização: 07/04/2026 Órgão: DOIS VIZINHOS CAMARA DE VEREADORES Local: Dois Vizinhos/PR Objeto: Contratação de empresa especializada para a locação de software em plataforma web, contemplando a desmaterialização de documentos físicos, parametrização de processos e inserção de documentos. O objeto inclui a implementação de funcionalidades como Website da Câmara, Painel de Votação, Gestão de Processos Legislativos e Administrativos, certificados, Integração com o Executivo, Diário Oficial e e-mails bem como a prestação de serviços de manutenção corr" [ref=e451] [cursor=pointer]':
+                  - /url: /editais/78103579000105/2026/3
+                  - generic [ref=e452]:
+                    - generic [ref=e456]:
+                      - strong [ref=e458]: Edital nº 90002/2026
+                      - generic [ref=e460]:
+                        - strong [ref=e461]: "Id contratação PNCP:"
+                        - text: 78103579000105-1-000003/2026
+                      - generic [ref=e462]:
+                        - generic [ref=e463]:
+                          - strong [ref=e464]: "Modalidade da Contratação:"
+                          - text: Pregão - Eletrônico
+                        - generic [ref=e465]:
+                          - strong [ref=e466]: "Última Atualização:"
+                          - text: 07/04/2026
+                      - generic [ref=e467]:
+                        - generic [ref=e469]:
+                          - strong [ref=e470]: "Órgão:"
+                          - text: DOIS VIZINHOS CAMARA DE VEREADORES
+                        - generic [ref=e472]:
+                          - strong [ref=e473]: "Local:"
+                          - text: Dois Vizinhos/PR
+                      - generic [ref=e474]:
+                        - strong [ref=e475]: "Objeto:"
+                        - text: Contratação de empresa especializada para a locação de software em plataforma web, contemplando a desmaterialização de documentos físicos, parametrização de processos e inserção de documentos. O objeto inclui a implementação de funcionalidades como Website da Câmara, Painel de Votação, Gestão de Processos Legislativos e Administrativos, certificados, Integração com o Executivo, Diário Oficial e e-mails bem como a prestação de serviços de manutenção corr
+                    - generic [ref=e477]: 
+                - 'link "Edital nº 21/2026 Id contratação PNCP: 08993909000108-1-000058/2026 Modalidade da Contratação: Pregão - Eletrônico Última Atualização: 06/04/2026 Órgão: MUNICIPIO DE ESPERANCA Local: Esperança/PB Objeto: [Portal de Compras Públicas] - Contratação de empresa especializada para prestação de serviços de locação de sistemas integrados de gestão pública, em ambiente web, compreendendo cessão de direito de uso de softwares, implantação, instalação, configuração, customização, treinamento de usuários, suporte técnico, manutenção corretiva, evolutiva e adaptativa, bem como hospedagem em nuvem, destinados à modernização administrativa e ao atendimento das necessidades operacionais da Prefeitura Municipal ..." [ref=e480] [cursor=pointer]':
+                  - /url: /editais/08993909000108/2026/58
+                  - generic [ref=e481]:
+                    - generic [ref=e485]:
+                      - strong [ref=e487]: Edital nº 21/2026
+                      - generic [ref=e489]:
+                        - strong [ref=e490]: "Id contratação PNCP:"
+                        - text: 08993909000108-1-000058/2026
+                      - generic [ref=e491]:
+                        - generic [ref=e492]:
+                          - strong [ref=e493]: "Modalidade da Contratação:"
+                          - text: Pregão - Eletrônico
+                        - generic [ref=e494]:
+                          - strong [ref=e495]: "Última Atualização:"
+                          - text: 06/04/2026
+                      - generic [ref=e496]:
+                        - generic [ref=e498]:
+                          - strong [ref=e499]: "Órgão:"
+                          - text: MUNICIPIO DE ESPERANCA
+                        - generic [ref=e501]:
+                          - strong [ref=e502]: "Local:"
+                          - text: Esperança/PB
+                      - generic [ref=e503]:
+                        - strong [ref=e504]: "Objeto:"
+                        - text: "[Portal de Compras Públicas] - Contratação de empresa especializada para prestação de serviços de locação de sistemas integrados de gestão pública, em ambiente web, compreendendo cessão de direito de uso de softwares, implantação, instalação, configuração, customização, treinamento de usuários, suporte técnico, manutenção corretiva, evolutiva e adaptativa, bem como hospedagem em nuvem, destinados à modernização administrativa e ao atendimento das necessidades operacionais da Prefeitura Municipal ..."
+                    - generic [ref=e506]: 
+                - 'link "Edital nº PCE 23/2026 Id contratação PNCP: 76208818000166-1-000043/2026 Modalidade da Contratação: Pregão - Eletrônico Última Atualização: 06/04/2026 Órgão: MUNICIPIO DE GUARANIACU Local: Guaraniaçu/PR Objeto: Contratação de empresa especializada em softwares nativos de plataforma web para fornecimento de solução de gestão pública integrada multientidades." [ref=e509] [cursor=pointer]':
+                  - /url: /editais/76208818000166/2026/43
+                  - generic [ref=e510]:
+                    - generic [ref=e514]:
+                      - strong [ref=e516]: Edital nº PCE 23/2026
+                      - generic [ref=e518]:
+                        - strong [ref=e519]: "Id contratação PNCP:"
+                        - text: 76208818000166-1-000043/2026
+                      - generic [ref=e520]:
+                        - generic [ref=e521]:
+                          - strong [ref=e522]: "Modalidade da Contratação:"
+                          - text: Pregão - Eletrônico
+                        - generic [ref=e523]:
+                          - strong [ref=e524]: "Última Atualização:"
+                          - text: 06/04/2026
+                      - generic [ref=e525]:
+                        - generic [ref=e527]:
+                          - strong [ref=e528]: "Órgão:"
+                          - text: MUNICIPIO DE GUARANIACU
+                        - generic [ref=e530]:
+                          - strong [ref=e531]: "Local:"
+                          - text: Guaraniaçu/PR
+                      - generic [ref=e532]:
+                        - strong [ref=e533]: "Objeto:"
+                        - text: Contratação de empresa especializada em softwares nativos de plataforma web para fornecimento de solução de gestão pública integrada multientidades.
+                    - generic [ref=e535]: 
+          - generic:          
+          - generic:          
+          - navigation "Paginação" [ref=e540]:
+            - generic [ref=e542]: 1–10 de 68 itens
+            - list [ref=e543]:
+              - listitem [ref=e544]:
+                - button "Página anterior" [disabled] [ref=e545]:
+                  - generic: 
+              - listitem [ref=e546]:
+                - button "1" [ref=e547] [cursor=pointer]
+              - listitem [ref=e548]:
+                - button "2" [ref=e549] [cursor=pointer]
+              - listitem [ref=e550]:
+                - button "3" [ref=e551] [cursor=pointer]
+              - listitem [ref=e552]:
+                - button "4" [ref=e553] [cursor=pointer]
+              - listitem [ref=e554]:
+                - button "5" [ref=e555] [cursor=pointer]
+              - listitem [ref=e556]:
+                - button "6" [ref=e557] [cursor=pointer]
+              - listitem [ref=e558]:
+                - button "7" [ref=e559] [cursor=pointer]
+              - listitem [ref=e560]:
+                - button "Página seguinte" [ref=e561] [cursor=pointer]:
+                  - generic [ref=e562]: 
+              - listitem [ref=e563]:
+                - generic [ref=e567]:
+                  - generic [ref=e568]: "10"
+                  - combobox [ref=e569]:
+                    - textbox
+        - button "Ir para o topo" [ref=e572] [cursor=pointer]:
+          - generic [ref=e573]: 
+  - contentinfo [ref=e575]:
+    - generic [ref=e576]:
+      - generic [ref=e577]:
+        - img "Portal Nacional de Contratações Públicas" [ref=e579]
+        - generic [ref=e580]:
+          - paragraph [ref=e581]: Criado pela Lei nº 14.133/21, o Portal Nacional de Contratações Públicas (PNCP) é o sítio eletrônico oficial destinado à divulgação centralizada e obrigatória dos atos exigidos em sede de licitações e contratos administrativos abarcados pelo novel diploma.
+          - paragraph [ref=e582]: É gerido pelo Comitê Gestor da Rede Nacional de Contratações Públicas, um colegiado deliberativo com suas atribuições estabelecidas no Decreto nº 10.764, de 9 de agosto de 2021.
+          - paragraph [ref=e583]: O desenvolvimento dessa versão do Portal é um esforço conjunto de construção de uma concepção direta legal, homologado pelos indicados a compor o aludido comitê.
+          - paragraph [ref=e584]: A adequação, fidedignidade e corretude das informações e dos arquivos relativos às contratações disponibilizadas no PNCP por força da Lei nº 14.133/2021 são de estrita responsabilidade dos órgãos e entidades contratantes.
+        - generic [ref=e585]:
+          - generic [ref=e586]:
+            - generic [ref=e588]: 
+            - link "https://portaldeservicos.gestao.gov.br" [ref=e589] [cursor=pointer]:
+              - /url: https://portaldeservicos.gestao.gov.br
+          - generic [ref=e590]:
+            - generic [ref=e592]: 
+            - link "0800 978 9001" [ref=e593] [cursor=pointer]:
+              - /url: tel:08009789001
+      - strong [ref=e596]: AGRADECIMENTO AOS PARCEIROS
+      - generic [ref=e597]:
+        - link "Banco Interamericano Desenvolvimento - BID" [ref=e599] [cursor=pointer]:
+          - /url: https://www.iadb.org/pt
+          - img "Banco Interamericano Desenvolvimento - BID" [ref=e600]
+        - link "Escola Nacional de Administração Pública - Enap" [ref=e602] [cursor=pointer]:
+          - /url: https://www.enap.gov.br/pt/
+          - img "Escola Nacional de Administração Pública - Enap" [ref=e603]
+        - link "Serviço Federal de Processamento de Dados - SERPRO" [ref=e605] [cursor=pointer]:
+          - /url: https://www.serpro.gov.br/
+          - img "Serviço Federal de Processamento de Dados - SERPRO" [ref=e606]
+        - link "Serviço Brasileiro de Apoio às Micro e Pequenas Empresas - Sebrae" [ref=e608] [cursor=pointer]:
+          - /url: https://www.sebrae.com.br/
+          - img "Serviço Brasileiro de Apoio às Micro e Pequenas Empresas - Sebrae" [ref=e609]
+    - separator [ref=e610]
+    - generic [ref=e613]:
+      - text: Texto destinado a exibição de informações relacionadas à
+      - strong [ref=e614]: licença de uso.

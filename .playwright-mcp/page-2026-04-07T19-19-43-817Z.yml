@@ -1,0 +1,279 @@
+- generic [ref=e3]:
+  - banner [ref=e5]:
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - button "Menu principal" [ref=e10] [cursor=pointer]:
+          - generic [ref=e11]: 
+        - link "Portal Nacional de Contratações Públicas Portal Nacional de Contratações Públicas" [ref=e13] [cursor=pointer]:
+          - /url: https://pncp.gov.br
+          - generic [ref=e14]:
+            - img "Portal Nacional de Contratações Públicas" [ref=e15]
+            - generic [ref=e16]: Portal Nacional de Contratações Públicas
+      - text: 
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - textbox "Texto da pesquisa" [ref=e20]:
+            - /placeholder: Buscar no PNCP
+          - button "Pesquisar" [ref=e21] [cursor=pointer]:
+            - generic [ref=e22]: 
+            - text: 
+        - text:  
+      - button "Entrar" [ref=e25] [cursor=pointer]:
+        - generic [ref=e26]: 
+        - text: Entrar
+  - main [ref=e27]:
+    - generic [ref=e29]:
+      - generic:
+        - generic:
+          - generic: 
+      - generic [ref=e33]:
+        - generic [ref=e36]:
+          - link "" [ref=e37] [cursor=pointer]:
+            - /url: https://pncp.gov.br
+            - generic [ref=e38]: 
+          - generic [ref=e39]:
+            - generic [ref=e40]: 
+            - link "Editais" [ref=e41] [cursor=pointer]:
+              - /url: /app/editais
+        - heading "Contratações" [level=1] [ref=e42]
+        - generic [ref=e44]:
+          - navigation [ref=e45]:
+            - list [ref=e46]:
+              - listitem [ref=e47]:
+                - button "Editais e Avisos de Contratações" [ref=e48] [cursor=pointer]
+              - listitem [ref=e49]:
+                - button "Atas de Registro de Preços" [ref=e50] [cursor=pointer]
+              - listitem [ref=e51]:
+                - button "Contratos" [ref=e52] [cursor=pointer]
+          - generic [ref=e55]:
+            - text: Consulte os diversos
+            - generic [ref=e56] [cursor=pointer]: instrumentos convocatórios
+            - text: para compra de produtos, serviços e outros interesses da administração pública.
+          - generic [ref=e59]:
+            - generic [ref=e60]:
+              - generic [ref=e62]:
+                - generic [ref=e63]: Palavra-chave
+                - textbox "Palavra-chave" [ref=e64]:
+                  - /placeholder: Digite um termo para pesquisar
+                  - text: chatbot whatsapp sistema
+              - generic [ref=e65]:
+                - paragraph [ref=e66]: Status
+                - generic [ref=e67]:
+                  - generic [ref=e69]:
+                    - radio "A Receber/Recebendo Proposta" [checked] [ref=e70]
+                    - generic [ref=e71] [cursor=pointer]: A Receber/Recebendo Proposta
+                  - generic [ref=e73]:
+                    - radio "Em Julgamento/Propostas Encerradas" [ref=e74]
+                    - generic [ref=e75] [cursor=pointer]: Em Julgamento/Propostas Encerradas
+                  - generic [ref=e77]:
+                    - radio "Encerradas" [ref=e78]
+                    - generic [ref=e79] [cursor=pointer]: Encerradas
+                  - generic [ref=e81]:
+                    - radio "Todos" [ref=e82]
+                    - generic [ref=e83] [cursor=pointer]: Todos
+            - generic [ref=e86]:
+              - text:  
+              - generic [ref=e87]:
+                - generic [ref=e88]:
+                  - generic [ref=e89]: 
+                  - text: Filtros
+                  - button "Abrir Tooltip" [ref=e90] [cursor=pointer]:
+                    - generic [ref=e91]: 
+                - generic [ref=e93]:
+                  - generic [ref=e95]:
+                    - generic [ref=e97]: Tipos de Instrumento Convocatório
+                    - generic [ref=e100]:
+                      - generic [ref=e101]: Selecione
+                      - combobox [ref=e102]:
+                        - textbox [ref=e103]
+                  - generic [ref=e106]:
+                    - generic [ref=e108]: Modalidades da Contratação
+                    - generic [ref=e111]:
+                      - generic [ref=e112]: Selecione
+                      - combobox [ref=e113]:
+                        - textbox [ref=e114]
+                  - generic [ref=e117]:
+                    - generic [ref=e119]: Órgãos
+                    - generic [ref=e122]:
+                      - generic [ref=e123]: Selecione
+                      - combobox [ref=e124]:
+                        - textbox [ref=e125]
+                  - generic [ref=e128]:
+                    - generic [ref=e130]: Unidades
+                    - generic [ref=e133]:
+                      - generic [ref=e134]: Selecione
+                      - combobox [ref=e135]:
+                        - textbox [ref=e136]
+                  - generic [ref=e139]:
+                    - generic [ref=e141]: UFs
+                    - generic [ref=e144]:
+                      - generic [ref=e145]: Selecione
+                      - combobox [ref=e146]:
+                        - textbox [ref=e147]
+                  - generic [ref=e150]:
+                    - generic [ref=e152]: Municípios
+                    - generic [ref=e155]:
+                      - generic [ref=e156]: Selecione
+                      - combobox [ref=e157]:
+                        - textbox [ref=e158]
+                  - generic [ref=e161]:
+                    - generic [ref=e163]: Esferas
+                    - generic [ref=e166]:
+                      - generic [ref=e167]: Selecione
+                      - combobox [ref=e168]:
+                        - textbox [ref=e169]
+                  - generic [ref=e172]:
+                    - generic [ref=e174]: Poderes
+                    - generic [ref=e177]:
+                      - generic [ref=e178]: Selecione
+                      - combobox [ref=e179]:
+                        - textbox [ref=e180]
+                  - generic [ref=e183]:
+                    - generic [ref=e185]: Fontes Orçamentárias
+                    - generic [ref=e188]:
+                      - generic [ref=e189]: Selecione
+                      - combobox [ref=e190]:
+                        - textbox [ref=e191]
+                  - generic [ref=e194]:
+                    - generic [ref=e196]: Tipos de Margens de Preferência
+                    - generic [ref=e199]:
+                      - generic [ref=e200]: Selecione
+                      - combobox [ref=e201]:
+                        - textbox [ref=e202]
+                  - generic [ref=e205]:
+                    - generic [ref=e207]: Exigência de Conteúdo Nacional
+                    - generic [ref=e210]:
+                      - generic [ref=e211]: Selecione
+                      - combobox [ref=e212]:
+                        - textbox [ref=e213]
+            - generic [ref=e215]:
+              - button "Limpar" [ref=e217] [cursor=pointer]:
+                - generic [ref=e218]: Limpar
+              - button "Buscar" [ref=e220] [cursor=pointer]:
+                - generic [ref=e221]: 
+                - generic [ref=e222]: Pesquisar
+          - generic [ref=e224]:
+            - generic [ref=e226]:
+              - heading "Editais e Avisos de Contratações A Receber/Recebendo Propostas" [level=3] [ref=e227]
+              - generic [ref=e228]:
+                - generic [ref=e229]: "Termo Pesquisado:"
+                - text: chatbot whatsapp sistema
+              - generic [ref=e230]:
+                - generic [ref=e231]: "Exibindo:"
+                - text: 2 de 2
+            - generic [ref=e233]:
+              - generic [ref=e234]:
+                - generic [ref=e235]: "Ordenar por:"
+                - generic [ref=e239]:
+                  - generic [ref=e240]: Mais recente
+                  - combobox [ref=e241]:
+                    - textbox [ref=e242]
+              - generic [ref=e246]:
+                - 'link "Edital nº 022/2026 Id contratação PNCP: 27165554000103-1-000127/2026 Modalidade da Contratação: Pregão - Eletrônico Última Atualização: 24/03/2026 Órgão: MUNICIPIO DE VILA VELHA Local: Vila Velha/ES Objeto: Registro de preços para Contratação de serviços especializados em Tecnologia da Informação e Inovação (TI), destinados a apoiar a gestão, a sustentação e a evolução da infraestrutura digital e dos sistemas de informação da Prefeitura Municipal de Vila Velha." [ref=e248] [cursor=pointer]':
+                  - /url: /editais/27165554000103/2026/127
+                  - generic [ref=e249]:
+                    - generic [ref=e253]:
+                      - strong [ref=e255]: Edital nº 022/2026
+                      - generic [ref=e257]:
+                        - strong [ref=e258]: "Id contratação PNCP:"
+                        - text: 27165554000103-1-000127/2026
+                      - generic [ref=e259]:
+                        - generic [ref=e260]:
+                          - strong [ref=e261]: "Modalidade da Contratação:"
+                          - text: Pregão - Eletrônico
+                        - generic [ref=e262]:
+                          - strong [ref=e263]: "Última Atualização:"
+                          - text: 24/03/2026
+                      - generic [ref=e264]:
+                        - generic [ref=e266]:
+                          - strong [ref=e267]: "Órgão:"
+                          - text: MUNICIPIO DE VILA VELHA
+                        - generic [ref=e269]:
+                          - strong [ref=e270]: "Local:"
+                          - text: Vila Velha/ES
+                      - generic [ref=e271]:
+                        - strong [ref=e272]: "Objeto:"
+                        - text: Registro de preços para Contratação de serviços especializados em Tecnologia da Informação e Inovação (TI), destinados a apoiar a gestão, a sustentação e a evolução da infraestrutura digital e dos sistemas de informação da Prefeitura Municipal de Vila Velha.
+                    - generic [ref=e274]: 
+                - 'link "Edital nº 000005/2026 Id contratação PNCP: 27834977000160-1-000024/2026 Modalidade da Contratação: Pregão - Eletrônico Última Atualização: 23/03/2026 Órgão: SERVICO AUTONOMO DE AGUA E ESGOTO DE LINHARES Local: Linhares/ES Objeto: [Portal de Compras Públicas] - Contratacao de empresa especializada para fornecimento de plataforma multicanal/omnicanal, na modalidade CPaaS (Communications Platform as a Service) e SaaS (Software as a Service), contemplando servicos de mensageria; atendimento por chat, voz e video WebRTC, com gravacao e armazenamento das interacoes; automacao de fluxos via chatbot em WhatsApp, Instagram e Telegram, com API de integracao ao banco de dados do Servico Autonomo de Agua e Esgoto SAAE de Linhares." [ref=e277] [cursor=pointer]':
+                  - /url: /editais/27834977000160/2026/24
+                  - generic [ref=e278]:
+                    - generic [ref=e282]:
+                      - strong [ref=e284]: Edital nº 000005/2026
+                      - generic [ref=e286]:
+                        - strong [ref=e287]: "Id contratação PNCP:"
+                        - text: 27834977000160-1-000024/2026
+                      - generic [ref=e288]:
+                        - generic [ref=e289]:
+                          - strong [ref=e290]: "Modalidade da Contratação:"
+                          - text: Pregão - Eletrônico
+                        - generic [ref=e291]:
+                          - strong [ref=e292]: "Última Atualização:"
+                          - text: 23/03/2026
+                      - generic [ref=e293]:
+                        - generic [ref=e295]:
+                          - strong [ref=e296]: "Órgão:"
+                          - text: SERVICO AUTONOMO DE AGUA E ESGOTO DE LINHARES
+                        - generic [ref=e298]:
+                          - strong [ref=e299]: "Local:"
+                          - text: Linhares/ES
+                      - generic [ref=e300]:
+                        - strong [ref=e301]: "Objeto:"
+                        - text: "[Portal de Compras Públicas] - Contratacao de empresa especializada para fornecimento de plataforma multicanal/omnicanal, na modalidade CPaaS (Communications Platform as a Service) e SaaS (Software as a Service), contemplando servicos de mensageria; atendimento por chat, voz e video WebRTC, com gravacao e armazenamento das interacoes; automacao de fluxos via chatbot em WhatsApp, Instagram e Telegram, com API de integracao ao banco de dados do Servico Autonomo de Agua e Esgoto SAAE de Linhares."
+                    - generic [ref=e303]: 
+          - generic:  
+          - generic:  
+          - navigation "Paginação" [ref=e308]:
+            - generic [ref=e310]: 1–2 de 2 itens
+            - list [ref=e311]:
+              - listitem [ref=e312]:
+                - button "Página anterior" [disabled] [ref=e313]:
+                  - generic: 
+              - listitem [ref=e314]:
+                - button "1" [ref=e315] [cursor=pointer]
+              - listitem [ref=e316]:
+                - button "Página seguinte" [disabled] [ref=e317]:
+                  - generic: 
+              - listitem [ref=e318]:
+                - generic [ref=e322]:
+                  - generic [ref=e323]: "10"
+                  - combobox [ref=e324]:
+                    - textbox
+        - button "Ir para o topo" [ref=e327] [cursor=pointer]:
+          - generic [ref=e328]: 
+  - contentinfo [ref=e330]:
+    - generic [ref=e331]:
+      - generic [ref=e332]:
+        - img "Portal Nacional de Contratações Públicas" [ref=e334]
+        - generic [ref=e335]:
+          - paragraph [ref=e336]: Criado pela Lei nº 14.133/21, o Portal Nacional de Contratações Públicas (PNCP) é o sítio eletrônico oficial destinado à divulgação centralizada e obrigatória dos atos exigidos em sede de licitações e contratos administrativos abarcados pelo novel diploma.
+          - paragraph [ref=e337]: É gerido pelo Comitê Gestor da Rede Nacional de Contratações Públicas, um colegiado deliberativo com suas atribuições estabelecidas no Decreto nº 10.764, de 9 de agosto de 2021.
+          - paragraph [ref=e338]: O desenvolvimento dessa versão do Portal é um esforço conjunto de construção de uma concepção direta legal, homologado pelos indicados a compor o aludido comitê.
+          - paragraph [ref=e339]: A adequação, fidedignidade e corretude das informações e dos arquivos relativos às contratações disponibilizadas no PNCP por força da Lei nº 14.133/2021 são de estrita responsabilidade dos órgãos e entidades contratantes.
+        - generic [ref=e340]:
+          - generic [ref=e341]:
+            - generic [ref=e343]: 
+            - link "https://portaldeservicos.gestao.gov.br" [ref=e344] [cursor=pointer]:
+              - /url: https://portaldeservicos.gestao.gov.br
+          - generic [ref=e345]:
+            - generic [ref=e347]: 
+            - link "0800 978 9001" [ref=e348] [cursor=pointer]:
+              - /url: tel:08009789001
+      - strong [ref=e351]: AGRADECIMENTO AOS PARCEIROS
+      - generic [ref=e352]:
+        - link "Banco Interamericano Desenvolvimento - BID" [ref=e354] [cursor=pointer]:
+          - /url: https://www.iadb.org/pt
+          - img "Banco Interamericano Desenvolvimento - BID" [ref=e355]
+        - link "Escola Nacional de Administração Pública - Enap" [ref=e357] [cursor=pointer]:
+          - /url: https://www.enap.gov.br/pt/
+          - img "Escola Nacional de Administração Pública - Enap" [ref=e358]
+        - link "Serviço Federal de Processamento de Dados - SERPRO" [ref=e360] [cursor=pointer]:
+          - /url: https://www.serpro.gov.br/
+          - img "Serviço Federal de Processamento de Dados - SERPRO" [ref=e361]
+        - link "Serviço Brasileiro de Apoio às Micro e Pequenas Empresas - Sebrae" [ref=e363] [cursor=pointer]:
+          - /url: https://www.sebrae.com.br/
+          - img "Serviço Brasileiro de Apoio às Micro e Pequenas Empresas - Sebrae" [ref=e364]
+    - separator [ref=e365]
+    - generic [ref=e368]:
+      - text: Texto destinado a exibição de informações relacionadas à
+      - strong [ref=e369]: licença de uso.

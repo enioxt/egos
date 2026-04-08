@@ -1,0 +1,118 @@
+- generic [ref=e3]:
+  - banner [ref=e5]:
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - button "Menu principal" [ref=e10] [cursor=pointer]:
+          - generic [ref=e11]: 
+        - link "Portal Nacional de Contratações Públicas Portal Nacional de Contratações Públicas" [ref=e13] [cursor=pointer]:
+          - /url: https://pncp.gov.br
+          - generic [ref=e14]:
+            - img "Portal Nacional de Contratações Públicas" [ref=e15]
+            - generic [ref=e16]: Portal Nacional de Contratações Públicas
+      - text: 
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - textbox "Texto da pesquisa" [ref=e20]:
+            - /placeholder: Buscar no PNCP
+          - button "Pesquisar" [ref=e21] [cursor=pointer]:
+            - generic [ref=e22]: 
+            - text: 
+        - text:  
+      - button "Entrar" [ref=e25] [cursor=pointer]:
+        - generic [ref=e26]: 
+        - text: Entrar
+  - main [ref=e27]:
+    - generic [ref=e29]:
+      - generic:
+        - generic:
+          - generic: 
+      - generic [ref=e33]:
+        - generic [ref=e36]:
+          - link "" [ref=e37] [cursor=pointer]:
+            - /url: https://pncp.gov.br
+            - generic [ref=e38]: 
+          - generic [ref=e39]:
+            - generic [ref=e40]: 
+            - link "Editais" [ref=e41] [cursor=pointer]:
+              - /url: /app/editais
+        - heading "Contratações" [level=1] [ref=e42]
+        - generic [ref=e44]:
+          - navigation [ref=e45]:
+            - list [ref=e46]:
+              - listitem [ref=e47]:
+                - button "Editais e Avisos de Contratações" [ref=e48] [cursor=pointer]
+              - listitem [ref=e49]:
+                - button "Atas de Registro de Preços" [ref=e50] [cursor=pointer]
+              - listitem [ref=e51]:
+                - button "Contratos" [ref=e52] [cursor=pointer]
+          - generic [ref=e55]:
+            - text: Consulte os diversos
+            - generic [ref=e56] [cursor=pointer]: instrumentos convocatórios
+            - text: para compra de produtos, serviços e outros interesses da administração pública.
+          - generic [ref=e59]:
+            - generic [ref=e60]:
+              - generic [ref=e62]:
+                - generic [ref=e63]: Palavra-chave
+                - textbox "Palavra-chave" [ref=e64]:
+                  - /placeholder: Digite um termo para pesquisar
+                  - text: desenvolvimento de sistema
+              - generic [ref=e65]:
+                - paragraph [ref=e66]: Status
+                - generic [ref=e67]:
+                  - generic [ref=e69]:
+                    - radio "A Receber/Recebendo Proposta" [checked] [ref=e70]
+                    - generic [ref=e71] [cursor=pointer]: A Receber/Recebendo Proposta
+                  - generic [ref=e73]:
+                    - radio "Em Julgamento/Propostas Encerradas" [ref=e74]
+                    - generic [ref=e75] [cursor=pointer]: Em Julgamento/Propostas Encerradas
+                  - generic [ref=e77]:
+                    - radio "Encerradas" [ref=e78]
+                    - generic [ref=e79] [cursor=pointer]: Encerradas
+                  - generic [ref=e81]:
+                    - radio "Todos" [ref=e82]
+                    - generic [ref=e83] [cursor=pointer]: Todos
+            - generic [ref=e85]:
+              - button "Limpar" [ref=e87] [cursor=pointer]:
+                - generic [ref=e88]: Limpar
+              - button "Buscar" [ref=e90] [cursor=pointer]:
+                - generic [ref=e91]: 
+                - generic [ref=e92]: Pesquisar
+          - generic [ref=e95]: Carregando...
+        - button "Ir para o topo" [ref=e97] [cursor=pointer]:
+          - generic [ref=e98]: 
+  - contentinfo [ref=e100]:
+    - generic [ref=e101]:
+      - generic [ref=e102]:
+        - img "Portal Nacional de Contratações Públicas" [ref=e104]
+        - generic [ref=e105]:
+          - paragraph [ref=e106]: Criado pela Lei nº 14.133/21, o Portal Nacional de Contratações Públicas (PNCP) é o sítio eletrônico oficial destinado à divulgação centralizada e obrigatória dos atos exigidos em sede de licitações e contratos administrativos abarcados pelo novel diploma.
+          - paragraph [ref=e107]: É gerido pelo Comitê Gestor da Rede Nacional de Contratações Públicas, um colegiado deliberativo com suas atribuições estabelecidas no Decreto nº 10.764, de 9 de agosto de 2021.
+          - paragraph [ref=e108]: O desenvolvimento dessa versão do Portal é um esforço conjunto de construção de uma concepção direta legal, homologado pelos indicados a compor o aludido comitê.
+          - paragraph [ref=e109]: A adequação, fidedignidade e corretude das informações e dos arquivos relativos às contratações disponibilizadas no PNCP por força da Lei nº 14.133/2021 são de estrita responsabilidade dos órgãos e entidades contratantes.
+        - generic [ref=e110]:
+          - generic [ref=e111]:
+            - generic [ref=e113]: 
+            - link "https://portaldeservicos.gestao.gov.br" [ref=e114] [cursor=pointer]:
+              - /url: https://portaldeservicos.gestao.gov.br
+          - generic [ref=e115]:
+            - generic [ref=e117]: 
+            - link "0800 978 9001" [ref=e118] [cursor=pointer]:
+              - /url: tel:08009789001
+      - strong [ref=e121]: AGRADECIMENTO AOS PARCEIROS
+      - generic [ref=e122]:
+        - link "Banco Interamericano Desenvolvimento - BID" [ref=e124] [cursor=pointer]:
+          - /url: https://www.iadb.org/pt
+          - img "Banco Interamericano Desenvolvimento - BID" [ref=e125]
+        - link "Escola Nacional de Administração Pública - Enap" [ref=e127] [cursor=pointer]:
+          - /url: https://www.enap.gov.br/pt/
+          - img "Escola Nacional de Administração Pública - Enap" [ref=e128]
+        - link "Serviço Federal de Processamento de Dados - SERPRO" [ref=e130] [cursor=pointer]:
+          - /url: https://www.serpro.gov.br/
+          - img "Serviço Federal de Processamento de Dados - SERPRO" [ref=e131]
+        - link "Serviço Brasileiro de Apoio às Micro e Pequenas Empresas - Sebrae" [ref=e133] [cursor=pointer]:
+          - /url: https://www.sebrae.com.br/
+          - img "Serviço Brasileiro de Apoio às Micro e Pequenas Empresas - Sebrae" [ref=e134]
+    - separator [ref=e135]
+    - generic [ref=e138]:
+      - text: Texto destinado a exibição de informações relacionadas à
+      - strong [ref=e139]: licença de uso.

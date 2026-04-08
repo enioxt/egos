@@ -1,0 +1,74 @@
+- generic [ref=e3]:
+  - banner [ref=e5]:
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - button "Menu principal" [ref=e10] [cursor=pointer]:
+          - generic [ref=e11]: 
+        - link "Portal Nacional de Contratações Públicas Portal Nacional de Contratações Públicas" [ref=e13] [cursor=pointer]:
+          - /url: https://pncp.gov.br
+          - generic [ref=e14]:
+            - img "Portal Nacional de Contratações Públicas" [ref=e15]
+            - generic [ref=e16]: Portal Nacional de Contratações Públicas
+      - text: 
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - textbox "Texto da pesquisa" [ref=e20]:
+            - /placeholder: Buscar no PNCP
+          - button "Pesquisar" [ref=e21] [cursor=pointer]:
+            - generic [ref=e22]: 
+            - text: 
+        - text:  
+      - button "Entrar" [ref=e25] [cursor=pointer]:
+        - generic [ref=e26]: 
+        - text: Entrar
+  - main [ref=e27]:
+    - generic [ref=e29]:
+      - generic:
+        - generic:
+          - generic: 
+      - generic [ref=e32]:
+        - generic [ref=e35]:
+          - link "" [ref=e36] [cursor=pointer]:
+            - /url: https://pncp.gov.br
+            - generic [ref=e37]: 
+          - generic [ref=e38]:
+            - generic [ref=e39]: 
+            - link "Editais" [ref=e40] [cursor=pointer]:
+              - /url: /app/editais
+        - generic [ref=e43]: Carregando...
+  - contentinfo [ref=e45]:
+    - generic [ref=e46]:
+      - generic [ref=e47]:
+        - img "Portal Nacional de Contratações Públicas" [ref=e49]
+        - generic [ref=e50]:
+          - paragraph [ref=e51]: Criado pela Lei nº 14.133/21, o Portal Nacional de Contratações Públicas (PNCP) é o sítio eletrônico oficial destinado à divulgação centralizada e obrigatória dos atos exigidos em sede de licitações e contratos administrativos abarcados pelo novel diploma.
+          - paragraph [ref=e52]: É gerido pelo Comitê Gestor da Rede Nacional de Contratações Públicas, um colegiado deliberativo com suas atribuições estabelecidas no Decreto nº 10.764, de 9 de agosto de 2021.
+          - paragraph [ref=e53]: O desenvolvimento dessa versão do Portal é um esforço conjunto de construção de uma concepção direta legal, homologado pelos indicados a compor o aludido comitê.
+          - paragraph [ref=e54]: A adequação, fidedignidade e corretude das informações e dos arquivos relativos às contratações disponibilizadas no PNCP por força da Lei nº 14.133/2021 são de estrita responsabilidade dos órgãos e entidades contratantes.
+        - generic [ref=e55]:
+          - generic [ref=e56]:
+            - generic [ref=e58]: 
+            - link "https://portaldeservicos.gestao.gov.br" [ref=e59] [cursor=pointer]:
+              - /url: https://portaldeservicos.gestao.gov.br
+          - generic [ref=e60]:
+            - generic [ref=e62]: 
+            - link "0800 978 9001" [ref=e63] [cursor=pointer]:
+              - /url: tel:08009789001
+      - strong [ref=e66]: AGRADECIMENTO AOS PARCEIROS
+      - generic [ref=e67]:
+        - link "Banco Interamericano Desenvolvimento - BID" [ref=e69] [cursor=pointer]:
+          - /url: https://www.iadb.org/pt
+          - img "Banco Interamericano Desenvolvimento - BID" [ref=e70]
+        - link "Escola Nacional de Administração Pública - Enap" [ref=e72] [cursor=pointer]:
+          - /url: https://www.enap.gov.br/pt/
+          - img "Escola Nacional de Administração Pública - Enap" [ref=e73]
+        - link "Serviço Federal de Processamento de Dados - SERPRO" [ref=e75] [cursor=pointer]:
+          - /url: https://www.serpro.gov.br/
+          - img "Serviço Federal de Processamento de Dados - SERPRO" [ref=e76]
+        - link "Serviço Brasileiro de Apoio às Micro e Pequenas Empresas - Sebrae" [ref=e78] [cursor=pointer]:
+          - /url: https://www.sebrae.com.br/
+          - img "Serviço Brasileiro de Apoio às Micro e Pequenas Empresas - Sebrae" [ref=e79]
+    - separator [ref=e80]
+    - generic [ref=e83]:
+      - text: Texto destinado a exibição de informações relacionadas à
+      - strong [ref=e84]: licença de uso.
