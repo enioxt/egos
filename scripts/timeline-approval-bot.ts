@@ -142,31 +142,31 @@ async function fetchDraftById(id: string): Promise<TimelineDraft | null> {
   return rows[0] ?? null;
 }
 
-// Publishes a Substack Note (short-form) linking to the approved article.
-// Full articles live on egos.ia.br/timeline — the Note drives subscribers there.
-async function publishSubstackNote(draft: TimelineDraft): Promise<string | null> {
-  if (!SUBSTACK_SID || !SUBSTACK_PUBLICATION_URL) {
-    console.warn("⚠️  SUBSTACK_SID or SUBSTACK_PUBLICATION_URL not set — skipping Substack note");
-    return null;
-  }
-  try {
-    const { SubstackClient } = await import("substack-api");
-    const client = new SubstackClient({ publicationUrl: SUBSTACK_PUBLICATION_URL, token: SUBSTACK_SID });
-    const articleUrl = `${TIMELINE_BASE_URL}/timeline/${draft.slug}`;
-    const profile = await client.ownProfile();
-    const result = await profile
-      .newNoteWithLink(articleUrl)
-      .paragraph()
-      .bold(draft.title)
-      .text("\n\n")
-      .text(draft.summary.slice(0, 280))
-      .publish();
-    console.log(`  📰 Substack note published: id=${result.id}`);
-    return String(result.id);
-  } catch (err) {
-    console.error(`  ❌ Substack publish failed: ${err}`);
-    return null;
-  }
+// Converts Markdown to basic Substack-compatible HTML for manual paste.
+// Flow: approve → egos.ia.br/timeline (canonical) → Substack (manual copy-paste).
+function markdownToSubstackHtml(draft: TimelineDraft): string {
+  const articleUrl = `${TIMELINE_BASE_URL}/timeline/${draft.slug}`;
+
+  // Convert common Markdown patterns to HTML
+  const body = draft.body_md
+    .replace(/^### (.+)$/gm, "<h3>$1</h3>")
+    .replace(/^## (.+)$/gm, "<h2>$1</h2>")
+    .replace(/^# (.+)$/gm, "<h1>$1</h1>")
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*(.+?)\*/g, "<em>$1</em>")
+    .replace(/`(.+?)`/g, "<code>$1</code>")
+    .replace(/^- (.+)$/gm, "<li>$1</li>")
+    .replace(/\n\n/g, "</p><p>")
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+
+  return [
+    `<h1>${draft.title}</h1>`,
+    `<p><em>${draft.summary}</em></p>`,
+    `<p>---</p>`,
+    `<p>${body}</p>`,
+    `<p>---</p>`,
+    `<p><em>Publicado originalmente em <a href="${articleUrl}">${articleUrl}</a></em></p>`,
+  ].join("\n");
 }
 
 // ── Telegram helpers ───────────────────────────────────────────────────────
@@ -373,15 +373,21 @@ async function processCallbacks(): Promise<void> {
           const draft = await fetchDraftById(draftId);
           await updateDraftStatus(draftId, "approved");
           await answerCallbackQuery(callbackId, "✅ Approved!");
-          let substackLine = "";
-          if (draft) {
-            const noteId = await publishSubstackNote(draft);
-            substackLine = noteId ? `\n📰 Substack note: ${noteId}` : "";
-          }
+          const articleUrl = draft ? `${TIMELINE_BASE_URL}/timeline/${draft.slug}` : "";
           await sendTelegramMessage(
             chatId,
-            `✅ <b>Draft approved</b>\nID: <code>${draftId}</code>\nApproved by @${username}${substackLine}`
+            `✅ <b>Draft approved</b>\nID: <code>${draftId}</code>\nApproved by @${username}` +
+            (articleUrl ? `\n🌐 <a href="${articleUrl}">View on egos.ia.br</a>` : "")
           );
+          // Send Substack-ready HTML as a separate message for manual copy-paste
+          if (draft) {
+            const html = markdownToSubstackHtml(draft);
+            const preview = html.slice(0, 3800);
+            await sendTelegramMessage(
+              chatId,
+              `📝 <b>Substack HTML ready</b> (copy → paste into editor):\n\n<pre>${escapeHtml(preview)}</pre>`
+            );
+          }
           notifiedDraftIds.delete(draftId);
           console.log(`  ✅ Approved: ${draftId}`);
           break;
