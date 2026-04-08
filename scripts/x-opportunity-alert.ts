@@ -245,26 +245,222 @@ const OPPORTUNITY_QUERIES: SearchQuery[] = [
     min_likes: 5,
     lang: "pt",
   },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // P0 — BRASIL ESPECÍFICO: Policial & Investigativo (852)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    query: '(delegacia OR inquérito OR investigação) (digital OR forense OR cibercrime) (PCMG OR PMMG OR PCESP OR PF) lang:pt',
+    category: "policial_digital_br",
+    priority: "P0",
+    product_match: "852",
+    template_suggestion: "OSINT-POL-1 — Plataforma policial",
+    min_likes: 3,
+    lang: "pt",
+  },
+  {
+    query: '(inteligência policial OR inteligência de fontes abertas) (PCMG OR PMMG OR "Polícia Civil" OR "Polícia Militar") lang:pt',
+    category: "inteligencia_policial_br",
+    priority: "P0",
+    product_match: "852",
+    template_suggestion: "OSINT-POL-2 — Inteligência policial",
+    min_likes: 3,
+    lang: "pt",
+  },
+  {
+    query: '(cadeia de custódia OR evidência digital OR laudo digital) Brasil (polícia OR delegacia OR perícia) lang:pt',
+    category: "cadeia_custodia_br",
+    priority: "P0",
+    product_match: "852",
+    template_suggestion: "OSINT-POL-3 — Custódia digital",
+    min_likes: 2,
+    lang: "pt",
+  },
+  {
+    query: '(cruzamento automático OR "cruzamento de dados") (policial OR investigação OR BO) Brasil lang:pt',
+    category: "cruzamento_policial_br",
+    priority: "P0",
+    product_match: "852",
+    template_suggestion: "OSINT-POL-4 — Cruzamento policial",
+    min_likes: 3,
+    lang: "pt",
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // P1 — BRASIL ESPECÍFICO: Username OSINT & Social Media (852, Guard Brasil)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    query: '(username search OR encontrar perfis) (OSINT OR investigação) (Blackbird OR Sherlock OR Maigret) Brasil lang:pt',
+    category: "username_osint_br",
+    priority: "P1",
+    product_match: "852",
+    template_suggestion: "OSINT-USER-1 — Busca username",
+    min_likes: 3,
+    lang: "pt",
+  },
+  {
+    query: '(encontrar pessoa OR identificar pessoa) (Redes Sociais OR Instagram OR Facebook) investigação Brasil lang:pt',
+    category: "pessoa_social_br",
+    priority: "P1",
+    product_match: "852",
+    template_suggestion: "OSINT-USER-2 — Busca pessoa",
+    min_likes: 3,
+    lang: "pt",
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // P1 — BRASIL ESPECÍFICO: Dados Públicos & Transparência (Eagle Eye, 852)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    query: '(Brasil.IO OR "Querido Diário" OR "Portal da Transparência") (consulta OR API OR dados) lang:pt',
+    category: "dados_publicos_br",
+    priority: "P1",
+    product_match: "Eagle Eye / 852",
+    template_suggestion: "OSINT-DATA-1 — Dados públicos",
+    min_likes: 3,
+    lang: "pt",
+  },
+  {
+    query: '(CNPJ OR CPF) (consulta OR "situação cadastral" OR "dados abertos") (Receita Federal OR Brasil.IO) lang:pt',
+    category: "cnpj_cpf_br",
+    priority: "P1",
+    product_match: "852 / Eagle Eye",
+    template_suggestion: "OSINT-DATA-2 — Consulta CNPJ/CPF",
+    min_likes: 3,
+    lang: "pt",
+  },
+  {
+    query: '(Escavador OR Jusbrasil) (processo OR consulta OR investigação) Brasil lang:pt',
+    category: "juridico_osint_br",
+    priority: "P1",
+    product_match: "852",
+    template_suggestion: "OSINT-JUR-1 — Pesquisa jurídica",
+    min_likes: 2,
+    lang: "pt",
+  },
+  {
+    query: '(monitorar gastos públicos OR contratos públicos OR licitação) (transparência OR Portal da Transparência) lang:pt',
+    category: "transparencia_gov_br",
+    priority: "P1",
+    product_match: "Eagle Eye",
+    template_suggestion: "GOV-4 — Monitoramento gov",
+    min_likes: 3,
+    lang: "pt",
+  },
 ];
 
 // ── Anti-Keyword Filter & Relevance Scoring ────────────────────────────────
 
 const ANTI_KEYWORDS = [
-  // Cursos/educação (está vendendo, não precisa de produto)
+  // Cursos/educação (B2C, não B2B) — Score penalty: -30 to -50
   "curso de", "mentoria", "sou coach", "aprenda a", "aula de", "workshop de",
-  // Marketing genérico
+  "certificação", "certificado", "formação", "capacitação", "treinamento",
+  "ebook gratuito", "download gratuito", "gratuito" + " curso", "aula gratuita",
+  "hotmart", "monetizze", "eduzz", "infoproduto", "produto digital",
+  "aprenda OSINT", "curso de OSINT", "curso forense", "curso LGPD",
+
+  // Marketing genérico / negócios não-alinhados — Score penalty: -40
   "marketing digital", "dropshipping", "day trade", "trader", "forex",
-  // Contratação (não é parceria)
+  "multi-nível", "marketing multinível", "renda extra", "ganhe dinheiro",
+  "oportunidade de negócio", "trabalhe em casa", "home office renda",
+  "consultor digital", "especialista em", "guru", "expert",
+
+  // Contratação / Recrutamento (não é parceria B2B) — Score penalty: -40
   "estou contratando", "vaga de emprego", "procuro estagiário", "clt",
-  // Conteúdo viral/genérico
-  "siga que eu sigo", "sdv", "follow back",
+  "vagas abertas", "estamos contratando", "oportunidade de carreira",
+  "recrutamento", "seleção", "rh contrata", "envie seu currículo",
+
+  // Conteúdo viral/genérico / Baixa prioridade — Score penalty: -10 to -25
+  "siga que eu sigo", "sdv", "follow back", "rt pra ajudar",
+  "humor", "meme", "thread engraçada", "off-topic",
+  "cotação", "preço do dólar", "cotação bitcoin",
+  "notícia", "últimas notícias", "urgente", "breaking news",
+  "clickbait", "viral", "trending", "thread",
+
+  // Eventos temporários — Score penalty: -20
+  "live agora", "live hoje", "webinar", "evento online",
 ];
 
 const MOAT_KEYWORDS = {
-  osint: ["osint", "inteligência de fontes abertas", "cruzamento de dados", "investigação digital", "forense", "análise forense"],
-  ai_framework: ["multi-agent", "agent framework", "ai orchestration", "llm workflow", "agent governance", "orquestração"],
-  govtech: ["govtech", "dados abertos", "transparência", "licitação", "controle social", "monitorar contratos"],
-  security: ["lgpd", "compliance", "proteção de dados", "vazamento", "breach", "pii"],
+  // Core OSINT & Investigacao
+  osint: [
+    "osint", "inteligência de fontes abertas", "cruzamento de dados",
+    "investigação digital", "forense", "análise forense", "cibercrime",
+    "análise de redes sociais", "monitoramento digital", "rastreamento online",
+    "cadeia de custódia digital", "laudo digital", "perícia em dispositivos",
+    "recuperação de dados", "análise de malware", "threat intelligence",
+    "infringement detection"
+  ],
+
+  // Username/Social OSINT Tools
+  osint_tools: [
+    "blackbird", "sherlock", "maigret", "whatsmyname", "username search",
+    "encontrar perfis", "mapeamento de redes", "osint username",
+    "hunt down social media"
+  ],
+
+  // AI & Agent Frameworks
+  ai_framework: [
+    "multi-agent", "agent framework", "ai orchestration", "llm workflow",
+    "agent governance", "orquestração", "ai governance", "agent runtime",
+    "mcp server", "model context protocol", "a2a protocol", "agent-to-agent",
+    "ai observability", "agent telemetry"
+  ],
+
+  // GovTech & Dados Abertos
+  govtech: [
+    "govtech", "dados abertos", "transparência", "licitação",
+    "controle social", "monitorar contratos", "pregão eletrônico",
+    "licitação inteligente", "pn.gov.br", "sicaf", "dispensa de licitação",
+    "edital de licitação", "rdc", "regime diferenciado"
+  ],
+
+  // LGPD, Compliance & Privacy
+  security: [
+    "lgpd", "compliance", "proteção de dados", "vazamento", "breach", "pii",
+    "vazamento de dados", "dados pessoais expostos", "anonimização",
+    "descarte seguro de dados", "privacidade forense",
+    "proteção em investigações", "validação de evidências",
+    "evidence integrity", "evidence provenance"
+  ],
+
+  // Brasil Policial & Investigativo
+  policial_br: [
+    "delegacia", "inquérito policial", "inquérito", "investigação criminal",
+    "polícia civil", "polícia militar", "pcmg", "pmmg", "pcesp", "pmesp",
+    "polícia federal", "pf digital", "inteligência policial",
+    "evidência digital", "perícia criminal", "laudo pericial",
+    "ipl", "boletim de ocorrência", "ocorrência policial",
+    "sisp", "intelego", "sinesp"
+  ],
+
+  // Brasil Jurídico
+  juridico_br: [
+    "ministério público", "mpmg", "justiça federal", "tjmg",
+    "processo digital", "pje", "escavador", "jusbrasil",
+    "diário oficial", "doe", "dou", "laudo pericial"
+  ],
+
+  // Brasil Dados Públicos
+  dados_publicos_br: [
+    "brasil.io", "querido diário", "portal da transparência",
+    "cnpj dados abertos", "sócios de empresas", "cnpj consulta",
+    "situação cadastral", "receita federal dados",
+    "dados públicos", "informação pública", "lai",
+    "solicitação lai", "tse", "divulgacandcontas"
+  ],
+
+  // Domínio & Infraestrutura
+  infra_osint: [
+    "registro.br", "whois", "rdap", "theharvester", "spiderfoot",
+    "recon-ng", "shodan", "subdomain enumeration"
+  ],
+
+  // GEOINT & Metadados
+  geoint: [
+    "exiftool", "wayback machine", "google earth",
+    "mapillary", "sentinel hub", "eo browser", "terrabrasilis", "inpe"
+  ],
 };
 
 function isRelevantPost(text: string, category: string): { relevant: boolean; score: number; reasons: string[] } {

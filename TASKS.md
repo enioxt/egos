@@ -11,8 +11,6 @@
 **✅ DONE 2026-04-07/08:** X-COM-001..005 (alert+approval bots, setup, SSOT templates, roadmap) | X-COM-018..024 (LLM analysis layer DashScope+OpenRouter, recordFeedback, HTML format, diagnostic — all in `scripts/x-opportunity-alert.ts`)
 
 **P0 — Deploy + Core (Esta semana):**
-- [ ] **X-COM-006**: Adaptar setup script para `/opt/x-automation/` (evitar conflito com `/opt/xmcp` existente)
-- [ ] **X-COM-007**: Deploy no VPS — testar alertas end-to-end Telegram/WhatsApp
 - [ ] **X-COM-008**: x-smart-scheduler.ts — análise de audiência para melhores horários
 - [ ] **X-COM-009**: x-evergreen-recycler.ts — recompartilhamento inteligente de top posts
 
@@ -256,8 +254,6 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 ### Partnership & Distribution Strategy (2026-04-05)
 **Compressed:** See `docs/GTM_SSOT.md` + `docs/MONETIZATION_SSOT.md` for full roadmap.
 - [ ] **PART-001**: Publish npm + ProductHunt (M-007 emails first)
-- [/] **M-007**: 3/5 enviados ✅ (Nubank, Memed, RD Station). 2 falharam — endereços inválidos: contact@lgpd-brasil.com.br (domínio não existe), contato@rocketseat.com.br (não aceita). Buscar emails corretos.
-- [ ] **M-007-FIX**: Encontrar emails corretos para Rocketseat (site: rocketseat.com.br) e LGPD Brasil (site: lgpdbrasil.com.br ou lgpd-brasil.info)
 - [ ] **PART-016**: Decide PARTNER-D1 co-founder model
 
 ---
@@ -275,7 +271,6 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 **INC-001 (2026-04-06):** Force-push incident — recovered. Mitigations: `.husky/pre-push` blocks, GitHub branch protection enabled, CLAUDE.md §25 added.
 
 **P0 — Social & Outreach:**
-- [/] **M-007**: 3/5 enviados (Nubank, Memed, RD Station). Ver M-007-FIX acima.
 - [ ] **GTM-002**: X.com thread demo (4 tweets, drafts ready)
 - [ ] **GTM-001**: x-reply-bot search tuning (lgpd/anpd/dpo keywords)
 
@@ -400,7 +395,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 **Source:** Grok analysis. Decisions: Graphify=adopt patterns only (codebase-memory-mcp overlap 80%); A-Evolve=bookmark pós PMF; XMCP=install now.
 
 **XMCP — X MCP Server oficial (xdevplatform/xmcp):**
-- [ ] **XMCP-002** [UNBLOCKED]: Atualizar /opt/xmcp/.env no VPS com X keys rotados + iniciar serviço
+- [/] **XMCP-002**: Keys regeneradas e .env atualizado ✅ 2026-04-07. Serviço NÃO está rodando — `start.sh` precisa ser executado. [PENDENTE: iniciar processo]
 - [ ] **SOCIAL-003 [P1]**: x-reply-bot — busca por "LGPD", "licitação", "split payment", "análise de vínculos"
 - [ ] **SOCIAL-004 [P1]**: Fila Supabase de DMs candidatas para aprovação manual via Telegram antes de enviar
 - [ ] **SOCIAL-005 [P2]**: Reply automático a @mentions com link produto relevante (aprovação manual)
@@ -582,5 +577,4 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 - [ ] **TEST-011 [P2]**: Test Analytics Dashboard — no HQ: cobertura por repo, tempo médio de execução, taxa de falha, economia de tempo com auto-tests
 - [ ] **TEST-012 [P2]**: Regression Prediction — ML simples para prever quais arquivos têm maior risco de regressão baseado em histórico de mudanças
 - [ ] **TEST-013 [P2]**: Integration com LLM-MON — usar modelos mais baratos/free do OpenRouter para geração de testes quando qualidade for equivalente
-
 

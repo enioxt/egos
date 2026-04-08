@@ -186,3 +186,11 @@
 - [x] **GUARD-BUG-006**: ✅ GUARD_VERSION corrigido para '0.2.2', package.json bumped para 0.2.3.
 - [x] **GUARD-SEC-001**: ✅ middleware.ts — Basic Auth em /dashboard-v{1,2,3} + /x-dashboard. DASHBOARD_SECRET env var necessária no Vercel.
 - [x] **XMCP-001 [DONE 2026-04-07]**: X credentials rotados — todos 5 tokens válidos em ~/.egos/secrets.env
+
+## Archived 2026-04-08 (5 tasks)
+
+- [x] **X-COM-006**: ✅ 2026-04-08 — `/opt/x-automation/` ativo, sem conflito com `/opt/xmcp`
+- [x] **X-COM-007**: ✅ 2026-04-08 — Alertas funcionando. 3 candidatos hoje, 13 searches/run. Cron `0 */2 * * *` ativo.
+- [x] **M-007**: ✅ 2026-04-08 — TODOS enviados. 3 originais (Nubank, Memed, RD Station) + 2 corrigidos (Rocketseat + LGPD Brasil). Aguardando respostas.
+- [x] **M-007-FIX**: ✅ 2026-04-08 — Emails corretos encontrados e enviados pelo Enio.
+- [x] **M-007**: ✅ 2026-04-08 — TODOS enviados. Ver acima.

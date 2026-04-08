@@ -2503,3 +2503,8 @@ Direct messages that reference someone's specific post + show real products do.
 
 **Automation rule:** Never auto-send DMs. Auto-discover candidates → manual review → manual send.
 
+
+### Auto-harvested — dbe4f76 (2026-04-08)
+
+- post-commit hooks must always exit 0 — hook failure blocks commit, which is worse than missing SSOT sync
+- grep -c returns exit 1 on zero matches — use wc -l for counting in cron scripts to avoid false || fallback double-output
