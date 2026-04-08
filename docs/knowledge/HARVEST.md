@@ -2595,3 +2595,22 @@ Orchestrator (Claude Code): receives summary, Enio approves or rejects per-repo
 
 **Repos in propagation manifest:** arch, INPI, santiago, carteira-livre, commons, egos-self, egos-inteligencia, smartbuscas, br-acc, egos-lab, 852, policia
 
+
+---
+
+## KB-030: INC-003 — Tasks Phantom (Phantom Task Anti-Pattern) (2026-04-08)
+
+**Incidente:** Tasks X-COM-008/009, KB-019, GTM-016/HQC-009 foram listadas como pendentes mas já existiam no codebase.
+
+**Causa raiz tripla:**
+1. Sessão adiciona task reativa sem verificar codebase → artifact já existia
+2. Implementação não marca `[x]` no mesmo commit → fica como "pendente" para sempre
+3. IDs duplicados (GTM-016 + HQC-009 = mesma coisa) → checklist infla
+
+**Solução (§31 CLAUDE.md):**
+- Pré-adição: `find + grep + git log` antes de criar qualquer task
+- Pós-implementação: mark `[x]` no mesmo commit, nunca diferir
+- Pré-checklist: spot-check top 5 P0/P1 com `ls`/`grep`
+- Deduplicação: `grep -i "keyword" TASKS.md` antes de criar novo ID
+
+**Impacto sem correção:** Usuário gasta tempo investigando tasks que já foram feitas. Confiança no sistema diminui.
