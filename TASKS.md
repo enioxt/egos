@@ -574,10 +574,10 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 | | TL-002 | Agent: article-writer.ts — reads commit/diff, calls qwen-plus, writes draft | [ ] |
 | | TL-003 | Script: publish.sh manual trigger | [ ] |
 | | TL-004 | Telegram bot: approve flow (✅/✏️/❌) with 48h timeout | [ ] |
-| **2: Site público** | TL-005 | Vite app: apps/egos-site — /timeline + /timeline/[slug] | [ ] |
-| | TL-006 | Route: GET /timeline — list articles paginated | [ ] |
-| | TL-007 | Route: GET /timeline/[slug] — render article + metrics | [ ] |
-| | TL-008 | Caddy: egos.ia.br/timeline/* → egos-site:3070 | [ ] |
+| **2: Site público** | TL-005 | Bun/Hono: apps/egos-site — /timeline + /timeline/[slug] | [x] |
+| | TL-006 | Route: GET /timeline — list articles paginated | [x] |
+| | TL-007 | Route: GET /timeline/[slug] — render article + metrics | [x] |
+| | TL-008 | Caddy: egos.ia.br → egos-site:3071 — live | [x] |
 | **3: Automação** | TL-009 | timeline-cron-daily.sh — scan commits 24h (cron 03:00 UTC) | [ ] |
 | | TL-010 | Crontab: add timeline-cron-daily.sh | [ ] |
 | | TL-011 | auto-disseminate.sh: detect `PUBLISH:` in commit body | [ ] |
