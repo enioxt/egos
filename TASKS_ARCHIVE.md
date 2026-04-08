@@ -194,3 +194,8 @@
 - [x] **M-007**: ✅ 2026-04-08 — TODOS enviados. 3 originais (Nubank, Memed, RD Station) + 2 corrigidos (Rocketseat + LGPD Brasil). Aguardando respostas.
 - [x] **M-007-FIX**: ✅ 2026-04-08 — Emails corretos encontrados e enviados pelo Enio.
 - [x] **M-007**: ✅ 2026-04-08 — TODOS enviados. Ver acima.
+
+## Archived 2026-04-08 (2 tasks)
+
+- [x] GTM-002-unblock: Post Guard Brasil thread after XMCP-001 ✅ 2026-04-08
+- [x] **GTM-002-unblock**: Thread Guard Brasil (4 tweets prontos em GTM_SSOT.md §4.1) — BLOQUEADO por X credentials 401. Usar `bun /tmp/post-guard-thread.ts` após XMCP-001. ✅ 2026-04-08

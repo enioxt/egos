@@ -241,7 +241,6 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 **BLOCKER:** XMCP-001 (X credentials 401 — regenerate at developer.twitter.com first)
 - [ ] X-009: Trending topic scanner (hourly, keywords vs capabilities)
 - [ ] X-012: Thread scheduler (multi-tweet, 2-min gaps) — dep XMCP-001
-- [ ] GTM-002-unblock: Post Guard Brasil thread after XMCP-001
 
 ---
 
@@ -271,7 +270,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 **INC-001 (2026-04-06):** Force-push incident — recovered. Mitigations: `.husky/pre-push` blocks, GitHub branch protection enabled, CLAUDE.md §25 added.
 
 **P0 — Social & Outreach:**
-- [ ] **GTM-002**: X.com thread demo (4 tweets, drafts ready)
+- [ ] **GTM-002**: X.com thread demo (4 tweets, drafts ready) — aguarda XMCP-002 start.sh
 - [ ] **GTM-001**: x-reply-bot search tuning (lgpd/anpd/dpo keywords)
 
 **Guard Brasil Bugs — Status (2026-04-07):**
@@ -402,7 +401,6 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 - [ ] **SOCIAL-006 [P2]**: HQ dashboard tab social — candidatos DM, DMs enviadas, respostas
 - [ ] **XMCP-003** (dep: XMCP-002): Adicionar UFW rule VPS: `ufw allow from 172.19.0.0/16 to any port 8000`. Ativar x-mcp no openclaw.json (remover nota INACTIVE).
 - [ ] **XMCP-004** (dep: XMCP-002): Criar skill `egos-x-researcher` — usa XMCP searchPostsRecent para monitorar: lgpd, anpd, dpo, "proteção de dados". Saída → Supabase + HQ.
-- [ ] **GTM-002-unblock**: Thread Guard Brasil (4 tweets prontos em GTM_SSOT.md §4.1) — BLOQUEADO por X credentials 401. Usar `bun /tmp/post-guard-thread.ts` após XMCP-001.
 
 **Graphify patterns (adotar sem instalar a lib):**
 - [ ] **GRF-001 (P2)**: Criar CCR job `graph-report` — usa codebase-memory-mcp query_graph para gerar GRAPH_REPORT.md semanal (god nodes, surprising connections, clusters). Output em `docs/jobs/`.

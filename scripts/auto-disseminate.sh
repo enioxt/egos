@@ -30,9 +30,13 @@ COMMIT_SUBJECT=$(git -C "$REPO_ROOT" log -1 --format="%s" 2>/dev/null || echo ""
 echo "[auto-disseminate] commit=$COMMIT_HASH date=$DATE"
 
 # ── 1. Task ID extraction ────────────────────────────────────────────────────
-# Matches: X-COM-018, HERMES-005, DRIFT-012, M-007, ARR-001, GH-033, etc.
-# Also: HERMES-005-P4 (with phase suffix)
-TASK_IDS=$(echo "$COMMIT_MSG" | grep -oE '\b[A-Z][A-Z0-9_]+-[0-9]+(-[A-Z][A-Z0-9]*)?\b' \
+# Only scan the SUBJECT LINE (first line) for task IDs — not the body.
+# Body may reference tasks as context ("Next P0: TASK-001") without completing them.
+# To mark a task done: include its ID in the commit SUBJECT.
+# Examples:
+#   feat(hermes): X-COM-018 LLM analysis layer    ← marks X-COM-018 done
+#   fix(guard): GUARD-BUG-003 nome pattern fix     ← marks GUARD-BUG-003 done
+TASK_IDS=$(echo "$COMMIT_SUBJECT" | grep -oE '\b[A-Z][A-Z0-9_]+-[0-9]+(-[A-Z][A-Z0-9]*)?\b' \
   | grep -vE '^(BRT|UTC|VPS|API|TLS|SQL|DNS|CDN|RAM|CPU|LLM|SSO|JWT|PII|URL|SSH|GTM|MCP|CCR|SSOT|LGPD|MVP|PRs?|RFC|EOF|HTTP|YAML|JSON|HTML|CORS|REPO|TODO|DONE|WARN|INFO|CRIT|NULL|TRUE|FALSE)$' \
   | sort -u || true)
 
