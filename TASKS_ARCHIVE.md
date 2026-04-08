@@ -177,7 +177,7 @@
 - [x] **RATIO-VPS-002 [P2]**: ✅ br-acc Neo4j healthy (bolt://bracc-neo4j:7687, 10d uptime, healthy status).
 - [x] **RATIO-VPS-003 [P1]**: ✅ Caddy routes live (ratio.egos.ia.br + ratio-api.egos.ia.br, both containers up ~1h).
 
-## Archived 2026-04-07 (7 tasks)
+## Archived 2026-04-08 (7 tasks)
 
 - [x] **GUARD-BUG-001**: ✅ RG detecta `12.345.678-9` sem keyword. Verificado em prod. Commit 185b0f7.
 - [x] **GUARD-BUG-003**: ✅ DEFAULT_NAME_PATTERN expandido — Nome:, Paciente:, Requerente: + 11 labels. v0.2.3.
@@ -189,8 +189,18 @@
 
 ## Archived 2026-04-08 (5 tasks)
 
-- [x] **X-COM-018**: X_MOAT_KEYWORDS.md — Base SSOT de keywords alinhadas ao moat (OSINT/investigações/IA)
+ [x] **X-COM-018**: X_MOAT_KEYWORDS.md — Base SSOT de keywords alinhadas ao moat (OSINT/investigações/IA)
 - [x] **X-COM-019**: Refinar queries x-opportunity-alert.ts — Foco em OSINT, cruzamento de dados, AI frameworks
 - [x] **X-COM-020**: Anti-keyword filter — Excluir cursos, mentorias, marketing digital genérico
 - [x] **X-COM-021**: Relevance scoring system — Score 0-100 baseado em moat keywords
 - [x] **X-COM-022**: Feedback learning loop — Tracking de performance por query para auto-melhoria
+ [x] **X-COM-006**: ✅ 2026-04-08 — `/opt/x-automation/` ativo, sem conflito com `/opt/xmcp`
+- [x] **X-COM-007**: ✅ 2026-04-08 — Alertas funcionando. 3 candidatos hoje, 13 searches/run. Cron `0 */2 * * *` ativo.
+- [x] **M-007**: ✅ 2026-04-08 — TODOS enviados. 3 originais (Nubank, Memed, RD Station) + 2 corrigidos (Rocketseat + LGPD Brasil). Aguardando respostas.
+- [x] **M-007-FIX**: ✅ 2026-04-08 — Emails corretos encontrados e enviados pelo Enio.
+- [x] **M-007**: ✅ 2026-04-08 — TODOS enviados. Ver acima.
+
+## Archived 2026-04-08 (2 tasks)
+
+- [x] GTM-002-unblock: Post Guard Brasil thread after XMCP-001 ✅ 2026-04-08
+- [x] **GTM-002-unblock**: Thread Guard Brasil (4 tweets prontos em GTM_SSOT.md §4.1) — BLOQUEADO por X credentials 401. Usar `bun /tmp/post-guard-thread.ts` após XMCP-001. ✅ 2026-04-08

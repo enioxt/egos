@@ -1,19 +1,19 @@
 #!/usr/bin/env bun
-// 🔔 X Opportunity Alert System
-// 
-// Monitora X.com por oportunidades relevantes usando cota gratuita da API
-// Envia alertas via WhatsApp/Telegram quando encontra posts/DMs candidatos
-// 
+// 🔔 X Opportunity Alert System v2 — OSINT/Moat Focused
+//
+// Monitora X.com por oportunidades alinhadas ao moat EGOS
+// Envia alertas via WhatsApp/Telegram quando encontra posts candidatos
+//
 // Cota X API (Free tier):
 // - 500 posts/month read (≈ 16/dia)
 // - 500 posts/month write (≈ 16/dia)
 // - 10 searches/15min (≈ 960/dia)
-// 
+//
 // Estratégia: Busca a cada 2h (12x/dia), máx 10 queries/run = 120 buscas/dia
 // Alertas: imediatos via WhatsApp/Telegram para aprovação manual
-// 
+//
 // Deploy: VPS cron "0 */2 * * *" (a cada 2h)
-// 
+//
 // Usage:
 //   bun scripts/x-opportunity-alert.ts              # run (dry-run if no keys)
 //   bun scripts/x-opportunity-alert.ts --dry-run    # never sends, only logs
@@ -28,10 +28,13 @@ const SUPABASE_URL = process.env.SUPABASE_URL ?? "";
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? "";
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN ?? "";
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_ADMIN_CHAT_ID ?? "";
-const EVOLUTION_API_URL = process.env.EVOLUTION_API_URL ?? ""; // WhatsApp via Evolution API
+const EVOLUTION_API_URL = process.env.EVOLUTION_API_URL ?? "";
 const EVOLUTION_API_KEY = process.env.EVOLUTION_API_KEY ?? "";
 const WHATSAPP_INSTANCE = process.env.WHATSAPP_INSTANCE ?? "egos-alerts";
 const STATE_FILE = "/tmp/x-opportunity-state.json";
+const DASHSCOPE_API_KEY = process.env.ALIBABA_DASHSCOPE_API_KEY ?? "";
+const DASHSCOPE_BASE_URL = process.env.ALIBABA_DASHSCOPE_BASE_URL ?? "https://dashscope-intl.aliyuncs.com/compatible-mode/v1";
+const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY ?? "";
 
 // ── Rate Limiting ─────────────────────────────────────────────────────────
 
@@ -53,35 +56,51 @@ interface Candidate {
   product_match: string;
   template_suggestion: string;
   found_at: string;
-  status: "new" | "alerted" | "approved" | "rejected" | "sent";
+  status: "new" | "alerted" | "replied" | "archived" | "rejected";
 }
 
-const MAX_SEARCHES_PER_DAY = 120; // 10 queries × 12 runs
-const MAX_ALERTS_PER_DAY = 20;
-const MAX_CANDIDATES_STORED = 50;
+const MAX_SEARCHES_PER_DAY = 100;
+const MAX_ALERTS_PER_DAY = 10;
+const MAX_CANDIDATES_STORED = 200;
 
 function loadState(): OpportunityState {
-  const today = new Date().toISOString().slice(0, 10);
-  if (existsSync(STATE_FILE)) {
-    try {
-      const s = JSON.parse(readFileSync(STATE_FILE, "utf8")) as OpportunityState;
-      if (s.date === today) return s;
-    } catch { }
+  if (!existsSync(STATE_FILE)) {
+    return {
+      date: new Date().toISOString().slice(0, 10),
+      searches_today: 0,
+      alerts_sent: 0,
+      last_search_time: new Date().toISOString(),
+      candidates_found: [],
+    };
   }
-  return {
-    date: today,
-    searches_today: 0,
-    alerts_sent: 0,
-    last_search_time: "",
-    candidates_found: [],
-  };
+
+  try {
+    const raw = JSON.parse(readFileSync(STATE_FILE, "utf8"));
+    const today = new Date().toISOString().slice(0, 10);
+
+    if (raw.date !== today) {
+      raw.date = today;
+      raw.searches_today = 0;
+      raw.alerts_sent = 0;
+    }
+
+    return raw;
+  } catch {
+    return {
+      date: new Date().toISOString().slice(0, 10),
+      searches_today: 0,
+      alerts_sent: 0,
+      last_search_time: new Date().toISOString(),
+      candidates_found: [],
+    };
+  }
 }
 
-function saveState(s: OpportunityState) {
-  writeFileSync(STATE_FILE, JSON.stringify(s, null, 2));
+function saveState(state: OpportunityState) {
+  writeFileSync(STATE_FILE, JSON.stringify(state, null, 2));
 }
 
-// ── Search Queries — Oportunidades de Negócio ──────────────────────────────
+// ── Search Queries — MOAT Focused ───────────────────────────────────────────
 
 interface SearchQuery {
   query: string;
@@ -226,26 +245,222 @@ const OPPORTUNITY_QUERIES: SearchQuery[] = [
     min_likes: 5,
     lang: "pt",
   },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // P0 — BRASIL ESPECÍFICO: Policial & Investigativo (852)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    query: '(delegacia OR inquérito OR investigação) (digital OR forense OR cibercrime) (PCMG OR PMMG OR PCESP OR PF) lang:pt',
+    category: "policial_digital_br",
+    priority: "P0",
+    product_match: "852",
+    template_suggestion: "OSINT-POL-1 — Plataforma policial",
+    min_likes: 3,
+    lang: "pt",
+  },
+  {
+    query: '(inteligência policial OR inteligência de fontes abertas) (PCMG OR PMMG OR "Polícia Civil" OR "Polícia Militar") lang:pt',
+    category: "inteligencia_policial_br",
+    priority: "P0",
+    product_match: "852",
+    template_suggestion: "OSINT-POL-2 — Inteligência policial",
+    min_likes: 3,
+    lang: "pt",
+  },
+  {
+    query: '(cadeia de custódia OR evidência digital OR laudo digital) Brasil (polícia OR delegacia OR perícia) lang:pt',
+    category: "cadeia_custodia_br",
+    priority: "P0",
+    product_match: "852",
+    template_suggestion: "OSINT-POL-3 — Custódia digital",
+    min_likes: 2,
+    lang: "pt",
+  },
+  {
+    query: '(cruzamento automático OR "cruzamento de dados") (policial OR investigação OR BO) Brasil lang:pt',
+    category: "cruzamento_policial_br",
+    priority: "P0",
+    product_match: "852",
+    template_suggestion: "OSINT-POL-4 — Cruzamento policial",
+    min_likes: 3,
+    lang: "pt",
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // P1 — BRASIL ESPECÍFICO: Username OSINT & Social Media (852, Guard Brasil)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    query: '(username search OR encontrar perfis) (OSINT OR investigação) (Blackbird OR Sherlock OR Maigret) Brasil lang:pt',
+    category: "username_osint_br",
+    priority: "P1",
+    product_match: "852",
+    template_suggestion: "OSINT-USER-1 — Busca username",
+    min_likes: 3,
+    lang: "pt",
+  },
+  {
+    query: '(encontrar pessoa OR identificar pessoa) (Redes Sociais OR Instagram OR Facebook) investigação Brasil lang:pt',
+    category: "pessoa_social_br",
+    priority: "P1",
+    product_match: "852",
+    template_suggestion: "OSINT-USER-2 — Busca pessoa",
+    min_likes: 3,
+    lang: "pt",
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // P1 — BRASIL ESPECÍFICO: Dados Públicos & Transparência (Eagle Eye, 852)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    query: '(Brasil.IO OR "Querido Diário" OR "Portal da Transparência") (consulta OR API OR dados) lang:pt',
+    category: "dados_publicos_br",
+    priority: "P1",
+    product_match: "Eagle Eye / 852",
+    template_suggestion: "OSINT-DATA-1 — Dados públicos",
+    min_likes: 3,
+    lang: "pt",
+  },
+  {
+    query: '(CNPJ OR CPF) (consulta OR "situação cadastral" OR "dados abertos") (Receita Federal OR Brasil.IO) lang:pt',
+    category: "cnpj_cpf_br",
+    priority: "P1",
+    product_match: "852 / Eagle Eye",
+    template_suggestion: "OSINT-DATA-2 — Consulta CNPJ/CPF",
+    min_likes: 3,
+    lang: "pt",
+  },
+  {
+    query: '(Escavador OR Jusbrasil) (processo OR consulta OR investigação) Brasil lang:pt',
+    category: "juridico_osint_br",
+    priority: "P1",
+    product_match: "852",
+    template_suggestion: "OSINT-JUR-1 — Pesquisa jurídica",
+    min_likes: 2,
+    lang: "pt",
+  },
+  {
+    query: '(monitorar gastos públicos OR contratos públicos OR licitação) (transparência OR Portal da Transparência) lang:pt',
+    category: "transparencia_gov_br",
+    priority: "P1",
+    product_match: "Eagle Eye",
+    template_suggestion: "GOV-4 — Monitoramento gov",
+    min_likes: 3,
+    lang: "pt",
+  },
 ];
 
 // ── Anti-Keyword Filter & Relevance Scoring ────────────────────────────────
 
 const ANTI_KEYWORDS = [
-  // Cursos/educação (está vendendo, não precisa de produto)
+  // Cursos/educação (B2C, não B2B) — Score penalty: -30 to -50
   "curso de", "mentoria", "sou coach", "aprenda a", "aula de", "workshop de",
-  // Marketing genérico
+  "certificação", "certificado", "formação", "capacitação", "treinamento",
+  "ebook gratuito", "download gratuito", "gratuito" + " curso", "aula gratuita",
+  "hotmart", "monetizze", "eduzz", "infoproduto", "produto digital",
+  "aprenda OSINT", "curso de OSINT", "curso forense", "curso LGPD",
+
+  // Marketing genérico / negócios não-alinhados — Score penalty: -40
   "marketing digital", "dropshipping", "day trade", "trader", "forex",
-  // Contratação (não é parceria)
+  "multi-nível", "marketing multinível", "renda extra", "ganhe dinheiro",
+  "oportunidade de negócio", "trabalhe em casa", "home office renda",
+  "consultor digital", "especialista em", "guru", "expert",
+
+  // Contratação / Recrutamento (não é parceria B2B) — Score penalty: -40
   "estou contratando", "vaga de emprego", "procuro estagiário", "clt",
-  // Conteúdo viral/genérico
-  "siga que eu sigo", "sdv", "follow back",
+  "vagas abertas", "estamos contratando", "oportunidade de carreira",
+  "recrutamento", "seleção", "rh contrata", "envie seu currículo",
+
+  // Conteúdo viral/genérico / Baixa prioridade — Score penalty: -10 to -25
+  "siga que eu sigo", "sdv", "follow back", "rt pra ajudar",
+  "humor", "meme", "thread engraçada", "off-topic",
+  "cotação", "preço do dólar", "cotação bitcoin",
+  "notícia", "últimas notícias", "urgente", "breaking news",
+  "clickbait", "viral", "trending", "thread",
+
+  // Eventos temporários — Score penalty: -20
+  "live agora", "live hoje", "webinar", "evento online",
 ];
 
 const MOAT_KEYWORDS = {
-  osint: ["osint", "inteligência de fontes abertas", "cruzamento de dados", "investigação digital", "forense", "análise forense"],
-  ai_framework: ["multi-agent", "agent framework", "ai orchestration", "llm workflow", "agent governance", "orquestração"],
-  govtech: ["govtech", "dados abertos", "transparência", "licitação", "controle social", "monitorar contratos"],
-  security: ["lgpd", "compliance", "proteção de dados", "vazamento", "breach", "pii"],
+  // Core OSINT & Investigacao
+  osint: [
+    "osint", "inteligência de fontes abertas", "cruzamento de dados",
+    "investigação digital", "forense", "análise forense", "cibercrime",
+    "análise de redes sociais", "monitoramento digital", "rastreamento online",
+    "cadeia de custódia digital", "laudo digital", "perícia em dispositivos",
+    "recuperação de dados", "análise de malware", "threat intelligence",
+    "infringement detection"
+  ],
+
+  // Username/Social OSINT Tools
+  osint_tools: [
+    "blackbird", "sherlock", "maigret", "whatsmyname", "username search",
+    "encontrar perfis", "mapeamento de redes", "osint username",
+    "hunt down social media"
+  ],
+
+  // AI & Agent Frameworks
+  ai_framework: [
+    "multi-agent", "agent framework", "ai orchestration", "llm workflow",
+    "agent governance", "orquestração", "ai governance", "agent runtime",
+    "mcp server", "model context protocol", "a2a protocol", "agent-to-agent",
+    "ai observability", "agent telemetry"
+  ],
+
+  // GovTech & Dados Abertos
+  govtech: [
+    "govtech", "dados abertos", "transparência", "licitação",
+    "controle social", "monitorar contratos", "pregão eletrônico",
+    "licitação inteligente", "pn.gov.br", "sicaf", "dispensa de licitação",
+    "edital de licitação", "rdc", "regime diferenciado"
+  ],
+
+  // LGPD, Compliance & Privacy
+  security: [
+    "lgpd", "compliance", "proteção de dados", "vazamento", "breach", "pii",
+    "vazamento de dados", "dados pessoais expostos", "anonimização",
+    "descarte seguro de dados", "privacidade forense",
+    "proteção em investigações", "validação de evidências",
+    "evidence integrity", "evidence provenance"
+  ],
+
+  // Brasil Policial & Investigativo
+  policial_br: [
+    "delegacia", "inquérito policial", "inquérito", "investigação criminal",
+    "polícia civil", "polícia militar", "pcmg", "pmmg", "pcesp", "pmesp",
+    "polícia federal", "pf digital", "inteligência policial",
+    "evidência digital", "perícia criminal", "laudo pericial",
+    "ipl", "boletim de ocorrência", "ocorrência policial",
+    "sisp", "intelego", "sinesp"
+  ],
+
+  // Brasil Jurídico
+  juridico_br: [
+    "ministério público", "mpmg", "justiça federal", "tjmg",
+    "processo digital", "pje", "escavador", "jusbrasil",
+    "diário oficial", "doe", "dou", "laudo pericial"
+  ],
+
+  // Brasil Dados Públicos
+  dados_publicos_br: [
+    "brasil.io", "querido diário", "portal da transparência",
+    "cnpj dados abertos", "sócios de empresas", "cnpj consulta",
+    "situação cadastral", "receita federal dados",
+    "dados públicos", "informação pública", "lai",
+    "solicitação lai", "tse", "divulgacandcontas"
+  ],
+
+  // Domínio & Infraestrutura
+  infra_osint: [
+    "registro.br", "whois", "rdap", "theharvester", "spiderfoot",
+    "recon-ng", "shodan", "subdomain enumeration"
+  ],
+
+  // GEOINT & Metadados
+  geoint: [
+    "exiftool", "wayback machine", "google earth",
+    "mapillary", "sentinel hub", "eo browser", "terrabrasilis", "inpe"
+  ],
 };
 
 function isRelevantPost(text: string, category: string): { relevant: boolean; score: number; reasons: string[] } {
@@ -347,53 +562,155 @@ async function searchX(query: string, maxResults: number = 10): Promise<any[]> {
   }
 
   try {
-    const response = await fetch(
-      `https://api.twitter.com/2/tweets/search/recent?query=${encodeURIComponent(query)}&max_results=${maxResults}&tweet.fields=author_id,public_metrics,created_at,lang&expansions=author_id&user.fields=username,name`,
-      {
-        headers: {
-          Authorization: `Bearer ${bearerToken}`,
-        },
-      }
-    );
+    const url = new URL("https://api.twitter.com/2/tweets/search/recent");
+    url.searchParams.set("query", query);
+    url.searchParams.set("max_results", String(maxResults));
+    url.searchParams.set("tweet.fields", "public_metrics,author_id,created_at");
+    url.searchParams.set("expansions", "author_id");
+    url.searchParams.set("user.fields", "username,public_metrics");
+
+    const response = await fetch(url.toString(), {
+      headers: { Authorization: `Bearer ${bearerToken}` },
+    });
 
     if (!response.ok) {
-      console.error(`❌ X API error: ${response.status} ${await response.text()}`);
+      const error = await response.text();
+      console.error(`❌ X API error: ${response.status} ${error}`);
       return [];
     }
 
     const data = await response.json();
-    return data.data || [];
+    const users = data.includes?.users || [];
+    const tweets = data.data || [];
+
+    return tweets.map((tweet: any) => {
+      const user = users.find((u: any) => u.id === tweet.author_id);
+      return {
+        id: tweet.id,
+        text: tweet.text,
+        username: user?.username || "unknown",
+        created_at: tweet.created_at,
+        public_metrics: tweet.public_metrics || {},
+        user_metrics: user?.public_metrics || {},
+      };
+    });
   } catch (error) {
     console.error("❌ Erro na busca X:", error);
     return [];
   }
 }
 
-// ── Alert Senders ─────────────────────────────────────────────────────────
+// ── LLM Analysis (DashScope qwen-plus → OpenRouter fallback) ──────────────
 
-async function sendTelegramAlert(candidate: Candidate): Promise<boolean> {
+interface AIAnalysis {
+  summary: string;      // 1-line pt-BR
+  diagnosis: string;    // 2-3 sentences with context
+  recommendation: "vale" | "nao_vale" | "incerto";
+  fit_score: number;    // 0-100
+  provider: string;
+}
+
+async function analyzeWithLLM(candidate: Candidate): Promise<AIAnalysis | null> {
+  const prompt = `Analise esta oportunidade encontrada no X.com para a empresa EGOS (plataforma de agentes IA + Guard Brasil - proteção de dados LGPD).
+
+Post de @${candidate.author}:
+"${candidate.text.slice(0, 400)}"
+
+Categoria detectada: ${candidate.category}
+Produto EGOS relevante: ${candidate.product_match}
+
+Responda em JSON com exatamente estes campos:
+{
+  "summary": "<1 linha em pt-BR resumindo o post e oportunidade>",
+  "diagnosis": "<2-3 frases: contexto do autor, dor identificada, como EGOS pode ajudar>",
+  "recommendation": "<vale|nao_vale|incerto>",
+  "fit_score": <0-100 fit com EGOS>
+}`;
+
+  const body = JSON.stringify({
+    model: "qwen-plus",
+    messages: [{ role: "user", content: prompt }],
+    max_tokens: 300,
+    temperature: 0.3,
+  });
+
+  // Primary: Alibaba DashScope
+  if (DASHSCOPE_API_KEY) {
+    try {
+      const res = await fetch(`${DASHSCOPE_BASE_URL}/chat/completions`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${DASHSCOPE_API_KEY}` },
+        body,
+        signal: AbortSignal.timeout(10000),
+      });
+      if (res.ok) {
+        const data = await res.json() as { choices?: { message?: { content?: string } }[] };
+        const content = data.choices?.[0]?.message?.content ?? "";
+        const jsonMatch = content.match(/\{[\s\S]*\}/);
+        if (jsonMatch) {
+          const parsed = JSON.parse(jsonMatch[0]) as Omit<AIAnalysis, "provider">;
+          return { ...parsed, fit_score: Math.min(100, Math.max(0, Number(parsed.fit_score) || 0)), provider: "alibaba/qwen-plus" };
+        }
+      }
+    } catch {
+      // fall through to OpenRouter
+    }
+  }
+
+  // Fallback: OpenRouter free
+  if (OPENROUTER_API_KEY) {
+    try {
+      const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${OPENROUTER_API_KEY}` },
+        body: JSON.stringify({ ...JSON.parse(body), model: "google/gemma-4-26b-a4b-it:free" }),
+        signal: AbortSignal.timeout(15000),
+      });
+      if (res.ok) {
+        const data = await res.json() as { choices?: { message?: { content?: string } }[] };
+        const content = data.choices?.[0]?.message?.content ?? "";
+        const jsonMatch = content.match(/\{[\s\S]*\}/);
+        if (jsonMatch) {
+          const parsed = JSON.parse(jsonMatch[0]) as Omit<AIAnalysis, "provider">;
+          return { ...parsed, fit_score: Math.min(100, Math.max(0, Number(parsed.fit_score) || 0)), provider: "openrouter/gemma-4-26b" };
+        }
+      }
+    } catch {
+      // no LLM available
+    }
+  }
+
+  return null;
+}
+
+// ── Telegram Alerts ────────────────────────────────────────────────────────
+
+async function sendTelegramAlert(candidate: Candidate, analysis?: AIAnalysis | null): Promise<boolean> {
   if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
     console.log("⚠️ Telegram não configurado");
     return false;
   }
 
-  const message = `
-🚨 <b>Oportunidade ${candidate.priority} — X.com</b>
+  try {
+    const recEmoji = analysis?.recommendation === "vale" ? "✅" : analysis?.recommendation === "nao_vale" ? "❌" : "⚠️";
+    const aiBlock = analysis
+      ? `\n\n🤖 <b>Análise IA</b> (${analysis.provider})
+<b>Resumo:</b> ${analysis.summary}
+<b>Contexto:</b> ${analysis.diagnosis}
+${recEmoji} <b>Recomendação:</b> ${analysis.recommendation.replace("_", " ")} | fit ${analysis.fit_score}/100`
+      : "";
+
+    const message = `🔔 <b>Oportunidade ${candidate.priority} — X.com</b>
 
 <b>Categoria:</b> ${candidate.category}
 <b>Produto:</b> ${candidate.product_match}
 <b>Template:</b> ${candidate.template_suggestion}
 
 <b>Autor:</b> @${candidate.author}
-<b>Post:</b> ${candidate.text.slice(0, 200)}${candidate.text.length > 200 ? "..." : ""}
+<b>Post:</b> ${candidate.text.slice(0, 200)}${candidate.text.length > 200 ? "..." : ""}${aiBlock}
 
-🔗 <a href="${candidate.url}">Ver no X</a>
+🔗 <a href="${candidate.url}">Ver no X</a>`;
 
-✅ Aprovar: Responda /approve ${candidate.id}
-❌ Rejeitar: Responda /reject ${candidate.id}
-  `.trim();
-
-  try {
     const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -418,27 +735,7 @@ async function sendWhatsAppAlert(candidate: Candidate): Promise<boolean> {
     return false;
   }
 
-  // Primeiro, obter contatos da instância
   try {
-    const contactsResponse = await fetch(
-      `${EVOLUTION_API_URL}/chat/findContacts/${WHATSAPP_INSTANCE}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          apikey: EVOLUTION_API_KEY,
-        },
-        body: JSON.stringify({
-          where: {
-            key: {
-              remoteJid: process.env.WHATSAPP_ALERT_NUMBER + "@s.whatsapp.net",
-            },
-          },
-        }),
-      }
-    );
-
-    // Enviar mensagem
     const message = `*Oportunidade ${candidate.priority} — X.com*
 
 Categoria: ${candidate.category}
@@ -475,24 +772,23 @@ Ver: ${candidate.url}`;
 // ── Main Execution ─────────────────────────────────────────────────────────
 
 async function main() {
-  console.log("🔔 X Opportunity Alert System");
+  console.log("🔔 X Opportunity Alert System v2 — OSINT/Moat Focused");
   console.log(`Modo: ${DRY_RUN ? "DRY-RUN (não envia)" : "LIVE"}`);
 
   const state = loadState();
-  console.log(`\n📊 Estado hoje: ${state.searches_today}/${MAX_SEARCHES_PER_DAY} buscas, ${state.alerts_sent}/${MAX_ALERTS_PER_DAY} alertas`);
+  console.log(`\n📊 Estado atual: ${state.searches_today}/${MAX_SEARCHES_PER_DAY} buscas, ${state.alerts_sent}/${MAX_ALERTS_PER_DAY} alertas`);
 
-  // Test mode
   if (TEST_ALERT) {
-    console.log("\n🧪 Modo de teste — enviando alerta de teste...");
+    console.log("\n🧪 Teste de alertas...");
     const testCandidate: Candidate = {
-      id: "test-001",
-      author: "testuser",
-      text: "Este é um teste do sistema de alertas X.com. Procuro parceiro técnico para projeto SaaS.",
-      url: "https://x.com/testuser/status/1234567890",
+      id: "test-123",
+      author: "test_user",
+      text: "Teste de alerta do sistema X Opportunity",
+      url: "https://x.com/test",
       category: "test",
       priority: "P0",
       product_match: "Test",
-      template_suggestion: "4K",
+      template_suggestion: "Test template",
       found_at: new Date().toISOString(),
       status: "new",
     };
@@ -567,7 +863,11 @@ async function main() {
 
         // Send alert
         if (state.alerts_sent < MAX_ALERTS_PER_DAY) {
-          const telegramOk = await sendTelegramAlert(candidate);
+          const aiAnalysis = await analyzeWithLLM(candidate);
+          if (aiAnalysis) {
+            console.log(`    🤖 IA: ${aiAnalysis.recommendation} (fit ${aiAnalysis.fit_score}/100) via ${aiAnalysis.provider}`);
+          }
+          const telegramOk = await sendTelegramAlert(candidate, aiAnalysis);
           const whatsappOk = await sendWhatsAppAlert(candidate);
 
           if (telegramOk || whatsappOk) {
@@ -591,27 +891,24 @@ async function main() {
   }
 
   // Save state
-  state.last_search_time = new Date().toISOString();
   saveState(state);
 
   // Summary
   console.log("\n" + "=".repeat(50));
-  console.log("📊 RESUMO DA EXECUÇÃO");
+  console.log(`✅ Buscas hoje: ${state.searches_today}/${MAX_SEARCHES_PER_DAY}`);
+  console.log(`📢 Alertas hoje: ${state.alerts_sent}/${MAX_ALERTS_PER_DAY}`);
+  console.log(`📊 Candidatos encontrados: ${newCandidates.length}`);
+  console.log(`📁 Total armazenado: ${state.candidates_found.length}`);
   console.log("=".repeat(50));
-  console.log(`Buscas hoje: ${state.searches_today}/${MAX_SEARCHES_PER_DAY}`);
-  console.log(`Alertas enviados hoje: ${state.alerts_sent}/${MAX_ALERTS_PER_DAY}`);
-  console.log(`Novos candidatos: ${newCandidates.length}`);
-  console.log(`Total em fila: ${state.candidates_found.length}`);
 
-  if (newCandidates.length > 0) {
-    console.log("\n🎯 NOVAS OPORTUNIDADES:");
-    for (const c of newCandidates) {
-      console.log(`  ${c.priority} | ${c.category} | @${c.author} | ${c.template_suggestion}`);
+  // Performance report
+  console.log("\n📈 Performance das queries:");
+  for (const q of OPPORTUNITY_QUERIES) {
+    const perf = getQueryPerformance(q.query);
+    if (perf.count > 0) {
+      console.log(`   ${q.category}: ${perf.avgScore.toFixed(1)} avg (${perf.count} samples)`);
     }
   }
-
-  console.log("\n✅ Execução concluída");
 }
 
-// Run
 main().catch(console.error);

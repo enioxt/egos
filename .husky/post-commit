@@ -1,0 +1,11 @@
+#!/bin/sh
+# .husky/post-commit — EGOS auto-disseminate after every commit
+#
+# Runs auto-disseminate.sh to:
+#   - Mark task IDs found in commit message as done in TASKS.md
+#   - Append LEARNING: lines to docs/knowledge/HARVEST.md
+#   - Warn if a new feat() is missing from CAPABILITY_REGISTRY.md
+#
+# Non-blocking: never fails the commit. Errors are logged only.
+
+bash scripts/auto-disseminate.sh 2>/dev/null || true

@@ -8,7 +8,7 @@
  */
 
 export interface ToolUsageMetric {
-  tool: 'codex' | 'alibaba' | 'claude_code' | 'openrouter' | 'gemini' | 'cascade' | 'other';
+  tool: 'hermes' | 'alibaba' | 'claude_code' | 'openrouter' | 'dashscope' | 'gemini' | 'cascade' | 'other';
   operation: string;
   timestamp: string;
   durationMs?: number;
