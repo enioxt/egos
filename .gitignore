@@ -37,3 +37,7 @@ EGOS/
 # Generated reports
 docs/_generated/
 docs/_investigations/START_EVIDENCE_MATRIX_2026-04-06.md
+
+# disseminate scanner artifacts
+.egos-disseminate-manifest.json
+.egos-kernel-cache/

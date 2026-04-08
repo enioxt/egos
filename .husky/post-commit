@@ -9,3 +9,14 @@
 # Non-blocking: never fails the commit. Errors are logged only.
 
 bash scripts/auto-disseminate.sh 2>/dev/null || true
+
+# DISS-004: trigger kernel scanner when governance files change
+# Detects if CLAUDE.md, .windsurfrules, or CAPABILITY_REGISTRY.md were part of this commit
+STAGED_KERNEL=$(git diff --name-only HEAD~1 HEAD 2>/dev/null \
+  | grep -E '^(CLAUDE\.md|\.windsurfrules|docs/CAPABILITY_REGISTRY\.md)$' || true)
+
+if [ -n "$STAGED_KERNEL" ]; then
+  echo "[post-commit] Kernel file changed ($STAGED_KERNEL) — running disseminate-scanner..."
+  bun scripts/disseminate-scanner.ts 2>/dev/null && echo "[post-commit] No propagation needed" \
+    || echo "[post-commit] ⚠️  Propagation needed — manifest written to .egos-disseminate-manifest.json. Run: bun scripts/disseminate-propagator.ts"
+fi
