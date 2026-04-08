@@ -547,7 +547,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 **Context:** Audit de 8 fontes de alerta @EGOSin_bot. 5 ativos, 2 para verificar, 1 legado (OpenClaw). Meta: <10 alertas relevantes/dia.
 
 **P0 — Limpeza:**
-- [ ] **NOTIFY-001**: Desativar OpenClaw no VPS (`systemctl stop/disable`)
+- [x] **NOTIFY-001**: OpenClaw already stopped on VPS — no systemctl service found (`systemctl stop/disable`)
 - [ ] **NOTIFY-002**: Ajustar thresholds RAM monitor (warning <500MB, critical <100MB)
 - [ ] **NOTIFY-003**: Consolidar Doc Drift alerts em 1 sumário diário
 
@@ -571,9 +571,9 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 | Phase | Task | Description | Status |
 |-------|------|-------------|--------|
 | **1: Foundation** | TL-001 | Supabase: timeline_drafts + timeline_articles + x_post_queue | ✅ Done |
-| | TL-002 | Agent: article-writer.ts — reads commit/diff, calls qwen-plus, writes draft | [ ] |
-| | TL-003 | Script: publish.sh manual trigger | [ ] |
-| | TL-004 | Telegram bot: approve flow (✅/✏️/❌) with 48h timeout | [ ] |
+| | TL-002 | Agent: article-writer.ts — reads commit/diff, calls qwen-plus, writes draft | [x] |
+| | TL-003 | Script: publish.sh manual trigger | [x] |
+| | TL-004 | Telegram bot: approve flow (✅/✏️/❌) with 48h timeout | [x] |
 | **2: Site público** | TL-005 | Bun/Hono: apps/egos-site — /timeline + /timeline/[slug] | [x] |
 | | TL-006 | Route: GET /timeline — list articles paginated | [x] |
 | | TL-007 | Route: GET /timeline/[slug] — render article + metrics | [x] |
@@ -599,7 +599,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 |-------|------|-------------|--------|
 | **A: Distribution** | GH-074 | gem-hunter-digest.ts — top 3-5 repos/week, markdown+Telegram (cron Thu 02:00 UTC) | ✅ Done |
 | | GH-075 | Landing page: gemhunter.egos.ia.br (Vite, "What is?" + gems + subscribe) | [ ] |
-| | GH-076 | Substack: auto-webhook digest → email Thu 08:00 UTC | [ ] |
+| | GH-076 | Substack: Telegram HITL draft Thu 08:00 UTC — cron live | [x] |
 | **B: Community** | GH-077 | Supabase: gem_lists + gem_votes tables (RLS) | [ ] |
 | | GH-078 | API: /gems/{id}/upvote, /lists/*, GET trending by votes | [ ] |
 | | GH-079 | Dashboard: 👍 voting button, "Top voted", "Your lists" | [ ] |
