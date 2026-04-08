@@ -140,11 +140,12 @@ egos/
 
 | Repo | Purpose | Status |
 |------|---------|--------|
+| [egos-inteligencia](https://github.com/enioxt/egos-inteligencia) | Open intelligence platform — graph investigations + AI + Brazilian public data (77M+ nodes) | Active |
+| [852](https://github.com/enioxt/852) | Institutional AI chatbot for public safety officers | Production |
 | [egos-lab](https://github.com/enioxt/egos-lab) | Lab + incubator (agents, apps, Telegram bot) | Active |
-| [852](https://github.com/enioxt/852) | Institutional chatbot for public safety | Production |
 | [carteira-livre](https://github.com/enioxt/carteira-livre) | Marketplace SaaS | Production |
 | [FORJA](https://github.com/enioxt/forja) | Chat-First ERP for small businesses | MVP |
-| [br-acc](https://github.com/enioxt/br-acc) | Brazilian accountability data mining | Active |
+| [br-acc](https://github.com/enioxt/br-acc) | Brazilian accountability data mining (feeds egos-inteligencia) | Active |
 
 ---
 

@@ -1,7 +1,7 @@
 {
   "manifest": "/home/enio/egos/.egos-manifest.yaml",
   "repo": "egos",
-  "verified_at": "2026-04-08T13:03:38.089Z",
+  "verified_at": "2026-04-08T16:21:49.549Z",
   "summary": {
     "total_claims": 5,
     "passed": 5,
@@ -9,8 +9,8 @@
     "drifted": 0,
     "errors": 0,
     "total_domains": 9,
-    "domains_ok": 8,
-    "domains_drifted": 1
+    "domains_ok": 7,
+    "domains_drifted": 2
   },
   "results": [
     {
@@ -120,10 +120,10 @@
     },
     {
       "url": "https://gemhunter.egos.ia.br/gem-hunter/topics",
-      "status": "ok",
+      "status": "drifted",
       "expected_status": "200",
       "actual_status": "200",
-      "contains_check": true
+      "contains_check": false
     }
   ],
   "exit_code": 0

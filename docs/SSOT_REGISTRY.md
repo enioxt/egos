@@ -55,6 +55,7 @@
 | Integration release gate | `egos/.guarani/orchestration/INTEGRATION_RELEASE_CONTRACT.md` | enioxt | Update when new integration surface is added; `bun run integration:check` | 2026-03-30 |
 | Integration manifests | `egos/integrations/manifests/` | enioxt | New bundle = new manifest; validated via `integration:check` | 2026-03-30 |
 | BRACC Neo4j boundary | `br-acc/` + `docs/ECOSYSTEM_CLASSIFICATION_REGISTRY.md` | enioxt | leaf_local; BRACC remains standalone OSINT and must not be merged into kernel Mycelium/reference-graph surfaces | 2026-04-06 |
+| Intelink v3 (SSOT canônico) | `/home/enio/egos-inteligencia/` | enioxt | leaf_local; repo separado, docker-compose próprio, api Python + frontend Next.js + neo4j. **DECISÃO 2026-04-09**: este é o único repositório canônico. `egos-lab/apps/intelink` = ARCHIVED. `/home/enio/INTELINK` = ARCHIVED (migração incompleta). `egos-archive/v2/EGOSv2/intelink-*` = LIXO | 2026-04-09 |
 | Capability registry | `egos/docs/CAPABILITY_REGISTRY.md` | enioxt | kernel_canonical; update when capability added or removed | 2026-03-30 |
 | System map (kernel) | `egos/docs/SYSTEM_MAP.md` | enioxt | kernel_canonical; update when architecture changes; LLM activation map | 2026-03-30 |
 | SSOT Registry | `egos/docs/SSOT_REGISTRY.md` (this file) | enioxt | kernel_canonical; update when SSOT added/changed/resolved | 2026-03-30 |
