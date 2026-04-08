@@ -639,7 +639,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 - [x] **RULES-001b [P1]**: GUARD_BRASIL_API_KEY missing — PII check in article-writer fails silently. Set in ~/.egos/secrets.env. Found: TL-002 dry-run. ✅ 2026-04-08
 
 **P1 — Modular split (2-3h, correct fix):**
-- [ ] **RULES-002 [P1]**: Create ~/.claude/egos-rules/ directory with domain files: ssot-map.md, doc-drift.md, jobs-monitoring.md, llm-routing.md, gtm-product.md
+- [x] **RULES-002 [P1]**: ✅ ~/.claude/egos-rules/ created — ssot-map.md, doc-drift.md, jobs-monitoring.md, llm-routing.md, product-gtm.md
 - [ ] **RULES-003 [P1]**: Strip informational sections (§12, §17, §22, §28, §29) from core file → move to egos-rules/ as reference docs
 - [ ] **RULES-004 [P1]**: Compress core ~/.claude/CLAUDE.md to <120 lines — only MUST/MUST NOT rules
 - [ ] **RULES-005 [P1]**: Update ~/.claude/CLAUDE.md to include pointer table: "Read ~/.claude/egos-rules/<file> for domain rules"
