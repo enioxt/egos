@@ -33,6 +33,15 @@
 - [ ] **X-COM-016**: Auto-plug — promoção inteligente em tweets virais
 - [ ] **X-COM-017**: Variations generator — A/B testing com LLM local (Gemma)
 
+**P0 — Refinement (2026-04-08):**
+- [x] **X-COM-018**: X_MOAT_KEYWORDS.md — Base SSOT de keywords alinhadas ao moat (OSINT/investigações/IA)
+- [x] **X-COM-019**: Refinar queries x-opportunity-alert.ts — Foco em OSINT, cruzamento de dados, AI frameworks
+- [x] **X-COM-020**: Anti-keyword filter — Excluir cursos, mentorias, marketing digital genérico
+- [x] **X-COM-021**: Relevance scoring system — Score 0-100 baseado em moat keywords
+- [x] **X-COM-022**: Feedback learning loop — Tracking de performance por query para auto-melhoria
+- [ ] **X-COM-023**: Hermes integration — Agent para análise semanal e refinement automático de keywords
+- [ ] **X-COM-024**: Templates DM específicos — OSINT/Investigação, AI/Framework, GovTech separados
+
 ---
 
 ### GovTech — Documentação de Oportunidades (2026-04-07)
