@@ -61,6 +61,10 @@
 | Report compliance | REPORT_SSOT rules | file-intelligence.sh (warnings) |
 | Agent claims | agents.json lint | bun agent:lint |
 | QA evidence | QA_LOOP_CONTRACT | PR review |
+| **Task ID sync** | **auto-disseminate.sh** | **post-commit (non-blocking)** |
+| **HARVEST.md injection** | **auto-disseminate.sh** | **post-commit (non-blocking)** |
+| **Daily handoff** | **session-aggregator.sh** | **cron 02:30 UTC (non-blocking)** |
+| **Knowledge compile** | **daily-knowledge-sync.sh** | **cron 13:00 UTC (non-blocking)** |
 
 ## For AI Sessions
 
@@ -80,3 +84,6 @@ When starting any work, check:
 > **Rule:** Every discovery/architecture decision must produce FACT/INFERENCE/PROPOSAL (§20).
 > **Rule:** Use Enio's vocabulary map for term translation (§21).
 > **Rule:** If any adapter surface (`CLAUDE.md`, `.windsurfrules`) conflicts with `.guarani`, `.guarani` wins.
+> **Rule:** Include task IDs in commit subjects for auto-propagation to TASKS.md (§28).
+> **Rule:** Add `LEARNING: <insight>` lines to commit bodies to auto-append to HARVEST.md (§28).
+> **Rule:** On `/start`, read last 3 days of `docs/jobs/` — surface CRITICAL as [BLOCKER] (§29).

@@ -54,6 +54,36 @@
 
 ---
 
+### OSINT Brasil — Toolkit & Matriz Operacional (2026-04-08)
+**SSOT:** `docs/knowledge/OSINT_BRASIL_TOOLKIT.md` | **Matrix:** `docs/knowledge/OSINT_BRASIL_MATRIX.md` | **Keywords:** `docs/social/X_MOAT_KEYWORDS.md`
+**Context:** Curadoria operacional de ferramentas OSINT focadas no Brasil, priorizando portais oficiais (Receita, Transparência, TSE), ferramentas ativas (Blackbird, Maigret, Sherlock), e conformidade LGPD/Marco Civil/LAI.
+
+**Done (2026-04-08):**
+- OSINT-001: `OSINT_BRASIL_TOOLKIT.md` — curadoria completa com 8 categorias de ferramentas
+- OSINT-002: `OSINT_BRASIL_MATRIX.md` — matriz por objetivo (8 tipos de investigação)
+- OSINT-003: `X_MOAT_KEYWORDS.md` — keywords e anti-keywords com contexto Brasil
+- OSINT-004: Queries X.com otimizadas para policial/jurídico/dados públicos BR
+- OSINT-005: x-opportunity-alert.ts v2.1 — enhanced MOAT keywords (10 categorias)
+
+**P0 — Integração 852 (Esta semana):**
+- [ ] **OSINT-006**: Mapear integração de Brasil.IO, Escavador, Jusbrasil na plataforma 852
+- [ ] **OSINT-007**: Criar templates DM específicos para delegacias (PCMG, PMMG, PF)
+- [ ] **OSINT-008**: Implementar alertas de vazamentos de dados (HIBP API) no Guard Brasil
+- [ ] **OSINT-009**: Testar queries X.com policiais com conta de teste
+
+**P1 — Automação & Alertas (Próximas 2 semanas):**
+- [ ] **OSINT-010**: Script de monitoramento de diários oficiais (Querido Diário API)
+- [ ] **OSINT-011**: Integração com Portal da Transparência para novos contratos
+- [ ] **OSINT-012**: API wrapper para Receita Federal (CNPJ/CPF) — com cache e provenance
+- [ ] **OSINT-013**: Alertas automáticos de novos processos (Escavador webhook)
+
+**P2 — Avançado (Mês 2-3):**
+- [ ] **OSINT-014**: Integração Maltego para visualização gráfica de vínculos
+- [ ] **OSINT-015**: Plugin 852 para análise de metadados (ExifTool)
+- [ ] **OSINT-016**: GEOINT module — TerraBrasilis + Sentinel Hub para casos ambientais
+
+---
+
 ### Doc-Drift Shield Implementation (2026-04-07)
 **SSOT:** `docs/DOC_DRIFT_SHIELD.md` | **Handoff:** `docs/_current_handoffs/handoff_2026-04-07_doc-drift-shield-plan.md`
 **Context:** P33 discovered severe drift (Carteira Livre 54→134 pages +148%, BR-ACC 77M→83.7M Neo4j). 4-layer shield: L1 manifest + L4 CLAUDE.md §27 + L2 pre-commit + L3 VPS sentinel + L4 CCR module — ALL DONE (P33-P35).
@@ -478,22 +508,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 **Context:** Pesquisa aprofundada revela 28+ modelos free no OpenRouter (Qwen3 Coder, Nemotron 3 Super, MiniMax M2.5, Step 3.5 Flash) e dezenas de modelos pagos com excelente custo-benefício (Kimi K2.5, DeepSeek V3.2, MiMo-V2-Pro). Necessário sistema automatizado para monitorar novos modelos, testar, comparar e adaptar fallbacks dinamicamente.
 **SSOT:** `docs/knowledge/LLM_MODEL_MONITOR.md` (a criar) | **Fontes:** CostGoat, OpenRouter Rankings April 2026, TeamDay AI, Reddit r/LocalLLaMA, Digital Applied
 
-**OpenRouter Free Models - Tier S (Prioridade Máxima):**
-| Modelo | ID | Contexto | Uso Recomendado | Rate Limit |
-|--------|-----|----------|-----------------|------------|
-| Qwen3 Coder 480B | `qwen/qwen3-coder:free` | 262K | Coding SOTA free | 20/min, 200/dia |
-| NVIDIA Nemotron 3 Super | `nvidia/nemotron-3-super-120b-a12b:free` | 262K | Documentos longos, multi-token | 20/min, 200/dia |
-| MiniMax M2.5 | `minimax/minimax-m2.5:free` | 197K | Coding, produtividade office | 20/min, 200/dia |
-| Step 3.5 Flash | `stepfun/step-3.5-flash:free` | 256K | SEO, programação | 20/min, 200/dia |
-| Qwen3.6 Plus | `qwen/qwen3.6-plus:free` | 1M | Raciocínio, contexto longo | 20/min, 200/dia |
-
-**OpenRouter Paid - Best Value (Custo-Benefício):**
-| Modelo | ID | Preço Input/1M | Preço Output/1M | Uso |
-|--------|-----|----------------|-----------------|-----|
-| Kimi K2.5 | `moonshotai/kimi-k2.5` | ~$0.38-0.57 | ~$1.72-1.91 | Agentic coding, planning |
-| MiniMax M2.5 | `minimax/minimax-m2.5` | ~$0.12-0.30 | ~$0.95-1.20 | Coding, iterações rápidas |
-| DeepSeek V3.2 | `deepseek/deepseek-v3.2` | ~$0.27 | ~$1.10 | Value king, frontier-like |
-| MiMo-V2-Pro | `xiaomi/mimo-v2-pro` | Variável | Variável | #1 open-source SWE-Bench |
+**Models catalogued:** Qwen3 Coder 480B, Nemotron 3 Super, MiniMax M2.5, Step 3.5 Flash, Qwen3.6 Plus (free S-tier); Kimi K2.5, DeepSeek V3.2, MiMo-V2-Pro (paid best-value). Full tables: `docs/knowledge/LLM_MODEL_MONITOR.md`.
 
 **P0 — Foundation (Agente Monitor):**
 - [ ] **LLM-MON-001 [P1]**: Criar `scripts/llm-model-monitor.ts` — agente que roda no VPS a cada 6h, consulta OpenRouter API `/models`, detecta novos modelos (free ou paid)
@@ -519,22 +534,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 **Context:** Pesquisa aprofundada revela OpenMontage (AGPL-3.0, 498⭐) com 11 pipelines completos: Reference Video Analysis → Concept Generation → Asset Generation → Voice/Narration → Music → Editing → Composition. Cada vídeo custa $0.15-$1.33. OpenScreen (MIT, 8400+⭐) é alternativa open-source ao Screen Studio com auto-zoom, motion blur, animated cursor — ideal para demos de produto.
 **SSOT:** `docs/knowledge/CONTENT_ORCHESTRATOR_V2.md` (a criar) | **Fontes:** calesthio/OpenMontage GitHub, PyShine, AI Heartland, Mintlify docs
 
-**OpenMontage Pipelines Detalhados:**
-1. **Reference Analysis** — análise de vídeo YouTube/Shorts para extrair: pacing, hook style, estrutura, tom
-2. **Concept Generation** — 2-3 conceitos diferenciados baseados na referência
-3. **Asset Generation** — imagens (FLUX, DALL-E, gpt-image-1), vídeos (Veo, Kling v3 via fal.ai)
-4. **Voice/Narration** — Google Chirp3-HD, ElevenLabs, OpenAI TTS
-5. **Music** — royalty-free auto-sourced com energy offset detection
-6. **Editing** — Remotion composition, TikTok-style word-level captions (WhisperX)
-7. **Review** — agente revisa custo, qualidade, solicita ajustes
-
-**OpenScreen Capabilities:**
-- Auto-zoom seguindo cursor
-- Motion blur suave em transições
-- Animated cursor rendering
-- Webcam overlay
-- No watermarks, no subscription
-- Export MP4/WebM/GIF
+**Pipelines:** 7-stage OpenMontage (Reference → Concept → Assets → Voice → Music → Edit → Review, $0.15-$1.33/video) + OpenScreen (auto-zoom, motion blur, no watermark). Full detail: `docs/knowledge/CONTENT_ORCHESTRATOR_V2.md`.
 
 **P0 — Foundation (Deep Integration):**
 - [ ] **CONTENT-001 [P1]**: Fork OpenMontage para `.egos/content-orchestrator/openmontage/` com wrapper EGOS: (a) Guard Brasil PII scan em todos scripts gerados, (b) Audit trail de cada pipeline, (c) Cost approval gate antes de gerar assets pagos
@@ -562,15 +562,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 **Context:** Pesquisa Braintrust, AutoEvals, EPOCH-Bench revelam padrão comum: agent evaluation requer tracing completo, scorers (deterministic + LLM-as-judge), regression gates em CI/CD, e feedback loop produção→teste. Thread X Bruno Pinheiro confirma: breakdown estruturado (epic→stories) + E2E tests auto-gerados + multi-agent swarm review = crescimento rápido validado.
 **SSOT:** `docs/knowledge/TEST_ORCHESTRATOR_V2.md` (a criar) | **Fontes:** Braintrust Agent Evaluation Framework, AutoEvals Medium, EPOCH-Bench, Arun Baby Testing AI Agents
 
-**6-Agent Swarm Architecture:**
-| Agente | Função | Input | Output |
-|--------|--------|-------|--------|
-| Planner | Quebra epic em stories com regras de negócio | Epic description | Stories[] com acceptance criteria |
-| Generator | Gera código/tests para cada story | Stories[] | Code + E2E tests (Playwright/TestNG) |
-| Reviewer1 | Review acceptance criteria coverage | Code + Tests | Coverage report + gaps |
-| Reviewer2 | Review security/best practices | Code | Security scan + best practice flags |
-| Validator | Executa lint, type-check, tests, E2E | Code + Tests | Pass/Fail + logs + metrics |
-| Reporter | Consolida evidence, gera report | All outputs | Evidence entry + human-readable report |
+**6-Agent Swarm:** Planner → Generator → Reviewer1/2 (coverage+security) → Validator → Reporter. Full design: `docs/knowledge/TEST_ORCHESTRATOR_V2.md`.
 
 **P0 — Core Swarm:**
 - [ ] **TEST-001 [P1]**: Criar `.egos/test-orchestrator/` com 6 agentes especializados (Planner, Generator, Reviewer1, Reviewer2, Validator, Reporter)

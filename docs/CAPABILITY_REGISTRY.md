@@ -605,3 +605,46 @@ Scoring: exact substring (high) > token overlap (medium) > atom confidence (base
 - 20 golden cases for 852 across 7 categories: PII safety, ATRiAN, governance, legal, ops, tone, anti-hallucination
 - Run: `BASE_URL=http://localhost:3001 bun run eval`
 
+
+
+---
+
+## 20. AUTO-DISSEMINATE PIPELINE (2026-04-08)
+
+**Scripts:** `scripts/auto-disseminate.sh` · `scripts/session-aggregator.sh` · `.husky/post-commit`
+
+**Capability:** Automatic SSOT propagation after every commit — no manual dissemination required for standard flows.
+
+### What it does
+
+| Trigger | Action | Output |
+|---------|--------|--------|
+| `post-commit` | Parse task IDs from commit subject | Marks `- [ ] TASK-ID` done in TASKS.md |
+| `post-commit` | Extract `LEARNING:` lines from commit body | Appends to `docs/knowledge/HARVEST.md` |
+| `post-commit` | Check `feat(X)` against CAPABILITY_REGISTRY.md | Warns if X not registered |
+| Daily cron 23:30 BRT | `session-aggregator.sh AUTO_COMMIT=1` | Generates `docs/_current_handoffs/handoff_YYYY-MM-DD.md` |
+
+### Commit conventions
+
+```
+feat(hermes): X-COM-018 LLM analysis layer live
+
+LEARNING: DashScope requires dashscope-intl endpoint (not dashscope) for international access
+LEARNING: OpenRouter gemma-4-26b free tier rate-limits per minute, not per day
+```
+
+Task IDs matched: `[A-Z][A-Z0-9_]+-[0-9]+` (e.g. `X-COM-018`, `HERMES-005`, `DRIFT-012`, `M-007`)
+
+### What still requires manual /disseminate
+
+- New SSOT domain in `.ssot-map.yaml`
+- `agents/registry/agents.json` changes (requires `bun agent:lint`)
+- Memory file creation in `memory/*.md`
+- Social/X.com posts
+
+### Non-blocking design
+
+`auto-disseminate.sh` never exits non-zero. It is a best-effort propagator. If TASKS.md
+or HARVEST.md are missing, it skips silently. This prevents hook failures from blocking commits.
+
+---
