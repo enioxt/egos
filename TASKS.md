@@ -121,7 +121,7 @@
 - **DigitalAPI, API Layer, APYHub, Zyla** — Curated marketplaces
 
 **P0 — Payment Protocols & x402 Onboarding (Esta semana):**
-- [ ] **API-001**: AgentCash onboard + testar consumer
+- [x] **API-001**: AgentCash onboard + testar consumer ✅ 2026-04-08
 - [ ] **API-002**: APINow.fun — criar conta, explorar tokenization
 - [ ] **API-003**: Proxies.sx — avaliar match OSINT scraping
 - [ ] **API-004**: Análise x402 vs Stripe MPP — escolher primary protocol
