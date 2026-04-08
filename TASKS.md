@@ -600,7 +600,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 | **A: Distribution** | GH-074 | gem-hunter-digest.ts — top 3-5 repos/week, markdown+Telegram (cron Thu 02:00 UTC) | ✅ Done |
 | | GH-075 | Landing page: gemhunter.egos.ia.br (Vite, "What is?" + gems + subscribe) | [ ] |
 | | GH-076 | Substack: Telegram HITL draft Thu 08:00 UTC — cron live | [x] |
-| **B: Community** | GH-077 | Supabase: gem_lists + gem_votes tables (RLS) | [ ] |
+| **B: Community** | GH-077 | Supabase: gem_lists + gem_votes + vote_count — RLS live | [x] |
 | | GH-078 | API: /gems/{id}/upvote, /lists/*, GET trending by votes | [ ] |
 | | GH-079 | Dashboard: 👍 voting button, "Top voted", "Your lists" | [ ] |
 | | GH-080 | github.com/enioxt/awesome-gems — weekly curated list | [ ] |
