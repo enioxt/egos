@@ -2614,3 +2614,85 @@ Orchestrator (Claude Code): receives summary, Enio approves or rejects per-repo
 - Deduplicação: `grep -i "keyword" TASKS.md` antes de criar novo ID
 
 **Impacto sem correção:** Usuário gasta tempo investigando tasks que já foram feitas. Confiança no sistema diminui.
+
+### Auto-harvested — 3062b11 (2026-04-08)
+
+- Always verify artifact exists before adding task to TASKS.md.
+
+### Auto-harvested — 845bbfd (2026-04-08)
+
+- substack-api@4.0.0 only supports reading + Notes, not full post creation.
+
+### Auto-harvested — b3c5b01 (2026-04-08)
+
+- frozen zones are better respected by creating wrappers than modifying the frozen file
+
+---
+
+## KB-031: Disseminate Scanner — Post-Commit Hook Pattern (2026-04-08)
+
+**Pattern:** Kernel change detection via git diff sections.
+
+**Key decisions:**
+- `git diff HEAD~1 HEAD --name-only` in post-commit detects which files changed in THAT commit — reliable, no state needed
+- Scanner exits 1 when propagation needed → CI-friendly, can block or alert
+- Sections extracted by markdown heading lines in diff context (`^[+ ]#+\s+`)
+- Cache file for untracked global `~/.claude/CLAUDE.md` (lives outside git repo)
+- `.egos-disseminate-manifest.json` gitignored — generated artifact, not source
+
+**Gotcha:** `git diff HEAD~1` in post-commit hook refers to the commit just made (HEAD). Use `git diff HEAD~1 HEAD -- file` to scope to specific files.
+
+**File:** `scripts/disseminate-scanner.ts` + `.husky/post-commit`
+
+---
+
+## KB-032: Frozen Zones — Wrapper Pattern (2026-04-08)
+
+**Rule:** When a task requires modifying a FROZEN ZONE file, create a wrapper/companion instead.
+
+**Example:** PAP-001 needed heartbeat loop "in runner.ts" (frozen). Solution: `agents/runtime/heartbeat.ts` that imports and wraps `runAgent()`. Result: same capability, runner.ts untouched.
+
+**Pattern:**
+```
+frozen/runner.ts → import → heartbeat.ts (new) → caller
+```
+
+**EGOS Mycelium Bus API (not `publish`, use `emit`):**
+```typescript
+bus.emit(topic, payload, source, correlationId, metadata?)
+```
+
+**File:** `agents/runtime/heartbeat.ts`
+
+---
+
+## KB-033: Supabase Row Count Staleness (2026-04-08)
+
+**Incident:** SUPA-003 task said "knowledge_base (9 rows / 28 MB)". Actual: 1648 rows.
+
+**Root cause:** Task written at a point when table was nearly empty. DB grows without TASKS.md updating.
+
+**Rule:** Never add TASKS.md tasks with row counts. Instead: "investigate `table_name` — dump schema + decide". Row counts go stale immediately.
+
+**Finding:** `knowledge_base` = ARR vector search data (pgvector embeddings, 1648 rows). `egos_wiki_pages` = structured wiki (92 rows). Different purposes, both kept.
+
+---
+
+## KB-034: X MCP OAuth Flow Bypass (2026-04-08)
+
+**Problem:** `build_oauth1_client()` in xdevplatform's server.py always called `run_oauth1_flow()` (interactive browser callback) even when `X_OAUTH_ACCESS_TOKEN` was set in env.
+
+**Fix:**
+```python
+access_token = os.getenv("X_OAUTH_ACCESS_TOKEN", "").strip()
+access_secret = os.getenv("X_OAUTH_ACCESS_TOKEN_SECRET", "").strip()
+if not access_token or not access_secret:
+    access_token, access_secret = run_oauth1_flow()
+```
+
+**Also:** `load_env()` must be called at the START of `main()` — before reading `MCP_HOST`/`MCP_PORT`. Otherwise env file values are ignored.
+
+**Port conflict:** Docker `infra-api-1` occupied port 8000. X MCP moved to 8200.
+
+**Files:** VPS `/opt/xmcp/server.py`, `/opt/xmcp/start.sh`, `/opt/xmcp/.env`
+
