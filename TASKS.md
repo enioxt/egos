@@ -580,7 +580,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 | | TL-008 | Caddy: egos.ia.br → egos-site:3071 — live | [x] |
 | **3: Automação** | TL-009 | timeline-cron-daily.sh — scan commits 24h (cron 03:00 UTC) | [x] |
 | | TL-010 | Crontab: add timeline-cron-daily.sh | [x] |
-| | TL-011 | auto-disseminate.sh: detect `PUBLISH:` in commit body | [ ] |
+| | TL-011 | auto-disseminate.sh: detect PUBLISH: → article-writer background | [x] |
 | | TL-012 | x-reply-bot: postArticle(snippet, url) method | [ ] |
 | **4: Multi-canal** | TL-013 | WhatsApp via Evolution API (same approval flow) | [ ] |
 | | TL-014 | HQ tab: /timeline/pending with inline edit | [ ] |

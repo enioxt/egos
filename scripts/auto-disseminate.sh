@@ -90,5 +90,21 @@ if echo "$COMMIT_SUBJECT" | grep -qE '^feat\('; then
   fi
 fi
 
+# ── 4. PUBLISH: trigger → call article-writer ────────────────────────────────
+# If commit body has "PUBLISH: <topic>" line, generate a timeline draft
+PUBLISH_TOPIC=$(echo "$COMMIT_MSG" | grep -E '^PUBLISH:' | sed 's/^PUBLISH:[[:space:]]*//' | head -1 || true)
+
+if [ -n "$PUBLISH_TOPIC" ]; then
+  ARTICLE_WRITER="$REPO_ROOT/agents/agents/article-writer.ts"
+  if [ "$DRY" = "--dry" ]; then
+    echo "  [DRY] PUBLISH detected: '$PUBLISH_TOPIC' — would call article-writer.ts --hash $COMMIT_HASH"
+  elif [ -f "$ARTICLE_WRITER" ]; then
+    echo "[auto-disseminate] PUBLISH: '$PUBLISH_TOPIC' — triggering article-writer (background)..."
+    bun "$ARTICLE_WRITER" --hash "$COMMIT_HASH" --topic "$PUBLISH_TOPIC" >>/tmp/egos-article-writer.log 2>&1 &
+  else
+    echo "  ⚠️  PUBLISH: detected but article-writer.ts not found at $ARTICLE_WRITER"
+  fi
+fi
+
 echo "[auto-disseminate] done."
 exit 0
