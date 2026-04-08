@@ -138,3 +138,30 @@ Cada domínio tem UM arquivo SSOT. Antes de criar documentação nova, verificar
 | Learnings técnicos | `docs/knowledge/HARVEST.md` | notes/findings avulsos |
 
 **Regra:** conteúdo novo vai para o SSOT do domínio. Nunca cria arquivo novo se SSOT existe.
+
+---
+
+## MULTI-IDE SYNC + TASKS.md PROTOCOL (2026-04-08)
+
+**`.windsurfrules` é o SSOT canônico de regras de projeto. Este `CLAUDE.md` é um adapter.**
+Quando houver conflito entre os dois, `.windsurfrules` prevalece para regras de projeto.
+Regras globais de usuário vivem em `~/.claude/CLAUDE.md`.
+
+### TASKS.md — Protocolo anti-perda (OBRIGATÓRIO)
+1. **Commitar TASKS.md imediatamente** após qualquer edição. Nunca deixar staged ou só no working tree.
+2. **Antes de spawnar agentes background**: `git add TASKS.md && git commit` primeiro.
+3. **Agentes background DEVEM usar** `git add <arquivo-específico>` — nunca `git add -A`.
+4. **Em ambiente multi-janela** (Claude Code + Windsurf simultâneos): `git pull --rebase` antes de editar TASKS.md, commitar em <2 minutos.
+
+### Sync obrigatório quando mudar limites numéricos
+Qualquer mudança de limite (linhas TASKS.md, AGENTS.md, etc.) deve atualizar SIMULTANEAMENTE:
+- `.windsurfrules` (linha da tabela SSOT)
+- `.husky/pre-commit` (enforcement numérico)
+- `CLAUDE.md` (esta seção)
+
+### Limite atual (2026-04-08)
+| Arquivo | Limite | Warn em |
+|---------|--------|---------|
+| TASKS.md | 750 linhas | 650 |
+| AGENTS.md | 200 linhas | — |
+| .windsurfrules | 200 linhas | — |

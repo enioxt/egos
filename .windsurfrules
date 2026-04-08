@@ -10,7 +10,7 @@ type: "framework-core + orchestration-kernel + agent-runtime"
 | File | Purpose | MAX lines |
 |------|---------|-----------|
 | `AGENTS.md` | System map, stack, commands | 200 |
-| `TASKS.md` | All tasks | 500 |
+| `TASKS.md` | All tasks | 750 |
 | `.windsurfrules` | Agent rules (this file) | 150 |
 | `.guarani/PREFERENCES.md` | Coding standards | 100 |
 | `agents/registry/agents.json` | Agent registry (SSOT) | — |
@@ -148,3 +148,31 @@ Pre-commit hook MUST block:
 
 ## META-PROMPT SYSTEM
 Boot: `.guarani/prompts/PROMPT_SYSTEM.md` | Triggers: `.guarani/prompts/triggers.json` | Provenance: `.guarani/standards/AGENT_MESSAGE_SIGNATURE_CONTRACT.md`
+
+---
+
+## MULTI-IDE SYNC RULES (2026-04-08 — MANDATORY)
+
+> This file (`.windsurfrules`) IS the canonical project rules file.
+> Claude Code reads `CLAUDE.md` (repo) as adapter. Global rules in `~/.claude/CLAUDE.md`.
+> **Rule of truth:** when `.windsurfrules` and `CLAUDE.md` diverge, `.windsurfrules` wins for project rules.
+
+### TASKS.md EDIT PROTOCOL (prevents data loss in multi-window/multi-agent envs)
+1. **COMMIT TASKS.md IMMEDIATELY** after any edit — do not defer. Parallel agents/windows WILL run `git restore` during their commits and silently lose your uncommitted changes.
+2. **git add TASKS.md && git commit** BEFORE spawning any background agents that may commit.
+3. **Background agents MUST NOT run** `git restore .`, `git checkout .`, `git reset --hard`, or `git clean -f`. Only commit specific files they authored.
+4. **When working alongside another open IDE window:** always `git pull --rebase` before editing TASKS.md, then commit within 2 minutes of editing.
+
+### PARALLEL AGENT GIT SAFETY
+- Agents MUST `git add <specific-files-only>` — NEVER `git add -A` or `git add .`
+- Before any agent commit: `git stash list` to detect in-progress work from other sessions
+- If stash entries exist: warn user before committing ("⚠️ uncommitted changes from another session detected")
+- Agents MUST NOT touch `.husky/`, `.guarani/`, `TASKS.md` unless their task explicitly requires it
+
+### GOVERNANCE SYNC RULE
+- Key numeric limits (TASKS.md max lines, AGENTS.md max lines) MUST match across:
+  - `.windsurfrules` (this file)
+  - `.husky/pre-commit` (enforcement)
+  - `CLAUDE.md` (repo adapter)
+- When changing a limit: update ALL THREE files in the SAME commit. Divergence = governance debt.
+- `scripts/governance-sync.sh` validates consistency. Run it before any governance commit.
