@@ -1228,6 +1228,27 @@ function saveGemsToHistory(gems: GemResult[], runDate: string): void {
 
 // ── Supabase Persistence (dual-write alongside SQLite) ────────────────────
 
+
+// CORAL-002: Load URLs of already-discovered high-score gems from gem_discoveries.
+// Returns a Set of lowercase URLs with score >= 7 (0-10 scale) seen in the last 14 days.
+async function loadKnownGems(): Promise<Set<string>> {
+  const client = getSupabaseClient();
+  if (!client) return new Set();
+  try {
+    const cutoff = new Date(Date.now() - 14 * 24 * 60 * 60 * 1000).toISOString();
+    const { data, error } = await client
+      .from("gem_discoveries")
+      .select("repo_url")
+      .gte("score", 7)
+      .gte("last_seen_at", cutoff);
+    if (error) throw error;
+    return new Set((data || []).map((r: { repo_url: string }) => r.repo_url.toLowerCase()));
+  } catch (e: any) {
+    console.warn("⚠️  CORAL: Could not load known gems (non-fatal):", e?.message || e);
+    return new Set();
+  }
+}
+
 function getSupabaseClient(): any | null {
   try {
     const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -1272,6 +1293,28 @@ async function syncGemsToSupabase(gems: GemResult[], runDate: string): Promise<v
       mode: isDry ? "dry" : "exec",
     });
     console.log(`☁️  Supabase synced: ${gems.length} gems + run log`);
+
+    // CORAL-002: Upsert high-score gems into gem_discoveries cache (score ≥7/10 = ≥70/100)
+    const discoveries = gems
+      .map((g) => ({ gem: g, score: scoreGem(g) }))
+      .filter(({ score }) => score >= 70)
+      .map(({ gem, score }) => ({
+        repo_url: gem.url,
+        gem_name: gem.name.slice(0, 200),
+        category: gem.category,
+        score: parseFloat((score / 10).toFixed(2)),
+        discovered_by: "gem-hunter",
+        summary: (gem.description || "").slice(0, 500),
+        last_seen_at: new Date().toISOString(),
+      }));
+    if (discoveries.length > 0) {
+      const { error: discErr } = await client.from("gem_discoveries").upsert(discoveries, {
+        onConflict: "repo_url",
+        ignoreDuplicates: false,
+      });
+      if (discErr) console.warn("⚠️  gem_discoveries upsert failed:", discErr.message);
+      else console.log(`🧬 CORAL: ${discoveries.length} gem(s) upserted to gem_discoveries`);
+    }
   } catch (e: any) {
     console.warn(`⚠️  Supabase sync failed (non-fatal):`, e?.message || e);
   }
@@ -1403,6 +1446,11 @@ async function main() {
 
   // Execute real searches
   const maxPerKeyword = isQuick ? 3 : 5;
+  // CORAL-002: Pre-load known high-score gems to skip during this run
+  const knownGemUrls = await loadKnownGems();
+  if (knownGemUrls.size > 0) {
+    console.log(`\n🧬 CORAL: ${knownGemUrls.size} known gem(s) will be skipped (score ≥7, last 14d)`);
+  }
   const allResults: GemResult[] = [];
   const DELAY_MS = 1200; // rate limit buffer
 
@@ -1557,6 +1605,15 @@ async function main() {
   const beforeXNoise = unique.length;
   unique = unique.filter((r) => !["x-public", "x-api"].includes(r.source) || isXSignalRelevant(r));
   if (unique.length < beforeXNoise) console.log(`\n🧹 Filtered ${beforeXNoise - unique.length} noisy X results`);
+
+  // CORAL-002: Skip already-discovered gems (score ≥7, last 14 days)
+  if (knownGemUrls.size > 0) {
+    const beforeCoral = unique.length;
+    unique = unique.filter((r) => !knownGemUrls.has(r.url.toLowerCase()));
+    const skipped = beforeCoral - unique.length;
+    if (skipped > 0) console.log(`\n🧬 CORAL: Skipped ${skipped} already-discovered gem(s) — ~${Math.round(skipped / beforeCoral * 100)}% reduction`);
+  }
+
 
   console.log(`\n📊 Total: ${unique.length} unique gems found`);
   const byCategory = unique.reduce<Record<string, number>>((acc, r) => {
