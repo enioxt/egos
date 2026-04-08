@@ -105,6 +105,7 @@ interface GemResult {
   structureBonus?: number;    // GH-060/GH-048: validated structure score bonus (0-35)
   abstractScore?: number;     // GH-056: LLM abstract triage score (0-100)
   crossSourceBonus?: number;  // Day-0: appears in 2+ high-value sources (PWC+arXiv etc.)
+  authorBio?: string;         // GH-091: X.com/GitHub author bio for big-tech engineer detection
 }
 
 interface GemPreferences {
@@ -1841,6 +1842,21 @@ function scoreGem(gem: GemResult): number {
   // Day-0 Cross-Source Validation (Grok recommendation): PWC + arXiv = max priority
   // These gems appear before GitHub Trending — highest signal quality
   if (gem.crossSourceBonus) score += gem.crossSourceBonus;
+
+  // GH-091: Low-visibility big-tech engineering gem
+  // Big-tech engineer posting real code with few likes — the gems we want BEFORE they're popular
+  // Fixes @zhuokaiz undervaluation: Meta engineer posting real implementation code, few stars but genuine value
+  const gemFullText = `${gem.name} ${gem.description} ${gem.authorBio ?? ""}`;
+  const isBigTechEngineer =
+    /(meta|google|openai|anthropic|deepmind|apple|microsoft|amazon|nvidia)\s*(researcher|engineer|swe|ml|ai|scientist)/i.test(gemFullText) ||
+    /(engineer|researcher|scientist)\s+at\s+(meta|google|openai|anthropic|deepmind|apple|microsoft|amazon|nvidia)/i.test(gemFullText);
+  const hasCodeSignals =
+    /```|github\.com\/[\w-]+\/[\w-]+|npm install|pip install|\bconst \w|\bfunction \w|\bdef \w|\bclass \w/.test(gem.description);
+  const isFollowerBait =
+    /retweet|follow me|like if|like and retweet|thread\s*[↓⬇]/i.test(gem.description);
+  if (isBigTechEngineer && hasCodeSignals && !isFollowerBait) {
+    score += 25; // "low-visibility engineering gem" — signal before it's popular
+  }
 
   return Math.max(0, Math.round(score));
 }
