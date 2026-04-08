@@ -598,7 +598,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 | Phase | Task | Description | Status |
 |-------|------|-------------|--------|
 | **A: Distribution** | GH-074 | gem-hunter-digest.ts — top 3-5 repos/week, markdown+Telegram (cron Thu 02:00 UTC) | ✅ Done |
-| | GH-075 | Landing page: gemhunter.egos.ia.br (Vite, "What is?" + gems + subscribe) | [ ] |
+| | GH-075 | Landing page: gemhunter.egos.ia.br (Bun/Hono, dark mode) — live | [x] |
 | | GH-076 | Substack: Telegram HITL draft Thu 08:00 UTC — cron live | [x] |
 | **B: Community** | GH-077 | Supabase: gem_lists + gem_votes + vote_count — RLS live | [x] |
 | | GH-078 | API: /gems/:url/upvote + /trending + /lists/* — live port 3070 | [x] |
@@ -640,9 +640,9 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 
 **P1 — Modular split (2-3h, correct fix):**
 - [x] **RULES-002 [P1]**: ✅ ~/.claude/egos-rules/ created — ssot-map.md, doc-drift.md, jobs-monitoring.md, llm-routing.md, product-gtm.md
-- [ ] **RULES-003 [P1]**: Strip informational sections (§12, §17, §22, §28, §29) from core file → move to egos-rules/ as reference docs
+- [x] **RULES-003 [P1]**: ✅ §12, §13, §28, §29 compressed → references to egos-rules/ — 653→615 lines
 - [ ] **RULES-004 [P1]**: Compress core ~/.claude/CLAUDE.md to <120 lines — only MUST/MUST NOT rules
-- [ ] **RULES-005 [P1]**: Update ~/.claude/CLAUDE.md to include pointer table: "Read ~/.claude/egos-rules/<file> for domain rules"
+- [x] **RULES-005 [P1]**: ✅ Pointer table added after CRITICAL NON-NEGOTIABLES block
 
 **P2 — Skills for on-demand loading:**
 - [ ] **RULES-006 [P2]**: Convert §12 (Scheduled Jobs) to a /start skill that loads on session open
