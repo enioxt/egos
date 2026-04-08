@@ -985,24 +985,24 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 - 🏭 FORJA Demo: https://www.notion.so/33ce6358f08081a4baccd88685b62f29
 
 **P0 — Dados demo + dogfooding (próximas 48h):**
-- [ ] **KBS-PM-001 [P0]**: Popular Agrônomo com 5 fazendas demo (Boa Vista/São João/Vereda/Estrela/Lagoa Azul) + 10 visitas técnicas + 8 defensivos aprovados com dados reais MAPA. | 3h
-- [ ] **KBS-PM-002 [P0]**: Popular Advocacia com 8 processos demo TJMG + 5 jurisprudências STJ (direito agrário) + 3 modelos de petição posse rural. | 3h
-- [ ] **KBS-PM-003 [P0]**: Popular Contador com 6 clientes rurais demo + 12 obrigações fiscais (ITR/Funrural/INSS) + 5 normas tributárias rurais. | 2h
-- [ ] **KBS-PM-004 [P0]**: Popular FORJA com 8 peças demo (eixo/flange/bucha/suporte) + 5 orçamentos históricos + 3 atas de reunião transcritas. | 4h
-- [ ] **KBS-PM-005 [P0]**: Escrever `CLAUDE.md` para cada perfil (5 arquivos, PT-BR) — contexto setorial, tom correto, limites, fontes prioritárias. Salvar em `packages/knowledge-mcp/templates/sectors/`. | 4h
+- [x] **KBS-PM-001 [P0]**: Popular Agrônomo com 5 fazendas demo (Boa Vista/São João/Vereda/Estrela/Lagoa Azul) + 10 visitas técnicas + 8 defensivos aprovados com dados reais MAPA. | 3h ✅ 2026-04-08
+- [x] **KBS-PM-002 [P0]**: Popular Advocacia com 8 processos demo TJMG + 5 jurisprudências STJ (direito agrário) + 3 modelos de petição posse rural. | 3h ✅ 2026-04-08
+- [x] **KBS-PM-003 [P0]**: Popular Contador com 6 clientes rurais demo + 12 obrigações fiscais (ITR/Funrural/INSS) + 5 normas tributárias rurais. | 2h ✅ 2026-04-08
+- [x] **KBS-PM-004 [P0]**: Popular FORJA com 8 peças demo (eixo/flange/bucha/suporte) + 5 orçamentos históricos + 3 atas de reunião transcritas. | 4h ✅ 2026-04-08
+- [x] **KBS-PM-005 [P0]**: Escrever `CLAUDE.md` para cada perfil (5 arquivos, PT-BR) — contexto setorial, tom correto, limites, fontes prioritárias. Salvar em `packages/knowledge-mcp/templates/sectors/`. | 4h ✅ 2026-04-08
 - [ ] **KBS-PM-006 [P0]**: Gravar Loom demo 5min PT-BR usando FORJA como exemplo — "Do orçamento em 2h para resposta em 10s". Usar dados demo populados. | 2h
 
 **P1 — Completar perfis P1 com databases (próximas 2 semanas):**
-- [ ] **KBS-PM-007 [P1]**: Criar databases para Consultor de Gestão Rural (perfil 04) — Fazendas, Benchmarks, Preços CBOT/Esalq, Contratos. | 2h
-- [ ] **KBS-PM-008 [P1]**: Criar databases para Veterinário (perfil 05) — Pacientes, Medicamentos+carência, Protocolos, Notificações MAPA. | 2h
-- [ ] **KBS-PM-009 [P1]**: Criar databases para Engenheiro (perfil 06) — Normas ABNT, ARTs, Projetos, SINAPI, NRs Segurança. | 2h
-- [ ] **KBS-PM-010 [P1]**: Criar databases para Médico (perfil 07) — Protocolos MS, Medicamentos, ANS/CFM, Orientações paciente. | 2h
-- [ ] **KBS-PM-011 [P1]**: Popular perfis P1 com dados demo relevantes (10-15 registros cada). | 4h
+- [x] **KBS-PM-007 [P1]**: Criar databases para Consultor de Gestão Rural (perfil 04) — Fazendas, Custo Produção, Benchmarks. | 2h ✅ 2026-04-08
+- [x] **KBS-PM-008 [P1]**: Criar databases para Veterinário (perfil 05) — Pacientes, Medicamentos+carência, Protocolos+Vacinações. | 2h ✅ 2026-04-08
+- [x] **KBS-PM-009 [P1]**: Criar databases para Engenheiro (perfil 06) — ARTs, Projetos, Normas Técnicas. | 2h ✅ 2026-04-08
+- [x] **KBS-PM-010 [P1]**: Criar databases para Médico (perfil 07) — Protocolos Clínicos, Medicamentos, Regulação ANS/CFM. | 2h ✅ 2026-04-08
+- [x] **KBS-PM-011 [P1]**: Popular perfis P1 com dados demo relevantes (5 registros cada, 12 databases). | 4h ✅ 2026-04-08
 - [ ] **KBS-PM-012 [P1]**: PDF/áudio ingestor — plugar `unpdf` + `mammoth` + `whisper-api` no wiki-compiler. Input: pasta com arquivos mistos, output: atoms em egos_wiki_pages. | 8h
 - [ ] **KBS-PM-013 [P1]**: Testar pipeline completo: ingestar 5 documentos reais de cada perfil P0 → query com citações → verificar accuracy. | 4h
 
 **P1 — Narrativa ERP Replacement (posicionamento):**
-- [ ] **KBS-PM-014 [P1]**: Escrever 1-pager "Por que a Inteligência da Empresa substitui o ERP burro" em PT-BR. Foco em FORJA/metalurgia. Salvar em `docs/strategy/ERP_REPLACEMENT_NARRATIVE.md`. | 2h
+- [x] **KBS-PM-014 [P1]**: Escrever 1-pager "Por que a Inteligência da Empresa substitui o ERP burro" em PT-BR. Foco em FORJA/metalurgia. Salvar em `docs/strategy/ERP_REPLACEMENT_NARRATIVE.md`. | 2h ✅ 2026-04-08
 - [ ] **KBS-PM-015 [P1]**: Post X.com thread sobre ERP replacement + demo FORJA (3 tweets). Usar narrativa do 1-pager. Agendar via sistema de aprovação. | 1h
 - [ ] **KBS-PM-016 [P1]**: Abordagem direta de 3 metalúrgicas em Patos de Minas via LinkedIn/WhatsApp — oferecer demo gratuita com dados deles. | 2h
 
@@ -1017,7 +1017,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 
 ### Bugs e Incidentes de Sistema (2026-04-08)
 **P1 — Auto-disseminate pipeline fix:**
-- [ ] **DISS-BUG-001 [P1]**: auto-disseminate faz match de task IDs em range notation (`KBS-001..026` → marca KBS-001 como done). Fix: adicionar guard que ignora IDs em contexto de range notation ou em commits com "fix/revert" no subject. Arquivo: `scripts/auto-disseminate.sh`. | 2h
+- [x] **DISS-BUG-001 [P1]**: auto-disseminate faz match de task IDs em range notation (`KBS-001..026` → marca KBS-001 como done). Fix: adicionar guard que ignora IDs em contexto de range notation ou em commits com "fix/revert" no subject. Arquivo: `scripts/auto-disseminate.sh`. | 2h ✅ 2026-04-08
 
 **P1 — LLMRefs staleness (19 links quebrados, job 2026-04-07):**
 - [ ] **QA-001 [P1]**: Resolver 19 stale llmrefs em docs. Rodar `python3 scripts/qa/llmrefs_staleness.py --root . --fix` e revisar. Não-bloqueador mas polui CI. | 1h
