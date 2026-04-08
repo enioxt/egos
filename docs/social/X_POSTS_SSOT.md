@@ -387,6 +387,58 @@ Se tiverem dúvidas de como aplicar: DM aberta.
 
 ---
 
+## 4.2 TEMPLATES DM — OSINT & Inteligência (852, Guard Brasil Forense)
+
+### OSINT-1 — Ferramenta de investigação
+
+```
+Vi seu post sobre OSINT. Desenvolvemos uma plataforma usada por forças policiais para cruzamento automático de dados — CPF, veículos, REDS, ligações, localizações.
+
+Tem interesse em ver como funciona?
+
+🔗 852.egos.ia.br — demo pública (modo anônimo)
+📄 LGPD-compliant por design
+```
+
+### OSINT-2 — Cruzamento automático
+
+```
+Você mencionou "cruzamento de dados" — exatamente o que resolvemos para investigações digitais.
+
+Nossa API faz:
+• Cruzamento CPF ↔ veículo ↔ endereço (4ms)
+• Geolocalização ↔ REDS ↔ padrões temporais
+• Análise de vínculos em redes sociais
+
+Roda 100% local (sem nuvem externa).
+
+Demo: 852.egos.ia.br
+```
+
+### OSINT-3 — Plataforma policial
+
+```
+Trabalhamos com inteligência policial há 8 anos. Desenvolvemos 852 como ferramenta prática para investigadores — não é "sistema", é produto que resolve caso.
+
+Funciona offline, preserva cadeia de custódia, LGPD nativo.
+
+Se tiver interesse em ver: 852.egos.ia.br
+```
+
+### OSINT-4 — Monitoramento digital
+
+```
+Sua área é análise de redes sociais/monitoramento digital. Temos stack completo:
+
+• 852 — análise forense (polícia)
+• Guard Brasil — PII detection/API
+• EGOS Kernel — orquestração multi-agent
+
+Tudo open source (MIT), rodando em produção.
+
+Quer trocar ideia sobre aplicações?
+```
+
 ## 4.1 ARSENAL RÁPIDO — Copy-Paste por Contexto
 
 ### Quando alguém pergunta "qual seu produto?"
