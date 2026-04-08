@@ -548,7 +548,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 
 **P0 — Limpeza:**
 - [x] **NOTIFY-001**: OpenClaw already stopped on VPS — no systemctl service found (`systemctl stop/disable`)
-- [ ] **NOTIFY-002**: Ajustar thresholds RAM monitor (warning <500MB, critical <100MB)
+- [x] **NOTIFY-002**: RAM monitor already configured correctly — warning <500MB, critical <100MB (vps-ram-monitor.sh:91/74)
 - [ ] **NOTIFY-003**: Consolidar Doc Drift alerts em 1 sumário diário
 
 **P1 — Botões e Interatividade:**
@@ -636,7 +636,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 
 **P0 — Reorder critical rules (30 min, immediate impact):**
 - [x] **RULES-001 [P0]**: ✅ Critical rules block at top of ~/.claude/CLAUDE.md — 5 non-negotiables in primacy position.
-- [ ] **RULES-001b [P1]**: GUARD_BRASIL_API_KEY missing — PII check in article-writer fails silently. Set in ~/.egos/secrets.env. Found: TL-002 dry-run.
+- [x] **RULES-001b [P1]**: GUARD_BRASIL_API_KEY missing — PII check in article-writer fails silently. Set in ~/.egos/secrets.env. Found: TL-002 dry-run. ✅ 2026-04-08
 
 **P1 — Modular split (2-3h, correct fix):**
 - [ ] **RULES-002 [P1]**: Create ~/.claude/egos-rules/ directory with domain files: ssot-map.md, doc-drift.md, jobs-monitoring.md, llm-routing.md, gtm-product.md

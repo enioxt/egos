@@ -648,3 +648,21 @@ Task IDs matched: `[A-Z][A-Z0-9_]+-[0-9]+` (e.g. `X-COM-018`, `HERMES-005`, `DRI
 or HARVEST.md are missing, it skips silently. This prevents hook failures from blocking commits.
 
 ---
+
+## §23 — Timeline + AI Publishing System (2026-04-08)
+
+**What it does:** Converts every git commit into a published article. HITL flow ensures human approval before anything goes public.
+
+**Key components:**
+- `supabase/migrations/20260408_timeline_publishing.sql` — 3 tables: timeline_drafts, timeline_articles, x_post_queue
+- `agents/agents/article-writer.ts` — commit → qwen-plus → draft (DashScope + OpenRouter fallback)
+- `scripts/publish.sh` — manual trigger: `bash scripts/publish.sh "topic" [hash]`
+- `scripts/timeline-approval-bot.ts` — Telegram inline buttons (✅ Approve / ❌ Reject / ✏️ Edit in HQ)
+- `apps/egos-site/` — Bun/Hono server, port 3071: GET /timeline + GET /timeline/:slug
+
+**Live endpoints:**
+- egos.ia.br → egos-site:3071 (Caddy 2026-04-08)
+- egos.ia.br/timeline — paginated article list
+- egos.ia.br/timeline/:slug — article render + view tracking
+
+**Principles:** HITL (never blind publish), PII guard (Guard Brasil), zero auto-post to X.com.
