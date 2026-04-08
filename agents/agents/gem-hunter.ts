@@ -46,6 +46,7 @@
 
 import { writeFileSync, readFileSync, existsSync, mkdirSync } from "fs";
 import { join } from "path";
+import { createHash } from "crypto";
 import { callAI } from "../../packages/shared/src/social/ai-engine";
 import { appendGemSignal } from "../../packages/shared/src/gem-signals";
 
@@ -2325,25 +2326,75 @@ async function runPaperPipeline(papers: GemResult[], date: string): Promise<void
 }
 
 // ── GH-055: Telegram alert for hot gems ────────────────────────────────────
-async function sendGemTelegramAlert(hotGems: { gem: GemResult; score: number }[]): Promise<void> {
+/** GH-093: Alert index for feedback bot resolution (alert_id → gem metadata) */
+const GEM_ALERT_INDEX_PATH = "/tmp/gem-alert-index.json";
+
+function gemAlertId(gemUrl: string): string {
+  return createHash("md5").update(gemUrl).digest("hex").slice(0, 20);
+}
+
+async function sendGemTelegramAlert(hotGems: { gem: GemResult; score: number }[], runId?: string): Promise<void> {
   if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
     console.log("[GemAlert] Telegram skipped — TELEGRAM_BOT_TOKEN / TELEGRAM_ADMIN_CHAT_ID not set");
     return;
   }
-  const lines = hotGems.map(({ gem, score }) =>
-    `• *${gem.name}* (${score}/100)\n  ${gem.description.slice(0, 80)}…\n  ${gem.url}`
-  );
-  const message = `🔥 *Gem Hunter v${GEM_HUNTER_VERSION} — ${hotGems.length} Hot Gem(s)*\n\n${lines.join("\n\n")}`;
+  const rid = runId ?? new Date().toISOString().replace(/[:.]/g, "-");
+
+  // GH-093: Load or init alert index for feedback bot resolution
+  let alertIndex: Record<string, { gem_url: string; gem_name: string; score: number; run_id: string }> = {};
   try {
-    await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: "Markdown" }),
-    });
-    console.log(`[GemAlert] Telegram alert sent for ${hotGems.length} gem(s)`);
-  } catch (err) {
-    console.error("[GemAlert] Failed to send Telegram alert:", err);
+    if (existsSync(GEM_ALERT_INDEX_PATH)) {
+      alertIndex = JSON.parse(readFileSync(GEM_ALERT_INDEX_PATH, "utf-8"));
+    }
+  } catch { /* fresh index */ }
+
+  // Send header message
+  const header = `🔥 *Gem Hunter v${GEM_HUNTER_VERSION} — ${hotGems.length} Hot Gem(s)*\nReact to each gem below 👇`;
+  await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: header, parse_mode: "Markdown" }),
+  });
+
+  // Send each gem as separate message with inline keyboard
+  for (const { gem, score } of hotGems) {
+    const alertId = gemAlertId(gem.url);
+    alertIndex[alertId] = { gem_url: gem.url, gem_name: gem.name, score, run_id: rid };
+
+    const text =
+      `🔹 *${gem.name}* — ${score}/100\n` +
+      `${gem.description.slice(0, 120).trim()}…\n` +
+      `🔗 ${gem.url}`;
+
+    const reply_markup = {
+      inline_keyboard: [[
+        { text: "👍 Gem", callback_data: `gf:👍:${alertId}` },
+        { text: "👎 Skip", callback_data: `gf:👎:${alertId}` },
+        { text: "🔍 Research", callback_data: `gf:🔍:${alertId}` },
+        { text: "💬 Comment", callback_data: `gf:💬:${alertId}` },
+      ]],
+    };
+
+    try {
+      await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text, parse_mode: "Markdown", reply_markup }),
+      });
+    } catch (err) {
+      console.error(`[GemAlert] Failed to send alert for ${gem.name}:`, err);
+    }
   }
+
+  // Persist alert index for feedback bot
+  try {
+    writeFileSync(GEM_ALERT_INDEX_PATH, JSON.stringify(alertIndex, null, 2));
+    console.log(`[GemAlert] Alert index saved: ${Object.keys(alertIndex).length} entries`);
+  } catch (err) {
+    console.error("[GemAlert] Failed to save alert index:", err);
+  }
+
+  console.log(`[GemAlert] Telegram alerts sent for ${hotGems.length} gem(s) with inline feedback keyboard`);
 }
 
 // ── GH-064: Discord webhook alert ──────────────────────────────────────────
