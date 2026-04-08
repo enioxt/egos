@@ -186,3 +186,11 @@
 - [x] **GUARD-BUG-006**: ✅ GUARD_VERSION corrigido para '0.2.2', package.json bumped para 0.2.3.
 - [x] **GUARD-SEC-001**: ✅ middleware.ts — Basic Auth em /dashboard-v{1,2,3} + /x-dashboard. DASHBOARD_SECRET env var necessária no Vercel.
 - [x] **XMCP-001 [DONE 2026-04-07]**: X credentials rotados — todos 5 tokens válidos em ~/.egos/secrets.env
+
+## Archived 2026-04-08 (5 tasks)
+
+- [x] **X-COM-018**: X_MOAT_KEYWORDS.md — Base SSOT de keywords alinhadas ao moat (OSINT/investigações/IA)
+- [x] **X-COM-019**: Refinar queries x-opportunity-alert.ts — Foco em OSINT, cruzamento de dados, AI frameworks
+- [x] **X-COM-020**: Anti-keyword filter — Excluir cursos, mentorias, marketing digital genérico
+- [x] **X-COM-021**: Relevance scoring system — Score 0-100 baseado em moat keywords
+- [x] **X-COM-022**: Feedback learning loop — Tracking de performance por query para auto-melhoria

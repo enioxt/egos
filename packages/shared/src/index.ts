@@ -70,3 +70,19 @@ export { SupabaseMemoryStore, InMemoryStore, NullMemoryStore } from './memory-st
 export type { MemoryEntry, MemoryStore, SupabaseClientLike, SupabaseMemoryStoreOptions } from './memory-store';
 export { runEval } from './eval/runner';
 export type { GoldenCase, EvalResult, EvalReport, ChatFn, EvalMessage } from './eval/runner';
+
+// ═══════════════════════════════════════════════════════════
+// Memory Integration v2 — Selective Extraction (2026-04-08)
+// MemPalace AAAK + Hindsight Operations + CORAL Knowledge Reuse
+// ═══════════════════════════════════════════════════════════
+
+// AAAK Compression — MemPalace pattern (30× lossless compression)
+export { compress, decompress, compressionRatio, tokenSavings, batchCompress, buildAAAKMemoryBlock } from './aaak';
+
+// Hindsight Operations — Biomimetic memory lifecycle (Retain/Recall/Reflect)
+export { retain, recall, reflect, batchRetain, getMemoryStats, pruneFadingMemories } from './hindsight-ops';
+export type { HindsightMemory, MemoryState, RetainOptions, RecallOptions, ReflectOptions } from './hindsight-ops';
+
+// Knowledge Reuse — CORAL pattern (50%+ breakthroughs from reuse)
+export { findRelevantDiscoveries, prioritizeDiscoveries, shouldSkipExploration, markReused, getReuseStats, filterByAge, filterByScore } from './knowledge-reuse';
+export type { Discovery, TaskContext, RelevanceScore, PrioritizationResult } from './knowledge-reuse';
