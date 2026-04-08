@@ -632,10 +632,10 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 ### Supabase Cleanup (2026-04-08)
 **SSOT:** `docs/SUPABASE_AUDIT.md` | **Project:** `lhscgsqhiooyatkebose` | **State:** 173 tables, ~37 dead, 4 unrelated domains
 
-- [ ] **SUPA-001 [P0]**: Drop unrelated domains (`ethik_*` 12, `volante_*` 6, `nexusmkt_*` 7, empty `hub_*`) — 0 risk, ~30 tables
-- [ ] **SUPA-002 [P0]**: Drop empty `*_v2`/`*_v3` migration leftovers (`telemetry_events_v2`, `messages_v3`, `conversations_v3`, `ai_call_metrics`, `ai_response_cache`, `audit_logs`, `profiles`, `rate_limits`, `user_consents`, `knowledge_vectors`, `detected_patterns`, `conversation_logs`)
+- [x] **SUPA-001 [P0]**: Drop unrelated domains (`ethik_*` 12, `volante_*` 6, `nexusmkt_*` 7, empty `hub_*`) — 0 risk, ~30 tables ✅ 2026-04-08
+- [x] **SUPA-002 [P0]**: Drop empty `*_v2`/`*_v3` migration leftovers (`telemetry_events_v2`, `messages_v3`, `conversations_v3`, `ai_call_metrics`, `ai_response_cache`, `audit_logs`, `profiles`, `rate_limits`, `user_consents`, `knowledge_vectors`, `detected_patterns`, `conversation_logs`) ✅ 2026-04-08
 - [ ] **SUPA-003 [P1]**: Investigate `knowledge_base` (9 rows / 28 MB) — dump schema + sample, decide migrate→`egos_wiki_pages` or drop
-- [ ] **SUPA-004 [P1]**: Drop `code_*` indexer tables (chunks/symbols/files/relations) — replaced by codebase-memory-mcp
+- [x] **SUPA-004 [P1]**: Drop `code_*` indexer tables (chunks/symbols/files/relations) — replaced by codebase-memory-mcp ✅ 2026-04-08
 - [ ] **SUPA-005 [P2]**: CCR weekly job — alert if any non-core table > 50 MB
 - [ ] **SUPA-006 [P2]**: Naming convention rule — every new table prefixed with active domain (`egos_`, `gem_`, `guard_`, `intelink_`, `eagle_`, `x_post_`, `timeline_`, `852_`)
 
