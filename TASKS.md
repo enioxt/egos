@@ -8,23 +8,7 @@
 **SSOT:** `docs/social/X_POSTS_SSOT.md` | **Features Roadmap:** `docs/social/X_FEATURES_INTEGRATION_ROADMAP.md` | **Scripts:** `scripts/x-opportunity-alert.ts`, `scripts/x-approval-bot.ts`, `scripts/setup-x-monitoring.sh`
 **Context:** Sistema completo de monitoramento de oportunidades X.com. Busca automática a cada 2h, alertas WhatsApp/Telegram, aprovação manual via bot. Integrando melhores features de ferramentas pagas (AutoTweet, TweetHunter, Hypefury) em solução própria self-hosted.
 
-**Done (2026-04-07):**
-- X-COM-001: x-opportunity-alert.ts — 10 queries de oportunidades, alertas Telegram/WhatsApp
-- X-COM-002: x-approval-bot.ts — bot Telegram para aprovar/rejeitar/enviar DMs
-- X-COM-003: setup-x-monitoring.sh — deploy automatizado no VPS
-- X-COM-004: X_POSTS_SSOT.md expandido — 14 novos templates DM (4G-4R) + arsenal rápido
-- X-COM-005: X_FEATURES_INTEGRATION_ROADMAP.md — features de $275/mo integradas
-
-**P0 — Intelligence Upgrade (Agora):**
-- [ ] **X-COM-018**: Integrar análise por IA completa nas mensagens Telegram do x-opportunity-alert
-- [ ] **X-COM-019**: Definir provider/modelo oficial para a análise rápida e a análise detalhada (DashScope/Alibaba)
-- [ ] **X-COM-020**: Confirmar e documentar se Hermes participa ou não do fluxo X.com
-- [ ] **X-COM-021**: Usar sistema de cotas diárias para priorizar modelos melhores sem estourar limites
-
-**P1 — Quality & Feedback:**
-- [ ] **X-COM-022**: Padronizar formato das mensagens com resumo executivo, análise IA e recomendação final
-- [ ] **X-COM-023**: Registrar feedback humano por alertas para calibrar scoring e queries
-- [ ] **X-COM-024**: Produzir diagnóstico consolidado do sistema X.com com status por componente
+**✅ DONE 2026-04-07/08:** X-COM-001..005 (alert+approval bots, setup, SSOT templates, roadmap) | X-COM-018..024 (LLM analysis layer DashScope+OpenRouter, recordFeedback, HTML format, diagnostic — all in `scripts/x-opportunity-alert.ts`)
 
 **P0 — Deploy + Core (Esta semana):**
 - [ ] **X-COM-006**: Adaptar setup script para `/opt/x-automation/` (evitar conflito com `/opt/xmcp` existente)
@@ -72,13 +56,8 @@
 
 ### Doc-Drift Shield Implementation (2026-04-07)
 **SSOT:** `docs/DOC_DRIFT_SHIELD.md` | **Handoff:** `docs/_current_handoffs/handoff_2026-04-07_doc-drift-shield-plan.md`
-**Context:** P33 discovered severe drift across READMEs (Carteira Livre: 54 pages → real 134 / +148%; 68 APIs → real 254 / +273%; BR-ACC 77M → real 83,773,683 Neo4j nodes). Solution: 4-layer structural shield. L1 (contract manifest) + L4 part B (CLAUDE.md §27 rules) DONE. L2 (pre-commit) + L3 (VPS sentinel) + L4 part A (CCR module) pending.
-
-**Done P33 (2026-04-07):**
-
-**Done P34 (2026-04-07):** doc-drift-verifier.ts, doc-drift-sentinel.ts, readme-syncer.ts, doc-drift-check.sh hook, agents.json registered (19 agents), br-acc/carteira-livre manifests + annotations, MASTER_INDEX v1.3.0
-
-**Done P35 (2026-04-07):** DRIFT-008 (decision: local cron primary, CCR secondary), DRIFT-009 (governance-drift.yml CCR workflow), DRIFT-010 (manifests: 852/forja/egos-lab/egos-inteligencia), DRIFT-011 (manifest-generator.ts LLM extraction), SSOT gate (.ssot-map.yaml 21 domains + ssot-router.ts pre-commit step 5.7), X_POSTS_SSOT.md (5 files → 1), doc-drift-analyzer.ts (Layer 3.5), developer timeline, EN native thread
+**Context:** P33 discovered severe drift (Carteira Livre 54→134 pages +148%, BR-ACC 77M→83.7M Neo4j). 4-layer shield: L1 manifest + L4 CLAUDE.md §27 + L2 pre-commit + L3 VPS sentinel + L4 CCR module — ALL DONE (P33-P35).
+**Done P33-P35 (2026-04-07):** doc-drift-verifier.ts, doc-drift-sentinel.ts, readme-syncer.ts, doc-drift-check.sh, agents.json (19 agents), manifests (br-acc/carteira-livre/852/forja/egos-lab/egos-inteligencia), MASTER_INDEX v1.3.0, governance-drift.yml CCR, manifest-generator.ts, .ssot-map.yaml (21 domains), ssot-router.ts (pre-commit step 5.7), X_POSTS_SSOT consolidation (5→1), doc-drift-analyzer.ts (L3.5)
 
 **P1 — Pending:**
 - [ ] **DRIFT-012**: Drift dashboard in hq.egos.ia.br showing status across all repos
@@ -278,25 +257,10 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 ---
 
 ### HQ Dashboard v2 (2026-04-06)
-**Goal:** Mission Control shows full system state (tasks, gems, world model, GTM metrics, system map)
-**Prerequisite:** Volume mounts on VPS (data bound to /data/ inside container)
-
-**P0 — Volume mounts (needed for all v2 routes):**
-- [ ] HQV2-000: Add Docker volume mounts to VPS docker-compose.yml: TASKS.md, world-model/, gem-hunter/latest-run.json, agents.json, CAPABILITY_REGISTRY.md → /data/*
-
-**P1 — API Routes (apps/egos-hq/app/api/hq/):**
-- [ ] HQV2-001: `tasks/route.ts` — parse /data/TASKS.md → `{categories, priorities, total, done, pending, p0_stale}`
-- [ ] HQV2-002: `world-model/route.ts` — read /data/world-model/current.json → full snapshot (health%, blockers, agents, signals)
-- [ ] HQV2-003: `gems/route.ts` — read /data/gem-hunter/latest-run.json → top gems + filters (score, source, category)
-- [ ] HQV2-004: `system-map/route.ts` — read /data/agents.json + CAPABILITY_REGISTRY.md → `{nodes, edges}` for D3
-- [ ] HQV2-005: `gtm/route.ts` — aggregate: MRR from Supabase, M-007 status, outreach count, pending demos
-
-**P2 — Dashboard Pages:**
-- [ ] HQV2-006: `/tasks` page — Kanban by priority (P0 red, P1 yellow, P2 blue), done/pending counts
-- [ ] HQV2-007: `/world-model` page — health% gauge, P0 blocker cards, agent inventory, signal feed
-- [ ] HQV2-008: `/gems` page — filterable card grid (score badge, source icon, category color, search)
-- [ ] HQV2-009: `/system-map` page — interactive D3 graph (capability domains as nodes, agent edges)
-- [ ] HQV2-010: Update nav in hq-layout.tsx with new links (tasks, world-model, gems, system-map, gtm)
+**Goal:** Mission Control shows full system state. **Prereq:** Volume mounts on VPS (data → /data/).
+- [ ] **HQV2-000 [P0]**: Docker volume mounts (TASKS.md, world-model/, gem-hunter/latest-run.json, agents.json, CAPABILITY_REGISTRY.md → /data/*)
+- [ ] **HQV2-001..005 [P1]**: API routes — tasks, world-model, gems, system-map, gtm
+- [ ] **HQV2-006..010 [P2]**: Dashboard pages — /tasks Kanban, /world-model gauge, /gems cards, /system-map D3, nav update
 
 ---
 
@@ -344,34 +308,10 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 
 ---
 
-### OpenClaw Integration Roadmap (2026-04-06)
+### ~~OpenClaw Integration Roadmap~~ — DECOMMISSIONED 2026-04-08
+**OC-006..034 CANCELED.** ChatGPT subscription cancelled → Codex proxy + billing proxy + OpenClaw gateway removed. Replaced by DashScope qwen-plus + OpenRouter free fallback (see §16 CAPABILITY_REGISTRY) + Hermes systemd service. Channels (WhatsApp/Telegram) continue via existing Evolution API + egosin_bot direct.
 
-> **SSOT:** `docs/OPENCLAW_SSOT.md` | **Gateway:** localhost:18789 | **Billing proxy:** localhost:18801
-
-**Current state:** Gateway UP, billing proxy running (subscription:max), Codex proxy port 18802 (gpt-5.4). No channels configured — skeleton install.
-
-**P0 — Curto prazo (esta semana): Base funcional**
-
-
-**P0 — GAPS CRÍTICOS identificados (2026-04-06):**
-- [ ] OC-031: Codex auth.json refresh cron no VPS — token expira, precisa refresh igual ao billing proxy (last_refresh: 2026-04-01)
-- [ ] OC-032: VPS watchdog — adicionar monitoramento porta 18802 (Codex proxy) ao /opt/egos-watchdog.sh
-- [ ] OC-033: Constitutional review cron no VPS — atualmente só roda local; adicionar ao crontab do VPS
-- [ ] OC-034: Codex quota Telegram alert — alertar via Telegram quando quota ≥ 80% usada (rate_limited_count > 0)
-
-**P1 — Médio prazo (2 semanas): Canais + Integração EGOS**
-
-- [ ] OC-006: Decidir estratégia Telegram: (a) migrar egosin_bot para OpenClaw (OpenClaw gerencia o loop), ou (b) manter EGOS Gateway como primário e conectar OpenClaw via sessions API. **Recomendado: opção (b)** — EGOS Gateway tem LGPD/PII, OpenClaw traz skills/multi-device.
-- [ ] OC-007: Conectar EGOS Gateway → OpenClaw sessions API — `sessions_spawn` para criar sub-agentes OpenClaw a partir de intent do EGOS orchestrator. Exemplo: usuário pede "pesquise concorrentes" → EGOS spawna sessão OpenClaw com Gem Hunter skill.
-- [ ] OC-008: Instalar `@openclaw/whatsapp` channel — conectar ao Evolution API existente (port 8080 no VPS). OpenClaw gerencia loop de mensagens, EGOS Gateway faz PII-check antes de responder.
-- [ ] OC-010: Registrar Guard Brasil MCP (`@egosbr/guard-brasil-mcp`) — blocked on KB-019 (MCP server não existe ainda).
-- [ ] OC-011: Configurar skills relevantes do ClawHub marketplace — pesquisar: Brave Search, Knowledge Base, Code Execution. Instalar 2-3 skills úteis.
-
-**P2:** OC-012..017 (Hermes local, sessions_spawn multi-agent, Canvas, Discord, cron jobs) — post HERMES MVP go/no-go.
-
-**P3:** OC-018..023 (ClawHub marketplace, A2A, multi-device, Tutor Melkin v2, self-serve onboarding) — post PMF.
-
- ---
+---
  
  ### Self-Discovery Product (2026-04-06)
  **SSOT:** `docs/SELF_DISCOVERY_ARCHITECTURE.md` | self.egos.ia.br → VPS | B2C wellness (não medical device)
@@ -526,75 +466,129 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 
 ---
 
-### Content Orchestrator — OpenMontage + OpenScreen (2026-04-08)
-**Context:** OpenMontage (MIT/AGPL) = sistema agentic de produção de vídeo com 11 pipelines + 49 tools. OpenScreen (MIT) = alternativo open-source ao Screen Studio para demos profissionais. Ambos encaixam perfeitamente no EGOS para criar conteúdo escalável para todos os repositórios.
-**SSOT:** `docs/knowledge/CONTENT_ORCHESTRATOR.md` (a criar) | **Fontes:** https://github.com/calesthio/OpenMontage, https://github.com/siddharthvaddem/openscreen
-
-**P0 — Foundation:**
-- [ ] **CONTENT-001 [P1]**: Fork OpenMontage para `.egos/content-orchestrator/openmontage/` com EGOS governance wrapper (Guard Brasil, audit trail, cost approval)
-- [ ] **CONTENT-002 [P1]**: Fork OpenScreen para `.egos/content-orchestrator/openscreen/` com EGOS governance wrapper (LGPD compliance, evidence chain)
-- [ ] **CONTENT-003 [P1]**: Criar meta-prompt `content.orchestrator` em `.guarani/prompts/` — aceita descrição em linguagem natural, gera vídeo via OpenMontage ou demo via OpenScreen
-- [ ] **CONTENT-004 [P1]**: Integração em `agents.json` e `triggers.json` — comando `egos content "descrição"` disponível para todos os agents
-
-**P1 — Integration:**
-- [ ] **CONTENT-005 [P1]**: MemPalace integration — salvar todo output (vídeo + assets + script) no wing "content", room por repositório
-- [ ] **CONTENT-006 [P1]**: Event-bus integration — tópicos `content.generated`, `content.demo.recorded` para outros agents consumirem
-- [ ] **CONTENT-007 [P2]**: Combinar OpenMontage + OpenScreen — vídeo AI com demos reais injetados (ex: demo do EGOS + narração AI)
-- [ ] **CONTENT-008 [P2]**: Criar 3 exemplos: (1) vídeo 30s MemPalace, (2) demo walkthrough EGOS, (3) vídeo combinado Guard Brasil
-
-**P2 — Scale:**
-- [ ] **CONTENT-009 [P2]**: Auto-generate content para todos os repos EGOS — script que detecta novos releases e gera vídeo explicativo automaticamente
-- [ ] **CONTENT-010 [P2]**: Content dashboard no HQ — visualizar todos os vídeos/demos gerados, métricas de views (se publicado no X/YouTube)
+### Git Workflow — Branch Protection (INC-001 follow-up)
+**Decision (2026-04-08):** Manter branch protection. GIT-001..003 RESOLVIDOS (já em main, divergência resolvida via rebase). Branch protection funcionando como esperado.
+- [ ] **GIT-004 [P1]**: Documentar workflow PR-first em `CLAUDE.md` para mudanças >5 arquivos ou >100 linhas
+- [ ] **GIT-005 [P1]**: `scripts/create-pr.sh` — automatiza branch+push+gh CLI
+- [ ] **GIT-006 [P1]**: Comando `egos pr "título"` em `agents.json`
 
 ---
 
-### Test & Validation Orchestrator — Multi-Agent Review (2026-04-08)
-**Context:** Thread X (Bruno Pinheiro) + pesquisa aprofundada revela padrão comprovado: breakdown estruturado (epic → stories) + E2E tests auto-gerados + multi-agent swarm review = crescimento rápido com validação. Não temos isso no EGOS ainda — criar orchestrator dedicado.
-**SSOT:** `docs/knowledge/TEST_ORCHESTRATOR.md` (a criar) | **Fontes:** Thread X Bruno Pinheiro, CrewAI, LangChain swarms, Qodo
+### LLM Model Monitor — OpenRouter Intelligence System (2026-04-08)
+**Context:** Pesquisa aprofundada revela 28+ modelos free no OpenRouter (Qwen3 Coder, Nemotron 3 Super, MiniMax M2.5, Step 3.5 Flash) e dezenas de modelos pagos com excelente custo-benefício (Kimi K2.5, DeepSeek V3.2, MiMo-V2-Pro). Necessário sistema automatizado para monitorar novos modelos, testar, comparar e adaptar fallbacks dinamicamente.
+**SSOT:** `docs/knowledge/LLM_MODEL_MONITOR.md` (a criar) | **Fontes:** CostGoat, OpenRouter Rankings April 2026, TeamDay AI, Reddit r/LocalLLaMA, Digital Applied
 
-**P0 — Core:**
-- [ ] **TEST-001 [P1]**: Criar pasta `.egos/test-orchestrator/` com agent swarm de 6 especialistas: Planner, Generator, Reviewer1 (acceptance), Reviewer2 (security/best-practices), Validator (self-run), Reporter
-- [ ] **TEST-002 [P1]**: Meta-prompt `test.validation.orchestrator` — aceita "valide epic X" ou "gere E2E tests para story Y", quebra em stories com regras de negócio + user journeys
-- [ ] **TEST-003 [P1]**: E2E test generator — gera Playwright/TestNG tests automaticamente a partir de stories (usar LLM + templates)
-- [ ] **TEST-004 [P1]**: Integração em `agents.json` — comando `egos validate "descrição"` e `egos test epic X`
+**OpenRouter Free Models - Tier S (Prioridade Máxima):**
+| Modelo | ID | Contexto | Uso Recomendado | Rate Limit |
+|--------|-----|----------|-----------------|------------|
+| Qwen3 Coder 480B | `qwen/qwen3-coder:free` | 262K | Coding SOTA free | 20/min, 200/dia |
+| NVIDIA Nemotron 3 Super | `nvidia/nemotron-3-super-120b-a12b:free` | 262K | Documentos longos, multi-token | 20/min, 200/dia |
+| MiniMax M2.5 | `minimax/minimax-m2.5:free` | 197K | Coding, produtividade office | 20/min, 200/dia |
+| Step 3.5 Flash | `stepfun/step-3.5-flash:free` | 256K | SEO, programação | 20/min, 200/dia |
+| Qwen3.6 Plus | `qwen/qwen3.6-plus:free` | 1M | Raciocínio, contexto longo | 20/min, 200/dia |
+
+**OpenRouter Paid - Best Value (Custo-Benefício):**
+| Modelo | ID | Preço Input/1M | Preço Output/1M | Uso |
+|--------|-----|----------------|-----------------|-----|
+| Kimi K2.5 | `moonshotai/kimi-k2.5` | ~$0.38-0.57 | ~$1.72-1.91 | Agentic coding, planning |
+| MiniMax M2.5 | `minimax/minimax-m2.5` | ~$0.12-0.30 | ~$0.95-1.20 | Coding, iterações rápidas |
+| DeepSeek V3.2 | `deepseek/deepseek-v3.2` | ~$0.27 | ~$1.10 | Value king, frontier-like |
+| MiMo-V2-Pro | `xiaomi/mimo-v2-pro` | Variável | Variável | #1 open-source SWE-Bench |
+
+**P0 — Foundation (Agente Monitor):**
+- [ ] **LLM-MON-001 [P1]**: Criar `scripts/llm-model-monitor.ts` — agente que roda no VPS a cada 6h, consulta OpenRouter API `/models`, detecta novos modelos (free ou paid)
+- [ ] **LLM-MON-002 [P1]**: Integração MCP Exa — para cada novo modelo detectado, pesquisar reviews no Reddit, X.com, blogs técnicos (qualidade, benchmarks, casos de uso)
+- [ ] **LLM-MON-003 [P1]**: Supabase schema `llm_models` — armazenar: id, provider, name, pricing, context_length, capabilities, is_free, discovery_date, review_sentiment, benchmark_scores, egos_recommendation
+- [ ] **LLM-MON-004 [P1]**: Notificações — alertar no Telegram/WhatsApp quando modelo promissor (S-tier) é detectado, com summary do research Exa
+
+**P1 — Test & Comparison Engine:**
+- [ ] **LLM-MON-005 [P1]**: Test Suite Standard — 5 categorias de prompts: (1) Coding (gerar + debug), (2) Reasoning (lógica matemática), (3) Context Longo (128K+), (4) Agentic (tool calling), (5) Creative (copywriting)
+- [ ] **LLM-MON-006 [P1]**: Auto-Test Runner — para cada modelo novo S-tier, rodar test suite automaticamente, medir: latency, token usage, quality score (LLM-as-judge), success rate
+- [ ] **LLM-MON-007 [P2]**: Benchmark Comparison — comparar resultados do novo modelo vs current fallback chain, gerar report `docs/knowledge/LLM_MODEL_COMPARISON_YYYY-MM-DD.md`
+- [ ] **LLM-MON-008 [P2]**: Fallback Chain Auto-Update — se novo modelo supera current fallback em quality/cost, propor atualização de `packages/shared/src/llm-provider.ts` via PR automático
+
+**P2 — Intelligence & Adaptation:**
+- [ ] **LLM-MON-009 [P2]**: Task-Based Routing — mapear cada categoria de teste para tipo de task EGOS (chat, review, summary, intelligence, coding) e sugerir modelos específicos por tarefa
+- [ ] **LLM-MON-010 [P2]**: Cost Optimization Engine — monitorar gasto real do OpenRouter (via API key usage), alertar quando alternativa free/cheaper atinge paridade de qualidade
+- [ ] **LLM-MON-011 [P2]**: Dashboard no HQ — visualizar: modelos monitorados, scores de testes, fallback chain atual, economia gerada por otimizações
+- [ ] **LLM-MON-012 [P2]**: Integration com CORAL — quando modelo é validado como S-tier, salvar discovery no `gem_discoveries` para reuso por outros agentes
+
+---
+
+### Content Orchestrator v2 — OpenMontage + OpenScreen Deep Integration (2026-04-08)
+**Context:** Pesquisa aprofundada revela OpenMontage (AGPL-3.0, 498⭐) com 11 pipelines completos: Reference Video Analysis → Concept Generation → Asset Generation → Voice/Narration → Music → Editing → Composition. Cada vídeo custa $0.15-$1.33. OpenScreen (MIT, 8400+⭐) é alternativa open-source ao Screen Studio com auto-zoom, motion blur, animated cursor — ideal para demos de produto.
+**SSOT:** `docs/knowledge/CONTENT_ORCHESTRATOR_V2.md` (a criar) | **Fontes:** calesthio/OpenMontage GitHub, PyShine, AI Heartland, Mintlify docs
+
+**OpenMontage Pipelines Detalhados:**
+1. **Reference Analysis** — análise de vídeo YouTube/Shorts para extrair: pacing, hook style, estrutura, tom
+2. **Concept Generation** — 2-3 conceitos diferenciados baseados na referência
+3. **Asset Generation** — imagens (FLUX, DALL-E, gpt-image-1), vídeos (Veo, Kling v3 via fal.ai)
+4. **Voice/Narration** — Google Chirp3-HD, ElevenLabs, OpenAI TTS
+5. **Music** — royalty-free auto-sourced com energy offset detection
+6. **Editing** — Remotion composition, TikTok-style word-level captions (WhisperX)
+7. **Review** — agente revisa custo, qualidade, solicita ajustes
+
+**OpenScreen Capabilities:**
+- Auto-zoom seguindo cursor
+- Motion blur suave em transições
+- Animated cursor rendering
+- Webcam overlay
+- No watermarks, no subscription
+- Export MP4/WebM/GIF
+
+**P0 — Foundation (Deep Integration):**
+- [ ] **CONTENT-001 [P1]**: Fork OpenMontage para `.egos/content-orchestrator/openmontage/` com wrapper EGOS: (a) Guard Brasil PII scan em todos scripts gerados, (b) Audit trail de cada pipeline, (c) Cost approval gate antes de gerar assets pagos
+- [ ] **CONTENT-002 [P1]**: Fork OpenScreen para `.egos/content-orchestrator/openscreen/` com wrapper EGOS: (a) LGPD compliance para webcam/audio, (b) Evidence chain de gravações
+- [ ] **CONTENT-003 [P1]**: Meta-prompt `content.orchestrator.v2` — linguagem natural → escolhe pipeline (OpenMontage full video vs OpenScreen demo vs combined)
+- [ ] **CONTENT-004 [P1]**: Integração em `agents.json` — comando `egos content "descrição" [--type=video|demo|combined] [--budget=$X]`
+
+**P1 — Advanced Workflows:**
+- [ ] **CONTENT-005 [P1]**: MemPalace integration — salvar em wing "content": scripts, assets, config de cada pipeline, room por projeto EGOS
+- [ ] **CONTENT-006 [P1]**: Event-bus integration — tópicos: `content.pipeline.started`, `content.asset.generated`, `content.completed`, `content.demo.recorded`
+- [ ] **CONTENT-007 [P2]**: Combined Pipeline — vídeo OpenMontage com demos OpenScreen injetados (ex: intro animada + demo real EGOS + outro)
+- [ ] **CONTENT-008 [P2]**: Auto-Content Calendar — integrar com X-COM para: detectar release EGOS → gerar vídeo explicativo → publicar no X automaticamente (com approval)
+- [ ] **CONTENT-009 [P2]**: Content Variants — usar LLM para gerar 3 variações de cada vídeo (short 30s, medium 2min, long 5min) a partir do mesmo conceito
+- [ ] **CONTENT-010 [P2]**: A/B Testing Framework — publicar variações no X, medir engagement, reportar winner para futuros vídeos
+
+**P2 — Scale & Intelligence:**
+- [ ] **CONTENT-011 [P2]**: Template Library — pre-built templates: "Product Release", "Feature Demo", "Tutorial", "Case Study", "Behind the Scenes"
+- [ ] **CONTENT-012 [P2]**: Voice Clone Integration — clonar voz do time EGOS para narração consistente em todos vídeos (ElevenLabs voice clone)
+- [ ] **CONTENT-013 [P2]**: Auto-Thumbnail Generator — FLUX/GPT-4o para gerar thumbnails otimizados para X/YouTube a partir do vídeo
+- [ ] **CONTENT-014 [P2]**: Content Performance Analytics — dashboard no HQ: views, engagement, cost per view, ROI de conteúdo
+
+---
+
+### Test & Validation Orchestrator v2 — Multi-Agent Review System (2026-04-08)
+**Context:** Pesquisa Braintrust, AutoEvals, EPOCH-Bench revelam padrão comum: agent evaluation requer tracing completo, scorers (deterministic + LLM-as-judge), regression gates em CI/CD, e feedback loop produção→teste. Thread X Bruno Pinheiro confirma: breakdown estruturado (epic→stories) + E2E tests auto-gerados + multi-agent swarm review = crescimento rápido validado.
+**SSOT:** `docs/knowledge/TEST_ORCHESTRATOR_V2.md` (a criar) | **Fontes:** Braintrust Agent Evaluation Framework, AutoEvals Medium, EPOCH-Bench, Arun Baby Testing AI Agents
+
+**6-Agent Swarm Architecture:**
+| Agente | Função | Input | Output |
+|--------|--------|-------|--------|
+| Planner | Quebra epic em stories com regras de negócio | Epic description | Stories[] com acceptance criteria |
+| Generator | Gera código/tests para cada story | Stories[] | Code + E2E tests (Playwright/TestNG) |
+| Reviewer1 | Review acceptance criteria coverage | Code + Tests | Coverage report + gaps |
+| Reviewer2 | Review security/best practices | Code | Security scan + best practice flags |
+| Validator | Executa lint, type-check, tests, E2E | Code + Tests | Pass/Fail + logs + metrics |
+| Reporter | Consolida evidence, gera report | All outputs | Evidence entry + human-readable report |
+
+**P0 — Core Swarm:**
+- [ ] **TEST-001 [P1]**: Criar `.egos/test-orchestrator/` com 6 agentes especializados (Planner, Generator, Reviewer1, Reviewer2, Validator, Reporter)
+- [ ] **TEST-002 [P1]**: Meta-prompt `test.validation.orchestrator` — aceita: "valide epic X", "gere E2E para story Y", "regression test para bug Z"
+- [ ] **TEST-003 [P1]**: E2E Test Generator — templates Playwright (web) + TestNG (API) + geração via LLM a partir de stories
+- [ ] **TEST-004 [P1]**: Integração `agents.json` — comandos: `egos validate "epic"`, `egos test story X`, `egos regression-check`
 
 **P1 — Validation Pipeline:**
-- [ ] **TEST-005 [P1]**: Self-verification gates — agents rodam lint, type-check, testes, E2E antes de PR (integrar com pre-commit)
-- [ ] **TEST-006 [P1]**: Evidence chain integration — cada validação gera evidence entry automaticamente (para compliance)
-- [ ] **TEST-007 [P2]**: MemPalace wake-up — puxar contexto de testes passados para evitar regressões
-- [ ] **TEST-008 [P2]**: Integrar com Content Orchestrator — gerar demo video da feature validada automaticamente
+- [ ] **TEST-005 [P1]**: Self-Verification Gates — pre-commit hook que chama swarm para: lint → type-check → unit tests → E2E (paralelizável)
+- [ ] **TEST-006 [P1]**: Evidence Chain Auto-Generation — cada validação cria evidence entry com: test results, coverage, security scan, timestamp, agent signatures
+- [ ] **TEST-007 [P2]**: MemPalace Wake-Up — antes de validar, puxar contexto de testes passados similares (CORAL pattern aplicado a testes)
+- [ ] **TEST-008 [P2]**: Content Orchestrator Integration — após validação bem-sucedida, trigger `egos content` para gerar demo video da feature automaticamente
 
-**P2 — Intelligence:**
-- [ ] **TEST-009 [P2]**: Self-healing tests — quando teste quebra, agent tenta corrigir automaticamente (usar CORAL pattern para aprender com fixes passados)
-- [ ] **TEST-010 [P2]**: Test analytics — dashboard no HQ mostrando cobertura, flakiness, tempo de execução por repo
+**P2 — Intelligence & Scale:**
+- [ ] **TEST-009 [P2]**: Self-Healing Tests — quando teste quebra, agent tenta corrigir automaticamente usando LLM (diff suggestion) com aprovação humana
+- [ ] **TEST-010 [P2]**: Flaky Test Detection — detectar testes instáveis via análise estatística (variance > threshold), quarentenar e notificar
+- [ ] **TEST-011 [P2]**: Test Analytics Dashboard — no HQ: cobertura por repo, tempo médio de execução, taxa de falha, economia de tempo com auto-tests
+- [ ] **TEST-012 [P2]**: Regression Prediction — ML simples para prever quais arquivos têm maior risco de regressão baseado em histórico de mudanças
+- [ ] **TEST-013 [P2]**: Integration com LLM-MON — usar modelos mais baratos/free do OpenRouter para geração de testes quando qualidade for equivalente
 
----
-
-### Git Workflow — Branch Protection & Safe Push (2026-04-08)
-**Context:** Análise do incidente INC-001 revela que branch protection está funcionando corretamente — bloqueio de force push é intencional e necessário. O problema atual (push bloqueado após Memory Integration v2) é devido a CCR jobs paralelos criando divergência. Solução: usar PR workflow em vez de push direto.
-**SSOT:** `docs/INCIDENTS/INC-001-force-push.md` | **Regras atuais:** pre-push hook, GitHub protection (allow_force_pushes=false), `scripts/safe-push.sh`
-
-**Análise do Estado Atual:**
-✅ **Branch protection está funcionando como deveria** — bloqueio de force push evitou reescrita de história após INC-001
-⚠️ **Push direto bloqueado** — CCR jobs criaram commits remotos que divergiram do local
-🔧 **Solução recomendada** — usar PR workflow para mudanças grandes (não push direto)
-
-**P0 — Immediate (Esta sessão):**
-- [ ] **GIT-001 [P0]**: Criar branch `feat/memory-integration-v2` com todos os commits locais
-- [ ] **GIT-002 [P0]**: Abrir PR para `main` — merge via GitHub interface (bypassa o bloqueio de force push)
-- [ ] **GIT-003 [P0]**: Após merge, deletar branch e sincronizar local
-
-**P1 — Workflow Improvement:**
-- [ ] **GIT-004 [P1]**: Documentar no `CLAUDE.md` §workflow — preferir PR para mudanças >5 arquivos ou >100 linhas
-- [ ] **GIT-005 [P1]**: Criar script `scripts/create-pr.sh` — automatiza criação de branch + push + abertura de PR via gh CLI
-- [ ] **GIT-006 [P1]**: Adicionar ao `agents.json` — comando `egos pr "título"` para agents criarem PRs automaticamente
-
-**Riscos vs Vantagens das Regras Atuais:**
-| Aspecto | Risco | Vantagem | Decisão |
-|---------|-------|----------|---------|
-| Force push bloqueado | Push direto impossível quando há divergência | Protege história de reescrita acidental | ✅ Manter |
-| Branch protection | Requer PR para mudanças grandes | Permite review antes de merge | ✅ Manter |
-| CCR jobs paralelos | Podem criar divergência inesperada | Automatização contínua | ✅ Manter + usar PR workflow |
-
-**Decisão:** NÃO alterar regras de branch protection. Em vez disso, adaptar workflow para usar PRs quando há divergência (como agora).
 

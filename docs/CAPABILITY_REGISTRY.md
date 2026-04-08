@@ -388,7 +388,7 @@ L5: Agent Registry + Skills    — Auto-discovery, hot-reload, marketplace patte
 |-----------|----------|---------------|
 | LangGraph | Complex branching workflows | Reference for Mycelium Phase 2 |
 | CrewAI | Fast prototyping role-based agents | Inspiration for agent registry |
-| OpenClaw | Multi-channel AI gateway (local+VPS). Billing proxy→Claude subscription (zero cost). Default: Haiku 4.5, fallback: Qwen3-free+DashScope. Watchdog: 10 containers, 5min cron, Telegram alert | Port 18789 local, openclaw.egos.ia.br VPS, @egosmarkets_bot Telegram |
+| ~~OpenClaw~~ | ~~DECOMMISSIONED 2026-04-08~~ — ChatGPT subscription cancelled. Replaced by DashScope qwen-plus + OpenRouter free fallback (see §16) | N/A |
 | Vercel AI SDK | Chat streaming + tool calling | Already used in 852/forja |
 | Mastra | TypeScript-first graph workflows | Alternative if LangGraph too heavy |
 
@@ -444,27 +444,30 @@ L5: Agent Registry + Skills    — Auto-discovery, hot-reload, marketplace patte
 **Gateway deploy:** `rsync src → /opt/apps/egos-gateway/src/ && docker compose build --no-cache && docker compose up -d`
 **No volume mounts** — source baked into image. Always rebuild after rsync.
 
-## 16. CODEX PROXY + CONSTITUTIONAL REVIEWER (2026-04-06)
+## 16. LLM EXECUTION ENGINE — DASHSCOPE + OPENROUTER (2026-04-08)
+
+> **Replaces:** Codex Proxy + OpenClaw billing proxy (both decommissioned 2026-04-08 — ChatGPT subscription cancelled)
 
 | Capability | SSOT | Quality | Adopted By | Tags |
 |-----------|------|---------|------------|------|
-| Codex Proxy API | `~/.openclaw-codex-proxy/proxy.js` (local+VPS) | A | openclaw | `codex`, `gpt-5.4`, `openai-compatible`, `quota-tracking` |
-| Constitutional Review Job | `~/.openclaw-codex/jobs/constitutional-review.sh` | A | egos | `codex`, `review`, `governance`, `cron`, `signed` |
+| Hermes LLM Provider | `packages/shared/src/llm-providers/hermes.ts` | A | egos | `dashscope`, `qwen-plus`, `openrouter`, `fallback-chain` |
+| DashScope qwen-plus (primary) | `packages/shared/src/llm-providers/hermes.ts` | A | egos, egos-hq | `alibaba`, `qwen-plus`, `cheap`, `fast` |
+| OpenRouter free fallback | `packages/shared/src/llm-providers/hermes.ts` | A | egos | `openrouter`, `gemma-4-26b`, `free` |
+| Constitutional Review (migrated) | `apps/egos-hq/app/api/hq/actions/codex-review/route.ts` | A | egos-hq | `governance`, `review`, `dashscope` |
 | Smart TASKS.md Archive | `scripts/archive-tasks.sh` + `.husky/pre-commit` | A | egos | `governance`, `tasks`, `archiving`, `pre-commit` |
-| HQ Action Endpoints | `apps/egos-hq/app/api/hq/actions/` | A | egos | `hq`, `actions`, `billing-refresh`, `codex-review` |
+| HQ Action Endpoints | `apps/egos-hq/app/api/hq/actions/` | A | egos | `hq`, `actions`, `codex-review` |
 | HQ Collapsible Dashboard | `apps/egos-hq/app/page.tsx` (v2) | A | egos | `hq`, `collapsible`, `quota-bar`, `5-services` |
-| Codex Quota Window Tracker | `~/.openclaw-codex-proxy/usage.json` (local+VPS) | B | openclaw | `quota`, `5h-window`, `rate-limit`, `usage-tracking` |
+| X Opportunity LLM Analysis | `scripts/x-opportunity-alert.ts#analyzeWithLLM` | A | egos | `x.com`, `ai-analysis`, `telegram`, `dashscope` |
 
-**Codex Proxy endpoints:**
-- `POST /v1/chat/completions` → `codex exec --output-last-message` → OpenAI-compatible response
-- `GET /health` → status + quota window info
-- `GET /v1/usage` → detailed quota JSON
-- Quota block at 100%: returns HTTP 429 with `Retry-After` header
+**LLM chain (priority order):**
+1. Alibaba DashScope `qwen-plus` — `ALIBABA_DASHSCOPE_API_KEY` + `dashscope-intl.aliyuncs.com/compatible-mode/v1`
+2. OpenRouter `google/gemma-4-26b-a4b-it:free` — `OPENROUTER_API_KEY`
+3. OpenRouter `qwen/qwen3-coder:free` — optional 3rd slot
 
-**Nodes:**
-- Local: `http://127.0.0.1:18802` | VPS: `http://172.19.0.1:18802` (Docker bridge)
-- Auth: `codex-local-proxy-no-auth-needed` (OpenClaw profile `codex-local-proxy`)
-- Model: `gpt-5.4` (ChatGPT Plus subscription, zero API cost)
+**Hermes gateway (VPS):**
+- Service: `systemctl status hermes-gateway` → port 18800, 142MB RAM
+- Config: `/root/.hermes/config.yaml` (provider: alibaba_dashscope, model: qwen-plus)
+- .env: `/root/.hermes/.env` (DashScope key + OpenRouter key)
 
 ## 17. DOC-DRIFT SHIELD — 4-LAYER DOCUMENTATION INTEGRITY (2026-04-07)
 
@@ -514,18 +517,17 @@ L5: Agent Registry + Skills    — Auto-discovery, hot-reload, marketplace patte
 Python-based AI agent runtime with persistent TUI, 40+ tools (bash, file ops, browser/CDP), scheduled automations, skills (procedural memory that self-improves), messaging gateway (Telegram/Discord), and sub-agent spawning. Not a framework — a full application.
 
 ### EGOS Integration
-- **Auth:** Claude OAuth via `~/.claude/.credentials.json` — auto-detected. No API key needed.
-- **Default model:** `claude-haiku-4-5-20251001` (local + VPS + egos-kernel profile)
-- **Profiles:** `default`, `egos-kernel` (system prompt: EGOS context + Guard Brasil focus)
+- **Auth (2026-04-08):** DashScope qwen-plus via `ALIBABA_DASHSCOPE_API_KEY`. OpenRouter free as fallback. Anthropic OAuth removed (key invalid).
+- **Gateway service:** `systemctl status hermes-gateway` — VPS systemd, `ExecStart=cli.py --gateway`, MemoryMax=512M, Restart=always
+- **Config:** `/root/.hermes/config.yaml` (provider: alibaba_dashscope, model: qwen-plus)
 - **Install:**
   - Local: `~/.hermes-agent` (source) + `~/.hermes-venv` (Python env) + `~/.local/bin/hermes` (symlink)
   - VPS: `/opt/hermes-agent` + `/opt/hermes-venv` + `/root/.local/bin/hermes`
-- **Token refresh:** `*/5 * * * *` cron on local machine only (rotating refreshToken pattern — see HARVEST.md §P36)
 
 ### Non-interactive (scripting)
 ```bash
-hermes chat --provider anthropic --model claude-haiku-4-5-20251001 -q "task here" --yolo -Q
-hermes chat --provider anthropic --profile egos-kernel -q "task here" --yolo -Q
+hermes chat --provider openai --model qwen-plus -q "task here" --yolo -Q
+# (provider=openai = DashScope-compatible endpoint)
 ```
 
 ### Next steps
