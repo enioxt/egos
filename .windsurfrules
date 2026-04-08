@@ -151,6 +151,23 @@ Boot: `.guarani/prompts/PROMPT_SYSTEM.md` | Triggers: `.guarani/prompts/triggers
 
 ---
 
+## INCIDENTAL FINDINGS PROTOCOL (2026-04-08 — MANDATORY)
+
+When you encounter something broken/improvable while working on a different task:
+
+| Severity | Action |
+|----------|--------|
+| **CRITICAL** — security hole, data loss, exposed key, production broken | Fix immediately, same commit |
+| **HIGH** — type error, broken test, drift, dead code blocking current work | Fix if <30min, else P0 task |
+| **MODERATE** — code smell, naming, missing test, doc mismatch | Create P1 task with file:line, continue |
+| **LOW** — style, minor refactor, aspirational | Add `LEARNING:` in next commit, no task |
+
+**Rule:** Never stop mid-task for LOW severity. Never create tasks for trivial items. Fix CRITICAL immediately — never defer.
+
+**Task format:** `- [ ] **PREFIX-NNN [P0]**: description — found while working on X. File: path:line.`
+
+---
+
 ## MULTI-IDE SYNC RULES (2026-04-08 — MANDATORY)
 
 > This file (`.windsurfrules`) IS the canonical project rules file.
