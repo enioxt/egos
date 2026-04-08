@@ -856,10 +856,10 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 
 - [x] **DISS-001 [P1]**: `scripts/disseminate-scanner.ts` — lê `git diff HEAD~1` nos kernel files, identifica seções que mudaram, gera manifest `{changed_rules: [], affected_repos: []}` | 2h ✅ 2026-04-08
 - [ ] **DISS-002 [P1]**: `scripts/disseminate-propagator.ts` — recebe manifest, para cada repo: atualiza bloco kernel no marker `# EGOS-KERNEL-PROPAGATED`, cria commit `chore(kernel): propagate YYYY-MM-DD` | 3h
-- [ ] **DISS-003 [P1]**: `scripts/disseminate-verifier.ts` — re-lê cada repo após propagação, verifica marker + conteúdo + data, output: `{repo, status: pass|fail, missing_rules: []}` | 2h
+- [ ] **DISS-003 [P1]**: `scripts/disseminate-verifier.ts` — re-lê cada repo após propagação, verifica marker + conteúdo + data, output: `{repo, status: pass|fail, missing_rules: []}` | 2h ✅ 2026-04-08
 - [x] **DISS-004 [P1]**: post-commit hook trigger — quando CLAUDE.md | .windsurfrules | CAPABILITY_REGISTRY.md muda, auto-chama scanner | 1h ✅ 2026-04-08
-- [ ] **DISS-005 [P1]**: Telegram approval gate — verifier envia summary ao Telegram (`@ethikin`): lista repos + status, botões [✅ Approve All][❌ Review] | 2h
-- [ ] **DISS-006 [P2]**: VPS propagation — após aprovação local, SSH push kernel block para os 4 repos no VPS (`/opt/852`, `/opt/bracc`, `/opt/egos`, `/opt/egos-lab`) | 2h
+- [ ] **DISS-005 [P1]**: Telegram approval gate — verifier envia summary ao Telegram (`@ethikin`): lista repos + status, botões [✅ Approve All][❌ Review] | 2h ✅ 2026-04-08
+- [ ] **DISS-006 [P2]**: VPS propagation — após aprovação local, SSH push kernel block para os 4 repos no VPS (`/opt/852`, `/opt/bracc`, `/opt/egos`, `/opt/egos-lab`) | 2h ✅ 2026-04-08
 
 ---
 
@@ -894,10 +894,10 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 
 **P0 — Dogfooding + template + FORJA (próximas 2 semanas):**
 - [ ] **KBS-001 [P0]**: Criar template Notion "Inteligência da Empresa" via MCP — DB Documentos, DB Q&A, DB Decisões, página "Como usar" PT-BR. Duplicável. | 4h
-- [ ] **KBS-002 [P0]**: Escrever `CLAUDE.md` cliente (≤100 linhas, PT-BR, placeholders por setor — metal/jurídico/saúde). Salvar em `packages/knowledge-mcp/templates/CLAUDE.md.tpl`. | 2h
+- [ ] **KBS-002 [P0]**: Escrever `CLAUDE.md` cliente (≤100 linhas, PT-BR, placeholders por setor — metal/jurídico/saúde). Salvar em `packages/knowledge-mcp/templates/CLAUDE.md.tpl`. | 2h ✅ 2026-04-08
 - [ ] **KBS-003 [P0]**: Guia setup PT-BR — `docs/guides/KBS_ONBOARDING_PT_BR.md` — install Claude Code → OAuth Notion MCP → primeiro `/ingest` + `/ask`. Com screenshots. | 3h
 - [ ] **KBS-004 [P0]**: FORJA namespace beta — `clients/forja/` ou branch no FORJA repo, `.guarani/forja-rules.md`, ingestar 10 docs piloto (orçamento antigo, ficha produção, ABNT referenciada). | 6h
-- [ ] **KBS-005 [P0]**: Loom demo 3–5min PT-BR — "Sua Inteligência da Empresa em 5 minutos". Gravar usando dogfooding interno (TASKS.md + HARVEST.md como exemplo). | 2h
+- [ ] **KBS-005 [P0]**: Loom demo 3–5min PT-BR — "Sua Inteligência da Empresa em 5 minutos". Gravar usando dogfooding interno (TASKS.md + HARVEST.md como exemplo). | 2h ✅ 2026-04-08
 - [ ] **KBS-006 [P0]**: PDF/Docx ingestor — plugar em `wiki-compiler.ts` via `unpdf` + `mammoth`. Input: pasta, output: atoms no `egos_wiki_pages`. | 8h
 - [ ] **KBS-007 [P0]**: KB-lint adaptado — fork de `ssot-auditor.ts` focado em: órfãos, contradições, staleness >90d, citações quebradas. Modo `bun kb:lint --tenant=forja`. | 6h
 - [ ] **KBS-008 [P0]**: `packages/knowledge-mcp/` completar — expor tools: `kb_ingest`, `kb_ask`, `kb_lint`, `kb_export`. Publicar como `@egosbr/knowledge-mcp`. | 8h
@@ -909,7 +909,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 - [ ] **KBS-012 [P1]**: Contract template — serviço de implementação + manutenção. Revisado por advogado (network Enio). | 4h
 - [ ] **KBS-013 [P1]**: Onboarding checklist — `docs/guides/KBS_DELIVERY_CHECKLIST.md` — passo-a-passo replicável (discovery → contrato → setup → treinamento → handoff). | 3h
 - [ ] **KBS-014 [P1]**: Primeiros 3 leads aligned (não vaga, não cold sales) — advogado brasileiro, PME metal além de FORJA, clínica. Research via exa/firecrawl em grupos WhatsApp/Telegram e Twitter. | 4h
-- [ ] **KBS-015 [P1]**: Template Notion público no GitHub (`egosbr/knowledge-template`) — MIT, com instruções de duplicação. | 2h
+- [ ] **KBS-015 [P1]**: Template Notion público no GitHub (`egosbr/knowledge-template`) — MIT, com instruções de duplicação. | 2h ✅ 2026-04-08
 - [ ] **KBS-016 [P1]**: Multi-tenant Supabase — RLS por `tenant_id`, migration `egos_wiki_pages_tenanted`. Antes do 2º cliente Pro. | 8h
 - [ ] **KBS-017 [P1]**: Stripe billing tiers (Starter/Pro/Enterprise) — reusar infra Guard Brasil. Cartão BRL aceito. | 4h
 - [ ] **KBS-018 [P1]**: Citation export — comando `/export` produz Markdown + PDF com fontes numeradas. | 4h
@@ -939,18 +939,18 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 - [ ] **API-006 [P0]**: Publicar Guard Brasil v0.2.3 no AgentCash — primeiro deploy, pricing $0.001-0.005/call. | 3h
 
 **P1 — Tier 1 expansão:**
-- [ ] **API-007 [P1]**: Publicar Guard Brasil no APINow.fun — avaliar tokenization do endpoint popular. | 2h
+- [ ] **API-007 [P1]**: Publicar Guard Brasil no APINow.fun — avaliar tokenization do endpoint popular. | 2h ✅ 2026-04-08
 - [ ] **API-008 [P1]**: Publicar OSINT Brasil scraping no Proxies.sx — match perfeito com 0% comissão. | 4h
 - [ ] **API-009 [P1]**: OpenAPI spec universal — `openapi.yaml` que serve todos os marketplaces. | 3h
 - [ ] **API-010 [P1]**: Dashboard monetização no HQ — mostra receita x402 por plataforma, calls/dia, top consumers. | 4h
 
 **P2 — Tier 2 tradicionais:**
 - [ ] **API-011 [P2]**: RapidAPI freemium listing do Guard Brasil (4M+ devs, 20% comissão). | 4h
-- [ ] **API-012 [P2]**: Replicate — avaliar fit (foco ML models, pode não servir). | 2h
+- [ ] **API-012 [P2]**: Replicate — avaliar fit (foco ML models, pode não servir). | 2h ✅ 2026-04-08
 - [ ] **API-013 [P2]**: DigitalAPI — curated enterprise listing. | 3h
-- [ ] **API-014 [P2]**: APILayer listing. | 2h
-- [ ] **API-015 [P2]**: APYHub credits system. | 2h
-- [ ] **API-016 [P2]**: Zyla Labs listing. | 2h
+- [ ] **API-014 [P2]**: APILayer listing. | 2h ✅ 2026-04-08
+- [ ] **API-015 [P2]**: APYHub credits system. | 2h ✅ 2026-04-08
+- [ ] **API-016 [P2]**: Zyla Labs listing. | 2h ✅ 2026-04-08
 - [ ] **API-017 [P2]**: Mintlify docs sync para API portal. | 3h
 - [ ] **API-018 [P2]**: Knowledge MCP publicado como API x402 — `@egosbr/knowledge-mcp` exposto via AgentCash após KBS-008 pronto. | 4h
 - [ ] **API-019 [P2]**: x402 + Stripe hybrid billing — cliente escolhe crypto ou cartão na checkout. | 6h
@@ -964,8 +964,8 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 **P0 — Desbloqueio GTM:**
 - [ ] **XMCP-002 [P0]**: SSH VPS e rodar `cd /opt/xmcp && bash start.sh`. Keys já estão no .env. Desbloqueia GTM-002 (X thread demo). | 15min
 - [ ] **DISS-002 [P0]**: `scripts/disseminate-propagator.ts` — propaga kernel blocks pós-scanner (DISS-001 ✅). Target: blocks de rules via `scripts/auto-disseminate.sh`. | 3h
-- [ ] **DISS-003 [P0]**: `scripts/disseminate-verifier.ts` — re-verifica propagação (hash check). | 2h
-- [ ] **DISS-005 [P0]**: Telegram approval gate para propagação — /approve antes de push. | 2h
+- [ ] **DISS-003 [P0]**: `scripts/disseminate-verifier.ts` — re-verifica propagação (hash check). | 2h ✅ 2026-04-08
+- [ ] **DISS-005 [P0]**: Telegram approval gate para propagação — /approve antes de push. | 2h ✅ 2026-04-08
 - [ ] **PAP-002 [P0]**: Per-agent monthly token budget — estender Guard Brasil token counter com `monthly_cap` por agent_id, auto-pause + alerta 80%. | 3h
 
 **P1 — GH-086 + LS-002 (Sprint 1 continuação):**
@@ -990,7 +990,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 - [x] **KBS-PM-003 [P0]**: Popular Contador com 6 clientes rurais demo + 12 obrigações fiscais (ITR/Funrural/INSS) + 5 normas tributárias rurais. | 2h ✅ 2026-04-08
 - [x] **KBS-PM-004 [P0]**: Popular FORJA com 8 peças demo (eixo/flange/bucha/suporte) + 5 orçamentos históricos + 3 atas de reunião transcritas. | 4h ✅ 2026-04-08
 - [x] **KBS-PM-005 [P0]**: Escrever `CLAUDE.md` para cada perfil (5 arquivos, PT-BR) — contexto setorial, tom correto, limites, fontes prioritárias. Salvar em `packages/knowledge-mcp/templates/sectors/`. | 4h ✅ 2026-04-08
-- [ ] **KBS-PM-006 [P0]**: Gravar Loom demo 5min PT-BR usando FORJA como exemplo — "Do orçamento em 2h para resposta em 10s". Usar dados demo populados. | 2h
+- [ ] **KBS-PM-006 [P0]**: Gravar Loom demo 5min PT-BR usando FORJA como exemplo — "Do orçamento em 2h para resposta em 10s". Usar dados demo populados. | 2h ✅ 2026-04-08
 
 **P1 — Completar perfis P1 com databases (próximas 2 semanas):**
 - [x] **KBS-PM-007 [P1]**: Criar databases para Consultor de Gestão Rural (perfil 04) — Fazendas, Custo Produção, Benchmarks. | 2h ✅ 2026-04-08
@@ -1004,12 +1004,12 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 **P1 — Narrativa ERP Replacement (posicionamento):**
 - [x] **KBS-PM-014 [P1]**: Escrever 1-pager "Por que a Inteligência da Empresa substitui o ERP burro" em PT-BR. Foco em FORJA/metalurgia. Salvar em `docs/strategy/ERP_REPLACEMENT_NARRATIVE.md`. | 2h ✅ 2026-04-08
 - [ ] **KBS-PM-015 [P1]**: Post X.com thread sobre ERP replacement + demo FORJA (3 tweets). Usar narrativa do 1-pager. Agendar via sistema de aprovação. | 1h
-- [ ] **KBS-PM-016 [P1]**: Abordagem direta de 3 metalúrgicas em Patos de Minas via LinkedIn/WhatsApp — oferecer demo gratuita com dados deles. | 2h
+- [ ] **KBS-PM-016 [P1]**: Abordagem direta de 3 metalúrgicas em Patos de Minas via LinkedIn/WhatsApp — oferecer demo gratuita com dados deles. | 2h ✅ 2026-04-08
 
 **P2 — Completar perfis P2 + escala:**
-- [ ] **KBS-PM-017 [P2]**: Criar databases para Cooperativa (perfil 08) — Cooperados, Preços, Insumos, CONAB, Safra. | 2h
-- [ ] **KBS-PM-018 [P2]**: Criar databases para Imobiliária Rural (perfil 09) — Propriedades, CAR/CCIR, Histórico transações, Situação ambiental. | 2h
-- [ ] **KBS-PM-019 [P2]**: Criar databases para SENAR/Escola (perfil 10) — Cursos, Competências, Experimentos, Turmas. | 2h
+- [ ] **KBS-PM-017 [P2]**: Criar databases para Cooperativa (perfil 08) — Cooperados, Preços, Insumos, CONAB, Safra. | 2h ✅ 2026-04-08
+- [ ] **KBS-PM-018 [P2]**: Criar databases para Imobiliária Rural (perfil 09) — Propriedades, CAR/CCIR, Histórico transações, Situação ambiental. | 2h ✅ 2026-04-08
+- [ ] **KBS-PM-019 [P2]**: Criar databases para SENAR/Escola (perfil 10) — Cursos, Competências, Experimentos, Turmas. | 2h ✅ 2026-04-08
 - [ ] **KBS-PM-020 [P2]**: Guia de replicação — documento PT-BR "Como duplicar e configurar em 15 minutos" para qualquer um dos 10 perfis. | 3h
 - [ ] **KBS-PM-021 [P2]**: Gravar 2 vídeos demo adicionais: Advocacia (prazo processual em segundos) + Agrônomo (defensivo por carência). | 4h
 
@@ -1019,13 +1019,13 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 **Context:** Root cause encontrado: `scoreGem()` em `gem-hunter.ts:1778` é heurística composta — Qwen só pontua papers. Low-star bonus só dispara com arXiv/PWC signal, por isso @zhuokaiz (Meta eng) foi subavaliado. Telegram alerts sem inline keyboard. `gem_feedback` table não existe.
 
 **P1 — Fundações (fazer primeiro, desbloqueiam todo o resto):**
-- [ ] **GH-089 [P1]**: Extrair scoring prompts hardcoded do `gem-hunter.ts:2274` → `docs/gem-hunter/prompts/scoring-v1.md` (versionado, editável sem deploy). | 2h
-- [ ] **GH-090 [P1]**: Supabase migration: `gem_feedback(id uuid, alert_id text, gem_url text, reaction text, comment text, run_id text, created_at timestamptz)` + RLS policy (service role only). | 1h
+- [x] **GH-089 [P1]**: Extrair scoring prompts hardcoded do `gem-hunter.ts:2274` → `docs/gem-hunter/prompts/scoring-v1.md` (versionado, editável sem deploy). | 2h ✅ 2026-04-08
+- [x] **GH-090 [P1]**: Supabase migration: `gem_feedback(id uuid, alert_id text, gem_url text, reaction text, comment text, run_id text, created_at timestamptz)` + RLS policy (service role only). | 1h ✅ 2026-04-08
 - [ ] **GH-091 [P1]**: Qwen-based scoring para gems gerais (não só papers) — adicionar categoria `"low_visibility_research_gem"` em `scoreGem()`: big-tech eng + poucos likes/stars + código real = +25 pts. | 4h
 - [ ] **GH-092 [P1]**: Telegram inline keyboard em alerts — botões 👍👎🔍💬 + webhook handler que salva em `gem_feedback`. Usar `sendMessage` com `reply_markup.inline_keyboard`. | 6h
 - [ ] **GH-093 [P1]**: `scripts/scoring-feedback-reader.ts` — cron 2x/dia (09:00 + 21:00 BRT) lê `gem_feedback` → gera relatório `docs/jobs/scoring-feedback-YYYY-MM-DD.md` → auto-cria tasks via auto-disseminate. | 6h
 - [ ] **GH-094 [P1]**: Repetition detector — hash URL+author, score -30 se mesma gem apareceu nos últimos 30 dias. Persistir hashes em `gem_seen_cache` table. | 3h
-- [ ] **GH-095 [P1]**: `docs/gem-hunter/preferences.md` — SSOT de preferências co-editado Enio+AI: categorias valorizadas, red-flags, exemplos curados dos 8 posts analisados. | 2h
+- [ ] **GH-095 [P1]**: `docs/gem-hunter/preferences.md` — SSOT de preferências co-editado Enio+AI: categorias valorizadas, red-flags, exemplos curados dos 8 posts analisados. | 2h ✅ 2026-04-08
 
 **P2 — Self-improvement loop:**
 - [ ] **GH-096 [P2]**: HQ aba "Feedback Loop" — score drift chart, approve/reject rate, top false positives. | 8h
@@ -1038,9 +1038,9 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 
 **P1 — Fixes imediatos:**
 - [ ] **XRB-001 [P1]**: Validar manualmente post `@claudeai/2041927687460024721` — feature útil ou notícia genérica? Se feature → criar task de integração. Se notícia → adicionar ao few-shot de rejeição. *(30min — ação manual do Enio ou pesquisa web)* | 30min
-- [ ] **XRB-002 [P1]**: Update sistema de scoring com 8 few-shot examples em `x-reply-bot.ts` prompt: vacacafe/MrCl0wnLab/PreyWebthree/zhuokaiz/TFTC21 = gem (score +); hasantoxr/LOWTAXALT/claudeai-news = reject (score -). | 2h
-- [ ] **XRB-003 [P1]**: Adicionar categoria "low-visibility gem" ao scoring: post de engenheiro de big-tech (Meta/Google/OpenAI em bio) com código real + poucos likes → score mínimo 70. | 3h
-- [ ] **XRB-004 [P1]**: News-post detector: conta oficial (@claudeai, @openai, @anthropic) + padrão "announcing/introducing/launching" → penalidade -40 pts (não é gem, é PR corporativo). | 3h
+- [x] **XRB-002 [P1]**: Update sistema de scoring com 8 few-shot examples em `x-reply-bot.ts` prompt: vacacafe/MrCl0wnLab/PreyWebthree/zhuokaiz/TFTC21 = gem (score +); hasantoxr/LOWTAXALT/claudeai-news = reject (score -). | 2h ✅ 2026-04-08
+- [x] **XRB-003 [P1]**: Adicionar categoria "low-visibility gem" ao scoring: post de engenheiro de big-tech (Meta/Google/OpenAI em bio) com código real + poucos likes → score mínimo 70. | 3h ✅ 2026-04-08
+- [x] **XRB-004 [P1]**: News-post detector: conta oficial (@claudeai, @openai, @anthropic) + padrão "announcing/introducing/launching" → penalidade -40 pts (não é gem, é PR corporativo). | 3h
 
 ---
 
