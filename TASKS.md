@@ -1,6 +1,7 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.49.0 | **Updated:** 2026-04-07 | **LAST SESSION:** MemPalace+CORAL+GovTech — 17 tasks criadas (MEM-001..004, CORAL-001..003, GOV-TECH-001..010), compressão seções legacy
+> **Version:** 2.51.0 | **Updated:** 2026-04-08 | **LAST SESSION:** Sprint 1 locked — TL-001 ✅ GH-074 ✅ + 28 tasks planejadas (TL-002..018, GH-075..085, SOCIAL-001..008). Line limit: 750.
+> **Philosophy:** Build what needs to be built, in the right order, without urgency.
 
 ---
 
@@ -535,4 +536,133 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 - [ ] **GOV-TECH-008 [P2]**: Parceria Betha Sistemas — Guard Brasil como add-on LGPD no Betha Cloud (+3000 prefeituras). Modelo: R$0.02/call × volume municipal. Revenue share 70/30. [2h prep]
 - [ ] **GOV-TECH-009 [P2]**: Estratégia primeiro atestado. Pilot gratuito/subsidiado para prefeitura pequena SC/PR/SP (5-15k hab) → obter atestado capacidade técnica. Mínimo viável: 3 meses contrato assinado. [5h MANUAL]
 - [ ] **GOV-TECH-010 [P2]**: Estudar Diálogo Competitivo (Lei 14.133 art.32) para produto inovador IA+LGPD. Municípios que não sabem especificar → EGOS pode ser único habilitado. Mapear 3 prefeituras usando esta modalidade. [2h]
+
+---
+
+### Intelink v3 — Segurança + Multi-Device (2026-04-09)
+**SSOT:** `docs/knowledge/INTELINK_V3_SECURITY_ARCHITECTURE.md`
+**Decisões aprovadas:** Híbrido local+cloud | TIER 3 max | MASP+senha+2FA | CRDT (Automerge) | RxDB | PBKDF2 | Hetzner MVP→HA→Edge
+
+**✅ Decisões críticas — APROVADAS 2026-04-09:**
+- [x] **INTELINK-DEC-001**: RxDB v15 + plugin AES-256 — CRDT nativo, web PWA + React Native mesma codebase
+- [x] **INTELINK-DEC-002**: PBKDF2(MASP+senha, salt_device, 600K iter.) — chave nunca sai do device
+- [x] **INTELINK-DEC-003**: Plano faseado: Hetzner CX31 MVP → HA dual (produção) → Edge delegacia (expansão)
+
+**P0 — Fase 0: Fundação de Segurança:**
+- [ ] **INTELINK-SEC-001**: Auth server — MASP + bcrypt (14 rounds) + JWT RS256 + refresh token (8h campo / 30d base)
+- [ ] **INTELINK-SEC-002**: 2FA — portar bot Telegram existente do Intelink + adicionar opção email institucional
+- [ ] **INTELINK-SEC-003**: RxDB v15 inicializado com plugin AES-256-GCM + PBKDF2 key derivation
+- [ ] **INTELINK-SEC-004**: Audit log append-only (PostgreSQL tabela imutável + Merkle tree tamper-proof)
+- [ ] **INTELINK-SEC-005**: Device registration — fingerprint + revogação remota por MASP
+
+**P0 — Fase 1: Sync Engine CRDT:**
+- [ ] **INTELINK-SYNC-001**: Automerge v2 integrado no cliente (web PWA + React Native)
+- [ ] **INTELINK-SYNC-002**: Delta sync endpoint FastAPI — envia apenas ops CRDT pendentes (WebSocket + HTTPS)
+- [ ] **INTELINK-SYNC-003**: Offline queue persistente — ops não perdidas entre reinicializações do app
+- [ ] **INTELINK-SYNC-004**: Testes de merge: 2 devices editam mesmo registro offline → merge correto verificado
+
+**P1 — Fase 2: Multi-device:**
+- [ ] **INTELINK-DEVICE-001**: PWA desktop Next.js — testado Windows + Linux (Electron opcional)
+- [ ] **INTELINK-DEVICE-002**: React Native MVP para tablet Android — mesma codebase do web
+- [ ] **INTELINK-DEVICE-003**: Session lock — background > 5min → PIN ou biometria nativa do OS
+- [ ] **INTELINK-DEVICE-004**: Wipe remoto — admin revoga sessão → dados TIER 3 inacessíveis imediatamente
+
+**P1 — Fase 3: TIER + Auditoria:**
+- [ ] **INTELINK-TIER-001**: Classificador TIER 1-4 por campo — automático + override manual delegado
+- [ ] **INTELINK-TIER-002**: Partição TIER 3 com chave AES separada no RxDB local
+- [ ] **INTELINK-TIER-003**: Wazuh SIEM + alertas Telegram para Corregedoria (acesso anômalo, fora horário, exfiltração)
+- [ ] **INTELINK-TIER-004**: Dashboard auditoria read-only — Merkle root + eventos TIER 1-2 apenas
+
+**P2 — Fase 4: Hardening + Piloto:**
+- [ ] **INTELINK-HARD-001**: Pen test OWASP Top 10 (auth, injection, broken access control)
+- [ ] **INTELINK-HARD-002**: Stress test sync — 100 devices simultâneos sem corrompimento de dados
+- [ ] **INTELINK-HARD-003**: Runbook: device perdido, senha esquecida, servidor comprometido
+- [ ] **INTELINK-HARD-004**: Piloto 1 delegacia PCMG — 5 usuários, 30 dias, métricas coletadas
+
+---
+
+### Telegram Alerts Consolidation (2026-04-08)
+**SSOT:** `docs/knowledge/TELEGRAM_ALERTS_AUDIT_2026-04-08.md`
+**Context:** Audit de 8 fontes de alerta @EGOSin_bot. 5 ativos, 2 para verificar, 1 legado (OpenClaw). Meta: <10 alertas relevantes/dia.
+
+**P0 — Limpeza:**
+- [ ] **NOTIFY-001**: Desativar OpenClaw no VPS (`systemctl stop/disable`)
+- [ ] **NOTIFY-002**: Ajustar thresholds RAM monitor (warning <500MB, critical <100MB)
+- [ ] **NOTIFY-003**: Consolidar Doc Drift alerts em 1 sumário diário
+
+**P1 — Botões e Interatividade:**
+- [ ] **NOTIFY-004**: Inline keyboard no X Approval Bot
+- [ ] **NOTIFY-005**: Botões no X Opportunity Alert
+- [ ] **NOTIFY-006**: Comando `/task nova` no Telegram
+- [ ] **NOTIFY-007**: Comando `/task lista`
+- [ ] **NOTIFY-008**: Comando `/task feita` com auto-commit
+
+**P2 — Config via Bot:**
+- [ ] **NOTIFY-009**: Mapear serviços VPS para `/env` commands
+- [ ] **NOTIFY-010**: Menu principal `/menu`
+
+---
+
+### Timeline + AI Publishing System (2026-04-08)
+**SSOT:** `docs/TIMELINE_AI_PUBLISHING_ARCHITECTURE.md` | **Status:** TL-001 ✅ schema live.
+**Context:** Auto-generate articles from commits → Supabase drafts → Human approval (Telegram/WhatsApp/HQ) → Publish to egos.ia.br/timeline + X.com. Principles: transparência radical, HITL (never blind publish), PII guard.
+
+| Phase | Task | Description | Status |
+|-------|------|-------------|--------|
+| **1: Foundation** | TL-001 | Supabase: timeline_drafts + timeline_articles + x_post_queue | ✅ Done |
+| | TL-002 | Agent: article-writer.ts — reads commit/diff, calls qwen-plus, writes draft | [ ] |
+| | TL-003 | Script: publish.sh manual trigger | [ ] |
+| | TL-004 | Telegram bot: approve flow (✅/✏️/❌) with 48h timeout | [ ] |
+| **2: Site público** | TL-005 | Vite app: apps/egos-site — /timeline + /timeline/[slug] | [ ] |
+| | TL-006 | Route: GET /timeline — list articles paginated | [ ] |
+| | TL-007 | Route: GET /timeline/[slug] — render article + metrics | [ ] |
+| | TL-008 | Caddy: egos.ia.br/timeline/* → egos-site:3070 | [ ] |
+| **3: Automação** | TL-009 | timeline-cron-daily.sh — scan commits 24h (cron 03:00 UTC) | [ ] |
+| | TL-010 | Crontab: add timeline-cron-daily.sh | [ ] |
+| | TL-011 | auto-disseminate.sh: detect `PUBLISH:` in commit body | [ ] |
+| | TL-012 | x-reply-bot: postArticle(snippet, url) method | [ ] |
+| **4: Multi-canal** | TL-013 | WhatsApp via Evolution API (same approval flow) | [ ] |
+| | TL-014 | HQ tab: /timeline/pending with inline edit | [ ] |
+| | TL-015 | OG image generation: apps/og-gen | [ ] |
+| **5: Intelligence** | TL-016 | Weekly digest agent: 7 days → "What shipped this week" | [ ] |
+| | TL-017 | Engagement feedback: low-engagement → flag for tone adjustment | [ ] |
+| | TL-018 | PT→EN auto-translation via Deepl API | [ ] |
+
+---
+
+### Gem Hunter — Product Roadmap (2026-04-08)
+**SSOT:** `docs/GEM_HUNTER_MARKET_DOMINATION_ROADMAP.md` | **Status:** GH-074 ✅ digest live.
+**Context:** Build well, distribute honestly, let the right people find it. Multi-source + autonomous + quality-scored = genuine value for developers.
+
+| Phase | Task | Description | Status |
+|-------|------|-------------|--------|
+| **A: Distribution** | GH-074 | gem-hunter-digest.ts — top 3-5 repos/week, markdown+Telegram (cron Thu 02:00 UTC) | ✅ Done |
+| | GH-075 | Landing page: gemhunter.egos.ia.br (Vite, "What is?" + gems + subscribe) | [ ] |
+| | GH-076 | Substack: auto-webhook digest → email Thu 08:00 UTC | [ ] |
+| **B: Community** | GH-077 | Supabase: gem_lists + gem_votes tables (RLS) | [ ] |
+| | GH-078 | API: /gems/{id}/upvote, /lists/*, GET trending by votes | [ ] |
+| | GH-079 | Dashboard: 👍 voting button, "Top voted", "Your lists" | [ ] |
+| | GH-080 | github.com/enioxt/awesome-gems — weekly curated list | [ ] |
+| **C: Distribution** | GH-081 | Slack bot: /gem-hunter trending [lang] | [ ] |
+| | GH-082 | Discord bot: !gems [lang] embed + buttons | [ ] |
+| | GH-083 | Telegram @gem_hunter_bot: /trending /random /subscribe | [ ] |
+| **D: Optional tiers** | GH-084 | Stripe: Free/Pro/Team tiers when community validates demand | [ ] |
+| | GH-085 | Supply-chain risk endpoint: /gems/{id}/supply-chain-risk | [ ] |
+
+---
+
+### X.com Public Posts — Transparency & Partnerships (2026-04-08)
+**SSOT:** `docs/social/X_POSTS_SSOT.md` §8.5 | **Schedule:** N1 Mon 2026-04-14 → N8 Wed 2026-04-23 (2/week)
+**Context:** 8 posts approved. Transparency strategy: show what's being built, attract aligned builders naturally.
+
+| ID | Post | CTA | Schedule | Status |
+|----|------|-----|----------|--------|
+| **SOCIAL-001** | Open partnerships (equity flexible) | "DM aberta" | 2026-04-14 | ⏳ Queue — **PIN** |
+| **SOCIAL-002** | Gem Hunter spotlight | "DM para parceria" | 2026-04-16 | ⏳ Queue |
+| **SOCIAL-003** | Carteira Livre + split payment | "Conversa sobre parceria" | 2026-04-18 | ⏳ Queue |
+| **SOCIAL-004** | Transparência radical (0 MRR, 6 products, real infra) | "Procurando parceiro" | 2026-04-21 | ⏳ Queue |
+| **SOCIAL-005** | Researcher mindset | "DM aberta" | 2026-04-22 | ⏳ Queue |
+| **SOCIAL-006** | Hermes decommission (Codex → qwen-plus chain) | "Vale ler pra agentic builders" | 2026-04-15 | ⏳ Queue |
+| **SOCIAL-007** | Governance (26 SSOTs, 4-layer doc-drift) | "Vale ver se tá nesse pico" | 2026-04-17 | ⏳ Queue |
+| **SOCIAL-008** | Call for builders | "DM aberta" | 2026-04-23 | ⏳ Queue |
 
