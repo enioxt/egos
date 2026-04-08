@@ -2696,3 +2696,7 @@ if not access_token or not access_secret:
 
 **Files:** VPS `/opt/xmcp/server.py`, `/opt/xmcp/start.sh`, `/opt/xmcp/.env`
 
+
+### Auto-harvested — bd14a66 (2026-04-08)
+
+- Notion MCP já é nativo na sessão Claude Code (mcp__claude_ai_Notion__*) — elimina blocker de integração custom. ~70% do produto KB já existe no EGOS (atomizer, wiki-compiler, ARR, Guard Brasil MCP, egos_wiki_pages 92 pages).

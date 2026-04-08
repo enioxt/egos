@@ -153,18 +153,36 @@
 - [ ] **API-022**: Avaliar criação API coins/tokens (APINow model)
 - [ ] **API-023**: Stripe MPP integration (enterprise clients)
 
-**Insights da Pesquisa:**
+**Insights da Pesquisa (Atualizado 2026-04-08):**
+- **30+ plataformas** identificadas em 5 camadas (Payment, Agent-Native, MCP, Web3, Traditional)
 - 11,000+ MCP servers listados, **<5% monetizados** (oportunidade enorme)
-- ToolOracle: 15% conversion free→paid via health_check discovery
-- Stripe MPP: session batching para high-frequency (vs 1 TX/call x402)
-- Nevermined: Visa partnership (abril 2026) — card rails tradicionais
-- GoPlus: AgentGuard security layer para x402
+- **xpay MCP**: Proxy wrapper para monetizar MCP servers sem code changes
+- **ToolOracle**: 73 servers, 708 tools, 15% conversion free→paid via health_check discovery
+- **Stripe MPP**: session batching para high-frequency (vs 1 TX/call x402)
+- **Nevermined + Visa**: partnership abril 2026 — card rails tradicionais para agents
+- **Hyperbolic**: GPU marketplace para AI agents (descentralized compute)
+- **PinAI**: Personal AI Network — smartphone AI agents
+
+**Diferenciais EGOS para Monetização:**
+1. **Guard Brasil** — Único PII BR + LGPD art.11 (dados de saúde), zero competidores
+2. **Gem Hunter** — Discovery engine 14 fontes (competidores têm 1-3)
+3. **852 Inteligência** — Chatbot policial anônimo + ATRiAN (52 capabilities)
+4. **ATRiAN** — Validação ética 90+ acrônimos policiais
+5. **OSINT Brasil** — 12 ferramentas curadas + LGPD compliant
+6. **X Opportunity** — Monitoramento X.com policial (23 queries)
+
+**Documentos Consolidados:**
+- `/home/enio/.codeium/windsurf-next/EGOS_API_MONETIZATION_COMPLETE.md` — Documento único 30+ plataformas
+- `/home/enio/.codeium/windsurf-next/EGOS_DIFERENCIAIS_UNICOS.md` — Análise dos 6 diferenciais EGOS
+- `/home/enio/.codeium/windsurf-next/ATRIAN_VS_GUARD_ANALYSIS.md` — ATRiAN vs Guard Brasil comparativo
+- `/home/enio/.codeium/windsurf-next/API_MARKETPLACES_EXTENDED_RESEARCH.md` — Pesquisa ampla
 
 **Recursos:**
 - Awesome x402: https://github.com/xpaysh/awesome-x402
 - x402 vs MPP (WorkOS): https://workos.com/blog/x402-vs-stripe-mpp
 - MCP State 2026: https://settlegrid.ai/learn/state-of-mcp-2026
-- ToolOracle guide: https://tooloracle.io/blog/how-to-monetize-mcp-servers-x402-usdc-micropayments
+- xpay MCP: https://docs.xpay.sh/en/products/mcp-monetization
+- ToolOracle: https://tooloracle.io/blog/how-to-monetize-mcp-servers-x402-usdc-micropayments
 
 ---
 
