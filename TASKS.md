@@ -768,7 +768,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 **SSOT:** `docs/knowledge/HARVEST.md` KB-028 | **Source:** github.com/paperclipai/paperclip (49.9K⭐, MIT) | **Strategy:** EGOS = safety/compliance kernel inside Paperclip, not competing.
 
 **Adoptable NOW (sem Paperclip dependency):**
-- [ ] **PAP-001 [P1]**: Heartbeat loop nativo — adicionar a `agents/runtime/runner.ts`: ciclo wake(30min) → checkWorkQueue() → execute() → sleep. Configurable per-agent. | 2h
+- [x] **PAP-001 [P1]**: Heartbeat loop nativo — `agents/runtime/heartbeat.ts` (wrapper, runner.ts FROZEN): ciclo wake(30min) → checkWorkQueue() → runAgent() → emit(bus) → sleep. Configurable per-agent. ✅ 2026-04-08
 - [ ] **PAP-002 [P1]**: Per-agent budget enforcement — estender Guard Brasil token counter: campo `monthly_cap` per agent_id, auto-pause signal quando 100%, warning Telegram 80%. | 3h
 - [ ] **PAP-003 [P2]**: Goal ancestry em TASKS.md — adicionar coluna `WHY` em tasks (link para parent goal). Template: `[PAP-003] Fix X → goal: Y → mission: Z`. | 1h
 
