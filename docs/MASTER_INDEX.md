@@ -1,7 +1,7 @@
 # EGOS MASTER INDEX — Universal SSOT Registry
 
 > **The canonical source of truth for everything EGOS.**  
-> **Version:** 1.3.0 | **Created:** 2026-04-06 | **Updated:** 2026-04-07  
+> **Version:** 1.4.0 | **Created:** 2026-04-06 | **Updated:** 2026-04-08  
 > **Purpose:** Single document to answer "What do we have? Where is it? What's its status?"
 
 <!-- llmrefs:start -->
@@ -48,6 +48,7 @@
 5. `DOCUMENTATION_ARCHITECTURE_MAP.md` — document roles and permanence
 6. `SYSTEM_MAP.md` — activation flow
 7. `TASKS.md` — current execution priorities
+8. `docs/EGOS_STATE_OF_THE_ECOSYSTEM.md` — state-of-the-ecosystem snapshot (2026-04-08+)
 8. `docs/business/MONETIZATION_SSOT.md` — ecosystem monetization, partner model, founder-partner fit
 
 ---
