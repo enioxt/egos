@@ -13,6 +13,8 @@
  *   POST /telegram/webhook      — Telegram bot webhook (egosin_bot)
  *   GET  /telegram/health       — Telegram channel health
  *   POST /telegram/setup-webhook — Register Telegram webhook URL
+ *   GET  /guard-brasil/health   — x402 channel health (free)
+ *   POST /guard-brasil/inspect  — PII inspection ($0.001 USDC via x402)
  */
 
 import { Hono } from "hono";
@@ -22,6 +24,7 @@ import { knowledge } from "./channels/knowledge.js";
 import { ui } from "./channels/ui.js";
 import { gemHunter } from "./channels/gem-hunter-api.js";
 import { telegram, startTelegramPolling } from "./channels/telegram.js";
+import { guardBrasil } from "./channels/guard-brasil.js";
 import { startHealthMonitor } from "./health-monitor.js";
 
 const app = new Hono();
@@ -36,15 +39,16 @@ app.use("*", logger());
 app.get("/health", (c) => {
   return c.json({
     service: "egos-gateway",
-    version: "0.3.0",
+    version: "0.4.0",
     uptime: process.uptime(),
-    channels: ["whatsapp", "telegram", "knowledge", "gem-hunter"],
+    channels: ["whatsapp", "telegram", "knowledge", "gem-hunter", "guard-brasil-x402"],
     ui: "/ui",
     docs: {
       whatsapp: "/channels/whatsapp/health",
       telegram: "/telegram/health",
       knowledge: "/knowledge/stats",
       "gem-hunter": "/gem-hunter/product",
+      "guard-brasil": "/guard-brasil/health",
     },
   });
 });
@@ -54,10 +58,11 @@ app.route("/channels/whatsapp", whatsapp);
 app.route("/telegram", telegram);
 app.route("/knowledge", knowledge);
 app.route("/gem-hunter", gemHunter);
+app.route("/guard-brasil", guardBrasil);
 
 // ─── Start ────────────────────────────────────────────────────────────────────
 
-console.log(`[egos-gateway] v0.3.0 — starting on port ${PORT}`);
+console.log(`[egos-gateway] v0.4.0 — starting on port ${PORT}`);
 console.log(`[egos-gateway] UI:          http://localhost:${PORT}/ui`);
 console.log(`[egos-gateway] WhatsApp:    http://localhost:${PORT}/channels/whatsapp/health`);
 console.log(`[egos-gateway] Telegram:    http://localhost:${PORT}/telegram/health`);
