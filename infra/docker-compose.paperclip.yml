@@ -36,24 +36,15 @@ services:
       - paperclip-net
 
   paperclip:
-    image: node:20-alpine
+    # Custom Dockerfile (removes GitHub CLI dep that has hardcoded SHA256 hash)
+    # Source must be cloned to /opt/apps/paperclip-src BEFORE docker compose up
+    # Setup: git clone https://github.com/paperclipai/paperclip.git /opt/apps/paperclip-src --depth 1
+    build:
+      context: /opt/apps/paperclip-src
+      dockerfile: Dockerfile.egos
+    image: egos/paperclip:local
     container_name: paperclip-server
     restart: unless-stopped
-    working_dir: /app
-    # Build from source (no official image yet)
-    command: >
-      sh -c "
-        apk add --no-cache git python3 make g++ curl &&
-        npm install -g pnpm@9.15.0 --quiet &&
-        if [ ! -d '.git' ]; then
-          git clone https://github.com/paperclipai/paperclip.git . --depth=1 --branch master --quiet
-        else
-          git pull origin master --ff-only --quiet
-        fi &&
-        pnpm install --frozen-lockfile --quiet &&
-        pnpm db:migrate --quiet &&
-        pnpm start
-      "
     ports:
       - "127.0.0.1:3100:3100"
     environment:
@@ -62,11 +53,10 @@ services:
       SERVE_UI: "true"
       PAPERCLIP_DEPLOYMENT_MODE: "authenticated"
       PAPERCLIP_DEPLOYMENT_EXPOSURE: "private"
-      PAPERCLIP_PUBLIC_URL: "${PAPERCLIP_PUBLIC_URL:-http://localhost:3100}"
+      PAPERCLIP_PUBLIC_URL: "${PAPERCLIP_PUBLIC_URL:-https://paperclip.egos.ia.br}"
       BETTER_AUTH_SECRET: "${BETTER_AUTH_SECRET:?Set BETTER_AUTH_SECRET in .env}"
       NODE_ENV: production
     volumes:
-      - paperclip-src:/app
       - paperclip-data:/paperclip
     depends_on:
       paperclip-db:
