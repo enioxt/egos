@@ -111,5 +111,25 @@ if [ -n "$PUBLISH_TOPIC" ]; then
   fi
 fi
 
+
+# ── 5. PORTFOLIO SYNC: update living portfolio doc ─────────────────────────
+# Triggers when a commit touches product-defining files
+PORTFOLIO_SYNC="$REPO_ROOT/scripts/portfolio-sync.ts"
+CHANGED_FILES=$(git -C "$REPO_ROOT" diff HEAD~1 --name-only 2>/dev/null || true)
+SHOULD_SYNC=false
+
+if echo "$CHANGED_FILES" | grep -qE "^(docs/CAPABILITY_REGISTRY\.md|agents/agents/|packages/|apps/|scripts/gem-hunter|scripts/x-reply-bot)"; then
+  SHOULD_SYNC=true
+fi
+
+if [ "$SHOULD_SYNC" = "true" ] && [ -f "$PORTFOLIO_SYNC" ]; then
+  if [ "$DRY" = "--dry" ]; then
+    echo "  [DRY] portfolio-sync would run (product files changed)"
+  else
+    echo "[auto-disseminate] Portfolio sync triggered..."
+    bun "$PORTFOLIO_SYNC" >>/tmp/egos-portfolio-sync.log 2>&1 &
+  fi
+fi
+
 echo "[auto-disseminate] done."
 exit 0

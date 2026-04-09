@@ -1,5 +1,5 @@
 # EGOS — State of the Ecosystem
-# SSOT: Diagnóstico completo, atualizado em 2026-04-08
+# SSOT: Diagnóstico completo, atualizado em 2026-04-09
 # Versão: 1.0.0 | Criado na sessão Opus plan + Sonnet execution
 
 > Este documento é o SSOT vivo do ecossistema EGOS. Atualizar a cada sessão /end ou quando houver mudança estrutural.
@@ -20,7 +20,7 @@ EGOS = Compliance Layer  (Guard Brasil — LGPD/PII, 4ms, 16 padrões)
      + Governance Layer   (.guarani/ + 26 SSOT domains + pre-commit gates)
 ```
 
-**Score de saúde:** 8.1/10 | **Commits 30 dias:** 905+ | **Repositórios ativos:** 9
+**Score de saúde:** 8.5/10 | **Commits 30 dias:** 1072+ | **Repositórios ativos:** 6
 
 ---
 
@@ -204,10 +204,11 @@ Scoring melhorado (2026-04-08): few-shot examples + low-visibility bypass + news
 - `session-aggregator.sh` → `30 23 * * *` (daily handoff)
 - `timeline-cron-daily.sh` → `0 3 * * *` (article generation)
 - `x-reply-bot hourly` → `0 * * * *`
+- `portfolio-sync.ts` → `0 8 * * *` (living portfolio daily 8h BRT)
 
 ### Supabase
 **Tabelas ativas principais:** `egos_wiki_pages` (92), `knowledge_base` (1648 ARR rows), `gem_discoveries`, `gem_votes`, `gem_lists`, `x_reply_runs`, `timeline_drafts`, `x_post_queue`, `x_post_hitl`, `agent_events`
-**Novas (migração pendente):** `gem_feedback`, `gem_seen_cache`
+**Applied (2026-04-08):** `gem_feedback`, `gem_seen_cache`
 
 ---
 
@@ -456,4 +457,4 @@ grep "EGOS_STATE_OF_THE_ECOSYSTEM" docs/MASTER_INDEX.md  # deve existir
 
 ---
 
-*Versão: 1.1.0 | Criado: 2026-04-08 | Atualizado: 2026-04-08 | Próxima atualização: próxima sessão /end*
+*Versão: 1.1.1 | Criado: 2026-04-08 | Atualizado: 2026-04-09**

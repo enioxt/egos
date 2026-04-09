@@ -93,3 +93,48 @@ endpoints:
     method: "GET"
     expected_status: "200"
     expected_contains: "sectors"
+
+  - id: commits_30d_all_repos
+    description: "Total commits across all active EGOS repos in last 30 days"
+    readme_location: "docs/EGOS_STATE_OF_THE_ECOSYSTEM.md — header stats"
+    command: "for r in /home/enio/egos /home/enio/egos-lab /home/enio/852 /home/enio/br-acc /home/enio/forja /home/enio/carteira-livre; do git -C \"$r\" log --oneline --since='30 days ago' 2>/dev/null | wc -l; done | awk '{s+=$1} END {print s}'"
+    tolerance: "min:50"
+    last_value: "905"
+    last_verified_at: "2026-04-08"
+    category: "custom"
+
+  - id: unique_differentials
+    description: "Unique technical differentials documented in EGOS_STATE"
+    readme_location: "docs/EGOS_STATE_OF_THE_ECOSYSTEM.md — PONTOS FORTES ÚNICOS"
+    command: "grep -c '^### [0-9]' docs/EGOS_STATE_OF_THE_ECOSYSTEM.md"
+    tolerance: "min:6"
+    last_value: "12"
+    last_verified_at: "2026-04-08"
+    category: "custom"
+
+  - id: completed_tasks_total
+    description: "Total completed tasks in TASKS.md"
+    readme_location: "TASKS.md"
+    command: "grep -c '^- \\[x\\]' TASKS.md"
+    tolerance: "min:100"
+    last_value: "200"
+    last_verified_at: "2026-04-08"
+    category: "custom"
+
+  - id: active_products
+    description: "Live products with public URLs in EGOS ecosystem"
+    readme_location: "docs/EGOS_STATE_OF_THE_ECOSYSTEM.md — PRODUTOS"
+    command: "grep -c '\\*\\*URL:\\*\\*' docs/EGOS_STATE_OF_THE_ECOSYSTEM.md"
+    tolerance: "min:5"
+    last_value: "8"
+    last_verified_at: "2026-04-08"
+    category: "custom"
+
+  - id: capability_registry_sections
+    description: "Sections in CAPABILITY_REGISTRY.md (§N entries)"
+    readme_location: "docs/CAPABILITY_REGISTRY.md"
+    command: "grep -c '^## §' docs/CAPABILITY_REGISTRY.md"
+    tolerance: "min:20"
+    last_value: "28"
+    last_verified_at: "2026-04-08"
+    category: "custom"
