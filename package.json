@@ -45,7 +45,11 @@
     "qa:evidence": "python scripts/qa/observability_evidence.py --telemetry-input tests/qa/fixtures/sample_telemetry.txt --guardrail-input /tmp/qa-guardrail.txt",
     "qa:evidence:gate": "python scripts/qa/telemetry_guardrail.py --input tests/qa/fixtures/sample_telemetry.txt --output /tmp/qa-guardrail.txt && python scripts/qa/observability_evidence.py --telemetry-input tests/qa/fixtures/sample_telemetry.txt --guardrail-input /tmp/qa-guardrail.txt --enforce",
     "qa:compose": "python scripts/qa/compose_qa_envelope.py --guardrail /tmp/qa-guardrail.txt --ssot /tmp/qa-ssot-check.md --evidence /tmp/qa-evidence.md --output /tmp/qa-envelope.json",
+    "security:audit": "bun scripts/security-audit.ts",
+    "security:audit:json": "bun scripts/security-audit.ts --json",
+    "security:audit:fix": "bun scripts/security-audit.ts --fix",
     "test": "bun test packages/shared/src/__tests__/",
+    "test:watch": "bun test --watch",
     "activation:check": "bun scripts/activation-check.ts",
     "start": "bun scripts/start-v6.ts",
     "start:full": "bun scripts/start-v6.ts --full",
@@ -73,6 +77,9 @@
     "typescript": "^5.7.0"
   },
   "dependencies": {
+    "ajv": "8.17.1",
+    "axios": "^1.15.0",
+    "cross-spawn": "7.0.6",
     "substack-api": "^4.0.0",
     "yaml": "^2.8.3",
     "zod": "^4.3.6"

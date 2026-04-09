@@ -25,8 +25,8 @@
 - `.github/workflows/security.yml` — CI security scan + gitleaks + dependabot check
 
 **P0 — Resolver Vulnerabilidades (24h SLA):**
-- [ ] **SEC-001**: Atualizar axios 1.15.0 → 1.17.0+ (CVE-2024-39353, CVE-2023-45857)
-- [ ] **SEC-002**: Atualizar cross-spawn 7.0.5 → 7.0.6+ (CVE-2024-21538)
+- [x] **SEC-001**: Atualizar axios 1.15.0 → 1.17.0+ (CVE-2024-39353, CVE-2023-45857) ✅ 2026-04-09
+- [x] **SEC-002**: Atualizar cross-spawn 7.0.5 → 7.0.6+ (CVE-2024-21538) ✅ 2026-04-09
 - [ ] **SEC-003**: Verificar e atualizar semver se necessário
 - [ ] **SEC-004**: Verificar e atualizar ws (Supabase realtime) se necessário
 
@@ -592,10 +592,10 @@
 **Models catalogued:** Qwen3 Coder 480B, Nemotron 3 Super, MiniMax M2.5, Step 3.5 Flash, Qwen3.6 Plus (free S-tier); Kimi K2.5, DeepSeek V3.2, MiMo-V2-Pro (paid best-value). Full tables: `docs/knowledge/LLM_MODEL_MONITOR.md`.
 
 **P0 — Foundation (Agente Monitor):**
-- [ ] **LLM-MON-001 [P1]**: Criar `scripts/llm-model-monitor.ts` — agente que roda no VPS a cada 6h, consulta OpenRouter API `/models`, detecta novos modelos (free ou paid)
-- [ ] **LLM-MON-002 [P1]**: Integração MCP Exa — para cada novo modelo detectado, pesquisar reviews no Reddit, X.com, blogs técnicos (qualidade, benchmarks, casos de uso)
-- [ ] **LLM-MON-003 [P1]**: Supabase schema `llm_models` — armazenar: id, provider, name, pricing, context_length, capabilities, is_free, discovery_date, review_sentiment, benchmark_scores, egos_recommendation
-- [ ] **LLM-MON-004 [P1]**: Notificações — alertar no Telegram/WhatsApp quando modelo promissor (S-tier) é detectado, com summary do research Exa
+- [x] **LLM-MON-001 [P1]**: Criar `scripts/llm-model-monitor.ts` ✅ 2026-04-09 — agente que roda no VPS a cada 6h, consulta OpenRouter API `/models`, detecta novos modelos (free ou paid)
+- [x] **LLM-MON-002 [P1]**: Integração MCP Exa ✅ 2026-04-09 — para cada novo modelo detectado, pesquisar reviews no Reddit, X.com, blogs técnicos (qualidade, benchmarks, casos de uso)
+- [x] **LLM-MON-003 [P1]**: Supabase schema `llm_models` ✅ 2026-04-09 — armazenar: id, provider, name, pricing, context_length, capabilities, is_free, discovery_date, review_sentiment, benchmark_scores, egos_recommendation
+- [x] **LLM-MON-004 [P1]**: Notificações ✅ 2026-04-09 — alertar no Telegram/WhatsApp quando modelo promissor (S-tier) é detectado, com summary do research Exa
 
 **P1 — Test & Comparison Engine:**
 - [ ] **LLM-MON-005 [P1]**: Test Suite Standard — 5 categorias de prompts: (1) Coding (gerar + debug), (2) Reasoning (lógica matemática), (3) Context Longo (128K+), (4) Agentic (tool calling), (5) Creative (copywriting)
