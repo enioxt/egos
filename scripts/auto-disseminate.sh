@@ -41,7 +41,7 @@ echo "[auto-disseminate] commit=$COMMIT_HASH date=$DATE"
 # Without this, "KBS-001..026" would match KBS-001 as a standalone task ID.
 CLEAN_SUBJECT=$(echo "$COMMIT_SUBJECT" | sed 's/[A-Z][A-Z0-9_]*-[0-9][0-9]*\.\.[0-9][0-9]*/RANGE_REMOVED/g')
 
-TASK_IDS=$(echo "$CLEAN_SUBJECT" | grep -oE '\b[A-Z][A-Z0-9_]+-[0-9]+(-[A-Z][A-Z0-9]*)?\b' \
+TASK_IDS=$(echo "$CLEAN_SUBJECT" | grep -oE '\b[A-Z][A-Z0-9_]+(-[A-Z][A-Z0-9_]+)*-[0-9]+\b' \
   | grep -vE '^(BRT|UTC|VPS|API|TLS|SQL|DNS|CDN|RAM|CPU|LLM|SSO|JWT|PII|URL|SSH|GTM|MCP|CCR|SSOT|LGPD|MVP|PRs?|RFC|EOF|HTTP|YAML|JSON|HTML|CORS|REPO|TODO|DONE|WARN|INFO|CRIT|NULL|TRUE|FALSE|RANGE_REMOVED)$' \
   | sort -u || true)
 

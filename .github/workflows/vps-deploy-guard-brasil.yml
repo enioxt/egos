@@ -31,8 +31,10 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Deploy via SSH — rsync + docker rebuild
+      - name: Deploy via SSH — git pull + docker rebuild
         uses: appleboy/ssh-action@v1.0.3
+        env:
+          GH_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
         with:
           host: ${{ secrets.VPS_HOST }}
           username: root
@@ -40,6 +42,7 @@ jobs:
           port: 22
           script_stop: true
           timeout: 600s
+          envs: GH_TOKEN
           script: |
             set -euo pipefail
             DEPLOY_DIR="/opt/apps/guard-brasil"
@@ -47,41 +50,29 @@ jobs:
             LOG_FILE="/tmp/guard-brasil-deploy-$(date +%Y%m%d-%H%M%S).log"
 
             echo "=== Guard Brasil Deploy $(date) ===" | tee "$LOG_FILE"
-            echo "Triggered by: GitHub Actions push to main" | tee -a "$LOG_FILE"
 
-            # Safety: check compose file exists before doing anything
+            echo "Step 1: Backup container state..." | tee -a "$LOG_FILE"
+            docker inspect guard-brasil-api --format '{{.Config.Image}} {{.Created}}' 2>/dev/null >> "$LOG_FILE" || true
+
+            echo "Step 2: Update code from GitHub..." | tee -a "$LOG_FILE"
+            cd "$DEPLOY_DIR"
+            if [ -d ".git" ]; then
+              # Already a git repo — fetch + reset
+              git fetch "https://x-access-token:${GH_TOKEN}@github.com/enioxt/egos.git" main 2>&1 | tee -a "$LOG_FILE"
+              git reset --hard FETCH_HEAD 2>&1 | tee -a "$LOG_FILE"
+            else
+              # First deploy: init git in existing directory and pull
+              git init 2>&1 | tee -a "$LOG_FILE"
+              git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/enioxt/egos.git" 2>&1 | tee -a "$LOG_FILE"
+              git fetch origin main --depth=1 2>&1 | tee -a "$LOG_FILE"
+              git reset --hard origin/main 2>&1 | tee -a "$LOG_FILE"
+            fi
+            echo "  Code: $(git rev-parse --short HEAD 2>/dev/null || echo unknown)" | tee -a "$LOG_FILE"
+
+            # Verify compose file exists after code update
             if [ ! -f "$COMPOSE_FILE" ]; then
               echo "ERROR: $COMPOSE_FILE not found — aborting" | tee -a "$LOG_FILE"
               exit 1
-            fi
-
-            echo "Step 1: Backup current container state..." | tee -a "$LOG_FILE"
-            docker inspect guard-brasil-api --format '{{.Config.Image}} {{.Created}}' 2>/dev/null >> "$LOG_FILE" || true
-
-            echo "Step 2: Rsync packages..." | tee -a "$LOG_FILE"
-
-            # Pull fresh from GitHub (the runner just pushed, so fetch is current)
-            cd "$DEPLOY_DIR"
-
-            # Check if this is a git repo on VPS — if yes, pull; if not, skip git
-            if git rev-parse --git-dir > /dev/null 2>&1; then
-              echo "Git repo detected — using git pull" | tee -a "$LOG_FILE"
-              git pull origin main --ff-only 2>&1 | tee -a "$LOG_FILE"
-            else
-              echo "No git repo on VPS — using GitHub API download" | tee -a "$LOG_FILE"
-              # Download only the changed directories via GitHub archive (no auth needed for public)
-              # For private repos: use GITHUB_TOKEN
-              REPO="enioxt/egos"
-              BRANCH="main"
-
-              # Download and extract specific directories
-              for dir in packages/guard-brasil packages/core packages/shared apps/api; do
-                echo "  Downloading $dir..." | tee -a "$LOG_FILE"
-                curl -sL "https://api.github.com/repos/$REPO/tarball/$BRANCH" \
-                  -H "Authorization: token ${{ secrets.GH_DEPLOY_TOKEN }}" \
-                  | tar -xz --strip-components=2 "*/$(echo $dir | cut -d/ -f1)/$(echo $dir | cut -d/ -f2)" \
-                  -C "$(dirname $dir)" 2>> "$LOG_FILE" || echo "  Warning: $dir download had issues" | tee -a "$LOG_FILE"
-              done
             fi
 
             echo "Step 3: Rebuild Docker image (no-cache for code changes)..." | tee -a "$LOG_FILE"
@@ -124,4 +115,4 @@ jobs:
         run: |
           echo "::error::Guard Brasil VPS deploy failed. Manual rollback may be needed."
           echo "SSH to VPS: ssh root@${{ secrets.VPS_HOST }}"
-          echo "Rollback: cd /opt/apps/guard-brasil/apps/api && docker compose -f docker-compose.prod.yml up -d"
+          echo "Rollback: cd /opt/apps/guard-brasil && git reset --hard HEAD~1 && docker compose -f apps/api/docker-compose.prod.yml up -d --build"
