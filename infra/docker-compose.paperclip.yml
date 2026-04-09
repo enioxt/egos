@@ -1,0 +1,87 @@
+# infra/docker-compose.paperclip.yml — Paperclip self-hosted on EGOS VPS
+# DASH-002 — Paperclip Visual Dashboard
+#
+# Deploy: ssh root@204.168.217.125 "cd /opt/apps/paperclip && docker compose up -d"
+# UI:     http://paperclip.egos.ia.br (via Caddy reverse proxy → 127.0.0.1:3100)
+#
+# First-time setup:
+#   1. Copy this file to VPS: scp infra/docker-compose.paperclip.yml root@VPS:/opt/apps/paperclip/docker-compose.yml
+#   2. Copy infra/.env.paperclip to VPS: scp infra/.env.paperclip root@VPS:/opt/apps/paperclip/.env
+#   3. On VPS: cd /opt/apps/paperclip && docker compose up -d
+#   4. Add Caddy route for paperclip.egos.ia.br → localhost:3100
+#
+# Integration with EGOS:
+#   - EGOS agents → Paperclip employees via DASH-004 registration script
+#   - Guard Brasil validates outputs via DASH-006 plugin
+#   - Heartbeat (PAP-001) maps to Paperclip scheduled task format (DASH-007)
+#   - Full adapter API: wait for paperclipai/paperclip feat/external-adapter-phase1 merge
+
+services:
+  paperclip-db:
+    image: postgres:17-alpine
+    container_name: paperclip-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: paperclip
+      POSTGRES_PASSWORD: ${PAPERCLIP_DB_PASSWORD:-paperclip-change-me}
+      POSTGRES_DB: paperclip
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U paperclip -d paperclip"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    volumes:
+      - paperclip-pgdata:/var/lib/postgresql/data
+    networks:
+      - paperclip-net
+
+  paperclip:
+    image: node:20-alpine
+    container_name: paperclip-server
+    restart: unless-stopped
+    working_dir: /app
+    # Build from source (no official image yet)
+    command: >
+      sh -c "
+        apk add --no-cache git python3 make g++ curl &&
+        npm install -g pnpm@9.15.0 --quiet &&
+        if [ ! -d '.git' ]; then
+          git clone https://github.com/paperclipai/paperclip.git . --depth=1 --branch master --quiet
+        else
+          git pull origin master --ff-only --quiet
+        fi &&
+        pnpm install --frozen-lockfile --quiet &&
+        pnpm db:migrate --quiet &&
+        pnpm start
+      "
+    ports:
+      - "127.0.0.1:3100:3100"
+    environment:
+      DATABASE_URL: postgres://paperclip:${PAPERCLIP_DB_PASSWORD:-paperclip-change-me}@paperclip-db:5432/paperclip
+      PORT: "3100"
+      SERVE_UI: "true"
+      PAPERCLIP_DEPLOYMENT_MODE: "authenticated"
+      PAPERCLIP_DEPLOYMENT_EXPOSURE: "private"
+      PAPERCLIP_PUBLIC_URL: "${PAPERCLIP_PUBLIC_URL:-http://localhost:3100}"
+      BETTER_AUTH_SECRET: "${BETTER_AUTH_SECRET:?Set BETTER_AUTH_SECRET in .env}"
+      NODE_ENV: production
+    volumes:
+      - paperclip-src:/app
+      - paperclip-data:/paperclip
+    depends_on:
+      paperclip-db:
+        condition: service_healthy
+    networks:
+      - paperclip-net
+    labels:
+      - "com.egos.service=paperclip"
+      - "com.egos.version=1.x"
+
+volumes:
+  paperclip-pgdata:
+  paperclip-src:
+  paperclip-data:
+
+networks:
+  paperclip-net:
+    name: paperclip

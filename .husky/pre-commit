@@ -65,9 +65,9 @@ fi
 # 4.5. Modification Size Guard — Alert on excessive changes
 STAGED_DIFF_STAT=$(git diff --cached --stat --numstat 2>/dev/null || true)
 if [ -n "$STAGED_DIFF_STAT" ]; then
-  TOTAL_ADDS=$(echo "$STAGED_DIFF_STAT" | awk '{sum+=$1} END {print sum}')
-  TOTAL_DELS=$(echo "$STAGED_DIFF_STAT" | awk '{sum+=$2} END {print sum}')
-  TOTAL_LINES=$((TOTAL_ADDS + TOTAL_DELS))
+  TOTAL_ADDS=$(echo "$STAGED_DIFF_STAT" | awk '{sum+=$1} END {print sum+0}')
+  TOTAL_DELS=$(echo "$STAGED_DIFF_STAT" | awk '{sum+=$2} END {print sum+0}')
+  TOTAL_LINES=$(( ${TOTAL_ADDS:-0} + ${TOTAL_DELS:-0} ))
   TOTAL_FILES=$(echo "$STAGED_DIFF_STAT" | wc -l)
   
   # Alert if more than 500 lines changed
