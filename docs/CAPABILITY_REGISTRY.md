@@ -786,3 +786,31 @@ Differentiator: LGPD compliance (Guard Brasil), audit trail, frozen zones, spec-
 > "A gem is a signal BEFORE it's popular. Official announcements are never gems — they're already known."
 
 **Pending:** GH-091 (Qwen replaces heuristic in scoreGem()), GH-093 (Telegram inline feedback keyboard)
+
+## §30 — Claude Code Cost Tracker (2026-04-09)
+
+**What:** Reads `~/.claude/projects/**/*.jsonl` to compute real token usage and estimated cost per project/session/model.
+
+**Files:** `scripts/claude-cost.ts`, `scripts/claude-cost-alert.sh`
+**Pricing:** Haiku ($0.80/$4/1M), Sonnet ($3/$15/1M), Opus ($15/$75/1M) + cache_write/read
+**Usage:** `bun scripts/claude-cost.ts --days 30 [--project egos] [--json]`
+**Insight (2026-04-09):** cache_creation_input_tokens = ~90% of total cost. 30-day result: ~$3k across 81 sessions in 6 projects, dominated by Opus sessions with full context.
+**Cron:** VPS Friday 21h UTC via `/etc/cron.d/claude-cost-alert` (Telegram: top project + total)
+**Skill:** `/usage-report` at `~/.egos/.claude/commands/usage-report.md`
+
+## §31 — LLM Test Suite Standard (2026-04-09)
+
+**What:** Standardized evaluation suite for LLMs discovered by platform-monitor or llm-model-monitor. 9 tests across 5 categories, scored 0-100 per test.
+
+**File:** `scripts/llm-test-suite.ts`
+**Categories:**
+- `coding` (2 tests): TypeScript generation, bug identification
+- `reasoning` (2 tests): math with steps, logical deduction (affirm fallacy)
+- `long_ctx` (1 test): context retention across context switch
+- `agentic` (2 tests): JSON structured output, tool call simulation
+- `ptbr` (2 tests): professional PT-BR writing, LGPD terminology
+
+**EGOS-specific:** PT-BR category designed for Brazilian market (metalurgy professionals, LGPD compliance)
+**Storage:** Supabase `llm_test_results` table (`20260409_llm_test_results.sql`)
+**Usage:** `bun scripts/llm-test-suite.ts --model <id> [--category ptbr] [--dry]`
+**Pending:** LLM-MON-006 auto-trigger for S-tier models detected by llm-model-monitor

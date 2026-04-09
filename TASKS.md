@@ -598,7 +598,7 @@
 
 **P1 — Test & Comparison Engine:**
 - [x] **LLM-MON-005 [P1]**: `scripts/llm-test-suite.ts` — 9 testes em 5 categorias: coding(2), reasoning(2), long_ctx(1), agentic(2), ptbr(2). Scoring 0-100 + Supabase storage. `--model`, `--category`, `--dry`. ✅ 2026-04-09
-- [ ] **LLM-MON-006 [P1]**: Auto-Test Runner — para cada modelo novo S-tier, rodar test suite automaticamente, medir: latency, token usage, quality score (LLM-as-judge), success rate
+- [x] **LLM-MON-006 [P1]**: `scripts/llm-auto-test.ts` — queries llm_models S-tier, skips already-tested (7d window), runs llm-test-suite.ts, Telegram summary. `--dry`, `--force <model>`. ✅ 2026-04-09
 - [ ] **LLM-MON-007 [P2]**: Benchmark Comparison — comparar resultados do novo modelo vs current fallback chain, gerar report `docs/knowledge/LLM_MODEL_COMPARISON_YYYY-MM-DD.md`
 - [ ] **LLM-MON-008 [P2]**: Fallback Chain Auto-Update — se novo modelo supera current fallback em quality/cost, propor atualização de `packages/shared/src/llm-provider.ts` via PR automático
 
