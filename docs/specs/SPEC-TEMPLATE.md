@@ -46,3 +46,7 @@
 
 - Blocked by: [task IDs]
 - Blocks: [task IDs]
+
+## How to integrate with pre-commit
+
+Run `bash scripts/spec-gate-check.sh` in your pre-commit hook (warning only).

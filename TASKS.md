@@ -726,7 +726,7 @@
 **Context:** Tasks pendentes do session end 2026-04-08. Não perder de vista enquanto KBS-* toma espaço.
 
 **P0 — Desbloqueio GTM:**
-- [ ] **XMCP-002 [P0]**: SSH VPS e rodar `cd /opt/xmcp && bash start.sh`. Keys já estão no .env. Desbloqueia GTM-002 (X thread demo). | 15min
+- [x] **XMCP-002 [P0]**: xmcp started on VPS :8200 ✅ 2026-04-09
 - [x] **DISS-002 [P0]**: `scripts/disseminate-propagator.ts` — propaga kernel blocks pós-scanner (DISS-001 ✅). Target: blocks de rules via `scripts/auto-disseminate.sh`. | 3h ✅ 2026-04-08
 - [x] **DISS-003 [P0]**: `scripts/disseminate-verifier.ts` ✅ — 12/12 repos verified. | 2h ✅ 2026-04-09
 - [ ] **DISS-005 [P0]**: Telegram approval gate para propagação — /approve antes de push. | 2h
@@ -932,17 +932,17 @@
 - [x] **SDD-002 [P2]**: Skill `/spec:plan` ✅ 2026-04-09
 - [x] **SDD-003 [P2]**: Skill `/spec:implement` ✅ 2026-04-09
 - [x] **SDD-004 [P2]**: Skill `/spec:review` ✅ 2026-04-09
-- [ ] **SDD-005 [P2]**: `bun scripts/spec-doctor.ts` — verifica que cada feat/* branch tem SPEC doc; flags features sem spec. | 2h
-- [ ] **SDD-006 [P3]**: pr:gate spec check — pre-commit warning se branch `feat/*` sem SPEC correspondente em `docs/specs/`. | 1h
+- [x] **SDD-005 [P2]**: spec-doctor.ts ✅ 2026-04-09
+- [x] **SDD-006 [P3]**: spec-gate-check.sh ✅ 2026-04-09
 - [x] **SDD-007 [P3]**: `docs/specs/SPEC-TEMPLATE.md` ✅ 2026-04-09
 - [ ] **SDD-008 [P3]**: Specs retroativas Guard Brasil — 4 SPECs para endpoints existentes: inspect, meta, webhook, admin. | 4h
-- [ ] **SDD-009 [P3]**: HARVEST entry "SDD como método EGOS" — documentar por que spec-first evita retrabalho no contexto agent-driven. | 30min
+- [x] **SDD-009 [P3]**: HARVEST entry SDD ✅ 2026-04-09
 
 ### OBS — Obsidian + Knowledge Layer
 
 > **Contexto:** Complementa KBS (Knowledge Base Service). KBS = service público para clientes. OBS = ferramenta interna Enio + agents. 3-layer memory: CLAUDE.md+MEMORY.md (session), vault+wikilinks+MCP (knowledge graph), brain-ingest (audio/PDF→notas).
 
-- [ ] **OBS-010 [P2]**: Vault Obsidian template EGOS — criar `~/.egos/vault/` com estrutura: `inbox/`, `active/`, `archive/`, `resources/`, `daily/`. | 1h
+- [x] **OBS-010 [P2]**: Vault Obsidian template EGOS — ~/.egos/vault/ criado ✅ 2026-04-09
 - [ ] **OBS-011 [P2]**: MCP Obsidian Server — instalar e configurar MCP para Claude ler/escrever notas do vault diretamente. | 2h
 - [ ] **OBS-012 [P2]**: Skill `/kb:init` — inicializa nota na vault para tópico novo com links para TASKS + specs + HARVEST relevantes. | 2h
 - [ ] **OBS-013 [P3]**: Brain-ingest pipeline FORJA — Whisper transcreve átas → nota Obsidian formatada → indexada no wiki-compiler. | 8h (dep: FORJA-TOOLS-002)
@@ -962,5 +962,5 @@
 - [ ] **GTM-002 [P2]**: Newsletter mensal industria/FORJA — "IA para indústria metalúrgica" template + Notion integration + lista opt-in. | 3h
 - [ ] **GTM-003 [P2]**: Infinite loop de conteúdo — cron semanal que pega gem mais votado (semana) + gera draft X.com thread via Qwen. | 3h (dep: GH-094 feedback loop)
 - [ ] **GTM-004 [P3]**: EGOS Media Kit automático — `scripts/media-kit-generator.ts` gera PDF com stats reais do Guard Brasil (calls/uptime/PII patterns). | 4h
-- [ ] **GTM-005 [P3]**: `llms.txt` para Guard Brasil — `https://guard.egos.ia.br/llms.txt` com capabilities + examples para AI discovery. | 1h
+- [x] **GTM-005 [P3]**: llms.txt Guard Brasil /llms.txt endpoint ✅ 2026-04-09
 

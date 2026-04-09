@@ -2799,3 +2799,11 @@ if not access_token or not access_secret:
 ### Auto-harvested — a48775a (2026-04-09)
 
 - Paperclip reads HOST env var (defaults to 127.0.0.1), must set
+
+### Auto-harvested — adf648f (2026-04-09)
+
+- Paperclip issue API needs companyId in path and agent Bearer
+
+### Auto-harvested — 468f3d6 (2026-04-09)
+
+- /spec:init /spec:plan /spec:implement /spec:review now available

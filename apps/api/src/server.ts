@@ -88,6 +88,52 @@ Bun.serve({
       });
     }
 
+    // GET /llms.txt — AI discovery file (RFC llms.txt)
+    if (url.pathname === '/llms.txt' && req.method === 'GET') {
+      const llmsTxt = `# Guard Brasil — llms.txt
+# Brazilian PII detection and LGPD compliance API
+# https://guard.egos.ia.br
+
+## What Guard Brasil Does
+Detects Personally Identifiable Information (PII) in Brazilian text per LGPD.
+
+## Capabilities
+- 16+ PII patterns: CPF, CNPJ, RG, CNH, PIS/PASEP, Título de Eleitor
+- Phone numbers (BR), email, postal codes (CEP), full names, dates of birth
+- Passport, bank account, health data (CID), geolocation coordinates
+
+## Performance
+- Latency: ~4ms average response time
+- Free tier: 500 calls/month
+
+## API Reference
+
+### POST /v1/inspect
+Inspect text for PII. Bearer token required.
+
+Request: { "content": "...", "context": "optional", "options": { "redact": false } }
+Response: { "findings": [...], "risk_level": "HIGH|MEDIUM|LOW|NONE", "lgpd_categories": [...] }
+
+### GET /v1/meta
+Returns supported PII types, model version, LGPD category mappings.
+
+## Integration Example
+import requests
+resp = requests.post("https://guard.egos.ia.br/v1/inspect",
+  headers={"Authorization": "Bearer YOUR_KEY"},
+  json={"content": "CPF: XXX.XXX.XXX-XX"})
+print(resp.json()["risk_level"])  # "HIGH"
+
+## Links
+- Docs: https://guard.egos.ia.br/docs
+- Pricing: https://guard.egos.ia.br/pricing
+- npm: @egosbr/guard-brasil
+`;
+      return new Response(llmsTxt, {
+        headers: { ...CORS, 'Content-Type': 'text/plain; charset=utf-8' },
+      });
+    }
+
     // GET /v1/meta — API contract + runtime settings
     if (url.pathname === '/v1/meta' && req.method === 'GET') {
       return Response.json({
