@@ -32,7 +32,7 @@
 
 **P1 — Security Hardening:**
 - [ ] **SEC-005**: Aplicar security patches do Dependabot via GitHub UI
-- [ ] **SEC-006**: Criar script `scripts/security-audit.ts` para scan local automatizado
+- [x] **SEC-006**: Criar script `scripts/security-audit.ts` para scan local automatizado ✅ 2026-04-09
 
 ---
 
