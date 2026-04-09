@@ -72,10 +72,15 @@ repos:
     url: https://github.com/langchain-ai/langgraph
     categories: [agent_runtime, durable_workflow]
     priority: P1
-    status: queued
+    status: completed
+    scored: 83
     license: MIT
     language: python
-    notes: "Stateful long-running agents, durable execution, HITL"
+    notes: "Stateful long-running agents, durable execution, HITL. Checkpoint-restore pattern transplant Tier 1 (Q2 P1)"
+    studied_date: 2026-04-09
+    key_transplants: [checkpoint-restore, conditional-branching, streaming-state-deltas, subagent-composition]
+    pair_report: "docs/gem-hunter/pairs/egos__langgraph/"
+    recommendation: "Tier 1 adopt — checkpoint patterns for event-bus. Q2 roadmap: weeks 1-4 durable workflow refactor."
 
   - id: openai-agents
     name: OpenAI Agents SDK
