@@ -79,9 +79,9 @@
 - [x] **API-005**: Criar wallet Base chain única para pagamentos ✅ 2026-04-08
 
 **P1 — MCP Ecosystem (Próximas 2 semanas):**
-- [ ] **API-006**: Implementar x402-mcp wrapper (Vercel SDK)
-- [ ] **API-007**: Submit Guard Brasil em Smithery (5,000+ servers)
-- [ ] **API-008**: Listar em Glama (20,771 servers, SEO)
+- [x] **API-006**: x402 channel para Guard Brasil ✅ — `apps/egos-gateway/src/channels/guard-brasil.ts` live. Vercel wrapper deferred (gateway serve propósito). ✅ 2026-04-09
+- [/] **API-007 [ENIO]**: Submit Guard Brasil em Smithery (5,000+ servers) — `smithery.yaml` ✅ pronto. **ENIO: acesse smithery.ai → "Submit Server" → repo enioxt/egos → dir packages/guard-brasil-mcp** | 30min MANUAL
+- [/] **API-008 [ENIO]**: Listar em Glama (20,771 servers, SEO) — `glama.json` ✅ pronto. **ENIO: acesse glama.ai → "Add MCP Server" → cole URL github.com/enioxt/egos/tree/main/packages/guard-brasil-mcp** | 30min MANUAL
 - [ ] **API-009**: Criar llms.txt para AI discovery
 - [ ] **API-010**: Documentar X402_INTEGRATION.md
 
