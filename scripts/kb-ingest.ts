@@ -23,6 +23,8 @@ const SUPABASE_URL = process.env.SUPABASE_URL ?? '';
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? '';
 const GUARD_API = process.env.GUARD_BRASIL_URL ?? 'https://guard.egos.ia.br';
 const GUARD_KEY = process.env.GUARD_BRASIL_API_KEY ?? '';
+const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN ?? process.env.TELEGRAM_BOT_TOKEN_AI_AGENTS ?? '';
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_ADMIN_CHAT_ID ?? '171767219';
 
 const ARGS = process.argv.slice(2);
 const isDry = ARGS.includes('--dry');
@@ -182,6 +184,24 @@ async function ingestFile(filePath: string, category: string): Promise<void> {
     if (guard.redacted) {
       text = guard.redacted;
       console.log(`  🔒 Using Guard Brasil redacted version`);
+    }
+    // Telegram alert
+    if (TELEGRAM_TOKEN && !isDry) {
+      await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CHAT_ID,
+          text: `🔒 *KB Ingest — PII Detectada*\n\nArquivo: \`${fileName}\`\nTipos: ${types.join(', ')}\nOcorrências: ${guard.detections.length}\n${guard.redacted ? '✅ Versão redatada usada' : '⚠️ Sem redação disponível — conteúdo NÃO indexado'}\n\n#pii #lgpd #kb-ingest`,
+          parse_mode: 'Markdown',
+          disable_web_page_preview: true,
+        }),
+      }).catch(() => {});
+    }
+    // If no redaction available: skip indexing to protect PII
+    if (!guard.redacted) {
+      console.error(`  ❌ Skipping indexing — PII found and no redacted version available`);
+      return;
     }
   }
 
