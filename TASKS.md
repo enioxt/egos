@@ -955,10 +955,10 @@
 
 ### COST — Monitoramento de Uso + Custos
 
-- [ ] **COST-001 [P2]**: Fork `claude-code-usage` (Unclecode) — adaptar para ler JSONL de `~/.claude/projects/*/` e exibir tokens/custo por projeto/sessão. | 4h
-- [ ] **COST-002 [P2]**: EGOS logs → custo estimado — `agent_events` Supabase + custo por model (Haiku:$0.25/Sonnet:$3/Opus:$15 por 1M tokens). Tabela `usage_costs` no Supabase. | 4h
-- [ ] **COST-003 [P3]**: Skill `/usage:report` — relatório mensal: por projeto, por modelo, top 5 sessions mais caras. | 2h (dep: COST-001)
-- [ ] **COST-004 [P3]**: Alerta semanal custo — Telegram sexta 18h: "esta semana $X em Claude Code, top session Y". | 2h (dep: COST-001)
+- [ ] **COST-001 [P1]**: Fork `claude-code-usage` (Unclecode) — adaptar para ler JSONL de `~/.claude/projects/*/` e exibir tokens/custo por projeto/sessão. | 4h
+- [ ] **COST-002 [P1]**: EGOS logs → custo estimado — `agent_events` Supabase + custo por model (Haiku:$0.25/Sonnet:$3/Opus:$15 por 1M tokens). Tabela `usage_costs` no Supabase. | 4h
+- [ ] **COST-003 [P1]**: Skill `/usage:report` — relatório mensal: por projeto, por modelo, top 5 sessions mais caras. | 2h (dep: COST-001)
+- [ ] **COST-004 [P1]**: Alerta semanal custo — Telegram sexta 18h: "esta semana $X em Claude Code, top session Y". | 2h (dep: COST-001)
 - [x] **COST-005 [P3]**: Budget guard session — ~/.claude/hooks/budget-guard.sh ✅ 2026-04-09
 
 ### GTM — Distribuição (complement GTM-001)
@@ -968,3 +968,36 @@
 - [ ] **GTM-004 [P3]**: EGOS Media Kit automático — `scripts/media-kit-generator.ts` gera PDF com stats reais do Guard Brasil (calls/uptime/PII patterns). | 4h
 - [x] **GTM-005 [P3]**: llms.txt Guard Brasil /llms.txt endpoint ✅ 2026-04-09
 
+---
+
+## ARCH — Arqueologia e Drift (2026-04-09)
+
+> **Contexto:** Protocolo Rho detectado em estado de drift crítico. Agente existe no registry (2026-02-16) mas artefatos canônicos sumiram do filesystem.
+
+**Rationale:** Rho = possível "Runtime Health Observer" ou "Recursive Health Orchestration". Criado no mesmo dia do agent kernel (Wave 0), citado na filosofia do Mycelium Orchestrator. Para orquestração de 50+ agents, métricas de saúde unificadas seriam valiosas.
+
+**Decisão:** Hibernar (dormant) — não recuperar agora, não deletar do registry. Registrar para ressurreição futura quando escala demandar.
+
+- [ ] **ARCH-001 [P0]**: Documentar drift Rho no HARVEST.md — entry explicando o que era, onde estava, por que sumiu. | 30min
+- [ ] **ARCH-002 [P2]**: Git history archaeology — `git log --all --full-history -- scripts/rho.ts` e `docs/protocols/rho-calibration.md` para recuperar última versão. | 1h
+- [ ] **ARCH-003 [P2]**: Decisão formal — ressuscitar (recuperar artefatos) vs deprecar (remover do registry). Depende de: ter 50+ agents ativos? Sim → ressuscitar. Não → manter dormant. | 15min
+
+---
+
+## NOTION-AGENTS — Notion Claude Agents Integration (2026-04-09)
+
+> **Contexto:** Notion anunciou Claude AI Agents nativos (2026-04-08). "Your task board is Claude's to-do list." Anthropic = motor + agent harness. Notion = orchestration layer (contexto, UI, task boards compartilhados). Isso valida exatamente a estratégia EGOS: Notion = frontend, EGOS kernel = governança backend. Oportunidade: entrar na waitlist + preparar template EGOS-nativo para quando liberar.
+
+- [ ] **NOTION-AGENTS-001 [P0]**: Entrar na waitlist Notion Claude Agents — notion.so/agents (ação humana: acessar e registrar email). | 5min
+- [ ] **NOTION-AGENTS-002 [P1]**: Atualizar CAPABILITY_REGISTRY §27 KBS — documentar estratégia "Notion = orchestration layer official + EGOS = governance kernel". Diferencial: .guarani/ rules, audit trail, LGPD compliance, frozen zones. | 1h
+- [ ] **NOTION-AGENTS-003 [P1]**: Spec EGOS-SDD "Claude Agents no Notion para FORJA" — task board FORJA → Claude pega como to-do list → executa → EGOS governa → time aprova. Salvar em `docs/strategy/NOTION_AGENTS_FORJA_SPEC.md`. | 2h
+- [ ] **NOTION-AGENTS-004 [P1]**: Template Notion "EGOS-Governed Task Board" — pronto para receber Claude Agents nativos quando waitlist abrir. Boards: Backlog / In Progress / Review / Done + propriedades EGOS (priority, agent, spec_link, audit_id). | 3h
+- [ ] **NOTION-AGENTS-005 [P2]**: Video PT-BR "Notion + Claude Agents + EGOS para orçamentos 10x mais rápidos na metalúrgica" — quando feature sair da waitlist. | 2h
+
+## PLAT-MON — Platform Monitor (Notion/Claude Code diário) (2026-04-09)
+
+> **Contexto:** Estamos usando Notion MCP + Claude Code diariamente. Mudanças nas plataformas (novos MCPs, novos features, breaking changes) devem ser detectadas e adaptadas. Já temos llm-model-monitor.ts rodando 4x/dia para modelos. Criar padrão similar para plataformas.
+
+- [ ] **PLAT-MON-001 [P1]**: `scripts/platform-monitor.ts` — monitora changelogs/release notes: Notion (notion.so/blog), Claude Code (npm @anthropic-ai/claude-code changelog), Anthropic API (docs.anthropic.com/changelog). Detecta mudanças relevantes para EGOS e alerta Telegram. Cron VPS 9h BRT. | 4h
+- [ ] **PLAT-MON-002 [P1]**: Supabase table `platform_updates(id, platform, version, summary, egos_impact, alerted, created_at)` — histórico de atualizações detectadas. | 1h (dep: PLAT-MON-001)
+- [ ] **PLAT-MON-003 [P2]**: Auto-task em TASKS.md quando impacto HIGH detectado — `platform_updates.egos_impact = "high"` → cria task `ADAPT-NNN` automaticamente. | 2h (dep: PLAT-MON-002)

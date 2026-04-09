@@ -1,7 +1,7 @@
 {
   "manifest": "/home/enio/egos/.egos-manifest.yaml",
   "repo": "egos",
-  "verified_at": "2026-04-09T10:07:10.932Z",
+  "verified_at": "2026-04-09T14:20:39.784Z",
   "summary": {
     "total_claims": 5,
     "passed": 5,
@@ -49,8 +49,8 @@
       "id": "slash_commands",
       "description": "User-invocable slash commands in .claude/commands/",
       "status": "ok",
-      "last_value": "38",
-      "current_value": "39",
+      "last_value": "45",
+      "current_value": "46",
       "tolerance": "±5",
       "drift_abs": 1,
       "command": "find /home/enio/.claude/commands /home/enio/.egos/.claude/commands -maxdepth 2 -name '*.md' 2>/dev/null | wc -l | tr -d ' '",

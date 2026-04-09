@@ -1,8 +1,49 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 4.6.0 | **UPDATED:** 2026-04-09
+> **VERSION:** 4.7.0 | **UPDATED:** 2026-04-09
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
-> **Latest:** P39 added — Security-first Dependabot configuration + automated vulnerability management
+> **Latest:** P40 added — Protocolo Rho drift archaeology pattern
+
+---
+
+## P40 Patterns (2026-04-09)
+
+### Protocolo Rho — Drift Archaeology Pattern
+
+**Discovery:** Agent `rho_calculator` exists in registry since 2026-02-16 (Wave 0, commit `15b7548`, entrypoint `scripts/rho.ts`) but filesystem artifacts are **missing**. Ghost reference in `ghost_hunter` agent points to non-existent `docs/protocols/rho-calibration.md`.
+
+**What was Rho:** Likely "Runtime Health Observer" or "Recursive Health Orchestration" — a protocol for calculating system health scores, maturation metrics, and recursion readiness. Born same day as agent kernel ( Wave 0 survival coding era).
+
+**Evidence of existence:**
+- `AGENT_LINEAGE_MATRIX.md:15` — `rho_calculator` active, observability area
+- `mycelium-orchestrator.md:13` — philosophy cites "Mycelium + Brainet + Tsun-Cha + **RHO** + SSOT"
+- `lineage-data.json` — references `docs/protocols/rho-calibration.md` as entrypoint
+
+**Current state:** DORMANT (hibernated)
+
+**Decision framework:**
+```
+if (active_agents >= 50 && need_unified_health_metrics) → RESURRECT (git archaeology)
+else → KEEP_DORMANT (preserve registry lineage, do not delete)
+```
+
+**Archaeology commands (when needed):**
+```bash
+# Recover script
+git log --all --full-history -- scripts/rho.ts
+
+# Recover docs
+git log --all --full-history -- docs/protocols/rho-calibration.md
+
+# Show content at last known commit
+git show 15b7548:scripts/rho.ts
+```
+
+**Lesson:** Agents can exist as registry entries while filesystem artifacts drift. Registry = lineage preservation. Filesystem = execution surface. Drift detection must check both.
+
+---
+
+## P39 Patterns (2026-04-09)
 
 ---
 
