@@ -2854,3 +2854,11 @@ if not access_token or not access_secret:
 - sed -i on files with backticks needs python3 string replace.
 - /llms.txt RFC draft — AI discovery standard, add to all APIs.
 - gitleaks CPF rule flags fake CPFs too — use XXX.XXX.XXX-XX.
+
+### Auto-harvested — 6dc0b16 (2026-04-09)
+
+- Notion = official Anthropic orchestration layer (2026-04-08
+
+### Auto-harvested — 0db2e47 (2026-04-09)
+
+- unpdf and mammoth both work with bun natively. unpdf expects

@@ -667,7 +667,7 @@
 - [x] **KBS-004 [P0]**: FORJA namespace beta — `clients/forja/` ou branch no FORJA repo, `.guarani/forja-rules.md`, ingestar 10 docs piloto (orçamento antigo, ficha produção, ABNT referenciada). | 6h ✅ 2026-04-08
 - [ ] **KBS-005 [P0]**: Loom demo 3–5min PT-BR — "Sua Inteligência da Empresa em 5 minutos". Gravar usando dogfooding interno (TASKS.md + HARVEST.md como exemplo). | 2h ✅ 2026-04-08
 - [x] **KBS-006 [P0]**: PDF/Docx ingestor — `scripts/kb-ingest.ts` via `unpdf` + `mammoth` + Guard Brasil PII scan. `ingest_file` tool adicionado ao knowledge-mcp. ✅ 2026-04-09
-- [ ] **KBS-007 [P0]**: KB-lint adaptado — fork de `ssot-auditor.ts` focado em: órfãos, contradições, staleness >90d, citações quebradas. Modo `bun kb:lint --tenant=forja`. | 6h
+- [x] **KBS-007 [P0]**: KB-lint — `scripts/kb-lint.ts` — orphans, stale >90d, low_quality <40, broken_refs, duplicates, empty <100chars. Auto-fix broken_refs com --fix. Exit 1 em erros (CI-ready). ✅ 2026-04-09
 - [ ] **KBS-008 [P0]**: `packages/knowledge-mcp/` completar — expor tools: `kb_ingest`, `kb_ask`, `kb_lint`, `kb_export`. Publicar como `@egosbr/knowledge-mcp`. | 8h
 - [ ] **KBS-009 [P0]**: Dogfooding interno — apontar knowledge-mcp para TASKS.md + HARVEST.md + handoffs. Usar 2 semanas antes de qualquer venda. Gate: 10 queries/dia por 14 dias. | on-going
 

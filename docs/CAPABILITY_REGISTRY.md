@@ -746,6 +746,31 @@ handle.status();   // { cycleCount, lastRunAt, nextRunAt, lastResult }
 **Current state:** 10 profiles + 12 Notion databases populated (KBS-PM-001..011 ✅ 2026-04-08)
 **SSOT:** `docs/strategy/KB_AS_A_SERVICE_PLAN.md` + `docs/strategy/KBS_PATOS_DE_MINAS_PERSONAS.md`
 
+**Tools added (2026-04-09):**
+- `scripts/kb-ingest.ts` — PDF/DOCX/Markdown ingestor with Guard Brasil PII scan (KBS-006 ✅)
+- `scripts/kb-lint.ts` — KB quality auditor: orphans, stale, broken_refs, low_quality, duplicates (KBS-007 ✅)
+- `packages/knowledge-mcp/`: `ingest_file` MCP tool added (calls kb-ingest.ts)
+
+**Strategic update (2026-04-09):** Notion announced native Claude AI Agents (2026-04-08).
+"Your task board is Claude's to-do list." Anthropic = motor, Notion = orchestration layer.
+EGOS positioning: Notion + Claude Agents = frontend power, EGOS .guarani/ = governance kernel.
+Differentiator: LGPD compliance (Guard Brasil), audit trail, frozen zones, spec-driven execution.
+→ See TASKS.md NOTION-AGENTS-001..005 for integration roadmap.
+
+## §29 — Platform Monitor (2026-04-09)
+
+**What:** Daily monitoring of EGOS stack platform versions — detects breaking changes before they break production.
+
+**Platforms tracked:** claude-code, anthropic-sdk, notion-client, mcp-sdk, bun
+**Source:** npm registry (latest tag) + GitHub releases API
+**Impact assessment:** major version → critical, minor → high, patch → medium/low
+**Alerts:** Telegram for high/critical only (no noise for patches)
+**Storage:** Supabase `platform_updates` table (RLS service_role)
+**Cron:** VPS daily 9h BRT (12h UTC) via `/etc/cron.d/platform-monitor`
+
+**Files:** `scripts/platform-monitor.ts`, `supabase/migrations/20260409_platform_updates.sql`
+**Baseline set:** claude-code 2.1.97, anthropic-sdk 0.86.1, notion-client 5.17.0, mcp-sdk 1.29.0, bun 1.3.11
+
 ## §28 — X.com Reply Bot — Quality Scoring v2 (2026-04-08)
 
 **What:** Scoring improvements to x-reply-bot.ts that prevent false positives (news overscored) and false negatives (real engineers underscored).

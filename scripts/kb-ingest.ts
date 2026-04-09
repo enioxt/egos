@@ -15,7 +15,7 @@
 
 export {};
 
-import { readFileSync, existsSync, readdirSync, statSync, writeFileSync } from 'fs';
+import { readFileSync, existsSync, readdirSync, statSync } from 'fs';
 import { join, basename, extname } from 'path';
 
 // ── Config ──────────────────────────────────────────────────────────────────
