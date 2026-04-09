@@ -1,0 +1,50 @@
+name: Portfolio Sync Daily
+
+on:
+  schedule:
+    - cron: '0 11 * * *'  # 08:00 BRT (UTC-3) = 11:00 UTC
+  workflow_dispatch: {}
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # need full history for commit count
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Run Portfolio Sync
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          bun scripts/portfolio-sync.ts
+
+      - name: Commit if changed
+        run: |
+          git config --global user.name "Portfolio Bot"
+          git config --global user.email "bot@egos.dev"
+          if [[ -z $(git status -s) ]]; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git add docs/EGOS_STATE_OF_THE_ECOSYSTEM.md
+          git commit -m "chore(portfolio): auto-sync $(date +'%Y-%m-%d') — commits/health/stats updated"
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then
+              echo "Push succeeded on attempt $attempt"
+              exit 0
+            fi
+            git fetch origin main && git rebase origin/main || (git rebase --abort; exit 1)
+          done
+          exit 1

@@ -51,6 +51,17 @@ jobs:
           XLIMIT="${{ github.event.inputs.x_limit || '15' }}"
           bun run agents/agents/gem-hunter.ts --exec --track=${TRACKS} --x-limit=${XLIMIT} --analyze
 
+      - name: Scoring Feedback Reader (GH-094)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          bun scripts/scoring-feedback-reader.ts --since=$(date -d '12 hours ago' -u +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || date -v-12H -u +%Y-%m-%dT%H:%M:%SZ) || echo "Feedback reader skipped (non-fatal)"
+
+      - name: Portfolio Sync (living portfolio)
+        run: |
+          bun scripts/portfolio-sync.ts || echo "Portfolio sync skipped (non-fatal)"
+
       - name: Commit and safe-push discovery artifacts
         run: |
           git config --global user.name "Gem Hunter Bot"
