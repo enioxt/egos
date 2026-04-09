@@ -588,9 +588,9 @@
 
 - [x] **DISS-001 [P1]**: `scripts/disseminate-scanner.ts` — lê `git diff HEAD~1` nos kernel files, identifica seções que mudaram, gera manifest `{changed_rules: [], affected_repos: []}` | 2h ✅ 2026-04-08
 - [x] **DISS-002 [P1]**: `scripts/disseminate-propagator.ts` — recebe manifest, para cada repo: atualiza bloco kernel no marker `# EGOS-KERNEL-PROPAGATED`, cria commit `chore(kernel): propagate YYYY-MM-DD` | 3h ✅ 2026-04-08
-- [ ] **DISS-003 [P1]**: `scripts/disseminate-verifier.ts` — re-lê cada repo após propagação, verifica marker + conteúdo + data, output: `{repo, status: pass|fail, missing_rules: []}` | 2h ✅ 2026-04-08
+- [ ] **DISS-003 [P1]**: `scripts/disseminate-verifier.ts` — re-lê cada repo após propagação, verifica marker + conteúdo + data, output: `{repo, status: pass|fail, missing_rules: []}` | 2h
 - [x] **DISS-004 [P1]**: post-commit hook trigger — quando CLAUDE.md | .windsurfrules | CAPABILITY_REGISTRY.md muda, auto-chama scanner | 1h ✅ 2026-04-08
-- [ ] **DISS-005 [P1]**: Telegram approval gate — verifier envia summary ao Telegram (`@ethikin`): lista repos + status, botões [✅ Approve All][❌ Review] | 2h ✅ 2026-04-08
+- [ ] **DISS-005 [P1]**: Telegram approval gate — verifier envia summary ao Telegram (`@ethikin`): lista repos + status, botões [✅ Approve All][❌ Review] | 2h
 - [ ] **DISS-006 [P2]**: VPS propagation — após aprovação local, SSH push kernel block para os 4 repos no VPS (`/opt/852`, `/opt/bracc`, `/opt/egos`, `/opt/egos-lab`) | 2h ✅ 2026-04-08
 
 ---
@@ -696,8 +696,8 @@
 **P0 — Desbloqueio GTM:**
 - [ ] **XMCP-002 [P0]**: SSH VPS e rodar `cd /opt/xmcp && bash start.sh`. Keys já estão no .env. Desbloqueia GTM-002 (X thread demo). | 15min
 - [x] **DISS-002 [P0]**: `scripts/disseminate-propagator.ts` — propaga kernel blocks pós-scanner (DISS-001 ✅). Target: blocks de rules via `scripts/auto-disseminate.sh`. | 3h ✅ 2026-04-08
-- [ ] **DISS-003 [P0]**: `scripts/disseminate-verifier.ts` — re-verifica propagação (hash check). | 2h ✅ 2026-04-08
-- [ ] **DISS-005 [P0]**: Telegram approval gate para propagação — /approve antes de push. | 2h ✅ 2026-04-08
+- [ ] **DISS-003 [P0]**: `scripts/disseminate-verifier.ts` — re-verifica propagação (hash check). | 2h
+- [ ] **DISS-005 [P0]**: Telegram approval gate para propagação — /approve antes de push. | 2h
 - [ ] **PAP-002 [P0]**: Per-agent monthly token budget — estender Guard Brasil token counter com `monthly_cap` por agent_id, auto-pause + alerta 80%. | 3h
 
 **P1 — GH-086 + LS-002 (Sprint 1 continuação):**
@@ -815,7 +815,7 @@
 ### KB — Wiki Quality 79→90 (genuíno, sem hardcode)
 
 - [x] **KB-020 [P1]**: Rodar `wiki-compiler --enrich` em páginas com quality < 80 (estimativa: ~40 páginas). Usa LLM Qwen para enriquecer com cross-refs, exemplos, estrutura. `--dry` primeiro, depois `--exec`. | 2h ✅ 2026-04-08
-- [ ] **KB-021 [P1]**: Adicionar `docs/CAPABILITY_REGISTRY.md` como fonte de wiki (é o arquivo mais rico e estruturado do projeto). Criar entrada em `RAW_SOURCES` com category=`pattern`. Espera-se +20 páginas de alta qualidade. | 2h
+- [x] **KB-021 [P1]**: `docs/CAPABILITY_REGISTRY.md` como fonte de wiki ✅ — já em `RAW_SOURCES` (wiki-compiler.ts:59, category=pattern). | 2h ✅ 2026-04-09
 - [ ] **KB-022 [P2]**: Melhorar extração de cross-refs em wiki-compiler — hoje é 0 refs para muitas páginas. Implementar parser que lê frontmatter `# Cross-refs:` e links `[text](./slug)` de cada doc. | 3h
 - [ ] **KB-023 [P1]**: Integrar docs FORJA tenant na compilação periódica — adicionar entrada no `gem-hunter-adaptive.yml` (ou workflow separado) para rodar `wiki-compiler --compile --tenant=forja` semanalmente. | 1h
 - [ ] **KB-024 [P2]**: Quality score mais inteligente — penalizar páginas com apenas título (q<40), bonificar páginas com tabelas estruturadas, código, cross-refs reais. Atualizar `computeQualityScore()` em wiki-compiler. | 3h
@@ -824,7 +824,7 @@
 
 > **Objetivo:** Escanear todos os repos (`.md`, `.py`, `.ts`) buscando conceitos valiosos esquecidos, TODOs abandonados, padrões obsoletos, docs desatualizadas. Reportar via docs/jobs/ + Telegram.
 
-- [ ] **ARCH-001 [P1]**: `scripts/codebase-miner.ts` — agente de arqueologia. Fase 1: scana todos os repos locais (`~/852`, `~/forja`, `~/egos-lab`, `~/br-acc`, `~/carteira-livre`, `~/egos`) buscando: padrões `TODO`, `FIXME`, `HACK`, `XXX`, `WIP` em `.ts/.py/.md`. Gera relatório `docs/jobs/codebase-mining-YYYY-MM-DD.md`. | 4h
+- [x] **ARCH-001 [P1]**: `scripts/codebase-miner.ts` — agente de arqueologia. Fase 1 ✅: 127 markers em 6 repos. Report `docs/jobs/codebase-mining-2026-04-09.md`. | 4h ✅ 2026-04-09
 - [ ] **ARCH-002 [P1]**: `codebase-miner.ts` Fase 2 — detecção de docs obsoletas: `.md` com `updated:` > 90 dias + referenciada em código. Usa LLM para avaliar "ainda relevante?" (sim/talvez/arquivar). | 6h
 - [ ] **ARCH-003 [P2]**: `codebase-miner.ts` Fase 3 — "gem concepts": lê títulos H2/H3 de todos `.md`, detecta conceitos sem implementação correspondente (ex: "ARR" mencionado mas `/packages/search-engine` inativo). Lista conceitos candidate. | 4h
 - [ ] **ARCH-004 [P1]**: CCR job weekly (sexta 03h00 BRT) — roda `codebase-miner.ts --all` no VPS, relatório disponível no /start briefing da segunda. | 1h
