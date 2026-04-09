@@ -124,8 +124,8 @@
 - [x] **API-001**: AgentCash onboard + testar consumer ✅ 2026-04-08
 - [ ] **API-002**: APINow.fun — criar conta, explorar tokenization
 - [ ] **API-003**: Proxies.sx — avaliar match OSINT scraping
-- [ ] **API-004**: Análise x402 vs Stripe MPP — escolher primary protocol
-- [ ] **API-005**: Criar wallet Base chain única para pagamentos
+- [x] **API-004**: Análise x402 vs Stripe MPP — escolher primary protocol ✅ 2026-04-08
+- [x] **API-005**: Criar wallet Base chain única para pagamentos ✅ 2026-04-08
 
 **P1 — MCP Ecosystem (Próximas 2 semanas):**
 - [ ] **API-006**: Implementar x402-mcp wrapper (Vercel SDK)
@@ -855,7 +855,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 **SSOT:** `docs/CAPABILITY_REGISTRY.md` §25 | **Context:** `/disseminate` hoje é manual e custoso em tokens. Goal: 3-agent pipeline post-commit → propagação automática → Enio aprova via Telegram.
 
 - [x] **DISS-001 [P1]**: `scripts/disseminate-scanner.ts` — lê `git diff HEAD~1` nos kernel files, identifica seções que mudaram, gera manifest `{changed_rules: [], affected_repos: []}` | 2h ✅ 2026-04-08
-- [ ] **DISS-002 [P1]**: `scripts/disseminate-propagator.ts` — recebe manifest, para cada repo: atualiza bloco kernel no marker `# EGOS-KERNEL-PROPAGATED`, cria commit `chore(kernel): propagate YYYY-MM-DD` | 3h
+- [x] **DISS-002 [P1]**: `scripts/disseminate-propagator.ts` — recebe manifest, para cada repo: atualiza bloco kernel no marker `# EGOS-KERNEL-PROPAGATED`, cria commit `chore(kernel): propagate YYYY-MM-DD` | 3h ✅ 2026-04-08
 - [ ] **DISS-003 [P1]**: `scripts/disseminate-verifier.ts` — re-lê cada repo após propagação, verifica marker + conteúdo + data, output: `{repo, status: pass|fail, missing_rules: []}` | 2h ✅ 2026-04-08
 - [x] **DISS-004 [P1]**: post-commit hook trigger — quando CLAUDE.md | .windsurfrules | CAPABILITY_REGISTRY.md muda, auto-chama scanner | 1h ✅ 2026-04-08
 - [ ] **DISS-005 [P1]**: Telegram approval gate — verifier envia summary ao Telegram (`@ethikin`): lista repos + status, botões [✅ Approve All][❌ Review] | 2h ✅ 2026-04-08
@@ -896,7 +896,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 - [ ] **KBS-001 [P0]**: Criar template Notion "Inteligência da Empresa" via MCP — DB Documentos, DB Q&A, DB Decisões, página "Como usar" PT-BR. Duplicável. | 4h
 - [ ] **KBS-002 [P0]**: Escrever `CLAUDE.md` cliente (≤100 linhas, PT-BR, placeholders por setor — metal/jurídico/saúde). Salvar em `packages/knowledge-mcp/templates/CLAUDE.md.tpl`. | 2h ✅ 2026-04-08
 - [ ] **KBS-003 [P0]**: Guia setup PT-BR — `docs/guides/KBS_ONBOARDING_PT_BR.md` — install Claude Code → OAuth Notion MCP → primeiro `/ingest` + `/ask`. Com screenshots. | 3h
-- [ ] **KBS-004 [P0]**: FORJA namespace beta — `clients/forja/` ou branch no FORJA repo, `.guarani/forja-rules.md`, ingestar 10 docs piloto (orçamento antigo, ficha produção, ABNT referenciada). | 6h
+- [x] **KBS-004 [P0]**: FORJA namespace beta — `clients/forja/` ou branch no FORJA repo, `.guarani/forja-rules.md`, ingestar 10 docs piloto (orçamento antigo, ficha produção, ABNT referenciada). | 6h ✅ 2026-04-08
 - [ ] **KBS-005 [P0]**: Loom demo 3–5min PT-BR — "Sua Inteligência da Empresa em 5 minutos". Gravar usando dogfooding interno (TASKS.md + HARVEST.md como exemplo). | 2h ✅ 2026-04-08
 - [ ] **KBS-006 [P0]**: PDF/Docx ingestor — plugar em `wiki-compiler.ts` via `unpdf` + `mammoth`. Input: pasta, output: atoms no `egos_wiki_pages`. | 8h
 - [ ] **KBS-007 [P0]**: KB-lint adaptado — fork de `ssot-auditor.ts` focado em: órfãos, contradições, staleness >90d, citações quebradas. Modo `bun kb:lint --tenant=forja`. | 6h
@@ -934,8 +934,8 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 - [ ] **API-001 [P0]**: AgentCash onboard — `npx agentcash@latest onboard AC-LZR4-C5AX-F5DH-EAB2` (rodar local, não sandbox). Salvar wallet info em vault. | 1h
 - [ ] **API-002 [P0]**: APINow.fun provider signup — criar conta em `https://www.apinow.fun/providers`, instalar `apinow-sdk`. | 1h
 - [ ] **API-003 [P0]**: Proxies.sx marketplace avaliação — verificar fit com OSINT Brasil scraping em `https://proxies.sx/marketplace`. | 1h
-- [ ] **API-004 [P0]**: Wallet Base chain — criar wallet dedicada para receber USDC (não usar wallet pessoal). Documentar em `memory/infra_credentials_ssot.md`. | 1h
-- [ ] **API-005 [P0]**: x402 middleware no Guard Brasil — branch `feat/x402-marketplaces`, middleware HTTP 402 que aceita USDC on-demand. | 6h
+- [x] **API-004 [P0]**: Wallet Base chain — criar wallet dedicada para receber USDC (não usar wallet pessoal). Documentar em `memory/infra_credentials_ssot.md`. | 1h ✅ 2026-04-08
+- [x] **API-005 [P0]**: x402 middleware no Guard Brasil — branch `feat/x402-marketplaces`, middleware HTTP 402 que aceita USDC on-demand. | 6h ✅ 2026-04-08
 - [ ] **API-006 [P0]**: Publicar Guard Brasil v0.2.3 no AgentCash — primeiro deploy, pricing $0.001-0.005/call. | 3h
 
 **P1 — Tier 1 expansão:**
@@ -963,7 +963,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 
 **P0 — Desbloqueio GTM:**
 - [ ] **XMCP-002 [P0]**: SSH VPS e rodar `cd /opt/xmcp && bash start.sh`. Keys já estão no .env. Desbloqueia GTM-002 (X thread demo). | 15min
-- [ ] **DISS-002 [P0]**: `scripts/disseminate-propagator.ts` — propaga kernel blocks pós-scanner (DISS-001 ✅). Target: blocks de rules via `scripts/auto-disseminate.sh`. | 3h
+- [x] **DISS-002 [P0]**: `scripts/disseminate-propagator.ts` — propaga kernel blocks pós-scanner (DISS-001 ✅). Target: blocks de rules via `scripts/auto-disseminate.sh`. | 3h ✅ 2026-04-08
 - [ ] **DISS-003 [P0]**: `scripts/disseminate-verifier.ts` — re-verifica propagação (hash check). | 2h ✅ 2026-04-08
 - [ ] **DISS-005 [P0]**: Telegram approval gate para propagação — /approve antes de push. | 2h ✅ 2026-04-08
 - [ ] **PAP-002 [P0]**: Per-agent monthly token budget — estender Guard Brasil token counter com `monthly_cap` por agent_id, auto-pause + alerta 80%. | 3h
@@ -1071,3 +1071,57 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 
 **P1 — LLMRefs staleness (19 links quebrados, job 2026-04-07):**
 - [ ] **QA-001 [P1]**: Resolver 19 stale llmrefs em docs. Rodar `python3 scripts/qa/llmrefs_staleness.py --root . --fix` e revisar. Não-bloqueador mas polui CI. | 1h
+
+---
+
+## Kernel Sync + Auto-Deploy + Archaeology (2026-04-09)
+
+> **Context:** Session 2026-04-09 — auto-disseminate loop hardened, Base wallet wired, VPS deploy automated.
+> **Princípio:** Rollback-friendly, daily verification, no hardcode, sistema interligado.
+
+### SYNC — Kernel Sync Harmonization
+
+- [x] **SYNC-001 [P0]**: Auto-propagate kernel changes post-commit — `.husky/post-commit` atualizado: ao detectar mudança em CLAUDE.md/.windsurfrules/CAPABILITY_REGISTRY, roda disseminate-scanner + propagator (background). ✅ 2026-04-09
+- [ ] **SYNC-002 [P1]**: VPS cron diário (03:15 BRT) — `governance-sync --exec --propagate` garante que nenhum repo leaf fica > 24h sem sync de kernel. Adicionar ao crontab do VPS. | 1h
+- [ ] **SYNC-003 [P1]**: `br-acc/.husky/pre-commit` ausente — criar usando spec canônica de `carteira-livre` (POSIX-compatible, 6 checks). Sem divergir do padrão. | 1h
+- [ ] **SYNC-004 [P2]**: Leaf→kernel feedback loop — sentinel que detecta se um leaf repo tem regra nova valiosa (padrão: marcada `CANDIDATE-GLOBAL:`) e cria issue no kernel para revisão. | 4h
+- [ ] **SYNC-005 [P1]**: Harmonizar pre-commit de `egos-lab` (4 checks custom) para incluir checks críticos do kernel: frozen zones, vocab guard, gitleaks. | 2h
+
+### VPS — Auto-Deploy Pipelines
+
+- [x] **VPS-001 [P0]**: `.github/workflows/vps-deploy-guard-brasil.yml` criado — dispara em push para paths `packages/guard-brasil/**`, `apps/api/**`. Rollback automático se healthcheck falha. ✅ 2026-04-09
+- [ ] **VPS-002 [P1]**: Configurar secrets GitHub: `VPS_SSH_KEY` (ed25519 key content), `VPS_HOST` (204.168.217.125), `GH_DEPLOY_TOKEN` (PAT com `contents:read`). Testar workflow manualmente. | 30min
+- [ ] **VPS-003 [P2]**: Workflow análogo para `egos-gateway` — paths: `apps/egos-gateway/**`. Deploy via rsync + docker compose no VPS. | 2h
+- [ ] **VPS-004 [P2]**: Workflow para `egos-hq` — paths: `apps/egos-hq/**`. | 1h
+- [ ] **VPS-005 [P1]**: VPS health check 2x/dia (09:00 + 21:00 BRT) — script que verifica todos os containers Docker ativos, versões vs. main branch, reporta discrepâncias via Telegram. Usar estrutura existente do watchdog. | 3h
+
+### KB — Wiki Quality 79→90 (genuíno, sem hardcode)
+
+- [ ] **KB-020 [P1]**: Rodar `wiki-compiler --enrich` em páginas com quality < 80 (estimativa: ~40 páginas). Usa LLM Qwen para enriquecer com cross-refs, exemplos, estrutura. `--dry` primeiro, depois `--exec`. | 2h
+- [ ] **KB-021 [P1]**: Adicionar `docs/CAPABILITY_REGISTRY.md` como fonte de wiki (é o arquivo mais rico e estruturado do projeto). Criar entrada em `RAW_SOURCES` com category=`pattern`. Espera-se +20 páginas de alta qualidade. | 2h
+- [ ] **KB-022 [P2]**: Melhorar extração de cross-refs em wiki-compiler — hoje é 0 refs para muitas páginas. Implementar parser que lê frontmatter `# Cross-refs:` e links `[text](./slug)` de cada doc. | 3h
+- [ ] **KB-023 [P1]**: Integrar docs FORJA tenant na compilação periódica — adicionar entrada no `gem-hunter-adaptive.yml` (ou workflow separado) para rodar `wiki-compiler --compile --tenant=forja` semanalmente. | 1h
+- [ ] **KB-024 [P2]**: Quality score mais inteligente — penalizar páginas com apenas título (q<40), bonificar páginas com tabelas estruturadas, código, cross-refs reais. Atualizar `computeQualityScore()` em wiki-compiler. | 3h
+
+### ARCH — Codebase Archaeology Agent
+
+> **Objetivo:** Escanear todos os repos (`.md`, `.py`, `.ts`) buscando conceitos valiosos esquecidos, TODOs abandonados, padrões obsoletos, docs desatualizadas. Reportar via docs/jobs/ + Telegram.
+
+- [ ] **ARCH-001 [P1]**: `scripts/codebase-miner.ts` — agente de arqueologia. Fase 1: scana todos os repos locais (`~/852`, `~/forja`, `~/egos-lab`, `~/br-acc`, `~/carteira-livre`, `~/egos`) buscando: padrões `TODO`, `FIXME`, `HACK`, `XXX`, `WIP` em `.ts/.py/.md`. Gera relatório `docs/jobs/codebase-mining-YYYY-MM-DD.md`. | 4h
+- [ ] **ARCH-002 [P1]**: `codebase-miner.ts` Fase 2 — detecção de docs obsoletas: `.md` com `updated:` > 90 dias + referenciada em código. Usa LLM para avaliar "ainda relevante?" (sim/talvez/arquivar). | 6h
+- [ ] **ARCH-003 [P2]**: `codebase-miner.ts` Fase 3 — "gem concepts": lê títulos H2/H3 de todos `.md`, detecta conceitos sem implementação correspondente (ex: "ARR" mencionado mas `/packages/search-engine` inativo). Lista conceitos candidate. | 4h
+- [ ] **ARCH-004 [P1]**: CCR job weekly (sexta 03h00 BRT) — roda `codebase-miner.ts --all` no VPS, relatório disponível no /start briefing da segunda. | 1h
+- [ ] **ARCH-005 [P2]**: Multi-repo GitHub scan — `codebase-miner.ts --github` usa GitHub API para escanear repos públicos do Enio que não estão clonados localmente (enioxt/*). Detecta repos abandonados vs. ativos. | 3h
+
+### PRICE — Pricing como Referência (não como gate de revenue)
+
+- [x] **PRICE-001 [P0]**: x402 pricing externalizado para env (`X402_PRICE_USDC_ATOMIC`, `X402_NETWORK`, `X402_FACILITATOR_URL`). Wallet Base wired. Pricing = referência de mercado, não objetivo de lucro. ✅ 2026-04-09
+- [ ] **PRICE-002 [P1]**: Guard Brasil pricing tiers — atualizar `apps/api/src/server.ts` e `/v1/meta` para refletir tiers éticos (Free 150 calls, Starter R$49/10k, Pro R$199/100k, Business R$499/500k). Como referência para demos/parceiros. Nenhum tier bloqueia desenvolvimento. | 2h
+- [ ] **PRICE-003 [P2]**: Remover referências a MRR/R$ específicos de comentários no código. Mover para `docs/GTM_SSOT.md` como "projeções de referência" apenas. | 1h
+
+### QA — Limpeza de Sistema (2026-04-09)
+
+- [ ] **QA-001 [P1]**: Resolver 19 stale llmrefs em docs — `python3 scripts/qa/llmrefs_staleness.py --root . --fix`. Rodar, revisar output, commitar limpeza. | 1h  *(duplicado abaixo — manter este)*
+- [ ] **QA-002 [P1]**: TASKS.md archival — mover seções `[x]` (concluídas) com mais de 30 dias para `TASKS_ARCHIVE_2026.md`. Target: < 800 linhas após archive. | 1h
+- [ ] **QA-003 [P2]**: `.guarani/WEB_DESIGN_STANDARD.md` untracked — avaliar: pertence ao egos kernel ou ao forja? Commitar no lugar certo ou mover. | 15min
+
