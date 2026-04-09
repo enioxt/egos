@@ -11,7 +11,7 @@
 
 import { GuardBrasil } from '../../../packages/guard-brasil/src/index.js';
 import { recordApiCall } from '../../../packages/guard-brasil/src/telemetry.ts';
-import { validateKey, createFreeTenant, incrementUsage, type Tenant } from '../../../packages/guard-brasil/src/keys.ts';
+import { validateKey, createFreeTenant, incrementUsage, checkBudgetWarning, type Tenant } from '../../../packages/guard-brasil/src/keys.ts';
 import { GUARD_BRASIL_USAGE_TIERS } from '../../../packages/shared/src/billing/pricing.ts';
 import { evaluatePRI, requiresManualReview, shouldBlockOnPRI } from './pri.js';
 
@@ -415,6 +415,7 @@ print(resp.json()["risk_level"])  # "HIGH"
         .catch(err => console.warn('[api] Telemetry error:', err));
       if (auth.tenant) {
         incrementUsage(auth.tenant.id).catch(err => console.warn('[api] Usage increment error:', err));
+        checkBudgetWarning(auth.tenant).catch(() => {});
 
         // Stripe Billing Meter — emit usage event for metered billing
         const stripeKey = process.env.STRIPE_SECRET_KEY;

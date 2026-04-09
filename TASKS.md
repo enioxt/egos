@@ -580,7 +580,7 @@
 ## Git Workflow — Branch Protection (INC-001 follow-up)
 **Decision (2026-04-08):** Manter branch protection. GIT-001..003 RESOLVIDOS (já em main, divergência resolvida via rebase). Branch protection funcionando como esperado.
 - [ ] **GIT-004 [P1]**: Documentar workflow PR-first em `CLAUDE.md` para mudanças >5 arquivos ou >100 linhas
-- [ ] **GIT-005 [P1]**: `scripts/create-pr.sh` — automatiza branch+push+gh CLI
+- [x] **GIT-005 [P1]**: `scripts/create-pr.sh` ✅ 2026-04-09 — automatiza branch+push+gh CLI
 - [ ] **GIT-006 [P1]**: Comando `egos pr "título"` em `agents.json`
 
 ---
@@ -636,7 +636,7 @@
 
 **Adoptable NOW (sem Paperclip dependency):**
 - [x] **PAP-001 [P1]**: Heartbeat loop nativo — `agents/runtime/heartbeat.ts` (wrapper, runner.ts FROZEN): ciclo wake(30min) → checkWorkQueue() → runAgent() → emit(bus) → sleep. Configurable per-agent. ✅ 2026-04-08
-- [ ] **PAP-002 [P1]**: Per-agent budget enforcement — estender Guard Brasil token counter: campo `monthly_cap` per agent_id, auto-pause signal quando 100%, warning Telegram 80%. | 3h
+- [x] **PAP-002 [P1]**: Per-agent budget enforcement ✅ 2026-04-09 — estender Guard Brasil token counter: campo `monthly_cap` per agent_id, auto-pause signal quando 100%, warning Telegram 80%. | 3h
 - [ ] **PAP-003 [P2]**: Goal ancestry em TASKS.md — adicionar coluna `WHY` em tasks (link para parent goal). Template: `[PAP-003] Fix X → goal: Y → mission: Z`. | 1h
 
 **Integration (com Paperclip):**
