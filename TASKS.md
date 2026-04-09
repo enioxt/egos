@@ -784,17 +784,6 @@
 
 ---
 
-### X.com Reply Bot — Scoring Quality (2026-04-08)
-**Context:** 8 posts analisados revelaram: Qwen subavalia low-visibility gems (ex: @zhuokaiz Meta eng, poucas stars); overvalue news (ex: @claudeai 92 pts); repetitivo não detectado (ex: @hasantoxr). Root cause: `min_likes` threshold em `x-reply-bot.ts` — scoring não usa Qwen diretamente para relevância, só para geração de reply.
-
-**P1 — Fixes imediatos:**
-- [x] **XRB-001 [P1]**: @claudeai = conta oficial, post = news/announcement → reject. XRB-004 já implementou -40 penalty para contas oficiais. ✅ 2026-04-09
-- [x] **XRB-002 [P1]**: Update sistema de scoring com 8 few-shot examples em `x-reply-bot.ts` prompt: vacacafe/MrCl0wnLab/PreyWebthree/zhuokaiz/TFTC21 = gem (score +); hasantoxr/LOWTAXALT/claudeai-news = reject (score -). | 2h ✅ 2026-04-08
-- [x] **XRB-003 [P1]**: Adicionar categoria "low-visibility gem" ao scoring: post de engenheiro de big-tech (Meta/Google/OpenAI em bio) com código real + poucos likes → score mínimo 70. | 3h ✅ 2026-04-08
-- [x] **XRB-004 [P1]**: News-post detector: conta oficial (@claudeai, @openai, @anthropic) + padrão "announcing/introducing/launching" → penalidade -40 pts (não é gem, é PR corporativo). | 3h
-
----
-
 ### FORJA Chatbot Pilot — Referência (repo standalone)
 **FORJA é repo standalone em `/home/enio/forja/`. Tasks FORJA adicionadas lá.**
 - [/] **FORJA-003**: RLS migrations ✅ + RBAC roles ✅ + isolation test ✅ (`scripts/test-rls-isolation.ts`). **ENIO:** run `bun scripts/test-rls-isolation.ts` to verify + enable Google OAuth in Supabase dashboard.
@@ -816,20 +805,6 @@
 - [ ] **API-024 [P2]**: Churn tracker — cliente sem chamadas à API por 14 dias → Telegram alert. Implementar como cron diário em `scripts/churn-tracker.ts` lendo `gem_hunter_usage` + billing events. | 3h
 
 ---
-
-### Bugs e Incidentes de Sistema (2026-04-08)
-**P1 — Auto-disseminate pipeline fix:**
-- [x] **DISS-BUG-001 [P1]**: auto-disseminate faz match de task IDs em range notation (`KBS-001..026` → marca KBS-001 como done). Fix: adicionar guard que ignora IDs em contexto de range notation ou em commits com "fix/revert" no subject. Arquivo: `scripts/auto-disseminate.sh`. | 2h ✅ 2026-04-08
-
-**P1 — LLMRefs staleness (19 links quebrados, job 2026-04-07):**
-- [x] **QA-001 [P1]**: Resolver 19 stale llmrefs em docs. Rodar `python3 scripts/qa/llmrefs_staleness.py --root . --fix` e revisar. Não-bloqueador mas polui CI. | 1h ✅ 2026-04-08
-
----
-
-## Kernel Sync + Auto-Deploy + Archaeology (2026-04-09)
-
-> **Context:** Session 2026-04-09 — auto-disseminate loop hardened, Base wallet wired, VPS deploy automated.
-> **Princípio:** Rollback-friendly, daily verification, no hardcode, sistema interligado.
 
 ### SYNC — Kernel Sync Harmonization
 
@@ -870,19 +845,6 @@
 - [x] **PRICE-001 [P0]**: x402 pricing externalizado para env (`X402_PRICE_USDC_ATOMIC`, `X402_NETWORK`, `X402_FACILITATOR_URL`). Wallet Base wired. Pricing = referência de mercado, não objetivo de lucro. ✅ 2026-04-09
 - [ ] **PRICE-002 [P1]**: Guard Brasil pricing tiers — atualizar `apps/api/src/server.ts` e `/v1/meta` para refletir tiers éticos (Free 150 calls, Starter R$49/10k, Pro R$199/100k, Business R$499/500k). Como referência para demos/parceiros. Nenhum tier bloqueia desenvolvimento. | 2h
 - [ ] **PRICE-003 [P2]**: Remover referências a MRR/R$ específicos de comentários no código. Mover para `docs/GTM_SSOT.md` como "projeções de referência" apenas. | 1h
-
-### QA — Limpeza de Sistema (2026-04-09)
-
-- [x] **QA-001 [P1]**: Resolver 19 stale llmrefs em docs — `python3 scripts/qa/llmrefs_staleness.py --root . --fix`. Rodar, revisar output, commitar limpeza. | 1h  *(duplicado abaixo — manter este)* ✅ 2026-04-08
-- [x] **QA-002 [P1]**: TASKS.md archival — mover seções `[x]` (concluídas) com mais de 30 dias para `TASKS_ARCHIVE_2026.md`. Target: < 800 linhas após archive. | 1h ✅ 2026-04-08
-- [x] **QA-003 [P2]**: `.guarani/WEB_DESIGN_STANDARD.md` untracked — avaliar: pertence ao egos kernel ou ao forja? Commitar no lugar certo ou mover. | 15min ✅ 2026-04-09
-
-
----
-
-## AgentCash + Hyperspace Integration (2026-04-09)
-
-> **Context:** agentcash.dev = hub x402 300+ APIs (0% comissão, USDC micropayments). hyper.space = rede P2P distributed AGI, ganha pontos por compute.
 
 ### ACASH — AgentCash
 

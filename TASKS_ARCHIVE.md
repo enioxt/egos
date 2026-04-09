@@ -204,3 +204,49 @@
 
 - [x] GTM-002-unblock: Post Guard Brasil thread after XMCP-001 ✅ 2026-04-08
 - [x] **GTM-002-unblock**: Thread Guard Brasil (4 tweets prontos em GTM_SSOT.md §4.1) — BLOQUEADO por X credentials 401. Usar `bun /tmp/post-guard-thread.ts` após XMCP-001. ✅ 2026-04-08
+## Archived 2026-04-09
+
+### X.com Reply Bot — Scoring Quality (2026-04-08)
+**Context:** 8 posts analisados revelaram: Qwen subavalia low-visibility gems (ex: @zhuokaiz Meta eng, poucas stars); overvalue news (ex: @claudeai 92 pts); repetitivo não detectado (ex: @hasantoxr). Root cause: `min_likes` threshold em `x-reply-bot.ts` — scoring não usa Qwen diretamente para relevância, só para geração de reply.
+
+**P1 — Fixes imediatos:**
+- [x] **XRB-001 [P1]**: @claudeai = conta oficial, post = news/announcement → reject. XRB-004 já implementou -40 penalty para contas oficiais. ✅ 2026-04-09
+- [x] **XRB-002 [P1]**: Update sistema de scoring com 8 few-shot examples em `x-reply-bot.ts` prompt: vacacafe/MrCl0wnLab/PreyWebthree/zhuokaiz/TFTC21 = gem (score +); hasantoxr/LOWTAXALT/claudeai-news = reject (score -). | 2h ✅ 2026-04-08
+- [x] **XRB-003 [P1]**: Adicionar categoria "low-visibility gem" ao scoring: post de engenheiro de big-tech (Meta/Google/OpenAI em bio) com código real + poucos likes → score mínimo 70. | 3h ✅ 2026-04-08
+- [x] **XRB-004 [P1]**: News-post detector: conta oficial (@claudeai, @openai, @anthropic) + padrão "announcing/introducing/launching" → penalidade -40 pts (não é gem, é PR corporativo). | 3h
+
+---
+
+
+---
+
+### Bugs e Incidentes de Sistema (2026-04-08)
+**P1 — Auto-disseminate pipeline fix:**
+- [x] **DISS-BUG-001 [P1]**: auto-disseminate faz match de task IDs em range notation (`KBS-001..026` → marca KBS-001 como done). Fix: adicionar guard que ignora IDs em contexto de range notation ou em commits com "fix/revert" no subject. Arquivo: `scripts/auto-disseminate.sh`. | 2h ✅ 2026-04-08
+
+**P1 — LLMRefs staleness (19 links quebrados, job 2026-04-07):**
+- [x] **QA-001 [P1]**: Resolver 19 stale llmrefs em docs. Rodar `python3 scripts/qa/llmrefs_staleness.py --root . --fix` e revisar. Não-bloqueador mas polui CI. | 1h ✅ 2026-04-08
+
+---
+
+## Kernel Sync + Auto-Deploy + Archaeology (2026-04-09)
+
+> **Context:** Session 2026-04-09 — auto-disseminate loop hardened, Base wallet wired, VPS deploy automated.
+> **Princípio:** Rollback-friendly, daily verification, no hardcode, sistema interligado.
+
+
+---
+
+### QA — Limpeza de Sistema (2026-04-09)
+
+- [x] **QA-001 [P1]**: Resolver 19 stale llmrefs em docs — `python3 scripts/qa/llmrefs_staleness.py --root . --fix`. Rodar, revisar output, commitar limpeza. | 1h  *(duplicado abaixo — manter este)* ✅ 2026-04-08
+- [x] **QA-002 [P1]**: TASKS.md archival — mover seções `[x]` (concluídas) com mais de 30 dias para `TASKS_ARCHIVE_2026.md`. Target: < 800 linhas após archive. | 1h ✅ 2026-04-08
+- [x] **QA-003 [P2]**: `.guarani/WEB_DESIGN_STANDARD.md` untracked — avaliar: pertence ao egos kernel ou ao forja? Commitar no lugar certo ou mover. | 15min ✅ 2026-04-09
+
+
+---
+
+## AgentCash + Hyperspace Integration (2026-04-09)
+
+> **Context:** agentcash.dev = hub x402 300+ APIs (0% comissão, USDC micropayments). hyper.space = rede P2P distributed AGI, ganha pontos por compute.
+
