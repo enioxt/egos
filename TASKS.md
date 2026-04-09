@@ -597,7 +597,7 @@
 - [x] **LLM-MON-004 [P1]**: Notificações ✅ 2026-04-09 — alertar no Telegram/WhatsApp quando modelo promissor (S-tier) é detectado, com summary do research Exa
 
 **P1 — Test & Comparison Engine:**
-- [ ] **LLM-MON-005 [P1]**: Test Suite Standard — 5 categorias de prompts: (1) Coding (gerar + debug), (2) Reasoning (lógica matemática), (3) Context Longo (128K+), (4) Agentic (tool calling), (5) Creative (copywriting)
+- [x] **LLM-MON-005 [P1]**: `scripts/llm-test-suite.ts` — 9 testes em 5 categorias: coding(2), reasoning(2), long_ctx(1), agentic(2), ptbr(2). Scoring 0-100 + Supabase storage. `--model`, `--category`, `--dry`. ✅ 2026-04-09
 - [ ] **LLM-MON-006 [P1]**: Auto-Test Runner — para cada modelo novo S-tier, rodar test suite automaticamente, medir: latency, token usage, quality score (LLM-as-judge), success rate
 - [ ] **LLM-MON-007 [P2]**: Benchmark Comparison — comparar resultados do novo modelo vs current fallback chain, gerar report `docs/knowledge/LLM_MODEL_COMPARISON_YYYY-MM-DD.md`
 - [ ] **LLM-MON-008 [P2]**: Fallback Chain Auto-Update — se novo modelo supera current fallback em quality/cost, propor atualização de `packages/shared/src/llm-provider.ts` via PR automático
@@ -719,7 +719,7 @@
 - [ ] **API-015 [P2]**: APYHub credits system. | 2h ✅ 2026-04-08
 - [ ] **API-016 [P2]**: Zyla Labs listing. | 2h ✅ 2026-04-08
 - [ ] **API-017 [P2]**: Mintlify docs sync para API portal. | 3h
-- [ ] **API-018 [P2]**: Knowledge MCP publicado como API x402 — `@egosbr/knowledge-mcp` exposto via AgentCash após KBS-008 pronto. | 4h
+- [x] **API-018 [P2]**: Knowledge MCP publicado como API x402 — `@egosbr/knowledge-mcp` exposto via AgentCash após KBS-008 pronto. | 4h ✅ 2026-04-09
 - [ ] **API-019 [P2]**: x402 + Stripe hybrid billing — cliente escolhe crypto ou cartão na checkout. | 6h
 
 ---
@@ -989,7 +989,7 @@
 
 - [ ] **NOTION-AGENTS-001 [P0]**: Entrar na waitlist Notion Claude Agents — notion.so/agents (ação humana: acessar e registrar email). | 5min
 - [ ] **NOTION-AGENTS-002 [P1]**: Atualizar CAPABILITY_REGISTRY §27 KBS — documentar estratégia "Notion = orchestration layer official + EGOS = governance kernel". Diferencial: .guarani/ rules, audit trail, LGPD compliance, frozen zones. | 1h
-- [ ] **NOTION-AGENTS-003 [P1]**: Spec EGOS-SDD "Claude Agents no Notion para FORJA" — task board FORJA → Claude pega como to-do list → executa → EGOS governa → time aprova. Salvar em `docs/strategy/NOTION_AGENTS_FORJA_SPEC.md`. | 2h
+- [x] **NOTION-AGENTS-003 [P1]**: docs/strategy/NOTION_AGENTS_FORJA_SPEC.md criado. ✅ 2026-04-09
 - [ ] **NOTION-AGENTS-004 [P1]**: Template Notion "EGOS-Governed Task Board" — pronto para receber Claude Agents nativos quando waitlist abrir. Boards: Backlog / In Progress / Review / Done + propriedades EGOS (priority, agent, spec_link, audit_id). | 3h
 - [ ] **NOTION-AGENTS-005 [P2]**: Video PT-BR "Notion + Claude Agents + EGOS para orçamentos 10x mais rápidos na metalúrgica" — quando feature sair da waitlist. | 2h
 
