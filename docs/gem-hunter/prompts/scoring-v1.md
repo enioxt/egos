@@ -77,25 +77,26 @@ reject: /posts \/ x|profile|account/
 
 ---
 
-## 4. GAP: Low-Visibility Gem Category (GH-091 — TODO)
+## 4. Low-Visibility Gem Category (GH-091 ✅ DONE 2026-04-09)
 
-**Problem:** Engineers from big-tech (Meta, Google, OpenAI) posting real code with few likes are NOT captured.
-Current scoring relies on stars/downloads/arXiv — misses:
-- Verified tech employee (company in bio) posting production code snippet
-- Novel approach without academic framing
-- Tool solving a niche problem (few likes but exactly what EGOS needs)
+**Problem solved:** Engineers from big-tech posting real code with few likes were undervalued.  
+**Fix:** +25 bonus when ALL three criteria met:
 
-**Proposed addition to scoreGem():**
 ```typescript
-// GH-091: Low-visibility big-tech engineer gem
-// Big-tech company in author bio + code content + no follower-bait language
-const bigTechBio = /(meta|google|openai|anthropic|deepmind|apple|microsoft|amazon|nvidia)\s*(researcher|engineer|swe|ml|ai)/i.test(gem.authorBio ?? "");
-const hasCodeContent = /```|github\.com|npm install|pip install|const |function |def |class /.test(gem.description);
-const isFollowerBait = /(retweet|follow me|like if|thread [↓⬇])/i.test(gem.description);
-if (bigTechBio && hasCodeContent && !isFollowerBait) {
-  score += 25; // "low-visibility engineering gem" — these ARE the gems we want
+// gem-hunter.ts:1895 (GH-091, implemented 2026-04-09)
+const isBigTechEngineer =
+  /(meta|google|openai|anthropic|deepmind|apple|microsoft|amazon|nvidia)\s*(researcher|engineer|swe|ml|ai|scientist)/i.test(gemFullText) ||
+  /(engineer|researcher|scientist)\s+at\s+(meta|google|openai|anthropic|deepmind|apple|microsoft|amazon|nvidia)/i.test(gemFullText);
+const hasCodeSignals =
+  /```|github\.com\/[\w-]+\/[\w-]+|npm install|pip install|\bconst \w|\bfunction \w|\bdef \w|\bclass \w/.test(gem.description);
+const isFollowerBait =
+  /retweet|follow me|like if|like and retweet|thread\s*[↓⬇]/i.test(gem.description);
+if (isBigTechEngineer && hasCodeSignals && !isFollowerBait) {
+  score += 25; // "low-visibility engineering gem"
 }
 ```
+
+**Why @zhuokaiz was fixed:** Bio "engineer at Meta" + code in post + no follower bait → +25 added.
 
 ---
 
@@ -118,17 +119,41 @@ if (bigTechBio && hasCodeContent && !isFollowerBait) {
 
 ---
 
-## 6. News-Post Detector (XRB-004 — TODO)
+## 6. News-Post Detector (XRB-004 ✅ DONE 2026-04-08)
 
-**Proposed rule:** If author is official account (verified big-tech brand) + post contains announcement language → heavy penalty.
+**Rule:** Official corporate account + announcement language → -40 penalty (not a discovery gem, it's PR).  
+**Implementation:** `scripts/x-reply-bot.ts` — applied before reply generation.
 
 ```typescript
-const isOfficialCorporateAccount = /(claudeai|openai|anthropic|googledeepmind|metaai|microsoft)/i.test(gem.authorHandle ?? "");
-const isAnnouncementPost = /(announcing|introducing|launching|we're excited|new feature|now available|rolling out)/i.test(gem.description);
+const isOfficialCorporateAccount = /(claudeai|openai|anthropic|googledeepmind|metaai|microsoft)/i.test(tweet.author);
+const isAnnouncementPost = /(announcing|introducing|launching|we're excited|new feature|now available|rolling out)/i.test(tweet.text);
 if (isOfficialCorporateAccount && isAnnouncementPost) {
-  score -= 40; // "corporate PR penalty" — not a discovery gem
+  score -= 40; // "corporate PR penalty"
 }
 ```
+
+**Validated:** @claudeai/2041927687460024721 correctly rejected (XRB-001 ✅ 2026-04-09).
+
+---
+
+## Versioning
+
+## 7. Telegram Alert Format (GH-093 ✅ DONE 2026-04-08)
+
+Alerts now include inline keyboard for feedback collection (feeds `gem_feedback` table — GH-092):
+
+```
+🔥 Gem Hunter v8.x — N Hot Gem(s)
+
+🔹 *gem_name* — score/100
+description_first_120_chars…
+🔗 gem_url
+
+[👍 Gem] [👎 Skip] [🔍 Research] [💬 Comment]
+```
+
+Callback format: `gf:<reaction>:<alertId>` where `alertId = sha256(url)[:8]`  
+Index file: `docs/gem-hunter/.gem-alert-index.json`
 
 ---
 
@@ -137,6 +162,7 @@ if (isOfficialCorporateAccount && isAnnouncementPost) {
 | Version | Date | Changes |
 |---------|------|---------|
 | v1.0 | 2026-04-08 | Extracted from gem-hunter.ts — baseline documentation |
-| v1.1 | pending | Add GH-091 low-visibility big-tech engineer gem rule |
-| v1.2 | pending | Add XRB-004 news-post detector |
-| v2.0 | pending | GH-097: full LLM-based scoring (Qwen replaces heuristics) |
+| v1.1 | 2026-04-09 | GH-091 ✅ low-visibility big-tech engineer gem (+25) — implemented |
+| v1.2 | 2026-04-09 | XRB-004 ✅ news-post detector (-40) — implemented |
+| v1.3 | 2026-04-09 | GH-093 ✅ Telegram inline keyboard feedback format documented |
+| v2.0 | pending | GH-097: Qwen-based scoring replaces heuristics (proposed by scoring-prompt-evolver.ts) |

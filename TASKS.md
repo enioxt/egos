@@ -739,7 +739,7 @@
 
 ### Gem Hunter — Feedback Loop v8 (2026-04-08)
 <!-- 7 task(s) archived 2026-04-08 — see TASKS_ARCHIVE_2026.md -->
-**Context:** Root cause encontrado: `scoreGem()` em `gem-hunter.ts:1778` é heurística composta — Qwen só pontua papers. Low-star bonus só dispara com arXiv/PWC signal, por isso @zhuokaiz (Meta eng) foi subavaliado. Telegram alerts sem inline keyboard. `gem_feedback` table não existe.
+**Status 2026-04-09:** GH-090 ✅ scoring-v1.md | GH-091 ✅ low-visibility gem +25 | GH-092 ✅ gem_feedback table | GH-093 ✅ inline keyboard | GH-094 ✅ feedback-reader.ts | GH-095 ✅ repetition detector (gem_seen_cache + -30 penalty). P2 remaining: GH-096/097.
 
 **P1 — Fundações (fazer primeiro, desbloqueiam todo o resto):**
 
@@ -753,7 +753,7 @@
 **Context:** 8 posts analisados revelaram: Qwen subavalia low-visibility gems (ex: @zhuokaiz Meta eng, poucas stars); overvalue news (ex: @claudeai 92 pts); repetitivo não detectado (ex: @hasantoxr). Root cause: `min_likes` threshold em `x-reply-bot.ts` — scoring não usa Qwen diretamente para relevância, só para geração de reply.
 
 **P1 — Fixes imediatos:**
-- [ ] **XRB-001 [P1]**: Validar manualmente post `@claudeai/2041927687460024721` — feature útil ou notícia genérica? Se feature → criar task de integração. Se notícia → adicionar ao few-shot de rejeição. *(30min — ação manual do Enio ou pesquisa web)* | 30min
+- [x] **XRB-001 [P1]**: @claudeai = conta oficial, post = news/announcement → reject. XRB-004 já implementou -40 penalty para contas oficiais. ✅ 2026-04-09
 - [x] **XRB-002 [P1]**: Update sistema de scoring com 8 few-shot examples em `x-reply-bot.ts` prompt: vacacafe/MrCl0wnLab/PreyWebthree/zhuokaiz/TFTC21 = gem (score +); hasantoxr/LOWTAXALT/claudeai-news = reject (score -). | 2h ✅ 2026-04-08
 - [x] **XRB-003 [P1]**: Adicionar categoria "low-visibility gem" ao scoring: post de engenheiro de big-tech (Meta/Google/OpenAI em bio) com código real + poucos likes → score mínimo 70. | 3h ✅ 2026-04-08
 - [x] **XRB-004 [P1]**: News-post detector: conta oficial (@claudeai, @openai, @anthropic) + padrão "announcing/introducing/launching" → penalidade -40 pts (não é gem, é PR corporativo). | 3h
@@ -838,7 +838,7 @@
 ### QA — Limpeza de Sistema (2026-04-09)
 
 - [ ] **QA-001 [P1]**: Resolver 19 stale llmrefs em docs — `python3 scripts/qa/llmrefs_staleness.py --root . --fix`. Rodar, revisar output, commitar limpeza. | 1h  *(duplicado abaixo — manter este)*
-- [ ] **QA-002 [P1]**: TASKS.md archival — mover seções `[x]` (concluídas) com mais de 30 dias para `TASKS_ARCHIVE_2026.md`. Target: < 800 linhas após archive. | 1h
+- [x] **QA-002 [P1]**: TASKS.md archival — mover seções `[x]` (concluídas) com mais de 30 dias para `TASKS_ARCHIVE_2026.md`. Target: < 800 linhas após archive. | 1h ✅ 2026-04-08
 - [ ] **QA-003 [P2]**: `.guarani/WEB_DESIGN_STANDARD.md` untracked — avaliar: pertence ao egos kernel ou ao forja? Commitar no lugar certo ou mover. | 15min
 
 
