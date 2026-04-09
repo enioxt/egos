@@ -1,9 +1,70 @@
-# EGOS v5.5 - Dependabot Configuration
-# Automated dependency updates for security vulnerabilities
+# EGOS v6.0 - Dependabot Security-First Configuration
+# Security updates: immediate | Feature updates: weekly
+# SSOT: This file
 
 version: 2
+
+# Security updates: process immediately, not on schedule
 updates:
-  # NPM dependencies (Bun-compatible)
+  # NPM dependencies - Security patches (HIGH priority)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"  # Security patches: check daily
+      time: "06:00"
+      timezone: "America/Sao_Paulo"
+    # Security updates get their own PRs for immediate review
+    open-pull-requests-limit: 10
+    labels:
+      - "security"
+      - "dependencies"
+      - "critical"
+    commit-message:
+      prefix: "security(deps)"
+      include: "scope"
+    groups:
+      # Critical security patches: auto-merge eligible after CI passes
+      security-patches:
+        patterns:
+          - "*"
+        update-types:
+          - "patch"
+        exclude-patterns:
+          - "next"
+          - "react"
+          - "react-dom"
+          - "typescript"
+          - "eslint"
+      # Security minor updates: require manual review
+      security-minor:
+        patterns:
+          - "axios"
+          - "ajv"
+          - "cross-spawn"
+          - "semver"
+          - "ws"
+          - "express"
+          - "jsonwebtoken"
+          - "crypto-js"
+        update-types:
+          - "minor"
+    ignore:
+      # Framework major versions: manual only
+      - dependency-name: "next"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "react"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "react-dom"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
+      # Build tools: manual review required
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-minor", "version-update:semver-major"]
+      - dependency-name: "eslint"
+        update-types: ["version-update:semver-major"]
+
+  # NPM dependencies - Feature updates (weekly, lower priority)
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
@@ -11,34 +72,37 @@ updates:
       day: "monday"
       time: "09:00"
       timezone: "America/Sao_Paulo"
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
     labels:
       - "dependencies"
-      - "security"
+      - "maintenance"
     commit-message:
       prefix: "chore(deps)"
     groups:
-      minor-and-patch:
+      feature-updates:
         patterns:
           - "*"
         update-types:
           - "minor"
           - "patch"
-    ignore:
-      - dependency-name: "next"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "react"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "react-dom"
-        update-types: ["version-update:semver-major"]
+        exclude-patterns:
+          - "axios"
+          - "ajv"
+          - "cross-spawn"
+          - "semver"
+          - "ws"
 
-  # GitHub Actions
+  # GitHub Actions - Security updates
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "tuesday"
+      time: "09:00"
+      timezone: "America/Sao_Paulo"
     labels:
       - "ci"
+      - "security"
       - "dependencies"
     commit-message:
-      prefix: "chore(ci)"
+      prefix: "ci(security)"

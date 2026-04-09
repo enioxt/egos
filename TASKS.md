@@ -1,7 +1,38 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.56.0 | **Updated:** 2026-04-09 | **NEW:** QA-002 ✅ archive 1124→863L, SYNC/VPS/KB/ARCH/ACASH/HYPER tasks added | **LAST SESSION:** kernel sync + auto-deploy + x402 + archaeology agent + FORJA pilot. Execution continues.
+> **Version:** 2.57.0 | **Updated:** 2026-04-09 | **NEW:** SEC-001..006 — Dependabot vulnerabilities + Security hardening | **LAST SESSION:** security audit + dependabot rules upgrade. Execution continues.
 > **Philosophy:** Build what needs to be built, in the right order, without urgency.
+
+---
+
+### 🔴 SECURITY — Dependabot Vulnerabilities (2026-04-09) [P0 BLOCKER]
+**SSOT:** `docs/jobs/2026-04-09-code-security.md` | `SECURITY.md` | `.github/dependabot.yml` | `.github/workflows/security.yml`
+
+**Status:** 12 vulnerabilidades detectadas (4 HIGH, 8 MODERATE) — [github.com/enioxt/egos/security/dependabot](https://github.com/enioxt/egos/security/dependabot)
+
+**Vulnerabilidades Conhecidas:**
+| Pacote | Versão Atual | CVE/Problema | Severidade | Fix |
+|--------|--------------|--------------|------------|-----|
+| axios | 1.15.0 | CVE-2024-39353 (XSS), CVE-2023-45857 (CSRF) | HIGH | `bun update axios@^1.17.0` |
+| ajv | 6.14.0 | CVE-2020-15366 (prototype pollution) | MODERATE | `bun update ajv@^8.17.1` |
+| cross-spawn | 7.0.5 | CVE-2024-21538 (prototype pollution) | HIGH | `bun update cross-spawn@^7.0.6` |
+| semver | range | ReDoS em <7.5.2 | MODERATE | `bun update semver@latest` |
+| ws | ^8.18.2 | DoS vulnerability (verificar) | MODERATE | `bun update ws@latest` |
+
+**✅ DONE 2026-04-09:**
+- `SECURITY.md` criado — política de segurança + incident response
+- `.github/dependabot.yml` v6.0 — security-first config, daily scans, auto-grouping
+- `.github/workflows/security.yml` — CI security scan + gitleaks + dependabot check
+
+**P0 — Resolver Vulnerabilidades (24h SLA):**
+- [ ] **SEC-001**: Atualizar axios 1.15.0 → 1.17.0+ (CVE-2024-39353, CVE-2023-45857)
+- [ ] **SEC-002**: Atualizar cross-spawn 7.0.5 → 7.0.6+ (CVE-2024-21538)
+- [ ] **SEC-003**: Verificar e atualizar semver se necessário
+- [ ] **SEC-004**: Verificar e atualizar ws (Supabase realtime) se necessário
+
+**P1 — Security Hardening:**
+- [ ] **SEC-005**: Aplicar security patches do Dependabot via GitHub UI
+- [ ] **SEC-006**: Criar script `scripts/security-audit.ts` para scan local automatizado
 
 ---
 

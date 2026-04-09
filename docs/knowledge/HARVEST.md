@@ -1,8 +1,60 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 4.5.0 | **UPDATED:** 2026-04-07
+> **VERSION:** 4.6.0 | **UPDATED:** 2026-04-09
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
-> **Latest:** P38 added — X.com automation system + VPS path separation pattern
+> **Latest:** P39 added — Security-first Dependabot configuration + automated vulnerability management
+
+---
+
+## P39 Patterns (2026-04-09)
+
+### Security-First Dependabot Configuration
+
+**Problem:** 12 vulnerabilities detected (4 HIGH, 8 MODERATE), weekly scans too slow for security patches.
+
+**Solution:** Dual-track dependabot config — security patches daily, features weekly.
+
+**Key Improvements in `.github/dependabot.yml` v6.0:**
+```yaml
+# Security track: daily, immediate
+- package-ecosystem: "npm"
+  schedule:
+    interval: "daily"  # Security patches: check daily
+  labels: ["security", "critical", "dependencies"]
+  commit-message:
+    prefix: "security(deps)"
+  groups:
+    security-patches:    # Auto-merge eligible
+      update-types: ["patch"]
+    security-minor:      # Manual review
+      patterns: ["axios", "ajv", "cross-spawn", "semver", "ws"]
+
+# Feature track: weekly
+- package-ecosystem: "npm"
+  schedule:
+    interval: "weekly"
+  labels: ["dependencies", "maintenance"]
+```
+
+**Files Created:**
+- `SECURITY.md` — Policy + incident response + contact
+- `.github/workflows/security.yml` — CI scan + gitleaks + dependabot API check
+
+**Vulnerability Response SLA:**
+| Severity | SLA | Action |
+|----------|-----|--------|
+| Critical | Immediate | Rollback + hotfix |
+| High | 24 hours | Security advisory |
+| Moderate | 7 days | Scheduled patch |
+| Low | 30 days | Next release |
+
+**Common Vulnerable Packages (Bun/Node):**
+| Package | CVE/Problem | Fix Command |
+|---------|-------------|-------------|
+| axios <1.17.0 | CVE-2024-39353 (XSS) | `bun update axios@^1.17.0` |
+| cross-spawn <7.0.6 | CVE-2024-21538 (proto pollution) | `bun update cross-spawn@^7.0.6` |
+| ajv <8.17.1 | CVE-2020-15366 (proto pollution) | `bun update ajv@^8.17.1` |
+| semver <7.5.2 | ReDoS | `bun update semver@latest` |
 
 ---
 
@@ -2729,3 +2781,12 @@ if not access_token or not access_secret:
 ### Auto-harvested — 2dace6c (2026-04-08)
 
 - cross-repo-archaeology.ts existed (repo profiles) but not TODO mining
+
+### Auto-harvested — c60074f (2026-04-09)
+
+- Smithery now uses URL-based publishing (streamable HTTP endpoint) or GitHub-repo connect at smithery.ai/new, not just smithery.yaml. Glama auto-indexes from GitHub — no npm publish needed for listing.
+- Paperclip "Bring-your-own-ticket-system" + "Multiple Human Users" + "CEO Chat" are all on roadmap but not yet implemented — EGOS↔Paperclip full integration must wait for these.
+
+### Auto-harvested — 7e6d55c (2026-04-09)
+
+- auto-disseminate hook matches task IDs as substrings (PUB-001 matches inside longer IDs). MODERATE bug — hook needs exact word-boundary matching to avoid false positives.
