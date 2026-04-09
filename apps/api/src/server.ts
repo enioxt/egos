@@ -17,7 +17,7 @@ import { evaluatePRI, requiresManualReview, shouldBlockOnPRI } from './pri.js';
 
 const guard = GuardBrasil.create();
 const PORT = Number(process.env.GUARD_API_PORT ?? 3099);
-const API_VERSION = '0.2.2';
+const API_VERSION = '0.2.3';
 // Internal/CI keys loaded from env (bypass Supabase quota)
 const API_KEYS = new Set((process.env.GUARD_API_KEYS ?? '').split(',').filter(Boolean));
 
