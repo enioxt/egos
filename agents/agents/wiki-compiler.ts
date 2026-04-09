@@ -30,6 +30,7 @@ import { join, basename } from "path";
 
 const ROOT = "/home/enio/egos";
 const DRY_RUN = process.argv.includes("--dry");
+const TENANT = process.argv.find(a => a.startsWith("--tenant="))?.replace("--tenant=", "") ?? "";
 const MODE = process.argv.includes("--lint")
   ? "lint"
   : process.argv.includes("--index")
@@ -53,6 +54,17 @@ const RAW_SOURCES = [
   { path: join(ROOT, "docs/strategy"), category: "decision" as const, prefix: "strategy" },
   { path: join(ROOT, "docs/research"), category: "pattern" as const, prefix: "research" },
 ];
+
+// Tenant-specific source directories (added when --tenant=<id> is set)
+const TENANT_SOURCES: Record<string, typeof RAW_SOURCES> = {
+  forja: [
+    { path: "/home/enio/forja/docs/kb-pilot", category: "synthesis" as const, prefix: "forja" },
+    { path: "/home/enio/forja/docs/strategy", category: "decision" as const, prefix: "forja-strategy" },
+    { path: "/home/enio/forja/docs/knowledge", category: "pattern" as const, prefix: "forja-kb" },
+  ],
+};
+
+const ACTIVE_SOURCES = TENANT ? (TENANT_SOURCES[TENANT] ?? []) : RAW_SOURCES;
 
 // ── Types ─────────────────────────────────────────────────────────────
 
@@ -118,7 +130,7 @@ async function supabaseQuery(table: string, method: string, body?: unknown, para
 function scanRawSources(): RawSource[] {
   const sources: RawSource[] = [];
 
-  for (const src of RAW_SOURCES) {
+  for (const src of ACTIVE_SOURCES) {
     if (!existsSync(src.path)) continue;
 
     const files = readdirSync(src.path).filter((f) => f.endsWith(".md"));
@@ -350,6 +362,7 @@ async function compile(): Promise<void> {
         compiled_by: "wiki-compiler",
         quality_score: page.quality_score,
         updated_at: new Date().toISOString(),
+        ...(TENANT ? { tenant_id: TENANT } : {}),
       },
       "on_conflict=slug"
     );
@@ -792,7 +805,7 @@ async function enrich(): Promise<void> {
 }
 
 async function main(): Promise<void> {
-  console.log(`[wiki-compiler] Mode: ${MODE} | Dry: ${DRY_RUN}`);
+  console.log(`[wiki-compiler] Mode: ${MODE} | Dry: ${DRY_RUN} | Tenant: ${TENANT || "egos (default)"}`);
   console.log(`[wiki-compiler] Supabase: ${SUPABASE_URL ? "configured" : "NOT SET"}`);
 
   switch (MODE) {
