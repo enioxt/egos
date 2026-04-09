@@ -196,7 +196,7 @@
 - [ ] **HQI-008**: OpenClaw real config → read actual fallback_chain from openclaw-sandbox (not hardcoded)
 
 **Phase 2 — Volume mounts + data routes:**
-- [ ] **HQV2-000**: VPS docker-compose: volume mounts → TASKS.md, agents.json, CAPABILITY_REGISTRY.md, docs/jobs/ → /data/*
+- [x] **HQV2-000**: VPS docker-compose: volume mounts → /opt/data/egos:/data:ro + daily GitHub sync cron. ✅ 2026-04-09
 - [ ] **HQV2-001**: `/api/hq/tasks` — parse /data/TASKS.md → `{total, pending, p0, p1, stale_p0}`
 - [ ] **HQV2-002**: `/api/hq/world-model` — read /data/world-model/current.json → health%, blockers
 - [ ] **HQV2-003**: `/api/hq/gems` — gem-hunter API → top gems, last run, sector breakdown
@@ -340,7 +340,7 @@
 
 ### HQ Dashboard v2 (2026-04-06)
 **Goal:** Mission Control shows full system state. **Prereq:** Volume mounts on VPS (data → /data/).
-- [ ] **HQV2-000 [P0]**: Docker volume mounts (TASKS.md, world-model/, gem-hunter/latest-run.json, agents.json, CAPABILITY_REGISTRY.md → /data/*)
+- [x] **HQV2-000 [P0]**: Docker volume mounts — /opt/data/egos → /data:ro, env vars AGENTS_REGISTRY_PATH/TASKS_MD_PATH/CAPABILITY_REGISTRY_PATH/JOBS_DIR, daily GitHub sync cron 09:00 UTC. ✅ 2026-04-09
 - [ ] **HQV2-001..005 [P1]**: API routes — tasks, world-model, gems, system-map, gtm
 - [ ] **HQV2-006..010 [P2]**: Dashboard pages — /tasks Kanban, /world-model gauge, /gems cards, /system-map D3, nav update
 
