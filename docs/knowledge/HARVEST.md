@@ -2807,3 +2807,9 @@ if not access_token or not access_secret:
 ### Auto-harvested — 468f3d6 (2026-04-09)
 
 - /spec:init /spec:plan /spec:implement /spec:review now available
+
+### Auto-harvested — 720f2ec (2026-04-09)
+
+- sed -i on files with backticks needs python3 string replace.
+- /llms.txt RFC draft — AI discovery standard, add to all APIs.
+- gitleaks CPF rule flags fake CPFs too — use XXX.XXX.XXX-XX.

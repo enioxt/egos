@@ -944,10 +944,10 @@
 
 - [x] **OBS-010 [P2]**: Vault Obsidian template EGOS — ~/.egos/vault/ criado ✅ 2026-04-09
 - [ ] **OBS-011 [P2]**: MCP Obsidian Server — instalar e configurar MCP para Claude ler/escrever notas do vault diretamente. | 2h
-- [ ] **OBS-012 [P2]**: Skill `/kb:init` — inicializa nota na vault para tópico novo com links para TASKS + specs + HARVEST relevantes. | 2h
+- [x] **OBS-012 [P2]**: Skill `/kb:init` — ~/.egos/.claude/commands/kb-init.md ✅ 2026-04-09
 - [ ] **OBS-013 [P3]**: Brain-ingest pipeline FORJA — Whisper transcreve átas → nota Obsidian formatada → indexada no wiki-compiler. | 8h (dep: FORJA-TOOLS-002)
 - [ ] **OBS-014 [P3]**: Wikilinks → codebase-memory-mcp sync — script que lê [[wikilinks]] do vault e cria relacionamentos no grafo EGOS. | 4h
-- [ ] **OBS-015 [P3]**: Skill `/daily` — cria nota diária com: P0s do dia de TASKS.md, VPS health summary, gems pendentes de revisão. | 2h
+- [x] **OBS-015 [P3]**: Skill `/daily` — ~/.egos/.claude/commands/daily.md ✅ 2026-04-09
 
 ### COST — Monitoramento de Uso + Custos
 
@@ -955,7 +955,7 @@
 - [ ] **COST-002 [P2]**: EGOS logs → custo estimado — `agent_events` Supabase + custo por model (Haiku:$0.25/Sonnet:$3/Opus:$15 por 1M tokens). Tabela `usage_costs` no Supabase. | 4h
 - [ ] **COST-003 [P3]**: Skill `/usage:report` — relatório mensal: por projeto, por modelo, top 5 sessions mais caras. | 2h (dep: COST-001)
 - [ ] **COST-004 [P3]**: Alerta semanal custo — Telegram sexta 18h: "esta semana $X em Claude Code, top session Y". | 2h (dep: COST-001)
-- [ ] **COST-005 [P3]**: Budget guard session — se session atual estimada > $5 → auto-sugerir switch para Haiku. Implementar como hook `PostToolUse`. | 1h
+- [x] **COST-005 [P3]**: Budget guard session — ~/.claude/hooks/budget-guard.sh ✅ 2026-04-09
 
 ### GTM — Distribuição (complement GTM-001)
 
