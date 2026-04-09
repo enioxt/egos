@@ -827,7 +827,7 @@
 - [x] **ARCH-001 [P1]**: `scripts/codebase-miner.ts` — agente de arqueologia. Fase 1 ✅: 127 markers em 6 repos. Report `docs/jobs/codebase-mining-2026-04-09.md`. | 4h ✅ 2026-04-09
 - [ ] **ARCH-002 [P1]**: `codebase-miner.ts` Fase 2 — detecção de docs obsoletas: `.md` com `updated:` > 90 dias + referenciada em código. Usa LLM para avaliar "ainda relevante?" (sim/talvez/arquivar). | 6h
 - [ ] **ARCH-003 [P2]**: `codebase-miner.ts` Fase 3 — "gem concepts": lê títulos H2/H3 de todos `.md`, detecta conceitos sem implementação correspondente (ex: "ARR" mencionado mas `/packages/search-engine` inativo). Lista conceitos candidate. | 4h
-- [ ] **ARCH-004 [P1]**: CCR job weekly (sexta 03h00 BRT) — roda `codebase-miner.ts --all` no VPS, relatório disponível no /start briefing da segunda. | 1h
+- [x] **ARCH-004 [P1]**: CCR job weekly (sexta 06h00 UTC) — `.github/workflows/codebase-miner-weekly.yml`. Report commitado automaticamente. | 1h ✅ 2026-04-09
 - [ ] **ARCH-005 [P2]**: Multi-repo GitHub scan — `codebase-miner.ts --github` usa GitHub API para escanear repos públicos do Enio que não estão clonados localmente (enioxt/*). Detecta repos abandonados vs. ativos. | 3h
 
 ### PRICE — Pricing como Referência (não como gate de revenue)
@@ -840,7 +840,7 @@
 
 - [x] **QA-001 [P1]**: Resolver 19 stale llmrefs em docs — `python3 scripts/qa/llmrefs_staleness.py --root . --fix`. Rodar, revisar output, commitar limpeza. | 1h  *(duplicado abaixo — manter este)* ✅ 2026-04-08
 - [x] **QA-002 [P1]**: TASKS.md archival — mover seções `[x]` (concluídas) com mais de 30 dias para `TASKS_ARCHIVE_2026.md`. Target: < 800 linhas após archive. | 1h ✅ 2026-04-08
-- [ ] **QA-003 [P2]**: `.guarani/WEB_DESIGN_STANDARD.md` untracked — avaliar: pertence ao egos kernel ou ao forja? Commitar no lugar certo ou mover. | 15min
+- [x] **QA-003 [P2]**: `.guarani/WEB_DESIGN_STANDARD.md` untracked — avaliar: pertence ao egos kernel ou ao forja? Commitar no lugar certo ou mover. | 15min ✅ 2026-04-09
 
 
 ---
