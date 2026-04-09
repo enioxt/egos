@@ -56,18 +56,15 @@ jobs:
 
             echo "Step 2: Update code from GitHub..." | tee -a "$LOG_FILE"
             cd "$DEPLOY_DIR"
-            if [ -d ".git" ]; then
-              # Already a git repo — fetch + reset
-              git fetch "https://x-access-token:${GH_TOKEN}@github.com/enioxt/egos.git" main 2>&1 | tee -a "$LOG_FILE"
-              git reset --hard FETCH_HEAD 2>&1 | tee -a "$LOG_FILE"
-            else
-              # First deploy: init git in existing directory and pull
-              git init 2>&1 | tee -a "$LOG_FILE"
-              git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/enioxt/egos.git" 2>&1 | tee -a "$LOG_FILE"
-              git fetch origin main --depth=1 2>&1 | tee -a "$LOG_FILE"
-              git reset --hard origin/main 2>&1 | tee -a "$LOG_FILE"
-            fi
-            echo "  Code: $(git rev-parse --short HEAD 2>/dev/null || echo unknown)" | tee -a "$LOG_FILE"
+            # Idempotent git init — safe to run on existing dirs
+            [ -d ".git" ] || git init 2>&1 | tee -a "$LOG_FILE"
+            # Update remote URL with token (idempotent — add if missing, set-url if exists)
+            git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/enioxt/egos.git" 2>/dev/null \
+              || git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/enioxt/egos.git"
+            # Shallow fetch + hard reset (no merge conflicts possible)
+            git fetch origin main --depth=1 --quiet 2>&1 | tee -a "$LOG_FILE"
+            git reset --hard FETCH_HEAD 2>&1 | tee -a "$LOG_FILE"
+            echo "  Code: $(git rev-parse --short HEAD)" | tee -a "$LOG_FILE"
 
             # Verify compose file exists after code update
             if [ ! -f "$COMPOSE_FILE" ]; then
