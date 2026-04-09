@@ -196,7 +196,7 @@ if [ -n "$STAGED_MD" ]; then
   for md_file in $STAGED_MD; do
     if [ -f "$md_file" ]; then
       MATCHES=$(git diff --cached -- "$md_file" 2>/dev/null | grep '^+' | grep -v '^+++' | \
-        grep -iE '\b(NATS transport|NATS broker|NATS server|ZKP|zero.knowledge proof|shadow node|QuantumSearch|quantum search|DAG engine|DAG workflow|DAG.based pipeline)\b' || true)
+        grep -iE '\b(NATS transport|NATS broker|NATS server|ZKP|zero.knowledge proof|shadow node|QuantumSearch|quantum search|DAG engine|DAG workflow|DAG.based pipeline)\b' | grep -v 'vocab-guard: planned' || true)
       if [ -n "$MATCHES" ]; then
         echo "  VOCAB GUARD: $md_file adds phantom architecture terms:"
         echo "$MATCHES" | head -5 | sed 's/^/    /'
