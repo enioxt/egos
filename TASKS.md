@@ -343,9 +343,9 @@
 - [x] **HQV2-000 [P0]**: Docker volume mounts — /opt/data/egos → /data:ro, env vars AGENTS_REGISTRY_PATH/TASKS_MD_PATH/CAPABILITY_REGISTRY_PATH/JOBS_DIR, daily GitHub sync cron 09:00 UTC. ✅ 2026-04-09
 - [x] **HQV2-001 [P1]**: `/api/hq/tasks` — parses /data/TASKS.md → total/pending/p0/p1/stale_p0/completion_pct. ✅ 2026-04-09
 - [x] **HQV2-003 [P1]**: `/api/hq/gems` — proxies gateway gem-hunter/product endpoint. ✅ 2026-04-09
-- [ ] **HQV2-002 [P1]**: `/api/hq/world-model` — read /data/world-model/current.json → health%, blockers
-- [ ] **HQV2-004 [P1]**: `/api/hq/drift` — read /data/jobs/doc-drift-sentinel.md → structured drift per repo
-- [ ] **HQV2-005 [P1]**: `/api/hq/system-map` — agents.json + CAPABILITY_REGISTRY → graph data
+- [x] **HQV2-002 [P1]**: `/api/hq/world-model` — read /data/world-model/current.json → health%, blockers
+- [x] **HQV2-004 [P1]**: `/api/hq/drift` — read /data/jobs/doc-drift-sentinel.md → structured drift per repo
+- [x] **HQV2-005 [P1]**: `/api/hq/system-map` — agents.json + CAPABILITY_REGISTRY → graph data
 - [ ] **HQV2-006..010 [P2]**: Dashboard pages — /tasks Kanban, /world-model gauge, /gems cards, /system-map D3, nav update
 
 ---
@@ -733,7 +733,7 @@
 - [x] **XMCP-002 [P0]**: xmcp started on VPS :8200 ✅ 2026-04-09
 - [x] **DISS-002 [P0]**: `scripts/disseminate-propagator.ts` — propaga kernel blocks pós-scanner (DISS-001 ✅). Target: blocks de rules via `scripts/auto-disseminate.sh`. | 3h ✅ 2026-04-08
 - [x] **DISS-003 [P0]**: `scripts/disseminate-verifier.ts` ✅ — 12/12 repos verified. | 2h ✅ 2026-04-09
-- [ ] **DISS-005 [P0]**: Telegram approval gate para propagação — /approve antes de push. | 2h
+- [x] **DISS-005 [P0]**: Telegram approval gate para propagação — /approve antes de push. | 2h ✅ 2026-04-09
 - [ ] **PAP-002 [P0]**: Per-agent monthly token budget — estender Guard Brasil token counter com `monthly_cap` por agent_id, auto-pause + alerta 80%. | 3h
 
 **P1 — GH-086 + LS-002 (Sprint 1 continuação):**
