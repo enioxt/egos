@@ -961,4 +961,4 @@
 
 - [x] **PLAT-MON-001 [P1]**: `scripts/platform-monitor.ts` — monitora 5 plataformas (claude-code, anthropic-sdk, notion-client, mcp-sdk, bun) via npm registry + GitHub releases. Impact assessment (low/medium/high/critical). Telegram alert para high+. ✅ 2026-04-09
 - [x] **PLAT-MON-002 [P1]**: Supabase migration `20260409_platform_updates.sql` — tabela `platform_updates` com RLS service_role. ✅ 2026-04-09
-- [ ] **PLAT-MON-003 [P2]**: Auto-task em TASKS.md quando impacto HIGH detectado — `platform_updates.egos_impact = "high"` → cria task `ADAPT-NNN` automaticamente. | 2h (dep: PLAT-MON-002)
+- [x] **PLAT-MON-003 [P2]**: Auto-task em TASKS.md quando impacto HIGH detectado — `platform_updates.egos_impact = "high"` → cria task `ADAPT-NNN` automaticamente. ✅ 2026-04-09 — `appendTasksEntry()` em platform-monitor.ts

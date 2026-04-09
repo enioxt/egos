@@ -19,6 +19,9 @@
 
 export {};
 
+import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { join } from 'path';
+
 // ── Config ──────────────────────────────────────────────────────────────────
 const SUPABASE_URL = process.env.SUPABASE_URL ?? '';
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? '';
@@ -116,6 +119,35 @@ async function markAlerted(platform: string, version: string): Promise<void> {
 }
 
 // ── Telegram ─────────────────────────────────────────────────────────────────
+// ── PLAT-MON-003: Auto-task in TASKS.md ──────────────────────────────────────
+function appendTasksEntry(updates: PlatformUpdate[]): void {
+  const tasksPath = join(import.meta.dir, '..', 'TASKS.md');
+  if (!existsSync(tasksPath)) return;
+
+  const existing = readFileSync(tasksPath, 'utf-8');
+  const lines: string[] = [];
+
+  for (const u of updates) {
+    const id = 'PLAT-' + u.platform.toUpperCase().replace(/[^A-Z0-9]/g, '') + '-' + u.current_version.replace(/\./g, '');
+    // Skip if already present
+    if (existing.includes(id)) continue;
+    const emoji = u.egos_impact === 'critical' ? '🚨' : '⚠️';
+    lines.push(`- [ ] **${id} [P1]**: ${emoji} ${u.platform} atualizado ${u.previous_version ?? '?'} → ${u.current_version} — ${u.egos_notes} [auto-gerado por platform-monitor ${new Date().toISOString().slice(0, 10)}]`);
+  }
+
+  if (lines.length === 0) return;
+
+  // Insert after the first "## Platform Monitor" heading, or append to end
+  const marker = '## Platform Monitor\n';
+  const insertAfter = existing.includes(marker)
+    ? existing.indexOf(marker) + marker.length
+    : existing.length;
+
+  const newContent = existing.slice(0, insertAfter) + lines.join('\n') + '\n' + existing.slice(insertAfter);
+  writeFileSync(tasksPath, newContent, 'utf-8');
+  console.log('[platform-monitor] Auto-appended ' + lines.length + ' task(s) to TASKS.md');
+}
+
 async function sendTelegram(msg: string): Promise<void> {
   if (!TELEGRAM_BOT_TOKEN) {
     console.log('[telegram] No token — would send:', msg.substring(0, 100));
@@ -299,6 +331,7 @@ async function runMonitor(dry: boolean): Promise<void> {
       lines.push('');
     }
     await sendTelegram(lines.join('\n'));
+    if (!dry) appendTasksEntry(highImpact); // PLAT-MON-003
     for (const u of highImpact) {
       await markAlerted(u.platform, u.current_version);
     }
