@@ -663,7 +663,7 @@
 **P0 — Dogfooding + template + FORJA (próximas 2 semanas):**
 - [x] **KBS-001 [P0]**: Criar template Notion "Inteligência da Empresa" via MCP — DB Documentos, DB Q&A, DB Decisões, página "Como usar" PT-BR. Duplicável. | 4h ✅ 2026-04-08 (done in prev session — 10 sector templates + FORJA demo live in Notion)
 - [x] **KBS-002 [P0]**: Escrever `CLAUDE.md` cliente (≤100 linhas, PT-BR, placeholders por setor — metal/jurídico/saúde). Salvar em `packages/knowledge-mcp/templates/CLAUDE.md.tpl`. | 2h ✅ 2026-04-08
-- [ ] **KBS-003 [P0]**: Guia setup PT-BR — `docs/guides/KBS_ONBOARDING_PT_BR.md` — install Claude Code → OAuth Notion MCP → primeiro `/ingest` + `/ask`. Com screenshots. | 3h
+- [x] **KBS-003 [P0]**: Guia setup PT-BR — `docs/guides/KBS_ONBOARDING_PT_BR.md` — install Claude Code → OAuth Notion MCP → primeiro `/ingest` + `/ask`. Com screenshots. | 3h ✅ 2026-04-09
 - [x] **KBS-004 [P0]**: FORJA namespace beta — `clients/forja/` ou branch no FORJA repo, `.guarani/forja-rules.md`, ingestar 10 docs piloto (orçamento antigo, ficha produção, ABNT referenciada). | 6h ✅ 2026-04-08
 - [ ] **KBS-005 [P0]**: Loom demo 3–5min PT-BR — "Sua Inteligência da Empresa em 5 minutos". Gravar usando dogfooding interno (TASKS.md + HARVEST.md como exemplo). | 2h ✅ 2026-04-08
 - [ ] **KBS-006 [P0]**: PDF/Docx ingestor — plugar em `wiki-compiler.ts` via `unpdf` + `mammoth`. Input: pasta, output: atoms no `egos_wiki_pages`. | 8h
