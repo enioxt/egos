@@ -1263,6 +1263,48 @@ function getSupabaseClient(): any | null {
   }
 }
 
+// GH-095: Load URL hashes of gems seen in the last 30 days (repetition detector)
+// Returns Set<url_hash> to check before scoring — repeated gems get -30 penalty
+async function loadSeenCache(): Promise<Set<string>> {
+  const client = getSupabaseClient();
+  if (!client) return new Set();
+  try {
+    const cutoff = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
+    const { data, error } = await client
+      .from("gem_seen_cache")
+      .select("url_hash")
+      .gte("last_seen", cutoff);
+    if (error) throw error;
+    return new Set((data || []).map((r: { url_hash: string }) => r.url_hash));
+  } catch (e: any) {
+    console.warn("⚠️  GH-095: Could not load seen cache (non-fatal):", e?.message || e);
+    return new Set();
+  }
+}
+
+// GH-095: Upsert processed gems to gem_seen_cache after scoring run
+async function upsertSeenCache(gems: GemResult[]): Promise<void> {
+  const client = getSupabaseClient();
+  if (!client || gems.length === 0) return;
+  try {
+    const now = new Date().toISOString();
+    const rows = gems.map(g => ({
+      url_hash: createHash("md5").update(g.url).digest("hex").slice(0, 40),
+      gem_url: g.url,
+      gem_name: g.name,
+      last_seen: now,
+    }));
+    // Upsert: update last_seen + seen_count if already exists
+    await client.from("gem_seen_cache").upsert(rows, {
+      onConflict: "url_hash",
+      ignoreDuplicates: false,
+    });
+    console.log(`🧬 GH-095: ${gems.length} gem(s) upserted to seen cache`);
+  } catch (e: any) {
+    console.warn("⚠️  GH-095: Could not upsert seen cache (non-fatal):", e?.message || e);
+  }
+}
+
 async function syncGemsToSupabase(gems: GemResult[], runDate: string): Promise<void> {
   const client = getSupabaseClient();
   if (!client) return;
@@ -1452,6 +1494,11 @@ async function main() {
   const knownGemUrls = await loadKnownGems();
   if (knownGemUrls.size > 0) {
     console.log(`\n🧬 CORAL: ${knownGemUrls.size} known gem(s) will be skipped (score ≥7, last 14d)`);
+  }
+  // GH-095: Pre-load seen cache (last 30 days, any score) — for repetition penalty
+  const seenUrlHashes = await loadSeenCache();
+  if (seenUrlHashes.size > 0) {
+    console.log(`\n🔁 GH-095: ${seenUrlHashes.size} seen gem(s) in cache — will apply -30 repetition penalty`);
   }
   const allResults: GemResult[] = [];
   const DELAY_MS = 1200; // rate limit buffer
@@ -1689,9 +1736,20 @@ async function main() {
 
   saveEvolutionState(unique);
 
+  // GH-095: Upsert all processed gems to seen cache (non-blocking background)
+  upsertSeenCache(unique).catch(() => {});
+
   // GH-055: Persist hot gems to signals.json + fire Telegram alert
+  // GH-095: Apply repetition penalty (-30) for gems seen in last 30 days
   const hotGems = unique
-    .map(g => ({ gem: g, score: scoreGem(g) }))
+    .map(g => {
+      let score = scoreGem(g);
+      const urlHash = createHash("md5").update(g.url).digest("hex").slice(0, 40);
+      if (seenUrlHashes.has(urlHash)) {
+        score = Math.max(0, score - 30); // repetition penalty
+      }
+      return { gem: g, score };
+    })
     .filter(({ score }) => score >= 80)
     .sort((a, b) => b.score - a.score)
     .slice(0, 5);
