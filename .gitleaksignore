@@ -1,0 +1,6 @@
+# .gitleaksignore — False positive suppressions
+# Format: fingerprint (file:rule:line)
+# Only add intentional test/demo data — never real secrets
+
+# OpenAPI spec examples (CPF format used as placeholder, not real data)
+apps/egos-gateway/openapi.yaml:cpf-in-code:98

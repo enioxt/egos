@@ -664,7 +664,7 @@
 - [x] **KBS-002 [P0]**: Escrever `CLAUDE.md` cliente (≤100 linhas, PT-BR, placeholders por setor — metal/jurídico/saúde). Salvar em `packages/knowledge-mcp/templates/CLAUDE.md.tpl`. | 2h ✅ 2026-04-08
 - [x] **KBS-003 [P0]**: Guia setup PT-BR — `docs/guides/KBS_ONBOARDING_PT_BR.md` — install Claude Code → OAuth Notion MCP → primeiro `/ingest` + `/ask`. Com screenshots. | 3h ✅ 2026-04-09
 - [x] **KBS-004 [P0]**: FORJA namespace beta — `clients/forja/` ou branch no FORJA repo, `.guarani/forja-rules.md`, ingestar 10 docs piloto (orçamento antigo, ficha produção, ABNT referenciada). | 6h ✅ 2026-04-08
-- [ ] **KBS-005 [P0]**: Loom demo 3–5min PT-BR — "Sua Inteligência da Empresa em 5 minutos". Gravar usando dogfooding interno (TASKS.md + HARVEST.md como exemplo). | 2h ✅ 2026-04-08
+- [x] **KBS-005 [P0]**: Loom demo 3–5min PT-BR — "Sua Inteligência da Empresa em 5 minutos". Gravar usando dogfooding interno (TASKS.md + HARVEST.md como exemplo). ✅ 2026-04-08
 - [x] **KBS-006 [P0]**: PDF/Docx ingestor — `scripts/kb-ingest.ts` via `unpdf` + `mammoth` + Guard Brasil PII scan. `ingest_file` tool adicionado ao knowledge-mcp. ✅ 2026-04-09
 - [x] **KBS-007 [P0]**: KB-lint — `scripts/kb-lint.ts` — orphans, stale >90d, low_quality <40, broken_refs, duplicates, empty <100chars. Auto-fix broken_refs com --fix. Exit 1 em erros (CI-ready). ✅ 2026-04-09
 - [x] **KBS-008 [P0]**: `packages/knowledge-mcp/` completo — tools: ingest_file, kb_lint, kb_export (+ search_wiki, get_page, get_stats, record_learning). Publicado `@egosbr/knowledge-mcp@1.1.0` npm. ✅ 2026-04-09
@@ -708,7 +708,7 @@
 **P1 — Tier 1 expansão:**
 - [x] **API-007 [P1]**: Publicar Guard Brasil no APINow.fun — avaliar tokenization do endpoint popular. | 2h ✅ 2026-04-08 ✅ 2026-04-08
 - [ ] **API-008 [P1]**: Publicar OSINT Brasil scraping no Proxies.sx — match perfeito com 0% comissão. | 4h
-- [ ] **API-009 [P1]**: OpenAPI spec universal — `openapi.yaml` que serve todos os marketplaces. | 3h
+- [x] **API-009 [P1]**: OpenAPI spec universal — `openapi.yaml` que serve todos os marketplaces. ✅ 2026-04-09 — `apps/egos-gateway/openapi.yaml` (OAS 3.1, Guard Brasil + KB + Gem Hunter), served at `/openapi.yaml`
 - [ ] **API-010 [P1]**: Dashboard monetização no HQ — mostra receita x402 por plataforma, calls/dia, top consumers. | 4h
 
 **P2 — Tier 2 tradicionais:**
@@ -753,7 +753,7 @@
 - 🏭 FORJA Demo: https://www.notion.so/33ce6358f08081a4baccd88685b62f29
 
 **P0 — Dados demo + dogfooding (próximas 48h):**
-- [ ] **KBS-PM-006 [P0]**: Gravar Loom demo 5min PT-BR usando FORJA como exemplo — "Do orçamento em 2h para resposta em 10s". Usar dados demo populados. | 2h ✅ 2026-04-08
+- [x] **KBS-PM-006 [P0]**: Gravar Loom demo 5min PT-BR usando FORJA como exemplo — "Do orçamento em 2h para resposta em 10s". Usar dados demo populados. ✅ 2026-04-08
 
 **P1 — Completar perfis P1 com databases (próximas 2 semanas):**
 - [ ] **KBS-PM-012 [P1]**: PDF/áudio ingestor — plugar `unpdf` + `mammoth` + `whisper-api` no wiki-compiler. Input: pasta com arquivos mistos, output: atoms em egos_wiki_pages. | 8h
@@ -812,7 +812,7 @@
 - [x] **SYNC-002 [P1]**: VPS cron diário (03:15 BRT) — `governance-sync --exec --propagate` garante que nenhum repo leaf fica > 24h sem sync de kernel. Adicionar ao crontab do VPS. ✅ 2026-04-09 — `/etc/cron.d/governance-sync` + `/opt/egos/governance-sync-vps.sh` (pulls CLAUDE.md from GitHub → 5 app dirs)
 - [x] **SYNC-003 [P1]**: `br-acc/.husky/pre-commit` ✅ — 5 checks (ruff lint, secrets, PII guard, SSOT size, kernel marker). | 1h ✅ 2026-04-09
 - [ ] **SYNC-004 [P2]**: Leaf→kernel feedback loop — sentinel que detecta se um leaf repo tem regra nova valiosa (padrão: marcada `CANDIDATE-GLOBAL:`) e cria issue no kernel para revisão. | 4h
-- [ ] **SYNC-005 [P1]**: Harmonizar pre-commit de `egos-lab` (4 checks custom) para incluir checks críticos do kernel: frozen zones, vocab guard, gitleaks. | 2h
+- [x] **SYNC-005 [P1]**: Harmonizar pre-commit de `egos-lab` (4 checks custom) para incluir checks críticos do kernel: frozen zones, vocab guard, gitleaks. ✅ 2026-04-09
 
 ### VPS — Auto-Deploy Pipelines
 

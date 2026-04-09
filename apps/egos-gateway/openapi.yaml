@@ -1,0 +1,411 @@
+openapi: "3.1.0"
+info:
+  title: EGOS Gateway API
+  version: "1.2.0"
+  description: |
+    EGOS Gateway — unified API for Guard Brasil PII detection (LGPD compliance),
+    Knowledge Base access, Gem Hunter intelligence, and EGOS orchestration.
+
+    ## Authentication
+    Some endpoints use x402 micropayments (USDC via Base L2).
+    Free endpoints require no authentication.
+    Paid endpoints accept `X-Payment-Payload` header (x402 protocol).
+
+    ## Marketplaces
+    Available on: APINow.fun, Proxies.sx, AgentCash, Smithery, Glama.
+
+  contact:
+    name: Enio Rocha — EGOS
+    email: enio@egos.ia.br
+    url: https://egos.ia.br
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  - url: https://gateway.egos.ia.br
+    description: Production (Hetzner VPS, Caddy TLS)
+  - url: http://localhost:3050
+    description: Local development
+
+tags:
+  - name: guard-brasil
+    description: PII detection and LGPD compliance (Brazilian data protection)
+  - name: knowledge
+    description: Knowledge Base — wiki pages, learnings, search
+  - name: gem-hunter
+    description: GitHub Gem Hunter intelligence (trending repos, scoring)
+  - name: health
+    description: System health and metadata
+
+paths:
+  # ── Guard Brasil ────────────────────────────────────────────────────────────
+  /guard-brasil/health:
+    get:
+      tags: [guard-brasil]
+      summary: Guard Brasil health check
+      description: Returns API status and available PII patterns. Free endpoint.
+      responses:
+        "200":
+          description: API is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+                  patterns:
+                    type: integer
+                    description: Number of active PII detection patterns
+                    example: 16
+                  version:
+                    type: string
+                    example: "0.2.3"
+
+  /guard-brasil/meta:
+    get:
+      tags: [guard-brasil]
+      summary: Guard Brasil metadata
+      description: Returns PII pattern list, categories, and pricing info.
+      responses:
+        "200":
+          description: Metadata response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GuardMeta"
+
+  /guard-brasil/inspect:
+    post:
+      tags: [guard-brasil]
+      summary: Inspect text for PII (paid — x402 micropayment)
+      description: |
+        Scans text for 16 Brazilian PII patterns (CPF, RG, CNPJ, email, phone, etc.).
+        Returns detections with positions and confidence scores.
+        LGPD-compliant — no text is stored.
+
+        **Pricing:** R$0.02/call (equivalent ~$0.001 USDC via x402).
+        **Free tier:** 500 calls/month — contact enio@egos.ia.br.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/InspectRequest"
+            example:
+              text: "Entre em contato: NOME_EXEMPLO, CPF 000.000.000-00, email contato@empresa.com.br"
+      responses:
+        "200":
+          description: PII detection results
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InspectResponse"
+        "402":
+          description: Payment required (x402)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PaymentRequired"
+
+  # ── Knowledge Base ──────────────────────────────────────────────────────────
+  /knowledge/stats:
+    get:
+      tags: [knowledge]
+      summary: Knowledge Base statistics
+      responses:
+        "200":
+          description: KB stats
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total_pages:
+                    type: integer
+                  categories:
+                    type: array
+                    items:
+                      type: string
+                  avg_quality:
+                    type: number
+
+  /knowledge/search:
+    get:
+      tags: [knowledge]
+      summary: Full-text search across KB pages
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+          example: "LGPD metalurgia"
+        - name: category
+          in: query
+          schema:
+            type: string
+          example: "norma"
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 10
+      responses:
+        "200":
+          description: Search results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/WikiPageSummary"
+
+  /knowledge/pages:
+    get:
+      tags: [knowledge]
+      summary: List KB pages
+      parameters:
+        - name: category
+          in: query
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+        - name: tenant_id
+          in: query
+          schema:
+            type: string
+            default: egos
+      responses:
+        "200":
+          description: Page list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pages:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/WikiPageSummary"
+
+  /knowledge/pages/{slug}:
+    get:
+      tags: [knowledge]
+      summary: Get a specific KB page
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "guard-brasil-api"
+      responses:
+        "200":
+          description: Full page content
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WikiPage"
+        "404":
+          description: Page not found
+
+  /knowledge/learnings:
+    get:
+      tags: [knowledge]
+      summary: List learnings (HARVEST entries)
+      responses:
+        "200":
+          description: Learnings list
+    post:
+      tags: [knowledge]
+      summary: Record a new learning
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [content, category]
+              properties:
+                content:
+                  type: string
+                category:
+                  type: string
+                tags:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        "201":
+          description: Learning recorded
+
+  # ── Gem Hunter ──────────────────────────────────────────────────────────────
+  /gem-hunter/gems:
+    get:
+      tags: [gem-hunter]
+      summary: List discovered GitHub gems
+      parameters:
+        - name: sector
+          in: query
+          schema:
+            type: string
+          example: "lgpd"
+        - name: min_score
+          in: query
+          schema:
+            type: integer
+            default: 70
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+      responses:
+        "200":
+          description: Gem list
+
+  # ── Health ──────────────────────────────────────────────────────────────────
+  /health:
+    get:
+      tags: [health]
+      summary: Gateway health
+      responses:
+        "200":
+          description: Healthy
+
+components:
+  schemas:
+    InspectRequest:
+      type: object
+      required: [text]
+      properties:
+        text:
+          type: string
+          description: Text to inspect for PII
+          maxLength: 10000
+        context:
+          type: string
+          description: Optional context (e.g. 'juridico', 'saude')
+
+    InspectResponse:
+      type: object
+      properties:
+        has_pii:
+          type: boolean
+        pii_count:
+          type: integer
+        detections:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                description: PII type (cpf, rg, cnpj, email, phone, etc.)
+                example: cpf
+              value:
+                type: string
+                description: Detected value (masked for security)
+                example: "000.000.000-**"
+              confidence:
+                type: number
+                minimum: 0
+                maximum: 1
+              position:
+                type: integer
+        redacted:
+          type: string
+          description: Text with PII replaced by [TIPO_REDACTED]
+        lgpd_summary:
+          type: string
+          description: Human-readable LGPD compliance note
+
+    GuardMeta:
+      type: object
+      properties:
+        version:
+          type: string
+        patterns:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              category:
+                type: string
+              example:
+                type: string
+
+    WikiPageSummary:
+      type: object
+      properties:
+        slug:
+          type: string
+        title:
+          type: string
+        category:
+          type: string
+        quality_score:
+          type: integer
+        tags:
+          type: array
+          items:
+            type: string
+        summary:
+          type: string
+
+    WikiPage:
+      allOf:
+        - $ref: "#/components/schemas/WikiPageSummary"
+        - type: object
+          properties:
+            content:
+              type: string
+            source_files:
+              type: array
+              items:
+                type: string
+            updated_at:
+              type: string
+              format: date-time
+
+    PaymentRequired:
+      type: object
+      properties:
+        error:
+          type: string
+          example: "Payment required"
+        accepts:
+          type: array
+          items:
+            type: string
+          example: ["x402/usdc-base"]
+        amount_usdc:
+          type: number
+          example: 0.001
+        payment_url:
+          type: string
+
+  securitySchemes:
+    x402Payment:
+      type: apiKey
+      in: header
+      name: X-Payment-Payload
+      description: x402 micropayment payload (USDC on Base L2)
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: API key (contact enio@egos.ia.br for access)

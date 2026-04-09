@@ -43,6 +43,7 @@ app.get("/health", (c) => {
     uptime: process.uptime(),
     channels: ["whatsapp", "telegram", "knowledge", "gem-hunter", "guard-brasil-x402"],
     ui: "/ui",
+    openapi: "/openapi.yaml",
     docs: {
       whatsapp: "/channels/whatsapp/health",
       telegram: "/telegram/health",
@@ -59,6 +60,26 @@ app.route("/telegram", telegram);
 app.route("/knowledge", knowledge);
 app.route("/gem-hunter", gemHunter);
 app.route("/guard-brasil", guardBrasil);
+
+// Serve OpenAPI spec (API-009)
+app.get("/openapi.yaml", async (c) => {
+  const { readFileSync } = await import("fs");
+  const { join, dirname } = await import("path");
+  const { fileURLToPath } = await import("url");
+  const dir = dirname(fileURLToPath(import.meta.url));
+  const spec = readFileSync(join(dir, "../../openapi.yaml"), "utf-8");
+  return c.text(spec, 200, { "Content-Type": "application/yaml" });
+});
+
+app.get("/openapi.json", async (c) => {
+  const { readFileSync } = await import("fs");
+  const { join, dirname } = await import("path");
+  const { fileURLToPath } = await import("url");
+  const dir = dirname(fileURLToPath(import.meta.url));
+  const spec = readFileSync(join(dir, "../../openapi.yaml"), "utf-8");
+  // Return YAML as-is with correct content type for tools that prefer JSON
+  return c.text(spec, 200, { "Content-Type": "application/yaml", "X-Format": "yaml" });
+});
 
 // ─── Start ────────────────────────────────────────────────────────────────────
 
