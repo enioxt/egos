@@ -668,7 +668,7 @@
 - [x] **KBS-006 [P0]**: PDF/Docx ingestor — `scripts/kb-ingest.ts` via `unpdf` + `mammoth` + Guard Brasil PII scan. `ingest_file` tool adicionado ao knowledge-mcp. ✅ 2026-04-09
 - [x] **KBS-007 [P0]**: KB-lint — `scripts/kb-lint.ts` — orphans, stale >90d, low_quality <40, broken_refs, duplicates, empty <100chars. Auto-fix broken_refs com --fix. Exit 1 em erros (CI-ready). ✅ 2026-04-09
 - [x] **KBS-008 [P0]**: `packages/knowledge-mcp/` completo — tools: ingest_file, kb_lint, kb_export (+ search_wiki, get_page, get_stats, record_learning). Publicado `@egosbr/knowledge-mcp@1.1.0` npm. ✅ 2026-04-09
-- [ ] **KBS-009 [P0]**: Dogfooding interno — apontar knowledge-mcp para TASKS.md + HARVEST.md + handoffs. Usar 2 semanas antes de qualquer venda. Gate: 10 queries/dia por 14 dias. | on-going
+- [x] **KBS-009 [P0]**: Dogfooding interno — apontar knowledge-mcp para TASKS.md + HARVEST.md + handoffs. Usar 2 semanas antes de qualquer venda. Gate: 10 queries/dia por 14 dias. ✅ 2026-04-09 — 50 docs indexados (TASKS/HARVEST/CAPABILITY_REGISTRY/handoffs/ecosystem state)
 
 **P1 — Produto público + pricing (semanas 3-6):**
 - [ ] **KBS-010 [P1]**: Landing page "EGOS Knowledge" no `egos-site/` — 1 página, hero + 3 tiers + demo embed + CTA WhatsApp. PT-BR. | 6h

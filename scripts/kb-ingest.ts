@@ -124,7 +124,8 @@ async function upsertPage(doc: {
   has_pii: boolean;
   pii_types: string[];
 }): Promise<void> {
-  const res = await fetch(`${SUPABASE_URL}/rest/v1/knowledge_base`, {
+  const piiTags = doc.has_pii ? ['pii-detected', ...doc.pii_types] : [];
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/egos_wiki_pages`, {
     method: 'POST',
     headers: {
       'apikey': SUPABASE_KEY,
@@ -137,10 +138,10 @@ async function upsertPage(doc: {
       title: doc.title,
       content: doc.content,
       category: doc.category,
-      tags: doc.pii_types.length > 0 ? [...doc.pii_types, 'file-ingested'] : ['file-ingested'],
+      tags: [...piiTags, 'file-ingested'],
       quality_score: scoreQuality(doc.content),
       source_files: [doc.source_file],
-      has_pii_warning: doc.has_pii,
+      compiled_by: 'kb-ingest',
       updated_at: new Date().toISOString(),
     }),
   });
