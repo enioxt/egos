@@ -20,7 +20,7 @@ EGOS = Compliance Layer  (Guard Brasil — LGPD/PII, 4ms, 16 padrões)
      + Governance Layer   (.guarani/ + 26 SSOT domains + pre-commit gates)
 ```
 
-**Score de saúde:** 8.5/10 | **Commits 30 dias:** 1099+ | **Repositórios ativos:** 6
+**Score de saúde:** 8.5/10 | **Commits 30 dias:** 1104+ | **Repositórios ativos:** 6
 
 ---
 
@@ -457,4 +457,4 @@ grep "EGOS_STATE_OF_THE_ECOSYSTEM" docs/MASTER_INDEX.md  # deve existir
 
 ---
 
-*Versão: 1.1.6 | Criado: 2026-04-08 | Atualizado: 2026-04-09*******
+*Versão: 1.1.7 | Criado: 2026-04-08 | Atualizado: 2026-04-09********

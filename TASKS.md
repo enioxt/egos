@@ -1,6 +1,6 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.55.0 | **Updated:** 2026-04-08 | **NEW:** GH-089..097 (Gem Hunter Feedback Loop v8), XRB-001..004 (scoring quality), FORJA tasks → `/home/enio/forja/TASKS.md`, SAFETY-001..002, API-024 | **LAST SESSION:** Opus planned FORJA vision + feedback loop + API monetization complement. Execution starts now.
+> **Version:** 2.56.0 | **Updated:** 2026-04-09 | **NEW:** QA-002 ✅ archive 1124→863L, SYNC/VPS/KB/ARCH/ACASH/HYPER tasks added | **LAST SESSION:** kernel sync + auto-deploy + x402 + archaeology agent + FORJA pilot. Execution continues.
 > **Philosophy:** Build what needs to be built, in the right order, without urgency.
 
 ---
@@ -34,70 +34,21 @@
 ---
 
 ### GovTech — Documentação de Oportunidades (2026-04-07)
-**SSOT:** `docs/knowledge/GOVTECH_LICITACOES_ABERTAS_2026-04-07.md`
-**Context:** Documentar licitações abertas para apresentar Eagle Eye e stack EGOS a potenciais parceiros. **NÃO participar de licitações diretamente** — falta habilitação completa (SICAF, atestados). Foco em documentar e prospectar parcerias com software houses habilitadas.
-
-**Done (2026-04-07):**
-- GOV-TECH-001: Levantamento de 7 licitações abertas com match técnico
-- GOV-TECH-002: Template de proposta técnica reutilizável
-- GOV-TECH-003: Pitch de parceria para software houses
-- GOV-TECH-004: Análise SAAE Linhares — match perfeito com Evolution API
-
-**P1 — Documentação + Parcerias (Esta semana):**
-- [ ] **GOV-TECH-005**: Atualizar documento com novas licitações (monitoramento diário)
-- [ ] **GOV-TECH-006**: Criar one-pager "Eagle Eye para Parceiros" (stack técnica)
-- [ ] **GOV-TECH-007**: Identificar 5 software houses habilitadas para abordar
-- [ ] **GOV-TECH-008**: Preparar deck de 5 minutos para calls de parceria
-
-**P2 — Pilotos (Mês 2-3, se parceria confirmada):**
-- [ ] **GOV-TECH-009**: Atestado técnico via piloto gratuito (após parceria)
-- [ ] **GOV-TECH-010**: Registro SICAF (se viável economicamente)
-
-**Nota:** Licitações identificadas são para documentação e apresentação a parceiros. Não executar propostas sem parceiro habilitado.
-
----
+**SSOT:** `docs/knowledge/GOVTECH_LICITACOES_ABERTAS_2026-04-07.md` | 7 licitações documentadas.
+- [ ] **GOV-TECH-005**: Monitoramento diário PNCP
+- [ ] **GOV-TECH-006**: One-pager "Eagle Eye para Parceiros"
+- [ ] **GOV-TECH-007**: 5 software houses habilitadas para abordar
+<!-- GOV-TECH-001..004/008..010 + full context in TASKS_ARCHIVE_2026.md -->
 
 ### OSINT Brasil — Toolkit & Matriz Operacional (2026-04-08)
-**SSOT:** `docs/knowledge/OSINT_BRASIL_TOOLKIT.md` | **Matrix:** `docs/knowledge/OSINT_BRASIL_MATRIX.md` | **Keywords:** `docs/social/X_MOAT_KEYWORDS.md`
-**Context:** Curadoria operacional de ferramentas OSINT focadas no Brasil, priorizando portais oficiais (Receita, Transparência, TSE), ferramentas ativas (Blackbird, Maigret, Sherlock), e conformidade LGPD/Marco Civil/LAI.
-
-**Done (2026-04-08):**
-- OSINT-001: `OSINT_BRASIL_TOOLKIT.md` — curadoria completa com 8 categorias de ferramentas
-- OSINT-002: `OSINT_BRASIL_MATRIX.md` — matriz por objetivo (8 tipos de investigação)
-- OSINT-003: `X_MOAT_KEYWORDS.md` — keywords e anti-keywords com contexto Brasil
-- OSINT-004: Queries X.com otimizadas para policial/jurídico/dados públicos BR
-- OSINT-005: x-opportunity-alert.ts v2.1 — enhanced MOAT keywords (10 categorias)
-
-**P0 — Integração 852 (Esta semana):**
-- [ ] **OSINT-006**: Mapear integração de Brasil.IO, Escavador, Jusbrasil na plataforma 852
-- [ ] **OSINT-007**: Criar templates DM específicos para delegacias (PCMG, PMMG, PF)
-- [ ] **OSINT-008**: Implementar alertas de vazamentos de dados (HIBP API) no Guard Brasil
-- [ ] **OSINT-009**: Testar queries X.com policiais com conta de teste
-
-**P1 — Automação & Alertas (Próximas 2 semanas):**
-- [ ] **OSINT-010**: Script de monitoramento de diários oficiais (Querido Diário API)
-- [ ] **OSINT-011**: Integração com Portal da Transparência para novos contratos
-- [ ] **OSINT-012**: API wrapper para Receita Federal (CNPJ/CPF) — com cache e provenance
-- [ ] **OSINT-013**: Alertas automáticos de novos processos (Escavador webhook)
-
-**P2 — Avançado (Mês 2-3):**
-- [ ] **OSINT-014**: Integração Maltego para visualização gráfica de vínculos
-- [ ] **OSINT-015**: Plugin 852 para análise de metadados (ExifTool)
-- [ ] **OSINT-016**: GEOINT module — TerraBrasilis + Sentinel Hub para casos ambientais
-
----
+**SSOT:** `docs/knowledge/OSINT_BRASIL_TOOLKIT.md` | 8 categorias + 8 tipos de investigação.
+- [ ] **OSINT-006**: Mapear integração Brasil.IO + Escavador + Jusbrasil na 852
+- [ ] **OSINT-007**: Templates DM para delegacias (PCMG/PMMG/PF)
+- [ ] **OSINT-008**: Alertas de vazamentos HIBP API no Guard Brasil
+<!-- OSINT-009..016 + full context moved to TASKS_ARCHIVE_2026.md -->
 
 ### API Marketplaces — Estratégia Multi-Plataforma EGOS (2026-04-08) [EXPANDED]
-**SSOTs:** `/home/enio/.codeium/windsurf-next/AGENTCASH_OPPORTUNITY_ANALYSIS.md` | `/home/enio/.codeium/windsurf-next/API_MARKETPLACES_MASTER_ANALYSIS.md` | `/home/enio/.codeium/windsurf-next/API_MARKETPLACES_EXTENDED_RESEARCH.md`
-**Context:** Pesquisa ampla (X/Twitter, Reddit, Web) identificou **20+ plataformas** em 5 camadas: Payment Protocols (x402, Stripe MPP), Agent-Native Marketplaces (0%), MCP Ecosystem (11,000+ servers, <5% monetizados), Web3/On-chain (Virtuals, ai16z, Sahara, Heurist, Talus), Traditional + Hybrid. Mercado projetado: **$52B até 2030**.
-
-**Camada 1 — Payment Protocols:**
-- **x402** (Coinbase + Cloudflare) — HTTP 402, USDC, 0%, Apache 2.0, Linux Foundation
-- **Stripe MPP** (Stripe + Tempo) — Session-based, USDC + Fiat, enterprise focus, Mar 2026
-
-**Camada 2 — Agent-Native Marketplaces (x402-first, 0%):**
-- **AgentCash** — 300+ APIs, `agentwallet-sdk`, invite: `AC-LZR4-C5AX-F5DH-EAB2`
-- **APINow.fun** — Tokenization endpoints + API coins, leaderboards
+**SSOT:** `~/.codeium/windsurf-next/API_MARKETPLACES_MASTER_ANALYSIS.md` | 20+ plataformas, 5 camadas (x402/Stripe MPP, AgentCash/APINow.fun, MCP eco, Web3, Traditional). Mercado $52B/2030.
 - **Proxies.sx** — 0%, 4G/5G proxies, bounties, ~95% take rate
 - **ToolOracle** — 73 MCP servers, 708 tools, $0.01-0.08/call, AgentGuard security
 
@@ -336,23 +287,11 @@
 
 ---
 
-### Claude Code Hardening + Observability (archived)
-LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013. Ref repos: Continue 71, Aider 74, Cline 72.8, agent-scaling-laws 87. P1 queue: OpenHands, LangGraph, OpenAI Agents SDK, LiteLLM, Langfuse, Mem0.
+<!-- Claude Code Hardening (archived) — LEAK/AI/OBS 001..013 done. P2: LEAK-010..012, AI-008..010, OBS-010..013. Ref: awesome-claude-code. -->
 
----
+<!-- X.com Presence (2026-04-01) — X-009/X-012 pending (blocked: XMCP-001 credentials). See TASKS_ARCHIVE_2026.md. -->
 
-### X.com Presence (2026-04-01)
-**BLOCKER:** XMCP-001 (X credentials 401 — regenerate at developer.twitter.com first)
-- [ ] X-009: Trending topic scanner (hourly, keywords vs capabilities)
-- [ ] X-012: Thread scheduler (multi-tweet, 2-min gaps) — dep XMCP-001
-
----
-
-### Block Intelligence + Eagle Eye (compressed)
-**WM-001..008:** Local LLM + world model (P2, post-PMF). **INTEL-006..010:** Proactive detection, mermaid, DRI auto-assign (P1-P2). SSOT: `docs/strategy/WORLD_MODEL_SSOT.md`
-**Eagle Eye v2:** EAGLE-GH-001..005 done. P0: GH-003/004 (classification/extraction). Deadline: EAGLE-023 R$250k proposal 2026-04-29.
-- [ ] MONETIZE-011: Deploy v0.2.3 to VPS with STRIPE_METER_ID env var
-- [ ] MONETIZE-012: NOWPayments webhook URL config — ENIO action required
+<!-- Block Intelligence + Eagle Eye (compressed) — MONETIZE-011/012 ENIO action required (Stripe meter + NOWPayments). See TASKS_ARCHIVE_2026.md. -->
 
 ### Partnership & Distribution Strategy (2026-04-05)
 **Compressed:** See `docs/GTM_SSOT.md` + `docs/MONETIZATION_SSOT.md` for full roadmap.
@@ -361,24 +300,11 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 
 ---
 
-### Evaluated & Deferred (2026-04-05)
-**HiClaw:** SKIP. **PAL:** ADOPTED partial (wiki-compiler). **Karpathy LLM Wiki:** ADOPTED full (KB-001..007). **Fine-tuning Gemma/Qwen:** DEFERRED to P2 (no GPU, not 90-day focus).
-
 ### GTM & Incidents (P25-P35)
-
-**SSOT:** `docs/GTM_SSOT.md` | **ICP:** CTOs/backend devs at fintechs+healthtechs (confirmed).  
-**INC-001 (2026-04-06):** Force-push incident — recovered. Mitigations: `.husky/pre-push` blocks, GitHub branch protection enabled, CLAUDE.md §25 added.
-
-**P0 — Social & Outreach:**
-- [x] **GTM-002**: X.com thread demo (4 tweets, drafts ready) — aguarda XMCP-002 start.sh ✅ 2026-04-08
+**SSOT:** `docs/GTM_SSOT.md` | INC-001 resolved. Guard Brasil bugs BUG-001/005/SEC-001 ✅.
 - [ ] **GTM-001**: x-reply-bot search tuning (lgpd/anpd/dpo keywords)
-
-**Guard Brasil Bugs — Status (2026-04-07):**
-- [/] **GUARD-BUG-002**: ATRiAN bias **não existe no código**. Demo corrigido para mostrar o que funciona (absolute_claim, fabricated_data). Feature futura.
-
-**P1 — Content & Integrations:** GTM-006..013 (docs playground, ProductHunt, dev.to, partnerships) — see git log for status.
-
----
+- [/] **GUARD-BUG-002**: ATRiAN bias não existe. Demo corrigido. Feature futura.
+<!-- GTM-006..013 and full context in TASKS_ARCHIVE_2026.md -->
 
 ### HQ Dashboard v2 (2026-04-06)
 **Goal:** Mission Control shows full system state. **Prereq:** Volume mounts on VPS (data → /data/).
@@ -403,82 +329,31 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 ---
 
 ### Dream Cycle — Overnight Intelligence (2026-04-06)
-**SSOT:** `docs/strategy/DREAM_CYCLE_SSOT.md`
-**Goal:** Wake up to briefed HQ showing all nightly work. LLM cost: $0 (Gemma 4 31B free).
-
-**Phase 2 — Intelligence (pending):**
-- [ ] DC-004: `agents/agents/intelligence-engine.ts` — reads nightly logs + TASKS.md, uses Gemma 4 31B, writes egos_nightly_reports + auto-creates TASKS entries
-- [ ] DC-005: Extend CCR Governance Sentinel to run intelligence-engine after drift check
-- [ ] DC-006: Auto-Healer script — restart containers on known patterns (rule-based, no LLM)
-- [ ] DC-011: Tune log-harvester Caddy pattern (false-positive: 472 TLS entries flagged as critical)
-
-**Phase 3 — HQ Integration:**
-- [ ] DC-007: HQ "Last Night" card on home page — shows Dream Cycle results from egos_nightly_logs
-- [ ] DC-008: HQ `/events` page (CTRL-014) — real-time stream from egos_agent_events + nightly reports
-- [ ] DC-009: Morning Briefing (06h30 BRT) — Telegram + WhatsApp summary of overnight work
-
----
+**SSOT:** `docs/strategy/DREAM_CYCLE_SSOT.md` | Phase 1 ✅ (log-harvester running)
+- [ ] **DC-004**: intelligence-engine.ts — reads nightly logs, writes egos_nightly_reports
+- [ ] **DC-006**: Auto-Healer script — restart containers on known patterns
+- [ ] **DC-009**: Morning Briefing 06h30 BRT — Telegram + WhatsApp
+<!-- DC-005/007/008/011 moved to TASKS_ARCHIVE_2026.md -->
 
 ### Skills + Hooks Backlog (2026-04-06)
+- [ ] **SKILL-001**: `/gate` command → `~/.claude/commands/gate.md`
+- [ ] **SKILL-002**: `/mycelium-think` → `~/.claude/commands/mycelium-think.md`
+- [ ] **HOOK-001**: UserPromptSubmit hook — keyword→meta-prompt injection from triggers.json
+- [ ] **HOOK-002**: RefineGate hook — vague prompt (<50 chars) → clarification guidance
+<!-- SKILL-003 and context moved to TASKS_ARCHIVE_2026.md -->
 
-**Skills:**
-- [ ] SKILL-001: `/gate` — manual quality gate scoring (G1-G5 template from .guarani/orchestration/GATES.md). Create `~/.claude/commands/gate.md`
-- [ ] SKILL-002: `/mycelium-think` — thinking meta-prompt (different from /mycelium VPS check). Create `~/.claude/commands/mycelium-think.md`
-- [ ] SKILL-003: `/brainet` — sync content from .guarani/prompts/meta/brainet.md (if outdated). Verify ~/.claude/commands/brainet.md exists.
+<!-- ~~OpenClaw~~ DECOMMISSIONED 2026-04-08. Replaced by DashScope+OpenRouter+Hermes. SD-001..019 Self-Discovery deferred post-PMF. See TASKS_ARCHIVE_2026.md. -->
 
-**Hooks:**
-- [ ] HOOK-001: `~/.claude/hooks/skill-auto-trigger` — UserPromptSubmit hook that detects keywords from .guarani/prompts/triggers.json (7 triggers: strategy, brainet, mycelium, audit, debate, extraction, activation) and injects meta-prompt content as context
-- [ ] HOOK-002: `~/.claude/hooks/refinery-gate` — UserPromptSubmit hook for vague prompts (<50 chars) or risky keywords (deletar/remover/migrar/deploy/produção) → inject clarification guidance from .guarani/refinery/classifier.md
+### VPS Infrastructure (P34-P35)
+- [ ] **VPS-CAPACITY-001**: Capacity planning model (19 containers, Neo4j 4.8GB) [2h]
+- [ ] **VPS-SWAP-001**: 4GB swap if RAM insufficient [P1, deferred]
+<!-- Full context in TASKS_ARCHIVE_2026.md -->
 
----
-
-### ~~OpenClaw~~ — DECOMMISSIONED 2026-04-08 (OC-006..034 CANCELED). Replaced by DashScope qwen-plus + OpenRouter free fallback + Hermes systemd. Channels via Evolution API + egosin_bot.
-
----
- 
- ### Self-Discovery Product (2026-04-06)
- **SSOT:** `docs/SELF_DISCOVERY_ARCHITECTURE.md` | self.egos.ia.br → VPS | B2C wellness (não medical device)
-- **Execution order:** SD-001 → 002 → 003 → 004 → 005 → 006/007/008 → 009 → 010..019
-- **Named gates:** `deploy` = SD-006 | `security` = SD-007 | `ux` = SD-008 | `launch` = SD-009
-- [ ] **SD-001..009 [P0]**: Inventory (001) → boundaries (002) → env contract (003) → Dockerfiles spec (004) → proxy spec (005) → gates: deploy (006) / security (007) / ux (008) / launch (009). Full detail: `docs/SELF_DISCOVERY_ARCHITECTURE.md`.
-- [ ] **SD-010..014 [P1]**: ICP + pricing hypothesis (010), landing scope (011), pattern taxonomy (012), onboarding flow (013), analytics signals (014). [DEP: SD-009]
-- [ ] **SD-015..019 [P2]**: Post-alpha — pattern packs, auth/history, API docs, TS migration, freeze backlog.
-
-### VPS Infrastructure Optimization & Resource Management (P34-P35)
-
-**Investigation Complete (2026-04-07):** Full VPS audit reveals healthy infrastructure (19 containers stable, 23 agents active, 9-day uptime) but critical RAM pressure (622MB free / 15GB total). Neo4j BR-ACC consuming 4.8GB (31.5% of total). `/opt/backups/` = 15GB of dated Neo4j dumps (2026-04-03/04/05). Decision: Keep BR-ACC online as production SSOT; clean backups; implement intelligent resource management before Hermes MVP.
-
-**SSOT:** `/home/enio/.egos/memory/mcp-store/vps_hetzner_complete_infrastructure_map_2026-04-07.md` | **Handoff:** docs/_current_handoffs/handoff_2026-04-07_doc-drift-shield-plan.md §2
-
-**P1 — Infrastructure Baseline (P35):**
-
-- [ ] **VPS-CAPACITY-001**: Create capacity planning model — given: current 19 containers, Neo4j 4.8GB, how much RAM remains for Hermes+Codex? Simulate: "if we add X, what breaks?" [OWNER: arch, 2h]
-- [ ] **VPS-SWAP-001**: Add 4GB swap partition if cleanup + Neo4j tuning insufficient. Benchmark: does swapping kill performance? (defer if not needed) [OWNER: infra, P1]
-
----
-
-### Hermes MVP Deployment (P35 — Proposed Start 2026-04-08)
-
-**Investigation Complete (2026-04-07):** Hermes Agent (24/7 executor framework) ready for MVP. Design documented. Deployment path clear. ✅ **RAM cleanup DONE (VPS-BACKUP-001).** ROI: R$0-40/month marginal cost, unlocks always-on research + self-improving skills. Risk: Low (can remove in 1h if needed). Trial period: 1 week, go/no-go gate at 2026-04-19.
-
-**SSOT:** `/home/enio/.egos/memory/mcp-store/hermes_agent_investigation_deep_dive_2026-04-07.md`
-
-**✅ HERMES-001..004 DONE (2026-04-07/08):** systemd service (hermes-gateway) running 142MB RAM. DashScope qwen-plus primary, OpenRouter gemma-4-26b free fallback. Codex/OpenClaw/billing proxy decommissioned.
-
-**Phase 5: Trial (2026-04-07 through 2026-04-15)**
-- [ ] **HERMES-005-P1**: Run production trial — Hermes stays online 7 days. Measure: uptime, RAM usage, token consumption, error rate. [Owner: infra, monitoring]
-- [ ] **HERMES-005-P2**: Validate: At least 1 auto-generated skill created and persisted to SQLite. Test invoking skill. [Owner: infra]
-- [ ] **HERMES-005-P3**: Cost tracking — capture actual token spend vs estimate (R$0-10 for trial week expected). [Owner: infra]
-- [ ] **HERMES-005-P4**: Decision gate (2026-04-15): Go/no-go for scaling to 6 profiles. If YES → P35 scope expands. If NO → remove, document learnings. [Owner: Enio]
-
-**P1 — Scaling (P35+ Post-MVP):**
-
-- [ ] **HERMES-006**: Scale to 6 profiles (egos-kernel, egos-strategy, egos-governance, egos-research, egos-ops, egos-learning) — one per domain. [DEP: HERMES-005-P4 go]
-- [ ] **HERMES-007**: Integrate Hindsight SDK (persistent memory + world-model sync) — enables GEPA self-improvement. [DEP: HERMES-006]
-- [ ] **HERMES-008**: Connect Gem Hunter v7 as Hermes job — automate cross-repo discovery runs. Cron: `0 2 * * * hermes task --profile egos-kernel "analyze-cross-repo-patterns"`. [DEP: HERMES-006 + GEM_HUNTER_V7]
-- [ ] **HERMES-009**: Add watchdog for Hermes itself — if process dies, auto-restart. Alert via Telegram. [DEP: HERMES-006]
-
----
+### Hermes MVP (P35) — HERMES-001..004 ✅ DONE 2026-04-07/08
+**Status:** systemd running 142MB RAM, DashScope qwen-plus + OpenRouter fallback. Trial period: 2026-04-07 → 2026-04-15.
+- [ ] **HERMES-005-P1**: 7-day production trial (uptime/RAM/tokens/errors) [Owner: infra]
+- [ ] **HERMES-005-P4**: Go/no-go gate 2026-04-15 → scale to 6 profiles [Owner: Enio]
+<!-- HERMES-006..009 and details in TASKS_ARCHIVE_2026.md -->
 
 ### VPS Orchestration — DashScope + Hermes + Gemini CLI (P35)
 
@@ -529,111 +404,24 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 - [ ] **RATIO-005 [P2]**: Full end-to-end test via API with Caso 1 (STJ PDF real) → intake → planning → redaction → adversarial → formatter → download DOCX.
 - [ ] **RATIO-006 [P3]**: Draft br-acc API pricing model for Carlos (free 100 lookups/mês + paid). Monetization path proposal.
 
-### Ratio VPS Deployment (2026-04-07) — DONE: ratio-api:3085 + ratio-frontend:3086 live. Caddy: ratio.egos.ia.br + ratio-api.egos.ia.br. Guard Brasil PII enabled.
+### Chatbot SSOT v2.0 — World-Class Upgrade (2026-04-07) [DEFERRED — not in 90-day focus]
+**SSOT:** `docs/modules/CHATBOT_SSOT.md` | **Done:** CHAT-001..010 ✅ | **Pending:** CHAT-011..031 (P1-P2, deferred)
+<!-- Full task list moved to TASKS_ARCHIVE_2026.md -->
 
+### Memory Intelligence — MemPalace + ARR Activation (2026-04-07) [DEFERRED]
+**SSOT:** `packages/shared/src/cross-session-memory.ts` | **Pending:** MEM-001..004, GTM-X-001 (P1-P2, deferred)
+<!-- Full task list moved to TASKS_ARCHIVE_2026.md -->
 
-### Chatbot SSOT v2.0 — World-Class Upgrade (2026-04-07)
-**Context:** Opus investigation complete. 16 modules (8 upgraded + 8 new). Dual-runtime TS+Python. Disseminate to 852/br-acc/egos-web/ratio/intelink/forja.
-**SSOT:** `docs/modules/CHATBOT_SSOT.md` | **Arch decisions:** Vercel AI SDK v4+, LangGraph (Python), JSON Schema source-of-truth for TS↔Py parity, OTel+Supabase dual telemetry.
+<!-- CORAL Pattern ✅ DONE — CORAL-001..003 all done 2026-04-08. gem_discoveries table live, Gem Hunter skip logic active. -->
 
-**✅ CHAT-001..010 DONE:** 001 ATRiAN stream | 002 SSOT v2 | 003 prompt-assembler | 004 PII scan | 005 MemoryStore | 006 circuit breaker | 007 abort | 008 per-identity budget | 009 eval 20 golden | 010 egos-web 90+
+### GovTech — Licitações de Software (2026-04-07) [P2 — post-PMF]
+**SSOT:** `docs/GTM_SSOT.md` §govtech | **Pending:** GOV-TECH-001..010 (P1-P2, deferred)
+<!-- Full task list moved to TASKS_ARCHIVE_2026.md -->
 
-**P1 — CHAT-011..022:** structured output, multimodal Message, runAgentLoop, semantic memory, OTel, prompt caching, cost ledger, Python shared_py, br-acc/ratio adoption, conformance test, streaming PII
-**P2 — CHAT-023..031:** resumable streams, fork/edit, agent handoff, eval CI gate, file ingest, entity memory, racing fallback, Forja/Intelink/carteira-livre pass, HQ panel
-
----
-
-### Memory Intelligence — MemPalace + ARR Activation (2026-04-07)
-**Context:** MemPalace (96.6% R@5, MIT, local ChromaDB, 13.8k stars em 2 dias) resolveu o mesmo problema que nosso ARR (dormant desde ARR-001). CORAL (arXiv 2604.01658, MIT) prova: 50%+ dos breakthroughs vêm de reutilização de conhecimento entre agents. Nenhum dos dois está ativo no EGOS hoje.
-**SSOT:** `packages/shared/src/cross-session-memory.ts` + `.guarani/mcp-config.json`
-
-- [ ] **MEM-001 [P1]**: Benchmark MemPalace. `pip install mempalace`, `mempalace mine --mode convos` nas últimas sessões Claude Code. Comparar R@5 vs file-based memory (`memory/*.md`). Critério de avanço: R@5 ≥ 80%. [2h]
-- [ ] **MEM-002 [P1]** (dep: MEM-001 pass): Mapear Palace structure para domínios EGOS. Wings = repos (egos, egos-lab, 852, br-acc, ratio). Rooms = domínios (guard-brasil, hq, gem-hunter, licitações, governance). Documentar em `docs/MEM_PALACE_SSOT.md`. [2h]
-- [ ] **MEM-003 [P1]** (dep: MEM-001 pass): Adicionar `mempalace-mcp` ao `.guarani/mcp-config.json`. Expor 6 tools: mine, wake-up, search, add, list-wings, get-room. Configurar auto-detect de wings a partir dos repos. [2h]
-- [ ] **MEM-004 [P2]** (dep: MEM-003): Migrar handoffs anteriores para MemPalace. `mempalace mine --mode general` nos `docs/_current_handoffs/` + `memory/*.md`. Verificar retrieval de decisões-chave (INC-001, LGPD pricing, Docker network). [1h]
-- [ ] **GTM-X-001 [P1]**: Thread X.com sobre MemPalace + CORAL (trending agora — 13.8k stars). `bun scripts/rapid-response.ts --topic "MemPalace CORAL memory agents"`. Ângulo: "EGOS já tem governance layer que ambos precisam — LGPD + evidence-first." [1h — UNBLOCKED após XMCP-001]
-
----
-
-### CORAL Pattern — Shared Agent Discovery Store (2026-04-07)
-**Context:** CORAL (MIT, arXiv 2604.01658) mostra que agents compartilhando descobertas = 50%+ dos breakthroughs. Gem Hunter hoje: cada run é isolado, zero memória entre runs. Padrão a adotar (não o framework completo): tabela `gem_discoveries` + agents consultam antes de explorar.
-**SSOT:** `agents/agents/gem-hunter.ts` + `packages/shared/src/event-bus.ts`
-
-- [x] **CORAL-001 [P1]**: Criar tabela Supabase `gem_discoveries`. Schema: `{id, repo_url, gem_name, category, score, discovered_by, discovered_at, summary, tags[], last_seen_at}`. RLS habilitado. Migration em `supabase/migrations/`. ✅ 2026-04-08
-- [x] **CORAL-002 [P1]** (dep: CORAL-001): Modificar Gem Hunter stage-1 para consultar `gem_discoveries` antes de scrape. Skip repos score ≥ 7 nos últimos 14 dias. Log: "X repos skipped (already discovered)". Esperado: 30-50% redução em API calls. [3h] ✅ 2026-04-08
-- [x] **CORAL-003 [P2]** (dep: CORAL-001): Hermes escreve em `gem_discoveries` após research tasks. Qualquer agent que encontrar "gem" (tool/pattern relevante) chama `event-bus.ts` → upsert `gem_discoveries`. [2h] ✅ 2026-04-08
-
----
-
-### GovTech — Licitações de Software (2026-04-07)
-**Context:** Mercado govtech software BR = ~R$20-30bi/ano em prefeituras/estados (FATO: Intercept/UFSM 2025). Big techs dominam federal via inexigibilidade. Janela real: prefeituras pequenas (5k-50k hab), Pregão ME/EPP até R$80k/ano. EGOS assets: Guard Brasil (LGPD mandatório pós 14.133), Eagle Eye (OSINT), 852 (chatbot municipal). TCU audita TI federal 2026 = janela para novos players compliance-first.
-**SSOT:** `docs/GTM_SSOT.md` §govtech | **Fontes:** pncp.gov.br, IN SGD/ME 94/2022, Lei 14.133/2021, análise 12 buscas 2026-04-07
-
-**P1 — Discovery + Habilitação:**
-- [ ] **GOV-TECH-001 [P1]**: Configurar Eagle Eye para monitorar PNCP — filtros: objeto `%software%|%sistema%|%plataforma%|%desenvolvimento%`, valor R$15k-80k, exclusivo ME/EPP, UF alvo SC/PR/SP. Alerta Telegram diário. [4h]
-- [ ] **GOV-TECH-002 [P1]**: Dashboard vencedores licitações software. Query PNCP API + ComprasNet: top 15 empresas, ticket médio, modalidade, CNPJ, setor dominante. Output: `docs/knowledge/GOVTECH_WINNERS_MAP.md`. [6h]
-- [ ] **GOV-TECH-003 [P1]**: Checklist habilitação EGOS. Verificar: CNPJ ativo, CNAE 6201-5/00 ou 6202-3/00, SICAF cadastro, certidões (CND Federal/Estadual/Municipal, CRF FGTS, CNDT), capital social ≥ 10% valor contrato-alvo. [2h MANUAL]
-- [ ] **GOV-TECH-004 [P1]**: Mapa oportunidades abertas agora. Buscar 5 pregões ME/EPP no PNCP: ouvidoria municipal, gestão LGPD, portal cidadão, sistema saúde municipal. Verificar objeto + requisitos + prazo. [3h]
-
-**P1 — Produto:**
-- [ ] **GOV-TECH-005 [P1]**: Brief produto "Ouvidoria Municipal + LGPD Compliance SaaS". Core: Guard Brasil mascaramento PII (CPF/RG/nome), relatórios ANPD-compliant, painel prefeitura. Ticket-alvo: R$30k-80k/ano. Público: prefeituras 5k-50k hab. [4h]
-- [ ] **GOV-TECH-006 [P1]**: Análise técnica de 3 sistemas verificáveis (e-cidade PHP/PostgreSQL, Softplan Obras.gov Java/Spring, Betha Cloud SaaS). Identificar gaps LGPD que Guard Brasil resolve. Output: tabela comparativa. [3h]
-
-**P2 — Parcerias:**
-- [ ] **GOV-TECH-007 [P2]**: Parceria Softplan — Guard Brasil como módulo LGPD para Obras.gov/SAJ. Pitch: "EGOS Guard Brasil cobre o gap que TCU está auditando em 2026." LinkedIn + GitHub. [2h prep]
-- [ ] **GOV-TECH-008 [P2]**: Parceria Betha Sistemas — Guard Brasil como add-on LGPD no Betha Cloud (+3000 prefeituras). Modelo: R$0.02/call × volume municipal. Revenue share 70/30. [2h prep]
-- [ ] **GOV-TECH-009 [P2]**: Estratégia primeiro atestado. Pilot gratuito/subsidiado para prefeitura pequena SC/PR/SP (5-15k hab) → obter atestado capacidade técnica. Mínimo viável: 3 meses contrato assinado. [5h MANUAL]
-- [ ] **GOV-TECH-010 [P2]**: Estudar Diálogo Competitivo (Lei 14.133 art.32) para produto inovador IA+LGPD. Municípios que não sabem especificar → EGOS pode ser único habilitado. Mapear 3 prefeituras usando esta modalidade. [2h]
-
----
-
-## Intelink v3 — Consolidação SSOT ✅ COMPLETA (2026-04-09)
-**SSOT:** `/home/enio/egos-inteligencia/` | 94 TS files + 81 Python files portados | 934MB liberados
-> Detalhes em TASKS_ARCHIVE.md — Intelink CONS/PORT/CLEAN (2026-04-09)
-
----
-
-### Intelink v3 — Segurança + Multi-Device (2026-04-09)
-**SSOT:** `docs/knowledge/INTELINK_V3_SECURITY_ARCHITECTURE.md`
-**Decisões aprovadas:** Híbrido local+cloud | TIER 3 max | MASP+senha+2FA | CRDT (Automerge) | RxDB | PBKDF2 | Hetzner MVP→HA→Edge
-
-**✅ Decisões críticas — APROVADAS 2026-04-09:**
-- [x] **INTELINK-DEC-001**: RxDB v15 + plugin AES-256 — CRDT nativo, web PWA + React Native mesma codebase
-- [x] **INTELINK-DEC-002**: PBKDF2(MASP+senha, salt_device, 600K iter.) — chave nunca sai do device
-- [x] **INTELINK-DEC-003**: Plano faseado: Hetzner CX31 MVP → HA dual (produção) → Edge delegacia (expansão)
-
-**P0 — Fase 0: Fundação de Segurança:**
-- [ ] **INTELINK-SEC-001**: Auth server — MASP + bcrypt (14 rounds) + JWT RS256 + refresh token (8h campo / 30d base)
-- [ ] **INTELINK-SEC-002**: 2FA — portar bot Telegram existente do Intelink + adicionar opção email institucional
-- [ ] **INTELINK-SEC-003**: RxDB v15 inicializado com plugin AES-256-GCM + PBKDF2 key derivation
-- [ ] **INTELINK-SEC-004**: Audit log append-only (PostgreSQL tabela imutável + Merkle tree tamper-proof)
-- [ ] **INTELINK-SEC-005**: Device registration — fingerprint + revogação remota por MASP
-
-**P0 — Fase 1: Sync Engine CRDT:**
-- [ ] **INTELINK-SYNC-001**: Automerge v2 integrado no cliente (web PWA + React Native)
-- [ ] **INTELINK-SYNC-002**: Delta sync endpoint FastAPI — envia apenas ops CRDT pendentes (WebSocket + HTTPS)
-- [ ] **INTELINK-SYNC-003**: Offline queue persistente — ops não perdidas entre reinicializações do app
-- [ ] **INTELINK-SYNC-004**: Testes de merge: 2 devices editam mesmo registro offline → merge correto verificado
-
-**P1 — Fase 2: Multi-device:**
-- [ ] **INTELINK-DEVICE-001**: PWA desktop Next.js — testado Windows + Linux (Electron opcional)
-- [ ] **INTELINK-DEVICE-002**: React Native MVP para tablet Android — mesma codebase do web
-- [ ] **INTELINK-DEVICE-003**: Session lock — background > 5min → PIN ou biometria nativa do OS
-- [ ] **INTELINK-DEVICE-004**: Wipe remoto — admin revoga sessão → dados TIER 3 inacessíveis imediatamente
-
-**P1 — Fase 3: TIER + Auditoria:**
-- [ ] **INTELINK-TIER-001**: Classificador TIER 1-4 por campo — automático + override manual delegado
-- [ ] **INTELINK-TIER-002**: Partição TIER 3 com chave AES separada no RxDB local
-- [ ] **INTELINK-TIER-003**: Wazuh SIEM + alertas Telegram para Corregedoria (acesso anômalo, fora horário, exfiltração)
-- [ ] **INTELINK-TIER-004**: Dashboard auditoria read-only — Merkle root + eventos TIER 1-2 apenas
-
-**P2 — Fase 4: Hardening + Piloto:**
-- [ ] **INTELINK-HARD-001**: Pen test OWASP Top 10 (auth, injection, broken access control)
-- [ ] **INTELINK-HARD-002**: Stress test sync — 100 devices simultâneos sem corrompimento de dados
-- [ ] **INTELINK-HARD-003**: Runbook: device perdido, senha esquecida, servidor comprometido
-- [ ] **INTELINK-HARD-004**: Piloto 1 delegacia PCMG — 5 usuários, 30 dias, métricas coletadas
-
----
+### Intelink v3 — Segurança + Multi-Device (2026-04-09) [P0 — standalone repo]
+**SSOT:** `docs/knowledge/INTELINK_V3_SECURITY_ARCHITECTURE.md` | Repo: `/home/enio/egos-inteligencia/`
+**Pending:** INTELINK-SEC-001..005, INTELINK-SYNC-001..004, INTELINK-DEVICE-001..004, INTELINK-TIER-001..004, INTELINK-HARD-001..004 — managed in egos-inteligencia/TASKS.md
+<!-- Full task list moved to TASKS_ARCHIVE_2026.md -->
 
 ### Telegram Alerts Consolidation (2026-04-08)
 **SSOT:** `docs/knowledge/TELEGRAM_ALERTS_AUDIT_2026-04-08.md`
@@ -729,31 +517,23 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 ---
 
 ### Supabase Cleanup (2026-04-08)
+<!-- 4 task(s) archived 2026-04-08 — see TASKS_ARCHIVE_2026.md -->
 **SSOT:** `docs/SUPABASE_AUDIT.md` | **Project:** `lhscgsqhiooyatkebose` | **State:** 173 tables, ~37 dead, 4 unrelated domains
 
-- [x] **SUPA-001 [P0]**: Drop unrelated domains (`ethik_*` 12, `volante_*` 6, `nexusmkt_*` 7, empty `hub_*`) — 0 risk, ~30 tables ✅ 2026-04-08
-- [x] **SUPA-002 [P0]**: Drop empty `*_v2`/`*_v3` migration leftovers (`telemetry_events_v2`, `messages_v3`, `conversations_v3`, `ai_call_metrics`, `ai_response_cache`, `audit_logs`, `profiles`, `rate_limits`, `user_consents`, `knowledge_vectors`, `detected_patterns`, `conversation_logs`) ✅ 2026-04-08
-- [x] **SUPA-003 [P1]**: Investigate `knowledge_base` — KEEP. 1648 rows / 28 MB (task had stale "9 rows"). pgvector embeddings = ARR data. `egos_wiki_pages` (92 rows) = separate wiki system. Different purposes, no migration needed. ✅ 2026-04-08
-- [x] **SUPA-004 [P1]**: Drop `code_*` indexer tables (chunks/symbols/files/relations) — replaced by codebase-memory-mcp ✅ 2026-04-08
 - [ ] **SUPA-005 [P2]**: CCR weekly job — alert if any non-core table > 50 MB
 - [ ] **SUPA-006 [P2]**: Naming convention rule — every new table prefixed with active domain (`egos_`, `gem_`, `guard_`, `intelink_`, `eagle_`, `x_post_`, `timeline_`, `852_`)
 
 ---
 
 ### CLAUDE.md Modular Refactor (2026-04-08)
+<!-- 6 task(s) archived 2026-04-08 — see TASKS_ARCHIVE_2026.md -->
 **SSOT:** `~/.claude/CLAUDE.md` | **Evidence:** arXiv "Curse of Instructions" + Lost in Middle + HumanLayer analysis
 **Context:** 639 linhas, 30 seções = above reliable compliance threshold. §10-§20 systematically 30%+ lower compliance (middle blind spot). Solution: modular architecture — core file <120 lines + domain files loaded on demand.
 
 **P0 — Reorder critical rules (30 min, immediate impact):**
-- [x] **RULES-001 [P0]**: ✅ Critical rules block at top of ~/.claude/CLAUDE.md — 5 non-negotiables in primacy position.
-- [x] **RULES-001b [P1]**: GUARD_BRASIL_API_KEY missing — PII check in article-writer fails silently. Set in ~/.egos/secrets.env. Found: TL-002 dry-run. ✅ 2026-04-08
 
 **P1 — Modular split (2-3h, correct fix):**
-- [x] **RULES-002 [P1]**: ✅ ~/.claude/egos-rules/ created — ssot-map.md, doc-drift.md, jobs-monitoring.md, llm-routing.md, product-gtm.md
-- [x] **RULES-003 [P1]**: ✅ §12, §13, §28, §29 compressed → references to egos-rules/ — 653→615 lines
 - [ ] **RULES-004 [P1]**: Compress core ~/.claude/CLAUDE.md to <120 lines — only MUST/MUST NOT rules
-- [x] **RULES-005 [P1]**: ✅ Pointer table added after CRITICAL NON-NEGOTIABLES block
-- [x] **RULES-008 [P1]**: ✅ Governance kernel propagation live 2026-04-08 — scripts/governance-propagate.sh applied to 12 local + 4 VPS repos. Crons: local 04:00 + VPS 05:00. git init wrapper in ~/.bashrc for new repos. ~/.egos/sync.sh updated (egos-inteligencia added).
 
 **P2 — Skills for on-demand loading:**
 - [ ] **RULES-006 [P2]**: Convert §12 (Scheduled Jobs) to a /start skill that loads on session open
@@ -795,61 +575,13 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 
 ---
 
-### Content Orchestrator v2 — OpenMontage + OpenScreen Deep Integration (2026-04-08)
-**Context:** Pesquisa aprofundada revela OpenMontage (AGPL-3.0, 498⭐) com 11 pipelines completos: Reference Video Analysis → Concept Generation → Asset Generation → Voice/Narration → Music → Editing → Composition. Cada vídeo custa $0.15-$1.33. OpenScreen (MIT, 8400+⭐) é alternativa open-source ao Screen Studio com auto-zoom, motion blur, animated cursor — ideal para demos de produto.
-**SSOT:** `docs/knowledge/CONTENT_ORCHESTRATOR_V2.md` (a criar) | **Fontes:** calesthio/OpenMontage GitHub, PyShine, AI Heartland, Mintlify docs
+### Content Orchestrator v2 — OpenMontage + OpenScreen (2026-04-08) [P2 — deferred]
+**SSOT:** `docs/knowledge/CONTENT_ORCHESTRATOR_V2.md` | **Pending:** CONTENT-001..014 (P1-P2, deferred)
+<!-- Full task list moved to TASKS_ARCHIVE_2026.md -->
 
-**Pipelines:** 7-stage OpenMontage (Reference → Concept → Assets → Voice → Music → Edit → Review, $0.15-$1.33/video) + OpenScreen (auto-zoom, motion blur, no watermark). Full detail: `docs/knowledge/CONTENT_ORCHESTRATOR_V2.md`.
-
-**P0 — Foundation (Deep Integration):**
-- [ ] **CONTENT-001 [P1]**: Fork OpenMontage para `.egos/content-orchestrator/openmontage/` com wrapper EGOS: (a) Guard Brasil PII scan em todos scripts gerados, (b) Audit trail de cada pipeline, (c) Cost approval gate antes de gerar assets pagos
-- [ ] **CONTENT-002 [P1]**: Fork OpenScreen para `.egos/content-orchestrator/openscreen/` com wrapper EGOS: (a) LGPD compliance para webcam/audio, (b) Evidence chain de gravações
-- [ ] **CONTENT-003 [P1]**: Meta-prompt `content.orchestrator.v2` — linguagem natural → escolhe pipeline (OpenMontage full video vs OpenScreen demo vs combined)
-- [ ] **CONTENT-004 [P1]**: Integração em `agents.json` — comando `egos content "descrição" [--type=video|demo|combined] [--budget=$X]`
-
-**P1 — Advanced Workflows:**
-- [ ] **CONTENT-005 [P1]**: MemPalace integration — salvar em wing "content": scripts, assets, config de cada pipeline, room por projeto EGOS
-- [ ] **CONTENT-006 [P1]**: Event-bus integration — tópicos: `content.pipeline.started`, `content.asset.generated`, `content.completed`, `content.demo.recorded`
-- [ ] **CONTENT-007 [P2]**: Combined Pipeline — vídeo OpenMontage com demos OpenScreen injetados (ex: intro animada + demo real EGOS + outro)
-- [ ] **CONTENT-008 [P2]**: Auto-Content Calendar — integrar com X-COM para: detectar release EGOS → gerar vídeo explicativo → publicar no X automaticamente (com approval)
-- [ ] **CONTENT-009 [P2]**: Content Variants — usar LLM para gerar 3 variações de cada vídeo (short 30s, medium 2min, long 5min) a partir do mesmo conceito
-- [ ] **CONTENT-010 [P2]**: A/B Testing Framework — publicar variações no X, medir engagement, reportar winner para futuros vídeos
-
-**P2 — Scale & Intelligence:**
-- [ ] **CONTENT-011 [P2]**: Template Library — pre-built templates: "Product Release", "Feature Demo", "Tutorial", "Case Study", "Behind the Scenes"
-- [ ] **CONTENT-012 [P2]**: Voice Clone Integration — clonar voz do time EGOS para narração consistente em todos vídeos (ElevenLabs voice clone)
-- [ ] **CONTENT-013 [P2]**: Auto-Thumbnail Generator — FLUX/GPT-4o para gerar thumbnails otimizados para X/YouTube a partir do vídeo
-- [ ] **CONTENT-014 [P2]**: Content Performance Analytics — dashboard no HQ: views, engagement, cost per view, ROI de conteúdo
-
----
-
-### Test & Validation Orchestrator v2 — Multi-Agent Review System (2026-04-08)
-**Context:** Pesquisa Braintrust, AutoEvals, EPOCH-Bench revelam padrão comum: agent evaluation requer tracing completo, scorers (deterministic + LLM-as-judge), regression gates em CI/CD, e feedback loop produção→teste. Thread X Bruno Pinheiro confirma: breakdown estruturado (epic→stories) + E2E tests auto-gerados + multi-agent swarm review = crescimento rápido validado.
-**SSOT:** `docs/knowledge/TEST_ORCHESTRATOR_V2.md` (a criar) | **Fontes:** Braintrust Agent Evaluation Framework, AutoEvals Medium, EPOCH-Bench, Arun Baby Testing AI Agents
-
-**6-Agent Swarm:** Planner → Generator → Reviewer1/2 (coverage+security) → Validator → Reporter. Full design: `docs/knowledge/TEST_ORCHESTRATOR_V2.md`.
-
-**P0 — Core Swarm:**
-- [ ] **TEST-001 [P1]**: Criar `.egos/test-orchestrator/` com 6 agentes especializados (Planner, Generator, Reviewer1, Reviewer2, Validator, Reporter)
-- [ ] **TEST-002 [P1]**: Meta-prompt `test.validation.orchestrator` — aceita: "valide epic X", "gere E2E para story Y", "regression test para bug Z"
-- [ ] **TEST-003 [P1]**: E2E Test Generator — templates Playwright (web) + TestNG (API) + geração via LLM a partir de stories
-- [ ] **TEST-004 [P1]**: Integração `agents.json` — comandos: `egos validate "epic"`, `egos test story X`, `egos regression-check`
-
-**P1 — Validation Pipeline:**
-- [ ] **TEST-005 [P1]**: Self-Verification Gates — pre-commit hook que chama swarm para: lint → type-check → unit tests → E2E (paralelizável)
-- [ ] **TEST-006 [P1]**: Evidence Chain Auto-Generation — cada validação cria evidence entry com: test results, coverage, security scan, timestamp, agent signatures
-- [ ] **TEST-007 [P2]**: MemPalace Wake-Up — antes de validar, puxar contexto de testes passados similares (CORAL pattern aplicado a testes)
-- [ ] **TEST-008 [P2]**: Content Orchestrator Integration — após validação bem-sucedida, trigger `egos content` para gerar demo video da feature automaticamente
-
-**P2 — Intelligence & Scale:**
-- [ ] **TEST-009 [P2]**: Self-Healing Tests — quando teste quebra, agent tenta corrigir automaticamente usando LLM (diff suggestion) com aprovação humana
-- [ ] **TEST-010 [P2]**: Flaky Test Detection — detectar testes instáveis via análise estatística (variance > threshold), quarentenar e notificar
-- [ ] **TEST-011 [P2]**: Test Analytics Dashboard — no HQ: cobertura por repo, tempo médio de execução, taxa de falha, economia de tempo com auto-tests
-- [ ] **TEST-012 [P2]**: Regression Prediction — ML simples para prever quais arquivos têm maior risco de regressão baseado em histórico de mudanças
-- [ ] **TEST-013 [P2]**: Integration com LLM-MON — usar modelos mais baratos/free do OpenRouter para geração de testes quando qualidade for equivalente
-- [ ] **TEST-013 [P2]**: Integration com LLM-MON — usar modelos mais baratos/free do OpenRouter para geração de testes quando qualidade for equivalente
-
----
+### Test & Validation Orchestrator v2 — Multi-Agent Review (2026-04-08) [P2 — deferred]
+**SSOT:** `docs/knowledge/TEST_ORCHESTRATOR_V2.md` | **Pending:** TEST-001..013 (P1-P2, deferred)
+<!-- Full task list moved to TASKS_ARCHIVE_2026.md -->
 
 ### Auto-Disseminate Agent Pipeline (2026-04-08)
 **SSOT:** `docs/CAPABILITY_REGISTRY.md` §25 | **Context:** `/disseminate` hoje é manual e custoso em tokens. Goal: 3-agent pipeline post-commit → propagação automática → Enio aprova via Telegram.
@@ -975,6 +707,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 ---
 
 ### KB-as-a-Service — Patos de Minas (KBS-PM-*) (2026-04-08)
+<!-- 11 task(s) archived 2026-04-08 — see TASKS_ARCHIVE_2026.md -->
 **SSOT:** `docs/strategy/KBS_PATOS_DE_MINAS_PERSONAS.md` | **Notion workspace:** https://www.notion.so/33ce6358f08081ac8d41c001a87a7445
 **Contexto:** 10 perfis profissionais de Patos de Minas criados no Notion via MCP. Templates com databases reais e dados demo. ERP replacement narrative: EGOS não substitui ERP — vira camada de inteligência em cima. Ingestão de DOC/DOCX/PDF/áudio/vídeo.
 **Notion pages criadas:**
@@ -985,24 +718,13 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 - 🏭 FORJA Demo: https://www.notion.so/33ce6358f08081a4baccd88685b62f29
 
 **P0 — Dados demo + dogfooding (próximas 48h):**
-- [x] **KBS-PM-001 [P0]**: Popular Agrônomo com 5 fazendas demo (Boa Vista/São João/Vereda/Estrela/Lagoa Azul) + 10 visitas técnicas + 8 defensivos aprovados com dados reais MAPA. | 3h ✅ 2026-04-08
-- [x] **KBS-PM-002 [P0]**: Popular Advocacia com 8 processos demo TJMG + 5 jurisprudências STJ (direito agrário) + 3 modelos de petição posse rural. | 3h ✅ 2026-04-08
-- [x] **KBS-PM-003 [P0]**: Popular Contador com 6 clientes rurais demo + 12 obrigações fiscais (ITR/Funrural/INSS) + 5 normas tributárias rurais. | 2h ✅ 2026-04-08
-- [x] **KBS-PM-004 [P0]**: Popular FORJA com 8 peças demo (eixo/flange/bucha/suporte) + 5 orçamentos históricos + 3 atas de reunião transcritas. | 4h ✅ 2026-04-08
-- [x] **KBS-PM-005 [P0]**: Escrever `CLAUDE.md` para cada perfil (5 arquivos, PT-BR) — contexto setorial, tom correto, limites, fontes prioritárias. Salvar em `packages/knowledge-mcp/templates/sectors/`. | 4h ✅ 2026-04-08
 - [ ] **KBS-PM-006 [P0]**: Gravar Loom demo 5min PT-BR usando FORJA como exemplo — "Do orçamento em 2h para resposta em 10s". Usar dados demo populados. | 2h ✅ 2026-04-08
 
 **P1 — Completar perfis P1 com databases (próximas 2 semanas):**
-- [x] **KBS-PM-007 [P1]**: Criar databases para Consultor de Gestão Rural (perfil 04) — Fazendas, Custo Produção, Benchmarks. | 2h ✅ 2026-04-08
-- [x] **KBS-PM-008 [P1]**: Criar databases para Veterinário (perfil 05) — Pacientes, Medicamentos+carência, Protocolos+Vacinações. | 2h ✅ 2026-04-08
-- [x] **KBS-PM-009 [P1]**: Criar databases para Engenheiro (perfil 06) — ARTs, Projetos, Normas Técnicas. | 2h ✅ 2026-04-08
-- [x] **KBS-PM-010 [P1]**: Criar databases para Médico (perfil 07) — Protocolos Clínicos, Medicamentos, Regulação ANS/CFM. | 2h ✅ 2026-04-08
-- [x] **KBS-PM-011 [P1]**: Popular perfis P1 com dados demo relevantes (5 registros cada, 12 databases). | 4h ✅ 2026-04-08
 - [ ] **KBS-PM-012 [P1]**: PDF/áudio ingestor — plugar `unpdf` + `mammoth` + `whisper-api` no wiki-compiler. Input: pasta com arquivos mistos, output: atoms em egos_wiki_pages. | 8h
 - [ ] **KBS-PM-013 [P1]**: Testar pipeline completo: ingestar 5 documentos reais de cada perfil P0 → query com citações → verificar accuracy. | 4h
 
 **P1 — Narrativa ERP Replacement (posicionamento):**
-- [x] **KBS-PM-014 [P1]**: Escrever 1-pager "Por que a Inteligência da Empresa substitui o ERP burro" em PT-BR. Foco em FORJA/metalurgia. Salvar em `docs/strategy/ERP_REPLACEMENT_NARRATIVE.md`. | 2h ✅ 2026-04-08
 - [ ] **KBS-PM-015 [P1]**: Post X.com thread sobre ERP replacement + demo FORJA (3 tweets). Usar narrativa do 1-pager. Agendar via sistema de aprovação. | 1h
 - [ ] **KBS-PM-016 [P1]**: Abordagem direta de 3 metalúrgicas em Patos de Minas via LinkedIn/WhatsApp — oferecer demo gratuita com dados deles. | 2h ✅ 2026-04-08
 
@@ -1016,16 +738,10 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 ---
 
 ### Gem Hunter — Feedback Loop v8 (2026-04-08)
+<!-- 7 task(s) archived 2026-04-08 — see TASKS_ARCHIVE_2026.md -->
 **Context:** Root cause encontrado: `scoreGem()` em `gem-hunter.ts:1778` é heurística composta — Qwen só pontua papers. Low-star bonus só dispara com arXiv/PWC signal, por isso @zhuokaiz (Meta eng) foi subavaliado. Telegram alerts sem inline keyboard. `gem_feedback` table não existe.
 
 **P1 — Fundações (fazer primeiro, desbloqueiam todo o resto):**
-- [x] **GH-089 [P1]**: Extrair scoring prompts hardcoded do `gem-hunter.ts:2274` → `docs/gem-hunter/prompts/scoring-v1.md` (versionado, editável sem deploy). | 2h ✅ 2026-04-08
-- [x] **GH-090 [P1]**: Supabase migration: `gem_feedback(id uuid, alert_id text, gem_url text, reaction text, comment text, run_id text, created_at timestamptz)` + RLS policy (service role only). | 1h ✅ 2026-04-08
-- [x] **GH-091 [P1]**: Qwen-based scoring para gems gerais (não só papers) — adicionar categoria `"low_visibility_research_gem"` em `scoreGem()`: big-tech eng + poucos likes/stars + código real = +25 pts. | 4h ✅ 2026-04-08
-- [x] **GH-092 [P1]**: Telegram inline keyboard em alerts — botões 👍👎🔍💬 + webhook handler que salva em `gem_feedback`. Usar `sendMessage` com `reply_markup.inline_keyboard`. | 6h ✅ 2026-04-08
-- [x] **GH-093 [P1]**: `scripts/scoring-feedback-reader.ts` — cron 2x/dia (09:00 + 21:00 BRT) lê `gem_feedback` → gera relatório `docs/jobs/scoring-feedback-YYYY-MM-DD.md` → auto-cria tasks via auto-disseminate. | 6h ✅ 2026-04-08
-- [x] **GH-094 [P1]**: Repetition detector — hash URL+author, score -30 se mesma gem apareceu nos últimos 30 dias. Persistir hashes em `gem_seen_cache` table. | 3h ✅ 2026-04-08
-- [x] **GH-095 [P1]**: `docs/gem-hunter/preferences.md` — SSOT de preferências co-editado Enio+AI: categorias valorizadas, red-flags, exemplos curados dos 8 posts analisados. | 2h ✅ 2026-04-08 ✅ 2026-04-08
 
 **P2 — Self-improvement loop:**
 - [ ] **GH-096 [P2]**: HQ aba "Feedback Loop" — score drift chart, approve/reject rate, top false positives. | 8h
@@ -1097,7 +813,7 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 
 ### KB — Wiki Quality 79→90 (genuíno, sem hardcode)
 
-- [ ] **KB-020 [P1]**: Rodar `wiki-compiler --enrich` em páginas com quality < 80 (estimativa: ~40 páginas). Usa LLM Qwen para enriquecer com cross-refs, exemplos, estrutura. `--dry` primeiro, depois `--exec`. | 2h
+- [x] **KB-020 [P1]**: Rodar `wiki-compiler --enrich` em páginas com quality < 80 (estimativa: ~40 páginas). Usa LLM Qwen para enriquecer com cross-refs, exemplos, estrutura. `--dry` primeiro, depois `--exec`. | 2h ✅ 2026-04-08
 - [ ] **KB-021 [P1]**: Adicionar `docs/CAPABILITY_REGISTRY.md` como fonte de wiki (é o arquivo mais rico e estruturado do projeto). Criar entrada em `RAW_SOURCES` com category=`pattern`. Espera-se +20 páginas de alta qualidade. | 2h
 - [ ] **KB-022 [P2]**: Melhorar extração de cross-refs em wiki-compiler — hoje é 0 refs para muitas páginas. Implementar parser que lê frontmatter `# Cross-refs:` e links `[text](./slug)` de cada doc. | 3h
 - [ ] **KB-023 [P1]**: Integrar docs FORJA tenant na compilação periódica — adicionar entrada no `gem-hunter-adaptive.yml` (ou workflow separado) para rodar `wiki-compiler --compile --tenant=forja` semanalmente. | 1h
