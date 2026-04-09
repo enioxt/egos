@@ -668,10 +668,10 @@
 - [ ] **API-003 [P0]**: Proxies.sx marketplace avaliação — verificar fit com OSINT Brasil scraping em `https://proxies.sx/marketplace`. | 1h
 - [x] **API-004 [P0]**: Wallet Base chain — criar wallet dedicada para receber USDC (não usar wallet pessoal). Documentar em `memory/infra_credentials_ssot.md`. | 1h ✅ 2026-04-08
 - [x] **API-005 [P0]**: x402 middleware no Guard Brasil — branch `feat/x402-marketplaces`, middleware HTTP 402 que aceita USDC on-demand. | 6h ✅ 2026-04-08
-- [ ] **API-006 [P0]**: Publicar Guard Brasil v0.2.3 no AgentCash — primeiro deploy, pricing $0.001-0.005/call. | 3h
+- [x] **API-006 [P0]**: Publicar Guard Brasil v0.2.3 no AgentCash — primeiro deploy, pricing $0.001-0.005/call. | 3h ✅ 2026-04-08
 
 **P1 — Tier 1 expansão:**
-- [ ] **API-007 [P1]**: Publicar Guard Brasil no APINow.fun — avaliar tokenization do endpoint popular. | 2h ✅ 2026-04-08
+- [x] **API-007 [P1]**: Publicar Guard Brasil no APINow.fun — avaliar tokenization do endpoint popular. | 2h ✅ 2026-04-08 ✅ 2026-04-08
 - [ ] **API-008 [P1]**: Publicar OSINT Brasil scraping no Proxies.sx — match perfeito com 0% comissão. | 4h
 - [ ] **API-009 [P1]**: OpenAPI spec universal — `openapi.yaml` que serve todos os marketplaces. | 3h
 - [ ] **API-010 [P1]**: Dashboard monetização no HQ — mostra receita x402 por plataforma, calls/dia, top consumers. | 4h
@@ -762,7 +762,8 @@
 
 ### FORJA Chatbot Pilot — Referência (repo standalone)
 **FORJA é repo standalone em `/home/enio/forja/`. Tasks FORJA adicionadas lá.**
-- Tasks P0 em `/home/enio/forja/TASKS.md`: FORJA-003 (RLS), FORJA-004B (Design Oficina), FORJA-019B (Email Pipeline), FORJA-020 (WhatsApp bidirecional), FORJA-TOOLS-001 (budget_tool/cost_history/ata_extractor), FORJA-TOOLS-002 (Whisper), FORJA-KBS-001 (namespace EGOS Knowledge)
+- [/] **FORJA-003**: RLS migrations ✅ + RBAC roles ✅ + isolation test ✅ (`scripts/test-rls-isolation.ts`). **ENIO:** run `bun scripts/test-rls-isolation.ts` to verify + enable Google OAuth in Supabase dashboard.
+- Tasks P0 em `/home/enio/forja/TASKS.md`: FORJA-004B (Design Oficina), FORJA-019B (Email Pipeline), FORJA-020 (WhatsApp bidirecional), FORJA-TOOLS-001 (budget_tool/cost_history/ata_extractor), FORJA-TOOLS-002 (Whisper), FORJA-KBS-001 (namespace EGOS Knowledge)
 - KBS-003..007 já existem em egos/TASKS.md (seção KB-as-a-Service)
 - Para trabalhar no FORJA: `cd /home/enio/forja && claude`
 
@@ -786,7 +787,7 @@
 - [x] **DISS-BUG-001 [P1]**: auto-disseminate faz match de task IDs em range notation (`KBS-001..026` → marca KBS-001 como done). Fix: adicionar guard que ignora IDs em contexto de range notation ou em commits com "fix/revert" no subject. Arquivo: `scripts/auto-disseminate.sh`. | 2h ✅ 2026-04-08
 
 **P1 — LLMRefs staleness (19 links quebrados, job 2026-04-07):**
-- [ ] **QA-001 [P1]**: Resolver 19 stale llmrefs em docs. Rodar `python3 scripts/qa/llmrefs_staleness.py --root . --fix` e revisar. Não-bloqueador mas polui CI. | 1h
+- [x] **QA-001 [P1]**: Resolver 19 stale llmrefs em docs. Rodar `python3 scripts/qa/llmrefs_staleness.py --root . --fix` e revisar. Não-bloqueador mas polui CI. | 1h ✅ 2026-04-08
 
 ---
 
@@ -837,7 +838,7 @@
 
 ### QA — Limpeza de Sistema (2026-04-09)
 
-- [ ] **QA-001 [P1]**: Resolver 19 stale llmrefs em docs — `python3 scripts/qa/llmrefs_staleness.py --root . --fix`. Rodar, revisar output, commitar limpeza. | 1h  *(duplicado abaixo — manter este)*
+- [x] **QA-001 [P1]**: Resolver 19 stale llmrefs em docs — `python3 scripts/qa/llmrefs_staleness.py --root . --fix`. Rodar, revisar output, commitar limpeza. | 1h  *(duplicado abaixo — manter este)* ✅ 2026-04-08
 - [x] **QA-002 [P1]**: TASKS.md archival — mover seções `[x]` (concluídas) com mais de 30 dias para `TASKS_ARCHIVE_2026.md`. Target: < 800 linhas após archive. | 1h ✅ 2026-04-08
 - [ ] **QA-003 [P2]**: `.guarani/WEB_DESIGN_STANDARD.md` untracked — avaliar: pertence ao egos kernel ou ao forja? Commitar no lugar certo ou mover. | 15min
 
