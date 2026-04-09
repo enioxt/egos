@@ -915,26 +915,26 @@
 
 - [x] **DASH-001 [P2]**: Pesquisa técnica Paperclip adapter-plugin + schema Prisma — antes de implementar, mapear exatamente como registrar agent externo (adapter-plugin.md + `/packages`). | 2h ✅ 2026-04-09
 - [x] **DASH-002 [P2]**: Docker compose Paperclip self-hosted no VPS — `infra/docker-compose.paperclip.yml` com server:3100 + UI + Postgres isolado. | 3h ✅ 2026-04-09
-- [ ] **DASH-003 [P2]**: Bridge EGOS→Paperclip — `scripts/egos-to-paperclip-bridge.ts`: converte `agent_events` Supabase para ticket format Prisma. | 4h
+- [x] **DASH-003 [P2]**: Bridge EGOS→Paperclip — `scripts/egos-to-paperclip-bridge.ts`: converte `agent_events` Supabase para ticket format Prisma. | 4h ✅ 2026-04-09
 - [ ] **DASH-004 [P2]**: EGOS agents como Paperclip employees — script lê `agents.json` e POST /agents no Paperclip com hierarchy (runner.ts=CEO, domain=Director, task=IC). | 4h
-- [ ] **DASH-005 [P3]**: Org chart EGOS canônico — `docs/PAPERCLIP_ORG.md` definindo: Kernel(CEO)→domain-agents(Directors)→task-runners(ICs). | 2h
+- [x] **DASH-005 [P3]**: Org chart EGOS canônico — `docs/PAPERCLIP_ORG.md` ✅ 2026-04-09
 - [ ] **DASH-006 [P3]**: Guard Brasil compliance plugin Paperclip — intercepta outputs de ICs antes de subir, valida PII via Guard Brasil. | 6h
 - [ ] **DASH-007 [P3]**: Heartbeat EGOS visível no Paperclip UI — mapear pulso 30min (heartbeat.ts) para Paperclip scheduled task format. | 3h (dep: PAP-001 ✅)
 - [ ] **DASH-008 [P3]**: Budget EGOS→Paperclip — mapear `monthly_cap` (PAP-002) para budget enforcement nativo do Paperclip. | 2h (dep: PAP-002)
-- [ ] **DASH-009 [P3]**: Publicar `@egosbr/paperclip-adapter` — npm package com adapter + docs + exemplo de uso. | 4h (dep: DASH-003/004)
+- [x] **DASH-009 [P3]**: Publicar `@egosbr/paperclip-adapter` — npm package com adapter + docs + exemplo de uso. | 4h (dep: DASH-003/004) ✅ 2026-04-09
 - [x] **DASH-010 [P3]**: Demo screenshot "EGOS inside Paperclip org chart" → draft X.com thread. | 1h (dep: DASH-002/004) ✅ 2026-04-09
 
 ### SDD — Spec-Driven Development
 
 > **Contexto:** 80-90% do que SDD precisa já existe em EGOS (`.guarani/`, doctor, pr:gate). Falta formalizar como skills + template SSOT.
 
-- [ ] **SDD-001 [P2]**: Skill `/spec:init` — gera `docs/specs/SPEC-<feature>.md` a partir de prompt: problema → requisitos → API contract → cenários de teste. | 3h
-- [ ] **SDD-002 [P2]**: Skill `/spec:plan` — lê SPEC-*.md e propõe task breakdown com arquivo de destino por item. | 2h
-- [ ] **SDD-003 [P2]**: Skill `/spec:implement` — lê SPEC-*.md e gera implementação seguindo spec como SSOT (sem vibe coding). | 3h
-- [ ] **SDD-004 [P2]**: Skill `/spec:review` — compara implementação vs spec, identifica drift, propõe delta. | 2h
+- [x] **SDD-001 [P2]**: Skill `/spec:init` ✅ 2026-04-09
+- [x] **SDD-002 [P2]**: Skill `/spec:plan` ✅ 2026-04-09
+- [x] **SDD-003 [P2]**: Skill `/spec:implement` ✅ 2026-04-09
+- [x] **SDD-004 [P2]**: Skill `/spec:review` ✅ 2026-04-09
 - [ ] **SDD-005 [P2]**: `bun scripts/spec-doctor.ts` — verifica que cada feat/* branch tem SPEC doc; flags features sem spec. | 2h
 - [ ] **SDD-006 [P3]**: pr:gate spec check — pre-commit warning se branch `feat/*` sem SPEC correspondente em `docs/specs/`. | 1h
-- [ ] **SDD-007 [P3]**: `docs/specs/SPEC-TEMPLATE.md` — template canônico: Problem, Goals, Out-of-scope, API Contract, Test Scenarios, Acceptance Criteria. | 1h
+- [x] **SDD-007 [P3]**: `docs/specs/SPEC-TEMPLATE.md` ✅ 2026-04-09
 - [ ] **SDD-008 [P3]**: Specs retroativas Guard Brasil — 4 SPECs para endpoints existentes: inspect, meta, webhook, admin. | 4h
 - [ ] **SDD-009 [P3]**: HARVEST entry "SDD como método EGOS" — documentar por que spec-first evita retrabalho no contexto agent-driven. | 30min
 
