@@ -1,8 +1,58 @@
 # HARVEST.md — EGOS Core Knowledge
 
-> **VERSION:** 4.7.0 | **UPDATED:** 2026-04-09
+> **VERSION:** 4.8.0 | **UPDATED:** 2026-04-09 17:00 UTC-3
 > **PURPOSE:** compact accumulation of reusable patterns discovered in the kernel repo
-> **Latest:** P40 added — Protocolo Rho drift archaeology pattern
+> **Latest:** P41 added — Multi-Domain Session Planning & Task Persistence pattern
+
+---
+
+## P41 Patterns (2026-04-09)
+
+### Multi-Domain Session Planning & Task Persistence
+
+**Problem:** Sessões complexas tocam múltiplos domínios (ETL, reports, nomenclatura, testes). Risco de perder contexto entre sessões.
+
+**Solution:** Planejamento completo upfront com 4 artefatos obrigatórios:
+
+1. **Relatório Técnico** — pesquisa profunda com cronologia
+2. **Plano de Execução** — fases claras (24h/48h/72h) com tasks numeradas
+3. **Atualização TASKS.md** — seção dedicada à sessão com todas as tasks
+4. **Handoff** — documento de passagem para próximo agente
+
+**Pattern Structure:**
+```
+SESSÃO-YYYY-MM-DD — [Domínios] [Prioridade]
+├── Contexto (1 parágrafo)
+├── Artefatos Criados (lista)
+├── P0 — [Sub-domínio] (n tasks)
+├── P0 — [Sub-domínio] (n tasks)
+├── P1 — [Sub-domínio] (n tasks)
+└── P2 — [Sub-domínio] (n tasks)
+```
+
+**Tasks Naming Convention:**
+- `{DOMAIN}-{NNN}` — sequencial por domínio (ETL-001, REPORT-005)
+- `[REPO]` — quando task é específica a repo (ex: `[852]`)
+- **CHECKLIST** — sempre checkbox `- [ ]` para progress tracking
+
+**Example from 2026-04-09 session:**
+```markdown
+### P0 — BR-ACC ETL Validation & Execution
+- [ ] **ETL-001**: Debug Fase 3 — executar dry-run no VPS
+- [ ] **ETL-002**: Corrigir erro systemd
+...
+
+### P0 — REPORT_SSOT Dissemination
+**Fase 1 — Kernel Hardening (24h):**
+- [ ] **REPORT-001**: Criar `@egos/report-standard` package
+...
+```
+
+**Benefits:**
+- ✅ Memória persistente entre sessões
+- ✅ Priorização clara (P0/P1/P2)
+- ✅ Handoff frictionless
+- ✅ Progress tracking via TASKS.md checkboxes
 
 ---
 
@@ -2862,3 +2912,20 @@ if not access_token or not access_secret:
 ### Auto-harvested — 0db2e47 (2026-04-09)
 
 - unpdf and mammoth both work with bun natively. unpdf expects
+
+### Auto-harvested — 723e320 (2026-04-09)
+
+- cache_creation_input_tokens = 90% of Claude Code cost.
+
+### Auto-harvested — 62a0d23 (2026-04-09)
+
+- egos_wiki_pages category CHECK constraint blocked ingestion; migration 20260409_kb_ingest_schema.sql relaxes it to non-empty only
+
+### Auto-harvested — a0bfba4 (2026-04-09)
+
+- If Guard Brasil returns PII but no redacted version, skip indexing rather than silently exposing PII in knowledge base
+
+### Auto-harvested — fecc9b6 (2026-04-09)
+
+- Zod v4 installs when sub-package declares ^3.x but root has v4 — check node_modules/zod version before writing schema
+- Vocab guard Option B is currently a no-op — hook doesn't exclude marked lines

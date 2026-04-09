@@ -1,7 +1,7 @@
 {
   "manifest": "/home/enio/egos/.egos-manifest.yaml",
   "repo": "egos",
-  "verified_at": "2026-04-09T18:19:48.779Z",
+  "verified_at": "2026-04-09T20:38:08.835Z",
   "summary": {
     "total_claims": 5,
     "passed": 5,
@@ -18,7 +18,7 @@
       "description": "Agents registered in agents.json",
       "status": "ok",
       "last_value": "18",
-      "current_value": "19",
+      "current_value": "20",
       "tolerance": "min:18",
       "command": "python3 -c \"import json; print(len(json.load(open('agents/registry/agents.json')).get('agents', [])))\"",
       "severity": "ok"
@@ -50,9 +50,9 @@
       "description": "User-invocable slash commands in .claude/commands/",
       "status": "ok",
       "last_value": "45",
-      "current_value": "46",
+      "current_value": "47",
       "tolerance": "±5",
-      "drift_abs": 1,
+      "drift_abs": 2,
       "command": "find /home/enio/.claude/commands /home/enio/.egos/.claude/commands -maxdepth 2 -name '*.md' 2>/dev/null | wc -l | tr -d ' '",
       "severity": "ok"
     },
@@ -61,9 +61,9 @@
       "description": "Packages in packages/ directory",
       "status": "ok",
       "last_value": "16",
-      "current_value": "16",
+      "current_value": "17",
       "tolerance": "±2",
-      "drift_abs": 0,
+      "drift_abs": 1,
       "command": "ls -d packages/*/ 2>/dev/null | wc -l | tr -d ' '",
       "severity": "ok"
     }

@@ -1,0 +1,67 @@
+# llms.txt — EGOS Framework
+> AI/LLM discovery file for search engines and AI crawlers
+> https://llmstxt.org/
+
+## About
+
+EGOS is an orchestration kernel for governed AI agents, providing:
+- **Adaptive Atomic Retrieval (AAR)**: Semantic search + atomization
+- **Integration Adapters**: Slack, Discord, Telegram, WhatsApp, GitHub
+- **ATRiAN Ethics**: Truth layer for AI outputs
+- **Multi-LLM Provider**: Alibaba Qwen, Gemini, OpenRouter
+- **Brazilian LGPD Compliance**: PII detection, pseudonymization
+
+## Endpoints
+
+### API
+- Base: https://api.egos.ia.br/v1
+- Health: https://api.egos.ia.br/health
+- Docs: https://docs.egos.ia.br/api
+
+### Core Services
+- Guard Brasil: https://guard.egos.ia.br — PII detection API
+- 852 Inteligência: https://852.egos.ia.br — Police intelligence chatbot
+
+## Quick Start
+
+```bash
+# Install CLI
+npm install -g @egos/cli
+
+# Run agent
+egos run drift-sentinel --dry
+
+# Check governance
+bun run governance:check
+```
+
+## Capabilities
+
+- [search] Semantic document search with scoring
+- [agents] 17+ autonomous agents for code, security, audit
+- [integrations] Webhook, messaging, GitHub adapters
+- [compliance] LGPD, RIPA, ATRiAN ethical validation
+
+## Models
+
+| Provider | Models | Cost |
+|----------|--------|------|
+| Alibaba | qwen-plus, qwen-max, qwen-coder | Free tier |
+| OpenRouter | gemini-2.0-flash, deepseek | Pay-per-use |
+| Claude | opus, sonnet, haiku | Unlimited (IDE) |
+
+## Documentation
+
+- Architecture: docs/SYSTEM_MAP.md
+- Tasks: TASKS.md
+- Agents: AGENTS.md
+- Compliance: docs/compliance/LGPD.md
+
+## Contact
+
+- GitHub: github.com/enioxt/egos
+- Email: enio@egos.ia.br
+- X: @enioxt
+
+---
+Last updated: 2026-04-09
