@@ -197,13 +197,13 @@
 
 **Phase 2 — Volume mounts + data routes:**
 - [x] **HQV2-000**: VPS docker-compose: volume mounts → /opt/data/egos:/data:ro + daily GitHub sync cron. ✅ 2026-04-09
-- [ ] **HQV2-001**: `/api/hq/tasks` — parse /data/TASKS.md → `{total, pending, p0, p1, stale_p0}`
+- [x] **HQV2-001**: `/api/hq/tasks` — parse /data/TASKS.md → `{total, pending, p0, p1, stale_p0}` ✅ 2026-04-09
 - [ ] **HQV2-002**: `/api/hq/world-model` — read /data/world-model/current.json → health%, blockers
 - [ ] **HQV2-003**: `/api/hq/gems` — gem-hunter API → top gems, last run, sector breakdown
 - [ ] **HQV2-004**: `/api/hq/drift` — read /data/jobs/doc-drift-sentinel.md → structured drift per repo (DRIFT-012)
 
 **Phase 3 — New dashboard pages:**
-- [ ] **HQV2-006**: `/tasks` page — Kanban P0/P1/P2, done/pending counts (dep: HQV2-001)
+- [x] **HQV2-006**: `/tasks` page — Kanban P0/P1/P2, done/pending counts (dep: HQV2-001) ✅ 2026-04-09
 - [ ] **HQV2-007**: `/world-model` page — health% gauge, P0 blockers, agent inventory
 - [ ] **HQV2-008**: `/gems` page — filterable cards (score, source, category)
 - [ ] **HQV2-009**: `/system-map` page — D3 graph from agents.json + CAPABILITY_REGISTRY
@@ -626,7 +626,7 @@
 - [x] **DISS-002 [P1]**: `scripts/disseminate-propagator.ts` — recebe manifest, para cada repo: atualiza bloco kernel no marker `# EGOS-KERNEL-PROPAGATED`, cria commit `chore(kernel): propagate YYYY-MM-DD` | 3h ✅ 2026-04-08
 - [x] **DISS-003 [P1]**: `scripts/disseminate-verifier.ts` ✅ — verifica marker EGOS-KERNEL-PROPAGATED em todos repos, output pass/fail/skip. 12/12 pass. | 2h ✅ 2026-04-09
 - [x] **DISS-004 [P1]**: post-commit hook trigger — quando CLAUDE.md | .windsurfrules | CAPABILITY_REGISTRY.md muda, auto-chama scanner | 1h ✅ 2026-04-08
-- [ ] **DISS-005 [P1]**: Telegram approval gate — verifier envia summary ao Telegram (`@ethikin`): lista repos + status, botões [✅ Approve All][❌ Review] | 2h
+- [x] **DISS-005 [P1]**: Telegram approval gate — PUBLISH: commits queue + Telegram notify, approve via /approve-pub. ✅ 2026-04-09
 - [ ] **DISS-006 [P2]**: VPS propagation — após aprovação local, SSH push kernel block para os 4 repos no VPS (`/opt/852`, `/opt/bracc`, `/opt/egos`, `/opt/egos-lab`) | 2h ✅ 2026-04-08
 
 ---

@@ -95,19 +95,35 @@ if echo "$COMMIT_SUBJECT" | grep -qE '^feat\('; then
   fi
 fi
 
-# ── 4. PUBLISH: trigger → call article-writer ────────────────────────────────
-# If commit body has "PUBLISH: <topic>" line, generate a timeline draft
+# ── 4. PUBLISH: trigger → Telegram approval gate (DISS-005) ─────────────────
+# If commit body has "PUBLISH: <topic>" line, queue for human approval via Telegram.
+# NEVER auto-publishes — article-writer only runs after /approve-pub <hash>.
 PUBLISH_TOPIC=$(echo "$COMMIT_MSG" | grep -E '^PUBLISH:' | sed 's/^PUBLISH:[[:space:]]*//' | head -1 || true)
 
 if [ -n "$PUBLISH_TOPIC" ]; then
+  PENDING_FILE="/tmp/egos-publish-pending.json"
   ARTICLE_WRITER="$REPO_ROOT/agents/agents/article-writer.ts"
+
   if [ "$DRY" = "--dry" ]; then
-    echo "  [DRY] PUBLISH detected: '$PUBLISH_TOPIC' — would call article-writer.ts --hash $COMMIT_HASH"
-  elif [ -f "$ARTICLE_WRITER" ]; then
-    echo "[auto-disseminate] PUBLISH: '$PUBLISH_TOPIC' — triggering article-writer (background)..."
-    bun "$ARTICLE_WRITER" --hash "$COMMIT_HASH" --topic "$PUBLISH_TOPIC" >>/tmp/egos-article-writer.log 2>&1 &
+    echo "  [DRY] PUBLISH: '$PUBLISH_TOPIC' — would send Telegram approval request"
   else
-    echo "  ⚠️  PUBLISH: detected but article-writer.ts not found at $ARTICLE_WRITER"
+    # Queue the pending publish
+    echo "{\"hash\":\"$COMMIT_HASH\",\"topic\":\"$PUBLISH_TOPIC\",\"queued\":\"$(date -Iseconds)\"}" >> "$PENDING_FILE"
+    echo "[auto-disseminate] PUBLISH: '$PUBLISH_TOPIC' queued — waiting Telegram approval"
+
+    # Send Telegram notification (non-blocking, best-effort)
+    TG_TOKEN="${TELEGRAM_BOT_TOKEN:-${TELEGRAM_BOT_TOKEN_AI_AGENTS:-}}"
+    TG_CHAT="${TELEGRAM_ADMIN_CHAT_ID:-${TELEGRAM_AUTHORIZED_USER_ID:-171767219}}"
+
+    if [ -n "$TG_TOKEN" ]; then
+      TG_MSG="📝 *PUBLISH queued* — approval needed%0A%0ATopic: $PUBLISH_TOPIC%0ACommit: \`$COMMIT_HASH\`%0A%0ATo approve: \`/approve-pub $COMMIT_HASH\`"
+      curl -sS -X POST "https://api.telegram.org/bot${TG_TOKEN}/sendMessage" \
+        -d "chat_id=${TG_CHAT}&text=${TG_MSG}&parse_mode=Markdown" \
+        >/dev/null 2>&1 &
+      echo "[auto-disseminate] Telegram approval request sent to chat $TG_CHAT"
+    else
+      echo "  ⚠️  No TELEGRAM_BOT_TOKEN — Telegram notification skipped. Pending: $PENDING_FILE"
+    fi
   fi
 fi
 
