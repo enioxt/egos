@@ -1,7 +1,125 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.60.0 | **Updated:** 2026-04-09 21:00 UTC-3 | **NEW:** REPO-MAP + PAP-AGENTS + OBS-CENTRAL + GH-STANDALONE + EI-ABSORB sections (Opus planning session — repos classification + Paperclip structure + observability gap + gem-hunter standalone)
+> **Version:** 2.61.0 | **Updated:** 2026-04-09 23:45 UTC-3 | **NEW:** ENCAPSULATION track (Path B/C) — Evidence-First §33, 7 camadas inside-out, EGOS Lab community, artigo âncora showcase
 > **Philosophy:** Build what needs to be built, in the right order, without urgency.
+> **Active Principle:** §33 Evidence-First — nothing advances without proof. No new features until kernel is encapsulated.
+
+---
+
+### 🔭 ENCAPSULATION TRACK (Path B + C) [P0 — fechado 2026-04-09]
+**SSOT:** `docs/strategy/EGOS_PATH_B_C_PLAN.md` v0.3.0 | **Principle:** §33 Evidence-First (`~/.claude/CLAUDE.md`)
+**Context:** Decisão estratégica de 2026-04-09 após análise ChatGPT+Gemini+Grok+Perplexity+Kimi. Caminho B = artigo showcase + Caminho C = EGOS Lab (R$ 20/mês). Inside-out, sem pressa, sem features novas. Encapsular, testar, provar, publicar.
+**Rule:** Nenhuma feature nova até Camada 7 publicada. Tarefas paralelas em outros repos (Eagle Eye, Forja, 852) continuam fora desta track.
+
+#### EVIDENCE-GATE [P0 — ativar warning agora, blocking 2026-04-16]
+- [x] **EVG-001**: §33 Evidence-First adicionado ao `~/.claude/CLAUDE.md` global ✅ 2026-04-09
+- [x] **EVG-002**: `scripts/evidence-gate.ts` placeholder criado (warning mode até 2026-04-16) ✅ 2026-04-09
+- [ ] **EVG-003 [P0]**: Integrar `evidence-gate.ts` ao `.husky/pre-commit` do kernel (warning-only) | 1h
+- [ ] **EVG-004 [P0]**: Primeiro dry-run em `CAPABILITY_REGISTRY.md` — contar violations reais sem bloquear | 30min
+- [ ] **EVG-005 [P1]**: Expandir `.egos-manifest.yaml` para cobrir capability claims (não só README metrics) | 3h
+- [ ] **EVG-006 [P1]**: Ativar blocking mode no kernel a partir de 2026-04-16 | 15min
+- [ ] **EVG-007 [P2]**: Disseminar evidence-gate para repos de produto conforme Camadas 4+ avançam | on-going
+
+#### CAMADA 0 — Kernel do Kernel (semana 1)
+**Escopo:** `~/.claude/CLAUDE.md` (33 seções) + `egos/CLAUDE.md` + `.guarani/RULES_INDEX.md` + `.guarani/PREFERENCES.md`
+- [ ] **ENC-L0-001 [P0]**: Auditoria completa das 33 seções do CLAUDE.md global — classificar cada uma em: (a) provada e ativa, (b) parcial, (c) aspirational/remover | 6h
+- [ ] **ENC-L0-002 [P0]**: `docs/audit/KERNEL_AUDIT_2026-04-09.md` — output da auditoria com comando reproduzível por regra | 4h
+- [ ] **ENC-L0-003 [P0]**: Compressão do CLAUDE.md global — remover aspirational, consolidar duplicadas, alvo ≤ 2000 linhas (está em ~1500+) | 3h
+- [ ] **ENC-L0-004 [P0]**: Compressão do `egos/CLAUDE.md` — remover duplicações com global (DRY) | 2h
+- [ ] **ENC-L0-005 [P1]**: Dissemination pipeline valida blocks injetados nos repos de leaf após compressão | 1h
+
+#### CAMADA 1 — Agents Registry (semana 2)
+**Escopo:** `agents/registry/agents.json` + `agents/agents/*.ts` + prove-or-kill
+- [ ] **ENC-L1-001 [P0]**: Inventário de cada agent: função, dependências, última execução real, SLA, testes | 6h
+- [ ] **ENC-L1-002 [P0]**: Matar agents mortos (ativar regra prove-or-kill §11) — já tem 2 candidatos (chatbot-compliance-checker, gtm-harvester) | 2h
+- [ ] **ENC-L1-003 [P0]**: `docs/agents/<name>.md` — 1 doc por agent com seção "Prova de vida" (comando + output) | 8h
+- [ ] **ENC-L1-004 [P0]**: `docs/agents/INDEX.md` — índice mestre com links e status | 1h
+- [ ] **ENC-L1-005 [P0]**: Smoke test suite — cada agent roda em `--dry` com output determinístico | 4h
+- [ ] **ENC-L1-006 [P1]**: Screenshot/export de `agent_events` Supabase mostrando execuções reais dos últimos 7 dias | 1h
+
+#### CAMADA 2 — Governance Pipeline (semana 3)
+**Escopo:** Pre-commit hooks + CCR jobs + Doc-Drift Shield + vocab guard + file-intelligence + auto-disseminate
+- [ ] **ENC-L2-001 [P0]**: `docs/governance/PIPELINE_SPEC.md` — documentar cada hook linha a linha com exemplo de falha real | 6h
+- [ ] **ENC-L2-002 [P0]**: Diagrama Mermaid do pipeline completo (commit → hooks → CCR → reports → dashboards) | 2h
+- [ ] **ENC-L2-003 [P0]**: `bun test:governance` — suite unificada que injeta violations e verifica bloqueios | 4h
+- [ ] **ENC-L2-004 [P1]**: Índice de incidentes (INC-001 force push, INC-002 git add -A, INC-003 TASKS hallucination) com link para fix | 2h
+
+#### CAMADA 3 — Stack & Alternatives Matrix (semana 4)
+**Escopo:** Multi-provider routing + MCP stack + runtimes
+- [ ] **ENC-L3-001 [P0]**: `docs/stack/PROVIDER_ROUTING.md` — Qwen → Gemini → OpenRouter fallback com justificativa e trade-offs | 3h
+- [ ] **ENC-L3-002 [P0]**: `docs/stack/MCP_SERVERS.md` — 3 MCPs próprios (egos-governance, codebase-memory, egos-memory) + externos (Notion, Supabase, Vercel) | 3h
+- [ ] **ENC-L3-003 [P0]**: `docs/stack/ALTERNATIVES_MATRIX.md` — para cada escolha, 2-3 alternativas com quando cada uma serve melhor (requisito Enio) | 6h
+- [ ] **ENC-L3-004 [P0]**: `scripts/bench-providers.ts` — roda llm-test-suite contra cada provider, publica resultado em `docs/benchmarks/YYYY-MM-DD.md` | 4h
+- [ ] **ENC-L3-005 [P1]**: Comparação de custo mensal real vs alternativas (self-hosted vs OpenAI vs Groq) — tabela com números reais | 2h
+
+#### CAMADA 4 — Produtos Core (semanas 5-6)
+**Escopo:** Guard Brasil, 852, Forja, Gem Hunter, KB/Knowledge MCP, Gateway
+- [ ] **ENC-L4-001 [P0]**: Template único `docs/products/_TEMPLATE.md` — arquitetura, stack, alternativas, métricas, como testar, como acessar produção, roadmap | 2h
+- [ ] **ENC-L4-002 [P0]**: `docs/products/guard-brasil.md` — completo com evidence + benchmark 4ms reproduzível | 4h
+- [ ] **ENC-L4-003 [P0]**: `docs/products/852.md` — completo com ATRiAN layer + 68 capabilities provadas | 4h
+- [ ] **ENC-L4-004 [P0]**: `docs/products/forja.md` — completo com case Rocha Implementos (dados quantitativos sanitizados) | 4h
+- [ ] **ENC-L4-005 [P0]**: `docs/products/gem-hunter.md` — completo, padrão standalone | 3h
+- [ ] **ENC-L4-006 [P0]**: `docs/products/knowledge-mcp.md` — completo com ingest + lint + export + x402 | 3h
+- [ ] **ENC-L4-007 [P0]**: `docs/products/egos-gateway.md` — completo com OAS 3.1 + routing | 3h
+- [ ] **ENC-L4-008 [P0]**: `docs/products/INDEX.md` — índice mestre visual | 1h
+- [ ] **ENC-L4-009 [P0]**: Cada produto tem health endpoint + dashboard tile + link de último deploy + test suite | 6h
+
+#### CAMADA 5 — Data & Observability (semana 7)
+**Escopo:** br-acc Neo4j + Supabase tables + CCR reports + heartbeat + obs-central
+- [ ] **ENC-L5-001 [P0]**: `docs/data/INVENTORY.md` — inventário completo de dados (br-acc schema público sanitizado + Supabase tables + finalidade) | 6h
+- [ ] **ENC-L5-002 [P0]**: `docs/data/LGPD_COMPLIANCE.md` — auditoria Guard Brasil sobre os próprios dados EGOS | 4h
+- [ ] **ENC-L5-003 [P0]**: `scripts/obs-central.ts` — script (NÃO agent) que coleta métricas e gera report em `docs/jobs/` | 6h
+- [ ] **ENC-L5-004 [P0]**: Cron VPS 09:00 + 21:00 BRT rodando obs-central | 1h
+- [ ] **ENC-L5-005 [P1]**: Políticas de retenção documentadas (o que fica quanto tempo, por quê) | 2h
+
+#### CAMADA 6 — Dashboards Públicos & status.egos.ia.br (semanas 8-9)
+**Escopo:** status.egos.ia.br + versão pública do egos-hq + tiles de prova
+- [ ] **ENC-L6-001 [P0]**: `apps/status-site/` — novo app Bun + Hono, read-only, consome `snapshot.json` | 6h
+- [ ] **ENC-L6-002 [P0]**: `scripts/status-snapshot.ts` — pull-based 5min snapshot com Guard Brasil audit antes de servir | 6h
+- [ ] **ENC-L6-003 [P0]**: 3 tiers (public/community/enio-only) com OTP gate para community via Evolution API WhatsApp | 6h
+- [ ] **ENC-L6-004 [P0]**: Caddyfile routing `status.egos.ia.br` + deploy container VPS | 2h
+- [ ] **ENC-L6-005 [P0]**: Botão "verify" em cada tile mostrando comando shell + timestamp + SHA-256 do snapshot | 4h
+- [ ] **ENC-L6-006 [P1]**: `docs/public/STATUS_PAGE.md` — explicando cada métrica para público externo | 2h
+
+#### CAMADA 7 — Artigo Âncora Showcase (semanas 10-12)
+**Escopo:** "EGOS: plataforma multi-agente brasileira open source — mapa visual completo"
+- [ ] **ENC-L7-001 [P0]**: `apps/egos-site/src/content/posts/egos-showcase.md` — draft outline com 7 seções (1 por camada) | 3h
+- [ ] **ENC-L7-002 [P0]**: Seção 1: Kernel audit + filosofia (link para docs/audit) | 3h
+- [ ] **ENC-L7-003 [P0]**: Seção 2: Agents registry (screenshots + links para docs/agents) | 3h
+- [ ] **ENC-L7-004 [P0]**: Seção 3: Governance pipeline (diagrama Mermaid + exemplos reais) | 3h
+- [ ] **ENC-L7-005 [P0]**: Seção 4: Stack + alternativas (tabelas) | 3h
+- [ ] **ENC-L7-006 [P0]**: Seção 5: 6 produtos core com screenshots dashboard vivo | 4h
+- [ ] **ENC-L7-007 [P0]**: Seção 6: Dados + observability (snapshot status.egos.ia.br) | 2h
+- [ ] **ENC-L7-008 [P0]**: Seção 7: EGOS Lab (convite + como participar) | 2h
+- [ ] **ENC-L7-009 [P0]**: Cada claim do artigo linka para: comando reproduzível OU entry no manifest OU tile do dashboard | 6h
+- [ ] **ENC-L7-010 [P0]**: Review final via Guard Brasil + ATRiAN Truth/Accuracy antes de publicar | 2h
+- [ ] **ENC-L7-011 [P0]**: Publicar em egos.ia.br (canonical) | 1h
+- [ ] **ENC-L7-012 [P0]**: Repost manual no Substack (copy-paste, link canonical para egos.ia.br) | 1h
+- [ ] **ENC-L7-013 [P0]**: Crosspost tabnews + thread X.com + post LinkedIn | 2h
+
+#### EGOS LAB — Comunidade (paralelo, bootstrapping a partir da semana 4)
+**Estrutura:** R$ 20/mês via Stripe, tier único, tudo incluso. Conteúdo público gratuito. Pagamento = acesso à comunidade + encontros ao vivo.
+- [ ] **LAB-001 [P1]**: Stripe recorrente R$ 20/mês produto "EGOS Lab" — reusar infra Guard Brasil | 2h
+- [ ] **LAB-002 [P1]**: Notion workspace template da comunidade (rulebook, canais, welcome page) | 3h
+- [ ] **LAB-003 [P1]**: `scripts/egos-lab-onboard.ts` — webhook Stripe → Evolution API WhatsApp OTP → add ao grupo + Notion invite | 6h
+- [ ] **LAB-004 [P1]**: Formulário Notion de descoberta (nome, cidade, stack, por quê, o que quer construir) | 1h
+- [ ] **LAB-005 [P1]**: Grupo WhatsApp EGOS Lab criado (Evolution API gerenciado) | 30min
+- [ ] **LAB-006 [P1]**: Email fallback via Resend (se WhatsApp falhar no OTP) | 2h
+- [ ] **LAB-007 [P1]**: Bot Claude com contexto EGOS respondendo no grupo fora do horário humano (via paperclip) | 4h
+- [ ] **LAB-008 [P1]**: Convidar 2-3 primeiros co-stewards/testers (Enio já tem em mente) antes do launch público | 30min
+- [ ] **LAB-009 [P1]**: Gravar primeiro encontro ao vivo interno (testers + Enio) para ter material inicial | 2h
+- [ ] **LAB-010 [P2]**: Landing page EGOS Lab em egos.ia.br com CTA Stripe | 3h
+- [ ] **LAB-011 [P2]**: Documentação do onboarding flow como **showcase público** — "como automatizamos o próprio onboarding com agentes" vira post técnico | 3h
+- [ ] **LAB-012 [P2]**: Certificação leve "EGOS Practitioner" automática após 90 dias ativos | 4h
+
+#### EGOS-SITE — Blog/Showcase (semanas 1-10 paralelo às camadas)
+- [ ] **SITE-001 [P1]**: Reativar `apps/egos-site/` — auditar estado atual, upgrade Bun/Hono | 2h
+- [ ] **SITE-002 [P1]**: Estrutura de rotas: index, blog, blog/[slug], showcase, status (embed), lab (CTA) | 3h
+- [ ] **SITE-003 [P1]**: Markdown-based posts em `src/content/posts/*.md` — sem CMS | 2h
+- [ ] **SITE-004 [P1]**: Deploy container no VPS + Caddyfile routing egos.ia.br | 2h
+- [ ] **SITE-005 [P1]**: Theme dark/light simples, tipografia técnica (Inter + JetBrains Mono) | 3h
+- [ ] **SITE-006 [P2]**: RSS feed para distribuição | 1h
+- [ ] **SITE-007 [P2]**: llms.txt já existe, garantir que egos-site serve | 30min
 
 ---
 
