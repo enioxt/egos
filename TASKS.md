@@ -679,7 +679,7 @@
 - [x] **KBS-015 [P1]**: Template Notion público no GitHub (`egosbr/knowledge-template`) — MIT, com instruções de duplicação. ✅ 2026-04-08
 - [x] **KBS-016 [P1]**: Multi-tenant Supabase — RLS por `tenant_id`, migration `egos_wiki_pages_tenanted`. Antes do 2º cliente Pro. ✅ 2026-04-09
 - [ ] **KBS-017 [P1]**: Stripe billing tiers (Starter/Pro/Enterprise) — reusar infra Guard Brasil. Cartão BRL aceito. | 4h
-- [ ] **KBS-018 [P1]**: Citation export — comando `/export` produz Markdown + PDF com fontes numeradas. | 4h
+- [x] **KBS-018 [P1]**: Citation export — comando `/export` produz Markdown + PDF com fontes numeradas. ✅ 2026-04-09 — `scripts/kb-export-citations.ts` + `kb_export_citations` tool no knowledge-mcp
 - [x] **KBS-019 [P1]**: Guard Brasil hook no ingest — todo `/ingest` roda via `guard_scan_pii` primeiro, redação automática, alerta no Telegram se PII detectada. ✅ 2026-04-09
 
 **P2 — Scale + evolução (mês 2+):**
@@ -820,7 +820,7 @@
 - [ ] **VPS-002 [P1] [ENIO]**: Configurar 3 GitHub Secrets para o workflow `vps-deploy-guard-brasil.yml`. Passos: (1) github.com/enioxt/egos/settings/secrets/actions → "New repository secret" → `VPS_SSH_KEY` = conteúdo de `~/.ssh/hetzner_ed25519` (chave privada completa com BEGIN/END). (2) `VPS_HOST` = `204.168.217.125`. (3) `GH_DEPLOY_TOKEN` = PAT com escopo `contents:read` (Settings→Developer settings→PAT). (4) Testar: Actions → "VPS Deploy Guard Brasil" → "Run workflow". Claude não tem acesso ao GitHub Settings via gh CLI (requer browser auth). | 15min MANUAL
 - [ ] **VPS-003 [P2]**: Workflow análogo para `egos-gateway` — paths: `apps/egos-gateway/**`. Deploy via rsync + docker compose no VPS. | 2h
 - [ ] **VPS-004 [P2]**: Workflow para `egos-hq` — paths: `apps/egos-hq/**`. | 1h
-- [ ] **VPS-005 [P1]**: VPS health check 2x/dia (09:00 + 21:00 BRT) — script que verifica todos os containers Docker ativos, versões vs. main branch, reporta discrepâncias via Telegram. Usar estrutura existente do watchdog. | 3h
+- [x] **VPS-005 [P1]**: VPS health check 2x/dia (09:00 + 21:00 BRT) — script que verifica todos os containers Docker ativos, versões vs. main branch, reporta discrepâncias via Telegram. ✅ 2026-04-09 — `scripts/vps-health-check.ts` (disk/RAM/docker/HTTP/certs), cron `/etc/cron.d/vps-health-check`
 
 ### KB — Wiki Quality 79→90 (genuíno, sem hardcode)
 

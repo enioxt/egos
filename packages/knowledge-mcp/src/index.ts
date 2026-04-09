@@ -232,6 +232,44 @@ server.tool(
   }
 );
 
+// Tool: kb_export_citations
+server.tool(
+  "kb_export_citations",
+  "Export KB pages as a Markdown report with numbered citations and bibliography. Use for generating formal reports and proposals.",
+  {
+    category: z.string().optional().describe("Filter by category (e.g. 'norma', 'processo', 'arquitetura')"),
+    slugs: z.string().optional().describe("Comma-separated slugs to include (e.g. 'abnt-nbr-6118,lgpd')"),
+    tenant: z.string().optional().describe("Tenant ID. Default: egos"),
+    limit: z.number().optional().describe("Max pages. Default: 20"),
+    out: z.string().optional().describe("Output file path (absolute). Default: /tmp/kb-export-<timestamp>.md"),
+  },
+  async ({ category, slugs, tenant = "egos", limit = 20, out }) => {
+    try {
+      const { execSync } = await import("child_process");
+      const bunPath = process.execPath;
+      const scriptPath = new URL("../../scripts/kb-export-citations.ts", import.meta.url).pathname;
+      const outPath = out ?? `/tmp/kb-export-${Date.now()}.md`;
+      const args = [
+        "--tenant", tenant,
+        "--limit", String(limit),
+        "--out", outPath,
+        ...(category ? ["--category", category] : []),
+        ...(slugs ? ["--slugs", slugs] : []),
+      ];
+      const output = execSync(`${bunPath} ${scriptPath} ${args.map((a) => JSON.stringify(a)).join(" ")}`, {
+        env: process.env,
+        encoding: "utf-8",
+        timeout: 60000,
+      });
+      const { readFileSync } = await import("fs");
+      const content = readFileSync(outPath, "utf-8");
+      return { content: [{ type: "text" as const, text: output + "\n\n" + content.substring(0, 8000) + (content.length > 8000 ? "\n\n...(truncated, see " + outPath + ")" : "") }] };
+    } catch (e) {
+      return { content: [{ type: "text" as const, text: "❌ Export failed: " + (e as Error).message }] };
+    }
+  }
+);
+
 // ── Start ──────────────────────────────────────────────────────────────────
 async function main() {
   const transport = new StdioServerTransport();
