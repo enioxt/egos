@@ -661,8 +661,8 @@
 **Unlock 2026-04-08:** Notion MCP nativo descoberto (`mcp__claude_ai_Notion__*`) — eliminou blocker de integração custom.
 
 **P0 — Dogfooding + template + FORJA (próximas 2 semanas):**
-- [ ] **KBS-001 [P0]**: Criar template Notion "Inteligência da Empresa" via MCP — DB Documentos, DB Q&A, DB Decisões, página "Como usar" PT-BR. Duplicável. | 4h
-- [ ] **KBS-002 [P0]**: Escrever `CLAUDE.md` cliente (≤100 linhas, PT-BR, placeholders por setor — metal/jurídico/saúde). Salvar em `packages/knowledge-mcp/templates/CLAUDE.md.tpl`. | 2h ✅ 2026-04-08
+- [x] **KBS-001 [P0]**: Criar template Notion "Inteligência da Empresa" via MCP — DB Documentos, DB Q&A, DB Decisões, página "Como usar" PT-BR. Duplicável. | 4h ✅ 2026-04-08 (done in prev session — 10 sector templates + FORJA demo live in Notion)
+- [x] **KBS-002 [P0]**: Escrever `CLAUDE.md` cliente (≤100 linhas, PT-BR, placeholders por setor — metal/jurídico/saúde). Salvar em `packages/knowledge-mcp/templates/CLAUDE.md.tpl`. | 2h ✅ 2026-04-08
 - [ ] **KBS-003 [P0]**: Guia setup PT-BR — `docs/guides/KBS_ONBOARDING_PT_BR.md` — install Claude Code → OAuth Notion MCP → primeiro `/ingest` + `/ask`. Com screenshots. | 3h
 - [x] **KBS-004 [P0]**: FORJA namespace beta — `clients/forja/` ou branch no FORJA repo, `.guarani/forja-rules.md`, ingestar 10 docs piloto (orçamento antigo, ficha produção, ABNT referenciada). | 6h ✅ 2026-04-08
 - [ ] **KBS-005 [P0]**: Loom demo 3–5min PT-BR — "Sua Inteligência da Empresa em 5 minutos". Gravar usando dogfooding interno (TASKS.md + HARVEST.md como exemplo). | 2h ✅ 2026-04-08
@@ -699,7 +699,7 @@
 **Context:** Publicar Guard Brasil + (futuramente) knowledge-mcp + OSINT Brasil em marketplaces agent-native para receber USDC global via protocolo x402. AGENTCASH-001..012 foram consolidados em API-001..019.
 
 **P0 — Tier 1 x402 native (0% comissão):**
-- [ ] **API-001 [P0]**: AgentCash onboard — `npx agentcash@latest onboard AC-LZR4-C5AX-F5DH-EAB2` (rodar local, não sandbox). Salvar wallet info em vault. | 1h
+- [x] **API-001 [P0]**: AgentCash onboard — wallet Base: 0x8C26958753cdfc6434455021F330BF95FD260b2f, Solana: HkwMoWsUMEpFRVJLLW4sALgFg35jdU1VFFmFgVJL8Jpe (balance $0, invite redeemed). ✅ 2026-04-09
 - [ ] **API-002 [P0]**: APINow.fun provider signup — criar conta em `https://www.apinow.fun/providers`, instalar `apinow-sdk`. | 1h
 - [ ] **API-003 [P0]**: Proxies.sx marketplace avaliação — verificar fit com OSINT Brasil scraping em `https://proxies.sx/marketplace`. | 1h
 - [x] **API-004 [P0]**: Wallet Base chain — criar wallet dedicada para receber USDC (não usar wallet pessoal). Documentar em `memory/infra_credentials_ssot.md`. | 1h ✅ 2026-04-08
@@ -734,7 +734,7 @@
 - [x] **DISS-002 [P0]**: `scripts/disseminate-propagator.ts` — propaga kernel blocks pós-scanner (DISS-001 ✅). Target: blocks de rules via `scripts/auto-disseminate.sh`. | 3h ✅ 2026-04-08
 - [x] **DISS-003 [P0]**: `scripts/disseminate-verifier.ts` ✅ — 12/12 repos verified. | 2h ✅ 2026-04-09
 - [x] **DISS-005 [P0]**: Telegram approval gate para propagação — /approve antes de push. | 2h ✅ 2026-04-09
-- [ ] **PAP-002 [P0]**: Per-agent monthly token budget — estender Guard Brasil token counter com `monthly_cap` por agent_id, auto-pause + alerta 80%. | 3h
+- [x] **PAP-002 [P0]**: Per-agent monthly token budget — estender Guard Brasil token counter com `monthly_cap` por agent_id, auto-pause + alerta 80%. | 3h ✅ 2026-04-09
 
 **P1 — GH-086 + LS-002 (Sprint 1 continuação):**
 - [ ] **GH-086 [P1]**: `@egosbr/gem-hunter-mcp` — MCP server (3 tools: `gh_search`, `gh_trending`, `gh_score`) para Claude Code/Windsurf/Cursor. Blocked by §26 completion. | 6h
@@ -924,7 +924,7 @@
 - [x] **DASH-005 [P3]**: Org chart EGOS canônico — `docs/PAPERCLIP_ORG.md` ✅ 2026-04-09
 - [ ] **DASH-006 [P3]**: Guard Brasil compliance plugin Paperclip — intercepta outputs de ICs antes de subir, valida PII via Guard Brasil. | 6h
 - [ ] **DASH-007 [P3]**: Heartbeat EGOS visível no Paperclip UI — mapear pulso 30min (heartbeat.ts) para Paperclip scheduled task format. | 3h (dep: PAP-001 ✅)
-- [ ] **DASH-008 [P3]**: Budget EGOS→Paperclip — mapear `monthly_cap` (PAP-002) para budget enforcement nativo do Paperclip. | 2h (dep: PAP-002)
+- [x] **DASH-008 [P3]**: Budget EGOS→Paperclip — mapear `monthly_cap` (PAP-002) para budget enforcement nativo do Paperclip. | 2h (dep: PAP-002) ✅ 2026-04-09
 - [x] **DASH-009 [P3]**: Publicar `@egosbr/paperclip-adapter` — npm package com adapter + docs + exemplo de uso. | 4h (dep: DASH-003/004) ✅ 2026-04-09
 - [x] **DASH-010 [P3]**: Demo screenshot "EGOS inside Paperclip org chart" → draft X.com thread. | 1h (dep: DASH-002/004) ✅ 2026-04-09
 
