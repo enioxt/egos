@@ -1,35 +1,37 @@
-# Mycelium — Single Source of Truth
+# Repository Mesh (Mycelium) — Single Source of Truth
 
-> **Version:** 1.0.0 | **Updated:** 2026-04-01
+> **Version:** 1.1.0 | **Updated:** 2026-04-09 | **EGOS-118** — Terminology: "Repository Mesh" for technical docs, "Mycelium" preserved for voice recognition
 > **Owner:** EGOS Kernel | **Domain:** Event Bus + Reference Graph + File Signatures
 
 ---
 
-## What is Mycelium?
+## What is Repository Mesh?
 
-Mycelium is EGOS's distributed event bus and reference graph layer. It:
+Repository Mesh (codename: Mycelium) is EGOS's distributed event bus and reference graph layer. It:
 1. **Routes events** between agents and apps (MyceliumBus → Supabase/Redis)
 2. **Tracks cross-repo references** (file signatures, symlinks, governance pointers)
 3. **Exposes system state** via snapshot API (maturity, telemetry, surfaces)
 
-**Analogy:** fungal mycelium network — invisible connective tissue that lets independent nodes communicate without coupling.
+**Analogy:** Like a fungal mycelium network — invisible connective tissue that lets independent nodes communicate without coupling. The "Repository Mesh" name emphasizes the technical architecture (repository interconnection), while "Mycelium" remains the voice-recognized codename.
 
 ---
 
 ## Real Code Map (~1600 LOC total)
 
+> **Note on naming:** Source files retain `mycelium` paths for backward compatibility. New code should reference "Repository Mesh" in documentation while importing from `*/mycelium/*` paths.
+
 ### Kernel — packages/shared (canonical library)
 
 | File | LOC | Role |
 |------|-----|------|
-| `egos/packages/shared/src/mycelium/redis-bridge.ts` | 337 | MyceliumNode — Redis pub/sub abstraction |
-| `egos/packages/shared/src/mycelium/reference-graph.ts` | 300 | Reference graph — cross-repo edge tracking |
+| `egos/packages/shared/src/mycelium/redis-bridge.ts` | 337 | MeshNode — Redis pub/sub abstraction |
+| `egos/packages/shared/src/mycelium/reference-graph.ts` | 300 | Reference graph — mesh topology tracking |
 
 ### Runtime — agents/runtime
 
 | File | LOC | Role |
 |------|-----|------|
-| `egos/agents/runtime/event-bus.ts` | 327 | **CANONICAL** — MyceliumBus in-memory + JSONL audit trail |
+| `egos/agents/runtime/event-bus.ts` | 327 | **CANONICAL** — MeshBus in-memory + JSONL audit trail |
 | `egos-lab/agents/runtime/event-bus.ts` | 327 | Duplicate — **migrate to egos/ when egos-lab deactivates** |
 
 ### Scripts (tools)

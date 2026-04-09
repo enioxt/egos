@@ -1,15 +1,17 @@
-# 🍄 Mycelium Network: Ecossistema EGOS
+# Repository Mesh (Mycelium): Ecossistema EGOS
 
-> **Data:** 08/03/2026
+> **Data:** 2026-04-09 | **Versão:** 1.1.0 | **EGOS-118** — Nome técnico: Repository Mesh
 > **Status:** Visão canônica consolidada
-> **Metáfora:** "O Sistema Radicular Fúngico". Assim como o micélio conecta florestas há bilhões de anos, transportando nutrientes e sinais de alerta, o Mycelium conecta superfícies, eventos e referências do ecossistema EGOS.
+> **Metáfora:** "O Sistema Radicular Fúngico". Assim como o micélio conecta florestas há bilhões de anos, transportando nutrientes e sinais de alerta, o **Repository Mesh** (codename: Mycelium) conecta superfícies, eventos e referências do ecossistema EGOS.
+> 
+> **Nota sobre nomenclatura:** "Repository Mesh" é o nome técnico padrão (EGOS-118). "Mycelium" permanece como codename reconhecido por voz para compatibilidade com comandos históricos.
 
 <!-- llmrefs:start -->
 
 ## LLM Reference Signature
 
-- **Role:** canonical Mycelium layer map
-- **Summary:** Separates runtime bus, snapshot, reference graph, and legacy Mycelium meanings.
+- **Role:** canonical Repository Mesh layer map
+- **Summary:** Separates runtime bus, snapshot, reference graph, and legacy Repository Mesh (Mycelium) meanings.
 - **Read next:**
   - `packages/shared/src/mycelium/reference-graph.ts` — **implementation** — Phase 1 canonical schema + kernel seed graph (27 nodes, 32 edges)
   - `docs/concepts/mycelium/REFERENCE_GRAPH_DESIGN.md` — **topology** — records the design rationale and relation vocabulary
@@ -20,7 +22,9 @@
 
 ## 1. Significado Canônico Atual
 
-Hoje, **Mycelium** é um nome guarda-chuva para **três camadas canônicas** e **um histórico legado**. O problema não é o nome em si, mas misturar essas camadas como se fossem a mesma coisa.
+Hoje, **Repository Mesh** (codename: Mycelium) é um nome técnico padrão para **três camadas canônicas** e **um histórico legado**. O problema não é o nome em si, mas misturar essas camadas como se fossem a mesma coisa.
+
+> **EGOS-118 Compliance:** Este documento usa "Repository Mesh" como termo técnico primário. O termo "Mycelium" é preservado para compatibilidade com comandos de voz e referências históricas.
 
 ### 1.1. Camada 1 — Runtime Bus Local
 
@@ -93,11 +97,17 @@ O que continua planejado:
 
 ## 3. Fronteiras de Nomenclatura
 
-Use estes nomes para não misturar camadas:
+Use estes nomes para não misturar camadas (EGOS-118 padrão):
 
-- **MyceliumBus** = runtime local do orquestrador
-- **MyceliumNode** = wrapper Redis Pub/Sub / bridge PoC
-- **Mycelium Snapshot** = contrato da API + dashboard
+| Termo Técnico (Documentação) | Codename (Voz) | Função |
+|------------------------------|----------------|--------|
+| **RepositoryMesh** | Mycelium | Sistema completo |
+| **MeshBus** | MyceliumBus | Runtime local do orquestrador |
+| **MeshNode** | MyceliumNode | Wrapper Redis Pub/Sub / bridge PoC |
+| **Mesh Snapshot** | Mycelium Snapshot | Contrato da API + dashboard |
+| **Mesh Graph** | Reference Graph | Grafo de referências cross-repo |
+
+> **Regra:** Use termos técnicos (Repository Mesh, MeshBus) em documentação e código. Use codenames (Mycelium) apenas para comandos de voz e referências informais.
 - **Mycelium Reference Graph** = mapa canônico de topologia, relações e evidência
 - **Mycelium Network** = termo guarda-chuva para o conjunto acima
 
