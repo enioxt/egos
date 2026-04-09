@@ -913,8 +913,8 @@
 > 6. **"Multiple Human Users" não suportado** — bloqueia cenário multi-tenant FORJA.
 > 7. **"CEO Chat" não implementado** — sem interface natural language para diretivas top-level.
 
-- [ ] **DASH-001 [P2]**: Pesquisa técnica Paperclip adapter-plugin + schema Prisma — antes de implementar, mapear exatamente como registrar agent externo (adapter-plugin.md + `/packages`). | 2h
-- [ ] **DASH-002 [P2]**: Docker compose Paperclip self-hosted no VPS — `infra/docker-compose.paperclip.yml` com server:3100 + UI + Postgres isolado. | 3h
+- [x] **DASH-001 [P2]**: Pesquisa técnica Paperclip adapter-plugin + schema Prisma — antes de implementar, mapear exatamente como registrar agent externo (adapter-plugin.md + `/packages`). | 2h ✅ 2026-04-09
+- [x] **DASH-002 [P2]**: Docker compose Paperclip self-hosted no VPS — `infra/docker-compose.paperclip.yml` com server:3100 + UI + Postgres isolado. | 3h ✅ 2026-04-09
 - [ ] **DASH-003 [P2]**: Bridge EGOS→Paperclip — `scripts/egos-to-paperclip-bridge.ts`: converte `agent_events` Supabase para ticket format Prisma. | 4h
 - [ ] **DASH-004 [P2]**: EGOS agents como Paperclip employees — script lê `agents.json` e POST /agents no Paperclip com hierarchy (runner.ts=CEO, domain=Director, task=IC). | 4h
 - [ ] **DASH-005 [P3]**: Org chart EGOS canônico — `docs/PAPERCLIP_ORG.md` definindo: Kernel(CEO)→domain-agents(Directors)→task-runners(ICs). | 2h
@@ -922,7 +922,7 @@
 - [ ] **DASH-007 [P3]**: Heartbeat EGOS visível no Paperclip UI — mapear pulso 30min (heartbeat.ts) para Paperclip scheduled task format. | 3h (dep: PAP-001 ✅)
 - [ ] **DASH-008 [P3]**: Budget EGOS→Paperclip — mapear `monthly_cap` (PAP-002) para budget enforcement nativo do Paperclip. | 2h (dep: PAP-002)
 - [ ] **DASH-009 [P3]**: Publicar `@egosbr/paperclip-adapter` — npm package com adapter + docs + exemplo de uso. | 4h (dep: DASH-003/004)
-- [ ] **DASH-010 [P3]**: Demo screenshot "EGOS inside Paperclip org chart" → draft X.com thread. | 1h (dep: DASH-002/004)
+- [x] **DASH-010 [P3]**: Demo screenshot "EGOS inside Paperclip org chart" → draft X.com thread. | 1h (dep: DASH-002/004) ✅ 2026-04-09
 
 ### SDD — Spec-Driven Development
 

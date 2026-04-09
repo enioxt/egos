@@ -2790,3 +2790,12 @@ if not access_token or not access_secret:
 ### Auto-harvested — 7e6d55c (2026-04-09)
 
 - auto-disseminate hook matches task IDs as substrings (PUB-001 matches inside longer IDs). MODERATE bug — hook needs exact word-boundary matching to avoid false positives.
+
+### Auto-harvested — f2ce764 (2026-04-09)
+
+- Paperclip uses master branch. Adapter API in feat/external-adapter-phase1 (not merged).
+- appleboy/ssh-action step-level env: block required to pass secrets as SSH envs.
+
+### Auto-harvested — a48775a (2026-04-09)
+
+- Paperclip reads HOST env var (defaults to 127.0.0.1), must set
