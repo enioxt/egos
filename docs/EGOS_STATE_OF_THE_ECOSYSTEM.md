@@ -457,4 +457,4 @@ grep "EGOS_STATE_OF_THE_ECOSYSTEM" docs/MASTER_INDEX.md  # deve existir
 
 ---
 
-*Versão: 1.1.20 | Criado: 2026-04-08 | Atualizado: 2026-04-09*********************
+*Versão: 1.1.21 | Criado: 2026-04-08 | Atualizado: 2026-04-09**********************

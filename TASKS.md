@@ -1,7 +1,225 @@
 # TASKS.md — EGOS Framework Core (SSOT)
 
-> **Version:** 2.57.0 | **Updated:** 2026-04-09 | **NEW:** SEC-001..006 — Dependabot vulnerabilities + Security hardening | **LAST SESSION:** security audit + dependabot rules upgrade. Execution continues.
+> **Version:** 2.60.0 | **Updated:** 2026-04-09 21:00 UTC-3 | **NEW:** REPO-MAP + PAP-AGENTS + OBS-CENTRAL + GH-STANDALONE + EI-ABSORB sections (Opus planning session — repos classification + Paperclip structure + observability gap + gem-hunter standalone)
 > **Philosophy:** Build what needs to be built, in the right order, without urgency.
+
+---
+
+### 🗺️ REPO MAP & PAPERCLIP STRUCTURE [P0 — Opus session 2026-04-09]
+**Context:** Enio quer integrar todos os repos no Paperclip para observabilidade, agrupando por estágio (produção/plataforma/R&D). Sessão Opus produziu o mapeamento canônico.
+**SSOT:** `docs/REPO_MAP.md` (a criar) + `~/.claude/CLAUDE.md §32` + memory `repo_classification_2026-04-09.md`
+
+#### Classificação canônica (use isto, ignore listas antigas)
+
+| Grupo | Repos | Status | Path local |
+|-------|-------|--------|-----------|
+| **PRODUCTION** | guard-brasil, forja, 852, gem-hunter, egos-gateway | Live com usuários ou pilot | `/home/enio/{forja,852}` + `/home/enio/egos/{apps/egos-gateway,packages/gem-hunter}` |
+| **PLATFORM** | egos (kernel), egos-hq, paperclip | Infra interna | `/home/enio/egos`, `/opt/apps/{egos-hq,paperclip}` |
+| **ACTIVE-DEV** | egos-inteligencia | Em construção, busca parceiros | `/home/enio/egos-inteligencia` |
+| **CONTRIBUTIONS** | ratio | Read-only (PRs externos a Carlos Victor) | `/home/enio/contributions/ratio` |
+| **ABSORBING** | policia → egos-inteligencia, br-acc → egos-inteligencia (selective port) | Migrando peças úteis | `/home/enio/{policia,br-acc}` |
+| **PARKED** | arch | Aguarda parceiro de arte | `/home/enio/arch` |
+| **ARCHIVING** | egos-lab | Sinalizado para arquivamento | `/home/enio/egos-lab` |
+
+#### Esclarecimentos críticos (anti-confusão para futuros agentes IA)
+1. **ratio NÃO é um produto conjunto.** É repo do Carlos Victor (carlosvictorodrigues/ratio). VPS hospeda só pra testar 3 PRs futuros (Claude fallback / Guard Brasil PII / Neo4j entity extraction). Não tocar no código, só observar.
+2. **852 e policia são DIFERENTES**. 852 = chatbot público Next.js (live em 852.egos.ia.br). policia = CLI Python privado (DHPP, automação documentos). Ambos eventualmente absorvidos por egos-inteligencia, mas em camadas diferentes.
+3. **egos-inteligencia = fusão**: intelink + br-acc (Neo4j data layer) + 852 (chat UI logic) + policia (case templates) + ideias do ratio. Em PHASE-1, FastAPI + Next.js 15 + Neo4j 5.x + 30 commits últimos 30d.
+4. **gem-hunter está dentro do egos kernel** mas precisa virar standalone (P0, ver GH-STANDALONE-* abaixo). Enio identifica-se como gem hunter — produto-âncora.
+5. **br-acc continua canonical para Neo4j** (83.7M nodes); egos-inteligencia consume via shim `api/src/bracc/__init__.py`.
+
+#### REPO-MAP tasks
+- [ ] **REPO-MAP-001 [P0]**: Criar `docs/REPO_MAP.md` com a tabela acima + diagrama Mermaid de dependências
+- [x] **REPO-MAP-002 [P0]**: Adicionar seção `§32 REPO MAP` em `~/.claude/CLAUDE.md` (feito nesta sessão Opus)
+- [x] **REPO-MAP-003 [P0]**: Memory file `repo_classification_2026-04-09.md` (feito nesta sessão Opus)
+- [ ] **REPO-MAP-004 [P1]**: Atualizar `docs/EGOS_STATE_OF_THE_ECOSYSTEM.md` com nova classificação
+- [ ] **REPO-MAP-005 [P1]**: Atualizar `docs/CAPABILITY_REGISTRY.md` agrupando capabilities por grupo de repo
+- [ ] **REPO-MAP-006 [P2]**: Marcar `COMPLETE_REPO_INVENTORY_2026-04-03.md` como deprecated apontando para REPO_MAP.md
+
+---
+
+### 🤖 PAP-AGENTS — Paperclip Agent Structure [P0 — Opus session 2026-04-09]
+**Context:** Já existem 5 agentes no Paperclip (CEO, Gem Hunter, Guard Brasil, KB, Gateway) criados sessão Sonnet anterior. Falta organizar em Projects + adicionar agentes faltantes (Observability é o GAP MAIS CRÍTICO).
+**SSOT:** `docs/PAPERCLIP_STRUCTURE.md` (a criar)
+
+#### Final agent roster (10 agentes em 3 Projects)
+
+**Project: PRODUCTION** (live com usuários)
+1. **Guard Brasil Agent** ✅ (existing) — guard-brasil API health, false positives, billing
+2. **Gem Hunter Agent** ✅ (existing, expandir scope) — gem-hunter + tracking standalone migration
+3. **FORJA Agent** (NEW) — forja repo + Rocha Implementos pilot, multi-tenant ERP
+4. **852 Agent** (NEW) — 852 chatbot health + tracking eventual absorção em egos-inteligencia
+
+**Project: PLATFORM** (infra interna)
+5. **CEO Agent** ✅ (existing default Paperclip) — coordenação geral, kernel oversight
+6. **Knowledge Base Agent** ✅ (existing) — KB cross-repo, ingestor, lint, citations
+7. **Observability Agent** (NEW — P0 CRITICAL) — fecha o gap de observabilidade do VPS
+8. **Gateway Agent** ✅ (existing) — egos-gateway routing, OpenAPI, channels
+
+**Project: R&D** (em desenvolvimento ou colaboração externa)
+9. **EGOS-Inteligencia Agent** (NEW) — fusão project + tracking absorção br-acc/852/policia
+10. **Ratio Liaison Agent** (NEW, lightweight) — só tracking dos 3 PRs ao Carlos Victor
+
+#### PAP-AGENTS tasks
+- [ ] **PAP-AGENTS-001 [P0]**: Criar 3 Projects no Paperclip (Production / Platform / R&D)
+- [ ] **PAP-AGENTS-002 [P0]**: Mover os 5 agentes existentes para os Projects corretos
+- [ ] **PAP-AGENTS-003 [P0]**: Criar **Observability Agent** com cwd=`/opt/apps/egos-agents`, instructions: ler `/var/log/egos/`, `docker logs`, cron outcomes, produzir `docs/jobs/obs-YYYY-MM-DD.md` 2x/dia
+- [ ] **PAP-AGENTS-004 [P0]**: Criar **FORJA Agent** com cwd=`/opt/apps/forja-clone` (provisionar via PAP-AGENTS-010), instructions baseadas em `forja/CLAUDE.md`
+- [ ] **PAP-AGENTS-005 [P0]**: Criar **EGOS-Inteligencia Agent** com cwd=`/opt/apps/egos-inteligencia-clone`, instructions baseadas em `egos-inteligencia/README.md`
+- [ ] **PAP-AGENTS-006 [P1]**: Criar **852 Agent** com cwd=`/opt/apps/852` (já no VPS), instructions sobre chat health + plan absorção
+- [ ] **PAP-AGENTS-007 [P2]**: Criar **Ratio Liaison Agent** lightweight (read-only mode, só tracking dos 3 PRs)
+- [ ] **PAP-AGENTS-008 [P0]**: Criar board API key no Paperclip via UI → salvar em `/root/.paperclip/board-api-key` no VPS (necessário para agentes consumirem API)
+- [x] **PAP-AGENTS-009 [P0]**: Default model dos agentes EGOS = Haiku 4.5 (feito para 4 agentes; CEO continua Sonnet pra decisões estratégicas)
+- [ ] **PAP-AGENTS-010 [P1]**: Provisionar `/opt/apps/forja-clone` e `/opt/apps/egos-inteligencia-clone` no VPS (read-only git clones para os agentes lerem)
+- [ ] **PAP-AGENTS-011 [P1]**: Documentar fluxo: como atribuir task ao agente certo via Paperclip UI (`docs/PAPERCLIP_STRUCTURE.md`)
+- [ ] **PAP-AGENTS-012 [P2]**: Validar OpenRouter como fallback no Paperclip (Gemini 2.0 flash, Qwen3) caso queira economizar Claude Code subscription
+- [ ] **PAP-AGENTS-013 [P1]**: Verificar que CEO agent retry no run `8cf173ec` funciona após Claude CLI install + HOME=/paperclip
+
+---
+
+### 👁️ OBS-CENTRAL — Observabilidade Centralizada [P0 — Opus session 2026-04-09]
+**Context:** GAP crítico identificado no diagnóstico. VPS tem 22 containers + 16 crons mas logs em 8 lugares, sem dashboard, sem trending, sem alerts estruturados. Hermes ficou quebrado dias sem ninguém saber (qwen-plus model ID errado, fix em 2026-04-09 nesta sessão).
+**SSOT:** `scripts/obs-central.ts` (a criar) + `docs/jobs/obs-YYYY-MM-DD.md` (output diário)
+
+#### Princípios
+- **Estruturado** — JSON output, não texto livre
+- **Local first** — não depender de Loki/Grafana inicialmente, usar SQLite + scripts
+- **Telegram só pra urgente** — relatório completo vai pro `docs/jobs/`
+- **Cobertura total** — todos containers, todos crons, todos serviços HTTP, custos LLM, último commit→deploy
+
+#### OBS-CENTRAL tasks
+- [ ] **OBS-CENTRAL-001 [P0]**: Criar `scripts/obs-central.ts` que coleta:
+  - Docker stats de todos containers (CPU/RAM/restart count)
+  - Tail dos últimos 100 lines de cada cron job log em `/var/log/egos/` e `/var/log/`
+  - HTTP status de todos endpoints internos (3050, 3060, 3099, 3100, etc)
+  - Disk + RAM headroom
+  - Hermes session log (tail)
+  - Sai como JSON estruturado
+- [ ] **OBS-CENTRAL-002 [P0]**: `obs-central.ts --report` produz markdown daily report em `docs/jobs/obs-YYYY-MM-DD.md`
+- [ ] **OBS-CENTRAL-003 [P0]**: Cron VPS 2x/dia (09:00 + 21:00 BRT) rodando obs-central + Telegram alert se anomalia
+- [ ] **OBS-CENTRAL-004 [P1]**: SQLite local em `/var/lib/egos/obs.db` com histórico (para trending)
+- [ ] **OBS-CENTRAL-005 [P1]**: HQ dashboard pull data de `obs.db` → mostra uptime/latency/erros por serviço
+- [ ] **OBS-CENTRAL-006 [P1]**: Tracking commit→deploy: cada commit no main do egos kernel registrado com SHA + timestamp + health snapshot 5min depois
+- [ ] **OBS-CENTRAL-007 [P1]**: Cost-per-agent: ler `cost_events` table do paperclip-db + Claude Code session logs → relatório semanal de gasto por agente
+- [ ] **OBS-CENTRAL-008 [P2]**: Anomaly detection (volume agent_events, erro rate, latência > p95)
+- [ ] **OBS-CENTRAL-009 [P2]**: Avaliar Loki/Grafana stack (só depois de OBS-CENTRAL-001..005 estarem funcionando — não over-engineer cedo)
+- [x] **OBS-CENTRAL-010 [P0]**: Fix Hermes qwen-plus model ID (`openai/qwen-plus` → `qwen-plus` em `/root/.hermes/config.yaml`) — feito nesta sessão Opus
+
+---
+
+### 💎 GH-STANDALONE — Gem Hunter Standalone Migration [P0 — Opus session 2026-04-09]
+**Context:** Enio identifica-se como gem hunter (8 anos investindo em web3, agora construindo a ferramenta). Produto-âncora dele mas vive "esquecido" porque está embedded no egos kernel. Análise mostrou que dá pra extrair em 8-12h. 80% das peças já existem isoladas.
+**SSOT:** `docs/gem-hunter/STANDALONE_MIGRATION_PLAN.md` (a criar)
+
+#### Estado atual (FACT do Explore agent)
+- Core: `agents/agents/gem-hunter.ts` (2537 LOC, depende de `packages/shared/src/social/ai-engine.ts`)
+- API: `agents/api/gem-hunter-server.ts` (428 LOC, **já isolado**, sem kernel imports)
+- npm package: `packages/gem-hunter/` v6.0.0 publicado, fully portable
+- Landing: `apps/gem-hunter-landing/` Bun/Hono
+- Docs: `docs/gem-hunter/{GEM_HUNTER_v6_MASTER_PLAN.md,GEM_HUNTER_PRODUCT.md,SSOT.md}`
+- BLOCKER P0: GH-067 (deploy gem-hunter-server to VPS) — sem isso não monetiza
+
+#### GH-STANDALONE tasks
+- [ ] **GH-STANDALONE-001 [P0]**: Documentar plano em `docs/gem-hunter/STANDALONE_MIGRATION_PLAN.md`
+- [ ] **GH-STANDALONE-002 [P0]**: Extrair `ai-engine.ts` de `packages/shared/src/social/` → copiar 200 LOC para `packages/gem-hunter/src/llm/multi-router.ts` (mantém também no shared, não quebra outros)
+- [ ] **GH-STANDALONE-003 [P0]**: Verificar `gem-hunter-server.ts` roda standalone — `bun agents/api/gem-hunter-server.ts` sem precisar do agent runner
+- [ ] **GH-STANDALONE-004 [P0]**: GH-067 (existing) — deploy `gem-hunter-server` para VPS porta 3097 + Caddy gemhunter.egos.ia.br
+- [ ] **GH-STANDALONE-005 [P0]**: Atualizar `docs/gem-hunter/SSOT.md` apontando para o novo standalone path
+- [ ] **GH-STANDALONE-006 [P1]**: Criar repo separado `gem-hunter-standalone` (ou pasta `/home/enio/gem-hunter` clone) — fica fora do egos kernel mas ainda usa egos-bun para tooling
+- [ ] **GH-STANDALONE-007 [P1]**: Migrar `awesome-gems` repo (GH-080) referência no novo standalone
+- [ ] **GH-STANDALONE-008 [P1]**: Publicar `@egosbr/gem-hunter-core` na npm
+- [ ] **GH-STANDALONE-009 [P2]**: GH-086 — MCP server `@egosbr/gem-hunter-mcp` (fica trivial após standalone)
+- [ ] **GH-STANDALONE-010 [P2]**: GH-070 — Chatbot orchestrator (intent → tool calls → gem-hunter API) via WhatsApp/Telegram
+
+---
+
+### 🧬 EI-ABSORB — EGOS-Inteligencia Absorption Plan [P1 — Opus session 2026-04-09]
+**Context:** egos-inteligencia é fusão de intelink + br-acc (selective) + 852 (chat UI) + policia (case templates) + ideias ratio. Atualmente em PHASE-1 (FastAPI + Neo4j + Next.js 15). Falta plano explícito do que migra, do que fica separado, do que copia.
+**SSOT:** `/home/enio/egos-inteligencia/docs/ABSORPTION_PLAN.md` (a criar lá, não no kernel)
+
+#### Princípios
+- **Não merge tudo de uma vez** — perigo de quebrar o que funciona (852 está live, policia está em uso)
+- **Extract shared library** — `@egos/intelligence-core` com ATRiAN + PII scanner + AI router + correlation engine
+- **Mantém deploys separados** até PHASE-2 estar provada
+
+#### EI-ABSORB tasks (executadas dentro do repo egos-inteligencia, NÃO no kernel)
+- [ ] **EI-ABSORB-001 [P1]**: Criar `egos-inteligencia/docs/ABSORPTION_PLAN.md` com matriz: o que migra, o que copia, o que fica separado
+- [ ] **EI-ABSORB-002 [P1]**: Decidir 852: (A) absorver chat UI inteiro, (B) extrair shared lib, (C) deixar separado e linkar via API. Documentar trade-offs.
+- [ ] **EI-ABSORB-003 [P1]**: Decidir policia: idem
+- [ ] **EI-ABSORB-004 [P1]**: Documentar shim atual `api/src/bracc/__init__.py` — quando remove? Quando br-acc fica obsoleto?
+- [ ] **EI-ABSORB-005 [P1]**: Identificar peças do `ratio` que podem inspirar (não copiar) — sacred math? jurisprudência search?
+- [ ] **EI-ABSORB-006 [P2]**: Criar `@egos/intelligence-core` package (ATRiAN + PII + AI router) consumível por 852, policia, egos-inteligencia
+- [ ] **EI-ABSORB-007 [P2]**: Migration tracker — relatório semanal: "X% absorvido, Y peças pendentes, Z dependências quebradas"
+
+---
+
+### 🔴 SESSÃO 2026-04-09 — ETL + REPORT_SSOT + MYCELIUM + 852 [P0 ATIVO]
+**Contexto:** Validação BR-ACC ETL, disseminação REPORT_SSOT v2.0, decisão EGOS-118 (Mycelium → Repository Mesh), configuração testes 852.  
+**Artefatos Criados:** `REPORT_SSOT_DISSEMINATION_PLAN.md`, `MYCELIUM_RESEARCH_REPORT_2026-04-09.md`, `EXECUTIVE_SUMMARY_2026-04-09.md`, `health-monitor.ts`
+
+#### P0 — BR-ACC ETL Validation & Execution
+**SSOT:** `/opt/bracc/etl/` no VPS (204.168.217.125) | **Serviço:** `bracc-etl.service` | **Log:** `/var/log/bracc-etl.log`
+- [x] **ETL-001**: Debug ETL Fase 3 — SSH com saída truncada, script fix criado ✅ 2026-04-09
+  - `.env` criado no VPS
+  - Script `scripts/fix-bracc-etl.sh` criado para correção manual
+- [ ] **ETL-002**: Corrigir erro systemd — executar `scripts/fix-bracc-etl.sh` no VPS
+- [ ] **ETL-003**: Executar ETL completo Fase 3 (17.4M/24.6M Partner = ~70% completo)
+- [ ] **ETL-004**: Validar Neo4j linking final — verificar relacionamentos criados
+- [ ] **ETL-005**: Documentar ganhos reais: 40+ fontes, 83M+ entidades cruzadas
+
+#### P0 — REPORT_SSOT Dissemination (Convergir 3 implementações paralelas)
+**SSOT:** `egos/docs/REPORT_SSOT.md` v2.0.0 | **Plano:** `docs/monitoring/REPORT_SSOT_DISSEMINATION_PLAN.md`
+
+**Fase 1 — Kernel Hardening (24h):**
+- [x] **REPORT-001**: Criar `@egos/report-standard` package skeleton ✅ 2026-04-09
+  - `package.json`, `tsconfig.json`, `src/schema.ts`, `src/validator.ts`, `src/index.ts`
+  - `schemas/report-v2.json` — JSON Schema completo
+  - `README.md` com documentação de uso
+- [ ] **REPORT-002**: Extrair JSON Schema de `REPORT_SSOT.md` → `schemas/report-v2.json`
+- [ ] **REPORT-003**: Implementar validator TypeScript (`validateReportSchema()`)
+- [ ] **REPORT-004**: Exportar types canônicos (`ReportSchema`, `ReportType`, `ReportSection`)
+
+**Fase 2 — Leaf Repo Migration (48h):**
+- [ ] **REPORT-005** [852]: Criar `src/lib/report-adapter.ts` (legacy → canonical)
+- [ ] **REPORT-006** [852]: Adicionar referência REPORT_SSOT em `AGENTS.md`
+- [ ] **REPORT-007** [br-acc]: Atualizar `api/src/bracc/report_schema.py` para v2.0 (Pydantic)
+- [ ] **REPORT-008** [br-acc]: Adicionar `$ref` ao kernel REPORT_SSOT
+- [ ] **REPORT-009** [egos-inteligencia]: Criar `api/src/models/report.py` com Intelink extensions
+- [ ] **REPORT-010** [egos-inteligencia]: Implementar endpoint `/reports/generate` com RBAC
+
+**Fase 3 — Auto-Dissemination (72h):**
+- [ ] **REPORT-011**: Criar `scripts/report-ssot-propagator.ts` (detecta mudanças → propaga)
+- [ ] **REPORT-012**: Workflow `.windsurf/workflows/report-ssot-sync.md`
+- [ ] **REPORT-013**: Testes cross-repo: validar export PDF/JSON/DOCX interoperáveis
+
+#### P1 — Mycelium / EGOS-118 Decision & Implementation
+**SSOT:** `docs/concepts/mycelium/SSOT.md` | **Pesquisa:** `docs/monitoring/MYCELIUM_RESEARCH_REPORT_2026-04-09.md`
+**Contexto:** Decisão EGOS-118 (2026-03-24) propõe rename "Mycelium" → "Repository Mesh" em docs técnicos
+
+- [x] **MYCELIUM-001**: Decisão **GO** — usar "Repository Mesh" em docs técnicos, manter "Mycelium" para reconhecimento de voz ✅ 2026-04-09
+- [x] **MYCELIUM-002**: Atualizar `docs/concepts/mycelium/SSOT.md` → v1.1.0 ✅ 2026-04-09
+- [x] **MYCELIUM-003**: Atualizar `MYCELIUM_OVERVIEW.md` → v1.1.0 ✅ 2026-04-09
+  - Tabela de nomenclatura: RepositoryMesh/MeshBus/MeshNode (docs) ↔ Mycelium/MyceliumBus/MyceliumNode (voz)
+- [ ] **MYCELIUM-004**: Liminar docs obsoletos em `egos-lab` que referenciam arquivos inexistentes (`node.ts`, `schema.ts`, `test-poc.ts`)
+- [ ] **MYCELIUM-005**: Validar Redis Bridge — testar se `redis-bridge.ts` está efetivamente conectado
+- [ ] **MYCELIUM-006**: Expandir Reference Graph de 27 nodes/32 edges para refletir sistema real
+- [ ] **MYCELIUM-007**: Decisão ZKP/Shadow Nodes — implementar ou remover do roadmap? <!-- vocab-guard: planned -->
+
+#### P1 — 852 Test Suite Configuration
+**SSOT:** `/home/enio/852/` | **Goal:** `npm test` funcional, reduzir 32 fails para <10
+
+- [ ] **852-TEST-001**: Configurar Jest/Vitest em `package.json`
+- [ ] **852-TEST-002**: Criar testes para `pii-scanner.ts` (migrar para `@egosbr/guard-brasil`)
+- [ ] **852-TEST-003**: Criar testes para `atrian.ts` (validation rules)
+- [ ] **852-TEST-004**: Criar testes para `ai-provider.ts` (multi-provider fallback)
+- [ ] **852-TEST-005**: Reduzir fails de 32 para <10
+
+#### P2 — Health Monitor & Automation
+**SSOT:** `scripts/health-monitor.ts` | **Relatório:** `logs/health-report.json`
+
+- [ ] **MONITOR-001**: Agendar `health-monitor.ts` no cron (1x por hora)
+- [ ] **MONITOR-002**: Configurar alertas Telegram quando VPS services down
+- [ ] **MONITOR-003**: Dashboard HQ integrar health data do ETL e Neo4j
 
 ---
 
@@ -114,7 +332,7 @@
 - [/] **API-007 [ENIO]**: Submit Guard Brasil em Smithery — `smithery.yaml` ✅, npm ✅ (`@egosbr/guard-brasil-mcp@0.1.0`). **Precisa API key:** smithery.ai/account/api-keys → `SMITHERY_API_KEY` → `npx @smithery/cli@latest publish --name egosbr/guard-brasil`. | 15min MANUAL
 - [/] **API-008 [ENIO]**: Listar em Glama (20,771 servers, SEO) — `glama.json` ✅ pronto em `packages/guard-brasil-mcp/`. Tutorial: (1) glama.ai/mcp/servers → "Add Server" → cole: `https://github.com/enioxt/egos/tree/main/packages/guard-brasil-mcp` → Glama auto-indexa do GitHub (não precisa npm). Metadata exibida: nome, descrição, security grade, license, last updated. | 15min MANUAL (Glama não precisa npm publish)
 - [x] **MCP-PUB-001 [P1]**: Publish `@egosbr/guard-brasil-mcp` to npm — bundled with `bun build --bundle`, 30KB single file, smoke-tested. ✅ 2026-04-09
-- [ ] **API-009**: Criar llms.txt para AI discovery
+- [x] **API-009**: Criar llms.txt para AI discovery ✅ 2026-04-09
 - [ ] **API-010**: Documentar X402_INTEGRATION.md
 
 **P2 — Web3/On-chain (Mês 2):**
