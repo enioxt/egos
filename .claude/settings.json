@@ -70,7 +70,8 @@
       "/home/enio/.claude/hooks",
       "/home/enio/.claude",
       "/home/enio/egos-lab/apps/eagle-eye/src",
-      "/home/enio/egos/.husky"
+      "/home/enio/egos/.husky",
+      "/home/enio/egos-lab/.husky"
     ]
   },
   "mcpServers": {
