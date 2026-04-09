@@ -32,6 +32,7 @@ const fileArg = ARGS.find((_, i) => ARGS[i - 1] === '--file');
 const dirArg = ARGS.find((_, i) => ARGS[i - 1] === '--dir');
 const notionArg = ARGS.find((_, i) => ARGS[i - 1] === '--notion');
 const categoryArg = ARGS.find((_, i) => ARGS[i - 1] === '--category') ?? 'geral';
+const tenantArg = ARGS.find((_, i) => ARGS[i - 1] === '--tenant') ?? 'egos';
 const extArg = ARGS.find((_, i) => ARGS[i - 1] === '--ext') ?? 'pdf,docx,md';
 
 // ── Text Extractors ─────────────────────────────────────────────────────────
@@ -125,6 +126,7 @@ async function upsertPage(doc: {
   source_file: string;
   has_pii: boolean;
   pii_types: string[];
+  tenant_id: string;
 }): Promise<void> {
   const piiTags = doc.has_pii ? ['pii-detected', ...doc.pii_types] : [];
   const res = await fetch(`${SUPABASE_URL}/rest/v1/egos_wiki_pages`, {
@@ -144,6 +146,7 @@ async function upsertPage(doc: {
       quality_score: scoreQuality(doc.content),
       source_files: [doc.source_file],
       compiled_by: 'kb-ingest',
+      tenant_id: doc.tenant_id,
       updated_at: new Date().toISOString(),
     }),
   });
@@ -219,6 +222,7 @@ async function ingestFile(filePath: string, category: string): Promise<void> {
     source_file: filePath,
     has_pii: guard.has_pii,
     pii_types: guard.has_pii ? [...new Set(guard.detections.map((d) => d.type))] : [],
+    tenant_id: tenantArg,
   });
 
   console.log(`  ✅ Indexed: ${slug} [${category}]`);

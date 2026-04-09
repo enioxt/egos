@@ -677,7 +677,7 @@
 - [x] **KBS-013 [P1]**: Onboarding checklist — `docs/guides/KBS_DELIVERY_CHECKLIST.md` — passo-a-passo replicável (discovery → contrato → setup → treinamento → handoff). ✅ 2026-04-09
 - [ ] **KBS-014 [P1]**: Primeiros 3 leads aligned (não vaga, não cold sales) — advogado brasileiro, PME metal além de FORJA, clínica. Research via exa/firecrawl em grupos WhatsApp/Telegram e Twitter. | 4h
 - [x] **KBS-015 [P1]**: Template Notion público no GitHub (`egosbr/knowledge-template`) — MIT, com instruções de duplicação. ✅ 2026-04-08
-- [ ] **KBS-016 [P1]**: Multi-tenant Supabase — RLS por `tenant_id`, migration `egos_wiki_pages_tenanted`. Antes do 2º cliente Pro. | 8h
+- [x] **KBS-016 [P1]**: Multi-tenant Supabase — RLS por `tenant_id`, migration `egos_wiki_pages_tenanted`. Antes do 2º cliente Pro. ✅ 2026-04-09
 - [ ] **KBS-017 [P1]**: Stripe billing tiers (Starter/Pro/Enterprise) — reusar infra Guard Brasil. Cartão BRL aceito. | 4h
 - [ ] **KBS-018 [P1]**: Citation export — comando `/export` produz Markdown + PDF com fontes numeradas. | 4h
 - [x] **KBS-019 [P1]**: Guard Brasil hook no ingest — todo `/ingest` roda via `guard_scan_pii` primeiro, redação automática, alerta no Telegram se PII detectada. ✅ 2026-04-09
@@ -809,7 +809,7 @@
 ### SYNC — Kernel Sync Harmonization
 
 - [x] **SYNC-001 [P0]**: Auto-propagate kernel changes post-commit — `.husky/post-commit` atualizado: ao detectar mudança em CLAUDE.md/.windsurfrules/CAPABILITY_REGISTRY, roda disseminate-scanner + propagator (background). ✅ 2026-04-09
-- [ ] **SYNC-002 [P1]**: VPS cron diário (03:15 BRT) — `governance-sync --exec --propagate` garante que nenhum repo leaf fica > 24h sem sync de kernel. Adicionar ao crontab do VPS. | 1h
+- [x] **SYNC-002 [P1]**: VPS cron diário (03:15 BRT) — `governance-sync --exec --propagate` garante que nenhum repo leaf fica > 24h sem sync de kernel. Adicionar ao crontab do VPS. ✅ 2026-04-09 — `/etc/cron.d/governance-sync` + `/opt/egos/governance-sync-vps.sh` (pulls CLAUDE.md from GitHub → 5 app dirs)
 - [x] **SYNC-003 [P1]**: `br-acc/.husky/pre-commit` ✅ — 5 checks (ruff lint, secrets, PII guard, SSOT size, kernel marker). | 1h ✅ 2026-04-09
 - [ ] **SYNC-004 [P2]**: Leaf→kernel feedback loop — sentinel que detecta se um leaf repo tem regra nova valiosa (padrão: marcada `CANDIDATE-GLOBAL:`) e cria issue no kernel para revisão. | 4h
 - [ ] **SYNC-005 [P1]**: Harmonizar pre-commit de `egos-lab` (4 checks custom) para incluir checks críticos do kernel: frozen zones, vocab guard, gitleaks. | 2h
