@@ -14,8 +14,8 @@
 - **Summary:** 20 gems cataloged; Self-Discovery and Booking Agent already decided, remaining items still await PORT/STUDY/ARCHIVE decisions
 - **Type:** FIXO — Permanent reference catalog
 - **Read next:**
-  - `MASTER_INDEX.md` — scope everything
-  - `EXECUTIVE_SUMMARY_DECISION_MATRIX.md` — current decisions status
+  - `docs/MASTER_INDEX.md` — scope everything
+  - `docs/EXECUTIVE_SUMMARY_DECISION_MATRIX.md` — current decisions status
   - `docs/_investigations/DISCONNECTED_SYSTEMS_ANALYSIS.md` — integration recommendations
 - **Archive when:** NEVER — Keep as historical catalog
 

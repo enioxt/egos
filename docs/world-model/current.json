@@ -1,132 +1,12 @@
 {
-  "generated_at": "2026-04-06T09:54:02.545Z",
-  "git_sha": "9ad26b0",
+  "generated_at": "2026-04-09T01:24:03.018Z",
+  "git_sha": "efc54e6",
   "git_branch": "main",
-  "last_commit": "9ad26b0 chore(tasks): v2.37.0 — Dream Cycle tasks DC-001..011, LLM-001..002",
+  "last_commit": "efc54e6 feat(diss): DISS-002 — disseminate-propagator.ts (kernel rule propagation to all repos)",
   "tasks": {
-    "total": 238,
-    "done": 99,
-    "p0_blockers": [
-      {
-        "id": "WM-001",
-        "done": false,
-        "text": "- [ ] WM-001: Setup hardware local LLM (Ollama/LM Studio) — instalar Qwen2.5-7B ou Hermes-3-8B na máquina 24GB VRAM",
-        "section": "P0 — World Model Foundation (NEW 2026-04-03)",
-        "priority": "P0"
-      },
-      {
-        "id": "WM-002",
-        "done": false,
-        "text": "- [ ] WM-002: Integrate local LLM to world-model.ts — extender interface para reasoning queries",
-        "section": "P0 — World Model Foundation (NEW 2026-04-03)",
-        "priority": "P0"
-      },
-      {
-        "id": "WM-003",
-        "done": false,
-        "text": "- [ ] WM-003: Capability composition suggestions — dada task, sugerir agents/capabilities (embedding similarity)",
-        "section": "P0 — World Model Foundation (NEW 2026-04-03)",
-        "priority": "P0"
-      },
-      {
-        "id": "WM-004",
-        "done": false,
-        "text": "- [ ] WM-004: Dataset preparation — coletar tasks + decisions para fine-tuning futuro",
-        "section": "P0 — World Model Foundation (NEW 2026-04-03)",
-        "priority": "P0"
-      },
-      {
-        "id": "MONETIZE-011",
-        "done": false,
-        "text": "- [ ] MONETIZE-011: Deploy v0.2.3 to VPS with STRIPE_METER_ID env var",
-        "section": "P0 — Revenue",
-        "priority": "P0"
-      },
-      {
-        "id": "MONETIZE-012",
-        "done": false,
-        "text": "- [ ] MONETIZE-012: NOWPayments webhook URL config — ENIO action required",
-        "section": "P0 — Revenue",
-        "priority": "P0"
-      },
-      {
-        "id": "MASTER-005",
-        "done": false,
-        "text": "- [ ] MASTER-005: NLP intent classifier (Haiku, ~$1/day) for WhatsApp NL commands",
-        "section": "P0 — Revenue",
-        "priority": "P0"
-      },
-      {
-        "id": "PART-001",
-        "done": false,
-        "text": "- [ ] PART-001: Publish Guard Brasil on npm + ProductHunt (M-007 emails first)",
-        "section": "P0 — Immediate (this week)",
-        "priority": "P0"
-      },
-      {
-        "id": "PART-003",
-        "done": false,
-        "text": "- [ ] PART-003: Reach out to 3 DPO/compliance SaaS BR (templates ready: docs/business/OUTREACH_EMAIL_TEMPLATES.md)",
-        "section": "P0 — Immediate (this week)",
-        "priority": "P0"
-      },
-      {
-        "id": "PART-004",
-        "done": false,
-        "text": "- [ ] PART-004: Submit to Stripe App Marketplace (already on Stripe — low friction)",
-        "section": "P0 — Immediate (this week)",
-        "priority": "P0"
-      },
-      {
-        "id": "M-007",
-        "done": false,
-        "text": "- [ ] M-007: Send 5 outreach emails to DPOs/compliance teams (templates: docs/business/OUTREACH_EMAIL_TEMPLATES.md). Thi",
-        "section": "P0 — M-007 (oldest blocker — send these NOW)",
-        "priority": "P0"
-      },
-      {
-        "id": "GTM-001",
-        "done": false,
-        "text": "- [ ] GTM-001: Update x-reply-bot search queries to target LGPD/compliance/DPO/ANPD conversations on X.com (currently to",
-        "section": "P0 — Guard Brasil GTM",
-        "priority": "P0"
-      },
-      {
-        "id": "GTM-002",
-        "done": false,
-        "text": "- [ ] GTM-002: Publish 5 showcase posts on X.com @anoineim — demo Guard Brasil: CPF detection, LGPD compliance, 4ms resp",
-        "section": "P0 — Guard Brasil GTM",
-        "priority": "P0"
-      },
-      {
-        "id": "GTM-003",
-        "done": false,
-        "text": "- [ ] GTM-003: Add GTM metrics card to HQ home page — shows: MRR (R$0), customers (0), M-007 status (STALE), outreach se",
-        "section": "P0 — Guard Brasil GTM",
-        "priority": "P0"
-      },
-      {
-        "id": "GTM-004",
-        "done": false,
-        "text": "- [ ] GTM-004: Add partner/community discovery track to Gem Hunter — queries: \"lgpd api\", \"data privacy compliance brazi",
-        "section": "P0 — Guard Brasil GTM",
-        "priority": "P0"
-      },
-      {
-        "id": "GTM-005",
-        "done": false,
-        "text": "- [ ] GTM-005: Guard Brasil demo video (90 seconds) — record screen: API call → PII detected → LGPD report. Upload to X.",
-        "section": "P0 — Guard Brasil GTM",
-        "priority": "P0"
-      },
-      {
-        "id": "HQ-000",
-        "done": false,
-        "text": "- [ ] HQ-000: Add Docker volume mounts to VPS docker-compose.yml: TASKS.md, world-model/, gem-hunter/latest-run.json, ag",
-        "section": "P0 — Volume mounts (needed for all v2 routes)",
-        "priority": "P0"
-      }
-    ],
+    "total": 46,
+    "done": 1,
+    "p0_blockers": [],
     "p1_sprint": [
       {
         "id": "EGOS-163",
@@ -136,65 +16,44 @@
         "priority": "P1"
       },
       {
-        "id": "START-006",
-        "done": false,
-        "text": "- [ ] START-006: Monitor performance 1 week (due 2026-04-09)",
-        "section": "Pending (P1)",
-        "priority": "P1"
-      },
-      {
-        "id": "START-007",
-        "done": false,
-        "text": "- [ ] START-007: v6.1 distributed agent health (SSH parallel)",
-        "section": "Pending (P1)",
-        "priority": "P1"
-      },
-      {
-        "id": "START-008",
-        "done": false,
-        "text": "- [ ] START-008: Dashboard integration (Grafana/Claude Code UI)",
-        "section": "Pending (P1)",
-        "priority": "P1"
-      },
-      {
         "id": "EAGLE-009",
         "done": false,
         "text": "- [ ] EAGLE-009: Stripe/Pix for Pro tier (R$497/mo)",
-        "section": "Eagle Eye — OSINT Licitações ✅ LIVE",
+        "section": "Eagle Eye — OSINT Licitações LIVE",
         "priority": "P1"
       },
       {
         "id": "EAGLE-019",
         "done": false,
         "text": "- [ ] EAGLE-019: Integrador partnership outreach",
-        "section": "Eagle Eye — OSINT Licitações ✅ LIVE",
+        "section": "Eagle Eye — OSINT Licitações LIVE",
         "priority": "P1"
       },
       {
         "id": "EAGLE-020",
         "done": false,
         "text": "- [ ] EAGLE-020: R$250k proposal — deadline 2026-04-29",
-        "section": "Eagle Eye — OSINT Licitações ✅ LIVE",
+        "section": "Eagle Eye — OSINT Licitações LIVE",
         "priority": "P1"
       },
       {
         "id": "SANT-001",
         "done": false,
         "text": "- [ ] SANT-001: Santiago partner onboarding (MVP ready, waiting partner)",
-        "section": "Eagle Eye — OSINT Licitações ✅ LIVE",
+        "section": "Eagle Eye — OSINT Licitações LIVE",
         "priority": "P1"
       },
       {
         "id": "GH-013",
         "done": false,
-        "text": "- [ ] GH-013: EGOS ↔ OpenHands | GH-014: ↔ LangGraph | GH-015: ↔ OpenAI Agents SDK | GH-016: ↔ LiteLLM | GH-017: ↔ Langf",
+        "text": "- [ ] GH-013: EGOS OpenHands | GH-014: EGOS LangGraph | GH-015: EGOS OpenAI Agents SDK | GH-016: EGOS LiteLLM | GH-017: ",
         "section": "Active — Pair Studies Queue",
         "priority": "P1"
       },
       {
         "id": "GH-020",
         "done": false,
-        "text": "- [ ] GH-020: ↔ Mem0 | GH-021: ↔ Temporal | GH-022: ↔ Haystack | GH-023: ↔ DSPy | GH-036: OpenHarness adapter",
+        "text": "- [ ] GH-020: EGOS Mem0 | GH-021: EGOS Temporal | GH-022: EGOS Haystack | GH-023: EGOS DSPy | GH-036: OpenHarness adapte",
         "section": "Active — Pair Studies Queue",
         "priority": "P1"
       },
@@ -227,437 +86,115 @@
         "priority": "P1"
       },
       {
-        "id": "GH-025",
-        "done": false,
-        "text": "- [ ] GH-025: `/pr` workflow + GitHub App — pre-merge gate invoking ssot-auditor + code-intel on branch diffs",
-        "section": "New tasks from Continue study",
-        "priority": "P1"
-      },
-      {
-        "id": "GH-026",
-        "done": false,
-        "text": "- [ ] GH-026: Upgrade codebase-memory-mcp to HTTP/SSE transport (enables SaaS deployments)",
-        "section": "New tasks from Continue study",
-        "priority": "P1"
-      },
-      {
-        "id": "GH-027",
-        "done": false,
-        "text": "- [ ] GH-027: `.guarani/checks/` layer — markdown-as-config for non-technical rule authoring",
-        "section": "New tasks from Continue study",
-        "priority": "P1"
-      },
-      {
         "id": "GH-013",
         "done": false,
-        "text": "- [ ] GH-013: EGOS ↔ OpenHands (`OpenHands/OpenHands`) — full software agent SDK/CLI/GUI",
+        "text": "- [ ] GH-013: EGOS OpenHands (`OpenHands/OpenHands`) — full software agent SDK/CLI/GUI",
         "section": "P1 — Reference Repo Study Queue (priority order)",
         "priority": "P1"
       },
       {
         "id": "GH-014",
         "done": false,
-        "text": "- [ ] GH-014: EGOS ↔ LangGraph (`langchain-ai/langgraph`) — stateful long-running agents, durable execution",
+        "text": "- [ ] GH-014: EGOS LangGraph (`langchain-ai/langgraph`) — stateful long-running agents, durable execution",
         "section": "P1 — Reference Repo Study Queue (priority order)",
         "priority": "P1"
       },
       {
         "id": "GH-015",
         "done": false,
-        "text": "- [ ] GH-015: EGOS ↔ OpenAI Agents SDK (`openai/openai-agents-python`) — handoffs, guardrails, tracing",
+        "text": "- [ ] GH-015: EGOS OpenAI Agents SDK (`openai/openai-agents-python`) — handoffs, guardrails, tracing",
         "section": "P1 — Reference Repo Study Queue (priority order)",
         "priority": "P1"
       },
       {
         "id": "GH-016",
         "done": false,
-        "text": "- [ ] GH-016: EGOS ↔ LiteLLM (`BerriAI/litellm`) — multi-model proxy, cost tracking, routing",
+        "text": "- [ ] GH-016: EGOS LiteLLM (`BerriAI/litellm`) — multi-model proxy, cost tracking, routing",
         "section": "P1 — Reference Repo Study Queue (priority order)",
         "priority": "P1"
       },
       {
         "id": "GH-017",
         "done": false,
-        "text": "- [ ] GH-017: EGOS ↔ Langfuse (`langfuse/langfuse`) — observability, prompt versioning, evals",
+        "text": "- [ ] GH-017: EGOS Langfuse (`langfuse/langfuse`) — observability, prompt versioning, evals",
         "section": "P1 — Reference Repo Study Queue (priority order)",
         "priority": "P1"
       },
       {
         "id": "GH-032",
         "done": false,
-        "text": "- [ ] GH-032: EGOS edit benchmark — 20 real edit tasks tracked over time (SWE-Bench inspired)",
-        "section": "New tasks from Aider study",
+        "text": "- [ ] GH-032: EGOS edit benchmark (SWE-Bench inspired, 20 tasks)",
+        "section": "P1 — Reference Repo Study Queue (priority order)",
         "priority": "P1"
       },
       {
         "id": "GH-036",
         "done": false,
-        "text": "- [ ] GH-036: OpenHarness adapter in packages/shared/harness/ — evaluate skill/coordinator compat",
-        "section": "New tasks from Aider study",
+        "text": "- [ ] GH-036: OpenHarness adapter in packages/shared/harness/",
+        "section": "P1 — Reference Repo Study Queue (priority order)",
         "priority": "P1"
       },
       {
         "id": "GH-063",
         "done": false,
         "text": "- [ ] GH-063: x402 pay-per-call — M2M agent payments via x402 protocol",
-        "section": "Gem Hunter v6.0 — Papers Without Code + Standalone Product (2026-04-02)",
+        "section": "P1 — Reference Repo Study Queue (priority order)",
         "priority": "P1"
       },
       {
         "id": "GH-067",
         "done": false,
         "text": "- [ ] GH-067: Deploy gem-hunter-server to VPS (gemhunter.egos.ia.br) + Caddy routing → P0 revenue",
-        "section": "Gem Hunter v6.0 — Papers Without Code + Standalone Product (2026-04-02)",
+        "section": "P1 — Reference Repo Study Queue (priority order)",
         "priority": "P1"
       },
       {
         "id": "GH-070",
         "done": false,
         "text": "- [ ] GH-070: Chatbot orchestrator — WhatsApp channel NLP intent → tool calls → gem-hunter → curated reply",
-        "section": "Gem Hunter v6.0 — Papers Without Code + Standalone Product (2026-04-02)",
+        "section": "P1 — Reference Repo Study Queue (priority order)",
         "priority": "P1"
       },
       {
         "id": "GH-072",
         "done": false,
         "text": "- [ ] GH-072: Chatbot tier enforcement (200 queries/mo for R$149/mo chatbot plan)",
-        "section": "Gem Hunter v6.0 — Papers Without Code + Standalone Product (2026-04-02)",
+        "section": "P1 — Reference Repo Study Queue (priority order)",
         "priority": "P1"
       },
       {
         "id": "GH-073",
         "done": false,
         "text": "- [ ] GH-073: Email digest — weekly top 10 gems to subscribers",
-        "section": "Gem Hunter v6.0 — Papers Without Code + Standalone Product (2026-04-02)",
+        "section": "P1 — Reference Repo Study Queue (priority order)",
         "priority": "P1"
       },
       {
         "id": "X-009",
         "done": false,
-        "text": "- [ ] X-009: Trending topic scanner — check X API hourly for rising keywords vs our capabilities",
-        "section": "P1 — Expand",
+        "text": "- [ ] X-009: Trending topic scanner (hourly, keywords vs capabilities)",
+        "section": "X.com Presence (2026-04-01)",
         "priority": "P1"
       },
       {
-        "id": "X-010",
+        "id": "X-012",
         "done": false,
-        "text": "- [ ] X-010: \"Clean showcase\" branch auto-creator — when topic detected, create `showcase/<topic>` with only clean files",
-        "section": "P1 — Expand",
+        "text": "- [ ] X-012: Thread scheduler (multi-tweet, 2-min gaps) — dep XMCP-001",
+        "section": "X.com Presence (2026-04-01)",
         "priority": "P1"
       },
       {
-        "id": "INTEL-006",
+        "id": "MONETIZE-011",
         "done": false,
-        "text": "- [ ] INTEL-006: Proactive blocker detection — world model scans P0 list → creates TASKS entries if blocker stale > 7 da",
-        "section": "P1 — Signal Layer",
+        "text": "- [ ] MONETIZE-011: Deploy v0.2.3 to VPS with STRIPE_METER_ID env var",
+        "section": "Block Intelligence + Eagle Eye (compressed)",
         "priority": "P1"
       },
       {
-        "id": "INTEL-007",
+        "id": "MONETIZE-012",
         "done": false,
-        "text": "- [ ] INTEL-007: `--mermaid` output from world-model.ts → embed in /start briefing as ASCII architecture snapshot",
-        "section": "P1 — Signal Layer",
-        "priority": "P1"
-      },
-      {
-        "id": "WM-005",
-        "done": false,
-        "text": "- [ ] WM-005: Implement dynamics model (simulação básica — prediz estado futuro dado ação)",
-        "section": "P1 — World Model Enhanced (NEW 2026-04-03)",
-        "priority": "P1"
-      },
-      {
-        "id": "WM-006",
-        "done": false,
-        "text": "- [ ] WM-006: Causal discovery — aprender relações causa-efeito do histórico EGOS",
-        "section": "P1 — World Model Enhanced (NEW 2026-04-03)",
-        "priority": "P1"
-      },
-      {
-        "id": "WM-007",
-        "done": false,
-        "text": "- [ ] WM-007: Counterfactual reasoning — \"o que teria acontecido se...\"",
-        "section": "P1 — World Model Enhanced (NEW 2026-04-03)",
-        "priority": "P1"
-      },
-      {
-        "id": "WM-008",
-        "done": false,
-        "text": "- [ ] WM-008: Model-predictive control para planning ótimo",
-        "section": "P1 — World Model Enhanced (NEW 2026-04-03)",
-        "priority": "P1"
-      },
-      {
-        "id": "WM-013",
-        "done": false,
-        "text": "- [ ] WM-013: Auto-observação (world model que monitora a si mesmo)",
-        "section": "P3 — AGI Capabilities (Long-term)",
-        "priority": "P1"
-      },
-      {
-        "id": "WM-014",
-        "done": false,
-        "text": "- [ ] WM-014: Auto-modificação (melhorar próprio código)",
-        "section": "P3 — AGI Capabilities (Long-term)",
-        "priority": "P1"
-      },
-      {
-        "id": "WM-015",
-        "done": false,
-        "text": "- [ ] WM-015: Planejamento longo horizonte (quarter/year goals)",
-        "section": "P3 — AGI Capabilities (Long-term)",
-        "priority": "P1"
-      },
-      {
-        "id": "WM-016",
-        "done": false,
-        "text": "- [ ] WM-016: Criação automática de agents quando necessário",
-        "section": "P3 — AGI Capabilities (Long-term)",
-        "priority": "P1"
-      },
-      {
-        "id": "HERMES-001",
-        "done": false,
-        "text": "- [ ] HERMES-001: Wire Hermes-3 as BRAID mechanical executor",
-        "section": "P1 — Infrastructure",
-        "priority": "P1"
-      },
-      {
-        "id": "CTX-001",
-        "done": false,
-        "text": "- [ ] CTX-001: Context recovery hook to /start",
-        "section": "P1 — Infrastructure",
-        "priority": "P1"
-      },
-      {
-        "id": "CTX-002",
-        "done": false,
-        "text": "- [ ] CTX-002: Auto-index codebase-memory-mcp on /start",
-        "section": "P1 — Infrastructure",
-        "priority": "P1"
-      },
-      {
-        "id": "PART-005",
-        "done": false,
-        "text": "- [ ] PART-005: Nuvemshop / VTEX app store integration (e-commerce PII protection)",
-        "section": "P1 — Distribution Partners",
-        "priority": "P1"
-      },
-      {
-        "id": "PART-006",
-        "done": false,
-        "text": "- [ ] PART-006: Totvs / SAP BR partner program (ERP + LGPD = natural fit)",
-        "section": "P1 — Distribution Partners",
-        "priority": "P1"
-      },
-      {
-        "id": "PART-007",
-        "done": false,
-        "text": "- [ ] PART-007: AWS Marketplace listing (SaaS contract, pay-as-you-go)",
-        "section": "P1 — Distribution Partners",
-        "priority": "P1"
-      },
-      {
-        "id": "PART-008",
-        "done": false,
-        "text": "- [ ] PART-008: Reach out to DPOnet / OneTrust BR for white-label or API partnership",
-        "section": "P1 — Distribution Partners",
-        "priority": "P1"
-      },
-      {
-        "id": "PART-009",
-        "done": false,
-        "text": "- [ ] PART-009: SLA documentation v1.0 (99.9% uptime, <5ms P95, incident response)",
-        "section": "P1 — Enterprise Layer",
-        "priority": "P1"
-      },
-      {
-        "id": "PART-010",
-        "done": false,
-        "text": "- [ ] PART-010: SOC2 readiness assessment (with Vanta or Secureframe)",
-        "section": "P1 — Enterprise Layer",
-        "priority": "P1"
-      },
-      {
-        "id": "PART-011",
-        "done": false,
-        "text": "- [ ] PART-011: Enterprise pricing page (custom contracts, volume, dedicated support)",
-        "section": "P1 — Enterprise Layer",
-        "priority": "P1"
-      },
-      {
-        "id": "PART-012",
-        "done": false,
-        "text": "- [ ] PART-012: Security questionnaire template (ready for enterprise procurement)",
-        "section": "P1 — Enterprise Layer",
-        "priority": "P1"
-      },
-      {
-        "id": "CTRL-012",
-        "done": false,
-        "text": "- [ ] CTRL-012: `hq.egos.ia.br` TLS cert verify (Caddy auto-provisions, test login in browser)",
-        "section": "Pending",
-        "priority": "P1"
-      },
-      {
-        "id": "CTRL-013",
-        "done": false,
-        "text": "- [ ] CTRL-013: Agents page `/agents` — wire to `agents.json` registry via `AGENTS_REGISTRY_PATH` env",
-        "section": "Pending",
-        "priority": "P1"
-      },
-      {
-        "id": "CTRL-014",
-        "done": false,
-        "text": "- [ ] CTRL-014: Events page `/events` — Supabase Realtime live stream for `egos_agent_events`",
-        "section": "Pending",
-        "priority": "P1"
-      },
-      {
-        "id": "CTRL-015",
-        "done": false,
-        "text": "- [ ] CTRL-015: X.com: approve flow end-to-end test (approve reply → verify posted on X.com)",
-        "section": "Pending",
-        "priority": "P1"
-      },
-      {
-        "id": "CTRL-016",
-        "done": false,
-        "text": "- [ ] CTRL-016: Run `bun scripts/x-reply-bot.ts --dry-run` → verify rows appear in Supabase `x_reply_runs`",
-        "section": "Pending",
-        "priority": "P1"
-      },
-      {
-        "id": "DEPS-002",
-        "done": false,
-        "text": "- [ ] DEPS-002: Schedule deps-watch as weekly CCR job (Fri 3h00 BRT): `/schedule`",
-        "section": "Pending",
-        "priority": "P1"
-      },
-      {
-        "id": "DEPS-003",
-        "done": false,
-        "text": "- [ ] DEPS-003: Gem Hunter auto-creates TASKS.md entries when deps-watch finds significant updates (needs output parser ",
-        "section": "Pending",
-        "priority": "P1"
-      },
-      {
-        "id": "HERMES-001",
-        "done": false,
-        "text": "- [ ] HERMES-001: Wire Hermes-3 as BRAID mechanical executor (OpenRouter `nousresearch/hermes-3-llama-3.1-70b` → agent r",
-        "section": "Pending",
-        "priority": "P1"
-      },
-      {
-        "id": "GUARANI-001",
-        "done": false,
-        "text": "- [ ] GUARANI-001: Port .guarani/refinery/ pre-processor to Claude Code — add to PreToolUse hook for short/vague prompts",
-        "section": "Pending",
-        "priority": "P1"
-      },
-      {
-        "id": "GUARANI-002",
-        "done": false,
-        "text": "- [ ] GUARANI-002: Wire .guarani/prompts/triggers.json into /start — check triggers before executing",
-        "section": "Pending",
-        "priority": "P1"
-      },
-      {
-        "id": "GUARANI-003",
-        "done": false,
-        "text": "- [ ] GUARANI-003: Evaluate .guarani/orchestration/GATES.md quality gates in pre-commit hook",
-        "section": "Pending",
-        "priority": "P1"
-      },
-      {
-        "id": "GTM-006",
-        "done": false,
-        "text": "- [ ] GTM-006: Deploy Guard Brasil docs at guard.egos.ia.br/docs with interactive API playground (Scalar or Swagger UI)",
-        "section": "P1 — Visibility",
-        "priority": "P1"
-      },
-      {
-        "id": "GTM-007",
-        "done": false,
-        "text": "- [ ] GTM-007: Submit Guard Brasil to ANPD's public registry of DPO tools (builds legitimacy)",
-        "section": "P1 — Visibility",
-        "priority": "P1"
-      },
-      {
-        "id": "GTM-008",
-        "done": false,
-        "text": "- [ ] GTM-008: ProductHunt launch — prepare assets, schedule for Tuesday/Wednesday (peak traffic days)",
-        "section": "P1 — Visibility",
-        "priority": "P1"
-      },
-      {
-        "id": "GTM-009",
-        "done": false,
-        "text": "- [ ] GTM-009: LinkedIn post targeting compliance managers + DPOs in Brazil (different audience than X.com)",
-        "section": "P1 — Visibility",
-        "priority": "P1"
-      },
-      {
-        "id": "GTM-010",
-        "done": false,
-        "text": "- [ ] GTM-010: dev.to post \"Como detectar CPF, RG e MASP em sua API Node.js em 5 minutos\" — with live Guard Brasil examp",
-        "section": "P1 — Content GTM (from market research)",
-        "priority": "P1"
-      },
-      {
-        "id": "GTM-011",
-        "done": false,
-        "text": "- [ ] GTM-011: X.com thread \"ANPD está acelerando fiscalização em 2026. Aqui está uma API gratuita para verificar se seu",
-        "section": "P1 — Content GTM (from market research)",
-        "priority": "P1"
-      },
-      {
-        "id": "GTM-012",
-        "done": false,
-        "text": "- [ ] GTM-012: Reach out to Privacy Tools BR for partnership/integration (they have DPO customers who need our API layer",
-        "section": "P1 — Content GTM (from market research)",
-        "priority": "P1"
-      },
-      {
-        "id": "GTM-013",
-        "done": false,
-        "text": "- [ ] GTM-013: Nuvemshop / VTEX app store — create integration guide + submit app listing",
-        "section": "P1 — Content GTM (from market research)",
-        "priority": "P1"
-      },
-      {
-        "id": "HQ-001",
-        "done": false,
-        "text": "- [ ] HQ-001: `tasks/route.ts` — parse /data/TASKS.md → `{categories, priorities, total, done, pending, p0_stale}`",
-        "section": "P1 — API Routes (apps/egos-hq/app/api/hq/)",
-        "priority": "P1"
-      },
-      {
-        "id": "HQ-002",
-        "done": false,
-        "text": "- [ ] HQ-002: `world-model/route.ts` — read /data/world-model/current.json → full snapshot (health%, blockers, agents, s",
-        "section": "P1 — API Routes (apps/egos-hq/app/api/hq/)",
-        "priority": "P1"
-      },
-      {
-        "id": "HQ-003",
-        "done": false,
-        "text": "- [ ] HQ-003: `gems/route.ts` — read /data/gem-hunter/latest-run.json → top gems + filters (score, source, category)",
-        "section": "P1 — API Routes (apps/egos-hq/app/api/hq/)",
-        "priority": "P1"
-      },
-      {
-        "id": "HQ-004",
-        "done": false,
-        "text": "- [ ] HQ-004: `system-map/route.ts` — read /data/agents.json + CAPABILITY_REGISTRY.md → `{nodes, edges}` for D3",
-        "section": "P1 — API Routes (apps/egos-hq/app/api/hq/)",
-        "priority": "P1"
-      },
-      {
-        "id": "HQ-005",
-        "done": false,
-        "text": "- [ ] HQ-005: `gtm/route.ts` — aggregate: MRR from Supabase, M-007 status, outreach count, pending demos",
-        "section": "P1 — API Routes (apps/egos-hq/app/api/hq/)",
+        "text": "- [ ] MONETIZE-012: NOWPayments webhook URL config — ENIO action required",
+        "section": "Block Intelligence + Eagle Eye (compressed)",
         "priority": "P1"
       },
       {
@@ -689,45 +226,31 @@
         "priority": "P1"
       },
       {
-        "id": "GTM-014",
-        "done": false,
-        "text": "- [ ] GTM-014: Build `guard-brasil-mcp` — wraps guard.egos.ia.br as Claude tool, publish as `@egosbr/guard-brasil-mcp` (",
-        "section": "Pending",
-        "priority": "P1"
-      },
-      {
-        "id": "KB-019",
-        "done": false,
-        "text": "- [ ] KB-019: `bun wiki:dedup` — fix HARVEST.md 1944-line triplication caused by wiki:compile running without dedup",
-        "section": "Pending",
-        "priority": "P1"
-      },
-      {
         "id": "DC-004",
         "done": false,
         "text": "- [ ] DC-004: `agents/agents/intelligence-engine.ts` — reads nightly logs + TASKS.md, uses Gemma 4 31B, writes egos_nigh",
-        "section": "Phase 2 — Intelligence (this week)",
+        "section": "Phase 2 — Intelligence (pending)",
         "priority": "P1"
       },
       {
         "id": "DC-005",
         "done": false,
         "text": "- [ ] DC-005: Extend CCR Governance Sentinel to run intelligence-engine after drift check",
-        "section": "Phase 2 — Intelligence (this week)",
+        "section": "Phase 2 — Intelligence (pending)",
         "priority": "P1"
       },
       {
         "id": "DC-006",
         "done": false,
         "text": "- [ ] DC-006: Auto-Healer script — restart containers on known patterns (rule-based, no LLM)",
-        "section": "Phase 2 — Intelligence (this week)",
+        "section": "Phase 2 — Intelligence (pending)",
         "priority": "P1"
       },
       {
         "id": "DC-011",
         "done": false,
         "text": "- [ ] DC-011: Tune log-harvester Caddy pattern (false-positive: 472 TLS entries flagged as critical)",
-        "section": "Phase 2 — Intelligence (this week)",
+        "section": "Phase 2 — Intelligence (pending)",
         "priority": "P1"
       },
       {
@@ -801,193 +324,11 @@
         "text": "- [ ] EGOS-166: REST API gateway mode",
         "section": "P2 — Growth",
         "priority": "P2"
-      },
-      {
-        "id": "KB-017",
-        "done": false,
-        "text": "- [ ] KB-017: Auto-learning from git commits (extract patterns from commit messages + diffs)",
-        "section": "P2 — Advanced",
-        "priority": "P2"
-      },
-      {
-        "id": "EGOS-169",
-        "done": false,
-        "text": "- [ ] EGOS-169: @aiready/pattern-detect pre-commit (duplicate detection)",
-        "section": "P2 — Advanced",
-        "priority": "P2"
-      },
-      {
-        "id": "EGOS-173",
-        "done": false,
-        "text": "- [ ] EGOS-173: CRCDM hooks: llmrefs staleness + auto-heal rename",
-        "section": "P2 — Advanced",
-        "priority": "P2"
-      },
-      {
-        "id": "GH-020",
-        "done": false,
-        "text": "- [ ] GH-020: EGOS ↔ Mem0 — persistent agent memory layer",
-        "section": "P2 — Advanced Studies",
-        "priority": "P2"
-      },
-      {
-        "id": "GH-021",
-        "done": false,
-        "text": "- [ ] GH-021: EGOS ↔ Temporal TS SDK — durable workflow engine",
-        "section": "P2 — Advanced Studies",
-        "priority": "P2"
-      },
-      {
-        "id": "GH-022",
-        "done": false,
-        "text": "- [ ] GH-022: EGOS ↔ Haystack — RAG/retrieval/context engineering",
-        "section": "P2 — Advanced Studies",
-        "priority": "P2"
-      },
-      {
-        "id": "GH-023",
-        "done": false,
-        "text": "- [ ] GH-023: EGOS ↔ DSPy — programmatic prompt optimization",
-        "section": "P2 — Advanced Studies",
-        "priority": "P2"
-      },
-      {
-        "id": "GH-024",
-        "done": false,
-        "text": "- [ ] GH-024: Lego Assembler agent — consumes `.md` SSOT blocks from discovery engine",
-        "section": "P2 — Advanced Studies",
-        "priority": "P2"
-      },
-      {
-        "id": "X-011",
-        "done": false,
-        "text": "- [ ] X-011: Upgrade to Basic tier ($100/mo) when bot proves value — 3,000 writes/month vs 1,500",
-        "section": "P2 — Upgrade",
-        "priority": "P2"
-      },
-      {
-        "id": "X-012",
-        "done": false,
-        "text": "- [ ] X-012: Build thread scheduler — post multi-tweet threads with 2-min gaps",
-        "section": "P2 — Upgrade",
-        "priority": "P2"
-      },
-      {
-        "id": "X-013",
-        "done": false,
-        "text": "- [ ] X-013: Analytics dashboard — track which replies got most engagement",
-        "section": "P2 — Upgrade",
-        "priority": "P2"
-      },
-      {
-        "id": "INTEL-008",
-        "done": false,
-        "text": "- [ ] INTEL-008: DRI auto-assignment — when P0 task has no commit activity for 3 days, auto-flag + Telegram alert",
-        "section": "P2 — Full Intelligence",
-        "priority": "P2"
-      },
-      {
-        "id": "INTEL-009",
-        "done": false,
-        "text": "- [ ] INTEL-009: Capability composition map — intelligence layer dynamically suggests which agents to invoke for a given",
-        "section": "P2 — Full Intelligence",
-        "priority": "P2"
-      },
-      {
-        "id": "INTEL-010",
-        "done": false,
-        "text": "- [ ] INTEL-010: World model diff — compare snapshots to detect regression (tasks going from [x] back to [ ])",
-        "section": "P2 — Full Intelligence",
-        "priority": "P2"
-      },
-      {
-        "id": "WM-009",
-        "done": false,
-        "text": "- [ ] WM-009: Integrar Qwen3Guard para safety classification (Safe/Controversial/Unsafe)",
-        "section": "P2 — Ethics & Safety (NEW 2026-04-03)",
-        "priority": "P2"
-      },
-      {
-        "id": "WM-010",
-        "done": false,
-        "text": "- [ ] WM-010: Constitutional rules embedding (frozen zones, PRIME DIRECTIVE)",
-        "section": "P2 — Ethics & Safety (NEW 2026-04-03)",
-        "priority": "P2"
-      },
-      {
-        "id": "WM-011",
-        "done": false,
-        "text": "- [ ] WM-011: Value alignment local (ATRiAN principles: Accuracy, Truth, Reversibility, Impact, Accountability, Neutrali",
-        "section": "P2 — Ethics & Safety (NEW 2026-04-03)",
-        "priority": "P2"
-      },
-      {
-        "id": "WM-012",
-        "done": false,
-        "text": "- [ ] WM-012: Intervention system com human-in-the-loop",
-        "section": "P2 — Ethics & Safety (NEW 2026-04-03)",
-        "priority": "P2"
-      },
-      {
-        "id": "PART-013",
-        "done": false,
-        "text": "- [ ] PART-013: LangChain Guard Brasil tool (npm @egosbr/guard-brasil-langchain)",
-        "section": "P2 — Technical Integrations",
-        "priority": "P2"
-      },
-      {
-        "id": "PART-014",
-        "done": false,
-        "text": "- [ ] PART-014: Zapier / Make.com connector",
-        "section": "P2 — Technical Integrations",
-        "priority": "P2"
-      },
-      {
-        "id": "PART-015",
-        "done": false,
-        "text": "- [ ] PART-015: Bubble.io plugin (no-code market)",
-        "section": "P2 — Technical Integrations",
-        "priority": "P2"
-      },
-      {
-        "id": "HQ-006",
-        "done": false,
-        "text": "- [ ] HQ-006: `/tasks` page — Kanban by priority (P0 red, P1 yellow, P2 blue), done/pending counts",
-        "section": "P2 — Dashboard Pages",
-        "priority": "P2"
-      },
-      {
-        "id": "HQ-007",
-        "done": false,
-        "text": "- [ ] HQ-007: `/world-model` page — health% gauge, P0 blocker cards, agent inventory, signal feed",
-        "section": "P2 — Dashboard Pages",
-        "priority": "P2"
-      },
-      {
-        "id": "HQ-008",
-        "done": false,
-        "text": "- [ ] HQ-008: `/gems` page — filterable card grid (score badge, source icon, category color, search)",
-        "section": "P2 — Dashboard Pages",
-        "priority": "P2"
-      },
-      {
-        "id": "HQ-009",
-        "done": false,
-        "text": "- [ ] HQ-009: `/system-map` page — interactive D3 graph (capability domains as nodes, agent edges)",
-        "section": "P2 — Dashboard Pages",
-        "priority": "P2"
-      },
-      {
-        "id": "HQ-010",
-        "done": false,
-        "text": "- [ ] HQ-010: Update nav in hq-layout.tsx with new links (tasks, world-model, gems, system-map, gtm)",
-        "section": "P2 — Dashboard Pages",
-        "priority": "P2"
       }
     ]
   },
   "agents": {
-    "total": 16,
+    "total": 18,
     "active": [
       {
         "id": "ssot-auditor",
@@ -1065,9 +406,19 @@
         "description": "Standalone REST API for gem-hunter (Phase 1 product). Endpoints: GET /v1/finding"
       },
       {
+        "id": "agent-validator",
+        "role": "IC",
+        "description": "Lightweight validation agent — updates agents/registry/validation.json cache. 4-"
+      },
+      {
         "id": "wiki-compiler",
         "role": "IC",
         "description": "Compiles raw sources (handoffs, job reports, gem-hunter, strategy docs) into str"
+      },
+      {
+        "id": "doc-drift-sentinel",
+        "role": "DRI",
+        "description": "Layer 3 of the EGOS Doc-Drift Shield. Daily scanner that verifies all .egos-mani"
       }
     ],
     "killed": [
@@ -1075,7 +426,7 @@
     ]
   },
   "capabilities": {
-    "total": 188,
+    "total": 217,
     "domains": [
       {
         "domain": "CHATBOT & CONVERSATION",
@@ -1126,6 +477,10 @@
         "count": 5
       },
       {
+        "domain": "AUDITABLE LIVE SANDBOX (UX Pattern)",
+        "count": 4
+      },
+      {
         "domain": "MISSION CONTROL (HQ)",
         "count": 28
       },
@@ -1144,26 +499,44 @@
       {
         "domain": "GATEWAY P24 — AUTH + TELEGRAM COMMANDS + FTS (2026-04-06)",
         "count": 9
+      },
+      {
+        "domain": "LLM EXECUTION ENGINE — DASHSCOPE + OPENROUTER (2026-04-08)",
+        "count": 8
+      },
+      {
+        "domain": "DOC-DRIFT SHIELD — 4-LAYER DOCUMENTATION INTEGRITY (2026-04-07)",
+        "count": 13
+      },
+      {
+        "domain": "AUTO-DISSEMINATE PIPELINE (2026-04-08)",
+        "count": 4
       }
     ]
   },
   "signals": [
     {
-      "source": "governance-drift",
-      "date": "2026-04-03",
-      "headline": "**Date:** 2026-04-03  ",
-      "severity": "WARNING"
+      "source": "gem-hunter",
+      "date": "2026-04-08",
+      "headline": "**Period:** 2026-04-01 → 2026-04-08",
+      "severity": "UNKNOWN"
     },
     {
       "source": "governance-drift",
-      "date": "2026-04-01",
-      "headline": "**Date:** 2026-04-01  ",
+      "date": "2026-04-08",
+      "headline": "**Report Date:** 2026-04-08 | **Runner:** autoDream (Sentinel + MemPalace)",
+      "severity": "UNKNOWN"
+    },
+    {
+      "source": "governance-drift",
+      "date": "2026-04-07",
+      "headline": "**Timestamp:** 2026-04-07T09:00Z  ",
       "severity": "UNKNOWN"
     },
     {
       "source": "gem-hunter",
       "date": "2026-04-06",
-      "headline": "Latest gem scan: score: 81",
+      "headline": "Latest gem scan: score: 1",
       "severity": "CLEAN"
     },
     {
@@ -1197,24 +570,6 @@
       "severity": "CRITICAL"
     }
   ],
-  "blockers": [
-    "WM-001: - [ ] WM-001: Setup hardware local LLM (Ollama/LM Studio) — instalar Qwen2.5-7B ",
-    "WM-002: - [ ] WM-002: Integrate local LLM to world-model.ts — extender interface para re",
-    "WM-003: - [ ] WM-003: Capability composition suggestions — dada task, sugerir agents/cap",
-    "WM-004: - [ ] WM-004: Dataset preparation — coletar tasks + decisions para fine-tuning f",
-    "MONETIZE-011: - [ ] MONETIZE-011: Deploy v0.2.3 to VPS with STRIPE_METER_ID env var",
-    "MONETIZE-012: - [ ] MONETIZE-012: NOWPayments webhook URL config — ENIO action required",
-    "MASTER-005: - [ ] MASTER-005: NLP intent classifier (Haiku, ~$1/day) for WhatsApp NL command",
-    "PART-001: - [ ] PART-001: Publish Guard Brasil on npm + ProductHunt (M-007 emails first)",
-    "PART-003: - [ ] PART-003: Reach out to 3 DPO/compliance SaaS BR (templates ready: docs/bus",
-    "PART-004: - [ ] PART-004: Submit to Stripe App Marketplace (already on Stripe — low fricti",
-    "M-007: - [ ] M-007: Send 5 outreach emails to DPOs/compliance teams (templates: docs/bu",
-    "GTM-001: - [ ] GTM-001: Update x-reply-bot search queries to target LGPD/compliance/DPO/A",
-    "GTM-002: - [ ] GTM-002: Publish 5 showcase posts on X.com @anoineim — demo Guard Brasil: ",
-    "GTM-003: - [ ] GTM-003: Add GTM metrics card to HQ home page — shows: MRR (R$0), customer",
-    "GTM-004: - [ ] GTM-004: Add partner/community discovery track to Gem Hunter — queries: \"l",
-    "GTM-005: - [ ] GTM-005: Guard Brasil demo video (90 seconds) — record screen: API call → ",
-    "HQ-000: - [ ] HQ-000: Add Docker volume mounts to VPS docker-compose.yml: TASKS.md, worl"
-  ],
-  "health_pct": 42
+  "blockers": [],
+  "health_pct": 2
 }

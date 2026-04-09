@@ -2700,3 +2700,28 @@ if not access_token or not access_secret:
 ### Auto-harvested — bd14a66 (2026-04-08)
 
 - Notion MCP já é nativo na sessão Claude Code (mcp__claude_ai_Notion__*) — elimina blocker de integração custom. ~70% do produto KB já existe no EGOS (atomizer, wiki-compiler, ARR, Guard Brasil MCP, egos_wiki_pages 92 pages).
+
+### Auto-harvested — 3cb5467 (2026-04-08)
+
+- ERP nao morre — vira sistema de registro burro. EGOS eh a camada de inteligencia por cima. Ingere DOC/DOCX/PDF/audio/video, responde em linguagem natural com fontes. Notion como frontend (curva baixa BR). Claude Code 0/mes como motor local.
+- Notion MCP nativo na sessao Claude Code elimina necessidade de integracao custom — criar databases e paginas direto da sessao em segundos.
+
+### Auto-harvested — 1512b6a (2026-04-08)
+
+- Notion MCP "Invalid input: expected array, received string" = broken JSON inside pages param (stray char or extra parenthesis causes whole argument to be parsed as string)
+
+### Auto-harvested — 6a24757 (2026-04-08)
+
+- x-reply-bot uses min_likes threshold only (no Qwen scoring for relevance). Qwen in gem-hunter only scores papers (runPaperPipeline). Low-star gems from big-tech engineers require explicit bypass rules.
+
+### Auto-harvested — e18866c (2026-04-08)
+
+- EGOS tem 9 produtos ativos, Guard Brasil único LGPD art.11 open-source BR, ATRiAN em 4ms, Gem Hunter 14 fontes, governança pre-commit nativa, HITL em tudo.
+
+### Auto-harvested — 7f20f22 (2026-04-08)
+
+- Living portfolio = manifest claims + auto-sync trigger on product commits + health checks + version bump. No manual /end needed for stats.
+
+### Auto-harvested — d394e03 (2026-04-08)
+
+- wiki-compiler category type union is narrowly typed ("synthesis"|"decision"|"pattern") — entity/how-to live only in WikiPage interface, not in source type. Use "synthesis" for tenant entity docs.

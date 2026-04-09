@@ -11,9 +11,9 @@
 - **Role:** Standard activation procedure for any new integration (IDE, CLI, mobile, GitHub Actions)
 - **Summary:** Unified auth + scoped permissions + audit trails. Defines how to onboard a new tool or platform to EGOS governance.
 - **Read next:**
-  - `ACTIVATION_GUIDE.md` — step-by-step onboarding checklist
-  - `SYSTEM_MAP.md` — topology of what activates where
-  - `ENVIRONMENT_REGISTRY.md` — approved hosts and integrations
+  - `docs/ACTIVATION_GUIDE.md` — step-by-step onboarding checklist
+  - `docs/SYSTEM_MAP.md` — topology of what activates where
+  - `docs/ENVIRONMENT_REGISTRY.md` — approved hosts and integrations
 
 <!-- llmrefs:end -->
 

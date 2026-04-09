@@ -14,9 +14,9 @@
 - **Summary:** Therapeutic chatbot with pattern detection and Socratic questioning — containerized deployment
 - **Type:** FIXO — Implementation spec for VPS-002
 - **Read next:**
-  - `ARCHIVE_GEMS_CATALOG.md` — Gem #17 (Self-Discovery) decision
-  - `EXECUTIVE_SUMMARY_DECISION_MATRIX.md` — HUM-002 confirmed decision
-  - `INFRASTRUCTURE_ARCHIVE_AUDIT.md` — VPS container patterns
+  - `docs/ARCHIVE_GEMS_CATALOG.md` — Gem #17 (Self-Discovery) decision
+  - `docs/EXECUTIVE_SUMMARY_DECISION_MATRIX.md` — HUM-002 confirmed decision
+  - `docs/INFRASTRUCTURE_ARCHIVE_AUDIT.md` — VPS container patterns
 - **Related:** VPS-002 (container creation task)
 
 <!-- llmrefs:end -->

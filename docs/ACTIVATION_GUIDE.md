@@ -9,8 +9,8 @@
 - **Role:** Step-by-step activation checklist for a new EGOS agent
 - **Summary:** MCP setup, env vars, credential provisioning, governance sync. 5-minute quick start + troubleshooting.
 - **Read next:**
-  - `ACTIVATION_FLOW.md` — conceptual model of activation
-  - `ENVIRONMENT_REGISTRY.md` — which MCPs/providers are available
+  - `docs/ACTIVATION_FLOW.md` — conceptual model of activation
+  - `docs/ENVIRONMENT_REGISTRY.md` — which MCPs/providers are available
   - `.guarani/` — governance rules that take effect on activation
 
 <!-- llmrefs:end -->

@@ -11,9 +11,9 @@
 - **Role:** Specification for the `doctor` health-check command
 - **Summary:** 23 validation checks (env, files, providers, hooks, workspace, governance) that gate `/start` workflow. Comprehensive environment readiness validator.
 - **Read next:**
-  - `ACTIVATION_GUIDE.md` — how `doctor` fits in activation flow
-  - `SYSTEM_MAP.md` — what `doctor` validates
-  - `ENVIRONMENT_REGISTRY.md` — approved providers that `doctor` checks
+  - `docs/ACTIVATION_GUIDE.md` — how `doctor` fits in activation flow
+  - `docs/SYSTEM_MAP.md` — what `doctor` validates
+  - `docs/ENVIRONMENT_REGISTRY.md` — approved providers that `doctor` checks
 
 <!-- llmrefs:end -->
 

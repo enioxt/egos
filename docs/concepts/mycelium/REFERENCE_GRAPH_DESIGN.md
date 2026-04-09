@@ -12,7 +12,7 @@
 - **Role:** reference-graph design rationale
 - **Summary:** Specifies entity types, relation types, evidence semantics, and the roadmap.
 - **Read next:**
-  - `docs/knowledge/MYCELIUM_OVERVIEW.md` — **topology** — anchors the design to the current layered Mycelium meaning
+  - `docs/concepts/mycelium/MYCELIUM_OVERVIEW.md` — **topology** — anchors the design to the current layered Mycelium meaning
   - `packages/shared/src/mycelium/reference-graph.ts` — **implementation** — is the canonical code seed produced from this design
   - `apps/egos-web/api/mycelium-stats.ts` — **implementation** — projects the graph into the public snapshot payload
 

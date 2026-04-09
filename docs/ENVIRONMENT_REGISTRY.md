@@ -9,7 +9,7 @@
 - **Role:** Mapeamento agnóstico de ambientes de IA, ferramentas MCP e hosts operacionais
 - **Summary:** Define quais IDEs, hosts e provedores de LLM podem executar EGOS; abstraí capacidades por agente. Não prescreve ferramentas específicas (ex: "use Windsurf"). Mapeia MCP servers disponíveis.
 - **Read next:**
-  - `SYSTEM_MAP.md` — topologia geral do ecossistema
+  - `docs/SYSTEM_MAP.md` — topologia geral do ecossistema
   - `docs/modules/CHATBOT_SSOT.md` — especificação de modelos e roteamento
   - `.guarani/` — governança por ambiente
 

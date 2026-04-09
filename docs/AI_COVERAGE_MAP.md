@@ -11,9 +11,9 @@
 - **Role:** Inventory of all AI/LLM dependencies and costs across ecosystem
 - **Summary:** Maps which models (Claude, Qwen, Gemini) are used in each repo/file. Tracks estimated costs and active status. Auto-synced via `ai-coverage-scan.ts`.
 - **Read next:**
-  - `CAPABILITY_REGISTRY.md` — AI-related capabilities and their status
+  - `docs/CAPABILITY_REGISTRY.md` — AI-related capabilities and their status
   - `docs/modules/CHATBOT_SSOT.md` — model selection rules
-  - `ENVIRONMENT_REGISTRY.md` — approved providers and hosts
+  - `docs/ENVIRONMENT_REGISTRY.md` — approved providers and hosts
 
 <!-- llmrefs:end -->
 
