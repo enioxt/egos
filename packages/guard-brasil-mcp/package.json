@@ -3,13 +3,12 @@
   "version": "0.1.0",
   "description": "MCP Server for Guard Brasil — LGPD PII detection as a Claude tool",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/mcp-server.js",
   "bin": {
     "guard-brasil-mcp": "dist/mcp-server.js"
   },
   "scripts": {
-    "build": "tsc --noEmit && tsc",
+    "build": "bun build --bundle --target=node --outfile=dist/mcp-server.js src/mcp-server.ts && chmod +x dist/mcp-server.js",
     "dev": "bun run src/mcp-server.ts",
     "start": "node dist/mcp-server.js",
     "test": "bun test"
@@ -26,12 +25,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/enioxt/egos.git",
+    "url": "git+https://github.com/enioxt/egos.git",
     "directory": "packages/guard-brasil-mcp"
   },
-  "dependencies": {
-    "@egosbr/guard-brasil": "workspace:*"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/node": "^20.0.0",
     "typescript": "^5.0.0"

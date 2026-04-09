@@ -111,9 +111,9 @@
 
 **P1 — MCP Ecosystem (Próximas 2 semanas):**
 - [x] **API-006**: x402 channel para Guard Brasil ✅ — `apps/egos-gateway/src/channels/guard-brasil.ts` live. Vercel wrapper deferred (gateway serve propósito). ✅ 2026-04-09
-- [/] **API-007 [ENIO]**: Submit Guard Brasil em Smithery — `smithery.yaml` ✅ pronto em `packages/guard-brasil-mcp/`. **⚠️ PREREQ: MCP-PUB-001 (npm publish)**. Tutorial: (1) `cd packages/guard-brasil-mcp && npm publish --access public` OU (2) smithery.ai/new → "Connect GitHub Repo" → enioxt/egos → subdir `packages/guard-brasil-mcp`. CLI alternativo: `npx smithery mcp publish "https://guard.egos.ia.br/mcp" -n @egosbr/guard-brasil` (requer endpoint HTTP streaming). | 45min MANUAL
+- [/] **API-007 [ENIO]**: Submit Guard Brasil em Smithery — `smithery.yaml` ✅, npm ✅ (`@egosbr/guard-brasil-mcp@0.1.0`). **Precisa API key:** smithery.ai/account/api-keys → `SMITHERY_API_KEY` → `npx @smithery/cli@latest publish --name egosbr/guard-brasil`. | 15min MANUAL
 - [/] **API-008 [ENIO]**: Listar em Glama (20,771 servers, SEO) — `glama.json` ✅ pronto em `packages/guard-brasil-mcp/`. Tutorial: (1) glama.ai/mcp/servers → "Add Server" → cole: `https://github.com/enioxt/egos/tree/main/packages/guard-brasil-mcp` → Glama auto-indexa do GitHub (não precisa npm). Metadata exibida: nome, descrição, security grade, license, last updated. | 15min MANUAL (Glama não precisa npm publish)
-- [ ] **MCP-PUB-001 [P1]**: Publish `@egosbr/guard-brasil-mcp` to npm — `cd packages/guard-brasil-mcp && bun run build && npm publish --access public`. Workspace dep `@egosbr/guard-brasil` precisa ser bundled ou peer. Bloqueador para Smithery listing. | 1h
+- [x] **MCP-PUB-001 [P1]**: Publish `@egosbr/guard-brasil-mcp` to npm — bundled with `bun build --bundle`, 30KB single file, smoke-tested. ✅ 2026-04-09
 - [ ] **API-009**: Criar llms.txt para AI discovery
 - [ ] **API-010**: Documentar X402_INTEGRATION.md
 
