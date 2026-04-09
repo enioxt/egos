@@ -200,7 +200,7 @@
 - [x] **HQV2-001**: `/api/hq/tasks` — parse /data/TASKS.md → `{total, pending, p0, p1, stale_p0}` ✅ 2026-04-09
 - [ ] **HQV2-002**: `/api/hq/world-model` — read /data/world-model/current.json → health%, blockers
 - [ ] **HQV2-003**: `/api/hq/gems` — gem-hunter API → top gems, last run, sector breakdown
-- [ ] **HQV2-004**: `/api/hq/drift` — read /data/jobs/doc-drift-sentinel.md → structured drift per repo (DRIFT-012)
+- [x] **HQV2-004**: `/api/hq/drift` — read /data/jobs/doc-drift-sentinel.md → structured drift per repo (DRIFT-012) ✅ 2026-04-09
 
 **Phase 3 — New dashboard pages:**
 - [x] **HQV2-006**: `/tasks` page — Kanban P0/P1/P2, done/pending counts (dep: HQV2-001) ✅ 2026-04-09
@@ -405,7 +405,7 @@
 
 **XMCP — X MCP Server oficial (xdevplatform/xmcp):**
 - [x] **XMCP-002**: Keys regeneradas e .env atualizado ✅ 2026-04-07. Serviço iniciado ✅ 2026-04-08 — PID 802844, port 8200, VPS 204.168.217.125. Dois patches em server.py: (1) usar tokens existentes ao invés de OAuth flow, (2) load_env() antes de ler MCP_PORT.
-- [ ] **SOCIAL-003 [P1]**: x-reply-bot — busca por "LGPD", "licitação", "split payment", "análise de vínculos"
+- [x] **SOCIAL-003 [P1]**: x-reply-bot — busca por "LGPD", "licitação", "split payment", "análise de vínculos" ✅ 2026-04-09
 - [x] **SOCIAL-004 [P1]**: X Post HITL bot live ✅ 2026-04-08 — 3 alternatives + Telegram inline keyboard + choice learning (x_post_options, x_post_choices, x_post_preferences tables). VPS daemon running.
 - [ ] **SOCIAL-005 [P2]**: Reply automático a @mentions com link produto relevante (aprovação manual)
 - [ ] **SOCIAL-006 [P2]**: HQ dashboard tab social — candidatos DM, DMs enviadas, respostas

@@ -156,7 +156,22 @@ const TOPICS: TopicQuery[] = [
     min_likes: 8,
     link: "https://github.com/enioxt/egos",
   },
-  // Ecosystem
+  // Split payment & Neo4j analysis (SOCIAL-003)
+  {
+    query: '"split payment" Brasil fintech API OR "pagamento parcelado" -is:retweet lang:pt',
+    category: "fintech_br",
+    our_angle: "Processamento de split payment com compliance LGPD nativo. Guard Brasil detecta PII em transações automaticamente.",
+    min_likes: 8,
+    link: "https://guard.egos.ia.br",
+  },
+  {
+    query: '"análise de vínculos" OR "análise de redes" Neo4j OR grafo dados abertos Brasil lang:pt -is:retweet',
+    category: "graph_analysis",
+    our_angle: "br-acc: 83M+ entidades no grafo (CNPJ, CPF, órgãos). Análise de vínculos em tempo real via Neo4j.",
+    min_likes: 5,
+    link: "https://github.com/enioxt/egos",
+  },
+    // Ecosystem
   {
     query: '"agent framework" "open source" release OR launched lang:en -is:retweet',
     category: "ecosystem",
