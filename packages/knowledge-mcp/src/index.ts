@@ -147,6 +147,35 @@ server.tool(
   }
 );
 
+// Tool: ingest_file
+server.tool(
+  "ingest_file",
+  "Ingest a local PDF, DOCX, or Markdown file into the EGOS Knowledge Base. Runs Guard Brasil PII scan automatically.",
+  {
+    file_path: z.string().describe("Absolute path to the file (PDF, DOCX, or Markdown)"),
+    category: z.string().optional().describe("Category (e.g. 'metalurgia', 'juridico', 'saude'). Default: 'geral'"),
+    dry: z.boolean().optional().describe("If true, preview without writing to database"),
+  },
+  async ({ file_path, category = "geral", dry = false }) => {
+    try {
+      const { execSync } = await import("child_process");
+      const bunPath = process.execPath;
+      const scriptPath = new URL("../../scripts/kb-ingest.ts", import.meta.url).pathname;
+      const args = ["--file", file_path, "--category", category, ...(dry ? ["--dry"] : [])];
+      const output = execSync(`${bunPath} ${scriptPath} ${args.map((a) => JSON.stringify(a)).join(" ")}`, {
+        env: process.env,
+        encoding: "utf-8",
+        timeout: 30000,
+      });
+      return { content: [{ type: "text" as const, text: output }] };
+    } catch (e) {
+      const err = e as { stdout?: string; stderr?: string; message?: string };
+      const detail = err.stdout ?? err.stderr ?? err.message ?? "unknown error";
+      return { content: [{ type: "text" as const, text: "❌ Ingest failed: " + detail }] };
+    }
+  }
+);
+
 // ── Start ──────────────────────────────────────────────────────────────────
 async function main() {
   const transport = new StdioServerTransport();

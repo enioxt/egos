@@ -666,7 +666,7 @@
 - [x] **KBS-003 [P0]**: Guia setup PT-BR — `docs/guides/KBS_ONBOARDING_PT_BR.md` — install Claude Code → OAuth Notion MCP → primeiro `/ingest` + `/ask`. Com screenshots. | 3h ✅ 2026-04-09
 - [x] **KBS-004 [P0]**: FORJA namespace beta — `clients/forja/` ou branch no FORJA repo, `.guarani/forja-rules.md`, ingestar 10 docs piloto (orçamento antigo, ficha produção, ABNT referenciada). | 6h ✅ 2026-04-08
 - [ ] **KBS-005 [P0]**: Loom demo 3–5min PT-BR — "Sua Inteligência da Empresa em 5 minutos". Gravar usando dogfooding interno (TASKS.md + HARVEST.md como exemplo). | 2h ✅ 2026-04-08
-- [ ] **KBS-006 [P0]**: PDF/Docx ingestor — plugar em `wiki-compiler.ts` via `unpdf` + `mammoth`. Input: pasta, output: atoms no `egos_wiki_pages`. | 8h
+- [x] **KBS-006 [P0]**: PDF/Docx ingestor — `scripts/kb-ingest.ts` via `unpdf` + `mammoth` + Guard Brasil PII scan. `ingest_file` tool adicionado ao knowledge-mcp. ✅ 2026-04-09
 - [ ] **KBS-007 [P0]**: KB-lint adaptado — fork de `ssot-auditor.ts` focado em: órfãos, contradições, staleness >90d, citações quebradas. Modo `bun kb:lint --tenant=forja`. | 6h
 - [ ] **KBS-008 [P0]**: `packages/knowledge-mcp/` completar — expor tools: `kb_ingest`, `kb_ask`, `kb_lint`, `kb_export`. Publicar como `@egosbr/knowledge-mcp`. | 8h
 - [ ] **KBS-009 [P0]**: Dogfooding interno — apontar knowledge-mcp para TASKS.md + HARVEST.md + handoffs. Usar 2 semanas antes de qualquer venda. Gate: 10 queries/dia por 14 dias. | on-going
@@ -998,6 +998,6 @@
 
 > **Contexto:** Estamos usando Notion MCP + Claude Code diariamente. Mudanças nas plataformas (novos MCPs, novos features, breaking changes) devem ser detectadas e adaptadas. Já temos llm-model-monitor.ts rodando 4x/dia para modelos. Criar padrão similar para plataformas.
 
-- [ ] **PLAT-MON-001 [P1]**: `scripts/platform-monitor.ts` — monitora changelogs/release notes: Notion (notion.so/blog), Claude Code (npm @anthropic-ai/claude-code changelog), Anthropic API (docs.anthropic.com/changelog). Detecta mudanças relevantes para EGOS e alerta Telegram. Cron VPS 9h BRT. | 4h
-- [ ] **PLAT-MON-002 [P1]**: Supabase table `platform_updates(id, platform, version, summary, egos_impact, alerted, created_at)` — histórico de atualizações detectadas. | 1h (dep: PLAT-MON-001)
+- [x] **PLAT-MON-001 [P1]**: `scripts/platform-monitor.ts` — monitora 5 plataformas (claude-code, anthropic-sdk, notion-client, mcp-sdk, bun) via npm registry + GitHub releases. Impact assessment (low/medium/high/critical). Telegram alert para high+. ✅ 2026-04-09
+- [x] **PLAT-MON-002 [P1]**: Supabase migration `20260409_platform_updates.sql` — tabela `platform_updates` com RLS service_role. ✅ 2026-04-09
 - [ ] **PLAT-MON-003 [P2]**: Auto-task em TASKS.md quando impacto HIGH detectado — `platform_updates.egos_impact = "high"` → cria task `ADAPT-NNN` automaticamente. | 2h (dep: PLAT-MON-002)
