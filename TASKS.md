@@ -80,8 +80,9 @@
 
 **P1 — MCP Ecosystem (Próximas 2 semanas):**
 - [x] **API-006**: x402 channel para Guard Brasil ✅ — `apps/egos-gateway/src/channels/guard-brasil.ts` live. Vercel wrapper deferred (gateway serve propósito). ✅ 2026-04-09
-- [/] **API-007 [ENIO]**: Submit Guard Brasil em Smithery (5,000+ servers) — `smithery.yaml` ✅ pronto. **ENIO: acesse smithery.ai → "Submit Server" → repo enioxt/egos → dir packages/guard-brasil-mcp** | 30min MANUAL
-- [/] **API-008 [ENIO]**: Listar em Glama (20,771 servers, SEO) — `glama.json` ✅ pronto. **ENIO: acesse glama.ai → "Add MCP Server" → cole URL github.com/enioxt/egos/tree/main/packages/guard-brasil-mcp** | 30min MANUAL
+- [/] **API-007 [ENIO]**: Submit Guard Brasil em Smithery — `smithery.yaml` ✅ pronto em `packages/guard-brasil-mcp/`. **⚠️ PREREQ: MCP-PUB-001 (npm publish)**. Tutorial: (1) `cd packages/guard-brasil-mcp && npm publish --access public` OU (2) smithery.ai/new → "Connect GitHub Repo" → enioxt/egos → subdir `packages/guard-brasil-mcp`. CLI alternativo: `npx smithery mcp publish "https://guard.egos.ia.br/mcp" -n @egosbr/guard-brasil` (requer endpoint HTTP streaming). | 45min MANUAL
+- [/] **API-008 [ENIO]**: Listar em Glama (20,771 servers, SEO) — `glama.json` ✅ pronto em `packages/guard-brasil-mcp/`. Tutorial: (1) glama.ai/mcp/servers → "Add Server" → cole: `https://github.com/enioxt/egos/tree/main/packages/guard-brasil-mcp` → Glama auto-indexa do GitHub (não precisa npm). Metadata exibida: nome, descrição, security grade, license, last updated. | 15min MANUAL (Glama não precisa npm publish)
+- [ ] **MCP-PUB-001 [P1]**: Publish `@egosbr/guard-brasil-mcp` to npm — `cd packages/guard-brasil-mcp && bun run build && npm publish --access public`. **PREREQ:** `@egosbr/guard-brasil` workspace dep deve ser resolvido (bundled ou peer). Bloqueador para API-007. | 1h
 - [ ] **API-009**: Criar llms.txt para AI discovery
 - [ ] **API-010**: Documentar X402_INTEGRATION.md
 
@@ -807,7 +808,7 @@
 ### VPS — Auto-Deploy Pipelines
 
 - [x] **VPS-001 [P0]**: `.github/workflows/vps-deploy-guard-brasil.yml` criado — dispara em push para paths `packages/guard-brasil/**`, `apps/api/**`. Rollback automático se healthcheck falha. ✅ 2026-04-09
-- [ ] **VPS-002 [P1]**: Configurar secrets GitHub: `VPS_SSH_KEY` (ed25519 key content), `VPS_HOST` (204.168.217.125), `GH_DEPLOY_TOKEN` (PAT com `contents:read`). Testar workflow manualmente. | 30min
+- [ ] **VPS-002 [P1] [ENIO]**: Configurar 3 GitHub Secrets para o workflow `vps-deploy-guard-brasil.yml`. Passos: (1) github.com/enioxt/egos/settings/secrets/actions → "New repository secret" → `VPS_SSH_KEY` = conteúdo de `~/.ssh/hetzner_ed25519` (chave privada completa com BEGIN/END). (2) `VPS_HOST` = `204.168.217.125`. (3) `GH_DEPLOY_TOKEN` = PAT com escopo `contents:read` (Settings→Developer settings→PAT). (4) Testar: Actions → "VPS Deploy Guard Brasil" → "Run workflow". Claude não tem acesso ao GitHub Settings via gh CLI (requer browser auth). | 15min MANUAL
 - [ ] **VPS-003 [P2]**: Workflow análogo para `egos-gateway` — paths: `apps/egos-gateway/**`. Deploy via rsync + docker compose no VPS. | 2h
 - [ ] **VPS-004 [P2]**: Workflow para `egos-hq` — paths: `apps/egos-hq/**`. | 1h
 - [ ] **VPS-005 [P1]**: VPS health check 2x/dia (09:00 + 21:00 BRT) — script que verifica todos os containers Docker ativos, versões vs. main branch, reporta discrepâncias via Telegram. Usar estrutura existente do watchdog. | 3h
@@ -852,7 +853,7 @@
 ### ACASH — AgentCash
 
 - [x] **ACASH-001 [P0]**: Skill AgentCash instalado em `~/.claude/commands/agentcash.md`. Invite AC-LZR4-C5AX-F5DH-EAB2 resgatado. ✅ 2026-04-09
-- [ ] **ACASH-002 [P0]**: Enio rodar no terminal local: `npx agentcash@latest onboard AC-LZR4-C5AX-F5DH-EAB2` → cria wallet USDC local + verifica saldo. Depois: `npx agentcash wallet info`. | 5min
+- [x] **ACASH-002 [P0]**: Wallet criada via `npx agentcash@latest onboard` (invite já resgatado — OK). Wallet Base/Tempo: `0x8C26958753cdfc6434455021F330BF95FD260b2f` | Solana: `HkwMoWsUMEpFRVJLLW4sALgFg35jdU1VFFmFgVJL8Jpe` | Saldo: 0 USDC. Depositar em `agentcash.dev/deposit/0x8C26...` ✅ 2026-04-09
 - [ ] **ACASH-003 [P1]**: Listar Guard Brasil `/guard-brasil/inspect` no AgentCash como provider x402. Usar `npx agentcash discover` para entender o processo. Guard Brasil já tem x402 implementado (API-005 ✅). | 2h
 - [ ] **ACASH-004 [P2]**: Testar chamada Guard Brasil via AgentCash: `npx agentcash fetch https://gateway.egos.ia.br/guard-brasil/inspect` com payload PII. Documentar fluxo completo. | 1h
 
@@ -861,4 +862,74 @@
 - [ ] **HYPER-001 [P2]**: Instalar Hyperspace na máquina LOCAL (não no VPS): `curl -fsSL https://agents.hyper.space/api/install | bash`. Testar API OpenAI-compatible em `localhost:8080/v1`. Avaliar como LLM fallback local no EGOS chain. | 2h
 - [ ] **HYPER-002 [P3]**: Avaliar pontos Hyperspace após 7 dias de uptime. Se pontos tiverem valor real → configurar VPS separado (não o Hetzner atual) para mining. | 1 semana avaliação
 - [ ] **HYPER-003 [P3]**: Integrar `localhost:8080/v1` como nó 4 da cadeia de LLMs do EGOS (após Qwen → Claude → OpenRouter → Hyperspace local). Apenas para inferência não-crítica. | 2h
+
+---
+
+## Paperclip Visual Dashboard + Grok 5-Topic Complement (2026-04-09)
+
+> **Context (investigação):** Grok analisou 5 tópicos estratégicos para EGOS: (1) Spec-Driven Dev, (2) Paperclip visual dashboard, (3) Claude Code + No-Code, (4) Obsidian knowledge layer, (5) Cost monitoring + Distribution. Tasks complementam o que já existe.
+
+### DASH — Paperclip Visual Dashboard
+
+> **Estratégia HYBRID:** EGOS não compete com Paperclip — é o compliance kernel dentro dele. EGOS agents se registram como Paperclip "employees", Guard Brasil valida outputs.
+>
+> **Dificuldades de integração (documentadas):**
+> 1. **Hierarquia vs flat:** Paperclip requer CEO→Director→IC reporting. EGOS agents são flat. Precisa org-chart wrapper.
+> 2. **Ticket vs event bus:** Paperclip usa Prisma tickets imutáveis. EGOS usa Supabase agent_events. Mapper necessário.
+> 3. **Budget enforcement:** Paperclip tem monthly_cap nativo. EGOS só monitora (PAP-002 bloqueia DASH-008).
+> 4. **Deploy divergente:** Paperclip espera Node.js local :3100. EGOS = VPS Docker. Compose separado necessário.
+> 5. **"Bring-your-own-ticket-system" ainda no Roadmap** — adapter externo depende de feature não lançada.
+> 6. **"Multiple Human Users" não suportado** — bloqueia cenário multi-tenant FORJA.
+> 7. **"CEO Chat" não implementado** — sem interface natural language para diretivas top-level.
+
+- [ ] **DASH-001 [P2]**: Pesquisa técnica Paperclip adapter-plugin + schema Prisma — antes de implementar, mapear exatamente como registrar agent externo (adapter-plugin.md + `/packages`). | 2h
+- [ ] **DASH-002 [P2]**: Docker compose Paperclip self-hosted no VPS — `infra/docker-compose.paperclip.yml` com server:3100 + UI + Postgres isolado. | 3h
+- [ ] **DASH-003 [P2]**: Bridge EGOS→Paperclip — `scripts/egos-to-paperclip-bridge.ts`: converte `agent_events` Supabase para ticket format Prisma. | 4h
+- [ ] **DASH-004 [P2]**: EGOS agents como Paperclip employees — script lê `agents.json` e POST /agents no Paperclip com hierarchy (runner.ts=CEO, domain=Director, task=IC). | 4h
+- [ ] **DASH-005 [P3]**: Org chart EGOS canônico — `docs/PAPERCLIP_ORG.md` definindo: Kernel(CEO)→domain-agents(Directors)→task-runners(ICs). | 2h
+- [ ] **DASH-006 [P3]**: Guard Brasil compliance plugin Paperclip — intercepta outputs de ICs antes de subir, valida PII via Guard Brasil. | 6h
+- [ ] **DASH-007 [P3]**: Heartbeat EGOS visível no Paperclip UI — mapear pulso 30min (heartbeat.ts) para Paperclip scheduled task format. | 3h (dep: PAP-001 ✅)
+- [ ] **DASH-008 [P3]**: Budget EGOS→Paperclip — mapear `monthly_cap` (PAP-002) para budget enforcement nativo do Paperclip. | 2h (dep: PAP-002)
+- [ ] **DASH-009 [P3]**: Publicar `@egosbr/paperclip-adapter` — npm package com adapter + docs + exemplo de uso. | 4h (dep: DASH-003/004)
+- [ ] **DASH-010 [P3]**: Demo screenshot "EGOS inside Paperclip org chart" → draft X.com thread. | 1h (dep: DASH-002/004)
+
+### SDD — Spec-Driven Development
+
+> **Contexto:** 80-90% do que SDD precisa já existe em EGOS (`.guarani/`, doctor, pr:gate). Falta formalizar como skills + template SSOT.
+
+- [ ] **SDD-001 [P2]**: Skill `/spec:init` — gera `docs/specs/SPEC-<feature>.md` a partir de prompt: problema → requisitos → API contract → cenários de teste. | 3h
+- [ ] **SDD-002 [P2]**: Skill `/spec:plan` — lê SPEC-*.md e propõe task breakdown com arquivo de destino por item. | 2h
+- [ ] **SDD-003 [P2]**: Skill `/spec:implement` — lê SPEC-*.md e gera implementação seguindo spec como SSOT (sem vibe coding). | 3h
+- [ ] **SDD-004 [P2]**: Skill `/spec:review` — compara implementação vs spec, identifica drift, propõe delta. | 2h
+- [ ] **SDD-005 [P2]**: `bun scripts/spec-doctor.ts` — verifica que cada feat/* branch tem SPEC doc; flags features sem spec. | 2h
+- [ ] **SDD-006 [P3]**: pr:gate spec check — pre-commit warning se branch `feat/*` sem SPEC correspondente em `docs/specs/`. | 1h
+- [ ] **SDD-007 [P3]**: `docs/specs/SPEC-TEMPLATE.md` — template canônico: Problem, Goals, Out-of-scope, API Contract, Test Scenarios, Acceptance Criteria. | 1h
+- [ ] **SDD-008 [P3]**: Specs retroativas Guard Brasil — 4 SPECs para endpoints existentes: inspect, meta, webhook, admin. | 4h
+- [ ] **SDD-009 [P3]**: HARVEST entry "SDD como método EGOS" — documentar por que spec-first evita retrabalho no contexto agent-driven. | 30min
+
+### OBS — Obsidian + Knowledge Layer
+
+> **Contexto:** Complementa KBS (Knowledge Base Service). KBS = service público para clientes. OBS = ferramenta interna Enio + agents. 3-layer memory: CLAUDE.md+MEMORY.md (session), vault+wikilinks+MCP (knowledge graph), brain-ingest (audio/PDF→notas).
+
+- [ ] **OBS-010 [P2]**: Vault Obsidian template EGOS — criar `~/.egos/vault/` com estrutura: `inbox/`, `active/`, `archive/`, `resources/`, `daily/`. | 1h
+- [ ] **OBS-011 [P2]**: MCP Obsidian Server — instalar e configurar MCP para Claude ler/escrever notas do vault diretamente. | 2h
+- [ ] **OBS-012 [P2]**: Skill `/kb:init` — inicializa nota na vault para tópico novo com links para TASKS + specs + HARVEST relevantes. | 2h
+- [ ] **OBS-013 [P3]**: Brain-ingest pipeline FORJA — Whisper transcreve átas → nota Obsidian formatada → indexada no wiki-compiler. | 8h (dep: FORJA-TOOLS-002)
+- [ ] **OBS-014 [P3]**: Wikilinks → codebase-memory-mcp sync — script que lê [[wikilinks]] do vault e cria relacionamentos no grafo EGOS. | 4h
+- [ ] **OBS-015 [P3]**: Skill `/daily` — cria nota diária com: P0s do dia de TASKS.md, VPS health summary, gems pendentes de revisão. | 2h
+
+### COST — Monitoramento de Uso + Custos
+
+- [ ] **COST-001 [P2]**: Fork `claude-code-usage` (Unclecode) — adaptar para ler JSONL de `~/.claude/projects/*/` e exibir tokens/custo por projeto/sessão. | 4h
+- [ ] **COST-002 [P2]**: EGOS logs → custo estimado — `agent_events` Supabase + custo por model (Haiku:$0.25/Sonnet:$3/Opus:$15 por 1M tokens). Tabela `usage_costs` no Supabase. | 4h
+- [ ] **COST-003 [P3]**: Skill `/usage:report` — relatório mensal: por projeto, por modelo, top 5 sessions mais caras. | 2h (dep: COST-001)
+- [ ] **COST-004 [P3]**: Alerta semanal custo — Telegram sexta 18h: "esta semana $X em Claude Code, top session Y". | 2h (dep: COST-001)
+- [ ] **COST-005 [P3]**: Budget guard session — se session atual estimada > $5 → auto-sugerir switch para Haiku. Implementar como hook `PostToolUse`. | 1h
+
+### GTM — Distribuição (complement GTM-001)
+
+- [ ] **GTM-002 [P2]**: Newsletter mensal industria/FORJA — "IA para indústria metalúrgica" template + Notion integration + lista opt-in. | 3h
+- [ ] **GTM-003 [P2]**: Infinite loop de conteúdo — cron semanal que pega gem mais votado (semana) + gera draft X.com thread via Qwen. | 3h (dep: GH-094 feedback loop)
+- [ ] **GTM-004 [P3]**: EGOS Media Kit automático — `scripts/media-kit-generator.ts` gera PDF com stats reais do Guard Brasil (calls/uptime/PII patterns). | 4h
+- [ ] **GTM-005 [P3]**: `llms.txt` para Guard Brasil — `https://guard.egos.ia.br/llms.txt` com capabilities + examples para AI discovery. | 1h
 
