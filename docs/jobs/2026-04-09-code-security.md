@@ -68,8 +68,15 @@ Identified exports from `packages/shared/src/index.ts` with low/zero usage:
 | Bun packages installed | 448 | ✓ Recent (Apr 9) |
 | Guard Brasil version | 0.2.3 (local & npm) | ✓ In sync |
 | Root deps | substack-api, yaml, zod (latest) | ✓ Current |
+| GitHub Dependabot scan | **12 vulnerabilities detected** | 🔴 **CRITICAL** |
 
-**Status:** ✓ No known vulnerabilities, lockfile recent.
+**⚠️ ALERT:** GitHub Dependabot found 12 vulnerabilities on default branch:
+- **4 HIGH severity** ← Requires immediate action
+- **8 MODERATE severity** ← Review & patch
+
+**Action Required:** Visit https://github.com/enioxt/egos/security/dependabot to review and apply patches. This should block next production deploy if not resolved.
+
+**Status:** ⏳ Action pending (dependency vulnerabilities > code vulnerabilities)
 
 ### Secret Scanning
 **Finding:** 15 matches for API key patterns — ALL SAFE ✓
@@ -133,6 +140,13 @@ Identified exports from `packages/shared/src/index.ts` with low/zero usage:
 
 ## PART 4: RECOMMENDATIONS (PRIORITIZED)
 
+### 🔴 CRITICAL PRIORITY (P0 - BLOCKING)
+**GitHub Dependabot: 12 vulnerabilities (4 high, 8 moderate)**
+- **Action:** Review & apply patches at https://github.com/enioxt/egos/security/dependabot
+- **Timeline:** Within 24 hours (4 HIGH = production risk)
+- **Blocker:** Do not merge to production until resolved
+- **Impact:** Potential RCE, auth bypass, or data exposure depending on package
+
 ### 🔴 HIGH PRIORITY (P0)
 1. **Audit & update CCR scheduled jobs** (INC-001 pending action)
    - Which job did the 2026-04-06 force-push? Check https://claude.ai/code/scheduled
@@ -180,16 +194,17 @@ Identified exports from `packages/shared/src/index.ts` with low/zero usage:
 | Category | Grade | Notes |
 |----------|-------|-------|
 | **Code Health** | B+ | Large files (900 LOC), 132 anys, but no dead code. TypeScript errors only in scripts. |
-| **Security** | A | No hardcoded secrets, safe dependency usage, INC-001 mitigations mostly deployed. |
+| **Security** | 🔴 **C** | **12 GitHub vulnerabilities detected (4 HIGH).** No hardcoded secrets, but dependency risk is elevated. INC-001 mitigations mostly deployed. |
 | **Governance** | A | SSOT compliant, TASKS.md under limit, conventional commits enforced. |
 | **Incident Readiness** | A- | Branch protection + audit logging in place; pending: scheduled job update. |
 
-### **FINAL VERDICT: REVIEW** (3 items block production, 2 items nice-to-have)
+### **FINAL VERDICT: CRITICAL** (1 blocking dependency issue + 3 P1 items)
 
-**Must fix before next release:**
-1. ✅ Scheduled jobs → use safe-push.sh (INC-001)
-2. ✅ TypeScript in scripts/ (ci visibility)
-3. ✅ Implicit any audit (code quality)
+**MUST FIX BEFORE PRODUCTION:**
+1. 🔴 **GitHub Dependabot: Apply 4 HIGH severity patches** (24h SLA)
+2. ✅ Scheduled jobs → use safe-push.sh (INC-001)
+3. ✅ TypeScript in scripts/ (ci visibility)
+4. ✅ Implicit any audit (code quality)
 
 **Can phase in parallel:**
 - Large file refactoring (improves testability)
