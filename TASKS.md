@@ -588,7 +588,7 @@
 
 - [x] **DISS-001 [P1]**: `scripts/disseminate-scanner.ts` — lê `git diff HEAD~1` nos kernel files, identifica seções que mudaram, gera manifest `{changed_rules: [], affected_repos: []}` | 2h ✅ 2026-04-08
 - [x] **DISS-002 [P1]**: `scripts/disseminate-propagator.ts` — recebe manifest, para cada repo: atualiza bloco kernel no marker `# EGOS-KERNEL-PROPAGATED`, cria commit `chore(kernel): propagate YYYY-MM-DD` | 3h ✅ 2026-04-08
-- [ ] **DISS-003 [P1]**: `scripts/disseminate-verifier.ts` — re-lê cada repo após propagação, verifica marker + conteúdo + data, output: `{repo, status: pass|fail, missing_rules: []}` | 2h
+- [x] **DISS-003 [P1]**: `scripts/disseminate-verifier.ts` ✅ — verifica marker EGOS-KERNEL-PROPAGATED em todos repos, output pass/fail/skip. 12/12 pass. | 2h ✅ 2026-04-09
 - [x] **DISS-004 [P1]**: post-commit hook trigger — quando CLAUDE.md | .windsurfrules | CAPABILITY_REGISTRY.md muda, auto-chama scanner | 1h ✅ 2026-04-08
 - [ ] **DISS-005 [P1]**: Telegram approval gate — verifier envia summary ao Telegram (`@ethikin`): lista repos + status, botões [✅ Approve All][❌ Review] | 2h
 - [ ] **DISS-006 [P2]**: VPS propagation — após aprovação local, SSH push kernel block para os 4 repos no VPS (`/opt/852`, `/opt/bracc`, `/opt/egos`, `/opt/egos-lab`) | 2h ✅ 2026-04-08
@@ -696,7 +696,7 @@
 **P0 — Desbloqueio GTM:**
 - [ ] **XMCP-002 [P0]**: SSH VPS e rodar `cd /opt/xmcp && bash start.sh`. Keys já estão no .env. Desbloqueia GTM-002 (X thread demo). | 15min
 - [x] **DISS-002 [P0]**: `scripts/disseminate-propagator.ts` — propaga kernel blocks pós-scanner (DISS-001 ✅). Target: blocks de rules via `scripts/auto-disseminate.sh`. | 3h ✅ 2026-04-08
-- [ ] **DISS-003 [P0]**: `scripts/disseminate-verifier.ts` — re-verifica propagação (hash check). | 2h
+- [x] **DISS-003 [P0]**: `scripts/disseminate-verifier.ts` ✅ — 12/12 repos verified. | 2h ✅ 2026-04-09
 - [ ] **DISS-005 [P0]**: Telegram approval gate para propagação — /approve antes de push. | 2h
 - [ ] **PAP-002 [P0]**: Per-agent monthly token budget — estender Guard Brasil token counter com `monthly_cap` por agent_id, auto-pause + alerta 80%. | 3h
 
@@ -800,7 +800,7 @@
 
 - [x] **SYNC-001 [P0]**: Auto-propagate kernel changes post-commit — `.husky/post-commit` atualizado: ao detectar mudança em CLAUDE.md/.windsurfrules/CAPABILITY_REGISTRY, roda disseminate-scanner + propagator (background). ✅ 2026-04-09
 - [ ] **SYNC-002 [P1]**: VPS cron diário (03:15 BRT) — `governance-sync --exec --propagate` garante que nenhum repo leaf fica > 24h sem sync de kernel. Adicionar ao crontab do VPS. | 1h
-- [ ] **SYNC-003 [P1]**: `br-acc/.husky/pre-commit` ausente — criar usando spec canônica de `carteira-livre` (POSIX-compatible, 6 checks). Sem divergir do padrão. | 1h
+- [x] **SYNC-003 [P1]**: `br-acc/.husky/pre-commit` ✅ — 5 checks (ruff lint, secrets, PII guard, SSOT size, kernel marker). | 1h ✅ 2026-04-09
 - [ ] **SYNC-004 [P2]**: Leaf→kernel feedback loop — sentinel que detecta se um leaf repo tem regra nova valiosa (padrão: marcada `CANDIDATE-GLOBAL:`) e cria issue no kernel para revisão. | 4h
 - [ ] **SYNC-005 [P1]**: Harmonizar pre-commit de `egos-lab` (4 checks custom) para incluir checks críticos do kernel: frozen zones, vocab guard, gitleaks. | 2h
 
