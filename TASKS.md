@@ -341,7 +341,11 @@
 ### HQ Dashboard v2 (2026-04-06)
 **Goal:** Mission Control shows full system state. **Prereq:** Volume mounts on VPS (data → /data/).
 - [x] **HQV2-000 [P0]**: Docker volume mounts — /opt/data/egos → /data:ro, env vars AGENTS_REGISTRY_PATH/TASKS_MD_PATH/CAPABILITY_REGISTRY_PATH/JOBS_DIR, daily GitHub sync cron 09:00 UTC. ✅ 2026-04-09
-- [ ] **HQV2-001..005 [P1]**: API routes — tasks, world-model, gems, system-map, gtm
+- [x] **HQV2-001 [P1]**: `/api/hq/tasks` — parses /data/TASKS.md → total/pending/p0/p1/stale_p0/completion_pct. ✅ 2026-04-09
+- [x] **HQV2-003 [P1]**: `/api/hq/gems` — proxies gateway gem-hunter/product endpoint. ✅ 2026-04-09
+- [ ] **HQV2-002 [P1]**: `/api/hq/world-model` — read /data/world-model/current.json → health%, blockers
+- [ ] **HQV2-004 [P1]**: `/api/hq/drift` — read /data/jobs/doc-drift-sentinel.md → structured drift per repo
+- [ ] **HQV2-005 [P1]**: `/api/hq/system-map` — agents.json + CAPABILITY_REGISTRY → graph data
 - [ ] **HQV2-006..010 [P2]**: Dashboard pages — /tasks Kanban, /world-model gauge, /gems cards, /system-map D3, nav update
 
 ---

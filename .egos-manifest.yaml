@@ -42,8 +42,8 @@ claims:
     readme_location: "CLAUDE.md §6"
     command: "find /home/enio/.claude/commands /home/enio/.egos/.claude/commands -maxdepth 2 -name '*.md' 2>/dev/null | wc -l | tr -d ' '"
     tolerance: "±5"
-    last_value: "38"
-    last_verified_at: "2026-04-07"
+    last_value: "45"
+    last_verified_at: "2026-04-09"
     category: "custom"
 
   - id: kernel_packages
