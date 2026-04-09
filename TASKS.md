@@ -580,7 +580,7 @@
 **Decision (2026-04-08):** Manter branch protection. GIT-001..003 RESOLVIDOS (já em main, divergência resolvida via rebase). Branch protection funcionando como esperado.
 - [ ] **GIT-004 [P1]**: Documentar workflow PR-first em `CLAUDE.md` para mudanças >5 arquivos ou >100 linhas
 - [x] **GIT-005 [P1]**: `scripts/create-pr.sh` ✅ 2026-04-09 — automatiza branch+push+gh CLI
-- [ ] **GIT-006 [P1]**: Comando `egos pr "título"` em `agents.json`
+- [x] **GIT-006 [P1]**: Comando `egos pr "título"` em `agents.json` ✅ 2026-04-09
 
 ---
 
