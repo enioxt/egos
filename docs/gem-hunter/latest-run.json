@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-06T07:11:24.571Z",
-  "reportPath": "/home/runner/work/egos/egos/docs/gem-hunter/gems-2026-04-06.md",
-  "totalGems": 165,
+  "generatedAt": "2026-04-09T07:03:26.315Z",
+  "reportPath": "/home/runner/work/egos/egos/docs/gem-hunter/gems-2026-04-09.md",
+  "totalGems": 168,
   "quick": false,
   "topicFilter": null,
   "tracks": [
@@ -10,19 +10,18 @@
     "governance-plugplay"
   ],
   "byCategory": {
-    "early-warning": 22,
-    "mcp-governance-servers": 38,
+    "early-warning": 21,
+    "mcp-governance-servers": 40,
     "a2a-agent-cards": 31,
     "agent-adapters": 29,
-    "agent-marketplaces": 31,
-    "strategic-signals": 14
+    "agent-marketplaces": 32,
+    "strategic-signals": 15
   },
   "bySource": {
-    "github": 23,
-    "x-public": 1,
-    "exa": 74,
-    "hackernews": 13,
-    "npm": 42,
+    "github": 24,
+    "exa": 75,
+    "hackernews": 16,
+    "npm": 41,
     "arxiv": 12
   }
 }

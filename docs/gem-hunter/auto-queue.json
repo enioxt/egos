@@ -1,0 +1,55 @@
+{
+  "version": "1.0.0",
+  "queue": [
+    {
+      "name": "semantic-release/semantic-release",
+      "url": "https://github.com/semantic-release/semantic-release",
+      "score": 107,
+      "category": "early-warning",
+      "structureBonus": 18,
+      "discoveredAt": "2026-04-09T07:03:26.306Z",
+      "status": "queued",
+      "branchSuggestion": "gem/adopt-semantic-release-semantic-release-2026-04-09"
+    },
+    {
+      "name": "release-it/release-it",
+      "url": "https://github.com/release-it/release-it",
+      "score": 107,
+      "category": "early-warning",
+      "structureBonus": 18,
+      "discoveredAt": "2026-04-09T07:03:26.306Z",
+      "status": "queued",
+      "branchSuggestion": "gem/adopt-release-it-release-it-2026-04-09"
+    },
+    {
+      "name": "docmirror/dev-sidecar",
+      "url": "https://github.com/docmirror/dev-sidecar",
+      "score": 107,
+      "category": "early-warning",
+      "structureBonus": 18,
+      "discoveredAt": "2026-04-09T07:03:26.306Z",
+      "status": "queued",
+      "branchSuggestion": "gem/adopt-docmirror-dev-sidecar-2026-04-09"
+    },
+    {
+      "name": "json-c/json-c",
+      "url": "https://github.com/json-c/json-c",
+      "score": 108,
+      "category": "early-warning",
+      "structureBonus": 25,
+      "discoveredAt": "2026-04-09T07:03:26.306Z",
+      "status": "queued",
+      "branchSuggestion": "gem/adopt-json-c-json-c-2026-04-09"
+    },
+    {
+      "name": "garrytan/gstack",
+      "url": "https://github.com/garrytan/gstack",
+      "score": 116,
+      "category": "early-warning",
+      "structureBonus": 27,
+      "discoveredAt": "2026-04-09T07:03:26.306Z",
+      "status": "queued",
+      "branchSuggestion": "gem/adopt-garrytan-gstack-2026-04-09"
+    }
+  ]
+}

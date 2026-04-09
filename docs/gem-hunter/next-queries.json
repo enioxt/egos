@@ -1,33 +1,41 @@
 {
-  "generatedAt": "2026-04-06T07:11:24.560Z",
+  "generatedAt": "2026-04-09T07:03:26.299Z",
   "trendingTerms": [
     [
       "score",
-      13
+      15
     ],
     [
       "comments",
+      15
+    ],
+    [
+      "a2aproject",
+      14
+    ],
+    [
+      "show",
       13
     ],
     [
-      "issue",
+      "agentregistry",
       12
     ],
     [
       "servers",
-      12
+      11
     ],
     [
-      "build",
-      12
-    ],
-    [
-      "show",
-      12
+      "main",
+      11
     ],
     [
       "agent2agent",
       11
+    ],
+    [
+      "http",
+      10
     ],
     [
       "https",
@@ -38,39 +46,31 @@
       10
     ],
     [
-      "a2aproject",
-      10
-    ],
-    [
-      "integration",
-      10
-    ],
-    [
-      "community",
-      9
-    ],
-    [
-      "cards",
-      8
-    ],
-    [
-      "polymcp",
-      8
-    ],
-    [
       "releases",
-      7
+      9
     ],
     [
       "json-c",
       7
     ],
     [
-      "http",
+      "docs",
+      7
+    ],
+    [
+      "a2a-js",
+      7
+    ],
+    [
+      "tools",
       6
     ],
     [
-      "official",
+      "microsoft",
+      6
+    ],
+    [
+      "client",
       6
     ],
     [
@@ -78,23 +78,23 @@
       6
     ],
     [
-      "infrastructure",
+      "issue",
       6
     ],
     [
-      "coding",
+      "cards",
       6
     ],
     [
-      "proposal",
+      "build",
       6
     ],
     [
-      "feat",
+      "polymcp",
       6
     ],
     [
-      "autogen",
+      "clawhub",
       6
     ],
     [
@@ -106,44 +106,44 @@
       5
     ],
     [
-      "docs",
+      "mcp-server",
       5
     ],
     [
-      "support",
+      "coding",
       5
     ],
     [
-      "trust",
+      "need",
       5
     ],
     [
-      "protocols",
-      5
+      "official",
+      4
     ]
   ],
   "suggestedQueries": [
     {
-      "topic": "Emerging: score + comments + issue",
+      "topic": "Emerging: score + comments + a2aproject",
       "keywords": [
-        "score comments issue",
-        "comments issue servers",
-        "issue servers build"
+        "score comments a2aproject",
+        "comments a2aproject show",
+        "a2aproject show agentregistry"
       ]
     },
     {
-      "topic": "Next-Gen: servers + build + show",
+      "topic": "Next-Gen: show + agentregistry + servers",
       "keywords": [
-        "servers build show",
-        "show agent2agent https"
+        "show agentregistry servers",
+        "servers main agent2agent"
       ]
     }
   ],
-  "totalGemsAnalyzed": 165,
+  "totalGemsAnalyzed": 168,
   "actionBreakdown": {
     "📋 Create Task": 49,
+    "📝 Document": 63,
     "🗑️ Discard": 9,
-    "📝 Document": 64,
-    "🔍 Evaluate": 43
+    "🔍 Evaluate": 47
   }
 }
