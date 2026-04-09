@@ -147,6 +147,62 @@ server.tool(
   }
 );
 
+// Tool: kb_lint
+server.tool(
+  "kb_lint",
+  "Audit the EGOS Knowledge Base for quality issues: orphaned pages, stale content (>90d), low quality scores, broken cross-references, and duplicates.",
+  {
+    tenant: z.string().optional().describe("Filter by tenant tag (e.g. 'forja', 'agronomo')"),
+    fix: z.boolean().optional().describe("Auto-fix broken cross_refs. Default: false (dry mode)"),
+  },
+  async ({ tenant, fix = false }) => {
+    try {
+      const { execSync } = await import("child_process");
+      const bunPath = process.execPath;
+      const scriptPath = new URL("../../scripts/kb-lint.ts", import.meta.url).pathname;
+      const args = [...(tenant ? [`--tenant=${tenant}`] : []), ...(fix ? ["--fix"] : ["--dry"])];
+      const output = execSync(`${bunPath} ${scriptPath} ${args.join(" ")}`, {
+        env: process.env,
+        encoding: "utf-8",
+        timeout: 30000,
+      });
+      return { content: [{ type: "text" as const, text: output }] };
+    } catch (e) {
+      const err = e as { stdout?: string; stderr?: string; message?: string };
+      return { content: [{ type: "text" as const, text: "Lint result:\n" + (err.stdout ?? err.stderr ?? err.message ?? "error") }] };
+    }
+  }
+);
+
+// Tool: kb_export
+server.tool(
+  "kb_export",
+  "Export Knowledge Base pages to JSON or Markdown. Useful for backups, migrations, or sharing KB content.",
+  {
+    format: z.enum(["json", "markdown"]).optional().describe("Export format. Default: json"),
+    category: z.string().optional().describe("Filter by category (e.g. 'metalurgia', 'juridico')"),
+    limit: z.number().optional().describe("Max pages to export. Default: 100"),
+  },
+  async ({ format = "json", category, limit = 100 }) => {
+    const params = new URLSearchParams({ limit: String(limit) });
+    if (category) params.set("category", category);
+    const data = await gwFetch(`/knowledge/pages?${params}`);
+    const d = data as { pages?: Array<{ slug: string; title: string; content: string; category: string; tags: string[]; quality_score: number }> };
+
+    if (!d.pages?.length) return { content: [{ type: "text" as const, text: "No pages found" }] };
+
+    if (format === "markdown") {
+      const md = d.pages.map((p) =>
+        `# ${p.title}\n\n**Category:** ${p.category} | **Quality:** ${p.quality_score}/100 | **Tags:** ${(p.tags ?? []).join(", ")}\n\n${p.content}\n\n---`
+      ).join("\n\n");
+      return { content: [{ type: "text" as const, text: `Exported ${d.pages.length} pages (Markdown):\n\n${md}` }] };
+    }
+
+    const json = JSON.stringify(d.pages, null, 2);
+    return { content: [{ type: "text" as const, text: `Exported ${d.pages.length} pages (JSON):\n\n${json}` }] };
+  }
+);
+
 // Tool: ingest_file
 server.tool(
   "ingest_file",

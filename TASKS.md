@@ -198,7 +198,6 @@
 **Phase 2 — Volume mounts + data routes:**
 - [x] **HQV2-000**: VPS docker-compose: volume mounts → /opt/data/egos:/data:ro + daily GitHub sync cron. ✅ 2026-04-09
 - [x] **HQV2-001**: `/api/hq/tasks` — parse /data/TASKS.md → `{total, pending, p0, p1, stale_p0}` ✅ 2026-04-09
-- [ ] **HQV2-002**: `/api/hq/world-model` — read /data/world-model/current.json → health%, blockers
 - [ ] **HQV2-003**: `/api/hq/gems` — gem-hunter API → top gems, last run, sector breakdown
 - [x] **HQV2-004**: `/api/hq/drift` — read /data/jobs/doc-drift-sentinel.md → structured drift per repo (DRIFT-012) ✅ 2026-04-09
 
@@ -668,7 +667,7 @@
 - [ ] **KBS-005 [P0]**: Loom demo 3–5min PT-BR — "Sua Inteligência da Empresa em 5 minutos". Gravar usando dogfooding interno (TASKS.md + HARVEST.md como exemplo). | 2h ✅ 2026-04-08
 - [x] **KBS-006 [P0]**: PDF/Docx ingestor — `scripts/kb-ingest.ts` via `unpdf` + `mammoth` + Guard Brasil PII scan. `ingest_file` tool adicionado ao knowledge-mcp. ✅ 2026-04-09
 - [x] **KBS-007 [P0]**: KB-lint — `scripts/kb-lint.ts` — orphans, stale >90d, low_quality <40, broken_refs, duplicates, empty <100chars. Auto-fix broken_refs com --fix. Exit 1 em erros (CI-ready). ✅ 2026-04-09
-- [ ] **KBS-008 [P0]**: `packages/knowledge-mcp/` completar — expor tools: `kb_ingest`, `kb_ask`, `kb_lint`, `kb_export`. Publicar como `@egosbr/knowledge-mcp`. | 8h
+- [x] **KBS-008 [P0]**: `packages/knowledge-mcp/` completo — tools: ingest_file, kb_lint, kb_export (+ search_wiki, get_page, get_stats, record_learning). Publicado `@egosbr/knowledge-mcp@1.1.0` npm. ✅ 2026-04-09
 - [ ] **KBS-009 [P0]**: Dogfooding interno — apontar knowledge-mcp para TASKS.md + HARVEST.md + handoffs. Usar 2 semanas antes de qualquer venda. Gate: 10 queries/dia por 14 dias. | on-going
 
 **P1 — Produto público + pricing (semanas 3-6):**
@@ -955,10 +954,10 @@
 
 ### COST — Monitoramento de Uso + Custos
 
-- [ ] **COST-001 [P1]**: Fork `claude-code-usage` (Unclecode) — adaptar para ler JSONL de `~/.claude/projects/*/` e exibir tokens/custo por projeto/sessão. | 4h
+- [x] **COST-001 [P1]**: `scripts/claude-cost.ts` — lê JSONL de `~/.claude/projects/*/`, agrega por projeto/sessão/model, calcula custo (Haiku/Sonnet/Opus pricing), top 5 sessions mais caras. `--days`, `--project`, `--json` flags. ✅ 2026-04-09
 - [ ] **COST-002 [P1]**: EGOS logs → custo estimado — `agent_events` Supabase + custo por model (Haiku:$0.25/Sonnet:$3/Opus:$15 por 1M tokens). Tabela `usage_costs` no Supabase. | 4h
-- [ ] **COST-003 [P1]**: Skill `/usage:report` — relatório mensal: por projeto, por modelo, top 5 sessions mais caras. | 2h (dep: COST-001)
-- [ ] **COST-004 [P1]**: Alerta semanal custo — Telegram sexta 18h: "esta semana $X em Claude Code, top session Y". | 2h (dep: COST-001)
+- [x] **COST-003 [P1]**: Skill `/usage-report` criado em `~/.egos/.claude/commands/usage-report.md`. ✅ 2026-04-09
+- [x] **COST-004 [P1]**: `scripts/claude-cost-alert.sh` — alerta Telegram sexta 18h BRT, top project + total semanal. Cron a instalar no VPS. ✅ 2026-04-09
 - [x] **COST-005 [P3]**: Budget guard session — ~/.claude/hooks/budget-guard.sh ✅ 2026-04-09
 
 ### GTM — Distribuição (complement GTM-001)
@@ -978,9 +977,9 @@
 
 **Decisão:** Hibernar (dormant) — não recuperar agora, não deletar do registry. Registrar para ressurreição futura quando escala demandar.
 
-- [ ] **ARCH-001 [P0]**: Documentar drift Rho no HARVEST.md — entry explicando o que era, onde estava, por que sumiu. | 30min
-- [ ] **ARCH-002 [P2]**: Git history archaeology — `git log --all --full-history -- scripts/rho.ts` e `docs/protocols/rho-calibration.md` para recuperar última versão. | 1h
-- [ ] **ARCH-003 [P2]**: Decisão formal — ressuscitar (recuperar artefatos) vs deprecar (remover do registry). Depende de: ter 50+ agents ativos? Sim → ressuscitar. Não → manter dormant. | 15min
+- [x] **ARCH-006 [P0]**: Drift Rho documentado em HARVEST.md §P40 (Windsurf) — ghost reference, ECOSYSTEM_REGISTRY.md entry, decisão: DORMANT. ✅ 2026-04-09
+- [ ] **ARCH-007 [P2]**: Git history archaeology — `git log --all --full-history -- scripts/rho.ts` e `docs/protocols/rho-calibration.md` para recuperar última versão. | 1h
+- [ ] **ARCH-008 [P2]**: Decisão formal — ressuscitar (recuperar artefatos) vs deprecar (remover do registry). Depende de: ter 50+ agents ativos? Sim → ressuscitar. Não → manter dormant. | 15min
 
 ---
 

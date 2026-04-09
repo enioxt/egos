@@ -1,14 +1,37 @@
 {
-  "name": "@egos/knowledge-mcp",
-  "version": "1.0.0",
-  "description": "EGOS Knowledge Base MCP server — search_wiki, get_page, record_learning",
+  "name": "@egosbr/knowledge-mcp",
+  "version": "1.1.0",
+  "description": "EGOS Knowledge Base MCP server — ingest PDFs/docs, search, Q&A, lint, export",
   "type": "module",
+  "main": "./dist/mcp-server.js",
   "bin": {
-    "knowledge-mcp": "./src/index.ts"
+    "knowledge-mcp": "./dist/mcp-server.js"
   },
   "scripts": {
     "start": "bun src/index.ts",
-    "typecheck": "tsc --noEmit"
+    "build": "bun build --bundle --target=node --outfile=dist/mcp-server.js src/index.ts && chmod +x dist/mcp-server.js",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "bun run build"
+  },
+  "files": [
+    "dist/mcp-server.js",
+    "README.md"
+  ],
+  "keywords": [
+    "mcp",
+    "knowledge-base",
+    "claude",
+    "egos",
+    "brazil",
+    "lgpd",
+    "notion"
+  ],
+  "author": "Enio Rocha <enio@egos.ia.br>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/enioxt/egos.git",
+    "directory": "packages/knowledge-mcp"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",
