@@ -814,3 +814,16 @@ Differentiator: LGPD compliance (Guard Brasil), audit trail, frozen zones, spec-
 **Storage:** Supabase `llm_test_results` table (`20260409_llm_test_results.sql`)
 **Usage:** `bun scripts/llm-test-suite.ts --model <id> [--category ptbr] [--dry]`
 **Pending:** LLM-MON-006 auto-trigger for S-tier models detected by llm-model-monitor
+
+## §32 — Report Standard Package (2026-04-09)
+
+**What:** `@egos/report-standard` — canonical schema + validator for all EGOS intelligence reports. Unifies report structure across egos, 852, br-acc, egos-inteligencia.
+
+**Package:** `packages/report-standard/`
+**Schema version:** 2.0.0 (JSON Schema at `packages/report-standard/schemas/report-v2.json`)
+**Types:** analytics, audit, compliance, dissemination, incident, intelligence, research, strategy, technical
+**Sections:** executive_summary, methodology, findings, recommendations, appendix, metadata
+**Validation:** `validateReport(data)` → `{valid, errors, warnings, report, metadata}`
+**Migration:** `migrateLegacyReport(legacy)` → normalizes old formats to v2.0.0
+**Zod v4:** uses `z.record(z.string(), z.any())` and `error.issues` (not `error.errors`)
+**Next:** REPORT-002 CLI validator, REPORT-003 Supabase adapter, REPORT-004 npm publish

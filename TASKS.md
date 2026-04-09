@@ -29,7 +29,7 @@
 5. **br-acc continua canonical para Neo4j** (83.7M nodes); egos-inteligencia consume via shim `api/src/bracc/__init__.py`.
 
 #### REPO-MAP tasks
-- [ ] **REPO-MAP-001 [P0]**: Criar `docs/REPO_MAP.md` com a tabela acima + diagrama Mermaid de dependências
+- [x] **REPO-MAP-001 [P0]**: Criar `docs/REPO_MAP.md` com a tabela acima + diagrama Mermaid de dependências ✅ 2026-04-09
 - [x] **REPO-MAP-002 [P0]**: Adicionar seção `§32 REPO MAP` em `~/.claude/CLAUDE.md` (feito nesta sessão Opus)
 - [x] **REPO-MAP-003 [P0]**: Memory file `repo_classification_2026-04-09.md` (feito nesta sessão Opus)
 - [ ] **REPO-MAP-004 [P1]**: Atualizar `docs/EGOS_STATE_OF_THE_ECOSYSTEM.md` com nova classificação
