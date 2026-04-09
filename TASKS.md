@@ -1125,3 +1125,23 @@ LEAK/AI/OBS 001..013 done. P2 pending: LEAK-010..012, AI-008..010, OBS-010..013.
 - [ ] **QA-002 [P1]**: TASKS.md archival — mover seções `[x]` (concluídas) com mais de 30 dias para `TASKS_ARCHIVE_2026.md`. Target: < 800 linhas após archive. | 1h
 - [ ] **QA-003 [P2]**: `.guarani/WEB_DESIGN_STANDARD.md` untracked — avaliar: pertence ao egos kernel ou ao forja? Commitar no lugar certo ou mover. | 15min
 
+
+---
+
+## AgentCash + Hyperspace Integration (2026-04-09)
+
+> **Context:** agentcash.dev = hub x402 300+ APIs (0% comissão, USDC micropayments). hyper.space = rede P2P distributed AGI, ganha pontos por compute.
+
+### ACASH — AgentCash
+
+- [x] **ACASH-001 [P0]**: Skill AgentCash instalado em `~/.claude/commands/agentcash.md`. Invite AC-LZR4-C5AX-F5DH-EAB2 resgatado. ✅ 2026-04-09
+- [ ] **ACASH-002 [P0]**: Enio rodar no terminal local: `npx agentcash@latest onboard AC-LZR4-C5AX-F5DH-EAB2` → cria wallet USDC local + verifica saldo. Depois: `npx agentcash wallet info`. | 5min
+- [ ] **ACASH-003 [P1]**: Listar Guard Brasil `/guard-brasil/inspect` no AgentCash como provider x402. Usar `npx agentcash discover` para entender o processo. Guard Brasil já tem x402 implementado (API-005 ✅). | 2h
+- [ ] **ACASH-004 [P2]**: Testar chamada Guard Brasil via AgentCash: `npx agentcash fetch https://gateway.egos.ia.br/guard-brasil/inspect` com payload PII. Documentar fluxo completo. | 1h
+
+### HYPER — Hyperspace Network
+
+- [ ] **HYPER-001 [P2]**: Instalar Hyperspace na máquina LOCAL (não no VPS): `curl -fsSL https://agents.hyper.space/api/install | bash`. Testar API OpenAI-compatible em `localhost:8080/v1`. Avaliar como LLM fallback local no EGOS chain. | 2h
+- [ ] **HYPER-002 [P3]**: Avaliar pontos Hyperspace após 7 dias de uptime. Se pontos tiverem valor real → configurar VPS separado (não o Hetzner atual) para mining. | 1 semana avaliação
+- [ ] **HYPER-003 [P3]**: Integrar `localhost:8080/v1` como nó 4 da cadeia de LLMs do EGOS (após Qwen → Claude → OpenRouter → Hyperspace local). Apenas para inferência não-crítica. | 2h
+

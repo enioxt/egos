@@ -31,6 +31,8 @@ import { join, basename } from "path";
 const ROOT = "/home/enio/egos";
 const DRY_RUN = process.argv.includes("--dry");
 const TENANT = process.argv.find(a => a.startsWith("--tenant="))?.replace("--tenant=", "") ?? "";
+// --enrich-threshold=N: enrich pages with score < N (default 60, use 80 to catch most pages)
+const ENRICH_THRESHOLD = Number(process.argv.find(a => a.startsWith("--enrich-threshold="))?.replace("--enrich-threshold=", "") ?? "60");
 const MODE = process.argv.includes("--lint")
   ? "lint"
   : process.argv.includes("--index")
@@ -53,6 +55,10 @@ const RAW_SOURCES = [
   { path: join(ROOT, "docs/_current_handoffs"), category: "synthesis" as const, prefix: "handoff" },
   { path: join(ROOT, "docs/strategy"), category: "decision" as const, prefix: "strategy" },
   { path: join(ROOT, "docs/research"), category: "pattern" as const, prefix: "research" },
+  // KB-021: CAPABILITY_REGISTRY is the richest structured doc — produces high-quality pattern pages
+  { path: join(ROOT, "docs"), category: "pattern" as const, prefix: "core", singleFile: "CAPABILITY_REGISTRY.md" },
+  // HARVEST: accumulated technical learnings
+  { path: join(ROOT, "docs/knowledge"), category: "synthesis" as const, prefix: "knowledge" },
 ];
 
 // Tenant-specific source directories (added when --tenant=<id> is set)
@@ -133,7 +139,11 @@ function scanRawSources(): RawSource[] {
   for (const src of ACTIVE_SOURCES) {
     if (!existsSync(src.path)) continue;
 
-    const files = readdirSync(src.path).filter((f) => f.endsWith(".md"));
+    // singleFile: scan only one specific file in the directory (e.g. CAPABILITY_REGISTRY.md)
+    const singleFile = (src as { singleFile?: string }).singleFile;
+    const files = singleFile
+      ? (existsSync(join(src.path, singleFile)) ? [singleFile] : [])
+      : readdirSync(src.path).filter((f) => f.endsWith(".md"));
     for (const file of files) {
       const fullPath = join(src.path, file);
       const stat = statSync(fullPath);
@@ -761,9 +771,9 @@ async function enrich(): Promise<void> {
     return;
   }
 
-  console.log("[wiki-compiler] Enrich: loading low-quality pages (score < 60)...");
+  console.log(`[wiki-compiler] Enrich: loading low-quality pages (score < ${ENRICH_THRESHOLD})...`);
   const pages = (await supabaseQuery("egos_wiki_pages", "GET", undefined,
-    "select=id,title,content,category,quality_score&quality_score=lt.60&category=neq.archived&order=quality_score.asc&limit=10"
+    `select=id,title,content,category,quality_score&quality_score=lt.${ENRICH_THRESHOLD}&category=neq.archived&order=quality_score.asc&limit=20`
   )) as Array<{ id: string; title: string; content: string; category: string; quality_score: number }>;
 
   if (!pages?.length) {
