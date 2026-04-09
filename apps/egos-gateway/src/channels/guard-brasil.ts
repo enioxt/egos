@@ -20,24 +20,32 @@
  * Facilitator: https://x402.org/facilitator (public Coinbase endpoint, no auth needed)
  * Base network: https://base.org (L2, ~$0.00001/tx gas)
  *
- * API-005 — skeleton. Full impl requires:
- *   - GUARD_BRASIL_PAYMENT_ADDRESS env var (Base wallet, see API-004)
- *   - GUARD_BRASIL_API_KEY env var (internal key for proxied calls)
- *   - npm install viem (for payment verification)
+ * API-004 ✅ Base wallet: 0x7f43b82a000a1977cc355c6e7ece166dfbb885ab
+ * API-005 ✅ Skeleton live. Env vars required for production:
+ *   - GUARD_BRASIL_PAYMENT_ADDRESS  — Base chain USDC recipient (see API-004)
+ *   - GUARD_BRASIL_API_KEY          — internal key for proxied calls
+ *   - X402_PRICE_USDC_ATOMIC        — price per call in USDC atomic units (default 1000 = $0.001)
+ *
+ * Pricing rationale (market reference, not revenue target):
+ *   $0.001 USDC/call = competitive with AWS Comprehend PII (~$0.0001/char × 10 chars avg)
+ *   Free tier: via Guard Brasil API free keys (150 calls/mo), no x402 needed
+ *   Always prefer free/freemium first — x402 for agent-to-agent programmatic use
  */
 
 import { Hono } from "hono";
 
-// ── Constants ──────────────────────────────────────────────────────────────────
+// ── Constants (all env-overridable — no hardcoded production values) ───────────
 
 const GUARD_API_URL = process.env.GUARD_BRASIL_API_URL ?? "https://guard.egos.ia.br";
 const GUARD_API_KEY = process.env.GUARD_BRASIL_API_KEY ?? "";
-const PAYMENT_ADDRESS = process.env.GUARD_BRASIL_PAYMENT_ADDRESS ?? ""; // Base chain USDC recipient
-const FACILITATOR_URL = "https://x402.org/facilitator";
+// API-004: Base wallet for USDC payments. Set via env — default is the known wallet.
+const PAYMENT_ADDRESS = process.env.GUARD_BRASIL_PAYMENT_ADDRESS ?? "0x7f43b82a000a1977cc355c6e7ece166dfbb885ab";
+const FACILITATOR_URL = process.env.X402_FACILITATOR_URL ?? "https://x402.org/facilitator";
 
-// Price in USDC (6 decimals). 1000 = $0.001
-const PRICE_PER_CALL_USDC_ATOMIC = 1000;
-const NETWORK = "base";
+// Env-overridable pricing: USDC atomic units (6 decimals). 1000 = $0.001 per call.
+// Reference: AWS Comprehend PII ~$0.001/request; Guard Brasil goal: cost-covering + fair margin.
+const PRICE_PER_CALL_USDC_ATOMIC = Number(process.env.X402_PRICE_USDC_ATOMIC ?? "1000");
+const NETWORK = process.env.X402_NETWORK ?? "base";
 const CURRENCY = "USDC";
 
 // ── Types ──────────────────────────────────────────────────────────────────────
