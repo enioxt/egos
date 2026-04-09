@@ -68,7 +68,8 @@
       "/home/enio/egos/.claude/commands",
       "/home/enio/.claude/hooks",
       "/home/enio/.claude",
-      "/home/enio/egos-lab/apps/eagle-eye/src"
+      "/home/enio/egos-lab/apps/eagle-eye/src",
+      "/home/enio/egos/.husky"
     ]
   },
   "mcpServers": {

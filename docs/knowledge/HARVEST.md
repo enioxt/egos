@@ -2725,3 +2725,7 @@ if not access_token or not access_secret:
 ### Auto-harvested — d394e03 (2026-04-08)
 
 - wiki-compiler category type union is narrowly typed ("synthesis"|"decision"|"pattern") — entity/how-to live only in WikiPage interface, not in source type. Use "synthesis" for tenant entity docs.
+
+### Auto-harvested — 2dace6c (2026-04-08)
+
+- cross-repo-archaeology.ts existed (repo profiles) but not TODO mining
