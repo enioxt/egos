@@ -78,7 +78,7 @@ app.get('/timeline', async (c) => {
 
   const { data: articles, error, count } = await supabase
     .from('timeline_articles')
-    .select('slug, title, summary, published_at, commit_hash', { count: 'exact' })
+    .select('slug, title, body_html, published_at', { count: 'exact' })
     .order('published_at', { ascending: false })
     .range(offset, offset + limit - 1)
 
@@ -94,8 +94,7 @@ app.get('/timeline', async (c) => {
       <h2 class="mt-2 text-xl font-semibold text-slate-100 leading-snug">
         <a href="/timeline/${a.slug}" class="hover:text-sky-400 transition-colors">${a.title}</a>
       </h2>
-      ${a.summary ? `<p class="mt-2 text-slate-400 text-sm line-clamp-3">${a.summary}</p>` : ''}
-      ${a.commit_hash ? `<p class="mt-3 text-xs text-slate-600 font-mono">commit ${a.commit_hash.slice(0, 7)}</p>` : ''}
+      ${a.body_html ? `<p class="mt-2 text-slate-400 text-sm line-clamp-3">${a.body_html.replace(/<[^>]+>/g, '').slice(0, 180)}…</p>` : ''}
       <a href="/timeline/${a.slug}" class="mt-4 inline-block text-sm text-sky-400 hover:text-sky-300">Ler artigo →</a>
     </article>
   `).join('\n')
@@ -150,12 +149,12 @@ app.get('/timeline/:slug', async (c) => {
   // Track view (fire-and-forget)
   getSupabase()
     ?.from('timeline_articles')
-    .update({ view_count: (article.view_count ?? 0) + 1 })
+    .update({ views: (article.views ?? 0) + 1 })
     .eq('slug', slug)
     .then(() => {})
 
   // Convert markdown-like content to simple HTML
-  const contentHtml = renderMarkdown(article.content ?? article.summary ?? '')
+  const contentHtml = article.body_html ?? renderMarkdown('')
 
   const body = `
     <article>
@@ -164,8 +163,8 @@ app.get('/timeline/:slug', async (c) => {
         <h1 class="text-4xl font-bold text-slate-100 mt-2 leading-tight">${article.title}</h1>
         <div class="flex items-center gap-6 mt-4 text-sm text-slate-500">
           <time>${formatDate(article.published_at)}</time>
-          ${article.commit_hash ? `<span class="font-mono">commit ${article.commit_hash.slice(0, 7)}</span>` : ''}
-          ${article.view_count ? `<span>${article.view_count} visualizações</span>` : ''}
+          ${article.url ? `<a href="${article.url}" class="font-mono hover:text-sky-400" target="_blank">ver no GitHub →</a>` : ''}
+          ${article.views ? `<span>${article.views} visualizações</span>` : ''}
         </div>
       </header>
       <div class="prose max-w-none">
