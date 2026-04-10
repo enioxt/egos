@@ -14,16 +14,16 @@
 #### EVIDENCE-GATE [P0 — ativar warning agora, blocking 2026-04-16]
 - [x] **EVG-001**: §33 Evidence-First adicionado ao `~/.claude/CLAUDE.md` global ✅ 2026-04-09
 - [x] **EVG-002**: `scripts/evidence-gate.ts` placeholder criado (warning mode até 2026-04-16) ✅ 2026-04-09
-- [ ] **EVG-003 [P0]**: Integrar `evidence-gate.ts` ao `.husky/pre-commit` do kernel (warning-only) | 1h
-- [ ] **EVG-004 [P0]**: Primeiro dry-run em `CAPABILITY_REGISTRY.md` — contar violations reais sem bloquear | 30min
+- [x] **EVG-003 [P0]**: Integrar `evidence-gate.ts` ao `.husky/pre-commit` do kernel (warning-only) | 1h ✅ 2026-04-09
+- [x] **EVG-004 [P0]**: Primeiro dry-run em `CAPABILITY_REGISTRY.md` — contar violations reais sem bloquear | 30min ✅ 2026-04-10 — 33 unbacked claims found (versions + capability counts)
 - [ ] **EVG-005 [P1]**: Expandir `.egos-manifest.yaml` para cobrir capability claims (não só README metrics) | 3h
 - [ ] **EVG-006 [P1]**: Ativar blocking mode no kernel a partir de 2026-04-16 | 15min
 - [ ] **EVG-007 [P2]**: Disseminar evidence-gate para repos de produto conforme Camadas 4+ avançam | on-going
 
 #### CAMADA 0 — Kernel do Kernel (semana 1)
 **Escopo:** `~/.claude/CLAUDE.md` (33 seções) + `egos/CLAUDE.md` + `.guarani/RULES_INDEX.md` + `.guarani/PREFERENCES.md`
-- [ ] **ENC-L0-001 [P0]**: Auditoria completa das 33 seções do CLAUDE.md global — classificar cada uma em: (a) provada e ativa, (b) parcial, (c) aspirational/remover | 6h
-- [ ] **ENC-L0-002 [P0]**: `docs/audit/KERNEL_AUDIT_2026-04-09.md` — output da auditoria com comando reproduzível por regra | 4h
+- [x] **ENC-L0-001 [P0]**: Auditoria completa do CLAUDE.md v4 — 4 PROVEN / 6 PARTIAL / 6 ASPIRATIONAL ✅ 2026-04-10
+- [x] **ENC-L0-002 [P0]**: `docs/audit/KERNEL_AUDIT.md` — auditoria com gaps priorizados (top 5) ✅ 2026-04-10
 - [ ] **ENC-L0-003 [P0]**: Compressão do CLAUDE.md global — remover aspirational, consolidar duplicadas, alvo ≤ 2000 linhas (está em ~1500+) | 3h
 - [ ] **ENC-L0-004 [P0]**: Compressão do `egos/CLAUDE.md` — remover duplicações com global (DRY) | 2h
 - [ ] **ENC-L0-005 [P1]**: Dissemination pipeline valida blocks injetados nos repos de leaf após compressão | 1h
@@ -116,7 +116,7 @@
 - [ ] **SITE-001 [P1]**: Reativar `apps/egos-site/` — auditar estado atual, upgrade Bun/Hono | 2h
 - [ ] **SITE-002 [P1]**: Estrutura de rotas: index, blog, blog/[slug], showcase, status (embed), lab (CTA) | 3h
 - [ ] **SITE-003 [P1]**: Markdown-based posts em `src/content/posts/*.md` — sem CMS | 2h
-- [ ] **SITE-004 [P1]**: Deploy container no VPS + Caddyfile routing egos.ia.br | 2h
+- [ ] **SITE-004 [P1]**: [BLOCKER] DNS A record egos.ia.br → 204.168.217.125 (atualmente aponta para Vercel 216.150.1.1). Caddy já configurado. Container já rodando Hono. Só falta mudar o DNS. | 5min
 - [ ] **SITE-005 [P1]**: Theme dark/light simples, tipografia técnica (Inter + JetBrains Mono) | 3h
 - [ ] **SITE-006 [P2]**: RSS feed para distribuição | 1h
 - [ ] **SITE-007 [P2]**: llms.txt já existe, garantir que egos-site serve | 30min
