@@ -77,15 +77,16 @@ domains:
     description: "Agent definitions, registry, runtime contract"
     ssot: "agents/registry/agents.json"
     ssot_secondary: "AGENTS.md"
+    ssot_docs: "docs/agents/"
     keywords:
       - "agent_id"
       - "run_modes"
       - "risk_level"
       - "entrypoint"
       - "agent definition"
-    forbidden_paths:
+    allowed_paths:
       - "docs/agents/"
-    note: "Code definitions in agents.json. Human docs in AGENTS.md per repo."
+    note: "Code definitions in agents.json. Per-agent human docs in docs/agents/<id>.md (ENC-L1-003)."
 
   - id: system_arch
     description: "System architecture, module map, kernel topology"
@@ -443,3 +444,5 @@ always_ok:
   - "CHANGELOG.md"
   - "*.sql"
   - "*.py"
+  - "docs/agents/*"
+  - "docs/audit/*"
