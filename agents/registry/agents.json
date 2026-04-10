@@ -1,14 +1,14 @@
 {
   "$schema": "./schema.json",
-  "version": "2.3.0",
-  "updated": "2026-04-09",
-  "description": "EGOS Kernel Registry v2.1 \u2014 kebab-case IDs aligned with filenames and egos-lab convention. 19 entries. v2.3: added approval_level (L0/L1/L2) + signature metadata per INC-001. v2.3: egos-pr agent added (GIT-006).",
+  "version": "2.4.0",
+  "updated": "2026-04-10",
+  "description": "EGOS Kernel Registry v2.1 — kebab-case IDs aligned with filenames and egos-lab convention. 19 entries. v2.3: added approval_level (L0/L1/L2) + signature metadata per INC-001. v2.3: egos-pr agent added (GIT-006).",
   "agents": [
     {
       "id": "ssot-auditor",
       "name": "SSOT Auditor",
       "kind": "tool",
-      "description": "Structural Triage Engine \u2014 scans TypeScript/Python codebases via AST, detects type drift (duplicate definitions with different shapes), produces prioritized reports with codemod plans",
+      "description": "Structural Triage Engine — scans TypeScript/Python codebases via AST, detects type drift (duplicate definitions with different shapes), produces prioritized reports with codemod plans",
       "area": "architecture",
       "entrypoint": "agents/agents/ssot-auditor.ts",
       "run_modes": [
@@ -79,7 +79,7 @@
       "id": "drift-sentinel",
       "name": "Drift Sentinel",
       "kind": "tool",
-      "description": "Configuration drift detection \u2014 compares narrative (docs) vs live system state, monitors TASKS.md priorities vs git activity, agents.json vs agents/ directory",
+      "description": "Configuration drift detection — compares narrative (docs) vs live system state, monitors TASKS.md priorities vs git activity, agents.json vs agents/ directory",
       "area": "governance",
       "entrypoint": "agents/agents/drift-sentinel.ts",
       "run_modes": [
@@ -311,7 +311,7 @@
       "id": "gtm-harvester",
       "name": "GTM Harvester",
       "kind": "tool",
-      "description": "[KILLED 2026-03-31] Scans GitHub repos for GTM signals \u2014 hangs on --dry (no rate limiting, downloads all raw files)",
+      "description": "[KILLED 2026-03-31] Scans GitHub repos for GTM signals — hangs on --dry (no rate limiting, downloads all raw files)",
       "area": "knowledge",
       "entrypoint": "agents/agents/gtm-harvester.ts",
       "run_modes": [
@@ -441,7 +441,7 @@
       "id": "gem-hunter",
       "name": "Gem Hunter v6.0",
       "kind": "discovery",
-      "description": "Multi-track discovery engine: GitHub, arXiv, HuggingFace, PWC, Exa, X, Reddit, HN, NPM. 6-stage paper pipeline (discovery\u2192triage\u2192deep-read\u2192scaffold\u2192score\u2192evolution). Telegram alerts for gems \u226580.",
+      "description": "Multi-track discovery engine: GitHub, arXiv, HuggingFace, PWC, Exa, X, Reddit, HN, NPM. 6-stage paper pipeline (discovery→triage→deep-read→scaffold→score→evolution). Telegram alerts for gems ≥80.",
       "area": "intelligence",
       "entrypoint": "agents/agents/gem-hunter.ts",
       "run_modes": [
@@ -551,7 +551,7 @@
       "id": "agent-validator",
       "name": "Agent Registry Validator",
       "kind": "tool",
-      "description": "Lightweight validation agent \u2014 updates agents/registry/validation.json cache. 4-point check: entrypoint read, file exists, status verified, context validated. Ground truth hierarchy: agents.json (definitions) > validation.json (verification) > drift-sentinel (detector).",
+      "description": "Lightweight validation agent — updates agents/registry/validation.json cache. 4-point check: entrypoint read, file exists, status verified, context validated. Ground truth hierarchy: agents.json (definitions) > validation.json (verification) > drift-sentinel (detector).",
       "area": "governance",
       "entrypoint": "agents/agents/agent-validator.ts",
       "run_modes": [
@@ -588,7 +588,7 @@
       "id": "wiki-compiler",
       "name": "Wiki Compiler",
       "kind": "tool",
-      "description": "Compiles raw sources (handoffs, job reports, gem-hunter, strategy docs) into structured wiki pages in Supabase. Karpathy LLM Wiki pattern: ingest \u2192 compile \u2192 lint. Also records learnings for data flywheel.",
+      "description": "Compiles raw sources (handoffs, job reports, gem-hunter, strategy docs) into structured wiki pages in Supabase. Karpathy LLM Wiki pattern: ingest → compile → lint. Also records learnings for data flywheel.",
       "area": "knowledge",
       "entrypoint": "agents/agents/wiki-compiler.ts",
       "run_modes": [
@@ -676,7 +676,7 @@
       "id": "egos-pr",
       "name": "EGOS PR Creator",
       "kind": "tool",
-      "description": "Creates GitHub PRs from current branch \u2014 validates not on main, pushes via safe-push.sh, generates body from git log, creates PR via gh CLI. Usage: bun agents/run.ts egos-pr \"My PR title\" [--draft] [--base develop]",
+      "description": "Creates GitHub PRs from current branch — validates not on main, pushes via safe-push.sh, generates body from git log, creates PR via gh CLI. Usage: bun agents/run.ts egos-pr \"My PR title\" [--draft] [--base develop]",
       "area": "git",
       "entrypoint": "scripts/create-pr.sh",
       "run_modes": [
@@ -699,6 +699,154 @@
         "github_pr"
       ],
       "approval_level": "L1",
+      "signature": {
+        "enabled": false,
+        "public_key": null,
+        "algorithm": "ed25519",
+        "ledger_table": "agent_actions_ledger"
+      }
+    },
+    {
+      "id": "article-writer",
+      "name": "Article Writer",
+      "description": "Timeline AI Publishing Pipeline: reads git commits, calls qwen-plus to generate article draft, runs Guard Brasil PII check, inserts to timeline_drafts Supabase table. Part of PUBLISH: trigger in auto-disseminate.",
+      "area": "publishing",
+      "entrypoint": "agents/agents/article-writer.ts",
+      "runtime": "bun",
+      "status": "active",
+      "triggers": [
+        "commit_hook",
+        "manual"
+      ],
+      "dry_run_support": true,
+      "side_effects": [
+        "supabase_write",
+        "llm_call"
+      ],
+      "risk_level": "T1",
+      "approval_level": "L1",
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "owner": "enioxt",
+      "created_at": "2026-04-08",
+      "runtime_proof": "bun agents/agents/article-writer.ts --dry",
+      "telemetry_source": "stdout",
+      "cost_source": "llm",
+      "last_duration_ms": null,
+      "loop_mechanism": "none",
+      "migrated_from": "new",
+      "signature": {
+        "enabled": false,
+        "public_key": null,
+        "algorithm": "ed25519",
+        "ledger_table": "agent_actions_ledger"
+      }
+    },
+    {
+      "id": "doc-drift-verifier",
+      "name": "Doc-Drift Verifier",
+      "description": "Layer 2 of EGOS Doc-Drift Shield. Verifies .egos-manifest.yaml claims against live state. Called by .husky/doc-drift-check.sh in pre-commit gate.",
+      "area": "governance",
+      "entrypoint": "agents/agents/doc-drift-verifier.ts",
+      "runtime": "bun",
+      "status": "active",
+      "triggers": [
+        "pre_commit"
+      ],
+      "dry_run_support": true,
+      "side_effects": [
+        "stdout"
+      ],
+      "risk_level": "T0",
+      "approval_level": "L0",
+      "run_modes": [
+        "dry_run"
+      ],
+      "owner": "enioxt",
+      "created_at": "2026-04-07",
+      "runtime_proof": "bun agents/agents/doc-drift-verifier.ts --dry",
+      "telemetry_source": "stdout",
+      "cost_source": "none",
+      "last_duration_ms": null,
+      "loop_mechanism": "none",
+      "migrated_from": "new",
+      "signature": {
+        "enabled": false,
+        "public_key": null,
+        "algorithm": "ed25519",
+        "ledger_table": "agent_actions_ledger"
+      }
+    },
+    {
+      "id": "doc-drift-analyzer",
+      "name": "Doc-Drift Analyzer",
+      "description": "Analyzes doc drift patterns across repos. Part of the EGOS Doc-Drift Shield ecosystem.",
+      "area": "governance",
+      "entrypoint": "agents/agents/doc-drift-analyzer.ts",
+      "runtime": "bun",
+      "status": "active",
+      "triggers": [
+        "manual",
+        "weekly"
+      ],
+      "dry_run_support": true,
+      "side_effects": [
+        "stdout",
+        "fs_write"
+      ],
+      "risk_level": "T1",
+      "approval_level": "L0",
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "owner": "enioxt",
+      "created_at": "2026-04-07",
+      "runtime_proof": "bun agents/agents/doc-drift-analyzer.ts --dry",
+      "telemetry_source": "stdout",
+      "cost_source": "none",
+      "last_duration_ms": null,
+      "loop_mechanism": "none",
+      "migrated_from": "new",
+      "signature": {
+        "enabled": false,
+        "public_key": null,
+        "algorithm": "ed25519",
+        "ledger_table": "agent_actions_ledger"
+      }
+    },
+    {
+      "id": "readme-syncer",
+      "name": "README Syncer",
+      "description": "Syncs README claims against .egos-manifest.yaml. Part of Doc-Drift Shield — keeps README numbers in sync with manifest-verified values.",
+      "area": "governance",
+      "entrypoint": "agents/agents/readme-syncer.ts",
+      "runtime": "bun",
+      "status": "active",
+      "triggers": [
+        "manual",
+        "pre_commit"
+      ],
+      "dry_run_support": true,
+      "side_effects": [
+        "fs_write"
+      ],
+      "risk_level": "T1",
+      "approval_level": "L0",
+      "run_modes": [
+        "dry_run",
+        "execute"
+      ],
+      "owner": "enioxt",
+      "created_at": "2026-04-07",
+      "runtime_proof": "bun agents/agents/readme-syncer.ts --dry",
+      "telemetry_source": "stdout",
+      "cost_source": "none",
+      "last_duration_ms": null,
+      "loop_mechanism": "none",
+      "migrated_from": "new",
       "signature": {
         "enabled": false,
         "public_key": null,

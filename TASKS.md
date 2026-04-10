@@ -30,8 +30,8 @@
 
 #### CAMADA 1 — Agents Registry (semana 2)
 **Escopo:** `agents/registry/agents.json` + `agents/agents/*.ts` + prove-or-kill
-- [ ] **ENC-L1-001 [P0]**: Inventário de cada agent: função, dependências, última execução real, SLA, testes | 6h
-- [ ] **ENC-L1-002 [P0]**: Matar agents mortos (ativar regra prove-or-kill §11) — já tem 2 candidatos (chatbot-compliance-checker, gtm-harvester) | 2h
+- [x] **ENC-L1-001 [P0]**: Inventário de cada agent: 20 registered (18 active, 2 dead) + 4 unregistered found ✅ 2026-04-10
+- [ ] **ENC-L1-002 [P1]**: Registrar 4 agents não-registrados (article-writer, doc-drift-verifier, doc-drift-analyzer, readme-syncer) no agents.json ✅ done 2026-04-10 — agents.json v2.4.0 (24 agents)
 - [ ] **ENC-L1-003 [P0]**: `docs/agents/<name>.md` — 1 doc por agent com seção "Prova de vida" (comando + output) | 8h
 - [ ] **ENC-L1-004 [P0]**: `docs/agents/INDEX.md` — índice mestre com links e status | 1h
 - [ ] **ENC-L1-005 [P0]**: Smoke test suite — cada agent roda em `--dry` com output determinístico | 4h
