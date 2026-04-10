@@ -1,55 +1,90 @@
 # SYSTEM_MAP.md — EGOS Framework Core
 
-> **VERSION:** 2.5.0 | **UPDATED:** 2026-04-06
-> **ROLE:** repo-local map for `/start` in the canonical kernel
+> **VERSION:** 3.0.0 | **UPDATED:** 2026-04-10
+> **ROLE:** repo-local activation map for `/start` — single source of read-order truth
 
 <!-- llmrefs:start -->
 
-## LLM Reference Signature
+## LLM Reference Signature — FAST PATH (/start lite)
 
-- **Role:** activation map for the `egos` kernel
-- **Summary:** points to the local SSOTs that define governance, runtime, shared modules, migration status, and chatbot/mycelium standards
-- **Read next:**
-  - `.guarani/RULES_INDEX.md` — canonical governance entry point
-  - `AGENTS.md` — repo identity, architecture, command surface
-  - `TASKS.md` — current sprint and roadmap horizons
-  - `docs/DOCUMENTATION_ARCHITECTURE_MAP.md` — documentation read order and permanence rules
-  - `docs/CAPABILITY_REGISTRY.md` — reusable capability SSOT
-  - `docs/SSOT_REGISTRY.md` — canonical cross-repo SSOT registry
-  - `docs/modules/CHATBOT_SSOT.md` — canonical chatbot standard
+Load these 5 files at session start for full context:
+
+```
+1. ~/.claude/CLAUDE.md          — rules v4.0 (T0>T1>T2>T3>T4, 263 lines)
+2. TASKS.md                     — current work (grep top P0s)
+3. docs/REPO_MAP.md             — 7 groups, which repos to touch
+4. memory/MEMORY.md             — latest session context
+5. docs/jobs/ (last 3 days)    — CCR output + sentinel alerts
+```
+
+Full activation: read sections below in order only when scope requires it.
+
+- **Read next (governance scope):** `.guarani/RULES_INDEX.md` → `AGENTS.md`
+- **Read next (architecture scope):** `docs/SSOT_REGISTRY.md` → `docs/CAPABILITY_REGISTRY.md`
+- **Read next (agent scope):** `agents/registry/agents.json` → `docs/agents/INDEX.md`
+- **Read next (audit/evidence scope):** `docs/audit/KERNEL_AUDIT.md` → `docs/governance/QUORUM_PROTOCOL.md`
+- **Read next (site/timeline scope):** `apps/egos-site/src/server.ts` → `docs/strategy/EGOS_PATH_B_C_PLAN.md`
 
 <!-- llmrefs:end -->
 
 ## Canonical Local Truth
 
-- `.guarani/RULES_INDEX.md` — where governance lookup starts
-- `AGENTS.md` — what this repo is
-- `TASKS.md` — what is next
-- `CLAUDE.md` / `.windsurfrules` — environment adapters only
-- `docs/SSOT_REGISTRY.md` — what is globally canonical vs locally owned
-- `.guarani/` — how reasoning and governance work
-- `agents/runtime/` — frozen execution kernel
-- `packages/shared/src/` — reusable core modules
+| File | Role | Updated |
+|------|------|---------|
+| `~/.claude/CLAUDE.md` | Global rules v4.0 (T0→T4 tiers, 263 lines) | 2026-04-10 |
+| `TASKS.md` | Current sprint (1300 lines, P0..P2) | live |
+| `AGENTS.md` | Repo identity + command surface | 2026-04-06 |
+| `.guarani/RULES_INDEX.md` | Governance entry point | 2026-04-09 |
+| `docs/REPO_MAP.md` | 7-group repo classification (canonical) | 2026-04-09 |
+| `agents/registry/agents.json` | 24 agents registry v2.4.0 | 2026-04-10 |
+| `docs/agents/INDEX.md` | Per-agent docs index | 2026-04-10 |
+| `docs/audit/KERNEL_AUDIT.md` | CLAUDE.md v4 section audit (4/6/6) | 2026-04-10 |
+| `docs/strategy/EGOS_PATH_B_C_PLAN.md` | Path B (showcase) + C (EGOS Lab R$20/mês) | 2026-04-10 |
+| `docs/governance/QUORUM_PROTOCOL.md` | Multi-LLM review for critical decisions | 2026-04-10 |
+| `docs/SSOT_REGISTRY.md` | Cross-repo SSOT ownership | 2026-04-06 |
+| `docs/CAPABILITY_REGISTRY.md` | Reusable capability SSOT (33 unbacked claims) | 2026-04-10 |
+| `.guarani/` | Governance rules (23 active files post-cleanup) | 2026-04-09 |
+| `agents/runtime/` | FROZEN execution kernel | — |
+| `packages/shared/src/` | Reusable core modules | — |
 
-## Activation Chain
+## Activation Chain (full)
 
-1. Read `.guarani/RULES_INDEX.md`
-2. Read `AGENTS.md`
-3. Read `TASKS.md`
-4. Read `docs/DOCUMENTATION_ARCHITECTURE_MAP.md`
-5. Read `.guarani/PREFERENCES.md` and `.guarani/IDENTITY.md`
-6. Read `docs/SSOT_REGISTRY.md`
-7. Read `docs/CAPABILITY_REGISTRY.md`
-8. Read `docs/modules/CHATBOT_SSOT.md` when chatbot/compliance work is in scope
-9. Read `docs/MIGRATION_PLAN.md` when scope touches kernel vs lab boundaries
+1. `~/.claude/CLAUDE.md` — global rules (auto-loaded by Claude Code)
+2. `CLAUDE.md` (project) — repo adapter
+3. `TASKS.md` — what's next (grep: `- \[ \] .*P0`)
+4. `docs/REPO_MAP.md` — which repos are in scope today
+5. `memory/MEMORY.md` — last session context (auto-loaded)
+6. `.guarani/RULES_INDEX.md` — governance canon
+7. `agents/registry/agents.json` — agent registry (when agent scope)
+8. `docs/CAPABILITY_REGISTRY.md` — capability SSOT (when building features)
+9. `docs/strategy/EGOS_PATH_B_C_PLAN.md` — 90-day plan (weekly review)
 
 ## Cross-Repo Context
 
-- Global topology lives in `~/.egos/SYSTEM_MAP.md`
-- `egos` is the canonical kernel
-- `egos-lab` is the incubator and operations surface
-- Leaf repos consume governance and shared modules but keep domain truth local
-- **Machine Map (classification):** `docs/ECOSYSTEM_CLASSIFICATION_REGISTRY.md` — canonical classification for every surface (kernel/standalone/candidate/lab/internal_infra/archive/discard)
+- `egos` is the canonical kernel (PLATFORM group)
+- `egos-lab` is ARCHIVING — no new features
+- **Canonical repo classification:** `docs/REPO_MAP.md` (use this, ignore older inventory files)
+- Leaf repos consume governance from kernel via `governance:sync`
+
+### Current strategic tracks (2026-04-10)
+
+| Track | SSOT | Status |
+|-------|------|--------|
+| Encapsulation (7 layers) | `docs/strategy/EGOS_PATH_B_C_PLAN.md` §6 | L0 ✅ L1 ✅ L2+ pending |
+| EGOS Lab community R$20/mês | `docs/strategy/EGOS_PATH_B_C_PLAN.md` §3 | planning |
+| egos-site + Timeline blog | `apps/egos-site/src/server.ts` | DNS propagating |
+| Showcase article | `docs/strategy/EGOS_PATH_B_C_PLAN.md` §2 | week 10+ |
+| Guard Brasil monetization | `docs/GTM_SSOT.md` | active |
+
+### Key URLs (live)
+
+| Service | URL | Status |
+|---------|-----|--------|
+| Guard Brasil | https://guard.egos.ia.br/health | ✅ live |
+| EGOS HQ | https://hq.egos.ia.br | ✅ live |
+| 852 chatbot | https://852.egos.ia.br | ✅ live |
+| egos.ia.br (Hono site) | https://egos.ia.br/timeline | DNS propagating |
+| Gem Hunter | https://gemhunter.egos.ia.br | ✅ live |
 
 ## Freshness Rules
 
