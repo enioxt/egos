@@ -38,7 +38,7 @@ jobs:
         run: bun scripts/codebase-miner.ts --phase2
 
       - name: Upload report as artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: codebase-mining-report
           path: docs/jobs/codebase-mining-*.md
