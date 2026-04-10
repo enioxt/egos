@@ -71,7 +71,7 @@ jobs:
 
       - name: Set validation check
         if: always()
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const stage = '${{ steps.detect-stage.outputs.stage }}';
@@ -116,7 +116,7 @@ jobs:
 
       - name: Get approval count for current stage
         id: approvals
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const reviews = await github.rest.pulls.listReviews({
@@ -154,7 +154,7 @@ jobs:
 
       - name: Transition to next stage
         if: steps.stage-complete.outputs.complete == 'true'
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const labels = context.payload.pull_request.labels.map(l => l.name);
@@ -245,7 +245,7 @@ jobs:
         run: bun install --frozen-lockfile
 
       - name: Check SLA for current stage
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const SLA_HOURS = 24;
@@ -336,7 +336,7 @@ jobs:
     runs-on: ubuntu-latest
     if: contains(github.event.pull_request.labels.*.name, 'spec-pipeline')
     steps:
-      - uses: actions/github-script@v8
+      - uses: actions/github-script@v9
         with:
           script: |
             const labels = context.payload.pull_request.labels.map(l => l.name);
