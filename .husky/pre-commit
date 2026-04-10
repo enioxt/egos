@@ -181,6 +181,12 @@ if [ -n "$NEW_MD_FILES" ]; then
   fi
 fi
 
+# 5.9. Evidence Gate — §33 Evidence-First Principle (warning-only until 2026-04-16)
+echo "  [5.9/8] evidence-gate: checking claim backing in staged docs..."
+bun scripts/evidence-gate.ts --staged-only 2>/dev/null || {
+  echo "⚠️  evidence-gate: script error (non-blocking). Run: bun scripts/evidence-gate.ts --staged-only"
+}
+
 # 6. File Intelligence — Classification + Compliance + PII scan
 echo "  [5/5] file intelligence: classifying and checking staged files..."
 bash scripts/file-intelligence.sh 2>/dev/null || {

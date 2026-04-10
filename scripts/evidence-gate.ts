@@ -148,9 +148,18 @@ function main() {
   const args = process.argv.slice(2);
   const modeArg = args.find((a) => a.startsWith("--mode="))?.split("=")[1];
   const mode = resolveMode(modeArg);
-  const stagedOnly = args.includes("--staged-only") || true; // default to staged
+  const fileArg = args.find((a) => a.startsWith("--file="))?.split("=")[1]
+    ?? (args.indexOf("--file") !== -1 ? args[args.indexOf("--file") + 1] : null);
+  const stagedOnly = !fileArg && (args.includes("--staged-only") || !args.includes("--file")); // default to staged
 
-  const files = stagedOnly ? getStagedFiles() : [];
+  let files: string[];
+  if (fileArg) {
+    files = [fileArg];
+  } else if (stagedOnly) {
+    files = getStagedFiles();
+  } else {
+    files = [];
+  }
   const watched = files.filter(isWatchedPath);
 
   if (watched.length === 0) {
