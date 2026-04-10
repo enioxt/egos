@@ -43,8 +43,10 @@ function layout(title: string, body: string): string {
     <a href="/" class="text-slate-100 font-semibold text-lg tracking-tight">EGOS</a>
     <div class="flex gap-6 text-sm text-slate-400">
       <a href="/timeline" class="hover:text-slate-100 transition-colors">Timeline</a>
+      <a href="/showcase" class="hover:text-slate-100 transition-colors">Showcase</a>
       <a href="https://gemhunter.egos.ia.br" class="hover:text-slate-100 transition-colors">Gem Hunter</a>
       <a href="https://guard.egos.ia.br" class="hover:text-slate-100 transition-colors">Guard Brasil</a>
+      <a href="/lab" class="hover:text-sky-400 text-sky-500 transition-colors font-medium">Lab →</a>
     </div>
   </nav>
   <main class="max-w-4xl mx-auto px-6 py-10">
@@ -147,7 +149,7 @@ app.get('/timeline/:slug', async (c) => {
 
   // Track view (fire-and-forget)
   getSupabase()
-    .from('timeline_articles')
+    ?.from('timeline_articles')
     .update({ view_count: (article.view_count ?? 0) + 1 })
     .eq('slug', slug)
     .then(() => {})
@@ -224,6 +226,104 @@ app.get('/', (c) => {
     </div>
   `
   return c.html(layout('EGOS — Governed AI Platform', body))
+})
+
+// ── /lab — EGOS Lab community (R$20/mês) ──────────────────────────────────────
+
+app.get('/lab', (c) => {
+  const body = `
+    <div class="max-w-2xl">
+      <div class="inline-block px-3 py-1 bg-sky-900/30 border border-sky-800 rounded-full text-sky-400 text-xs font-medium mb-6">
+        Em construção · Lançamento em breve
+      </div>
+      <h1 class="text-5xl font-bold text-slate-100 leading-tight">
+        EGOS Lab
+      </h1>
+      <p class="mt-6 text-xl text-slate-400">
+        Comunidade de builders que aprendem construindo sistemas reais com IA governada.
+        R$ 20/mês. Sem enrolação.
+      </p>
+
+      <div class="mt-10 grid gap-4 sm:grid-cols-2">
+        <div class="border border-slate-800 rounded-xl p-5">
+          <div class="text-xl mb-2">🔧</div>
+          <h3 class="font-semibold text-slate-100">Projetos reais</h3>
+          <p class="text-sm text-slate-400 mt-1">Acesso ao código do EGOS, sessões de desenvolvimento ao vivo, revisão de PRs.</p>
+        </div>
+        <div class="border border-slate-800 rounded-xl p-5">
+          <div class="text-xl mb-2">🧠</div>
+          <h3 class="font-semibold text-slate-100">Governance patterns</h3>
+          <p class="text-sm text-slate-400 mt-1">Como estruturar agentes de IA com LGPD, SSOT, evidence-first.</p>
+        </div>
+        <div class="border border-slate-800 rounded-xl p-5">
+          <div class="text-xl mb-2">💬</div>
+          <h3 class="font-semibold text-slate-100">Grupo WhatsApp</h3>
+          <p class="text-sm text-slate-400 mt-1">Grupo privado com acesso direto ao Enio Rocha e outros builders.</p>
+        </div>
+        <div class="border border-slate-800 rounded-xl p-5">
+          <div class="text-xl mb-2">📰</div>
+          <h3 class="font-semibold text-slate-100">Timeline em primeira mão</h3>
+          <p class="text-sm text-slate-400 mt-1">Cada decisão de arquitetura explicada antes de ir para o público.</p>
+        </div>
+      </div>
+
+      <div class="mt-12 p-6 border border-slate-700 rounded-xl bg-slate-900/50">
+        <h2 class="text-lg font-semibold text-slate-100 mb-2">Interesse?</h2>
+        <p class="text-slate-400 text-sm mb-4">Deixe seu email — você será notificado quando o Lab abrir.</p>
+        <a href="mailto:enio@egos.ia.br?subject=EGOS Lab - Interesse" class="inline-block px-6 py-3 bg-sky-600 hover:bg-sky-500 rounded-xl text-white font-medium transition-colors text-sm">
+          Quero participar →
+        </a>
+        <p class="mt-3 text-xs text-slate-600">Ou siga <a href="https://x.com/anoineim" class="text-sky-800 hover:text-sky-600">@anoineim no X.com</a> para updates.</p>
+      </div>
+    </div>
+  `
+  return c.html(layout('EGOS Lab — Comunidade R$20/mês', body))
+})
+
+// ── /showcase — EGOS encapsulation showcase ────────────────────────────────────
+
+app.get('/showcase', (c) => {
+  const body = `
+    <div class="max-w-2xl">
+      <div class="inline-block px-3 py-1 bg-slate-800 rounded-full text-slate-400 text-xs font-medium mb-6">
+        Artigo em produção · Camadas 0-1 concluídas
+      </div>
+      <h1 class="text-4xl font-bold text-slate-100 leading-tight">
+        EGOS: plataforma multi-agente<br>brasileira, open-source
+      </h1>
+      <p class="mt-6 text-lg text-slate-400">
+        Como construir um ecossistema de IA governado por 1 dev, com LGPD embutida,
+        103 scripts, 24 agentes, e transparência radical. De dentro para fora.
+      </p>
+      <div class="mt-8 space-y-3">
+        <div class="flex items-center gap-3 text-sm">
+          <span class="w-6 h-6 flex items-center justify-center rounded-full bg-green-900/50 text-green-400 text-xs">✓</span>
+          <span class="text-slate-300">Camada 0 — CLAUDE.md v4 auditado (4 PROVEN / 6 PARTIAL / 6 ASPIRATIONAL)</span>
+        </div>
+        <div class="flex items-center gap-3 text-sm">
+          <span class="w-6 h-6 flex items-center justify-center rounded-full bg-green-900/50 text-green-400 text-xs">✓</span>
+          <span class="text-slate-300">Camada 1 — 24 agents inventariados, 4 órfãos registrados</span>
+        </div>
+        <div class="flex items-center gap-3 text-sm">
+          <span class="w-6 h-6 flex items-center justify-center rounded-full bg-slate-800 text-slate-500 text-xs">○</span>
+          <span class="text-slate-500">Camada 2 — Governance Pipeline (próxima semana)</span>
+        </div>
+        <div class="flex items-center gap-3 text-sm">
+          <span class="w-6 h-6 flex items-center justify-center rounded-full bg-slate-800 text-slate-500 text-xs">○</span>
+          <span class="text-slate-500">Camadas 3-7 — Stack, Produtos, Data, Dashboards, Artigo</span>
+        </div>
+      </div>
+      <div class="mt-10 flex gap-4">
+        <a href="/timeline" class="px-6 py-3 bg-sky-600 hover:bg-sky-500 rounded-xl text-white font-medium transition-colors text-sm">
+          Ver Timeline →
+        </a>
+        <a href="/lab" class="px-6 py-3 border border-slate-700 hover:border-slate-500 rounded-xl text-slate-300 font-medium transition-colors text-sm">
+          Acompanhar no Lab →
+        </a>
+      </div>
+    </div>
+  `
+  return c.html(layout('Showcase — EGOS Platform', body))
 })
 
 // ── health ─────────────────────────────────────────────────────────────────────
