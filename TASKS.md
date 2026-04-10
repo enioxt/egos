@@ -32,8 +32,8 @@
 **Escopo:** `agents/registry/agents.json` + `agents/agents/*.ts` + prove-or-kill
 - [x] **ENC-L1-001 [P0]**: Inventário de cada agent: 20 registered (18 active, 2 dead) + 4 unregistered found ✅ 2026-04-10
 - [ ] **ENC-L1-002 [P1]**: Registrar 4 agents não-registrados (article-writer, doc-drift-verifier, doc-drift-analyzer, readme-syncer) no agents.json ✅ done 2026-04-10 — agents.json v2.4.0 (24 agents)
-- [ ] **ENC-L1-003 [P0]**: `docs/agents/<name>.md` — 1 doc por agent com seção "Prova de vida" (comando + output) | 8h
-- [ ] **ENC-L1-004 [P0]**: `docs/agents/INDEX.md` — índice mestre com links e status | 1h
+- [x] **ENC-L1-003 [P0]**: `docs/agents/<name>.md` — 24 stubs criados com seção "Prova de vida" ✅ 2026-04-10
+- [x] **ENC-L1-004 [P0]**: `docs/agents/INDEX.md` — índice mestre com 24 agents, status, LOC, proof command ✅ 2026-04-10
 - [ ] **ENC-L1-005 [P0]**: Smoke test suite — cada agent roda em `--dry` com output determinístico | 4h
 - [ ] **ENC-L1-006 [P1]**: Screenshot/export de `agent_events` Supabase mostrando execuções reais dos últimos 7 dias | 1h
 
