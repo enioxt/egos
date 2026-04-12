@@ -104,22 +104,25 @@ bun agent:run context_tracker --dry  # CTX score
 
 ---
 
-## SINGLE PURSUIT (2026-04-11 → 2026-07-11)
+## SINGLE PURSUIT (2026-04-12 → 2026-05-12)
 
-**UNICA PERSEGUICAO:** Guard Brasil Hybrid (consultoria LGPD/IA + produto API)
-**META:** 1 cliente pagante em 30 dias. 5 clientes em 90 dias.
-**MODELO:** Consultoria (R$ 30-80k/projeto) + API recorrente (R$ 50-2000/mes)
-**PRINCIPIO:** "Foco compoem. Dispersao dissipa." (Rian Doris protocol)
+**SPRINT:** Validação de Campo — Delegacia + Lídia
+**META 30d:** Lídia entende 80% do sistema. 1 processo real melhorado com IA.
+**MODELO:** Consultoria de implementação (A) + Framework licenciável (C, depois)
+**PRINCIPIO:** "Foco compoem. Dispersao dissipa." (Rian Doris)
+**COMPLEXIDADE:** Entregar no nivel que o campo exige, nao no nivel que a plataforma permite.
 
 REGRAS:
-1. 80% do tempo = Guard Brasil (produto + outreach + demos + conteudo)
-2. 20% = manutencao infra + Gem Hunter (MAX 2h/semana, sexta-feira)
-3. ZERO features novas em: 852, forja, egos-inteligencia, arch, egos-lab
-4. ZERO novos MCPs, skills, hooks, triggers (governance freeze)
-5. Gem Hunter = hobby de dopamina, NAO projeto. Como jiu-jitsu.
-6. Cada sessao COMECA com: "O que avanca Guard Brasil hoje?"
-7. Cada sessao TERMINA com: "Quantos % foram Guard Brasil?"
-8. ENFORCEMENT: Pre-commit hook BLOCKS commits outside Guard Brasil scope
+1. Prioridade = validar com a Lidia, aprender do campo, entregar o minimo util
+2. Guard Brasil = ferramenta no toolkit, nao o produto central
+3. Kernel complexo fica por baixo. So sobe complexidade se o campo exigir.
+4. Abstracao so depois da terceira repeticao (Karpathy)
+5. ZERO features novas em: 852, forja, egos-inteligencia, arch, egos-lab
+6. Gem Hunter = hobby (MAX 2h/semana, sexta-feira)
+7. Sessao comeca com: "O que avanca a validacao com a Lidia hoje?"
+8. Sessao termina com: "Aprendemos algo novo sobre o campo hoje?"
+9. Discussao e iteracao ANTES de executar (nao rushar)
+10. ENFORCEMENT: hook v4.0 — sprint delegacia patterns em clean pass
 
 ## GTM-First Rule (2026-04-11, updated)
 

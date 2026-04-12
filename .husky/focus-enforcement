@@ -1,11 +1,14 @@
 #!/bin/bash
 # ============================================================================
-# FOCUS ENFORCEMENT HOOK v3.0 — Single Pursuit Protocol
-# Period: April 11 - July 11, 2026
+# FOCUS ENFORCEMENT HOOK v4.0 — Sprint de Validação: Delegacia + Lídia
+# Period: April 12 - May 12, 2026
 #
-# v3.0 CHANGE: Single Pursuit — Guard Brasil Hybrid
-#   FORBIDDEN list  → HARD BLOCK (same as before, named traps)
-#   Guard Brasil    → CLEAN PASS (no warning)
+# v4.0 CHANGE: Pivot from Guard Brasil Hybrid → Validação de Campo
+#   Pursuit: implementar na delegacia com a Lídia, aprender do campo real
+#   Model: Consultoria (A) + Framework licenciável (C) — Guard Brasil é ferramenta
+#   Meta 30d: Lídia entende 80% do sistema. 1 processo real melhorado.
+#
+#   SPRINT patterns → CLEAN PASS
 #   Gem Hunter      → WEEKLY CAP warning (max 3 commits/week)
 #   Everything else → STRONG WARNING with dispersal counter
 #
@@ -26,10 +29,14 @@ FORBIDDEN_PATTERNS=(
   "Pochete2.0" "guia-INPI" "chacreamento"
 )
 
-# ── GUARD BRASIL: The single pursuit (clean pass) ─────────────────────────
+# ── SPRINT DELEGACIA: The single pursuit (clean pass) ────────────────────
 GUARD_PATTERNS=(
-  "guard-brasil" "apps/api" "packages/guard-brasil"
-  "docs/strategy/GUARD" "docs/products/guard"
+  "guard-brasil" "packages/guard-brasil" "apps/api"
+  "scripts/kb-ingest" "supabase/migrations"
+  "docs/strategy/KBS" "docs/strategy/GUARD" "docs/products/guard"
+  "docs/guides/KBS" "docs/guides/DISCOVERY"
+  "policia/" "casos/" "transcri"
+  "VAL-" "delegacia" "lidia"
 )
 
 # ── MAINTENANCE: Allowed with no fuss ─────────────────────────────────────
@@ -128,7 +135,7 @@ if [ ${#OTHER_FILES[@]} -gt 0 ]; then
       echo -e "${GREEN}   🟢 RATIO: ${RATIO}% Guard Brasil — bom foco${NC}"
     fi
   fi
-  echo -e "${BLUE}   Meta: 1 cliente pagante em 30 dias. Cada hora conta.${NC}"
+  echo -e "${BLUE}   Meta (30d): Lidia entende 80% do sistema. 1 processo real melhorado.${NC}"
   echo ""
 fi
 
