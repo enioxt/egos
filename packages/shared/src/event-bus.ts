@@ -1,6 +1,7 @@
 /**
  * EGOS Event Bus — Agent coordination via Supabase Realtime
- * Broadcasts events to Realtime channel AND persists to `agent_events` table.
+ * Persists all events to `agent_events` table.
+ * Only broadcasts warn/error/critical via Realtime to prevent quota exhaustion (INC-004).
  * @module event-bus
  */
 export type Severity = 'info' | 'warn' | 'error' | 'critical';
@@ -23,6 +24,16 @@ let supabase: any;
 let channel: any;
 const subscriptions: Subscription[] = [];
 let _supabaseAvailable: boolean | null = null;
+
+// INC-004: only stream warn/error/critical via Realtime — info events are audit-only.
+// Broadcasting every `orchestrator.schedule` / `agent.completed` INFO event caused
+// 157K Realtime messages in 5 days and exhausted the Pro plan quota.
+const SEVERITY_RANK: Record<Severity, number> = { info: 0, warn: 1, error: 2, critical: 3 };
+const REALTIME_MIN_SEVERITY = SEVERITY_RANK['warn'];
+
+function shouldBroadcast(severity: Severity): boolean {
+  return SEVERITY_RANK[severity] >= REALTIME_MIN_SEVERITY;
+}
 
 function loadSupabase(): boolean {
   if (_supabaseAvailable !== null) return _supabaseAvailable;
@@ -90,10 +101,12 @@ export async function emit(
     severity,
   };
 
-  // Broadcast via Supabase Realtime (if available)
-  const ch = getChannel();
-  if (ch) {
-    await ch.send({ type: 'broadcast', event: 'event', payload: event });
+  // Broadcast via Supabase Realtime only for warn/error/critical (INC-004)
+  if (shouldBroadcast(severity)) {
+    const ch = getChannel();
+    if (ch) {
+      await ch.send({ type: 'broadcast', event: 'event', payload: event });
+    }
   }
 
   // Persist fire-and-forget (if Supabase available)
@@ -115,7 +128,7 @@ export async function emit(
   }
 
   // Always notify local subscribers
-  subscriptions.forEach((sub, i) => {
+  subscriptions.forEach((sub) => {
     if (matchPattern(sub.pattern, event.type)) {
       sub.callback(event);
     }
