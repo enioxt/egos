@@ -31,7 +31,7 @@
 #### CAMADA 1 — Agents Registry (semana 2)
 **Escopo:** `agents/registry/agents.json` + `agents/agents/*.ts` + prove-or-kill
 - [x] **ENC-L1-001 [P0]**: Inventário de cada agent: 20 registered (18 active, 2 dead) + 4 unregistered found ✅ 2026-04-10
-- [ ] **ENC-L1-002 [P1]**: Registrar 4 agents não-registrados (article-writer, doc-drift-verifier, doc-drift-analyzer, readme-syncer) no agents.json ✅ done 2026-04-10 — agents.json v2.4.0 (24 agents)
+- [x] **ENC-L1-002 [P1]**: Registrar 4 agents não-registrados (article-writer, doc-drift-verifier, doc-drift-analyzer, readme-syncer) no agents.json ✅ done 2026-04-10 — agents.json v2.4.0 (24 agents)
 - [x] **ENC-L1-003 [P0]**: `docs/agents/<name>.md` — 24 stubs criados com seção "Prova de vida" ✅ 2026-04-10
 - [x] **ENC-L1-004 [P0]**: `docs/agents/INDEX.md` — índice mestre com 24 agents, status, LOC, proof command ✅ 2026-04-10
 - [ ] **ENC-L1-005 [P0]**: Smoke test suite — cada agent roda em `--dry` com output determinístico | 4h
@@ -113,8 +113,8 @@
 - [ ] **LAB-012 [P2]**: Certificação leve "EGOS Practitioner" automática após 90 dias ativos | 4h
 
 #### EGOS-SITE — Blog/Showcase (semanas 1-10 paralelo às camadas)
-- [ ] **SITE-001 [P1]**: Reativar `apps/egos-site/` — auditar estado atual, upgrade Bun/Hono | 2h
-- [ ] **SITE-002 [P1]**: Estrutura de rotas: index, blog, blog/[slug], showcase, status (embed), lab (CTA) | 3h
+- [x] **SITE-001 [P1]**: egos-site reativado — Hono server, /lab + /showcase routes, live em egos.ia.br ✅ 2026-04-10 (commit 6a28b1f)
+- [x] **SITE-002 [P1]**: Rotas: index, /timeline, /lab, /showcase, nav atualizada. Query corrigida para schema real timeline_articles. ✅ 2026-04-10 (commit 2c43c35)
 - [ ] **SITE-003 [P1]**: Markdown-based posts em `src/content/posts/*.md` — sem CMS | 2h
 - [ ] **SITE-004 [P1]**: [BLOCKER] DNS A record egos.ia.br → 204.168.217.125 (atualmente aponta para Vercel 216.150.1.1). Caddy já configurado. Container já rodando Hono. Só falta mudar o DNS. | 5min
 - [ ] **SITE-005 [P1]**: Theme dark/light simples, tipografia técnica (Inter + JetBrains Mono) | 3h
@@ -1298,3 +1298,64 @@
 - [x] **PLAT-MON-001 [P1]**: `scripts/platform-monitor.ts` — monitora 5 plataformas (claude-code, anthropic-sdk, notion-client, mcp-sdk, bun) via npm registry + GitHub releases. Impact assessment (low/medium/high/critical). Telegram alert para high+. ✅ 2026-04-09
 - [x] **PLAT-MON-002 [P1]**: Supabase migration `20260409_platform_updates.sql` — tabela `platform_updates` com RLS service_role. ✅ 2026-04-09
 - [x] **PLAT-MON-003 [P2]**: Auto-task em TASKS.md quando impacto HIGH detectado — `platform_updates.egos_impact = "high"` → cria task `ADAPT-NNN` automaticamente. ✅ 2026-04-09 — `appendTasksEntry()` em platform-monitor.ts
+
+---
+
+## OBS — OBSIDIAN + CLAUDE CODE KNOWLEDGE STACK (2026-04-10)
+
+> **Context:** Grok + analysis identified Obsidian + Claude Code as optimal knowledge layer for EGOS. Stack provides persistent external brain, wikilink graph, /start + /end integration, and compounding knowledge. Minimal setup, maximum velocity.
+> **Decision:** Research + task creation first (this session). Implementation in next session(s).
+> **SSOT:** docs/knowledge/OBSIDIAN_STACK_SSOT.md (to be created)
+
+### Setup & Foundation (P0-P1)
+
+- [x] **OBS-001 [P1]**: Create Obsidian vault directory structure. Vault: `~/Obsidian Vault/EGOS/` (00-07 + 99 folders). ✅ 2026-04-10
+- [x] **OBS-002 [P1]**: Symlink 12+ repos into vault by REPO_MAP group (PRODUCTION/PLATFORM/ACTIVE-DEV/etc). `bun obsidian:sync` v2.0 (symlinks, not copies). ✅ 2026-04-10
+- [x] **OBS-003 [P1]**: Vault-specific CLAUDE.md with meta-prompt, /start + /end instructions, frozen zones. File: `~/Obsidian Vault/EGOS/CLAUDE.md`. ✅ 2026-04-10
+- [x] **OBS-004 [P1]**: Vault folder structure (00-Inbox, 01-RawSources, 02-Wiki, 03-Sessions, 04-Outputs, 05-Decisions, 06-FORJA, 07-Handoffs, 99-Archive). ✅ 2026-04-10
+- [x] **OBS-005 [P1]**: MEMORY.md template for vault (Session Index, Active Projects, Decision Trail, HARVEST entries). File: `~/Obsidian Vault/EGOS/MEMORY.md`. ✅ 2026-04-10
+
+### MCP & Search Integration (P1-P2)
+
+- [ ] **OBS-006 [P1]**: Install MCP for Obsidian (codebase-memory-mcp or equivalent). Test graph queries: search_graph(name_pattern="*"), trace_call_path("wiki-compiler"). Validate symlinked repos are indexed. | 2h
+- [ ] **OBS-007 [P1]**: Create MCP wrapper script (scripts/vault-search.ts). Allows Claude Code to query vault via: `bun vault-search "pattern"` or `bun vault-search:trace "function"`. Returns wikilink suggestions. | 2h
+- [ ] **OBS-008 [P2]**: Implement wikilink auto-suggestion in CLAUDE.md hooks. When Claude creates a note, automatically suggest links to existing notes based on keywords. File: `~/.claude/hooks/wikilink-suggester.ts`. | 3h
+
+### /start + /end Integration (P1-P2)
+
+- [x] **OBS-009 [P1]**: /start workflow updated — INTAKE reads vault MEMORY.md, runs `bun obsidian:sync`. File: `.agents/workflows/start-workflow.md`. ✅ 2026-04-10
+- [x] **OBS-010 [P1]**: /end workflow updated — Phase 5 writes handoff to vault, updates MEMORY.md, runs `bun obsidian:sync`. File: `.windsurf/workflows/end.md`. ✅ 2026-04-10
+- [ ] **OBS-011 [P2]**: Create /vault-sync script (scripts/vault-sync.ts). Triggered by /end or manual trigger. Syncs HARVEST.md ← → vault/Learnings/, CAPABILITY_REGISTRY.md ← → vault/Capabilities/, etc. Bi-directional link maintenance. | 3h
+
+### Governance & Auditing (P2-P3)
+
+- [ ] **OBS-012 [P2]**: Create vault doctor command (scripts/vault-doctor.ts). Checks: orphaned notes (no backlinks), dead wikilinks (link targets not found), stale notes (>30 days no edit), graph connectivity score. Output: JSON report. | 3h
+- [ ] **OBS-013 [P2]**: Implement frozen zones for vault. Files like CLAUDE.md, MEMORY.md, Handoffs/current/ should have edit-locks. Any .guarani/ rules or philosophy should be read-only except via /disseminate. File: vault-frozen-zones.yaml. | 2h
+- [ ] **OBS-014 [P2]**: Create vault manifest (.egos-vault-manifest.yaml). Declares: vault purpose, canonical SSOT links, symlinked repos, MCP status, /start + /end integration status, last doctor run. | 1h
+- [ ] **OBS-015 [P3]**: Audit trail for vault. Log all note creates/deletes/edits to Supabase or local JSONL (vault_audit.jsonl). Include: timestamp, user, action, note_id, change_hash. Queryable via doctor or /end report. | 3h
+
+### FORJA-Specific Knowledge Layer (P2)
+
+- [ ] **OBS-016 [P2]**: Create FORJA knowledge subvault (EGOS-Knowledge/FORJA-Specific/). Sections: Cliente Profiles, Normas ABNT, Orçamentos Template, Reuniões, Insights, ROI Estimates. | 1h
+- [ ] **OBS-017 [P2]**: Ingest FORJA artifacts into vault. CLI tool (scripts/forja-ingest.ts): reads FORJA repo docs, PDFs (via Guard extractors), creates vault notes with auto-tags (#metalurgia, #orçamento, #cliente). | 3h
+- [ ] **OBS-018 [P2]**: FORJA client profile template. Template: EGOS-Knowledge/FORJA-Specific/Clients/[CLIENT_NAME].md with: contact, last order, preferences, special requirements, linked to orders & norms. Auto-populated from CRM if available. | 1h
+
+### Dashboard & Visualization (P3)
+
+- [ ] **OBS-019 [P3]**: Create vault dashboard (scripts/vault-dashboard.ts or Obsidian plugin). Shows: note count, graph health score, decision count, learning count, last /end sync, stale note warnings. Outputs to HQ or TUI. | 4h
+- [ ] **OBS-020 [P3]**: Obsidian vault graph export for HQ (optional). Periodically export graph as JSON (nodes + edges) → display in HQ dashboard as interactive network (D3.js or similar). | 4h
+
+### Documentation
+
+- [x] **OBS-DOC-001 [P1]**: `docs/knowledge/OBSIDIAN_STACK_SSOT.md` criado. SSOT do vault: arquitetura, governança, task breakdown, acceptance criteria. ✅ 2026-04-10
+- [x] **OBS-DOC-002 [P1]**: `docs/knowledge/OBSIDIAN_SETUP_GUIDE.md` criado. Step-by-step: Phase 1-5, comandos exatos. ✅ 2026-04-10
+
+### External Tools Evaluation (P3 — backlog, revisitar quando estabilizar)
+**Context:** Avaliacao de 2026-04-11 (Karpathy skills, Skill Graph, 35 MCPs, Engraph, NotebookLM, Claude Skills best practices). Conclusao: ja temos 90%+ do que propoe. Itens abaixo sao os unicos gaps reais.
+- [ ] **EVAL-001 [P3]**: Avaliar Engraph (devwhodevs/engraph) quando atingir 500+ stars. Hybrid search 5-lane + section-level edit + vault health. Hoje: 76 stars, v1.6, risco alto. Ja temos codebase-memory-mcp + Obsidian MCP cobrindo 80% do use case. | Revisitar 2026-Q3
+- [ ] **EVAL-002 [P3]**: Avaliar Neo4j MCP server para br-acc (83.7M nodes). Atualmente acessamos via shim Python. MCP daria acesso direto via Claude Code. Nao urgente — br-acc esta estavel. | 2h
+- [ ] **EVAL-003 [P3]**: Avaliar Docker MCP para gerenciar containers VPS via prompt. Hoje temos egos-watchdog.sh (cron 5min) + manual `docker ps`. MCP seria mais interativo mas nao critico. | 1h
+- [ ] **EVAL-004 [P3]**: Skills testing protocol — adicionar exemplos + edge cases nos 25 skills existentes em `~/.egos/.claude/commands/`. Seguir padrao: happy path, minimal input, edge case, negative test, repeatability. Fazer gradualmente, 2-3 skills por sessao. | ongoing
+
+---
+
