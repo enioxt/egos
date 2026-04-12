@@ -36,6 +36,29 @@ function layout(title: string, body: string): string {
     .prose pre code { background: none; padding: 0; }
     .prose a { color: #38bdf8; text-decoration: underline; }
     .prose blockquote { border-left: 3px solid #334155; padding-left: 1rem; color: #94a3b8; margin: 1rem 0; }
+    .prose table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    .prose th { text-align: left; padding: 0.5rem 0.75rem; background: #1e293b; color: #e2e8f0; font-weight: 600; font-size: 0.875rem; border-bottom: 2px solid #334155; }
+    .prose td { padding: 0.5rem 0.75rem; border-bottom: 1px solid #1e293b; color: #cbd5e1; font-size: 0.875rem; }
+    .prose tr:hover td { background: #0f172a; }
+    .callout { border-left: 3px solid #38bdf8; background: #0c4a6e20; padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin: 1.25rem 0; }
+    .callout-warn { border-left-color: #f59e0b; background: #78350f20; }
+    .callout p { margin: 0.25rem 0; }
+    .code-block { position: relative; }
+    .code-block .copy-btn { position: absolute; top: 0.5rem; right: 0.5rem; background: #334155; border: none; color: #94a3b8; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; cursor: pointer; opacity: 0; transition: opacity 0.2s; }
+    .code-block:hover .copy-btn { opacity: 1; }
+    .code-block .copy-btn:hover { background: #475569; color: #e2e8f0; }
+    .toc { position: sticky; top: 2rem; }
+    .toc a { display: block; padding: 0.25rem 0; color: #64748b; font-size: 0.8rem; text-decoration: none; border-left: 2px solid transparent; padding-left: 0.75rem; transition: all 0.15s; }
+    .toc a:hover { color: #e2e8f0; border-left-color: #38bdf8; }
+    .toc a.toc-h3 { padding-left: 1.5rem; font-size: 0.75rem; }
+    .reading-progress { position: fixed; top: 0; left: 0; height: 2px; background: #38bdf8; z-index: 50; transition: width 0.1s; }
+    .prose h2 a.anchor, .prose h3 a.anchor { color: #334155; text-decoration: none; margin-left: 0.35rem; font-weight: 400; }
+    .prose h2:hover a.anchor, .prose h3:hover a.anchor { color: #64748b; }
+    .faq-section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #1e293b; }
+    .faq-section details { border: 1px solid #1e293b; border-radius: 8px; margin: 0.5rem 0; }
+    .faq-section summary { padding: 0.75rem 1rem; cursor: pointer; color: #e2e8f0; font-weight: 500; }
+    .faq-section details[open] summary { border-bottom: 1px solid #1e293b; }
+    .faq-section details div { padding: 0.75rem 1rem; color: #94a3b8; }
   </style>
 </head>
 <body class="dark min-h-screen">
@@ -62,6 +85,68 @@ function layout(title: string, body: string): string {
 function formatDate(iso: string): string {
   return new Date(iso).toLocaleDateString('pt-BR', {
     day: '2-digit', month: 'long', year: 'numeric'
+  })
+}
+
+function readingTime(html: string): number {
+  const text = html.replace(/<[^>]+>/g, '')
+  const words = text.split(/\s+/).filter(Boolean).length
+  return Math.max(1, Math.ceil(words / 200))
+}
+
+function slugify(text: string): string {
+  return text.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').slice(0, 60)
+}
+
+function extractToc(html: string): Array<{ id: string; text: string; level: number }> {
+  const toc: Array<{ id: string; text: string; level: number }> = []
+  const regex = /<h([23])[^>]*>([^<]+)/g
+  let match
+  while ((match = regex.exec(html)) !== null) {
+    const text = match[2].replace(/<[^>]+>/g, '').trim()
+    if (text) toc.push({ id: slugify(text), text, level: parseInt(match[1]) })
+  }
+  return toc
+}
+
+function addHeadingAnchors(html: string): string {
+  return html.replace(/<h([23])>([^<]+)<\/h\1>/g, (_m, level: string, text: string) => {
+    const id = slugify(text)
+    return `<h${level} id="${id}">${text} <a href="#${id}" class="anchor">#</a></h${level}>`
+  })
+}
+
+function addCodeCopyButtons(html: string): string {
+  return html.replace(/<pre><code>/g, '<div class="code-block"><button class="copy-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector(\'code\').textContent).then(()=>{this.textContent=\'Copiado!\';setTimeout(()=>this.textContent=\'Copiar\',1500)})">Copiar</button><pre><code>'
+  ).replace(/<\/code><\/pre>/g, '</code></pre></div>')
+}
+
+function articleJsonLd(article: { title: string; slug: string; published_at: string; body_html: string; views?: number }): string {
+  const wordCount = (article.body_html ?? '').replace(/<[^>]+>/g, '').split(/\s+/).length
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Article',
+        headline: article.title,
+        datePublished: article.published_at,
+        dateModified: article.published_at,
+        url: `https://egos.ia.br/timeline/${article.slug}`,
+        wordCount,
+        inLanguage: 'pt-BR',
+        author: {
+          '@type': 'Person',
+          name: 'Enio Rocha',
+          url: 'https://github.com/enioxt'
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'EGOS',
+          url: 'https://egos.ia.br'
+        },
+        isPartOf: { '@type': 'Blog', name: 'EGOS Timeline', url: 'https://egos.ia.br/timeline' }
+      }
+    ]
   })
 }
 
@@ -153,29 +238,76 @@ app.get('/timeline/:slug', async (c) => {
     .eq('slug', slug)
     .then(() => {})
 
-  // Convert markdown-like content to simple HTML
-  const contentHtml = article.body_html ?? renderMarkdown('')
+  // Process content: add heading anchors and code copy buttons
+  let contentHtml = article.body_html ?? renderMarkdown('')
+  contentHtml = addHeadingAnchors(contentHtml)
+  contentHtml = addCodeCopyButtons(contentHtml)
+
+  const toc = extractToc(article.body_html ?? '')
+  const minutes = readingTime(article.body_html ?? '')
+  const jsonLd = articleJsonLd(article)
+
+  // Fetch related articles
+  const { data: related } = await (getSupabase()
+    ?.from('timeline_articles')
+    .select('slug, title, published_at')
+    .neq('slug', slug)
+    .order('published_at', { ascending: false })
+    .limit(3) ?? Promise.resolve({ data: [] }))
+
+  const tocHtml = toc.length > 2 ? `
+    <nav class="toc hidden lg:block">
+      <p class="text-xs text-slate-600 uppercase tracking-wider mb-2 font-semibold">Neste artigo</p>
+      ${toc.map(t => `<a href="#${t.id}" class="${t.level === 3 ? 'toc-h3' : ''}">${t.text}</a>`).join('\n')}
+    </nav>
+  ` : ''
+
+  const relatedHtml = (related ?? []).length > 0 ? `
+    <div class="mt-12 pt-8 border-t border-slate-800">
+      <h2 class="text-lg font-semibold text-slate-100 mb-4">Mais da Timeline</h2>
+      <div class="grid gap-3 sm:grid-cols-3">
+        ${(related ?? []).map((r: { slug: string; title: string; published_at: string }) => `
+          <a href="/timeline/${r.slug}" class="border border-slate-800 rounded-lg p-4 hover:border-slate-600 transition-colors">
+            <time class="text-xs text-slate-600">${formatDate(r.published_at)}</time>
+            <p class="mt-1 text-sm text-slate-200 font-medium leading-snug">${r.title}</p>
+          </a>
+        `).join('')}
+      </div>
+    </div>
+  ` : ''
 
   const body = `
-    <article>
-      <header class="mb-10 pb-6 border-b border-slate-800">
-        <a href="/timeline" class="text-sm text-slate-500 hover:text-slate-400 mb-4 inline-block">← Timeline</a>
-        <h1 class="text-4xl font-bold text-slate-100 mt-2 leading-tight">${article.title}</h1>
-        <div class="flex items-center gap-6 mt-4 text-sm text-slate-500">
-          <time>${formatDate(article.published_at)}</time>
-          ${article.url ? `<a href="${article.url}" class="font-mono hover:text-sky-400" target="_blank">ver no GitHub →</a>` : ''}
-          ${article.views ? `<span>${article.views} visualizações</span>` : ''}
+    <div class="reading-progress" id="rp"></div>
+    <script type="application/ld+json">${jsonLd}</script>
+    <div class="${toc.length > 2 ? 'lg:grid lg:grid-cols-[1fr_200px] lg:gap-10' : ''}">
+      <article>
+        <header class="mb-10 pb-6 border-b border-slate-800">
+          <a href="/timeline" class="text-sm text-slate-500 hover:text-slate-400 mb-4 inline-block">← Timeline</a>
+          <h1 class="text-4xl font-bold text-slate-100 mt-2 leading-tight">${article.title}</h1>
+          <div class="flex flex-wrap items-center gap-4 mt-4 text-sm text-slate-500">
+            <div class="flex items-center gap-2">
+              <div class="w-6 h-6 rounded-full bg-sky-900 flex items-center justify-center text-xs text-sky-400 font-bold">E</div>
+              <span>Enio Rocha</span>
+            </div>
+            <time datetime="${article.published_at}">${formatDate(article.published_at)}</time>
+            <span>${minutes} min de leitura</span>
+            ${article.views ? `<span>${article.views} views</span>` : ''}
+            ${article.url ? `<a href="${article.url}" class="font-mono hover:text-sky-400" target="_blank">GitHub →</a>` : ''}
+          </div>
+        </header>
+        <div class="prose max-w-none">
+          ${contentHtml}
         </div>
-      </header>
-      <div class="prose max-w-none">
-        ${contentHtml}
-      </div>
-      ${article.x_post_url ? `
-        <div class="mt-12 pt-6 border-t border-slate-800">
-          <p class="text-sm text-slate-500">Publicado no <a href="${article.x_post_url}" class="text-sky-400 hover:text-sky-300" target="_blank">X.com</a></p>
-        </div>
-      ` : ''}
-    </article>
+        ${article.x_post_url ? `
+          <div class="mt-8 pt-4 border-t border-slate-800">
+            <p class="text-sm text-slate-500">Publicado no <a href="${article.x_post_url}" class="text-sky-400 hover:text-sky-300" target="_blank">X.com</a></p>
+          </div>
+        ` : ''}
+        ${relatedHtml}
+      </article>
+      ${tocHtml}
+    </div>
+    <script>window.addEventListener('scroll',()=>{const d=document.documentElement;const p=d.scrollTop/(d.scrollHeight-d.clientHeight)*100;document.getElementById('rp').style.width=p+'%'})</script>
   `
 
   return c.html(layout(article.title, body))
@@ -328,6 +460,61 @@ app.get('/showcase', (c) => {
 // ── health ─────────────────────────────────────────────────────────────────────
 
 app.get('/health', (c) => c.json({ ok: true, service: 'egos-site', port: PORT }))
+
+// llms.txt: curated map for AI agents (spec: llmstxt.org)
+app.get('/llms.txt', async (c) => {
+  const supabase = getSupabase()
+  let articleList = ''
+  if (supabase) {
+    const { data } = await supabase
+      .from('timeline_articles')
+      .select('slug, title')
+      .order('published_at', { ascending: false })
+      .limit(20)
+    articleList = (data ?? []).map((a: { slug: string; title: string }) =>
+      `- [${a.title}](https://egos.ia.br/timeline/${a.slug})`
+    ).join('\n')
+  }
+  c.header('Content-Type', 'text/plain; charset=utf-8')
+  c.header('Cache-Control', 'public, max-age=3600')
+  return c.text(`# EGOS — Governed AI Platform
+> AI orchestration kernel with built-in governance, LGPD compliance, and radical transparency. Built in Brazil by Enio Rocha.
+
+## Products
+- [Guard Brasil API](https://guard.egos.ia.br): PII detection for 16 Brazilian data patterns. 4ms latency, open-source MIT
+- [Gem Hunter](https://gemhunter.egos.ia.br): Discovers emerging AI repos across 14 sources
+- [EGOS Timeline](https://egos.ia.br/timeline): Transparent development log
+
+## Source Code
+- [GitHub](https://github.com/enioxt/egos): Main repository
+- [npm: @egosbr/guard-brasil](https://www.npmjs.com/package/@egosbr/guard-brasil): TypeScript SDK
+
+## Articles
+${articleList || '- No articles published yet'}
+
+## Contact
+- GitHub: @enioxt
+- X.com: @anoineim
+`)
+})
+
+app.get('/robots.txt', (c) => {
+  c.header('Content-Type', 'text/plain')
+  return c.text(`User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://egos.ia.br/sitemap.xml
+`)
+})
 
 // ── markdown renderer (simple, no deps) ────────────────────────────────────────
 
