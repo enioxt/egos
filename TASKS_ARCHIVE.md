@@ -250,3 +250,22 @@
 
 > **Context:** agentcash.dev = hub x402 300+ APIs (0% comissão, USDC micropayments). hyper.space = rede P2P distributed AGI, ganha pontos por compute.
 
+
+## Archived 2026-04-12
+
+### Setup & Foundation (P0-P1)
+
+- [x] **OBS-001 [P1]**: Create Obsidian vault directory structure. Vault: `~/Obsidian Vault/EGOS/` (00-07 + 99 folders). ✅ 2026-04-10
+- [x] **OBS-002 [P1]**: Symlink 12+ repos into vault by REPO_MAP group (PRODUCTION/PLATFORM/ACTIVE-DEV/etc). `bun obsidian:sync` v2.0 (symlinks, not copies). ✅ 2026-04-10
+- [x] **OBS-003 [P1]**: Vault-specific CLAUDE.md with meta-prompt, /start + /end instructions, frozen zones. File: `~/Obsidian Vault/EGOS/CLAUDE.md`. ✅ 2026-04-10
+- [x] **OBS-004 [P1]**: Vault folder structure (00-Inbox, 01-RawSources, 02-Wiki, 03-Sessions, 04-Outputs, 05-Decisions, 06-FORJA, 07-Handoffs, 99-Archive). ✅ 2026-04-10
+- [x] **OBS-005 [P1]**: MEMORY.md template for vault (Session Index, Active Projects, Decision Trail, HARVEST entries). File: `~/Obsidian Vault/EGOS/MEMORY.md`. ✅ 2026-04-10
+
+
+---
+
+### Documentation
+
+- [x] **OBS-DOC-001 [P1]**: `docs/knowledge/OBSIDIAN_STACK_SSOT.md` criado. SSOT do vault: arquitetura, governança, task breakdown, acceptance criteria. ✅ 2026-04-10
+- [x] **OBS-DOC-002 [P1]**: `docs/knowledge/OBSIDIAN_SETUP_GUIDE.md` criado. Step-by-step: Phase 1-5, comandos exatos. ✅ 2026-04-10
+

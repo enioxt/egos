@@ -2,12 +2,15 @@
 /**
  * KBS-006 — KB File Ingestor
  *
- * Ingests PDF, DOCX, or Markdown files into the EGOS Knowledge Base.
+ * Ingests PDF, DOCX, Markdown, JSON, or JSONL files into the EGOS Knowledge Base.
  * Extracts text, runs Guard Brasil PII scan, indexes via wiki-compiler.
+ * JSON/JSONL: each object/record becomes a separate wiki page.
  *
  * Usage:
  *   bun scripts/kb-ingest.ts --file path/to/doc.pdf [--category "metalurgia"] [--dry]
- *   bun scripts/kb-ingest.ts --dir path/to/folder/ [--ext pdf,docx] [--dry]
+ *   bun scripts/kb-ingest.ts --file path/to/data.json [--category "delegacia"] [--dry]
+ *   bun scripts/kb-ingest.ts --file path/to/records.jsonl [--category "advocacia"] [--dry]
+ *   bun scripts/kb-ingest.ts --dir path/to/folder/ [--ext pdf,docx,json,jsonl] [--dry]
  *   bun scripts/kb-ingest.ts --notion <page-url> [--dry]
  *
  * Env: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, GUARD_BRASIL_API_KEY (optional)
@@ -33,7 +36,7 @@ const dirArg = ARGS.find((_, i) => ARGS[i - 1] === '--dir');
 const notionArg = ARGS.find((_, i) => ARGS[i - 1] === '--notion');
 const categoryArg = ARGS.find((_, i) => ARGS[i - 1] === '--category') ?? 'geral';
 const tenantArg = ARGS.find((_, i) => ARGS[i - 1] === '--tenant') ?? 'egos';
-const extArg = ARGS.find((_, i) => ARGS[i - 1] === '--ext') ?? 'pdf,docx,md';
+const extArg = ARGS.find((_, i) => ARGS[i - 1] === '--ext') ?? 'pdf,docx,md,json,jsonl';
 
 // ── Text Extractors ─────────────────────────────────────────────────────────
 
@@ -60,7 +63,141 @@ async function extractText(filePath: string): Promise<string> {
   if (ext === '.pdf') return extractPdf(filePath);
   if (ext === '.docx' || ext === '.doc') return extractDocx(filePath);
   if (ext === '.md' || ext === '.txt') return extractMarkdown(filePath);
+  // JSON/JSONL: flatten to text (multi-object case handled by ingestJsonFile)
+  if (ext === '.json' || ext === '.jsonl') return extractJsonAsText(filePath);
   throw new Error(`Unsupported file type: ${ext}`);
+}
+
+// ── JSON/JSONL Extractors ────────────────────────────────────────────────────
+
+type JsonRecord = Record<string, unknown>;
+
+/** Detect a human-readable title from a JSON object's keys */
+function detectTitle(obj: JsonRecord, fallback: string): string {
+  const titleKeys = ['title', 'name', 'nome', 'subject', 'assunto', 'id', 'slug', 'label'];
+  for (const key of titleKeys) {
+    if (typeof obj[key] === 'string' && (obj[key] as string).length > 0) {
+      return (obj[key] as string).substring(0, 120);
+    }
+  }
+  for (const val of Object.values(obj)) {
+    if (typeof val === 'string' && val.length > 2 && val.length < 120) return val;
+  }
+  return fallback;
+}
+
+/** Convert a JSON object to readable markdown-like text */
+function objToText(obj: JsonRecord): string {
+  const lines: string[] = [];
+  for (const [key, val] of Object.entries(obj)) {
+    if (val === null || val === undefined) continue;
+    const valStr =
+      typeof val === 'object' ? JSON.stringify(val, null, 2) : String(val);
+    lines.push(`**${key}:** ${valStr}`);
+  }
+  return lines.join('\n');
+}
+
+/** Extract all records from a JSON or JSONL file */
+function extractJsonRecords(filePath: string): Array<{ title: string; content: string }> {
+  const raw = readFileSync(filePath, 'utf-8').trim();
+  const ext = extname(filePath).toLowerCase();
+  const fileBase = basename(filePath, ext);
+
+  let objects: JsonRecord[] = [];
+
+  if (ext === '.jsonl') {
+    objects = raw
+      .split('\n')
+      .filter((l) => l.trim().length > 0)
+      .map((line, i) => {
+        try { return JSON.parse(line) as JsonRecord; }
+        catch { console.warn(`  ⚠️  JSONL line ${i + 1} parse error — skipping`); return null; }
+      })
+      .filter((o): o is JsonRecord => o !== null);
+  } else {
+    let parsed: unknown;
+    try { parsed = JSON.parse(raw); }
+    catch (e) { throw new Error(`JSON parse error: ${(e as Error).message}`); }
+
+    if (Array.isArray(parsed)) {
+      objects = parsed.filter((o) => o !== null && typeof o === 'object') as JsonRecord[];
+    } else if (typeof parsed === 'object' && parsed !== null) {
+      objects = [parsed as JsonRecord];
+    } else {
+      objects = [{ value: parsed }];
+    }
+  }
+
+  return objects.map((obj, i) => ({
+    title: detectTitle(obj, `${fileBase} #${i + 1}`),
+    content: objToText(obj),
+  }));
+}
+
+/** For single-object JSON, return as text; multi-record: concatenate */
+function extractJsonAsText(filePath: string): string {
+  const records = extractJsonRecords(filePath);
+  if (records.length === 1) return records[0].content;
+  return records.map((r) => `## ${r.title}\n\n${r.content}`).join('\n\n---\n\n');
+}
+
+/** Ingest JSON/JSONL: one wiki page per record */
+async function ingestJsonFile(filePath: string, category: string): Promise<void> {
+  const fileName = basename(filePath);
+  console.log(`[kb-ingest] Processing JSON: ${fileName}`);
+
+  let records: Array<{ title: string; content: string }>;
+  try {
+    records = extractJsonRecords(filePath);
+  } catch (e) {
+    console.error(`  ❌ Parse failed: ${(e as Error).message}`);
+    return;
+  }
+
+  console.log(`  📋 ${records.length} record(s) found`);
+  let ok = 0;
+  let skipped = 0;
+
+  for (const record of records) {
+    if (record.content.trim().length < 10) { skipped++; continue; }
+    const slug = toSlug(record.title);
+    const guard = await scanPii(record.content);
+    let content = record.content;
+
+    if (guard.has_pii) {
+      const types = [...new Set(guard.detections.map((d) => d.type))];
+      console.warn(`  ⚠️  PII in "${record.title}": ${types.join(', ')}`);
+      if (guard.redacted) {
+        content = guard.redacted;
+      } else {
+        console.error(`  ❌ Skipping "${record.title}" — PII found, no redaction available`);
+        skipped++;
+        continue;
+      }
+    }
+
+    if (isDry) {
+      console.log(`  [DRY] Would upsert: slug="${slug}", chars=${content.length}`);
+      ok++;
+      continue;
+    }
+
+    await upsertPage({
+      title: record.title,
+      slug,
+      content,
+      category,
+      source_file: filePath,
+      has_pii: guard.has_pii,
+      pii_types: guard.has_pii ? [...new Set(guard.detections.map((d) => d.type))] : [],
+      tenant_id: tenantArg,
+    });
+    console.log(`  ✅ ${slug}`);
+    ok++;
+  }
+
+  console.log(`  Done — ${ok} indexed, ${skipped} skipped`);
 }
 
 // ── Guard Brasil PII Scan ───────────────────────────────────────────────────
@@ -240,7 +377,12 @@ async function ingestDir(dirPath: string, category: string, extensions: string[]
 
   for (const file of files) {
     try {
-      await ingestFile(join(dirPath, file), category);
+      const fExt = extname(file).toLowerCase();
+      if (fExt === '.json' || fExt === '.jsonl') {
+        await ingestJsonFile(join(dirPath, file), category);
+      } else {
+        await ingestFile(join(dirPath, file), category);
+      }
       ok++;
     } catch (e) {
       console.error(`  ❌ ${file}: ${(e as Error).message}`);
@@ -270,7 +412,12 @@ if (fileArg) {
     console.error(`File not found: ${fileArg}`);
     process.exit(1);
   }
-  await ingestFile(fileArg, categoryArg);
+  const fileExt = extname(fileArg).toLowerCase();
+  if (fileExt === '.json' || fileExt === '.jsonl') {
+    await ingestJsonFile(fileArg, categoryArg);
+  } else {
+    await ingestFile(fileArg, categoryArg);
+  }
 } else if (dirArg) {
   if (!existsSync(dirArg)) {
     console.error(`Directory not found: ${dirArg}`);
