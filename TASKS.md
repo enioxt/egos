@@ -1033,8 +1033,8 @@
 
 - [ ] **KBS-027 [P0]**: Schema de entidades para EGOS demo — definir tipos: Agent, Task, Capability, Incident, Decision, Pattern, Integration. Criar `docs/strategy/KBS_ENTITY_SCHEMA_EGOS.md` com atributos, exemplos e relacionamentos para cada tipo. | 3h
 - [ ] **KBS-028 [P0]**: Migração Supabase — tabelas `egos_entities` (id, tenant_id, type, name, attributes jsonb) e `egos_relationships` (id, source_entity_id, target_entity_id, relation_type, context, doc_source). RLS por tenant. | 4h
-- [ ] **KBS-029 [P0]**: Agente entity-extractor — dado um wiki_page já ingerido, usar LLM para extrair entidades tipadas e inserir em `egos_entities`. Dry-run first. Agent: `agents/agents/kb-entity-extractor.ts`. | 6h
-- [ ] **KBS-030 [P0]**: Relationship mapper — após extração, cruzar entidades entre docs e criar `egos_relationships`. Algoritmo: mesmo nome + tipo → tentar linkar; LLM confirma. | 6h
+- [ ] **KBS-029 [P0]**: Agente entity-extractor — REUSAR `egos-inteligencia/api/src/egos_inteligencia/services/investigation_templates.py` + `bertimbau_ner.py` + `spacy_ner.py`. Abstrair entity types por setor (já tem: Person, Company, Vehicle, Location, Contract, etc.). Criar adapter TypeScript que chama o FastAPI de extração. NÃO construir do zero. | 6h
+- [ ] **KBS-030 [P0]**: Relationship mapper — REUSAR `egos-inteligencia/services/cross_reference_engine.py` (find_links, cross_case_analysis, analyze_network, detect_clusters, detect_anomalies). Já tem centrality scores + anomaly heuristics. Criar adapter que expõe via knowledge-mcp. | 6h
 - [ ] **KBS-031 [P0]**: EGOS Intelligence Report — relatório semanal gerado do grafo de entidades: capabilities ativas, incidentes abertos, decisões recentes, agents por status. Output: Notion page + Markdown. | 6h
 - [ ] **KBS-032 [P0]**: EGOS como showcase completo — ingerir 100% dos docs SSOT (TASKS, HARVEST, CAPABILITY_REGISTRY, handoffs, agents.json, incidents), extrair entidades, gerar relatório, criar Notion dashboard. Este IS o portfólio. | 8h
 
@@ -1071,8 +1071,8 @@
 > **Princípio:** Cada formato suportado = mais clientes possíveis. Cada implementação melhora o protocolo.
 
 - [ ] **KBS-FMT-001 [P1]**: CSV/Excel ingestor — adicionar suporte `.csv` (papaparse) + `.xlsx` (exceljs) ao `kb-ingest.ts`. Cada row vira uma wiki_page ou entidade. Headers viram atributos. | 4h
-- [ ] **KBS-FMT-002 [P1]**: Áudio transcrição — suporte `.ogg`, `.mp3`, `.wav`, `.m4a` via Whisper API (OpenAI) ou whisper.cpp local. Transcrição → texto → ingest normal. Flag `--transcribe`. | 6h
-- [ ] **KBS-FMT-003 [P1]**: Vídeo transcrição — suporte `.mp4`, `.webm` via ffmpeg (extrair áudio) + Whisper. Mesma pipeline do KBS-FMT-002 com passo extra. | 4h
+- [ ] **KBS-FMT-002 [P1]**: Áudio transcrição — suporte `.ogg`, `.mp3`, `.wav`, `.m4a` via Groq API (primário, mais rápido) ou whisper.cpp local (quando hardware disponível). NÃO usar OpenAI Whisper API. Transcrição → texto → ingest normal. Flag `--transcribe`. | 6h
+- [ ] **KBS-FMT-003 [P1]**: Vídeo transcrição — suporte `.mp4`, `.webm` via ffmpeg (extrair áudio) + Whisper. ffmpeg extrai áudio → Groq API transcreve → ingest normal. | 4h
 - [ ] **KBS-FMT-004 [P1]**: OCR para imagens/scans — suporte `.jpg`, `.png`, PDFs escaneados via Tesseract ou Claude Vision API. Flag `--ocr`. | 4h
 - [ ] **KBS-FMT-005 [P1]**: Email parser — suporte `.eml` (mailparser npm) + `.mbox`. Extrai: remetente, assunto, corpo, anexos. Cada email → wiki_page. | 4h
 - [ ] **KBS-FMT-006 [P2]**: WhatsApp export parser — `.txt` exportado do WhatsApp → mensagens normalizadas. Agrupa por dia/conversa. Útil para clientes que têm conhecimento em chats. | 3h
