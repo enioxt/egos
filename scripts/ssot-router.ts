@@ -106,7 +106,7 @@ function keywordRoute(filePath: string, content: string, ssotMap: SsotMap): Rout
     let score = 0;
 
     // Check forbidden paths first
-    for (const forbidden of domain.forbidden_paths) {
+    for (const forbidden of (domain.forbidden_paths ?? [])) {
       if (matchGlob(basename(filePath), forbidden) || filePath.includes(forbidden.replace("*", ""))) {
         score += 10; // strong signal: path itself is forbidden
       }

@@ -1065,6 +1065,24 @@
 - [ ] **KBS-DISS-006 [P3]**: **DHPP/Inteligência** KB — contexto profissional de Enio. Domínio: procedimentos (sem dados reais), normas perícia, jurisprudência penal. Tenant: `dhpp`. Portfolio item #1. | 6h
 - [ ] **KBS-DISS-007 [P3]**: Cron VPS — `/lint` semanal em todos tenants + relatório consolidado no HQ. | 3h
 
+#### P1 — Discovery Protocol + Format Pipeline (pré-requisito de qualquer implementação)
+
+> **SSOT:** `docs/guides/KBS_DISCOVERY_PROTOCOL.md` (criado 2026-04-12)
+> **Princípio:** Cada formato suportado = mais clientes possíveis. Cada implementação melhora o protocolo.
+
+- [ ] **KBS-FMT-001 [P1]**: CSV/Excel ingestor — adicionar suporte `.csv` (papaparse) + `.xlsx` (exceljs) ao `kb-ingest.ts`. Cada row vira uma wiki_page ou entidade. Headers viram atributos. | 4h
+- [ ] **KBS-FMT-002 [P1]**: Áudio transcrição — suporte `.ogg`, `.mp3`, `.wav`, `.m4a` via Whisper API (OpenAI) ou whisper.cpp local. Transcrição → texto → ingest normal. Flag `--transcribe`. | 6h
+- [ ] **KBS-FMT-003 [P1]**: Vídeo transcrição — suporte `.mp4`, `.webm` via ffmpeg (extrair áudio) + Whisper. Mesma pipeline do KBS-FMT-002 com passo extra. | 4h
+- [ ] **KBS-FMT-004 [P1]**: OCR para imagens/scans — suporte `.jpg`, `.png`, PDFs escaneados via Tesseract ou Claude Vision API. Flag `--ocr`. | 4h
+- [ ] **KBS-FMT-005 [P1]**: Email parser — suporte `.eml` (mailparser npm) + `.mbox`. Extrai: remetente, assunto, corpo, anexos. Cada email → wiki_page. | 4h
+- [ ] **KBS-FMT-006 [P2]**: WhatsApp export parser — `.txt` exportado do WhatsApp → mensagens normalizadas. Agrupa por dia/conversa. Útil para clientes que têm conhecimento em chats. | 3h
+- [ ] **KBS-FMT-007 [P2]**: Telegram export parser — `.json` do Telegram Desktop export. Mesmo tratamento. | 2h
+- [ ] **KBS-FMT-008 [P2]**: HTML/web page — suporte `.html` via cheerio (extract text) + turndown (→ markdown). Para clientes que salvam páginas web. | 3h
+- [ ] **KBS-FMT-009 [P2]**: XML parser — suporte `.xml` via fast-xml-parser. Para dados estruturados (NFe, SPED, exportações de sistemas legados). | 3h
+- [ ] **KBS-FMT-010 [P2]**: PPTX parser — suporte `.pptx` via pptx2json. Slides → texto + metadados. | 3h
+- [ ] **KBS-FMT-011 [P1]**: JSON/JSONL ingestor — suporte `.json` e `.jsonl`. Cada objeto → wiki_page ou entidade. Schema autodetect. | 2h
+- [ ] **KBS-DISC-001 [P0]**: Discovery Protocol v1 DONE — `docs/guides/KBS_DISCOVERY_PROTOCOL.md` criado com inventário de fontes, classificação LGPD, mapa de sistemas, entregável padronizado. Validar com implementação #1 (delegacia). | ✅
+
 ---
 
 ### API Monetization — x402 Marketplaces (carry-over 2026-04-07)
