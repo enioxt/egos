@@ -37,6 +37,8 @@ GUARD_PATTERNS=(
   "docs/guides/KBS" "docs/guides/DISCOVERY"
   "policia/" "casos/" "transcri"
   "VAL-" "delegacia" "lidia"
+  "apps/egos-site" "article-writer" "timeline" "publish.sh"
+  "docs/TIMELINE" "docs/social" "docs/EGOS_STATE"
 )
 
 # ── MAINTENANCE: Allowed with no fuss ─────────────────────────────────────
@@ -114,25 +116,25 @@ fi
 
 # ── DISPERSAL WARNING (strong but non-blocking) ──────────────────────────
 if [ ${#OTHER_FILES[@]} -gt 0 ]; then
-  # Count Guard Brasil commits this week vs total
-  GUARD_WEEK=$(git log --oneline --since="7 days ago" -- 'packages/guard-brasil/*' 'apps/api/*' 2>/dev/null | wc -l)
+  # Count Sprint Delegacia commits this week vs total
+  SPRINT_WEEK=$(git log --oneline --since="7 days ago" -- 'packages/guard-brasil/*' 'apps/api/*' 'apps/egos-site/*' 'agents/agents/article-writer*' 'scripts/timeline*' 'scripts/publish*' 'docs/strategy/KBS*' 'docs/TIMELINE*' 'supabase/migrations/*' 2>/dev/null | wc -l)
   TOTAL_WEEK=$(git log --oneline --since="7 days ago" 2>/dev/null | wc -l)
 
   echo ""
   echo -e "${YELLOW}${BOLD}⚠️  ALERTA DE DISPERSAO (commit permitido)${NC}"
-  echo -e "${YELLOW}   Arquivos FORA do Guard Brasil:${NC}"
+  echo -e "${YELLOW}   Arquivos fora do Sprint Delegacia:${NC}"
   for wf in "${OTHER_FILES[@]}"; do
     echo -e "${YELLOW}   → $wf${NC}"
   done
   echo ""
-  echo -e "${BLUE}   📊 Guard Brasil esta semana: $GUARD_WEEK commits de $TOTAL_WEEK total${NC}"
+  echo -e "${BLUE}   📊 Sprint Delegacia esta semana: $SPRINT_WEEK commits de $TOTAL_WEEK total${NC}"
   if [ "$TOTAL_WEEK" -gt 0 ]; then
-    RATIO=$((GUARD_WEEK * 100 / TOTAL_WEEK))
-    if [ "$RATIO" -lt 60 ]; then
-      echo -e "${RED}   🔴 RATIO: ${RATIO}% Guard Brasil (target: >60%)${NC}"
-      echo -e "${RED}   Voce esta dispersando. Volte pro Guard Brasil.${NC}"
+    RATIO=$((SPRINT_WEEK * 100 / TOTAL_WEEK))
+    if [ "$RATIO" -lt 40 ]; then
+      echo -e "${RED}   🔴 RATIO: ${RATIO}% Sprint (target: >40%)${NC}"
+      echo -e "${RED}   Foco baixo. Priorize: Lidia, delegacia, timeline, Guard Brasil.${NC}"
     else
-      echo -e "${GREEN}   🟢 RATIO: ${RATIO}% Guard Brasil — bom foco${NC}"
+      echo -e "${GREEN}   🟢 RATIO: ${RATIO}% Sprint Delegacia — bom foco${NC}"
     fi
   fi
   echo -e "${BLUE}   Meta (30d): Lidia entende 80% do sistema. 1 processo real melhorado.${NC}"

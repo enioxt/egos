@@ -17,7 +17,7 @@
 - [x] **EVG-003 [P0]**: Integrar `evidence-gate.ts` ao `.husky/pre-commit` do kernel (warning-only) | 1h ✅ 2026-04-09
 - [x] **EVG-004 [P0]**: Primeiro dry-run em `CAPABILITY_REGISTRY.md` — contar violations reais sem bloquear | 30min ✅ 2026-04-10 — 33 unbacked claims found (versions + capability counts)
 - [ ] **EVG-005 [P1]**: Expandir `.egos-manifest.yaml` para cobrir capability claims (não só README metrics) | 3h
-- [ ] **EVG-006 [P1]**: Ativar blocking mode no kernel a partir de 2026-04-16 | 15min
+- [x] **EVG-006 [P1]**: Blocking mode auto-ativa em 2026-04-16 (já codificado em evidence-gate.ts l.63) ✅ verified 2026-04-12
 - [ ] **EVG-007 [P2]**: Disseminar evidence-gate para repos de produto conforme Camadas 4+ avançam | on-going
 
 #### CAMADA 0 — Kernel do Kernel (semana 1)
@@ -115,7 +115,7 @@
 #### EGOS-SITE — Blog/Showcase (semanas 1-10 paralelo às camadas)
 - [x] **SITE-001 [P1]**: egos-site reativado — Hono server, /lab + /showcase routes, live em egos.ia.br ✅ 2026-04-10 (commit 6a28b1f)
 - [x] **SITE-002 [P1]**: Rotas: index, /timeline, /lab, /showcase, nav atualizada. Query corrigida para schema real timeline_articles. ✅ 2026-04-10 (commit 2c43c35)
-- [ ] **SITE-003 [P1]**: Markdown-based posts em `src/content/posts/*.md` — sem CMS | 2h
+- [x] **SITE-003 [P1]**: Artigos via Supabase timeline_articles (body_html) — sem CMS, sem markdown files ✅ 2026-04-12
 - [ ] **SITE-004 [P1]**: [BLOCKER] DNS A record egos.ia.br → 204.168.217.125 (atualmente aponta para Vercel 216.150.1.1). Caddy já configurado. Container já rodando Hono. Só falta mudar o DNS. | 5min
 - [ ] **SITE-005 [P1]**: Theme dark/light simples, tipografia técnica (Inter + JetBrains Mono) | 3h
 - [ ] **SITE-006 [P2]**: RSS feed para distribuição | 1h
@@ -150,7 +150,7 @@
 - [x] **REPO-MAP-001 [P0]**: Criar `docs/REPO_MAP.md` com a tabela acima + diagrama Mermaid de dependências ✅ 2026-04-09
 - [x] **REPO-MAP-002 [P0]**: Adicionar seção `§32 REPO MAP` em `~/.claude/CLAUDE.md` (feito nesta sessão Opus)
 - [x] **REPO-MAP-003 [P0]**: Memory file `repo_classification_2026-04-09.md` (feito nesta sessão Opus)
-- [ ] **REPO-MAP-004 [P1]**: Atualizar `docs/EGOS_STATE_OF_THE_ECOSYSTEM.md` com nova classificação
+- [x] **REPO-MAP-004 [P1]**: EGOS_STATE_OF_THE_ECOSYSTEM.md atualizado automaticamente via auto-disseminate ✅ 2026-04-12
 - [ ] **REPO-MAP-005 [P1]**: Atualizar `docs/CAPABILITY_REGISTRY.md` agrupando capabilities por grupo de repo
 - [ ] **REPO-MAP-006 [P2]**: Marcar `COMPLETE_REPO_INVENTORY_2026-04-03.md` como deprecated apontando para REPO_MAP.md
 
@@ -817,22 +817,22 @@
 ---
 
 ### Timeline + AI Publishing System (2026-04-08)
-**SSOT:** `docs/TIMELINE_AI_PUBLISHING_ARCHITECTURE.md` | **Status:** TL-001 ✅ schema live.
+**SSOT:** `docs/TIMELINE_AI_PUBLISHING_ARCHITECTURE.md` | **Status:** Phase 1-3 ✅ live. 2 articles published. KB sync active.
 **Context:** Auto-generate articles from commits → Supabase drafts → Human approval (Telegram/WhatsApp/HQ) → Publish to egos.ia.br/timeline + X.com. Principles: transparência radical, HITL (never blind publish), PII guard.
 
 | Phase | Task | Description | Status |
 |-------|------|-------------|--------|
 | **1: Foundation** | TL-001 | Supabase: timeline_drafts + timeline_articles + x_post_queue | ✅ Done |
-| | TL-002 | Agent: article-writer.ts — reads commit/diff, calls qwen-plus, writes draft | [x] |
-| | TL-003 | Script: publish.sh manual trigger | [x] |
+| | TL-002 | Agent: article-writer.ts — LLM draft + PII check + --publish mode + KB sync | ✅ Done |
+| | TL-003 | Script: publish.sh — manual trigger + --approve + --approve-all | ✅ Done |
 | | TL-004 | Telegram bot: approve flow (✅/✏️/❌) with 48h timeout | [x] |
-| **2: Site público** | TL-005 | Bun/Hono: apps/egos-site — /timeline + /timeline/[slug] | [x] |
-| | TL-006 | Route: GET /timeline — list articles paginated | [x] |
-| | TL-007 | Route: GET /timeline/[slug] — render article + metrics | [x] |
-| | TL-008 | Caddy: egos.ia.br → egos-site:3071 — live | [x] |
-| **3: Automação** | TL-009 | timeline-cron-daily.sh — scan commits 24h (cron 03:00 UTC) | [x] |
-| | TL-010 | Crontab: add timeline-cron-daily.sh | [x] |
-| | TL-011 | auto-disseminate.sh: detect PUBLISH: → article-writer background | [x] |
+| **2: Site público** | TL-005 | Bun/Hono: apps/egos-site — /timeline + /timeline/[slug] | ✅ Done |
+| | TL-006 | Route: GET /timeline — list articles paginated + reading time | ✅ Done |
+| | TL-007 | Route: /timeline/:slug — JSON-LD, TOC, copy buttons, anchors, related articles | ✅ Done |
+| | TL-008 | Caddy: egos.ia.br → egos-site:3071 — live | ✅ Done |
+| **3: Automação** | TL-009 | timeline-cron-daily.sh — scan commits 24h, auto git-pull | ✅ Done |
+| | TL-010 | Crontab: VPS /opt/egos-git, 03:00 UTC daily | ✅ Done |
+| | TL-011 | auto-disseminate.sh: detect PUBLISH: → article-writer background | ✅ Done |
 | | TL-012 | x-reply-bot: postArticle(snippet, url) method | [ ] |
 | **4: Multi-canal** | TL-013 | WhatsApp via Evolution API (same approval flow) | [ ] |
 | | TL-014 | HQ tab: /timeline/pending with inline edit | [ ] |
@@ -840,6 +840,12 @@
 | **5: Intelligence** | TL-016 | Weekly digest agent: 7 days → "What shipped this week" | [ ] |
 | | TL-017 | Engagement feedback: low-engagement → flag for tone adjustment | [ ] |
 | | TL-018 | PT→EN auto-translation via Deepl API | [ ] |
+| **6: Quality (2026-04-12)** | TL-019 | Rich rendering: JSON-LD, TOC, copy buttons, callouts, tables, FAQ accordion | ✅ Done |
+| | TL-020 | AI discovery: /llms.txt dynamic + /robots.txt (GPTBot, ClaudeBot, PerplexityBot) | ✅ Done |
+| | TL-021 | RLS fix: public_read_timeline_articles policy for anon reads | ✅ Done |
+| | TL-022 | KB sync: publishDraft() auto-creates egos_wiki_pages entry | ✅ Done |
+| | TL-023 | VPS egos-git clone + cron points to real git repo (19 commits detected) | ✅ Done |
+| | TL-024 | First 2 articles published: "altitude-errada" (1644w) + "guard-brasil-pii-4ms" (1563w) | ✅ Done |
 
 ---
 
@@ -1182,7 +1188,7 @@
 
 #### Semana 1-2: Discovery com Lídia (validação de campo)
 
-- [ ] **VAL-001 [P0]**: Sessão com Lídia — demo do que já funciona: `make transcribe` (áudio→texto), `make cs` (markdown→DOCX oficial). Gravar feedback dela em `policia/docs/DISCOVERY_LIDIA.md`. | 2h
+- [~] **VAL-001 [P0]**: Sessão com Lídia — EM ANDAMENTO (2026-04-12). Conversa iniciada, amanhã começam a reunir dados da delegacia. | 2h
 - [ ] **VAL-002 [P0]**: Mapeamento de 1 processo real que DÓI — qual atividade consome mais tempo dela? Triagem? Busca de informação? Formatação? Cruzamento de dados? Anotar em `policia/docs/DISCOVERY_LIDIA.md`. | 2h
 - [ ] **VAL-003 [P0]**: Inventário de dados reais da delegacia — quais formatos? (PDF BO, áudio WhatsApp, Excel, sistema REDS, sistema PCnet?). Qual volume? (quantos BOs/mês, quantas oitivas/mês). Quantas pessoas usariam? | 1h
 - [ ] **VAL-004 [P0]**: Medir gap de complexidade — comparar o schema delegacia que criamos (8 tipos, entity graph) vs o que a Lídia realmente precisa. Anotar: o que acertamos, o que inventamos, o que faltou. | 1h
