@@ -18,6 +18,21 @@ log "🕐 Timeline Daily Cron starting..."
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 EGOS_DIR="${EGOS_ROOT:-$(cd "$SCRIPT_DIR/.." && pwd)}"
 
+# If EGOS_DIR is not a git repo, try /opt/egos-git (VPS clone)
+if [ ! -d "$EGOS_DIR/.git" ]; then
+  if [ -d "/opt/egos-git/.git" ]; then
+    EGOS_DIR="/opt/egos-git"
+    log "Using git clone at $EGOS_DIR"
+  else
+    log "❌ No git repo found at $EGOS_DIR — skipping"
+    exit 1
+  fi
+fi
+
+# Pull latest commits
+log "Pulling latest from origin..."
+git -C "$EGOS_DIR" pull --rebase origin main --quiet 2>/dev/null || log "⚠️  git pull failed (non-blocking)"
+
 # Get commits from last 24h
 COMMITS=$(git -C "$EGOS_DIR" log \
   --since="24 hours ago" \
