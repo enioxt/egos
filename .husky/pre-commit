@@ -226,4 +226,15 @@ fi
 # 8. Legacy Code Detector — warns on debug logs, TODOs, dead code
 bash scripts/check-legacy-code.sh 2>/dev/null || true  # non-blocking
 
+# 9. Supabase Safety (INC-004) — Realtime publication, rate limits, RLS
+STAGED_TS=$(git diff --cached --name-only 2>/dev/null | grep -E '\.(ts|tsx|js|jsx|sql)$' || true)
+if [ -n "$STAGED_TS" ]; then
+  echo "  [9/9] supabase-safety: checking DB write patterns..."
+  bash scripts/check-supabase-safety.sh 2>/dev/null || {
+    echo "❌ BLOCKED: Supabase safety violations found."
+    echo "   Run: bash scripts/check-supabase-safety.sh for details"
+    exit 1
+  }
+fi
+
 echo "✅ EGOS Pre-Commit: Commit approved."

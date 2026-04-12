@@ -2,6 +2,7 @@
  * EGOS Event Bus — Agent coordination via Supabase Realtime
  * Persists all events to `agent_events` table.
  * Only broadcasts warn/error/critical via Realtime to prevent quota exhaustion (INC-004).
+ * Rate-limited per source to prevent runaway agents from flooding the DB.
  * @module event-bus
  */
 export type Severity = 'info' | 'warn' | 'error' | 'critical';
@@ -26,14 +27,57 @@ const subscriptions: Subscription[] = [];
 let _supabaseAvailable: boolean | null = null;
 
 // INC-004: only stream warn/error/critical via Realtime — info events are audit-only.
-// Broadcasting every `orchestrator.schedule` / `agent.completed` INFO event caused
-// 157K Realtime messages in 5 days and exhausted the Pro plan quota.
 const SEVERITY_RANK: Record<Severity, number> = { info: 0, warn: 1, error: 2, critical: 3 };
 const REALTIME_MIN_SEVERITY = SEVERITY_RANK['warn'];
 
 function shouldBroadcast(severity: Severity): boolean {
   return SEVERITY_RANK[severity] >= REALTIME_MIN_SEVERITY;
 }
+
+// ── Rate Limiter (INC-004 hardening) ──────────────────────────────────────
+// Prevents any single source from flooding DB writes.
+// Max 100 events per source per 60-second window. Excess events are dropped
+// with a single warning per window. warn/error/critical bypass the limiter.
+
+const RATE_LIMIT_WINDOW_MS = 60_000;
+const RATE_LIMIT_MAX_PER_WINDOW = 100;
+
+interface RateBucket {
+  count: number;
+  windowStart: number;
+  warned: boolean;
+}
+
+const rateBuckets = new Map<string, RateBucket>();
+
+function checkRateLimit(source: string, severity: Severity): boolean {
+  // warn/error/critical always pass — they're actionable and rare
+  if (SEVERITY_RANK[severity] >= REALTIME_MIN_SEVERITY) return true;
+
+  const now = Date.now();
+  let bucket = rateBuckets.get(source);
+
+  if (!bucket || now - bucket.windowStart > RATE_LIMIT_WINDOW_MS) {
+    bucket = { count: 0, windowStart: now, warned: false };
+    rateBuckets.set(source, bucket);
+  }
+
+  bucket.count++;
+
+  if (bucket.count > RATE_LIMIT_MAX_PER_WINDOW) {
+    if (!bucket.warned) {
+      console.warn(
+        `[event-bus] RATE LIMIT: source "${source}" exceeded ${RATE_LIMIT_MAX_PER_WINDOW} events/min — dropping DB writes until window resets`
+      );
+      bucket.warned = true;
+    }
+    return false;
+  }
+
+  return true;
+}
+
+// ── Supabase Setup ────────────────────────────────────────────────────────
 
 function loadSupabase(): boolean {
   if (_supabaseAvailable !== null) return _supabaseAvailable;
@@ -86,6 +130,8 @@ function getChannel(): any | null {
   return channel;
 }
 
+// ── Core API ──────────────────────────────────────────────────────────────
+
 export async function emit(
   type: string,
   source: string,
@@ -109,25 +155,27 @@ export async function emit(
     }
   }
 
-  // Persist fire-and-forget (if Supabase available)
-  const client = getClient();
-  if (client) {
-    client
-      .from(TABLE_NAME)
-      .insert({
-        id: event.id,
-        type: event.type,
-        source: event.source,
-        payload: event.payload,
-        severity: event.severity,
-        created_at: event.timestamp,
-      })
-      .then(({ error }: { error: { message: string } | null }) => {
-        if (error) console.error('[event-bus] insert failed:', error.message);
-      });
+  // Persist to DB — rate-limited per source to prevent runaway writes (INC-004)
+  if (checkRateLimit(source, severity)) {
+    const client = getClient();
+    if (client) {
+      client
+        .from(TABLE_NAME)
+        .insert({
+          id: event.id,
+          type: event.type,
+          source: event.source,
+          payload: event.payload,
+          severity: event.severity,
+          created_at: event.timestamp,
+        })
+        .then(({ error }: { error: { message: string } | null }) => {
+          if (error) console.error('[event-bus] insert failed:', error.message);
+        });
+    }
   }
 
-  // Always notify local subscribers
+  // Always notify local subscribers (even if DB write was rate-limited)
   subscriptions.forEach((sub) => {
     if (matchPattern(sub.pattern, event.type)) {
       sub.callback(event);
@@ -183,6 +231,7 @@ export async function getRecentEvents(limit = 50, type?: string): Promise<AgentE
 
 export function cleanup(): void {
   subscriptions.length = 0;
+  rateBuckets.clear();
   if (channel) {
     const client = getClient();
     if (client) client.removeChannel(channel);
