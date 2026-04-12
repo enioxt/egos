@@ -62,7 +62,7 @@ while IFS= read -r line; do
   # Call article-writer (non-blocking, fire and forget into background)
   # article-writer handles its own dedup via timeline_drafts(slug unique)
   if bun "$EGOS_DIR/agents/agents/article-writer.ts" \
-      --hash "$HASH" \
+      --commit "$HASH" \
       --topic "$SUBJECT" \
       >> "$LOG_FILE" 2>&1; then
     log "  ✅ Draft created for $HASH"

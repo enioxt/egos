@@ -1,14 +1,16 @@
 #!/usr/bin/env bun
 // 📝 Article Writer Agent — TL-002
 //
-// Reads a git commit, calls qwen-plus to generate a transparent article draft,
-// runs Guard Brasil PII check, and inserts into timeline_drafts (Supabase).
+// Generates article drafts from commits, publishes approved drafts,
+// and syncs to knowledge base (egos_wiki_pages). Full pipeline:
+//   commit → draft (LLM + PII check) → approve → publish + KB sync
 //
 // Usage:
 //   bun run agents/agents/article-writer.ts --commit ae7b9ad
 //   bun run agents/agents/article-writer.ts --commit ae7b9ad --topic "Hermes decommission"
 //   bun run agents/agents/article-writer.ts --dry-run --commit ae7b9ad
-//   bun run agents/agents/article-writer.ts --dry-run --commit HEAD
+//   bun run agents/agents/article-writer.ts --publish <draft-id>   # approve + publish + KB sync
+//   bun run agents/agents/article-writer.ts --publish-all          # publish all approved drafts
 
 import { execSync } from "child_process";
 import { readFileSync, existsSync } from "fs";
@@ -24,6 +26,11 @@ const TOPIC_ARG = (() => {
   const idx = process.argv.indexOf("--topic");
   return idx >= 0 ? process.argv[idx + 1] : undefined;
 })();
+const PUBLISH_ARG = (() => {
+  const idx = process.argv.indexOf("--publish");
+  return idx >= 0 ? (process.argv[idx + 1] ?? "") : "";
+})();
+const PUBLISH_ALL = process.argv.includes("--publish-all");
 
 // ── Config ─────────────────────────────────────────────────────────────────
 
@@ -159,14 +166,23 @@ function readRelatedDocs(files: string[]): string {
     }
   }
 
-  // Always include X_POSTS_SSOT.md for tone reference (first 800 chars)
-  const ssotPath = "/home/enio/egos/docs/X_POSTS_SSOT.md";
+  // Always include X_POSTS_SSOT.md for tone reference (sections 1-2, ~1500 chars)
+  const ssotPath = "/home/enio/egos/docs/social/X_POSTS_SSOT.md";
   if (existsSync(ssotPath)) {
     try {
-      const toneRef = readFileSync(ssotPath, "utf8").slice(0, 800);
+      const toneRef = readFileSync(ssotPath, "utf8").slice(0, 1500);
       docSnippets.push(`### X_POSTS_SSOT.md (tone reference)\n${toneRef}`);
     } catch {
       // skip
+    }
+  } else {
+    // Fallback: try old path
+    const oldPath = "/home/enio/egos/docs/X_POSTS_SSOT.md";
+    if (existsSync(oldPath)) {
+      try {
+        const toneRef = readFileSync(oldPath, "utf8").slice(0, 1500);
+        docSnippets.push(`### X_POSTS_SSOT.md (tone reference)\n${toneRef}`);
+      } catch { /* skip */ }
     }
   }
 
@@ -192,8 +208,22 @@ function generateSlug(title: string, date: string): string {
 function buildPrompt(commit: CommitInfo, topic: string | undefined, relatedDocs: string): string {
   const topicLine = topic ? `\nFocal topic: "${topic}"` : "";
   return `You are writing a transparent technical article for the EGOS project blog at egos.ia.br/timeline.
-The article is in Portuguese (Brazil) and follows the "transparência radical" principle: show everything being built and why.
-Tone: direct, technical, human. No corporate jargon. Real commit hashes and file paths as sources.${topicLine}
+
+## Voice & Principles
+- Language: Portuguese (Brazil). No English mixed in.
+- Principle: "Transparência radical" — show everything being built, what works, what doesn't, and why.
+- Tone: direct, technical, human. Like a senior dev writing to a respected peer.
+- NO corporate jargon, NO marketing speak, NO buzzwords.
+- Be honest about limitations. If something is a workaround, say so.
+- Always cite real commit hashes, file paths, and concrete numbers.
+- Max 2 code blocks. Each must be functional (copy-paste runnable or real output).
+
+## Context: EGOS
+EGOS is a governed AI orchestration kernel built by Enio Rocha in Brazil.
+Products: Guard Brasil (PII detection API, 16 BR patterns, 4ms), Gem Hunter (repo discovery).
+Current sprint: validating the system with a real police investigator (Lidia) in MG.
+Philosophy: build at the altitude the problem requires, not the altitude the platform allows.
+Guard Brasil is a tool in the toolkit, not the central product.${topicLine}
 
 ## Commit info
 Hash: ${commit.shortHash}
@@ -219,17 +249,21 @@ ${relatedDocs.slice(0, 3000)}
 
 Write a JSON object with this exact structure (no markdown fence, just raw JSON):
 {
-  "title": "<max 80 chars, Portuguese, direct>",
-  "summary": "<max 280 chars, Portuguese, X.com snippet — starts with a verb, no hashtags>",
-  "body_md": "<full article in Markdown, 600-1000 words, includes: what changed, why, commit ${commit.shortHash}, file paths, 1-2 code blocks max>",
+  "title": "<max 80 chars, Portuguese, direct — not clickbait, not generic>",
+  "summary": "<max 280 chars, Portuguese, X.com snippet — starts with a verb, no hashtags, no emojis>",
+  "body_md": "<full article in Markdown, 600-1000 words>",
   "tags": ["<tag1>", "<tag2>", "<tag3>"]
 }
 
-Rules:
-- summary must be ≤ 280 chars (count them)
-- body_md must cite the commit hash ${commit.shortHash} at least once
-- body_md must NOT contain CPF, email addresses, phone numbers, or API keys
-- Return ONLY the JSON, no preamble, no explanation`;
+Rules for body_md:
+- 600–1000 words. Quality over length.
+- Must cite commit hash ${commit.shortHash} at least once.
+- Must reference at least one specific file path changed.
+- Include a ## heading structure (2–4 sections).
+- End with a concrete "what's next" or "what this enables" paragraph.
+- Must NOT contain CPF, email addresses, phone numbers, or API keys.
+- Do NOT use emojis in the article body.
+- Return ONLY the JSON, no preamble, no explanation.`;
 }
 
 async function callLLM(prompt: string): Promise<LLMResult> {
@@ -453,9 +487,196 @@ async function insertDraft(
   return rows[0]?.id ?? "unknown";
 }
 
+// ── Markdown → HTML renderer (no external deps) ────────────────────────────
+
+function renderMarkdown(text: string): string {
+  return text
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+    .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+    .replace(/```([\s\S]*?)```/g, (_match, code: string) => {
+      const trimmed = code.replace(/^\w*\n/, '').trimEnd();
+      return `<pre><code>${trimmed.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code></pre>`;
+    })
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+    .replace(/^- (.+)$/gm, '<li>$1</li>')
+    .replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
+    .replace(/^(?!<[hulp]).+/gm, '<p>$&</p>')
+    .replace(/<p><\/p>/g, '')
+    .replace(/\n{2,}/g, '\n');
+}
+
+// ── Publish: draft → article + KB sync ────────────────────────────────────
+
+interface DraftRow {
+  id: string;
+  slug: string;
+  title: string;
+  summary: string;
+  body_md: string;
+  source_commits: string[];
+  tags: string[] | null;
+  status: string;
+}
+
+async function supabaseGet(table: string, query: string): Promise<unknown[]> {
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}?${query}`, {
+    headers: {
+      apikey: SUPABASE_SERVICE_KEY,
+      Authorization: `Bearer ${SUPABASE_SERVICE_KEY}`,
+    },
+    signal: AbortSignal.timeout(10000),
+  });
+  if (!res.ok) throw new Error(`GET ${table} failed: ${res.status}`);
+  return (await res.json()) as unknown[];
+}
+
+async function supabaseUpsert(table: string, data: Record<string, unknown>, onConflict?: string): Promise<void> {
+  const headers: Record<string, string> = {
+    apikey: SUPABASE_SERVICE_KEY,
+    Authorization: `Bearer ${SUPABASE_SERVICE_KEY}`,
+    "Content-Type": "application/json",
+    Prefer: "return=minimal",
+  };
+  if (onConflict) headers.Prefer += `,resolution=merge-duplicates`;
+  const url = onConflict
+    ? `${SUPABASE_URL}/rest/v1/${table}?on_conflict=${onConflict}`
+    : `${SUPABASE_URL}/rest/v1/${table}`;
+  const res = await fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(data),
+    signal: AbortSignal.timeout(10000),
+  });
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`Upsert ${table} failed (${res.status}): ${err}`);
+  }
+}
+
+async function supabasePatch(table: string, query: string, data: Record<string, unknown>): Promise<void> {
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}?${query}`, {
+    method: "PATCH",
+    headers: {
+      apikey: SUPABASE_SERVICE_KEY,
+      Authorization: `Bearer ${SUPABASE_SERVICE_KEY}`,
+      "Content-Type": "application/json",
+      Prefer: "return=minimal",
+    },
+    body: JSON.stringify(data),
+    signal: AbortSignal.timeout(10000),
+  });
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`PATCH ${table} failed (${res.status}): ${err}`);
+  }
+}
+
+async function syncToWiki(slug: string, title: string, bodyMd: string, tags: string[]): Promise<void> {
+  console.log("\n📚 Syncing to knowledge base (egos_wiki_pages)...");
+  const wikiSlug = `timeline-${slug}`;
+  const content = `# ${title}\n\n_Published on egos.ia.br/timeline/${slug}_\n\n${bodyMd}`;
+  await supabaseUpsert("egos_wiki_pages", {
+    slug: wikiSlug,
+    title,
+    content,
+    category: "timeline",
+    tags: tags.length > 0 ? tags : null,
+    cross_refs: [`timeline/${slug}`],
+    source_files: [`egos.ia.br/timeline/${slug}`],
+    compiled_by: "article-writer",
+    quality_score: 80,
+    version: 1,
+    tenant_id: "egos",
+  }, "tenant_id,slug");
+  console.log(`  ✓ Wiki page upserted: ${wikiSlug}`);
+}
+
+async function publishDraft(draftId: string): Promise<void> {
+  if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) {
+    throw new Error("SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY must be set");
+  }
+
+  console.log(`🚀 Publishing draft: ${draftId}`);
+
+  // 1. Read draft
+  const drafts = (await supabaseGet("timeline_drafts", `id=eq.${draftId}&select=*`)) as DraftRow[];
+  if (drafts.length === 0) throw new Error(`Draft not found: ${draftId}`);
+  const draft = drafts[0];
+
+  if (draft.status === "published") {
+    console.log(`  ⚠️  Already published: ${draft.slug}`);
+    return;
+  }
+
+  console.log(`  Title: ${draft.title}`);
+  console.log(`  Slug: ${draft.slug}`);
+
+  // 2. Convert markdown → HTML
+  const bodyHtml = renderMarkdown(draft.body_md);
+  console.log(`  ✓ Rendered ${draft.body_md.length} chars MD → ${bodyHtml.length} chars HTML`);
+
+  // 3. Insert into timeline_articles
+  const articleUrl = `https://egos.ia.br/timeline/${draft.slug}`;
+  await supabaseUpsert("timeline_articles", {
+    draft_id: draft.id,
+    slug: draft.slug,
+    title: draft.title,
+    body_html: bodyHtml,
+    url: articleUrl,
+    published_at: new Date().toISOString(),
+    views: 0,
+  }, "slug");
+  console.log(`  ✓ Published to timeline_articles`);
+
+  // 4. Update draft status
+  await supabasePatch("timeline_drafts", `id=eq.${draftId}`, {
+    status: "published",
+    approved_at: new Date().toISOString(),
+    approved_by: "manual",
+  });
+  console.log(`  ✓ Draft status → published`);
+
+  // 5. Sync to knowledge base
+  await syncToWiki(draft.slug, draft.title, draft.body_md, draft.tags ?? []);
+
+  console.log(`\n✅ Article live at: ${articleUrl}`);
+}
+
+async function publishAllApproved(): Promise<void> {
+  console.log("🚀 Publishing all approved drafts...");
+  const drafts = (await supabaseGet(
+    "timeline_drafts",
+    "status=eq.approved&select=id,slug,title&order=created_at.asc"
+  )) as DraftRow[];
+
+  if (drafts.length === 0) {
+    console.log("  No approved drafts to publish.");
+    return;
+  }
+
+  console.log(`  Found ${drafts.length} approved drafts`);
+  for (const draft of drafts) {
+    await publishDraft(draft.id);
+  }
+}
+
 // ── Main ───────────────────────────────────────────────────────────────────
 
 async function main() {
+  // Route: --publish mode
+  if (PUBLISH_ARG) {
+    await publishDraft(PUBLISH_ARG);
+    return;
+  }
+  if (PUBLISH_ALL) {
+    await publishAllApproved();
+    return;
+  }
+
   console.log("📝 Article Writer Agent — TL-002");
   console.log(`Mode: ${DRY_RUN ? "DRY-RUN (no DB insert)" : "LIVE"}`);
   console.log(`Commit: ${COMMIT_ARG}${TOPIC_ARG ? ` | Topic: "${TOPIC_ARG}"` : ""}`);

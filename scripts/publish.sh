@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
-# publish.sh — TL-003 Manual article trigger
+# publish.sh — TL-003 Manual article trigger + approval
 #
 # Usage:
-#   bash scripts/publish.sh "topic about the commit"
-#   bash scripts/publish.sh "topic about the commit" <commit-hash>
-#   bash scripts/publish.sh "topic about the commit" --dry-run
-#   bash scripts/publish.sh "topic" <hash> --dry-run
+#   bash scripts/publish.sh "topic about the commit"                  # generate draft from HEAD
+#   bash scripts/publish.sh "topic about the commit" <commit-hash>    # generate draft from commit
+#   bash scripts/publish.sh "topic about the commit" --dry-run        # preview only
+#   bash scripts/publish.sh --approve <draft-id>                      # approve → publish + KB sync
+#   bash scripts/publish.sh --approve-all                             # publish all approved drafts
 #
 # If no hash provided: uses HEAD.
 # Prints draft ID and review link on success.
@@ -14,6 +15,25 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+
+# ── Quick-approve shortcut ──────────────────────────────────────────────────
+
+if [[ "${1:-}" == "--approve" ]]; then
+  DRAFT_ID="${2:-}"
+  if [[ -z "${DRAFT_ID}" ]]; then
+    echo "❌ Usage: bash scripts/publish.sh --approve <draft-id>"
+    exit 1
+  fi
+  echo "🚀 Approving and publishing draft: ${DRAFT_ID}"
+  bun run "${REPO_ROOT}/agents/agents/article-writer.ts" --publish "${DRAFT_ID}"
+  exit $?
+fi
+
+if [[ "${1:-}" == "--approve-all" ]]; then
+  echo "🚀 Publishing all approved drafts..."
+  bun run "${REPO_ROOT}/agents/agents/article-writer.ts" --publish-all
+  exit $?
+fi
 
 # ── Parse args ──────────────────────────────────────────────────────────────
 
@@ -27,6 +47,7 @@ if [[ -z "${TOPIC}" ]]; then
   echo "     bash scripts/publish.sh \"Hermes decommission\""
   echo "     bash scripts/publish.sh \"Hermes decommission\" ae7b9ad"
   echo "     bash scripts/publish.sh \"test article\" --dry-run"
+  echo "     bash scripts/publish.sh --approve <draft-id>"
   exit 1
 fi
 
