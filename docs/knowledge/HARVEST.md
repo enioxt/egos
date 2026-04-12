@@ -2929,3 +2929,48 @@ if not access_token or not access_secret:
 
 - Zod v4 installs when sub-package declares ^3.x but root has v4 — check node_modules/zod version before writing schema
 - Vocab guard Option B is currently a no-op — hook doesn't exclude marked lines
+
+### Session 2026-04-12 — Guard Brasil SHA-256 + KBS v2 Entity Graph
+
+**GUARD-001: auditHash era DJB2 32-bit, não SHA-256**
+- `computeAuditHash()` usava loop polynomial (hash << 5 - hash) — não criptográfico
+- `sha256Text()` já existia em `provenance.ts` (node:crypto) — só precisava importar
+- Fix: substituir 13 linhas de DJB2 por 1 linha `sha256Text(payload)`, prefix `ev-`
+- Teste atualizado: regex `/^ev-[0-9a-f]{64}$/` (era `{8}`)
+- **Regra:** Antes de chamar qualquer função de "audit hash", confirmar no código que é SHA-256 real, não polyhash/djb2/crc
+
+**GUARD-002: gitleaks CPF rule bloqueia test files com CPFs sintéticos**
+- Regra `cpf-in-code` no `.gitleaks.toml` flagga qualquer `\d{3}\.\d{3}\.\d{3}-\d{2}` no código
+- Solução: adicionar o path do test file à `[allowlist] paths` no `.gitleaks.toml`
+- Pattern: `'''packages/guard-brasil/src/.*\.test\.ts'''`
+- **Regra:** Ao adicionar tests com dados sintéticos BR (CPF, CNPJ, RG), incluir o path em `.gitleaks.toml` allowlist no mesmo commit
+
+**GUARD-003: guard.test.ts usava `result.findings` — campo não existe**
+- O retorno de `guard.inspect()` tem `result.masking.findings` (não `result.findings`)
+- Interface: `GuardBrasilResult.masking: MaskingResult` → `MaskingResult.findings: PIIFinding[]`
+- **Regra:** Antes de escrever assertions sobre campos do GuardBrasilResult, ler a interface `GuardBrasilResult` em `guard.ts:80`
+
+**KBS-001: KB-as-a-Service v1 é RAG plano — v2 precisa de grafo de entidades**
+- v1: doc → chunks → Supabase wiki_pages → busca semântica → trecho de texto
+- v2: doc → entidades tipadas → egos_entities + egos_relationships → query por tipo → relatório gerado
+- A diferença de percepção de valor é enorme: "chatbot com seus PDFs" vs "inteligência estruturada que conecta tudo"
+- **Regra:** Ao vender KBS, não vender RAG. Vender grafo + relatórios + entidades conectadas
+
+**KBS-002: EGOS já É o caso-demo — métricas reais existem**
+- Antes da sessão 2026-04-11/12: 8 wikilinks, 5 quebrados, sem MOC
+- Depois: 151 wikilinks, 0 quebrados, MOC com 56 links, sessions com cross-links reais
+- Isso é exatamente o before/after que fecha uma venda de consultoria
+- **Regra:** Sempre que fizer uma melhoria mensurável no próprio EGOS, documentar como case real (antes/depois + métrica)
+
+**KBS-003: ICP não é definido por setor — é definido por comportamento**
+- Critério primário: já usa IA ativamente + assina $20+/mês Claude/OpenAI + tem base digital
+- Setor (advocacia, agronomia, delegacia) é secundário — o comportamento é o qualificador
+- Red flag: "não uso IA ainda" ou "não tenho documentos digitais"
+- Green flag: "já uso ChatGPT mas não consigo buscar nos meus arquivos específicos"
+- **Regra:** Ao qualificar prospect, perguntar primeiro "você já assina algum plano de IA?" — não "qual é seu setor?"
+
+**KBS-004: Validar em setores próprios antes de vender externamente**
+- Sequência: EGOS interno → DHPP/Inteligência policial → primeiro cliente pago
+- Benefício: custo zero + domínio próprio + portfolio real + feedback honesto
+- **Regra:** Nunca vender implementação de setor que não foi validada internamente primeiro
+

@@ -757,6 +757,16 @@ EGOS positioning: Notion + Claude Agents = frontend power, EGOS .guarani/ = gove
 Differentiator: LGPD compliance (Guard Brasil), audit trail, frozen zones, spec-driven execution.
 → See TASKS.md NOTION-AGENTS-001..005 for integration roadmap.
 
+**KBS v2 — Entity Graph Layer (2026-04-12):**
+- Architecture pivot: flat RAG → entity extraction + relationship graph + intelligence reports
+- ICP: already uses AI ($20+/month Claude/OpenAI), has digital data, feels "can't find what I need"
+- EGOS = first complete demo case (before/after: 8→151 wikilinks, 0 broken, MOC 56 links)
+- Sector validation path: EGOS internal → DHPP/policial → advocacia → agronomia
+- New tables planned: `egos_entities`, `egos_relationships` (KBS-028)
+- New agents planned: `kb-entity-extractor`, relationship mapper (KBS-029/030)
+- Pitch: "inteligência estruturada que conecta tudo" não "chatbot com seus PDFs"
+- Tasks: KBS-027..039 in TASKS.md
+
 ## §29 — Platform Monitor (2026-04-09)
 
 **What:** Daily monitoring of EGOS stack platform versions — detects breaking changes before they break production.
