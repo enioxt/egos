@@ -17,6 +17,17 @@ EGOS é um kernel de orquestração para agents de IA governados. O repositório
 - `integrations/` — Adaptadores (contracts, manifests, distribution)
 - `.guarani/` — Governança (orchestration/, prompts/, philosophy/)
 
+## Cross-Repo Context (16 repos, pull-based)
+
+Quando precisar de contexto de outros repos, consulte `docs/CROSS_REPO_CONTEXT_ROUTER.md` — índice topic→repo→file. NÃO carregue tudo de uma vez. Puxe pelo fio quando o tópico surgir.
+
+Repos-chave fora do kernel:
+- **egos-inteligencia** (`/home/enio/egos-inteligencia`) — entity extraction, Neo4j 83.7M, NER PT-BR, cross-reference engine, investigation templates
+- **br-acc** (`/home/enio/br-acc`) — Neo4j graph source, FastAPI, OSINT
+- **852** (`/home/enio/852`) — chatbot público, 72 API routes, tool-calling
+- **forja** (`/home/enio/forja`) — ERP industrial, WhatsApp
+- **carteira-livre** (`/home/enio/carteira-livre`) — marketplace, 254+ routes
+
 ---
 
 ## Comandos Essenciais
