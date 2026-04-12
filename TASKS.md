@@ -1032,7 +1032,7 @@
 > **Visão:** KB-as-a-Service não é só RAG (chunk + busca). É extração de entidades + mapeamento de relacionamentos + relatórios de inteligência por setor. EGOS é o primeiro caso real — construir aqui = template replicável para qualquer cliente.
 
 - [ ] **KBS-027 [P0]**: Schema de entidades para EGOS demo — definir tipos: Agent, Task, Capability, Incident, Decision, Pattern, Integration. Criar `docs/strategy/KBS_ENTITY_SCHEMA_EGOS.md` com atributos, exemplos e relacionamentos para cada tipo. | 3h
-- [ ] **KBS-028 [P0]**: Migração Supabase — tabelas `egos_entities` (id, tenant_id, type, name, attributes jsonb) e `egos_relationships` (id, source_entity_id, target_entity_id, relation_type, context, doc_source). RLS por tenant. | 4h
+- [x] **KBS-028 [P0]**: Migração Supabase — tabelas `egos_entities` (id, tenant_id, type, name, attributes jsonb) e `egos_relationships` (id, source_entity_id, target_entity_id, relation_type, context, doc_source). RLS por tenant. | 4h
 - [ ] **KBS-029 [P0]**: Agente entity-extractor — REUSAR `egos-inteligencia/api/src/egos_inteligencia/services/investigation_templates.py` + `bertimbau_ner.py` + `spacy_ner.py`. Abstrair entity types por setor (já tem: Person, Company, Vehicle, Location, Contract, etc.). Criar adapter TypeScript que chama o FastAPI de extração. NÃO construir do zero. | 6h
 - [ ] **KBS-030 [P0]**: Relationship mapper — REUSAR `egos-inteligencia/services/cross_reference_engine.py` (find_links, cross_case_analysis, analyze_network, detect_clusters, detect_anomalies). Já tem centrality scores + anomaly heuristics. Criar adapter que expõe via knowledge-mcp. | 6h
 - [ ] **KBS-031 [P0]**: EGOS Intelligence Report — relatório semanal gerado do grafo de entidades: capabilities ativas, incidentes abertos, decisões recentes, agents por status. Output: Notion page + Markdown. | 6h
@@ -1040,7 +1040,7 @@
 
 #### P1 — Sector Templates (replicar EGOS para clientes)
 
-- [ ] **KBS-033 [P1]**: Schema entidades — Delegacia (policial) — tipos: Pessoa, Veículo, Caso, Local, Evento, Organização, Arma. Relacionamentos: Pessoa→envolvida→Caso, Veículo→placa→Pessoa, Caso→ocorreu_em→Local. | 4h
+- [x] **KBS-033 [P1]**: Schema entidades — Delegacia (policial) — tipos: Pessoa, Veículo, Caso, Local, Evento, Organização, Arma. Relacionamentos: Pessoa→envolvida→Caso, Veículo→placa→Pessoa, Caso→ocorreu_em→Local. | 4h
 - [ ] **KBS-034 [P1]**: Schema entidades — Advocacia — tipos: Cliente, Processo, Audiência, Jurisprudência, Contrato, Prazo, Vara. Relacionamentos: Cliente→parte→Processo, Processo→cita→Jurisprudência. | 4h
 - [ ] **KBS-035 [P1]**: Schema entidades — Agronomia — tipos: Propriedade, Cultura, Análise, ART, Defensivo, Norma, Produtor. Relacionamentos: Análise→recomenda→Defensivo, ART→cobertura→Propriedade. | 3h
 - [ ] **KBS-036 [P1]**: Validação delegacia própria (DHPP/Inteligência) — usar template KBS-033 no contexto policial de Enio. Ingerir docs internos (sem dados reais de investigação). Validar ROI, gerar relatório. Portfolio item #1. | 8h
@@ -1049,7 +1049,7 @@
 #### P0 — ICP + Client Dashboard (pré-requisito de vendas)
 
 - [x] **KBS-038 [P0]**: ICP (Ideal Customer Profile) — documentar persona exata em `docs/strategy/KBS_ICP.md`. Critérios obrigatórios: (1) já usa IA ativamente, (2) já assina ou disposto a assinar Claude Pro $20/mês ou equivalente, (3) tem base de dados digital própria (documentos, clientes, casos, propriedades), (4) sente dor de "não acho o que preciso" ou "perco tempo buscando informação". Setor é secundário — comportamento é primário. Incluir: como qualificar em 5 min numa conversa, red flags, green flags. | 3h ✅ 2026-04-12
-- [ ] **KBS-039 [P0]**: Client dashboard v1 (Notion) — página central por cliente com: (a) Visão geral das entidades extraídas (counts por tipo), (b) Relatório semanal de inteligência mais recente, (c) Saúde dos documentos (staleness, orphans, linting score), (d) Últimas queries feitas, (e) Link rápido para "/perguntar". Template duplicável em 10 min. | 6h
+- [x] **KBS-039 [P0]**: Client dashboard v1 (Notion) — página central por cliente com: (a) Visão geral das entidades extraídas (counts por tipo), (b) Relatório semanal de inteligência mais recente, (c) Saúde dos documentos (staleness, orphans, linting score), (d) Últimas queries feitas, (e) Link rápido para "/perguntar". Template duplicável em 10 min. | 6h
 
 #### P3 — KBS Dissemination para produtos EGOS (baixa prioridade, não bloqueia foco)
 
@@ -1080,7 +1080,7 @@
 - [ ] **KBS-FMT-008 [P2]**: HTML/web page — suporte `.html` via cheerio (extract text) + turndown (→ markdown). Para clientes que salvam páginas web. | 3h
 - [ ] **KBS-FMT-009 [P2]**: XML parser — suporte `.xml` via fast-xml-parser. Para dados estruturados (NFe, SPED, exportações de sistemas legados). | 3h
 - [ ] **KBS-FMT-010 [P2]**: PPTX parser — suporte `.pptx` via pptx2json. Slides → texto + metadados. | 3h
-- [ ] **KBS-FMT-011 [P1]**: JSON/JSONL ingestor — suporte `.json` e `.jsonl`. Cada objeto → wiki_page ou entidade. Schema autodetect. | 2h
+- [x] **KBS-FMT-011 [P1]**: JSON/JSONL ingestor — suporte `.json` e `.jsonl`. Cada objeto → wiki_page ou entidade. Schema autodetect. | 2h
 - [ ] **KBS-DISC-001 [P0]**: Discovery Protocol v1 DONE — `docs/guides/KBS_DISCOVERY_PROTOCOL.md` criado com inventário de fontes, classificação LGPD, mapa de sistemas, entregável padronizado. Validar com implementação #1 (delegacia). | ✅
 
 ---
