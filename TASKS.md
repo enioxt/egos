@@ -709,7 +709,7 @@
 ### Skills + Hooks Backlog (2026-04-06)
 - [ ] **SKILL-001**: `/gate` command → `~/.claude/commands/gate.md`
 - [ ] **SKILL-002**: `/mycelium-think` → `~/.claude/commands/mycelium-think.md`
-- [ ] **HOOK-001**: UserPromptSubmit hook — keyword→meta-prompt injection from triggers.json
+- [x] **HOOK-001 [CANCELED]**: UserPromptSubmit hook — keyword→meta-prompt injection from triggers.json. **CANCELED 2026-04-11:** Skills já auto-roteiam via description: YAML. Hook adicionaria complexidade sem benefício. triggers.json atualizado v2.0.0 para apontar para skills corretos (6/11 targets estavam inexistentes).
 - [ ] **HOOK-002**: RefineGate hook — vague prompt (<50 chars) → clarification guidance
 <!-- SKILL-003 and context moved to TASKS_ARCHIVE_2026.md -->
 

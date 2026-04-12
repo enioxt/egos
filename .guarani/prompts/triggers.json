@@ -1,98 +1,88 @@
 {
-  "_version": "1.2.0",
-  "_system": "EGOS Meta-Prompt Trigger System",
-  "description": "Maps situations/keywords to the appropriate meta-prompt",
-  "updated": "2026-03-31",
+  "_version": "2.0.0",
+  "_system": "EGOS Meta-Prompt Trigger Reference",
+  "description": "Maps situations/keywords to the correct skill/command. Reference-only — Claude Code auto-routes via skill description: YAML. HOOK-001 (auto-injection) evaluated and CANCELED (skills already handle routing, hook adds unnecessary complexity).",
+  "updated": "2026-04-11",
   "triggers": [
     {
       "id": "strategy.universal",
-      "file": "meta/universal-strategist.md",
-      "keywords": ["decisão estratégica", "negociação", "conflito", "investimento", "game theory", "análise de cenário", "competição", "cooperação", "dilema"],
-      "situations": ["Facing a strategic decision with multiple players", "Negotiation with information asymmetry", "Investment/resource allocation under uncertainty"],
-      "priority": "high",
-      "apps": ["all"]
+      "skill": "/strategist",
+      "file": "~/.egos/.claude/commands/strategist.md",
+      "keywords": ["decisão estratégica", "negociação", "conflito", "investimento", "game theory", "análise de cenário"],
+      "priority": "high"
     },
     {
       "id": "intelligence.brainet",
-      "file": "meta/brainet-collective.md",
-      "keywords": ["brainstorm", "inteligência coletiva", "rede", "multi-perspectiva", "dissolução de ego", "decisão em grupo", "emergência"],
-      "situations": ["Multiple stakeholders with different expertise", "Problem too complex for single perspective", "Need to synthesize contradictory viewpoints"],
-      "priority": "medium",
-      "apps": ["all"]
+      "skill": "/brainet",
+      "file": "~/.egos/.claude/commands/brainet.md",
+      "keywords": ["brainstorm", "inteligência coletiva", "multi-perspectiva", "dissolução de ego", "decisão em grupo"],
+      "priority": "medium"
     },
     {
       "id": "systems.mycelium",
-      "file": "meta/mycelium-orchestrator.md",
-      "keywords": ["mycelium", "micélio", "teia", "mesh", "sync", "sincronizar sistema", "auto melhorar", "auto-melhoria", "workflow periódico"],
-      "situations": ["Need to sync multiple system surfaces", "Need recursive architecture improvement", "Need to compare narrative vs live system reality"],
-      "priority": "high",
-      "apps": ["all"]
+      "skill": "/mycelium",
+      "file": "~/.egos/.claude/commands/mycelium.md",
+      "keywords": ["mycelium", "micélio", "mesh", "sync", "sincronizar sistema", "auto-melhoria"],
+      "priority": "high"
     },
     {
       "id": "audit.ecosystem",
-      "file": "meta/ecosystem-audit.md",
-      "keywords": ["auditoria", "diagnóstico", "análise de repo", "reverse engineering", "code review"],
-      "situations": ["Onboarding to a new codebase", "Periodic health check", "Cross-repo analysis"],
-      "priority": "medium",
-      "apps": ["all"]
-    },
-    {
-      "id": "debate.tsun-cha",
-      "file": "../philosophy/TSUN_CHA_PROTOCOL.md",
-      "keywords": ["questionar", "verificar", "debate", "lógica", "falácia", "contradição", "pramana"],
-      "situations": ["AI assertion needs validation", "Hypothesis testing", "Logical inconsistency detected"],
-      "priority": "high",
-      "apps": ["intelink", "agents", "all"]
-    },
-    {
-      "id": "extraction.police",
-      "file": "/home/enio/egos-lab/apps/intelink/lib/intelink/meta-prompts.ts",
-      "note": "External ref to egos-lab — verify before loading",
-      "keywords": ["extrair", "BO", "ocorrência", "depoimento", "documento policial", "REDS"],
-      "situations": ["Police document uploaded", "Need to extract entities from text", "Forensic analysis of testimony"],
-      "priority": "high",
-      "apps": ["intelink"]
-    },
-    {
-      "id": "engineering.prompt",
-      "file": "/home/enio/egos/.windsurf/workflows/prompt.md",
-      "keywords": ["criar prompt", "system prompt", "instrução AI", "meta-prompt", "prompt engineering"],
-      "situations": ["Building a new AI prompt", "Improving existing prompt", "Creating agent instructions"],
-      "priority": "medium",
-      "apps": ["all"]
+      "skill": "/audit",
+      "file": "~/.egos/.claude/commands/audit.md",
+      "keywords": ["auditoria", "diagnóstico", "análise de repo", "onboarding", "code review"],
+      "priority": "medium"
     },
     {
       "id": "activation.egos-governance",
-      "file": "meta/egos-activation-governance.md",
-      "keywords": ["ativar egos", "/start", "diagnóstico do sistema", "meta prompt de ativação", "atrian"],
-      "situations": ["Activating EGOS in a new environment", "Need evidence-first health check", "Need ethical gate before recommendations"],
-      "priority": "high",
-      "apps": ["all"]
+      "skill": "/activation",
+      "file": "~/.egos/.claude/commands/activation.md",
+      "keywords": ["ativar egos", "meta prompt de ativação", "atrian", "governance boot"],
+      "priority": "high"
     },
     {
       "id": "product.guard-brasil",
-      "file": "../../docs/strategy/FLAGSHIP_BRIEF.md",
-      "keywords": ["lgpd", "pii", "guard brasil", "mascarar dados", "compliance", "cpf", "dado sensível", "guardrails", "segurança ai", "empacotar", "sdk", "atrian", "evidence chain"],
-      "situations": ["Building or extending Guard Brasil features", "LGPD compliance question", "Packaging AI safety SDK", "Integrating guardrails into a new app"],
-      "priority": "high",
-      "apps": ["all"]
-    },
-    {
-      "id": "governance.clarity-review",
-      "file": ".guarani/orchestration/CLARITY_REVIEW.md",
-      "keywords": ["/clarity-review", "clarity review", "revisão mensal", "pruning", "podar tarefas", "limpar tasks", "kernel drift", "zombie tasks", "simplificar sistema"],
-      "situations": ["Running the monthly clarity review ritual", "TASKS.md exceeds 500 lines", "Kernel feels drifted from its one-sentence description", "Need to identify and archive stale tasks"],
-      "priority": "high",
-      "apps": ["all"]
+      "file": "docs/strategy/FLAGSHIP_BRIEF.md",
+      "keywords": ["lgpd", "pii", "guard brasil", "mascarar dados", "compliance", "cpf", "dado sensível"],
+      "priority": "high"
     },
     {
       "id": "social.rapid-response",
-      "file": "../../scripts/rapid-response.ts",
-      "note": "Run: bun scripts/rapid-response.ts --topic '<topic>' to generate thread + showcase README",
-      "keywords": ["trending topic", "x.com thread", "viral", "resposta rápida", "showcase", "hype", "BRAID", "lançamento open-source", "multi-agent novo", "gem hunter alerta"],
-      "situations": ["Trending topic matches our capabilities", "Gem Hunter flagged a new relevant release", "Need to post quickly on X.com", "Want to showcase EGOS for a specific topic"],
-      "priority": "high",
-      "apps": ["all"]
+      "file": "scripts/rapid-response.ts",
+      "note": "Run: bun scripts/rapid-response.ts --topic '<topic>'",
+      "keywords": ["trending topic", "x.com thread", "viral", "resposta rápida", "showcase"],
+      "priority": "high"
+    },
+    {
+      "id": "engineering.prompt",
+      "file": ".windsurf/workflows/prompt.md",
+      "keywords": ["criar prompt", "system prompt", "instrução AI", "meta-prompt", "prompt engineering"],
+      "priority": "medium"
+    },
+    {
+      "id": "spec.init",
+      "skill": "/spec-init",
+      "file": "~/.egos/.claude/commands/spec-init.md",
+      "keywords": ["spec", "especificação", "SDD", "spec-driven", "criar spec"],
+      "priority": "high"
+    },
+    {
+      "id": "session.start",
+      "skill": "/start",
+      "file": "~/.egos/.claude/commands/start.md",
+      "keywords": ["/start", "iniciar sessão", "ativar kernel"],
+      "priority": "high"
+    },
+    {
+      "id": "session.end",
+      "skill": "/end",
+      "file": "~/.egos/.claude/commands/end.md",
+      "keywords": ["/end", "finalizar sessão", "handoff"],
+      "priority": "high"
     }
-  ]
+  ],
+  "_removed": {
+    "debate.tsun-cha": "Archived — no equivalent skill, TSUN_CHA_PROTOCOL.md never created",
+    "extraction.police": "Removed — egos-lab ARCHIVING status, intelink-specific",
+    "governance.clarity-review": "Archived — CLARITY_REVIEW.md moved to .guarani/_archived/"
+  }
 }
