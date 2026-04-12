@@ -1048,8 +1048,22 @@
 
 #### P0 — ICP + Client Dashboard (pré-requisito de vendas)
 
-- [ ] **KBS-038 [P0]**: ICP (Ideal Customer Profile) — documentar persona exata em `docs/strategy/KBS_ICP.md`. Critérios obrigatórios: (1) já usa IA ativamente, (2) já assina ou disposto a assinar Claude Pro $20/mês ou equivalente, (3) tem base de dados digital própria (documentos, clientes, casos, propriedades), (4) sente dor de "não acho o que preciso" ou "perco tempo buscando informação". Setor é secundário — comportamento é primário. Incluir: como qualificar em 5 min numa conversa, red flags, green flags. | 3h
+- [x] **KBS-038 [P0]**: ICP (Ideal Customer Profile) — documentar persona exata em `docs/strategy/KBS_ICP.md`. Critérios obrigatórios: (1) já usa IA ativamente, (2) já assina ou disposto a assinar Claude Pro $20/mês ou equivalente, (3) tem base de dados digital própria (documentos, clientes, casos, propriedades), (4) sente dor de "não acho o que preciso" ou "perco tempo buscando informação". Setor é secundário — comportamento é primário. Incluir: como qualificar em 5 min numa conversa, red flags, green flags. | 3h ✅ 2026-04-12
 - [ ] **KBS-039 [P0]**: Client dashboard v1 (Notion) — página central por cliente com: (a) Visão geral das entidades extraídas (counts por tipo), (b) Relatório semanal de inteligência mais recente, (c) Saúde dos documentos (staleness, orphans, linting score), (d) Últimas queries feitas, (e) Link rápido para "/perguntar". Template duplicável em 10 min. | 6h
+
+#### P3 — KBS Dissemination para produtos EGOS (baixa prioridade, não bloqueia foco)
+
+> **Arquitetura:** `@egosbr/knowledge-mcp@1.1.0` já no npm. Multi-tenant Supabase com RLS por `tenant_id`. Disseminar = MCP no `.claude/settings.json` do repo + namespace + ingest de docs do domínio. Zero código novo. Cada produto ganha `/ask /ingest /lint` no próprio contexto.
+
+> **Ordem:** EGOS (feito) → 852 → Eagle Eye → Carteira Livre → DHPP → outros.
+
+- [ ] **KBS-DISS-001 [P3]**: Guia leaf repos — `docs/guides/KBS_LEAF_REPO_SETUP.md`: adicionar knowledge-mcp ao settings.json, definir tenant_id, ingerir docs, testar /ask. Replicável em <30min. | 2h
+- [ ] **KBS-DISS-002 [P3]**: **852** KB — chatbot público. Domínio: FAQs, docs públicas, knowledge de Enio. Tenant: `852`. 852 responde baseado em conteúdo real, sem alucinação. | 3h
+- [ ] **KBS-DISS-003 [P3]**: **Eagle Eye** KB — licitações OSINT. Domínio: normas PNCP, limites de dispensa, jurisprudência TCU/CGU. Tenant: `eagle-eye`. Agente cita norma ao responder dúvidas regulatórias. | 4h
+- [ ] **KBS-DISS-004 [P3]**: **Carteira Livre** KB — DeFi + tributação cripto. Domínio: regulações CVM/BACEN, limites IR cripto, protocolos DeFi. Tenant: `carteira-livre`. | 4h
+- [ ] **KBS-DISS-005 [P3]**: **FORJA** KB — promoção KBS-004 beta → produção. Tenant: `forja`. Namespace existe — validar + ingerir docs reais. | 2h
+- [ ] **KBS-DISS-006 [P3]**: **DHPP/Inteligência** KB — contexto profissional de Enio. Domínio: procedimentos (sem dados reais), normas perícia, jurisprudência penal. Tenant: `dhpp`. Portfolio item #1. | 6h
+- [ ] **KBS-DISS-007 [P3]**: Cron VPS — `/lint` semanal em todos tenants + relatório consolidado no HQ. | 3h
 
 ---
 
