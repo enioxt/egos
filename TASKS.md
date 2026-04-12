@@ -1046,6 +1046,11 @@
 - [ ] **KBS-036 [P1]**: Validação delegacia própria (DHPP/Inteligência) — usar template KBS-033 no contexto policial de Enio. Ingerir docs internos (sem dados reais de investigação). Validar ROI, gerar relatório. Portfolio item #1. | 8h
 - [ ] **KBS-037 [P1]**: Delivery checklist v2 — atualizar `docs/guides/KBS_DELIVERY_CHECKLIST.md` com fase de entity extraction + relationship mapping. Adicionar estimativas de tempo com layer de entidades. | 2h
 
+#### P0 — ICP + Client Dashboard (pré-requisito de vendas)
+
+- [ ] **KBS-038 [P0]**: ICP (Ideal Customer Profile) — documentar persona exata em `docs/strategy/KBS_ICP.md`. Critérios obrigatórios: (1) já usa IA ativamente, (2) já assina ou disposto a assinar Claude Pro $20/mês ou equivalente, (3) tem base de dados digital própria (documentos, clientes, casos, propriedades), (4) sente dor de "não acho o que preciso" ou "perco tempo buscando informação". Setor é secundário — comportamento é primário. Incluir: como qualificar em 5 min numa conversa, red flags, green flags. | 3h
+- [ ] **KBS-039 [P0]**: Client dashboard v1 (Notion) — página central por cliente com: (a) Visão geral das entidades extraídas (counts por tipo), (b) Relatório semanal de inteligência mais recente, (c) Saúde dos documentos (staleness, orphans, linting score), (d) Últimas queries feitas, (e) Link rápido para "/perguntar". Template duplicável em 10 min. | 6h
+
 ---
 
 ### API Monetization — x402 Marketplaces (carry-over 2026-04-07)
