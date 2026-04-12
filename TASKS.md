@@ -78,7 +78,7 @@
 - [ ] **ENC-L6-002 [P0]**: `scripts/status-snapshot.ts` — pull-based 5min snapshot com Guard Brasil audit antes de servir | 6h
 - [ ] **ENC-L6-003 [P0]**: 3 tiers (public/community/enio-only) com OTP gate para community via Evolution API WhatsApp | 6h
 - [ ] **ENC-L6-004 [P0]**: Caddyfile routing `status.egos.ia.br` + deploy container VPS | 2h
-- [ ] **ENC-L6-005 [P0]**: Botão "verify" em cada tile mostrando comando shell + timestamp + SHA-256 do snapshot | 4h
+- [x] **ENC-L6-005 [P0]**: Botão "verify" em cada tile mostrando comando shell + timestamp + SHA-256 do snapshot | 4h ✅ 2026-04-12
 - [ ] **ENC-L6-006 [P1]**: `docs/public/STATUS_PAGE.md` — explicando cada métrica para público externo | 2h
 
 #### CAMADA 7 — Artigo Âncora Showcase (semanas 10-12)
@@ -1026,6 +1026,25 @@
 - [ ] **KBS-024 [P2]**: Health dashboard por tenant — página Notion auto-atualizada com stats (total docs, staleness, queries/semana, linting score). | 4h
 - [ ] **KBS-025 [P2]**: Vídeos de caso de uso por setor — jurídico, metal, saúde, consultoria. 2–3 min cada, PT-BR. | 8h
 - [ ] **KBS-026 [P2]**: Certificação "EGOS Knowledge Implementer" — programa leve para parceiros que queiram revender serviço. | on-going
+
+#### P0 — Entity Graph Layer (KBS v2 — "EGOS como caso-demo") [2026-04-12]
+
+> **Visão:** KB-as-a-Service não é só RAG (chunk + busca). É extração de entidades + mapeamento de relacionamentos + relatórios de inteligência por setor. EGOS é o primeiro caso real — construir aqui = template replicável para qualquer cliente.
+
+- [ ] **KBS-027 [P0]**: Schema de entidades para EGOS demo — definir tipos: Agent, Task, Capability, Incident, Decision, Pattern, Integration. Criar `docs/strategy/KBS_ENTITY_SCHEMA_EGOS.md` com atributos, exemplos e relacionamentos para cada tipo. | 3h
+- [ ] **KBS-028 [P0]**: Migração Supabase — tabelas `egos_entities` (id, tenant_id, type, name, attributes jsonb) e `egos_relationships` (id, source_entity_id, target_entity_id, relation_type, context, doc_source). RLS por tenant. | 4h
+- [ ] **KBS-029 [P0]**: Agente entity-extractor — dado um wiki_page já ingerido, usar LLM para extrair entidades tipadas e inserir em `egos_entities`. Dry-run first. Agent: `agents/agents/kb-entity-extractor.ts`. | 6h
+- [ ] **KBS-030 [P0]**: Relationship mapper — após extração, cruzar entidades entre docs e criar `egos_relationships`. Algoritmo: mesmo nome + tipo → tentar linkar; LLM confirma. | 6h
+- [ ] **KBS-031 [P0]**: EGOS Intelligence Report — relatório semanal gerado do grafo de entidades: capabilities ativas, incidentes abertos, decisões recentes, agents por status. Output: Notion page + Markdown. | 6h
+- [ ] **KBS-032 [P0]**: EGOS como showcase completo — ingerir 100% dos docs SSOT (TASKS, HARVEST, CAPABILITY_REGISTRY, handoffs, agents.json, incidents), extrair entidades, gerar relatório, criar Notion dashboard. Este IS o portfólio. | 8h
+
+#### P1 — Sector Templates (replicar EGOS para clientes)
+
+- [ ] **KBS-033 [P1]**: Schema entidades — Delegacia (policial) — tipos: Pessoa, Veículo, Caso, Local, Evento, Organização, Arma. Relacionamentos: Pessoa→envolvida→Caso, Veículo→placa→Pessoa, Caso→ocorreu_em→Local. | 4h
+- [ ] **KBS-034 [P1]**: Schema entidades — Advocacia — tipos: Cliente, Processo, Audiência, Jurisprudência, Contrato, Prazo, Vara. Relacionamentos: Cliente→parte→Processo, Processo→cita→Jurisprudência. | 4h
+- [ ] **KBS-035 [P1]**: Schema entidades — Agronomia — tipos: Propriedade, Cultura, Análise, ART, Defensivo, Norma, Produtor. Relacionamentos: Análise→recomenda→Defensivo, ART→cobertura→Propriedade. | 3h
+- [ ] **KBS-036 [P1]**: Validação delegacia própria (DHPP/Inteligência) — usar template KBS-033 no contexto policial de Enio. Ingerir docs internos (sem dados reais de investigação). Validar ROI, gerar relatório. Portfolio item #1. | 8h
+- [ ] **KBS-037 [P1]**: Delivery checklist v2 — atualizar `docs/guides/KBS_DELIVERY_CHECKLIST.md` com fase de entity extraction + relationship mapping. Adicionar estimativas de tempo com layer de entidades. | 2h
 
 ---
 

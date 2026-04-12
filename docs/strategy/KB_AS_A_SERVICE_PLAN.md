@@ -226,4 +226,68 @@ Resumo:
 
 ---
 
+---
+
+## 11. Entity Graph Layer — KBS v2 (2026-04-12)
+
+> **Pivot de descoberta:** KB-as-a-Service v1 era RAG plano (chunk + busca). v2 é **extração de entidades + grafo de relacionamentos + relatórios de inteligência**. EGOS é o caso-demo zero.
+
+### 11.1 O que muda
+
+| v1 (atual) | v2 (novo) |
+|-----------|-----------|
+| Doc → chunks → Supabase wiki_pages | Doc → entidades tipadas → egos_entities |
+| Busca semântica por texto | Query por tipo de entidade + relacionamentos |
+| "Qual a norma NR-12?" | "Quais propriedades têm análises de solo pendentes?" |
+| Output: trecho de documento | Output: grafo + relatório gerado |
+
+### 11.2 Arquitetura v2
+
+```
+Documento bruto (PDF/Docx/MD)
+    ↓ kb-ingest (já existe)
+wiki_page no Supabase
+    ↓ kb-entity-extractor (KBS-029 — novo)
+egos_entities (id, tenant, type, name, attributes)
+    ↓ relationship-mapper (KBS-030 — novo)
+egos_relationships (source, target, relation_type, context)
+    ↓ report-generator (KBS-031 — novo)
+Intelligence Report (Notion page + Markdown)
+```
+
+### 11.3 EGOS como caso-demo zero (KBS-032)
+
+EGOS é a primeira implementação completa da v2. Por quê?
+- Enio conhece o domínio de dentro para fora (sem custo de discovery)
+- Todos os docs já existem (TASKS, HARVEST, agents.json, incidents, handoffs)
+- O relatório gerado é útil para Enio E serve como showcase para vendas
+- Custo: R$0 em infraestrutura (já temos Supabase + Notion)
+
+**Entidades do domínio EGOS:**
+| Tipo | Exemplos | Atributos chave |
+|------|----------|-----------------|
+| Agent | wiki-compiler, guard-brasil | status, entrypoint, capabilities[] |
+| Task | KBS-029, GUARD-003 | priority, status, owner, prefix |
+| Capability | PII detection, evidence chain | version, verified, docs[] |
+| Incident | INC-001, INC-004 | severity, status, resolution |
+| Decision | Single Pursuit Protocol | date, rationale, alternatives_rejected[] |
+| Pattern | Evidence-First, SSOT-First | origin, scope, enforcement |
+
+### 11.4 Sequência de validação em setores reais (portfolio)
+
+1. **EGOS** (demo interno) → KBS-032 → showcase de vendas
+2. **Delegacia/DHPP** (Enio usa no trabalho) → KBS-036 → portfolio item #1 (policial)
+3. **Advocacia** (primeiro cliente pago target) → KBS-034 → portfolio item #2
+4. **Agronomia Patos de Minas** → KBS-035 → portfolio item #3
+
+Cada implementação = 1 case documentado + template replicável → diminui fricção e custo das próximas.
+
+### 11.5 Por que isso importa para o pitch de vendas
+
+"Usamos o próprio sistema na nossa operação de inteligência policial. Cada documento que entra — relatório de vistoria, boletim de ocorrência, norma ABNT — vira entidade no grafo. Qualquer analista consegue perguntar em português: 'Quais casos têm suspeitos em comum com o caso X?' e receber a resposta em segundos, com citação da fonte e auditoria LGPD."
+
+Isso é imensamente mais vendável do que "é um chatbot com seus PDFs."
+
+---
+
 *Fim do plano. Manutenção: revisar a cada 2 semanas na primeira fase, a cada 4 semanas depois que 3+ clientes ativos.*
