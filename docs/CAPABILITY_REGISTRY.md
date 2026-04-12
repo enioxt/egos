@@ -11,10 +11,10 @@
   - `docs/SYSTEM_MAP.md` — architecture placement of capabilities
 <!-- llmrefs:end -->
 
-> **VERSION:** 1.9.0 | **UPDATED:** 2026-04-06
+> **VERSION:** 1.10.0 | **UPDATED:** 2026-04-12
 > **PURPOSE:** Master index of all capabilities across the EGOS ecosystem
 > **SSOT STATUS:** This file IS the canonical capability map
-> **LATEST:** Kernel governance sprint — Agent Claim Contract, MCP servers, Circuit Breaker, SSOT Visit Protocol v2
+> **LATEST:** Timeline Publishing Pipeline, Rich Article Rendering, AI Discovery Layer, Timeline KB Sync (§23)
 
 <!-- llmrefs:start -->
 
@@ -666,6 +666,23 @@ or HARVEST.md are missing, it skips silently. This prevents hook failures from b
 - egos.ia.br/timeline/:slug — article render + view tracking
 
 **Principles:** HITL (never blind publish), PII guard (Guard Brasil), zero auto-post to X.com.
+
+### Timeline Publishing Pipeline (2026-04-12) — LIVE/VERIFIED
+
+| Capability | SSOT | Quality | Adopted By | Tags |
+|-----------|------|---------|------------|------|
+| Timeline Cron Pipeline | `scripts/timeline-cron-daily.sh` + `agents/agents/article-writer.ts` | A | egos (LIVE) | `timeline`, `cron`, `publishing`, `guard-brasil` |
+| Rich Article Rendering | `apps/egos-site/src/server.ts` | A | egos (LIVE: egos.ia.br/timeline) | `timeline`, `json-ld`, `schema.org`, `ux` |
+| AI Discovery Layer | `apps/egos-site/src/server.ts` (GET /llms.txt, GET /robots.txt) | A | egos (LIVE: egos.ia.br) | `seo`, `ai-discovery`, `llms.txt`, `robots.txt` |
+| Timeline KB Sync | `agents/agents/article-writer.ts#publishDraft` | A | egos (LIVE) | `timeline`, `knowledge-base`, `wiki`, `sync` |
+
+**Timeline Publishing Pipeline:** `article-writer.ts` generates LLM drafts from commits, Guard Brasil PII check, `publish.sh --approve` moves draft → article + KB. Cron 03:00 UTC daily via `scripts/timeline-cron-daily.sh`.
+
+**Rich Article Rendering:** egos-site renders articles with JSON-LD `schema.org` metadata, TOC sidebar, heading anchors, code copy buttons, reading progress bar, related articles, FAQ accordion. Server: `apps/egos-site/src/server.ts`.
+
+**AI Discovery Layer:** `/llms.txt` serves dynamic article list from Supabase (spec: llmstxt.org). `/robots.txt` allows GPTBot, ClaudeBot, PerplexityBot. Live at egos.ia.br.
+
+**Timeline KB Sync:** `publishDraft()` auto-creates `egos_wiki_pages` entry (category=timeline, cross_refs, tenant-isolated). Bridges `timeline_articles` and knowledge base.
 
 ## §24 — X.com Post HITL Approval + LLM Learning (2026-04-08)
 

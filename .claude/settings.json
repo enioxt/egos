@@ -48,7 +48,10 @@
       "mcp__codebase-memory-mcp__get_code_snippet",
       "mcp__firecrawl__firecrawl_search",
       "mcp__claude_ai_Gmail__gmail_create_draft",
-      "mcp__claude_ai_Supabase__list_projects"
+      "mcp__claude_ai_Supabase__list_projects",
+      "mcp__claude_ai_Supabase__get_organization",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_snapshot"
     ],
     "deny": [
       "Bash(rm -rf /:*)",
