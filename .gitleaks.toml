@@ -65,4 +65,6 @@ paths = [
     '''frontend/src/lib/intelligence/evidence-validation''',
     '''frontend/src/lib/intelligence/system-prompt''',
     '''api/scripts/seed_synthetic_data\.py''',
+    '''packages/guard-brasil/src/guard\.test\.ts''',
+    '''packages/guard-brasil/src/.*\.test\.ts''',
 ]

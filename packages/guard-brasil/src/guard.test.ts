@@ -212,3 +212,166 @@ describe('GuardBrasil — combined scenario', () => {
     expect(result.lgpdDisclosure).toContain('LGPD');
   });
 });
+
+// ─── Missing PII patterns — full coverage ─────────────────────────────────────
+
+describe('GuardBrasil — CNPJ detection', () => {
+  it('detects and masks CNPJ formatted with dots and slash', () => {
+    const guard = makeGuard();
+    const result = guard.inspect('Empresa: 12.345.678/0001-90 solicitou acesso.');
+    expect(result.safe).toBe(false);
+    expect(result.output).not.toContain('12.345.678/0001-90');
+    expect(result.output).toContain('[CNPJ REMOVIDO]');
+  });
+
+  it('detects CNPJ without separators', () => {
+    const guard = makeGuard();
+    const result = guard.inspect('CNPJ 12345678000190 do fornecedor.');
+    expect(result.safe).toBe(false);
+    expect(result.output).not.toContain('12345678000190');
+  });
+});
+
+describe('GuardBrasil — CNH detection', () => {
+  it('detects CNH preceded by keyword', () => {
+    const guard = makeGuard();
+    const result = guard.inspect('Habilitação: 12345678901 — condutor aprovado.');
+    expect(result.safe).toBe(false);
+    expect(result.output).not.toContain('12345678901');
+    expect(result.output).toContain('[CNH REMOVIDO]');
+  });
+
+  it('detects CNH with keyword abbreviation', () => {
+    const guard = makeGuard();
+    const result = guard.inspect('CNH 98765432100 foi verificada.');
+    expect(result.safe).toBe(false);
+    expect(result.output).toContain('[CNH REMOVIDO]');
+  });
+});
+
+describe('GuardBrasil — Phone detection', () => {
+  it('detects mobile phone with DDD', () => {
+    const guard = makeGuard();
+    const result = guard.inspect('Contato: (31) 99999-8888 para mais informações.');
+    expect(result.safe).toBe(false);
+    expect(result.output).not.toContain('99999-8888');
+    expect(result.output).toContain('[TELEFONE REMOVIDO]');
+  });
+
+  it('detects landline phone with +55 prefix', () => {
+    const guard = makeGuard();
+    const result = guard.inspect('Fone: +55 11 3333-4444');
+    expect(result.safe).toBe(false);
+    expect(result.output).toContain('[TELEFONE REMOVIDO]');
+  });
+});
+
+describe('GuardBrasil — Email detection', () => {
+  it('detects and masks email addresses', () => {
+    const guard = makeGuard();
+    const result = guard.inspect('Enviar para joao.silva@empresa.com.br urgente.');
+    expect(result.safe).toBe(false);
+    expect(result.output).not.toContain('joao.silva@empresa.com.br');
+    expect(result.output).toContain('[EMAIL REMOVIDO]');
+  });
+
+  it('detects multiple emails in same text', () => {
+    const guard = makeGuard();
+    const result = guard.inspect('CC: a@b.com e c@d.org');
+    expect(result.safe).toBe(false);
+    const findings = result.output.match(/\[EMAIL REMOVIDO\]/g) ?? [];
+    expect(findings.length).toBeGreaterThanOrEqual(2);
+  });
+});
+
+describe('GuardBrasil — SUS detection', () => {
+  it('detects Cartão Nacional de Saúde (15 digits)', () => {
+    const guard = makeGuard();
+    const result = guard.inspect('Cartão SUS do paciente: 100 0000 0000 0001.');
+    expect(result.safe).toBe(false);
+    expect(result.output).not.toContain('100 0000 0000 0001');
+    expect(result.output).toContain('[SUS REMOVIDO]');
+  });
+});
+
+describe('GuardBrasil — NIS/PIS detection', () => {
+  it('detects NIS/PIS number', () => {
+    const guard = makeGuard();
+    const result = guard.inspect('NIS do beneficiário: 123.45678.90-1');
+    expect(result.safe).toBe(false);
+    expect(result.output).not.toContain('123.45678.90-1');
+    expect(result.output).toContain('[NIS REMOVIDO]');
+  });
+});
+
+describe('GuardBrasil — Processo Judicial detection', () => {
+  it('detects CNJ process number', () => {
+    const guard = makeGuard();
+    const result = guard.inspect('Processo 1234567-89.2024.8.13.0001 em tramitação.');
+    expect(result.safe).toBe(false);
+    expect(result.output).not.toContain('1234567-89.2024.8.13.0001');
+    expect(result.output).toContain('[PROCESSO REMOVIDO]');
+  });
+});
+
+describe('GuardBrasil — Vehicle plate detection', () => {
+  it('detects old Brazilian plate format (AAA-0000)', () => {
+    const guard = makeGuard();
+    const result = guard.inspect('Veículo placa ABC-1234 envolvido no incidente.');
+    expect(result.safe).toBe(false);
+    expect(result.output).not.toContain('ABC-1234');
+    expect(result.output).toContain('[PLACA REMOVIDA]');
+  });
+
+  it('detects Mercosul plate format (AAA0A00)', () => {
+    const guard = makeGuard();
+    const result = guard.inspect('Placa Mercosul: BCD1E23 do suspeito.');
+    expect(result.safe).toBe(false);
+    expect(result.output).not.toContain('BCD1E23');
+    expect(result.output).toContain('[PLACA REMOVIDA]');
+  });
+});
+
+// ─── Edge cases ───────────────────────────────────────────────────────────────
+
+describe('GuardBrasil — edge cases', () => {
+  it('handles empty string without throwing', () => {
+    const guard = makeGuard();
+    const result = guard.inspect('');
+    expect(result.safe).toBe(true);
+    expect(result.output).toBe('');
+    expect(result.masking.findings).toHaveLength(0);
+  });
+
+  it('handles very long input (10k chars) without performance failure', () => {
+    const guard = makeGuard();
+    const clean = 'Lorem ipsum dolor sit amet. '.repeat(357); // ~10k chars
+    const start = Date.now();
+    const result = guard.inspect(clean);
+    expect(Date.now() - start).toBeLessThan(500);
+    expect(result.safe).toBe(true);
+  });
+
+  it('handles PII embedded in large text', () => {
+    const guard = makeGuard();
+    const prefix = 'a'.repeat(5000);
+    const suffix = 'b'.repeat(5000);
+    const result = guard.inspect(`${prefix} CPF 123.456.789-09 ${suffix}`);
+    expect(result.safe).toBe(false);
+    expect(result.output).not.toContain('123.456.789-09');
+  });
+
+  it('handles Unicode and accented characters without false positives', () => {
+    const guard = makeGuard();
+    const result = guard.inspect('Ação judicial — réu: João Ângelo Ávila Ção. Artigo 5º.');
+    // This clean text with accents should not trigger PII
+    expect(result.masking.findings.filter(f => f.category === 'cpf').length).toBe(0);
+    expect(result.masking.findings.filter(f => f.category === 'cnpj').length).toBe(0);
+  });
+
+  it('does not mask numbers that are not PII (e.g. years, counts)', () => {
+    const guard = makeGuard();
+    const result = guard.inspect('Em 2024, foram registrados 1500 ocorrências no total.');
+    expect(result.safe).toBe(true);
+  });
+});
