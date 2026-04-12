@@ -284,8 +284,8 @@ app.get('/lab', (c) => {
 app.get('/showcase', (c) => {
   const body = `
     <div class="max-w-2xl">
-      <div class="inline-block px-3 py-1 bg-slate-800 rounded-full text-slate-400 text-xs font-medium mb-6">
-        Artigo em produção · Camadas 0-1 concluídas
+      <div class="inline-block px-3 py-1 bg-green-900/30 border border-green-800 rounded-full text-green-400 text-xs font-medium mb-6">
+        Primeiro artigo publicado · <a href="/timeline/altitude-errada" class="underline hover:text-green-300">ler agora →</a>
       </div>
       <h1 class="text-4xl font-bold text-slate-100 leading-tight">
         EGOS: plataforma multi-agente<br>brasileira, open-source
