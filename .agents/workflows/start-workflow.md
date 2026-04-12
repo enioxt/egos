@@ -10,11 +10,27 @@ Ativar o kernel EGOS com checagem de governança, carregar contexto SSOT e prepa
 ## Ordem obrigatória (7 fases)
 
 1. **INTAKE**
+   - **[VAULT]** Sincronizar vault: `cd ~/egos && bun obsidian:sync` (silencioso, 5s)
+   - **[VAULT]** Ler `~/Obsidian\ Vault/EGOS/MEMORY.md` — estado da última sessão, projetos ativos, decisions
    - Ler: `AGENTS.md`, `TASKS.md`, `.windsurfrules`, `docs/SYSTEM_MAP.md`.
    - **⚠️ OBRIGATÓRIO:** Ler `MANUAL_ACTIONS.md` e reportar ao usuário TODOS os itens 🔴 pendentes antes de qualquer outra coisa.
      - Se houver itens 🔴 URGENTE: exibir com destaque, tempo estimado e comando exato.
      - Regra: não iniciar planejamento técnico sem primeiro expor o estado de MANUAL_ACTIONS.md.
    - Confirmar data da sessão e registrar no resumo.
+   - **[VAULT]** Reportar: "Vault: última sessão [data], [N] projetos ativos"
+
+   **[FOCUS CHECK — SINGLE PURSUIT]** (antes de qualquer planejamento):
+   ```bash
+   echo "=== FOCUS CHECK ===" && \
+   GUARD_WEEK=$(git log --oneline --since="7 days ago" -- 'packages/guard-brasil/*' 'apps/api/*' 2>/dev/null | wc -l) && \
+   TOTAL_WEEK=$(git log --oneline --since="7 days ago" 2>/dev/null | wc -l) && \
+   echo "Guard Brasil commits (7d): $GUARD_WEEK / $TOTAL_WEEK total" && \
+   [ "$TOTAL_WEEK" -gt 0 ] && echo "Ratio: $((GUARD_WEEK * 100 / TOTAL_WEEK))%" || echo "Ratio: N/A"
+   ```
+   - Perguntar ao usuário: **"O que voce vai fazer HOJE que avanca Guard Brasil?"**
+   - Se a resposta nao envolve Guard Brasil: alertar sobre dispersao
+   - Se ratio < 60%: reportar "ALERTA: voce esta dispersando. Volte pro Guard Brasil."
+   - Meta corrente: 1 cliente pagante em 30 dias, 5 em 90 dias
 
 2. **CHALLENGE**
    - Verificar contradições entre pedido e frozen zones.

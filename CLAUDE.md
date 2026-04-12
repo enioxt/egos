@@ -93,20 +93,31 @@ bun agent:run context_tracker --dry  # CTX score
 
 ---
 
-## 90-Day Focus (April 3 - June 30, 2026)
+## SINGLE PURSUIT (2026-04-11 → 2026-07-11)
 
-**ALLOWED:** Guard Brasil API/Web/Infra + Gem Hunter (algorithm, dashboard, API)
-**GOAL:** R$ 30k+ MRR
-**ENFORCEMENT:** Pre-commit hook blocks commits outside focus scope
+**UNICA PERSEGUICAO:** Guard Brasil Hybrid (consultoria LGPD/IA + produto API)
+**META:** 1 cliente pagante em 30 dias. 5 clientes em 90 dias.
+**MODELO:** Consultoria (R$ 30-80k/projeto) + API recorrente (R$ 50-2000/mes)
+**PRINCIPIO:** "Foco compoem. Dispersao dissipa." (Rian Doris protocol)
 
-## GTM-First Rule (2026-04-06)
+REGRAS:
+1. 80% do tempo = Guard Brasil (produto + outreach + demos + conteudo)
+2. 20% = manutencao infra + Gem Hunter (MAX 2h/semana, sexta-feira)
+3. ZERO features novas em: 852, forja, egos-inteligencia, arch, egos-lab
+4. ZERO novos MCPs, skills, hooks, triggers (governance freeze)
+5. Gem Hunter = hobby de dopamina, NAO projeto. Como jiu-jitsu.
+6. Cada sessao COMECA com: "O que avanca Guard Brasil hoje?"
+7. Cada sessao TERMINA com: "Quantos % foram Guard Brasil?"
+8. ENFORCEMENT: Pre-commit hook BLOCKS commits outside Guard Brasil scope
+
+## GTM-First Rule (2026-04-11, updated)
 
 Every feature must answer: **"Who uses this? How do they find it?"**
-- Revenue: R$0 MRR (as of 2026-04-06) — #1 priority to change
-- Customers: 0 paying — M-007 outreach emails are the critical blocker
-- X.com: Be the bridge — post demos, respond to LGPD conversations, attract partners
-- /end must ask: "Did you advance GTM today? (post, conversation, outreach, demo)"
-- Dashboard (hq.egos.ia.br): Must show GTM metrics alongside technical health
+- Revenue: R$0 (as of 2026-04-11) — #1 priority is FIRST PAYING CUSTOMER
+- Customers: 0 paying — outreach + demos are the critical path
+- X.com: Post demos, respond to LGPD conversations, showcase Guard Brasil
+- /end must ask: "Did you advance Guard Brasil GTM today?"
+- Dispersal check: "What % of this session was Guard Brasil?"
 
 ## Git Push Protocol (INC-001 — 2026-04-06)
 
