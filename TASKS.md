@@ -1164,6 +1164,40 @@
 
 ---
 
+### Sprint de Validação — Delegacia + Lídia (VAL-*) (2026-04-12)
+
+**Contexto:** Policia repo (`/home/enio/policia`) já tem pipeline funcional: Groq transcrição → sinopse OVM → CS markdown → DOCX oficial. 2 casos reais processados. 15 testes. Lídia (policial civil, parceira) vai validar o sistema e ajudar a identificar o que falta.
+
+**Meta 30 dias:** Lídia entende 80% do sistema. 1 processo real melhorado com IA.
+
+**Princípio (ChatGPT/Karpathy):** Complexidade construída / complexidade encontrada deve tender a 1:1. Entregar no nível que o campo exige, não no nível que a plataforma permite. Abstração só depois da terceira repetição.
+
+**Dados reais disponíveis:**
+- `policia/casos/caso elcio/` — OVMs transcritas, sinopses, REDS PDF
+- `policia/casos/dp_18526073_homicidio/` — Homicídio, câmeras, 7+ testemunhas, oitivas sigilosas
+- `policia/comunicacoes_servico/` — CS reais
+- `policia/reds/` — REDS PDF
+- `policia/templates/` — Templates oficiais (CS, OS, REDS resumo)
+- `policia/ordens_servico/` — Ordens de serviço (imagens WhatsApp)
+
+#### Semana 1-2: Discovery com Lídia (validação de campo)
+
+- [ ] **VAL-001 [P0]**: Sessão com Lídia — demo do que já funciona: `make transcribe` (áudio→texto), `make cs` (markdown→DOCX oficial). Gravar feedback dela em `policia/docs/DISCOVERY_LIDIA.md`. | 2h
+- [ ] **VAL-002 [P0]**: Mapeamento de 1 processo real que DÓI — qual atividade consome mais tempo dela? Triagem? Busca de informação? Formatação? Cruzamento de dados? Anotar em `policia/docs/DISCOVERY_LIDIA.md`. | 2h
+- [ ] **VAL-003 [P0]**: Inventário de dados reais da delegacia — quais formatos? (PDF BO, áudio WhatsApp, Excel, sistema REDS, sistema PCnet?). Qual volume? (quantos BOs/mês, quantas oitivas/mês). Quantas pessoas usariam? | 1h
+- [ ] **VAL-004 [P0]**: Medir gap de complexidade — comparar o schema delegacia que criamos (8 tipos, entity graph) vs o que a Lídia realmente precisa. Anotar: o que acertamos, o que inventamos, o que faltou. | 1h
+- [ ] **VAL-005 [P0]**: Teste de busca simples — dar para Lídia uma pergunta real ("quais testemunhas mencionaram veículo prata no caso X?") e medir: quanto tempo ela leva com o método atual? É possível responder com os dados que temos? | 1h
+
+#### Semana 3-4: Primeira entrega mínima
+
+- [ ] **VAL-006 [P0]**: Baseado no VAL-001..005, definir a entrega mais simples que resolve a dor principal. NÃO decidir antes de validar. Pode ser: (a) KB search nas transcrições existentes, (b) ingestor de BOs PDF + busca, (c) prompt estruturado com contexto do caso, (d) algo que nem imaginamos ainda. | 1h
+- [ ] **VAL-007 [P0]**: Implementar a entrega mínima definida no VAL-006. Máximo 1 semana de desenvolvimento. Se passar disso, está complexo demais — simplificar. | 20h
+- [ ] **VAL-008 [P0]**: Lídia usa no dia-a-dia por 1 semana. Registrar: o que funcionou, o que não funcionou, o que ela pediu que não tem. Anotar em `policia/docs/FEEDBACK_SEMANA1.md`. | ongoing
+- [ ] **VAL-009 [P1]**: Apresentar para Lídia o conceito completo: KB setorial + entity graph + relatório de inteligência. Pergunta: "isso faz sentido para vocês? Quanto pagariam? Quem mais usaria?" | 1h
+- [ ] **VAL-010 [P1]**: Documentar aprendizados do sprint em `docs/knowledge/HARVEST.md`: o que a complexidade real ensinou vs o que imaginávamos. | 1h
+
+---
+
 ### Gem Hunter — Feedback Loop v8 (2026-04-08)
 <!-- 7 task(s) archived 2026-04-08 — see TASKS_ARCHIVE_2026.md -->
 **Status 2026-04-09:** GH-090 ✅ scoring-v1.md | GH-091 ✅ low-visibility gem +25 | GH-092 ✅ gem_feedback table | GH-093 ✅ inline keyboard | GH-094 ✅ feedback-reader.ts | GH-095 ✅ repetition detector (gem_seen_cache + -30 penalty). P2 remaining: GH-096/097.
