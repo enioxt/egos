@@ -156,7 +156,7 @@ describe('GuardBrasil — evidence chain', () => {
     });
     expect(result.evidenceChain).toBeDefined();
     expect(result.evidenceChain?.claims).toHaveLength(1);
-    expect(result.evidenceChain?.auditHash).toMatch(/^ev-[0-9a-f]{8}$/);
+    expect(result.evidenceChain?.auditHash).toMatch(/^ev-[0-9a-f]{64}$/);
     expect(result.evidenceBlock).toContain('[Evidências');
   });
 

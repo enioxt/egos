@@ -6,6 +6,8 @@
  * or human-verified fact. Core component of EGOS Guard Brasil.
  */
 
+import { sha256Text } from './provenance.js';
+
 export type EvidenceType = 'tool_call' | 'document' | 'calculation' | 'human_verified' | 'inference' | 'external_api';
 export type ConfidenceLevel = 'certain' | 'high' | 'medium' | 'low' | 'speculative';
 
@@ -62,13 +64,7 @@ function computeAuditHash(chain: Omit<EvidenceChain, 'auditHash'>): string {
     createdAt: chain.createdAt,
     claims: chain.claims.map(c => ({ claim: c.claim, confidence: c.confidence })),
   });
-  // Deterministic simple hash (not cryptographic — for audit trail only)
-  let hash = 0;
-  for (let i = 0; i < payload.length; i++) {
-    hash = (hash << 5) - hash + payload.charCodeAt(i);
-    hash |= 0;
-  }
-  return `ev-${Math.abs(hash).toString(16).padStart(8, '0')}`;
+  return `ev-${sha256Text(payload)}`;
 }
 
 let _responseCounter = 0;
