@@ -1,5 +1,5 @@
 # EGOS — State of the Ecosystem
-# SSOT: Diagnóstico completo, atualizado em 2026-04-12
+# SSOT: Diagnóstico completo, atualizado em 2026-04-13
 # Versão: 1.0.0 | Criado na sessão Opus plan + Sonnet execution
 
 > Este documento é o SSOT vivo do ecossistema EGOS. Atualizar a cada sessão /end ou quando houver mudança estrutural.
@@ -20,7 +20,7 @@ EGOS = Compliance Layer  (Guard Brasil — LGPD/PII, 4ms, 16 padrões)
      + Governance Layer   (.guarani/ + 26 SSOT domains + pre-commit gates)
 ```
 
-**Score de saúde:** 8.5/10 | **Commits 30 dias:** 1196+ | **Repositórios ativos:** 6
+**Score de saúde:** 8.5/10 | **Commits 30 dias:** 687+ | **Repositórios ativos:** 1
 
 ---
 
@@ -457,4 +457,4 @@ grep "EGOS_STATE_OF_THE_ECOSYSTEM" docs/MASTER_INDEX.md  # deve existir
 
 ---
 
-*Versão: 1.1.49 | Criado: 2026-04-08 | Atualizado: 2026-04-12**************************************************
+*Versão: 1.1.50 | Criado: 2026-04-08 | Atualizado: 2026-04-13***************************************************

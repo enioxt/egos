@@ -3,6 +3,56 @@
   "signals": [
     {
       "type": "gem_discovery",
+      "name": "softprops/action-gh-release",
+      "url": "https://github.com/softprops/action-gh-release",
+      "score": 102,
+      "category": "early-warning",
+      "date": "2026-04-13T07:29:35.212Z",
+      "ts": "2026-04-13T07:29:35.212Z",
+      "headline": "softprops/action-gh-release — 📦 :octocat: GitHub Action for creating GitHub Releases"
+    },
+    {
+      "type": "gem_discovery",
+      "name": "semantic-release/semantic-release",
+      "url": "https://github.com/semantic-release/semantic-release",
+      "score": 107,
+      "category": "early-warning",
+      "date": "2026-04-13T07:29:35.212Z",
+      "ts": "2026-04-13T07:29:35.212Z",
+      "headline": "semantic-release/semantic-release — :package::rocket: Fully automated version management and package publishing"
+    },
+    {
+      "type": "gem_discovery",
+      "name": "release-it/release-it",
+      "url": "https://github.com/release-it/release-it",
+      "score": 107,
+      "category": "early-warning",
+      "date": "2026-04-13T07:29:35.212Z",
+      "ts": "2026-04-13T07:29:35.212Z",
+      "headline": "release-it/release-it — 🚀 Automate versioning and package publishing"
+    },
+    {
+      "type": "gem_discovery",
+      "name": "json-c/json-c",
+      "url": "https://github.com/json-c/json-c",
+      "score": 108,
+      "category": "early-warning",
+      "date": "2026-04-13T07:29:35.211Z",
+      "ts": "2026-04-13T07:29:35.211Z",
+      "headline": "json-c/json-c — https://github.com/json-c/json-c is the official code repository for json-c.  See the wiki for relea"
+    },
+    {
+      "type": "gem_discovery",
+      "name": "garrytan/gstack",
+      "url": "https://github.com/garrytan/gstack",
+      "score": 116,
+      "category": "early-warning",
+      "date": "2026-04-13T07:29:35.211Z",
+      "ts": "2026-04-13T07:29:35.211Z",
+      "headline": "garrytan/gstack — Use Garry Tan's exact Claude Code setup: 23 opinionated tools that serve as CEO, Designer, Eng Manag"
+    },
+    {
+      "type": "gem_discovery",
       "name": "semantic-release/semantic-release",
       "url": "https://github.com/semantic-release/semantic-release",
       "score": 107,

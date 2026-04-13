@@ -2,6 +2,16 @@
   "version": "1.0.0",
   "queue": [
     {
+      "name": "softprops/action-gh-release",
+      "url": "https://github.com/softprops/action-gh-release",
+      "score": 102,
+      "category": "early-warning",
+      "structureBonus": 13,
+      "discoveredAt": "2026-04-13T07:29:35.213Z",
+      "status": "queued",
+      "branchSuggestion": "gem/adopt-softprops-action-gh-release-2026-04-13"
+    },
+    {
       "name": "semantic-release/semantic-release",
       "url": "https://github.com/semantic-release/semantic-release",
       "score": 107,
